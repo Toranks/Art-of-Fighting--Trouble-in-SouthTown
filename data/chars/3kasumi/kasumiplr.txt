@@ -22,7 +22,7 @@ holdblock 	1
 dust            dust
 candamage	enemy obstacle
 projectilehit 	player npc enemy
-weapons		pltank kingpl syuribike2 yurifall syurwtr syurivent mapcurs mrzero
+weapons		pltank maiplr syuribike2 yurifall syurwtr syurivent mapcurs mrzero kingpl
 atchain         1 2 3 0 4 5
 combostyle      1
 icon		data/chars/3kasumi/iconpl.gif
@@ -38,13 +38,15 @@ ondrawscript 		data/scripts/water_puddle_script.c
 script			data/scripts/player_script.c
 
 com	a3		freespecial29
-com	d f a		freespecial1
+com	d f s		freespecial1
 com	d f d f a	freespecial2
 com	f d f a		freespecial4
 com	d f d a		freespecial6
 com	f d s		freespecial5
 com	d f d f s	freespecial27
 com	a2		freespecial15
+com	d u d u s	freespecial30
+com	u d u d s	freespecial31
 
 
 alternatepal	data/chars/3kasumi/map1.gif
@@ -83,6 +85,79 @@ if (anim == openborconstant("ANI_IDLE"))
 
 #------//--H-play--//---------------
 
+anim	freespecial30
+	energycost 55
+	mponly	1
+	weaponframe 14 2
+	loop	0
+	delay	10
+	offset	110 195
+	bbox	0 0 0 0
+	frame	data/chars/3kasumi/spawn05.gif
+	frame	data/chars/3kasumi/spawn04.gif
+	frame	data/chars/3kasumi/spawn03.gif
+	frame	data/chars/3kasumi/spawn02.gif
+	frame	data/chars/3kasumi/spawn01.gif
+	delay	5
+	frame	data/chars/3kasumi/empty.gif
+	frame	data/chars/3kasumi/spawn01.gif
+	frame	data/chars/3kasumi/empty.gif
+	frame	data/chars/3kasumi/spawn01.gif
+	frame	data/chars/3kasumi/empty.gif
+	frame	data/chars/3kasumi/spawn01.gif
+	frame	data/chars/3kasumi/empty.gif
+	frame	data/chars/3kasumi/spawn01.gif
+	frame	data/chars/3kasumi/empty.gif
+	frame	data/chars/3kasumi/spawn01.gif #14
+	frame	data/chars/3kasumi/empty.gif
+
+
+
+anim	freespecial31
+	energycost 55
+	mponly	1
+	weaponframe 14 9
+	loop	0
+	delay	10
+	offset	110 195
+	bbox	0 0 0 0
+	frame	data/chars/3kasumi/spawn05.gif
+	frame	data/chars/3kasumi/spawn04.gif
+	frame	data/chars/3kasumi/spawn03.gif
+	frame	data/chars/3kasumi/spawn02.gif
+	frame	data/chars/3kasumi/spawn01.gif
+	delay	5
+	frame	data/chars/3kasumi/empty.gif
+	frame	data/chars/3kasumi/spawn01.gif
+	frame	data/chars/3kasumi/empty.gif
+	frame	data/chars/3kasumi/spawn01.gif
+	frame	data/chars/3kasumi/empty.gif
+	frame	data/chars/3kasumi/spawn01.gif
+	frame	data/chars/3kasumi/empty.gif
+	frame	data/chars/3kasumi/spawn01.gif
+	frame	data/chars/3kasumi/empty.gif
+	frame	data/chars/3kasumi/spawn01.gif #14
+	frame	data/chars/3kasumi/empty.gif
+
+
+
+
+anim	respawn
+	loop	0
+	delay	60
+	offset	110 195
+	bbox	0 0 0 0
+	frame	data/chars/3kasumi/spawn01.gif
+	delay	10
+	frame	data/chars/3kasumi/spawn02.gif
+	frame	data/chars/3kasumi/spawn03.gif
+	frame	data/chars/3kasumi/spawn04.gif
+	frame	data/chars/3kasumi/spawn05.gif
+
+
+
+
+
 anim	freespecial15
 	loop	0
 	delay	10
@@ -94,7 +169,7 @@ anim	freespecial15
 	frame	data/chars/3kasumi/spawn02.gif
 	delay	70
 	frame	data/chars/3kasumi/spawn01.gif
-	@cmd	spawnAni3 "movelist" 240 300 440 "ANI_FOLLOW16"
+	@cmd	spawnAni3 "movelist" 1 1 1 "ANI_FOLLOW10"
 	frame	data/chars/3kasumi/spawn01.gif
 	delay	10
 	frame	data/chars/3kasumi/spawn01.gif
@@ -989,7 +1064,7 @@ anim	attack3
 	hitfx	data/sounds/beat5.wav
 	frame	data/chars/3kasumi/a113.gif
 	frame	data/chars/3kasumi/a115.gif
-	attack	90 100 100 45 25 1 0 0 25 0
+	attack	90 100 100 45 25 1 0 0 25 15
 	frame	data/chars/3kasumi/a114.gif
 	delay	9
 	frame	data/chars/3kasumi/a116.gif
@@ -1037,7 +1112,7 @@ anim	attack5
 	frame	data/chars/3kasumi/a07.gif
 	frame	data/chars/3kasumi/a08.gif
 	@cmd	dasher 2 0 0
-	attack	105 110 100 40 60 1 1 0 20 0
+	attack	105 110 100 40 60 1 1 0 20 15
 	frame	data/chars/3kasumi/a09.gif
 	frame	data/chars/3kasumi/a10.gif
 	attack	0 0 0 0
@@ -1401,6 +1476,22 @@ anim	spawn
 	frame	data/chars/3kasumi/spawn03.gif
 	frame	data/chars/3kasumi/spawn04.gif
 	frame	data/chars/3kasumi/spawn05.gif
+
+
+anim	respawn
+	loop	0
+	delay	60
+	offset	110 195
+	bbox	0 0 0 0
+	frame	data/chars/3kasumi/spawn01.gif
+	delay	10
+	frame	data/chars/3kasumi/spawn02.gif
+	frame	data/chars/3kasumi/spawn03.gif
+	frame	data/chars/3kasumi/spawn04.gif
+	frame	data/chars/3kasumi/spawn05.gif
+
+
+
 
 anim	idle
 	loop	1
@@ -2230,4 +2321,18 @@ anim	waiting
 	frame	data/chars/3kasumi/wait1.gif
 	delay	120
 	frame	data/chars/3kasumi/wait4.gif
+
+anim	select
+	loop	0
+	delay	5
+	offset	0 0
+	sound	data/sounds/blink.wav
+	frame	data/chars/3kasumi/wait8.gif
+	frame	data/chars/3kasumi/wait9.gif
+	frame	data/chars/3kasumi/wait8.gif #2
+	frame	data/chars/3kasumi/wait9.gif
+	@cmd	looper 2 6
+	frame	data/chars/3kasumi/wait8.gif
+	delay	150
+	frame	data/chars/3kasumi/wait8.gif
 

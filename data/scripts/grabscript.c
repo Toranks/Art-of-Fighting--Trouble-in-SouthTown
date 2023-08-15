@@ -23,7 +23,7 @@ void attackgrd(int RxMin, int RxMax, int RaMin, int RaMax, int Rz, void Ani)
         Disz = -Disz;
 	}
 
-      if( anim2 == openborconstant("ANI_FALL") || anim2 == openborconstant("ANI_FALL2") || anim2 == openborconstant("ANI_FALL9") || anim2 == openborconstant("ANI_FALL10") || anim2 == openborconstant("ANI_FALL4"))
+      if( anim2 == openborconstant("ANI_FALL") || anim2 == openborconstant("ANI_FALL2") || anim2 == openborconstant("ANI_FALL9") || anim2 == openborconstant("ANI_FALL10") || anim2 == openborconstant("ANI_FALL4")|| anim2 == openborconstant("ANI_BURN"))
       {
       if(Disx >= RxMin && Disx <= RxMax && Disa >= RaMin && Disa <= RaMax && Disz <= Rz) // right
       	{
@@ -206,6 +206,17 @@ void grabcheck()
    if(target==NULL())
    {
      setidle(self); //Don't perform the slam.
+   }
+}
+
+void grabcheck2()
+{// Prevents enemy from performing the slam if he/she doesn't have any target
+   void self = getlocalvar("self");
+   void target = getlocalvar("Target" + self);
+
+   if(target==NULL())
+   {
+     performattack(self, openborconstant("ANI_IDLE")); //Don't perform the slam.
    }
 }
 
@@ -485,9 +496,11 @@ void finish(int Damage, int Type, int x, int y, int z, int Face)
      {
        damageentity(target, self, Damage, 1, openborconstant("ATK_NORMAL9")); // 2nd Finisher
      }
-
-     tossentity(target, y, x, z); // Toss opponent ;)
+     changeentityproperty(target, "attacking", 1);
+     changeentityproperty(target, "projectile", 1);
      changeentityproperty(target, "direction", MDir);
+     tossentity(target, y, x, z); // Toss opponent ;)
+
 
      setlocalvar("Target"+self, NULL()); //Clears variable
    }
@@ -591,6 +604,8 @@ void throw(int Damage, int Type, int x, int y, int z, int Face)
      tossentity(target, y, x, z); // Toss opponent ;)
    }
 }
+
+
 
 void degravity(int Ratio)
 {// Changes antigravity effect

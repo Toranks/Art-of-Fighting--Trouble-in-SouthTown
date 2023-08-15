@@ -1,6 +1,6 @@
 name          nosedgrey
 type          enemy
-health        280
+health        250
 mp		3000
 speed         8
 jumpheight    5
@@ -11,7 +11,7 @@ shadow        0
 noquake       1
 falldie	      2
 nodieblink    1
-escapehits    3
+escapehits    4
 blockodds     1
 gfxshadow     1
 candamage     player npc
@@ -150,6 +150,7 @@ anim	attack4
 	bbox	0 0 0 0
 	hitfx	data/sounds/beat2.wav
 	frame	data/chars/beyond/1alien3/tel01.gif
+	frame	data/chars/beyond/1alien3/tel01.gif
 	frame	data/chars/beyond/1alien3/tel02.gif
 	frame	data/chars/beyond/1alien3/tel03.gif
 	frame	data/chars/beyond/1alien3/tel04.gif
@@ -166,13 +167,16 @@ anim	attack4
 	sound	data/sounds/alien15.wav
 	@cmd	target 1 1 1 1 0
 	@cmd	spawnAni "pw16" -10 1 1 "ANI_FOLLOW2"
+	frame	data/chars/beyond/1alien3/blk03.gif
+	frame	data/chars/beyond/1alien3/blk02.gif
+	bbox	79 97 50 91
+	frame	data/chars/beyond/1alien3/blk01.gif
 	frame	data/chars/beyond/1alien3/d01.gif
 	frame	data/chars/beyond/1alien3/d02.gif
 	burn	95 135 135 60 9 1 0 0 35 20
 	dropv	1.5 6
 	frame	data/chars/beyond/1alien3/d03.gif
 	frame	data/chars/beyond/1alien3/d04.gif
-	bbox	79 97 50 91
 	frame	data/chars/beyond/1alien3/d05.gif
 	frame	data/chars/beyond/1alien3/d06.gif
 	frame	data/chars/beyond/1alien3/d07.gif
@@ -189,6 +193,8 @@ anim	attack5
 	delay	7
 	offset	100 189
 	bbox	79 97 50 91
+	frame	data/chars/beyond/1alien3/blk02.gif
+	frame	data/chars/beyond/1alien3/blk01.gif
 	frame	data/chars/beyond/1alien3/c12.gif
 	frame	data/chars/beyond/1alien3/c11.gif
 	frame	data/chars/beyond/1alien3/c10.gif
@@ -216,6 +222,8 @@ anim	attack6
 	offset	100 189
 	bbox	79 97 50 91
 	bbox	79 97 50 91
+	frame	data/chars/beyond/1alien3/blk02.gif
+	frame	data/chars/beyond/1alien3/blk01.gif
 	frame	data/chars/beyond/1alien3/c12.gif
 	frame	data/chars/beyond/1alien3/c11.gif
 	frame	data/chars/beyond/1alien3/c10.gif
@@ -347,23 +355,7 @@ anim	burn
 	frame	data/chars/beyond/1alien3/fall3.gif
 	frame	data/chars/beyond/1alien3/fall4.gif
 		
-anim	fall
-	loop	0
-	delay	30
-	offset	100 189
-	bbox	0 0 0 0
-	landframe 3
-	attack	75 103 29 43 5 1 0 0 13 40
-	frame	data/chars/beyond/1alien3/fall1.gif
-	attack	64 134 40 22 5 1 0 0 13 40
-	frame	data/chars/beyond/1alien3/fall2.gif
-	attack	0 0 0 0
-	delay	200
-	frame	data/chars/beyond/1alien3/fall3.gif
-	delay	12
-	frame	data/chars/beyond/1alien3/fall4.gif
-	bbox	60 170 103 22
-	frame	data/chars/beyond/1alien3/fall4.gif
+
 
 
 
@@ -390,26 +382,89 @@ anim	death
 	frame	data/chars/beyond/1alien3/empty.gif
 
 
+anim	fall
+	loop	0
+	delay	30
+	offset	100 189
+	bbox	78 85 50 68
+	landframe 3
+	attack	81 83 40 70 5 1 0 0 13 30
+	frame	data/chars/beyond/1alien3/fall1.gif
+	bbox	65 114 86 50
+	attack	62 118 91 45 5 1 0 0 13 30
+	frame	data/chars/beyond/1alien3/fall2.gif
+	delay	200
+	bbox	70 141 85 40
+	attack	65 138 91 45 5 1 0 0 13 30
+	frame	data/chars/beyond/1alien3/fall3.gif
+	delay	5
+	attack	0 0 0 0
+	bbox	60 177 85 15
+	frame	data/chars/beyond/1alien3/fall4.gif
+
+
+
+anim	fall9
+	loop	0
+	delay	10
+	offset	100 189
+	bbox	78 85 50 68
+	quakeframe	2 5 5
+	landframe	2 dust
+	attack	81 83 40 70 5 1 0 0 13 30
+	frame	data/chars/beyond/1alien3/fall1.gif
+	delay	350
+	bbox	65 114 86 50
+	attack	62 118 91 45 5 1 0 0 13 30
+	frame	data/chars/beyond/1alien3/fall2.gif
+	delay	2
+	offset	100 175
+	move	-4
+	bbox	70 141 85 40
+	attack	65 138 91 45 5 1 0 0 13 30
+	frame	data/chars/beyond/1alien3/fall3.gif
+	frame	data/chars/beyond/1alien3/fall3.gif
+	@cmd	looper 3 5
+	frame	data/chars/beyond/1alien3/fall3.gif
+	offset	100 189
+	move	-3
+	attack	0 0 0 0
+	bbox	0 0 0 0
+	frame	data/chars/beyond/1alien3/fall4.gif
+	frame	data/chars/beyond/1alien3/fall4.gif
+	frame	data/chars/beyond/1alien3/fall4.gif
+	@cmd	looper 6 4
+	frame	data/chars/beyond/1alien3/fall4.gif
+	frame	data/chars/beyond/1alien3/fall4.gif
+	frame	data/chars/beyond/1alien3/fall4.gif
+	delay	5
+	move	0
+	bbox	60 177 85 15
+	frame	data/chars/beyond/1alien3/fall4.gif
+
+
 		
 anim	fall10
 	loop	0
 	delay	10
 	offset	100 189
-	bbox	79 97 50 91
+	bbox	77 83 55 91
 	landframe	4
-	attack	78 104 28 44 5 1 0 0 13 40
+	attack	88 98 40 60 5 1 0 0 13 30
 	frame	data/chars/beyond/1alien3/pain6.gif
 	delay	40
 	frame	data/chars/beyond/1alien3/pain7.gif
 	delay	30
-	bbox	71 132 63 30
-	attack	64 134 40 22 5 1 0 0 13 40
+	bbox	65 114 86 50
+	attack	62 118 91 45 5 1 0 0 13 30
 	frame	data/chars/beyond/1alien3/fall2.gif
 	delay	1000
-	bbox	77 154 67 31
-	attack	0 0 0 0
+	bbox	70 141 85 40
+	attack	65 138 91 45 5 1 0 0 13 30
 	frame	data/chars/beyond/1alien3/fall3.gif
-	bbox	60 170 103 22
+	delay	5
+	attack	0 0 0 0
+	bbox	60 177 85 15
 	frame	data/chars/beyond/1alien3/fall4.gif
 
 anim	fall11
@@ -438,21 +493,6 @@ anim	fall4
 	frame	data/chars/beyond/1alien3/fall4.gif
 
 
-		
-anim	fall2
-	loop	0
-	delay	30
-	offset	102 189
-	bbox	0 0 0 0
-	attack	78 104 28 44 5 1 0 0 13 40
-	frame	data/chars/beyond/1alien3/pain6.gif
-	delay	10
-	attack	64 134 40 22 5 1 0 0 13 40
-	frame	data/chars/beyond/1alien3/fall2.gif
-	attack	0 0 0 0
-	frame	data/chars/beyond/1alien3/fall3.gif
-	bbox	60 170 103 22
-	frame	data/chars/beyond/1alien3/fall4.gif
 		
 anim	fall7
 	delay	1000
@@ -489,40 +529,7 @@ anim	fall7
 	offset	115 125
 	frame	data/chars/beyond/1alien3/slamck15.gif
 		
-anim	fall9
-	loop	0
-	delay	10
-	offset	100 189
-	bbox	0 0 0 0
-	quakeframe	2 5 5
-	landframe	2 dust
-	attack	75 103 29 43 5 1 0 0 13 40
-	frame	data/chars/beyond/1alien3/fall1.gif
-	delay	350
-	offset	100 180
-	attack	75 159 42 31 5 1 0 0 13 40
-	frame	data/chars/beyond/1alien3/fall2.gif
-	attack	0 0 0 0
-	delay	2
-	offset	100 175
-	move	-4
-	frame	data/chars/beyond/1alien3/fall3.gif
-	frame	data/chars/beyond/1alien3/fall3.gif
-	@cmd	looper 3 5
-	frame	data/chars/beyond/1alien3/fall3.gif
-	offset	100 189
-	move	-3
-	frame	data/chars/beyond/1alien3/fall4.gif
-	frame	data/chars/beyond/1alien3/fall4.gif
-	frame	data/chars/beyond/1alien3/fall4.gif
-	@cmd	looper 6 4
-	frame	data/chars/beyond/1alien3/fall4.gif
-	frame	data/chars/beyond/1alien3/fall4.gif
-	frame	data/chars/beyond/1alien3/fall4.gif
-	delay	15
-	move	0
-	bbox	60 170 103 22
-	frame	data/chars/beyond/1alien3/fall4.gif
+
 
 
 
@@ -947,6 +954,7 @@ anim	special2
 	hitfx	data/sounds/exel.wav
 	sound	data/sounds/laser.wav
 	frame	data/chars/beyond/1alien3/blk01.gif
+	@cmd	blinking 1
 	frame	data/chars/beyond/1alien3/blk01.gif
 	frame	data/chars/beyond/1alien3/blk01.gif
 	frame	data/chars/beyond/1alien3/blk02.gif
@@ -957,6 +965,7 @@ anim	special2
 	frame	data/chars/beyond/1alien3/blk03.gif
 	frame	data/chars/beyond/1alien3/blk03.gif
 	frame	data/chars/beyond/1alien3/blk03.gif
+	delay	30
 	frame	data/chars/beyond/1alien3/blk03.gif
 	move	0
 	delay	10
@@ -971,6 +980,7 @@ anim	special2
 	@cmd	spawnGun5 "pw16" 25 1 8 2 "ANI_FOLLOW5"
 	frame	data/chars/beyond/1alien3/blk03.gif
 	attack	0 0 0 0
+	@cmd	blinking 0
 	delay	14
 	frame	data/chars/beyond/1alien3/blk03.gif
 	bbox	85 96 39 91

@@ -361,6 +361,7 @@ anim	fall
 	@cmd	dethrown
 	landframe	4
 	attack	77 101 35 54 5 1 0 0 13 40
+	@cmd	blinking 1
 	frame	data/chars/beyond/1alien2/fall0.gif
 	frame	data/chars/beyond/1alien2/fall1.gif
 	attack	61 124 61 26 5 1 0 0 13 40
@@ -369,6 +370,7 @@ anim	fall
 	delay	400
 	frame	data/chars/beyond/1alien2/fall3.gif
 	delay	14
+	@cmd	blinking 0
 	frame	data/chars/beyond/1alien2/fall4.gif
 		
 anim	fall10
@@ -405,25 +407,7 @@ anim	fall11
 	delay	35
 	frame	data/chars/beyond/1alien2/pain12a.gif
 		
-anim	fall2
-	loop	0
-	delay	20
-	offset	101 190
-	bbox	0 0 0 0
-	bouncefactor	0
-	@cmd	dethrown
-	landframe	4
-	attack	87 110 25 61 5 1 0 0 13 40
-	frame	data/chars/beyond/1alien2/pain6.gif
-	delay	10
-	attack	61 124 61 26 5 1 0 0 13 40
-	frame	data/chars/beyond/1alien2/fall1.gif
-	frame	data/chars/beyond/1alien2/fall2.gif
-	attack	0 0 0 0
-	delay	400
-	frame	data/chars/beyond/1alien2/fall3.gif
-	delay	10
-	frame	data/chars/beyond/1alien2/fall4.gif
+
 
 anim	fall4
 	loop	0
@@ -478,25 +462,7 @@ anim	fall7
 	offset	115 125
 	frame	data/chars/beyond/1alien2/slamck15.gif
 		
-anim	fall9
-	loop	0
-	delay	10
-	offset	101 190
-	bbox	0 0 0 0
-	bouncefactor	0
-	@cmd	dethrown
-	landframe	4
-	attack	77 101 35 54 5 1 0 0 13 40
-	frame	data/chars/beyond/1alien2/fall0.gif
-	frame	data/chars/beyond/1alien2/fall1.gif
-	delay	37
-	attack	69 159 52 30 5 1 0 0 13 40
-	frame	data/chars/beyond/1alien2/fall2.gif
-	delay	400
-	attack	0 0 0 0
-	frame	data/chars/beyond/1alien2/fall3.gif
-	delay	10
-	frame	data/chars/beyond/1alien2/fall4.gif
+
 		
 anim	follow1
 	loop	0
@@ -541,20 +507,11 @@ anim	follow1
 	frame	data/chars/beyond/1alien2/a21.gif
 		
 anim	follow2
-@script
-	void self = getlocalvar("self");
-	int eTime = openborvariant("elapsed_time");
-	if (frame == 0)
-	{
-	changeentityproperty(self, "invincible", 1);
-	changeentityproperty(self, "invinctime", eTime + 150);
-	changeentityproperty(self, "blink", 1);
-	}
-@end_script
 	loop	0
 	delay	12
 	offset	101 190
 	bbox	0 0 0 0
+	@cmd	blinking 1
 	frame	data/chars/beyond/1alien2/d01.gif
 	@cmd	target 2 2 1 1 0
 	@cmd	dash
@@ -572,6 +529,7 @@ anim	follow2
 	frame	data/chars/beyond/1alien2/d07.gif
 	frame	data/chars/beyond/1alien2/d08.gif
 	frame	data/chars/beyond/1alien2/d09.gif
+	@cmd	blinking 0
 	frame	data/chars/beyond/1alien2/d10.gif
 
 
@@ -773,6 +731,7 @@ anim	rise
 	@cmd	target 3 1.5 0 0 0
 	move	-4
 	frame	data/chars/beyond/1alien2/fall4.gif
+	@cmd	blinking 1
 	frame	data/chars/beyond/1alien2/fall4.gif
 	frame	data/chars/beyond/1alien2/rise1.gif
 	frame	data/chars/beyond/1alien2/rise1.gif
@@ -790,6 +749,7 @@ anim	rise
 	@cmd	attack1 -190 190 30 "ANI_FOLLOW2"
 	frame	data/chars/beyond/1alien2/rise5.gif
 	@cmd	attack1 -190 190 30 "ANI_FOLLOW2"
+	@cmd	blinking 0
 	frame	data/chars/beyond/1alien2/rise7.gif
 		
 anim	spawn
@@ -819,7 +779,7 @@ anim	special
 	@cmd	position 0 30 10 -1 -1
 	frame	data/chars/beyond/1alien2/grab01.gif
 	delay	12
-	@cmd	spawngrab "grab1" 200 200 450 95 1 8
+	@cmd	spawngrab "grab1" 200 200 450 70 1 8
 	@cmd	position 24 40 25 -1 -1
 	frame	data/chars/beyond/1alien2/grab02.gif
 	@cmd	position 23 30 55 -1 -1

@@ -9,6 +9,7 @@ running		33 3 2.5 1 0
 jumpheight	4.3
 jumpspeed	20
 nodieblink	2
+secret		1 1
 weaploss	3
 modelflag	1
 noquake         0
@@ -23,7 +24,7 @@ risetime        1250 1250
 dust            dust
 candamage	enemy obstacle
 projectilehit 	player npc enemy
-weapons		remcar remplr Robcar2 robfall Robwtr Robvent mapcurs mrzero
+weapons		remcar mrk syuribike2 yurifall syurwtr syurivent mapcurs mrzero pipasplr
 atchain         1 1 2 3 4 0 5 6 7 0 8 1
 combostyle      1
 icon		data/chars/3remuinho/iconpl.gif
@@ -52,13 +53,27 @@ load	exel
 
 com     f d f a		freespecial1
 com     d f s		freespecial2
-com     d u d u s	freespecial4
 com	f b b a		freespecial7
 com	f d s		freespecial8
 com	d f j		freespecial9
+
 com	d f d f a	freespecial12
+com     d f d f s	freespecial4
+
 com	a2		freespecial15
 com	a3		freespecial29
+
+com	d u d u s	freespecial30
+com	u d u d s	freespecial31
+
+
+
+
+
+
+
+
+
 
 
 script	@script
@@ -76,6 +91,60 @@ void main()
 	}
 }
 @end_script
+
+
+
+
+anim	freespecial30
+	energycost 55
+	mponly	1
+	weaponframe 10 2
+	loop	0
+	delay	12
+	offset	100 193
+	bbox	0 0 0 0
+	frame	data/chars/3remuinho/idle01.gif
+	frame	data/chars/3remuinho/idle02.gif
+	frame	data/chars/3remuinho/idle04.gif
+	delay	5
+	frame	data/chars/3remuinho/idle04.gif
+	frame	data/chars/3remuinho/empty.gif
+	frame	data/chars/3remuinho/idle04.gif
+	frame	data/chars/3remuinho/empty.gif
+	frame	data/chars/3remuinho/idle04.gif
+	frame	data/chars/3remuinho/empty.gif
+	frame	data/chars/3remuinho/idle04.gif
+	frame	data/chars/3remuinho/empty.gif	#10
+	frame	data/chars/3remuinho/idle04.gif
+
+
+anim	freespecial31
+	energycost 55
+	mponly	1
+	weaponframe 10 9
+	loop	0
+	delay	12
+	offset	100 193
+	bbox	0 0 0 0
+	frame	data/chars/3remuinho/idle01.gif
+	frame	data/chars/3remuinho/idle02.gif
+	frame	data/chars/3remuinho/idle04.gif
+	delay	5
+	frame	data/chars/3remuinho/idle04.gif
+	frame	data/chars/3remuinho/empty.gif
+	frame	data/chars/3remuinho/idle04.gif
+	frame	data/chars/3remuinho/empty.gif
+	frame	data/chars/3remuinho/idle04.gif
+	frame	data/chars/3remuinho/empty.gif
+	frame	data/chars/3remuinho/idle04.gif
+	frame	data/chars/3remuinho/empty.gif	#10
+	frame	data/chars/3remuinho/idle04.gif
+
+
+
+
+
+
 
 
 anim	freespecial29
@@ -124,10 +193,10 @@ anim	freespecial15
 	offset	100 193
 	bbox	0 0 0 0
 	frame	data/chars/3remuinho/idle01.gif
+	@cmd	clearL
 	frame	data/chars/3remuinho/idle02.gif
 	frame	data/chars/3remuinho/idle04.gif
-	@cmd	spawnAni2 "movelist" 240 300 440 "ANI_FOLLOW12"
-	frame	data/chars/3remuinho/idle04.gif
+	@cmd	spawnAni2 "toturi3" 1 1 1 "ANI_FOLLOW14"
 	frame	data/chars/3remuinho/idle04.gif
 	frame	data/chars/3remuinho/idle02.gif
 	frame	data/chars/3remuinho/idle01.gif
@@ -178,22 +247,28 @@ anim	follow6
 	  {
 	  changeentityproperty(self, "velocity", Vx, -0.5);
 	  }
-	  if( playerkeys(plyr, 0, "movedown"))
+	  else if( playerkeys(plyr, 0, "movedown"))
 	  {
 	  changeentityproperty(self, "velocity", Vx, 0.5);
 	  }
-	  if( playerkeys(plyr, 0, "moveleft"))
+	  else if( playerkeys(plyr, 0, "moveleft"))
 	  {
 	  changeentityproperty(self, "velocity", -1, Vz);
 	  }
-	  if( playerkeys(plyr, 0, "moveright"))
+	  else if( playerkeys(plyr, 0, "moveright"))
 	  {
 	  changeentityproperty(self, "velocity", 1, Vz);
 	  }
+	  else
+	  {
+	  changeentityproperty(self, "velocity", 0, 0);
+	  }
+
 	  if( playerkeys(plyr, 0, "attack"))
 	  {
 	  updateframe(self, 12);
 	  }
+
 	}
 @end_script
 	loop	0
@@ -234,6 +309,7 @@ anim	follow6
 	frame	data/chars/3remuinho/sp17.gif
 	attack	0 0 0 0
 	frame	data/chars/3remuinho/z03.gif #18
+	@cmd	clearL
 	frame	data/chars/3remuinho/z04.gif
 
 
@@ -894,7 +970,7 @@ anim	follow16
 
 anim	attack1
 	range	0 135
-	rangez	-40 40
+	rangez	-15 15
 	loop	0
 	delay	4
 	offset	90 193
@@ -939,7 +1015,7 @@ anim	follow10
 
 anim	attack2
 	range	0 65
-	rangez	-40 40
+	rangez	-15 15
 	loop	0
 	delay	5
 	offset	90 193
@@ -957,7 +1033,7 @@ anim	attack2
 
 anim	attack3
 	range	0 65
-	rangez	-40 40
+	rangez	-15 15
 	loop	0
 	delay	6
 	offset	90 193
@@ -975,7 +1051,7 @@ anim	attack3
 
 anim	attack4
 	range	0 65
-	rangez	-40 40
+	rangez	-15 15
 	loop	0
 	delay	6
 	offset	90 193
@@ -987,7 +1063,7 @@ anim	attack4
 	frame	data/chars/3remuinho/a107.gif
 	frame	data/chars/3remuinho/a108.gif
 	delay	8
-	attack	100 106 80 40 65 1 0 0 14 0
+	attack	100 106 80 40 65 1 0 0 14 15
 	dropv	2 4 0
 	frame	data/chars/3remuinho/a109.gif
 	frame	data/chars/3remuinho/a110.gif
@@ -1001,7 +1077,7 @@ anim	attack4
 
 anim	attack5
 	range	65 90
-	rangez	-40 40
+	rangez	-15 15
 	loop	0
 	delay	5
 	offset	90 193
@@ -1020,7 +1096,7 @@ anim	attack5
 
 anim	attack6
 	range	65 90
-	rangez	-40 40
+	rangez	-15 15
 	loop	0
 	delay	5
 	offset	90 193
@@ -1041,7 +1117,7 @@ anim	attack6
 
 anim	attack7
 	range	65 90
-	rangez	-40 40
+	rangez	-15 15
 	loop	0
 	delay	2
 	offset	90 193
@@ -1061,7 +1137,7 @@ anim	attack7
 	move	0
 	frame	data/chars/3remuinho/b109.gif
 	delay	7
-	attack10 100 80 70 70 45 1 0 0 20 0
+	attack10 100 80 70 70 45 1 0 0 20 15
 	dropv	5.5 1 0
 	frame	data/chars/3remuinho/b110.gif
 	frame	data/chars/3remuinho/b111.gif
@@ -1076,7 +1152,7 @@ anim	attack7
 
 anim	attack8
 	range	90 125
-	rangez	-40 40
+	rangez	-15 15
 	loop	0
 	delay	2
 	offset	90 193
@@ -1348,7 +1424,7 @@ anim	follow1
 	frame	data/chars/3remuinho/0grab00.gif
 	frame	data/chars/3remuinho/0grab01.gif
 	delay	25
-	attack	85 70 55 60 0 0 1 1 0 20
+	attack	83 79 55 60 0 0 1 1 0 20
 	frame	data/chars/3remuinho/1grab01.gif
 	attack	0 0 0 0
 	delay	7
@@ -1367,12 +1443,12 @@ anim	follow2
 	offset	100 193
 	bbox	0 0 0 0
 	quakeframe	6 5 5
-	jumpframe	0 2.6 2
+	jumpframe	0 2 2
 	landframe	6
 	@cmd	slamstart3
 	@cmd	position 10 15 40 -1 1
 	frame	data/chars/3remuinho/1grab01.gif
-	delay	12
+	delay	8
 	@cmd	position 0 -10 55 -1 1
 	frame	data/chars/3remuinho/1grab02.gif
 	@cmd	position 13 -40 70 -1 -1
@@ -1390,11 +1466,11 @@ anim	follow2
 	frame	data/chars/3remuinho/1grab08.gif
 	@cmd	antiwall 40 -5 0
 	@cmd	position 14 35 50 -1 -1
-	frame	data/chars/3remuinho/1grab08.gif
+	frame	data/chars/3remuinho/1grab08.gif #6
 	@cmd	antiwall 40 -5 0
 	@cmd	position 14 35 50 -1 -1
 	frame	data/chars/3remuinho/1grab08.gif
-	@cmd	spawn01 "dust" 35 1 1
+	@cmd	spawn01 "qfx" 35 1 1
 	sound	data/sounds/fall.wav
 	@cmd	antiwall 40 -5 0
 	@cmd	position 14 35 50 -1 -1
@@ -1428,7 +1504,7 @@ anim	follow2
 	frame	data/chars/3remuinho/1grab09.gif
 	attack	0 0 0 0
 	@cmd	depost 0
-	@cmd	finish 45 1 -1.5 4 0 -1
+	@cmd	finish 45 1 -1.5 3 0 -1
 	delay	5
 	frame	data/chars/3remuinho/1grab10.gif
 	frame	data/chars/3remuinho/1grab10.gif
@@ -1457,6 +1533,18 @@ anim	walkoff
 
 
 anim	runjump
+@script
+	void self = getlocalvar("self");
+	void plyr = getentityproperty(self, "playerindex");
+
+	if(frame >= 1 && frame <= 6 )
+	{
+	  if( playerkeys(plyr, 0, "special"))
+	  {
+	  performattack(self, openborconstant("ANI_FOLLOW1"));
+	  }
+	}
+@end_script
 	loop	0
 	delay	14
 	offset	115 193
@@ -1516,7 +1604,7 @@ anim	block
 	frame	data/chars/3remuinho/blk16.gif
 
 anim	blockpain
-	cancel	5 14 0 s freespecial11
+	cancel	2 14 0 s freespecial11
 	loop	0
 	delay	2
 	offset	100 193
@@ -1592,7 +1680,6 @@ anim	death
 	frame	data/chars/3remuinho/fall4.gif
 		
 
-		
 anim	grab
 	cancel	0 5 0 j freespecial5
 	cancel	0 5 0 s freespecial6
@@ -2178,6 +2265,7 @@ anim	pain
 	delay	8
 	offset	103 189
 	bbox	79 97 50 91
+	@cmd	clearL
 	frame	data/chars/3remuinho/pain0.gif
 	frame	data/chars/3remuinho/pain1.gif
 
@@ -2186,6 +2274,7 @@ anim	pain2
 	delay	8
 	offset	103 189
 	bbox	79 97 50 91
+	@cmd	clearL
 	frame	data/chars/3remuinho/pain0.gif
 	frame	data/chars/3remuinho/pain2.gif
 

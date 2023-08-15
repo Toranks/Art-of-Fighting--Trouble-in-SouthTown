@@ -8,6 +8,7 @@ fglayer		data/bgs/beyond/lvl10/light2.gif 1000 0 0 90 -10 0 0 1 1 1 1 1 2 15 1
 fglayer		data/bgs/beyond/lvl10/front.gif 1200 0 0 0 -5 0 0 1 1 1 0 0 0 0 0
 fglayer		data/bgs/beyond/lvl10/light.gif 2000 0 0 880 400 0 0 1 1 1 1 1 2 15 1
 fglayer		data/bgs/beyond/lvl10/light3.gif 2000 0 0 4190 440 0 0 1 1 1 1 1 2 15 1
+fglayer		data/bgs/beyond/lvl10/light4.gif 1000 0 0 300 -95 0 0 1 1 1 1 0 0 0 1
 fglayer	        data/bgs/beyond/lvl10/dark.gif 8000 1 1 -5 -5 0 0 1 1 1 2 0 0 0 0 0
 
 direction       both
@@ -217,14 +218,14 @@ spawn   morph
 spawnscript data/scripts/noscpos7.c
 flip    1
 map     2
-health  350
+health  150
 coords  480 860 520
 at      345
 
 spawn   morph
 spawnscript data/scripts/noscpos7.c
 map     3
-health  300
+health  180
 coords  640 860 520
 at      345
 
@@ -239,7 +240,7 @@ at      345
 spawn   morph
 spawnscript data/scripts/noscpos7.c
 map     5
-health  300
+health  200
 coords  685 950 520
 at      345
 
@@ -309,6 +310,12 @@ coords 	550 875
 at      1300
 
 spawn   sentry2
+@script void main()
+{
+	void self = getlocalvar("self");
+	changeentityproperty(self, "speed", 1.5);
+}
+@end_script
 health  450
 coords 	750 920
 at      1300
@@ -487,6 +494,12 @@ coords 	400 910
 at      1700
 
 spawn   smrb1
+@script void main()
+{
+	void self = getlocalvar("self");
+	changeentityproperty(self, "speed", 1.5);
+}
+@end_script
 item	fluid
 coords 	-350 910
 at      1700
@@ -496,6 +509,12 @@ coords 	400 910
 at      1700
 
 spawn   smrb2
+@script void main()
+{
+	void self = getlocalvar("self");
+	changeentityproperty(self, "speed", 1.5);
+}
+@end_script
 coords 	600 910
 at      1700
 
@@ -527,6 +546,12 @@ coords 	650 860
 at      1900
 
 spawn   sentry2
+@script void main()
+{
+	void self = getlocalvar("self");
+	changeentityproperty(self, "speed", 1.4);
+}
+@end_script
 map	2
 item	charge
 coords 	-400 860
@@ -567,6 +592,12 @@ coords 	400 910
 at      1900
 
 spawn   smrb2
+@script void main()
+{
+	void self = getlocalvar("self");
+	changeentityproperty(self, "speed", 1.5);
+}
+@end_script
 coords 	600 880
 at      1900
 
@@ -630,6 +661,12 @@ coords 	340 880
 at      2200
 
 spawn   graynosed
+@script void main()
+{
+	void self = getlocalvar("self");
+	changeentityproperty(self, "speed", 1.4);
+}
+@end_script
 map     2
 flip	1
 health  220
@@ -705,11 +742,6 @@ at   2500
 wait
 at    2500
 
-spawn   omega
-health  290
-map     4
-coords 	330 880
-at      2500
 
 spawn   graynosed
 map     3
@@ -760,7 +792,7 @@ spawn   morph
    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW10"));
 } @end_script
 map     5
-health  200
+health  100
 coords 	100 840 700
 at      2500
 
@@ -769,7 +801,7 @@ spawn   morph
    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW10"));
 } @end_script
 map     2
-health  200
+health  100
 coords 	250 910 700
 at      2500
 

@@ -1,6 +1,6 @@
 name		sYuri
 type		player
-health		800
+health		300
 mp		200
 mprate          2
 chargerate      5
@@ -12,13 +12,13 @@ noquake		1
 nodieblink	2
 secret		1 1
 makeinv		3
-riseinv		1
+riseinv		2
 gfxshadow	1
 holdblock 	1
 modelflag	1
 weaploss	3
 dust            dust
-weapons		syuribike sYuri syuribike2 yurifall syurwtr syurivent mapcurs mrzero
+weapons		syuribike eveplr syuribike2 yurifall syurwtr syurivent mapcurs mrzero
 candamage	enemy obstacle
 diesound        data/sounds/yurde.wav
 atchain         1 1 2 3 4 0 5 6 7 8 1
@@ -42,17 +42,67 @@ alternatepal    data/chars/0yuri/syuri/map3.gif
 alternatepal    data/chars/0yuri/syuri/map4.gif
 
 
-
+com	a2	  freespecial15
 com     a3	  freespecial29
-com     d f d f a freespecial26
-com	d f d f s freespecial27
-com	d f d f j freespecial16
+
+#com	d f d f j freespecial16
 com	d f j     freespecial2
 com	d f a     freespecial3
 com	f d f a   freespecial4
 com	d f s     freespecial5
 com	f d s  	  freespecial6
-com	a2	  freespecial15
+com     d f d f a freespecial26
+com	d f d f s freespecial27
+
+com	d u d u s freespecial30
+
+
+
+
+
+anim	freespecial30
+	energycost	55
+	mponly	1
+	weaponframe	22 2
+	loop	0
+	delay	7
+	offset	145 205
+	bbox	0 0 0 0
+	frame	data/chars/0yuri/syuri/b15.gif
+	frame	data/chars/0yuri/syuri/b16.gif
+	frame	data/chars/0yuri/syuri/upper06.gif
+	frame	data/chars/0yuri/syuri/upper07.gif
+	frame	data/chars/0yuri/syuri/upper08.gif
+	frame	data/chars/0yuri/syuri/upper09.gif
+	frame	data/chars/0yuri/syuri/upper11.gif
+	frame	data/chars/0yuri/syuri/taunt05.gif
+	frame	data/chars/0yuri/syuri/taunt06.gif
+	frame	data/chars/0yuri/syuri/taunt07.gif
+	frame	data/chars/0yuri/syuri/taunt08.gif
+	frame	data/chars/0yuri/syuri/taunt09.gif
+	frame	data/chars/0yuri/syuri/taunt10.gif
+	frame	data/chars/0yuri/syuri/taunt11.gif
+	delay	5
+	frame	data/chars/0yuri/syuri/empty.gif
+	frame	data/chars/0yuri/syuri/taunt11.gif
+	frame	data/chars/0yuri/syuri/empty.gif
+	frame	data/chars/0yuri/syuri/taunt11.gif
+	frame	data/chars/0yuri/syuri/empty.gif
+	frame	data/chars/0yuri/syuri/taunt11.gif
+	frame	data/chars/0yuri/syuri/empty.gif
+	frame	data/chars/0yuri/syuri/taunt11.gif
+	frame	data/chars/0yuri/syuri/empty.gif #22
+	frame	data/chars/0yuri/syuri/taunt11.gif
+	frame	data/chars/0yuri/syuri/empty.gif
+	frame	data/chars/0yuri/syuri/taunt11.gif
+	frame	data/chars/0yuri/syuri/empty.gif
+	frame	data/chars/0yuri/syuri/taunt11.gif
+
+
+
+
+
+
 
 
 
@@ -78,22 +128,22 @@ anim	freespecial29
 	frame	data/chars/0yuri/syuri/chg03.gif
 	delay	3
 	frame	data/chars/0yuri/syuri/chg15.gif	#3
-	@cmd	mpgain 2
+	@cmd	mpgain 4
 	frame	data/chars/0yuri/syuri/chg15.gif
 	frame	data/chars/0yuri/syuri/chg14.gif
-	@cmd	mpgain 2
+	@cmd	mpgain 4
 	frame	data/chars/0yuri/syuri/chg14.gif
 	frame	data/chars/0yuri/syuri/chg13.gif
-	@cmd	mpgain 2
+	@cmd	mpgain 4
 	frame	data/chars/0yuri/syuri/chg13.gif
 	frame	data/chars/0yuri/syuri/chg12.gif
 	@cmd	mpgain 3
 	frame	data/chars/0yuri/syuri/chg12.gif
 	frame	data/chars/0yuri/syuri/chg11.gif
-	@cmd	mpgain 2
+	@cmd	mpgain 4
 	frame	data/chars/0yuri/syuri/chg11.gif
 	frame	data/chars/0yuri/syuri/chg10.gif
-	@cmd	mpgain 2
+	@cmd	mpgain 4
 	frame	data/chars/0yuri/syuri/chg10.gif	#14
 	frame	data/chars/0yuri/syuri/chg03.gif
 	frame	data/chars/0yuri/syuri/chg03.gif
@@ -136,7 +186,7 @@ anim	freespecial15
 	frame	data/chars/0yuri/syuri/taunt11.gif
 	delay	15
 	frame	data/chars/0yuri/syuri/taunt09.gif
-	@cmd	spawnAni3 "movelist" 240 300 440 "ANI_FOLLOW13"
+	@cmd	spawnAni3 "movelist" 1 1 1 "ANI_FOLLOW6"
 	frame	data/chars/0yuri/syuri/taunt09.gif
 	delay	9
 	frame	data/chars/0yuri/syuri/taunt12.gif
@@ -320,7 +370,7 @@ anim	follow9
 
 anim	attack1
 	range	0 135
-	rangez	-40 40
+	rangez	-15 15
 	loop	0
 	delay	3
 	offset	145 205
@@ -337,7 +387,7 @@ anim	attack1
 		
 anim	attack2
 	range	0 61
-	rangez	-40 40
+	rangez	-15 15
 	loop	0
 	delay	5
 	offset	145 207
@@ -357,7 +407,7 @@ anim	attack2
 		
 anim	attack3
 	range	0 61
-	rangez	-40 40
+	rangez	-15 15
 	loop	0
 	delay	5
 	offset	145 205
@@ -375,7 +425,7 @@ anim	attack3
 		
 anim	attack4
 	range	0 61
-	rangez	-40 40
+	rangez	-15 15
 	loop	0
 	delay	6
 	offset	135 206
@@ -386,7 +436,7 @@ anim	attack4
 	frame	data/chars/0yuri/syuri/a15.gif
 	frame	data/chars/0yuri/syuri/a16.gif
 	delay	6
-	attack10 120 65 60 80 90 1 0 0 14 0
+	attack10 120 65 60 80 90 1 0 0 14 15
 	dropv	5 0.5
 	frame	data/chars/0yuri/syuri/a17.gif
 	frame	data/chars/0yuri/syuri/a18.gif
@@ -404,7 +454,7 @@ anim	attack4
 		
 anim	attack5
 	range	0 80
-	rangez	-40 40
+	rangez	-15 15
 	loop	0
 	delay	5
 	offset	145 205
@@ -422,7 +472,7 @@ anim	attack5
 		
 anim	attack6
 	range	0 80
-	rangez	-40 40
+	rangez	-15 15
 	loop	0
 	delay	5
 	offset	145 205
@@ -441,7 +491,7 @@ anim	attack6
 		
 anim	attack7
 	range	0 80
-	rangez	-40 40
+	rangez	-15 15
 	loop	0
 	delay	5
 	offset	145 205
@@ -452,7 +502,7 @@ anim	attack7
 	frame	data/chars/0yuri/syuri/b16.gif
 	frame	data/chars/0yuri/syuri/b17.gif
 	delay	7
-	attack	145 126 79 28 90 1 0 0 15 0
+	attack	145 126 79 28 90 1 0 0 15 15
 	dropv	2 3
 	frame	data/chars/0yuri/syuri/b18.gif
 	delay	5
@@ -470,7 +520,7 @@ anim	attack7
 		
 anim	attack8
 	range	0 125
-	rangez	-40 40
+	rangez	-15 15
 	loop	0
 	delay	6
 	offset	145 205
@@ -1695,6 +1745,7 @@ anim	get
 anim	grab
 	cancel	0 5 0 J freespecial10
 	cancel	0 5 0 d f d f J freespecial16
+	cancel	0 5 0 d f d f A freespecial16
 	loop	1
 	delay	5
 	offset	145 205
@@ -1898,6 +1949,7 @@ anim	freespecial16
 	delay	20
 	offset	145 205
 	cancel	24 33 0 J freespecial17
+	cancel	24 33 0 A freespecial17
 	jumpframe	2 7
 	landframe	21 qfx
 	quakeframe	21 1 7
@@ -2040,6 +2092,7 @@ anim	freespecial17
 	delay	20
 	offset	145 205
 	cancel	24 33 0 J freespecial18
+	cancel	24 33 0 A freespecial18
 	jumpframe	2 6
 	landframe	21 qfx
 	quakeframe	21 1 7

@@ -17,7 +17,7 @@ nolife        1
 falldie	      2
 nodieblink    3
 gfxshadow     1
-escapehits    2
+escapehits    3
 risetime        1250 1250
 dust            dust
 subject_to_screen 1
@@ -371,11 +371,34 @@ anim	fall
 	bouncefactor	0
 	@cmd	dethrown
 	landframe	3
+	@cmd	blinking 1
 	frame	data/chars/3remuinho/fall1.gif
 	delay	12
 	frame	data/chars/3remuinho/fall2.gif
 	delay	1000
 	frame	data/chars/3remuinho/fall3.gif
+	@cmd	blinking 0
+	delay	2
+	frame	data/chars/3remuinho/fall6.gif
+
+anim	fall9
+	loop	0
+	delay	10
+	offset	100 189
+	bbox	0 0 0 0
+	bouncefactor	0
+	@cmd	dethrown
+	landframe	3
+	@cmd	blinking 1
+	attack	75 103 29 43 5 1 0 0 13
+	frame	data/chars/3remuinho/fall1.gif
+	delay	37
+	attack	75 159 42 31 5 1 0 0 13
+	frame	data/chars/3remuinho/fall3.gif
+	attack	0 0 0 0
+	delay	1000
+	frame	data/chars/3remuinho/fall3.gif
+	@cmd	blinking 0
 	delay	2
 	frame	data/chars/3remuinho/fall6.gif
 
@@ -412,24 +435,7 @@ anim	fall11
 	delay	35
 	frame	data/chars/3remuinho/fall4.gif
 
-anim	fall2
-	loop	0
-	delay	30
-	offset	102 189
-	bbox	0 0 0 0
-	bouncefactor	0
-	@cmd	dethrown
-	landframe	3
-	attack	78 104 28 44 5 1 0 0 13
-	frame	data/chars/3remuinho/pain6.gif
-	delay	10
-	attack	64 134 40 22 5 1 0 0 13
-	frame	data/chars/3remuinho/fall2.gif
-	attack	0 0 0 0
-	delay	1000
-	frame	data/chars/3remuinho/fall3.gif
-	delay	2
-	frame	data/chars/3remuinho/fall6.gif
+
 
 anim	fall4
 	loop	0
@@ -482,30 +488,13 @@ anim	fall7
 	offset	115 125
 	frame	data/chars/3remuinho/slamck15.gif
 		
-anim	fall9
-	loop	0
-	delay	10
-	offset	100 189
-	bbox	0 0 0 0
-	bouncefactor	0
-	@cmd	dethrown
-	landframe	3
-	attack	75 103 29 43 5 1 0 0 13
-	frame	data/chars/3remuinho/fall1.gif
-	delay	37
-	attack	75 159 42 31 5 1 0 0 13
-	frame	data/chars/3remuinho/fall3.gif
-	attack	0 0 0 0
-	delay	1000
-	frame	data/chars/3remuinho/fall3.gif
-	delay	2
-	frame	data/chars/3remuinho/fall6.gif
+
 		
 anim	follow1
 	loop	0
 	delay	7
 	offset	100 189
-	bbox	0 0 0 0
+	bbox	79 97 50 91
 	fastattack	1
 	#attackone	1
 	hitfx	data/sounds/beat2.wav
@@ -534,7 +523,7 @@ anim	follow10
 	loop	0
 	delay	2
 	offset	100 189
-	bbox	0 0 0 0
+	bbox	85 133 50 51
 	followanim	8
 	followcond	1
 	move	12
@@ -582,7 +571,7 @@ anim	follow11
 	loop	0
 	delay	2
 	offset	100 189
-	bbox	0 0 0 0
+	bbox	85 133 50 51
 	followanim	12
 	followcond	1
 	move	12
@@ -646,7 +635,7 @@ anim	follow12
 	sound	data/sounds/grab.wav
 	@cmd	position 7 30 10 -1 1
 	frame	data/chars/3remuinho/5grab01.gif
-	@cmd	spawngrab "grab1" 200 200 450 160 1 8
+	@cmd	spawngrab "grab1" 200 200 450 140 1 8
 	@cmd	position 11 30 10 -1 1
 	frame	data/chars/3remuinho/5grab02.gif
 	@cmd	position 0 25 30 -1 1
@@ -1239,7 +1228,7 @@ anim	follow2
 	loop	0
 	delay	7
 	offset	100 189
-	bbox	0 0 0 0
+	bbox	79 97 50 91
 	fastattack	1
 	#attackone	1
 	move	6
@@ -1463,7 +1452,7 @@ anim	follow8
 	@cmd	position 22 0 15 1 1
 	frame	data/chars/3remuinho/2grab06.gif
 	attack	0 0 0 0
-	@cmd	spawngrab "grab1" 200 200 450 195 1 8
+	@cmd	spawngrab "grab1" 200 200 450 155 1 8
 	@cmd	position 20 -40 25 1 1
 	frame	data/chars/3remuinho/2grab07.gif
 	attack	-30 85 125 35 5 1 0 0 15 0
@@ -2668,6 +2657,7 @@ anim	rise
 	forcedirection	1
 	@cmd	target 3 1.5 0 0 0
 	move	-2
+	@cmd	blinking 1
 	frame	data/chars/3remuinho/fall6.gif
 	frame	data/chars/3remuinho/fall6.gif
 	frame	data/chars/3remuinho/fall6.gif
@@ -2687,6 +2677,7 @@ anim	rise
 	frame	data/chars/3remuinho/fall8.gif
 	frame	data/chars/3remuinho/fall8.gif
 	move	0
+	@cmd	blinking 0
 	delay	14
 	frame	data/chars/3remuinho/fall9.gif
 	@cmd	leaper -1 4 0

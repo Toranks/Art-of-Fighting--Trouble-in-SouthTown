@@ -1,0 +1,2060 @@
+name		leonaplr
+type		player
+health		200
+mp		100
+mprate          1
+chargerate      6
+speed		16
+running		26 3.1 2 1 0
+jumpheight	4
+nodieblink	2
+secret		1 1
+weaploss	3
+modelflag	1
+noquake         0
+makeinv		3
+riseinv		1
+gfxshadow	1
+fmap		1
+holdblock 	1
+blockpain	1
+falldie		2
+dust            dust
+candamage	enemy obstacle
+projectilehit 	player npc enemy
+weapons		pltank ralfplr syuribike2 yurifall syurwtr syurivent mapcurs mrzero clarkplr
+atchain         1 1 2 3 4 0 5 6 7 0 8 1
+combostyle      1
+icon		data/chars/xleona/iconpl.png
+parrow          data/chars/misc/flash/flash/player1.gif  -36 -145
+parrow2         data/chars/misc/flash/flash/player2.gif  -36 -145
+parrow3         data/chars/misc/flash/flash/player3.gif  -36 -145
+
+
+animationscript		data/scripts/grabscript.c
+ondrawscript 		data/scripts/water_puddle_script.c
+script			data/scripts/player_script.c
+
+
+palette		data/chars/xleona/idle01.png
+#alternatepal	data/chars/xralf/map1.png
+
+
+load	xleonapw
+
+com	a3	  freespecial29
+com	a2 	  freespecial15
+
+com	f d f a	  freespecial9
+com	d f j	  freespecial8
+com	d f s	  freespecial3
+
+com	d f d f a freespecial26
+com	d f d f s freespecial27
+
+com	d u d u s freespecial30
+com	u d u d s freespecial31
+
+
+
+
+
+anim	freespecial30
+	energycost 55
+	mponly	1
+	weaponframe 14 2
+	loop	0
+	delay	30
+	offset	145 211
+	bbox	0 0 0 0
+	frame	data/chars/xleona/spw01.png
+	sound	data/sounds/xleonaTlk.wav
+	delay	9
+	frame	data/chars/xleona/spw02.png
+	frame	data/chars/xleona/spw03.png
+	frame	data/chars/xleona/spw04.png
+	delay	5
+	frame	data/chars/xleona/spw05.png
+	frame	data/chars/xleona/emp.png
+	frame	data/chars/xleona/spw05.png
+	frame	data/chars/xleona/emp.png
+	frame	data/chars/xleona/spw05.png
+	frame	data/chars/xleona/emp.png
+	frame	data/chars/xleona/spw05.png
+	frame	data/chars/xleona/emp.png
+	frame	data/chars/xleona/spw05.png
+	frame	data/chars/xleona/emp.png
+	frame	data/chars/xleona/spw05.png #14
+	frame	data/chars/xleona/emp.png
+
+
+
+anim	freespecial31
+	energycost 55
+	mponly	1
+	weaponframe 14 9
+	loop	0
+	delay	30
+	offset	145 211
+	bbox	0 0 0 0
+	frame	data/chars/xleona/spw01.png
+	sound	data/sounds/xleonaTlk.wav
+	delay	9
+	frame	data/chars/xleona/spw02.png
+	frame	data/chars/xleona/spw03.png
+	frame	data/chars/xleona/spw04.png
+	delay	5
+	frame	data/chars/xleona/spw05.png
+	frame	data/chars/xleona/emp.png
+	frame	data/chars/xleona/spw05.png
+	frame	data/chars/xleona/emp.png
+	frame	data/chars/xleona/spw05.png
+	frame	data/chars/xleona/emp.png
+	frame	data/chars/xleona/spw05.png
+	frame	data/chars/xleona/emp.png
+	frame	data/chars/xleona/spw05.png
+	frame	data/chars/xleona/emp.png
+	frame	data/chars/xleona/spw05.png #14
+	frame	data/chars/xleona/emp.png
+
+
+
+
+
+
+
+anim	freespecial27
+	energycost	75
+	mponly	1
+	loop	0
+	delay	8
+	offset	145 213
+	fastattack	1
+	forcedirection	-1
+	seal	15 5
+	followanim	4
+	followcond	1
+	hitfx	data/sounds/empty.wav
+	frame	data/chars/xleona/chg01.png
+	sound	data/sounds/super1.wav
+	frame	data/chars/xleona/chg02.png
+	frame	data/chars/xleona/chg03.png
+	@cmd	spawn04 "allsp" 1 1 1 3
+	frame	data/chars/xleona/chg04.png
+	frame	data/chars/xleona/chg05.png
+	delay	50
+	frame	data/chars/xleona/chg05a.png
+	delay	8
+	sound	data/sounds/xleonaCharge.wav
+	frame	data/chars/xleona/a31.png
+	offset	155 213
+	frame	data/chars/xleona/a32.png
+	frame	data/chars/xleona/a33.png
+	delay	3
+	offset	140 213
+	move	8
+	frame	data/chars/xleona/spw10.png
+	attack	125 125 20 60 0 0 1 1 0 15
+	frame	data/chars/xleona/spw10.png #10
+	@cmd	keymove 1.2
+	frame	data/chars/xleona/spw10.png
+	frame	data/chars/xleona/spw10.png
+	@cmd	keymove 1.2
+	frame	data/chars/xleona/spw10.png
+	@cmd	looper 10 5
+	frame	data/chars/xleona/spw10.png
+	delay	9
+	move	0
+	@cmd	stop
+	frame	data/chars/xleona/b80a.png
+	frame	data/chars/xleona/b80.png
+
+
+
+anim	follow4
+	loop	0
+	delay	6
+	offset	145 211
+	bbox	0 0 0 0
+	fastattack	1
+	forcedirection	-1
+	@cmd	stop
+	@cmd	clearL
+	seal	15 5
+	hitflash	Flash4
+	hitfx	data/sounds/sl1.wav
+	move	0
+	@cmd	stop
+	frame	data/chars/xleona/spw10.png
+	@cmd	clearL
+	attack2	125 125 60 60 0 0 1 0 0 20
+	frame	data/chars/xleona/spw11.png
+	attack2	0 0 0 0
+	frame	data/chars/xleona/spw12.png
+	frame	data/chars/xleona/spw13.png
+	frame	data/chars/xleona/spw14.png
+
+	offset	140 225
+	frame	data/chars/xleona/spw15.png #5
+	attack6	125 125 60 75 0 0 1 0 0 20
+	frame	data/chars/xleona/spw16.png
+	attack6	0 0 0 0
+	frame	data/chars/xleona/spw17.png
+	frame	data/chars/xleona/spw18.png
+	attack5	125 125 60 60 0 0 1 0 0 20
+	frame	data/chars/xleona/spw19.png
+	attack5	0 0 0 0
+	@cmd	looper 5 10
+	delay	8
+	offset	145 211
+	hitflash	Flash5
+	hitfx	data/sounds/beat5.wav
+	frame	data/chars/xleona/rise10.png #10
+	attack9	125 125 60 75 0 0 1 1 0 20
+	frame	data/chars/xleona/rise09.png
+	frame	data/chars/xleona/rise08.png
+	frame	data/chars/xleona/rise07.png
+	frame	data/chars/xleona/rise05.png
+	attack9	0 0 0 0
+	frame	data/chars/xleona/dgd01.png
+	frame	data/chars/xleona/dgd00.png
+
+	delay	20
+	sound	data/sounds/xleona03.wav
+	frame	data/chars/xleona/spw25.png
+	delay	8
+	frame	data/chars/xleona/spw26.png
+	frame	data/chars/xleona/spw27.png
+
+	delay	6
+	hitfx	data/sounds/sl2.wav
+	frame	data/chars/xleona/spw28.png #21
+	attack5	125 125 60 75 0 0 1 1 0 20
+	frame	data/chars/xleona/spw29.png
+	frame	data/chars/xleona/spw28.png
+	attack5	0 0 0 0
+	frame	data/chars/xleona/spw30.png
+	@cmd	looper 21 18
+
+
+
+	frame	data/chars/xleona/spw28.png
+	hitflash	flashscreen2
+	staydown	500 500
+	attack	125 125 60 75 250 1 1 0 0 20
+	dropv	6 0.5
+	frame	data/chars/xleona/spw29.png
+	@cmd	spawn01 "explosion1" 70 40 -1
+	frame	data/chars/xleona/spw28.png
+	attack	0 0 0 0
+	frame	data/chars/xleona/spw30.png
+
+
+	delay	8
+	frame	data/chars/xleona/spw31.png
+	frame	data/chars/xleona/spw26.png
+	frame	data/chars/xleona/spw32.png
+	@cmd	clearL
+	frame	data/chars/xleona/spw32.png
+	delay	60
+	frame	data/chars/xleona/spw32.png
+
+
+
+
+
+
+
+
+
+
+
+anim	freespecial26
+	energycost	35
+	mponly	1
+	loop	0
+	delay	8
+	offset	145 213
+	bbox	130 110 30 40
+	staydown	500 500
+	forcedirection	-1
+	hitfx	data/sounds/beat4.wav
+	hitflash	flashscreen2
+	frame	data/chars/xleona/chg01.png
+	frame	data/chars/xleona/chg02.png
+	sound	data/sounds/super1.wav
+	frame	data/chars/xleona/chg03.png
+	@cmd	spawnAni2 "allsp" 1 1 1 4 "ANI_FOLLOW1"
+	frame	data/chars/xleona/chg04.png
+	frame	data/chars/xleona/chg05.png
+	delay	40
+	frame	data/chars/xleona/chg05a.png
+	delay	8
+	frame	data/chars/xleona/b48.png
+	frame	data/chars/xleona/pw30.png
+	frame	data/chars/xleona/pw31.png
+	delay	40
+	frame	data/chars/xleona/b45.png
+	delay	1
+	attack	140 125 100 75 110 1 1 0 50 20
+	dropv	3 4 0
+	move	7
+	sound	data/sounds/xleona03.wav
+	frame	data/chars/xleona/pw32.png
+	frame	data/chars/xleona/pw32.png
+	@cmd	keymove 1.2
+	frame	data/chars/xleona/pw32.png
+	frame	data/chars/xleona/pw32.png
+	@cmd	keymove 1.2
+	frame	data/chars/xleona/pw32.png
+	frame	data/chars/xleona/pw32.png
+	@cmd	keymove 1.2
+	frame	data/chars/xleona/pw32.png
+	frame	data/chars/xleona/pw33.png
+	frame	data/chars/xleona/pw33.png
+	@cmd	keymove 1.2
+	frame	data/chars/xleona/pw33.png
+	frame	data/chars/xleona/pw33.png
+	@cmd	keymove 1.2
+	frame	data/chars/xleona/pw33.png
+	frame	data/chars/xleona/pw33.png
+	@cmd	keymove 1.2
+	frame	data/chars/xleona/pw33.png
+	delay	2
+	@cmd	keymove 1.2
+	frame	data/chars/xleona/pw34.png
+	frame	data/chars/xleona/pw34.png
+	@cmd	keymove 1.2
+	frame	data/chars/xleona/pw34.png
+	frame	data/chars/xleona/pw34.png
+	move	4
+	@cmd	keymove 1.2
+	frame	data/chars/xleona/pw35.png
+	frame	data/chars/xleona/pw35.png
+	@cmd	keymove 1.2
+	frame	data/chars/xleona/pw35.png
+	move	2
+	frame	data/chars/xleona/pw35.png
+	@cmd	keymove 1.2
+	frame	data/chars/xleona/pw35.png
+	frame	data/chars/xleona/pw35.png
+	attack	0 0 0 0
+	@cmd	stop
+	move	0
+	delay	30
+	frame	data/chars/xleona/pw35.png
+	delay	8
+	frame	data/chars/xleona/pw36.png
+	offset	135 213
+	frame	data/chars/xleona/b30.png
+	offset	145 213
+	frame	data/chars/xleona/b20.png
+
+
+
+
+
+anim	freespecial3
+	energycost	17
+	mponly	1
+	loop	0
+	delay	8
+	offset	145 213
+	bbox	130 110 30 40
+	frame	data/chars/xleona/pw15.png
+	frame	data/chars/xleona/pw16.png
+	sound	data/sounds/xleona01.wav
+	frame	data/chars/xleona/pw17.png
+	frame	data/chars/xleona/pw18.png
+	frame	data/chars/xleona/pw19.png
+	frame	data/chars/xleona/pw20.png
+	@cmd	spawnAni "xleonapw" 20 60 0 "ANI_follow1"
+	delay	30
+	frame	data/chars/xleona/pw21.png
+	delay	8
+	frame	data/chars/xleona/pw19.png
+	frame	data/chars/xleona/pw16.png
+	frame	data/chars/xleona/pw15.png
+
+
+
+
+
+anim	freespecial8
+	loop	0
+	delay	6
+	offset	145 213
+	bbox	130 110 30 40
+	hitflash	Flash4
+	hitfx	data/sounds/sl2.wav
+	fastattack	1
+	forcedirection	-1
+	jumpframe	1 3.5 3
+	landframe	16 dust
+	staydown	400 400
+	frame	data/chars/xleona/get03.png
+	sound	data/sounds/xleona03.wav
+	frame	data/chars/xleona/jump02.png
+	frame	data/chars/xleona/jump04.png
+	frame	data/chars/xleona/jump09.png
+	sound	data/sounds/blade.wav
+	frame	data/chars/xleona/jump10.png
+	delay	4
+	frame	data/chars/xleona/jua30.png #5
+	frame	data/chars/xleona/jua31.png
+	attack10 145 135 80 80 9 1 1 0 8 15
+	dropv	2 3 0
+	frame	data/chars/xleona/jua32.png
+	attack	0 0 0 0
+	frame	data/chars/xleona/jua33.png
+	attack10 145 135 80 80 9 1 1 0 8 15
+	dropv	2 3 0
+	frame	data/chars/xleona/jua34.png
+	attack	0 0 0 0
+	frame	data/chars/xleona/jua35.png
+	attack10 145 135 80 80 9 1 1 0 8 15
+	dropv	2 3 0
+	frame	data/chars/xleona/jua36.png
+	attack	0 0 0 0
+	frame	data/chars/xleona/jua37.png
+	attack10 145 135 80 80 9 1 1 0 8 15
+	dropv	2 3 0
+	frame	data/chars/xleona/jua38.png
+	attack	0 0 0 0
+	frame	data/chars/xleona/jua39.png
+
+	delay	500
+	frame	data/chars/xleona/jump27.png
+
+	delay	8
+	frame	data/chars/xleona/get03.png #16
+
+
+
+
+anim	freespecial9
+	energycost	15
+	mponly	1
+	loop	0
+	delay	8
+	offset	145 213
+	bbox	0 0 0 0
+	hitflash	flashscreen1
+	hitfx	data/sounds/sl2.wav
+	fastattack	1
+	forcedirection	-1
+	jumpframe	4 2.5 1
+	landframe	10
+	staydown	400 400
+	@cmd	dasher 1.5 0 0
+	frame	data/chars/xleona/pw01.png
+	frame	data/chars/xleona/pw02.png
+	delay	4
+	sound	data/sounds/xleona02.wav
+	frame	data/chars/xleona/pw03.png
+	frame	data/chars/xleona/pw04.png
+	attack	110 75 110 100 40 1 1 0 8 15
+	dropv	3 2 0
+	frame	data/chars/xleona/pw05.png #4
+	frame	data/chars/xleona/pw06.png
+	frame	data/chars/xleona/pw07.png
+	frame	data/chars/xleona/pw08.png
+	attack	0 0 0 0
+	frame	data/chars/xleona/pw09.png
+	delay	500
+	frame	data/chars/xleona/pw10.png
+	delay	9
+	frame	data/chars/xleona/get03.png #10
+
+
+
+
+
+
+
+
+
+anim	idle
+	loop	1 5 13
+	delay	8
+	offset	145 211
+	bbox	130 125 30 75
+	frame	data/chars/xleona/idle01.png
+	@cmd	clearL
+	frame	data/chars/xleona/idle02.png
+	frame	data/chars/xleona/idle03.png
+	frame	data/chars/xleona/idle04.png
+	frame	data/chars/xleona/idle05.png
+	delay	9
+	frame	data/chars/xleona/idle10.png #5
+	frame	data/chars/xleona/idle11.png
+	frame	data/chars/xleona/idle12.png
+	frame	data/chars/xleona/idle13.png
+	frame	data/chars/xleona/idle14.png
+	frame	data/chars/xleona/idle15.png
+	frame	data/chars/xleona/idle16.png
+	frame	data/chars/xleona/idle17.png #12
+
+
+anim	walk
+	loop	1
+	delay	9
+	offset	145 211
+	bbox	130 125 30 75
+	frame	data/chars/xleona/walk01.png
+	frame	data/chars/xleona/walk02.png
+	frame	data/chars/xleona/walk03.png
+	frame	data/chars/xleona/walk04.png
+	frame	data/chars/xleona/walk05.png
+	frame	data/chars/xleona/walk06.png
+	frame	data/chars/xleona/walk07.png
+	frame	data/chars/xleona/walk08.png
+	frame	data/chars/xleona/walk09.png
+	frame	data/chars/xleona/walk10.png
+
+
+
+anim	run
+	loop	1
+	delay	7
+	offset	145 211
+	bbox	130 165 30 45
+	frame	data/chars/xleona/run10.png
+	sound	data/sounds/run.wav
+	@cmd	spawn01 "dust" 30 1 1
+	frame	data/chars/xleona/run11.png
+	frame	data/chars/xleona/run13.png
+	frame	data/chars/xleona/run14.png
+
+
+
+
+anim	block
+	loop	0
+	delay	6
+	offset	145 211
+	bbox	130 125 30 75
+	frame	data/chars/xleona/blk01.png
+	frame	data/chars/xleona/blk02.png
+
+
+#---------//----//-jump-//----------
+
+anim	jumpland
+	loop	0
+	delay	5
+	offset	145 211
+	bbox	130 125 30 75
+	frame	data/chars/xleona/jump00.png
+
+anim	jumpdelay
+	loop	0
+	delay	5
+	offset	145 211
+	bbox	130 125 30 75
+	frame	data/chars/xleona/jump00.png
+
+
+anim	walkoff
+	loop	0
+	delay	12
+	offset	145 211
+	bbox	130 110 30 60
+	frame	data/chars/xleona/jump28.png
+
+
+
+anim	jump
+	loop	0
+	delay	5
+	offset	145 211
+	bbox	130 110 30 60
+	frame	data/chars/xleona/jump01.png
+	frame	data/chars/xleona/jump02.png
+	frame	data/chars/xleona/jump03.png
+	frame	data/chars/xleona/jump04.png
+	frame	data/chars/xleona/jump05.png
+	frame	data/chars/xleona/jump06.png
+	frame	data/chars/xleona/jump07.png
+	frame	data/chars/xleona/jump08.png
+	frame	data/chars/xleona/jump09.png
+	frame	data/chars/xleona/jump10.png
+	frame	data/chars/xleona/jump11.png
+	frame	data/chars/xleona/jump12.png
+	frame	data/chars/xleona/jump13.png
+
+
+
+anim	forwardjump
+	loop	0
+	delay	5
+	offset	145 211
+	bbox	130 110 30 60
+	frame	data/chars/xleona/jump20.png
+	frame	data/chars/xleona/jump21.png
+	frame	data/chars/xleona/jump22.png
+	frame	data/chars/xleona/jump23.png
+	frame	data/chars/xleona/jump24.png
+	frame	data/chars/xleona/jump25.png
+	frame	data/chars/xleona/jump26.png
+	frame	data/chars/xleona/jump28.png
+
+
+
+anim	runjump
+	loop	0
+	delay	5
+	offset	145 211
+	bbox	130 110 30 60
+	frame	data/chars/xleona/jump01.png
+	frame	data/chars/xleona/jump01a.png
+	frame	data/chars/xleona/jump01b.png
+	frame	data/chars/xleona/jump01c.png
+	frame	data/chars/xleona/jump01d.png
+	frame	data/chars/xleona/jump01e.png
+	frame	data/chars/xleona/jump27.png
+
+
+
+
+
+
+
+
+#--------------------//-grab-escape-beds-moveL-//-----------------------
+
+anim	freespecial15
+	loop	0
+	delay	30
+	offset	145 211
+	bbox	0 0 0 0
+	frame	data/chars/xleona/spw05.png
+	delay	9
+	frame	data/chars/xleona/spw04.png
+	frame	data/chars/xleona/spw03.png
+	frame	data/chars/xleona/spw02.png
+	delay	30
+	frame	data/chars/xleona/spw01.png
+	@cmd	spawnAni3 "toturi3" 1 1 1 "ANI_FOLLOW10"
+	frame	data/chars/xleona/spw01.png
+	delay	9
+	frame	data/chars/xleona/spw02.png
+	frame	data/chars/xleona/spw03.png
+	frame	data/chars/xleona/spw04.png
+	delay	30
+	frame	data/chars/xleona/spw05.png
+
+
+
+
+
+anim	follow17
+@script
+	void self = getlocalvar("self");
+	int eTime = openborvariant("elapsed_time");
+	if (frame == 5)
+	{
+	changeentityproperty(self, "invincible", 1);
+	changeentityproperty(self, "invinctime", eTime + 1000);
+	changeentityproperty(self, "blink", 1);
+	}
+@end_script
+	loop	0
+	delay	800
+	offset	145 211
+	bbox	0 0 0 0
+	frame	data/chars/xleona/emp.png
+	delay	50
+	frame	data/chars/xleona/spw01.png
+	delay	9
+	frame	data/chars/xleona/spw02.png
+	frame	data/chars/xleona/spw03.png
+	frame	data/chars/xleona/spw04.png
+	delay	40
+	frame	data/chars/xleona/spw05.png
+
+
+
+
+anim	follow15
+@script
+	void self = getlocalvar("self");
+   	void opp = getentityproperty(self, "opponent");
+	int enedir = getentityproperty(opp,"direction");
+	if (frame == 0 && enedir == 0)
+	{
+	changeentityproperty(self, "direction", 1);
+	}
+	else if (frame == 0 && enedir == 1)
+	{
+	changeentityproperty(self, "direction", 0);
+	}
+@end_script
+	loop	0
+	delay	5
+	offset	145 211
+	bbox	0 0 0 0
+	jumpframe 0 3 -1
+	landframe 13
+	frame	data/chars/xleona/jump01.png
+	frame	data/chars/xleona/jump02.png
+	frame	data/chars/xleona/jump03.png
+	frame	data/chars/xleona/jump04.png
+	frame	data/chars/xleona/jump05.png
+	frame	data/chars/xleona/jump06.png
+	frame	data/chars/xleona/jump07.png
+	frame	data/chars/xleona/jump08.png
+	frame	data/chars/xleona/jump09.png
+	frame	data/chars/xleona/jump10.png
+	frame	data/chars/xleona/jump11.png
+	frame	data/chars/xleona/jump12.png
+	delay	500
+	frame	data/chars/xleona/jump13.png
+	delay	9
+	frame	data/chars/xleona/jump00.png
+
+
+
+
+
+
+
+anim	follow16
+@script
+	void self = getlocalvar("self");
+   	void opp = getentityproperty(self, "opponent");
+	int enedir = getentityproperty(opp,"direction");
+	if (frame == 0 && enedir == 0)
+	{
+	changeentityproperty(self, "direction", 1);
+	}
+	else if (frame == 0 && enedir == 1)
+	{
+	changeentityproperty(self, "direction", 0);
+	}
+@end_script
+	loop	0
+	delay	7
+	offset	145 199
+	bbox	0 0 0 0
+	frame	data/chars/xleona/jump02.png
+	offset	145 211
+	@cmd	dasher -2.5 0 0
+	frame	data/chars/xleona/rise09.png
+	frame	data/chars/xleona/rise08.png
+	frame	data/chars/xleona/rise07.png
+	frame	data/chars/xleona/dgd05.png
+	frame	data/chars/xleona/dgd02.png
+	frame	data/chars/xleona/dgd01.png
+	@cmd	stop
+	frame	data/chars/xleona/dgd00.png
+
+
+
+
+#--------------------------------//-----------------------
+
+
+      
+
+anim	attack1
+	range	0 140
+	rangez	-15 15
+	loop	0
+	delay	3
+	offset	145 211
+	bbox	130 125 30 75
+	fastattack	1
+	hitflash	Flash4
+	hitfx	data/sounds/sl1.wav
+	@cmd	attackgrd -60 60 0 1 10 "ANI_FOLLOW10"
+	frame	data/chars/xleona/a01.png
+	attack	140 120 90 30 6 0 0 0 1 0
+	frame	data/chars/xleona/a02.png
+	delay	5
+	frame	data/chars/xleona/a03.png
+	attack	0 0 0 0
+	delay	3
+	frame	data/chars/xleona/a04.png
+
+
+
+
+
+anim	follow10
+	loop	0
+	delay	8
+	offset	145 211
+	bbox	0 0 0 0
+	forcedirection	-1
+	attackone	1
+	otg	2
+	hitfx	data/sounds/sl2.wav
+	hitflash	Flash2
+	frame	data/chars/xleona/chg01.png
+	delay	16
+	frame	data/chars/xleona/chg02.png
+	delay	8
+	frame	data/chars/xleona/grd00a.png
+	sound	data/sounds/blade.wav
+	frame	data/chars/xleona/grd00b.png
+	delay	5
+	attack11 105 190 80 30 65 1 0 0 9 10
+	dropv	2 3
+	frame	data/chars/xleona/grd03a.png
+	frame	data/chars/xleona/grd03b.png
+	frame	data/chars/xleona/grd03c.png
+	frame	data/chars/xleona/grd03d.png
+	frame	data/chars/xleona/grd03e.png
+	attack11 0 0 0 0
+	delay	8
+	frame	data/chars/xleona/grd03.png
+	frame	data/chars/xleona/grd04.png
+	delay	20
+	frame	data/chars/xleona/grd05.png
+	delay	9
+	frame	data/chars/xleona/grd01.png
+	frame	data/chars/xleona/b80a.png
+	frame	data/chars/xleona/b80.png
+
+
+
+
+
+
+
+
+
+anim	attack2
+	range	0 60
+	rangez	-15 15
+	loop	0
+	delay	4
+	offset	145 211
+	bbox	130 125 30 75
+	fastattack	1
+	hitflash	Flash
+	hitfx	data/sounds/beat2.wav
+	sound	data/sounds/xleona01.wav
+	frame	data/chars/xleona/b01.png
+	frame	data/chars/xleona/b02.png
+	delay	5
+	attack	135 110 77 40 20 0 0 0 15 0
+	frame	data/chars/xleona/b03.png
+	frame	data/chars/xleona/b04.png
+	attack	0 0 0 0
+	frame	data/chars/xleona/b02.png
+	frame	data/chars/xleona/b01.png
+
+
+
+
+
+anim	attack3
+	range	0 60
+	rangez	-15 15
+	loop	0
+	delay	4
+	offset	130 212
+	bbox	118 119 30 75
+	fastattack	1
+	hitfx	data/sounds/beat2.wav
+	sound	data/sounds/xleona01.wav
+	frame	data/chars/xleona/b10.png
+	frame	data/chars/xleona/b11.png
+	delay	5
+	attack2	135 140 77 40 20 0 0 0 15 0
+	frame	data/chars/xleona/b12.png
+	frame	data/chars/xleona/b13.png
+	attack2	0 0 0 0
+	frame	data/chars/xleona/b11.png
+	frame	data/chars/xleona/b10.png
+
+
+
+
+
+anim	attack4
+	range	0 60
+	rangez	-15 15
+	loop	0
+	delay	6
+	offset	145 211
+	bbox	130 125 30 75
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/xleona02.wav
+	frame	data/chars/xleona/b42.png
+	frame	data/chars/xleona/b43.png
+	frame	data/chars/xleona/b43a.png
+	frame	data/chars/xleona/b44.png
+	delay	12
+	attack10 135 120 100 60 40 1 0 0 35 15
+	dropv	5 1
+	frame	data/chars/xleona/b45.png
+	attack10 0 0 0 0
+	delay	8
+	frame	data/chars/xleona/b46.png
+	frame	data/chars/xleona/b47.png
+	frame	data/chars/xleona/b47a.png
+	frame	data/chars/xleona/b48.png
+
+
+
+
+anim	attack5
+	range	60 85
+	rangez	-15 15
+	loop	0
+	delay	5
+	offset	130 211
+	bbox	130 125 30 75
+	fastattack	1
+	hitfx	data/sounds/beat3.wav
+	sound	data/sounds/xleona01.wav
+	frame	data/chars/xleona/a10.png
+	frame	data/chars/xleona/a11.png
+	attack	143 125 75 30 20 0 0 0 10 0
+	delay	6
+	frame	data/chars/xleona/a12.png
+	frame	data/chars/xleona/a13.png
+	attack	0 0 0 0
+	frame	data/chars/xleona/a14.png
+	frame	data/chars/xleona/a15.png
+
+
+
+anim	attack6
+	range	60 85
+	rangez	-15 15
+	loop	0
+	delay	5
+	offset	130 211
+	bbox	130 125 30 75
+	fastattack	1
+	hitfx	data/sounds/beat3.wav
+	sound	data/sounds/xleona01.wav
+	frame	data/chars/xleona/a30.png
+	frame	data/chars/xleona/a31.png
+	frame	data/chars/xleona/a32.png
+	delay	6
+	attack	143 125 75 30 20 0 0 0 10 0
+	frame	data/chars/xleona/a33.png
+	frame	data/chars/xleona/a34.png
+	attack	0 0 0 0
+	frame	data/chars/xleona/a35.png
+
+
+
+
+anim	attack7
+	range	60 85
+	rangez	-15 15
+	loop	0
+	delay	4
+	offset	145 211
+	bbox	130 125 30 75
+	fastattack	1
+	hitflash	Flash4
+	hitfx	data/sounds/sl2.wav
+	sound	data/sounds/xleona03.wav
+	frame	data/chars/xleona/a20.png
+	@cmd	dasher 1 0 0
+	frame	data/chars/xleona/a21.png
+	frame	data/chars/xleona/a22.png
+	frame	data/chars/xleona/a23.png
+	@cmd	stop
+	frame	data/chars/xleona/a24.png
+	delay	6
+	attack10 143 100 75 60 40 1 0 0 40 15
+	dropv	5 1
+	frame	data/chars/xleona/a25.png
+	frame	data/chars/xleona/a26.png
+	attack10 0 0 0 0
+	delay	15
+	frame	data/chars/xleona/a27.png
+	delay	12
+	frame	data/chars/xleona/a14.png
+	frame	data/chars/xleona/a20.png
+
+
+
+
+
+anim	attack8
+	range	85 140
+	rangez	-15 15
+	loop	0
+	delay	5
+	offset	145 211
+	bbox	130 125 30 75
+	fastattack	1
+	hitfx	data/sounds/beat5.wav
+	@cmd	dasher 1 0 0
+	sound	data/sounds/xleona02.wav
+	frame	data/chars/xleona/b20.png
+	frame	data/chars/xleona/b21.png
+	frame	data/chars/xleona/b22.png
+	frame	data/chars/xleona/b23.png
+	frame	data/chars/xleona/b24.png
+	frame	data/chars/xleona/b25.png
+	delay	15
+	attack	93 115 125 50 60 1 0 0 40 15
+	dropv	3 3
+	frame	data/chars/xleona/b26.png
+	attack	0 0 0 0
+	delay	7
+	@cmd	stop
+	frame	data/chars/xleona/b27.png
+	frame	data/chars/xleona/b28.png
+	frame	data/chars/xleona/b29.png
+	frame	data/chars/xleona/b30.png
+
+
+
+
+
+	
+anim	attackdown
+	loop	0
+	delay	6
+	offset	145 211
+	bbox	0 0 0 0
+	@cmd	dasher 2.5 0 0.4
+	frame	data/chars/xleona/dgd00.png
+	frame	data/chars/xleona/dgd01.png
+	frame	data/chars/xleona/dgd02.png
+	frame	data/chars/xleona/dgd05.png
+	delay	7
+	@cmd	spawn01 "dust" 75 1 1
+	frame	data/chars/xleona/rise07.png
+	frame	data/chars/xleona/rise08.png
+	frame	data/chars/xleona/rise09.png
+	offset	145 199
+	frame	data/chars/xleona/jump02.png
+	@cmd	stop
+	offset	145 211
+	delay	8
+	frame	data/chars/xleona/b80a.png
+	frame	data/chars/xleona/b80.png
+
+
+
+anim	attackup
+	loop	0
+	delay	6
+	offset	145 211
+	bbox	0 0 0 0
+	@cmd	dasher 2.5 0 -0.4
+	frame	data/chars/xleona/dgd00.png
+	frame	data/chars/xleona/dgd01.png
+	frame	data/chars/xleona/dgd02.png
+	frame	data/chars/xleona/dgd05.png
+	delay	7
+	@cmd	spawn01 "dust" 75 1 1
+	frame	data/chars/xleona/rise07.png
+	frame	data/chars/xleona/rise08.png
+	frame	data/chars/xleona/rise09.png
+	offset	145 199
+	frame	data/chars/xleona/jump02.png
+	@cmd	stop
+	offset	145 211
+	delay	8
+	frame	data/chars/xleona/b80a.png
+	frame	data/chars/xleona/b80.png
+
+
+
+
+anim	jumpforward
+	loop	0
+	delay	9
+	offset	145 211
+	bbox	130 95 30 50
+	hitfx	data/sounds/beat5.wav
+	forcedirection	-1
+	staydown	300 300
+	sound	data/sounds/xleona02.wav
+	frame	data/chars/xleona/jua05.png
+	delay	6
+	attack	130 132 90 50 30 1 0 0 20 0
+	frame	data/chars/xleona/jua06.png
+	frame	data/chars/xleona/jua07.png
+	frame	data/chars/xleona/jua06.png
+	frame	data/chars/xleona/jua07.png
+	frame	data/chars/xleona/jua06.png
+	frame	data/chars/xleona/jua07.png
+	frame	data/chars/xleona/jua06.png
+	frame	data/chars/xleona/jua07.png
+	frame	data/chars/xleona/jua06.png
+	frame	data/chars/xleona/jua07.png
+	frame	data/chars/xleona/jua06.png
+	frame	data/chars/xleona/jua07.png
+	frame	data/chars/xleona/jua06.png
+	frame	data/chars/xleona/jua07.png
+	frame	data/chars/xleona/jua06.png
+	frame	data/chars/xleona/jua07.png
+
+
+
+
+
+anim	jumpattack
+	loop	0
+	delay	9
+	offset	145 211
+	bbox	130 95 30 50
+	forcedirection	-1
+	staydown	300 300
+	hitfx	data/sounds/beat3.wav
+	sound	data/sounds/xleona03.wav
+	frame	data/chars/xleona/jua10.png
+	attack	135 120 90 70 30 1 0 0 20 0
+	frame	data/chars/xleona/jua11.png
+
+
+
+
+
+anim	jumpattack2
+	loop	0
+	delay	8
+	offset	145 211
+	bbox	130 95 30 50
+	frame	data/chars/xleona/jump09.png
+	frame	data/chars/xleona/jump08.png
+	frame	data/chars/xleona/jua01.png
+	attack2	143 130 55 50 12 0 0 0 15 0
+	frame	data/chars/xleona/jua02.png
+
+
+
+
+anim	jumpattack3
+	fastattack	1
+	forcedirection	-1
+	loop	0
+	delay	5
+	offset	145 211
+	bbox	130 95 30 50
+	jumpframe	0 -2 4
+	landframe	4 dust
+	attack	0 0 0 0
+	hitfx	data/sounds/beat3.wav
+	frame	data/chars/xleona/jua20a.png
+	frame	data/chars/xleona/jua20b.png
+	attack10 125 115 90 70 15 1 0 0 10 15
+	dropv	3 3
+	frame	data/chars/xleona/jua22.png
+	delay	500
+	frame	data/chars/xleona/jua21.png
+	delay	2
+	move	6
+	bbox	130 150 30 50
+	attack10	0 0 0 0 0 0 0 0 0 0
+	hitflash	Flash4
+	hitfx	data/sounds/sl2.wav
+	sound	data/sounds/blade.wav
+	offset	145 190
+	frame	data/chars/xleona/jua21.png
+	offset	145 211
+	attack	115 130 100 75 30 1 0 0 8 15
+	dropv	3 0
+	frame	data/chars/xleona/jua22a.png
+	frame	data/chars/xleona/jua22b.png
+	frame	data/chars/xleona/jua22b.png
+	frame	data/chars/xleona/jua22c.png
+	frame	data/chars/xleona/jua22c.png
+	frame	data/chars/xleona/jua22d.png
+	frame	data/chars/xleona/jua22d.png
+	frame	data/chars/xleona/jua22e.png
+	frame	data/chars/xleona/jua22e.png
+	frame	data/chars/xleona/jua22f.png
+	frame	data/chars/xleona/jua22f.png
+	frame	data/chars/xleona/jua22g.png
+	frame	data/chars/xleona/jua22g.png
+	frame	data/chars/xleona/jua22h.png
+	move	5
+	frame	data/chars/xleona/jua22h.png
+	frame	data/chars/xleona/jua22i.png
+	frame	data/chars/xleona/jua22i.png
+	frame	data/chars/xleona/jua22j.png
+	move	3
+	frame	data/chars/xleona/jua22j.png
+	frame	data/chars/xleona/jua22k.png
+	frame	data/chars/xleona/jua22k.png
+	frame	data/chars/xleona/jua22l.png
+	attack	0 0 0 0
+	move	0
+	delay	25
+	frame	data/chars/xleona/jua22l.png
+	delay	8
+	frame	data/chars/xleona/b80a.png
+	frame	data/chars/xleona/b80.png
+
+
+
+
+anim	runjumpattack
+	loop	0
+	delay	9
+	offset	145 211
+	bbox	130 95 30 50
+	landframe 3
+	fastattack 1
+	forcedirection	-1
+	staydown	300 300
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/xleona03.wav
+	frame	data/chars/xleona/jua05.png
+	frame	data/chars/xleona/jua24.png
+	attack8	130 122 77 50 10 0 0 0 12 0
+	frame	data/chars/xleona/jua25.png
+	delay	5
+	frame	data/chars/xleona/jua26.png
+	attack8	0 0 0 0
+	frame	data/chars/xleona/jua26.png
+	attack	130 122 77 50 25 1 0 0 20 0
+	dropv	3 4
+	frame	data/chars/xleona/jua26.png
+
+
+
+anim	grab
+	loop	0
+	delay	6
+	offset	145 211
+	bbox	130 125 30 75
+	frame	data/chars/xleona/grab00.png
+	frame	data/chars/xleona/grab00.png
+
+
+anim	grabattack
+	loop	0
+	delay	6
+	offset	145 211
+	bbox	130 125 30 75
+	attack	0 0 0 0
+	fastattack 1
+	frame	data/chars/xleona/grab00.png
+	frame	data/chars/xleona/b51.png
+	attack2	160 135 35 30 9 0 1 0 10 0
+	frame	data/chars/xleona/b52.png
+	attack2	0 0 0 0
+	delay	9
+	frame	data/chars/xleona/b53.png
+	delay	6
+	frame	data/chars/xleona/b54.png
+	attack2	160 135 35 30 15 0 1 0 10 0
+	frame	data/chars/xleona/b55.png
+	attack2	0 0 0 0
+	delay	9
+	frame	data/chars/xleona/b56.png
+	delay	6
+	frame	data/chars/xleona/b54.png
+
+
+anim	grabattack2
+	loop	0
+	delay	7
+	offset	145 211
+	bbox	130 125 30 75
+	staydown	500 500
+	fastattack	1
+	attackone	0
+	jumpframe	0 3 0.3
+	landframe	5
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/xleona03.wav
+	movez	1
+	frame	data/chars/xleona/jua14.png
+	movez	0
+	frame	data/chars/xleona/jua15.png
+	frame	data/chars/xleona/jua16.png
+	attack	135 135 50 55 30 1 0 0 25 15
+	dropv	-2 1
+	frame	data/chars/xleona/jua17.png
+	delay	500
+	frame	data/chars/xleona/jua18.png
+	attack	0 0 0 0
+	delay	8
+	frame	data/chars/xleona/grd00.png
+	frame	data/chars/xleona/get03.png
+
+
+
+
+anim	grabforward
+	loop	0
+	delay	12
+	offset	145 211
+	bbox	0 0 0 0
+	attack	0 0 0 0
+	sound	data/sounds/grab.wav
+	@cmd	slamstart
+	@cmd	position 10 35 49 -1 -1
+	frame	data/chars/xleona/grab00.png
+	delay	12
+	@cmd	spawn01 "Flash4" 30 50 2
+	sound	data/sounds/sl1.wav
+	@cmd	position 11 35 49 -1 -1
+	frame	data/chars/xleona/grab20.png
+	@cmd	position 10 35 49 -1 -1
+	frame	data/chars/xleona/grab21.png
+	@cmd	position 10 35 49 -1 -1
+	frame	data/chars/xleona/grab22.png
+	sound	data/sounds/sl2.wav
+	@cmd	spawn01 "Flash4" 30 50 2
+	@cmd	position 10 35 49 -1 -1
+	frame	data/chars/xleona/grab23.png
+	delay	25
+	@cmd	position 10 35 49 -1 -1
+	frame	data/chars/xleona/grab24.png
+	delay	10
+	sound	data/sounds/sl2.wav
+	@cmd	spawn01 "Flash4" 30 50 2
+	@cmd	position 11 35 49 -1 -1
+	frame	data/chars/xleona/grab25.png
+	@cmd	spawnAni "xleonapw" 40 35 2 "ANI_follow4"
+	@cmd	position 10 35 49 -1 -1
+	frame	data/chars/xleona/grab26.png
+	@cmd	antiwall -70 10 0
+	@cmd	position 10 35 49 -1 -1
+	frame	data/chars/xleona/grab27.png
+	@cmd	antiwall -70 10 0
+	@cmd	position 11 35 49 -1 -1
+	frame	data/chars/xleona/grab28.png
+	delay	30
+	@cmd	position 10 35 49 -1 -1
+	frame	data/chars/xleona/grab29.png
+	delay	10
+	@cmd	spawnAni "xleonapw" 50 60 2 "ANI_follow5"
+	@cmd	spawn01 "Flash2" 30 50 2
+	sound	data/sounds/sl1.wav
+	move	-8
+	@cmd	antiwall -70 10 0
+	@cmd	position 11 43 49 -1 -1
+	frame	data/chars/xleona/grab30.png
+	@cmd	antiwall -70 10 0
+	@cmd	position 11 51 49 -1 -1
+	frame	data/chars/xleona/grab31.png
+	@cmd	antiwall -70 10 0
+	@cmd	position 11 59 49 -1 -1
+	frame	data/chars/xleona/grab32.png
+	@cmd	antiwall -70 20 0
+	@cmd	position 11 67 49 -1 -1
+	frame	data/chars/xleona/grab33.png
+	move	0
+	delay	100
+	@cmd	position 11 67 49 -1 -1
+	frame	data/chars/xleona/grab34.png
+	delay	30
+	@cmd	depost 0
+	@cmd	finish 70 1 0 2 0 0
+	frame	data/chars/xleona/grab34.png
+	delay	9
+	frame	data/chars/xleona/grab33.png
+	@cmd	clearL
+	frame	data/chars/xleona/a34.png
+
+
+
+anim	grabbackward
+	attackone 0
+	loop	0
+	delay	9
+	offset	145 211
+	bbox	0 0 0 0
+	sound	data/sounds/xleona01.wav
+	frame	data/chars/xleona/grab40.png
+	frame	data/chars/xleona/grab41.png
+	delay	12
+	sound	data/sounds/grab.wav
+	@cmd	slamstart
+	@cmd	position 11 35 49 -1 -1
+	frame	data/chars/xleona/grab42.png
+	delay	8
+	@cmd	position 10 35 49 -1 -1
+	frame	data/chars/xleona/grab43.png
+	@cmd	position 10 35 49 -1 -1
+	frame	data/chars/xleona/grab44.png
+	@cmd	position 10 35 49 -1 -1
+	frame	data/chars/xleona/grab45.png
+	@cmd	position 10 35 49 -1 -1
+	frame	data/chars/xleona/grab46.png
+	delay	20
+	@cmd	position 10 35 49 -1 -1
+	frame	data/chars/xleona/grab47.png
+	delay	8
+	@cmd	position 11 35 49 -1 -1
+	frame	data/chars/xleona/grab48.png
+	@cmd	antiwall -40 10 0
+	@cmd	position 11 40 49 -1 -1
+	frame	data/chars/xleona/grab49.png
+	@cmd	antiwall -40 10 0
+	@cmd	position 11 41 49 -1 -1
+	frame	data/chars/xleona/grab50.png
+	@cmd	antiwall -40 10 0
+	@cmd	position 0 15 40 1 -1
+	frame	data/chars/xleona/grab51.png
+	@cmd	antiwall -40 10 0
+	@cmd	position 0 5 35 1 -1
+	frame	data/chars/xleona/grab52.png
+	@cmd	depost 0
+	@cmd	finish 70 1 4.5 1.5 0 0
+	frame	data/chars/xleona/grab53.png
+	frame	data/chars/xleona/grab54.png
+	@cmd	clearL
+	frame	data/chars/xleona/grab55.png
+	frame	data/chars/xleona/grab56.png
+	frame	data/chars/xleona/grab57.png
+	frame	data/chars/xleona/grab58.png
+	frame	data/chars/xleona/grab59.png
+	frame	data/chars/xleona/grab60.png
+	frame	data/chars/xleona/grab61.png
+	delay	2
+	@cmd	flip
+	frame	data/chars/xleona/idle01.png
+
+
+
+
+anim	grabdown
+	loop	0
+	delay	9
+	offset	145 211
+	bbox	130 145 30 55
+	hitflash	Flash4
+	hitfx	data/sounds/sl2.wav
+	frame	data/chars/xleona/dgd00.png
+	delay	20
+	frame	data/chars/xleona/runatk20.png
+	delay	3
+	sound	data/sounds/xleona03.wav
+	frame	data/chars/xleona/runatk21.png
+	frame	data/chars/xleona/runatk22.png
+	blast	135 120 90 70 20 0 0 9 0
+	dropv	2 3.5
+	frame	data/chars/xleona/runatk23.png
+	frame	data/chars/xleona/runatk24.png
+	frame	data/chars/xleona/runatk25.png
+	frame	data/chars/xleona/runatk26.png
+	frame	data/chars/xleona/runatk27.png
+	blast	0 0 0 0
+	frame	data/chars/xleona/runatk28.png
+	delay	30
+	frame	data/chars/xleona/runatk29.png
+	delay	9
+	frame	data/chars/xleona/get03.png
+
+
+
+
+
+
+anim	grabbed
+	loop	0
+	delay	10
+	offset	145 211
+	bbox	130 125 30 75
+	frame	data/chars/xleona/pain3.png
+		
+
+		
+anim	rise
+	loop	0
+	delay	25
+	offset	145 211
+	bbox	0 0 0 0
+	frame	data/chars/xleona/fall4.png
+	delay	6
+	frame	data/chars/xleona/rise01.png
+	frame	data/chars/xleona/rise04.png
+	frame	data/chars/xleona/rise05.png
+	frame	data/chars/xleona/rise06.png
+	frame	data/chars/xleona/rise07.png
+	frame	data/chars/xleona/rise08.png
+	frame	data/chars/xleona/rise09.png
+	frame	data/chars/xleona/jump00.png
+
+
+
+
+anim	respawn
+	loop	0
+	delay	10
+	offset	145 211
+	bbox	0 0 0 0
+	frame	data/chars/xleona/spw01.png
+	sound	data/sounds/xleonaTlk.wav
+	delay	30
+	frame	data/chars/xleona/spw01.png
+	delay	9
+	frame	data/chars/xleona/spw02.png
+	frame	data/chars/xleona/spw03.png
+	frame	data/chars/xleona/spw04.png
+	delay	30
+	frame	data/chars/xleona/spw05.png
+
+
+
+anim	spawn
+	loop	0
+	delay	10
+	offset	145 211
+	bbox	0 0 0 0
+	frame	data/chars/xleona/spw01.png
+	sound	data/sounds/xleonaTlk.wav
+	delay	30
+	frame	data/chars/xleona/spw01.png
+	delay	9
+	frame	data/chars/xleona/spw02.png
+	frame	data/chars/xleona/spw03.png
+	frame	data/chars/xleona/spw04.png
+	delay	30
+	frame	data/chars/xleona/spw05.png
+
+
+
+anim	charge
+	loop	0
+	delay	9
+	offset	145 211
+	bbox	130 125 30 75
+	sound	data/sounds/xclark05.wav
+	frame	data/chars/xleona/chg01.png
+	frame	data/chars/xleona/chg02.png
+	frame	data/chars/xleona/chg03.png
+	delay	6
+	frame	data/chars/xleona/chg04.png #3
+	frame	data/chars/xleona/chg05.png
+	frame	data/chars/xleona/chg06.png
+	frame	data/chars/xleona/chg07.png
+	frame	data/chars/xleona/chg08.png
+	frame	data/chars/xleona/chg09.png
+	frame	data/chars/xleona/chg10.png
+	frame	data/chars/xleona/chg11.png
+	frame	data/chars/xleona/chg12.png
+	@cmd	updateframe getlocalvar("self") 8
+
+	frame	data/chars/xleona/chg09.png
+
+
+
+
+anim	freespecial29
+@script
+	void self = getlocalvar("self");
+	int mp1 = getentityproperty(self,"mp");
+	void plyr = getentityproperty(self, "playerindex");
+
+	if(frame > 11 && playerkeys(plyr, 0, "attack3"))
+	{
+	  updateframe(self, 8);
+	}
+@end_script
+	loop	0
+	delay	6
+	offset	145 211
+	bbox	130 125 30 75
+	sound	data/sounds/xclark05.wav
+	frame	data/chars/xleona/chg01.png
+	frame	data/chars/xleona/chg02.png
+	frame	data/chars/xleona/chg03.png
+	delay	6
+	frame	data/chars/xleona/chg04.png
+	@cmd	mpgain 3
+	frame	data/chars/xleona/chg05.png
+	frame	data/chars/xleona/chg06.png
+	@cmd	mpgain 3
+	frame	data/chars/xleona/chg07.png
+	frame	data/chars/xleona/chg08.png
+	@cmd	mpgain 3
+	frame	data/chars/xleona/chg09.png #8
+	@cmd	mpgain 3
+	frame	data/chars/xleona/chg10.png
+	frame	data/chars/xleona/chg11.png
+	@cmd	mpgain 3
+	frame	data/chars/xleona/chg12.png #11
+
+	frame	data/chars/xleona/chg09.png
+
+
+
+
+
+anim	special
+	energycost	30
+	mponly	1
+	loop	0
+	delay	8
+	offset	145 211
+	bbox	0 0 0 0
+	frame	data/chars/xleona/spc01.png
+	sound	data/sounds/xleonaCharge.wav
+	frame	data/chars/xleona/spc02.png
+	@cmd	spawnAni "xleonapw" 15 70 2 "ANI_follow6"
+	delay	2
+	@cmd	flip
+	@cmd	spawnAni "xleonapw" -10 70 2 "ANI_follow6"
+	frame	data/chars/xleona/emp.png
+	delay	8
+	@cmd	flip
+	frame	data/chars/xleona/spc03.png
+	delay	2
+	frame	data/chars/xleona/emp.png
+	delay	8
+	frame	data/chars/xleona/spc04.png
+	delay	2
+	frame	data/chars/xleona/emp.png
+	delay	8
+	frame	data/chars/xleona/spc05.png
+	frame	data/chars/xleona/spc06.png
+	frame	data/chars/xleona/spc07.png
+	frame	data/chars/xleona/spc08.png
+	frame	data/chars/xleona/spc09.png
+	frame	data/chars/xleona/spc10.png
+
+	frame	data/chars/xleona/spc11.png
+	frame	data/chars/xleona/spc12.png
+
+	delay	2
+	seta	5
+	frame	data/chars/xleona/spc13.png
+	seta	15
+	frame	data/chars/xleona/spc13.png
+	seta	20
+	frame	data/chars/xleona/spc13.png
+	seta	25
+	frame	data/chars/xleona/spc13.png
+	seta	30
+	sound	data/sounds/super2.wav
+	frame	data/chars/xleona/spc13.png
+	seta	35
+	frame	data/chars/xleona/spc13.png
+	seta	40
+	frame	data/chars/xleona/spc13.png
+	seta	45
+	frame	data/chars/xleona/spc13.png
+	seta	50
+	frame	data/chars/xleona/spc13.png
+	delay	8
+	frame	data/chars/xleona/spc14.png
+	frame	data/chars/xleona/spc15.png
+	frame	data/chars/xleona/spc16.png
+	frame	data/chars/xleona/spc17.png
+	delay	40
+	seta	0
+	frame	data/chars/xleona/spc18.png
+	delay	11
+	frame	data/chars/xleona/spc19.png #19
+	frame	data/chars/xleona/spc20.png
+
+	frame	data/chars/xleona/get02.png
+	frame	data/chars/xleona/get03.png
+
+
+
+
+anim	runattack
+	loop	0
+	delay	8
+	offset	145 211
+	bbox	130 165 30 45
+	fastattack	1
+	forcedirection	-1
+	hitflash	Flash4
+	hitfx	data/sounds/sl2.wav
+	@cmd	dasher 3 0 0
+	frame	data/chars/xleona/runatk02.png
+	frame	data/chars/xleona/runatk03.png
+	sound	data/sounds/blade.wav
+	delay	4
+	attack	120 120 105 75 35 1 0 0 12 15
+	dropv	3 3
+	frame	data/chars/xleona/runatk04.png
+	frame	data/chars/xleona/runatk05.png
+	frame	data/chars/xleona/runatk06.png
+	frame	data/chars/xleona/runatk07.png
+	frame	data/chars/xleona/runatk08.png
+	frame	data/chars/xleona/runatk09.png
+	delay	8
+	@cmd	dasher 2 0 0
+	frame	data/chars/xleona/runatk09.png
+	frame	data/chars/xleona/runatk10.png
+	@cmd	dasher 1 0 0
+	frame	data/chars/xleona/runatk11.png
+	attack	0 0 0 0
+	delay	9
+	@cmd	stop
+	frame	data/chars/xleona/runatk11.png
+	frame	data/chars/xleona/jump00.png
+
+
+
+
+
+
+
+
+
+
+anim	runslide
+	loop	0
+	delay	7
+	offset	145 211
+	bbox	130 175 30 25
+	forcedirection	-1
+	staydown 300 300
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/xleona03.wav
+	@cmd	dasher 3.5 0 0
+	frame	data/chars/xleona/b80a.png
+	@cmd	spawn01 "dust" 1 1 1
+	frame	data/chars/xleona/b81.png
+	attack	120 165 95 45 30 1 0 0 25 15
+	dropv	2 4
+	frame	data/chars/xleona/b82.png
+	delay	30
+	frame	data/chars/xleona/b83.png
+	delay	10
+	@cmd	dasher 2 0 0
+	frame	data/chars/xleona/b83.png
+	attack	0 0 0 0
+	delay	8
+	@cmd	stop
+	frame	data/chars/xleona/b81.png
+	frame	data/chars/xleona/b80.png
+
+
+#--------------------------//-----------------------
+
+anim	waiting
+	shadowcoords -500 -500
+	loop	1
+	delay	12
+	offset	0 0
+	frame	data/chars/xleona/xwait0.png
+	frame	data/chars/xleona/xwait1.png
+
+
+anim	select
+	shadowcoords -500 -500
+	loop	0
+	delay	5
+	offset	0 0
+	sound	data/sounds/blink.wav
+	frame	data/chars/xleona/xwait2.png
+	sound	data/sounds/xleonaTlk.wav
+	frame	data/chars/xleona/xwait3.png
+	frame	data/chars/xleona/xwait2.png #2
+	frame	data/chars/xleona/xwait3.png
+	@cmd	looper 2 10
+	delay	100
+	frame	data/chars/xleona/xwait2.png
+
+#--------------------------//-----------------------
+
+anim	pain
+	loop	0
+	delay	3
+	offset	145 211
+	bbox	130 125 30 75
+	frame	data/chars/xleona/pain1.png
+	offset	140 211
+	frame	data/chars/xleona/pain2.png
+	offset	146 211
+	frame	data/chars/xleona/pain2.png
+	offset	145 211
+	frame	data/chars/xleona/pain2.png
+
+
+		
+anim	pain2
+	loop	0
+	delay	3
+	offset	145 211
+	bbox	130 125 30 75
+	frame	data/chars/xleona/pain3.png
+	offset	140 211
+	frame	data/chars/xleona/pain4.png
+	offset	146 211
+	frame	data/chars/xleona/pain4.png
+	offset	145 211
+	frame	data/chars/xleona/pain4.png
+		
+anim	pain3
+	loop	0
+	delay	2
+	offset	145 211
+	bbox	130 125 30 75
+	move	-6
+	frame	data/chars/xleona/pain1.png
+	frame	data/chars/xleona/pain1.png
+	frame	data/chars/xleona/pain1.png
+	frame	data/chars/xleona/pain2.png
+	frame	data/chars/xleona/pain2.png
+	frame	data/chars/xleona/pain2.png
+	move	-4
+	frame	data/chars/xleona/pain1.png
+	frame	data/chars/xleona/pain1.png
+	frame	data/chars/xleona/pain1.png
+	frame	data/chars/xleona/pain3.png
+	frame	data/chars/xleona/pain3.png
+	move	-2
+	frame	data/chars/xleona/pain3.png
+	frame	data/chars/xleona/pain4.png
+	frame	data/chars/xleona/pain4.png
+	delay	50
+	frame	data/chars/xleona/pain4.png
+
+
+anim	pain5
+	loop	0
+	delay	12
+	offset	145 211
+	bbox	130 125 30 75
+	frame	data/chars/xleona/pain1.png
+	frame	data/chars/xleona/pain2.png
+	frame	data/chars/xleona/pain3.png
+	frame	data/chars/xleona/pain4.png
+	frame	data/chars/xleona/grd00.png
+	delay	40
+	frame	data/chars/xleona/grd00b.png
+	delay	12
+	frame	data/chars/xleona/grd00.png
+	frame	data/chars/xleona/pain4.png
+		
+	
+
+		
+anim	burn
+	loop	0
+	delay	30
+	offset	145 211
+	bbox	0 0 0 0
+	landframe 3
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 200_50_0
+	@cmd	spawnbind "burn1" 1 1 1
+	@cmd	spawnbind "burn2" 1 1 1
+	@cmd	spawnbind "burn3" 1 1 1
+	attack	130 130 29 43 5 1 0 0 13 0
+	frame	data/chars/xleona/fall1.png
+	frame	data/chars/xleona/fall2.png
+	delay	500
+	frame	data/chars/xleona/fall3.png
+	attack	0 0 0 0
+	delay	10
+	offset	145 210
+	frame	data/chars/xleona/fall4.png
+	delay	50
+	offset	145 211
+	frame	data/chars/xleona/fall4.png
+
+
+anim	fall
+	loop	0
+	delay	30
+	offset	145 211
+	bbox	0 0 0 0
+	landframe 3
+	sound	data/sounds/xleonaPain01.wav
+	attack	130 130 29 43 5 1 0 0 13 0
+	frame	data/chars/xleona/fall1.png
+	frame	data/chars/xleona/fall2.png
+	delay	500
+	frame	data/chars/xleona/fall3.png
+	attack	0 0 0 0
+	delay	10
+	offset	145 210
+	frame	data/chars/xleona/fall4.png
+	delay	50
+	offset	145 211
+	frame	data/chars/xleona/fall4.png
+		
+		
+anim	fall2
+	loop	0
+	delay	30
+	offset	145 211
+	bbox	0 0 0 0
+	sound	data/sounds/xleonaPain01.wav
+	landframe 3 dust
+	attack	130 130 29 43 5 1 0 0 13 0
+	frame	data/chars/xleona/pain4.png
+	frame	data/chars/xleona/fall2.png
+	delay	500
+	frame	data/chars/xleona/fall3.png
+	attack	0 0 0 0
+	delay	10
+	offset	145 210
+	frame	data/chars/xleona/fall4.png
+	delay	50
+	offset	145 211
+	frame	data/chars/xleona/fall4.png
+
+
+anim	fall3
+	loop	0
+	delay	30
+	offset	145 211
+	bbox	120 125 30 75
+	sound	data/sounds/xleonaPain01.wav
+	landframe	3 dust
+	attack	130 130 29 43 5 1 0 0 13 20
+	frame	data/chars/xleona/pain4.png
+	bbox	115 133 60 40
+	frame	data/chars/xleona/fall2.png
+	delay	500
+	bbox	110 145 50 50
+	frame	data/chars/xleona/fall3.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	delay	10
+	offset	145 210
+	bbox	100 186 80 25
+	frame	data/chars/xleona/fall4.png
+	delay	50
+	offset	145 211
+	bbox	0 0 0 0
+	frame	data/chars/xleona/fall4.png
+
+
+
+		
+anim	fall7
+	delay	1000
+	offset	45 95
+	bbox	0 0 0 0
+	frame	data/chars/xleona/slam0.png
+	offset	45 95
+	frame	data/chars/xleona/slam1.png
+	offset	50 85
+	frame	data/chars/xleona/slam2.png
+	offset	45 95
+	frame	data/chars/xleona/slam3.png
+	offset	45 95
+	frame	data/chars/xleona/slam4.png
+	offset	75 55
+	frame	data/chars/xleona/slam5.png
+	offset	40 80
+	frame	data/chars/xleona/slam6.png
+	offset	20 90
+	frame	data/chars/xleona/slam7.png
+	offset	65 55
+	frame	data/chars/xleona/slam8.png
+	offset	65 83
+	frame	data/chars/xleona/slam9.png
+	offset	65 83
+	frame	data/chars/xleona/slam10.png
+	offset	20 90
+	frame	data/chars/xleona/slam11.png
+	offset	75 55
+	frame	data/chars/xleona/slam12.png
+	offset	75 55
+	frame	data/chars/xleona/slam13.png
+	offset	50 85
+	frame	data/chars/xleona/slam14.png
+	offset	45 95
+	frame	data/chars/xleona/slam15.png
+	offset	55 70
+	frame	data/chars/xleona/slam16.png
+	offset	65 83
+	frame	data/chars/xleona/slam17.png
+	offset	65 83
+	frame	data/chars/xleona/slam18.png
+	offset	45 95
+	frame	data/chars/xleona/slam19.png
+	offset	45 95
+	frame	data/chars/xleona/slam20.png
+	offset	45 95
+	frame	data/chars/xleona/slam21.png
+	offset	45 95
+	frame	data/chars/xleona/slam22.png
+	offset	59 85
+	frame	data/chars/xleona/slam23.png
+	offset	59 80
+	frame	data/chars/xleona/slam24.png
+	offset	45 95
+	bbox	25 10 60 80
+	frame	data/chars/xleona/slambbox1.png
+	bbox	0 0 0 0
+
+
+
+anim	fall9
+	loop	0
+	delay	9
+	offset	145 211
+	bbox	0 0 0 0
+	landframe	14
+	sound	data/sounds/xleonaPain01.wav
+	frame	data/chars/xleona/fall6.png
+	frame	data/chars/xleona/fall7.png
+	frame	data/chars/xleona/fall8.png
+	frame	data/chars/xleona/fall9.png
+	frame	data/chars/xleona/fall6.png
+	frame	data/chars/xleona/fall7.png
+	frame	data/chars/xleona/fall8.png
+	frame	data/chars/xleona/fall9.png
+	frame	data/chars/xleona/fall6.png
+	frame	data/chars/xleona/fall7.png
+	frame	data/chars/xleona/fall8.png
+	frame	data/chars/xleona/fall9.png
+	frame	data/chars/xleona/fall6.png
+	delay	300
+	frame	data/chars/xleona/fall7.png
+	delay	15
+	frame	data/chars/xleona/fall4.png
+
+anim	death
+	loop	0
+	delay	40
+	offset	145 211
+	bbox	0 0 0 0
+	frame	data/chars/xleona/fall4.png
+	delay	9
+	frame	data/chars/xleona/rise01.png
+	frame	data/chars/xleona/get02.png
+	frame	data/chars/xleona/get03.png
+	frame	data/chars/xleona/grab55.png
+	delay	30
+	sound	data/sounds/xleonaDeth.wav
+	frame	data/chars/xleona/grab56.png
+	delay	9
+	frame	data/chars/xleona/fall1.png
+	frame	data/chars/xleona/fall2.png
+	frame	data/chars/xleona/fall3.png
+	delay	6
+	offset	145 210
+	frame	data/chars/xleona/fall4.png
+	offset	145 211
+	frame	data/chars/xleona/fall4.png
+	offset	145 210
+	frame	data/chars/xleona/fall4.png
+	offset	145 211
+	frame	data/chars/xleona/fall4.png
+	offset	145 210
+	frame	data/chars/xleona/fall4.png
+	offset	145 211
+	frame	data/chars/xleona/fall4.png
+	delay	40
+	offset	145 210
+	frame	data/chars/xleona/fall4.png
+
+
+
+
+
+
+anim	get
+	delay	7
+	offset	145 211
+	bbox	0 0 0 0
+	frame	data/chars/xleona/get01.png
+	delay	20
+	frame	data/chars/xleona/get02.png
+	delay	9
+	frame	data/chars/xleona/get03.png
+
+
+

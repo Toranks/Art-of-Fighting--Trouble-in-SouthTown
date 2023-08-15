@@ -1,7 +1,7 @@
 name		eveplr
 type		player
-health		170
-mp		190
+health		300
+mp		200
 mprate          1
 chargerate      5
 speed		11
@@ -21,7 +21,7 @@ holdblock 	1
 dust            dust
 candamage	enemy obstacle
 projectilehit 	player npc enemy
-weapons		pltank kingpl syuribike2 yurifall syurwtr syurivent mapcurs mrzero
+weapons		pltank sYuri syuribike2 yurifall syurwtr syurivent mapcurs mrzero
 atchain         1 1 2 3 0 4
 combostyle      1
 icon		data/chars/2badgirl10/iconpl.gif
@@ -36,13 +36,17 @@ animationscript		data/scripts/grabscript.c
 ondrawscript 		data/scripts/water_puddle_script.c
 script			data/scripts/player_script.c
 
+com	a2		freespecial15
 com	a3		freespecial29
+
 com	f d f a		freespecial1
 com	d f j		freespecial2
 com	d f a		freespecial9
-com	d u d u s 	freespecial8
+com	d f d f a 	freespecial8
 com	d f d f s	freespecial27
-com	a2		freespecial15
+
+com	d u d u s	freespecial30
+
 
 
 
@@ -69,6 +73,41 @@ load	whitepn
 #------//--H-play--//---------------
 
 
+anim	freespecial30
+	energycost	55
+	mponly	1
+	weaponframe	12 2
+	loop	0
+	delay	9
+	offset	108 165
+	bbox	0 0 0 0
+	frame	data/chars/2badgirl10/slamck13.gif
+	offset	108 191
+	frame	data/chars/2badgirl10/b00.gif
+	frame	data/chars/2badgirl10/ch01.gif
+	frame	data/chars/2badgirl10/ch02.gif
+	delay	20
+	frame	data/chars/2badgirl10/ch04.gif
+	delay	5
+	frame	data/chars/2badgirl10/empty.gif
+	frame	data/chars/2badgirl10/ch04.gif
+	frame	data/chars/2badgirl10/empty.gif
+	frame	data/chars/2badgirl10/ch04.gif
+	frame	data/chars/2badgirl10/empty.gif
+	frame	data/chars/2badgirl10/ch04.gif
+	frame	data/chars/2badgirl10/empty.gif
+	frame	data/chars/2badgirl10/ch04.gif #12
+	frame	data/chars/2badgirl10/empty.gif
+	frame	data/chars/2badgirl10/ch04.gif
+
+
+
+
+
+
+
+
+
 anim	freespecial15
 	loop	0
 	delay	9
@@ -82,7 +121,7 @@ anim	freespecial15
 	frame	data/chars/2badgirl10/ch04.gif
 	delay	70
 	frame	data/chars/2badgirl10/ch03.gif
-	@cmd	spawnAni3 "movelist" 240 300 440 "ANI_FOLLOW15"
+	@cmd	spawnAni3 "movelist" 1 1 1 "ANI_FOLLOW7"
 	frame	data/chars/2badgirl10/ch03.gif
 	delay	9
 	frame	data/chars/2badgirl10/ch02.gif
@@ -150,7 +189,7 @@ anim	freespecial8
 
 	loop	0
 	delay	8
-	energycost 185
+	energycost 100
 	mponly	1
 	offset	108 191
 	bbox	0 0 0 0
@@ -917,7 +956,7 @@ anim	attack3
 	frame	data/chars/2badgirl10/a104.gif
 	frame	data/chars/2badgirl10/a105.gif
 	forcedirection	-1
-	attack10 100 77 55 65 40 1 1 0 40 0
+	attack10 100 77 55 65 40 1 1 0 40 15
 	dropv	5 0.7 0
 	frame	data/chars/2badgirl10/a106.gif
 	frame	data/chars/2badgirl10/a107.gif
@@ -2458,13 +2497,13 @@ anim	freespecial29
 	delay	2
 	frame	data/chars/2badgirl10/ch05.gif #4
 	frame	data/chars/2badgirl10/ch03.gif
-	@cmd	mpgain 2
+	@cmd	mpgain 4
 	frame	data/chars/2badgirl10/ch06.gif
 	frame	data/chars/2badgirl10/ch04.gif
-	@cmd	mpgain 2
+	@cmd	mpgain 4
 	frame	data/chars/2badgirl10/ch07.gif
 	frame	data/chars/2badgirl10/ch03.gif
-	@cmd	mpgain 2
+	@cmd	mpgain 4
 	frame	data/chars/2badgirl10/ch08.gif
 	frame	data/chars/2badgirl10/ch04.gif	#11
 

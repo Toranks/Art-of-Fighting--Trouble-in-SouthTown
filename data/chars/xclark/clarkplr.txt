@@ -1,0 +1,2678 @@
+name		clarkplr
+type		player
+health		200
+mp		100
+mprate          1
+chargerate      6
+speed		11
+running		26 3.1 3 1 0
+jumpheight	4
+nodieblink	2
+secret		1 1
+weaploss	3
+modelflag	1
+noquake         0
+makeinv		3
+riseinv		1
+gfxshadow	1
+fmap		1
+holdblock 	1
+blockpain	1
+falldie		2
+dust            dust
+candamage	enemy obstacle
+projectilehit 	player npc enemy
+weapons		pltank ralfplr syuribike2 yurifall syurwtr syurivent mapcurs mrzero leonaplr
+atchain         1 1 2 3 4 0 5 6 7 0 8 1
+combostyle      1
+icon		data/chars/xclark/iconpl.png
+parrow          data/chars/misc/flash/flash/player1.gif  -36 -145
+parrow2         data/chars/misc/flash/flash/player2.gif  -36 -145
+parrow3         data/chars/misc/flash/flash/player3.gif  -36 -145
+
+
+animationscript		data/scripts/grabscript.c
+ondrawscript 		data/scripts/water_puddle_script.c
+script			data/scripts/player_script.c
+
+
+palette		data/chars/xclark/idle01.png
+#alternatepal	data/chars/xralf/map1.png
+
+
+load	plgrdaim
+
+com	a3	  freespecial29
+com	a2 	  freespecial15
+com	s s s s	  freespecial3
+com	d f d f s freespecial27
+
+com	d u d u s freespecial30
+com	u d u d s freespecial31
+
+
+
+anim	freespecial30
+	energycost 55
+	mponly	1
+	weaponframe 17 2
+	loop	0
+	delay	30
+	offset	145 211
+	bbox	0 0 0 0
+	frame	data/chars/xclark/spw10.png
+	delay	9
+	frame	data/chars/xclark/spw11.png
+	frame	data/chars/xclark/spw12.png
+	delay	40
+	sound	data/sounds/xclarkTlk01.wav
+	frame	data/chars/xclark/spw13.png
+	delay	9
+	frame	data/chars/xclark/spw12.png
+	frame	data/chars/xclark/spw11.png #6
+	delay	5
+	frame	data/chars/xclark/spw11.png
+	frame	data/chars/xralf/emp.png
+	frame	data/chars/xclark/spw11.png
+	frame	data/chars/xralf/emp.png
+	frame	data/chars/xclark/spw11.png
+	frame	data/chars/xralf/emp.png
+	frame	data/chars/xclark/spw11.png
+	frame	data/chars/xralf/emp.png
+	frame	data/chars/xclark/spw11.png
+	frame	data/chars/xralf/emp.png
+	frame	data/chars/xclark/spw11.png #17
+	frame	data/chars/xralf/emp.png
+
+
+
+
+anim	freespecial31
+	energycost 55
+	mponly	1
+	weaponframe 17 9
+	loop	0
+	delay	30
+	offset	145 211
+	bbox	0 0 0 0
+	frame	data/chars/xclark/spw10.png
+	delay	9
+	frame	data/chars/xclark/spw11.png
+	frame	data/chars/xclark/spw12.png
+	delay	40
+	sound	data/sounds/xclarkTlk01.wav
+	frame	data/chars/xclark/spw13.png
+	delay	9
+	frame	data/chars/xclark/spw12.png
+	frame	data/chars/xclark/spw11.png #6
+	delay	5
+	frame	data/chars/xclark/spw11.png
+	frame	data/chars/xralf/emp.png
+	frame	data/chars/xclark/spw11.png
+	frame	data/chars/xralf/emp.png
+	frame	data/chars/xclark/spw11.png
+	frame	data/chars/xralf/emp.png
+	frame	data/chars/xclark/spw11.png
+	frame	data/chars/xralf/emp.png
+	frame	data/chars/xclark/spw11.png
+	frame	data/chars/xralf/emp.png
+	frame	data/chars/xclark/spw11.png #17
+	frame	data/chars/xralf/emp.png
+
+
+
+
+
+
+
+
+
+
+anim	freespecial27
+	energycost	75
+	mponly	1
+	loop	0
+	delay	9
+	offset	145 211
+	bbox	0 0 0 0
+	fastattack 1
+	forcedirection -1
+	seal	7 4
+	followanim	4
+	followcond	1
+	hitfx	data/sounds/empty.wav
+
+	frame	data/chars/xclark/pw100.png
+	@cmd	clearL
+	frame	data/chars/xclark/pw101.png
+	sound	data/sounds/super1.wav
+	frame	data/chars/xclark/pw102.png
+	@cmd	spawn04 "allsp" 1 1 1 2
+	frame	data/chars/xclark/pw103.png
+	delay	70
+	frame	data/chars/xclark/pw104.png
+	delay	9
+	bbox	0 0 0 0
+	frame	data/chars/xclark/rise3.png
+	frame	data/chars/xclark/dgd02.png
+	delay	3
+	move	5
+	sound	data/sounds/slowm.wav
+	frame	data/chars/xclark/pw105.png
+	frame	data/chars/xclark/pw105.png
+	@cmd	keymove 1.2
+	frame	data/chars/xclark/pw105.png
+	move	7
+	attack	125 131 80 65 0 0 1 1 5 10
+	@cmd	keymove 1.2
+	frame	data/chars/xclark/pw106.png #10
+	frame	data/chars/xclark/pw106.png
+	@cmd	keymove 1.2
+	frame	data/chars/xclark/pw106.png
+	@cmd	keymove 1.2
+	frame	data/chars/xclark/pw106.png
+	@cmd	looper 10 5
+	attack	0 0 0 0
+	move	4
+	frame	data/chars/xclark/pw106.png
+	frame	data/chars/xclark/pw106.png
+	frame	data/chars/xclark/pw106.png
+	delay	9
+	move	0
+	@cmd	stop
+	frame	data/chars/xclark/rise2.png
+	@cmd	clearL
+	frame	data/chars/xclark/rise3.png
+	frame	data/chars/xclark/rise4.png
+
+
+
+anim	follow4
+	loop	0
+	delay	9
+	offset	145 211
+	bbox	0 0 0 0
+	fastattack 1
+	forcedirection -1
+	jumpframe 34 4.5 0
+	landframe 48 dust
+	@cmd	stop
+	@cmd	clearL
+	seal	7 4
+	delay	4
+	attack	0 0 0 0
+	hitfx	data/sounds/beat1.wav
+	frame	data/chars/xclark/rise3.png
+
+	frame	data/chars/xclark/sld02.png #1
+	frame	data/chars/xclark/sld03.png
+	attack2	125 135 90 70 0 0 1 0 12 15
+	frame	data/chars/xclark/sld04.png
+	attack2	0 0 0 0
+	frame	data/chars/xclark/sld03.png
+
+	frame	data/chars/xclark/sld15.png
+	frame	data/chars/xclark/sld16.png
+	attack2	125 135 90 70 0 0 1 0 12 15
+	frame	data/chars/xclark/sld17.png
+	attack2	0 0 0 0
+	frame	data/chars/xclark/sld16.png
+	@cmd	looper 1 3
+	delay	1
+	frame	data/chars/xclark/rise3.png
+	@cmd	clearL
+	frame	data/chars/xclark/rise3.png
+
+	delay	3
+	hitfx	data/sounds/beat3.wav
+	frame	data/chars/xclark/b01.png #11
+	frame	data/chars/xclark/b02.png
+	attack2	125 125 90 55 0 0 1 0 12 15
+	frame	data/chars/xclark/b02a.png
+	frame	data/chars/xclark/b03.png
+	attack2	0 0 0 0
+	frame	data/chars/xclark/b02.png
+	frame	data/chars/xclark/b01a.png
+	frame	data/chars/xclark/b41.png
+	frame	data/chars/xclark/b42.png
+	attack2	125 125 90 55 0 0 1 0 12 15
+	frame	data/chars/xclark/b43.png
+	frame	data/chars/xclark/b44.png
+	attack2	0 0 0 0
+	frame	data/chars/xclark/b42.png
+	frame	data/chars/xclark/b11.png
+	@cmd	looper 11 4
+	delay	1
+	frame	data/chars/xclark/b10.png
+	@cmd	clearL
+	frame	data/chars/xclark/b10.png
+
+	delay	4
+	hitfx	data/sounds/beat2.wav
+	frame	data/chars/xclark/a01.png #25
+	attack	125 110 90 40 0 0 1 0 15 15
+	frame	data/chars/xclark/a03.png
+	attack	0 0 0 0
+	frame	data/chars/xclark/a04.png
+	frame	data/chars/xclark/a31.png
+	attack	125 110 90 40 0 0 1 0 15 15
+	frame	data/chars/xclark/a33.png
+	attack	0 0 0 0
+	frame	data/chars/xclark/a31.png
+	@cmd	looper 25 8
+
+	frame	data/chars/xclark/a30.png
+
+	hitfx	data/sounds/beat5.wav
+	delay	5
+	sound	data/sounds/xclark04.wav
+	frame	data/chars/xclark/b01a.png
+	frame	data/chars/xclark/b22a.png
+	delay	40
+	attack10 125 110 90 60 0 1 1 0 40 15
+	dropv	4.6 0
+	frame	data/chars/xclark/b23.png #34
+	attack10 0 0 0 0
+	delay	4
+	frame	data/chars/xclark/jua30.png
+	@cmd	leaper 0 0.2
+	frame	data/chars/xclark/jua31.png
+	attack10 125 95 90 60 0 1 1 0 40 15
+	dropv	0.5 0
+	frame	data/chars/xclark/jua32.png
+	attack10 0 0 0 0
+	frame	data/chars/xclark/jua31.png
+	offset	145 225
+	frame	data/chars/xclark/pw107.png
+	@cmd	leaper 0 0.2
+	sound	data/sounds/xclark01.wav
+	frame	data/chars/xclark/pw108.png
+
+	delay	8
+	staydown	500 500
+	hitflash	flashscreen2
+	hitfx	data/sounds/beat4.wav
+	attack	125 110 90 75 250 1 1 0 70 15
+	dropv	-2 3
+	frame	data/chars/xclark/pw109.png
+	@cmd	leaper 0 0.2
+	frame	data/chars/xclark/pw110.png
+	attack	0 0 0 0
+
+	offset	145 255
+	frame	data/chars/xclark/pw115.png
+	offset	145 211
+	@cmd	leaper 0 0.2
+	frame	data/chars/xclark/jump06.png
+	frame	data/chars/xclark/jump07.png
+	@cmd	leaper 0 0.2
+	frame	data/chars/xclark/jump08.png
+	delay	500
+	frame	data/chars/xclark/jump02.png
+
+	delay	9
+	frame	data/chars/xclark/rise2.png #48
+	frame	data/chars/xclark/rise3.png
+	@cmd	clearL
+	frame	data/chars/xclark/rise4.png
+
+
+
+
+
+
+
+
+anim	idle
+	loop	1
+	delay	10
+	offset	145 211
+	bbox	130 125 30 75
+	frame	data/chars/xclark/idle01.png
+	@cmd	clearL
+	frame	data/chars/xclark/idle02.png
+	frame	data/chars/xclark/idle03.png
+	frame	data/chars/xclark/idle04.png
+	frame	data/chars/xclark/idle05.png
+	frame	data/chars/xclark/idle06.png
+	frame	data/chars/xclark/idle07.png
+	frame	data/chars/xclark/idle08.png
+	frame	data/chars/xclark/idle09.png
+	frame	data/chars/xclark/idle10.png
+	frame	data/chars/xclark/idle09.png
+	frame	data/chars/xclark/idle08.png
+
+
+
+
+
+
+
+anim	freespecial3
+	loop	0
+	delay	12
+	offset	145 211
+	bbox	130 155 30 55
+	fastattack 1
+	forcedirection -1
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/xclark04.wav
+	frame	data/chars/xclark/pw100.png
+	frame	data/chars/xclark/pw101.png
+
+	delay	5
+	@cmd	dasher 0.3 0 0
+	frame	data/chars/xclark/pw01.png
+	attack10 143 107 85 50 40 1 0 0 3 15
+	dropv	1 0.3
+	frame	data/chars/xclark/pw02.png
+	attack10 0 0 0 0
+	frame	data/chars/xclark/pw03.png
+
+	attack10 143 107 85 50 3 1 0 0 3 15
+	dropv	0.5 0.3
+	frame	data/chars/xclark/pw04.png #5
+	attack10 0 0 0 0
+	sound	data/sounds/xclark03.wav
+	frame	data/chars/xclark/pw05.png
+	attack10 143 107 85 50 3 1 0 0 3 15
+	dropv	0.5 0.3
+	frame	data/chars/xclark/pw06.png
+	attack10 0 0 0 0
+	frame	data/chars/xclark/pw07.png
+	attack10 143 107 85 50 3 1 0 0 3 15
+	dropv	0.5 0.3
+	frame	data/chars/xclark/pw08.png
+	attack10 0 0 0 0
+	frame	data/chars/xclark/pw09.png
+
+	@cmd	looper 5 4
+
+	frame	data/chars/xclark/pw01.png
+	attack10 143 107 85 50 10 1 0 0 35 15
+	dropv	2 3
+	frame	data/chars/xclark/pw02.png
+	attack10 0 0 0 0
+	frame	data/chars/xclark/pw03.png
+	delay	15
+	frame	data/chars/xclark/a14.png
+	delay	9
+	@cmd	stop
+	frame	data/chars/xclark/a15.png
+	frame	data/chars/xclark/a16.png
+	frame	data/chars/xclark/a01.png
+
+
+
+anim	walk
+	loop	1
+	delay	9
+	offset	145 211
+	bbox	130 125 30 75
+	frame	data/chars/xclark/wlk01.png
+	frame	data/chars/xclark/wlk02.png
+	frame	data/chars/xclark/wlk03.png
+	frame	data/chars/xclark/wlk04.png
+	frame	data/chars/xclark/wlk05.png
+	frame	data/chars/xclark/wlk06.png
+	frame	data/chars/xclark/wlk07.png
+
+
+
+
+anim	run
+	loop	1
+	delay	9
+	offset	145 211
+	bbox	130 125 30 75
+	frame	data/chars/xclark/run01.png
+	sound	data/sounds/run.wav
+	frame	data/chars/xclark/run02.png
+	frame	data/chars/xclark/run03.png
+	frame	data/chars/xclark/run04.png
+	sound	data/sounds/run.wav
+	frame	data/chars/xclark/run05.png
+	frame	data/chars/xclark/run06.png
+
+
+anim	block
+	loop	0
+	delay	9
+	offset	145 211
+	bbox	130 125 30 75
+	frame	data/chars/xclark/a01.png
+	frame	data/chars/xclark/blk05.png
+
+
+#---------//----//-jump-//----------
+
+anim	jumpland
+	loop	0
+	delay	7
+	offset	145 211
+	bbox	130 125 30 75
+	frame	data/chars/xclark/rise3.png
+
+anim	jumpdelay
+	loop	0
+	delay	7
+	offset	145 211
+	bbox	130 125 30 75
+	frame	data/chars/xclark/rise3.png
+
+
+anim	walkoff
+	loop	0
+	delay	12
+	offset	145 211
+	bbox	130 110 30 60
+	frame	data/chars/xclark/jump01.png
+
+
+
+anim	jump
+	loop	0
+	delay	7
+	offset	145 211
+	bbox	130 110 30 60
+	frame	data/chars/xclark/jump01.png
+	frame	data/chars/xclark/jump02.png
+	frame	data/chars/xclark/jump03.png
+	delay	20
+	frame	data/chars/xclark/jump04.png
+	delay	7
+	frame	data/chars/xclark/jump03.png
+	frame	data/chars/xclark/jump02.png
+	frame	data/chars/xclark/jump01.png
+
+
+anim	forwardjump
+	loop	0
+	delay	12
+	offset	145 211
+	bbox	130 110 30 60
+	frame	data/chars/xclark/jump01.png
+	delay	7
+	frame	data/chars/xclark/jump02.png
+	frame	data/chars/xclark/jump03.png
+	frame	data/chars/xclark/jump05.png
+	frame	data/chars/xclark/jump06.png
+	frame	data/chars/xclark/jump07.png
+	frame	data/chars/xclark/jump08.png
+	frame	data/chars/xclark/jump01.png
+
+
+anim	runjump
+	loop	0
+	delay	7
+	offset	145 211
+	bbox	130 110 30 60
+	frame	data/chars/xclark/jump01.png
+	frame	data/chars/xclark/jump02.png
+	frame	data/chars/xclark/jump03.png
+	frame	data/chars/xclark/jump04.png
+
+
+
+#--------------------//-grab-escape-beds-moveL-//-----------------------
+
+anim	freespecial15
+	loop	0
+	delay	9
+	offset	145 211
+	bbox	0 0 0 0
+	sound	data/sounds/xclarkTlk01.wav
+	frame	data/chars/xclark/spw01.png
+	frame	data/chars/xclark/spw02.png
+	frame	data/chars/xclark/spw03.png
+	delay	30
+	frame	data/chars/xclark/spw04.png
+	@cmd	spawnAni3 "toturi3" 1 1 1 "ANI_FOLLOW5"
+	frame	data/chars/xclark/spw04.png
+	delay	9
+	frame	data/chars/xclark/spw03.png
+	frame	data/chars/xclark/spw02.png
+	frame	data/chars/xclark/spw01.png
+
+
+
+
+
+
+
+anim	follow17
+@script
+	void self = getlocalvar("self");
+	int eTime = openborvariant("elapsed_time");
+	if (frame == 6)
+	{
+	changeentityproperty(self, "invincible", 1);
+	changeentityproperty(self, "invinctime", eTime + 1000);
+	changeentityproperty(self, "blink", 1);
+	}
+@end_script
+	loop	0
+	delay	800
+	offset	145 211
+	bbox	0 0 0 0
+	frame	data/chars/xralf/emp.png
+	delay	12
+	bbox	0 0 0 0
+	frame	data/chars/xclark/spw01.png
+	frame	data/chars/xclark/spw02.png
+	frame	data/chars/xclark/spw03.png
+	delay	70
+	frame	data/chars/xclark/spw04.png
+	delay	12
+	frame	data/chars/xclark/spw03.png
+	frame	data/chars/xclark/spw02.png
+	frame	data/chars/xclark/spw01.png
+
+
+
+
+
+
+
+anim	follow15
+@script
+	void self = getlocalvar("self");
+   	void opp = getentityproperty(self, "opponent");
+	int enedir = getentityproperty(opp,"direction");
+	if (frame == 0 && enedir == 0)
+	{
+	changeentityproperty(self, "direction", 1);
+	}
+	else if (frame == 0 && enedir == 1)
+	{
+	changeentityproperty(self, "direction", 0);
+	}
+@end_script
+	loop	0
+	delay	6
+	offset	145 211
+	bbox	0 0 0 0
+	jumpframe 0 3 -1
+	landframe 8
+	frame	data/chars/xclark/jump08.png
+	frame	data/chars/xclark/jump07.png
+	frame	data/chars/xclark/jump06.png
+	frame	data/chars/xclark/jump05.png
+	frame	data/chars/xclark/jump04.png
+	frame	data/chars/xclark/jump03.png
+	frame	data/chars/xclark/jump02.png
+	delay	500
+	frame	data/chars/xclark/jump01.png
+	delay	8
+	frame	data/chars/xclark/rise3.png
+
+
+
+
+anim	follow16
+@script
+	void self = getlocalvar("self");
+   	void opp = getentityproperty(self, "opponent");
+	int enedir = getentityproperty(opp,"direction");
+	if (frame == 0 && enedir == 0)
+	{
+	changeentityproperty(self, "direction", 1);
+	}
+	else if (frame == 0 && enedir == 1)
+	{
+	changeentityproperty(self, "direction", 0);
+	}
+@end_script
+	loop	0
+	delay	6
+	offset	145 211
+	bbox	0 0 0 0
+	frame	data/chars/xclark/dgd07.png
+	@cmd	dasher -2.5 0 0
+	frame	data/chars/xclark/dgd06.png
+	@cmd	spawn01 "dust" 5 1 1
+	frame	data/chars/xclark/dgd05.png
+	frame	data/chars/xclark/dgd04.png
+	frame	data/chars/xclark/dgd03.png
+	frame	data/chars/xclark/dgd02.png
+	frame	data/chars/xclark/dgd01.png
+	@cmd	stop
+	frame	data/chars/xclark/rise3.png
+
+
+
+
+
+#--------------------------------//-----------------------
+
+
+      
+
+anim	attack1
+	range	0 140
+	rangez	-15 15
+	loop	0
+	delay	3
+	offset	145 211
+	bbox	130 125 30 75
+	fastattack	1
+	hitfx	data/sounds/beat2.wav
+	@cmd	attackgrd -60 60 0 1 10 "ANI_FOLLOW10"
+	frame	data/chars/xclark/a01.png
+	attack	143 115 86 25 6 0 0 0 1 0
+	frame	data/chars/xclark/a02.png
+	delay	6
+	frame	data/chars/xclark/a03.png
+	attack	0 0 0 0
+	delay	3
+	frame	data/chars/xclark/a04.png
+
+
+
+
+
+
+anim	follow10
+	loop	0
+	delay	9
+	offset	145 211
+	bbox	0 0 0 0
+	jumpframe 0 2 0
+	landframe 6 dust
+	quakeframe 6 8 12
+	forcedirection	-1
+	attackone	1
+	otg	2
+	sound	data/sounds/xclark03.wav
+	hitfx	data/sounds/beat5.wav
+	hitflash	flashscreen1
+	frame	data/chars/xclark/grd01.png
+	frame	data/chars/xclark/grd02.png
+	frame	data/chars/xclark/grd03.png
+	frame	data/chars/xclark/grd04.png
+	delay	500
+	frame	data/chars/xclark/grd05.png
+	delay	10
+	attack11 110 185 90 28 50 1 0 0 40 10
+	sound	data/sounds/burn.wav
+	dropv	3 0.5
+	frame	data/chars/xclark/grd06.png
+	delay	5
+	frame	data/chars/xclark/grd07.png #6
+	frame	data/chars/xclark/grd07.png
+	frame	data/chars/xclark/grd07.png
+	frame	data/chars/xclark/grd07.png
+	frame	data/chars/xclark/grd07.png
+	frame	data/chars/xclark/grd07.png
+	attack11 0 0 0 0
+	delay	9
+	@cmd	flip
+	frame	data/chars/xclark/rise1.png
+	frame	data/chars/xclark/rise2.png
+	@cmd	flip
+	frame	data/chars/xclark/rise3.png
+	frame	data/chars/xclark/rise4.png
+
+
+
+
+
+
+anim	attack2
+	range	0 55
+	rangez	-15 15
+	loop	0
+	delay	4
+	offset	145 211
+	bbox	130 125 30 75
+	fastattack	1
+	hitfx	data/sounds/beat3.wav
+	frame	data/chars/xclark/b30.png
+	frame	data/chars/xclark/b31.png
+	attack2	135 140 68 35 20 0 0 0 15 0
+	frame	data/chars/xclark/b32.png
+	delay	5
+	frame	data/chars/xclark/b33.png
+	attack2	0 0 0 0
+	frame	data/chars/xclark/b30.png
+
+
+
+
+
+anim	attack3
+	range	0 55
+	rangez	-15 15
+	loop	0
+	delay	4
+	offset	130 212
+	bbox	118 119 30 75
+	fastattack	1
+	sound	data/sounds/xclark01.wav
+	hitfx	data/sounds/beat2.wav
+	frame	data/chars/xclark/b01.png
+	attack2	125 125 50 50 20 0 0 0 15 0
+	delay	5
+	frame	data/chars/xclark/b05.png
+	attack2	0 0 0 0
+	frame	data/chars/xclark/b02.png
+	frame	data/chars/xclark/b01.png
+
+
+
+
+anim	attack4
+	range	0 55
+	rangez	-15 15
+	loop	0
+	delay	4
+	offset	145 211
+	bbox	130 125 30 75
+	staydown	500 500
+	sound	data/sounds/xclark02.wav
+	hitfx	data/sounds/beat5.wav
+	frame	data/chars/xclark/a01.png
+	frame	data/chars/xclark/a05.png
+	frame	data/chars/xclark/a06.png
+	attack	140 110 57 42 40 1 0 0 30 15
+	dropv	2 3
+	frame	data/chars/xclark/a07.png
+	delay	15
+	frame	data/chars/xclark/a08.png
+	attack	0 0 0 0
+	delay	6
+	frame	data/chars/xclark/a07.png
+	frame	data/chars/xclark/a06.png
+	frame	data/chars/xclark/a05.png
+
+
+
+
+
+anim	attack5
+	range	55 85
+	rangez	-15 15
+	loop	0
+	delay	4
+	offset	150 211
+	bbox	130 125 30 75
+	fastattack	1
+	hitfx	data/sounds/beat3.wav
+	frame	data/chars/xclark/b40.png
+	frame	data/chars/xclark/b41.png
+	frame	data/chars/xclark/b42.png
+	attack2	143 135 90 30 20 0 0 0 10 0
+	frame	data/chars/xclark/b43.png
+	frame	data/chars/xclark/b44.png
+	attack2	0 0 0 0
+	frame	data/chars/xclark/b42.png
+	frame	data/chars/xclark/b11.png
+	frame	data/chars/xclark/b10.png
+
+
+
+
+
+
+anim	attack6
+	range	55 85
+	rangez	-15 15
+	loop	0
+	delay	4
+	offset	130 211
+	bbox	130 125 30 75
+	fastattack	1
+	sound	data/sounds/xclark01.wav
+	hitfx	data/sounds/beat3.wav
+	frame	data/chars/xclark/b01.png
+	frame	data/chars/xclark/b02.png
+	attack2	140 135 90 30 20 0 0 0 10 0
+	frame	data/chars/xclark/b02a.png
+	frame	data/chars/xclark/b03.png
+	attack2	0 0 0 0
+	frame	data/chars/xclark/b02.png
+	frame	data/chars/xclark/b01a.png
+
+
+
+anim	attack7
+	range	55 85
+	rangez	-15 15
+	loop	0
+	delay	5
+	offset	145 211
+	bbox	130 125 30 75
+	fastattack	1
+	sound	data/sounds/xclark02.wav
+	hitfx	data/sounds/beat5.wav
+	@cmd	dasher 1.2 0 0
+	frame	data/chars/xclark/a20.png
+	frame	data/chars/xclark/a21.png
+	frame	data/chars/xclark/a22.png
+	delay	6
+	@cmd	stop
+	attack	143 122 80 30 40 1 0 0 40 15
+	frame	data/chars/xclark/a23.png
+	frame	data/chars/xclark/a24.png
+.	attack	0 0 0 0
+	frame	data/chars/xclark/a25.png
+	frame	data/chars/xclark/a26.png
+	frame	data/chars/xclark/a27.png
+	frame	data/chars/xclark/a01.png
+
+
+
+anim	attack8
+	range	85 140
+	rangez	-15 15
+	loop	0
+	delay	6
+	offset	145 211
+	bbox	130 125 30 75
+	fastattack	1
+	sound	data/sounds/xclark01.wav
+	hitfx	data/sounds/beat5.wav
+	@cmd	dasher 1.2 0 0
+	frame	data/chars/xclark/b10.png
+	frame	data/chars/xclark/b11.png
+	frame	data/chars/xclark/b12.png
+	@cmd	stop
+	attack	143 119 75 45 60 1 0 0 35 15
+	dropv	2 4
+	frame	data/chars/xclark/b13.png
+	delay	8
+	frame	data/chars/xclark/b14.png
+	attack	0 0 0 0
+	frame	data/chars/xclark/b15.png
+	frame	data/chars/xclark/b16.png
+	frame	data/chars/xclark/b17.png
+	frame	data/chars/xclark/b11.png
+	frame	data/chars/xclark/b10.png
+
+
+
+
+	
+anim	attackdown
+	loop	0
+	delay	6
+	offset	145 211
+	bbox	0 0 0 0
+	frame	data/chars/xclark/dgd01.png
+	@cmd	dasher 2.5 0 0.4
+	@cmd	spawn01 "dust" 75 1 1
+	frame	data/chars/xclark/dgd02.png
+	frame	data/chars/xclark/dgd03.png
+	frame	data/chars/xclark/dgd04.png
+	frame	data/chars/xclark/dgd05.png
+	frame	data/chars/xclark/dgd06.png
+	frame	data/chars/xclark/dgd07.png
+	frame	data/chars/xclark/rise3.png
+	@cmd	stop
+	frame	data/chars/xclark/rise4.png
+
+
+anim	attackup
+	loop	0
+	delay	6
+	offset	145 211
+	bbox	0 0 0 0
+	frame	data/chars/xclark/dgd01.png
+	@cmd	dasher 2.5 0 -0.4
+	@cmd	spawn01 "dust" 75 1 1
+	frame	data/chars/xclark/dgd02.png
+	frame	data/chars/xclark/dgd03.png
+	frame	data/chars/xclark/dgd04.png
+	frame	data/chars/xclark/dgd05.png
+	frame	data/chars/xclark/dgd06.png
+	frame	data/chars/xclark/dgd07.png
+	frame	data/chars/xclark/rise3.png
+	@cmd	stop
+	frame	data/chars/xclark/rise4.png
+
+
+
+anim	jumpforward
+	loop	0
+	delay	7
+	offset	145 211
+	bbox	130 95 30 50
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/xclark04.wav
+	forcedirection	-1
+	staydown	300 300
+	frame	data/chars/xclark/jump04.png
+	frame	data/chars/xclark/jua01.png
+	attack	130 132 90 50 30 1 0 0 20 0
+	frame	data/chars/xclark/jua02.png
+	delay	30
+	frame	data/chars/xclark/jua03.png
+
+
+
+
+anim	jumpattack
+	loop	0
+	delay	9
+	offset	145 211
+	bbox	130 95 30 50
+	forcedirection	-1
+	staydown	300 300
+	sound	data/sounds/xclark03.wav
+	hitfx	data/sounds/beat3.wav
+	frame	data/chars/xclark/jua19.png
+	frame	data/chars/xclark/jua20.png
+	delay	30
+	attack	135 100 90 70 30 1 0 0 20 0
+	frame	data/chars/xclark/jua21.png
+
+
+
+
+
+anim	jumpattack2
+	loop	0
+	delay	9
+	offset	145 211
+	bbox	130 95 30 50
+	frame	data/chars/xclark/jump04.png
+	frame	data/chars/xclark/jua05.png
+	attack2	143 130 55 50 12 0 0 0 15 0
+	frame	data/chars/xclark/jua06.png
+
+
+
+
+anim	jumpattack3
+	fastattack	1
+	forcedirection	-1
+	loop	0
+	delay	8
+	offset	145 211
+	bbox	130 95 30 50
+	jumpframe 2 -2 4
+	landframe 5 dust
+	attack 0 0 0 0
+	hitfx	data/sounds/beat3.wav
+	sound	data/sounds/xclark04.wav
+
+	frame	data/chars/xclark/jump04.png
+	@cmd	leaper -1.5 1.5
+	frame	data/chars/xclark/jua10.png
+	frame	data/chars/xclark/jua11.png #2
+	delay	500
+	attack	143 122 80 55 30 1 0 0 20 0
+	frame	data/chars/xclark/jua12.png
+	@cmd	clearL
+	frame	data/chars/xclark/jua13.png
+	attack	0 0 0 0
+	delay	2
+	move	3
+	frame	data/chars/xclark/rise2.png #5
+	frame	data/chars/xclark/rise2.png
+	frame	data/chars/xclark/rise2.png
+	frame	data/chars/xclark/rise2.png
+
+	frame	data/chars/xclark/rise3.png
+	frame	data/chars/xclark/rise3.png
+	frame	data/chars/xclark/rise3.png
+	frame	data/chars/xclark/rise3.png
+	move	2
+	frame	data/chars/xclark/rise4.png
+	frame	data/chars/xclark/rise4.png
+	frame	data/chars/xclark/rise4.png
+	frame	data/chars/xclark/rise4.png
+
+
+
+
+anim	runjumpattack
+	loop	0
+	delay	15
+	offset	145 211
+	bbox	130 95 30 50
+	landframe 3
+	fastattack 1
+	forcedirection	-1
+	staydown	300 300
+	hitflash	flashscreen1
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/xclark03.wav
+	frame	data/chars/xclark/jua30.png
+	delay	9
+	frame	data/chars/xclark/jua31.png
+	sound	data/sounds/punch2.wav
+	delay	500
+	attack	130 100 80 70 25 1 0 0 40 15
+	dropv	4 3
+	frame	data/chars/xclark/jua32.png
+	delay	8
+	frame	data/chars/xclark/jua33.png #3
+	frame	data/chars/xclark/jua34.png
+
+
+
+anim	grab
+	cancel	0 3 0 d f d f A freespecial26
+	cancel	0 3 0 d f d f S freespecial26
+	loop	0
+	delay	3
+	offset	145 211
+	bbox	130 125 30 75
+	frame	data/chars/xclark/grab00.png
+	frame	data/chars/xclark/grab00.png
+	frame	data/chars/xclark/grab00.png
+	frame	data/chars/xclark/grab00.png
+
+
+anim	grabattack
+	loop	0
+	delay	5
+	offset	145 211
+	bbox	130 125 30 75
+	attack	0 0 0 0
+	frame	data/chars/xclark/grab00.png
+	delay	23
+	attack6	160 135 35 30 15 0 1 0 16 0
+	frame	data/chars/xclark/grab01.png
+
+anim	grabattack2
+	loop	0
+	delay	5
+	offset	145 211
+	bbox	130 110 30 30
+	staydown	500 500
+	fastattack 1
+	attackone 0
+	jumpframe 0 3 0.5
+	landframe 7 qfx
+	hitfx	data/sounds/empty.wav
+	movez	1
+	sound	data/sounds/xclark03.wav
+	frame	data/chars/xclark/jump02.png
+	movez	0
+	attack	125 145 70 40 0 1 1 1 0 0
+	dropv	2 0
+	frame	data/chars/xclark/jump03.png
+	attack	0 0 0 0
+	frame	data/chars/xclark/jump05.png
+	frame	data/chars/xclark/jua40.png
+	bbox	0 0 0 0
+	frame	data/chars/xclark/jua41.png
+	frame	data/chars/xclark/jua42.png
+	hitfx	data/sounds/beat5.wav
+	otg	2
+	delay	500
+	attack9	105 130 95 40 30 1 0 0 0 0
+	dropv	1 0.2
+	frame	data/chars/xclark/jua43.png
+	delay	30
+	offset	145 165
+	frame	data/chars/xclark/jua43.png #7
+	attack9	0 0 0 0
+	delay	9
+	offset	145 211
+	frame	data/chars/xclark/rise2.png
+	frame	data/chars/xclark/rise3.png
+	frame	data/chars/xclark/rise4.png
+
+
+
+
+
+
+anim	grabforward
+	loop	0
+	delay	15
+	offset	145 211
+	bbox	0 0 0 0
+	attack	0 0 0 0
+	sound	data/sounds/grab.wav
+	@cmd	slamstart
+
+	@cmd	position 10 35 49 -1 -1
+	frame	data/chars/xclark/grab00.png
+	delay	2
+	move	5
+	@cmd	position 10 30 51 1 -1
+	frame	data/chars/xclark/grab20.png
+	@cmd	position 10 25 51 1 -1
+	frame	data/chars/xclark/grab20.png
+	@cmd	position 10 20 51 1 -1
+	frame	data/chars/xclark/grab20.png
+	@cmd	position 10 15 51 1 -1
+	frame	data/chars/xclark/grab20.png
+
+
+	@cmd	position 10 10 51 1 -1
+	frame	data/chars/xclark/grab21.png
+	@cmd	position 10 5 51 1 -1
+	frame	data/chars/xclark/grab21.png
+	@cmd	position 10 0 51 1 -1
+	frame	data/chars/xclark/grab21.png
+	@cmd	position 10 -5 51 1 -1
+	frame	data/chars/xclark/grab21.png
+
+	move	0
+
+	delay	20
+	@cmd	position 13 -15 49 -1 1
+	frame	data/chars/xclark/grab22.png
+	delay	9
+	@cmd	position 10 -30 50 -1 -1
+	frame	data/chars/xclark/grab23.png
+	@cmd	antiwall 55 -10 0
+	@cmd	position 11 -35 50 -1 -1
+	frame	data/chars/xclark/grab24.png
+	@cmd	antiwall 55 -10 0
+	@cmd	position 11 -35 49 -1 -1
+	frame	data/chars/xclark/grab25.png
+	sound	data/sounds/xclark03.wav
+	@cmd	antiwall 55 -10 0
+	@cmd	position 10 -15 50 -1 -1
+	frame	data/chars/xclark/grab26.png
+	@cmd	antiwall 55 -10 0
+	@cmd	position 0 5 70 -1 -1
+	frame	data/chars/xclark/grab27.png
+	@cmd	antiwall 55 -10 0
+	@cmd	position 1 50 75 -1 -1
+	frame	data/chars/xclark/grab28.png
+	@cmd	depost 0
+	@cmd	finish 70 1 -4 0.5 0 -1
+	frame	data/chars/xclark/grab29.png
+	frame	data/chars/xclark/grab30.png
+	frame	data/chars/xclark/grab31.png
+	frame	data/chars/xclark/grab32.png
+	delay	30
+	frame	data/chars/xclark/grab33.png
+	delay	9
+	@cmd	flip
+	move	-25
+	frame	data/chars/xclark/rise1.png
+	move	0
+	frame	data/chars/xclark/rise2.png
+	@cmd	flip
+	frame	data/chars/xclark/rise3.png
+	@cmd	clearL
+	frame	data/chars/xclark/rise4.png
+
+
+	
+
+
+anim	grabbackward
+	attackone 0
+	loop	0
+	delay	20
+	offset	145 211
+	bbox	0 0 0 0
+	jumpframe 6 2.6 -3
+	landframe 10
+	attack	0 0 0 0
+
+	sound	data/sounds/grab.wav
+	@cmd	slamstart
+	@cmd	position 11 35 50 -1 1
+	frame	data/chars/xclark/grab40.png
+
+	delay	9
+	@cmd	position 10 25 55 -1 1
+	frame	data/chars/xclark/grab41.png
+	@cmd	position 0 10 75 -1 1
+	frame	data/chars/xclark/grab42.png
+	@cmd	position 0 5 85 -1 1
+	frame	data/chars/xclark/grab43.png
+	@cmd	position 0 0 87 -1 1
+	frame	data/chars/xclark/grab44.png
+	@cmd	position 0 -5 83 -1 1
+	frame	data/chars/xclark/grab45.png
+	sound	data/sounds/xclark04.wav
+	blast	85 105 80 75 8 1 0 12 15
+	@cmd	position 1 -30 85 -1 1
+	frame	data/chars/xclark/grab46.png #6
+	@cmd	position 2 -35 75 -1 1
+	frame	data/chars/xclark/grab47.png
+	@cmd	position 6 -40 60 -1 1
+	frame	data/chars/xclark/grab48.png
+	blast	0 0 0 0
+	delay	500
+	@cmd	position 14 -50 65 -1 -1
+	frame	data/chars/xclark/grab49.png
+
+	delay	3
+	@cmd	spawn01 "qfx" -35 1 1
+
+	@cmd	antiwall -15 5 0
+	@cmd	position 15 -50 55 -1 -1
+	frame	data/chars/xclark/grab50.png #10
+	@cmd	antiwall -15 5 0
+	@cmd	position 15 -50 55 -1 -1
+	frame	data/chars/xclark/grab50.png
+	@cmd	antiwall -15 5 0
+	@cmd	position 15 -50 55 -1 -1
+	frame	data/chars/xclark/grab50.png
+	@cmd	antiwall -15 5 0
+	@cmd	position 15 -50 55 -1 -1
+	frame	data/chars/xclark/grab50.png
+	@cmd	antiwall -15 5 0
+	@cmd	position 15 -50 55 -1 -1
+	frame	data/chars/xclark/grab50.png
+
+	@cmd	antiwall -15 5 0
+	@cmd	position 15 -50 55 -1 -1
+	frame	data/chars/xclark/grab51.png
+	@cmd	antiwall -15 5 0
+	@cmd	position 15 -10 15 -1 -1
+	frame	data/chars/xclark/grab51.png
+
+	delay	15
+	@cmd	depost 0
+	@cmd	finish 70 1 2 3 0 0
+	frame	data/chars/xclark/grab51.png
+
+	delay	9
+	frame	data/chars/xclark/rise1.png
+	frame	data/chars/xclark/rise2.png
+	@cmd	flip
+	frame	data/chars/xclark/rise3.png
+	@cmd	clearL
+	frame	data/chars/xclark/rise4.png
+
+
+anim	grabup
+@script
+
+   void self = getlocalvar("self");
+   void target = getlocalvar("Target" + self);
+   void THealth = getentityproperty(target,"health");
+
+   if(frame == 4)
+   {
+	bindentity(target, NULL());
+	tossentity(target, 6.5, 0, 0); // Toss opponent 
+   }
+   if(frame == 7 && THealth > 42)
+   {
+       changeentityproperty(target, "health", THealth - 40);
+   }
+@end_script
+	energycost	12
+	mponly	1
+	cancel	8 19 0 d f d f S freespecial26
+	cancel	8 19 0 d f d f A freespecial26
+	cancel	8 19 0 d b d b S freespecial26
+	cancel	8 19 0 d b d b A freespecial26
+	cancel	8 19 0 A freespecial5
+	cancel	8 19 0 J freespecial5
+	cancel	8 19 0 f A freespecial10
+	cancel	8 19 0 b A freespecial10
+	cancel	8 19 0 f J freespecial10
+	cancel	8 19 0 b J freespecial10
+	cancel	8 19 0 d A freespecial11
+	cancel	8 19 0 d J freespecial11
+	loop	0
+	delay	30
+	offset	145 211
+	bbox	0 0 0 0
+	sound	data/sounds/grab.wav
+	@cmd	slamstart
+	@cmd	position 10 50 48 -1 -1
+	frame	data/chars/xclark/grab60.png
+	delay	12
+	@cmd	position 11 20 48 -1 -1
+	frame	data/chars/xclark/grab61.png
+	@cmd	position 0 20 75 -1 1
+	frame	data/chars/xclark/grab62.png
+
+	sound	data/sounds/xclark03.wav
+
+	@cmd	position 2 0 120 1 1
+	frame	data/chars/xclark/grab63.png
+
+	delay	25
+	frame	data/chars/xclark/grab64.png #4
+	delay	12
+	frame	data/chars/xclark/grab65.png
+	delay	90
+	frame	data/chars/xclark/grab66.png
+
+	delay	20
+	#@cmd	hurt 20
+	sound	data/sounds/fall.wav
+	sound	data/sounds/break.wav
+	@cmd	spawn01 "flashscreen1" 0 80 1
+	@cmd	position 1 0 90 -1 1
+	frame	data/chars/xclark/grab67.png
+
+	delay	9
+	@cmd	position 1 0 100 -1 1
+	frame	data/chars/xclark/grab68.png #8
+	@cmd	position 1 0 100 -1 1
+	frame	data/chars/xclark/grab68.png
+	@cmd	position 1 0 100 -1 1
+	frame	data/chars/xclark/grab68.png
+	@cmd	position 1 0 100 -1 1
+	frame	data/chars/xclark/grab68.png
+	@cmd	position 1 0 100 -1 1
+	frame	data/chars/xclark/grab68.png
+	@cmd	position 1 0 100 -1 1
+	frame	data/chars/xclark/grab68.png
+	@cmd	position 1 0 100 -1 1
+	frame	data/chars/xclark/grab68.png
+	@cmd	position 1 0 100 -1 1
+	frame	data/chars/xclark/grab68.png
+	@cmd	position 1 0 100 -1 1
+	frame	data/chars/xclark/grab68.png
+	@cmd	position 1 0 100 -1 1
+	frame	data/chars/xclark/grab68.png
+	@cmd	position 1 0 100 -1 1
+	frame	data/chars/xclark/grab68.png
+	@cmd	position 1 0 100 -1 1
+	frame	data/chars/xclark/grab68.png #19
+
+	delay	8
+	sound	data/sounds/xclark04.wav
+
+	@cmd	antiwall -20 15 0
+	@cmd	position 6 -15 30 -1 1
+	frame	data/chars/xclark/grab69.png
+	@cmd	depost 0
+	@cmd	finish 30 1 -2 0 0 -1
+	frame	data/chars/xclark/grab70.png
+	delay	25
+	@cmd	clearL
+	frame	data/chars/xclark/grab71.png
+	delay	9
+	frame	data/chars/xclark/grab72.png
+	frame	data/chars/xclark/grab73.png
+	frame	data/chars/xclark/grab74.png
+	@cmd	flip
+	delay	8
+	frame	data/chars/xclark/a01.png
+
+
+
+
+anim	freespecial5
+@script
+
+   void self = getlocalvar("self");
+   void target = getlocalvar("Target" + self);
+
+   if(frame == 2)
+   {
+	bindentity(target, NULL());
+	tossentity(target, 3.5, 0, 0); // Toss opponent 
+   }
+@end_script
+	energycost	12
+	mponly	1
+	cancel	6 17 0 d f d f S freespecial26
+	cancel	6 17 0 d f d f A freespecial26
+	cancel	6 17 0 d b d b S freespecial26
+	cancel	6 17 0 d b d b A freespecial26
+	cancel	6 17 0 A freespecial6
+	cancel	6 17 0 J freespecial6
+	cancel	6 17 0 f A freespecial10
+	cancel	6 17 0 b A freespecial10
+	cancel	6 17 0 f J freespecial10
+	cancel	6 17 0 b J freespecial10
+	cancel	6 17 0 d A freespecial11
+	cancel	6 17 0 d J freespecial11
+	loop	0
+	delay	12
+	offset	145 211
+	bbox	0 0 0 0
+	@cmd	position 0 20 75 -1 1
+	frame	data/chars/xclark/grab62.png
+
+	sound	data/sounds/xclark03.wav
+
+	@cmd	position 2 0 120 1 1
+	frame	data/chars/xclark/grab63.png
+
+	delay	15
+	frame	data/chars/xclark/grab64.png #2
+	delay	9
+	frame	data/chars/xclark/grab65.png
+	delay	50
+	frame	data/chars/xclark/grab66.png
+
+	delay	20
+	@cmd	hurt 20
+	sound	data/sounds/fall.wav
+	sound	data/sounds/break.wav
+	@cmd	spawn01 "flashscreen1" 0 80 1
+	@cmd	position 1 0 90 -1 1
+	frame	data/chars/xclark/grab67.png
+
+	delay	9
+	@cmd	position 1 0 100 -1 1
+	frame	data/chars/xclark/grab68.png #6
+	@cmd	position 1 0 100 -1 1
+	frame	data/chars/xclark/grab68.png
+	@cmd	position 1 0 100 -1 1
+	frame	data/chars/xclark/grab68.png
+	@cmd	position 1 0 100 -1 1
+	frame	data/chars/xclark/grab68.png
+	@cmd	position 1 0 100 -1 1
+	frame	data/chars/xclark/grab68.png
+	@cmd	position 1 0 100 -1 1
+	frame	data/chars/xclark/grab68.png
+	@cmd	position 1 0 100 -1 1
+	frame	data/chars/xclark/grab68.png
+	@cmd	position 1 0 100 -1 1
+	frame	data/chars/xclark/grab68.png
+	@cmd	position 1 0 100 -1 1
+	frame	data/chars/xclark/grab68.png
+	@cmd	position 1 0 100 -1 1
+	frame	data/chars/xclark/grab68.png
+	@cmd	position 1 0 100 -1 1
+	frame	data/chars/xclark/grab68.png
+	@cmd	position 1 0 100 -1 1
+	frame	data/chars/xclark/grab68.png #17
+
+	delay	8
+	sound	data/sounds/xclark04.wav
+
+	@cmd	antiwall -20 15 0
+	@cmd	position 6 -15 30 -1 1
+	frame	data/chars/xclark/grab69.png
+	@cmd	depost 0
+	@cmd	finish 20 1 -2 0 0 -1
+	frame	data/chars/xclark/grab70.png
+	delay	25
+	@cmd	clearL
+	frame	data/chars/xclark/grab71.png
+	delay	9
+	frame	data/chars/xclark/grab72.png
+	frame	data/chars/xclark/grab73.png
+	frame	data/chars/xclark/grab74.png
+	@cmd	flip
+	delay	8
+	frame	data/chars/xclark/a01.png
+
+
+
+anim	freespecial6
+@script
+
+   void self = getlocalvar("self");
+   void target = getlocalvar("Target" + self);
+
+   if(frame == 2)
+   {
+	bindentity(target, NULL());
+	tossentity(target, 3.5, 0, 0); // Toss opponent 
+   }
+@end_script
+	energycost	12
+	mponly	1
+	cancel	6 17 0 d f d f S freespecial26
+	cancel	6 17 0 d f d f A freespecial26
+	cancel	6 17 0 d b d b S freespecial26
+	cancel	6 17 0 d b d b A freespecial26
+	cancel	6 17 0 A freespecial5
+	cancel	6 17 0 J freespecial5
+	cancel	6 17 0 f A freespecial10
+	cancel	6 17 0 b A freespecial10
+	cancel	6 17 0 f J freespecial10
+	cancel	6 17 0 b J freespecial10
+	cancel	6 17 0 d A freespecial11
+	cancel	6 17 0 d J freespecial11
+	loop	0
+	delay	12
+	offset	145 211
+	bbox	0 0 0 0
+	@cmd	position 0 20 75 -1 1
+	frame	data/chars/xclark/grab62.png
+
+	sound	data/sounds/xclark03.wav
+
+	@cmd	position 2 0 120 1 1
+	frame	data/chars/xclark/grab63.png
+	delay	15
+	frame	data/chars/xclark/grab64.png #2
+	delay	9
+	frame	data/chars/xclark/grab65.png
+	delay	50
+	frame	data/chars/xclark/grab66.png
+
+	delay	20
+	@cmd	hurt 20
+	sound	data/sounds/fall.wav
+	sound	data/sounds/break.wav
+	@cmd	spawn01 "flashscreen1" 0 80 1
+	@cmd	position 1 0 90 -1 1
+	frame	data/chars/xclark/grab67.png
+
+	delay	9
+	@cmd	position 1 0 100 -1 1
+	frame	data/chars/xclark/grab68.png #6
+	@cmd	position 1 0 100 -1 1
+	frame	data/chars/xclark/grab68.png
+	@cmd	position 1 0 100 -1 1
+	frame	data/chars/xclark/grab68.png
+	@cmd	position 1 0 100 -1 1
+	frame	data/chars/xclark/grab68.png
+	@cmd	position 1 0 100 -1 1
+	frame	data/chars/xclark/grab68.png
+	@cmd	position 1 0 100 -1 1
+	frame	data/chars/xclark/grab68.png
+	@cmd	position 1 0 100 -1 1
+	frame	data/chars/xclark/grab68.png
+	@cmd	position 1 0 100 -1 1
+	frame	data/chars/xclark/grab68.png
+	@cmd	position 1 0 100 -1 1
+	frame	data/chars/xclark/grab68.png
+	@cmd	position 1 0 100 -1 1
+	frame	data/chars/xclark/grab68.png
+	@cmd	position 1 0 100 -1 1
+	frame	data/chars/xclark/grab68.png
+	@cmd	position 1 0 100 -1 1
+	frame	data/chars/xclark/grab68.png #17
+
+	delay	8
+	sound	data/sounds/xclark04.wav
+	@cmd	antiwall -20 15 0
+	@cmd	position 6 -15 30 -1 1
+	frame	data/chars/xclark/grab69.png
+	@cmd	depost 0
+	@cmd	finish 20 1 -2 0 0 -1
+	frame	data/chars/xclark/grab70.png
+	delay	25
+	@cmd	clearL
+	frame	data/chars/xclark/grab71.png
+	delay	9
+	frame	data/chars/xclark/grab72.png
+	frame	data/chars/xclark/grab73.png
+	frame	data/chars/xclark/grab74.png
+	@cmd	flip
+	delay	8
+	frame	data/chars/xclark/a01.png
+
+
+
+
+
+anim	freespecial10
+@script
+	void self = getlocalvar("self");
+	int iPIndex = getentityproperty(self,"playerindex");
+
+	if (frame >= 0 && frame <= 2 )
+	{
+		if (playerkeys(iPIndex, 0, "moveleft"))
+		{
+			changeentityproperty(self, "direction", 1);
+		} 
+		else if (playerkeys(iPIndex, 0, "moveright"))
+		{
+      			changeentityproperty(self, "direction", 0);
+		}		
+	}
+@end_script
+	loop	0
+	delay	6
+	offset	145 211
+	bbox	0 0 0 0
+	jumpframe 5 3 -2
+	landframe 10
+	@cmd	position 1 0 100 -1 1
+	frame	data/chars/xclark/grab68.png
+	@cmd	position 1 0 100 -1 1
+	frame	data/chars/xclark/grab68.png
+	delay	8
+	@cmd	position 1 -5 100 -1 1
+	frame	data/chars/xclark/grab80.png
+	@cmd	position 1 -10 90 -1 1
+	frame	data/chars/xclark/grab81.png
+	@cmd	position 1 -15 100 -1 1
+	frame	data/chars/xclark/grab82.png
+	sound	data/sounds/xclark04.wav
+	@cmd	position 2 -30 100 -1 1
+	frame	data/chars/xclark/grab83.png #5
+	@cmd	position 2 -40 85 -1 1
+	frame	data/chars/xclark/grab84.png
+
+	blast	70 105 90 75 8 1 0 12 15
+	@cmd	position 14 -50 90 -1 -1
+	frame	data/chars/xclark/grab85.png
+	@cmd	position 14 -50 70 -1 -1
+	frame	data/chars/xclark/grab86.png
+	delay	500
+	@cmd	position 14 -50 60 -1 -1
+	frame	data/chars/xclark/grab87.png
+	blast	0 0 0 0
+
+	delay	8
+	@cmd	antiwall -50 15 0
+	@cmd	position 14 -50 50 -1 -1
+	frame	data/chars/xclark/grab88.png #10
+
+	@cmd	spawn01 "qfx" -40 0 2
+	@cmd	antiwall -50 15 0
+	@cmd	position 15 -50 45 -1 -1
+	frame	data/chars/xclark/grab89.png
+
+	@cmd	antiwall -50 15 0
+	@cmd	position 14 -50 45 -1 -1
+	frame	data/chars/xclark/grab89.png
+	delay	2
+	@cmd	antiwall -50 10 0
+	@cmd	position 15 -50 15 -1 1
+	frame	data/chars/xclark/grab89.png
+
+	@cmd	depost 0
+	@cmd	finish 40 1 -3 2 0 1
+	delay	40
+	frame	data/chars/xclark/grab89.png
+	delay	9
+	move	10
+	frame	data/chars/xclark/rise1.png
+	move	0
+	frame	data/chars/xclark/rise2.png
+	@cmd	flip
+	frame	data/chars/xclark/rise3.png
+	frame	data/chars/xclark/rise4.png
+
+
+anim	freespecial11
+	energycost	12
+	mponly	1
+	loop	0
+	delay	25
+	offset	145 211
+	bbox	0 0 0 0
+	sound	data/sounds/xclark03.wav
+	@cmd	position 1 -5 100 1 1
+	frame	data/chars/xclark/grab55.png
+	delay	9
+	@cmd	position 2 -5 85 1 1
+	frame	data/chars/xclark/grab56.png
+	@cmd	position 2 -5 60 1 1
+	frame	data/chars/xclark/grab57.png
+	delay	30
+	@cmd	hurt 30
+	sound	data/sounds/break2.wav
+	@cmd	spawn01 "flashscreen1" -5 10 1
+	@cmd	spawn01 "qfx" -5 0 -5
+	@cmd	position 1 -5 45 1 1
+	frame	data/chars/xclark/grab58.png
+
+	delay	15
+	@cmd	position 1 -5 45 1 1
+	frame	data/chars/xclark/grab58.png
+	@cmd	anichange "ani_freespecial12"
+	delay	5
+	@cmd	position 1 -5 45 1 1
+	frame	data/chars/xclark/grab58.png
+
+	@cmd	depost 0
+	@cmd	finish 20 1 0.5 5 0 -1
+	frame	data/chars/xclark/grab58.png
+	delay	60
+	frame	data/chars/xclark/grab58.png
+	delay	9
+	frame	data/chars/xclark/rise3.png
+	@cmd	clearL
+	frame	data/chars/xclark/rise4.png
+
+
+
+
+anim	freespecial12
+	cancel	3 14 0 d f d f S freespecial26
+	cancel	3 14 0 d f d f A freespecial26
+	cancel	3 14 0 d b d b S freespecial26
+	cancel	3 14 0 d b d b A freespecial26
+	cancel	3 14 0 A freespecial5
+	cancel	3 14 0 J freespecial5
+	cancel	3 14 0 f A freespecial10
+	cancel	3 14 0 b A freespecial10
+	cancel	3 14 0 f J freespecial10
+	cancel	3 14 0 b J freespecial10
+	cancel	3 14 0 d A freespecial11
+	cancel	3 14 0 d J freespecial11
+	loop	0
+	delay	12
+	offset	145 211
+	bbox	0 0 0 0
+
+	@cmd	position 11 30 48 -1 1
+	frame	data/chars/xclark/grab61.png
+	@cmd	position 0 20 75 -1 1
+	frame	data/chars/xclark/grab62.png
+	@cmd	position 2 0 100 -1 1
+	frame	data/chars/xclark/grab65.png
+	delay	9
+	@cmd	position 1 0 100 -1 1
+	frame	data/chars/xclark/grab68.png #3
+	@cmd	position 1 0 100 -1 1
+	frame	data/chars/xclark/grab68.png
+	@cmd	position 1 0 100 -1 1
+	frame	data/chars/xclark/grab68.png
+	@cmd	position 1 0 100 -1 1
+	frame	data/chars/xclark/grab68.png
+	@cmd	position 1 0 100 -1 1
+	frame	data/chars/xclark/grab68.png
+	@cmd	position 1 0 100 -1 1
+	frame	data/chars/xclark/grab68.png
+	@cmd	position 1 0 100 -1 1
+	frame	data/chars/xclark/grab68.png
+	@cmd	position 1 0 100 -1 1
+	frame	data/chars/xclark/grab68.png
+	@cmd	position 1 0 100 -1 1
+	frame	data/chars/xclark/grab68.png
+	@cmd	position 1 0 100 -1 1
+	frame	data/chars/xclark/grab68.png
+	@cmd	position 1 0 100 -1 1
+	frame	data/chars/xclark/grab68.png
+	@cmd	position 1 0 100 -1 1
+	frame	data/chars/xclark/grab68.png #14
+
+	delay	8
+	sound	data/sounds/xclark04.wav
+
+	@cmd	antiwall -20 15 0
+	@cmd	position 6 -15 30 -1 1
+	frame	data/chars/xclark/grab69.png
+	@cmd	depost 0
+	@cmd	finish 20 1 -2 0 0 -1
+	frame	data/chars/xclark/grab70.png
+	delay	25
+	@cmd	clearL
+	frame	data/chars/xclark/grab71.png
+	delay	9
+	frame	data/chars/xclark/grab72.png
+	frame	data/chars/xclark/grab73.png
+	frame	data/chars/xclark/grab74.png
+	@cmd	flip
+	delay	8
+	frame	data/chars/xclark/a01.png
+
+
+
+
+
+
+anim	grabdown
+	loop	0
+	delay	20
+	offset	145 211
+	bbox	0 0 0 0
+
+	sound	data/sounds/grab.wav
+	@cmd	slamstart
+	@cmd	position 11 30 50 -1 1
+	frame	data/chars/xclark/grab40.png
+
+	delay	9
+	@cmd	position 10 25 60 -1 1
+	frame	data/chars/xclark/grab41.png
+
+	@cmd	position 4 15 90 1 1
+	frame	data/chars/xclark/grab55.png
+	@cmd	position 3 10 100 1 1
+	frame	data/chars/xclark/grab55.png
+
+	@cmd	flip
+	sound	data/sounds/xclark03.wav
+	@cmd	position 6 -5 100 1 1
+	frame	data/chars/xclark/grab55.png
+
+	delay	15
+	@cmd	position 1 -5 100 1 1
+	frame	data/chars/xclark/grab55.png
+
+	delay	9
+	@cmd	position 2 -5 85 1 1
+	frame	data/chars/xclark/grab56.png
+	@cmd	position 2 -5 60 1 1
+	frame	data/chars/xclark/grab57.png
+
+	delay	20
+	sound	data/sounds/break2.wav
+	@cmd	spawn01 "flashscreen1" -5 10 1
+	@cmd	spawn01 "qfx" -5 0 -5
+
+	@cmd	position 1 -5 45 1 1
+	frame	data/chars/xclark/grab58.png
+	delay	2
+	@cmd	antiwall -5 10 0
+	@cmd	position 1 -5 10 1 1
+	frame	data/chars/xclark/grab58.png
+
+	@cmd	depost 0
+	@cmd	finish 50 1 0.5 5 0 -1
+	frame	data/chars/xclark/grab58.png
+	delay	60
+	frame	data/chars/xclark/grab58.png
+	delay	9
+	frame	data/chars/xclark/rise3.png
+	@cmd	clearL
+	frame	data/chars/xclark/rise4.png
+
+
+
+
+
+
+#--------------//--//--POWER-ATTACK--//--//--------------------
+
+anim	freespecial26
+@script
+	void self = getlocalvar("self");
+	int iPIndex = getentityproperty(self,"playerindex");
+	int dir = getentityproperty(self, "direction");
+	float V = 2;
+	float xdir = -2;
+	float zdir = 0;
+
+if (frame > 15 && frame < 32 )
+{
+	if (playerkeys(iPIndex, 0, "moveleft"))
+	{
+		changeentityproperty(self, "direction", 1);
+	} 
+	else if (playerkeys(iPIndex, 0, "moveright"))
+	{
+		changeentityproperty(self, "direction", 0);
+	}
+
+	if(playerkeys(iPIndex, 0, "moveup"))
+	{
+		zdir = -V/2;
+	} 
+	else if(playerkeys(iPIndex, 0, "movedown"))
+	{
+		zdir = V/2;
+	}
+
+	if ( dir == 0 )
+	{
+		changeentityproperty(self, "velocity", 2.5, zdir);
+	}
+	else if ( dir == 1 )
+	{
+		changeentityproperty(self, "velocity", -2.5, zdir);
+	}
+}
+@end_script
+	energycost	30
+	mponly	1
+	loop	0
+	delay	20
+	offset	145 211
+	bbox	0 0 0 0
+	jumpframe 42 6 -1
+	landframe 49 qfx
+	sound	data/sounds/super1.wav
+	@cmd	spawnAni2 "allsp" 1 1 1 2 "ANI_FOLLOW1"
+	@cmd	slamstart2
+	@cmd	position 10 35 49 -1 -1
+	frame	data/chars/xclark/grab00.png
+	delay	9
+	sound	data/sounds/grab.wav
+#--------//---HOOP---//----------------------
+	@cmd	position 10 30 50 -1 1
+	frame	data/chars/xclark/pw10.png #1
+	@cmd	position 11 25 50 1 1
+	frame	data/chars/xclark/pw11.png
+	@cmd	position 4 0 70 1 1
+	frame	data/chars/xclark/pw12.png
+	sound	data/sounds/xclark03.wav
+	@cmd	position 3 -5 90 1 1
+	frame	data/chars/xclark/pw13.png
+	@cmd	position 6 -10 100 1 1
+	frame	data/chars/xclark/pw14.png
+
+#--------//---CLACK-POINT--//----------------------
+	@cmd	position 2 0 110 -1 1
+	frame	data/chars/xclark/pw15.png #6
+	@cmd	position 1 5 110 -1 1
+	frame	data/chars/xclark/pw16.png
+	@cmd	position 1 5 112 -1 1
+	frame	data/chars/xclark/pw17.png
+	@cmd	position 1 5 105 -1 1
+	frame	data/chars/xclark/pw18.png
+	@cmd	position 1 3 105 -1 1
+	frame	data/chars/xclark/pw19.png
+	@cmd	position 1 0 105 -1 1
+	frame	data/chars/xclark/pw20.png
+
+	delay	20
+	@cmd	position 1 0 105 -1 1
+	frame	data/chars/xclark/pw30.png
+
+
+#--------//---WALK---//----------------------
+	delay	9
+	@cmd	position 1 15 110 -1 1
+	frame	data/chars/xclark/pw31.png #13
+	@cmd	position 1 17 108 -1 1
+	frame	data/chars/xclark/pw32.png
+
+#------------//--RUN--//------------------------
+	delay	8
+	@cmd	position 1 -0 95 -1 1
+	frame	data/chars/xclark/pw33.png #15
+
+	blast	105 120 80 50 8 1 0 15 10
+
+	@cmd	position 1 -5 100 -1 1
+	frame	data/chars/xclark/pw34.png
+	@cmd	position 1 -2 98 -1 1
+	frame	data/chars/xclark/pw35.png
+	sound	data/sounds/fall02.wav
+	@cmd	spawn01 "dust" 1 1 1
+	@cmd	position 1 -0 96 -1 1
+	frame	data/chars/xclark/pw36.png
+	@cmd	position 1 -2 98 -1 1
+	frame	data/chars/xclark/pw37.png
+	@cmd	position 1 -0 98 -1 1
+	frame	data/chars/xclark/pw38.png
+	sound	data/sounds/fall02.wav
+	@cmd	spawn01 "dust" 1 1 1
+
+	@cmd	position 1 -0 95 -1 1
+	frame	data/chars/xclark/pw33.png #21
+	@cmd	position 1 -5 100 -1 1
+	frame	data/chars/xclark/pw34.png
+	@cmd	position 1 -2 98 -1 1
+	frame	data/chars/xclark/pw35.png
+	sound	data/sounds/fall02.wav
+	@cmd	spawn01 "dust" 1 1 1
+	@cmd	position 1 -0 96 -1 1
+	frame	data/chars/xclark/pw36.png
+	@cmd	position 1 -2 98 -1 1
+	frame	data/chars/xclark/pw37.png
+	@cmd	position 1 -0 98 -1 1
+	frame	data/chars/xclark/pw38.png
+	sound	data/sounds/fall02.wav
+	@cmd	spawn01 "dust" 1 1 1
+
+	@cmd	position 1 -0 95 -1 1
+	frame	data/chars/xclark/pw33.png #27
+	@cmd	position 1 -5 100 -1 1
+	frame	data/chars/xclark/pw34.png
+	@cmd	position 1 -2 98 -1 1
+	frame	data/chars/xclark/pw35.png
+	sound	data/sounds/fall02.wav
+	@cmd	spawn01 "dust" 1 1 1
+	@cmd	position 1 -0 96 -1 1
+	frame	data/chars/xclark/pw36.png
+	@cmd	position 1 -2 98 -1 1
+	frame	data/chars/xclark/pw37.png
+	@cmd	position 1 -0 98 -1 1
+	frame	data/chars/xclark/pw38.png #32
+	sound	data/sounds/fall02.wav
+	@cmd	spawn01 "dust" 1 1 1
+
+#--------//---RUN2-HOOP--//----------------------
+
+	delay	12
+	@cmd	stop
+	@cmd	dasher -3 0 0
+	sound	data/sounds/xclark04.wav
+	@cmd	position 2 -15 120 -1 1
+	frame	data/chars/xclark/pw40.png #33
+	@cmd	position 2 -10 115 -1 1
+	frame	data/chars/xclark/pw41.png
+	@cmd	position 2 -5 95 -1 1
+	frame	data/chars/xclark/pw42.png
+	@cmd	stop
+
+#--------//---CLACK-POINT--//----------------------
+	delay	10
+	@cmd	spawn01 "qfx" -30 1 1
+	@cmd	spawn01 "flashscreen1" -30 1 1
+	sound	data/sounds/fall3.wav
+	@cmd	position 14 -40 45 -1 -1
+	frame	data/chars/xclark/pw43.png #36
+	delay	20
+	@cmd	position 15 -40 45 -1 -1
+	frame	data/chars/xclark/pw44.png
+	delay	10
+	@cmd	position 14 -40 45 -1 -1
+	frame	data/chars/xclark/pw45.png
+	@cmd	position 14 -40 45 -1 -1
+	frame	data/chars/xclark/pw46.png
+	blast	0 0 0 0
+
+#--------//---CLACK-AGAIN--//----------------------
+	delay	12
+	@cmd	position 4 -10 35 -1 1
+	frame	data/chars/xclark/pw47.png #40
+	@cmd	flip
+	@cmd	looper 1 4
+
+
+
+#--------//---FINAL-CLACK--//----------------------
+	delay	12
+	#@cmd	flip
+	sound	data/sounds/grab.wav
+	@cmd	position 0 15 65 -1 1
+	frame	data/chars/xclark/pw50.png
+	@cmd	position 1 -10 115 -1 1
+	frame	data/chars/xclark/pw51.png #42
+	sound	data/sounds/xclark02.wav
+	@cmd	position 0 -5 90 -1 1
+	frame	data/chars/xclark/pw52.png
+	sound	data/sounds/xclark02.wav
+	@cmd	position 2 -30 80 -1 1
+	frame	data/chars/xclark/pw53.png
+	sound	data/sounds/xclark02.wav
+	@cmd	position 14 -30 50 -1 -1
+	frame	data/chars/xclark/pw54.png
+	sound	data/sounds/xclark02.wav
+	delay	5
+	@cmd	antiwall -25 10 0
+	@cmd	position 14 -25 45 -1 -1
+	frame	data/chars/xclark/pw55.png
+	@cmd	antiwall -25 10 0
+	@cmd	position 14 -25 45 -1 -1
+	frame	data/chars/xclark/pw55.png
+	delay	500
+
+	blast	105 120 80 85 8 1 0 15 10
+	@cmd	antiwall -25 10 0
+	@cmd	position 14 -25 45 -1 -1
+	frame	data/chars/xclark/pw55.png
+
+	delay	50
+	sound	data/sounds/fall2.wav
+	@cmd	spawn01 "flashscreen2" -10 1 1
+	@cmd	position 15 -25 45 -1 -1
+	frame	data/chars/xclark/pw56.png #49
+	blast	0 0 0 0
+
+	delay	12
+	sound	data/sounds/xclark01.wav
+	@cmd	depost 0
+	@cmd	finish 200 1 1 4 0 -1
+	frame	data/chars/xclark/pw57.png
+	@cmd	clearL
+	sound	data/sounds/xclark01.wav
+	frame	data/chars/xclark/pw58.png
+	sound	data/sounds/xclark01.wav
+	frame	data/chars/xclark/pw59.png
+	sound	data/sounds/xclark01.wav
+	frame	data/chars/xclark/pw60.png
+	delay	80
+	frame	data/chars/xclark/pw61.png
+	delay	12
+	frame	data/chars/xclark/pw60.png
+	frame	data/chars/xclark/pw59.png
+	delay	9
+	frame	data/chars/xclark/rise2.png
+	frame	data/chars/xclark/rise3.png
+	frame	data/chars/xclark/rise4.png
+
+
+anim	grabbed
+	loop	0
+	delay	10
+	offset	145 211
+	bbox	130 125 30 75
+	frame	data/chars/xclark/pain3.png	
+		
+
+		
+anim	rise
+	loop	0
+	delay	25
+	offset	145 211
+	bbox	0 0 0 0
+	frame	data/chars/xclark/fall4.png
+	delay	9
+	frame	data/chars/xclark/rise1.png
+	frame	data/chars/xclark/rise2.png
+	frame	data/chars/xclark/rise3.png
+	frame	data/chars/xclark/rise4.png
+
+
+
+
+anim	respawn
+	loop	0
+	delay	30
+	offset	145 211
+	bbox	0 0 0 0
+	frame	data/chars/xclark/spw10.png
+	delay	9
+	frame	data/chars/xclark/spw11.png
+	frame	data/chars/xclark/spw12.png
+	delay	60
+	sound	data/sounds/xclarkTlk01.wav
+	frame	data/chars/xclark/spw13.png
+	delay	9
+	frame	data/chars/xclark/spw12.png
+	frame	data/chars/xclark/spw11.png
+
+
+anim	spawn
+	loop	0
+	delay	30
+	offset	145 211
+	bbox	0 0 0 0
+	frame	data/chars/xclark/spw01.png
+	delay	9
+	frame	data/chars/xclark/spw02.png
+	frame	data/chars/xclark/spw03.png
+	delay	60
+	sound	data/sounds/xclarkTlk01.wav
+	frame	data/chars/xclark/spw04.png
+	delay	9
+	frame	data/chars/xclark/spw03.png
+	frame	data/chars/xclark/spw02.png
+	frame	data/chars/xclark/spw01.png
+
+
+
+anim	charge
+	loop	0
+	delay	20
+	offset	145 211
+	bbox	130 125 30 75
+	sound	data/sounds/xclark05.wav
+	frame	data/chars/xclark/chg01.png
+	delay	6
+	frame	data/chars/xclark/chg05.png
+	frame	data/chars/xclark/chg06.png
+	frame	data/chars/xclark/chg07.png
+	frame	data/chars/xclark/chg08.png
+	@cmd	updateframe getlocalvar("self") 1
+	delay	8
+	frame	data/chars/xclark/chg02.png
+	frame	data/chars/xclark/chg03.png
+
+
+
+
+
+
+
+anim	freespecial29
+@script
+	void self = getlocalvar("self");
+	int mp1 = getentityproperty(self,"mp");
+	void plyr = getentityproperty(self, "playerindex");
+
+	if(frame > 4 && playerkeys(plyr, 0, "attack3"))
+	{
+	  updateframe(self, 1);
+	}
+@end_script
+	loop	0
+	delay	10
+	offset	145 211
+	bbox	130 125 30 75
+	sound	data/sounds/xclark05.wav
+	frame	data/chars/xclark/chg01.png
+	delay	6
+	@cmd	mpgain 3
+	frame	data/chars/xclark/chg05.png #1
+	frame	data/chars/xclark/chg06.png
+	@cmd	mpgain 3
+	frame	data/chars/xclark/chg07.png
+	frame	data/chars/xclark/chg08.png #4
+
+	delay	8
+	frame	data/chars/xclark/chg02.png
+	frame	data/chars/xclark/chg03.png
+
+
+
+
+
+
+anim	special
+	energycost	30
+	mponly	1
+	loop	0
+	delay	8
+	offset	145 211
+	bbox	0 0 0 0
+	sound	data/sounds/super8.wav
+	frame	data/chars/xclark/pw70.png
+	frame	data/chars/xclark/pw71.png
+	@cmd	spawnGun5 "plgrdaim" -5 0 6 4 "ANI_FOLLOW4"
+	frame	data/chars/xclark/pw72.png
+	frame	data/chars/xclark/pw73.png
+	frame	data/chars/xclark/pw74.png
+	frame	data/chars/xclark/pw75.png
+	frame	data/chars/xclark/pw76.png
+	frame	data/chars/xclark/pw77.png
+	frame	data/chars/xclark/pw78.png
+	sound	data/sounds/fatal2.wav
+	frame	data/chars/xclark/pw79.png
+	frame	data/chars/xclark/pw80.png
+	delay	50
+	frame	data/chars/xclark/pw81.png
+	delay	5
+	frame	data/chars/xclark/pw81.png
+	@cmd	spawnGun2 "plgrdaim" 240 1 180 3 "ANI_FOLLOW1"
+	frame	data/chars/xclark/pw81.png
+	delay	1200
+	frame	data/chars/xclark/pw81.png
+	delay	5
+	frame	data/chars/xclark/pw81.png
+	@cmd	killgun 3 1000
+	frame	data/chars/xclark/pw80.png
+	delay	50
+	frame	data/chars/xclark/pw81.png
+	delay	8
+	frame	data/chars/xclark/pw79.png
+	frame	data/chars/xclark/pw78.png
+	frame	data/chars/xclark/pw77.png
+	frame	data/chars/xclark/pw76.png
+	frame	data/chars/xclark/pw75.png
+	frame	data/chars/xclark/pw74.png
+	@cmd	killgun 4 1000
+	frame	data/chars/xclark/pw73.png
+	frame	data/chars/xclark/pw72.png
+	frame	data/chars/xclark/pw71.png
+	@cmd	clearL
+	frame	data/chars/xclark/pw70.png
+
+
+
+anim	runattack
+	loop	0
+	delay	6
+	offset	145 211
+	bbox	130 125 30 75
+	fastattack	1
+	forcedirection	-1
+	@cmd	dasher 3 0 0
+	hitfx	data/sounds/beat5.wav
+	@cmd	dasher 3 0 0
+	sound	data/sounds/xclark04.wav
+	frame	data/chars/xclark/b19.png
+	frame	data/chars/xclark/b20.png
+	sound	data/sounds/punch3.wav
+	frame	data/chars/xclark/b21.png
+	attack8	135 115 47 50 5 0 0 0 15 0
+	frame	data/chars/xclark/b22.png
+	frame	data/chars/xclark/b22a.png
+	attack8	0 0 0 0
+	frame	data/chars/xclark/b23.png
+	delay	7
+	blast	125 92 62 70 30 0 0 25 0
+	dropv	2 5
+	@cmd	dasher 2 0 0
+	frame	data/chars/xclark/b24.png
+	@cmd	dasher 1 0 0
+	frame	data/chars/xclark/b24.png
+	delay	15
+	@cmd	stop
+	frame	data/chars/xclark/b24.png
+	blast	0 0 0 0
+	delay	8
+	frame	data/chars/xclark/b23.png
+	frame	data/chars/xclark/b25.png
+	offset	140 211
+	frame	data/chars/xclark/b01a.png
+
+
+
+
+
+
+anim	runslide
+	loop	0
+	delay	8
+	offset	145 211
+	bbox	130 175 30 25
+	forcedirection	-1
+	staydown 300 300
+	hitfx	data/sounds/beat5.wav
+	@cmd	dasher 3.5 0 0
+	frame	data/chars/xclark/rise3.png
+	sound	data/sounds/xclark04.wav
+	frame	data/chars/xclark/sld02.png
+	frame	data/chars/xclark/sld03.png
+	frame	data/chars/xclark/sld04.png
+	delay	15
+	attack	135 115 95 65 30 1 0 0 25 15
+	dropv	2 4
+	frame	data/chars/xclark/sld05.png
+	@cmd	dasher 2 0 0
+	frame	data/chars/xclark/sld05.png
+	delay	9
+	frame	data/chars/xclark/sld06.png
+	attack	0 0 0 0
+	delay	7
+	frame	data/chars/xclark/sld07.png
+	delay	6
+	frame	data/chars/xclark/sld08.png
+	@cmd	dasher 1 0 0
+	frame	data/chars/xclark/sld09.png
+	frame	data/chars/xclark/sld10.png
+	@cmd	stop
+	frame	data/chars/xclark/sld11.png
+
+	frame	data/chars/xclark/rise2.png
+	frame	data/chars/xclark/rise3.png
+	frame	data/chars/xclark/rise4.png
+
+
+
+#--------------------------//-----------------------
+
+anim	waiting
+	shadowcoords -500 -500
+	loop	1
+	delay	12
+	offset	0 0
+	frame	data/chars/xclark/xwait1.png
+
+
+
+
+anim	select
+	shadowcoords -500 -500
+	loop	0
+	delay	5
+	offset	0 0
+	sound	data/sounds/blink.wav
+	frame	data/chars/xclark/xwait2.png
+
+	sound	data/sounds/xclarkTlk01.wav
+
+	frame	data/chars/xclark/xwait3.png
+	frame	data/chars/xclark/xwait2.png #2
+	frame	data/chars/xclark/xwait3.png
+	@cmd	looper 2 10
+	delay	100
+	frame	data/chars/xclark/xwait2.png
+
+#--------------------------//-----------------------
+
+anim	pain
+	loop	0
+	delay	3
+	offset	145 211
+	bbox	130 125 30 75
+	frame	data/chars/xclark/pain1.png
+	offset	140 211
+	frame	data/chars/xclark/pain2.png
+	offset	146 211
+	frame	data/chars/xclark/pain2.png
+	offset	145 211
+	frame	data/chars/xclark/pain2.png
+
+		
+anim	pain2
+	loop	0
+	delay	3
+	offset	145 211
+	bbox	130 125 30 75
+	frame	data/chars/xclark/pain3.png
+	offset	140 211
+	frame	data/chars/xclark/pain4.png
+	offset	146 211
+	frame	data/chars/xclark/pain4.png
+	offset	145 211
+	frame	data/chars/xclark/pain4.png
+		
+anim	pain3
+	loop	0
+	delay	2
+	offset	145 211
+	bbox	130 125 30 75
+	move	-6
+	frame	data/chars/xclark/pain1.png
+	frame	data/chars/xclark/pain1.png
+	frame	data/chars/xclark/pain1.png
+	frame	data/chars/xclark/pain2.png
+	frame	data/chars/xclark/pain2.png
+	frame	data/chars/xclark/pain2.png
+	move	-4
+	frame	data/chars/xclark/pain1.png
+	frame	data/chars/xclark/pain1.png
+	frame	data/chars/xclark/pain1.png
+	frame	data/chars/xclark/pain3.png
+	frame	data/chars/xclark/pain3.png
+	move	-2
+	frame	data/chars/xclark/pain3.png
+	frame	data/chars/xclark/pain4.png
+	frame	data/chars/xclark/pain4.png
+	delay	50
+	frame	data/chars/xclark/pain4.png
+
+
+anim	pain5
+	loop	0
+	delay	12
+	offset	145 211
+	bbox	130 125 30 75
+	frame	data/chars/xclark/pain1.png
+	frame	data/chars/xclark/pain2.png
+	frame	data/chars/xclark/pain3.png
+	frame	data/chars/xclark/pain4.png
+	frame	data/chars/xclark/rise3.png
+	delay	30
+	frame	data/chars/xclark/rise2.png
+	delay	12
+	frame	data/chars/xclark/rise3.png
+	frame	data/chars/xclark/rise4.png
+		
+	
+
+		
+anim	burn
+	loop	0
+	delay	30
+	offset	145 211
+	bbox	0 0 0 0
+	landframe 3
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 200_50_0
+	@cmd	spawnbind "burn1" 1 1 1
+	@cmd	spawnbind "burn2" 1 1 1
+	@cmd	spawnbind "burn3" 1 1 1
+	attack	130 130 29 43 5 1 0 0 13 0
+	frame	data/chars/xclark/fall1.png
+	frame	data/chars/xclark/fall2.png
+	delay	500
+	frame	data/chars/xclark/fall3.png
+	attack	0 0 0 0
+	delay	10
+	offset	145 210
+	frame	data/chars/xclark/fall4.png
+	delay	50
+	offset	145 211
+	frame	data/chars/xclark/fall4.png
+
+
+anim	fall
+	loop	0
+	delay	30
+	offset	145 211
+	bbox	0 0 0 0
+	landframe 3
+	sound	data/sounds/xclarkPain01.wav
+	attack	130 130 29 43 5 1 0 0 13 0
+	frame	data/chars/xclark/fall1.png
+	frame	data/chars/xclark/fall2.png
+	delay	500
+	frame	data/chars/xclark/fall3.png
+	attack	0 0 0 0
+	delay	10
+	offset	145 210
+	frame	data/chars/xclark/fall4.png
+	delay	50
+	offset	145 211
+	frame	data/chars/xclark/fall4.png
+		
+		
+anim	fall2
+	loop	0
+	delay	30
+	offset	145 211
+	bbox	0 0 0 0
+	sound	data/sounds/xclarkPain01.wav
+	landframe 3 dust
+	attack	130 130 29 43 5 1 0 0 13 0
+	frame	data/chars/xclark/pain4.png
+	frame	data/chars/xclark/fall2.png
+	delay	500
+	frame	data/chars/xclark/fall3.png
+	attack	0 0 0 0
+	delay	10
+	offset	145 210
+	frame	data/chars/xclark/fall4.png
+	delay	50
+	offset	145 211
+	frame	data/chars/xclark/fall4.png
+
+
+anim	fall3
+	loop	0
+	delay	30
+	offset	145 211
+	bbox	120 125 30 75
+	sound	data/sounds/xclarkPain01.wav
+	landframe	3 dust
+	attack	130 130 29 43 5 1 0 0 13 20
+	frame	data/chars/xclark/pain4.png
+	bbox	115 133 60 40
+	frame	data/chars/xclark/fall2.png
+	delay	500
+	bbox	110 145 50 50
+	frame	data/chars/xclark/fall3.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	delay	10
+	offset	145 210
+	bbox	100 186 80 25
+	frame	data/chars/xclark/fall4.png
+	delay	50
+	offset	145 211
+	bbox	0 0 0 0
+	frame	data/chars/xclark/fall4.png
+
+
+
+		
+anim	fall7
+	delay	1000
+	offset	45 95
+	bbox	0 0 0 0
+	frame	data/chars/xclark/slam0.png
+	offset	45 95
+	frame	data/chars/xclark/slam1.png
+	offset	50 85
+	frame	data/chars/xclark/slam2.png
+	offset	45 95
+	frame	data/chars/xclark/slam3.png
+	offset	45 95
+	frame	data/chars/xclark/slam4.png
+	offset	75 55
+	frame	data/chars/xclark/slam5.png
+	offset	40 80
+	frame	data/chars/xclark/slam6.png
+	offset	20 90
+	frame	data/chars/xclark/slam7.png
+	offset	65 55
+	frame	data/chars/xclark/slam8.png
+	offset	65 83
+	frame	data/chars/xclark/slam9.png
+	offset	65 83
+	frame	data/chars/xclark/slam10.png
+	offset	20 90
+	frame	data/chars/xclark/slam11.png
+	offset	75 55
+	frame	data/chars/xclark/slam12.png
+	offset	75 55
+	frame	data/chars/xclark/slam13.png
+	offset	50 85
+	frame	data/chars/xclark/slam14.png
+	offset	45 95
+	frame	data/chars/xclark/slam15.png
+	offset	55 70
+	frame	data/chars/xclark/slam16.png
+	offset	65 83
+	frame	data/chars/xclark/slam17.png
+	offset	65 83
+	frame	data/chars/xclark/slam18.png
+	offset	45 95
+	frame	data/chars/xclark/slam19.png
+	offset	45 95
+	frame	data/chars/xclark/slam20.png
+	offset	45 95
+	frame	data/chars/xclark/slam21.png
+	offset	45 95
+	frame	data/chars/xclark/slam22.png
+	offset	59 85
+	frame	data/chars/xclark/slam23.png
+	offset	59 80
+	frame	data/chars/xclark/slam24.png
+	offset	45 95
+	bbox	25 10 60 80
+	frame	data/chars/xclark/slambbox1.png
+	bbox	0 0 0 0
+
+
+
+anim	fall9
+	loop	0
+	delay	9
+	offset	145 211
+	bbox	0 0 0 0
+	landframe	14
+	sound	data/sounds/xclarkPain01.wav
+	frame	data/chars/xclark/fall6.png
+	frame	data/chars/xclark/fall7.png
+	frame	data/chars/xclark/fall8.png
+	frame	data/chars/xclark/fall9.png
+	frame	data/chars/xclark/fall6.png
+	frame	data/chars/xclark/fall7.png
+	frame	data/chars/xclark/fall8.png
+	frame	data/chars/xclark/fall9.png
+	frame	data/chars/xclark/fall6.png
+	frame	data/chars/xclark/fall7.png
+	frame	data/chars/xclark/fall8.png
+	frame	data/chars/xclark/fall9.png
+	frame	data/chars/xclark/fall6.png
+	delay	300
+	frame	data/chars/xclark/fall7.png
+	delay	15
+	frame	data/chars/xclark/fall4.png
+
+anim	death
+	loop	0
+	delay	40
+	offset	145 211
+	bbox	0 0 0 0
+	sound	data/sounds/xclarkPain01.wav
+	frame	data/chars/xclark/fall4.png
+	delay	10
+	frame	data/chars/xclark/rise1.png
+	frame	data/chars/xclark/rise2.png
+	frame	data/chars/xclark/rise3.png
+	frame	data/chars/xclark/pain4.png
+	sound	data/sounds/xclarkDeth.wav
+	frame	data/chars/xclark/pain3.png
+	frame	data/chars/xclark/fall1.png
+	frame	data/chars/xclark/fall2.png
+	frame	data/chars/xclark/fall3.png
+	delay	60
+	frame	data/chars/xclark/fall4.png
+
+
+anim	get
+	delay	9
+	offset	145 211
+	bbox	0 0 0 0
+	frame	data/chars/xclark/rise3.png
+	delay	20
+	frame	data/chars/xclark/get01.png
+	delay	9
+	frame	data/chars/xclark/rise3.png
+	frame	data/chars/xclark/rise4.png
+
+
+

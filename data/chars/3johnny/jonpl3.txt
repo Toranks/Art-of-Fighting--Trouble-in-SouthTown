@@ -1,6 +1,6 @@
 name		jonpl3
 type		player
-health		700
+health		500
 mp		200
 mprate		2
 speed		12
@@ -21,7 +21,7 @@ holdblock 	1
 dust            dust
 candamage	enemy obstacle
 projectilehit 	enemy
-weapons		jonyrod2 jonpl2 jonpl1 Ryofall ryowtr ryovent mapcurs mrzero
+weapons		jonyrod2 jonpl2 Ryobike2 Ryofall ryowtr ryovent mapcurs mrzero jonpl3 jackpl
 diesound        data/sounds/die6.wav
 atchain         1 2 3 0
 combostyle      0
@@ -36,17 +36,50 @@ palette		data/chars/3johnny/mapal.gif
 alternatepal	data/chars/3johnny/map1.gif
 
 
+com	a2	freespecial15
 com	d f a	freespecial1
 com	f d f a	freespecial2
 com	f d a	freespecial3
 com	f d s	freespecial4
+
 com	d u d u s freespecial10
 com	u d u d s freespecial20
-com	a2	  freespecial15
+com	d u d u j freespecial30
+
 
 
 load	bullnpc
 load	mine1
+
+
+
+anim	freespecial30
+	energycost	55
+	mponly	1
+	weaponframe	14 10
+	loop	0
+	delay	9
+	offset	101 190
+	bbox	0 0 0 0
+	frame	data/chars/3johnny/taunt01.gif
+	frame	data/chars/3johnny/taunt02.gif
+	frame	data/chars/3johnny/taunt03.gif
+	frame	data/chars/3johnny/taunt04.gif
+	frame	data/chars/3johnny/taunt05.gif
+	frame	data/chars/3johnny/taunt05.gif
+	delay	5
+	frame	data/chars/3johnny/empty.gif
+	frame	data/chars/3johnny/taunt05.gif
+	frame	data/chars/3johnny/empty.gif
+	frame	data/chars/3johnny/taunt05.gif
+	frame	data/chars/3johnny/empty.gif
+	frame	data/chars/3johnny/taunt05.gif
+	frame	data/chars/3johnny/empty.gif
+	frame	data/chars/3johnny/taunt05.gif
+	frame	data/chars/3johnny/empty.gif    #14
+	frame	data/chars/3johnny/taunt05.gif
+
+
 
 anim	freespecial15
 	loop	0
@@ -59,7 +92,7 @@ anim	freespecial15
 	frame	data/chars/3johnny/taunt04.gif
 	frame	data/chars/3johnny/taunt05.gif
 	frame	data/chars/3johnny/taunt05.gif
-	@cmd	spawnAni2 "movelist" 240 300 440 "ANI_FOLLOW5"
+	@cmd	spawnAni2 "movelist" 1 1 1 "ANI_FOLLOW13"
 	frame	data/chars/3johnny/taunt05.gif
 	frame	data/chars/3johnny/taunt05.gif
 	frame	data/chars/3johnny/taunt04.gif
@@ -93,7 +126,7 @@ anim	freespecial10
 
 anim	freespecial20
 	energycost	30 1
-	weaponframe	11 3
+	weaponframe	11 9
 	loop	0
 	delay	8
 	offset	101 190

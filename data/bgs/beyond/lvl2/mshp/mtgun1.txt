@@ -6,6 +6,7 @@ nomove		1 1
 jumpheight	0
 nopain		1
 noquake		1
+nolife          1
 falldie		1
 nodieblink	3
 makeinv		3
@@ -26,7 +27,9 @@ alternatepal       data/bgs/beyond/lvl2/mshp/msdwmp1.gif
 load	lashot1
 load	lsrall
 load	expeff1
-load	gas
+#load	gas
+load	neo
+
 
 
 
@@ -147,17 +150,17 @@ anim	attack1
 	loop	1
 	delay	5
 	offset	72 165
-	bbox	60 55 25 30 4
-	@cmd	damage 50 "ANI_FOLLOW15"
+	bbox	60 55 25 30 20
+	@cmd	damage 40 "ANI_FOLLOW15"
 	frame	data/bgs/beyond/lvl2/mshp/1gn03.gif
 	@cmd	attack3 80 300 -32 22 "ANI_FOLLOW1"
-	@cmd	damage 50 "ANI_FOLLOW15"
+	@cmd	damage 40 "ANI_FOLLOW15"
 	frame	data/bgs/beyond/lvl2/mshp/1gn03.gif
 	@cmd	attack3 -75 75 -37 22 "ANI_FOLLOW2"
-	@cmd	damage 50 "ANI_FOLLOW15"
+	@cmd	damage 40 "ANI_FOLLOW15"
 	frame	data/bgs/beyond/lvl2/mshp/1gn03.gif
 	@cmd	attack3 -300 -80 -32 22 "ANI_FOLLOW3"
-	@cmd	damage 50 "ANI_FOLLOW15"
+	@cmd	damage 40 "ANI_FOLLOW15"
 	frame	data/bgs/beyond/lvl2/mshp/1gn03.gif
 
 
@@ -172,9 +175,9 @@ anim	follow15
 	@cmd	spawn01 "expeff1" -15 150 20
 	@cmd	spawn01 "expeff1" 0 130 20
 	@cmd	spawn01 "expeff1" 15 150 20
-	@cmd	spawn01 "gas" 5 20 -15
+	@cmd	spawn01 "neo" 5 20 -15
 	frame	data/bgs/beyond/lvl2/mshp/1gnfde06.gif
-	delay	1500
+	delay	2000
 	frame	data/bgs/beyond/lvl2/mshp/1gnfde06.gif
 	delay	14
 	frame	data/bgs/beyond/lvl2/mshp/1gnfde06.gif
@@ -212,30 +215,47 @@ anim	follow1
 	loop	0
 	delay	15
 	offset	72 165
-	bbox	60 55 25 30 4
+	bbox	60 55 25 30 20
 	frame	data/bgs/beyond/lvl2/mshp/1gn03.gif
-	@cmd	damage 50 "ANI_FOLLOW15"
+	@cmd	damage 40 "ANI_FOLLOW15"
 	frame	data/bgs/beyond/lvl2/mshp/1gn02.gif
+	@cmd	damage 40 "ANI_FOLLOW15"
+	frame	data/bgs/beyond/lvl2/mshp/1gn01.gif
+	@cmd	damage 40 "ANI_FOLLOW15"
+	frame	data/bgs/beyond/lvl2/mshp/1gn01.gif
+	@cmd	damage 40 "ANI_FOLLOW15"
+	frame	data/bgs/beyond/lvl2/mshp/1gn01.gif
+	@cmd	damage 40 "ANI_FOLLOW15"
+	frame	data/bgs/beyond/lvl2/mshp/1gn01.gif
+	@cmd	damage 40 "ANI_FOLLOW15"
 	frame	data/bgs/beyond/lvl2/mshp/1gn01.gif
 	delay	5
 	frame	data/bgs/beyond/lvl2/mshp/1gn01.gif
 	frame	data/bgs/beyond/lvl2/mshp/1gn01.gif
 	sound	data/sounds/laser5.wav
-	@cmd	damage 50 "ANI_FOLLOW15"
+	@cmd	damage 40 "ANI_FOLLOW15"
 	frame	data/bgs/beyond/lvl2/mshp/1gnf01.gif
 	frame	data/bgs/beyond/lvl2/mshp/1gnf02.gif
 	frame	data/bgs/beyond/lvl2/mshp/1gnf03.gif
 	@cmd	spawnAni "lashot1" 15 125 -1 "ANI_FOLLOW10"
 	frame	data/bgs/beyond/lvl2/mshp/1gnf04.gif
-	@cmd	looper 4 3
+	@cmd	looper 4 2
 	frame	data/bgs/beyond/lvl2/mshp/1gn01.gif
 	delay	30
-	@cmd	damage 50 "ANI_FOLLOW15"
+	@cmd	damage 40 "ANI_FOLLOW15"
+	frame	data/bgs/beyond/lvl2/mshp/1gn01.gif
+	@cmd	damage 40 "ANI_FOLLOW15"
+	frame	data/bgs/beyond/lvl2/mshp/1gn01.gif
+	@cmd	damage 40 "ANI_FOLLOW15"
+	frame	data/bgs/beyond/lvl2/mshp/1gn01.gif
+	@cmd	damage 40 "ANI_FOLLOW15"
+	frame	data/bgs/beyond/lvl2/mshp/1gn01.gif
+	@cmd	damage 40 "ANI_FOLLOW15"
 	frame	data/bgs/beyond/lvl2/mshp/1gn01.gif
 	delay	15
 	frame	data/bgs/beyond/lvl2/mshp/1gn01.gif
 	frame	data/bgs/beyond/lvl2/mshp/1gn02.gif
-	@cmd	damage 50 "ANI_FOLLOW15"
+	@cmd	damage 40 "ANI_FOLLOW15"
 	frame	data/bgs/beyond/lvl2/mshp/1gn03.gif
 	@cmd	anichange "ANI_ATTACK1"
 	frame	data/bgs/beyond/lvl2/mshp/1gn03.gif
@@ -246,22 +266,41 @@ anim	follow2
 	loop	0
 	delay	15
 	offset	72 165
-	bbox	60 55 25 30 4
-	@cmd	damage 50 "ANI_FOLLOW15"
+	bbox	60 55 25 30 20
+	@cmd	damage 40 "ANI_FOLLOW15"
+	frame	data/bgs/beyond/lvl2/mshp/1gn03.gif
+	@cmd	damage 40 "ANI_FOLLOW15"
+	frame	data/bgs/beyond/lvl2/mshp/1gn03.gif
+	@cmd	damage 40 "ANI_FOLLOW15"
+	frame	data/bgs/beyond/lvl2/mshp/1gn03.gif
+	@cmd	damage 40 "ANI_FOLLOW15"
+	frame	data/bgs/beyond/lvl2/mshp/1gn03.gif
+	@cmd	damage 40 "ANI_FOLLOW15"
 	frame	data/bgs/beyond/lvl2/mshp/1gn03.gif
 	delay	5
-	frame	data/bgs/beyond/lvl2/mshp/1gn03.gif
+	frame	data/bgs/beyond/lvl2/mshp/1gn03.gif #1
 	sound	data/sounds/laser5.wav
-	@cmd	damage 50 "ANI_FOLLOW15"
+	@cmd	damage 40 "ANI_FOLLOW15"
 	frame	data/bgs/beyond/lvl2/mshp/1gnf05.gif
 	frame	data/bgs/beyond/lvl2/mshp/1gnf06.gif
 	frame	data/bgs/beyond/lvl2/mshp/1gnf07.gif
 	@cmd	spawnAni "lashot1" 5 120 -1 "ANI_FOLLOW11"
 	frame	data/bgs/beyond/lvl2/mshp/1gnf08.gif
-	@cmd	looper 1 3
+	@cmd	looper 1 2
+	frame	data/bgs/beyond/lvl2/mshp/1gn03.gif
+	delay	30
+	@cmd	damage 40 "ANI_FOLLOW15"
+	frame	data/bgs/beyond/lvl2/mshp/1gn03.gif
+	@cmd	damage 40 "ANI_FOLLOW15"
+	frame	data/bgs/beyond/lvl2/mshp/1gn03.gif
+	@cmd	damage 40 "ANI_FOLLOW15"
+	frame	data/bgs/beyond/lvl2/mshp/1gn03.gif
+	@cmd	damage 40 "ANI_FOLLOW15"
+	frame	data/bgs/beyond/lvl2/mshp/1gn03.gif
+	@cmd	damage 40 "ANI_FOLLOW15"
 	frame	data/bgs/beyond/lvl2/mshp/1gn03.gif
 	delay	15
-	@cmd	damage 50 "ANI_FOLLOW15"
+	@cmd	damage 40 "ANI_FOLLOW15"
 	frame	data/bgs/beyond/lvl2/mshp/1gn03.gif
 	@cmd	anichange "ANI_ATTACK1"
 	frame	data/bgs/beyond/lvl2/mshp/1gn03.gif
@@ -275,15 +314,24 @@ anim	follow3
 	loop	0
 	delay	15
 	offset	72 165
-	bbox	60 55 25 30 4
-	@cmd	damage 50 "ANI_FOLLOW15"
+	bbox	60 55 25 30 20
+	@cmd	damage 40 "ANI_FOLLOW15"
 	frame	data/bgs/beyond/lvl2/mshp/1gn03.gif
 	@cmd	flip
 	frame	data/bgs/beyond/lvl2/mshp/1gn02.gif
+	@cmd	damage 40 "ANI_FOLLOW15"
+	frame	data/bgs/beyond/lvl2/mshp/1gn01.gif
+	@cmd	damage 40 "ANI_FOLLOW15"
+	frame	data/bgs/beyond/lvl2/mshp/1gn01.gif
+	@cmd	damage 40 "ANI_FOLLOW15"
+	frame	data/bgs/beyond/lvl2/mshp/1gn01.gif
+	@cmd	damage 40 "ANI_FOLLOW15"
+	frame	data/bgs/beyond/lvl2/mshp/1gn01.gif
+	@cmd	damage 40 "ANI_FOLLOW15"
 	frame	data/bgs/beyond/lvl2/mshp/1gn01.gif
 	delay	5
 	frame	data/bgs/beyond/lvl2/mshp/1gn01.gif
-	@cmd	damage 50 "ANI_FOLLOW15"
+	@cmd	damage 40 "ANI_FOLLOW15"
 	frame	data/bgs/beyond/lvl2/mshp/1gn01.gif
 	sound	data/sounds/laser5.wav
 	frame	data/bgs/beyond/lvl2/mshp/1gnf01.gif
@@ -291,14 +339,22 @@ anim	follow3
 	frame	data/bgs/beyond/lvl2/mshp/1gnf03.gif
 	@cmd	spawnAni "lashot1" 15 125 -1 "ANI_FOLLOW10"
 	frame	data/bgs/beyond/lvl2/mshp/1gnf04.gif
-	@cmd	looper 4 3
+	@cmd	looper 4 2
 	frame	data/bgs/beyond/lvl2/mshp/1gn01.gif
 	delay	30
-	@cmd	damage 50 "ANI_FOLLOW15"
+	@cmd	damage 40 "ANI_FOLLOW15"
+	frame	data/bgs/beyond/lvl2/mshp/1gn01.gif
+	@cmd	damage 40 "ANI_FOLLOW15"
+	frame	data/bgs/beyond/lvl2/mshp/1gn01.gif
+	@cmd	damage 40 "ANI_FOLLOW15"
+	frame	data/bgs/beyond/lvl2/mshp/1gn01.gif
+	@cmd	damage 40 "ANI_FOLLOW15"
+	frame	data/bgs/beyond/lvl2/mshp/1gn01.gif
+	@cmd	damage 40 "ANI_FOLLOW15"
 	frame	data/bgs/beyond/lvl2/mshp/1gn01.gif
 	delay	15
 	frame	data/bgs/beyond/lvl2/mshp/1gn01.gif
-	@cmd	damage 50 "ANI_FOLLOW15"
+	@cmd	damage 40 "ANI_FOLLOW15"
 	frame	data/bgs/beyond/lvl2/mshp/1gn02.gif
 	@cmd	flip
 	frame	data/bgs/beyond/lvl2/mshp/1gn03.gif
@@ -349,12 +405,14 @@ anim	follow4
 	frame	data/bgs/beyond/lvl2/mshp/2gnf04.gif
 	frame	data/bgs/beyond/lvl2/mshp/2gnf05.gif
 	frame	data/bgs/beyond/lvl2/mshp/2gnf06.gif
-	@cmd	looper 4 6
+	@cmd	looper 4 4
 	frame	data/bgs/beyond/lvl2/mshp/2gn01.gif
 	frame	data/bgs/beyond/lvl2/mshp/2gnf04.gif
 	frame	data/bgs/beyond/lvl2/mshp/2gnf05.gif
 	@cmd	killgun 2 0
 	frame	data/bgs/beyond/lvl2/mshp/2gnf06.gif
+	delay	120
+	frame	data/bgs/beyond/lvl2/mshp/2gn01.gif
 	delay	15
 	frame	data/bgs/beyond/lvl2/mshp/2gn01.gif
 	@cmd	anichange "ANI_ATTACK2"
@@ -377,12 +435,14 @@ anim	follow5
 	frame	data/bgs/beyond/lvl2/mshp/2gnf01.gif
 	frame	data/bgs/beyond/lvl2/mshp/2gnf02.gif
 	frame	data/bgs/beyond/lvl2/mshp/2gnf03.gif
-	@cmd	looper 4 6
+	@cmd	looper 4 4
 	frame	data/bgs/beyond/lvl2/mshp/2gn05.gif
 	frame	data/bgs/beyond/lvl2/mshp/2gnf01.gif
 	frame	data/bgs/beyond/lvl2/mshp/2gnf02.gif
 	@cmd	killgun 3 0
 	frame	data/bgs/beyond/lvl2/mshp/2gnf03.gif
+	delay	120
+	frame	data/bgs/beyond/lvl2/mshp/2gn05.gif
 	delay	15
 	frame	data/bgs/beyond/lvl2/mshp/2gn05.gif
 	delay	14

@@ -79,7 +79,7 @@ anim	freespecial15
 	frame	data/chars/3mature/c16.gif
 	delay	70
 	frame	data/chars/3mature/c15.gif
-	@cmd	spawnAni3 "movelist" 240 300 440 "ANI_FOLLOW17"
+	@cmd	spawnAni3 "movelist" 1 1 1 "ANI_FOLLOW15"
 	frame	data/chars/3mature/c15.gif
 	delay	12
 	frame	data/chars/3mature/c14.gif
@@ -271,7 +271,7 @@ anim	attack1
 	fastattack	1
 	bbox	88 106 30 75
 	hitfx	data/sounds/beat2.wav
-	@cmd	attackgrd -70 70 0 1 15 "ANI_FOLLOW10"
+	@cmd	attackgrd -80 80 0 1 15 "ANI_FOLLOW10"
 	frame	data/chars/3mature/a101.gif
 	attack	110 100 85 25 12 0 0 0 6 0
 	frame	data/chars/3mature/a102.gif
@@ -295,6 +295,7 @@ anim	follow10
 	jumpframe	0 2 0.5
 	landframe	5 dust
 	staydown	370 370
+	hitflash	flashscreen1
 	hitfx	data/sounds/beat5.wav
 	frame	data/chars/3mature/jua08.gif
 	offset	120 205
@@ -419,6 +420,58 @@ anim	attack4
 
 
 
+anim	attackup
+	loop	0
+	delay	6
+	offset	116 189
+	bbox	0 0 0 0
+	frame	data/chars/3mature/rise4.gif
+	offset	116 135
+	@cmd	dasher 2.5 0 -0.4
+	frame	data/chars/3mature/f15.gif
+	frame	data/chars/3mature/f15.gif
+	@cmd	spawn01 "dust" 15 1 1
+	frame	data/chars/3mature/f16.gif
+	frame	data/chars/3mature/f17.gif
+	frame	data/chars/3mature/f18.gif
+	frame	data/chars/3mature/f19.gif
+	frame	data/chars/3mature/f20.gif
+	frame	data/chars/3mature/f20.gif
+	@cmd	stop
+	offset	105 195
+	frame	data/chars/3mature/rise5.gif
+	frame	data/chars/3mature/rise6.gif
+
+
+
+anim	attackdown
+	loop	0
+	delay	6
+	offset	116 189
+	bbox	0 0 0 0
+	frame	data/chars/3mature/rise4.gif
+	offset	116 135
+	@cmd	dasher 2.5 0 0.4
+	frame	data/chars/3mature/f15.gif
+	frame	data/chars/3mature/f15.gif
+	@cmd	spawn01 "dust" 15 1 1
+	frame	data/chars/3mature/f16.gif
+	frame	data/chars/3mature/f17.gif
+	frame	data/chars/3mature/f18.gif
+	frame	data/chars/3mature/f19.gif
+	frame	data/chars/3mature/f20.gif
+	frame	data/chars/3mature/f20.gif
+	@cmd	stop
+	offset	105 195
+	frame	data/chars/3mature/rise5.gif
+	frame	data/chars/3mature/rise6.gif
+
+
+
+
+
+
+
 anim	runattack
 	loop	0
 	delay	5
@@ -487,48 +540,7 @@ anim	runslide
 
 
 
-anim	attackup
-	loop	0
-	delay	6
-	offset	116 189
-	bbox	0 0 0 0
-	frame	data/chars/3mature/rise4.gif
-	offset	116 135
-	frame	data/chars/3mature/f15.gif
-	@cmd	dasher 3 0 -0.7
-	frame	data/chars/3mature/f16.gif
-	frame	data/chars/3mature/f17.gif
-	@cmd	spawn01 "dust" -5 1 1
-	frame	data/chars/3mature/f18.gif
-	frame	data/chars/3mature/f19.gif
-	delay	7
-	frame	data/chars/3mature/f20.gif
-	@cmd	stop
-	offset	105 195
-	frame	data/chars/3mature/rise5.gif
-	frame	data/chars/3mature/rise6.gif
 
-
-anim	attackdown
-	loop	0
-	delay	6
-	offset	116 189
-	bbox	0 0 0 0
-	frame	data/chars/3mature/rise4.gif
-	offset	116 135
-	frame	data/chars/3mature/f15.gif
-	@cmd	dasher 3 0 0.7
-	frame	data/chars/3mature/f16.gif
-	frame	data/chars/3mature/f17.gif
-	@cmd	spawn01 "dust" -5 1 1
-	frame	data/chars/3mature/f18.gif
-	frame	data/chars/3mature/f19.gif
-	delay	7
-	frame	data/chars/3mature/f20.gif
-	@cmd	stop
-	offset	105 195
-	frame	data/chars/3mature/rise5.gif
-	frame	data/chars/3mature/rise6.gif
 
 
 
@@ -680,24 +692,29 @@ anim	runjumpattack
 	frame	data/chars/3mature/jua01.gif
 	frame	data/chars/3mature/jua02.gif
 	sound	data/sounds/punch1.wav
-	attack10 91 60 73 90 30 1 0 0 25 25
-	dropv	3 2
-	frame	data/chars/3mature/jua03.gif
+	delay	5
+	attack10 91 60 73 90 30 1 0 0 5 25
+	dropv	3 3
+	frame	data/chars/3mature/jua03a.gif
+	frame	data/chars/3mature/jua04a.gif
+	@cmd	leaper 3.5 0.3
 	frame	data/chars/3mature/jua04.gif
 	attack	0 0 0 0
+	delay	6
 	frame	data/chars/3mature/jua05.gif
 	frame	data/chars/3mature/jua06.gif
+	delay	5
 	sound	data/sounds/punch1.wav
-	attack9	100 75 85 69 30 1 0 0 25 25
+	attack9	100 75 85 69 30 1 0 0 5 25
 	dropv	1 4
-	frame	data/chars/3mature/jua07.gif
+	frame	data/chars/3mature/jua07a.gif
+	frame	data/chars/3mature/jua08a.gif
+	@cmd	leaper 3.5 0.2
 	frame	data/chars/3mature/jua08.gif
+	delay	6
 	attack9	0 0 0 0
 	frame	data/chars/3mature/jua09.gif
-	offset	106 185
-	frame	data/chars/3mature/e06.gif
-	frame	data/chars/3mature/e07.gif
-	frame	data/chars/3mature/e08.gif
+
 
 
 
@@ -1084,16 +1101,18 @@ anim	grabbackward
 	delay	20
 	offset	109 195
 	bbox	0 0 0 0
+	bbox	0 0 0 0
 	fastattack	1
-	otg		2
-	staydown	690 690
+	otg	2
+	staydown	320 320
 	forcedirection	-1
-	jumpframe 5 4 0
-	landframe 12
+	jumpframe 5 3 -1.5
+	landframe 11 qfx
+	hitfx	data/sounds/empty.wav
 	@cmd	slamstart
 	@cmd	position 10 35 45 -1 -1
 	frame	data/chars/3mature/a106.gif
-	delay	9
+	delay	6
 	@cmd	position 11 35 45 -1 -1
 	frame	data/chars/3mature/e07.gif
 	@cmd	position 11 35 45 -1 -1
@@ -1104,7 +1123,7 @@ anim	grabbackward
 	sound	data/sounds/grab2.wav
 	@cmd	position 10 20 45 -1 -1
 	frame	data/chars/3mature/e10.gif
-	delay	12
+	delay	6
 	@cmd	position 13 25 45 -1 -1
 	frame	data/chars/3mature/e11.gif #5
 	@cmd	position 0 40 70 -1 1
@@ -1115,34 +1134,34 @@ anim	grabbackward
 	frame	data/chars/3mature/e14.gif
 	@cmd	position 12 -10 80 -1 1
 	frame	data/chars/3mature/e15.gif
+	delay	200
 	@cmd	position 2 -10 35 -1 -1
 	frame	data/chars/3mature/e16.gif
-
-	delay	200
+	delay	8
+	@cmd	antiwall -10 15 0
 	@cmd	position 2 -5 30 -1 -1
-	frame	data/chars/3mature/e17.gif
-	
-	delay	10
+	frame	data/chars/3mature/e17.gif 
 	@cmd	depost 0
 	@cmd	finish 70 1 0 -5 0 0
-	#attack	77 157 75 45 0 1 1 1 0 20
-	attack	80 140 80 70 0 1 1 1 0 30
+	attack	68 145 90 66 0 1 1 1 0 30
 	dropv	-5 0
-	frame	data/chars/3mature/e18.gif #12
 	@cmd	leaper 0 1 0
+	@cmd	spawn01 "flashscreen1" 1 1 -1
+	frame	data/chars/3mature/e18.gif #12
 	frame	data/chars/3mature/e19.gif
+	delay	9
 	frame	data/chars/3mature/e20.gif
-	delay	12
+	delay	15
 	frame	data/chars/3mature/e21.gif
-	frame	data/chars/3mature/e22.gif
 	attack	0 0 0 0
-	delay	60
-	frame	data/chars/3mature/e23.gif
 	offset	108 192
-	delay	12
+	delay	10
+	move	-5
+	movez	-1
 	frame	data/chars/3mature/rise3.gif
 	@cmd	clearL
 	frame	data/chars/3mature/rise4.gif
+	movez	0
 	offset	108 195
 	frame	data/chars/3mature/rise5.gif
 

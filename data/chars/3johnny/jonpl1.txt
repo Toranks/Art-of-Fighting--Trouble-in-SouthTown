@@ -1,6 +1,6 @@
 name		jonpl1
 type		player
-health		700
+health		500
 mp		200
 mprate		2
 speed		12
@@ -21,7 +21,7 @@ holdblock 	1
 dust            dust
 candamage	enemy obstacle
 projectilehit 	enemy
-weapons		jonyrod2 jonpl2 jonpl3 Ryofall ryowtr ryovent mapcurs mrzero
+weapons		jonyrod2 jonpl2 Ryobike2 Ryofall ryowtr ryovent mapcurs mrzero jonpl3 jackpl
 diesound        data/sounds/die6.wav
 atchain         1 1 2 3 0 4 5 0 6 1 0
 combostyle      1
@@ -36,16 +36,52 @@ palette		data/chars/3johnny/mapal.gif
 alternatepal	data/chars/3johnny/map1.gif
 
 
+com	a2	freespecial15
 com	d f s	freespecial1
 com	f d f a	freespecial2
 com	f d s	freespecial11
+
 com	d u d u s freespecial10
 com	u d u d s freespecial20
-com	a2	  freespecial15
 com     d f d f a freespecial26
+com	d u d u j freespecial30
+
+
 
 load	pw8
 load	frag
+
+
+
+
+anim	freespecial30
+	energycost	55
+	mponly	1
+	weaponframe	14 10
+	loop	0
+	delay	9
+	offset	101 190
+	bbox	0 0 0 0
+	frame	data/chars/3johnny/taunt01.gif
+	frame	data/chars/3johnny/taunt02.gif
+	frame	data/chars/3johnny/taunt03.gif
+	frame	data/chars/3johnny/taunt04.gif
+	frame	data/chars/3johnny/taunt05.gif
+	frame	data/chars/3johnny/taunt05.gif
+	delay	5
+	frame	data/chars/3johnny/empty.gif
+	frame	data/chars/3johnny/taunt05.gif
+	frame	data/chars/3johnny/empty.gif
+	frame	data/chars/3johnny/taunt05.gif
+	frame	data/chars/3johnny/empty.gif
+	frame	data/chars/3johnny/taunt05.gif
+	frame	data/chars/3johnny/empty.gif
+	frame	data/chars/3johnny/taunt05.gif
+	frame	data/chars/3johnny/empty.gif    #14
+	frame	data/chars/3johnny/taunt05.gif
+
+
+
 
 
 
@@ -225,7 +261,7 @@ anim	freespecial15
 	frame	data/chars/3johnny/taunt04.gif
 	frame	data/chars/3johnny/taunt05.gif
 	frame	data/chars/3johnny/taunt05.gif
-	@cmd	spawnAni2 "movelist" 240 300 440 "ANI_FOLLOW9"
+	@cmd	spawnAni2 "movelist" 1 1 1 "ANI_FOLLOW11"
 	frame	data/chars/3johnny/taunt05.gif
 	frame	data/chars/3johnny/taunt05.gif
 	frame	data/chars/3johnny/taunt04.gif
@@ -256,7 +292,7 @@ anim	freespecial10
 
 anim	freespecial20
 	energycost	30 1
-	weaponframe	11 3
+	weaponframe	11 9
 	loop	0
 	delay	8
 	offset	101 190
@@ -318,7 +354,7 @@ anim	freespecial2
 	bbox	0 0 0 0
 	fastattack	1
 	jumpframe	1 3.5 2
-	landframe	11 dust
+	landframe	12 dust
 	hitflash	Flash3
 	staydown	300 300
 	hitfx	data/sounds/beat5.wav
@@ -338,16 +374,17 @@ anim	freespecial2
 	delay	4
 	frame	data/chars/3johnny/upper14b.gif
 	frame	data/chars/3johnny/upper14c.gif
-	delay	12
+	delay	10
 	frame	data/chars/3johnny/upper15.gif
 	attack  0 0 0 0
-	frame	data/chars/3johnny/upper16.gif
 	delay	6
+	frame	data/chars/3johnny/upper16.gif
 	frame	data/chars/3johnny/upper17.gif
+	frame	data/chars/3johnny/upper18.gif
 	delay	500
 	frame	data/chars/3johnny/upper19.gif
 	delay	9
-	frame	data/chars/3johnny/rise5.gif
+	frame	data/chars/3johnny/rise5.gif #12
 
 
 anim	freespecial11
@@ -780,7 +817,8 @@ anim	blockpain
 	delay	2
 	offset	100 189
 	bbox	0 0 0 0
-	cancel	5 12 0 s freespecial3
+	cancel	2 12 0 s freespecial3
+	cancel	2 12 0 a freespecial3
 	move	-6
 	frame	data/chars/3johnny/block01.gif
 	frame	data/chars/3johnny/block01.gif
@@ -1264,11 +1302,11 @@ anim	runjumpattack
 	frame	data/chars/3johnny/j02.gif
 	frame	data/chars/3johnny/j04.gif
 	delay	4
-	attack8 100 115 50 70 15 0 0 0 45 0
+	attack8 100 115 50 70 7 0 0 0 5 12
 	frame	data/chars/3johnny/j05.gif
 	attack8 0 0 0 0
 	frame	data/chars/3johnny/j06.gif
-	attack8 100 115 50 70 15 0 0 0 45 0
+	attack8 100 115 50 70 7 0 0 0 5 12
 	frame	data/chars/3johnny/j07.gif
 	attack8 0 0 0 0
 	frame	data/chars/3johnny/j08.gif

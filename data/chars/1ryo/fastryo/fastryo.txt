@@ -1,6 +1,6 @@
 name		fastryo
 type		player
-health		120
+health		200
 mp		100
 mprate          1
 chargerate      5
@@ -20,7 +20,7 @@ holdblock 	1
 dust            dust
 candamage	enemy obstacle
 projectilehit 	player npc enemy
-weapons		Ryobike Ryo Ryobike2 fastryofall ryowtr ryovent mapcurs mrzero ryoturt
+weapons		Ryobike Ryo Ryobike2 fastryofall ryowtr ryovent mapcurs mrzero ryoturt kgnrob
 diesound        data/sounds/ryode.wav
 atchain         1 1 2 3 4 0 5 6 7 0 8 1
 combostyle      1
@@ -45,9 +45,12 @@ alternatepal	data/chars/1ryo/map4.gif
 alternatepal	data/chars/1ryo/map5.gif
 alternatepal	data/chars/1ryo/map6.gif
 alternatepal	data/chars/1ryo/map7.gif
+alternatepal	data/chars/1ryo/map8.gif
 
 
+com	a2	  freespecial15
 com	a3	  freespecial29
+
 com     d f d f a freespecial26
 com	d f d f s freespecial27
 com	f d f a   freespecial3
@@ -56,8 +59,46 @@ com	d f s 	  freespecial5
 com	f d s 	  freespecial6
 com	b b s 	  freespecial8
 com	d f j 	  freespecial9
-com	a2	  freespecial15
+
+
 com	d u d u s freespecial20
+com	u d u d s freespecial30
+
+
+anim	freespecial30
+	energycost	55
+	mponly	1
+	weaponframe 17 10
+	loop	0
+	delay	7
+	offset	145 204
+	bbox	0 0 0 0
+	frame	data/chars/1ryo/a04.gif
+	sound	data/sounds/robert.wav
+	frame	data/chars/1ryo/win6.gif
+	frame	data/chars/1ryo/win7.gif
+	frame	data/chars/1ryo/win8.gif
+	frame	data/chars/1ryo/win9.gif
+	delay	5
+	frame	data/chars/1ryo/win10.gif
+	frame	data/chars/1ryo/win11.gif
+	frame	data/chars/1ryo/win10.gif
+	frame	data/chars/1ryo/win11.gif
+	frame	data/chars/1ryo/win10.gif
+	frame	data/chars/1ryo/win11.gif
+	frame	data/chars/1ryo/empty.gif
+	frame	data/chars/1ryo/win11.gif
+	frame	data/chars/1ryo/empty.gif
+	frame	data/chars/1ryo/win11.gif
+	frame	data/chars/1ryo/empty.gif
+	frame	data/chars/1ryo/win11.gif
+	frame	data/chars/1ryo/empty.gif
+	frame	data/chars/1ryo/win11.gif
+	frame	data/chars/1ryo/empty.gif
+	frame	data/chars/1ryo/win11.gif
+	frame	data/chars/1ryo/empty.gif
+	frame	data/chars/1ryo/win11.gif
+	frame	data/chars/1ryo/win11.gif
 
 
 
@@ -83,13 +124,13 @@ anim	freespecial29
 	delay	3
 	frame	data/chars/1ryo/ch05.gif	#2
 	frame	data/chars/1ryo/ch05.gif
-	@cmd	mpgain 1
+	@cmd	mpgain 2
 	frame	data/chars/1ryo/ch06.gif
 	frame	data/chars/1ryo/ch06.gif
 	@cmd	mpgain 2
 	frame	data/chars/1ryo/ch07.gif
 	frame	data/chars/1ryo/ch07.gif
-	@cmd	mpgain 1
+	@cmd	mpgain 2
 	frame	data/chars/1ryo/ch08.gif
 	frame	data/chars/1ryo/ch08.gif	#9	
 	frame	data/chars/1ryo/ch03.gif
@@ -140,7 +181,6 @@ anim	freespecial15
 	offset	145 204
 	bbox	0 0 0 0
 	frame	data/chars/1ryo/a01.gif
-	@cmd	spawnAni3 "movelist" 240 300 440 "ANI_FOLLOW1"
 	frame	data/chars/1ryo/taunt1.gif
 	frame	data/chars/1ryo/taunt2.gif
 	frame	data/chars/1ryo/taunt3.gif
@@ -150,6 +190,7 @@ anim	freespecial15
 	frame	data/chars/1ryo/taunt2.gif
 	frame	data/chars/1ryo/taunt3.gif
 	frame	data/chars/1ryo/taunt4.gif
+	@cmd	spawnAni3 "movelist" 1 1 1 "ANI_FOLLOW1"
 	frame	data/chars/1ryo/taunt5.gif
 	frame	data/chars/1ryo/taunt1.gif
 
@@ -254,14 +295,14 @@ anim	follow16
 
 
 anim	attack1
-	range	0 135
-	rangez	-25 25
+	range	0 145
+	rangez	-15 15
 	delay	3
 	offset	145 204
 	bbox	128 105 39 97
 	fastattack	1
 	frame	data/chars/1ryo/fastryo/aa01.gif
-	@cmd	attackgrd -60 60 0 1 10 "ANI_FOLLOW10"
+	@cmd	attackgrd -60 60 0 1 20 "ANI_FOLLOW10"
 	delay	4
 	attack	149 102 80 34 6 0 0 0 1 0
 	frame	data/chars/1ryo/fastryo/aa02.gif
@@ -291,7 +332,7 @@ anim	follow10
 	delay	100
 	frame	data/chars/1ryo/fastryo/juat10.gif
 	delay	8
-	attack11 118 170 65 25 50 1 0 0 12 10
+	attack11 115 169 70 30 50 1 0 0 12 20
 	dropv	2 2
 	offset	145 186
 	frame	data/chars/1ryo/fastryo/juat10.gif
@@ -306,7 +347,7 @@ anim	follow10
 
 anim	attack2
 	range	0 60
-	rangez	-25 25
+	rangez	-15 15
 	loop	0
 	delay	3
 	offset	145 204
@@ -325,7 +366,7 @@ anim	attack2
 		
 anim	attack3
 	range	0 60
-	rangez	-25 25
+	rangez	-15 15
 	loop	0
 	delay	3
 	offset	141 204
@@ -346,7 +387,7 @@ anim	attack3
 		
 anim	attack4
 	range	0 60
-	rangez	-25 25
+	rangez	-15 15
 	loop	0
 	delay	5
 	offset	146 204
@@ -358,7 +399,7 @@ anim	attack4
 	frame	data/chars/1ryo/fastryo/a51.gif
 	frame	data/chars/1ryo/fastryo/a52.gif
 	delay	3
-	attack10 161 77 32 76 40 1 1 0 40 0
+	attack10 161 77 40 76 40 1 1 0 40 15
 	dropv	5 1 0
 	frame	data/chars/1ryo/fastryo/a53.gif
 	frame	data/chars/1ryo/fastryo/a53.gif
@@ -372,7 +413,7 @@ anim	attack4
 		
 anim	attack5
 	range	60 85
-	rangez	-25 25
+	rangez	-15 15
 	loop	0
 	delay	3
 	offset	155 204
@@ -391,7 +432,7 @@ anim	attack5
 		
 anim	attack6
 	range	60 85
-	rangez	-25 25
+	rangez	-15 15
 	loop	0
 	delay	5
 	offset	130 204
@@ -413,7 +454,7 @@ anim	attack6
 		
 anim	attack7
 	range	60 85
-	rangez	-25 25
+	rangez	-15 15
 	loop	0
 	delay	4
 	offset	158 204
@@ -425,7 +466,7 @@ anim	attack7
 	frame	data/chars/1ryo/b13.gif
 	delay	5
 	frame	data/chars/1ryo/b14.gif
-	attack	161 95 80 50 40 1 1 0 50 0
+	attack	161 95 80 50 40 1 1 0 50 15
 	dropv	3 2 0
 	frame	data/chars/1ryo/b15.gif
 	frame	data/chars/1ryo/b16.gif
@@ -436,8 +477,8 @@ anim	attack7
 	frame	data/chars/1ryo/b21.gif
 		
 anim	attack8
-	range	85 135
-	rangez	-25 25
+	range	85 145
+	rangez	-15 15
 	loop	0
 	delay	5
 	offset	145 204
@@ -451,7 +492,7 @@ anim	attack8
 	frame	data/chars/1ryo/fastryo/b55.gif
 	frame	data/chars/1ryo/fastryo/b56.gif
 	frame	data/chars/1ryo/fastryo/b57.gif
-	attack	155 125 89 40 60 1 1 0 60 0
+	attack	155 125 89 40 60 1 1 0 60 15
 	dropv	3 2 0
 	frame	data/chars/1ryo/fastryo/b58.gif
 	frame	data/chars/1ryo/fastryo/b59.gif
@@ -776,6 +817,7 @@ anim	fall5
 	frame	data/chars/1ryo/fall6.gif
 	frame	data/chars/1ryo/fall7.gif
 	frame	data/chars/1ryo/fall8.gif
+	@cmd	looper 4 5
 	frame	data/chars/1ryo/fall5.gif
 	delay	300
 	frame	data/chars/1ryo/fall6.gif
@@ -783,6 +825,7 @@ anim	fall5
 	frame	data/chars/1ryo/fall4.gif
 	delay	8
 	frame	data/chars/1ryo/rise1.gif
+	@cmd	clearL
 	frame	data/chars/1ryo/rise2.gif
 	frame	data/chars/1ryo/rise1.gif
 	frame	data/chars/1ryo/fall4.gif
@@ -884,30 +927,29 @@ anim	fall9
 	delay	9
 	offset	145 204
 	bbox	0 0 0 0
-	landframe	14
+	landframe	10
 	sound	data/sounds/ryopa.wav
 	frame	data/chars/1ryo/fall5.gif
 	frame	data/chars/1ryo/fall6.gif
 	frame	data/chars/1ryo/fall7.gif
 	frame	data/chars/1ryo/fall8.gif
-	frame	data/chars/1ryo/fall5.gif
+
+	frame	data/chars/1ryo/fall5.gif #4
 	frame	data/chars/1ryo/fall6.gif
 	frame	data/chars/1ryo/fall7.gif
 	frame	data/chars/1ryo/fall8.gif
+	@cmd	looper 30
 	frame	data/chars/1ryo/fall5.gif
-	frame	data/chars/1ryo/fall6.gif
-	frame	data/chars/1ryo/fall7.gif
-	frame	data/chars/1ryo/fall8.gif
-	frame	data/chars/1ryo/fall5.gif
-	delay	300
+	delay	500
 	frame	data/chars/1ryo/fall6.gif
 	delay	50
-	frame	data/chars/1ryo/fall4.gif
+	frame	data/chars/1ryo/fall4.gif #10
 	delay	8
 	frame	data/chars/1ryo/rise1.gif
 	frame	data/chars/1ryo/rise2.gif
 	frame	data/chars/1ryo/rise1.gif
 	frame	data/chars/1ryo/fall4.gif
+
 
 		
 anim	follow3
@@ -1036,19 +1078,20 @@ anim	follow4
 	bbox	0 0 0 0
 	fastattack	1
 	forcedirection -1
+	seal	7 4
 	landframe	124
 	hitflash	Flash
 	hitfx	data/sounds/beat3.wav
 	@cmd	stop
 	frame	data/chars/1ryo/upper02.gif
 	frame	data/chars/1ryo/upper03.gif
-	attack	150 122 65 50 0 0 1 0 40 30
+	attack	150 122 65 50 0 0 1 0 40 15
 	frame	data/chars/1ryo/upper04.gif
 	attack	0 0 0 0
 	frame	data/chars/1ryo/fastryo/a50.gif
 	frame	data/chars/1ryo/fastryo/a51.gif
 	frame	data/chars/1ryo/fastryo/a52.gif
-	attack	150 122 65 50 0 0 1 0 40 30
+	attack	150 122 65 50 0 0 1 0 40 15
 	frame	data/chars/1ryo/fastryo/a53.gif
 	attack	0 0 0 0
 	frame	data/chars/1ryo/fastryo/a54.gif
@@ -1057,20 +1100,20 @@ anim	follow4
 	hitfx	data/sounds/beat5.wav
 	frame	data/chars/1ryo/fastryo/a09.gif
 	frame	data/chars/1ryo/fastryo/a10.gif
-	attack	150 122 65 50 0 0 1 0 35 30
+	attack	150 122 65 50 0 0 1 0 35 15
 	frame	data/chars/1ryo/fastryo/a11.gif
 	attack	0 0 0 0
 	frame	data/chars/1ryo/fastryo/a12.gif
 	frame	data/chars/1ryo/fastryo/a14.gif
 	frame	data/chars/1ryo/fastryo/a85.gif
 	frame	data/chars/1ryo/fastryo/a88.gif
-	attack	150 122 65 50 0 0 1 0 35 30
+	attack	150 122 65 50 0 0 1 0 35 15
 	frame	data/chars/1ryo/fastryo/a89.gif
 	attack	0 0 0 0
 	frame	data/chars/1ryo/fastryo/a90.gif
 	frame	data/chars/1ryo/a60.gif
 	frame	data/chars/1ryo/a61.gif
-	attack	150 122 65 50 0 0 1 0 35 30
+	attack	150 122 65 50 0 0 1 0 35 15
 	frame	data/chars/1ryo/a62.gif
 	attack	0 0 0 0
 	frame	data/chars/1ryo/a64.gif
@@ -1081,71 +1124,71 @@ anim	follow4
 	delay	1
 	hitfx	data/sounds/beat1.wav
 	frame	data/chars/1ryo/fastryo/hhs21.gif
-	attack6	150 122 65 50 0 0 1 0 15 30
+	attack6	150 122 65 50 0 0 1 0 15 15
 	frame	data/chars/1ryo/fastryo/hhs22.gif
 	attack6	0 0 0 0
 	frame	data/chars/1ryo/fastryo/hhs23.gif
 	frame	data/chars/1ryo/fastryo/hhs30.gif
-	attack5	150 122 65 50 0 0 1 0 15 30
+	attack5	150 122 65 50 0 0 1 0 15 15
 	frame	data/chars/1ryo/fastryo/hhs31.gif
 	attack5	0 0 0 0
 	frame	data/chars/1ryo/fastryo/hhs32.gif
 	hitfx	data/sounds/beat3.wav
 	frame	data/chars/1ryo/fastryo/hhs15.gif
-	attack6	150 122 65 50 0 0 1 0 15 30
+	attack6	150 122 65 50 0 0 1 0 15 15
 	frame	data/chars/1ryo/fastryo/hhs16.gif
 	attack6	0 0 0 0
 	frame	data/chars/1ryo/fastryo/hhs17.gif
 	frame	data/chars/1ryo/fastryo/hhs24.gif
-	attack5	150 122 65 50 0 0 1 0 15 30
+	attack5	150 122 65 50 0 0 1 0 15 15
 	frame	data/chars/1ryo/fastryo/hhs25.gif
 	attack5	0 0 0 0
 	frame	data/chars/1ryo/fastryo/hhs26.gif
 	frame	data/chars/1ryo/fastryo/hhs15.gif
-	attack6	150 122 65 50 0 0 1 0 15 30
+	attack6	150 122 65 50 0 0 1 0 15 15
 	frame	data/chars/1ryo/fastryo/hhs16.gif
 	attack6	0 0 0 0
 	frame	data/chars/1ryo/fastryo/hhs17.gif
 	hitfx	data/sounds/beat1.wav
 	frame	data/chars/1ryo/fastryo/hhs27.gif
-	attack5	150 122 65 50 0 0 1 0 15 30
+	attack5	150 122 65 50 0 0 1 0 15 15
 	frame	data/chars/1ryo/fastryo/hhs28.gif
 	attack5	0 0 0 0
 	frame	data/chars/1ryo/fastryo/hhs29.gif
 	frame	data/chars/1ryo/fastryo/hhs18.gif
-	attack6	150 122 65 50 0 0 1 0 15 30
+	attack6	150 122 65 50 0 0 1 0 15 15
 	frame	data/chars/1ryo/fastryo/hhs19.gif
 	attack6	0 0 0 0
 	frame	data/chars/1ryo/fastryo/hhs20.gif
 	frame	data/chars/1ryo/fastryo/hhs27.gif
-	attack5	150 122 65 50 0 0 1 0 15 30
+	attack5	150 122 65 50 0 0 1 0 15 15
 	frame	data/chars/1ryo/fastryo/hhs28.gif
 	attack5	0 0 0 0
 	frame	data/chars/1ryo/fastryo/hhs29.gif
 	hitfx	data/sounds/beat3.wav
 	frame	data/chars/1ryo/fastryo/hhs15.gif
-	attack6	150 122 65 50 0 0 1 0 15 30
+	attack6	150 122 65 50 0 0 1 0 15 15
 	frame	data/chars/1ryo/fastryo/hhs16.gif
 	attack6	0 0 0 0
 	frame	data/chars/1ryo/fastryo/hhs17.gif
 	frame	data/chars/1ryo/fastryo/hhs24.gif
-	attack5	150 122 65 50 0 0 1 0 15 30
+	attack5	150 122 65 50 0 0 1 0 15 15
 	frame	data/chars/1ryo/fastryo/hhs25.gif
 	attack5	0 0 0 0
 	frame	data/chars/1ryo/fastryo/hhs26.gif
 	frame	data/chars/1ryo/fastryo/hhs15.gif
-	attack6	150 122 65 50 0 0 1 0 15 30
+	attack6	150 122 65 50 0 0 1 0 15 15
 	frame	data/chars/1ryo/fastryo/hhs16.gif
 	attack6	0 0 0 0
 	frame	data/chars/1ryo/fastryo/hhs17.gif
 	frame	data/chars/1ryo/fastryo/hhs24.gif
-	attack5	150 122 65 50 0 0 1 0 15 30
+	attack5	150 122 65 50 0 0 1 0 15 15
 	frame	data/chars/1ryo/fastryo/hhs25.gif
 	attack5	0 0 0 0
 	frame	data/chars/1ryo/fastryo/hhs26.gif
 	hitfx	data/sounds/beat1.wav
 	frame	data/chars/1ryo/fastryo/hhs21.gif
-	attack6	150 122 65 50 0 0 1 0 15 30
+	attack6	150 122 65 50 0 0 1 0 15 15
 	frame	data/chars/1ryo/fastryo/hhs22.gif
 	attack6	0 0 0 0
 	frame	data/chars/1ryo/fastryo/hhs23.gif
@@ -1157,13 +1200,13 @@ anim	follow4
 	frame	data/chars/1ryo/b12.gif
 	frame	data/chars/1ryo/b13.gif
 	frame	data/chars/1ryo/b14.gif
-	attack	170 115 70 60 0 0 1 0 40 30
+	attack	170 115 70 60 0 0 1 0 40 15
 	frame	data/chars/1ryo/b15.gif
 	attack	0 0 0 0
 	frame	data/chars/1ryo/b16.gif
 	offset	185 204
 	frame	data/chars/1ryo/b03.gif
-	attack2	180 115 75 60 0 0 1 0 40 30
+	attack2	180 115 75 60 0 0 1 0 40 15
 	frame	data/chars/1ryo/b04.gif
 	attack2	0 0 0 0
 	delay	3
@@ -1172,49 +1215,49 @@ anim	follow4
 	offset	140 205
 	frame	data/chars/1ryo/fastryo/spt05.gif
 	frame	data/chars/1ryo/fastryo/spt06.gif
-	attack	135 115 75 60 0 0 1 0 10 30
+	attack	135 115 75 60 0 0 1 0 10 15
 	frame	data/chars/1ryo/fastryo/spt07.gif
 	frame	data/chars/1ryo/fastryo/spt08.gif
 	attack	0 0 0 0
 	frame	data/chars/1ryo/fastryo/spt05.gif
 	frame	data/chars/1ryo/fastryo/spt06.gif
-	attack	135 115 75 60 0 0 1 0 10 30
+	attack	135 115 75 60 0 0 1 0 10 15
 	frame	data/chars/1ryo/fastryo/spt11.gif
 	frame	data/chars/1ryo/fastryo/spt12.gif
 	attack	0 0 0 0
 	frame	data/chars/1ryo/fastryo/spt05.gif
 	frame	data/chars/1ryo/fastryo/spt06.gif
-	attack	135 115 75 60 0 0 1 0 10 30
+	attack	135 115 75 60 0 0 1 0 10 15
 	frame	data/chars/1ryo/fastryo/spt07.gif
 	frame	data/chars/1ryo/fastryo/spt08.gif
 	attack	0 0 0 0
 	frame	data/chars/1ryo/fastryo/spt05.gif
 	frame	data/chars/1ryo/fastryo/spt06.gif
-	attack2	135 115 75 60 0 0 1 0 10 30
+	attack2	135 115 75 60 0 0 1 0 10 15
 	frame	data/chars/1ryo/fastryo/spt09.gif
 	frame	data/chars/1ryo/fastryo/spt10.gif
 	attack2	0 0 0 0
 	frame	data/chars/1ryo/fastryo/spt05.gif
 	frame	data/chars/1ryo/fastryo/spt06.gif
-	attack	135 115 75 60 0 0 1 0 10 30
+	attack	135 115 75 60 0 0 1 0 10 15
 	frame	data/chars/1ryo/fastryo/spt07.gif
 	frame	data/chars/1ryo/fastryo/spt08.gif
 	attack	0 0 0 0
 	frame	data/chars/1ryo/fastryo/spt05.gif
 	frame	data/chars/1ryo/fastryo/spt06.gif
-	attack	135 115 75 60 0 0 1 0 10 30
+	attack	135 115 75 60 0 0 1 0 10 15
 	frame	data/chars/1ryo/fastryo/spt11.gif
 	frame	data/chars/1ryo/fastryo/spt12.gif
 	attack	0 0 0 0
 	frame	data/chars/1ryo/fastryo/spt05.gif
 	frame	data/chars/1ryo/fastryo/spt06.gif
-	attack	135 115 75 60 0 0 1 0 10 30
+	attack	135 115 75 60 0 0 1 0 10 15
 	frame	data/chars/1ryo/fastryo/spt07.gif
 	frame	data/chars/1ryo/fastryo/spt08.gif
 	attack	0 0 0 0
 	frame	data/chars/1ryo/fastryo/spt05.gif
 	frame	data/chars/1ryo/fastryo/spt06.gif
-	attack9	135 115 75 60 0 0 1 0 10 30
+	attack9	135 115 75 60 0 0 1 0 10 15
 	frame	data/chars/1ryo/fastryo/spt09.gif
 	frame	data/chars/1ryo/fastryo/spt10.gif
 	attack9	0 0 0 0
@@ -1233,7 +1276,7 @@ anim	follow4
 	frame	data/chars/1ryo/fastryo/bk02.gif
 	offset	135 204
 	frame	data/chars/1ryo/fastryo/bk05.gif
-	attack10 130 85 77 80 0 1 1 0 40 30
+	attack10 130 85 77 80 0 1 1 0 40 15
 	dropv	4.5 0.5 0
 	frame	data/chars/1ryo/fastryo/bk03.gif
 	attack10	0 0 0 0
@@ -1249,7 +1292,7 @@ anim	follow4
 	frame	data/chars/1ryo/fastryo/spt22.gif
 	delay	7
 	@cmd	leaper 0.5 0.3 0
-	attack10 120 115 105 70 250 1 1 0 40 30
+	attack10 120 115 105 70 250 1 1 0 40 15
 	dropv	1 4
 	frame	data/chars/1ryo/fastryo/spt23.gif
 	frame	data/chars/1ryo/fastryo/spt24.gif
@@ -1288,9 +1331,9 @@ anim	follow5
 	attack	127 120 50 65 12 1 1 0 35 0
 	dropv	2 0 0.1
 	staydown	300 300
-	frame	data/chars/1ryo/fastryo/juat09.gif
+	frame	data/chars/1ryo/fastryo/juat09a.gif
 	delay	500
-	frame	data/chars/1ryo/fastryo/juat10.gif
+	frame	data/chars/1ryo/fastryo/juat09a.gif
 	attack	0 0 0 0
 	delay	20
 	frame	data/chars/1ryo/fastryo/juat11.gif
@@ -1372,7 +1415,7 @@ anim	freespecial26
 	energycost	35
 	mponly	1
 	loop	0
-	delay	10
+	delay	8
 	offset	145 204
 	bbox	120 120 45 72
 	jumpframe	45 4.5 1.5
@@ -1391,10 +1434,9 @@ anim	freespecial26
 	frame	data/chars/1ryo/fastryo/spch07.gif
 	frame	data/chars/1ryo/fastryo/spch08.gif
 	frame	data/chars/1ryo/fastryo/spch09.gif
-	sound	data/sounds/ryo03.wav
 	frame	data/chars/1ryo/fastryo/spch10.gif
-	delay	12
 	frame	data/chars/1ryo/fastryo/spch11.gif
+	sound	data/sounds/ryo03.wav
 	frame	data/chars/1ryo/fastryo/spch12.gif
 	frame	data/chars/1ryo/fastryo/spch13.gif
 	frame	data/chars/1ryo/fastryo/spch12.gif
@@ -1510,13 +1552,14 @@ anim	freespecial26
 	frame	data/chars/1ryo/rise3.gif
 		
 anim	freespecial10
+	cancel	3 12 0 J freespecial11
 	loop	0
 	delay	5
 	offset	145 204
 	bbox	109 120 25 40
 	fastattack	1
+	forcedirection -1
 	landframe	15
-	cancel	3 12 0 J freespecial11
 	@cmd	leaper 2.7 0.3 0
 	hitfx	data/sounds/beat2.wav
 	frame	data/chars/1ryo/fastryo/spa27.gif
@@ -1524,7 +1567,7 @@ anim	freespecial10
 	sound	data/sounds/ryo01.wav
 	delay	11
 	@cmd	leaper 2.7 0.3 0
-	attack10	140 130 75 55 22 1 0 0 15 0
+	attack10	140 130 75 55 22 1 0 0 15 15
 	dropv	2.3 2.7
 	frame	data/chars/1ryo/fastryo/spa29.gif
 	delay	2
@@ -1553,13 +1596,14 @@ anim	freespecial11
 	offset	145 204
 	bbox	109 120 25 40
 	fastattack	1
+	forcedirection -1
 	landframe	9
 	@cmd	leaper 2.7 1.8 0
 	hitfx	data/sounds/beat2.wav
 	frame	data/chars/1ryo/fastryo/spa31.gif
 	frame	data/chars/1ryo/fastryo/spa32.gif
 	sound	data/sounds/ryo02.wav
-	attack9	140 130 75 55 35 1 0 0 25 0
+	attack9	140 130 75 55 35 1 0 0 25 20
 	dropv	2 3
 	frame	data/chars/1ryo/fastryo/spa33.gif
 	frame	data/chars/1ryo/fastryo/spa34.gif
@@ -1683,14 +1727,14 @@ anim	freespecial3
 	frame	data/chars/1ryo/fastryo/uper03.gif
 	delay	4
 	hitfx	data/sounds/beat2.wav
-	attack2	145 120 48 43 15 0 0 0 13 0
+	attack2	145 120 48 43 15 0 0 0 13 15
 	frame	data/chars/1ryo/fastryo/uper04.gif
 	attack2	0 0 0 0
 	frame	data/chars/1ryo/fastryo/uper04.gif
 	delay	40
 	hitflash	flashscreen1
 	hitfx	data/sounds/beat4.wav
-	attack10	138 68 40 100 40 1 1 0 13 0
+	attack10	138 68 40 100 40 1 1 0 13 20
 	dropv	5 2 0
 	frame	data/chars/1ryo/fastryo/uper05.gif
 	attack10	0 0 0 0
@@ -1835,7 +1879,7 @@ anim	freespecial27
 	@cmd	keymove 1.2
 	offset	130 204
 	@cmd	dasher 5 0 0
-	attack	132 130 37 45 0 0 1 1 10 20
+	attack	132 130 37 45 0 0 1 1 10 10
 	move	6
 	frame	data/chars/1ryo/fastryo/spt01.gif
 	frame	data/chars/1ryo/fastryo/spt01.gif
@@ -1901,21 +1945,22 @@ anim	freespecial27
 
 		
 anim	freespecial9
+	cancel	3 15 0 J freespecial10
 	loop	0
 	delay	7
 	offset	145 204
 	bbox	130 105 39 97
 	fastattack	1
+	forcedirection -1
 	jumpframe	2 3 3 0
 	landframe	22
-	cancel	3 15 0 J freespecial10
 	hitfx	data/sounds/beat2.wav
 	sound	data/sounds/ryo01.wav
 	frame	data/chars/1ryo/fastryo/b40.gif
 	frame	data/chars/1ryo/spa01.gif
 	bbox	109 120 25 40
 	delay	11
-	attack10	120 120 65 65 12 1 0 0 15 0
+	attack10	120 120 65 65 12 1 0 0 15 15
 	dropv	2.3 2.7
 	frame	data/chars/1ryo/fastryo/spa25.gif
 	delay	2
@@ -2501,7 +2546,7 @@ anim	runattack
 	@cmd	dasher 2 0 0
 	frame	data/chars/1ryo/fastryo/runatk05.gif
 	delay	7
-	blast	165 100 75 55 30 1 0 30 0 0
+	blast	140 100 101 55 30 0 0 15 10
 	dropv	2 5
 	frame	data/chars/1ryo/fastryo/runatk05.gif
 	frame	data/chars/1ryo/fastryo/runatk06.gif

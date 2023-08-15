@@ -2,2110 +2,999 @@ name	 movelist
 type	 text
 scroll	 1
 facing   1
-lifespan 2500
+lifespan 5500
 subject_to_gravity 0
 setlayer	999999998
 
-animationscript data/scripts/escript.c
+animationscript data/scripts/grabscript.c
 
 palette	none
 
-#-------------//------RYO----//----------------------
+
+
+
+script	@script
+void main()
+{
+	void self = getlocalvar("self");
+	int plr = getentityproperty(self,"playerindex");
+	int alt = getentityproperty(self,"a");
+	int aggro = getentityproperty(self,"aggression");
+
+
+	if ( playerkeys(plr,0, "movedown") && alt < aggro )
+	{
+		changeentityproperty(self, "velocity", 0, 0, 2);
+	}
+	else if ( playerkeys(plr,0, "moveup"))
+	{
+		changeentityproperty(self, "velocity", 0, 0, -2);
+	}
+	else
+	{
+		changeentityproperty(self, "velocity", 0, 0, 0);
+	}
+}
+@end_script
+
+
+#//----------------//---RYO---//--------------------------
 
 anim	idle
+@script
+	void self = getlocalvar("self");
+
+	if (frame == 0)
+	{                
+		changeentityproperty(self, "aggression", 725);
+	}
+@end_script
 	loop	0
-	delay	5
-	offset	235 125
-	drawmethod 5 5
-	frame	data/chars/misc/HTplay/ryo01.gif
-	drawmethod 10 10
-	frame	data/chars/misc/HTplay/ryo01.gif
-	sound	data/sounds/super3.wav
-	drawmethod 20 20
-	frame	data/chars/misc/HTplay/ryo01.gif
+	delay	6 
+	offset	1 1
 	drawmethod 30 30
-	frame	data/chars/misc/HTplay/ryo01.gif
-	drawmethod 40 40
-	frame	data/chars/misc/HTplay/ryo01.gif
-	drawmethod 50 50
-	frame	data/chars/misc/HTplay/ryo01.gif
+	sound	data/sounds/super3.wav
+	frame	data/chars/misc/HTplay/zRyoTUT.png
 	drawmethod 60 60
-	frame	data/chars/misc/HTplay/ryo01.gif
-	drawmethod 70 70
-	frame	data/chars/misc/HTplay/ryo01.gif
-	drawmethod 80 80
-	frame	data/chars/misc/HTplay/ryo01.gif
+	frame	data/chars/misc/HTplay/zRyoTUT.png
 	drawmethod 90 90
-	frame	data/chars/misc/HTplay/ryo01.gif
-	drawmethod 100 100
-	frame	data/chars/misc/HTplay/ryo01.gif
-	drawmethod 110 110
-	frame	data/chars/misc/HTplay/ryo01.gif
+	frame	data/chars/misc/HTplay/zRyoTUT.png
 	drawmethod 120 120
-	frame	data/chars/misc/HTplay/ryo01.gif
-	drawmethod 130 130
-	frame	data/chars/misc/HTplay/ryo01.gif
-	drawmethod 140 140
-	frame	data/chars/misc/HTplay/ryo01.gif
+	frame	data/chars/misc/HTplay/zRyoTUT.png
 	drawmethod 150 150
-	frame	data/chars/misc/HTplay/ryo01.gif
-	drawmethod 160 160
-	frame	data/chars/misc/HTplay/ryo01.gif
-	drawmethod 170 170
-	frame	data/chars/misc/HTplay/ryo01.gif
+	frame	data/chars/misc/HTplay/zRyoTUT.png
 	drawmethod 180 180
-	frame	data/chars/misc/HTplay/ryo01.gif
-	drawmethod 190 190
-	frame	data/chars/misc/HTplay/ryo01.gif
+	frame	data/chars/misc/HTplay/zRyoTUT.png
 	drawmethod 210 210
-	frame	data/chars/misc/HTplay/ryo01.gif
-	drawmethod 220 220
-	frame	data/chars/misc/HTplay/ryo01.gif
-	drawmethod 230 230
-	frame	data/chars/misc/HTplay/ryo01.gif
+	frame	data/chars/misc/HTplay/zRyoTUT.png
 	drawmethod 240 240
-	frame	data/chars/misc/HTplay/ryo01.gif
-	drawmethod 250 250
-	frame	data/chars/misc/HTplay/ryo01.gif
+	frame	data/chars/misc/HTplay/zRyoTUT.png
+
+	delay	55000
 	nodrawmethod
-	frame	data/chars/misc/HTplay/ryo01.gif
-	delay	11000
-	frame	data/chars/misc/HTplay/ryo01.gif
-	delay	10
-	frame	data/chars/misc/HTplay/ryo01.gif
-	frame	data/chars/misc/HTplay/ryo01.gif
-	delay	11000
-	frame	data/chars/misc/HTplay/ryo02.gif
-	delay	10
-	frame	data/chars/misc/HTplay/ryo02.gif
-	frame	data/chars/misc/HTplay/ryo02.gif
-	delay	11000
-	frame	data/chars/misc/HTplay/ryo03.gif
-	delay	10
-	frame	data/chars/misc/HTplay/ryo03.gif
-	frame	data/chars/misc/HTplay/ryo03.gif
-	delay	11000
-	frame	data/chars/misc/HTplay/ryo04.gif
-	delay	10
-	frame	data/chars/misc/HTplay/ryo04.gif
-	frame	data/chars/misc/HTplay/ryo04.gif
-	delay	11000
-	frame	data/chars/misc/HTplay/ryo05.gif
-	delay	10
-	frame	data/chars/misc/HTplay/ryo05.gif
-	frame	data/chars/misc/HTplay/ryo05.gif
-	delay	5
-	drawmethod 256 255
-	frame	data/chars/misc/HTplay/ryo05.gif
-	drawmethod 256 235
-	frame	data/chars/misc/HTplay/ryo05.gif
+	frame	data/chars/misc/HTplay/zRyoTUT.png	#----8
+
+	delay	6
 	sound	data/sounds/super7.wav
-	drawmethod 256 215
-	frame	data/chars/misc/HTplay/ryo05.gif
-	drawmethod 256 195
-	frame	data/chars/misc/HTplay/ryo05.gif
-	drawmethod 256 175
-	frame	data/chars/misc/HTplay/ryo05.gif
-	drawmethod 256 155
-	frame	data/chars/misc/HTplay/ryo05.gif
-	drawmethod 256 135
-	frame	data/chars/misc/HTplay/ryo05.gif
-	drawmethod 256 115
-	frame	data/chars/misc/HTplay/ryo05.gif
-	drawmethod 256 95
-	frame	data/chars/misc/HTplay/ryo05.gif
-	drawmethod 256 75
-	frame	data/chars/misc/HTplay/ryo05.gif
-	drawmethod 256 55
-	frame	data/chars/misc/HTplay/ryo05.gif
-	drawmethod 256 35
-	frame	data/chars/misc/HTplay/ryo05.gif
-	drawmethod 256 15
-	frame	data/chars/misc/HTplay/ryo05.gif
-	drawmethod 256 5
-	frame	data/chars/misc/HTplay/ryo05.gif
-	drawmethod 256 0
-	frame	data/chars/misc/HTplay/ryo05.gif
+	drawmethod 240 240
+	frame	data/chars/misc/HTplay/zRyoTUT.png
+	drawmethod 210 210
+	frame	data/chars/misc/HTplay/zRyoTUT.png
+	drawmethod 180 180
+	frame	data/chars/misc/HTplay/zRyoTUT.png
+	drawmethod 150 150
+	frame	data/chars/misc/HTplay/zRyoTUT.png
+	drawmethod 120 120
+	frame	data/chars/misc/HTplay/zRyoTUT.png
+	drawmethod 60 60
+	frame	data/chars/misc/HTplay/zRyoTUT.png
+	drawmethod 30 30
+	frame	data/chars/misc/HTplay/zRyoTUT.png
 	@cmd	suicide
-	frame	data/chars/misc/HTplay/ryo05.gif
+	frame	data/chars/misc/HTplay/zRyoTUT.png
 
 
-#-------------//--FAST-RYO----//----------------------
+#//----------------//--FAST-RYO---//--------------------------
 
 anim	follow1
+@script
+	void self = getlocalvar("self");
+
+	if (frame == 0)
+	{                
+		changeentityproperty(self, "aggression", 725);
+	}
+@end_script
 	loop	0
-	delay	5
-	offset	235 125
-	drawmethod 5 5
-	frame	data/chars/misc/HTplay/fryo01.gif
-	drawmethod 10 10
-	frame	data/chars/misc/HTplay/fryo01.gif
-	sound	data/sounds/super3.wav
-	drawmethod 20 20
-	frame	data/chars/misc/HTplay/fryo01.gif
+	delay	6 
+	offset	1 1
 	drawmethod 30 30
-	frame	data/chars/misc/HTplay/fryo01.gif
-	drawmethod 40 40
-	frame	data/chars/misc/HTplay/fryo01.gif
-	drawmethod 50 50
-	frame	data/chars/misc/HTplay/fryo01.gif
+	sound	data/sounds/super3.wav
+	frame	data/chars/misc/HTplay/zFryoTUT.png
 	drawmethod 60 60
-	frame	data/chars/misc/HTplay/fryo01.gif
-	drawmethod 70 70
-	frame	data/chars/misc/HTplay/fryo01.gif
-	drawmethod 80 80
-	frame	data/chars/misc/HTplay/fryo01.gif
+	frame	data/chars/misc/HTplay/zFryoTUT.png
 	drawmethod 90 90
-	frame	data/chars/misc/HTplay/fryo01.gif
-	drawmethod 100 100
-	frame	data/chars/misc/HTplay/fryo01.gif
-	drawmethod 110 110
-	frame	data/chars/misc/HTplay/fryo01.gif
+	frame	data/chars/misc/HTplay/zFryoTUT.png
 	drawmethod 120 120
-	frame	data/chars/misc/HTplay/fryo01.gif
-	drawmethod 130 130
-	frame	data/chars/misc/HTplay/fryo01.gif
-	drawmethod 140 140
-	frame	data/chars/misc/HTplay/fryo01.gif
+	frame	data/chars/misc/HTplay/zFryoTUT.png
 	drawmethod 150 150
-	frame	data/chars/misc/HTplay/fryo01.gif
-	drawmethod 160 160
-	frame	data/chars/misc/HTplay/fryo01.gif
-	drawmethod 170 170
-	frame	data/chars/misc/HTplay/fryo01.gif
+	frame	data/chars/misc/HTplay/zFryoTUT.png
 	drawmethod 180 180
-	frame	data/chars/misc/HTplay/fryo01.gif
-	drawmethod 190 190
-	frame	data/chars/misc/HTplay/fryo01.gif
+	frame	data/chars/misc/HTplay/zFryoTUT.png
 	drawmethod 210 210
-	frame	data/chars/misc/HTplay/fryo01.gif
-	drawmethod 220 220
-	frame	data/chars/misc/HTplay/fryo01.gif
-	drawmethod 230 230
-	frame	data/chars/misc/HTplay/fryo01.gif
+	frame	data/chars/misc/HTplay/zFryoTUT.png
 	drawmethod 240 240
-	frame	data/chars/misc/HTplay/fryo01.gif
-	drawmethod 250 250
-	frame	data/chars/misc/HTplay/fryo01.gif
+	frame	data/chars/misc/HTplay/zFryoTUT.png
+
+	delay	55000
 	nodrawmethod
-	frame	data/chars/misc/HTplay/fryo01.gif
-	delay	11000
-	frame	data/chars/misc/HTplay/fryo01.gif
-	delay	10
-	frame	data/chars/misc/HTplay/fryo01.gif
-	frame	data/chars/misc/HTplay/fryo01.gif
-	delay	11000
-	frame	data/chars/misc/HTplay/fryo02.gif
-	delay	10
-	frame	data/chars/misc/HTplay/fryo02.gif
-	frame	data/chars/misc/HTplay/fryo02.gif
-	delay	11000
-	frame	data/chars/misc/HTplay/fryo03.gif
-	delay	10
-	frame	data/chars/misc/HTplay/fryo03.gif
-	frame	data/chars/misc/HTplay/fryo03.gif
-	delay	11000
-	frame	data/chars/misc/HTplay/fryo04.gif
-	delay	10
-	frame	data/chars/misc/HTplay/fryo04.gif
-	frame	data/chars/misc/HTplay/fryo04.gif
-	delay	11000
-	frame	data/chars/misc/HTplay/fryo05.gif
-	delay	10
-	frame	data/chars/misc/HTplay/fryo05.gif
-	frame	data/chars/misc/HTplay/fryo05.gif
-	delay	5
-	drawmethod 256 255
-	frame	data/chars/misc/HTplay/fryo05.gif
-	drawmethod 256 235
-	frame	data/chars/misc/HTplay/fryo05.gif
+	frame	data/chars/misc/HTplay/zFryoTUT.png	#----8
+
+	delay	6
 	sound	data/sounds/super7.wav
-	drawmethod 256 215
-	frame	data/chars/misc/HTplay/fryo05.gif
-	drawmethod 256 195
-	frame	data/chars/misc/HTplay/fryo05.gif
-	drawmethod 256 175
-	frame	data/chars/misc/HTplay/fryo05.gif
-	drawmethod 256 155
-	frame	data/chars/misc/HTplay/fryo05.gif
-	drawmethod 256 135
-	frame	data/chars/misc/HTplay/fryo05.gif
-	drawmethod 256 115
-	frame	data/chars/misc/HTplay/fryo05.gif
-	drawmethod 256 95
-	frame	data/chars/misc/HTplay/fryo05.gif
-	drawmethod 256 75
-	frame	data/chars/misc/HTplay/fryo05.gif
-	drawmethod 256 55
-	frame	data/chars/misc/HTplay/fryo05.gif
-	drawmethod 256 35
-	frame	data/chars/misc/HTplay/fryo05.gif
-	drawmethod 256 15
-	frame	data/chars/misc/HTplay/fryo05.gif
-	drawmethod 256 5
-	frame	data/chars/misc/HTplay/fryo05.gif
-	drawmethod 256 0
-	frame	data/chars/misc/HTplay/fryo05.gif
+	drawmethod 240 240
+	frame	data/chars/misc/HTplay/zFryoTUT.png
+	drawmethod 210 210
+	frame	data/chars/misc/HTplay/zFryoTUT.png
+	drawmethod 180 180
+	frame	data/chars/misc/HTplay/zFryoTUT.png
+	drawmethod 150 150
+	frame	data/chars/misc/HTplay/zFryoTUT.png
+	drawmethod 120 120
+	frame	data/chars/misc/HTplay/zFryoTUT.png
+	drawmethod 60 60
+	frame	data/chars/misc/HTplay/zFryoTUT.png
+	drawmethod 30 30
+	frame	data/chars/misc/HTplay/zFryoTUT.png
 	@cmd	suicide
-	frame	data/chars/misc/HTplay/fryo05.gif
+	frame	data/chars/misc/HTplay/zFryoTUT.png
 
 
-#-------------//-----ROBERT---//----------------------
+#//----------------//---ROBERT---//--------------------------
 
 anim	follow2
+@script
+	void self = getlocalvar("self");
+
+	if (frame == 0)
+	{                
+		changeentityproperty(self, "aggression", 725);
+	}
+@end_script
 	loop	0
-	delay	5
-	offset	235 125
-	drawmethod 5 5
-	frame	data/chars/misc/HTplay/robert01.gif
-	drawmethod 10 10
-	frame	data/chars/misc/HTplay/robert01.gif
-	sound	data/sounds/super3.wav
-	drawmethod 20 20
-	frame	data/chars/misc/HTplay/robert01.gif
+	delay	6 
+	offset	1 1
 	drawmethod 30 30
-	frame	data/chars/misc/HTplay/robert01.gif
-	drawmethod 40 40
-	frame	data/chars/misc/HTplay/robert01.gif
-	drawmethod 50 50
-	frame	data/chars/misc/HTplay/robert01.gif
+	sound	data/sounds/super3.wav
+	frame	data/chars/misc/HTplay/zRobTUT.png
 	drawmethod 60 60
-	frame	data/chars/misc/HTplay/robert01.gif
-	drawmethod 70 70
-	frame	data/chars/misc/HTplay/robert01.gif
-	drawmethod 80 80
-	frame	data/chars/misc/HTplay/robert01.gif
+	frame	data/chars/misc/HTplay/zRobTUT.png
 	drawmethod 90 90
-	frame	data/chars/misc/HTplay/robert01.gif
-	drawmethod 100 100
-	frame	data/chars/misc/HTplay/robert01.gif
-	drawmethod 110 110
-	frame	data/chars/misc/HTplay/robert01.gif
+	frame	data/chars/misc/HTplay/zRobTUT.png
 	drawmethod 120 120
-	frame	data/chars/misc/HTplay/robert01.gif
-	drawmethod 130 130
-	frame	data/chars/misc/HTplay/robert01.gif
-	drawmethod 140 140
-	frame	data/chars/misc/HTplay/robert01.gif
+	frame	data/chars/misc/HTplay/zRobTUT.png
 	drawmethod 150 150
-	frame	data/chars/misc/HTplay/robert01.gif
-	drawmethod 160 160
-	frame	data/chars/misc/HTplay/robert01.gif
-	drawmethod 170 170
-	frame	data/chars/misc/HTplay/robert01.gif
+	frame	data/chars/misc/HTplay/zRobTUT.png
 	drawmethod 180 180
-	frame	data/chars/misc/HTplay/robert01.gif
-	drawmethod 190 190
-	frame	data/chars/misc/HTplay/robert01.gif
+	frame	data/chars/misc/HTplay/zRobTUT.png
 	drawmethod 210 210
-	frame	data/chars/misc/HTplay/robert01.gif
-	drawmethod 220 220
-	frame	data/chars/misc/HTplay/robert01.gif
-	drawmethod 230 230
-	frame	data/chars/misc/HTplay/robert01.gif
+	frame	data/chars/misc/HTplay/zRobTUT.png
 	drawmethod 240 240
-	frame	data/chars/misc/HTplay/robert01.gif
-	drawmethod 250 250
-	frame	data/chars/misc/HTplay/robert01.gif
+	frame	data/chars/misc/HTplay/zRobTUT.png
+
+	delay	55000
 	nodrawmethod
-	frame	data/chars/misc/HTplay/robert01.gif
-	delay	11000
-	frame	data/chars/misc/HTplay/robert01.gif
-	delay	10
-	frame	data/chars/misc/HTplay/robert01.gif
-	frame	data/chars/misc/HTplay/robert01.gif
-	delay	11000
-	frame	data/chars/misc/HTplay/robert02.gif
-	delay	10
-	frame	data/chars/misc/HTplay/robert02.gif
-	frame	data/chars/misc/HTplay/robert02.gif
-	delay	11000
-	frame	data/chars/misc/HTplay/robert03.gif
-	delay	10
-	frame	data/chars/misc/HTplay/robert03.gif
-	frame	data/chars/misc/HTplay/robert03.gif
-	delay	11000
-	frame	data/chars/misc/HTplay/robert04.gif
-	delay	10
-	frame	data/chars/misc/HTplay/robert04.gif
-	frame	data/chars/misc/HTplay/robert04.gif
-	delay	11000
-	frame	data/chars/misc/HTplay/robert05.gif
-	delay	10
-	frame	data/chars/misc/HTplay/robert05.gif
-	frame	data/chars/misc/HTplay/robert05.gif
-	delay	5
-	drawmethod 256 255
-	frame	data/chars/misc/HTplay/robert05.gif
-	drawmethod 256 235
-	frame	data/chars/misc/HTplay/robert05.gif
+	frame	data/chars/misc/HTplay/zRobTUT.png	#----8
+
+	delay	6
 	sound	data/sounds/super7.wav
-	drawmethod 256 215
-	frame	data/chars/misc/HTplay/robert05.gif
-	drawmethod 256 195
-	frame	data/chars/misc/HTplay/robert05.gif
-	drawmethod 256 175
-	frame	data/chars/misc/HTplay/robert05.gif
-	drawmethod 256 155
-	frame	data/chars/misc/HTplay/robert05.gif
-	drawmethod 256 135
-	frame	data/chars/misc/HTplay/robert05.gif
-	drawmethod 256 115
-	frame	data/chars/misc/HTplay/robert05.gif
-	drawmethod 256 95
-	frame	data/chars/misc/HTplay/robert05.gif
-	drawmethod 256 75
-	frame	data/chars/misc/HTplay/robert05.gif
-	drawmethod 256 55
-	frame	data/chars/misc/HTplay/robert05.gif
-	drawmethod 256 35
-	frame	data/chars/misc/HTplay/robert05.gif
-	drawmethod 256 15
-	frame	data/chars/misc/HTplay/robert05.gif
-	drawmethod 256 5
-	frame	data/chars/misc/HTplay/robert05.gif
-	drawmethod 256 0
-	frame	data/chars/misc/HTplay/robert05.gif
+	drawmethod 240 240
+	frame	data/chars/misc/HTplay/zRobTUT.png
+	drawmethod 210 210
+	frame	data/chars/misc/HTplay/zRobTUT.png
+	drawmethod 180 180
+	frame	data/chars/misc/HTplay/zRobTUT.png
+	drawmethod 150 150
+	frame	data/chars/misc/HTplay/zRobTUT.png
+	drawmethod 120 120
+	frame	data/chars/misc/HTplay/zRobTUT.png
+	drawmethod 60 60
+	frame	data/chars/misc/HTplay/zRobTUT.png
+	drawmethod 30 30
+	frame	data/chars/misc/HTplay/zRobTUT.png
 	@cmd	suicide
-	frame	data/chars/misc/HTplay/robert05.gif
+	frame	data/chars/misc/HTplay/zRobTUT.png
 
 
-#-------------//----K-ROBERT---//----------------------
+#//----------------//--KYOKUGEN-ROBERT---//--------------------------
 
 anim	follow3
+@script
+	void self = getlocalvar("self");
+
+	if (frame == 0)
+	{                
+		changeentityproperty(self, "aggression", 725);
+	}
+@end_script
 	loop	0
-	delay	5
-	offset	235 125
-	drawmethod 5 5
-	frame	data/chars/misc/HTplay/krobert01.gif
-	drawmethod 10 10
-	frame	data/chars/misc/HTplay/krobert01.gif
-	sound	data/sounds/super3.wav
-	drawmethod 20 20
-	frame	data/chars/misc/HTplay/krobert01.gif
+	delay	6 
+	offset	1 1
 	drawmethod 30 30
-	frame	data/chars/misc/HTplay/krobert01.gif
-	drawmethod 40 40
-	frame	data/chars/misc/HTplay/krobert01.gif
-	drawmethod 50 50
-	frame	data/chars/misc/HTplay/krobert01.gif
+	sound	data/sounds/super3.wav
+	frame	data/chars/misc/HTplay/zKrobTUT.png
 	drawmethod 60 60
-	frame	data/chars/misc/HTplay/krobert01.gif
-	drawmethod 70 70
-	frame	data/chars/misc/HTplay/krobert01.gif
-	drawmethod 80 80
-	frame	data/chars/misc/HTplay/krobert01.gif
+	frame	data/chars/misc/HTplay/zKrobTUT.png
 	drawmethod 90 90
-	frame	data/chars/misc/HTplay/krobert01.gif
-	drawmethod 100 100
-	frame	data/chars/misc/HTplay/krobert01.gif
-	drawmethod 110 110
-	frame	data/chars/misc/HTplay/krobert01.gif
+	frame	data/chars/misc/HTplay/zKrobTUT.png
 	drawmethod 120 120
-	frame	data/chars/misc/HTplay/krobert01.gif
-	drawmethod 130 130
-	frame	data/chars/misc/HTplay/krobert01.gif
-	drawmethod 140 140
-	frame	data/chars/misc/HTplay/krobert01.gif
+	frame	data/chars/misc/HTplay/zKrobTUT.png
 	drawmethod 150 150
-	frame	data/chars/misc/HTplay/krobert01.gif
-	drawmethod 160 160
-	frame	data/chars/misc/HTplay/krobert01.gif
-	drawmethod 170 170
-	frame	data/chars/misc/HTplay/krobert01.gif
+	frame	data/chars/misc/HTplay/zKrobTUT.png
 	drawmethod 180 180
-	frame	data/chars/misc/HTplay/krobert01.gif
-	drawmethod 190 190
-	frame	data/chars/misc/HTplay/krobert01.gif
+	frame	data/chars/misc/HTplay/zKrobTUT.png
 	drawmethod 210 210
-	frame	data/chars/misc/HTplay/krobert01.gif
-	drawmethod 220 220
-	frame	data/chars/misc/HTplay/krobert01.gif
-	drawmethod 230 230
-	frame	data/chars/misc/HTplay/krobert01.gif
+	frame	data/chars/misc/HTplay/zKrobTUT.png
 	drawmethod 240 240
-	frame	data/chars/misc/HTplay/krobert01.gif
-	drawmethod 250 250
-	frame	data/chars/misc/HTplay/krobert01.gif
+	frame	data/chars/misc/HTplay/zKrobTUT.png
+
+	delay	55000
 	nodrawmethod
-	frame	data/chars/misc/HTplay/krobert01.gif
-	delay	11000
-	frame	data/chars/misc/HTplay/krobert01.gif
-	delay	10
-	frame	data/chars/misc/HTplay/krobert01.gif
-	frame	data/chars/misc/HTplay/krobert01.gif
-	delay	11000
-	frame	data/chars/misc/HTplay/krobert02.gif
-	delay	10
-	frame	data/chars/misc/HTplay/krobert02.gif
-	frame	data/chars/misc/HTplay/krobert02.gif
-	delay	11000
-	frame	data/chars/misc/HTplay/krobert03.gif
-	delay	10
-	frame	data/chars/misc/HTplay/krobert03.gif
-	frame	data/chars/misc/HTplay/krobert03.gif
-	delay	11000
-	frame	data/chars/misc/HTplay/krobert04.gif
-	delay	10
-	frame	data/chars/misc/HTplay/krobert04.gif
-	frame	data/chars/misc/HTplay/krobert04.gif
-	delay	11000
-	frame	data/chars/misc/HTplay/krobert05.gif
-	delay	10
-	frame	data/chars/misc/HTplay/krobert05.gif
-	frame	data/chars/misc/HTplay/krobert05.gif
-	delay	5
-	drawmethod 256 255
-	frame	data/chars/misc/HTplay/krobert05.gif
-	drawmethod 256 235
-	frame	data/chars/misc/HTplay/krobert05.gif
+	frame	data/chars/misc/HTplay/zKrobTUT.png	#----8
+
+	delay	6
 	sound	data/sounds/super7.wav
-	drawmethod 256 215
-	frame	data/chars/misc/HTplay/krobert05.gif
-	drawmethod 256 195
-	frame	data/chars/misc/HTplay/krobert05.gif
-	drawmethod 256 175
-	frame	data/chars/misc/HTplay/krobert05.gif
-	drawmethod 256 155
-	frame	data/chars/misc/HTplay/krobert05.gif
-	drawmethod 256 135
-	frame	data/chars/misc/HTplay/krobert05.gif
-	drawmethod 256 115
-	frame	data/chars/misc/HTplay/krobert05.gif
-	drawmethod 256 95
-	frame	data/chars/misc/HTplay/krobert05.gif
-	drawmethod 256 75
-	frame	data/chars/misc/HTplay/krobert05.gif
-	drawmethod 256 55
-	frame	data/chars/misc/HTplay/krobert05.gif
-	drawmethod 256 35
-	frame	data/chars/misc/HTplay/krobert05.gif
-	drawmethod 256 15
-	frame	data/chars/misc/HTplay/krobert05.gif
-	drawmethod 256 5
-	frame	data/chars/misc/HTplay/krobert05.gif
-	drawmethod 256 0
-	frame	data/chars/misc/HTplay/krobert05.gif
+	drawmethod 240 240
+	frame	data/chars/misc/HTplay/zKrobTUT.png
+	drawmethod 210 210
+	frame	data/chars/misc/HTplay/zKrobTUT.png
+	drawmethod 180 180
+	frame	data/chars/misc/HTplay/zKrobTUT.png
+	drawmethod 150 150
+	frame	data/chars/misc/HTplay/zKrobTUT.png
+	drawmethod 120 120
+	frame	data/chars/misc/HTplay/zKrobTUT.png
+	drawmethod 60 60
+	frame	data/chars/misc/HTplay/zKrobTUT.png
+	drawmethod 30 30
+	frame	data/chars/misc/HTplay/zKrobTUT.png
 	@cmd	suicide
-	frame	data/chars/misc/HTplay/krobert05.gif
+	frame	data/chars/misc/HTplay/zKrobTUT.png
 
 
-#-------------//-----YURI---//----------------------
+#//----------------//---YURI---//--------------------------
 
 anim	follow4
+@script
+	void self = getlocalvar("self");
+
+	if (frame == 0)
+	{                
+		changeentityproperty(self, "aggression", 725);
+	}
+@end_script
 	loop	0
-	delay	5
-	offset	235 125
-	drawmethod 5 5
-	frame	data/chars/misc/HTplay/yuri01.gif
-	drawmethod 10 10
-	frame	data/chars/misc/HTplay/yuri01.gif
-	sound	data/sounds/super3.wav
-	drawmethod 20 20
-	frame	data/chars/misc/HTplay/yuri01.gif
+	delay	6 
+	offset	1 1
 	drawmethod 30 30
-	frame	data/chars/misc/HTplay/yuri01.gif
-	drawmethod 40 40
-	frame	data/chars/misc/HTplay/yuri01.gif
-	drawmethod 50 50
-	frame	data/chars/misc/HTplay/yuri01.gif
+	sound	data/sounds/super3.wav
+	frame	data/chars/misc/HTplay/zYuriTUT.png
 	drawmethod 60 60
-	frame	data/chars/misc/HTplay/yuri01.gif
-	drawmethod 70 70
-	frame	data/chars/misc/HTplay/yuri01.gif
-	drawmethod 80 80
-	frame	data/chars/misc/HTplay/yuri01.gif
+	frame	data/chars/misc/HTplay/zYuriTUT.png
 	drawmethod 90 90
-	frame	data/chars/misc/HTplay/yuri01.gif
-	drawmethod 100 100
-	frame	data/chars/misc/HTplay/yuri01.gif
-	drawmethod 110 110
-	frame	data/chars/misc/HTplay/yuri01.gif
+	frame	data/chars/misc/HTplay/zYuriTUT.png
 	drawmethod 120 120
-	frame	data/chars/misc/HTplay/yuri01.gif
-	drawmethod 130 130
-	frame	data/chars/misc/HTplay/yuri01.gif
-	drawmethod 140 140
-	frame	data/chars/misc/HTplay/yuri01.gif
+	frame	data/chars/misc/HTplay/zYuriTUT.png
 	drawmethod 150 150
-	frame	data/chars/misc/HTplay/yuri01.gif
-	drawmethod 160 160
-	frame	data/chars/misc/HTplay/yuri01.gif
-	drawmethod 170 170
-	frame	data/chars/misc/HTplay/yuri01.gif
+	frame	data/chars/misc/HTplay/zYuriTUT.png
 	drawmethod 180 180
-	frame	data/chars/misc/HTplay/yuri01.gif
-	drawmethod 190 190
-	frame	data/chars/misc/HTplay/yuri01.gif
+	frame	data/chars/misc/HTplay/zYuriTUT.png
 	drawmethod 210 210
-	frame	data/chars/misc/HTplay/yuri01.gif
-	drawmethod 220 220
-	frame	data/chars/misc/HTplay/yuri01.gif
-	drawmethod 230 230
-	frame	data/chars/misc/HTplay/yuri01.gif
+	frame	data/chars/misc/HTplay/zYuriTUT.png
 	drawmethod 240 240
-	frame	data/chars/misc/HTplay/yuri01.gif
-	drawmethod 250 250
-	frame	data/chars/misc/HTplay/yuri01.gif
+	frame	data/chars/misc/HTplay/zYuriTUT.png
+
+	delay	55000
 	nodrawmethod
-	frame	data/chars/misc/HTplay/yuri01.gif
-	delay	11000
-	frame	data/chars/misc/HTplay/yuri01.gif
-	delay	10
-	frame	data/chars/misc/HTplay/yuri01.gif
-	frame	data/chars/misc/HTplay/yuri01.gif
-	delay	11000
-	frame	data/chars/misc/HTplay/yuri02.gif
-	delay	10
-	frame	data/chars/misc/HTplay/yuri02.gif
-	frame	data/chars/misc/HTplay/yuri02.gif
-	delay	11000
-	frame	data/chars/misc/HTplay/yuri03.gif
-	delay	10
-	frame	data/chars/misc/HTplay/yuri03.gif
-	frame	data/chars/misc/HTplay/yuri03.gif
-	delay	11000
-	frame	data/chars/misc/HTplay/yuri04.gif
-	delay	10
-	frame	data/chars/misc/HTplay/yuri04.gif
-	frame	data/chars/misc/HTplay/yuri04.gif
-	delay	11000
-	frame	data/chars/misc/HTplay/yuri05.gif
-	delay	10
-	frame	data/chars/misc/HTplay/yuri05.gif
-	frame	data/chars/misc/HTplay/yuri05.gif
-	delay	5
-	drawmethod 256 255
-	frame	data/chars/misc/HTplay/yuri05.gif
-	drawmethod 256 235
-	frame	data/chars/misc/HTplay/yuri05.gif
+	frame	data/chars/misc/HTplay/zYuriTUT.png	#----8
+
+	delay	6
 	sound	data/sounds/super7.wav
-	drawmethod 256 215
-	frame	data/chars/misc/HTplay/yuri05.gif
-	drawmethod 256 195
-	frame	data/chars/misc/HTplay/yuri05.gif
-	drawmethod 256 175
-	frame	data/chars/misc/HTplay/yuri05.gif
-	drawmethod 256 155
-	frame	data/chars/misc/HTplay/yuri05.gif
-	drawmethod 256 135
-	frame	data/chars/misc/HTplay/yuri05.gif
-	drawmethod 256 115
-	frame	data/chars/misc/HTplay/yuri05.gif
-	drawmethod 256 95
-	frame	data/chars/misc/HTplay/yuri05.gif
-	drawmethod 256 75
-	frame	data/chars/misc/HTplay/yuri05.gif
-	drawmethod 256 55
-	frame	data/chars/misc/HTplay/yuri05.gif
-	drawmethod 256 35
-	frame	data/chars/misc/HTplay/yuri05.gif
-	drawmethod 256 15
-	frame	data/chars/misc/HTplay/yuri05.gif
-	drawmethod 256 5
-	frame	data/chars/misc/HTplay/yuri05.gif
-	drawmethod 256 0
-	frame	data/chars/misc/HTplay/yuri05.gif
+	drawmethod 240 240
+	frame	data/chars/misc/HTplay/zYuriTUT.png
+	drawmethod 210 210
+	frame	data/chars/misc/HTplay/zYuriTUT.png
+	drawmethod 180 180
+	frame	data/chars/misc/HTplay/zYuriTUT.png
+	drawmethod 150 150
+	frame	data/chars/misc/HTplay/zYuriTUT.png
+	drawmethod 120 120
+	frame	data/chars/misc/HTplay/zYuriTUT.png
+	drawmethod 60 60
+	frame	data/chars/misc/HTplay/zYuriTUT.png
+	drawmethod 30 30
+	frame	data/chars/misc/HTplay/zYuriTUT.png
 	@cmd	suicide
-	frame	data/chars/misc/HTplay/yuri05.gif
+	frame	data/chars/misc/HTplay/zYuriTUT.png
 
 
-#-------------//----KF-YURI---//----------------------
+#//----------------//--KF-YURI---//--------------------------
 
 anim	follow5
+@script
+	void self = getlocalvar("self");
+
+	if (frame == 0)
+	{                
+		changeentityproperty(self, "aggression", 725);
+	}
+@end_script
 	loop	0
-	delay	5
-	offset	235 125
-	drawmethod 5 5
-	frame	data/chars/misc/HTplay/kfyuri01.gif
-	drawmethod 10 10
-	frame	data/chars/misc/HTplay/kfyuri01.gif
-	sound	data/sounds/super3.wav
-	drawmethod 20 20
-	frame	data/chars/misc/HTplay/kfyuri01.gif
+	delay	6 
+	offset	1 1
 	drawmethod 30 30
-	frame	data/chars/misc/HTplay/kfyuri01.gif
-	drawmethod 40 40
-	frame	data/chars/misc/HTplay/kfyuri01.gif
-	drawmethod 50 50
-	frame	data/chars/misc/HTplay/kfyuri01.gif
+	sound	data/sounds/super3.wav
+	frame	data/chars/misc/HTplay/zKyuriTUT.png
 	drawmethod 60 60
-	frame	data/chars/misc/HTplay/kfyuri01.gif
-	drawmethod 70 70
-	frame	data/chars/misc/HTplay/kfyuri01.gif
-	drawmethod 80 80
-	frame	data/chars/misc/HTplay/kfyuri01.gif
+	frame	data/chars/misc/HTplay/zKyuriTUT.png
 	drawmethod 90 90
-	frame	data/chars/misc/HTplay/kfyuri01.gif
-	drawmethod 100 100
-	frame	data/chars/misc/HTplay/kfyuri01.gif
-	drawmethod 110 110
-	frame	data/chars/misc/HTplay/kfyuri01.gif
+	frame	data/chars/misc/HTplay/zKyuriTUT.png
 	drawmethod 120 120
-	frame	data/chars/misc/HTplay/kfyuri01.gif
-	drawmethod 130 130
-	frame	data/chars/misc/HTplay/kfyuri01.gif
-	drawmethod 140 140
-	frame	data/chars/misc/HTplay/kfyuri01.gif
+	frame	data/chars/misc/HTplay/zKyuriTUT.png
 	drawmethod 150 150
-	frame	data/chars/misc/HTplay/kfyuri01.gif
-	drawmethod 160 160
-	frame	data/chars/misc/HTplay/kfyuri01.gif
-	drawmethod 170 170
-	frame	data/chars/misc/HTplay/kfyuri01.gif
+	frame	data/chars/misc/HTplay/zKyuriTUT.png
 	drawmethod 180 180
-	frame	data/chars/misc/HTplay/kfyuri01.gif
-	drawmethod 190 190
-	frame	data/chars/misc/HTplay/kfyuri01.gif
+	frame	data/chars/misc/HTplay/zKyuriTUT.png
 	drawmethod 210 210
-	frame	data/chars/misc/HTplay/kfyuri01.gif
-	drawmethod 220 220
-	frame	data/chars/misc/HTplay/kfyuri01.gif
-	drawmethod 230 230
-	frame	data/chars/misc/HTplay/kfyuri01.gif
+	frame	data/chars/misc/HTplay/zKyuriTUT.png
 	drawmethod 240 240
-	frame	data/chars/misc/HTplay/kfyuri01.gif
-	drawmethod 250 250
-	frame	data/chars/misc/HTplay/kfyuri01.gif
+	frame	data/chars/misc/HTplay/zKyuriTUT.png
+
+	delay	55000
 	nodrawmethod
-	frame	data/chars/misc/HTplay/kfyuri01.gif
-	delay	11000
-	frame	data/chars/misc/HTplay/kfyuri01.gif
-	delay	10
-	frame	data/chars/misc/HTplay/kfyuri01.gif
-	frame	data/chars/misc/HTplay/kfyuri01.gif
-	delay	11000
-	frame	data/chars/misc/HTplay/kfyuri02.gif
-	delay	10
-	frame	data/chars/misc/HTplay/kfyuri02.gif
-	frame	data/chars/misc/HTplay/kfyuri02.gif
-	delay	11000
-	frame	data/chars/misc/HTplay/kfyuri03.gif
-	delay	10
-	frame	data/chars/misc/HTplay/kfyuri03.gif
-	frame	data/chars/misc/HTplay/kfyuri03.gif
-	delay	11000
-	frame	data/chars/misc/HTplay/kfyuri04.gif
-	delay	10
-	frame	data/chars/misc/HTplay/kfyuri04.gif
-	frame	data/chars/misc/HTplay/kfyuri04.gif
-	delay	11000
-	frame	data/chars/misc/HTplay/kfyuri05.gif
-	delay	10
-	frame	data/chars/misc/HTplay/kfyuri05.gif
-	frame	data/chars/misc/HTplay/kfyuri05.gif
-	delay	5
-	drawmethod 256 255
-	frame	data/chars/misc/HTplay/kfyuri05.gif
-	drawmethod 256 235
-	frame	data/chars/misc/HTplay/kfyuri05.gif
+	frame	data/chars/misc/HTplay/zKyuriTUT.png	#----8
+
+	delay	6
 	sound	data/sounds/super7.wav
-	drawmethod 256 215
-	frame	data/chars/misc/HTplay/kfyuri05.gif
-	drawmethod 256 195
-	frame	data/chars/misc/HTplay/kfyuri05.gif
-	drawmethod 256 175
-	frame	data/chars/misc/HTplay/kfyuri05.gif
-	drawmethod 256 155
-	frame	data/chars/misc/HTplay/kfyuri05.gif
-	drawmethod 256 135
-	frame	data/chars/misc/HTplay/kfyuri05.gif
-	drawmethod 256 115
-	frame	data/chars/misc/HTplay/kfyuri05.gif
-	drawmethod 256 95
-	frame	data/chars/misc/HTplay/kfyuri05.gif
-	drawmethod 256 75
-	frame	data/chars/misc/HTplay/kfyuri05.gif
-	drawmethod 256 55
-	frame	data/chars/misc/HTplay/kfyuri05.gif
-	drawmethod 256 35
-	frame	data/chars/misc/HTplay/kfyuri05.gif
-	drawmethod 256 15
-	frame	data/chars/misc/HTplay/kfyuri05.gif
-	drawmethod 256 5
-	frame	data/chars/misc/HTplay/kfyuri05.gif
-	drawmethod 256 0
-	frame	data/chars/misc/HTplay/kfyuri05.gif
+	drawmethod 240 240
+	frame	data/chars/misc/HTplay/zKyuriTUT.png
+	drawmethod 210 210
+	frame	data/chars/misc/HTplay/zKyuriTUT.png
+	drawmethod 180 180
+	frame	data/chars/misc/HTplay/zKyuriTUT.png
+	drawmethod 150 150
+	frame	data/chars/misc/HTplay/zKyuriTUT.png
+	drawmethod 120 120
+	frame	data/chars/misc/HTplay/zKyuriTUT.png
+	drawmethod 60 60
+	frame	data/chars/misc/HTplay/zKyuriTUT.png
+	drawmethod 30 30
+	frame	data/chars/misc/HTplay/zKyuriTUT.png
 	@cmd	suicide
-	frame	data/chars/misc/HTplay/kfyuri05.gif
+	frame	data/chars/misc/HTplay/zKyuriTUT.png
 
 
-#-------------//----MR-BIG---//----------------------
+#//----------------//--S-YURI---//--------------------------
 
 anim	follow6
+@script
+	void self = getlocalvar("self");
+
+	if (frame == 0)
+	{                
+		changeentityproperty(self, "aggression", 725);
+	}
+@end_script
 	loop	0
-	delay	5
-	offset	235 125
-	drawmethod 5 5
-	frame	data/chars/misc/HTplay/xbig1.gif
-	drawmethod 10 10
-	frame	data/chars/misc/HTplay/xbig1.gif
-	sound	data/sounds/super3.wav
-	drawmethod 20 20
-	frame	data/chars/misc/HTplay/xbig1.gif
+	delay	6 
+	offset	1 1
 	drawmethod 30 30
-	frame	data/chars/misc/HTplay/xbig1.gif
-	drawmethod 40 40
-	frame	data/chars/misc/HTplay/xbig1.gif
-	drawmethod 50 50
-	frame	data/chars/misc/HTplay/xbig1.gif
+	sound	data/sounds/super3.wav
+	frame	data/chars/misc/HTplay/zSyuriTUT.png
 	drawmethod 60 60
-	frame	data/chars/misc/HTplay/xbig1.gif
-	drawmethod 70 70
-	frame	data/chars/misc/HTplay/xbig1.gif
-	drawmethod 80 80
-	frame	data/chars/misc/HTplay/xbig1.gif
+	frame	data/chars/misc/HTplay/zSyuriTUT.png
 	drawmethod 90 90
-	frame	data/chars/misc/HTplay/xbig1.gif
-	drawmethod 100 100
-	frame	data/chars/misc/HTplay/xbig1.gif
-	drawmethod 110 110
-	frame	data/chars/misc/HTplay/xbig1.gif
+	frame	data/chars/misc/HTplay/zSyuriTUT.png
 	drawmethod 120 120
-	frame	data/chars/misc/HTplay/xbig1.gif
-	drawmethod 130 130
-	frame	data/chars/misc/HTplay/xbig1.gif
-	drawmethod 140 140
-	frame	data/chars/misc/HTplay/xbig1.gif
+	frame	data/chars/misc/HTplay/zSyuriTUT.png
 	drawmethod 150 150
-	frame	data/chars/misc/HTplay/xbig1.gif
-	drawmethod 160 160
-	frame	data/chars/misc/HTplay/xbig1.gif
-	drawmethod 170 170
-	frame	data/chars/misc/HTplay/xbig1.gif
+	frame	data/chars/misc/HTplay/zSyuriTUT.png
 	drawmethod 180 180
-	frame	data/chars/misc/HTplay/xbig1.gif
-	drawmethod 190 190
-	frame	data/chars/misc/HTplay/xbig1.gif
+	frame	data/chars/misc/HTplay/zSyuriTUT.png
 	drawmethod 210 210
-	frame	data/chars/misc/HTplay/xbig1.gif
-	drawmethod 220 220
-	frame	data/chars/misc/HTplay/xbig1.gif
-	drawmethod 230 230
-	frame	data/chars/misc/HTplay/xbig1.gif
+	frame	data/chars/misc/HTplay/zSyuriTUT.png
 	drawmethod 240 240
-	frame	data/chars/misc/HTplay/xbig1.gif
-	drawmethod 250 250
-	frame	data/chars/misc/HTplay/xbig1.gif
+	frame	data/chars/misc/HTplay/zSyuriTUT.png
+
+	delay	55000
 	nodrawmethod
-	frame	data/chars/misc/HTplay/xbig1.gif
-	delay	10
-	frame	data/chars/misc/HTplay/xbig1.gif
-	frame	data/chars/misc/HTplay/xbig1.gif
-	delay	11000
-	frame	data/chars/misc/HTplay/xbig1.gif
-	delay	10
-	frame	data/chars/misc/HTplay/xbig1.gif
-	frame	data/chars/misc/HTplay/xbig1.gif
-	delay	5
-	drawmethod 256 255
-	frame	data/chars/misc/HTplay/xbig1.gif
-	drawmethod 256 235
-	frame	data/chars/misc/HTplay/xbig1.gif
+	frame	data/chars/misc/HTplay/zSyuriTUT.png	#----8
+
+	delay	6
 	sound	data/sounds/super7.wav
-	drawmethod 256 215
-	frame	data/chars/misc/HTplay/xbig1.gif
-	drawmethod 256 195
-	frame	data/chars/misc/HTplay/xbig1.gif
-	drawmethod 256 175
-	frame	data/chars/misc/HTplay/xbig1.gif
-	drawmethod 256 155
-	frame	data/chars/misc/HTplay/xbig1.gif
-	drawmethod 256 135
-	frame	data/chars/misc/HTplay/xbig1.gif
-	drawmethod 256 115
-	frame	data/chars/misc/HTplay/xbig1.gif
-	drawmethod 256 95
-	frame	data/chars/misc/HTplay/xbig1.gif
-	drawmethod 256 75
-	frame	data/chars/misc/HTplay/xbig1.gif
-	drawmethod 256 55
-	frame	data/chars/misc/HTplay/xbig1.gif
-	drawmethod 256 35
-	frame	data/chars/misc/HTplay/xbig1.gif
-	drawmethod 256 15
-	frame	data/chars/misc/HTplay/xbig1.gif
-	drawmethod 256 5
-	frame	data/chars/misc/HTplay/xbig1.gif
-	drawmethod 256 0
-	frame	data/chars/misc/HTplay/xbig1.gif
+	drawmethod 240 240
+	frame	data/chars/misc/HTplay/zSyuriTUT.png
+	drawmethod 210 210
+	frame	data/chars/misc/HTplay/zSyuriTUT.png
+	drawmethod 180 180
+	frame	data/chars/misc/HTplay/zSyuriTUT.png
+	drawmethod 150 150
+	frame	data/chars/misc/HTplay/zSyuriTUT.png
+	drawmethod 120 120
+	frame	data/chars/misc/HTplay/zSyuriTUT.png
+	drawmethod 60 60
+	frame	data/chars/misc/HTplay/zSyuriTUT.png
+	drawmethod 30 30
+	frame	data/chars/misc/HTplay/zSyuriTUT.png
 	@cmd	suicide
-	frame	data/chars/misc/HTplay/xbig1.gif
+	frame	data/chars/misc/HTplay/zSyuriTUT.png
 
 
-#-------------//----MR-BIG-2--//----------------------
+#//----------------//--ANGEL---//--------------------------
 
 anim	follow7
+@script
+	void self = getlocalvar("self");
+
+	if (frame == 0)
+	{                
+		changeentityproperty(self, "aggression", 640);
+	}
+@end_script
 	loop	0
-	delay	5
-	offset	235 125
-	drawmethod 5 5
-	frame	data/chars/misc/HTplay/xbig2.gif
-	drawmethod 10 10
-	frame	data/chars/misc/HTplay/xbig2.gif
-	sound	data/sounds/super3.wav
-	drawmethod 20 20
-	frame	data/chars/misc/HTplay/xbig2.gif
+	delay	6 
+	offset	1 1
 	drawmethod 30 30
-	frame	data/chars/misc/HTplay/xbig2.gif
-	drawmethod 40 40
-	frame	data/chars/misc/HTplay/xbig2.gif
-	drawmethod 50 50
-	frame	data/chars/misc/HTplay/xbig2.gif
+	sound	data/sounds/super3.wav
+	frame	data/chars/misc/HTplay/zAngTUT.png
 	drawmethod 60 60
-	frame	data/chars/misc/HTplay/xbig2.gif
-	drawmethod 70 70
-	frame	data/chars/misc/HTplay/xbig2.gif
-	drawmethod 80 80
-	frame	data/chars/misc/HTplay/xbig2.gif
+	frame	data/chars/misc/HTplay/zAngTUT.png
 	drawmethod 90 90
-	frame	data/chars/misc/HTplay/xbig2.gif
-	drawmethod 100 100
-	frame	data/chars/misc/HTplay/xbig2.gif
-	drawmethod 110 110
-	frame	data/chars/misc/HTplay/xbig2.gif
+	frame	data/chars/misc/HTplay/zAngTUT.png
 	drawmethod 120 120
-	frame	data/chars/misc/HTplay/xbig2.gif
-	drawmethod 130 130
-	frame	data/chars/misc/HTplay/xbig2.gif
-	drawmethod 140 140
-	frame	data/chars/misc/HTplay/xbig2.gif
+	frame	data/chars/misc/HTplay/zAngTUT.png
 	drawmethod 150 150
-	frame	data/chars/misc/HTplay/xbig2.gif
-	drawmethod 160 160
-	frame	data/chars/misc/HTplay/xbig2.gif
-	drawmethod 170 170
-	frame	data/chars/misc/HTplay/xbig2.gif
+	frame	data/chars/misc/HTplay/zAngTUT.png
 	drawmethod 180 180
-	frame	data/chars/misc/HTplay/xbig2.gif
-	drawmethod 190 190
-	frame	data/chars/misc/HTplay/xbig2.gif
+	frame	data/chars/misc/HTplay/zAngTUT.png
 	drawmethod 210 210
-	frame	data/chars/misc/HTplay/xbig2.gif
-	drawmethod 220 220
-	frame	data/chars/misc/HTplay/xbig2.gif
-	drawmethod 230 230
-	frame	data/chars/misc/HTplay/xbig2.gif
+	frame	data/chars/misc/HTplay/zAngTUT.png
 	drawmethod 240 240
-	frame	data/chars/misc/HTplay/xbig2.gif
-	drawmethod 250 250
-	frame	data/chars/misc/HTplay/xbig2.gif
+	frame	data/chars/misc/HTplay/zAngTUT.png
+
+	delay	55000
 	nodrawmethod
-	frame	data/chars/misc/HTplay/xbig2.gif
-	delay	10
-	frame	data/chars/misc/HTplay/xbig2.gif
-	frame	data/chars/misc/HTplay/xbig2.gif
-	delay	11000
-	frame	data/chars/misc/HTplay/xbig2.gif
-	delay	10
-	frame	data/chars/misc/HTplay/xbig2.gif
-	frame	data/chars/misc/HTplay/xbig2.gif
-	delay	5
-	drawmethod 256 255
-	frame	data/chars/misc/HTplay/xbig2.gif
-	drawmethod 256 235
-	frame	data/chars/misc/HTplay/xbig2.gif
+	frame	data/chars/misc/HTplay/zAngTUT.png	#----8
+
+	delay	6
 	sound	data/sounds/super7.wav
-	drawmethod 256 215
-	frame	data/chars/misc/HTplay/xbig2.gif
-	drawmethod 256 195
-	frame	data/chars/misc/HTplay/xbig2.gif
-	drawmethod 256 175
-	frame	data/chars/misc/HTplay/xbig2.gif
-	drawmethod 256 155
-	frame	data/chars/misc/HTplay/xbig2.gif
-	drawmethod 256 135
-	frame	data/chars/misc/HTplay/xbig2.gif
-	drawmethod 256 115
-	frame	data/chars/misc/HTplay/xbig2.gif
-	drawmethod 256 95
-	frame	data/chars/misc/HTplay/xbig2.gif
-	drawmethod 256 75
-	frame	data/chars/misc/HTplay/xbig2.gif
-	drawmethod 256 55
-	frame	data/chars/misc/HTplay/xbig2.gif
-	drawmethod 256 35
-	frame	data/chars/misc/HTplay/xbig2.gif
-	drawmethod 256 15
-	frame	data/chars/misc/HTplay/xbig2.gif
-	drawmethod 256 5
-	frame	data/chars/misc/HTplay/xbig2.gif
-	drawmethod 256 0
-	frame	data/chars/misc/HTplay/xbig2.gif
+	drawmethod 240 240
+	frame	data/chars/misc/HTplay/zAngTUT.png
+	drawmethod 210 210
+	frame	data/chars/misc/HTplay/zAngTUT.png
+	drawmethod 180 180
+	frame	data/chars/misc/HTplay/zAngTUT.png
+	drawmethod 150 150
+	frame	data/chars/misc/HTplay/zAngTUT.png
+	drawmethod 120 120
+	frame	data/chars/misc/HTplay/zAngTUT.png
+	drawmethod 60 60
+	frame	data/chars/misc/HTplay/zAngTUT.png
+	drawmethod 30 30
+	frame	data/chars/misc/HTplay/zAngTUT.png
 	@cmd	suicide
-	frame	data/chars/misc/HTplay/xbig2.gif
+	frame	data/chars/misc/HTplay/zAngTUT.png
 
 
-#-------------//----JACK--//----------------------
+#//----------------//--MR-BIG---//--------------------------
 
 anim	follow8
+@script
+	void self = getlocalvar("self");
+
+	if (frame == 0)
+	{                
+		changeentityproperty(self, "aggression", 690);
+	}
+@end_script
 	loop	0
-	delay	5
-	offset	235 125
-	drawmethod 5 5
-	frame	data/chars/misc/HTplay/xjack.gif
-	drawmethod 10 10
-	frame	data/chars/misc/HTplay/xjack.gif
-	sound	data/sounds/super3.wav
-	drawmethod 20 20
-	frame	data/chars/misc/HTplay/xjack.gif
+	delay	6 
+	offset	1 1
 	drawmethod 30 30
-	frame	data/chars/misc/HTplay/xjack.gif
-	drawmethod 40 40
-	frame	data/chars/misc/HTplay/xjack.gif
-	drawmethod 50 50
-	frame	data/chars/misc/HTplay/xjack.gif
+	sound	data/sounds/super3.wav
+	frame	data/chars/misc/HTplay/zMbigTUT.png
 	drawmethod 60 60
-	frame	data/chars/misc/HTplay/xjack.gif
-	drawmethod 70 70
-	frame	data/chars/misc/HTplay/xjack.gif
-	drawmethod 80 80
-	frame	data/chars/misc/HTplay/xjack.gif
+	frame	data/chars/misc/HTplay/zMbigTUT.png
 	drawmethod 90 90
-	frame	data/chars/misc/HTplay/xjack.gif
-	drawmethod 100 100
-	frame	data/chars/misc/HTplay/xjack.gif
-	drawmethod 110 110
-	frame	data/chars/misc/HTplay/xjack.gif
+	frame	data/chars/misc/HTplay/zMbigTUT.png
 	drawmethod 120 120
-	frame	data/chars/misc/HTplay/xjack.gif
-	drawmethod 130 130
-	frame	data/chars/misc/HTplay/xjack.gif
-	drawmethod 140 140
-	frame	data/chars/misc/HTplay/xjack.gif
+	frame	data/chars/misc/HTplay/zMbigTUT.png
 	drawmethod 150 150
-	frame	data/chars/misc/HTplay/xjack.gif
-	drawmethod 160 160
-	frame	data/chars/misc/HTplay/xjack.gif
-	drawmethod 170 170
-	frame	data/chars/misc/HTplay/xjack.gif
+	frame	data/chars/misc/HTplay/zMbigTUT.png
 	drawmethod 180 180
-	frame	data/chars/misc/HTplay/xjack.gif
-	drawmethod 190 190
-	frame	data/chars/misc/HTplay/xjack.gif
+	frame	data/chars/misc/HTplay/zMbigTUT.png
 	drawmethod 210 210
-	frame	data/chars/misc/HTplay/xjack.gif
-	drawmethod 220 220
-	frame	data/chars/misc/HTplay/xjack.gif
-	drawmethod 230 230
-	frame	data/chars/misc/HTplay/xjack.gif
+	frame	data/chars/misc/HTplay/zMbigTUT.png
 	drawmethod 240 240
-	frame	data/chars/misc/HTplay/xjack.gif
-	drawmethod 250 250
-	frame	data/chars/misc/HTplay/xjack.gif
+	frame	data/chars/misc/HTplay/zMbigTUT.png
+
+	delay	55000
 	nodrawmethod
-	frame	data/chars/misc/HTplay/xjack.gif
-	delay	10
-	frame	data/chars/misc/HTplay/xjack.gif
-	frame	data/chars/misc/HTplay/xjack.gif
-	delay	11000
-	frame	data/chars/misc/HTplay/xjack.gif
-	delay	10
-	frame	data/chars/misc/HTplay/xjack.gif
-	frame	data/chars/misc/HTplay/xjack.gif
-	delay	5
-	drawmethod 256 255
-	frame	data/chars/misc/HTplay/xjack.gif
-	drawmethod 256 235
-	frame	data/chars/misc/HTplay/xjack.gif
+	frame	data/chars/misc/HTplay/zMbigTUT.png	#----8
+
+	delay	6
 	sound	data/sounds/super7.wav
-	drawmethod 256 215
-	frame	data/chars/misc/HTplay/xjack.gif
-	drawmethod 256 195
-	frame	data/chars/misc/HTplay/xjack.gif
-	drawmethod 256 175
-	frame	data/chars/misc/HTplay/xjack.gif
-	drawmethod 256 155
-	frame	data/chars/misc/HTplay/xjack.gif
-	drawmethod 256 135
-	frame	data/chars/misc/HTplay/xjack.gif
-	drawmethod 256 115
-	frame	data/chars/misc/HTplay/xjack.gif
-	drawmethod 256 95
-	frame	data/chars/misc/HTplay/xjack.gif
-	drawmethod 256 75
-	frame	data/chars/misc/HTplay/xjack.gif
-	drawmethod 256 55
-	frame	data/chars/misc/HTplay/xjack.gif
-	drawmethod 256 35
-	frame	data/chars/misc/HTplay/xjack.gif
-	drawmethod 256 15
-	frame	data/chars/misc/HTplay/xjack.gif
-	drawmethod 256 5
-	frame	data/chars/misc/HTplay/xjack.gif
-	drawmethod 256 0
-	frame	data/chars/misc/HTplay/xjack.gif
+	drawmethod 240 240
+	frame	data/chars/misc/HTplay/zMbigTUT.png
+	drawmethod 210 210
+	frame	data/chars/misc/HTplay/zMbigTUT.png
+	drawmethod 180 180
+	frame	data/chars/misc/HTplay/zMbigTUT.png
+	drawmethod 150 150
+	frame	data/chars/misc/HTplay/zMbigTUT.png
+	drawmethod 120 120
+	frame	data/chars/misc/HTplay/zMbigTUT.png
+	drawmethod 60 60
+	frame	data/chars/misc/HTplay/zMbigTUT.png
+	drawmethod 30 30
+	frame	data/chars/misc/HTplay/zMbigTUT.png
 	@cmd	suicide
-	frame	data/chars/misc/HTplay/xjack.gif
+	frame	data/chars/misc/HTplay/zMbigTUT.png
 
 
-#-------------//----JOHNNY--//----------------------
+#//----------------//--MR-BIG-NO-GLASSES--//--------------------------
 
 anim	follow9
+@script
+	void self = getlocalvar("self");
+
+	if (frame == 0)
+	{                
+		changeentityproperty(self, "aggression", 690);
+	}
+@end_script
 	loop	0
-	delay	5
-	offset	235 125
-	drawmethod 5 5
-	frame	data/chars/misc/HTplay/xjony.gif
-	drawmethod 10 10
-	frame	data/chars/misc/HTplay/xjony.gif
-	sound	data/sounds/super3.wav
-	drawmethod 20 20
-	frame	data/chars/misc/HTplay/xjony.gif
+	delay	6 
+	offset	1 1
 	drawmethod 30 30
-	frame	data/chars/misc/HTplay/xjony.gif
-	drawmethod 40 40
-	frame	data/chars/misc/HTplay/xjony.gif
-	drawmethod 50 50
-	frame	data/chars/misc/HTplay/xjony.gif
+	sound	data/sounds/super3.wav
+	frame	data/chars/misc/HTplay/zMbig2TUT.png
 	drawmethod 60 60
-	frame	data/chars/misc/HTplay/xjony.gif
-	drawmethod 70 70
-	frame	data/chars/misc/HTplay/xjony.gif
-	drawmethod 80 80
-	frame	data/chars/misc/HTplay/xjony.gif
+	frame	data/chars/misc/HTplay/zMbig2TUT.png
 	drawmethod 90 90
-	frame	data/chars/misc/HTplay/xjony.gif
-	drawmethod 100 100
-	frame	data/chars/misc/HTplay/xjony.gif
-	drawmethod 110 110
-	frame	data/chars/misc/HTplay/xjony.gif
+	frame	data/chars/misc/HTplay/zMbig2TUT.png
 	drawmethod 120 120
-	frame	data/chars/misc/HTplay/xjony.gif
-	drawmethod 130 130
-	frame	data/chars/misc/HTplay/xjony.gif
-	drawmethod 140 140
-	frame	data/chars/misc/HTplay/xjony.gif
+	frame	data/chars/misc/HTplay/zMbig2TUT.png
 	drawmethod 150 150
-	frame	data/chars/misc/HTplay/xjony.gif
-	drawmethod 160 160
-	frame	data/chars/misc/HTplay/xjony.gif
-	drawmethod 170 170
-	frame	data/chars/misc/HTplay/xjony.gif
+	frame	data/chars/misc/HTplay/zMbig2TUT.png
 	drawmethod 180 180
-	frame	data/chars/misc/HTplay/xjony.gif
-	drawmethod 190 190
-	frame	data/chars/misc/HTplay/xjony.gif
+	frame	data/chars/misc/HTplay/zMbig2TUT.png
 	drawmethod 210 210
-	frame	data/chars/misc/HTplay/xjony.gif
-	drawmethod 220 220
-	frame	data/chars/misc/HTplay/xjony.gif
-	drawmethod 230 230
-	frame	data/chars/misc/HTplay/xjony.gif
+	frame	data/chars/misc/HTplay/zMbig2TUT.png
 	drawmethod 240 240
-	frame	data/chars/misc/HTplay/xjony.gif
-	drawmethod 250 250
-	frame	data/chars/misc/HTplay/xjony.gif
+	frame	data/chars/misc/HTplay/zMbig2TUT.png
+
+	delay	55000
 	nodrawmethod
-	frame	data/chars/misc/HTplay/xjony.gif
-	delay	10
-	frame	data/chars/misc/HTplay/xjony.gif
-	frame	data/chars/misc/HTplay/xjony.gif
-	delay	11000
-	frame	data/chars/misc/HTplay/xjony.gif
-	delay	10
-	frame	data/chars/misc/HTplay/xjony.gif
-	frame	data/chars/misc/HTplay/xjony.gif
-	delay	5
-	drawmethod 256 255
-	frame	data/chars/misc/HTplay/xjony.gif
-	drawmethod 256 235
-	frame	data/chars/misc/HTplay/xjony.gif
+	frame	data/chars/misc/HTplay/zMbig2TUT.png	#----8
+
+	delay	6
 	sound	data/sounds/super7.wav
-	drawmethod 256 215
-	frame	data/chars/misc/HTplay/xjony.gif
-	drawmethod 256 195
-	frame	data/chars/misc/HTplay/xjony.gif
-	drawmethod 256 175
-	frame	data/chars/misc/HTplay/xjony.gif
-	drawmethod 256 155
-	frame	data/chars/misc/HTplay/xjony.gif
-	drawmethod 256 135
-	frame	data/chars/misc/HTplay/xjony.gif
-	drawmethod 256 115
-	frame	data/chars/misc/HTplay/xjony.gif
-	drawmethod 256 95
-	frame	data/chars/misc/HTplay/xjony.gif
-	drawmethod 256 75
-	frame	data/chars/misc/HTplay/xjony.gif
-	drawmethod 256 55
-	frame	data/chars/misc/HTplay/xjony.gif
-	drawmethod 256 35
-	frame	data/chars/misc/HTplay/xjony.gif
-	drawmethod 256 15
-	frame	data/chars/misc/HTplay/xjony.gif
-	drawmethod 256 5
-	frame	data/chars/misc/HTplay/xjony.gif
-	drawmethod 256 0
-	frame	data/chars/misc/HTplay/xjony.gif
+	drawmethod 240 240
+	frame	data/chars/misc/HTplay/zMbig2TUT.png
+	drawmethod 210 210
+	frame	data/chars/misc/HTplay/zMbig2TUT.png
+	drawmethod 180 180
+	frame	data/chars/misc/HTplay/zMbig2TUT.png
+	drawmethod 150 150
+	frame	data/chars/misc/HTplay/zMbig2TUT.png
+	drawmethod 120 120
+	frame	data/chars/misc/HTplay/zMbig2TUT.png
+	drawmethod 60 60
+	frame	data/chars/misc/HTplay/zMbig2TUT.png
+	drawmethod 30 30
+	frame	data/chars/misc/HTplay/zMbig2TUT.png
 	@cmd	suicide
-	frame	data/chars/misc/HTplay/xjony.gif
+	frame	data/chars/misc/HTplay/zMbig2TUT.png
 
 
 
-#-------------//----MR-KARATE--//----------------------
+#//----------------//--KASUMI--//--------------------------
 
 anim	follow10
+@script
+	void self = getlocalvar("self");
+
+	if (frame == 0)
+	{                
+		changeentityproperty(self, "aggression", 700);
+	}
+@end_script
 	loop	0
-	delay	5
-	offset	235 125
-	drawmethod 5 5
-	frame	data/chars/misc/HTplay/xmrk.gif
-	drawmethod 10 10
-	frame	data/chars/misc/HTplay/xmrk.gif
-	sound	data/sounds/super3.wav
-	drawmethod 20 20
-	frame	data/chars/misc/HTplay/xmrk.gif
+	delay	6 
+	offset	1 1
 	drawmethod 30 30
-	frame	data/chars/misc/HTplay/xmrk.gif
-	drawmethod 40 40
-	frame	data/chars/misc/HTplay/xmrk.gif
-	drawmethod 50 50
-	frame	data/chars/misc/HTplay/xmrk.gif
+	sound	data/sounds/super3.wav
+	frame	data/chars/misc/HTplay/zKasuTUT.png
 	drawmethod 60 60
-	frame	data/chars/misc/HTplay/xmrk.gif
-	drawmethod 70 70
-	frame	data/chars/misc/HTplay/xmrk.gif
-	drawmethod 80 80
-	frame	data/chars/misc/HTplay/xmrk.gif
+	frame	data/chars/misc/HTplay/zKasuTUT.png
 	drawmethod 90 90
-	frame	data/chars/misc/HTplay/xmrk.gif
-	drawmethod 100 100
-	frame	data/chars/misc/HTplay/xmrk.gif
-	drawmethod 110 110
-	frame	data/chars/misc/HTplay/xmrk.gif
+	frame	data/chars/misc/HTplay/zKasuTUT.png
 	drawmethod 120 120
-	frame	data/chars/misc/HTplay/xmrk.gif
-	drawmethod 130 130
-	frame	data/chars/misc/HTplay/xmrk.gif
-	drawmethod 140 140
-	frame	data/chars/misc/HTplay/xmrk.gif
+	frame	data/chars/misc/HTplay/zKasuTUT.png
 	drawmethod 150 150
-	frame	data/chars/misc/HTplay/xmrk.gif
-	drawmethod 160 160
-	frame	data/chars/misc/HTplay/xmrk.gif
-	drawmethod 170 170
-	frame	data/chars/misc/HTplay/xmrk.gif
+	frame	data/chars/misc/HTplay/zKasuTUT.png
 	drawmethod 180 180
-	frame	data/chars/misc/HTplay/xmrk.gif
-	drawmethod 190 190
-	frame	data/chars/misc/HTplay/xmrk.gif
+	frame	data/chars/misc/HTplay/zKasuTUT.png
 	drawmethod 210 210
-	frame	data/chars/misc/HTplay/xmrk.gif
-	drawmethod 220 220
-	frame	data/chars/misc/HTplay/xmrk.gif
-	drawmethod 230 230
-	frame	data/chars/misc/HTplay/xmrk.gif
+	frame	data/chars/misc/HTplay/zKasuTUT.png
 	drawmethod 240 240
-	frame	data/chars/misc/HTplay/xmrk.gif
-	drawmethod 250 250
-	frame	data/chars/misc/HTplay/xmrk.gif
+	frame	data/chars/misc/HTplay/zKasuTUT.png
+
+	delay	55000
 	nodrawmethod
-	frame	data/chars/misc/HTplay/xmrk.gif
-	delay	10
-	frame	data/chars/misc/HTplay/xmrk.gif
-	frame	data/chars/misc/HTplay/xmrk.gif
-	delay	11000
-	frame	data/chars/misc/HTplay/xmrk.gif
-	delay	10
-	frame	data/chars/misc/HTplay/xmrk.gif
-	frame	data/chars/misc/HTplay/xmrk.gif
-	delay	5
-	drawmethod 256 255
-	frame	data/chars/misc/HTplay/xmrk.gif
-	drawmethod 256 235
-	frame	data/chars/misc/HTplay/xmrk.gif
+	frame	data/chars/misc/HTplay/zKasuTUT.png	#----8
+
+	delay	6
 	sound	data/sounds/super7.wav
-	drawmethod 256 215
-	frame	data/chars/misc/HTplay/xmrk.gif
-	drawmethod 256 195
-	frame	data/chars/misc/HTplay/xmrk.gif
-	drawmethod 256 175
-	frame	data/chars/misc/HTplay/xmrk.gif
-	drawmethod 256 155
-	frame	data/chars/misc/HTplay/xmrk.gif
-	drawmethod 256 135
-	frame	data/chars/misc/HTplay/xmrk.gif
-	drawmethod 256 115
-	frame	data/chars/misc/HTplay/xmrk.gif
-	drawmethod 256 95
-	frame	data/chars/misc/HTplay/xmrk.gif
-	drawmethod 256 75
-	frame	data/chars/misc/HTplay/xmrk.gif
-	drawmethod 256 55
-	frame	data/chars/misc/HTplay/xmrk.gif
-	drawmethod 256 35
-	frame	data/chars/misc/HTplay/xmrk.gif
-	drawmethod 256 15
-	frame	data/chars/misc/HTplay/xmrk.gif
-	drawmethod 256 5
-	frame	data/chars/misc/HTplay/xmrk.gif
-	drawmethod 256 0
-	frame	data/chars/misc/HTplay/xmrk.gif
+	drawmethod 240 240
+	frame	data/chars/misc/HTplay/zKasuTUT.png
+	drawmethod 210 210
+	frame	data/chars/misc/HTplay/zKasuTUT.png
+	drawmethod 180 180
+	frame	data/chars/misc/HTplay/zKasuTUT.png
+	drawmethod 150 150
+	frame	data/chars/misc/HTplay/zKasuTUT.png
+	drawmethod 120 120
+	frame	data/chars/misc/HTplay/zKasuTUT.png
+	drawmethod 60 60
+	frame	data/chars/misc/HTplay/zKasuTUT.png
+	drawmethod 30 30
+	frame	data/chars/misc/HTplay/zKasuTUT.png
 	@cmd	suicide
-	frame	data/chars/misc/HTplay/xmrk.gif
+	frame	data/chars/misc/HTplay/zKasuTUT.png
 
 
-#-------------//----PIPAS--//----------------------
+#//----------------//--JOHNNY--//--------------------------
 
 anim	follow11
+@script
+	void self = getlocalvar("self");
+
+	if (frame == 0)
+	{                
+		changeentityproperty(self, "aggression", 600);
+	}
+@end_script
 	loop	0
-	delay	5
-	offset	235 125
-	drawmethod 5 5
-	frame	data/chars/misc/HTplay/xpipas.gif
-	drawmethod 10 10
-	frame	data/chars/misc/HTplay/xpipas.gif
-	sound	data/sounds/super3.wav
-	drawmethod 20 20
-	frame	data/chars/misc/HTplay/xpipas.gif
+	delay	6 
+	offset	1 1
 	drawmethod 30 30
-	frame	data/chars/misc/HTplay/xpipas.gif
-	drawmethod 40 40
-	frame	data/chars/misc/HTplay/xpipas.gif
-	drawmethod 50 50
-	frame	data/chars/misc/HTplay/xpipas.gif
+	sound	data/sounds/super3.wav
+	frame	data/chars/misc/HTplay/zJon1TUT.png
 	drawmethod 60 60
-	frame	data/chars/misc/HTplay/xpipas.gif
-	drawmethod 70 70
-	frame	data/chars/misc/HTplay/xpipas.gif
-	drawmethod 80 80
-	frame	data/chars/misc/HTplay/xpipas.gif
+	frame	data/chars/misc/HTplay/zJon1TUT.png
 	drawmethod 90 90
-	frame	data/chars/misc/HTplay/xpipas.gif
-	drawmethod 100 100
-	frame	data/chars/misc/HTplay/xpipas.gif
-	drawmethod 110 110
-	frame	data/chars/misc/HTplay/xpipas.gif
+	frame	data/chars/misc/HTplay/zJon1TUT.png
 	drawmethod 120 120
-	frame	data/chars/misc/HTplay/xpipas.gif
-	drawmethod 130 130
-	frame	data/chars/misc/HTplay/xpipas.gif
-	drawmethod 140 140
-	frame	data/chars/misc/HTplay/xpipas.gif
+	frame	data/chars/misc/HTplay/zJon1TUT.png
 	drawmethod 150 150
-	frame	data/chars/misc/HTplay/xpipas.gif
-	drawmethod 160 160
-	frame	data/chars/misc/HTplay/xpipas.gif
-	drawmethod 170 170
-	frame	data/chars/misc/HTplay/xpipas.gif
+	frame	data/chars/misc/HTplay/zJon1TUT.png
 	drawmethod 180 180
-	frame	data/chars/misc/HTplay/xpipas.gif
-	drawmethod 190 190
-	frame	data/chars/misc/HTplay/xpipas.gif
+	frame	data/chars/misc/HTplay/zJon1TUT.png
 	drawmethod 210 210
-	frame	data/chars/misc/HTplay/xpipas.gif
-	drawmethod 220 220
-	frame	data/chars/misc/HTplay/xpipas.gif
-	drawmethod 230 230
-	frame	data/chars/misc/HTplay/xpipas.gif
+	frame	data/chars/misc/HTplay/zJon1TUT.png
 	drawmethod 240 240
-	frame	data/chars/misc/HTplay/xpipas.gif
-	drawmethod 250 250
-	frame	data/chars/misc/HTplay/xpipas.gif
+	frame	data/chars/misc/HTplay/zJon1TUT.png
+
+	delay	55000
 	nodrawmethod
-	frame	data/chars/misc/HTplay/xpipas.gif
-	delay	10
-	frame	data/chars/misc/HTplay/xpipas.gif
-	frame	data/chars/misc/HTplay/xpipas.gif
-	delay	11000
-	frame	data/chars/misc/HTplay/xpipas.gif
-	delay	10
-	frame	data/chars/misc/HTplay/xpipas.gif
-	frame	data/chars/misc/HTplay/xpipas.gif
-	delay	5
-	drawmethod 256 255
-	frame	data/chars/misc/HTplay/xpipas.gif
-	drawmethod 256 235
-	frame	data/chars/misc/HTplay/xpipas.gif
+	frame	data/chars/misc/HTplay/zJon1TUT.png	#----8
+
+	delay	6
 	sound	data/sounds/super7.wav
-	drawmethod 256 215
-	frame	data/chars/misc/HTplay/xpipas.gif
-	drawmethod 256 195
-	frame	data/chars/misc/HTplay/xpipas.gif
-	drawmethod 256 175
-	frame	data/chars/misc/HTplay/xpipas.gif
-	drawmethod 256 155
-	frame	data/chars/misc/HTplay/xpipas.gif
-	drawmethod 256 135
-	frame	data/chars/misc/HTplay/xpipas.gif
-	drawmethod 256 115
-	frame	data/chars/misc/HTplay/xpipas.gif
-	drawmethod 256 95
-	frame	data/chars/misc/HTplay/xpipas.gif
-	drawmethod 256 75
-	frame	data/chars/misc/HTplay/xpipas.gif
-	drawmethod 256 55
-	frame	data/chars/misc/HTplay/xpipas.gif
-	drawmethod 256 35
-	frame	data/chars/misc/HTplay/xpipas.gif
-	drawmethod 256 15
-	frame	data/chars/misc/HTplay/xpipas.gif
-	drawmethod 256 5
-	frame	data/chars/misc/HTplay/xpipas.gif
-	drawmethod 256 0
-	frame	data/chars/misc/HTplay/xpipas.gif
+	drawmethod 240 240
+	frame	data/chars/misc/HTplay/zJon1TUT.png
+	drawmethod 210 210
+	frame	data/chars/misc/HTplay/zJon1TUT.png
+	drawmethod 180 180
+	frame	data/chars/misc/HTplay/zJon1TUT.png
+	drawmethod 150 150
+	frame	data/chars/misc/HTplay/zJon1TUT.png
+	drawmethod 120 120
+	frame	data/chars/misc/HTplay/zJon1TUT.png
+	drawmethod 60 60
+	frame	data/chars/misc/HTplay/zJon1TUT.png
+	drawmethod 30 30
+	frame	data/chars/misc/HTplay/zJon1TUT.png
 	@cmd	suicide
-	frame	data/chars/misc/HTplay/xpipas.gif
+	frame	data/chars/misc/HTplay/zJon1TUT.png
 
 
-#-------------//----REMUINHO--//----------------------
+
+#//----------------//--JOHNNY-KNIFE--//--------------------------
 
 anim	follow12
+@script
+	void self = getlocalvar("self");
+
+	if (frame == 0)
+	{                
+		changeentityproperty(self, "aggression", 560);
+	}
+@end_script
 	loop	0
-	delay	5
-	offset	235 125
-	drawmethod 5 5
-	frame	data/chars/misc/HTplay/xrem1.gif
-	drawmethod 10 10
-	frame	data/chars/misc/HTplay/xrem1.gif
-	sound	data/sounds/super3.wav
-	drawmethod 20 20
-	frame	data/chars/misc/HTplay/xrem1.gif
+	delay	6 
+	offset	1 1
 	drawmethod 30 30
-	frame	data/chars/misc/HTplay/xrem1.gif
-	drawmethod 40 40
-	frame	data/chars/misc/HTplay/xrem1.gif
-	drawmethod 50 50
-	frame	data/chars/misc/HTplay/xrem1.gif
+	sound	data/sounds/super3.wav
+	frame	data/chars/misc/HTplay/zJon2TUT.png
 	drawmethod 60 60
-	frame	data/chars/misc/HTplay/xrem1.gif
-	drawmethod 70 70
-	frame	data/chars/misc/HTplay/xrem1.gif
-	drawmethod 80 80
-	frame	data/chars/misc/HTplay/xrem1.gif
+	frame	data/chars/misc/HTplay/zJon2TUT.png
 	drawmethod 90 90
-	frame	data/chars/misc/HTplay/xrem1.gif
-	drawmethod 100 100
-	frame	data/chars/misc/HTplay/xrem1.gif
-	drawmethod 110 110
-	frame	data/chars/misc/HTplay/xrem1.gif
+	frame	data/chars/misc/HTplay/zJon2TUT.png
 	drawmethod 120 120
-	frame	data/chars/misc/HTplay/xrem1.gif
-	drawmethod 130 130
-	frame	data/chars/misc/HTplay/xrem1.gif
-	drawmethod 140 140
-	frame	data/chars/misc/HTplay/xrem1.gif
+	frame	data/chars/misc/HTplay/zJon2TUT.png
 	drawmethod 150 150
-	frame	data/chars/misc/HTplay/xrem1.gif
-	drawmethod 160 160
-	frame	data/chars/misc/HTplay/xrem1.gif
-	drawmethod 170 170
-	frame	data/chars/misc/HTplay/xrem1.gif
+	frame	data/chars/misc/HTplay/zJon2TUT.png
 	drawmethod 180 180
-	frame	data/chars/misc/HTplay/xrem1.gif
-	drawmethod 190 190
-	frame	data/chars/misc/HTplay/xrem1.gif
+	frame	data/chars/misc/HTplay/zJon2TUT.png
 	drawmethod 210 210
-	frame	data/chars/misc/HTplay/xrem1.gif
-	drawmethod 220 220
-	frame	data/chars/misc/HTplay/xrem1.gif
-	drawmethod 230 230
-	frame	data/chars/misc/HTplay/xrem1.gif
+	frame	data/chars/misc/HTplay/zJon2TUT.png
 	drawmethod 240 240
-	frame	data/chars/misc/HTplay/xrem1.gif
-	drawmethod 250 250
-	frame	data/chars/misc/HTplay/xrem1.gif
+	frame	data/chars/misc/HTplay/zJon2TUT.png
+
+	delay	55000
 	nodrawmethod
-	frame	data/chars/misc/HTplay/xrem1.gif
-	delay	10
-	frame	data/chars/misc/HTplay/xrem1.gif
-	frame	data/chars/misc/HTplay/xrem1.gif
-	delay	11000
-	frame	data/chars/misc/HTplay/xrem1.gif
-	delay	10
-	frame	data/chars/misc/HTplay/xrem1.gif
-	frame	data/chars/misc/HTplay/xrem1.gif
-	delay	5
-	drawmethod 256 255
-	frame	data/chars/misc/HTplay/xrem1.gif
-	drawmethod 256 235
-	frame	data/chars/misc/HTplay/xrem1.gif
+	frame	data/chars/misc/HTplay/zJon2TUT.png	#----8
+
+	delay	6
 	sound	data/sounds/super7.wav
-	drawmethod 256 215
-	frame	data/chars/misc/HTplay/xrem1.gif
-	drawmethod 256 195
-	frame	data/chars/misc/HTplay/xrem1.gif
-	drawmethod 256 175
-	frame	data/chars/misc/HTplay/xrem1.gif
-	drawmethod 256 155
-	frame	data/chars/misc/HTplay/xrem1.gif
-	drawmethod 256 135
-	frame	data/chars/misc/HTplay/xrem1.gif
-	drawmethod 256 115
-	frame	data/chars/misc/HTplay/xrem1.gif
-	drawmethod 256 95
-	frame	data/chars/misc/HTplay/xrem1.gif
-	drawmethod 256 75
-	frame	data/chars/misc/HTplay/xrem1.gif
-	drawmethod 256 55
-	frame	data/chars/misc/HTplay/xrem1.gif
-	drawmethod 256 35
-	frame	data/chars/misc/HTplay/xrem1.gif
-	drawmethod 256 15
-	frame	data/chars/misc/HTplay/xrem1.gif
-	drawmethod 256 5
-	frame	data/chars/misc/HTplay/xrem1.gif
-	drawmethod 256 0
-	frame	data/chars/misc/HTplay/xrem1.gif
+	drawmethod 240 240
+	frame	data/chars/misc/HTplay/zJon2TUT.png
+	drawmethod 210 210
+	frame	data/chars/misc/HTplay/zJon2TUT.png
+	drawmethod 180 180
+	frame	data/chars/misc/HTplay/zJon2TUT.png
+	drawmethod 150 150
+	frame	data/chars/misc/HTplay/zJon2TUT.png
+	drawmethod 120 120
+	frame	data/chars/misc/HTplay/zJon2TUT.png
+	drawmethod 60 60
+	frame	data/chars/misc/HTplay/zJon2TUT.png
+	drawmethod 30 30
+	frame	data/chars/misc/HTplay/zJon2TUT.png
 	@cmd	suicide
-	frame	data/chars/misc/HTplay/xrem1.gif
+	frame	data/chars/misc/HTplay/zJon2TUT.png
 
 
 
 
-#-------------//----S-YURI---//----------------------
+#//----------------//--JOHNNY-THE-MACHINEGUN--//--------------------------
 
 anim	follow13
+@script
+	void self = getlocalvar("self");
+
+	if (frame == 0)
+	{                
+		changeentityproperty(self, "aggression", 410);
+	}
+@end_script
 	loop	0
-	delay	5
-	offset	235 125
-	drawmethod 5 5
-	frame	data/chars/misc/HTplay/syuri01.gif
-	drawmethod 10 10
-	frame	data/chars/misc/HTplay/syuri01.gif
-	sound	data/sounds/super3.wav
-	drawmethod 20 20
-	frame	data/chars/misc/HTplay/syuri01.gif
+	delay	6 
+	offset	1 1
 	drawmethod 30 30
-	frame	data/chars/misc/HTplay/syuri01.gif
-	drawmethod 40 40
-	frame	data/chars/misc/HTplay/syuri01.gif
-	drawmethod 50 50
-	frame	data/chars/misc/HTplay/syuri01.gif
+	sound	data/sounds/super3.wav
+	frame	data/chars/misc/HTplay/zJon3TUT.png
 	drawmethod 60 60
-	frame	data/chars/misc/HTplay/syuri01.gif
-	drawmethod 70 70
-	frame	data/chars/misc/HTplay/syuri01.gif
-	drawmethod 80 80
-	frame	data/chars/misc/HTplay/syuri01.gif
+	frame	data/chars/misc/HTplay/zJon3TUT.png
 	drawmethod 90 90
-	frame	data/chars/misc/HTplay/syuri01.gif
-	drawmethod 100 100
-	frame	data/chars/misc/HTplay/syuri01.gif
-	drawmethod 110 110
-	frame	data/chars/misc/HTplay/syuri01.gif
+	frame	data/chars/misc/HTplay/zJon3TUT.png
 	drawmethod 120 120
-	frame	data/chars/misc/HTplay/syuri01.gif
-	drawmethod 130 130
-	frame	data/chars/misc/HTplay/syuri01.gif
-	drawmethod 140 140
-	frame	data/chars/misc/HTplay/syuri01.gif
+	frame	data/chars/misc/HTplay/zJon3TUT.png
 	drawmethod 150 150
-	frame	data/chars/misc/HTplay/syuri01.gif
-	drawmethod 160 160
-	frame	data/chars/misc/HTplay/syuri01.gif
-	drawmethod 170 170
-	frame	data/chars/misc/HTplay/syuri01.gif
+	frame	data/chars/misc/HTplay/zJon3TUT.png
 	drawmethod 180 180
-	frame	data/chars/misc/HTplay/syuri01.gif
-	drawmethod 190 190
-	frame	data/chars/misc/HTplay/syuri01.gif
+	frame	data/chars/misc/HTplay/zJon3TUT.png
 	drawmethod 210 210
-	frame	data/chars/misc/HTplay/syuri01.gif
-	drawmethod 220 220
-	frame	data/chars/misc/HTplay/syuri01.gif
-	drawmethod 230 230
-	frame	data/chars/misc/HTplay/syuri01.gif
+	frame	data/chars/misc/HTplay/zJon3TUT.png
 	drawmethod 240 240
-	frame	data/chars/misc/HTplay/syuri01.gif
-	drawmethod 250 250
-	frame	data/chars/misc/HTplay/syuri01.gif
+	frame	data/chars/misc/HTplay/zJon3TUT.png
+
+	delay	55000
 	nodrawmethod
-	frame	data/chars/misc/HTplay/syuri01.gif
-	delay	11000
-	frame	data/chars/misc/HTplay/syuri01.gif
-	delay	10
-	frame	data/chars/misc/HTplay/syuri01.gif
-	frame	data/chars/misc/HTplay/syuri01.gif
-	delay	11000
-	frame	data/chars/misc/HTplay/syuri02.gif
-	delay	10
-	frame	data/chars/misc/HTplay/syuri02.gif
-	frame	data/chars/misc/HTplay/syuri02.gif
-	delay	11000
-	frame	data/chars/misc/HTplay/syuri03.gif
-	delay	10
-	frame	data/chars/misc/HTplay/syuri03.gif
-	frame	data/chars/misc/HTplay/syuri03.gif
-	delay	11000
-	frame	data/chars/misc/HTplay/syuri04.gif
-	delay	10
-	frame	data/chars/misc/HTplay/syuri04.gif
-	frame	data/chars/misc/HTplay/syuri04.gif
-	delay	11000
-	frame	data/chars/misc/HTplay/syuri05.gif
-	delay	10
-	frame	data/chars/misc/HTplay/syuri05.gif
-	frame	data/chars/misc/HTplay/syuri05.gif
-	delay	5
-	drawmethod 256 255
-	frame	data/chars/misc/HTplay/syuri05.gif
-	drawmethod 256 235
-	frame	data/chars/misc/HTplay/syuri05.gif
+	frame	data/chars/misc/HTplay/zJon3TUT.png	#----8
+
+	delay	6
 	sound	data/sounds/super7.wav
-	drawmethod 256 215
-	frame	data/chars/misc/HTplay/syuri05.gif
-	drawmethod 256 195
-	frame	data/chars/misc/HTplay/syuri05.gif
-	drawmethod 256 175
-	frame	data/chars/misc/HTplay/syuri05.gif
-	drawmethod 256 155
-	frame	data/chars/misc/HTplay/syuri05.gif
-	drawmethod 256 135
-	frame	data/chars/misc/HTplay/syuri05.gif
-	drawmethod 256 115
-	frame	data/chars/misc/HTplay/syuri05.gif
-	drawmethod 256 95
-	frame	data/chars/misc/HTplay/syuri05.gif
-	drawmethod 256 75
-	frame	data/chars/misc/HTplay/syuri05.gif
-	drawmethod 256 55
-	frame	data/chars/misc/HTplay/syuri05.gif
-	drawmethod 256 35
-	frame	data/chars/misc/HTplay/syuri05.gif
-	drawmethod 256 15
-	frame	data/chars/misc/HTplay/syuri05.gif
-	drawmethod 256 5
-	frame	data/chars/misc/HTplay/syuri05.gif
-	drawmethod 256 0
-	frame	data/chars/misc/HTplay/syuri05.gif
+	drawmethod 240 240
+	frame	data/chars/misc/HTplay/zJon3TUT.png
+	drawmethod 210 210
+	frame	data/chars/misc/HTplay/zJon3TUT.png
+	drawmethod 180 180
+	frame	data/chars/misc/HTplay/zJon3TUT.png
+	drawmethod 150 150
+	frame	data/chars/misc/HTplay/zJon3TUT.png
+	drawmethod 120 120
+	frame	data/chars/misc/HTplay/zJon3TUT.png
+	drawmethod 60 60
+	frame	data/chars/misc/HTplay/zJon3TUT.png
+	drawmethod 30 30
+	frame	data/chars/misc/HTplay/zJon3TUT.png
 	@cmd	suicide
-	frame	data/chars/misc/HTplay/syuri05.gif
+	frame	data/chars/misc/HTplay/zJon3TUT.png
 
 
 
-#-------------//------KING----//----------------------
+#//----------------//--JACK--//--------------------------
 
 anim	follow14
+@script
+	void self = getlocalvar("self");
+
+	if (frame == 0)
+	{                
+		changeentityproperty(self, "aggression", 570);
+	}
+@end_script
 	loop	0
-	delay	5
-	offset	235 125
-	drawmethod 5 5
-	frame	data/chars/misc/HTplay/king01.gif
-	drawmethod 10 10
-	frame	data/chars/misc/HTplay/king01.gif
-	sound	data/sounds/super3.wav
-	drawmethod 20 20
-	frame	data/chars/misc/HTplay/king01.gif
+	delay	6 
+	offset	1 1
 	drawmethod 30 30
-	frame	data/chars/misc/HTplay/king01.gif
-	drawmethod 40 40
-	frame	data/chars/misc/HTplay/king01.gif
-	drawmethod 50 50
-	frame	data/chars/misc/HTplay/king01.gif
+	sound	data/sounds/super3.wav
+	frame	data/chars/misc/HTplay/zJackTUT.png
 	drawmethod 60 60
-	frame	data/chars/misc/HTplay/king01.gif
-	drawmethod 70 70
-	frame	data/chars/misc/HTplay/king01.gif
-	drawmethod 80 80
-	frame	data/chars/misc/HTplay/king01.gif
+	frame	data/chars/misc/HTplay/zJackTUT.png
 	drawmethod 90 90
-	frame	data/chars/misc/HTplay/king01.gif
-	drawmethod 100 100
-	frame	data/chars/misc/HTplay/king01.gif
-	drawmethod 110 110
-	frame	data/chars/misc/HTplay/king01.gif
+	frame	data/chars/misc/HTplay/zJackTUT.png
 	drawmethod 120 120
-	frame	data/chars/misc/HTplay/king01.gif
-	drawmethod 130 130
-	frame	data/chars/misc/HTplay/king01.gif
-	drawmethod 140 140
-	frame	data/chars/misc/HTplay/king01.gif
+	frame	data/chars/misc/HTplay/zJackTUT.png
 	drawmethod 150 150
-	frame	data/chars/misc/HTplay/king01.gif
-	drawmethod 160 160
-	frame	data/chars/misc/HTplay/king01.gif
-	drawmethod 170 170
-	frame	data/chars/misc/HTplay/king01.gif
+	frame	data/chars/misc/HTplay/zJackTUT.png
 	drawmethod 180 180
-	frame	data/chars/misc/HTplay/king01.gif
-	drawmethod 190 190
-	frame	data/chars/misc/HTplay/king01.gif
+	frame	data/chars/misc/HTplay/zJackTUT.png
 	drawmethod 210 210
-	frame	data/chars/misc/HTplay/king01.gif
-	drawmethod 220 220
-	frame	data/chars/misc/HTplay/king01.gif
-	drawmethod 230 230
-	frame	data/chars/misc/HTplay/king01.gif
+	frame	data/chars/misc/HTplay/zJackTUT.png
 	drawmethod 240 240
-	frame	data/chars/misc/HTplay/king01.gif
-	drawmethod 250 250
-	frame	data/chars/misc/HTplay/king01.gif
+	frame	data/chars/misc/HTplay/zJackTUT.png
+
+	delay	55000
 	nodrawmethod
-	frame	data/chars/misc/HTplay/king01.gif
-	delay	11000
-	frame	data/chars/misc/HTplay/king01.gif
-	delay	10
-	frame	data/chars/misc/HTplay/king01.gif
-	frame	data/chars/misc/HTplay/king01.gif
-	delay	11000
-	frame	data/chars/misc/HTplay/king02.gif
-	delay	10
-	frame	data/chars/misc/HTplay/king02.gif
-	frame	data/chars/misc/HTplay/king02.gif
-	delay	11000
-	frame	data/chars/misc/HTplay/king03.gif
-	delay	10
-	frame	data/chars/misc/HTplay/king03.gif
-	frame	data/chars/misc/HTplay/king03.gif
-	delay	11000
-	frame	data/chars/misc/HTplay/king04.gif
-	delay	10
-	frame	data/chars/misc/HTplay/king04.gif
-	frame	data/chars/misc/HTplay/king04.gif
-	delay	11000
-	frame	data/chars/misc/HTplay/king05.gif
-	delay	10
-	frame	data/chars/misc/HTplay/king05.gif
-	frame	data/chars/misc/HTplay/king05.gif
-	delay	5
-	drawmethod 256 255
-	frame	data/chars/misc/HTplay/king05.gif
-	drawmethod 256 235
-	frame	data/chars/misc/HTplay/king05.gif
+	frame	data/chars/misc/HTplay/zJackTUT.png	#----8
+
+	delay	6
 	sound	data/sounds/super7.wav
-	drawmethod 256 215
-	frame	data/chars/misc/HTplay/king05.gif
-	drawmethod 256 195
-	frame	data/chars/misc/HTplay/king05.gif
-	drawmethod 256 175
-	frame	data/chars/misc/HTplay/king05.gif
-	drawmethod 256 155
-	frame	data/chars/misc/HTplay/king05.gif
-	drawmethod 256 135
-	frame	data/chars/misc/HTplay/king05.gif
-	drawmethod 256 115
-	frame	data/chars/misc/HTplay/king05.gif
-	drawmethod 256 95
-	frame	data/chars/misc/HTplay/king05.gif
-	drawmethod 256 75
-	frame	data/chars/misc/HTplay/king05.gif
-	drawmethod 256 55
-	frame	data/chars/misc/HTplay/king05.gif
-	drawmethod 256 35
-	frame	data/chars/misc/HTplay/king05.gif
-	drawmethod 256 15
-	frame	data/chars/misc/HTplay/king05.gif
-	drawmethod 256 5
-	frame	data/chars/misc/HTplay/king05.gif
-	drawmethod 256 0
-	frame	data/chars/misc/HTplay/king05.gif
+	drawmethod 240 240
+	frame	data/chars/misc/HTplay/zJackTUT.png
+	drawmethod 210 210
+	frame	data/chars/misc/HTplay/zJackTUT.png
+	drawmethod 180 180
+	frame	data/chars/misc/HTplay/zJackTUT.png
+	drawmethod 150 150
+	frame	data/chars/misc/HTplay/zJackTUT.png
+	drawmethod 120 120
+	frame	data/chars/misc/HTplay/zJackTUT.png
+	drawmethod 60 60
+	frame	data/chars/misc/HTplay/zJackTUT.png
+	drawmethod 30 30
+	frame	data/chars/misc/HTplay/zJackTUT.png
 	@cmd	suicide
-	frame	data/chars/misc/HTplay/king05.gif
+	frame	data/chars/misc/HTplay/zJackTUT.png
 
 
-
-#-------------//----ANGEL--//----------------------
+#//----------------//--MATURE--//--------------------------
 
 anim	follow15
+@script
+	void self = getlocalvar("self");
+
+	if (frame == 0)
+	{                
+		changeentityproperty(self, "aggression", 600);
+	}
+@end_script
 	loop	0
-	delay	5
-	offset	235 125
-	drawmethod 5 5
-	frame	data/chars/misc/HTplay/angel01.gif
-	drawmethod 10 10
-	frame	data/chars/misc/HTplay/angel01.gif
-	sound	data/sounds/super3.wav
-	drawmethod 20 20
-	frame	data/chars/misc/HTplay/angel01.gif
+	delay	6 
+	offset	1 1
 	drawmethod 30 30
-	frame	data/chars/misc/HTplay/angel01.gif
-	drawmethod 40 40
-	frame	data/chars/misc/HTplay/angel01.gif
-	drawmethod 50 50
-	frame	data/chars/misc/HTplay/angel01.gif
+	sound	data/sounds/super3.wav
+	frame	data/chars/misc/HTplay/zMatuTUT.png
 	drawmethod 60 60
-	frame	data/chars/misc/HTplay/angel01.gif
-	drawmethod 70 70
-	frame	data/chars/misc/HTplay/angel01.gif
-	drawmethod 80 80
-	frame	data/chars/misc/HTplay/angel01.gif
+	frame	data/chars/misc/HTplay/zMatuTUT.png
 	drawmethod 90 90
-	frame	data/chars/misc/HTplay/angel01.gif
-	drawmethod 100 100
-	frame	data/chars/misc/HTplay/angel01.gif
-	drawmethod 110 110
-	frame	data/chars/misc/HTplay/angel01.gif
+	frame	data/chars/misc/HTplay/zMatuTUT.png
 	drawmethod 120 120
-	frame	data/chars/misc/HTplay/angel01.gif
-	drawmethod 130 130
-	frame	data/chars/misc/HTplay/angel01.gif
-	drawmethod 140 140
-	frame	data/chars/misc/HTplay/angel01.gif
+	frame	data/chars/misc/HTplay/zMatuTUT.png
 	drawmethod 150 150
-	frame	data/chars/misc/HTplay/angel01.gif
-	drawmethod 160 160
-	frame	data/chars/misc/HTplay/angel01.gif
-	drawmethod 170 170
-	frame	data/chars/misc/HTplay/angel01.gif
+	frame	data/chars/misc/HTplay/zMatuTUT.png
 	drawmethod 180 180
-	frame	data/chars/misc/HTplay/angel01.gif
-	drawmethod 190 190
-	frame	data/chars/misc/HTplay/angel01.gif
+	frame	data/chars/misc/HTplay/zMatuTUT.png
 	drawmethod 210 210
-	frame	data/chars/misc/HTplay/angel01.gif
-	drawmethod 220 220
-	frame	data/chars/misc/HTplay/angel01.gif
-	drawmethod 230 230
-	frame	data/chars/misc/HTplay/angel01.gif
+	frame	data/chars/misc/HTplay/zMatuTUT.png
 	drawmethod 240 240
-	frame	data/chars/misc/HTplay/angel01.gif
-	drawmethod 250 250
-	frame	data/chars/misc/HTplay/angel01.gif
+	frame	data/chars/misc/HTplay/zMatuTUT.png
+
+	delay	55000
 	nodrawmethod
-	frame	data/chars/misc/HTplay/angel01.gif
-	delay	10
-	frame	data/chars/misc/HTplay/angel01.gif
-	frame	data/chars/misc/HTplay/angel01.gif
-	delay	11000
-	frame	data/chars/misc/HTplay/angel01.gif
-	delay	10
-	frame	data/chars/misc/HTplay/angel01.gif
-	frame	data/chars/misc/HTplay/angel01.gif
-	delay	5
-	drawmethod 256 255
-	frame	data/chars/misc/HTplay/angel01.gif
-	drawmethod 256 235
-	frame	data/chars/misc/HTplay/angel01.gif
+	frame	data/chars/misc/HTplay/zMatuTUT.png	#----8
+
+	delay	6
 	sound	data/sounds/super7.wav
-	drawmethod 256 215
-	frame	data/chars/misc/HTplay/angel01.gif
-	drawmethod 256 195
-	frame	data/chars/misc/HTplay/angel01.gif
-	drawmethod 256 175
-	frame	data/chars/misc/HTplay/angel01.gif
-	drawmethod 256 155
-	frame	data/chars/misc/HTplay/angel01.gif
-	drawmethod 256 135
-	frame	data/chars/misc/HTplay/angel01.gif
-	drawmethod 256 115
-	frame	data/chars/misc/HTplay/angel01.gif
-	drawmethod 256 95
-	frame	data/chars/misc/HTplay/angel01.gif
-	drawmethod 256 75
-	frame	data/chars/misc/HTplay/angel01.gif
-	drawmethod 256 55
-	frame	data/chars/misc/HTplay/angel01.gif
-	drawmethod 256 35
-	frame	data/chars/misc/HTplay/angel01.gif
-	drawmethod 256 15
-	frame	data/chars/misc/HTplay/angel01.gif
-	drawmethod 256 5
-	frame	data/chars/misc/HTplay/angel01.gif
-	drawmethod 256 0
-	frame	data/chars/misc/HTplay/angel01.gif
+	drawmethod 240 240
+	frame	data/chars/misc/HTplay/zMatuTUT.png
+	drawmethod 210 210
+	frame	data/chars/misc/HTplay/zMatuTUT.png
+	drawmethod 180 180
+	frame	data/chars/misc/HTplay/zMatuTUT.png
+	drawmethod 150 150
+	frame	data/chars/misc/HTplay/zMatuTUT.png
+	drawmethod 120 120
+	frame	data/chars/misc/HTplay/zMatuTUT.png
+	drawmethod 60 60
+	frame	data/chars/misc/HTplay/zMatuTUT.png
+	drawmethod 30 30
+	frame	data/chars/misc/HTplay/zMatuTUT.png
 	@cmd	suicide
-	frame	data/chars/misc/HTplay/angel01.gif
+	frame	data/chars/misc/HTplay/zMatuTUT.png
 
 
-
-
-#-------------//----KAUSMI--//----------------------
+#//----------------//--VICE--//--------------------------
 
 anim	follow16
+@script
+	void self = getlocalvar("self");
+
+	if (frame == 0)
+	{                
+		changeentityproperty(self, "aggression", 580);
+	}
+@end_script
 	loop	0
-	delay	5
-	offset	235 125
-	drawmethod 5 5
-	frame	data/chars/misc/HTplay/kasumi01.gif
-	drawmethod 10 10
-	frame	data/chars/misc/HTplay/kasumi01.gif
-	sound	data/sounds/super3.wav
-	drawmethod 20 20
-	frame	data/chars/misc/HTplay/kasumi01.gif
+	delay	6 
+	offset	1 1
 	drawmethod 30 30
-	frame	data/chars/misc/HTplay/kasumi01.gif
-	drawmethod 40 40
-	frame	data/chars/misc/HTplay/kasumi01.gif
-	drawmethod 50 50
-	frame	data/chars/misc/HTplay/kasumi01.gif
-	drawmethod 60 60
-	frame	data/chars/misc/HTplay/kasumi01.gif
-	drawmethod 70 70
-	frame	data/chars/misc/HTplay/kasumi01.gif
-	drawmethod 80 80
-	frame	data/chars/misc/HTplay/kasumi01.gif
-	drawmethod 90 90
-	frame	data/chars/misc/HTplay/kasumi01.gif
-	drawmethod 100 100
-	frame	data/chars/misc/HTplay/kasumi01.gif
-	drawmethod 110 110
-	frame	data/chars/misc/HTplay/kasumi01.gif
-	drawmethod 120 120
-	frame	data/chars/misc/HTplay/kasumi01.gif
-	drawmethod 130 130
-	frame	data/chars/misc/HTplay/kasumi01.gif
-	drawmethod 140 140
-	frame	data/chars/misc/HTplay/kasumi01.gif
-	drawmethod 150 150
-	frame	data/chars/misc/HTplay/kasumi01.gif
-	drawmethod 160 160
-	frame	data/chars/misc/HTplay/kasumi01.gif
-	drawmethod 170 170
-	frame	data/chars/misc/HTplay/kasumi01.gif
-	drawmethod 180 180
-	frame	data/chars/misc/HTplay/kasumi01.gif
-	drawmethod 190 190
-	frame	data/chars/misc/HTplay/kasumi01.gif
-	drawmethod 210 210
-	frame	data/chars/misc/HTplay/kasumi01.gif
-	drawmethod 220 220
-	frame	data/chars/misc/HTplay/kasumi01.gif
-	drawmethod 230 230
-	frame	data/chars/misc/HTplay/kasumi01.gif
-	drawmethod 240 240
-	frame	data/chars/misc/HTplay/kasumi01.gif
-	drawmethod 250 250
-	frame	data/chars/misc/HTplay/kasumi01.gif
-	nodrawmethod
-	frame	data/chars/misc/HTplay/kasumi01.gif
-	delay	10
-	frame	data/chars/misc/HTplay/kasumi01.gif
-	frame	data/chars/misc/HTplay/kasumi01.gif
-	delay	11000
-	frame	data/chars/misc/HTplay/kasumi01.gif
-	delay	10
-	frame	data/chars/misc/HTplay/kasumi01.gif
-	frame	data/chars/misc/HTplay/kasumi01.gif
-	delay	5
-	drawmethod 256 255
-	frame	data/chars/misc/HTplay/kasumi01.gif
-	drawmethod 256 235
-	frame	data/chars/misc/HTplay/kasumi01.gif
-	sound	data/sounds/super7.wav
-	drawmethod 256 215
-	frame	data/chars/misc/HTplay/kasumi01.gif
-	drawmethod 256 195
-	frame	data/chars/misc/HTplay/kasumi01.gif
-	drawmethod 256 175
-	frame	data/chars/misc/HTplay/kasumi01.gif
-	drawmethod 256 155
-	frame	data/chars/misc/HTplay/kasumi01.gif
-	drawmethod 256 135
-	frame	data/chars/misc/HTplay/kasumi01.gif
-	drawmethod 256 115
-	frame	data/chars/misc/HTplay/kasumi01.gif
-	drawmethod 256 95
-	frame	data/chars/misc/HTplay/kasumi01.gif
-	drawmethod 256 75
-	frame	data/chars/misc/HTplay/kasumi01.gif
-	drawmethod 256 55
-	frame	data/chars/misc/HTplay/kasumi01.gif
-	drawmethod 256 35
-	frame	data/chars/misc/HTplay/kasumi01.gif
-	drawmethod 256 15
-	frame	data/chars/misc/HTplay/kasumi01.gif
-	drawmethod 256 5
-	frame	data/chars/misc/HTplay/kasumi01.gif
-	drawmethod 256 0
-	frame	data/chars/misc/HTplay/kasumi01.gif
-	@cmd	suicide
-	frame	data/chars/misc/HTplay/kasumi01.gif
-
-
-#-------------//----MATURE--//----------------------
-
-anim	follow17
-	loop	0
-	delay	5
-	offset	235 125
-	drawmethod 5 5
-	frame	data/chars/misc/HTplay/mature01.gif
-	drawmethod 10 10
-	frame	data/chars/misc/HTplay/mature01.gif
 	sound	data/sounds/super3.wav
-	drawmethod 20 20
-	frame	data/chars/misc/HTplay/mature01.gif
-	drawmethod 30 30
-	frame	data/chars/misc/HTplay/mature01.gif
-	drawmethod 40 40
-	frame	data/chars/misc/HTplay/mature01.gif
-	drawmethod 50 50
-	frame	data/chars/misc/HTplay/mature01.gif
+	frame	data/chars/misc/HTplay/zViceTUT.png
 	drawmethod 60 60
-	frame	data/chars/misc/HTplay/mature01.gif
-	drawmethod 70 70
-	frame	data/chars/misc/HTplay/mature01.gif
-	drawmethod 80 80
-	frame	data/chars/misc/HTplay/mature01.gif
+	frame	data/chars/misc/HTplay/zViceTUT.png
 	drawmethod 90 90
-	frame	data/chars/misc/HTplay/mature01.gif
-	drawmethod 100 100
-	frame	data/chars/misc/HTplay/mature01.gif
-	drawmethod 110 110
-	frame	data/chars/misc/HTplay/mature01.gif
+	frame	data/chars/misc/HTplay/zViceTUT.png
 	drawmethod 120 120
-	frame	data/chars/misc/HTplay/mature01.gif
-	drawmethod 130 130
-	frame	data/chars/misc/HTplay/mature01.gif
-	drawmethod 140 140
-	frame	data/chars/misc/HTplay/mature01.gif
+	frame	data/chars/misc/HTplay/zViceTUT.png
 	drawmethod 150 150
-	frame	data/chars/misc/HTplay/mature01.gif
-	drawmethod 160 160
-	frame	data/chars/misc/HTplay/mature01.gif
-	drawmethod 170 170
-	frame	data/chars/misc/HTplay/mature01.gif
+	frame	data/chars/misc/HTplay/zViceTUT.png
 	drawmethod 180 180
-	frame	data/chars/misc/HTplay/mature01.gif
-	drawmethod 190 190
-	frame	data/chars/misc/HTplay/mature01.gif
+	frame	data/chars/misc/HTplay/zViceTUT.png
 	drawmethod 210 210
-	frame	data/chars/misc/HTplay/mature01.gif
-	drawmethod 220 220
-	frame	data/chars/misc/HTplay/mature01.gif
-	drawmethod 230 230
-	frame	data/chars/misc/HTplay/mature01.gif
+	frame	data/chars/misc/HTplay/zViceTUT.png
 	drawmethod 240 240
-	frame	data/chars/misc/HTplay/mature01.gif
-	drawmethod 250 250
-	frame	data/chars/misc/HTplay/mature01.gif
+	frame	data/chars/misc/HTplay/zViceTUT.png
+
+	delay	55000
 	nodrawmethod
-	frame	data/chars/misc/HTplay/mature01.gif
-	delay	10
-	frame	data/chars/misc/HTplay/mature01.gif
-	frame	data/chars/misc/HTplay/mature01.gif
-	delay	11000
-	frame	data/chars/misc/HTplay/mature01.gif
-	delay	10
-	frame	data/chars/misc/HTplay/mature01.gif
-	frame	data/chars/misc/HTplay/mature01.gif
-	delay	5
-	drawmethod 256 255
-	frame	data/chars/misc/HTplay/mature01.gif
-	drawmethod 256 235
-	frame	data/chars/misc/HTplay/mature01.gif
+	frame	data/chars/misc/HTplay/zViceTUT.png	#----8
+
+	delay	6
 	sound	data/sounds/super7.wav
-	drawmethod 256 215
-	frame	data/chars/misc/HTplay/mature01.gif
-	drawmethod 256 195
-	frame	data/chars/misc/HTplay/mature01.gif
-	drawmethod 256 175
-	frame	data/chars/misc/HTplay/mature01.gif
-	drawmethod 256 155
-	frame	data/chars/misc/HTplay/mature01.gif
-	drawmethod 256 135
-	frame	data/chars/misc/HTplay/mature01.gif
-	drawmethod 256 115
-	frame	data/chars/misc/HTplay/mature01.gif
-	drawmethod 256 95
-	frame	data/chars/misc/HTplay/mature01.gif
-	drawmethod 256 75
-	frame	data/chars/misc/HTplay/mature01.gif
-	drawmethod 256 55
-	frame	data/chars/misc/HTplay/mature01.gif
-	drawmethod 256 35
-	frame	data/chars/misc/HTplay/mature01.gif
-	drawmethod 256 15
-	frame	data/chars/misc/HTplay/mature01.gif
-	drawmethod 256 5
-	frame	data/chars/misc/HTplay/mature01.gif
-	drawmethod 256 0
-	frame	data/chars/misc/HTplay/mature01.gif
-	@cmd	suicide
-	frame	data/chars/misc/HTplay/mature01.gif
-
-
-
-#-------------//----VICE--//----------------------
-
-anim	follow18
-	loop	0
-	delay	5
-	offset	235 125
-	drawmethod 5 5
-	frame	data/chars/misc/HTplay/vice01.gif
-	drawmethod 10 10
-	frame	data/chars/misc/HTplay/vice01.gif
-	sound	data/sounds/super3.wav
-	drawmethod 20 20
-	frame	data/chars/misc/HTplay/vice01.gif
-	drawmethod 30 30
-	frame	data/chars/misc/HTplay/vice01.gif
-	drawmethod 40 40
-	frame	data/chars/misc/HTplay/vice01.gif
-	drawmethod 50 50
-	frame	data/chars/misc/HTplay/vice01.gif
+	drawmethod 240 240
+	frame	data/chars/misc/HTplay/zViceTUT.png
+	drawmethod 210 210
+	frame	data/chars/misc/HTplay/zViceTUT.png
+	drawmethod 180 180
+	frame	data/chars/misc/HTplay/zViceTUT.png
+	drawmethod 150 150
+	frame	data/chars/misc/HTplay/zViceTUT.png
+	drawmethod 120 120
+	frame	data/chars/misc/HTplay/zViceTUT.png
 	drawmethod 60 60
-	frame	data/chars/misc/HTplay/vice01.gif
-	drawmethod 70 70
-	frame	data/chars/misc/HTplay/vice01.gif
-	drawmethod 80 80
-	frame	data/chars/misc/HTplay/vice01.gif
-	drawmethod 90 90
-	frame	data/chars/misc/HTplay/vice01.gif
-	drawmethod 100 100
-	frame	data/chars/misc/HTplay/vice01.gif
-	drawmethod 110 110
-	frame	data/chars/misc/HTplay/vice01.gif
-	drawmethod 120 120
-	frame	data/chars/misc/HTplay/vice01.gif
-	drawmethod 130 130
-	frame	data/chars/misc/HTplay/vice01.gif
-	drawmethod 140 140
-	frame	data/chars/misc/HTplay/vice01.gif
-	drawmethod 150 150
-	frame	data/chars/misc/HTplay/vice01.gif
-	drawmethod 160 160
-	frame	data/chars/misc/HTplay/vice01.gif
-	drawmethod 170 170
-	frame	data/chars/misc/HTplay/vice01.gif
-	drawmethod 180 180
-	frame	data/chars/misc/HTplay/vice01.gif
-	drawmethod 190 190
-	frame	data/chars/misc/HTplay/vice01.gif
-	drawmethod 210 210
-	frame	data/chars/misc/HTplay/vice01.gif
-	drawmethod 220 220
-	frame	data/chars/misc/HTplay/vice01.gif
-	drawmethod 230 230
-	frame	data/chars/misc/HTplay/vice01.gif
-	drawmethod 240 240
-	frame	data/chars/misc/HTplay/vice01.gif
-	drawmethod 250 250
-	frame	data/chars/misc/HTplay/vice01.gif
-	nodrawmethod
-	frame	data/chars/misc/HTplay/vice01.gif
-	delay	10
-	frame	data/chars/misc/HTplay/vice01.gif
-	frame	data/chars/misc/HTplay/vice01.gif
-	delay	11000
-	frame	data/chars/misc/HTplay/vice01.gif
-	delay	10
-	frame	data/chars/misc/HTplay/vice01.gif
-	frame	data/chars/misc/HTplay/vice01.gif
-	delay	5
-	drawmethod 256 255
-	frame	data/chars/misc/HTplay/vice01.gif
-	drawmethod 256 235
-	frame	data/chars/misc/HTplay/vice01.gif
-	sound	data/sounds/super7.wav
-	drawmethod 256 215
-	frame	data/chars/misc/HTplay/vice01.gif
-	drawmethod 256 195
-	frame	data/chars/misc/HTplay/vice01.gif
-	drawmethod 256 175
-	frame	data/chars/misc/HTplay/vice01.gif
-	drawmethod 256 155
-	frame	data/chars/misc/HTplay/vice01.gif
-	drawmethod 256 135
-	frame	data/chars/misc/HTplay/vice01.gif
-	drawmethod 256 115
-	frame	data/chars/misc/HTplay/vice01.gif
-	drawmethod 256 95
-	frame	data/chars/misc/HTplay/vice01.gif
-	drawmethod 256 75
-	frame	data/chars/misc/HTplay/vice01.gif
-	drawmethod 256 55
-	frame	data/chars/misc/HTplay/vice01.gif
-	drawmethod 256 35
-	frame	data/chars/misc/HTplay/vice01.gif
-	drawmethod 256 15
-	frame	data/chars/misc/HTplay/vice01.gif
-	drawmethod 256 5
-	frame	data/chars/misc/HTplay/vice01.gif
-	drawmethod 256 0
-	frame	data/chars/misc/HTplay/vice01.gif
+	frame	data/chars/misc/HTplay/zViceTUT.png
+	drawmethod 30 30
+	frame	data/chars/misc/HTplay/zViceTUT.png
 	@cmd	suicide
-	frame	data/chars/misc/HTplay/vice01.gif
+	frame	data/chars/misc/HTplay/zViceTUT.png
+
+
+
+
+

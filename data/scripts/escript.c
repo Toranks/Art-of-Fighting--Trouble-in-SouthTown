@@ -4,6 +4,7 @@ void spawngrab(void vName, float fX, float fY, float fZ,int HPgv, int Num2, int 
 {	//Spawns.a.grab---set.it.as.child--with.HP.MAX--opponent.plays.follow
 	//opponent.follow.Num=1jumpback
 	//		  Num=2dashlow
+	//HPgv = amount/time/health -> button press to incress once max is reach grabEscape 
 
 	void self = getlocalvar("self");
 	void vSpawn;
@@ -15,6 +16,16 @@ void spawngrab(void vName, float fX, float fY, float fZ,int HPgv, int Num2, int 
 	changeentityproperty(vSpawn, "parent", self); //Set caller as parent.
 	return vSpawn; //Return spawn.
 }
+
+
+
+void blinking(int on)
+{// blinks the entity - 1 on - 0 off
+    void self = getlocalvar("self");
+    changeentityproperty(self, "blink", on);
+}
+
+
 
 
 
@@ -42,7 +53,7 @@ void attackgrd(int RxMin, int RxMax, int RaMin, int RaMax, int Rz, void Ani)
         Disz = -Disz;
 	}
 
-      if( anim2 == openborconstant("ANI_FALL") || anim2 == openborconstant("ANI_FALL9") || anim2 == openborconstant("ANI_FALL10"))
+      if( anim2 == openborconstant("ANI_FALL") || anim2 == openborconstant("ANI_FALL2") || anim2 == openborconstant("ANI_FALL9") || anim2 == openborconstant("ANI_FALL10") || anim2 == openborconstant("ANI_FALL4")|| anim2 == openborconstant("ANI_BURN"))
       {
       if(Disx >= RxMin && Disx <= RxMax && Disa >= RaMin && Disa <= RaMax && Disz <= Rz) // right
       	{
