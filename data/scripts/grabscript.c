@@ -800,21 +800,26 @@ void keyflip()
 void keymove(float V)
 {// Move hero if direction button is pressed
       void self = getlocalvar("self");
-      int iPIndex = getentityproperty(self,"playerindex"); //Get player index
+      int iPIndex = getentityproperty(self,"playerindex");
 	float xdir = 0;
 	float zdir = 0;
 
-      if (playerkeys(iPIndex, 0, "moveleft")){// Left is pressed?
+	if (playerkeys(iPIndex, 0, "moveleft"))
+	{
 	  xdir = -V;
-	} else if(playerkeys(iPIndex, 0, "moveright")){// Right is pressed?
+	} 
+	else if(playerkeys(iPIndex, 0, "moveright"))
+	{
 	  xdir = V;
-      }
+	}
 
-	if(playerkeys(iPIndex, 0, "moveup")){// Up is pressed?
+	if(playerkeys(iPIndex, 0, "moveup"))
+	{
 	  zdir = -V/2;
-	} else if(playerkeys(iPIndex, 0, "movedown")){// Down is pressed?
+	} 
+	  else if(playerkeys(iPIndex, 0, "movedown")){
 	  zdir = V/2;
-      }
+	}
 
 	changeentityproperty(self, "velocity", xdir, zdir);
 }

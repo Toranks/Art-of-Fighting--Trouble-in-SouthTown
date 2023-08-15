@@ -1862,31 +1862,36 @@ anim	follow5
 @script
 	void self = getlocalvar("self");
 	void plyr = getentityproperty(self, "playerindex");
-	float Vx = getlocalvar("x"+self);
-	float Vz = getlocalvar("z"+self);
+
+	float V = 1.5;
+	float xdir = 0;
+	float zdir = 0;
 
 	if(frame >= 4 && frame <= 25 )
 	{
-	  if( playerkeys(plyr, 0, "moveup"))
-	  {
-	  changeentityproperty(self, "velocity", Vx, -0.5);
-	  }
-	  if( playerkeys(plyr, 0, "movedown"))
-	  {
-	  changeentityproperty(self, "velocity", Vx, 0.5);
-	  }
 	  if( playerkeys(plyr, 0, "moveleft"))
 	  {
-	  changeentityproperty(self, "velocity", -1.5, Vz);
+		xdir = -V;
 	  }
-	  if( playerkeys(plyr, 0, "moveright"))
+	  else if( playerkeys(plyr, 0, "moveright"))
 	  {
-	  changeentityproperty(self, "velocity", 1.5, Vz);
+		xdir = V;
+	  }
+	  if( playerkeys(plyr, 0, "moveup"))
+	  {
+		zdir = -V/2;
+	  }
+	  else if( playerkeys(plyr, 0, "movedown"))
+	  {
+	 	 zdir = V/2;
 	  }
 	  if( playerkeys(plyr, 0, "attack"))
 	  {
-	  updateframe(self, 26);
+	    updateframe(self, 26);
 	  }
+	changeentityproperty(self, "velocity", xdir, zdir);
+
+
 	}
 @end_script
 	loop	0
@@ -1900,6 +1905,7 @@ anim	follow5
 	delay	12
 	@cmd	position 0 100 60 1 -1
 	frame	data/chars/3remuinho/2grab02.gif
+	@cmd	stop
 	@cmd	position 1 85 70 1 -1
 	frame	data/chars/3remuinho/2grab03.gif
 	@cmd	position 2 85 55 1 -1
@@ -1971,6 +1977,7 @@ anim	follow5
 	@cmd	position 1 100 110 1 -1
 	frame	data/chars/3remuinho/2grab12.gif
 	@cmd	looper 12 30
+
 	@cmd	position 12 70 40 1 1
 	frame	data/chars/3remuinho/2grab05.gif #20
 	attack	60 130 90 110 25 1 1 0 9 70
@@ -1993,12 +2000,14 @@ anim	follow5
 	@cmd	position 11 0 100 -1 1
 	frame	data/chars/3remuinho/2grab10.gif
 	attack	0 0 0 0
-	@cmd	position 0 0 80 1 -1
-	frame	data/chars/3remuinho/2grab11.gif #26
+
+	@cmd	position 0 0 0 0 -1
+	frame	data/chars/3remuinho/2grab11.gif 	#26 (release)
+
 	sound	data/sounds/punch2.wav
-	@cmd	spawn02 "flashsc2" -10 200 190
+	@cmd	spawn01 "flashscreen1" 1 550 1
 	@cmd	depost 0
-	@cmd	finish 80 2 -5 1 0 0
+	@cmd	finish 80 1 -5 2.6 0 0
 	delay	5
 	move	6
 	@cmd	stop

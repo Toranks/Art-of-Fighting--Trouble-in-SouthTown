@@ -6,7 +6,7 @@ mprate          2
 speed		25
 jumpheight	4
 nodieblink	2
-secret		1 999999
+secret		1 1000
 weaploss	3
 modelflag	1
 noquake         0
@@ -1304,31 +1304,36 @@ anim	freespecial16
 @script
 	void self = getlocalvar("self");
 	void plyr = getentityproperty(self, "playerindex");
-	float Vx = getlocalvar("x"+self);
-	float Vz = getlocalvar("z"+self);
+
+	float V = 1.5;
+	float xdir = 0;
+	float zdir = 0;
 
 	if(frame >= 1 && frame <= 8 )
 	{
-	  if( playerkeys(plyr, 0, "moveup"))
-	  {
-	  changeentityproperty(self, "velocity", Vx, -0.2);
-	  }
-	  if( playerkeys(plyr, 0, "movedown"))
-	  {
-	  changeentityproperty(self, "velocity", Vx, 0.2);
-	  }
 	  if( playerkeys(plyr, 0, "moveleft"))
 	  {
-	  changeentityproperty(self, "velocity", -0.4, Vz);
+		xdir = -V;
 	  }
-	  if( playerkeys(plyr, 0, "moveright"))
+	  else if( playerkeys(plyr, 0, "moveright"))
 	  {
-	  changeentityproperty(self, "velocity", 0.4, Vz);
+		xdir = V;
+	  }
+	  if( playerkeys(plyr, 0, "moveup"))
+	  {
+		zdir = -V/2;
+	  }
+	  else if( playerkeys(plyr, 0, "movedown"))
+	  {
+	 	 zdir = V/2;
 	  }
 	  if( playerkeys(plyr, 0, "attack"))
 	  {
-	  updateframe(self, 9);
+	    updateframe(self, 9);
 	  }
+	changeentityproperty(self, "velocity", xdir, zdir);
+
+
 	}
 @end_script
 	loop	0
@@ -1382,9 +1387,9 @@ anim	freespecial16
 	@cmd	stop
 	@cmd	position 6 20 90 1 -1
 	frame	data/chars/3Mrbig2/gb11.gif
-	@cmd	position 6 0 80 1 -1
+	@cmd	position 6 0 70 0 -1
 	frame	data/chars/3Mrbig2/gb12.gif
-	@cmd	spawn02 "flashsc2" -10 200 190
+	@cmd	spawn01 "flashscreen1" 1 550 1
 	@cmd	depost 0
 	@cmd	finish 150 1 5 3 0 0
 	frame	data/chars/3Mrbig2/gb12.gif
