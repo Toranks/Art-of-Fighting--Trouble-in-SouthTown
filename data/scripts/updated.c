@@ -38,6 +38,7 @@ void main(){
 	void lv2 = getplayerproperty(1, "lives");
 	void lv3 = getplayerproperty(2, "lives");	
 	resetMaxRush();
+	score();
 	if(getglobalvar("zoomentity"))
 	{
       zoom();        
@@ -81,3 +82,37 @@ void resetMaxRush()
 	}
 }
 
+void score()
+{//GLOBAL OPERATIONS
+	if(openborvariant("in_showcomplete")){
+		changeplayerproperty(0, "disablekeys", openborconstant("FLAG_ATTACK")+openborconstant("FLAG_ATTACK2")+openborconstant("FLAG_ATTACK3")+openborconstant("FLAG_ATTACK4")+openborconstant("FLAG_JUMP")+openborconstant("FLAG_SPECIAL")); //DISABLE KEY FOR PLAYER 1		
+		changeplayerproperty(1, "disablekeys", openborconstant("FLAG_ATTACK")+openborconstant("FLAG_ATTACK2")+openborconstant("FLAG_ATTACK3")+openborconstant("FLAG_ATTACK4")+openborconstant("FLAG_JUMP")+openborconstant("FLAG_SPECIAL")); //DISABLE KEY FOR PLAYER 2
+		changeplayerproperty(2, "disablekeys", openborconstant("FLAG_ATTACK")+openborconstant("FLAG_ATTACK2")+openborconstant("FLAG_ATTACK3")+openborconstant("FLAG_ATTACK4")+openborconstant("FLAG_JUMP")+openborconstant("FLAG_SPECIAL")); //DISABLE KEY FOR PLAYER 3
+		
+		//INCREASE SPEED
+		if(playerkeys(0, 0, "moveup")){ //P1 HOLD BUTTON
+			changeopenborvariant("elapsed_time", openborvariant("elapsed_time")+100);
+		}
+		else
+		if(playerkeys(1, 0, "moveup")){ //P2 HOLD BUTTON
+			changeopenborvariant("elapsed_time", openborvariant("elapsed_time")+100);
+		}
+		else
+		if(playerkeys(2, 0, "moveup")){ //P3 HOLD BUTTON
+			changeopenborvariant("elapsed_time", openborvariant("elapsed_time")+100);
+		}
+		
+		//GO TO TOTAL SCORE WITHOUT CLOSE THE COMPLETE SCREEN
+		if(playerkeys(0, 1, "movedown")){ //P1 PRESS BUTTON
+			changeopenborvariant("elapsed_time", openborvariant("elapsed_time")+1000);
+		}
+		else
+		if(playerkeys(1, 1, "movedown")){ //P2 PRESS BUTTON
+			changeopenborvariant("elapsed_time", openborvariant("elapsed_time")+1000);
+		}
+		else
+		if(playerkeys(2, 1, "movedown")){ //P3 PRESS BUTTON
+			changeopenborvariant("elapsed_time", openborvariant("elapsed_time")+1000);
+		}
+	}
+}

@@ -36,6 +36,16 @@ script			data/scripts/player_script.c
 
 
 palette		data/chars/xleona/idle01.png
+alternatepal		data/chars/xleona/idle01.png
+alternatepal	data/chars/xleona/map1.png
+alternatepal	data/chars/xleona/map2.png
+alternatepal	data/chars/xleona/map3.png
+alternatepal	data/chars/xleona/map4.png
+alternatepal	data/chars/xleona/map5.png
+alternatepal	data/chars/xleona/map6.png
+alternatepal	data/chars/xleona/map7.png
+alternatepal	data/chars/xleona/map8.png
+alternatepal	data/chars/xleona/map9.png
 
 
 
@@ -50,6 +60,13 @@ com	d f s	  freespecial3
 
 com	f d f a freespecial26
 com	f d f s freespecial27
+
+
+
+
+
+
+
 
 
 
@@ -379,7 +396,7 @@ anim	death
 	frame	data/chars/xleona/fall4.png
 	offset	145 211
 	frame	data/chars/xleona/fall4.png
-	delay	40
+	delay	150
 	offset	145 210
 	frame	data/chars/xleona/fall4.png
 		
@@ -667,7 +684,6 @@ anim	follow4
 	forcedirection	-1
 	@cmd	stop
 	@cmd	clearL
-	seal	15 5
 	hitflash	Flash4
 	hitfx	data/sounds/sl1.wav
 	move	0
@@ -863,7 +879,7 @@ anim	freespecial27
 	offset	145 213
 	fastattack	1
 	forcedirection	-1
-	seal	15 5
+	seal	15 1
 	followanim	4
 	followcond	1
 	hitfx	data/sounds/empty.wav
@@ -1072,7 +1088,7 @@ anim	freespecial9
 	hitfx	data/sounds/sl2.wav
 	fastattack	1
 	forcedirection	-1
-	jumpframe	4 2.5 1
+	jumpframe	4 4.5 1
 	landframe	10
 	staydown	400 400
 	@cmd	dasher 1.5 0 0
@@ -1082,9 +1098,10 @@ anim	freespecial9
 	sound	data/sounds/xleona02.wav
 	frame	data/chars/xleona/pw03.png
 	frame	data/chars/xleona/pw04.png
-	attack	110 75 110 100 40 1 1 0 8 15
+	delay	8
+	attack	110 75 110 100 45 1 1 0 13 15
 	dropv	3 2 0
-	frame	data/chars/xleona/pw05.png #4
+	frame	data/chars/xleona/pw05.png
 	frame	data/chars/xleona/pw06.png
 	frame	data/chars/xleona/pw07.png
 	frame	data/chars/xleona/pw08.png
@@ -1093,7 +1110,7 @@ anim	freespecial9
 	delay	500
 	frame	data/chars/xleona/pw10.png
 	delay	9
-	frame	data/chars/xleona/get03.png #10
+	frame	data/chars/xleona/get03.png
 		
 anim	get
 	delay	7
@@ -1193,16 +1210,12 @@ anim	grabbackward
 	delay	8
 	@cmd	position 11 35 49 -1 -1
 	frame	data/chars/xleona/grab48.png
-	
 	@cmd	position 11 40 49 -1 -1
 	frame	data/chars/xleona/grab49.png
-	
 	@cmd	position 11 41 49 -1 -1
 	frame	data/chars/xleona/grab50.png
-	
 	@cmd	position 0 15 40 1 -1
 	frame	data/chars/xleona/grab51.png
-	
 	@cmd	position 0 5 35 1 -1
 	frame	data/chars/xleona/grab52.png
 	@cmd	depost 0
@@ -1291,10 +1304,8 @@ anim	grabforward
 	@cmd	spawnAni "xleonapw" 40 35 2 "ANI_follow4"
 	@cmd	position 10 35 49 -1 -1
 	frame	data/chars/xleona/grab26.png
-	
 	@cmd	position 10 35 49 -1 -1
 	frame	data/chars/xleona/grab27.png
-	
 	@cmd	position 11 35 49 -1 -1
 	frame	data/chars/xleona/grab28.png
 	delay	30
@@ -1305,21 +1316,16 @@ anim	grabforward
 	@cmd	spawn01 "Flash2" 30 50 2
 	sound	data/sounds/sl1.wav
 	move	-8
-	
 	@cmd	position 11 43 49 -1 -1
 	frame	data/chars/xleona/grab30.png
-	
 	@cmd	position 11 51 49 -1 -1
 	frame	data/chars/xleona/grab31.png
-	
 	@cmd	position 11 59 49 -1 -1
 	frame	data/chars/xleona/grab32.png
-	
 	@cmd	position 11 67 49 -1 -1
 	frame	data/chars/xleona/grab33.png
 	move	0
 	delay	50
-	
 	@cmd	position 11 67 49 -1 -1
 	frame	data/chars/xleona/grab34.png
 	delay	30
@@ -1661,8 +1667,8 @@ anim	runjump
 anim	runjumpattack
 	loop	0
 	delay	9
-	offset	145 211
-	bbox	130 95 30 50
+	offset	145 203
+	bbox	119 95 30 50
 	landframe	3
 	fastattack	1
 	forcedirection	-1
@@ -1671,7 +1677,7 @@ anim	runjumpattack
 	sound	data/sounds/xleona03.wav
 	frame	data/chars/xleona/jua05.png
 	frame	data/chars/xleona/jua24.png
-	attack8	130 122 77 50 10 0 0 0 12 0
+	attack8	130 122 92 50 10 0 0 0 12 0
 	frame	data/chars/xleona/jua25.png
 	delay	5
 	frame	data/chars/xleona/jua26.png
@@ -1709,7 +1715,7 @@ anim	runslide
 	frame	data/chars/xleona/b80.png
 		
 anim	select
-	shadowcoords	-500 -500
+	fshadow	0
 	loop	0
 	delay	5
 	offset	0 0
@@ -1807,9 +1813,9 @@ anim	special
 	frame	data/chars/xleona/get03.png
 		
 anim	waiting
-	shadowcoords	-500 -500
+	fshadow	0
 	loop	1
-	delay	12
+	delay	50
 	offset	0 0
 	frame	data/chars/xleona/xwait0.png
 	frame	data/chars/xleona/xwait1.png
@@ -1837,5 +1843,5 @@ anim	walkoff
 	bbox	130 110 30 60
 	frame	data/chars/xleona/jump28.png
 		
-#|edited by openBor Stats v 0.53
+#|edited by openBor Stats v 0.67
 		

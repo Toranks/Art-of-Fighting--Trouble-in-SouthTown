@@ -15,10 +15,10 @@ palette	none
 load	mightback
 load	mghplr
 
-load	food4
-load	money1
-load	ruby
-load	moneybag
+load	gold
+load	diamond
+load	testla
+load	5gbar
 load	1up
 load	lulcardx
 
@@ -80,6 +80,7 @@ anim	follow1
 	void self = getlocalvar("self");
    	void plr = getentityproperty(self, "opponent");
    	void plnm = getentityproperty(plr, "name");
+  	int plyr = getentityproperty(plr, "playerindex");
 
 	if( plnm == "ryo" || plnm == "fastryo")
    		{
@@ -89,7 +90,7 @@ anim	follow1
    		{
 		changeentityproperty(self, "name", "ANI_FOLLOW2");
    		}
-	else if( plnm == "Yuri" || plnm == "kfyuri")
+	else if( plnm == "Yuri" || plnm == "kfyuri" || plnm == "sYuri")
    		{
 		changeentityproperty(self, "name", "ANI_FOLLOW5");
    		}
@@ -137,6 +138,7 @@ anim	follow1
 	}
 	if (frame == 1){
 	setglobalvar ("healthmin", 68);
+    setentityvar(self, "player", plyr);
 	}
 	@end_script	
 	loop	1 2 6
@@ -145,7 +147,7 @@ anim	follow1
 	bbox	0 0 0 0
 	frame	data/bgs/0might/bck/board01.gif
 	@cmd	spawn02 "mightback" 220 20 190
-	@cmd	spawnAniname "mghplr" -50 20 65
+	@cmd	spawnAniname4 "mghplr" -50 20 65
 	@cmd	spawnAni2 "mightback" -50 40 280 "ANI_FOLLOW10"
 	@cmd	spawnAni2 "mightback" 415 200 405 "ANI_FOLLOW20"
 	@cmd	spawnAni2 "mightback" 90 200 330 "ANI_FOLLOW21"
@@ -271,11 +273,11 @@ anim	follow2
 	int r = rand()%10+5;
 		if (r >= 5)
 		{
-		changeentityproperty(self, "name", "food4");
+		changeentityproperty(self, "name", "gold");
 		}
 		else if (r < 5)
 		{
-		changeentityproperty(self, "name", "money1");
+		changeentityproperty(self, "name", "diamond");
 		}
 
 	if (frame == 0 && p1 != NULL()){
@@ -386,6 +388,7 @@ anim	follow5
 	void self = getlocalvar("self");
    	void plr = getentityproperty(self, "opponent");
    	void plnm = getentityproperty(plr, "name");
+  	int plyr = getentityproperty(plr, "playerindex");
 
 	if( plnm == "ryo" || plnm == "fastryo")
    		{
@@ -395,7 +398,7 @@ anim	follow5
    		{
 		changeentityproperty(self, "name", "ANI_FOLLOW2");
    		}
-	else if( plnm == "Yuri" || plnm == "kfyuri")
+	else if( plnm == "Yuri" || plnm == "kfyuri" || plnm == "sYuri")
    		{
 		changeentityproperty(self, "name", "ANI_FOLLOW5");
    		}
@@ -441,6 +444,7 @@ anim	follow5
 	}
 	if (frame == 1){
 	setglobalvar ("healthmin", 98);
+    setentityvar(self, "player", plyr);
 	}
 	@end_script	
 	loop	1 2 6
@@ -449,7 +453,7 @@ anim	follow5
 	bbox	0 0 0 0
 	frame	data/bgs/0might/bck/log01.gif
 	@cmd	spawn02 "mightback" 220 20 190
-	@cmd	spawnAniname "mghplr" 50 20 65
+	@cmd	spawnAniname4 "mghplr" 50 20 65
 	@cmd	spawnAni2 "mightback" -50 40 280 "ANI_FOLLOW12"
 	@cmd	spawnAni2 "mightback" 415 225 405 "ANI_FOLLOW20"
 	@cmd	spawnAni2 "mightback" 90 200 330 "ANI_FOLLOW21"
@@ -469,11 +473,11 @@ anim	follow6
 	int r = rand()%10+5;
 		if (r >= 5)
 		{
-		changeentityproperty(self, "name", "moneybag");
+		changeentityproperty(self, "name", "5gbar");
 		}
 		else if (r < 5)
 		{
-		changeentityproperty(self, "name", "ruby");
+		changeentityproperty(self, "name", "testla");
 		}
 
 	if (frame == 0 && p1 != NULL()){
@@ -584,6 +588,7 @@ anim	follow9
 	void self = getlocalvar("self");
    	void plr = getentityproperty(self, "opponent");
    	void plnm = getentityproperty(plr, "name");
+  	int plyr = getentityproperty(plr, "playerindex");
 
 	if( plnm == "ryo" || plnm == "fastryo")
    		{
@@ -593,7 +598,7 @@ anim	follow9
    		{
 		changeentityproperty(self, "name", "ANI_FOLLOW2");
    		}
-	else if( plnm == "Yuri" || plnm == "kfyuri")
+	else if( plnm == "Yuri" || plnm == "kfyuri" || plnm == "sYuri")
    		{
 		changeentityproperty(self, "name", "ANI_FOLLOW5");
    		}
@@ -639,6 +644,7 @@ anim	follow9
 	}
 	if (frame == 1){
 	setglobalvar ("healthmin", 138);
+    setentityvar(self, "player", plyr);
 	}
 	@end_script	
 	loop	1 2 6
@@ -647,7 +653,7 @@ anim	follow9
 	bbox	0 0 0 0
 	frame	data/bgs/0might/bck/rock01.gif
 	@cmd	spawn02 "mightback" 220 20 190
-	@cmd	spawnAniname "mghplr" 200 20 65
+	@cmd	spawnAniname4 "mghplr" 200 20 65
 	@cmd	spawnAni2 "mightback" -50 40 280 "ANI_FOLLOW14"
 	@cmd	spawnAni2 "mightback" 415 270 405 "ANI_FOLLOW20"
 	@cmd	spawnAni2 "mightback" 90 200 330 "ANI_FOLLOW21"

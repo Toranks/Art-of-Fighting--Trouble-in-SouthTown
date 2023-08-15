@@ -48,7 +48,7 @@ com	a2		freespecial15
 
 
 palette		data/chars/2badgirl10/map1.gif
-
+alternatepal       data/chars/2badgirl10/map1.gif
 alternatepal       data/chars/2badgirl10/map2.gif
 alternatepal       data/chars/2badgirl10/map3.gif
 alternatepal       data/chars/2badgirl10/map4.gif
@@ -57,13 +57,14 @@ alternatepal       data/chars/2badgirl10/map5.gif
 alternatepal       data/chars/2badgirl10/map6.gif
 alternatepal       data/chars/2badgirl10/map7.gif
 alternatepal       data/chars/2badgirl10/map8.gif
-
+alternatepal       data/chars/2badgirl10/map9.gif
 
 
 load	Evearm1
 load	Evearm2
 load	angelbed
 load	whitepn
+
 
 
 
@@ -193,7 +194,7 @@ anim	attack4
 	bbox	95 100 30 70
 	fastattack	1
 	cancel	4 10 1 a freespecial13
-	seal	7 1
+	seal	5 1
 	hitfx	data/sounds/beat5.wav
 	move	5
 	frame	data/chars/2badgirl10/b01.gif
@@ -344,7 +345,7 @@ anim	death
 	frame	data/chars/2badgirl10/fall5.gif
 	frame	data/chars/2badgirl10/fall4.gif
 	frame	data/chars/2badgirl10/fall5.gif
-	delay	30
+	delay	150
 	frame	data/chars/2badgirl10/fall4.gif
 		
 anim	fall
@@ -642,7 +643,7 @@ anim	follow5
 	move	3
 	frame	data/chars/2badgirl10/rise13.gif
 	sound	data/sounds/super1.wav
-	@cmd	mpgain -5
+	@cmd	mpgain -15
 	@cmd	spawnbind2 "allsp" 1 1 1 "ANI_FOLLOW1"
 	frame	data/chars/2badgirl10/rise12.gif
 	frame	data/chars/2badgirl10/rise11.gif
@@ -708,6 +709,7 @@ anim	follow8
 	landframe	72
 	fastattack	1
 	forcedirection	-1
+	seal	7 1
 	@cmd	stop
 	frame	data/chars/2badgirl10/blk16.gif
 	hitfx	data/sounds/beat2.wav
@@ -923,7 +925,7 @@ anim	freespecial12
 	void self = getlocalvar("self");
 	void aggro = getentityproperty(self,"aggression");
 	void mana = getentityproperty(self,"mp");
-	if (aggro >= 90 && frame >= 0 && (mana>=20))
+	if (aggro >= 90 && frame >= 0 && (mana>=16))
 	{
 	performattack(getlocalvar("self"), openborconstant("ANI_freespecial14"));
 	}
@@ -931,7 +933,7 @@ anim	freespecial12
 	{
 	changeentityproperty(self, "aggression", aggro+10);
 	}
-	if (aggro >= 90 && frame >= 0 && (mana<=19))
+	if (aggro >= 90 && frame >= 0 && (mana<=15))
 	{
  	performattack(getlocalvar("self"), openborconstant("ANI_freespecial31"));
 	}
@@ -964,7 +966,7 @@ anim	freespecial13
 	void self = getlocalvar("self");
 	void aggro = getentityproperty(self,"aggression");
 	void mana = getentityproperty(self,"mp");
-	if (aggro >= 90 && frame >= 0 && (mana>=20))
+	if (aggro >= 90 && frame >= 0 && (mana>=16))
 	{
 	performattack(getlocalvar("self"), openborconstant("ANI_freespecial14"));
 	}
@@ -972,7 +974,7 @@ anim	freespecial13
 	{
 	changeentityproperty(self, "aggression", aggro+10);
 	}
-	if (aggro >= 90 && frame >= 0 && (mana<=19))
+	if (aggro >= 90 && frame >= 0 && (mana<=15))
 	{
  	performattack(getlocalvar("self"), openborconstant("ANI_freespecial31"));
 	}
@@ -1018,7 +1020,7 @@ anim	freespecial14
 	hitfx	data/sounds/beat4.wav
 	sound	data/sounds/super1.wav
 	@cmd	spawnbind2 "allsp" 1 1 1 "ANI_FOLLOW1"
-	@cmd	mpgain -15
+	@cmd	mpgain -10
 	staydown	400 400
 	@cmd	dasher 0.5 0 0
 	frame	data/chars/2badgirl10/blk16.gif
@@ -1072,6 +1074,7 @@ anim	freespecial2
 	void self = getlocalvar("self");
 	void plyr = getentityproperty(self, "playerindex");
 	void aggro = getentityproperty(self,"aggression");
+	void mana = getentityproperty(self,"mp");
 
 	if(frame == 5)
 	{
@@ -1082,7 +1085,7 @@ anim	freespecial2
 	{
 		updateframe(self, 3);
 	}
-	else if(frame <= 15 && aggro >= 70)
+	else if(frame <= 15 && aggro >= 70 && mana >= 15)
 	{
 		performattack(self, openborconstant("ANI_FOLLOW5"));
 	}
@@ -1419,7 +1422,7 @@ anim	freespecial5
 	void self = getlocalvar("self");
 	void aggro = getentityproperty(self,"aggression");
 	void mana = getentityproperty(self,"mp");
-	if (aggro >= 90 && frame >= 0 && (mana>=20))
+	if (aggro >= 90 && frame >= 0 && (mana>=16))
 	{
 	performattack(getlocalvar("self"), openborconstant("ANI_freespecial6"));
 	}
@@ -1427,7 +1430,7 @@ anim	freespecial5
 	{
 	changeentityproperty(self, "aggression", aggro+10);
 	}
-	if (aggro >= 90 && frame >= 0 && (mana<=19))
+	if (aggro >= 90 && frame >= 0 && (mana<=15))
 	{
  	performattack(getlocalvar("self"), openborconstant("ANI_freespecial30"));
 	}
@@ -1478,7 +1481,7 @@ anim	freespecial6
 	frame	data/chars/2badgirl10/runatk05.gif
 	sound	data/sounds/super1.wav
 	@cmd	spawnbind2 "allsp" 1 1 1 "ANI_FOLLOW1"
-	@cmd	mpgain -15
+	@cmd	mpgain -10
 	frame	data/chars/2badgirl10/runatk02.gif
 	move	-4
 	sound	data/sounds/bgirl07.wav
@@ -2334,7 +2337,7 @@ anim	runattack
 	fastattack	1
 	cancel	6 12 1 a freespecial4
 	forcedirection	-1
-	seal	7 1
+	seal	5 1
 	@cmd	dasher 3 0 0
 	frame	data/chars/2badgirl10/rise16.gif
 	sound	data/sounds/bgirl02.wav
@@ -2494,6 +2497,7 @@ anim	special
 	frame	data/chars/2badgirl10/rise16.gif
 		
 anim	waiting
+	fshadow	0
 	loop	1
 	delay	20
 	offset	0 0

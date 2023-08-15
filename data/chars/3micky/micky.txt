@@ -63,6 +63,8 @@ if(anim != openborconstant("ANI_DIE")){
 		
 		
 		
+		
+		
 anim	attack1
 	range	20 100
 	loop	0
@@ -277,15 +279,15 @@ anim	fall
 	offset	100 189
 	bbox	76 89 51 73
 	landframe	3
-	attack	81 88 40 70 5 1 0 0 13 30
+	attack	81 88 40 70 5 1 0 0 13 40
 	frame	data/chars/3micky/fall1.gif
 	delay	15
 	bbox	59 106 86 50
-	attack	57 108 91 45 5 1 0 0 13 30
+	attack	57 108 91 45 5 1 0 0 13 40
 	frame	data/chars/3micky/fall2.gif
 	delay	500
 	bbox	68 126 73 52
-	attack	65 128 81 45 5 1 0 0 13 30
+	attack	65 128 81 45 5 1 0 0 13 40
 	frame	data/chars/3micky/fall3.gif
 	delay	15
 	attack	0 0 0 0
@@ -300,17 +302,17 @@ anim	fall10
 	offset	100 189
 	bbox	87 83 55 91
 	landframe	4
-	attack	88 89 40 60 5 1 0 0 13 30
+	attack	88 89 40 60 5 1 0 0 13 40
 	frame	data/chars/3micky/pain6.gif
 	delay	40
 	frame	data/chars/3micky/pain7.gif
 	delay	30
 	bbox	59 106 86 50
-	attack	57 108 91 45 5 1 0 0 13 30
+	attack	57 108 91 45 5 1 0 0 13 40
 	frame	data/chars/3micky/fall2.gif
 	delay	300
 	bbox	68 126 73 52
-	attack	65 128 81 45 5 1 0 0 13 30
+	attack	65 128 81 45 5 1 0 0 13 40
 	frame	data/chars/3micky/fall3.gif
 	delay	15
 	attack	0 0 0 0
@@ -334,11 +336,11 @@ anim	fall2
 	offset	100 189
 	bbox	87 83 55 91
 	landframe	3
-	attack	85 90 35 45 5 1 0 0 13 30
+	attack	85 90 35 45 5 1 0 0 13 40
 	frame	data/chars/3micky/pain7.gif
 	delay	10
 	bbox	59 106 86 50
-	attack	64 125 55 25 5 1 0 0 13 30
+	attack	64 125 55 25 5 1 0 0 13 40
 	frame	data/chars/3micky/fall2.gif
 	attack	0 0 0 0
 	delay	300
@@ -407,17 +409,17 @@ anim	fall9
 	bbox	76 89 51 73
 	quakeframe	2 5 5
 	landframe	2 dust
-	attack	81 88 40 70 5 1 0 0 13 30
+	attack	81 88 40 70 5 1 0 0 13 40
 	frame	data/chars/3micky/fall1.gif
 	delay	350
 	bbox	59 106 86 50
-	attack	57 108 91 45 5 1 0 0 13 30
+	attack	57 108 91 45 5 1 0 0 13 40
 	frame	data/chars/3micky/fall2.gif
 	delay	2
 	offset	100 170
 	move	-4
 	bbox	68 126 73 52
-	attack	65 128 81 45 5 1 0 0 13 30
+	attack	65 128 81 45 5 1 0 0 13 40
 	frame	data/chars/3micky/fall3.gif
 	frame	data/chars/3micky/fall3.gif
 	frame	data/chars/3micky/fall3.gif
@@ -513,9 +515,9 @@ anim	grab
 	frame	data/chars/3micky/a099.gif
 	delay	15
 	@cmd	slamstart
+	@cmd	spawngrab 200 200 450 110 1 8
 	@cmd	position 24 40 25 1 -1
 	frame	data/chars/3micky/a096.gif
-	@cmd	spawngrab "grab1" 200 200 450 110 1 8
 	@cmd	position 1 35 30 -1 -1
 	frame	data/chars/3micky/grab02.gif
 	delay	14
@@ -654,7 +656,7 @@ anim	grab
 	frame	data/chars/3micky/grab05.gif
 	@cmd	position 11 30 50 -1 -1
 	frame	data/chars/3micky/grab05.gif
-	@cmd	killgun 8 0
+	@cmd	killgrab
 	sound	data/sounds/bguya01.wav
 	@cmd	position 1 30 65 -1 -1
 	frame	data/chars/3micky/a104.gif
@@ -692,6 +694,7 @@ anim	idle
 	delay	10
 	offset	100 189
 	bbox	79 80 50 109
+	@cmd	lifeaggr 25 250
 	frame	data/chars/3micky/idle01.gif
 	@cmd	depost 0
 	frame	data/chars/3micky/idle02.gif
@@ -832,11 +835,11 @@ anim	special
 	bbox	0 0 0 0
 	sound	data/sounds/grab.wav
 	@cmd	slamstart2
+	@cmd	spawngrab 200 200 450 80 1 8
 	@cmd	position 24 40 25 1 -1
 	frame	data/chars/3micky/a096.gif
 	delay	15
 	frame	data/chars/3micky/a096.gif
-	@cmd	spawngrab "grab1" 200 200 450 80 1 8
 	@cmd	position 1 35 30 -1 -1
 	frame	data/chars/3micky/grab02.gif
 	delay	14
@@ -975,7 +978,7 @@ anim	special
 	frame	data/chars/3micky/grab05.gif
 	@cmd	position 11 30 50 -1 -1
 	frame	data/chars/3micky/grab05.gif
-	@cmd	killgun 8 0
+	@cmd	killgrab
 	@cmd	position 1 30 65 -1 -1
 	frame	data/chars/3micky/a104.gif
 	sound	data/sounds/beat4.wav

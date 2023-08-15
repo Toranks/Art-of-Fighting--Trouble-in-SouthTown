@@ -6,8 +6,6 @@ jumpheight    4
 throw         5 2
 throwdamage   18
 shadow        0
-cantgrab      1
-notgrab	      1
 nolife        1
 gfxshadow     1
 dust            dust
@@ -17,10 +15,15 @@ animationscript data/scripts/escript.c
 
 
 
-palette		data/chars/2bug5/mapal.gif
-alternatepal	data/chars/2bug5/map1.gif
+
+palette		data/chars/2bug5/map1.gif
 alternatepal	data/chars/2bug5/map2.gif
 alternatepal	data/chars/2bug5/map3.gif
+alternatepal	data/chars/2bug5/map4.gif
+alternatepal	data/chars/2bug5/mapal.gif
+
+
+
 
 
 
@@ -30,17 +33,17 @@ alternatepal	data/chars/2bug5/map3.gif
 
 
 anim	attack1
-	range	10 65
+	range	5 65
 	loop	0
 	delay	12
-	offset	160 275
-	bbox	120 185 85 91
+	offset	115 203
+	bbox	75 147 70 60
 	hitflash	Flash6
 	hitfx	data/sounds/sl1.wav
 	sound	data/sounds/wolf2.wav
 	frame	data/chars/2bug5/b01.gif
 	frame	data/chars/2bug5/b02.gif
-	attack2	145 190 75 40 15 0 0 0 12 0
+	attack2	88 132 65 60 15 0 0 0 12 0
 	frame	data/chars/2bug5/b03.gif
 	frame	data/chars/2bug5/b04.gif
 	attack2	0 0 0 0
@@ -49,17 +52,17 @@ anim	attack1
 	frame	data/chars/2bug5/b01.gif
 		
 anim	attack2
-	range	65 90
+	range	60 90
 	loop	0
 	delay	3
-	offset	160 275
-	bbox	120 185 85 91
+	offset	115 203
+	bbox	75 167 81 40
 	move	7
 	hitfx	data/sounds/beat3.wav
 	frame	data/chars/2bug5/a01.gif
 	frame	data/chars/2bug5/a01.gif
 	frame	data/chars/2bug5/a02.gif
-	attack2	146 200 85 70 15 1 0 0 43 0
+	attack2	100 160 70 50 15 1 0 0 43 0
 	dropv	4 3 0
 	frame	data/chars/2bug5/a02.gif
 	frame	data/chars/2bug5/a03.gif
@@ -79,11 +82,11 @@ anim	attack2
 		
 anim	attack3
 	rangez	-15 15
-	range	170 280
+	range	150 270
 	loop	0
 	delay	20
-	offset	160 275
-	bbox	120 185 85 91
+	offset	115 203
+	bbox	75 165 80 37
 	jumpframe	1 4 3 0
 	landframe	5
 	hitflash	Flash6
@@ -93,10 +96,10 @@ anim	attack3
 	delay	12
 	frame	data/chars/2bug5/c01.gif
 	frame	data/chars/2bug5/c02.gif
+	attack	100 150 65 50 20 1 0 0 40 0
+	dropv	4 3 0
 	frame	data/chars/2bug5/c03.gif
 	delay	200
-	attack	140 205 79 60 20 1 0 0 40 0
-	dropv	4 3 0
 	frame	data/chars/2bug5/c04.gif
 	attack	0 0 0 0
 	delay	15
@@ -107,18 +110,17 @@ anim	attack3
 anim	burn
 	loop	0
 	delay	30
-	offset	160 275
+	offset	115 203
 	bbox	0 0 0 0
 	drawmethod	tintmode 4
 	drawmethod	tintcolor 200_50_0
 	@cmd	spawnbind "burn1" 1 1 1
 	@cmd	spawnbind "burn2" 1 1 1
 	@cmd	spawnbind "burn3" 1 1 1
-	attack	105 125 80 100 5 1 0 0 13 0
+	attack	85 106 65 80 5 1 0 0 13 0
 	sound	data/sounds/wolf3.wav
 	frame	data/chars/2bug5/fall1.gif
 	delay	10
-	attack	64 134 40 22 5 1 0 0 13
 	frame	data/chars/2bug5/fall2.gif
 	attack	0 0 0 0
 	frame	data/chars/2bug5/fall3.gif
@@ -127,13 +129,12 @@ anim	burn
 anim	fall
 	loop	0
 	delay	30
-	offset	160 275
+	offset	115 203
 	bbox	0 0 0 0
-	attack	105 125 80 100 5 1 0 0 13 0
+	attack	85 106 65 80 5 1 0 0 13 0
 	sound	data/sounds/wolf3.wav
 	frame	data/chars/2bug5/fall1.gif
 	delay	10
-	attack	64 134 40 22 5 1 0 0 13
 	frame	data/chars/2bug5/fall2.gif
 	attack	0 0 0 0
 	frame	data/chars/2bug5/fall3.gif
@@ -142,18 +143,18 @@ anim	fall
 anim	fall10
 	loop	0
 	delay	50
-	offset	160 275
-	bbox	100 145 70 85
+	offset	115 203
+	bbox	75 105 65 80
 	landframe	3
-	attack	100 150 70 80 5 1 0 0 13 0
+	attack	75 105 65 80 5 1 0 0 13 0
 	sound	data/sounds/wolf3.wav
 	frame	data/chars/2bug5/pain3.gif
 	delay	30
-	bbox	105 155 70 90
-	attack	110 165 60 75 5 1 0 0 13 0
+	bbox	84 116 60 75
+	attack	84 116 60 75 5 1 0 0 13 0
 	frame	data/chars/2bug5/fall2.gif
 	delay	1000
-	bbox	100 195 105 70
+	bbox	80 136 75 61
 	attack	0 0 0 0 0 0 0 0 0 0
 	frame	data/chars/2bug5/fall3.gif
 	bbox	0 0 0 0
@@ -162,13 +163,14 @@ anim	fall10
 anim	fall2
 	loop	0
 	delay	30
-	offset	160 275
-	bbox	100 145 70 85
-	attack	95 145 80 80 5 1 0 0 13 0
+	offset	115 203
+	bbox	75 105 65 80
+	attack	75 105 65 80 5 1 0 0 13 0
 	sound	data/sounds/wolf3.wav
 	frame	data/chars/2bug5/pain3.gif
 	delay	10
-	attack	100 165 80 80 5 1 0 0 13 0
+	bbox	84 116 60 75
+	attack	84 116 60 75 5 1 0 0 13 0
 	frame	data/chars/2bug5/fall2.gif
 	attack	0 0 0 0
 	bbox	0 0 0 0
@@ -177,7 +179,7 @@ anim	fall2
 		
 anim	fall7
 	delay	1000
-	offset	160 200
+	offset	120 150
 	frame	data/chars/2bug5/fall1.gif
 	frame	data/chars/2bug5/fall2.gif
 	frame	data/chars/2bug5/fall3.gif
@@ -192,12 +194,12 @@ anim	fall7
 anim	fall9
 	loop	0
 	delay	10
-	offset	160 275
+	offset	115 203
 	bbox	0 0 0 0
-	attack	120 145 65 80 5 1 0 0 13 0
+	attack	84 107 60 75 5 1 0 0 13 0
 	frame	data/chars/2bug5/fall1.gif
 	delay	37
-	attack	105 200 95 60 5 1 0 0 13 0
+	attack	78 133 66 65 5 1 0 0 13 0
 	frame	data/chars/2bug5/fall3.gif
 	delay	8
 	attack	0 0 0 0
@@ -207,15 +209,15 @@ anim	fall9
 anim	grabbed
 	loop	0
 	delay	10
-	offset	160 275
-	bbox	120 185 85 91
+	offset	115 203
+	bbox	72 136 70 72
 	frame	data/chars/2bug5/pain1.gif
 		
 anim	idle
 	loop	1
 	delay	8
-	offset	160 275
-	bbox	120 185 85 91
+	offset	115 203
+	bbox	85 168 70 40
 	frame	data/chars/2bug5/idle01.gif
 	frame	data/chars/2bug5/idle02.gif
 	sound	data/sounds/wrrr.wav
@@ -238,37 +240,38 @@ anim	idle
 anim	pain
 	loop	0
 	delay	3
-	offset	160 275
-	bbox	120 185 85 91
+	offset	115 203
+	bbox	80 136 70 72
 	frame	data/chars/2bug5/pain0.gif
-	offset	155 275
+	offset	110 203
 	frame	data/chars/2bug5/pain1.gif
-	offset	165 275
+	offset	120 203
 	frame	data/chars/2bug5/pain1.gif
 	delay	40
-	offset	155 275
+	offset	110 203
 	frame	data/chars/2bug5/pain1.gif
 		
 anim	pain10
 	loop	0
 	delay	1
-	offset	160 275
-	bbox	120 185 85 91
+	offset	115 203
+	bbox	80 136 70 72
 	jumpframe	1 5 0 0
 	frame	data/chars/2bug5/pain1.gif
 	delay	45
-	offset	160 275
-	bbox	0 0 0 0
+	bbox	76 106 70 72
 	frame	data/chars/2bug5/pain3.gif
 	delay	7
-	offset	160 255
+	offset	115 195
 	frame	data/chars/2bug5/pain3.gif
 	delay	52
-	offset	160 245
+	bbox	74 106 70 72
+	offset	115 185
 	frame	data/chars/2bug5/pain3.gif
 	delay	4
-	offset	160 275
+	offset	115 203
 	move	12
+	bbox	74 176 75 35
 	frame	data/chars/2bug5/fall4.gif
 	move	0
 	frame	data/chars/2bug5/fall5.gif
@@ -277,11 +280,9 @@ anim	pain10
 	delay	55
 	frame	data/chars/2bug5/fall4.gif
 	delay	3
-	bbox	110 230 75 30
 	frame	data/chars/2bug5/fall4.gif
 	bbox	0 0 0 0
 	delay	19
-	offset	160 275
 	frame	data/chars/2bug5/rise01.gif
 	delay	13
 	frame	data/chars/2bug5/rise02.gif
@@ -290,21 +291,21 @@ anim	pain10
 anim	pain2
 	loop	0
 	delay	3
-	offset	160 275
-	bbox	120 185 85 91
+	offset	115 203
+	bbox	72 136 70 72
 	frame	data/chars/2bug5/pain0.gif
-	offset	155 275
+	offset	110 203
 	frame	data/chars/2bug5/pain1.gif
-	offset	165 275
+	offset	120 203
 	frame	data/chars/2bug5/pain1.gif
 	delay	40
-	offset	155 275
+	offset	110 203
 	frame	data/chars/2bug5/pain1.gif
 		
 anim	pain3
 	loop	0
 	delay	1
-	offset	160 275
+	offset	115 203
 	bbox	0 0 0 0
 	jumpframe	1 2 -1 0
 	frame	data/chars/2bug5/pain1.gif
@@ -313,7 +314,7 @@ anim	pain3
 	delay	12
 	frame	data/chars/2bug5/fall3.gif
 	delay	4
-	bbox	100 230 100 40
+	bbox	74 176 75 35
 	frame	data/chars/2bug5/fall4.gif
 	frame	data/chars/2bug5/fall5.gif
 	frame	data/chars/2bug5/fall4.gif
@@ -329,10 +330,10 @@ anim	pain3
 anim	pain4
 	loop	0
 	delay	2
-	offset	160 275
+	offset	115 203
 	bbox	0 0 0 0
 	move	-11
-	attack	105 200 80 45 3 1 1 0 13 0
+	attack	80 135 70 65 3 1 0 0 13 0
 	frame	data/chars/2bug5/fall3.gif
 	frame	data/chars/2bug5/fall3.gif
 	frame	data/chars/2bug5/fall3.gif
@@ -366,22 +367,22 @@ anim	pain4
 anim	pain5
 	loop	0
 	delay	23
-	offset	160 275
-	bbox	120 185 85 91
+	offset	115 203
+	bbox	72 136 70 72
 	frame	data/chars/2bug5/pain1.gif
 		
 anim	pain6
 	loop	0
 	delay	23
-	offset	160 275
-	bbox	120 185 85 91
+	offset	115 203
+	bbox	72 136 70 72
 	frame	data/chars/2bug5/pain2.gif
 		
 anim	pain8
 	loop	0
 	delay	2
-	offset	160 275
-	bbox	120 185 85 91
+	offset	115 203
+	bbox	72 136 70 72
 	move	-6
 	frame	data/chars/2bug5/pain0.gif
 	frame	data/chars/2bug5/pain0.gif
@@ -400,8 +401,8 @@ anim	pain8
 anim	pain9
 	loop	0
 	delay	15
-	offset	160 275
-	bbox	120 185 85 91
+	offset	115 203
+	bbox	72 136 70 72
 	frame	data/chars/2bug5/pain0.gif
 	delay	150
 	frame	data/chars/2bug5/pain2.gif
@@ -409,7 +410,7 @@ anim	pain9
 anim	rise
 	loop	0
 	delay	14
-	offset	160 275
+	offset	115 203
 	bbox	0 0 0 0
 	frame	data/chars/2bug5/rise01.gif
 	frame	data/chars/2bug5/rise02.gif
@@ -428,8 +429,8 @@ anim	rise
 anim	spawn
 	loop	0
 	delay	8
-	offset	160 275
-	bbox	120 185 85 91
+	offset	115 203
+	bbox	85 168 70 40
 	frame	data/chars/2bug5/idle01.gif
 	frame	data/chars/2bug5/idle02.gif
 	frame	data/chars/2bug5/idle01.gif
@@ -440,19 +441,22 @@ anim	spawn
 	frame	data/chars/2bug5/idle02.gif
 	frame	data/chars/2bug5/idle03.gif
 	frame	data/chars/2bug5/idle04.gif
+	sound	data/sounds/wolf3.wav
 	frame	data/chars/2bug5/idle05.gif
 	frame	data/chars/2bug5/idle03.gif
 	frame	data/chars/2bug5/idle04.gif
+	sound	data/sounds/wolf3.wav
 	frame	data/chars/2bug5/idle05.gif
 	frame	data/chars/2bug5/idle03.gif
 	frame	data/chars/2bug5/idle04.gif
+	sound	data/sounds/wolf3.wav
 	frame	data/chars/2bug5/idle05.gif
 		
 anim	walk
 	loop	1
 	delay	10
-	offset	160 275
-	bbox	120 185 85 91
+	offset	115 203
+	bbox	85 168 70 40
 	frame	data/chars/2bug5/wk01.gif
 	frame	data/chars/2bug5/wk02.gif
 	frame	data/chars/2bug5/wk03.gif
@@ -462,5 +466,5 @@ anim	walk
 	frame	data/chars/2bug5/wk07.gif
 	frame	data/chars/2bug5/wk08.gif
 		
-#|edited by openBor Stats v 0.53
+#|edited by openBor Stats v 0.67
 		

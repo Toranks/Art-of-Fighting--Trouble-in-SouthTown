@@ -1,0 +1,93 @@
+music		data/music/begin2.ogg
+
+background 	data/bgs/0tutorial/back1.gif
+bglayer         data/bgs/0tutorial/back2.gif 0.3 0 200 0
+layer	        data/bgs/0tutorial/panel3.gif -300 0 0 0 0 1 1 1 1 1
+panel		data/bgs/0tutorial/panel2.gif
+#panel		data/bgs/0tutorial/panel3.gif
+layer		data/bgs/0begin/front2.gif -1700 0 0 0 0 0 0 -1 1 1 1 0 0 0 0 1
+layer	        data/bgs/0tutorial/light.gif -1000 0 0 150 -50 0 0 1 1 1 1 0 0 0 0 0
+fglayer	        data/bgs/0tutorial/light.gif 4000 0 0 -170 -110 0 0 1 1 1 1 0 0 0 0 0
+fglayer         data/bgs/0tutorial/front1.gif 4500 0 0 0 0 1 1 1 1 1
+layer		data/bgs/0tutorial/dust.gif 4000 0 0 0 200 0 0 -1 1 1 1 0 0 0 0 0.3
+
+
+
+direction       both
+light  		10   -30
+at       	0
+settime         0
+notime          1
+noslow          0
+order		a
+spawn1  	400 40
+spawn2  	405 40
+spawn3  	410 40
+
+bgspeed		14 0
+cameratype      1
+cameraoffset    0 -110
+
+
+#-----------------------
+wall    730 290  0 0 680 680 90 5000
+wall    1080 405  0 150 350 350 125 5000
+wall    -50 290  0 0 410 410 90 5000
+wall    -75 405  0 0 180 180 125 5000
+#-----------------------
+spawn   tnbag
+flip    1
+coords  220 350
+at      0
+
+spawn   fplace
+flip    1
+map     1
+coords  1030 320
+at      0
+
+spawn   changego
+flip    1
+map     1
+alias   tutorial
+coords  1030 320
+at      0
+
+spawn   changego
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+flip    1
+alias   ststart
+coords  560 255
+at      0
+
+spawn   toturi1
+coords  290 270
+at      0
+
+spawn   runemch
+coords  750 380
+at      0
+
+
+#--------------------------
+
+spawn   ghosttest
+@script
+void main()
+	{
+	setglobalvar("hard", 0);
+	setglobalvar("mania", 0);
+	}
+@end_script
+coords  950 430
+at      0
+
+
+
+
+
+
+
+

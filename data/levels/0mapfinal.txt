@@ -33,7 +33,11 @@ void main()
 	setlocalvar("next1up0", getglobalvar("next1up0"));
 	setlocalvar("next1up1", getglobalvar("next1up1"));
 	setlocalvar("next1up2", getglobalvar("next1up2"));
+	setlocalvar("hard", getglobalvar("hard"));
+	setlocalvar("mania", getglobalvar("mania"));
 	clearglobalvar();
+	setglobalvar("hard", getlocalvar("hard"));
+	setglobalvar("mania", getlocalvar("mania"));
 	setglobalvar("next1up0", getlocalvar("next1up0"));
 	setglobalvar("next1up1", getlocalvar("next1up1"));
 	setglobalvar("next1up2", getlocalvar("next1up2"));
@@ -354,6 +358,19 @@ alias   ANI_FOLLOW1
 coords  100 135
 at      0
 
+#--------------select difficulty-------
+
+spawn   mapleg
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_ATTACK13"));
+} @end_script
+coords  280 372
+at      0
+spawn   lvlstar2
+map	2
+alias   ANI_FOLLOW14
+coords  280 372
+at      0
 
 #------------------------//---------------
 

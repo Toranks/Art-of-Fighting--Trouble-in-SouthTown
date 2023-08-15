@@ -90,13 +90,15 @@ item    lulcardx
 coords  -350 440
 at	220
 
-2pspawn   mrtall
+spawn  mrtall
+spawnscript	data/scripts/hard.c
 map     3
 #health  550
 coords  550 450
 at	220
 
-2pspawn   candy
+spawn  candy
+spawnscript	data/scripts/hard.c
 map     3
 #health  240
 coords  -350 440
@@ -141,10 +143,19 @@ spawn   ghost4
 coords  950 435
 at      1045
 
-2pspawn   bronko
-@script void main() {
-   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW8"));
-} @end_script
+spawn  bronko
+@script
+void main()
+	{
+	void self = getlocalvar("self");
+	void difficulty = getglobalvar("hard");
+	performattack(self, openborconstant("ANI_FOLLOW8"));
+	
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
 #health  1250
 map     2
 coords  550 435

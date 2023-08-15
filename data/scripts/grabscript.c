@@ -23,7 +23,7 @@ void attackgrd(int RxMin, int RxMax, int RaMin, int RaMax, int Rz, void Ani)
         Disz = -Disz;
 	}
 
-      if( anim2 == openborconstant("ANI_FALL") || anim2 == openborconstant("ANI_FALL2") || anim2 == openborconstant("ANI_FALL9") || anim2 == openborconstant("ANI_FALL10") || anim2 == openborconstant("ANI_FALL4")|| anim2 == openborconstant("ANI_BURN"))
+      if( anim2 == openborconstant("ANI_FALL") || anim2 == openborconstant("ANI_FALL2") || anim2 == openborconstant("ANI_FALL9") || anim2 == openborconstant("ANI_FALL10") || anim2 == openborconstant("ANI_FALL4") || anim2 == openborconstant("ANI_BURN"))
       {
       if(Disx >= RxMin && Disx <= RxMax && Disa >= RaMin && Disa <= RaMax && Disz <= Rz) // right
       	{
@@ -148,6 +148,20 @@ void spawnChild(void Name, float dx, float dy, float dz, int Num, void Ani)
    changeentityproperty(Spawn, "parent", self);
    setentityvar(self, Num, Spawn); // Stores spawned gun to be killed later
    bindentity(Spawn, self, dx, dz, dy, 0, 0); // Bind spawned gun
+   performattack(Spawn, openborconstant(Ani));
+}
+
+void spawnChild7(void Name, float dx, float dy, float dz, int Num, void Ani)
+{ // Spawn entity and set it as child with ani animation, store it and bind it
+   void self = getlocalvar("self");
+   void iMap = getentityproperty(self, "map");
+   void Spawn;
+
+   Spawn = spawn01(Name, dx, dy, dz);
+   changeentityproperty(Spawn, "parent", self);
+   setentityvar(self, Num, Spawn); // Stores spawned gun to be killed later
+   bindentity(Spawn, self, dx, dz, dy, 0, 0); // Bind spawned gun
+   changeentityproperty(Spawn, "map", iMap);
    performattack(Spawn, openborconstant(Ani));
 }
 
@@ -293,6 +307,17 @@ void anichange(void Ani)
     changeentityproperty(self, "animation", openborconstant(Ani)); //Change the animation
 }
 
+void anichangeMP(void Ani, int min)
+{// Animation changer with MP cost
+    void self = getlocalvar("self");
+    int MP = getentityproperty(self,"mp");
+	
+	if(MP >= min){		
+    changeentityproperty(self, "mp", MP-min); //Cost
+    changeentityproperty(self, "animation", openborconstant(Ani)); //Change the animation
+	}
+}
+
 
 void clearSlam()
 {
@@ -350,10 +375,9 @@ void slamstart2()
 
 
 void slamstart3()
-{ // Slam Starter for nongrab slams release if obstacle 
+{ // Slam Starter for nongrab slams release if obstacle or nongrab type
    void self = getlocalvar("self");
    void target = getlocalvar("Target" + self);
-
 
    if(target==NULL())
    {
@@ -364,9 +388,9 @@ void slamstart3()
    if(target!=NULL())
    {
 
-	if(getentityproperty(target, "type")==openborconstant("TYPE_OBSTACLE"))
+	if(getentityproperty(target, "type")==openborconstant("TYPE_OBSTACLE") || getentityproperty(target, "subtype")==openborconstant("SUBTYPE_NOTGRAB"))
 	{
-    	performattack(self, openborconstant("ANI_PAIN"));
+    performattack(self, openborconstant("ANI_PAIN"));
 	bindentity(target, NULL());
 	}
 	else
@@ -659,6 +683,7 @@ void hurt(int Damage)
      if(THealth > 20)
      {
        changeentityproperty(target, "health", THealth - Damage);
+	   addScore(self,Damage*5);
      }
    }
    else if (target1 !=NULL())
@@ -667,6 +692,7 @@ void hurt(int Damage)
      if(THealth > 20)
      {
        changeentityproperty(target1, "health", THealth - Damage);
+	   addScore(self,Damage*5);
      }
    }
    else if (target2 !=NULL())
@@ -675,6 +701,7 @@ void hurt(int Damage)
      if(THealth > 20)
      {
        changeentityproperty(target2, "health", THealth - Damage);
+	   addScore(self,Damage*5);
      }
    }
 }
@@ -699,15 +726,23 @@ void hurt2(int Damage)
      {
        damageentity(target, self, Damage, 1, openborconstant("ATK_NORMAL7")); // Damage target with desired damage
        updateframe(target, TAniPos);
+	   addScore(self,Damage*5);
      } else {
        int Damage2 = THealth - 1;
        damageentity(target, self, Damage2, 1, openborconstant("ATK_NORMAL7")); //Damage target with less damage
        updateframe(target, TAniPos);
+	   addScore(self,Damage2*5);
      }
    }
 }
 
 
+void addScore(void ent,void score)
+{
+	int  PIndex = getentityproperty(ent,"playerindex");
+	int  PScore = getplayerproperty(PIndex, "score");
+	changeplayerproperty(PIndex, "score", PScore+score);
+}
 
 
 void degravity(int Ratio)
@@ -1527,6 +1562,26 @@ void shoot(void Shot, float dx, float dy, float dz)
 
    return vShot;
 }
+
+
+void shooter(void Shot, float dx, float dy, float dz, float Vx, float Vy, float Vz)
+{ // Shooting projectile with speed control
+   void self = getlocalvar("self");
+   int Direction = getentityproperty(self, "direction");
+   void vShot;
+
+   if (Direction == 0){ //Is entity facing left?                  
+      Vx = -Vx; //Reverse Vx direction to match facing
+   }
+
+   vShot = shoot(Shot, dx, dy, dz);
+   changeentityproperty(vShot, "velocity", Vx, Vz, Vy);
+   if (Direction == 0){ //Is entity facing left?                  
+      Vx = -Vx; //Reverse Vx direction to match facing
+   }
+   changeentityproperty(vShot, "speed", Vx);
+}
+
 
 
 void shooter3(void Shot, float dx, float dy, float dz, float Vx, float Vy, float Vz, void Ani)

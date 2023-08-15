@@ -1,0 +1,44 @@
+void main()
+{
+	void self = getlocalvar("self");
+	void attacker = getentityproperty(self,"parent");
+   	void victim2 = getentityvar(self, "target");
+  	int victim = getentityvar(self, "player");
+	int HP = getentityproperty(self,"health");
+	int HPmax = getentityproperty(self,"maxhealth");
+	int x1 = getentityproperty(attacker,"x");
+	int z1 = getentityproperty(attacker,"z");
+    int escape = getentityvar(self, "grabgo");
+	void iUp = playerkeys(victim, 1, "moveup");
+	void iDown = playerkeys(victim, 1, "movedown");
+	void iLeft = playerkeys(victim, 1, "moveleft");
+	void iRight = playerkeys(victim, 1, "moveright");
+	void iJump = playerkeys(victim, 1, "jump");
+	void iSpecial = playerkeys(victim, 1, "special");
+	void iAttack = playerkeys(victim, 1, "attack");
+		
+  if (attacker == NULL() && victim2 == NULL()) {
+		killentity(self);
+	
+	} else if(HP>=HPmax && escape == 1){
+		changeentityproperty(victim2, "position", x1, z1);
+     	performattack(victim2, openborconstant("ANI_FOLLOW15"));
+    	setidle(attacker, openborconstant("ANI_IDLE"));
+     	bindentity(victim2, NULL());
+     	performattack(attacker, openborconstant("ANI_PAIN8"));
+		killentity(self);
+
+	} else if(HP>=HPmax && escape == 2){
+		changeentityproperty(victim2, "position", x1, z1);
+     	performattack(victim2, openborconstant("ANI_FOLLOW16"));
+    	setidle(attacker, openborconstant("ANI_IDLE"));
+     	bindentity(victim2, NULL());
+    	performattack(attacker, openborconstant("ANI_PAIN8"));
+		killentity(self);
+
+	} else if(iUp || iDown || iLeft || iRight || iJump || iSpecial || iAttack){// button is pressed?
+    	
+		changeentityproperty(self, "health", HP+1);
+
+   }// end checking valid pointers
+}

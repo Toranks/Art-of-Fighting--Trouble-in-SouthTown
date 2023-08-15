@@ -53,6 +53,8 @@ at      0
 #-------------------------
 
 spawn   door4
+2phealth	1400
+3phealth	2100
 flip    1
 coords  1734 260
 at      0
@@ -64,6 +66,8 @@ spawn   door4
    changeentityproperty(self, "setlayer", 1000);
 }
 @end_script
+2phealth	1400
+3phealth	2100
 coords  2743 260
 at      0
 
@@ -106,6 +110,7 @@ at      0
 
 spawn   zenpot
 map     1
+item    5neckl
 coords  3175 200
 at      0
 
@@ -185,7 +190,8 @@ at      400
 
 spawn   steroid
 map     4
-#health  620
+2phealth	3000
+3phealth	4000
 item    food5
 aggression 150
 coords  670 240
@@ -197,7 +203,6 @@ item    money1
 #health  30
 coords  750 210
 at      400
-
 
 
 spawn   slay
@@ -232,7 +237,7 @@ at      400
 
 
 #---------------------------
-group   4 4
+group   7 7
 at      1140
 wait
 at      1140
@@ -240,7 +245,6 @@ at      1140
 
 spawn   kimberry
 map     1
-#health  190
 aggression 150
 coords  -300 240
 at      1140
@@ -248,7 +252,6 @@ at      1140
 
 spawn   eve
 map     4
-#health  290
 item    bannana
 aggression 150
 coords  520 285
@@ -257,7 +260,6 @@ at      1140
 
 spawn   eve
 map     2
-#health  290
 aggression 150
 coords  -300 280
 at      1140
@@ -265,13 +267,13 @@ at      1140
 
 spawn   sheila
 map     3
-#health  250
 aggression 150
 coords  520 285
 at      1140
 
 
 spawn   shikky
+spawnscript	data/scripts/hard.c
 map     2
 health  390
 aggression 150
@@ -279,24 +281,39 @@ coords  -300 240
 at      1140
 
 
-2pspawn   wendy
+spawn  wendy
+spawnscript	data/scripts/hard.c
 map     2
-#health  190
+health  290
 aggression 150
 coords  -300 250
 at      1140
 
 
-2pspawn   eve
+spawn  eve
+spawnscript	data/scripts/hard.c
 map     1
-#health  290
 item    bannana
 aggression 150
 coords  -300 240
 at      1140
 
+spawn   ghosttime
+health	1
+@script
+void main()
+	{
+	setglobalvar("leveln","25lvl");
+	}
+@end_script
+coords  -250 280
+at      1140
 
-
+spawn   ghosttime
+health	1
+spawnscript	data/scripts/spawn3p.c
+coords  530 270
+at      1140
 
 #---------------------
 blockade 1600
@@ -377,16 +394,6 @@ map     1
 coords  510 290
 at      2000
 
-
-
-2pspawn   steroid
-map     2
-#health  650
-item    food5
-coords  510 290
-at      2000
-
-
 spawn   rodder
 map     2
 #health  140
@@ -399,14 +406,6 @@ map     1
 coords  -250 290
 at      2000
 
-
-2pspawn   vigo
-map     2
-#health  190
-item    ruby
-coords  510 290
-at      2000
-
 spawn   rodder
 map     3
 #health  140
@@ -414,30 +413,12 @@ coords  510 290
 at      2000
 
 
-2pspawn   slay
-map     3
-#health  220
-coords  510 290
-at      2000
-
-
-2pspawn   beloche
-#health  550
-item    food4
-coords  510 290
-at      2000
-
 spawn   vigo
 map     3
 health  190
 coords  510 290
 at      2000
 
-2pspawn   vigo
-map     4
-#health  190
-coords  -250 290
-at      2000
 
 spawn   rodder
 map     4
@@ -458,22 +439,12 @@ map     1
 coords  -250 290
 at      2000
 
-2pspawn   slay
-map     4
-#health  220
-item    apple
-coords  510 290
+group   8 8
 at      2000
 
 spawn   gazz
 map     3
 health  320
-coords  510 290
-at      2000
-
-2pspawn   psycho
-map     3
-#health  190
 coords  510 290
 at      2000
 
@@ -494,10 +465,61 @@ at      2000
 spawn   vigo
 map     3
 #health  190
-coords  -250 290
+coords  -250 280
 at      2000
 
 
+spawn  steroid
+spawnscript	data/scripts/hard.c
+map     2
+item    food5
+coords  510 290
+at      2000
+
+
+spawn  vigo
+spawnscript	data/scripts/hard.c
+map     2
+#health  190
+item    ruby
+coords  510 290
+at      2000
+
+spawn  slay
+spawnscript	data/scripts/hard.c
+map     3
+#health  220
+coords  510 260
+at      2000
+
+spawn  beloche
+spawnscript	data/scripts/hard.c
+#health  550
+item    food4
+coords  510 290
+at      2000
+
+spawn  vigo
+spawnscript	data/scripts/hard.c
+map     4
+#health  190
+coords  -250 270
+at      2000
+
+spawn  psycho
+spawnscript	data/scripts/hard.c
+map     3
+#health  190
+coords  510 280
+at      2000
+
+spawn  slay
+spawnscript	data/scripts/hard.c
+map     4
+#health  220
+item    apple
+coords  510 270
+at      2000
 
 #---------------------------
 spawn   mchange
@@ -509,16 +531,14 @@ blockade 2920
 at       2990
 
 group   3 3
-at      2990
-#wait
-#at      2990
+at      2900
 
 spawn   wendy
 map     3
 #health  190
 aggression 150
 coords  510 290
-at      2990
+at      2900
 
 
 spawn   shikky
@@ -526,8 +546,7 @@ map     3
 #health  190
 aggression 150
 coords  -250 290
-at      2990
-
+at      2900
 
 
 spawn   kimberry
@@ -535,67 +554,72 @@ map     4
 health  390
 aggression 150
 coords  -250 290
-at      2990
+at      2900
 
 spawn   eve
 map     3
-#health  300
 item    bannana
 aggression 150
 coords  510 290
-at      2990
+at      2900
 
-
-2pspawn   shion
-map     3
-#health  190
-aggression 150
-coords  -250 290
-at      2990
-
-
-2pspawn   eve
-#health  300
-item    lulcardx
-aggression 150
-coords  -250 290
-at      2990
+group   8 8
+at      2900
 
 spawn   rodder
-#health  190
 aggression 150
 coords  -250 290
-at      2990
-
+at      2900
 
 spawn   rodder
-#health  190
 map     1
 aggression 150
 coords  550 290
-at      2990
+at      2900
 
 spawn   rodder
 health  190
 map     2
 aggression 150
 coords  -250 290
-at      2990
+at      2900
 
-2pspawn   gazz
+spawn  shion
+spawnscript	data/scripts/hard.c
+map     3
+aggression 150
+coords  -250 290
+at      2900
+
+spawn  eve
+spawnscript	data/scripts/hard.c
+item    lulcardx
+aggression 150
+coords  -250 290
+at      2900
+
+spawn  gazz
+spawnscript	data/scripts/hard.c
 #health  220
 item    food4
 map     2
 aggression 150
 coords  650 290
-at      2990
+at      2900
 
-2pspawn   rodder
+spawn  rodder
+spawnscript	data/scripts/hard.c
 #health  190
 map     3
 aggression 150
 coords  -250 290
-at      2990
+at      2900
+
+spawn   ghosttime
+health	1
+spawnscript	data/scripts/spawn3p.c
+coords  500 290
+at      2900
 
 
 group   1 1
@@ -603,13 +627,19 @@ at      3000
 
 spawn   ghosttime
 health  10
+@script
+void main()
+	{
+	setglobalvar("leveln" , NULL());
+	}
+@end_script
 coords  330 185
-at      2990
+at      2900
 
 spawn   doorIN
 spawnscript data/scripts/noscpos.c
 coords  3330 185
-at      2990
+at      2900
 
 spawn   ghosttest
 coords  330 185

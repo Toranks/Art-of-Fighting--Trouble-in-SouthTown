@@ -108,6 +108,7 @@ coords  470 410
 at      0
 
 spawn   xphone
+flip    1
 item    money2
 coords  130 420
 at      0
@@ -407,22 +408,25 @@ coords  650 340
 at      640
 
 
-pspawn   butterbean
+spawn   butterbean
+spawnscript	data/scripts/hard.c
 map     1
 #health  250
 aggression 100
 coords  -350 310
 at      640
 
-2pspawn   butterbean
-map     1
+spawn  butterbean
+spawnscript	data/scripts/hard.c
+map     2
 #health  250
 aggression 100
 coords  -350 310
 at      640
 
-2pspawn   butterbean
-map     1
+spawn  butterbean
+spawnscript	data/scripts/hard.c
+map     3
 #health  250
 aggression 100
 coords  -350 310
@@ -437,7 +441,8 @@ coords  700 270
 at      640
 
 
-2pspawn   wendy
+spawn  wendy
+spawnscript	data/scripts/hard.c
 map     1
 #health  140
 aggression 5
@@ -548,7 +553,9 @@ wait
 at      2000
 
 spawn   dan
-health  250
+health  1000
+2phealth	1500
+3phealth	2000
 boss	1
 coords  -350 270
 at      2000
@@ -559,6 +566,7 @@ spawn   runvan3
 @script void main() {
    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
 } @end_script
+map		3
 flip    1
 coords  -180 330
 at      2000

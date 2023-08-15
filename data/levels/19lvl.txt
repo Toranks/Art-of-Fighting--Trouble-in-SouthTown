@@ -48,6 +48,7 @@ at      0
 spawn   taotable
 flip    1
 map     1
+item    5dime
 coords  1025 170
 at      0
 
@@ -61,6 +62,7 @@ at      0
 spawn   taotable
 flip    1
 map     1
+item    5bill
 coords  1345 170
 at      0
 
@@ -99,6 +101,7 @@ spawn   barrel
 @script void main() {
    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
 } @end_script
+item	food4
 map     3
 coords  1055 285
 at      0
@@ -287,10 +290,21 @@ void main()
 @end_script
 flip	1
 map     2
+item    apple
 aggression 10
 health  520
 coords  -130 240
 at      700
+
+spawn   wylerb
+spawnscript	data/scripts/hard.c
+aggression 10
+2phealth 3000
+3phealth 4000
+item	7burger
+coords  530 230
+at      700
+
 
 spawn   ron
 aggression 10
@@ -368,14 +382,31 @@ aggression 10
 coords  490 230
 at      900
 
+spawn   ghosttime
+health	1
+@script
+void main()
+	{
+	setglobalvar("leveln","19lvl");
+	}
+@end_script
+coords  500 250
+at      900
+
+spawn   ghosttime
+health	1
+spawnscript	data/scripts/spawn3p.c
+coords  -700 250
+at      900
+
 spawn   fox
 map     4
 aggression 10
-#health  350
-coords  510 210
+coords  -670 210
 at      900
 
-2pspawn   rashad
+spawn  rashad
+spawnscript	data/scripts/hard.c
 map     1
 health  320
 coords  -670 220
@@ -384,18 +415,30 @@ at      900
 spawn   thong
 map     1
 health  320
-coords  -670 220
+coords  -670 230
 at      900
 
 spawn   ren
 map     1
 #health  120
-coords  -670 220
+coords  -670 240
 at      900
 
-2pspawn   jay
+spawn  jay
+spawnscript	data/scripts/hard.c
 #health  120
-coords  -670 220
+coords  -670 250
+at      900
+
+spawn   ghosttime
+health	1
+@script
+void main()
+	{
+	setglobalvar("leveln" , NULL());
+	}
+@end_script
+coords  550 400
 at      900
 
 

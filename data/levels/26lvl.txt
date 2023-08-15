@@ -218,7 +218,7 @@ at      0
 #------------------------
 
 
-group   3 3
+group   4 4
 at      250
 wait
 at      250
@@ -234,14 +234,19 @@ spawn   bomber
 flip    1
 item    diamond
 map     1
-#health  30
-coords  -300 260
+coords  -300 240
+at      100
+
+spawn   bomber
+flip    1
+item    5dime
+map     1
+coords  -300 285
 at      100
 
 spawn   bomber
 map     1
-item    5dime
-#health  30
+item    gold
 coords  700 290
 at      100
 
@@ -254,7 +259,7 @@ at              1300
 
 #------------------------
 
-group   3 3
+group   6 6
 at      1410
 wait
 at      1410
@@ -277,6 +282,24 @@ health  190
 item    money2
 aggression 150
 coords  -280 260
+at      1410
+
+spawn   randy
+spawnscript	data/scripts/hard.c
+aggression 150
+coords  640 250
+at      1410
+
+spawn   thong
+spawnscript	data/scripts/hard.c
+aggression 150
+coords  700 250
+at      1410
+
+spawn   jay
+spawnscript	data/scripts/hard.c
+aggression 150
+coords  -280 250
 at      1410
 
 
@@ -359,7 +382,6 @@ map     2
 coords  -300 240
 at      1750
 
-
 spawn   wendy
 map     4
 item    bannana
@@ -375,6 +397,8 @@ item    5gbar
 coords  750 240
 at      1750
 
+group   7 7
+at      1750
 
 spawn   zen
 map     1
@@ -399,20 +423,33 @@ at      1750
 
 
 spawn   daldo
+spawnscript	data/scripts/hard.c
 map     3
 #health  190
 coords  610 250
 at      1750
 
 spawn   bomber
+spawnscript	data/scripts/hard.c
 map     1
 item    ruby
 #health  30
 coords  760 200
 at      1750
 
+spawn   wendy
+spawnscript	data/scripts/hard.c
+health  200
+coords  -300 300
+at      1750
 
-
+spawn   wendy
+spawnscript	data/scripts/hard.c
+map     3
+item    bannana
+health  200
+coords  610 250
+at      1750
 
 
 #------------------------
@@ -456,6 +493,9 @@ item    food1
 coords  -310 300
 at      2000
 
+group   8 8
+at      2000
+
 spawn   bomber
 map     1
 flip    1
@@ -471,14 +511,29 @@ coords  710 240
 at      2000
 
 spawn   bash
-#health  550
+spawnscript	data/scripts/hard.c
 map     2
 item    food4
 aggression 150
 coords  -300 285
 at      2000
 
+spawn   bash
+spawnscript	data/scripts/hard.c
+aggression 150
+coords  -310 300
+at      2000
+
+spawn   bash
+spawnscript	data/scripts/hard.c
+map     1
+aggression 150
+coords  610 250
+at      2000
+
+
 spawn   bomber
+spawnscript	data/scripts/hard.c
 map     1
 item    diamond
 #health  30
@@ -495,7 +550,7 @@ at              2460
 #------------------------
 
 
-group   3 3
+group   4 4
 at      2600
 #wait
 #at      2600
@@ -523,13 +578,36 @@ aggression 250
 coords  -300 280
 at      2600
 
+spawn   ghosttime
+health	1
+@script
+void main()
+	{
+	setglobalvar("leveln","26lvl");
+	}
+@end_script
+coords  -300 280
+at      2600
+
+spawn   ghosttime
+health	1
+spawnscript	data/scripts/spawn3p.c
+coords  -300 290
+at      2600
+
 #-----------------
 
 group   1 1
 at      2600
 
 spawn   ghosttime
-health  10
+health	1
+@script
+void main()
+	{
+	setglobalvar("leveln" , NULL());
+	}
+@end_script
 coords  -300 280
 at      2600
 

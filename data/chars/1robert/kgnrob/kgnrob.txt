@@ -102,6 +102,8 @@ com	d u s freespecial20
 
 
 
+
+
 anim	attack1
 	range	0 135
 	rangez	-20 20
@@ -399,6 +401,7 @@ anim	charge
 	frame	data/chars/1robert/kgnrob/win16.gif
 		
 anim	chargeattack
+	chargetime	0.5
 	loop	0
 	delay	5
 	offset	137 207
@@ -449,7 +452,7 @@ anim	death
 	frame	data/chars/1robert/kgnrob/det10.gif
 	delay	9
 	frame	data/chars/1robert/kgnrob/det07.gif
-	delay	40
+	delay	100
 	frame	data/chars/1robert/kgnrob/det08.gif
 		
 anim	fall
@@ -1269,7 +1272,7 @@ anim	freespecial1
 	followanim	3
 	followcond	1
 	fastattack	1
-	seal	7 1
+	seal	5 1
 	hitflash	Flash3
 	hitfx	data/sounds/beat1.wav
 	sound	data/sounds/robsp1.wav
@@ -1959,7 +1962,9 @@ anim	grabup
 	@cmd	depost 0
 	@cmd	finish 60 1 -1 5 0 1
 	frame	data/chars/1robert/kgnrob/thw15.gif
-	delay	9
+	delay	8
+	@cmd	flip
+	frame	data/chars/1robert/kgnrob/rise2.gif
 	@cmd	flip
 	frame	data/chars/1robert/kgnrob/rise2.gif
 	@cmd	clearL
@@ -1967,12 +1972,14 @@ anim	grabup
 	frame	data/chars/1robert/kgnrob/rise4.gif
 		
 anim	idle
-	loop	0
-	delay	7
+	loop	1 2 5
+	delay	10
 	offset	137 207
 	bbox	116 115 41 85
+	@cmd	clearL
 	frame	data/chars/1robert/kgnrob/a01.gif
 	frame	data/chars/1robert/kgnrob/iaidle0.gif
+	delay	30
 	frame	data/chars/1robert/kgnrob/idle00c.gif
 	frame	data/chars/1robert/kgnrob/idle00b.gif
 	frame	data/chars/1robert/kgnrob/idle00a.gif
@@ -2355,6 +2362,7 @@ anim	runslide
 	frame	data/chars/1robert/kgnrob/rise4.gif
 		
 anim	select
+	fshadow	0
 	loop	0
 	delay	9
 	offset	0 0
@@ -2491,6 +2499,7 @@ anim	special
 	frame	data/chars/1robert/kgnrob/jump05.gif
 		
 anim	waiting
+	fshadow	0
 	loop	0
 	delay	8
 	offset	0 0

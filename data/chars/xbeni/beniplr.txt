@@ -35,6 +35,13 @@ ondrawscript 		data/scripts/water_puddle_script.c
 script			data/scripts/player_script.c
 
 
+palette		data/chars/xbeni/map.png
+alternatepal	data/chars/xbeni/map.png
+alternatepal	data/chars/xbeni/map1.png
+alternatepal	data/chars/xbeni/map2.png
+alternatepal	data/chars/xbeni/map3.png
+alternatepal	data/chars/xbeni/map4.png
+
 load	xleonapw
 
 com	a3	  freespecial29
@@ -44,6 +51,7 @@ com	a2 	  freespecial15
 com	d f s	  freespecial3
 com	f d f a freespecial26
 com	f d f s freespecial27
+
 
 
 
@@ -346,7 +354,7 @@ anim	death
 	frame	data/chars/xbeni/deth05.png
 	frame	data/chars/xbeni/deth06.png
 	frame	data/chars/xbeni/deth07.png
-	delay	70
+	delay	200
 	frame	data/chars/xbeni/deth08.png
 		
 anim	fall
@@ -623,7 +631,6 @@ anim	follow4
 	forcedirection	-1
 	jumpframe	41 2 0 0
 	landframe	48 dust
-	seal	7 4
 	hitfx	data/sounds/beat2.wav
 	move	0
 	@cmd	stop
@@ -817,7 +824,7 @@ anim	freespecial15
 	frame	data/chars/xbeni/spawn06.png
 	delay	30
 	frame	data/chars/xbeni/spawn06.png
-	@cmd	spawnChild2  "toturi3" 1 1 1 "ANI_FOLLOW2"
+	@cmd	spawnChild2 "toturi3" 1 1 1 "ANI_FOLLOW2"
 	frame	data/chars/xbeni/spawn06.png
 	delay	9
 	frame	data/chars/xbeni/spawn05.png
@@ -883,7 +890,7 @@ anim	freespecial27
 	bbox	0 0 0 0
 	fastattack	1
 	forcedirection	-1
-	seal	7 4
+	seal	7 1
 	followanim	4
 	followcond	1
 	hitfx	data/sounds/empty.wav
@@ -1066,6 +1073,7 @@ anim	freespecial5
 	mponly	1
 	loop	0
 	delay	7
+	seal	5 1
 	offset	145 211
 	bbox	0 0 0 0
 	jumpframe	0 2.5 -1
@@ -1248,30 +1256,22 @@ anim	grabbackward
 	frame	data/chars/xbeni/grab23.png
 	sound	data/sounds/xbeni02.wav
 	delay	2
-	
 	@cmd	position 15 -35 49 -1 1
 	frame	data/chars/xbeni/grab24.png
-	
 	@cmd	position 15 -35 49 -1 1
 	frame	data/chars/xbeni/grab24.png
-	
 	@cmd	position 15 -35 49 -1 1
 	frame	data/chars/xbeni/grab24.png
-	
 	@cmd	position 15 -35 49 -1 1
 	frame	data/chars/xbeni/grab24.png
 	@cmd	spawn01 "qfx" -40 1 1
-	
 	@cmd	position 14 -35 49 -1 1
 	frame	data/chars/xbeni/grab24.png
-	
 	@cmd	position 14 -35 49 -1 1
 	frame	data/chars/xbeni/grab24.png
-	
 	@cmd	position 14 -35 49 -1 1
 	frame	data/chars/xbeni/grab24.png
 	delay	30
-	
 	@cmd	position 14 -35 49 -1 1
 	frame	data/chars/xbeni/grab24.png
 	delay	9
@@ -1679,7 +1679,7 @@ anim	runslide
 	frame	data/chars/xbeni/rise04.png
 		
 anim	select
-	shadowcoords	-500 -500
+	fshadow	0
 	loop	0
 	delay	5
 	offset	0 0
@@ -1751,7 +1751,7 @@ anim	special
 	frame	data/chars/xbeni/rise04.png
 		
 anim	waiting
-	shadowcoords	-500 -500
+	fshadow	0
 	loop	1
 	delay	12
 	offset	0 0
@@ -1776,5 +1776,5 @@ anim	walkoff
 	bbox	130 110 30 60
 	frame	data/chars/xbeni/jump02.png
 		
-#|edited by openBor Stats v 0.53
+#|edited by openBor Stats v 0.67
 		

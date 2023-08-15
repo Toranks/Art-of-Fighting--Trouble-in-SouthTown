@@ -10,7 +10,7 @@ cantgrab	1
 secret		0 2
 modelflag	1
 weaploss	3
-notgrab		1
+subtype		notgrab
 noquake		1
 falldie		1
 nodieblink	1
@@ -33,6 +33,10 @@ parrow3         data/chars/misc/flash/flash/player3.gif  -36 -145
 diesound        data/sounds/crash.wav
 animationscript data/scripts/grabscript.c
 
+palette		   data/chars/beyond/4stank/pal.gif
+alternatepal     data/chars/beyond/4stank/pal2.gif
+alternatepal     data/chars/beyond/4stank/pal3.gif
+
 load	choppene1
 load	bullene
 load	plcannon
@@ -52,9 +56,10 @@ com	j freespecial5
 
 
 
+
 anim	death
 	loop	0
-	delay	50
+	delay	300
 	offset	430 290
 	bbox	235 190 375 85 30
 	frame	data/chars/beyond/4stank/tank01.gif
@@ -434,20 +439,6 @@ anim	idle
 	frame	data/chars/beyond/4stank/tank01.gif
 	frame	data/chars/beyond/4stank/tank02.gif
 		
-anim	respawn
-	loop	0
-	delay	15
-	offset	430 290
-	bbox	0 0 0 0
-	frame	data/chars/beyond/4stank/tank01.gif
-	@cmd	hpgain 1000
-	@cmd	spawnGun7 "plcannon" 26 115 3 1 "ANI_IDLE"
-	@cmd	spawnGun7 "plcannon" -62 88 1 2 "ANI_FOLLOW6"
-	frame	data/chars/beyond/4stank/tank02.gif
-	@cmd	beidle
-	frame	data/chars/beyond/4stank/tank01.gif
-	frame	data/chars/beyond/4stank/tank02.gif
-		
 anim	pain
 	loop	0
 	delay	5
@@ -461,6 +452,20 @@ anim	pain2
 	delay	5
 	offset	430 290
 	bbox	235 190 375 85 30
+	frame	data/chars/beyond/4stank/tank01.gif
+	frame	data/chars/beyond/4stank/tank02.gif
+		
+anim	respawn
+	loop	0
+	delay	15
+	offset	430 290
+	bbox	0 0 0 0
+	frame	data/chars/beyond/4stank/tank01.gif
+	@cmd	hpgain 1000
+	@cmd	spawnGun7 "plcannon" 26 115 3 1 "ANI_IDLE"
+	@cmd	spawnGun7 "plcannon" -62 88 1 2 "ANI_FOLLOW6"
+	frame	data/chars/beyond/4stank/tank02.gif
+	@cmd	beidle
 	frame	data/chars/beyond/4stank/tank01.gif
 	frame	data/chars/beyond/4stank/tank02.gif
 		
@@ -487,6 +492,7 @@ anim	spawn
 	frame	data/chars/beyond/4stank/tank02.gif
 		
 anim	waiting
+	fshadow	0
 	loop	1
 	delay	5
 	offset	0 0
@@ -523,5 +529,5 @@ anim	walk
 	frame	data/chars/beyond/4stank/tank01.gif
 	frame	data/chars/beyond/4stank/tank02.gif
 		
-#|edited by openBor Stats v 0.53
+#|edited by openBor Stats v 0.67
 		

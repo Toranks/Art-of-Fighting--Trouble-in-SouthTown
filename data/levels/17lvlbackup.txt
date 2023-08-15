@@ -1,0 +1,1215 @@
+music		data/music/dock1.ogg
+
+background	data/bgs/17lvl/black.gif
+layer           data/bgs/17lvl/back.gif -3500 0.5 0 -150 -120 0 0 -1 1 1
+layer           data/bgs/17lvl/water.gif -4500 0.5 0 -100 50 0 0 -1 1 1 0 1 5 5 1
+layer      	data/bgs/17lvl/btfar1.gif -2800 0.5 0 0 45 500 0 -1 1 1 0 0 0 0 0 1
+layer      	data/bgs/17lvl/btfar2.gif -2500 0.5 0 0 40 500 0 -1 1 1 0 0 0 0 0 -2
+panel		data/bgs/17lvl/panel.gif
+fglayer         data/bgs/17lvl/front1.gif 1200 -0.4 0 0 190 0 0 -1 1 1
+fglayer         data/bgs/17lvl/front2.gif 2000 -0.7 0 0 80 0 0 -1 1 1
+fglayer		data/bgs/17lvl/sun.gif 3000 0.5 0 -350 -5 0 0 1 1 1 1 0 0 0 0 0
+
+
+
+direction       left
+light  		10   -30
+at       	0
+settime         0
+notime          1
+noslow          1
+order		a
+spawn1  	125 50
+spawn2  	130 55
+spawn3  	135 60
+
+bgspeed		1 0
+#----------------------------------
+spawn   stgSET5
+coords  -500 515 350
+at      0
+#----------------------------------
+
+
+#--------//-stuff-//----------
+
+spawn   bird3
+coords  -1350 10
+at      0
+
+spawn   bird3
+flip    1
+coords  -900 10
+at      0
+
+spawn   bird3
+coords  -200 10
+at      0
+
+spawn   btppl1
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+flip	1
+map	1
+coords  600 145
+at      0
+
+#---------------obs---//-----------
+
+spawn   drum2
+item    ruby
+coords  320 200
+at      0
+
+spawn   drum2
+map     2
+coords  400 200
+at      0
+
+
+spawn   barrel
+item    food1
+coords  -150 200
+at      0
+
+spawn   tire1
+coords  -20 200
+at      0
+
+spawn   tire2
+item    gold
+coords  -85 200
+at      0
+
+
+spawn   bik1
+flip    1
+coords  -960 280
+at      0
+
+spawn   bik1
+flip    1
+coords  -885 280
+at      0
+
+spawn   xphone
+flip    1
+item    1up
+coords  -785 280
+at      0
+
+
+spawn   yphone
+map     3
+coords  -685 280
+at      0
+
+
+spawn   yphone
+map     3
+coords  -615 280
+at      0
+
+spawn   yphone
+item    cheese
+map     3
+coords  -535 280
+at      0
+
+
+spawn   drum2
+map     2
+coords  -1300 200
+at      0
+
+spawn   barrel
+map     1
+item    food2
+coords  -1700 200
+at      0
+
+spawn   barrel
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+} @end_script
+coords  -1770 200
+at      0
+
+
+
+
+
+#2--------------------------
+
+group 2 2
+at 50
+wait
+at 50
+
+spawn   malenko
+#health  230
+map     1
+coords  -300 250
+at      50
+
+
+spawn   prettyboy
+@script
+void main()
+	{
+	void self = getlocalvar("self");
+	performattack(self, openborconstant("ANI_JUMP"));
+	tossentity(self, 4, 3, 0);
+	}
+@end_script
+flip	1
+#health  140
+map     1
+coords  -130 250
+at      50
+
+
+#------//-boat-attack---//-------
+spawn   runboat1
+coords  750 205
+at      50
+#---------------//------
+
+spawn   jimcombo
+#health  220
+map     2
+coords  580 250
+at      50
+
+
+spawn   ren
+@script
+void main()
+	{
+	void self = getlocalvar("self");
+	performattack(self, openborconstant("ANI_JUMP"));
+	tossentity(self, 4, -3, 0);
+	}
+@end_script
+#health  130
+map     1
+coords  590 280
+at      50
+
+#------//-boat-attack---//-------
+spawn   runboat1
+spawnscript	data/scripts/hard.c
+map     1
+coords  750 205
+at      50
+
+spawn   ghosttime
+health	10
+@script
+void main()
+	{
+	setglobalvar("leveln","17lvl");
+	}
+@end_script
+coords  100 250
+at      50
+
+spawn   ghosttime
+health	10
+spawnscript	data/scripts/spawn3p.c
+coords  -300 250
+at      50
+
+#---------------//------
+
+#----------------------
+
+group 3 3
+at 150
+wait
+at 150
+
+
+spawn   bomber
+map     1
+item    diamond
+#health  30
+coords  780 220
+at      150
+
+spawn   bomber
+map     1
+flip    1
+item    money2
+#health  30
+coords  -280 245
+at      150
+
+spawn   bomber
+map     1
+item    money1
+#health  30
+coords  750 270
+at      150
+
+
+spawn  slay
+spawnscript	data/scripts/hard.c
+map     1
+item    apple2
+#health  220
+coords  -320 245
+at      150
+
+
+spawn  vigo
+spawnscript	data/scripts/hard.c
+map     3
+item    moneybag
+#health  90
+coords  -330 240
+at      150
+
+
+spawn  slay
+spawnscript	data/scripts/hard.c
+map     2
+#health  220
+coords  790 240
+at      150
+
+
+#----------------------
+
+group 2 2
+at    320
+wait
+at    320
+
+
+spawn   psycho
+@script
+void main()
+	{
+	void self = getlocalvar("self");
+	performattack(self, openborconstant("ANI_JUMP"));
+	tossentity(self, 4, -4, 0);
+	}
+@end_script
+map     1
+#health  110
+coords  550 250
+at      320
+
+
+spawn   ghost2
+map     2
+#health  220
+coords  790 240
+at      150
+
+
+#------//-boat-attack---//-------
+spawn   runboat1
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+} @end_script
+map     2
+coords  750 205
+at      320
+#---------------//------
+
+spawn   dan
+map     1
+#health  130
+coords  -330 250
+at      320
+
+
+
+spawn  dan
+@script
+void main()
+	{
+	void self = getlocalvar("self");
+	void difficulty = getglobalvar("hard");
+	performattack(self, openborconstant("ANI_JUMP"));
+	tossentity(self, 4, -3, 0);
+	
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+map     2
+#health  120
+coords  550 250
+at      320
+
+spawn   ron
+map     1
+#health  140
+item    money1
+coords  -330 250
+at      320
+
+#------//-boat-attack---//-------
+
+spawn   runboat1
+@script
+  void main()
+  {
+    void self = getlocalvar("self");
+    void difficulty = getglobalvar("hard");
+
+   performattack(self, openborconstant("ANI_FOLLOW1"));
+
+    if(difficulty == 0){
+      killentity(self);
+    }
+  }
+@end_script
+map     2
+coords  750 205
+at      320
+
+spawn   ghosttime
+health	10
+@script
+void main()
+	{
+	setglobalvar("leveln","17lvl2");
+	}
+@end_script
+coords  100 250
+at      320
+
+spawn   ghosttime
+health	10
+spawnscript	data/scripts/spawn3p.c
+coords  -300 250
+at      320
+
+
+
+#----------------------
+
+group 3 3
+at    500
+wait
+at    500
+
+#------//-boat-attack---//-------
+spawn   runboat1
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+flip	1
+map     3
+coords  -320 205
+at      500
+#---------------//------
+
+spawn   rashad
+map     1
+health  230
+coords  -330 250
+at      500
+
+
+spawn   brock
+@script
+void main()
+	{
+	void self = getlocalvar("self");
+	performattack(self, openborconstant("ANI_JUMP"));
+	tossentity(self, 4, -3, 0);
+	}
+@end_script
+map     1
+#health  110
+coords  530 270
+at      500
+
+
+spawn   prettyboy
+map     2
+#health  130
+coords  -330 260
+at      500
+
+#------//-boat-attack---//-------
+spawn   runboat1
+@script
+  void main()
+  {
+    void self = getlocalvar("self");
+    void difficulty = getglobalvar("hard");
+
+   performattack(self, openborconstant("ANI_FOLLOW2"));
+
+    if(difficulty == 0){
+      killentity(self);
+    }
+  }
+@end_script
+flip	1
+map     3
+coords  -320 205
+at      500
+#---------------//------
+
+#----------------------
+
+group 2 2
+at    800
+wait
+at    800
+
+
+spawn  dash
+spawnscript	data/scripts/hard.c
+map     1
+health  220
+item    food1
+coords  600 270
+at      800
+
+
+spawn  brock
+spawnscript	data/scripts/hard.c
+map     2
+#health  110
+coords  -350 240
+at      800
+
+spawn   ghost1
+coords  -350 240
+at      800
+
+#------------//------van-attack---//------
+spawn   runvan3
+coords  650 220
+at      800
+#------------//-------------------
+
+
+spawn  rodder
+spawnscript	data/scripts/hard.c
+map     1
+#health  90
+coords  -350 240
+at      800
+
+spawn   ghost1
+coords  -350 240
+at      800
+
+#------------//------van-attack---//------
+spawn   runvan3
+spawnscript	data/scripts/hard.c
+map	1
+coords  650 220
+at      800
+
+spawn   ghosttime
+health	10
+@script
+void main()
+	{
+	setglobalvar("leveln","17lvlg");
+	}
+@end_script
+coords  100 250
+at      800
+
+spawn   ghosttime
+health	10
+spawnscript	data/scripts/spawn3p.c
+coords  -300 250
+at      800
+#------------//-------------------
+
+
+#----------------------
+
+group 4 4
+at    1200
+wait
+at    1200
+
+spawn   rodder
+map     2
+#health  110
+coords  -350 240
+at      1200
+
+spawn   rodder
+map     3
+#health  90
+coords  650 240
+at      1200
+
+
+spawn   bomber
+map     1
+#health  30
+coords  780 220
+at      1200
+
+
+spawn   fatguy
+map     4
+#health  230
+coords  -350 260
+at      1200
+
+spawn   bomber
+map     1
+flip    1
+#health  30
+coords  -280 245
+at      1200
+
+#------------//------van-attack---//------
+spawn   runvan3
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+} @end_script
+flip    1
+map		2
+coords  -180 230
+at      1200
+#------------//------van-attack---//------
+
+
+spawn   biff
+map     4
+item    money1
+#health  230
+coords  610 260
+at      1200
+
+spawn   bomber
+map     1
+#health  30
+coords  750 270
+at      1200
+
+#------------//------van-attack---//------
+spawn   runvan3
+@script
+  void main()
+  {
+    void self = getlocalvar("self");
+    void difficulty = getglobalvar("hard");
+
+   performattack(self, openborconstant("ANI_FOLLOW1"));
+
+    if(difficulty == 0){
+      killentity(self);
+    }
+  }
+@end_script
+map		3
+flip    1
+coords  -180 230
+at      1200
+#------------//------van-attack---//------
+
+spawn  rodder
+map     4
+#health  90
+coords  -350 250
+at      1200
+
+spawn  8ball
+spawnscript	data/scripts/hard.c
+map     2
+#health  200
+coords  610 260
+at      1200
+
+
+#----------------------
+
+group 4 4
+at    1600
+wait
+at    1600
+
+spawn   malenko
+map     2
+#health  270
+coords  610 260
+at      1600
+
+spawn   kraven
+map     1
+health  310
+item    ruby
+coords  -350 240
+at      1600
+
+
+#------//-boat-attack---//-------
+spawn   runboat1
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW3"));
+} @end_script
+map     4
+coords  750 205
+at      1600
+#---------------//------
+
+
+spawn   kimberry
+@script
+void main()
+	{
+	void self = getlocalvar("self");
+	performattack(self, openborconstant("ANI_JUMP"));
+	tossentity(self, 4, -3, 0);
+	}
+@end_script
+map     1
+#health  200
+coords  500 240
+at      1600
+
+spawn   kimberry
+@script
+void main()
+	{
+	void self = getlocalvar("self");
+	performattack(self, openborconstant("ANI_JUMP"));
+	tossentity(self, 4, 3, 0);
+	}
+@end_script
+flip	1
+map     2
+#health  170
+coords  -100 240
+at      1600
+
+
+spawn   lucy
+map     4
+#health  130
+coords  610 240
+at      1600
+
+#------//-boat-attack---//-------
+spawn   runboat1
+@script
+  void main()
+  {
+    void self = getlocalvar("self");
+    void difficulty = getglobalvar("hard");
+
+   performattack(self, openborconstant("ANI_FOLLOW3"));
+
+    if(difficulty == 0){
+      killentity(self);
+    }
+  }
+@end_script
+map     4
+coords  750 205
+at      1600
+
+spawn   ghosttime
+health	10
+@script
+void main()
+	{
+	setglobalvar("leveln","17lvlg2");
+	}
+@end_script
+coords  100 250
+at      1600
+
+spawn   ghosttime
+health	10
+spawnscript	data/scripts/spawn3p.c
+coords  -300 240
+at      1600
+#---------------//------
+
+#------------------
+
+group 4 4
+at    2000
+
+
+spawn   fatguy
+@script
+void main()
+	{
+	void self = getlocalvar("self");
+	performattack(self, openborconstant("ANI_JUMP"));
+	tossentity(self, 4, -3, 0);
+	}
+@end_script
+map     3
+#health  240
+item    money2
+coords  550 240
+at      2000
+
+
+spawn   biff
+@script
+void main()
+	{
+	void self = getlocalvar("self");
+	performattack(self, openborconstant("ANI_JUMP"));
+	tossentity(self, 4, 3, 0);
+	}
+@end_script
+flip	1
+map     3
+#health  240
+coords  -100 240
+at      2000
+
+spawn   bomber
+map     1
+#health  30
+coords  780 240
+at      2000
+
+
+spawn   jimcombo
+map     3
+health  320
+coords  630 260
+at      2000
+
+#------//-boat-attack---//-------
+spawn   runboat1
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW4"));
+} @end_script
+map     2
+coords  800 205
+at      2000
+#---------------//------
+
+
+spawn   dash
+@script
+void main()
+	{
+	void self = getlocalvar("self");
+	performattack(self, openborconstant("ANI_JUMP"));
+	tossentity(self, 4, 3, 0);
+	}
+@end_script
+flip	1
+map     2
+#health  210
+item    gold
+coords  -100 260
+at      2000
+
+spawn   bomber
+map     1
+flip    1
+#health  30
+coords  -280 245
+at      150
+
+spawn   psycho
+@script
+void main()
+	{
+	void self = getlocalvar("self");
+	performattack(self, openborconstant("ANI_JUMP"));
+	tossentity(self, 4, -3, 0);
+	}
+@end_script
+map     3
+#health  120
+coords  550 240
+at      2000
+
+
+spawn  slay
+spawnscript	data/scripts/hard.c
+map     3
+health  310
+coords  -370 240
+at      2000
+
+#------//-boat-attack---//-------
+spawn   runboat1
+@script
+  void main()
+  {
+    void self = getlocalvar("self");
+    void difficulty = getglobalvar("hard");
+
+   performattack(self, openborconstant("ANI_FOLLOW4"));
+
+    if(difficulty == 0){
+      killentity(self);
+    }
+  }
+@end_script
+map     2
+coords  800 205
+at      2000
+#---------------//------
+
+#------------//------van-attack---//------
+spawn   runvan3
+map	2
+coords  650 220
+at      2000
+#------------//-------------------
+
+
+spawn   bomber
+map     1
+item    food6
+#health  30
+coords  750 270
+at      150
+
+spawn  vigo
+spawnscript	data/scripts/hard.c
+map     4
+#health  90
+coords  630 260
+at      2000
+
+
+spawn   psycho
+map     4
+#health  110
+coords  -400 260
+at      2000
+
+spawn   steroid
+map     2
+2phealth	3000
+3phealth	4000
+item    diamond
+coords  -400 260
+at      2000
+
+
+#------------//------van-attack---//------
+spawn   runvan3
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+} @end_script
+map	3
+flip	1
+coords  -180 230
+at      2000
+#------------//-------------------
+
+
+group	15 15
+at		2000
+
+#------//-boat-attack---//-------
+spawn   runboat1
+spawnscript	data/scripts/hard.c
+coords  800 205
+at      2000
+#---------------//------
+
+
+
+spawn   slay
+spawnscript	data/scripts/hard.c
+map     2
+health  320
+coords  630 260
+at      2000
+
+spawn  psycho
+spawnscript	data/scripts/hard.c
+map     3
+#health  210
+coords  -610 260
+at      2000
+
+spawn   bomber
+spawnscript	data/scripts/hard.c
+item    food6
+#health  30
+coords  750 270
+at      150
+
+spawn  vigo
+spawnscript	data/scripts/hard.c
+map     3
+#health  90
+coords  630 260
+at      2000
+
+
+spawn   psycho
+spawnscript	data/scripts/hard.c
+map     4
+#health  110
+coords  -400 260
+at      2000
+
+spawn   runvan3
+@script
+  void main()
+  {
+    void self = getlocalvar("self");
+    void difficulty = getglobalvar("hard");
+
+   performattack(self, openborconstant("ANI_FOLLOW2"));
+
+    if(difficulty == 0){
+      killentity(self);
+    }
+  }
+@end_script
+map	3
+flip	1
+coords  -180 230
+at      2000
+#------------//-------------------
+
+spawn   fatguy
+@script
+  void main()
+  {
+    void self = getlocalvar("self");
+    void difficulty = getglobalvar("mania");
+
+	performattack(self, openborconstant("ANI_JUMP"));
+	tossentity(self, 4, -3, 0);
+
+    if(difficulty == 0){
+      killentity(self);
+    }
+  }
+@end_script
+map     2
+#health  240
+item    money2
+coords  550 240
+at      2000
+
+
+spawn   biff
+@script
+  void main()
+  {
+    void self = getlocalvar("self");
+    void difficulty = getglobalvar("mania");
+
+	performattack(self, openborconstant("ANI_JUMP"));
+	tossentity(self, 4, 3, 0);
+
+    if(difficulty == 0){
+      killentity(self);
+    }
+  }
+@end_script
+flip	1
+map     2
+#health  240
+coords  -100 240
+at      2000
+
+spawn   bomber
+spawnscript	data/scripts/mania.c
+map     1
+#health  30
+coords  780 240
+at      2000
+
+
+spawn   jimcombo
+spawnscript	data/scripts/mania.c
+map     2
+health  320
+coords  630 260
+at      2000
+
+spawn   dash
+@script
+@script
+  void main()
+  {
+    void self = getlocalvar("self");
+    void difficulty = getglobalvar("mania");
+
+	performattack(self, openborconstant("ANI_JUMP"));
+	tossentity(self, 4, 3, 0);
+
+    if(difficulty == 0){
+      killentity(self);
+    }
+  }
+@end_script
+flip	1
+map     3
+#health  210
+item    gold
+coords  -100 260
+at      2000
+
+spawn   bomber
+spawnscript	data/scripts/mania.c
+map     2
+flip    1
+#health  30
+coords  -280 245
+at      150
+
+spawn   psycho
+@script
+  void main()
+  {
+    void self = getlocalvar("self");
+    void difficulty = getglobalvar("mania");
+
+	performattack(self, openborconstant("ANI_JUMP"));
+	tossentity(self, 4, -3, 0);
+
+    if(difficulty == 0){
+      killentity(self);
+    }
+  }
+@end_script
+map     5
+#health  120
+coords  550 240
+at      2000
+
+
+spawn  slay
+spawnscript	data/scripts/mania.c
+map     2
+health  310
+coords  -370 240
+at      2000
+
+
+spawn   fatguy
+@script
+  void main()
+  {
+    void self = getlocalvar("self");
+    void difficulty = getglobalvar("mania");
+
+	performattack(self, openborconstant("ANI_JUMP"));
+	tossentity(self, 4, -3, 0);
+
+    if(difficulty == 0){
+      killentity(self);
+    }
+  }
+@end_script
+map     1
+#health  240
+item    money2
+coords  550 240
+at      2000
+
+
+spawn   biff
+@script
+  void main()
+  {
+    void self = getlocalvar("self");
+    void difficulty = getglobalvar("mania");
+
+	performattack(self, openborconstant("ANI_JUMP"));
+	tossentity(self, 4, 3, 0);
+
+    if(difficulty == 0){
+      killentity(self);
+    }
+  }
+@end_script
+flip	1
+map     1
+#health  240
+coords  -100 240
+at      2000
+
+spawn   bomber
+spawnscript	data/scripts/mania.c
+map     3
+#health  30
+coords  780 240
+at      2000
+
+
+spawn   jimcombo
+spawnscript	data/scripts/mania.c
+map     1
+health  320
+coords  630 260
+at      2000
+
+spawn   dash
+@script
+@script
+  void main()
+  {
+    void self = getlocalvar("self");
+    void difficulty = getglobalvar("mania");
+
+	performattack(self, openborconstant("ANI_JUMP"));
+	tossentity(self, 4, 3, 0);
+
+    if(difficulty == 0){
+      killentity(self);
+    }
+  }
+@end_script
+flip	1
+#health  210
+item    gold
+coords  -100 260
+at      2000
+
+spawn   bomber
+spawnscript	data/scripts/mania.c
+flip    1
+#health  30
+coords  -280 245
+at      150
+
+spawn   psycho
+@script
+  void main()
+  {
+    void self = getlocalvar("self");
+    void difficulty = getglobalvar("mania");
+
+	performattack(self, openborconstant("ANI_JUMP"));
+	tossentity(self, 4, -3, 0);
+
+    if(difficulty == 0){
+      killentity(self);
+    }
+  }
+@end_script
+map     6
+#health  120
+coords  550 240
+at      2000
+
+
+spawn  slay
+spawnscript	data/scripts/mania.c
+map     3
+health  310
+coords  -370 240
+at      2000

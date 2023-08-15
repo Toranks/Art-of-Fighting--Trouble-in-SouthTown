@@ -35,7 +35,10 @@ ondrawscript 		data/scripts/water_puddle_script.c
 script			data/scripts/player_script.c
 
 
-palette		data/chars/xchang/palAll.png
+palette		data/chars/xchang/idle01.png
+alternatepal		data/chars/xchang/idle01.png
+alternatepal	data/chars/xchang/map1.png
+alternatepal	data/chars/xchang/map2.png
 
 
 
@@ -45,6 +48,7 @@ com	a2	  freespecial15
 com	a3	  freespecial29
 com     f d f a freespecial26
 com     f d f s freespecial27
+
 
 
 
@@ -332,7 +336,7 @@ anim	death
 	delay	10
 	frame	data/chars/xchang/rise02.png
 	frame	data/chars/xchang/rise01.png
-	delay	90
+	delay	140
 	frame	data/chars/xchang/fall4.png
 		
 anim	fall
@@ -609,7 +613,6 @@ anim	follow4
 	offset	145 211
 	bbox	0 0 0 0
 	fastattack	1
-	seal	7 4
 	attack	0 0 0 0
 	move	0
 	@cmd	stop
@@ -723,7 +726,7 @@ anim	freespecial15
 	frame	data/chars/xchang/spw04.png
 	@cmd	looper 2 1
 	frame	data/chars/xchang/spw04.png
-	@cmd	spawnChild2  "toturi3" 1 1 1 "ANI_FOLLOW3"
+	@cmd	spawnChild2 "toturi3" 1 1 1 "ANI_FOLLOW3"
 	frame	data/chars/xchang/spw04.png
 	frame	data/chars/xchang/spw05.png
 		
@@ -816,7 +819,7 @@ anim	freespecial27
 	fastattack	1
 	followanim	4
 	followcond	1
-	seal	7 4
+	seal	7 1
 	sound	data/sounds/xChangChg.wav
 	frame	data/chars/xchang/grd01.png
 	frame	data/chars/xchang/chg01.png
@@ -1008,36 +1011,26 @@ anim	grabattack2
 	frame	data/chars/xchang/grab07.png
 	sound	data/sounds/xChang01.wav
 	delay	2
-	
 	@cmd	position 11 35 90 -1 -1
 	frame	data/chars/xchang/grab08.png
-	
 	@cmd	position 11 35 90 -1 -1
 	frame	data/chars/xchang/grab08.png
-	
 	@cmd	position 11 35 90 -1 -1
 	frame	data/chars/xchang/grab08.png
-	
 	@cmd	position 11 35 90 -1 -1
 	frame	data/chars/xchang/grab08.png
-	
 	@cmd	position 13 70 30 -1 1
 	frame	data/chars/xchang/grab09.png
 	sound	data/sounds/beat4.wav
 	@cmd	spawn01 "flashscreen1" 50 60 1
-	
 	@cmd	position 13 70 30 -1 1
 	frame	data/chars/xchang/grab09.png
-	
 	@cmd	position 13 70 30 -1 1
 	frame	data/chars/xchang/grab09.png
-	
 	@cmd	position 13 70 30 -1 1
 	frame	data/chars/xchang/grab09.png
-	
 	@cmd	position 13 70 30 -1 1
 	frame	data/chars/xchang/grab09.png
-	
 	@cmd	position 13 70 30 -1 1
 	frame	data/chars/xchang/grab09.png
 	delay	9
@@ -1061,7 +1054,7 @@ anim	grabbackward
 
 	if(frame > 8 && frame < 15 && playerkeys(plyr, 0, "attack"))
 	{
-		if ( mp2 > 12 )
+		if ( mp2 > 10 )
 		{
 			updateframe(self, 2);	
 		}
@@ -1093,7 +1086,7 @@ anim	grabbackward
 	frame	data/chars/xchang/grab23.png
 	attack	0 0 0 0
 	delay	15
-	@cmd	mpgain -6
+	@cmd	mpgain -5
 	@cmd	hurt 20
 	@cmd	spawn01 "qfx" -60 1 1
 	@cmd	position 15 -60 50 -1 -1
@@ -1108,7 +1101,7 @@ anim	grabbackward
 	frame	data/chars/xchang/grab26.png
 	attack	0 0 0 0
 	delay	12
-	@cmd	mpgain -6
+	@cmd	mpgain -5
 	@cmd	hurt 20
 	@cmd	spawn01 "qfx" 70 1 1
 	@cmd	position 15 70 50 1 1
@@ -1144,19 +1137,14 @@ anim	grabbackward
 	@cmd	position 6 20 20 1 -1
 	frame	data/chars/xchang/grab29.png
 	delay	2
-	
 	@cmd	position 2 20 10 1 -1
 	frame	data/chars/xchang/grab30.png
-	
 	@cmd	position 2 20 10 1 -1
 	frame	data/chars/xchang/grab30.png
-	
 	@cmd	position 2 20 10 1 -1
 	frame	data/chars/xchang/grab30.png
-	
 	@cmd	position 2 20 10 1 -1
 	frame	data/chars/xchang/grab30.png
-	
 	@cmd	position 2 20 10 1 -1
 	frame	data/chars/xchang/grab30.png
 	delay	35
@@ -1534,6 +1522,7 @@ anim	runslide
 	frame	data/chars/xchang/rise07.png
 		
 anim	select
+	fshadow	0
 	loop	0
 	delay	5
 	offset	0 0
@@ -1625,6 +1614,7 @@ anim	special
 	frame	data/chars/xchang/rise07.png
 		
 anim	waiting
+	fshadow	0
 	loop	1
 	delay	12
 	offset	0 0
@@ -1654,5 +1644,5 @@ anim	walkoff
 	bbox	130 110 30 60
 	frame	data/chars/xchang/jump05.png
 		
-#|edited by openBor Stats v 0.53
+#|edited by openBor Stats v 0.67
 		

@@ -494,16 +494,22 @@ at      0
 
 #------------------------------
 spawn   byodoor2
+2phealth	1600
+3phealth	2400
 flip    1
 coords  1150 320
 at      0
 
 spawn   byodoor2
+2phealth	1600
+3phealth	2400
 flip    1
 coords  2540 320
 at      0
 
 spawn   byodoor2
+2phealth	1600
+3phealth	2400
 flip    1
 coords  4060 320
 at      0
@@ -512,6 +518,8 @@ spawn   byodoor2
 @script void main() {
    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
 } @end_script
+2phealth	1600
+3phealth	2400
 flip    1
 coords  6243 365
 at      0
@@ -542,7 +550,8 @@ coords  650 390
 at      100
 
 
-2pspawn   morph
+spawn  morph
+spawnscript	data/scripts/hard.c
 map     4
 flip    1
 item	fluid
@@ -555,7 +564,8 @@ flip    1
 coords  70 380
 at      100
 
-2pspawn   morph
+spawn  morph
+spawnscript	data/scripts/hard.c
 map     6
 coords  310 290
 at      100
@@ -567,7 +577,8 @@ item	byogem
 coords  -400 290
 at      100
 
-2pspawn   morph
+spawn  morph
+spawnscript	data/scripts/hard.c
 map     5
 flip    1
 coords  70 340
@@ -592,7 +603,8 @@ map     4
 coords  -450 300
 at      300
 
-2pspawn   sentry3
+spawn  sentry3
+spawnscript	data/scripts/hard.c
 map     4
 coords  -350 290
 at      300
@@ -611,7 +623,8 @@ spawn   byohed
 coords  -450 290
 at      300
 
-2pspawn   sentry1
+spawn  sentry1
+spawnscript	data/scripts/hard.c
 map     3
 coords  -450 410
 at      300
@@ -698,7 +711,8 @@ item	chargemp
 coords  -190 315
 at      1300
 
-2pspawn   byohed
+spawn  byohed
+spawnscript	data/scripts/hard.c
 map     1
 item	cell
 coords  550 390
@@ -709,7 +723,8 @@ map     2
 coords  -350 390
 at      1300
 
-2pspawn   byohed
+spawn  byohed
+spawnscript	data/scripts/hard.c
 coords  450 390
 at      1300
 
@@ -718,7 +733,8 @@ item	fluid
 coords  -190 325
 at      1300
 
-2pspawn   sentry2
+spawn  sentry2
+spawnscript	data/scripts/hard.c
 coords  550 290
 at      1300
 
@@ -726,7 +742,8 @@ spawn   sentry2
 coords  -350 390
 at      1300
 
-2pspawn   byohed
+spawn  byohed
+spawnscript	data/scripts/hard.c
 map     2
 coords  590 315
 at      1300
@@ -822,12 +839,14 @@ map     1
 coords  -440 320
 at      1850
 
-2pspawn   sentry2
+spawn  sentry2
+spawnscript	data/scripts/hard.c
 map     2
 coords  -440 320
 at      1850
 
-2pspawn   sentry2
+spawn  sentry2
+spawnscript	data/scripts/hard.c
 coords  -440 410
 at      1850
 
@@ -885,10 +904,19 @@ map     5
 coords  600 330
 at      4300
 
-2pspawn   reptile2
-@script void main() {
-   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW9"));
-} @end_script
+spawn  reptile2
+@script
+void main()
+	{
+	void self = getlocalvar("self");
+	void difficulty = getglobalvar("hard");
+	performattack(self, openborconstant("ANI_FOLLOW9"));
+	
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
 map     2
 coords  570 410
 at      4300
@@ -977,18 +1005,21 @@ item	chargemp
 coords  -350 340
 at      4700
 
-2pspawn   graynosed
+spawn  graynosed
+spawnscript	data/scripts/hard.c
 map     2
 coords  280 340
 at      4700
 
-2pspawn   reptile1
+spawn  reptile1
+spawnscript	data/scripts/hard.c
 map     2
 item	orb
 coords  550 340
 at      4700
 
-2pspawn   reptile1
+spawn  reptile1
+spawnscript	data/scripts/hard.c
 map     3
 coords  -350 340
 at      4700
@@ -1046,21 +1077,32 @@ flip    1
 coords  600 300
 at      5000
 
-2pspawn   nosedgrey
+spawn  nosedgrey
+spawnscript	data/scripts/hard.c
 map     1
 flip    1
 coords  70 320
 at      5000
 
-2pspawn   nosedgrey
+spawn  nosedgrey
+spawnscript	data/scripts/hard.c
 map     2
 coords  290 350
 at      5000
 
-2pspawn   reptile3
-@script void main() {
-   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW10"));
-} @end_script
+spawn  reptile3
+@script
+void main()
+	{
+	void self = getlocalvar("self");
+	void difficulty = getglobalvar("hard");
+	performattack(self, openborconstant("ANI_FOLLOW10"));
+	
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
 map     3
 flip    1
 coords  -250 310 85
@@ -1090,7 +1132,8 @@ flip    1
 coords  -350 300
 at      5300
 
-2pspawn   reptile1
+spawn  reptile1
+spawnscript	data/scripts/hard.c
 map     4
 flip    1
 coords  -380 400
@@ -1127,14 +1170,16 @@ flip    1
 coords  -350 300
 at      5300
 
-2pspawn   graynosed
+spawn  graynosed
+spawnscript	data/scripts/hard.c
 map     3
 flip    1
 item	fluid
 coords  70 330
 at      5300
 
-2pspawn   nosedgrey
+spawn  nosedgrey
+spawnscript	data/scripts/hard.c
 map     2
 coords  290 330
 at      5300
@@ -1157,10 +1202,19 @@ item	fluid
 coords  -200 310 85
 at      5300
 
-2pspawn   reptile2
-@script void main() {
-   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW9"));
-} @end_script
+spawn  reptile2
+@script
+void main()
+	{
+	void self = getlocalvar("self");
+	void difficulty = getglobalvar("hard");
+	performattack(self, openborconstant("ANI_FOLLOW9"));
+	
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
 map     2
 item	1up
 coords  650 390
@@ -1257,14 +1311,16 @@ flip    1
 coords  -250 360
 at      5550
 
-2pspawn   byohed
+spawn  byohed
+spawnscript	data/scripts/hard.c
 map	2
 flip    1
 item	fluid
 coords  -300 330
 at      5550
 
-2pspawn   byohed
+spawn  byohed
+spawnscript	data/scripts/hard.c
 map	2
 flip    1
 coords  -220 330

@@ -1,19 +1,33 @@
 
 
-void spawngrab(void vName, float fX, float fY, float fZ,int HPgv, int Num2, int Num)
+void spawngrab(float fX, float fY, float fZ,int HPgv, int Num2, int Num)
 {	//Spawns.a.grab---set.it.as.child--with.HP.MAX--opponent.plays.follow
 	//opponent.follow.Num=1jumpback
 	//		  Num=2dashlow
 	//HPgv = amount/time/health -> button press to incress once max is reach grabEscape 
 
 	void self = getlocalvar("self");
-	void vSpawn;
-	vSpawn = spawn02(vName, fX, fY, fZ);
+  	void vtm = getentityproperty(self, "opponent");
+  	int plyr = getentityproperty(vtm, "playerindex");
+	void hard = getglobalvar("hard");
+	void mania = getglobalvar("mania");
+	void vSpawn;	
+	vSpawn = spawn02("grab"+plyr, fX, fY, fZ);
+
+
+    	if(hard == 1){
+			if(mania == 1){
+			changeentityproperty(vSpawn, "maxhealth", HPgv * 1.1);
+			} else if (mania == 0) {
+			changeentityproperty(vSpawn, "maxhealth", HPgv * 1.05);
+			}
+		} else if (hard == 0){
+				changeentityproperty(vSpawn, "maxhealth", HPgv);
+		}
 
         setentityvar(vSpawn, "grabgo", Num2);
-	setentityvar(self, Num, vSpawn);
-    	changeentityproperty(vSpawn, "maxhealth", HPgv);
-	changeentityproperty(vSpawn, "parent", self); //Set caller as parent.
+		setentityvar(self, Num, vSpawn);
+		changeentityproperty(vSpawn, "parent", self); //Set caller as parent.
 	return vSpawn; //Return spawn.
 }
 
@@ -314,18 +328,19 @@ void slamstart()
 void slamstart2()
 { // Slam Starter for nongrab slams
 // Use finish or throw after using this
-  void self = getlocalvar("self");
+   void self = getlocalvar("self");
   void target = getentityproperty(self, "opponent");
 
   if(target == NULL() || getentityproperty(target, "dead") == 1){
     setidle(self);
   } else{
     setlocalvar("Target" + self, target);
-  }
 
-  if(target!=NULL()){
-    damageentity(target, self, 0, 1, openborconstant("ATK_NORMAL7")); // Slam Starter
-  }
+ }  
+   if(target!=NULL())
+   {
+     damageentity(target, self, 0, 1, openborconstant("ATK_NORMAL7")); // Slam Starter
+   }
 }
 
 
@@ -788,6 +803,19 @@ void spawnGun9(void Name, float dx, float dy, float dz, float map, float hp, int
    performattack(Spawn, openborconstant(Ani));
 }
 
+void spawnGunHP(void Name, float dx, float dy, float dz, float map, float hp, int Num, void Ani)
+{ // Spawn gun with ani animation, store it and bind it choose map and health
+   void self = getlocalvar("self");
+   void Spawn;
+   Spawn = spawn01(Name, dx, dy, 0);
+   setentityvar(self, Num, Spawn); // Stores spawned gun to be killed later
+   changeentityproperty(Spawn, "maxhealth", hp);
+   changeentityproperty(Spawn, "health", hp);
+   changeentityproperty(Spawn, "map", map);
+   bindentity(Spawn, self, dx, dz, dy, 0, 0); // Bind spawned gun
+   performattack(Spawn, openborconstant(Ani));
+}
+
 
 
 void spawnGun10(void Name, float dx, float dy, float dz, int Num, void Ani)
@@ -831,6 +859,17 @@ void killgun(int Num, int Flag)
     }
 }
 
+void killgrab()
+{ // Kill bound gun based on number
+    void self = getlocalvar("self");
+    void Gun = getentityvar(self, 8);
+
+    if(Gun!=NULL()){
+    bindentity(Gun, NULL());
+    killentity(Gun);
+	setentityvar(self, 8, NULL());
+    }
+}
 
 void GunControl(int Num, int Flag, float dx, float dy, float dz)
 { // Bind or release bound gun based on number
@@ -1115,7 +1154,6 @@ void spawnAniname(void Name, float dx, float dy, float dz)
 }
 
 
-
 void spawnAniname2(int Tx, int Ty, int Tz, void Ani)
 {// Spawns in level panel with same name has caller wit AniAnimation
 	void self = getlocalvar("self");
@@ -1149,6 +1187,20 @@ void spawnAniname3(int Tx, int Ty, int Tz, void Ani)
     	performattack(vSpawn, openborconstant(Ani));
 	return vSpawn;
 }
+
+
+void spawnAniname4(void Name, float dx, float dy, float dz)
+{ // spawn entity perform caller name attack 
+	void self = getlocalvar("self");
+	void Spawn;
+	void go1 = getentityproperty(self,"name");
+	Spawn = spawn01(Name, dx, dy, 0);
+	changeentityproperty(Spawn, "parent", self);
+	performattack(Spawn, openborconstant(go1));
+}
+
+
+
 
 void spawnAni(void vName, float fX, float fY, float fZ, void Ani)
 {
@@ -2481,35 +2533,20 @@ void jonydam()
     void self = getlocalvar("self");
     int MHealth = getentityproperty(self,"maxhealth"); //get max hp
     int PHealth = 100*getentityproperty(self,"health")/MHealth; //work out hp percentage
-    float aggro = getentityproperty(self, "aggression"); 
+    float aggro = getentityproperty(self, "aggression");
+    void difficulty = getglobalvar("hard");
 
-if(PHealth<=15 && aggro == 80){performattack(self, openborconstant("ANI_FOLLOW17"));
+if(PHealth<=15 && aggro == 250){performattack(self, openborconstant("ANI_FOLLOW17"));
  }
-else if(PHealth<=25 && aggro == 70){performattack(self,openborconstant("ANI_FOLLOW16"));
+else if(PHealth<=25 && aggro == 225){performattack(self,openborconstant("ANI_FOLLOW16"));
  }
-else if(PHealth<=45 && aggro == 60){performattack(self,openborconstant("ANI_FOLLOW15"));
+else if(PHealth<=45 && aggro == 200){performattack(self,openborconstant("ANI_FOLLOW15"));
  }
-else if(PHealth<=55 && aggro == 50){performattack(self,openborconstant("ANI_FOLLOW14"));
+else if(PHealth<=55 && aggro == 175){performattack(self,openborconstant("ANI_FOLLOW14"));
  }
-else if(PHealth<=75 && aggro == 40){performattack(self,openborconstant("ANI_FOLLOW13"));
+else if(PHealth<=75 && aggro == 150){performattack(self,openborconstant("ANI_FOLLOW13"));
  }
-else if(PHealth<=85 && aggro == 30){performattack(self,openborconstant("ANI_FOLLOW12"));
- }
-}
-
-
-void jonydam2()
-{ 
-    void self = getlocalvar("self");
-    int MHealth = getentityproperty(self,"maxhealth"); //get max hp
-    int PHealth = 100*getentityproperty(self,"health")/MHealth; //work out hp percentage
-    float aggro = getentityproperty(self, "aggression"); 
-
-if(PHealth<=35 && aggro == 80){performattack(self, openborconstant("ANI_FOLLOW17"));
- }
-else if(PHealth<=65 && aggro == 70){performattack(self,openborconstant("ANI_FOLLOW16"));
- }
-else if(PHealth<=85 && aggro == 30){performattack(self,openborconstant("ANI_FOLLOW12"));
+else if(PHealth<=85 && aggro == 100){performattack(self,openborconstant("ANI_FOLLOW12"));
  }
 }
 
@@ -2759,4 +2796,16 @@ void countani(void Ani, void vType, float nr)
 }
 
 
+void lifeaggr (int Percent, int Aggr)
+// Check the life and change the aggression if the health falls below defined percentage (only for MANIA)
 
+{
+     void self = getlocalvar("self");
+	 void difficulty = getglobalvar("mania");
+     int MHealth = getentityproperty(self,"maxhealth");
+     int Health = getentityproperty(self,"health");
+
+      if(Health*100 <= Percent*MHealth && difficulty == 1){
+        changeentityproperty(self, "aggression", Aggr);
+      }	
+}

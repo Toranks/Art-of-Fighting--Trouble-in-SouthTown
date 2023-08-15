@@ -41,7 +41,7 @@ void main()
 	int snd = loadsample("data/sounds/beep2.wav");
 
      	if ( Ani == openborconstant("ANI_FOLLOW1") ||  Ani == openborconstant("ANI_FOLLOW2") ||  Ani == openborconstant("ANI_FOLLOW3") ||  Ani == openborconstant("ANI_FOLLOW4") ||  Ani == openborconstant("ANI_FOLLOW5") ||  Ani == openborconstant("ANI_FOLLOW6") ||  Ani == openborconstant("ANI_FOLLOW7") ||  Ani == openborconstant("ANI_FOLLOW8")
- ||  Ani == openborconstant("ANI_FOLLOW9") ||  Ani == openborconstant("ANI_FOLLOW10") ||  Ani == openborconstant("ANI_FOLLOW11") ||  Ani == openborconstant("ANI_FOLLOW12") ||  Ani == openborconstant("ANI_FOLLOW13"))
+ ||  Ani == openborconstant("ANI_FOLLOW9") ||  Ani == openborconstant("ANI_FOLLOW10") ||  Ani == openborconstant("ANI_FOLLOW11") ||  Ani == openborconstant("ANI_FOLLOW12") ||  Ani == openborconstant("ANI_FOLLOW13") ||  Ani == openborconstant("ANI_FOLLOW14"))
 
 
 	{
@@ -1584,6 +1584,97 @@ anim	follow13
 	frame	data/bgs/0map/sall/emp.gif
 
 
+
+#-------------------------------------//-------------------
+#----------------------//-select difficulty-//-------------------
+#-------------------------------------//-------------------
+
+anim	follow14
+@script
+	void self = getlocalvar("self");
+
+	if (frame == 0){
+	changeentityproperty(self, "aggression", 9);
+	changeentityproperty(self, "health", 12);
+	}
+	if (frame == 9)
+	{
+	setglobalvar("hard", 0);
+	setglobalvar("mania", 0);
+	setentityvar(self, 1, "20");
+	}
+	if (frame == 10)
+	{
+	setglobalvar("hard", 1);
+	setglobalvar("mania", 0);
+	setentityvar(self, 1, "20");
+	}
+	if (frame == 11)
+	{
+	setglobalvar("hard", 1);
+	setglobalvar("mania", 1);
+	setentityvar(self, 1, "20");
+	}
+@end_script
+	loop	1
+	delay	6
+	offset	100 115
+	sound	data/sounds/super2.wav
+	drawmethod 6 6
+	frame	data/bgs/0map/sall/0diff00.gif
+	drawmethod 26 26
+	frame	data/bgs/0map/sall/0diff00.gif
+	drawmethod 56 56
+	frame	data/bgs/0map/sall/0diff00.gif
+	drawmethod 86 86
+	frame	data/bgs/0map/sall/0diff00.gif
+	drawmethod 116 116
+	frame	data/bgs/0map/sall/0diff00.gif
+	drawmethod 146 146
+	frame	data/bgs/0map/sall/0diff00.gif
+	drawmethod 176 176
+	frame	data/bgs/0map/sall/0diff00.gif
+	drawmethod 206 206
+	frame	data/bgs/0map/sall/0diff00.gif
+	drawmethod 236 236
+	frame	data/bgs/0map/sall/0diff00.gif
+	nodrawmethod
+	delay	9999990
+	sound	data/sounds/beep.wav
+	frame	data/bgs/0map/sall/0diff01.gif #9
+	sound	data/sounds/beep.wav
+	frame	data/bgs/0map/sall/0diff02.gif
+	sound	data/sounds/beep.wav
+	frame	data/bgs/0map/sall/0diff03.gif
+	sound	data/sounds/beep.wav
+	frame	data/bgs/0map/sall/0diff04.gif #12
+	delay	50
+	frame	data/bgs/0map/sall/0diff04.gif
+	delay	6
+	sound	data/sounds/super2.wav
+	drawmethod 236 236
+	frame	data/bgs/0map/sall/0diff00.gif
+	drawmethod 206 206
+	frame	data/bgs/0map/sall/0diff00.gif
+	drawmethod 176 176
+	frame	data/bgs/0map/sall/0diff00.gif
+	drawmethod 146 146
+	frame	data/bgs/0map/sall/0diff00.gif
+	drawmethod 116 116
+	frame	data/bgs/0map/sall/0diff00.gif
+	drawmethod 86 86
+	frame	data/bgs/0map/sall/0diff00.gif
+	drawmethod 56 56
+	frame	data/bgs/0map/sall/0diff00.gif
+	drawmethod 26 26
+	frame	data/bgs/0map/sall/0diff00.gif
+	drawmethod 6 6
+	frame	data/bgs/0map/sall/0diff00.gif
+	nodrawmethod
+	frame	data/bgs/0map/sall/emp.gif
+	@cmd	beidle
+	frame	data/bgs/0map/sall/emp.gif
+	frame	data/bgs/0map/sall/emp.gif
 
 
 #-------------------------------------//-------------------

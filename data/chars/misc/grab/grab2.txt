@@ -1,0 +1,107 @@
+name			grab2
+type			none
+
+scroll			1
+health			300
+speed			0
+nomove			1 1
+facing			1
+noquake			1
+shadow			0
+falldie			1
+antigrab		10
+offscreenkill 	        30000
+subject_to_wall		0
+subject_to_platform 	0
+subject_to_obstacle 	0
+subject_to_hole 	0
+subject_to_gravity 	0
+diesound        data/sounds/empty.wav
+setlayer	999999999
+
+lifebarstatus 125 15 0 1 0 2 5
+lifeposition 351  241
+nameposition -200 -200
+nolife 1
+
+script   data/scripts/grab.c
+
+
+
+anim	death
+	loop	0
+	delay	5
+	offset	-164 90
+	bbox	0 0 0 0
+	platform	1 1 1 1 1 1 1 1
+	frame	data/chars/misc/grab/empty.gif
+	frame	data/chars/misc/grab/empty.gif
+		
+anim	follow1
+	loop	1
+	delay	6
+	offset	-164 90
+	bbox	0 0 0 0
+	platform	1 1 1 1 1 1 1 1
+	frame	data/chars/misc/grab/grab04.gif
+	frame	data/chars/misc/grab/grab05.gif
+	frame	data/chars/misc/grab/grab04.gif
+	frame	data/chars/misc/grab/grab06.gif
+		
+anim	idle
+	loop	0
+	delay	30
+	offset	-105 90
+	bbox	0 0 0 0
+	platform	1 1 1 1 1 1 1 1
+	frame	data/chars/misc/grab/grab00.gif
+	delay	15
+	frame	data/chars/misc/grab/grab07.gif
+	frame	data/chars/misc/grab/grab08.gif
+	frame	data/chars/misc/grab/grab09.gif
+	frame	data/chars/misc/grab/grab07.gif
+	frame	data/chars/misc/grab/grab08.gif
+	frame	data/chars/misc/grab/grab09.gif
+	frame	data/chars/misc/grab/grab07.gif
+	frame	data/chars/misc/grab/grab08.gif
+	frame	data/chars/misc/grab/grab09.gif
+	frame	data/chars/misc/grab/grab07.gif
+	frame	data/chars/misc/grab/grab08.gif
+	frame	data/chars/misc/grab/grab09.gif
+	frame	data/chars/misc/grab/empty.gif
+		
+anim	pain
+	loop	0
+	delay	5
+	offset	-164 90
+	bbox	0 0 0 0
+	platform	1 1 1 1 1 1 1 1
+	frame	data/chars/misc/grab/empty.gif
+	frame	data/chars/misc/grab/empty.gif
+		
+anim	spawn
+@script
+	void self = getlocalvar("self");
+	void atk = getentityproperty(self,"parent");
+  	void vtm = getentityproperty(atk, "opponent");
+    	changeentityproperty(self, "health",-5);
+    	setentityvar(self, "target", vtm);
+    	setentityvar(self, "player", 2);
+	
+ 	if(getentityproperty(vtm, "type")==openborconstant("TYPE_NPC"))
+	{
+	killentity(self);
+	}
+	@end_script	
+	loop	0
+	delay	5
+	offset	-164 90
+	bbox	0 0 0 0
+	platform	1 1 1 1 1 1 1 1
+	frame	data/chars/misc/grab/empty.gif
+	frame	data/chars/misc/grab/empty.gif
+	frame	data/chars/misc/grab/empty.gif
+	frame	data/chars/misc/grab/empty.gif
+		
+#|edited by openBor Stats v 0.53
+		

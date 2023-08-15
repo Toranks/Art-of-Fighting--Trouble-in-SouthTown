@@ -4,7 +4,7 @@ health		170
 mp		200
 mprate          4
 speed		25
-jumpheight	4
+jumpheight	4.5
 nodieblink	2
 falldie         2
 secret		0 999999
@@ -36,6 +36,7 @@ script		data/scripts/player_script.c
 
 
 palette		data/chars/3Mrbig2/mpal.gif
+alternatepal		data/chars/3Mrbig2/mpal.gif
 alternatepal	data/chars/3Mrbig2/map1.gif
 alternatepal	data/chars/3Mrbig2/map2.gif
 alternatepal	data/chars/3Mrbig2/map3.gif
@@ -78,6 +79,10 @@ void main()
 
 }
 	@end_script	
+		
+		
+		
+		
 		
 		
 		
@@ -357,7 +362,7 @@ anim	burn
 		
 anim	death
 	loop	0
-	delay	75
+	delay	40
 	offset	104 190
 	bbox	0 0 0 0
 	frame	data/chars/3Mrbig2/fall4.gif
@@ -1280,31 +1285,36 @@ anim	freespecial16
 @script
 	void self = getlocalvar("self");
 	void plyr = getentityproperty(self, "playerindex");
-	float Vx = getlocalvar("x"+self);
-	float Vz = getlocalvar("z"+self);
+
+	float V = 1.5;
+	float xdir = 0;
+	float zdir = 0;
 
 	if(frame >= 1 && frame <= 8 )
 	{
-	  if( playerkeys(plyr, 0, "moveup"))
-	  {
-	  changeentityproperty(self, "velocity", Vx, -0.2);
-	  }
-	  if( playerkeys(plyr, 0, "movedown"))
-	  {
-	  changeentityproperty(self, "velocity", Vx, 0.2);
-	  }
 	  if( playerkeys(plyr, 0, "moveleft"))
 	  {
-	  changeentityproperty(self, "velocity", -0.4, Vz);
+		xdir = -V;
 	  }
-	  if( playerkeys(plyr, 0, "moveright"))
+	  else if( playerkeys(plyr, 0, "moveright"))
 	  {
-	  changeentityproperty(self, "velocity", 0.4, Vz);
+		xdir = V;
+	  }
+	  if( playerkeys(plyr, 0, "moveup"))
+	  {
+		zdir = -V/2;
+	  }
+	  else if( playerkeys(plyr, 0, "movedown"))
+	  {
+	 	 zdir = V/2;
 	  }
 	  if( playerkeys(plyr, 0, "attack"))
 	  {
-	  updateframe(self, 9);
+	    updateframe(self, 9);
 	  }
+	changeentityproperty(self, "velocity", xdir, zdir);
+
+
 	}
 	@end_script	
 	energycost	100
@@ -1318,22 +1328,22 @@ anim	freespecial16
 	@cmd	position 5 40 55 1 -1
 	frame	data/chars/3Mrbig2/ga07.gif
 	delay	5
-	attack	109 90 175 45 10 1 1 1 0 30
+	attack	109 90 175 45 10 1 0 0 1 30
 	dropv	2 4 0
 	@cmd	position 1 100 90 1 -1
-	frame	data/chars/3Mrbig2/gb01.gif #1
+	frame	data/chars/3Mrbig2/gb01.gif
 	sound	data/sounds/punch2.wav
 	attack	0 0 0 0
 	@cmd	position 12 55 30 1 1
 	frame	data/chars/3Mrbig2/gb02.gif
-	attack	75 125 65 140 10 1 1 1 0 30
+	attack	75 125 65 140 10 1 0 0 1 50
 	dropv	2 0 2
 	@cmd	position 15 15 30 1 1
 	frame	data/chars/3Mrbig2/gb03.gif
 	attack	0 0 0 0
 	@cmd	position 12 -50 30 1 -1
 	frame	data/chars/3Mrbig2/gb04.gif
-	attack	-45 85 140 50 10 1 1 1 0 30
+	attack	-66 85 175 50 10 1 0 0 1 30
 	dropv	2 4 0
 	@cmd	position 1 -90 90 1 1
 	frame	data/chars/3Mrbig2/gb05.gif
@@ -1341,13 +1351,13 @@ anim	freespecial16
 	attack	0 0 0 0
 	@cmd	position 0 -45 135 -1 1
 	frame	data/chars/3Mrbig2/gb06.gif
-	attack	75 120 55 -115 10 1 1 1 0 30
+	attack	71 -15 65 140 10 1 0 0 1 50
 	dropv	2 0 -2
 	@cmd	position 11 0 130 -1 1
 	frame	data/chars/3Mrbig2/gb07.gif
 	attack	0 0 0 0
 	@cmd	position 0 45 135 -1 -1
-	frame	data/chars/3Mrbig2/gb08.gif #8
+	frame	data/chars/3Mrbig2/gb08.gif
 	@cmd	looper 1 20
 	delay	8
 	@cmd	position 1 80 120 1 -1
@@ -1358,9 +1368,9 @@ anim	freespecial16
 	@cmd	stop
 	@cmd	position 6 20 90 1 -1
 	frame	data/chars/3Mrbig2/gb11.gif
-	@cmd	position 6 0 80 1 -1
+	@cmd	position 6 0 70 0 -1
 	frame	data/chars/3Mrbig2/gb12.gif
-	@cmd	spawn02 "flashsc2" -10 200 190
+	@cmd	spawn01 "flashscreen1" 1 550 1
 	@cmd	depost 0
 	@cmd	finish 100 1 5 3 0 0
 	frame	data/chars/3Mrbig2/gb12.gif
@@ -1790,7 +1800,7 @@ anim	grabbackward
 	attack	-50 135 150 59 20 1 1 1 0 30
 	@cmd	position 2 -75 10 1 1
 	frame	data/chars/3Mrbig2/gr06.gif
-	@cmd	hurt -15
+	@cmd	hurt 15
 	@cmd	spawn01 "qfx" -70 1 2
 	delay	2
 	@cmd	position 1 -75 10 1 1
@@ -1841,7 +1851,7 @@ anim	grabforward
 	@cmd	position 14 40 50 -1 -1
 	attack	105 135 150 59 20 1 1 1 0 30
 	frame	data/chars/3Mrbig2/ga05.gif
-	@cmd	hurt -15
+	@cmd	hurt 15
 	@cmd	spawn01 "qfx" 50 1 2
 	@cmd	position 14 40 50 -1 -1
 	frame	data/chars/3Mrbig2/ga05.gif

@@ -34,7 +34,10 @@ animationscript		data/scripts/grabscript.c
 ondrawscript 		data/scripts/water_puddle_script.c
 script			data/scripts/player_script.c
 
-palette		data/chars/xchoi/palAll.png
+palette		data/chars/xchoi/idle01.png
+alternatepal		data/chars/xchoi/idle01.png
+alternatepal	data/chars/xchoi/map1.png
+alternatepal	data/chars/xchoi/map2.png
 
 
 
@@ -44,6 +47,13 @@ com	d f j	  freespecial8
 com	a2 	  freespecial15
 com	f d f a freespecial26
 com	f d f s freespecial27
+
+
+
+
+
+
+
 
 
 
@@ -726,7 +736,7 @@ anim	follow17
 anim	follow2
 	loop	0
 	delay	5
-	offset	145 211
+	offset	145 170
 	bbox	0 0 0 0
 	fastattack	1
 	hitfx	data/sounds/beat5.wav
@@ -734,12 +744,45 @@ anim	follow2
 	attack2	0 0 0 0
 	frame	data/chars/xchoi/upper12.png
 	attack2	140 105 47 67 2 0 1 0 5 15
-	frame	data/chars/xchoi/upper11.png #1
+	frame	data/chars/xchoi/upper11.png
 	attack2	0 0 0 0
+	@cmd	leaper 0 0.4
 	frame	data/chars/xchoi/upper12.png
 	attack2	140 105 47 67 2 0 1 0 5 15
 	frame	data/chars/xchoi/upper13.png
 	attack2	0 0 0 0
+	@cmd	leaper 0 0.4
+	frame	data/chars/xchoi/upper12.png
+	@cmd	looper 1 12
+	forcedirection	-1
+	attack2	140 105 47 67 20 1 1 0 25 15
+	dropv	2 4
+	frame	data/chars/xchoi/upper11.png
+	attack2	0 0 0 0
+	delay	5
+	frame	data/chars/xchoi/upper12.png
+	@cmd	anichange "ANI_FOLLOW5"
+	frame	data/chars/xchoi/upper12.png
+		
+anim	follow3
+	loop	0
+	delay	5
+	offset	145 170
+	bbox	0 0 0 0
+	fastattack	1
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/xchoi01.wav
+	attack2	0 0 0 0
+	frame	data/chars/xchoi/upper12.png
+	attack2	140 105 47 67 2 0 1 0 5 15
+	frame	data/chars/xchoi/upper11.png
+	attack2	0 0 0 0
+	@cmd	leaper 0 0.2
+	frame	data/chars/xchoi/upper12.png
+	attack2	140 105 47 67 2 0 1 0 5 15
+	frame	data/chars/xchoi/upper13.png
+	attack2	0 0 0 0
+	@cmd	leaper 0 0.2
 	frame	data/chars/xchoi/upper12.png
 	@cmd	looper 1 12
 	forcedirection	-1
@@ -759,7 +802,6 @@ anim	follow4
 	bbox	0 0 0 0
 	fastattack	1
 	forcedirection	-1
-	seal	7 4
 	jumpframe	44 1 0
 	landframe	57
 	hitflash	Flash4
@@ -873,7 +915,7 @@ anim	follow4
 anim	follow5
 	loop	0
 	delay	6
-	offset	145 275
+	offset	145 240
 	jumpframe	0 4 -1
 	landframe	7
 	bbox	130 170 30 40
@@ -882,13 +924,15 @@ anim	follow5
 	frame	data/chars/xchoi/dgd04.png
 	frame	data/chars/xchoi/dgd03.png
 	frame	data/chars/xchoi/dgd02.png
-	offset	145 211
+	offset	145 190
 	bbox	130 110 30 60
 	frame	data/chars/xchoi/jump03.png
 	frame	data/chars/xchoi/jump02.png
 	delay	500
+	offset	145 198
 	frame	data/chars/xchoi/jump01.png
 	delay	9
+	offset	145 211
 	bbox	130 150 30 60
 	frame	data/chars/xchoi/jump00.png
 		
@@ -978,7 +1022,7 @@ anim	freespecial15
 	frame	data/chars/xchoi/spw07.png
 	delay	14
 	frame	data/chars/xchoi/spw08.png
-	@cmd	spawnChild2  "toturi3" 1 1 1 "ANI_FOLLOW4"
+	@cmd	spawnChild2 "toturi3" 1 1 1 "ANI_FOLLOW4"
 	frame	data/chars/xchoi/spw08.png
 	delay	8
 	frame	data/chars/xchoi/spw05.png
@@ -1061,7 +1105,7 @@ anim	freespecial27
 	bbox	0 0 0 0
 	fastattack	1
 	forcedirection	-1
-	seal	7 4
+	seal	7 1
 	followanim	4
 	followcond	1
 	hitflash	Flash4
@@ -1216,23 +1260,27 @@ anim	freespecial8
 	loop	0
 	delay	5
 	offset	145 211
-	bbox	130 110 30 60
+	bbox	130 150 30 60
+	seal	7 1
 	followanim	2
 	followcond	1
 	jumpframe	1 4.5 2
 	landframe	9
 	hitfx	data/sounds/beat5.wav
 	frame	data/chars/xchoi/jump00.png
+	offset	145 200
+	bbox	130 110 30 60
 	frame	data/chars/xchoi/jump01.png
 	sound	data/sounds/xchoi05.wav
+	offset	145 190
 	frame	data/chars/xchoi/jump02.png
-	offset	145 275
 	bbox	130 170 30 40
+	offset	145 240
 	frame	data/chars/xchoi/dgd02.png
 	frame	data/chars/xchoi/dgd03.png
 	frame	data/chars/xchoi/dgd04.png
 	frame	data/chars/xchoi/dgd05.png
-	offset	145 211
+	offset	145 170
 	bbox	135 100 30 45
 	delay	12
 	frame	data/chars/xchoi/upper10.png
@@ -1240,8 +1288,9 @@ anim	freespecial8
 	@cmd	leaper 2 -1
 	attack2	140 105 45 65 0 0 1 0 5 10
 	frame	data/chars/xchoi/upper11.png
-	attack2	0 0 0 0
+	attack2	0 0 0 0 0 0 0 0 0 0
 	delay	8
+	offset	145 211
 	bbox	130 170 30 40
 	frame	data/chars/xchoi/dgd06.png
 	frame	data/chars/xchoi/dgd07.png
@@ -1514,6 +1563,44 @@ anim	jumpland
 	bbox	130 150 30 60
 	frame	data/chars/xchoi/jump00.png
 		
+anim	jumpspecial
+	energycost	12
+	mponly	1
+	loop	0
+	delay	5
+	seal	7 1
+	followanim	3
+	followcond	1
+	jumpframe	1 2 2
+	landframe	8
+	hitfx	data/sounds/beat5.wav
+	offset	145 200
+	bbox	130 110 30 60
+	frame	data/chars/xchoi/jump01.png
+	sound	data/sounds/xchoi05.wav
+	offset	145 190
+	frame	data/chars/xchoi/jump02.png
+	bbox	130 170 30 40
+	offset	145 240
+	frame	data/chars/xchoi/dgd02.png
+	frame	data/chars/xchoi/dgd03.png
+	frame	data/chars/xchoi/dgd04.png
+	frame	data/chars/xchoi/dgd05.png
+	offset	145 170
+	bbox	135 100 30 45
+	delay	12
+	frame	data/chars/xchoi/upper10.png
+	delay	500
+	@cmd	leaper 2 -1
+	attack2	140 105 45 65 0 0 1 0 5 10
+	frame	data/chars/xchoi/upper11.png
+	attack2	0 0 0 0 0 0 0 0 0 0
+	delay	8
+	offset	145 211
+	bbox	130 170 30 40
+	frame	data/chars/xchoi/dgd06.png
+	frame	data/chars/xchoi/dgd07.png
+		
 anim	pain
 	loop	0
 	delay	3
@@ -1736,7 +1823,7 @@ anim	runslide
 	frame	data/chars/xchoi/dgd07.png
 		
 anim	select
-	shadowcoords	-500 -500
+	fshadow	0
 	loop	0
 	delay	5
 	offset	0 0
@@ -1832,7 +1919,7 @@ anim	special
 	frame	data/chars/xchoi/sp02.png
 		
 anim	waiting
-	shadowcoords	-500 -500
+	fshadow	0
 	loop	1
 	delay	12
 	offset	0 0
@@ -1857,5 +1944,5 @@ anim	walkoff
 	bbox	130 110 30 60
 	frame	data/chars/xchoi/jump08.png
 		
-#|edited by openBor Stats v 0.53
+#|edited by openBor Stats v 0.67
 		

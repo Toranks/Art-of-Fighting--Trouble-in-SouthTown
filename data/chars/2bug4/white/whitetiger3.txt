@@ -1,0 +1,583 @@
+name          whitetiger3
+type          enemy
+health        300
+speedf         1.6
+jumpheight    4
+throw         5 2
+throwdamage   18
+shadow        0
+cantgrab      1
+blockodds     1
+nopassiveblock 1
+escapehits    2
+falldie	      2
+nodieblink    3
+gfxshadow     1
+dust            dust
+candamage     player obstacle npc
+hostile	      player npc
+projectilehit enemy obstacle
+icon		data/chars/2bug4/white/icon.gif
+icondie		data/chars/2bug4/white/icond.gif
+diesound      data/sounds/Tiger3.wav
+animationscript data/scripts/escript.c
+
+
+
+palette	none
+
+
+
+
+
+
+anim	attack1
+	range	10 115
+	loop	0
+	delay	10
+	offset	160 275
+	bbox	120 185 85 91
+	hitflash	Flash6
+	hitfx	data/sounds/sl1.wav
+	sound	data/sounds/Tiger3.wav
+	frame	data/chars/2bug4/white/b01.gif
+	frame	data/chars/2bug4/white/b02.gif
+	attack	155 205 115 55 15 1 0 0 30 0
+	frame	data/chars/2bug4/white/b03.gif
+	frame	data/chars/2bug4/white/b04.gif
+	attack	0 0 0 0
+	frame	data/chars/2bug4/white/b04.gif
+		
+anim	attack2
+	range	115 150
+	loop	0
+	fastattack	1
+	attackone	1
+	followanim	1
+	followcond	1
+	delay	10
+	offset	160 275
+	bbox	120 185 85 91
+	hitflash	Flash6
+	hitfx	data/sounds/sl1.wav
+	frame	data/chars/2bug4/white/c01.gif
+	sound	data/sounds/Tiger1.wav
+	frame	data/chars/2bug4/white/c02.gif
+	attack2	145 185 160 70 12 0 0 0 30 0
+	frame	data/chars/2bug4/white/c03.gif
+	attack2	0 0 0 0 0
+	frame	data/chars/2bug4/white/c04.gif
+		
+anim	attack3
+	rangez	-15 15
+	range	170 280
+	loop	0
+	delay	20
+	offset	160 275
+	bbox	120 185 85 91
+	jumpframe	1 4 3 0
+	landframe	4
+	hitflash	Flash6
+	hitfx	data/sounds/sl1.wav
+	frame	data/chars/2bug4/white/a01.gif
+	sound	data/sounds/Tiger1.wav
+	frame	data/chars/2bug4/white/a02.gif
+	attack	150 195 130 90 20 1 0 0 30 20
+	dropv	4 3 0
+	frame	data/chars/2bug4/white/a03.gif
+	delay	100
+	frame	data/chars/2bug4/white/a04.gif
+	attack	0 0 0 0
+	delay	14
+	frame	data/chars/2bug4/white/a05.gif
+	frame	data/chars/2bug4/white/idle01.gif
+		
+anim	block
+	loop	0
+	delay	9
+	offset	160 275
+	bbox	0 0 0 0
+	jumpframe	19 4 3 0
+	landframe	21
+	hitflash	flashscreen1
+	hitfx	data/sounds/sl1.wav
+	frame	data/chars/2bug4/white/blk01.gif
+	frame	data/chars/2bug4/white/blk02.gif
+	delay	2
+	move	-6
+	frame	data/chars/2bug4/white/blk03.gif
+	frame	data/chars/2bug4/white/blk03.gif
+	frame	data/chars/2bug4/white/blk04.gif
+	frame	data/chars/2bug4/white/blk04.gif
+	frame	data/chars/2bug4/white/blk05.gif
+	frame	data/chars/2bug4/white/blk05.gif
+	frame	data/chars/2bug4/white/blk06.gif
+	frame	data/chars/2bug4/white/blk06.gif
+	frame	data/chars/2bug4/white/blk07.gif
+	frame	data/chars/2bug4/white/blk07.gif
+	frame	data/chars/2bug4/white/blk07.gif
+	frame	data/chars/2bug4/white/blk07.gif
+	delay	8
+	move	-4
+	frame	data/chars/2bug4/white/blk08.gif
+	frame	data/chars/2bug4/white/rise01.gif
+	frame	data/chars/2bug4/white/rise02.gif
+	frame	data/chars/2bug4/white/rise03.gif
+	move	0
+	delay	10
+	sound	data/sounds/Tiger1.wav
+	frame	data/chars/2bug4/white/a02.gif
+	attack	150 195 130 90 20 1 0 0 30 20
+	dropv	4 3 0
+	frame	data/chars/2bug4/white/a03.gif
+	delay	100
+	frame	data/chars/2bug4/white/a04.gif
+	attack	0 0 0 0
+	delay	14
+	frame	data/chars/2bug4/white/a05.gif
+	frame	data/chars/2bug4/white/idle01.gif
+		
+anim	burn
+	loop	0
+	delay	30
+	offset	160 275
+	bbox	0 0 0 0
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 200_50_0
+	@cmd	spawnbind "burn1" 1 1 1
+	@cmd	spawnbind "burn2" 1 1 1
+	@cmd	spawnbind "burn3" 1 1 1
+	sound	data/sounds/Tiger2.wav
+	attack	105 145 80 100 5 1 0 0 13 0
+	frame	data/chars/2bug4/white/fall1.gif
+	delay	10
+	attack	110 170 90 50 5 1 0 0 13 0
+	frame	data/chars/2bug4/white/fall2.gif
+	attack	0 0 0 0
+	frame	data/chars/2bug4/white/fall3.gif
+	frame	data/chars/2bug4/white/fall4.gif
+		
+anim	death
+	loop	0
+	delay	12
+	offset	160 275
+	bbox	0 0 0 0
+	frame	data/chars/2bug4/white/fall4.gif
+		
+anim	fall
+	loop	0
+	delay	30
+	offset	160 275
+	bbox	0 0 0 0
+	sound	data/sounds/Tiger2.wav
+	attack	105 145 80 100 5 1 0 0 13 0
+	frame	data/chars/2bug4/white/fall1.gif
+	delay	10
+	attack	110 170 90 50 5 1 0 0 13 0
+	frame	data/chars/2bug4/white/fall2.gif
+	attack	0 0 0 0
+	frame	data/chars/2bug4/white/fall3.gif
+	frame	data/chars/2bug4/white/fall4.gif
+		
+anim	fall10
+	loop	0
+	delay	50
+	offset	160 275
+	bbox	90 140 100 100
+	landframe	3
+	attack	100 150 80 80 5 1 0 0 13 0
+	frame	data/chars/2bug4/white/pain3.gif
+	delay	30
+	bbox	90 140 100 100
+	attack	95 145 80 80 5 1 0 0 13 0
+	frame	data/chars/2bug4/white/fall2.gif
+	delay	1000
+	bbox	90 140 100 100
+	attack	0 0 0 0
+	frame	data/chars/2bug4/white/fall3.gif
+	bbox	0 0 0 0
+	frame	data/chars/2bug4/white/fall4.gif
+		
+anim	fall2
+	loop	0
+	delay	30
+	offset	160 275
+	bbox	90 140 100 100
+	attack	110 165 80 80 5 1 0 0 13 0
+	frame	data/chars/2bug4/white/pain3.gif
+	delay	10
+	attack	105 155 95 80 5 1 0 0 13 0
+	frame	data/chars/2bug4/white/fall2.gif
+	attack	0 0 0 0
+	bbox	0 0 0 0
+	frame	data/chars/2bug4/white/fall3.gif
+	frame	data/chars/2bug4/white/fall4.gif
+		
+anim	fall7
+	delay	1000
+	offset	160 275
+	frame	data/chars/2bug4/white/fall1.gif
+	offset	160 275
+	frame	data/chars/2bug4/white/fall2.gif
+	offset	160 275
+	frame	data/chars/2bug4/white/fall3.gif
+	offset	160 275
+	frame	data/chars/2bug4/white/fall4.gif
+	offset	160 275
+	frame	data/chars/2bug4/white/fall1.gif
+	offset	160 275
+	frame	data/chars/2bug4/white/fall2.gif
+	offset	160 275
+	frame	data/chars/2bug4/white/fall3.gif
+	offset	160 275
+	frame	data/chars/2bug4/white/fall4.gif
+	offset	160 275
+	frame	data/chars/2bug4/white/fall1.gif
+	offset	160 275
+	frame	data/chars/2bug4/white/fall2.gif
+		
+anim	fall9
+	loop	0
+	delay	10
+	offset	160 275
+	bbox	0 0 0 0
+	attack	100 155 80 80 5 1 0 0 13 0
+	frame	data/chars/2bug4/white/fall1.gif
+	delay	37
+	attack	110 180 95 80 5 1 0 0 13 0
+	frame	data/chars/2bug4/white/fall3.gif
+	delay	8
+	attack	0 0 0 0
+	frame	data/chars/2bug4/white/fall3.gif
+	frame	data/chars/2bug4/white/fall4.gif
+		
+anim	follow1
+	loop	0
+	delay	10
+	offset	160 275
+	bbox	120 185 85 91
+	fastattack	1
+	hitflash	Flash6
+	hitfx	data/sounds/sl1.wav
+	frame	data/chars/2bug4/white/c03.gif
+	frame	data/chars/2bug4/white/c04.gif
+	frame	data/chars/2bug4/white/c03.gif
+	frame	data/chars/2bug4/white/c05.gif
+	attack2	145 185 160 70 12 0 0 0 30 0
+	frame	data/chars/2bug4/white/c06.gif
+	frame	data/chars/2bug4/white/c07.gif
+	attack2	0 0 0 0
+	sound	data/sounds/Tiger1.wav
+	frame	data/chars/2bug4/white/c01.gif
+	attack2	145 185 160 70 12 1 0 0 30 0
+	dropv	5 3 0
+	frame	data/chars/2bug4/white/c02.gif
+	attack2	0 0 0 0
+	frame	data/chars/2bug4/white/c03.gif
+	frame	data/chars/2bug4/white/c04.gif
+		
+anim	follow2
+	loop	0
+	delay	50
+	offset	160 275
+	bbox	0 0 0 0
+	jumpframe	11 3 0
+	landframe	17
+	frame	data/chars/2bug4/white/spawn01.gif
+	delay	15
+	frame	data/chars/2bug4/white/spawn02.gif
+	frame	data/chars/2bug4/white/spawn03.gif
+	frame	data/chars/2bug4/white/spawn02.gif
+	delay	50
+	frame	data/chars/2bug4/white/spawn01.gif
+	@cmd	looper 1 14
+	delay	14
+	frame	data/chars/2bug4/white/a01.gif
+	frame	data/chars/2bug4/white/rise03.gif
+	frame	data/chars/2bug4/white/rise02.gif
+	delay	30
+	frame	data/chars/2bug4/white/rise01.gif
+	delay	12
+	frame	data/chars/2bug4/white/rise02.gif
+	frame	data/chars/2bug4/white/rise03.gif
+	delay	6
+	frame	data/chars/2bug4/white/blk01.gif #11
+	frame	data/chars/2bug4/white/blk03.gif
+	frame	data/chars/2bug4/white/blk04.gif
+	frame	data/chars/2bug4/white/blk05.gif
+	frame	data/chars/2bug4/white/blk06.gif
+	delay	100
+	frame	data/chars/2bug4/white/blk07.gif
+	delay	14
+	frame	data/chars/2bug4/white/blk08.gif
+	frame	data/chars/2bug4/white/rise01.gif
+	frame	data/chars/2bug4/white/rise02.gif
+	frame	data/chars/2bug4/white/rise03.gif
+		
+anim	grabbed
+	loop	0
+	delay	10
+	offset	160 275
+	bbox	120 185 85 91
+	frame	data/chars/2bug4/white/pain1.gif
+		
+anim	idle
+	loop	0
+	delay	10
+	offset	160 275
+	bbox	120 185 85 91
+	@cmd	lifeaggr 25 250
+	frame	data/chars/2bug4/white/idle01.gif
+		
+anim	pain
+	loop	0
+	delay	3
+	offset	160 275
+	bbox	120 185 85 91
+	frame	data/chars/2bug4/white/pain0.gif
+	offset	155 275
+	frame	data/chars/2bug4/white/pain1.gif
+	offset	165 275
+	frame	data/chars/2bug4/white/pain1.gif
+	delay	40
+	offset	155 275
+	frame	data/chars/2bug4/white/pain1.gif
+		
+anim	pain10
+	loop	0
+	delay	1
+	offset	160 275
+	bbox	120 185 85 91
+	jumpframe	1 5 0 0
+	frame	data/chars/2bug4/white/pain1.gif
+	delay	45
+	offset	160 275
+	bbox	0 0 0 0
+	frame	data/chars/2bug4/white/pain3.gif
+	delay	7
+	offset	160 255
+	frame	data/chars/2bug4/white/pain3.gif
+	delay	52
+	offset	160 245
+	frame	data/chars/2bug4/white/pain3.gif
+	delay	4
+	offset	160 275
+	move	12
+	frame	data/chars/2bug4/white/fall4.gif
+	move	0
+	frame	data/chars/2bug4/white/fall5.gif
+	frame	data/chars/2bug4/white/fall4.gif
+	frame	data/chars/2bug4/white/fall5.gif
+	delay	55
+	frame	data/chars/2bug4/white/fall4.gif
+	delay	3
+	bbox	110 235 95 35
+	frame	data/chars/2bug4/white/fall4.gif
+	bbox	0 0 0 0
+	delay	19
+	offset	160 275
+	frame	data/chars/2bug4/white/rise01.gif
+	delay	13
+	frame	data/chars/2bug4/white/rise02.gif
+	frame	data/chars/2bug4/white/rise03.gif
+		
+anim	pain2
+	loop	0
+	delay	3
+	offset	160 275
+	bbox	120 185 85 91
+	frame	data/chars/2bug4/white/pain0.gif
+	offset	155 275
+	frame	data/chars/2bug4/white/pain1.gif
+	offset	165 275
+	frame	data/chars/2bug4/white/pain1.gif
+	delay	40
+	offset	155 275
+	frame	data/chars/2bug4/white/pain1.gif
+		
+anim	pain3
+	loop	0
+	delay	1
+	offset	160 275
+	bbox	0 0 0 0
+	jumpframe	1 2 -1 0
+	frame	data/chars/2bug4/white/pain1.gif
+	delay	25
+	frame	data/chars/2bug4/white/fall2.gif
+	delay	12
+	frame	data/chars/2bug4/white/fall3.gif
+	delay	4
+	bbox	100 225 90 40
+	frame	data/chars/2bug4/white/fall4.gif
+	frame	data/chars/2bug4/white/fall5.gif
+	frame	data/chars/2bug4/white/fall4.gif
+	frame	data/chars/2bug4/white/fall5.gif
+	delay	15
+	bbox	0 0 0 0
+	frame	data/chars/2bug4/white/fall4.gif
+	delay	10
+	frame	data/chars/2bug4/white/rise01.gif
+	frame	data/chars/2bug4/white/rise02.gif
+	frame	data/chars/2bug4/white/rise03.gif
+		
+anim	pain4
+	loop	0
+	delay	2
+	offset	160 275
+	bbox	0 0 0 0
+	move	-11
+	attack	95 190 80 45 3 1 1 0 13 0
+	frame	data/chars/2bug4/white/fall3.gif
+	frame	data/chars/2bug4/white/fall3.gif
+	frame	data/chars/2bug4/white/fall3.gif
+	frame	data/chars/2bug4/white/fall3.gif
+	frame	data/chars/2bug4/white/fall3.gif
+	frame	data/chars/2bug4/white/fall3.gif
+	frame	data/chars/2bug4/white/fall3.gif
+	frame	data/chars/2bug4/white/fall3.gif
+	frame	data/chars/2bug4/white/fall3.gif
+	frame	data/chars/2bug4/white/fall3.gif
+	frame	data/chars/2bug4/white/fall3.gif
+	frame	data/chars/2bug4/white/fall3.gif
+	move	-6
+	attack	0 0 0 0
+	frame	data/chars/2bug4/white/fall4.gif
+	frame	data/chars/2bug4/white/fall4.gif
+	frame	data/chars/2bug4/white/fall4.gif
+	frame	data/chars/2bug4/white/fall4.gif
+	move	-3
+	frame	data/chars/2bug4/white/fall4.gif
+	frame	data/chars/2bug4/white/fall4.gif
+	move	0
+	delay	20
+	bbox	0 0 0 0
+	frame	data/chars/2bug4/white/fall4.gif
+	delay	10
+	frame	data/chars/2bug4/white/rise01.gif
+	frame	data/chars/2bug4/white/rise02.gif
+	frame	data/chars/2bug4/white/rise03.gif
+		
+anim	pain5
+	loop	0
+	delay	23
+	offset	160 275
+	bbox	120 185 85 91
+	frame	data/chars/2bug4/white/pain1.gif
+		
+anim	pain6
+	loop	0
+	delay	23
+	offset	160 275
+	bbox	120 185 85 91
+	frame	data/chars/2bug4/white/pain2.gif
+		
+anim	pain8
+	loop	0
+	delay	2
+	offset	160 275
+	bbox	120 185 85 91
+	move	-6
+	frame	data/chars/2bug4/white/pain0.gif
+	frame	data/chars/2bug4/white/pain0.gif
+	frame	data/chars/2bug4/white/pain0.gif
+	frame	data/chars/2bug4/white/pain2.gif
+	frame	data/chars/2bug4/white/pain2.gif
+	frame	data/chars/2bug4/white/pain2.gif
+	move	-3
+	frame	data/chars/2bug4/white/pain2.gif
+	frame	data/chars/2bug4/white/pain2.gif
+	move	-1
+	frame	data/chars/2bug4/white/pain2.gif
+	delay	35
+	frame	data/chars/2bug4/white/pain2.gif
+		
+anim	pain9
+	loop	0
+	delay	15
+	offset	160 275
+	bbox	120 185 85 91
+	frame	data/chars/2bug4/white/pain0.gif
+	delay	150
+	frame	data/chars/2bug4/white/pain2.gif
+		
+anim	rise
+	loop	0
+	delay	15
+	offset	160 275
+	bbox	0 0 0 0
+	frame	data/chars/2bug4/white/rise01.gif
+	frame	data/chars/2bug4/white/rise02.gif
+	frame	data/chars/2bug4/white/rise03.gif
+		
+anim	spawn
+	loop	0
+	delay	50
+	offset	160 275
+	bbox	0 0 0 0
+	frame	data/chars/2bug4/white/spawn01.gif
+	delay	15
+	frame	data/chars/2bug4/white/spawn02.gif
+	@cmd	attack1 -50 50 250 "ANI_FOLLOW2"
+	frame	data/chars/2bug4/white/spawn03.gif
+	@cmd	attack1 -50 50 250 "ANI_FOLLOW2"
+	frame	data/chars/2bug4/white/spawn02.gif
+		
+anim	special2
+	loop	0
+	delay	9
+	offset	160 275
+	bbox	0 0 0 0
+	jumpframe	19 4 3 0
+	landframe	21
+	hitflash	Flash6
+	hitfx	data/sounds/sl1.wav
+	frame	data/chars/2bug4/white/blk01.gif
+	frame	data/chars/2bug4/white/blk02.gif
+	delay	2
+	move	-6
+	frame	data/chars/2bug4/white/blk03.gif
+	frame	data/chars/2bug4/white/blk03.gif
+	frame	data/chars/2bug4/white/blk04.gif
+	frame	data/chars/2bug4/white/blk04.gif
+	frame	data/chars/2bug4/white/blk05.gif
+	frame	data/chars/2bug4/white/blk05.gif
+	frame	data/chars/2bug4/white/blk06.gif
+	frame	data/chars/2bug4/white/blk06.gif
+	frame	data/chars/2bug4/white/blk07.gif
+	frame	data/chars/2bug4/white/blk07.gif
+	frame	data/chars/2bug4/white/blk07.gif
+	frame	data/chars/2bug4/white/blk07.gif
+	delay	8
+	move	-4
+	frame	data/chars/2bug4/white/blk08.gif
+	frame	data/chars/2bug4/white/rise01.gif
+	frame	data/chars/2bug4/white/rise02.gif
+	frame	data/chars/2bug4/white/rise03.gif
+	move	0
+	delay	10
+	sound	data/sounds/Tiger1.wav
+	frame	data/chars/2bug4/white/a02.gif
+	attack	150 195 130 90 20 1 0 0 30 20
+	dropv	4 3 0
+	frame	data/chars/2bug4/white/a03.gif
+	delay	100
+	frame	data/chars/2bug4/white/a04.gif
+	attack	0 0 0 0
+	delay	14
+	frame	data/chars/2bug4/white/a05.gif
+	frame	data/chars/2bug4/white/idle01.gif
+		
+anim	walk
+	loop	1
+	delay	8
+	offset	160 275
+	bbox	120 185 85 91
+	frame	data/chars/2bug4/white/wk01.gif
+	frame	data/chars/2bug4/white/wk02.gif
+	frame	data/chars/2bug4/white/wk03.gif
+	frame	data/chars/2bug4/white/wk04.gif
+	frame	data/chars/2bug4/white/wk05.gif
+	frame	data/chars/2bug4/white/wk06.gif
+		
+#|edited by openBor Stats v 0.53
+		

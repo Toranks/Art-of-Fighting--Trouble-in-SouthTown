@@ -105,6 +105,8 @@ coords	1415 260
 at      0
 
 spawn  door5
+2phealth	500
+3phealth	750
 flip	1
 coords	690 240
 at      0
@@ -117,7 +119,7 @@ at      0
 
 #-------------enemy-----------------
 
-group   3 3
+group   6 6
 at      10
 wait
 at      10
@@ -165,29 +167,33 @@ aggression -40
 coords  530 250
 at      10
 
-2pspawn   mrpink
+spawn  mrpink
+spawnscript	data/scripts/hard.c
 map     3
-aggression -40
 coords  530 250
 at      10
 
-2pspawn   mrgreen
-map     2
-aggression -40
+spawn  mrgreen
+spawnscript	data/scripts/hard.c
+map     1
 coords  530 250
 at      10
 
-2pspawn   valarie
+spawn  mrgreen
+spawnscript	data/scripts/hard.c
+coords  530 230
+at      10
+
+spawn  valarie
+spawnscript	data/scripts/hard.c
 map     2
 item    money1
-aggression -40
 coords  530 240
 at      10
 
-
-2pspawn   mrred
+spawn  mrred
+spawnscript	data/scripts/hard.c
 map     2
-aggression -40
 coords  530 220
 at      10
 
@@ -198,18 +204,6 @@ at      10
 group   3 3
 at      260
 wait
-at      260
-
-2pspawn   psycho
-map     3
-aggression -40
-coords  -470 200
-at      260
-
-2pspawn   slay
-map     3
-aggression -40
-coords  -330 220
 at      260
 
 
@@ -233,10 +227,6 @@ spawn   ghost1
 coords  -400 290
 at      260
 
-spawn   ghost1
-coords  -400 290
-at      260
-
 spawn   vigo
 @script
 void main()
@@ -252,24 +242,6 @@ aggression -40
 coords  -110 270
 at      260
 
-2pspawn   meloke
-map     1
-aggression -40
-coords  -470 200
-at      260
-
-2pspawn   slay
-map     4
-aggression -40
-coords  -330 220
-at      260
-
-2pspawn   vigo
-item    food4
-aggression -40
-coords  -390 270
-at      260
-
 spawn   ghosttime
 coords  -400 290
 at      260
@@ -280,11 +252,6 @@ aggression -40
 coords  -390 270
 at      260
 
-2pspawn   psycho
-map     4
-aggression -40
-coords  -390 270
-at      260
 
 spawn   ghosttime
 health  10
@@ -302,15 +269,11 @@ health  20
 coords  -400 290
 at      260
 
+group	8 8
+at	260
+
 spawn   vigo
 map     3
-aggression -40
-coords  -390 270
-at      260
-
-2pspawn   psycho
-map     1
-item    food1
 aggression -40
 coords  -390 270
 at      260
@@ -322,9 +285,52 @@ aggression -40
 coords  -390 270
 at      260
 
-2pspawn   slay
+spawn  slay
+spawnscript	data/scripts/hard.c
 map     3
-aggression -40
+coords  -390 270
+at      260
+
+spawn  psycho
+spawnscript	data/scripts/hard.c
+map     4
+coords  -390 270
+at      260
+
+spawn  meloke
+spawnscript	data/scripts/hard.c
+map     1
+coords  -470 200
+at      260
+
+spawn  slay
+spawnscript	data/scripts/hard.c
+map     4
+coords  -330 220
+at      260
+
+spawn  vigo
+spawnscript	data/scripts/hard.c
+item    food4
+coords  -390 270
+at      260
+
+spawn  psycho
+spawnscript	data/scripts/hard.c
+map     3
+coords  -470 200
+at      260
+
+spawn  slay
+spawnscript	data/scripts/hard.c
+map     3
+coords  -330 220
+at      260
+
+spawn  psycho
+spawnscript	data/scripts/hard.c
+map     1
+item    food1
 coords  -390 270
 at      260
 
@@ -332,7 +338,7 @@ at      260
 #----------------------
 
 
-group   3 3
+group   6 6
 at      750
 wait
 at      750
@@ -357,22 +363,22 @@ coords  740 230
 at      750
 
 
-2pspawn   jimcombo
+spawn  jimcombo
+spawnscript	data/scripts/hard.c
 item    food3
 map     4
-aggression -40
 coords  750 180
 at      750
 
-2pspawn   kraven
+spawn  kraven
+spawnscript	data/scripts/hard.c
 map     4
-aggression -40
 coords  750 200
 at      750
 
-2pspawn   zen
+spawn  zen
+spawnscript	data/scripts/hard.c
 map     1
-aggression -40
 coords  740 230
 at      750
 
@@ -395,23 +401,12 @@ at      750
 
 
 
-group   3 3
+group   6 6
 at      1600
 wait
 at      1600
 
 spawn   fatguy
-aggression -40
-coords  740 230
-at      1600
-
-2pspawn  biff
-aggression -40
-coords  -740 230
-at      1600
-
-2pspawn   dash
-map     1
 aggression -40
 coords  740 230
 at      1600
@@ -452,14 +447,23 @@ aggression -40
 coords  -100 230
 at      1600
 
-2pspawn   biff
+spawn  biff
+spawnscript	data/scripts/hard.c
 item    food4
 map     2
-aggression -40
 coords  740 230
 at      1600
 
+spawn  biff
+spawnscript	data/scripts/hard.c
+coords  -740 230
+at      1600
 
+spawn  dash
+spawnscript	data/scripts/hard.c
+map     1
+coords  740 250
+at      1600
 #-----------------------
 
 group   1 1
@@ -588,34 +592,42 @@ coords  600 230
 at      1450
 
 
-2pspawn   vigo
+spawn  vigo
 @script
 void main()
 	{
 	void self = getlocalvar("self");
+	void difficulty = getglobalvar("hard");
 	performattack(self, openborconstant("ANI_JUMP"));
 	tossentity(self, 4, -4, 0);
-	}
+	
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
 @end_script
 flip	1
 map     2
-aggression -40
 coords  540 180
 at      1450
 
 
-2pspawn   vigo
+spawn  vigo
 @script
 void main()
 	{
 	void self = getlocalvar("self");
+	void difficulty = getglobalvar("hard");
 	performattack(self, openborconstant("ANI_JUMP"));
 	tossentity(self, 4, 4, 0);
-	}
+	
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
 @end_script
 flip	1
 map     3
-aggression -40
 coords  -140 200
 at      1450
 
@@ -635,32 +647,40 @@ coords  -120 190
 at      1450
 
 
-2pspawn   vigo
+spawn  vigo
 @script
 void main()
 	{
 	void self = getlocalvar("self");
+	void difficulty = getglobalvar("hard");
 	performattack(self, openborconstant("ANI_JUMP"));
 	tossentity(self, 4, -4, 0);
-	}
+	
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
 @end_script
 map     1
-aggression -40
 coords  750 230
 at      1450
 
 
-2pspawn   vigo
+spawn  vigo
 @script
 void main()
 	{
 	void self = getlocalvar("self");
+	void difficulty = getglobalvar("hard");
 	performattack(self, openborconstant("ANI_JUMP"));
 	tossentity(self, 4, -3, 0);
-	}
+	
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
 @end_script
 map     2
-aggression -40
 coords  540 180
 at      1450
 
@@ -670,14 +690,18 @@ spawn   vigo
 void main()
 	{
 	void self = getlocalvar("self");
+	void difficulty = getglobalvar("hard");
 	performattack(self, openborconstant("ANI_JUMP"));
 	tossentity(self, 3, 3, 0);
-	}
+	
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
 @end_script
 flip	1
 item    food4
 map     3
-aggression -40
 coords  -140 200
 at      1450
 
@@ -686,13 +710,17 @@ spawn   vigo
 void main()
 	{
 	void self = getlocalvar("self");
+	void difficulty = getglobalvar("hard");
 	performattack(self, openborconstant("ANI_JUMP"));
 	tossentity(self, 4, 3, 0);
-	}
+	
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
 @end_script
 flip	1
 map     4
-aggression -40
 coords  -100 190
 at      1450
 

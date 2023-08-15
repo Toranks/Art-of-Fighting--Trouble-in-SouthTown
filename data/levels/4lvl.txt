@@ -360,14 +360,14 @@ aggression -40
 coords  520 360
 at      0
 
-2pspawn   butterbean
-aggression -40
+spawn  butterbean
+spawnscript	data/scripts/hard.c
 item    money1
 coords  530 380
 at      0
 
-3pspawn   bash
-aggression -40
+spawn   bash
+spawnscript	data/scripts/hard.c
 map     2
 coords  560 390
 at      0
@@ -386,7 +386,8 @@ map     2
 coords  550 390
 at      0
 
-2pspawn   jay
+spawn  jay
+spawnscript	data/scripts/hard.c
 map     1
 coords  510 320
 at      0
@@ -400,7 +401,6 @@ void main()
 	tossentity(self, 4, -3, 0);
 	}
 @end_script
-aggression -40
 map     1
 coords  540 360
 at      0
@@ -480,13 +480,13 @@ void main()
 	tossentity(self, 4, -3, 0);
 	}
 @end_script
-aggression -40
+aggression 40
 map     1
 coords  650 380 100
 at      580
 
 spawn   thong
-aggression -40
+aggression 40
 map     2
 coords  630 350 100
 at      580
@@ -502,19 +502,20 @@ void main()
 	}
 @end_script
 flip	1
-aggression -40
+aggression 40
 map     2
 coords  -100 350
 at      580
 
 spawn   fox
-aggression -40
+aggression 40
 map     2
 coords  -550 380
 at      580
 
 
-2pspawn   bash
+spawn  bash
+spawnscript	data/scripts/hard.c
 #health  350
 aggression 100
 item    diamond
@@ -533,38 +534,70 @@ void main()
 	}
 @end_script
 flip	1
-aggression -40
+aggression 40
 map     3
 coords  -520 350
 at      580
 
 
-2pspawn   randy
+spawn  randy
+spawnscript	data/scripts/hard.c
 #health  150
-aggression -40
+aggression 40
 map     2
 coords  640 380 100
 at      580
 
-3pspawn   thong
-aggression -40
+spawn   thong
+spawnscript	data/scripts/hard.c
+aggression 40
 map     3
 coords  630 350 100
 at      580
 
 
-3pspawn   jay
-#health  150
-aggression -40
+spawn   jay
+spawnscript	data/scripts/hard.c
+aggression 40
 map     3
 coords  -500 350
 at      580
 
-2pspawn   butterbean
-aggression -40
+spawn  butterbean
+spawnscript	data/scripts/hard.c
+aggression 40
 map     4
 coords  -520 350
 at      580
+
+spawn   ghosttime
+health	10
+@script
+void main()
+	{
+	setglobalvar("leveln","4lvl");
+	}
+@end_script
+coords  -520 320
+at      580
+
+spawn   ghosttime
+health	10
+spawnscript	data/scripts/spawn3p.c
+coords  630 350 100
+at      580
+
+spawn   ghosttime
+health  1
+@script
+void main()
+	{
+	setglobalvar("leveln" , NULL());
+	}
+@end_script
+coords  -520 360
+at      580
+
 
 #-------------------
 
@@ -579,7 +612,7 @@ at      1070
 spawn   griff
 health  2000
 2phealth	3000
-3phealth	3500
+3phealth	4000
 aggression 180
 boss    1
 coords  530 330 180

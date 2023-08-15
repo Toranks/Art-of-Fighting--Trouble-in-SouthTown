@@ -58,6 +58,7 @@ load	whitepn
 load	escap2
 
 
+
 anim	attack1
 	range	40 80
 	loop	0
@@ -253,7 +254,7 @@ anim	death
 	delay	5
 	offset	100 189
 	bbox	0 0 0 0
-	landframe 13 dust
+	landframe	13 dust
 	frame	data/chars/3remuinho/rise1.gif
 	@cmd	damage_all_enemies 25000 1 1
 	@cmd	changeopenborvariant "slowmotion" 1
@@ -304,64 +305,6 @@ anim	death
 	frame	data/chars/3remuinho/empty.gif
 	@cmd	anichange "ANI_FOLLOW17"
 	frame	data/chars/3remuinho/empty.gif
-
-
-#---------------------//---fall-scene--//---------------
-
-anim	follow17
-@script
-	void self = getlocalvar("self");
-	if(frame==4){
-	changelevelproperty("scrollspeed", 0);
-    	changeopenborvariant("xpos", 1780);
-    	changeopenborvariant("ypos", 110);
-	changeopenborvariant("nojoin",1);
-	}
-	if(frame==7){
-	changeplayerproperty(0, "weapon", 8);
-	changeplayerproperty(1, "weapon", 8);
-	changeplayerproperty(2, "weapon", 8);
-	changeopenborvariant("nojoin",1);
-	}
-@end_script
-	loop	0
-	delay	5
-	offset	100 189
-	bbox	0 0 0 0
-	frame	data/chars/3remuinho/empty.gif
-	@cmd	 playmusic "data/music/remuinhoend.ogg" 1
-	frame	data/chars/3remuinho/empty.gif
-	@cmd	changeopenborvariant "slowmotion" 0
-	frame	data/chars/3remuinho/empty.gif
-	delay	130
-	frame	data/chars/3remuinho/empty.gif
-	delay	5
-	frame	data/chars/3remuinho/empty.gif #4
-	@cmd	spawn02 "whitepn" -5 250 240
-	frame	data/chars/3remuinho/empty.gif
-	delay	100
-	frame	data/chars/3remuinho/empty.gif
-	delay	5
-	frame	data/chars/3remuinho/empty.gif #7
-	@cmd	spawnAni3 "ryoshw1" 1960 0 350 "ANI_FOLLOW1"
-	@cmd	spawnAni3 "robshw1" 2060 0 350 "ANI_FOLLOW1"
-	@cmd	spawnAni3 "yurshw1" 2020 0 370 "ANI_FOLLOW1"
-	#@cmd	spawn05 "pipashw1" 1880 0 370
-	@cmd	spawn05 "remshw1" 2020 400 360
-	@cmd	spawnAni3 "escap2" 1830 0 240 "ANI_FOLLOW1"
-	frame	data/chars/3remuinho/empty.gif
-	frame	data/chars/3remuinho/empty.gif
-	frame	data/chars/3remuinho/empty.gif
-	delay	8000
-	frame	data/chars/3remuinho/empty.gif
-	delay	5
-	frame	data/chars/3remuinho/empty.gif #12
-	frame	data/chars/3remuinho/empty.gif
-	frame	data/chars/3remuinho/empty.gif #14
-	frame	data/chars/3remuinho/empty.gif
-	frame	data/chars/3remuinho/empty.gif
-
-#--------------------------------------------------------------
 		
 anim	fall
 	loop	0
@@ -380,7 +323,6 @@ anim	fall
 	frame	data/chars/3remuinho/fall3.gif
 	delay	2
 	frame	data/chars/3remuinho/fall6.gif
-
 		
 anim	fall10
 	loop	0
@@ -404,16 +346,16 @@ anim	fall10
 	frame	data/chars/3remuinho/fall3.gif
 	delay	2
 	frame	data/chars/3remuinho/fall6.gif
-	
+		
 anim	fall11
 	loop	0
 	delay	20
 	offset	100 189
-	bbox	61 185 90 5	
+	bbox	61 185 90 5
 	frame	data/chars/3remuinho/pain12.gif
 	delay	35
 	frame	data/chars/3remuinho/fall4.gif
-
+		
 anim	fall2
 	loop	0
 	delay	30
@@ -432,7 +374,7 @@ anim	fall2
 	frame	data/chars/3remuinho/fall3.gif
 	delay	2
 	frame	data/chars/3remuinho/fall6.gif
-
+		
 anim	fall4
 	loop	0
 	delay	6
@@ -638,15 +580,15 @@ anim	follow12
 	delay	15
 	offset	100 189
 	bbox	0 0 0 0
-	@cmd	slamstart2
 	jumpframe	2 4 -1
 	landframe	6
 	quakeframe	6 3 4
 	flipframe	22
 	sound	data/sounds/grab.wav
+	@cmd	slamstart2
+	@cmd	spawngrab 200 200 450 170 1 8
 	@cmd	position 7 30 10 -1 1
 	frame	data/chars/3remuinho/5grab01.gif
-	@cmd	spawngrab "grab1" 200 200 450 170 1 8
 	@cmd	position 11 30 10 -1 1
 	frame	data/chars/3remuinho/5grab02.gif
 	@cmd	position 0 25 30 -1 1
@@ -730,7 +672,6 @@ anim	follow12
 	frame	data/chars/3remuinho/2grab05.gif
 	attack	60 130 90 50 8 1 0 0 20 30
 	dropv	3 4 0
-	#@cmd	degravity 1
 	movea	3
 	@cmd	position 22 0 15 1 1
 	frame	data/chars/3remuinho/2grab06.gif
@@ -905,248 +846,197 @@ anim	follow12
 	frame	data/chars/3remuinho/2grab09.gif
 	attack	60 60 90 40 5 1 0 0 15 30
 	dropv	3 4 0
-	
 	@cmd	position 21 0 70 -1 1
 	frame	data/chars/3remuinho/2grab10.gif
 	attack	0 0 0 0
-	
 	@cmd	position 0 55 65 -1 -1
 	frame	data/chars/3remuinho/2grab11.gif
 	sound	data/sounds/punch2.wav
 	attack	100 90 125 35 5 1 0 0 15 0
 	dropv	3 4 0
-	
 	@cmd	position 10 75 90 1 1
 	frame	data/chars/3remuinho/2grab12.gif
 	attack	0 0 0 0
-	
 	@cmd	position 20 60 20 1 -1
 	frame	data/chars/3remuinho/2grab05.gif
 	attack	60 130 90 50 8 1 0 0 20 30
 	dropv	3 4 0
-	
 	@cmd	position 22 0 15 1 1
 	frame	data/chars/3remuinho/2grab06.gif
 	attack	0 0 0 0
-	
 	@cmd	position 20 -40 25 1 1
 	frame	data/chars/3remuinho/2grab07.gif
 	@cmd	hurt 1
 	attack	-30 85 125 35 5 1 0 0 15 0
 	dropv	3 4 0
 	sound	data/sounds/punch2.wav
-	
 	@cmd	position 10 -60 95 1 -1
 	frame	data/chars/3remuinho/2grab08.gif
 	attack	0 0 0 0
-	
 	@cmd	position 0 -35 60 -1 1
 	frame	data/chars/3remuinho/2grab09.gif
 	attack	60 60 90 40 5 1 0 0 15 30
 	dropv	3 4 0
-	
 	@cmd	position 21 0 70 -1 1
 	frame	data/chars/3remuinho/2grab10.gif
 	attack	0 0 0 0
-	
 	@cmd	position 0 55 65 -1 -1
 	frame	data/chars/3remuinho/2grab11.gif
 	sound	data/sounds/punch2.wav
 	attack	100 90 125 35 5 1 0 0 15 0
 	dropv	3 4 0
-	
 	@cmd	position 10 75 90 1 1
 	frame	data/chars/3remuinho/2grab12.gif
 	attack	0 0 0 0
-	
 	@cmd	position 20 60 20 1 -1
 	frame	data/chars/3remuinho/2grab05.gif
 	attack	60 130 90 50 8 1 0 0 20 30
 	dropv	3 4 0
-	
 	@cmd	position 22 0 15 1 1
 	frame	data/chars/3remuinho/2grab06.gif
 	attack	0 0 0 0
-	
 	@cmd	position 20 -40 25 1 1
 	frame	data/chars/3remuinho/2grab07.gif
 	attack	-30 85 125 35 5 1 0 0 15 0
 	dropv	3 4 0
 	sound	data/sounds/punch2.wav
-	
 	@cmd	position 10 -60 95 1 -1
 	frame	data/chars/3remuinho/2grab08.gif
 	attack	0 0 0 0
-	
 	@cmd	position 0 -35 60 -1 1
 	frame	data/chars/3remuinho/2grab09.gif
 	attack	60 60 90 40 5 1 0 0 15 30
 	dropv	3 4 0
-	
 	@cmd	position 21 0 70 -1 1
 	frame	data/chars/3remuinho/2grab10.gif
 	attack	0 0 0 0
-	
 	@cmd	position 0 55 65 -1 -1
 	frame	data/chars/3remuinho/2grab11.gif
 	sound	data/sounds/punch2.wav
 	attack	100 90 125 35 5 1 0 0 15 0
 	dropv	3 4 0
-	
 	@cmd	position 10 75 90 1 1
 	frame	data/chars/3remuinho/2grab12.gif
 	attack	0 0 0 0
-	
 	@cmd	position 20 60 20 1 -1
 	frame	data/chars/3remuinho/2grab05.gif
 	attack	60 130 90 50 8 1 0 0 20 30
 	dropv	3 4 0
-	
 	@cmd	position 22 0 15 1 1
 	frame	data/chars/3remuinho/2grab06.gif
 	attack	0 0 0 0
-	
 	@cmd	position 20 -40 25 1 1
 	frame	data/chars/3remuinho/2grab07.gif
 	attack	-30 85 125 35 5 1 0 0 15 0
 	dropv	3 4 0
 	sound	data/sounds/punch2.wav
-	
 	@cmd	position 10 -60 95 1 -1
 	frame	data/chars/3remuinho/2grab08.gif
 	attack	0 0 0 0
-	
 	@cmd	position 0 -35 60 -1 1
 	frame	data/chars/3remuinho/2grab09.gif
 	attack	60 60 90 40 5 1 0 0 15 30
 	dropv	3 4 0
-	
 	@cmd	position 21 0 70 -1 1
 	frame	data/chars/3remuinho/2grab10.gif
 	attack	0 0 0 0
-	
 	@cmd	position 0 55 65 -1 -1
 	frame	data/chars/3remuinho/2grab11.gif
 	sound	data/sounds/punch2.wav
 	attack	100 90 125 35 5 1 0 0 15 0
 	dropv	3 4 0
-	
 	@cmd	position 10 75 90 1 1
 	frame	data/chars/3remuinho/2grab12.gif
 	attack	0 0 0 0
-	
 	@cmd	position 20 60 20 1 -1
 	frame	data/chars/3remuinho/2grab05.gif
 	attack	60 130 90 50 8 1 0 0 20 30
 	dropv	3 4 0
-	
 	@cmd	position 22 0 15 1 1
 	frame	data/chars/3remuinho/2grab06.gif
 	attack	0 0 0 0
-	
 	@cmd	position 20 -40 25 1 1
 	frame	data/chars/3remuinho/2grab07.gif
 	attack	-30 85 125 35 5 1 0 0 15 0
 	dropv	3 4 0
 	sound	data/sounds/punch2.wav
-	
 	@cmd	position 10 -60 95 1 -1
 	frame	data/chars/3remuinho/2grab08.gif
 	attack	0 0 0 0
-	
 	@cmd	position 0 -35 60 -1 1
 	frame	data/chars/3remuinho/2grab09.gif
 	attack	60 60 90 40 5 1 0 0 15 30
 	dropv	3 4 0
-	
 	@cmd	position 21 0 70 -1 1
 	frame	data/chars/3remuinho/2grab10.gif
 	attack	0 0 0 0
-	
 	@cmd	position 0 55 65 -1 -1
 	frame	data/chars/3remuinho/2grab11.gif
 	sound	data/sounds/punch2.wav
 	attack	100 90 125 35 5 1 0 0 15 0
 	dropv	3 4 0
-	
 	@cmd	position 10 75 90 1 1
 	frame	data/chars/3remuinho/2grab12.gif
 	attack	0 0 0 0
-	
 	@cmd	position 20 60 20 1 -1
 	frame	data/chars/3remuinho/2grab05.gif
 	attack	60 130 90 50 8 1 0 0 20 30
 	dropv	3 4 0
-	
 	@cmd	position 22 0 15 1 1
 	frame	data/chars/3remuinho/2grab06.gif
 	attack	0 0 0 0
-	
 	@cmd	position 20 -40 25 1 1
 	frame	data/chars/3remuinho/2grab07.gif
 	attack	-30 85 125 35 5 1 0 0 15 0
 	dropv	3 4 0
 	sound	data/sounds/punch2.wav
-	
 	@cmd	position 10 -60 95 1 -1
 	frame	data/chars/3remuinho/2grab08.gif
 	attack	0 0 0 0
-	
 	@cmd	position 0 -35 60 -1 1
 	frame	data/chars/3remuinho/2grab09.gif
 	attack	60 60 90 40 5 1 0 0 15 30
 	dropv	3 4 0
-	
 	@cmd	position 21 0 70 -1 1
 	frame	data/chars/3remuinho/2grab10.gif
 	attack	0 0 0 0
-	
 	@cmd	position 0 55 65 -1 -1
 	frame	data/chars/3remuinho/2grab11.gif
 	sound	data/sounds/punch2.wav
 	attack	100 90 125 35 5 1 0 0 15 0
 	dropv	3 4 0
-	
 	@cmd	position 10 75 90 1 1
 	frame	data/chars/3remuinho/2grab12.gif
 	attack	0 0 0 0
-	
 	@cmd	position 20 60 20 1 -1
 	frame	data/chars/3remuinho/2grab05.gif
 	attack	60 130 90 50 8 1 0 0 20 30
 	dropv	3 4 0
-	
 	@cmd	position 22 0 15 1 1
 	frame	data/chars/3remuinho/2grab06.gif
 	attack	0 0 0 0
-	
 	@cmd	position 20 -40 25 1 1
 	frame	data/chars/3remuinho/2grab07.gif
 	attack	-30 85 125 35 5 1 0 0 15 0
 	dropv	3 4 0
 	sound	data/sounds/punch2.wav
-	
 	@cmd	position 10 -60 95 1 -1
 	frame	data/chars/3remuinho/2grab08.gif
 	attack	0 0 0 0
-	
 	@cmd	position 0 -35 60 -1 1
 	frame	data/chars/3remuinho/2grab09.gif
 	attack	60 60 90 40 5 1 0 0 15 30
 	dropv	3 4 0
-	
 	@cmd	position 21 0 70 -1 1
 	frame	data/chars/3remuinho/2grab10.gif
 	attack	0 0 0 0
-	
 	@cmd	position 0 55 65 -1 -1
 	frame	data/chars/3remuinho/2grab11.gif
 	sound	data/sounds/punch2.wav
 	attack	100 90 125 35 5 1 0 0 15 0
 	dropv	3 4 0
-	@cmd	killgun 8 0
+	@cmd	killgrab
 	@cmd	killgun 5 0
-	
 	@cmd	position 10 75 90 1 1
 	frame	data/chars/3remuinho/2grab12.gif
 	attack	0 0 0 0
@@ -1167,7 +1057,6 @@ anim	follow12
 	attack	0 0 0 0
 	frame	data/chars/3remuinho/2grab17.gif
 	seta	0
-	#@cmd	degravity 0
 	delay	35
 	bbox	79 97 50 91
 	frame	data/chars/3remuinho/fall12.gif
@@ -1270,6 +1159,58 @@ anim	follow14
 	delay	12
 	frame	data/chars/3remuinho/fall12.gif
 		
+anim	follow17
+@script
+	void self = getlocalvar("self");
+	if(frame==4){
+	changelevelproperty("scrollspeed", 0);
+    	changeopenborvariant("xpos", 1780);
+    	changeopenborvariant("ypos", 110);
+	changeopenborvariant("nojoin",1);
+	}
+	if(frame==7){
+	changeplayerproperty(0, "weapon", 8);
+	changeplayerproperty(1, "weapon", 8);
+	changeplayerproperty(2, "weapon", 8);
+	changeopenborvariant("nojoin",1);
+	}
+	@end_script	
+	loop	0
+	delay	5
+	offset	100 189
+	bbox	0 0 0 0
+	frame	data/chars/3remuinho/empty.gif
+	@cmd	playmusic "data/music/remuinhoend.ogg" 1
+	frame	data/chars/3remuinho/empty.gif
+	@cmd	changeopenborvariant "slowmotion" 0
+	frame	data/chars/3remuinho/empty.gif
+	delay	130
+	frame	data/chars/3remuinho/empty.gif
+	delay	5
+	frame	data/chars/3remuinho/empty.gif #4
+	@cmd	spawn02 "whitepn" -5 250 240
+	frame	data/chars/3remuinho/empty.gif
+	delay	100
+	frame	data/chars/3remuinho/empty.gif
+	delay	5
+	frame	data/chars/3remuinho/empty.gif #7
+	@cmd	spawnAni3 "ryoshw1" 1960 0 350 "ANI_FOLLOW1"
+	@cmd	spawnAni3 "robshw1" 2060 0 350 "ANI_FOLLOW1"
+	@cmd	spawnAni3 "yurshw1" 2020 0 370 "ANI_FOLLOW1"
+	@cmd	spawn05 "remshw1" 2020 400 360
+	@cmd	spawnAni3 "escap2" 1830 0 240 "ANI_FOLLOW1"
+	frame	data/chars/3remuinho/empty.gif
+	frame	data/chars/3remuinho/empty.gif
+	frame	data/chars/3remuinho/empty.gif
+	delay	8000
+	frame	data/chars/3remuinho/empty.gif
+	delay	5
+	frame	data/chars/3remuinho/empty.gif #12
+	frame	data/chars/3remuinho/empty.gif
+	frame	data/chars/3remuinho/empty.gif #14
+	frame	data/chars/3remuinho/empty.gif
+	frame	data/chars/3remuinho/empty.gif
+		
 anim	follow2
 	loop	0
 	delay	7
@@ -1300,6 +1241,25 @@ anim	follow2
 	frame	data/chars/3remuinho/b113.gif
 	frame	data/chars/3remuinho/idle02.gif
 		
+anim	follow21
+	loop	0
+	delay	9
+	offset	100 189
+	bbox	0 0 0 0
+	frame	data/chars/3remuinho/idle03.gif
+	@cmd	spawnbind4 "allsmtlk" 10 100 1 0 4
+	frame	data/chars/3remuinho/idle04.gif
+	frame	data/chars/3remuinho/idle02.gif
+	@cmd	clearL
+	frame	data/chars/3remuinho/idle01.gif
+	delay	500
+	bbox	79 97 50 91
+	frame	data/chars/3remuinho/idle01.gif
+	delay	10
+	frame	data/chars/3remuinho/idle01.gif
+	@cmd	beidle
+	frame	data/chars/3remuinho/idle01.gif
+		
 anim	follow4
 @script
 	void self = getlocalvar("self");
@@ -1310,7 +1270,7 @@ anim	follow4
 	changeentityproperty(self, "invinctime", eTime + 100);
 	changeentityproperty(self, "blink", 1);
 	}
-@end_script
+	@end_script	
 	range	100 130
 	loop	0
 	delay	6
@@ -1412,48 +1372,34 @@ anim	follow7
 	@cmd	position 14 30 35 -1 -1
 	frame	data/chars/3remuinho/1grab05.gif
 	delay	2
-	
 	@cmd	position 6 40 12 -1 -1
 	frame	data/chars/3remuinho/1grab08.gif
-	
 	@cmd	position 6 40 12 -1 -1
 	frame	data/chars/3remuinho/1grab08.gif
-	
 	@cmd	position 6 40 12 -1 -1
 	frame	data/chars/3remuinho/1grab08.gif
 	@cmd	spawn01 "dust" 30 1 1
 	sound	data/sounds/fall.wav
-	
 	@cmd	position 6 40 12 -1 -1
 	frame	data/chars/3remuinho/1grab08.gif
-	
 	@cmd	position 6 40 12 -1 -1
 	frame	data/chars/3remuinho/1grab08.gif
-	
 	@cmd	position 6 40 12 -1 -1
 	frame	data/chars/3remuinho/1grab08.gif
-	
 	@cmd	position 6 40 12 -1 -1
 	frame	data/chars/3remuinho/1grab08.gif
-	
 	@cmd	position 3 70 5 -1 -1
 	frame	data/chars/3remuinho/1grab09.gif
-	
 	@cmd	position 3 70 5 -1 -1
 	frame	data/chars/3remuinho/1grab09.gif
-	
 	@cmd	position 3 70 5 -1 -1
 	frame	data/chars/3remuinho/1grab09.gif
-	
 	@cmd	position 3 70 5 -1 -1
 	frame	data/chars/3remuinho/1grab09.gif
-	
 	@cmd	position 3 70 5 -1 -1
 	frame	data/chars/3remuinho/1grab09.gif
-	
 	@cmd	position 3 70 5 -1 -1
 	frame	data/chars/3remuinho/1grab09.gif
-	
 	@cmd	position 3 50 5 -1 -1
 	frame	data/chars/3remuinho/1grab09.gif
 	attack	0 0 0 0
@@ -1477,6 +1423,7 @@ anim	follow8
 	bbox	0 0 0 0
 	fastattack	1
 	@cmd	slamstart2
+	@cmd	spawngrab 200 200 450 280 1 8
 	@cmd	position 7 85 10 1 -1
 	frame	data/chars/3remuinho/2grab01.gif
 	delay	16
@@ -1495,7 +1442,6 @@ anim	follow8
 	@cmd	position 22 0 15 1 1
 	frame	data/chars/3remuinho/2grab06.gif
 	attack	0 0 0 0
-	@cmd	spawngrab "grab1" 200 200 450 260 1 8
 	@cmd	position 20 -40 25 1 1
 	frame	data/chars/3remuinho/2grab07.gif
 	@cmd	hurt 1
@@ -2259,7 +2205,7 @@ anim	follow8
 	@cmd	position 10 -60 95 1 -1
 	frame	data/chars/3remuinho/2grab08.gif
 	attack	0 0 0 0
-	@cmd	killgun 8 0
+	@cmd	killgrab
 	@cmd	position 0 -35 60 -1 1
 	frame	data/chars/3remuinho/2grab09.gif
 	attack	60 60 90 40 5 1 0 0 15 30
@@ -2311,54 +2257,38 @@ anim	follow9
 	@cmd	position 14 -15 40 -1 1
 	frame	data/chars/3remuinho/4grab04.gif
 	delay	2
-	
 	@cmd	position 3 -65 8 -1 1
 	frame	data/chars/3remuinho/4grab05.gif
-	
 	@cmd	position 3 -65 8 -1 1
 	frame	data/chars/3remuinho/4grab05.gif
-	
 	@cmd	position 3 -65 8 -1 1
 	frame	data/chars/3remuinho/4grab05.gif
 	@cmd	spawn01 "dust" -40 1 1
 	sound	data/sounds/fall.wav
-	
 	@cmd	position 3 -65 8 -1 1
 	frame	data/chars/3remuinho/4grab05.gif
-	
 	@cmd	position 3 -65 8 -1 1
 	frame	data/chars/3remuinho/4grab05.gif
-	
 	@cmd	position 3 -65 8 -1 1
 	frame	data/chars/3remuinho/4grab05.gif
-	
 	@cmd	position 3 -65 8 -1 1
 	frame	data/chars/3remuinho/4grab05.gif
-	
 	@cmd	position 3 -65 8 -1 1
 	frame	data/chars/3remuinho/4grab05.gif
-	
 	@cmd	position 6 -35 5 -1 1
 	frame	data/chars/3remuinho/4grab06.gif
-	
 	@cmd	position 6 -35 5 -1 1
 	frame	data/chars/3remuinho/4grab06.gif
-	
 	@cmd	position 6 -35 5 -1 1
 	frame	data/chars/3remuinho/4grab06.gif
-	
 	@cmd	position 6 -35 5 -1 1
 	frame	data/chars/3remuinho/4grab06.gif
-	
 	@cmd	position 6 -35 5 -1 1
 	frame	data/chars/3remuinho/4grab06.gif
-	
 	@cmd	position 6 -35 5 -1 1
 	frame	data/chars/3remuinho/4grab06.gif
-	
 	@cmd	position 6 -35 5 -1 1
 	frame	data/chars/3remuinho/4grab06.gif
-	
 	@cmd	position 6 -35 5 -1 1
 	frame	data/chars/3remuinho/4grab06.gif
 	attack	0 0 0 0
@@ -2414,54 +2344,38 @@ anim	grab
 	@cmd	position 14 -15 40 -1 1
 	frame	data/chars/3remuinho/4grab04.gif
 	delay	2
-	
 	@cmd	position 3 -65 8 -1 1
 	frame	data/chars/3remuinho/4grab05.gif
-	
 	@cmd	position 3 -65 8 -1 1
 	frame	data/chars/3remuinho/4grab05.gif
-	
 	@cmd	position 3 -65 8 -1 1
 	frame	data/chars/3remuinho/4grab05.gif
 	@cmd	spawn01 "dust" -40 1 1
 	sound	data/sounds/fall.wav
-	
 	@cmd	position 3 -65 8 -1 1
 	frame	data/chars/3remuinho/4grab05.gif
-	
 	@cmd	position 3 -65 8 -1 1
 	frame	data/chars/3remuinho/4grab05.gif
-	
 	@cmd	position 3 -65 8 -1 1
 	frame	data/chars/3remuinho/4grab05.gif
-	
 	@cmd	position 3 -65 8 -1 1
 	frame	data/chars/3remuinho/4grab05.gif
-	
 	@cmd	position 3 -65 8 -1 1
 	frame	data/chars/3remuinho/4grab05.gif
-	
 	@cmd	position 6 -35 5 -1 1
 	frame	data/chars/3remuinho/4grab06.gif
-	
 	@cmd	position 6 -35 5 -1 1
 	frame	data/chars/3remuinho/4grab06.gif
-	
 	@cmd	position 6 -35 5 -1 1
 	frame	data/chars/3remuinho/4grab06.gif
-	
 	@cmd	position 6 -35 5 -1 1
 	frame	data/chars/3remuinho/4grab06.gif
-	
 	@cmd	position 6 -35 5 -1 1
 	frame	data/chars/3remuinho/4grab06.gif
-	
 	@cmd	position 6 -35 5 -1 1
 	frame	data/chars/3remuinho/4grab06.gif
-	
 	@cmd	position 6 -35 5 -1 1
 	frame	data/chars/3remuinho/4grab06.gif
-	
 	@cmd	position 6 -35 5 -1 1
 	frame	data/chars/3remuinho/4grab06.gif
 	attack	0 0 0 0
@@ -2497,9 +2411,6 @@ anim	grab
 	move	0
 	delay	14
 	frame	data/chars/3remuinho/blk06.gif
-
-
-
 		
 anim	grabbed
 	loop	0
@@ -2519,7 +2430,8 @@ if( frame == 1)
 	performattack(self,openborconstant("ANI_FOLLOW21"));
 	}
 }
-@end_script
+	@end_script
+	@cmd	lifeaggr 20 250	
 	loop	0
 	delay	8
 	offset	100 189
@@ -2529,29 +2441,6 @@ if( frame == 1)
 	frame	data/chars/3remuinho/idle04.gif
 	@cmd	clearL
 	frame	data/chars/3remuinho/idle02.gif
-
-
-anim	follow21
-	loop	0
-	delay	9
-	offset	100 189
-	bbox	0 0 0 0
-	frame	data/chars/3remuinho/idle03.gif
-	@cmd	spawnbind4 "allsmtlk" 10 100 1 0 4
-	frame	data/chars/3remuinho/idle04.gif
-	frame	data/chars/3remuinho/idle02.gif
-	@cmd	clearL
-	frame	data/chars/3remuinho/idle01.gif
-	delay	500
-	bbox	79 97 50 91
-	frame	data/chars/3remuinho/idle01.gif
-	delay	10
-	frame	data/chars/3remuinho/idle01.gif
-	@cmd	beidle
-	frame	data/chars/3remuinho/idle01.gif
-
-
-
 		
 anim	pain
 	loop	0
@@ -2705,7 +2594,6 @@ anim	run
 	frame	data/chars/3remuinho/run01.gif
 	@cmd	attack1 0 280 20 "ANI_FOLLOW10"
 	frame	data/chars/3remuinho/run02.gif
-
 		
 anim	spawn
 	loop	0
@@ -2715,7 +2603,7 @@ anim	spawn
 	jumpframe	0 1 0
 	landframe	3
 	frame	data/chars/3remuinho/fall12.gif
-	@cmd	 playmusic "data/music/remuinho2.ogg" 1
+	@cmd	playmusic "data/music/remuinho2.ogg" 1
 	delay	300
 	frame	data/chars/3remuinho/fall12.gif
 	frame	data/chars/3remuinho/fall12.gif
@@ -2743,40 +2631,28 @@ anim	special
 	@cmd	position 1 10 40 -1 1
 	frame	data/chars/3remuinho/3grab03.gif
 	delay	2
-	
 	@cmd	position 2 0 75 -1 1
 	frame	data/chars/3remuinho/3grab04.gif
-	
 	@cmd	position 2 0 75 -1 1
 	frame	data/chars/3remuinho/3grab04.gif
-	
 	@cmd	position 2 0 75 -1 1
 	frame	data/chars/3remuinho/3grab04.gif
-	
 	@cmd	position 2 0 75 -1 1
 	frame	data/chars/3remuinho/3grab04.gif
-	
 	@cmd	position 2 0 75 -1 1
 	frame	data/chars/3remuinho/3grab04.gif
-	
 	@cmd	position 14 -40 30 -1 1
 	frame	data/chars/3remuinho/3grab05.gif
-	
 	@cmd	position 14 -40 30 -1 1
 	frame	data/chars/3remuinho/3grab05.gif
-	
 	@cmd	position 14 -40 30 -1 1
 	frame	data/chars/3remuinho/3grab05.gif
-	
 	@cmd	position 14 -40 30 -1 1
 	frame	data/chars/3remuinho/3grab05.gif
-	
 	@cmd	position 14 -40 30 -1 1
 	frame	data/chars/3remuinho/3grab05.gif
-	
 	@cmd	position 14 -40 30 -1 1
 	frame	data/chars/3remuinho/3grab05.gif
-	
 	@cmd	position 14 -40 30 -1 1
 	frame	data/chars/3remuinho/3grab05.gif
 	@cmd	depost 0
@@ -2885,5 +2761,5 @@ anim	walk
 	frame	data/chars/3remuinho/wk05.gif
 	frame	data/chars/3remuinho/wk06.gif
 		
-#|edited by openBor Stats v 0.53
+#|edited by openBor Stats v 0.67
 		

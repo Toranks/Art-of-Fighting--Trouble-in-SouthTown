@@ -72,6 +72,8 @@ at      0
 #-------1
 
 spawn door3
+2phealth	800
+3phealth	1200
 flip  1
 coords  -643 210
 at      0
@@ -82,6 +84,8 @@ coords  -1012 120
 at      0
 
 spawn door2
+2phealth	800
+3phealth	1200
 flip  1
 coords  -1016 137
 at      0
@@ -253,17 +257,17 @@ at      10
 
 #------------------
 
-group   2 2
+group   3 3
 at      90
 
 wait
 at      90
 
-2pspawn   kimberry
+spawn  kimberry
+spawnscript	data/scripts/hard.c
 health  220
 item    bannana
 map     1
-aggression -20
 coords  -240 260
 at      90
 
@@ -300,10 +304,10 @@ aggression -20
 coords  950 260 300
 at      550
 
-2pspawn   sheila
+spawn  sheila
+spawnscript	data/scripts/hard.c
 map     2
 health  230
-aggression -20
 coords  950 260 300
 at      550
 
@@ -312,9 +316,9 @@ aggression -20
 coords  -30 260 300
 at      550
 
-2pspawn   kimberry
+spawn  kimberry
+spawnscript	data/scripts/hard.c
 map     3
-aggression -20
 coords  -35 260 300
 at      550
 
@@ -345,9 +349,9 @@ aggression -20
 coords  -35 260 300
 at      550
 
-2pspawn   shion
+spawn  shion
+spawnscript	data/scripts/hard.c
 map     3
-aggression -20
 coords  -30 260 300
 at      550
 
@@ -372,10 +376,10 @@ aggression -20
 coords  935 260 300
 at      550
 
-2pspawn   kimberry
+spawn  kimberry
+spawnscript	data/scripts/hard.c
 map     1
 item    bannana
-aggression -20
 coords  950 260 300
 at      550
 
@@ -386,16 +390,138 @@ aggression -20
 coords  950 260 300
 at      550
 
-2pspawn   valarie
+spawn  valarie
+spawnscript	data/scripts/hard.c
 map     2
 item    bannana
-aggression -20
 coords  -35 260 300
 at      550
 
-2pspawn   shion
+spawn  shion
+spawnscript	data/scripts/hard.c
 map     4
-aggression -20
+coords  -30 260 300
+at      550
+
+#-------------3 jugadores
+
+group   8 8
+at      550
+
+wait
+at      600
+
+spawn   sheila
+spawnscript	data/scripts/mania.c
+map     3
+item    bannana
+health  230
+coords  950 260 300
+at      550
+
+spawn  sheila
+spawnscript	data/scripts/mania.c
+map     2
+health  230
+coords  950 260 300
+at      550
+
+spawn   shikky
+spawnscript	data/scripts/mania.c
+map		2
+coords  -30 260 300
+at      550
+
+spawn  kimberry
+spawnscript	data/scripts/mania.c
+map     4
+coords  -35 260 300
+at      550
+
+spawn   wendy
+@script
+void main()
+	{
+	void self = getlocalvar("self");
+	void difficulty = getglobalvar("mania");
+	performattack(self, openborconstant("ANI_JUMP"));
+	tossentity(self, 4, 3, 0);
+	
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+map     4
+flip	1
+coords  -30 260 300
+at      550
+
+spawn   elisa
+spawnscript	data/scripts/mania.c
+map		4
+coords  -30 260 300
+at      550
+
+spawn   valarie
+spawnscript	data/scripts/mania.c
+map     3
+coords  -35 260 300
+at      550
+
+spawn  shion
+spawnscript	data/scripts/mania.c
+map     4
+coords  -30 260 300
+at      550
+
+spawn   sheila
+@script
+void main()
+	{
+	void self = getlocalvar("self");
+	void difficulty = getglobalvar("mania");
+	performattack(self, openborconstant("ANI_JUMP"));
+	tossentity(self, 3, -3, 0);
+	
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+health  230
+coords  600 260 300
+at      550
+
+spawn   elisa
+spawnscript	data/scripts/mania.c
+map     3
+health  230
+coords  935 260 300
+at      550
+
+spawn  kimberry
+spawnscript	data/scripts/mania.c
+map     2
+coords  950 260 300
+at      550
+
+spawn   kimberry
+spawnscript	data/scripts/mania.c
+map     2
+coords  950 260 300
+at      550
+
+spawn  valarie
+spawnscript	data/scripts/mania.c
+map     3
+item    bannana
+coords  -35 260 300
+at      550
+
+spawn  shion
+spawnscript	data/scripts/mania.c
+map     2
 coords  -30 260 300
 at      550
 
@@ -422,17 +548,17 @@ blockade 1330
 at      1330
 #---------------------
 
-group   2 2
+group   8 8
 at      1450
 
 spawn   eve
 spawnscript data/scripts/noscpos5.c
 boss    1
 flip    1
-aggression 100
-health  850
-2phealth	1000
-3phealth	1250
+aggression 150
+health  750
+2phealth	1500
+3phealth	2000
 coords  235 150
 at      1450
 
@@ -441,19 +567,90 @@ spawnscript data/scripts/noscpos5.c
 boss    1
 map     3
 flip    1
-aggression 100
-health  650
-2phealth	850
-3phealth	1000
+aggression 150
+health  750
+2phealth	1500
+3phealth	2000
 coords  290 155
 at      1450
 
+spawn   eve
+spawnscript	data/scripts/hard.c
+map	2
+aggression 100
+coords  600 200
+at      1600
+
+spawn   eve
+spawnscript	data/scripts/hard.c
+map	4
+aggression 100
+coords  600 195
+at      1600
+
+spawn   eve
+spawnscript	data/scripts/hard.c
+map	5
+aggression 100
+coords  600 190
+at      1600
+
+spawn   eve
+spawnscript	data/scripts/hard.c
+map	6
+aggression 100
+coords  600 170
+at      1600
+
+spawn   eve
+spawnscript	data/scripts/hard.c
+map	7
+aggression 100
+coords  600 175
+at      1600
+
+spawn   eve
+spawnscript	data/scripts/hard.c
+map	8
+aggression 100
+coords  600 180
+at      1600
+
+spawn   eve
+spawnscript	data/scripts/hard.c
+map	9
+aggression 100
+coords  600 185
+at      1600
+
+spawn   ghosttime
+health	1
+@script
+void main()
+	{
+	setglobalvar("leveln","13lvl");
+	}
+@end_script
+coords  600 250
+at      0
+
+spawn   ghosttime
+health	1
+spawnscript	data/scripts/spawn3p.c
+coords  700 250
+at      1300
 
 #----------------------------
 group   1 1
 at      1450
 
 spawn   ghosttest
+@script
+void main()
+	{
+	setglobalvar("leveln" , NULL());
+	}
+@end_script
 health  20
 coords  150 260
 at      1450

@@ -89,26 +89,12 @@ at      0
 
 #-----------------------
 
-group   3 3
+group   6 6
 at      1600
 wait
 at      1600
 
 spawn   fatguy
-health  210
-aggression -40
-coords  740 230
-at      1600
-
-2pspawn  biff
-health  220
-aggression -40
-coords  -740 230
-at      1600
-
-2pspawn   dash
-health  110
-map     1
 aggression -40
 coords  740 230
 at      1600
@@ -123,14 +109,12 @@ void main()
 	}
 @end_script
 flip	1
-health  90
 map     1
 aggression -40
 coords  -100 230
 at      1600
 
 spawn   rashad
-health  90
 map     1
 aggression -40
 coords  740 230
@@ -146,18 +130,27 @@ void main()
 	}
 @end_script
 flip	1
-health  200
 map     2
 aggression -40
 coords  -100 230
 at      1600
 
-2pspawn   biff
-health  190
+spawn  biff
+spawnscript	data/scripts/hard.c
 item    food4
 map     2
-aggression -40
 coords  740 230
+at      1600
+
+spawn  biff
+spawnscript	data/scripts/hard.c
+coords  -740 230
+at      1600
+
+spawn  dash
+spawnscript	data/scripts/hard.c
+map     1
+coords  740 250
 at      1600
 
 
@@ -175,7 +168,6 @@ void main()
 	tossentity(self, 4, 3, 0);
 	}
 @end_script
-health  100
 map     2
 flip	1
 aggression -40
@@ -186,7 +178,6 @@ at      1450
 spawn   dan
 health  90
 item    food6
-aggression -40
 coords  -150 210
 at      1450
 
@@ -282,52 +273,66 @@ aggression -40
 coords  -110 180
 at      1450
 
+#----------2 jugadores--------------------
+
+group   4 4
+at      1450
+
 spawn   vigo
 @script
 void main()
 	{
 	void self = getlocalvar("self");
+	void difficulty = getglobalvar("hard");
 	performattack(self, openborconstant("ANI_JUMP"));
 	tossentity(self, 4, -3, 0);
-	}
+	
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
 @end_script
-health  70
 map     1
-aggression -40
 coords  600 230
 at      1450
 
 
-2pspawn   vigo
+spawn  vigo
 @script
 void main()
 	{
 	void self = getlocalvar("self");
+	void difficulty = getglobalvar("hard");
 	performattack(self, openborconstant("ANI_JUMP"));
 	tossentity(self, 4, -4, 0);
-	}
+	
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
 @end_script
 flip	1
-health  80
 map     2
-aggression -40
 coords  540 180
 at      1450
 
 
-2pspawn   vigo
+spawn  vigo
 @script
 void main()
 	{
 	void self = getlocalvar("self");
+	void difficulty = getglobalvar("hard");
 	performattack(self, openborconstant("ANI_JUMP"));
 	tossentity(self, 4, 4, 0);
-	}
+	
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
 @end_script
 flip	1
-health  90
 map     3
-aggression -40
 coords  -140 200
 at      1450
 
@@ -336,46 +341,55 @@ spawn   vigo
 void main()
 	{
 	void self = getlocalvar("self");
+	void difficulty = getglobalvar("hard");
 	performattack(self, openborconstant("ANI_JUMP"));
 	tossentity(self, 4, 3, 0);
-	}
+	
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
 @end_script
 flip	1
-health  80
 map     4
-aggression -40
 coords  -120 190
 at      1450
 
 
-2pspawn   vigo
+spawn  vigo
 @script
 void main()
 	{
 	void self = getlocalvar("self");
+	void difficulty = getglobalvar("hard");
 	performattack(self, openborconstant("ANI_JUMP"));
 	tossentity(self, 4, -4, 0);
-	}
+	
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
 @end_script
-health  70
 map     1
-aggression -40
 coords  750 230
 at      1450
 
 
-2pspawn   vigo
+spawn  vigo
 @script
 void main()
 	{
 	void self = getlocalvar("self");
+	void difficulty = getglobalvar("hard");
 	performattack(self, openborconstant("ANI_JUMP"));
 	tossentity(self, 4, -3, 0);
-	}
+	
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
 @end_script
-health  60
 map     2
-aggression -40
 coords  540 180
 at      1450
 
@@ -385,14 +399,17 @@ spawn   vigo
 void main()
 	{
 	void self = getlocalvar("self");
+	void difficulty = getglobalvar("hard");
 	performattack(self, openborconstant("ANI_JUMP"));
 	tossentity(self, 3, 3, 0);
-	}
+	
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
 @end_script
 flip	1
-health  70
 map     3
-aggression -40
 coords  -140 200
 at      1450
 
@@ -401,18 +418,258 @@ spawn   vigo
 void main()
 	{
 	void self = getlocalvar("self");
+	void difficulty = getglobalvar("hard");
 	performattack(self, openborconstant("ANI_JUMP"));
 	tossentity(self, 4, 3, 0);
-	}
+	
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
 @end_script
 flip	1
-health  50
 item    money1
 map     4
-aggression -40
 coords  -100 190
 at      1450
 
+#----------3 jugadores--------------------
+
+group   6 6
+at      1450
+
+spawn   vigo
+@script
+void main()
+	{
+	void self = getlocalvar("self");
+	void difficulty = getglobalvar("mania");
+	performattack(self, openborconstant("ANI_JUMP"));
+	tossentity(self, 4, -3, 0);
+	
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+health  70
+map     1
+coords  600 230
+at      1450
+
+
+spawn   vigo
+@script
+void main()
+	{
+	void self = getlocalvar("self");
+	void difficulty = getglobalvar("mania");
+	performattack(self, openborconstant("ANI_JUMP"));
+	tossentity(self, 5, -3, 0);
+	
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+map     2
+coords  600 200
+at      1450
+
+
+spawn   vigo
+@script
+void main()
+	{
+	void self = getlocalvar("self");
+	void difficulty = getglobalvar("mania");
+	performattack(self, openborconstant("ANI_JUMP"));
+	tossentity(self, 4, 4, 0);
+	
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+flip	1
+map     3
+coords  -100 200
+at      1450
+
+spawn   vigo
+@script
+void main()
+	{
+	void self = getlocalvar("self");
+	void difficulty = getglobalvar("mania");
+	performattack(self, openborconstant("ANI_JUMP"));
+	tossentity(self, 5, 3, 0);
+	
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+flip	1
+map     4
+item    money2
+coords  -110 180
+at      1450
+
+spawn   vigo
+@script
+void main()
+	{
+	void self = getlocalvar("self");
+	void difficulty = getglobalvar("mania");
+	performattack(self, openborconstant("ANI_JUMP"));
+	tossentity(self, 4, -3, 0);
+	
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+map     1
+coords  600 230
+at      1450
+
+
+spawn  vigo
+@script
+void main()
+	{
+	void self = getlocalvar("self");
+	void difficulty = getglobalvar("mania");
+	performattack(self, openborconstant("ANI_JUMP"));
+	tossentity(self, 4, -4, 0);
+	
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+flip	1
+map     2
+coords  540 180
+at      1450
+
+
+spawn  vigo
+@script
+void main()
+	{
+	void self = getlocalvar("self");
+	void difficulty = getglobalvar("mania");
+	performattack(self, openborconstant("ANI_JUMP"));
+	tossentity(self, 4, 4, 0);
+	
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+flip	1
+map     3
+coords  -140 200
+at      1450
+
+spawn   vigo
+@script
+void main()
+	{
+	void self = getlocalvar("self");
+	void difficulty = getglobalvar("mania");
+	performattack(self, openborconstant("ANI_JUMP"));
+	tossentity(self, 4, 3, 0);
+	
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+flip	1
+map     4
+coords  -120 190
+at      1450
+
+
+spawn  vigo
+@script
+void main()
+	{
+	void self = getlocalvar("self");
+	void difficulty = getglobalvar("mania");
+	performattack(self, openborconstant("ANI_JUMP"));
+	tossentity(self, 4, -4, 0);
+	
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+map     1
+coords  750 230
+at      1450
+
+
+spawn  vigo
+@script
+void main()
+	{
+	void self = getlocalvar("self");
+	void difficulty = getglobalvar("mania");
+	performattack(self, openborconstant("ANI_JUMP"));
+	tossentity(self, 4, -3, 0);
+	
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+map     2
+coords  540 180
+at      1450
+
+
+spawn   vigo
+@script
+void main()
+	{
+	void self = getlocalvar("self");
+	void difficulty = getglobalvar("mania");
+	performattack(self, openborconstant("ANI_JUMP"));
+	tossentity(self, 3, 3, 0);
+	
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+flip	1
+map     3
+coords  -140 200
+at      1450
+
+spawn   vigo
+@script
+void main()
+	{
+	void self = getlocalvar("self");
+	void difficulty = getglobalvar("mania");
+	performattack(self, openborconstant("ANI_JUMP"));
+	tossentity(self, 4, 3, 0);
+	
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+flip	1
+item    money1
+map     4
+coords  -100 190
+at      1450
 #------------------------------
 
 group   1 1

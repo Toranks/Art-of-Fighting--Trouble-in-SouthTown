@@ -407,16 +407,16 @@ at      1005
 #----------------------------
 
 group   4 4
-at      1850
+at      1005
 #wait
-#at      1850
+#at      1005
 
 spawn   shimali
 map     2
 #health  300
 aggression 5
 coords  585 290
-at      1850
+at      1005
 
 
 spawn   gen
@@ -424,43 +424,43 @@ map     4
 #health  180
 aggression 5
 coords  200 360 370
-at      1850
+at      1005
 
 spawn   gen
 map     2
 #health  180
 aggression 5
 coords  630 300
-at      1850
+at      1005
 
 
-2pspawn   daldo
-map     3
+spawn  daldo
+spawnscript	data/scripts/hard.c
+map     2
 #health  210
 aggression 5
 coords  -180 270
-at      1850
+at      1005
 
-2pspawn   daldo
-map     1
-#health  210
+spawn  daldo
+spawnscript	data/scripts/hard.c
 item   7putin
 aggression 5
 coords  -180 290
-at      1850
+at      1005
 
 spawn   shimali
 map     3
 health  300
 aggression 5
 coords  -180 260
-at      1850
+at      1005
 
 
 #---------------
 
 group   5 5
-at      2100
+at      1005
 #wait
 #at      2100
 
@@ -468,29 +468,29 @@ spawn   bob
 #health  170
 aggression 5
 coords  180 400 430
-at      2100
+at      1005
 
 spawn   wendy
 #health  170
 map     1
 aggression 5
 coords  -200 260
-at      2100
+at      1005
 
 
 spawn   daldo
 #health  170
-map     2
+map     1
 aggression 5
 coords  580 300
-at      2100
+at      1005
 
 spawn   wendy
 health  270
 map     2
 aggression 5
 coords  -200 260
-at      2100
+at      1005
 
 
 spawn   bob
@@ -498,13 +498,13 @@ spawn   bob
 map     4
 aggression 5
 coords  200 310 320
-at      2100
+at      1005
 
 
 #---------------
 
 group   6 6
-at      2500
+at      1005
 #wait
 #at      2500
 
@@ -512,20 +512,21 @@ spawn   jay
 #health  190
 aggression 5
 coords  580 300
-at      2500
+at      1005
 
-2pspawn   thong
+spawn  thong
+spawnscript	data/scripts/hard.c
 #health  190
 aggression 5
 coords  600 290
-at      2500
+at      1005
 
 spawn   randy
 #health  190
 item   food1
 aggression 5
 coords  -200 290
-at      2500
+at      1005
 
 
 spawn   fox
@@ -533,7 +534,7 @@ spawn   fox
 map     4
 aggression 5
 coords  -200 290
-at      2500
+at      1005
 
 
 spawn   daldo
@@ -545,36 +546,34 @@ void main()
 	tossentity(self, 4, -3, 0);
 	}
 @end_script
-map     2
-#health  220
 aggression 5
 coords  555 390
-at      2500
+at      1005
 
 
 #---------------
 
 group   7 7
-at      2780
+at      1005
 
 spawn   shimali
 health  500
 aggression 5
 coords  -580 260 150
-at      2780
+at      1005
 
 
 spawn   gen
 map	1
 coords  180 360 370
-at      2780
+at      1005
 
-spawn   shimali
+spawn   wendy
 health  500
 map     1
 aggression 5
 coords  -310 260 150
-at      2780
+at      1005
 
 spawn   daldo
 @script
@@ -589,8 +588,24 @@ map     1
 #health  320
 aggression 5
 coords  555 290
-at      2780
+at      1005
 
+spawn   ghosttime
+health	1
+@script
+void main()
+	{
+	setglobalvar("leveln","38lvl");
+	}
+@end_script
+coords  550 400
+at      1005
+
+spawn   ghosttime
+health	1
+spawnscript	data/scripts/spawn3p.c
+coords  550 400
+at      1005
 
 spawn   shimali
 #health  300
@@ -598,36 +613,39 @@ map     2
 item    food4
 aggression 5
 coords  580 260
-at      2780
+at      1005
 
 spawn   gen
 map	2
 coords  220 360 370
-at      2780
+at      1005
 
-spawn   beloche
-map     1
-boss    1
-health  1500
-2phealth 2000
-3phealth 2500
-aggression 5
+spawn   ghosttime
+health	1
+spawnscript	data/scripts/spawn3p.c
 coords  600 260
-at      2780
+at      1005
+
+spawn   ghosttime
+health	1
+spawnscript	data/scripts/spawn3p.c
+coords  550 260
+at      1005
 
 spawn   shimali
 #health  500
 map     3
 aggression 5
 coords  -310 260 150
-at      0
+at      1005
 
 
 spawn   shimali
 #health  500
 aggression 5
 coords  580 260
-at      0
+at      1005
+
 
 spawn   daldo
 @script
@@ -638,32 +656,59 @@ void main()
 	tossentity(self, 4, -3, 0);
 	}
 @end_script
-map     3
+map     2
 #health  320
 aggression 5
 coords  555 290
-at      2780
+at      1005
 
 spawn   bob
 map	2
 coords  110 400 410
-at      0
+at      1005
 
 spawn   shimali
 health  500
 map     2
 aggression 5
 coords  -310 260 150
-at      0
+at      1005
 
 spawn   bob
-map	2
+map	1
 coords  110 400 410
-at      0
+at      1005
 
 spawn   shimali
 health  500
 map     2
 aggression 5
 coords  -310 260 150
-at      0
+at      1005
+
+spawn   beloche
+map     1
+boss    1
+health  1500
+2phealth 3000
+3phealth 4000
+aggression 50
+coords  600 260
+at      1005
+
+spawn   ghosttime
+health	1
+spawnscript	data/scripts/spawn3p.c
+coords  550 400
+at      1005
+
+spawn   ghosttime
+health	1
+@script
+void main()
+	{
+	setglobalvar("leveln" , NULL());
+	}
+@end_script
+coords  550 400
+at      1005

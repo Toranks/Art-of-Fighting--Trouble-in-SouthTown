@@ -97,14 +97,16 @@ health  150
 coords  90 260 315
 at      480
 
-2pspawn   sylo
+spawn  sylo
+spawnscript	data/scripts/hard.c
 map     6
 flip    1
 health  230
 coords  -630 315 315
 at      480
 
-2pspawn   sylo2
+spawn  sylo2
+spawnscript	data/scripts/hard.c
 map     5
 health  150
 coords  -550 270 315
@@ -133,19 +135,37 @@ at      750
 wait
 at      750
 
-2pspawn   sylo2
-@script void main() {
-   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
-} @end_script
+spawn  sylo2
+@script
+void main()
+	{
+	void self = getlocalvar("self");
+	void difficulty = getglobalvar("hard");
+	performattack(self, openborconstant("ANI_FOLLOW2));
+	
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
 map     1
 health  160
 coords  630 320 70
 at      750
 
-2pspawn   sylo2
-@script void main() {
-   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
-} @end_script
+spawn  sylo2
+@script
+void main()
+	{
+	void self = getlocalvar("self");
+	void difficulty = getglobalvar("hard");
+	performattack(self, openborconstant("ANI_FOLLOW2));
+	
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
 flip    1
 map     2
 health  150
@@ -218,7 +238,8 @@ health  150
 coords  410 270 315
 at      1000
 
-2pspawn   sylo
+spawn  sylo
+spawnscript	data/scripts/hard.c
 map     6
 flip    1
 item    herb
@@ -265,14 +286,16 @@ health  170
 coords  -240 290 70
 at      1450
 
-2pspawn   sylo
+spawn  sylo
+spawnscript	data/scripts/hard.c
 flip    1
 map     4
 health  240
 coords  -80 260 315
 at      1450
 
-2pspawn   sylo
+spawn  sylo
+spawnscript	data/scripts/hard.c
 map     5
 flip    1
 health  230

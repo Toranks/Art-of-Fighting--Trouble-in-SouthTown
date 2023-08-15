@@ -135,7 +135,7 @@ coords  2100 410
 at      0
 
 spawn   dor2
-item    food4
+item    5gbar
 flip    1
 coords  2540 230
 at      0
@@ -336,22 +336,13 @@ at      100
 wait
 at      100
 
+
 spawn   kraven
 map     2
 aggression -40
 map     1
 coords  850 440
 at      100
-
-spawn   ghost1
-coords  850 440
-at      100
-
-spawn   ghosttime
-health	20
-coords  850 440
-at      100
-
 
 spawn   brock
 @script
@@ -384,28 +375,40 @@ map     1
 coords  600 340
 at      100
 
-spawn   ghosttime
-coords  850 440
-at      100
-
 spawn   fatguy
 aggression -40
 map     2
 coords  650 440
 at      100
 
-2pspawn   biff
-aggression -40
+spawn  biff
+spawnscript	data/scripts/hard.c
 map     2
 coords  650 340
 at      100
 
 
-2pspawn   ron
-aggression -40
-map     2
+spawn  ron
+spawnscript	data/scripts/hard.c
 map     1
 coords  -650 240
+at      100
+
+spawn   ghosttime
+health	1
+@script
+void main()
+	{
+	setglobalvar("leveln","1lvl");
+	}
+@end_script
+coords  850 440
+at      100
+
+spawn   ghosttime
+health	1
+spawnscript	data/scripts/spawn3p.c
+coords  850 340
 at      100
 
 #------------------
@@ -444,9 +447,9 @@ map     4
 coords  -100 270
 at      450
 
-2pspawn  kmi
+spawn  kmi
+spawnscript	data/scripts/hard.c
 item    food3
-aggression -40
 map     2
 coords  620 310
 at      450
@@ -466,9 +469,9 @@ map     2
 coords  -100 350
 at      450
 
-2pspawn   rodder
+spawn  rodder
+spawnscript	data/scripts/hard.c
 item    food3
-aggression -40
 coords  590 210
 at      450
 
@@ -506,9 +509,9 @@ map     4
 coords  590 310
 at      900
 
-2pspawn   ron
+spawn  ron
+spawnscript	data/scripts/hard.c
 item    food3
-aggression -40
 map     2
 coords  530 310
 at      900
@@ -521,15 +524,14 @@ coords  -490 310
 at      900
 
 
-2pspawn   kraven
-aggression -40
+spawn  kraven
+spawnscript	data/scripts/hard.c
 map     4
 coords  -590 350
 at      900
 
-2pspawn   dash
-#health  180
-aggression -40
+spawn  dash
+spawnscript	data/scripts/hard.c
 map     3
 coords  510 210
 at      900
@@ -564,16 +566,14 @@ map     3
 coords  -590 210
 at      900
 
-2pspawn   gazz
-#health  150
-aggression -40
+spawn  gazz
+spawnscript	data/scripts/hard.c
 map     3
 coords  420 210
 at      900
 
-2pspawn   shion
-#health  100
-aggression -40
+spawn  shion
+spawnscript	data/scripts/hard.c
 map     2
 coords  -400 200
 at      900
@@ -649,14 +649,14 @@ spawn   ghost1
 coords  150 210
 at      1520
 
-2pspawn   rider4
-aggression -40
+spawn  rider4
+spawnscript	data/scripts/hard.c
 item    food4
 coords  -250 280
 at      1520
 
-2pspawn   rider1
-aggression -40
+spawn  rider1
+spawnscript	data/scripts/hard.c
 coords  650 340
 at      1520
 
@@ -691,11 +691,85 @@ item    gold
 coords  650 300
 at      1520
 
-2pspawn   rider4
-aggression -40
+spawn  rider4
+spawnscript	data/scripts/hard.c
 coords  -250 310
 at      1520
 
+group   8 8
+at      1520
+wait
+at      1520
+
+
+spawn  rider1
+spawnscript	data/scripts/mania.c
+coords  650 340
+at      1520
+
+spawn   rider2
+spawnscript	data/scripts/mania.c
+coords  -250 260
+at      1520
+
+
+spawn   rider3
+spawnscript	data/scripts/mania.c
+item    diamond
+coords  650 320
+at      1520
+
+
+spawn   rider4
+spawnscript	data/scripts/mania.c
+coords  -250 310
+at      1520
+
+spawn  rider1
+spawnscript	data/scripts/mania.c
+coords  650 300
+at      1520
+
+spawn   rider2
+spawnscript	data/scripts/mania.c
+coords  -250 290
+at      1520
+
+
+spawn   rider3
+spawnscript	data/scripts/mania.c
+item    diamond
+coords  650 330
+at      1520
+
+
+spawn   rider4
+spawnscript	data/scripts/mania.c
+coords  -250 300
+at      1520
+
+spawn  rider1
+spawnscript	data/scripts/mania.c
+coords  650 340
+at      1520
+
+spawn   rider2
+spawnscript	data/scripts/mania.c
+coords  -250 260
+at      1520
+
+
+spawn   rider3
+spawnscript	data/scripts/mania.c
+item    diamond
+coords  650 320
+at      1520
+
+
+spawn   rider4
+spawnscript	data/scripts/mania.c
+coords  -250 310
+at      1520
 
 #---------//---ghost-king---//------
 
@@ -740,12 +814,11 @@ at      2050
 
 
 
-2pspawn   meloke
-aggression -40
+spawn  meloke
+spawnscript	data/scripts/hard.c
 map     2
 coords  500 250
 at      2050
-
 
 
 spawn   meloke
@@ -754,6 +827,33 @@ map     3
 coords  490 350
 at      2050
 
+spawn   ghosttime
+health	1
+@script
+void main()
+	{
+	setglobalvar("leveln","1lvl2");
+	}
+@end_script
+coords  -850 440
+at      2050
+
+spawn   ghosttime
+health	1
+spawnscript	data/scripts/spawn3p.c
+coords  -710 310
+at      2050
+
+spawn   ghosttime
+health  1
+@script
+void main()
+	{
+	setglobalvar("leveln" , NULL());
+	}
+@end_script
+coords  -520 360
+at      2050
 
 spawn   psycho
 @script
@@ -791,8 +891,8 @@ map     3
 coords  -110 310
 at      2050
 
-2pspawn   vigo
-aggression -40
+spawn  vigo
+spawnscript	data/scripts/hard.c
 coords  -690 310
 at      2050
 
@@ -801,9 +901,9 @@ aggression -40
 coords  -710 310
 at      2050
 
-2pspawn   slay
+spawn  slay
+spawnscript	data/scripts/hard.c
 map     3
-aggression -40
 coords  -730 310
 at      2050
 
@@ -822,11 +922,12 @@ aggression -40
 coords  -110 310
 at      2050
 
-2pspawn   vigo
-aggression -40
+spawn  vigo
+spawnscript	data/scripts/hard.c
 map     4
 coords  -690 310
 at      2050
+
 
 
 #----------------------------

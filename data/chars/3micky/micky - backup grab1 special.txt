@@ -1,0 +1,987 @@
+name          micky
+type          enemy
+health        100
+speed         9
+jumpheight    4
+throw         5 2
+throwdamage   18
+shadow        0
+paingrab      1
+nolife        1
+falldie       2
+nodieblink    3
+gfxshadow     1
+blockodds     1
+dust            dust
+projectilehit enemy obstacle
+diesound      data/sounds/die9.wav
+animationscript data/scripts/escript.c
+
+
+icon	data/chars/3micky/icon.gif
+lifebarstatus 160 10 0 1 0 2 5 
+lifeposition 85  240
+iconposition 20 227
+nameposition -200 -200
+nolife 1
+
+
+
+script	@script
+void main()
+{
+   	void self = getlocalvar("self");
+	int x = getentityproperty(self, "x");
+	int XPos = openborvariant("xpos");
+	int Screen = openborvariant("hResolution");
+	int hp = getentityproperty(self, "health");
+    	void anim = getentityproperty(self,"animationID");
+
+if(anim != openborconstant("ANI_DIE")){
+
+   if( hp <=0 && x >= XPos+Screen-60) // right
+   	{
+	tossentity(self, 1, -2, 0);
+   	}
+   else if( hp <=0 && x <= XPos+60) // left
+   	{
+	tossentity(self, 1, 2, 0);
+   	}
+  }
+}
+	@end_script	
+		
+		
+		
+		
+		
+	load	pw6
+	load	taolg
+		
+		
+		
+		
+		
+		
+		
+		
+anim	attack1
+	range	20 100
+	loop	0
+	delay	9
+	offset	100 189
+	bbox	79 80 50 109
+	fastattack	1
+	followanim	1
+	followcond	1
+	hitfx	data/sounds/beat2.wav
+	frame	data/chars/3micky/a096.gif
+	attack	100 80 90 40 14 0 0 0 13 0
+	frame	data/chars/3micky/a098.gif
+	attack	0 0 0 0
+	frame	data/chars/3micky/a097.gif
+	frame	data/chars/3micky/a099.gif
+		
+anim	attack2
+	range	280 650
+	rangez	-60 60
+	loop	0
+	delay	9
+	offset	100 189
+	bbox	79 80 50 109
+	hitfx	data/sounds/beat3.wav
+	frame	data/chars/3micky/a107.gif
+	frame	data/chars/3micky/a108.gif
+	sound	data/sounds/bguya03.wav
+	frame	data/chars/3micky/a109.gif
+	frame	data/chars/3micky/a110.gif
+	frame	data/chars/3micky/a111.gif
+	attack3	80 80 105 85 15 0 0 0 13 0
+	frame	data/chars/3micky/a112.gif
+	frame	data/chars/3micky/a113.gif
+	frame	data/chars/3micky/a114.gif
+	@cmd	projectile 1 "pw6" 70 1 50
+	frame	data/chars/3micky/a115.gif
+	attack3	0 0 0 0
+	frame	data/chars/3micky/a116.gif
+	frame	data/chars/3micky/a117.gif
+	frame	data/chars/3micky/a118.gif
+	frame	data/chars/3micky/a119.gif
+	frame	data/chars/3micky/a120.gif
+		
+anim	attack4
+	range	190 260
+	loop	0
+	delay	7
+	offset	100 189
+	bbox	79 80 50 109
+	fastattack	1
+	frame	data/chars/3micky/b01.gif
+	attack3	25 80 75 40 3 0 0 0 13 0
+	frame	data/chars/3micky/b02.gif
+	sound	data/sounds/bguya01.wav
+	attack3	55 40 60 60 3 0 0 0 13 0
+	frame	data/chars/3micky/b03.gif
+	attack3	75 70 60 45 3 0 0 0 13 0
+	frame	data/chars/3micky/b04.gif
+	sound	data/sounds/punch2.wav
+	attack3	0 0 0 0
+	frame	data/chars/3micky/b01.gif
+	attack3	25 80 75 40 3 0 0 0 13 0
+	frame	data/chars/3micky/b02.gif
+	attack3	55 40 60 60 3 0 0 0 13 0
+	frame	data/chars/3micky/b03.gif
+	attack3	75 70 60 45 3 0 0 0 13 0
+	frame	data/chars/3micky/b04.gif
+	sound	data/sounds/punch2.wav
+	attack3	0 0 0 0
+	frame	data/chars/3micky/b01.gif
+	attack3	25 80 75 40 3 0 0 0 13 0
+	frame	data/chars/3micky/b02.gif
+	attack3	55 40 60 60 3 0 0 0 13 0
+	frame	data/chars/3micky/b03.gif
+	attack3	75 70 60 45 3 0 0 0 13 0
+	frame	data/chars/3micky/b04.gif
+	sound	data/sounds/punch2.wav
+	attack3	0 0 0 0
+	frame	data/chars/3micky/b01.gif
+	attack3	25 80 75 40 3 0 0 0 13 0
+	frame	data/chars/3micky/b02.gif
+	attack3	55 40 60 60 3 0 0 0 13 0
+	frame	data/chars/3micky/b03.gif
+	attack3	75 70 60 45 3 0 0 0 13 0
+	frame	data/chars/3micky/b04.gif
+	sound	data/sounds/punch2.wav
+	attack3	0 0 0 0
+	frame	data/chars/3micky/b01.gif
+	attack3	25 80 75 40 3 0 0 0 13 0
+	frame	data/chars/3micky/b02.gif
+	attack3	55 40 60 60 3 0 0 0 13 0
+	frame	data/chars/3micky/b03.gif
+	attack3	75 70 60 45 3 0 0 0 13 0
+	frame	data/chars/3micky/b04.gif
+	sound	data/sounds/punch2.wav
+	attack3	0 0 0 0
+	frame	data/chars/3micky/b01.gif
+	attack3	25 80 75 40 3 0 0 0 13 0
+	frame	data/chars/3micky/b02.gif
+	attack3	55 40 60 60 3 0 0 0 13 0
+	frame	data/chars/3micky/b03.gif
+	attack3	75 70 60 45 3 0 0 0 13 0
+	frame	data/chars/3micky/b04.gif
+	sound	data/sounds/punch2.wav
+	attack3	0 0 0 0
+	frame	data/chars/3micky/b05.gif
+	delay	5
+	move	14
+	frame	data/chars/3micky/b06.gif
+	sound	data/sounds/bguya02.wav
+	frame	data/chars/3micky/b06.gif
+	frame	data/chars/3micky/b07.gif
+	hitfx	data/sounds/beat4.wav
+	hitflash	flashscreen2
+	frame	data/chars/3micky/b07.gif
+	attack	95 80 105 40 70 1 0 0 13 0
+	dropv	3 5
+	frame	data/chars/3micky/b08.gif
+	frame	data/chars/3micky/b07.gif
+	frame	data/chars/3micky/b08.gif
+	frame	data/chars/3micky/b07.gif
+	frame	data/chars/3micky/b08.gif
+	frame	data/chars/3micky/b07.gif
+	frame	data/chars/3micky/b08.gif
+	frame	data/chars/3micky/b07.gif
+	frame	data/chars/3micky/b08.gif
+	frame	data/chars/3micky/b07.gif
+	frame	data/chars/3micky/b08.gif
+	frame	data/chars/3micky/b07.gif
+	frame	data/chars/3micky/b08.gif
+	move	7
+	frame	data/chars/3micky/b08.gif
+	frame	data/chars/3micky/b07.gif
+	frame	data/chars/3micky/b08.gif
+	frame	data/chars/3micky/b07.gif
+	frame	data/chars/3micky/b08.gif
+	frame	data/chars/3micky/b07.gif
+	frame	data/chars/3micky/b08.gif
+	frame	data/chars/3micky/b07.gif
+	move	3
+	frame	data/chars/3micky/b08.gif
+	frame	data/chars/3micky/b07.gif
+	frame	data/chars/3micky/b08.gif
+	frame	data/chars/3micky/b07.gif
+	frame	data/chars/3micky/b08.gif
+	frame	data/chars/3micky/b07.gif
+	attack	0 0 0 0
+	move	0
+	delay	14
+	frame	data/chars/3micky/b06.gif
+	frame	data/chars/3micky/b05.gif
+	frame	data/chars/3micky/a120.gif
+		
+anim	block
+	loop	0
+	delay	2
+	offset	100 189
+	bbox	79 80 50 109
+	move	-8
+	frame	data/chars/3micky/blk01.gif
+	frame	data/chars/3micky/blk01.gif
+	frame	data/chars/3micky/blk01.gif
+	frame	data/chars/3micky/blk01.gif
+	frame	data/chars/3micky/blk01.gif
+	delay	20
+	frame	data/chars/3micky/blk01.gif
+		
+anim	burn
+	loop	0
+	delay	25
+	offset	100 189
+	bbox	0 0 0 0
+	landframe	3
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 200_50_0
+	@cmd	spawnbind "burn1" 1 1 1
+	@cmd	spawnbind "burn2" 1 1 1
+	@cmd	spawnbind "burn3" 1 1 1
+	attack	78 98 30 45 5 1 0 0 13 0
+	frame	data/chars/3micky/fall1.gif
+	delay	15
+	attack	64 115 50 25 5 1 0 0 13 0
+	frame	data/chars/3micky/fall2.gif
+	delay	500
+	frame	data/chars/3micky/fall3.gif
+	attack	0 0 0 0
+	bbox	58 175 85 15
+	delay	15
+	frame	data/chars/3micky/fall4.gif
+	frame	data/chars/3micky/fall5.gif
+	frame	data/chars/3micky/fall4.gif
+		
+anim	death
+	loop	0
+	delay	14
+	offset	100 189
+	bbox	0 0 0 0
+	frame	data/chars/3micky/rise1.gif
+	frame	data/chars/3micky/rise2.gif
+	frame	data/chars/3micky/rise3.gif
+	frame	data/chars/3micky/rise2.gif
+	frame	data/chars/3micky/rise1.gif
+	frame	data/chars/3micky/fall4.gif
+	frame	data/chars/3micky/death01.gif
+	delay	50
+	frame	data/chars/3micky/death01.gif
+		
+anim	fall
+	loop	0
+	delay	25
+	offset	100 189
+	bbox	76 89 51 73
+	landframe	3
+	attack	81 88 40 70 5 1 0 0 13 40
+	frame	data/chars/3micky/fall1.gif
+	delay	15
+	bbox	59 106 86 50
+	attack	57 108 91 45 5 1 0 0 13 40
+	frame	data/chars/3micky/fall2.gif
+	delay	500
+	bbox	68 126 73 52
+	attack	65 128 81 45 5 1 0 0 13 40
+	frame	data/chars/3micky/fall3.gif
+	delay	15
+	attack	0 0 0 0
+	bbox	60 177 85 15
+	frame	data/chars/3micky/fall4.gif
+	frame	data/chars/3micky/fall5.gif
+	frame	data/chars/3micky/fall4.gif
+		
+anim	fall10
+	loop	0
+	delay	10
+	offset	100 189
+	bbox	87 83 55 91
+	landframe	4
+	attack	88 89 40 60 5 1 0 0 13 40
+	frame	data/chars/3micky/pain6.gif
+	delay	40
+	frame	data/chars/3micky/pain7.gif
+	delay	30
+	bbox	59 106 86 50
+	attack	57 108 91 45 5 1 0 0 13 40
+	frame	data/chars/3micky/fall2.gif
+	delay	300
+	bbox	68 126 73 52
+	attack	65 128 81 45 5 1 0 0 13 40
+	frame	data/chars/3micky/fall3.gif
+	delay	15
+	attack	0 0 0 0
+	bbox	60 177 85 15
+	frame	data/chars/3micky/fall4.gif
+	frame	data/chars/3micky/fall5.gif
+	frame	data/chars/3micky/fall4.gif
+		
+anim	fall11
+	loop	0
+	delay	20
+	offset	100 189
+	bbox	61 185 90 5
+	frame	data/chars/3micky/pain12.gif
+	delay	35
+	frame	data/chars/3micky/fall4.gif
+		
+anim	fall2
+	loop	0
+	delay	30
+	offset	100 189
+	bbox	87 83 55 91
+	landframe	3
+	attack	85 90 35 45 5 1 0 0 13 40
+	frame	data/chars/3micky/pain7.gif
+	delay	10
+	bbox	59 106 86 50
+	attack	64 125 55 25 5 1 0 0 13 40
+	frame	data/chars/3micky/fall2.gif
+	attack	0 0 0 0
+	delay	300
+	frame	data/chars/3micky/fall3.gif
+	delay	15
+	bbox	58 175 85 15
+	frame	data/chars/3micky/fall4.gif
+	frame	data/chars/3micky/fall5.gif
+	frame	data/chars/3micky/fall4.gif
+		
+anim	fall4
+	loop	0
+	delay	6
+	offset	100 189
+	bbox	0 0 0 0
+	jumpframe	0 1.2 1.5
+	frame	data/chars/3micky/pain8.gif
+	frame	data/chars/3micky/pain9.gif
+	frame	data/chars/3micky/pain10.gif
+	@cmd	leaper 0 0.2 0
+	frame	data/chars/3micky/pain11.gif
+	frame	data/chars/3micky/fall4.gif
+	frame	data/chars/3micky/fall5.gif
+	bbox	58 175 95 15
+	frame	data/chars/3micky/fall4.gif
+		
+anim	fall7
+	delay	1000
+	offset	105 130
+	frame	data/chars/3micky/slamck0.gif
+	offset	100 110
+	frame	data/chars/3micky/slamck1.gif
+	offset	106 130
+	frame	data/chars/3micky/slamck2.gif
+	offset	115 125
+	frame	data/chars/3micky/slamck3.gif
+	offset	125 125
+	frame	data/chars/3micky/slamck4.gif
+	offset	108 122
+	frame	data/chars/3micky/slamck5.gif
+	offset	106 155
+	frame	data/chars/3micky/slamck6.gif
+	offset	125 140
+	frame	data/chars/3micky/slamck7.gif
+	offset	120 105
+	frame	data/chars/3micky/slamck8.gif
+	offset	100 130
+	frame	data/chars/3micky/slamck9.gif
+	offset	105 130
+	frame	data/chars/3micky/slamck10.gif
+	offset	105 130
+	frame	data/chars/3micky/slamck11.gif
+	offset	115 125
+	frame	data/chars/3micky/slamck12.gif
+	offset	115 125
+	frame	data/chars/3micky/slamck13.gif
+	offset	115 125
+	frame	data/chars/3micky/slamck14.gif
+	offset	115 125
+	frame	data/chars/3micky/slamck15.gif
+		
+anim	fall9
+	loop	0
+	delay	10
+	offset	100 185
+	bbox	76 89 51 73
+	quakeframe	2 5 5
+	landframe	2 dust
+	attack	81 88 40 70 5 1 0 0 13 40
+	frame	data/chars/3micky/fall1.gif
+	delay	350
+	bbox	59 106 86 50
+	attack	57 108 91 45 5 1 0 0 13 40
+	frame	data/chars/3micky/fall2.gif
+	delay	2
+	offset	100 170
+	move	-4
+	bbox	68 126 73 52
+	attack	65 128 81 45 5 1 0 0 13 40
+	frame	data/chars/3micky/fall3.gif
+	frame	data/chars/3micky/fall3.gif
+	frame	data/chars/3micky/fall3.gif
+	@cmd	looper 3 5
+	offset	100 189
+	move	-3
+	attack	0 0 0 0
+	bbox	0 0 0 0
+	frame	data/chars/3micky/fall4.gif
+	frame	data/chars/3micky/fall4.gif
+	frame	data/chars/3micky/fall4.gif
+	@cmd	looper 6 4
+	move	-2
+	frame	data/chars/3micky/fall5.gif
+	frame	data/chars/3micky/fall5.gif
+	frame	data/chars/3micky/fall5.gif
+	loop	0
+	delay	15
+	move	0
+	bbox	60 177 85 15
+	frame	data/chars/3micky/fall4.gif
+		
+anim	follow1
+	loop	0
+	delay	9
+	offset	100 189
+	bbox	79 80 50 109
+	fastattack	1
+	frame	data/chars/3micky/a098.gif
+	sound	data/sounds/bguya02.wav
+	frame	data/chars/3micky/a099.gif
+	frame	data/chars/3micky/a100.gif
+	frame	data/chars/3micky/a101.gif
+	attack	95 90 100 30 17 0 0 0 13 0
+	delay	12
+	frame	data/chars/3micky/a102.gif
+	attack	0 0 0 0
+	frame	data/chars/3micky/a103.gif
+	delay	3
+	move	5
+	sound	data/sounds/bguya02.wav
+	bbox	0 0 0 0
+	frame	data/chars/3micky/a103.gif
+	frame	data/chars/3micky/a103.gif
+	attack	95 40 60 80 25 1 1 0 13 0
+	dropv	5 2
+	frame	data/chars/3micky/a104.gif
+	frame	data/chars/3micky/a104.gif
+	frame	data/chars/3micky/a104.gif
+	frame	data/chars/3micky/a104.gif
+	frame	data/chars/3micky/a105.gif
+	frame	data/chars/3micky/a105.gif
+	frame	data/chars/3micky/a105.gif
+	frame	data/chars/3micky/a105.gif
+	frame	data/chars/3micky/a105.gif
+	frame	data/chars/3micky/a106.gif
+	frame	data/chars/3micky/a106.gif
+	frame	data/chars/3micky/a106.gif
+	frame	data/chars/3micky/a106.gif
+	frame	data/chars/3micky/a106.gif
+	attack	0 0 0 0
+	move	0
+	delay	14
+	bbox	79 80 50 109
+	frame	data/chars/3micky/a104.gif
+	frame	data/chars/3micky/a103.gif
+	frame	data/chars/3micky/a107.gif
+		
+anim	follow2
+	loop	0
+	delay	9
+	offset	100 189
+	bbox	0 0 0 0
+	frame	data/chars/3micky/upper01.gif
+	frame	data/chars/3micky/upper02.gif
+	delay	30
+	attack	80 40 85 105 17 1 0 0 13 0
+	dropv	5 2
+	frame	data/chars/3micky/upper03.gif
+	attack	0 0 0 0
+	delay	15
+	frame	data/chars/3micky/upper04.gif
+	frame	data/chars/3micky/upper05.gif
+		
+anim	grab
+	loop	0
+	delay	30
+	range	0 30
+	attackone	0
+	offset	100 189
+	bbox	0 0 0 0
+	sound	data/sounds/grab.wav
+	frame	data/chars/3micky/a099.gif
+	delay	15
+	@cmd	slamstart
+	@cmd	spawngrab 200 200 450 110 1 8
+	@cmd	position 24 40 25 1 -1
+	frame	data/chars/3micky/a096.gif
+	@cmd	position 1 35 30 -1 -1
+	frame	data/chars/3micky/grab02.gif
+	delay	14
+	@cmd	position 23 20 35 -1 -1
+	frame	data/chars/3micky/grab03.gif
+	@cmd	position 23 15 35 -1 -1
+	frame	data/chars/3micky/grab04.gif
+	sound	data/sounds/beat1.wav
+	@cmd	hurt 4
+	@cmd	spawn01 "Flash" 40 85 5
+	@cmd	position 7 30 40 -1 -1
+	frame	data/chars/3micky/grab05.gif
+	@cmd	position 11 30 50 -1 -1
+	frame	data/chars/3micky/grab05.gif
+	@cmd	position 23 20 35 -1 -1
+	frame	data/chars/3micky/grab03.gif
+	@cmd	position 23 15 35 -1 -1
+	frame	data/chars/3micky/grab04.gif
+	sound	data/sounds/beat1.wav
+	@cmd	hurt 4
+	@cmd	spawn01 "Flash" 40 85 5
+	@cmd	position 7 30 40 -1 -1
+	frame	data/chars/3micky/grab05.gif
+	@cmd	position 11 30 50 -1 -1
+	frame	data/chars/3micky/grab05.gif
+	@cmd	position 23 20 35 -1 -1
+	frame	data/chars/3micky/grab03.gif
+	@cmd	position 23 15 35 -1 -1
+	frame	data/chars/3micky/grab04.gif
+	sound	data/sounds/beat1.wav
+	@cmd	hurt 4
+	@cmd	spawn01 "Flash" 40 85 5
+	@cmd	position 7 30 40 -1 -1
+	frame	data/chars/3micky/grab05.gif
+	@cmd	position 11 30 50 -1 -1
+	frame	data/chars/3micky/grab05.gif
+	@cmd	position 23 20 35 -1 -1
+	frame	data/chars/3micky/grab03.gif
+	@cmd	position 23 15 35 -1 -1
+	frame	data/chars/3micky/grab04.gif
+	sound	data/sounds/beat1.wav
+	@cmd	hurt 4
+	@cmd	spawn01 "Flash" 40 85 5
+	@cmd	position 7 30 40 -1 -1
+	frame	data/chars/3micky/grab05.gif
+	@cmd	position 11 30 50 -1 -1
+	frame	data/chars/3micky/grab05.gif
+	@cmd	position 23 20 35 -1 -1
+	frame	data/chars/3micky/grab03.gif
+	@cmd	position 23 15 35 -1 -1
+	frame	data/chars/3micky/grab04.gif
+	sound	data/sounds/beat1.wav
+	@cmd	hurt 4
+	@cmd	spawn01 "Flash" 40 85 5
+	@cmd	position 7 30 40 -1 -1
+	frame	data/chars/3micky/grab05.gif
+	@cmd	position 11 30 50 -1 -1
+	frame	data/chars/3micky/grab05.gif
+	delay	9
+	@cmd	position 23 20 35 -1 -1
+	frame	data/chars/3micky/grab03.gif
+	@cmd	position 23 15 35 -1 -1
+	frame	data/chars/3micky/grab04.gif
+	sound	data/sounds/beat3.wav
+	@cmd	hurt 4
+	@cmd	spawn01 "Flash" 40 85 5
+	@cmd	position 7 30 40 -1 -1
+	frame	data/chars/3micky/grab05.gif
+	@cmd	position 11 30 50 -1 -1
+	frame	data/chars/3micky/grab05.gif
+	@cmd	position 23 20 35 -1 -1
+	frame	data/chars/3micky/grab03.gif
+	@cmd	position 23 15 35 -1 -1
+	frame	data/chars/3micky/grab04.gif
+	sound	data/sounds/beat3.wav
+	@cmd	hurt 4
+	@cmd	spawn01 "Flash" 40 85 5
+	@cmd	position 7 30 40 -1 -1
+	frame	data/chars/3micky/grab05.gif
+	@cmd	position 11 30 50 -1 -1
+	frame	data/chars/3micky/grab05.gif
+	@cmd	position 23 20 35 -1 -1
+	frame	data/chars/3micky/grab03.gif
+	@cmd	position 23 15 35 -1 -1
+	frame	data/chars/3micky/grab04.gif
+	sound	data/sounds/beat3.wav
+	@cmd	hurt 4
+	@cmd	spawn01 "Flash" 40 85 5
+	@cmd	position 7 30 40 -1 -1
+	frame	data/chars/3micky/grab05.gif
+	@cmd	position 11 30 50 -1 -1
+	frame	data/chars/3micky/grab05.gif
+	delay	6
+	@cmd	position 23 20 35 -1 -1
+	frame	data/chars/3micky/grab03.gif
+	@cmd	position 23 15 35 -1 -1
+	frame	data/chars/3micky/grab04.gif
+	sound	data/sounds/beat3.wav
+	@cmd	hurt 4
+	@cmd	spawn01 "Flash" 40 85 5
+	@cmd	position 7 30 40 -1 -1
+	frame	data/chars/3micky/grab05.gif
+	@cmd	position 11 30 50 -1 -1
+	frame	data/chars/3micky/grab05.gif
+	@cmd	position 23 20 35 -1 -1
+	frame	data/chars/3micky/grab03.gif
+	@cmd	position 23 15 35 -1 -1
+	frame	data/chars/3micky/grab04.gif
+	sound	data/sounds/beat3.wav
+	@cmd	hurt 4
+	@cmd	spawn01 "Flash" 40 85 5
+	@cmd	position 7 30 40 -1 -1
+	frame	data/chars/3micky/grab05.gif
+	@cmd	position 11 30 50 -1 -1
+	frame	data/chars/3micky/grab05.gif
+	@cmd	position 23 20 35 -1 -1
+	frame	data/chars/3micky/grab03.gif
+	@cmd	position 23 15 35 -1 -1
+	frame	data/chars/3micky/grab04.gif
+	sound	data/sounds/beat3.wav
+	@cmd	hurt 4
+	@cmd	spawn01 "Flash" 40 85 5
+	@cmd	position 7 30 40 -1 -1
+	frame	data/chars/3micky/grab05.gif
+	@cmd	position 11 30 50 -1 -1
+	frame	data/chars/3micky/grab05.gif
+	delay	20
+	@cmd	position 1 35 30 -1 -1
+	frame	data/chars/3micky/grab02.gif
+	@cmd	position 23 20 35 -1 -1
+	frame	data/chars/3micky/grab03.gif
+	delay	10
+	@cmd	position 23 15 35 -1 -1
+	frame	data/chars/3micky/grab04.gif
+	@cmd	position 7 30 40 -1 -1
+	frame	data/chars/3micky/grab05.gif
+	@cmd	position 11 30 50 -1 -1
+	frame	data/chars/3micky/grab05.gif
+	@cmd	killgrab
+	sound	data/sounds/bguya01.wav
+	@cmd	position 1 30 65 -1 -1
+	frame	data/chars/3micky/a104.gif
+	sound	data/sounds/beat4.wav
+	@cmd	spawn01 "flashscreen1" 40 100 5
+	@cmd	depost 0
+	@cmd	finish 40 1 -2 4 0 0
+	delay	30
+	@cmd	clearL
+	frame	data/chars/3micky/a105.gif
+	frame	data/chars/3micky/a106.gif
+	delay	12
+	frame	data/chars/3micky/grab06.gif
+	bbox	79 80 50 109
+	frame	data/chars/3micky/grab07.gif
+	frame	data/chars/3micky/grab06.gif
+	frame	data/chars/3micky/grab07.gif
+	frame	data/chars/3micky/grab06.gif
+	frame	data/chars/3micky/grab07.gif
+	frame	data/chars/3micky/grab06.gif
+	frame	data/chars/3micky/grab07.gif
+	frame	data/chars/3micky/grab06.gif
+	frame	data/chars/3micky/grab07.gif
+	frame	data/chars/3micky/idle01.gif
+		
+anim	grabbed
+	loop	0
+	delay	10
+	offset	100 189
+	bbox	79 97 50 91
+	frame	data/chars/3micky/grabbed.gif
+		
+anim	idle
+	loop	1
+	delay	10
+	offset	100 189
+	bbox	79 80 50 109
+	@cmd	lifeaggr 25 250
+	frame	data/chars/3micky/idle01.gif
+	@cmd	depost 0
+	frame	data/chars/3micky/idle02.gif
+	frame	data/chars/3micky/idle03.gif
+	frame	data/chars/3micky/idle04.gif
+	@cmd	clearL
+	frame	data/chars/3micky/idle01.gif
+	frame	data/chars/3micky/idle02.gif
+	frame	data/chars/3micky/idle03.gif
+	frame	data/chars/3micky/idle04.gif
+		
+anim	pain
+	loop	0
+	delay	3
+	offset	103 189
+	bbox	79 80 50 109
+	frame	data/chars/3micky/pain0.gif
+	offset	100 189
+	frame	data/chars/3micky/pain1.gif
+	offset	107 189
+	frame	data/chars/3micky/pain1.gif
+	delay	40
+	offset	100 189
+	frame	data/chars/3micky/pain1.gif
+		
+anim	pain2
+	loop	0
+	delay	3
+	offset	103 189
+	bbox	79 80 50 109
+	frame	data/chars/3micky/pain0.gif
+	offset	100 189
+	frame	data/chars/3micky/pain2.gif
+	offset	107 189
+	frame	data/chars/3micky/pain2.gif
+	delay	40
+	offset	100 189
+	frame	data/chars/3micky/pain2.gif
+		
+anim	pain3
+	loop	0
+	delay	1
+	offset	103 189
+	bbox	0 0 0 0
+	jumpframe	1 2 -1 0
+	frame	data/chars/3micky/pain1.gif
+	delay	25
+	frame	data/chars/3micky/fall2.gif
+	delay	12
+	frame	data/chars/3micky/fall3.gif
+	delay	4
+	bbox	71 165 67 30
+	frame	data/chars/3micky/fall4.gif
+	frame	data/chars/3micky/fall5.gif
+	frame	data/chars/3micky/fall4.gif
+	frame	data/chars/3micky/fall5.gif
+	delay	15
+	bbox	0 0 0 0
+	frame	data/chars/3micky/fall4.gif
+	delay	10
+	frame	data/chars/3micky/rise1.gif
+	frame	data/chars/3micky/rise2.gif
+	frame	data/chars/3micky/rise3.gif
+		
+anim	pain5
+	loop	0
+	delay	23
+	offset	100 189
+	bbox	79 80 50 109
+	frame	data/chars/3micky/pain1.gif
+		
+anim	pain6
+	loop	0
+	delay	23
+	offset	100 189
+	bbox	79 80 50 109
+	frame	data/chars/3micky/pain2.gif
+		
+anim	pain8
+	loop	0
+	delay	2
+	offset	100 189
+	bbox	79 80 50 109
+	move	-6
+	frame	data/chars/3micky/pain1.gif
+	frame	data/chars/3micky/pain1.gif
+	frame	data/chars/3micky/pain1.gif
+	frame	data/chars/3micky/pain2.gif
+	frame	data/chars/3micky/pain2.gif
+	frame	data/chars/3micky/pain2.gif
+	move	-3
+	frame	data/chars/3micky/pain2.gif
+	frame	data/chars/3micky/pain2.gif
+	move	-1
+	frame	data/chars/3micky/pain2.gif
+	delay	35
+	frame	data/chars/3micky/pain2.gif
+		
+anim	pain9
+	loop	0
+	delay	15
+	offset	100 189
+	bbox	79 80 50 109
+	frame	data/chars/3micky/pain1.gif
+	delay	150
+	frame	data/chars/3micky/pain2.gif
+		
+anim	rise
+	loop	0
+	delay	14
+	offset	100 189
+	bbox	0 0 0 0
+	frame	data/chars/3micky/rise1.gif
+	@cmd	riseattack 80 10 "ANI_FOLLOW2"
+	frame	data/chars/3micky/rise2.gif
+	@cmd	riseattack 80 10 "ANI_FOLLOW2"
+	frame	data/chars/3micky/rise3.gif
+	frame	data/chars/3micky/rise4.gif
+		
+anim	spawn
+	loop	0
+	delay	680
+	offset	100 189
+	bbox	0 0 0 0
+	frame	data/chars/3micky/grab07.gif
+	delay	10
+	@cmd	spawn01 "taolg" 20 225 5
+	frame	data/chars/3micky/grab06.gif
+	frame	data/chars/3micky/grab07.gif
+	frame	data/chars/3micky/grab06.gif
+	frame	data/chars/3micky/grab07.gif
+	frame	data/chars/3micky/grab06.gif
+	frame	data/chars/3micky/grab07.gif
+		
+anim	special
+	delay	30
+	offset	100 189
+	bbox	0 0 0 0
+	sound	data/sounds/grab.wav
+	@cmd	slamstart2
+	@cmd	position 24 40 25 1 -1
+	frame	data/chars/3micky/a096.gif
+	delay	15
+	frame	data/chars/3micky/a096.gif
+	@cmd	position 1 35 30 -1 -1
+	frame	data/chars/3micky/grab02.gif
+	delay	14
+	@cmd	position 23 20 35 -1 -1
+	frame	data/chars/3micky/grab03.gif
+	@cmd	position 23 15 35 -1 -1
+	frame	data/chars/3micky/grab04.gif
+	sound	data/sounds/beat1.wav
+	@cmd	hurt 4
+	@cmd	spawn01 "Flash" 40 85 5
+	@cmd	position 7 30 40 -1 -1
+	frame	data/chars/3micky/grab05.gif
+	@cmd	position 11 30 50 -1 -1
+	frame	data/chars/3micky/grab05.gif
+	@cmd	position 23 20 35 -1 -1
+	frame	data/chars/3micky/grab03.gif
+	@cmd	position 23 15 35 -1 -1
+	frame	data/chars/3micky/grab04.gif
+	sound	data/sounds/beat1.wav
+	@cmd	hurt 4
+	@cmd	spawn01 "Flash" 40 85 5
+	@cmd	position 7 30 40 -1 -1
+	frame	data/chars/3micky/grab05.gif
+	@cmd	position 11 30 50 -1 -1
+	frame	data/chars/3micky/grab05.gif
+	delay	9
+	@cmd	position 23 20 35 -1 -1
+	frame	data/chars/3micky/grab03.gif
+	@cmd	position 23 15 35 -1 -1
+	frame	data/chars/3micky/grab04.gif
+	sound	data/sounds/beat3.wav
+	@cmd	hurt 4
+	@cmd	spawn01 "Flash" 40 85 5
+	@cmd	position 7 30 40 -1 -1
+	frame	data/chars/3micky/grab05.gif
+	@cmd	position 11 30 50 -1 -1
+	frame	data/chars/3micky/grab05.gif
+	@cmd	position 23 20 35 -1 -1
+	frame	data/chars/3micky/grab03.gif
+	@cmd	position 23 15 35 -1 -1
+	frame	data/chars/3micky/grab04.gif
+	sound	data/sounds/beat3.wav
+	@cmd	hurt 4
+	@cmd	spawn01 "Flash" 40 85 5
+	@cmd	position 7 30 40 -1 -1
+	frame	data/chars/3micky/grab05.gif
+	@cmd	position 11 30 50 -1 -1
+	frame	data/chars/3micky/grab05.gif
+	delay	6
+	@cmd	position 23 20 35 -1 -1
+	frame	data/chars/3micky/grab03.gif
+	@cmd	position 23 15 35 -1 -1
+	frame	data/chars/3micky/grab04.gif
+	sound	data/sounds/beat3.wav
+	@cmd	hurt 4
+	@cmd	spawn01 "Flash" 40 85 5
+	@cmd	position 7 30 40 -1 -1
+	frame	data/chars/3micky/grab05.gif
+	@cmd	position 11 30 50 -1 -1
+	frame	data/chars/3micky/grab05.gif
+	@cmd	position 23 20 35 -1 -1
+	frame	data/chars/3micky/grab03.gif
+	@cmd	position 23 15 35 -1 -1
+	frame	data/chars/3micky/grab04.gif
+	sound	data/sounds/beat3.wav
+	@cmd	hurt 4
+	@cmd	spawn01 "Flash" 40 85 5
+	@cmd	position 7 30 40 -1 -1
+	frame	data/chars/3micky/grab05.gif
+	@cmd	position 11 30 50 -1 -1
+	frame	data/chars/3micky/grab05.gif
+	delay	20
+	@cmd	position 1 35 30 -1 -1
+	frame	data/chars/3micky/grab02.gif
+	@cmd	position 23 20 35 -1 -1
+	frame	data/chars/3micky/grab03.gif
+	delay	10
+	@cmd	position 23 15 35 -1 -1
+	frame	data/chars/3micky/grab04.gif
+	@cmd	position 7 30 40 -1 -1
+	frame	data/chars/3micky/grab05.gif
+	@cmd	position 11 30 50 -1 -1
+	frame	data/chars/3micky/grab05.gif
+	@cmd	killgrab
+	@cmd	position 1 30 65 -1 -1
+	frame	data/chars/3micky/a104.gif
+	sound	data/sounds/beat4.wav
+	@cmd	spawn01 "Flash" 40 100 5
+	@cmd	depost 0
+	@cmd	finish 40 1 -2 4 0 0
+	delay	30
+	@cmd	clearL
+	frame	data/chars/3micky/a105.gif
+	frame	data/chars/3micky/a106.gif
+	delay	12
+	frame	data/chars/3micky/grab06.gif
+	bbox	79 80 50 109
+	frame	data/chars/3micky/grab07.gif
+	frame	data/chars/3micky/grab06.gif
+	frame	data/chars/3micky/grab07.gif
+	frame	data/chars/3micky/grab06.gif
+	frame	data/chars/3micky/grab07.gif
+	frame	data/chars/3micky/grab06.gif
+	frame	data/chars/3micky/grab07.gif
+	frame	data/chars/3micky/grab06.gif
+	frame	data/chars/3micky/grab07.gif
+	frame	data/chars/3micky/idle01.gif
+		
+anim	upper
+	range	5 180
+	loop	0
+	delay	8
+	offset	100 189
+	bbox	0 0 0 0
+	frame	data/chars/3micky/upper01.gif
+	sound	data/sounds/bguya01.wav
+	frame	data/chars/3micky/upper02.gif
+	delay	5
+	move	5
+	attack	80 40 75 85 20 1 0 0 13 0
+	dropv	5 2
+	frame	data/chars/3micky/upper02.gif
+	frame	data/chars/3micky/upper02.gif
+	delay	8
+	frame	data/chars/3micky/upper03.gif
+	frame	data/chars/3micky/upper03.gif
+	move	0
+	delay	10
+	frame	data/chars/3micky/upper03.gif
+	attack	0 0 0 0
+	delay	15
+	frame	data/chars/3micky/upper04.gif
+	frame	data/chars/3micky/upper05.gif
+		
+anim	walk
+	loop	1
+	delay	10
+	offset	100 189
+	bbox	79 80 50 109
+	frame	data/chars/3micky/wk01.gif
+	frame	data/chars/3micky/wk02.gif
+	frame	data/chars/3micky/wk03.gif
+	frame	data/chars/3micky/wk04.gif
+		
+#|edited by openBor Stats v 0.67
+		
