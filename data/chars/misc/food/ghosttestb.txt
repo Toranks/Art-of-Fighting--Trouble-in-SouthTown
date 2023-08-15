@@ -1,0 +1,75 @@
+name		ghosttestb
+type		enemy
+health		100
+nomove		1
+#jumpheight	0
+nolife          1
+noquake		1
+gfxshadow	1
+#nodrop		1
+#antigrab	10
+offscreenkill 	25000
+subject_to_hole 0
+subject_to_platform 1
+subject_to_wall 1
+
+#diesound        data/sounds/die3.wav
+
+
+anim	spawn
+	loop    0
+	delay   15
+	offset  0 0
+	bbox    0 0 0 0
+	frame	data/chars/misc/food/empty.gif
+
+
+anim	death
+	loop    0
+	delay   15
+	offset  0 0
+	bbox    0 0 0 0
+	frame	data/chars/misc/food/empty.gif
+
+
+
+anim	idle
+	loop    1
+	
+@script
+    int P1 = getplayerproperty(0, "entity");
+    int P2 = getplayerproperty(1, "entity");
+    int P3 = getplayerproperty(2, "entity");
+
+	if (frame == 0){
+	if (P1 != NULL() && P2 != NULL() && P3 != NULL())
+	{
+    bindentity(P2, P1, 0, 0, 0, 0, 0);
+    bindentity(P3, P1, 0, 0, 0, 0, 0);
+	}
+	else if (P1 != NULL() && P2 != NULL() && P3 == NULL())
+	{
+    bindentity(P2, P1, 0, 0, 0, 0, 0);
+	}
+	else if (P1 != NULL() && P2 == NULL() && P3 != NULL())
+	{
+    bindentity(P3, P1, 0, 0, 0, 0, 0);
+	}
+	else if (P1 == NULL() && P2 != NULL() && P3 != NULL())
+	{
+    bindentity(P3, P2, 0, 0, 0, 0, 0);
+	}
+}
+@end_script
+	delay   20
+	offset  0 120
+	bbox    0 0 0 0
+	frame	data/chars/misc/food/empty.gif
+	frame	data/chars/misc/food/empty.gif
+
+
+
+
+
+
+

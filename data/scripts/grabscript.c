@@ -886,6 +886,112 @@ void keyint(void Ani, int Frame, void Key, int Hflag, int Limit)
       }
 }
 
+void keyintall(void Ani, int Frame, void Key, int Hflag, int Limit)
+{// Change current animation if proper key is pressed or released by any player
+    void self = getlocalvar("self");
+    void Health = getentityproperty(self,"health");  
+    int iDir = getentityproperty(self, "direction");  
+    void iRKey;
+	void iRKey2;
+    void iRKey3;
+
+      if (Key=="U"){ //Up Required?
+        iRKey = playerkeys(0, 0, "moveup"); // "Up"
+      } else if (Key=="D"){ //Down Required?
+        iRKey = playerkeys(0, 0, "movedown"); // "Down"
+      } else if (Key=="F"){ //Forward Required?
+         iRKey = playerkeys(0, 0, "moveright"); // "Right"
+      } else if (Key=="B"){ //Forward Required?
+         iRKey = playerkeys(0, 0, "moveleft"); // "Left"   
+      } else if (Key=="J"){ //Jump Required?
+        iRKey = playerkeys(0, 0, "jump"); // "Jump"
+      } else if (Key=="A"){ //Attack Required?
+        iRKey = playerkeys(0, 0, "attack"); // "Attack"
+      } else if (Key=="S"){ //Special Required?
+        iRKey = playerkeys(0, 0, "special"); // "Special"
+      } else if (Key=="A2"){ //Attack2 Required?
+        iRKey = playerkeys(0, 0, "attack2"); // "Attack2"
+      } else if (Key=="A3"){ //Attack3 Required?
+        iRKey = playerkeys(0, 0, "attack3"); // "Attack3"
+      } else if (Key=="A4"){ //Attack4 Required?
+        iRKey = playerkeys(0, 0, "attack4"); // "Attack4"
+      }
+
+      if (Hflag==1){ //Not holding the button case?
+        iRKey = !iRKey; //Take the opposite condition
+	}
+
+      if ((Health > Limit)&&iRKey){
+        changeentityproperty(self, "animation", openborconstant(Ani), 2);
+      changeentityproperty(self, "animpos", Frame);
+//        updateframe(self, Frame);
+      }
+	  
+	        if (Key=="U"){ //Up Required?
+        iRKey2 = playerkeys(1, 0, "moveup"); // "Up"
+      } else if (Key=="D"){ //Down Required?
+        iRKey2 = playerkeys(1, 0, "movedown"); // "Down"
+      } else if (Key=="F"){ //Forward Required?
+         iRKey2 = playerkeys(1, 0, "moveright"); // "Right"
+      } else if (Key=="B"){ //Forward Required?
+         iRKey2 = playerkeys(1, 0, "moveleft"); // "Left"   
+      } else if (Key=="J"){ //Jump Required?
+        iRKey2 = playerkeys(1, 0, "jump"); // "Jump"
+      } else if (Key=="A"){ //Attack Required?
+        iRKey2 = playerkeys(1, 0, "attack"); // "Attack"
+      } else if (Key=="S"){ //Special Required?
+        iRKey2 = playerkeys(1, 0, "special"); // "Special"
+      } else if (Key=="A2"){ //Attack2 Required?
+        iRKey2 = playerkeys(1, 0, "attack2"); // "Attack2"
+      } else if (Key=="A3"){ //Attack3 Required?
+        iRKey2 = playerkeys(1, 0, "attack3"); // "Attack3"
+      } else if (Key=="A4"){ //Attack4 Required?
+        iRKey2 = playerkeys(1, 0, "attack4"); // "Attack4"
+      }
+
+      if (Hflag==1){ //Not holding the button case?
+        iRKey2 = !iRKey2; //Take the opposite condition
+	}
+
+      if ((Health > Limit)&&iRKey2){
+        changeentityproperty(self, "animation", openborconstant(Ani), 2);
+      changeentityproperty(self, "animpos", Frame);
+//        updateframe(self, Frame);
+      }
+	  
+	        if (Key=="U"){ //Up Required?
+        iRKey3 = playerkeys(2, 0, "moveup"); // "Up"
+      } else if (Key=="D"){ //Down Required?
+        iRKey3 = playerkeys(2, 0, "movedown"); // "Down"
+      } else if (Key=="F"){ //Forward Required?
+         iRKey3 = playerkeys(2, 0, "moveright"); // "Right"
+      } else if (Key=="B"){ //Forward Required?
+         iRKey3 = playerkeys(2, 0, "moveleft"); // "Left"   
+      } else if (Key=="J"){ //Jump Required?
+        iRKey3 = playerkeys(2, 0, "jump"); // "Jump"
+      } else if (Key=="A"){ //Attack Required?
+        iRKey3 = playerkeys(2, 0, "attack"); // "Attack"
+      } else if (Key=="S"){ //Special Required?
+        iRKey3 = playerkeys(2, 0, "special"); // "Special"
+      } else if (Key=="A2"){ //Attack2 Required?
+        iRKey3 = playerkeys(2, 0, "attack2"); // "Attack2"
+      } else if (Key=="A3"){ //Attack3 Required?
+        iRKey3 = playerkeys(2, 0, "attack3"); // "Attack3"
+      } else if (Key=="A4"){ //Attack4 Required?
+        iRKey3 = playerkeys(2, 0, "attack4"); // "Attack4"
+      }
+
+      if (Hflag==1){ //Not holding the button case?
+        iRKey3 = !iRKey3; //Take the opposite condition
+	}
+
+      if ((Health > Limit)&&iRKey3){
+        changeentityproperty(self, "animation", openborconstant(Ani), 2);
+      changeentityproperty(self, "animpos", Frame);
+//        updateframe(self, Frame);
+      }
+}
+
 
 
 void keyflip()
@@ -935,6 +1041,43 @@ void keymove(float V)
 	changeentityproperty(self, "velocity", xdir, zdir);
 }
 
+void keymoveall(float V)
+{// Move if direction button is pressed by any player
+      void self = getlocalvar("self");
+	float xdir = 0;
+	float zdir = 0;
+
+      if (playerkeys(0, 0, "moveleft")){// Left is pressed?
+	  xdir = -V;
+	} else if(playerkeys(0, 0, "moveright")){// Right is pressed?
+	  xdir = V;
+	} else if(playerkeys(1, 0, "moveleft")){// Right is pressed?
+	  xdir = -V;
+	} else if(playerkeys(1, 0, "moveright")){// Right is pressed?
+	  xdir = V;
+	} else if(playerkeys(2, 0, "moveleft")){// Right is pressed?
+	  xdir = -V;
+	} else if(playerkeys(2, 0, "moveright")){// Right is pressed?
+	  xdir = V;
+	}
+	  
+	if(playerkeys(0, 0, "moveup")){// Up is pressed?
+	  zdir = -V/2;
+	} else if(playerkeys(0, 0, "movedown")){// Down is pressed?
+	  zdir = V/2;
+	} else if(playerkeys(1, 0, "moveup")){// Down is pressed?
+	  zdir = -V/2;
+	} else if(playerkeys(1, 0, "movedown")){// Down is pressed?
+	  zdir = V/2;
+	} else if(playerkeys(2, 0, "moveup")){// Down is pressed?
+	  zdir = -V/2;
+	} else if(playerkeys(2, 0, "movedown")){// Down is pressed?
+	  zdir = V/2;
+	}
+
+	changeentityproperty(self, "velocity", xdir, zdir);
+}
+
 
 void keychild(float V)
 {// Move hero if direction button is pressed
@@ -965,15 +1108,21 @@ void keywlk(float V)
       void self = getlocalvar("self");
       int iPIndex = getentityproperty(self,"playerindex"); //Get player index
 	float xdir = 0;
+	float zdir = 0;
 
       if (playerkeys(iPIndex, 0, "moveleft")){// Left is pressed?
 	  xdir = -V;
 	} else if(playerkeys(iPIndex, 0, "moveright")){// Right is pressed?
 	  xdir = V;
       }
+	if(playerkeys(iPIndex, 0, "moveup")){// Up is pressed?
+	  zdir = -V/2;
+	} else if(playerkeys(iPIndex, 0, "movedown")){// Down is pressed?
+	  zdir = V/2;
+      }
 
+	changeentityproperty(self, "velocity", xdir, zdir);
 
-	changeentityproperty(self, "velocity", xdir);
 }
 
 
@@ -1002,6 +1151,8 @@ void spawn01(void vName, float fX, float fY, float fZ)
 
 	changeentityproperty(vSpawn, "position", fX, fZ, fY); //Set spawn location.
 	changeentityproperty(vSpawn, "direction", iDirection); //Set direction.
+	changeentityproperty(vSpawn, "owner", self); //Set owner for hitpoints
+	
     
 	return vSpawn; //Return spawn.
 }
@@ -1031,6 +1182,7 @@ void spawnChild4(void vName, float fX, float fY, float fZ)
 	changeentityproperty(vSpawn, "parent", self);
 	changeentityproperty(vSpawn, "position", fX, fZ, fY); //Set spawn location.
 	changeentityproperty(vSpawn, "direction", iDirection); //Set direction.
+	changeentityproperty(vSpawn, "owner", self); //Set owner for hitpoints
     
 	return vSpawn; //Return spawn.
 }
@@ -1052,6 +1204,7 @@ void spawn02(void vName, float fX, float fY, float fZ)
 
 	vSpawn = spawn(); //Spawn in entity.
 	changeentityproperty(vSpawn, "position", fX + XPos, fZ + YPos, fY);
+	changeentityproperty(vSpawn, "owner", self); //Set owner for hitpoints
 	return vSpawn; //Return spawn.
 }
 
@@ -1087,6 +1240,7 @@ void spawn03(void vName, float fX, float fY, float fZ, int Face)
 
 	changeentityproperty(vSpawn, "position", fX, fZ, fY, Face); //Set spawn location.
 	changeentityproperty(vSpawn, "direction", MDir); //Set direction.
+	changeentityproperty(vSpawn, "owner", self); //Set owner for hitpoints
     
 	return vSpawn; //Return spawn.
 }
@@ -1109,6 +1263,7 @@ void spawn05(void vName, int Tx, int Ty, int Tz)
 
 	vSpawn = spawn(); //Spawn in entity.
 	changeentityproperty(vSpawn, "position", Tx, Tz, Ty); //Set spawn location.
+	changeentityproperty(vSpawn, "owner", self); //Set owner for hitpoints
 	return vSpawn; //Return spawn.
 }
 
@@ -1129,6 +1284,7 @@ void spawn06(void vName, int Tx, int Ty, int Tz, void Ani)
 
 	vSpawn = spawn(); //Spawn in entity.
 	changeentityproperty(vSpawn, "position", Tx, Tz, Ty); //Set spawn location.
+	changeentityproperty(vSpawn, "owner", self); //Set owner for hitpoints	
     	performattack(vSpawn, openborconstant(Ani));
 	return vSpawn; //Return spawn.
 }
@@ -1155,6 +1311,7 @@ void spawnAni(void vName, float fX, float fY, float fZ, void Ani)
 	 vSpawn = spawn(); //Spawn in entity.
 	 changeentityproperty(vSpawn, "position", fX, fZ, fY); //Set spawn location.
 	 changeentityproperty(vSpawn, "direction", iDirection); //Set direction.
+	 changeentityproperty(vSpawn, "owner", self); //Set owner for hitpoints
     	 performattack(vSpawn, openborconstant(Ani)); 
 	 return vSpawn; //Return spawn.
 }
@@ -1179,6 +1336,7 @@ void spawnChild6(void vName, float fX, float fY, float fZ, void Ani)
 	
 	 vSpawn = spawn(); //Spawn in entity.
 	 changeentityproperty(vSpawn, "parent", self);
+	 changeentityproperty(vSpawn, "owner", self); //Set owner for hitpoints	 
 	 changeentityproperty(vSpawn, "position", fX, fZ, fY); //Set spawn location.
 	 changeentityproperty(vSpawn, "direction", iDirection); //Set direction.
     	 performattack(vSpawn, openborconstant(Ani)); 
@@ -1227,6 +1385,7 @@ void spawnAni3(void vName, float fX, float fY, float fZ, void Ani)
 	vSpawn = spawn(); //Spawn in entity.
 
 	changeentityproperty(vSpawn, "position", fX + XPos, fZ + YPos, fY); //Set spawn location.
+	changeentityproperty(vSpawn, "owner", self); //Set owner for hitpoints
     	performattack(vSpawn, openborconstant(Ani));
 	return vSpawn; //Return spawn.
 }
@@ -1249,6 +1408,7 @@ void spawnChild2(void vName, float fX, float fY, float fZ, void Ani)
 	vSpawn = spawn(); //Spawn in entity.
 	changeentityproperty(vSpawn, "parent", self);
 	changeentityproperty(vSpawn, "position", fX + XPos, fZ + YPos, fY); //Set spawn location.
+	changeentityproperty(vSpawn, "owner", self); //Set owner for hitpoints
     	performattack(vSpawn, openborconstant(Ani));
 	return vSpawn; //Return spawn.
 }
@@ -1270,6 +1430,7 @@ void spawnAni4(void vName, int Tx, int Ty, int Tz, void Ani)
 
 	vSpawn = spawn(); //Spawn in entity.
 	changeentityproperty(vSpawn, "position", Tx, Tz, Ty); //Set spawn location.
+	changeentityproperty(vSpawn, "owner", self); //Set owner for hitpoints
     	performattack(vSpawn, openborconstant(Ani));
 	return vSpawn; //Return spawn.
 }
@@ -1362,6 +1523,8 @@ void shoot(void Shot, float dx, float dy, float dz)
    }
 
    vShot = projectile(Shot, x+dx, z+dz, y+dy, Direction, 0, 0, 0);
+   changeentityproperty(vShot, "owner", self); //Set owner for hitpoints
+
    return vShot;
 }
 
@@ -1398,6 +1561,7 @@ void toss(void Bomb, float dx, float dy, float dz)
    }
 
    projectile(Bomb, x+dx, z+dz, y+dy, Direction, 0, 1, 0);
+   changeentityproperty(Bomb, "owner", self); //Set owner for hitpoints
 }
 
 
@@ -1583,6 +1747,25 @@ void attack1(int RxMin, int RxMax, int Rz, void Ani)
     }
 }
 
+
+
+void tosser(void Bomb, float dx, float dy, float dz, float Vx, float Vy, float Vz)
+{ // Tossing bomb with desired speed
+   void self = getlocalvar("self");
+   int Direction = getentityproperty(self, "direction");
+   int x = getentityproperty(self, "x");
+   int y = getentityproperty(self, "a");
+   int z = getentityproperty(self, "z");
+   void Shot;
+
+   if (Direction == 0){ //Is entity facing left?                  
+      dx = -dx; //Reverse X direction to match facing
+   }
+
+   Shot = projectile(Bomb, x+dx, z+dz, y+dy, Direction, 0, 1, 0);
+   tossentity(Shot, Vy, Vx, Vz);
+   changeentityproperty(Shot, "speed", Vx); 
+}
 
 
 

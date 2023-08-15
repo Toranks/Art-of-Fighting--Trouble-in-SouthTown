@@ -76,10 +76,12 @@ void main()
 	if(anim == openborconstant("ANI_RUN") && frame >= 0 && playerkeys(plyr, 1, "special") && (mana>=101))
 	{
 	performattack(self, openborconstant("ANI_FREESPECIAL6"));
-	changeentityproperty(self, "mp", mana-100);
+	changeentityproperty(self, "mp", mana-20);
 	}
 }
 	@end_script	
+		
+		
 		
 		
 		
@@ -804,45 +806,32 @@ anim	follow2
 	@cmd	position 12 30 75 -1 1
 	frame	data/chars/3remuinho/1grab05.gif
 	delay	2
-	
 	@cmd	position 14 35 50 -1 -1
 	frame	data/chars/3remuinho/1grab08.gif
-	
 	@cmd	position 14 35 50 -1 -1
 	frame	data/chars/3remuinho/1grab08.gif
-	
 	@cmd	position 14 35 50 -1 -1
 	frame	data/chars/3remuinho/1grab08.gif
 	@cmd	spawn01 "qfx" 35 1 1
 	sound	data/sounds/fall.wav
-	
 	@cmd	position 14 35 50 -1 -1
 	frame	data/chars/3remuinho/1grab08.gif
-	
 	@cmd	position 14 35 50 -1 -1
 	frame	data/chars/3remuinho/1grab08.gif
-	
 	@cmd	position 14 35 50 -1 -1
 	frame	data/chars/3remuinho/1grab08.gif
-	
 	@cmd	position 15 35 50 -1 -1
 	frame	data/chars/3remuinho/1grab09.gif
-	
 	@cmd	position 15 35 50 -1 -1
 	frame	data/chars/3remuinho/1grab09.gif
-	
 	@cmd	position 15 35 50 -1 -1
 	frame	data/chars/3remuinho/1grab09.gif
-	
 	@cmd	position 15 35 50 -1 -1
 	frame	data/chars/3remuinho/1grab09.gif
-	
 	@cmd	position 15 35 50 -1 -1
 	frame	data/chars/3remuinho/1grab09.gif
-	
 	@cmd	position 15 35 50 -1 -1
 	frame	data/chars/3remuinho/1grab09.gif
-	
 	@cmd	position 15 35 50 1 -1
 	frame	data/chars/3remuinho/1grab09.gif
 	attack	0 0 0 0
@@ -1012,6 +1001,7 @@ anim	follow5
 	fastattack	1
 	@cmd	slamstart3
 	@cmd	position 5 85 50 1 -1
+	@cmd	mpgain -80
 	frame	data/chars/3remuinho/2grab01.gif
 	delay	12
 	@cmd	position 0 100 60 1 -1
@@ -1446,7 +1436,7 @@ anim	freespecial15
 	frame	data/chars/3remuinho/idle01.gif
 	frame	data/chars/3remuinho/idle02.gif
 	frame	data/chars/3remuinho/idle04.gif
-	@cmd	spawnChild3 "toturi3" 1 1 1 "ANI_FOLLOW14"
+	@cmd	spawnChild2 "toturi3" 1 1 1 "ANI_FOLLOW14"
 	frame	data/chars/3remuinho/idle04.gif
 	frame	data/chars/3remuinho/idle04.gif
 	frame	data/chars/3remuinho/idle02.gif
@@ -1630,55 +1620,38 @@ anim	freespecial5
 	@cmd	position 13 20 65 -1 -1
 	frame	data/chars/3remuinho/3grab02.gif
 	delay	2
-	
 	@cmd	position 0 20 115 -1 1
 	frame	data/chars/3remuinho/3grab03.gif
-	
 	@cmd	position 0 20 115 -1 1
 	frame	data/chars/3remuinho/3grab03.gif
-	
 	@cmd	position 0 20 115 -1 1
 	frame	data/chars/3remuinho/3grab03.gif
-	
 	@cmd	position 0 20 115 -1 1
 	frame	data/chars/3remuinho/3grab03.gif
-	
 	@cmd	position 0 20 115 -1 1
 	frame	data/chars/3remuinho/3grab03.gif
-	
 	@cmd	position 1 -10 120 -1 1
 	frame	data/chars/3remuinho/3grab04.gif
-	
 	@cmd	position 1 -10 120 -1 1
 	frame	data/chars/3remuinho/3grab04.gif
-	
 	@cmd	position 1 -10 120 -1 1
 	frame	data/chars/3remuinho/3grab04.gif
-	
 	@cmd	position 1 -10 120 -1 1
 	frame	data/chars/3remuinho/3grab04.gif
-	
 	@cmd	position 1 -10 120 -1 1
 	frame	data/chars/3remuinho/3grab04.gif
-	
 	@cmd	position 2 -40 70 -1 1
 	frame	data/chars/3remuinho/3grab05.gif
-	
 	@cmd	position 2 -40 70 -1 1
 	frame	data/chars/3remuinho/3grab05.gif
-	
 	@cmd	position 2 -40 70 -1 1
 	frame	data/chars/3remuinho/3grab05.gif
-	
 	@cmd	position 2 -40 70 -1 1
 	frame	data/chars/3remuinho/3grab05.gif
-	
 	@cmd	position 2 -40 70 -1 1
 	frame	data/chars/3remuinho/3grab05.gif
-	
 	@cmd	position 2 -40 70 -1 1
 	frame	data/chars/3remuinho/3grab05.gif
-	
 	@cmd	position 2 -30 70 -1 1
 	frame	data/chars/3remuinho/3grab05.gif
 	@cmd	depost 0
@@ -1696,7 +1669,7 @@ anim	freespecial5
 	frame	data/chars/3remuinho/rise4.gif
 		
 anim	freespecial6
-	energycost	100
+	energycost	20
 	mponly	1
 	loop	0
 	delay	8
@@ -1907,28 +1880,20 @@ anim	grabbackward
 	frame	data/chars/3remuinho/4grab05.gif
 	@cmd	spawn01 "dust" -30 1 2
 	delay	2
-	
 	@cmd	position 15 -35 50 -1 -1
 	frame	data/chars/3remuinho/4grab06.gif #5
-	
 	@cmd	position 15 -35 50 -1 -1
 	frame	data/chars/3remuinho/4grab06.gif
-	
 	@cmd	position 15 -35 50 -1 -1
 	frame	data/chars/3remuinho/4grab06.gif
-	
 	@cmd	position 15 -35 50 -1 -1
 	frame	data/chars/3remuinho/4grab06.gif
-	
 	@cmd	position 15 -35 50 -1 -1
 	frame	data/chars/3remuinho/4grab06.gif
-	
 	@cmd	position 15 -35 50 -1 -1
 	frame	data/chars/3remuinho/4grab06.gif
-	
 	@cmd	position 15 -35 50 -1 -1
 	frame	data/chars/3remuinho/4grab06.gif
-	
 	@cmd	position 15 -35 50 1 -1
 	frame	data/chars/3remuinho/4grab06.gif
 	attack	0 0 0 0
@@ -2446,5 +2411,5 @@ anim	walkoff
 	bbox	98 87 35 47
 	frame	data/chars/3remuinho/fall12.gif
 		
-#|edited by openBor Stats v 0.53
+#|edited by openBor Stats v 0.67
 		

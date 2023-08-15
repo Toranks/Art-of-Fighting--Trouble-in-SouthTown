@@ -179,6 +179,10 @@ void main()
 		
 		
 		
+		
+		
+		
+		
 anim	attack1
 	range	0 200
 	rangez	-25 25
@@ -908,27 +912,22 @@ anim	follow2
 	@cmd	airgo 3
 	landframe	3 dust
 	@cmd	slamstart3
-	
 	@cmd	position 5 50 70 -1 -1
 	frame	data/chars/3mrkarate/6grab01.gif
 	delay	15
-	
 	@cmd	position 1 15 95 -1 -1
 	frame	data/chars/3mrkarate/6grab02.gif
 	sound	data/sounds/mrkarat07.wav
 	@cmd	airgo -2
 	delay	350
-	
 	@cmd	position 14 40 70 1 -1
 	attack	90 135 95 40 5 1 1 0 30 10
 	dropv	3 4 0
 	frame	data/chars/3mrkarate/6grab03.gif
 	delay	15
-	
 	@cmd	position 15 40 40 1 -1
 	frame	data/chars/3mrkarate/6grab04.gif
 	@cmd	spawn01 "qfx" 60 1 1
-	
 	@cmd	position 14 40 50 1 -1
 	frame	data/chars/3mrkarate/6grab05.gif
 	@cmd	depost 0
@@ -947,29 +946,23 @@ anim	follow4
 	@cmd	airgo 4
 	landframe	4 dust
 	@cmd	slamstart3
-	
 	@cmd	position 12 30 80 -1 1
 	frame	data/chars/3mrkarate/4grab07.gif
 	delay	15
 	offset	110 170
-	
 	@cmd	position 3 30 60 -1 1
 	frame	data/chars/3mrkarate/4grab08.gif
 	sound	data/sounds/mrkarat07.wav
 	offset	115 171
-	
 	@cmd	position 15 10 50 -1 -1
 	frame	data/chars/3mrkarate/4grab10.gif
 	delay	300
-	
 	@cmd	position 14 10 50 -1 -1
 	frame	data/chars/3mrkarate/4grab11.gif
 	delay	12
 	@cmd	spawn01 "qfx" 40 1 1
-	
 	@cmd	position 15 10 50 -1 -1
 	frame	data/chars/3mrkarate/4grab12.gif #4
-	
 	@cmd	position 14 10 50 -1 -1
 	frame	data/chars/3mrkarate/4grab13.gif
 	@cmd	depost 0
@@ -993,50 +986,37 @@ anim	follow5
 	@cmd	airgo 4
 	landframe	8 dust
 	@cmd	slamstart3
-	
 	@cmd	position 13 30 40 -1 -1
 	frame	data/chars/3mrkarate/4grab07.gif
 	delay	10
-	
 	@cmd	position 5 35 65 -1 1
 	frame	data/chars/3mrkarate/7grab01.gif
 	sound	data/sounds/mrkarat07.wav
-	
 	@cmd	position 13 20 50 -1 1
 	frame	data/chars/3mrkarate/7grab02.gif
-	
 	@cmd	position 5 -10 70 -1 -1
 	frame	data/chars/3mrkarate/7grab03.gif
 	offset	100 178
-	
 	@cmd	position 0 0 75 -1 -1
 	frame	data/chars/3mrkarate/7grab04.gif
-	
 	@cmd	position 2 20 75 -1 -1
 	frame	data/chars/3mrkarate/7grab05.gif
-	
 	@cmd	position 12 30 65 -1 1
 	frame	data/chars/3mrkarate/7grab06.gif
 	delay	300
-	
 	@cmd	position 14 35 60 -1 1
 	frame	data/chars/3mrkarate/7grab07.gif
 	delay	7
-	
 	@cmd	position 15 25 50 -1 1
 	frame	data/chars/3mrkarate/7grab14.gif #8
 	@cmd	spawn01 "qfx" 30 1 1
-	
 	@cmd	position 14 25 50 -1 1
 	frame	data/chars/3mrkarate/7grab15.gif
-	
 	@cmd	position 15 25 50 -1 1
 	frame	data/chars/3mrkarate/7grab14.gif
-	
 	@cmd	position 14 25 50 -1 1
 	frame	data/chars/3mrkarate/7grab13.gif
 	delay	6
-	
 	@cmd	position 15 25 50 -1 1
 	frame	data/chars/3mrkarate/7grab08.gif
 	@cmd	depost 0
@@ -1067,6 +1047,27 @@ anim	follow6
 	@cmd	slamstart3
 	@cmd	position 10 40 50 -1 -1
 	frame	data/chars/3mrkarate/2grab01.gif
+	@script
+	void player1 = getplayerproperty(0, "entity"); //IDENTIFY PLAYER 1
+	void player2 = getplayerproperty(1, "entity"); //IDENTIFY PLAYER 2
+	void player3 = getplayerproperty(2, "entity"); //IDENTIFY PLAYER 3
+	int eTime = openborvariant("elapsed_time");
+	if (frame == 1)
+	{
+	if(player1 != NULL()){
+	changeentityproperty(player1, "invincible", 1);
+	changeentityproperty(player1, "invinctime", eTime + 1500);
+		 }
+	if(player2 != NULL()){
+	changeentityproperty(player2, "invincible", 1);
+	changeentityproperty(player2, "invinctime", eTime + 1500);
+		}
+	if(player3 != NULL()){
+	changeentityproperty(player3, "invincible", 1);
+	changeentityproperty(player3, "invinctime", eTime + 1500);
+		}
+	}
+	@end_script	
 	delay	9
 	@cmd	position 10 40 50 -1 -1
 	frame	data/chars/3mrkarate/2grab01.gif
@@ -2010,6 +2011,7 @@ anim	freespecial13
 	delay	7
 	offset	100 189
 	bbox	79 70 50 50
+	cancel	3 7 0 a freespecial14
 	cancel	3 7 0 j freespecial14
 	cancel	3 7 0 s freespecial20
 	cancel	3 7 0 d s freespecial21
@@ -2043,6 +2045,7 @@ anim	freespecial14
 	delay	5
 	offset	100 189
 	bbox	79 70 50 50
+	cancel	6 10 0 a freespecial15
 	cancel	6 10 0 j freespecial15
 	cancel	6 10 0 s freespecial20
 	cancel	6 10 0 d s freespecial21
@@ -2077,6 +2080,7 @@ anim	freespecial15
 	delay	5
 	offset	100 189
 	bbox	79 70 50 50
+	cancel	5 9 0 a freespecial16
 	cancel	5 9 0 j freespecial16
 	cancel	5 9 0 s freespecial20
 	cancel	5 9 0 d s freespecial21
@@ -2597,7 +2601,7 @@ anim	freespecial28
 	frame	data/chars/3mrkarate/spawn36.gif
 	frame	data/chars/3mrkarate/spawn37.gif
 	frame	data/chars/3mrkarate/spawn38.gif
-	@cmd	spawnChild2  "toturi3" 1 1 1 "ANI_FOLLOW13"
+	@cmd	spawnChild2 "toturi3" 1 1 1 "ANI_FOLLOW13"
 	frame	data/chars/3mrkarate/spawn39.gif
 	frame	data/chars/3mrkarate/spawn40.gif
 		
@@ -3108,19 +3112,14 @@ anim	grabbackward
 	frame	data/chars/3mrkarate/2grab25.gif
 	@cmd	position 0 10 65 -1 -1
 	frame	data/chars/3mrkarate/2grab24.gif
-	
 	@cmd	position 0 10 65 -1 -1
 	frame	data/chars/3mrkarate/2grab24.gif
-	
 	@cmd	position 0 5 70 -1 -1
 	frame	data/chars/3mrkarate/2grab24.gif
-	
 	@cmd	position 0 0 75 -1 -1
 	frame	data/chars/3mrkarate/2grab24.gif
-	
 	@cmd	position 0 -1 80 -1 -1
 	frame	data/chars/3mrkarate/2grab24.gif
-	
 	@cmd	position 0 -1 50 -1 -1
 	frame	data/chars/3mrkarate/2grab24.gif
 	move	0
@@ -3234,13 +3233,10 @@ anim	grabforward
 	frame	data/chars/3mrkarate/2grab02.gif
 	delay	12
 	@cmd	slamstart
-	
 	@cmd	position 13 -20 40 -1 1
 	frame	data/chars/3mrkarate/5grab01.gif
-	
 	@cmd	position 0 0 70 -1 -1
 	frame	data/chars/3mrkarate/5grab02.gif
-	
 	@cmd	position 1 35 85 -1 -1
 	frame	data/chars/3mrkarate/5grab03.gif
 	@cmd	depost 0
@@ -3326,6 +3322,7 @@ anim	jumpattack
 	delay	5
 	offset	100 189
 	bbox	79 70 50 50
+	cancel	1 8 1 a freespecial13
 	cancel	1 8 0 j freespecial13
 	cancel	1 8 0 s freespecial20
 	cancel	1 8 0 d s freespecial21
@@ -3826,5 +3823,5 @@ anim	walk
 	frame	data/chars/3mrkarate/wk05.gif
 	frame	data/chars/3mrkarate/wk06.gif
 		
-#|edited by openBor Stats v 0.53
+#|edited by openBor Stats v 0.67
 		

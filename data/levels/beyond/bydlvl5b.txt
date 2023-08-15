@@ -52,24 +52,23 @@ coords  -500 515 350
 at      0
 #----------------------------------
 spawn   byoevl1
-@script
-void main()
-{
-	void player1 = getplayerproperty(0, "entity"); //IDENTIFY PLAYER 1
-	void player2 = getplayerproperty(1, "entity"); //IDENTIFY PLAYER 2
-	void player3 = getplayerproperty(2, "entity"); //IDENTIFY PLAYER 3
+@script void main() {
+	void player1 = getplayerproperty(0, "entity");
+	void player2 = getplayerproperty(1, "entity");
+	void player3 = getplayerproperty(2, "entity");
+	
 	if(player1 != NULL() && player2 != NULL() && player3 != NULL()){
-		setglobalvar("maxRush2", getglobalvar("maxRush1"));
-		setglobalvar("maxRush3", getglobalvar("maxRush1"));
+		setglobalvar("maxRush2", getlocalvar("maxRush1"));
+		setglobalvar("maxRush3", getlocalvar("maxRush1"));
 	}
-	if(player1 != NULL() && player2 != NULL() && player3 = NULL()){
-		setglobalvar("maxRush2", getglobalvar("maxRush1"));
+	if(player1 != NULL() && player2 != NULL() && player3 == NULL()){
+		setglobalvar("maxRush2", getlocalvar("maxRush1"));
 	}
-	if(player1 = NULL() && player2 != NULL() && player3 != NULL()){
-		setglobalvar("maxRush3", getglobalvar("maxRush2"));
+	if(player1 == NULL() && player2 != NULL() && player3 != NULL()){
+		setglobalvar("maxRush3", getlocalvar("maxRush2"));
 	}
-	if(player1 != NULL() && player2 = NULL() && player3 != NULL()){
-		setglobalvar("maxRush3", getglobalvar("maxRush1"));
+	if(player1 != NULL() && player2 == NULL() && player3 != NULL()){
+		setglobalvar("maxRush3", getlocalvar("maxRush1"));
 	}
 }
 @end_script

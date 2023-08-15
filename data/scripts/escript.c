@@ -314,22 +314,18 @@ void slamstart()
 void slamstart2()
 { // Slam Starter for nongrab slams
 // Use finish or throw after using this
-   void self = getlocalvar("self");
-   void target = getlocalvar("Target" + self);
+  void self = getlocalvar("self");
+  void target = getentityproperty(self, "opponent");
 
-   if(target==NULL())
-   {
-    target = getentityproperty(self, "opponent");
-	if(target == NULL() || getentityproperty(target, "dead") == 1){
-		setidle(self);
-	}else{
+  if(target == NULL() || getentityproperty(target, "dead") == 1){
+    setidle(self);
+  } else{
     setlocalvar("Target" + self, target);
-   }
- }  
-   if(target!=NULL())
-   {
-     damageentity(target, self, 0, 1, openborconstant("ATK_NORMAL7")); // Slam Starter
-   }
+  }
+
+  if(target!=NULL()){
+    damageentity(target, self, 0, 1, openborconstant("ATK_NORMAL7")); // Slam Starter
+  }
 }
 
 
@@ -2502,6 +2498,22 @@ else if(PHealth<=85 && aggro == 30){performattack(self,openborconstant("ANI_FOLL
 }
 
 
+void jonydam2()
+{ 
+    void self = getlocalvar("self");
+    int MHealth = getentityproperty(self,"maxhealth"); //get max hp
+    int PHealth = 100*getentityproperty(self,"health")/MHealth; //work out hp percentage
+    float aggro = getentityproperty(self, "aggression"); 
+
+if(PHealth<=35 && aggro == 80){performattack(self, openborconstant("ANI_FOLLOW17"));
+ }
+else if(PHealth<=65 && aggro == 70){performattack(self,openborconstant("ANI_FOLLOW16"));
+ }
+else if(PHealth<=85 && aggro == 30){performattack(self,openborconstant("ANI_FOLLOW12"));
+ }
+}
+
+
 
 void damchg()
 { 
@@ -2545,11 +2557,11 @@ void damchg3()
     int PHealth = 100*getentityproperty(self,"health")/MHealth; //work out hp percentage
     float aggro = getentityproperty(self, "aggression"); 
 
-if(PHealth<=50 && aggro == 70){performattack(self, openborconstant("ANI_FOLLOW17"));
+if(PHealth<=25 && aggro == 70){performattack(self, openborconstant("ANI_FOLLOW17"));
  }
-else if(PHealth<=70 && aggro == 50){performattack(self,openborconstant("ANI_FOLLOW16"));
+else if(PHealth<=50 && aggro == 50){performattack(self,openborconstant("ANI_FOLLOW16"));
  }
-else if(PHealth<=90 && aggro == 30){performattack(self,openborconstant("ANI_FOLLOW15"));
+else if(PHealth<=75 && aggro == 30){performattack(self,openborconstant("ANI_FOLLOW15"));
  }
 }
 

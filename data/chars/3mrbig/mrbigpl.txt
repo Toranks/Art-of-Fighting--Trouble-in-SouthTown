@@ -148,6 +148,7 @@ load	pwblow
 
 
 
+
 anim	attack1
 	range	0 200
 	rangez	-25 25
@@ -762,28 +763,20 @@ anim	follow1
 	@cmd	looper 36 4
 	delay	2
 	sound	data/sounds/grab.wav
-	
 	@cmd	position 6 -20 120 -1 -1
 	frame	data/chars/3Mrbig/sp13.gif
-	
 	@cmd	position 6 -20 120 -1 -1
 	frame	data/chars/3Mrbig/sp13.gif
-	
 	@cmd	position 6 -20 120 -1 -1
 	frame	data/chars/3Mrbig/sp13.gif
-	
 	@cmd	position 6 -20 120 -1 -1
 	frame	data/chars/3Mrbig/sp13.gif
-	
 	@cmd	position 6 -20 120 -1 -1
 	frame	data/chars/3Mrbig/sp13.gif
-	
 	@cmd	position 6 -20 120 -1 -1
 	frame	data/chars/3Mrbig/sp13.gif
-	
 	@cmd	position 6 -20 120 -1 -1
 	frame	data/chars/3Mrbig/sp13.gif
-	
 	@cmd	position 6 -20 120 -1 -1
 	frame	data/chars/3Mrbig/sp13.gif
 	delay	16
@@ -915,6 +908,27 @@ anim	follow2
 	bbox	0 0 0 0
 	staydown	1300 1300
 	@cmd	stop
+	@script
+	void player1 = getplayerproperty(0, "entity"); //IDENTIFY PLAYER 1
+	void player2 = getplayerproperty(1, "entity"); //IDENTIFY PLAYER 2
+	void player3 = getplayerproperty(2, "entity"); //IDENTIFY PLAYER 3
+	int eTime = openborvariant("elapsed_time");
+	if (frame == 1)
+	{
+	if(player1 != NULL()){
+	changeentityproperty(player1, "invincible", 1);
+	changeentityproperty(player1, "invinctime", eTime + 1500);
+		 }
+	if(player2 != NULL()){
+	changeentityproperty(player2, "invincible", 1);
+	changeentityproperty(player2, "invinctime", eTime + 1500);
+		}
+	if(player3 != NULL()){
+	changeentityproperty(player3, "invincible", 1);
+	changeentityproperty(player3, "invinctime", eTime + 1500);
+		}
+	}
+	@end_script	
 	@cmd	slamstart3
 	@cmd	position 10 40 50 -1 -1
 	frame	data/chars/3Mrbig/a127a.gif
@@ -1036,25 +1050,18 @@ anim	follow2
 	frame	data/chars/3Mrbig/zbrk10.gif
 	sound	data/sounds/beat4.wav
 	delay	2
-	
 	@cmd	position 10 20 110 -1 -1
 	frame	data/chars/3Mrbig/zbrk10.gif
-	
 	@cmd	position 10 20 110 -1 -1
 	frame	data/chars/3Mrbig/zbrk10.gif
-	
 	@cmd	position 10 20 110 -1 -1
 	frame	data/chars/3Mrbig/zbrk10.gif
-	
 	@cmd	position 10 20 110 -1 -1
 	frame	data/chars/3Mrbig/zbrk10.gif
-	
 	@cmd	position 10 20 110 -1 -1
 	frame	data/chars/3Mrbig/zbrk10.gif
-	
 	@cmd	position 10 20 110 -1 -1
 	frame	data/chars/3Mrbig/zbrk10.gif
-	
 	@cmd	position 10 20 110 -1 -1
 	frame	data/chars/3Mrbig/zbrk10.gif
 	delay	15
@@ -1493,49 +1500,35 @@ anim	freespecial3
 	frame	data/chars/3Mrbig/c09.gif
 	delay	2
 	sound	data/sounds/fall.wav
-	
 	@cmd	position 15 65 50 -1 1
 	frame	data/chars/3Mrbig/c10.gif
-	
 	@cmd	position 15 65 50 -1 1
 	frame	data/chars/3Mrbig/c10.gif
-	
 	@cmd	position 15 65 50 -1 1
 	frame	data/chars/3Mrbig/c10.gif
-	
 	@cmd	position 15 65 50 -1 1
 	frame	data/chars/3Mrbig/c10.gif
-	
 	@cmd	position 15 65 50 -1 1
 	attack	110 130 90 60 12 1 1 1 20 20
 	frame	data/chars/3Mrbig/c10.gif
-	
 	@cmd	position 15 65 50 -1 1
 	frame	data/chars/3Mrbig/c10.gif
-	
 	@cmd	position 15 65 50 -1 1
 	frame	data/chars/3Mrbig/c10.gif
 	@cmd	spawn01 "qfx" 50 1 1
 	attack	0 0 0 0
-	
 	@cmd	position 14 65 50 -1 1
 	frame	data/chars/3Mrbig/c10.gif
-	
 	@cmd	position 14 65 50 -1 1
 	frame	data/chars/3Mrbig/c10.gif
-	
 	@cmd	position 14 65 50 -1 1
 	frame	data/chars/3Mrbig/c10.gif
-	
 	@cmd	position 14 65 50 -1 1
 	frame	data/chars/3Mrbig/c10.gif
-	
 	@cmd	position 14 65 50 -1 1
 	frame	data/chars/3Mrbig/c10.gif
-	
 	@cmd	position 14 65 50 -1 1
 	frame	data/chars/3Mrbig/c10.gif
-	
 	@cmd	position 14 65 50 -1 1
 	frame	data/chars/3Mrbig/c10.gif
 	delay	15
@@ -1626,61 +1619,48 @@ anim	freespecial5
 	delay	6
 	@cmd	keymove 1.1
 	sound	data/sounds/mbig6.wav
-	
 	@cmd	position 3 -5 65 1 -1
 	frame	data/chars/3Mrbig/crs31.gif
 	sound	data/sounds/punch2.wav
-	
 	@cmd	position 1 50 100 -1 -1
 	frame	data/chars/3Mrbig/crs32.gif
 	attack	100 80 140 65 15 1 0 1 15 30
-	
 	@cmd	position 2 60 110 -1 -1
 	frame	data/chars/3Mrbig/crs33.gif
 	attack	0 0 0 0
 	@cmd	keymove 1.1
-	
 	@cmd	position 5 -5 85 -1 1
 	frame	data/chars/3Mrbig/crs34.gif
 	sound	data/sounds/punch2.wav
 	attack	-20 85 120 65 15 1 0 1 15 30
-	
 	@cmd	position 1 -90 100 -1 1
 	frame	data/chars/3Mrbig/crs35.gif
 	attack	0 0 0 0
 	@cmd	keymove 1.1
-	
 	@cmd	position 2 -50 90 1 1
 	frame	data/chars/3Mrbig/crs36.gif
-	
 	@cmd	position 3 -5 65 1 -1
 	frame	data/chars/3Mrbig/crs31.gif
 	sound	data/sounds/punch2.wav
-	
 	@cmd	position 1 50 100 -1 -1
 	frame	data/chars/3Mrbig/crs32.gif
 	attack	100 80 140 65 15 1 0 1 15 30
-	
 	@cmd	position 2 60 110 -1 -1
 	frame	data/chars/3Mrbig/crs33.gif
 	attack	0 0 0 0
 	@cmd	keymove 1.1
-	
 	@cmd	position 5 -5 85 -1 1
 	frame	data/chars/3Mrbig/crs34.gif
 	sound	data/sounds/punch2.wav
 	attack	-20 85 120 65 15 1 0 1 15 30
-	
 	@cmd	position 1 -90 100 -1 1
 	frame	data/chars/3Mrbig/crs35.gif
 	attack	0 0 0 0
 	@cmd	keymove 1.1
-	
 	@cmd	position 2 -50 90 1 1
 	frame	data/chars/3Mrbig/crs36.gif
 	@cmd	looper 7 5
 	delay	2
-	
 	@cmd	position 2 0 90 1 1
 	@cmd	stop
 	frame	data/chars/3Mrbig/crs37.gif
@@ -2055,16 +2035,12 @@ anim	grabbackward
 	@cmd	position 0 0 110 -1 1
 	frame	data/chars/3Mrbig/sp13.gif
 	delay	2
-	
 	@cmd	position 1 -15 95 -1 1
 	frame	data/chars/3Mrbig/sp14.gif
-	
 	@cmd	position 1 -15 95 -1 1
 	frame	data/chars/3Mrbig/sp14.gif
-	
 	@cmd	position 1 -15 95 -1 1
 	frame	data/chars/3Mrbig/sp14.gif
-	
 	@cmd	position 1 -15 95 -1 1
 	frame	data/chars/3Mrbig/sp14.gif
 	@cmd	position 1 -15 95 -1 1
@@ -2520,5 +2496,5 @@ anim	walkoff
 	bbox	82 66 37 90
 	frame	data/chars/3Mrbig/jump05.gif
 		
-#|edited by openBor Stats v 0.53
+#|edited by openBor Stats v 0.67
 		

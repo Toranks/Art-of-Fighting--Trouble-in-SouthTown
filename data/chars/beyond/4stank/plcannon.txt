@@ -11,7 +11,7 @@ subject_to_platform 0
 subject_to_gravity 0
 subject_to_wall 0
 
-animationscript data/scripts/escript.c
+animationscript data/scripts/grabscript.c
 
 load	plrocket1
 load	explosion2
@@ -33,38 +33,13 @@ void main()
 @end_script
 
 
-#-----------------//--------CANNON-FRONT---//----------------
 
-anim	idle
-@script
-	void self = getlocalvar("self");
-	void daddy2 = getentityproperty(self,"parent");
-	void plyr = getentityproperty(daddy2, "playerindex");
 
-	if(frame >= 0 && frame <= 5 )
-	{
-	  if( playerkeys(plyr, 0, "attack3"))
-	  {
-	  performattack(self, openborconstant("ANI_FOLLOW2"));
-	  }
-	  if( playerkeys(plyr, 0, "attack2"))
-	  {
-	  performattack(self, openborconstant("ANI_FOLLOW1"));
-	  }
-	}
-@end_script
+anim	fall
 	delay	5
-	loop	1
 	offset	240 215
-	frame	data/chars/beyond/4stank/cannon/1.gif
-	frame	data/chars/beyond/4stank/cannon/1.gif
-	frame	data/chars/beyond/4stank/cannon/1.gif
-	frame	data/chars/beyond/4stank/cannon/1.gif
-	frame	data/chars/beyond/4stank/cannon/1.gif
-
-
-#------------//---------SHOOT-FRONT---//----------------
-
+	frame	data/chars/beyond/4stank/cannon/5.gif
+		
 anim	follow1
 	loop	0
 	delay	3
@@ -102,12 +77,7 @@ anim	follow1
 	frame	data/chars/beyond/4stank/cannon/fire01.gif
 	@cmd	anichange "ANI_IDLE"
 	frame	data/chars/beyond/4stank/cannon/fire01.gif
-
-
-
-#-----------------//--------TURN-BACK---//----------------
-
-
+		
 anim	follow2
 	loop	0
 	delay	9
@@ -126,10 +96,7 @@ anim	follow2
 	frame	data/chars/beyond/4stank/cannon/1.gif
 	@cmd	anichange "ANI_FOLLOW3"
 	frame	data/chars/beyond/4stank/cannon/1.gif
-
-#-----------------//--------CANNON-BACK---//----------------
-
-
+		
 anim	follow3
 @script
 	void self = getlocalvar("self");
@@ -147,7 +114,7 @@ anim	follow3
 	  performattack(self, openborconstant("ANI_FOLLOW5"));
 	  }
 	}
-@end_script
+	@end_script	
 	delay	5
 	loop	1
 	offset	240 215
@@ -156,9 +123,7 @@ anim	follow3
 	frame	data/chars/beyond/4stank/cannon/1.gif
 	frame	data/chars/beyond/4stank/cannon/1.gif
 	frame	data/chars/beyond/4stank/cannon/1.gif
-
-#------------//---------SHOOT-BACK---//----------------
-
+		
 anim	follow4
 	loop	0
 	delay	3
@@ -196,12 +161,7 @@ anim	follow4
 	frame	data/chars/beyond/4stank/cannon/fire01.gif
 	@cmd	anichange "ANI_FOLLOW3"
 	frame	data/chars/beyond/4stank/cannon/fire01.gif
-
-
-
-#-----------------//--------TURN-FRONT---//----------------
-
-
+		
 anim	follow5
 	loop	0
 	delay	9
@@ -220,12 +180,7 @@ anim	follow5
 	frame	data/chars/beyond/4stank/cannon/1.gif
 	@cmd	anichange "ANI_IDLE"
 	frame	data/chars/beyond/4stank/cannon/1.gif
-
-#-----------------//--------CANNON-END---//----------------
-
-
-#-----------------//--------MISSILES-GOOO--//----------------
-
+		
 anim	follow6
 @script
 	void self = getlocalvar("self");
@@ -239,7 +194,7 @@ anim	follow6
 	  performattack(self, openborconstant("ANI_FOLLOW7"));
 	  }
 	}
-@end_script
+	@end_script	
 	loop	1
 	delay	5
 	offset	75 73
@@ -249,9 +204,7 @@ anim	follow6
 	frame	data/chars/beyond/4stank/cannon/empty.gif
 	frame	data/chars/beyond/4stank/cannon/empty.gif
 	frame	data/chars/beyond/4stank/cannon/empty.gif
-
-
-
+		
 anim	follow7
 	loop	0
 	delay	12
@@ -290,19 +243,39 @@ anim	follow7
 	frame	data/chars/beyond/4stank/cannon/missile17.gif
 	@cmd	anichange "ANI_FOLLOW6"
 	frame	data/chars/beyond/4stank/cannon/missile17.gif
-
-#-----------------//--------MISSILES-GOOO--END--//----------------
-
 		
-anim	fall
+anim	idle
+@script
+	void self = getlocalvar("self");
+	void daddy2 = getentityproperty(self,"parent");
+	void plyr = getentityproperty(daddy2, "playerindex");
+
+	if(frame >= 0 && frame <= 5 )
+	{
+	  if( playerkeys(plyr, 0, "attack3"))
+	  {
+	  performattack(self, openborconstant("ANI_FOLLOW2"));
+	  }
+	  if( playerkeys(plyr, 0, "attack2"))
+	  {
+	  performattack(self, openborconstant("ANI_FOLLOW1"));
+	  }
+	}
+	@end_script	
 	delay	5
+	loop	1
 	offset	240 215
-	frame	data/chars/beyond/4stank/cannon/5.gif
+	frame	data/chars/beyond/4stank/cannon/1.gif
+	frame	data/chars/beyond/4stank/cannon/1.gif
+	frame	data/chars/beyond/4stank/cannon/1.gif
+	frame	data/chars/beyond/4stank/cannon/1.gif
+	frame	data/chars/beyond/4stank/cannon/1.gif
 		
 anim	spawn
 	delay	10
 	loop	0
 	offset	240 215
 	frame	data/chars/beyond/4stank/cannon/1.gif
-
+		
+#|edited by openBor Stats v 0.67
 		
