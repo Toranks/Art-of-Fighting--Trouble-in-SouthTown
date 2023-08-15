@@ -1,8 +1,8 @@
 name          meloke
 type          enemy
 subtype       chase
-health        700
-mp	      300	
+health        1100
+mp		3000
 speed         8
 jumpheight     6
 jumpmove       0  4
@@ -15,13 +15,14 @@ thold         80
 escapehits    3
 shadow        0
 noquake       0
-nolife        1
 falldie	      2
 nodieblink    1
 gfxshadow     1
 dust            dust
 projectilehit enemy obstacle
 diesound      data/sounds/die8.wav
+icon		data/chars/2maskguy3/icon3.gif
+icondie		data/chars/2maskguy3/icon3d.gif
 animationscript data/scripts/escript.c
 
 
@@ -47,7 +48,7 @@ alternatepal       data/chars/2maskguy3/map5.gif
    int jp = 1;   //----jump velocity
 
 
-if(anim != openborconstant("ANI_DIE") || anim != openborconstant("ANI_FALL") || anim != openborconstant("ANI_RISE") || anim != openborconstant("ANI_JUMP"))
+if(anim == openborconstant("ANI_WALK") || anim == openborconstant("ANI_RUN"))
 {
 	float Hy;
 	if(Dir==0)
@@ -60,9 +61,9 @@ if(anim != openborconstant("ANI_DIE") || anim != openborconstant("ANI_FALL") || 
 
 	if(Hy > 1 && a <= 7 && hp > 0)
 	{
-	performattack(self,openborconstant("ANI_JUMP"));
-	changeentityproperty(self, "velocity", 0, 0, 0);
+	//changeentityproperty(self, "velocity", 0, 0, 0);
 	tossentity(self, 4, jp, 0);
+	performattack(self,openborconstant("ANI_JUMP"));
 	}
 }
 @end_script
@@ -90,7 +91,7 @@ anim	attack1
 	delay	6
 	frame	data/chars/2maskguy3/a101.gif
 	frame	data/chars/2maskguy3/a103.gif
-	attack	127 100 63 47 10 1 0 0 12 0
+	attack	127 100 63 47 18 1 0 0 42 0
 	dropv	3 4 0
 	frame	data/chars/2maskguy3/a104.gif
 	delay	12
@@ -115,7 +116,7 @@ anim	attack2
 	frame	data/chars/2maskguy3/a205.gif
 	delay	2
 	move	6
-	attack	102 112 89 71 12 1 0 0 15 0
+	attack	102 112 89 71 20 1 0 0 45 0
 	dropv	5 1 0
 	frame	data/chars/2maskguy3/a206.gif
 	frame	data/chars/2maskguy3/a206.gif
@@ -156,7 +157,7 @@ anim	attack5
 	frame	data/chars/2maskguy3/ju03.gif
 	frame	data/chars/2maskguy3/ju04.gif
 	delay	35
-	attack	102 112 89 71 12 1 0 0 18 0
+	attack	102 112 89 71 18 1 0 0 48 0
 	dropv	3 5 0
 	frame	data/chars/2maskguy3/ju05.gif
 	delay	14
@@ -190,10 +191,10 @@ anim	burn
 	@cmd	spawnbind "burn1" 1 1 1
 	@cmd	spawnbind "burn2" 1 1 1
 	@cmd	spawnbind "burn3" 1 1 1
-	attack	78 98 30 45 5 1 0 0 13 0
+	attack	78 98 30 45 5 1 0 0 13 30
 	frame	data/chars/2maskguy3/fall1.gif
 	delay	15
-	attack	64 130 50 25 5 1 0 0 13 0
+	attack	64 130 50 25 5 1 0 0 13 30
 	frame	data/chars/2maskguy3/fall2.gif
 	delay	500
 	frame	data/chars/2maskguy3/fall3.gif
@@ -241,10 +242,10 @@ anim	fall
 	offset	100 192
 	bbox	0 0 0 0
 	landframe	3
-	attack	78 98 30 45 5 1 0 0 13 0
+	attack	78 98 30 45 5 1 0 0 13 30
 	frame	data/chars/2maskguy3/fall1.gif
 	delay	15
-	attack	64 130 50 25 5 1 0 0 13 0
+	attack	64 130 50 25 5 1 0 0 13 30
 	frame	data/chars/2maskguy3/fall2.gif
 	delay	500
 	frame	data/chars/2maskguy3/fall3.gif
@@ -261,13 +262,13 @@ anim	fall10
 	offset	100 192
 	bbox	80 80 50 75
 	landframe	4
-	attack	85 88 30 50 5 1 0 0 13 0
+	attack	85 88 30 50 5 1 0 0 13 30
 	frame	data/chars/2maskguy3/pain6.gif
 	delay	40
 	frame	data/chars/2maskguy3/pain7.gif
 	delay	30
 	bbox	71 125 63 30
-	attack	64 125 45 25 5 1 0 0 13 0
+	attack	64 125 45 25 5 1 0 0 13 30
 	frame	data/chars/2maskguy3/fall1.gif
 	delay	300
 	bbox	77 130 67 35
@@ -294,15 +295,16 @@ anim	fall2
 	offset	100 192
 	bbox	0 0 0 0
 	landframe	3
-	attack	85 90 35 45 5 1 0 0 13 0
+	attack	85 90 35 45 5 1 0 0 13 30
 	frame	data/chars/2maskguy3/pain7.gif
 	delay	10
-	attack	64 125 55 25 5 1 0 0 13 0
+	attack	64 125 55 25 5 1 0 0 13 30
 	frame	data/chars/2maskguy3/fall1.gif
 	attack	0 0 0 0
 	delay	300
 	frame	data/chars/2maskguy3/fall3.gif
 	delay	15
+	bbox	58 175 85 15
 	frame	data/chars/2maskguy3/fall4.gif
 	frame	data/chars/2maskguy3/fall5.gif
 	frame	data/chars/2maskguy3/fall4.gif
@@ -365,10 +367,10 @@ anim	fall9
 	bbox	0 0 0 0
 	quakeframe	2 5 5
 	landframe	2 dust
-	attack	75 105 35 45 5 1 0 0 13 0
+	attack	75 105 35 45 5 1 0 0 13 30
 	frame	data/chars/2maskguy3/fall1.gif
 	delay	350
-	attack	75 125 45 35 5 1 0 0 13 0
+	attack	75 125 45 35 5 1 0 0 13 30
 	frame	data/chars/2maskguy3/fall2.gif
 	delay	2
 	move	-4
@@ -407,7 +409,7 @@ anim	follow2
 	delay	6
 	frame	data/chars/2maskguy3/a101.gif
 	frame	data/chars/2maskguy3/a103.gif
-	attack	127 100 63 47 17 1 1 0 10
+	attack	127 100 63 47 17 1 1 0 40
 	dropv	3 4 0
 	frame	data/chars/2maskguy3/a104.gif
 	delay	12
@@ -460,7 +462,7 @@ anim	grab
 	delay	5
 	attack	0 0 0 0
 	@cmd	depost 0
-	@cmd	finish 25 2 -2 2.5 0 0
+	@cmd	finish 35 2 -2 2.5 0 0
 	frame	data/chars/2maskguy3/slam06.gif
 	delay	14
 	frame	data/chars/2maskguy3/slam07.gif
@@ -483,6 +485,10 @@ anim	idle
 	delay	14
 	offset	106 192
 	bbox	83 93 51 87
+	frame	data/chars/2maskguy3/idle02.gif
+	@cmd	depost 0
+	frame	data/chars/2maskguy3/idle03.gif
+	@cmd	clearL
 	frame	data/chars/2maskguy3/idle02.gif
 	frame	data/chars/2maskguy3/idle03.gif
 		
@@ -669,6 +675,16 @@ anim	rise
 	frame	data/chars/2maskguy3/rise10.gif
 
 anim	follow12
+@script
+	void self = getlocalvar("self");
+	int eTime = openborvariant("elapsed_time");
+	if (frame == 0)
+	{
+	changeentityproperty(self, "invincible", 1);
+	changeentityproperty(self, "invinctime", eTime + 150);
+	changeentityproperty(self, "blink", 1);
+	}
+@end_script
 	loop	0
 	delay	10
 	offset	106 192
@@ -685,7 +701,7 @@ anim	follow12
 	frame	data/chars/2maskguy3/a102.gif
 	frame	data/chars/2maskguy3/a103.gif
 	frame	data/chars/2maskguy3/a104.gif
-	attack	105 110 80 70 15 1 0 0 15 0
+	attack	105 110 80 70 15 1 0 0 45 0
 	dropv	3 3 0
 	frame	data/chars/2maskguy3/a105.gif
 	frame	data/chars/2maskguy3/a105.gif
@@ -715,8 +731,16 @@ anim	spawn
 	frame	data/chars/2maskguy3/idle03.gif
 		
 anim	special
-	mponly	1
-	energycost 5
+@script
+	void self = getlocalvar("self");
+	int eTime = openborvariant("elapsed_time");
+	if (frame == 0)
+	{
+	changeentityproperty(self, "invincible", 1);
+	changeentityproperty(self, "invinctime", eTime + 180);
+	changeentityproperty(self, "blink", 1);
+	}
+@end_script
 	loop	0
 	delay	10
 	offset	106 192
@@ -727,7 +751,7 @@ anim	special
 	frame	data/chars/2maskguy3/a103.gif
 	frame	data/chars/2maskguy3/a203.gif
 	delay	6
-	attack	55 85 110 55 5 1 1 0 10 20
+	attack	55 85 110 55 5 1 1 0 40 20
 	frame	data/chars/2maskguy3/a202.gif
 	frame	data/chars/2maskguy3/a200.gif
 	frame	data/chars/2maskguy3/a202.gif
@@ -744,8 +768,18 @@ anim	special
 	frame	data/chars/2maskguy3/idle02.gif
 		
 anim	special2
+@script
+	void self = getlocalvar("self");
+	int eTime = openborvariant("elapsed_time");
+	if (frame == 0)
+	{
+	changeentityproperty(self, "invincible", 1);
+	changeentityproperty(self, "invinctime", eTime + 180);
+	changeentityproperty(self, "blink", 1);
+	}
+@end_script
+	energycost	10
 	mponly	1
-	energycost 5
 	loop	0
 	delay	8
 	offset	106 192
@@ -756,7 +790,7 @@ anim	special2
 	frame	data/chars/2maskguy3/a103.gif
 	frame	data/chars/2maskguy3/a203.gif
 	delay	6
-	attack	55 85 110 55 5 1 1 0 10 20
+	attack	55 85 110 55 5 1 1 0 40 20
 	frame	data/chars/2maskguy3/a202.gif
 	frame	data/chars/2maskguy3/a200.gif
 	frame	data/chars/2maskguy3/a202.gif

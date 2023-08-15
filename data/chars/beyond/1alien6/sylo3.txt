@@ -6,7 +6,6 @@ jumpheight    4
 throw         5 2
 throwdamage   18
 noquake       1
-nolife        1
 falldie	      1
 nomove		0 1
 facing		1
@@ -20,6 +19,8 @@ dust            dust
 hostile				player npc
 candamage			player npc
 diesound      data/sounds/alien7.wav
+icon		data/chars/beyond/1alien6/icon.gif
+icondie		data/chars/beyond/1alien6/icond.gif
 animationscript data/scripts/escript.c
 
 
@@ -28,8 +29,8 @@ alternatepal	data/chars/beyond/1alien6/mapf.gif
 
 
 anim	attack1
-	range	0 180
-	rangez	-15 15
+	range	0 140
+	rangez	-10 10
 	loop	0
 	delay	7
 	offset	100 189
@@ -119,10 +120,10 @@ anim	burn
 	@cmd	spawnbind "burn1" 1 1 1
 	@cmd	spawnbind "burn2" 1 1 1
 	@cmd	spawnbind "burn3" 1 1 1
-	attack	75 103 29 43 5 1 0 0 13
+	attack	75 103 29 43 5 1 0 0 13 40
 	frame	data/chars/beyond/1alien6/fall10.gif
 	delay	15
-	attack	64 134 40 22 5 1 0 0 13
+	attack	64 134 40 22 5 1 0 0 13 40
 	frame	data/chars/beyond/1alien6/fall11.gif
 	delay	500
 	frame	data/chars/beyond/1alien6/fall12.gif
@@ -195,10 +196,10 @@ anim	fall
 	bbox	0 0 0 0
 	drawmethod	200 200
 	landframe	3
-	attack	75 103 29 43 5 1 0 0 13
+	attack	75 103 29 43 5 1 0 0 13 40
 	frame	data/chars/beyond/1alien6/fall10.gif
 	delay	15
-	attack	64 134 40 22 5 1 0 0 13
+	attack	64 134 40 22 5 1 0 0 13 40
 	frame	data/chars/beyond/1alien6/fall11.gif
 	delay	500
 	frame	data/chars/beyond/1alien6/fall12.gif
@@ -216,6 +217,7 @@ anim	idle
 	bbox	79 97 50 91
 	drawmethod	200 200
 	frame	data/chars/beyond/1alien6/xwk01.gif
+	@cmd	clearL
 	frame	data/chars/beyond/1alien6/xwk02.gif
 	frame	data/chars/beyond/1alien6/xwk03.gif
 	sound	data/sounds/alien1.wav

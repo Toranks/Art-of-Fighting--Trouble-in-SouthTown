@@ -4,7 +4,7 @@ background	data/bgs/27lvl/seaback.gif 0 0
 layer		data/bgs/27lvl/seaback.gif -1000 0 0 0 0 0 0 -1 1 1 0 0 0 0 0 0
 panel		data/bgs/27lvl/dock2.gif
 layer		data/bgs/27lvl/back2.gif 150 0 0 0 -40 0 0 -1 1 1 1 0 0 0 0 -0.5
-layer		data/bgs/27lvl/sunshine.gif 2000 1 1 0 0 0 0 -1 1 1 1 0 0 0 0 0
+layer		data/bgs/27lvl/sunshine.gif 3000 1 1 0 0 0 0 -1 1 1 1 0 0 0 0 0
 layer		data/bgs/27lvl/back1.gif 700 0 0 3115 551 0 0 1 1 1 0 0 0 0 0 0
 
 
@@ -252,7 +252,6 @@ at      0
 
 spawn  basket2
 health 30
-item   1up
 coords  275 395 71
 at      0
 
@@ -266,7 +265,6 @@ at      0
 
 spawn  barrel
 health 30
-item   7cofe
 coords  420 395 71
 at      0
 
@@ -278,14 +276,19 @@ coords  -1260 400 71
 at      0
 
 spawn  barrel
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+} @end_script
 health 30
 item   5gbar
 coords  -1330 400 71
 at      0
 
 spawn  barrel
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+} @end_script
 health 30
-item   ruby
 coords  -1300 420 71
 at      0
 
@@ -299,7 +302,6 @@ at      0
 spawn  basket2
 health 30
 flip   1
-item   food4
 coords  -1760 460 71
 at      0
 
@@ -326,7 +328,6 @@ at      0
 
 spawn  drum2
 health 30
-item   diamond
 coords  -1530 610 71
 at      0
 
@@ -345,7 +346,6 @@ at      0
 
 spawn  box2
 health 30
-item   5neckl
 coords  420 790 71
 at      0
 
@@ -363,7 +363,6 @@ at      0
 
 spawn  box2
 health 30
-item   food3
 coords  410 845 71
 at      0
 
@@ -381,7 +380,6 @@ at      0
 
 spawn  box
 health 30
-item   5dime
 coords  320 845 71
 at      0
 
@@ -400,7 +398,6 @@ at      0
 
 spawn  basket
 health 30
-item   5gbar
 coords  -2780 820 71
 at      0
 
@@ -417,7 +414,6 @@ at      0
 
 spawn  basket2
 health 30
-item   5dime
 coords  -2460 830 71
 at      0
 
@@ -438,7 +434,6 @@ at      0
 
 spawn  barrel
 health 30
-item   apple
 map    2
 coords  -1130 800 71
 at      0
@@ -457,7 +452,6 @@ coords  -700 800 150
 at      0
 
 spawn  tire2
-item   diamond
 coords  -690 815 150
 at      0
 
@@ -467,7 +461,6 @@ coords  -700 830 150
 at      0
 
 spawn  tire2
-item   money1
 coords  -690 845 150
 at      0
 
@@ -486,7 +479,6 @@ coords  -620 830 150
 at      0
 
 spawn  tire2
-item   gold
 coords  -610 845 150
 at      0
 
@@ -497,7 +489,6 @@ coords  -750 810 150
 at      0
 
 spawn  tire1
-item   5dime
 coords  -740 825 150
 at      0
 
@@ -513,7 +504,6 @@ coords  -550 810 80
 at      0
 
 spawn  tire1
-item   money1
 coords  -540 825 80
 at      0
 
@@ -569,7 +559,7 @@ spawn   ghost1
 coords  -70 433 71
 at      0
 
-spawn   ghost1
+spawn   ghost2
 coords  -70 433 71
 at      0
 
@@ -590,7 +580,6 @@ at      0
 
 spawn   fatguy
 map     2
-item    money1
 #health  240
 coords  -80 433 71
 at      0
@@ -650,7 +639,6 @@ at      600
 
 spawn   kimberry
 map     1
-item    bannana
 #health  170
 coords  650 433 71
 at      600
@@ -674,48 +662,6 @@ map     3
 #health  100
 coords  -90 433 71
 at      600
-
-
-#--------------------------
-
-group 3 3
-at    1000
-wait
-at    1000
-
-spawn   brock
-map     1
-#health  120
-coords  650 433 71
-at      1000
-
-
-spawn   shion
-map     2
-#health  110
-coords  -50 433 71
-at      1000
-
-
-spawn   dan
-#health  110
-coords  600 433 71
-at      1000
-
-
-spawn   kimberry
-map     2
-#health  150
-item    7cofe
-coords  -50 433 71
-at      1000
-
-
-spawn   kimberry
-map     3
-#health  130
-coords  650 433 71
-at      1000
 
 
 #--------stoper----
@@ -797,7 +743,6 @@ spawn   sheila
    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW9"));
 } @end_script
 map     3
-item    bannana
 #health  230
 coords  450 645 71
 at      1010
@@ -849,7 +794,6 @@ spawn   beloche
 } @end_script
 map     1
 #health  550
-item    7shuss
 coords  1260 420 71
 at      1010
 
@@ -934,7 +878,6 @@ spawn   lucy
 } @end_script
 map     2
 flip    1
-item    bannana
 #health  140
 coords  -330 830 71
 at      1010
@@ -980,7 +923,6 @@ spawn   ren
 } @end_script
 flip    1
 map     3
-item    7putin
 #health  110
 coords  -800 790 71
 at      1010
@@ -1026,7 +968,6 @@ spawn   shikky
 flip    1
 map     4
 #health  120
-item    bannana
 coords  -1030 820 71
 at      1010
 
@@ -1072,7 +1013,6 @@ spawn   brock
 } @end_script
 flip    1
 map     3
-item    diamond
 #health  100
 coords  -1400 790 71
 at      1010
@@ -1139,7 +1079,6 @@ spawn   eve
 } @end_script
 map     1
 #health  210
-item    food3
 coords  -800 470 71
 at      1010
 

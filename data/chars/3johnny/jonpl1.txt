@@ -42,30 +42,176 @@ com	f d s	freespecial11
 com	d u d u s freespecial10
 com	u d u d s freespecial20
 com	a2	  freespecial15
+com     d f d f a freespecial26
 
 load	pw8
 load	frag
 
 
 
-script	@script
-void main()
-{
-	void self = getlocalvar("self");
-	void anim = getentityproperty(self,"animationID");
-	void frame = getentityproperty(self,"animpos");
-  	void plyr = getentityproperty(self, "playerindex");
 
-	if(anim == openborconstant("ANI_GRABATTACK2") && frame == 3 && playerkeys(plyr, 0, "moveright"))
-		{
-		changeentityproperty(self, "velocity", 2);
-		}
-	if(anim == openborconstant("ANI_GRABATTACK2") && frame == 3 && playerkeys(plyr, 0, "moveleft"))
-		{
-		changeentityproperty(self, "velocity", -2);
-		}
-}
+anim	freespecial26
+@script
+	void self = getlocalvar("self");
+	void plyr = getentityproperty(self, "playerindex");
+	float Vx = getlocalvar("x"+self);
+	float Vz = getlocalvar("z"+self);
+
+	if(frame >= 14 && frame <= 48 )
+	{
+	  if( playerkeys(plyr, 0, "moveup"))
+	  {
+	  changeentityproperty(self, "velocity", Vx, -0.5);
+	  }
+	  if( playerkeys(plyr, 0, "movedown"))
+	  {
+	  changeentityproperty(self, "velocity", Vx, 0.5);
+	  }
+	  if( playerkeys(plyr, 0, "moveleft"))
+	  {
+	  changeentityproperty(self, "velocity", -1, Vz);
+	  }
+	  if( playerkeys(plyr, 0, "moveright"))
+	  {
+	  changeentityproperty(self, "velocity", 1, Vz);
+	  }
+	}
 @end_script
+	energycost	45
+	mponly	1
+	loop	0
+	delay	9
+	followanim	1
+	followcond	1
+	offset	101 190
+	bbox	85 96 39 91
+	fastattack	1
+	staydown	600 600
+	hitflash	flashscreen1
+	hitfx	data/sounds/beat4.wav
+	frame	data/chars/3johnny/taunt06.gif
+	frame	data/chars/3johnny/spa01.gif
+	sound	data/sounds/grab.wav
+	frame	data/chars/3johnny/spa02.gif
+	delay	6
+	sound	data/sounds/punch2.wav
+	frame	data/chars/3johnny/spa03.gif
+	frame	data/chars/3johnny/spa04.gif
+	frame	data/chars/3johnny/spa05.gif
+	frame	data/chars/3johnny/spa06.gif
+	frame	data/chars/3johnny/spa07.gif
+	frame	data/chars/3johnny/spa08.gif
+	frame	data/chars/3johnny/spa09.gif
+	frame	data/chars/3johnny/spa10.gif
+	frame	data/chars/3johnny/spa11.gif
+	delay	15
+	bbox	0 0 0 0
+	sound	data/sounds/grab2.wav
+	frame	data/chars/3johnny/spa12.gif
+	delay	8
+	frame	data/chars/3johnny/spa13.gif
+	sound	data/sounds/huurr.wav
+	delay	2
+	move	3
+	frame	data/chars/3johnny/spa14.gif #14
+	frame	data/chars/3johnny/spa14.gif
+	frame	data/chars/3johnny/spa14.gif
+	frame	data/chars/3johnny/spa14.gif
+	move	4
+	frame	data/chars/3johnny/spa15.gif
+	frame	data/chars/3johnny/spa15.gif
+	frame	data/chars/3johnny/spa15.gif
+	frame	data/chars/3johnny/spa15.gif
+	move	5
+	frame	data/chars/3johnny/spa16.gif
+	frame	data/chars/3johnny/spa16.gif
+	frame	data/chars/3johnny/spa16.gif
+	frame	data/chars/3johnny/spa16.gif
+	move	7
+	frame	data/chars/3johnny/spa17.gif
+	attack10 120 90 80 45 250 1 0 0 30 20
+	dropv	6 0.2
+	frame	data/chars/3johnny/spa17.gif
+	frame	data/chars/3johnny/spa17.gif
+	frame	data/chars/3johnny/spa17.gif
+	frame	data/chars/3johnny/spa17.gif
+	frame	data/chars/3johnny/spa17.gif
+	frame	data/chars/3johnny/spa17.gif
+	frame	data/chars/3johnny/spa17.gif
+	frame	data/chars/3johnny/spa17.gif
+	frame	data/chars/3johnny/spa17.gif
+	frame	data/chars/3johnny/spa17.gif
+	frame	data/chars/3johnny/spa17.gif
+	frame	data/chars/3johnny/spa17.gif
+	frame	data/chars/3johnny/spa17.gif
+	frame	data/chars/3johnny/spa17.gif
+	frame	data/chars/3johnny/spa17.gif #41
+	frame	data/chars/3johnny/spa17.gif
+	frame	data/chars/3johnny/spa17.gif
+	frame	data/chars/3johnny/spa17.gif
+	frame	data/chars/3johnny/spa17.gif
+	frame	data/chars/3johnny/spa17.gif
+	frame	data/chars/3johnny/spa17.gif
+	frame	data/chars/3johnny/spa17.gif #48
+	move	0
+	@cmd	stop
+	frame	data/chars/3johnny/spa17.gif
+	delay	35
+	frame	data/chars/3johnny/spa17.gif
+	attack10 0 0 0 0
+	delay	11
+	frame	data/chars/3johnny/a201.gif
+	frame	data/chars/3johnny/a200.gif
+	frame	data/chars/3johnny/a107.gif
+
+
+
+anim	follow1
+	loop	0
+	delay	9
+	offset	101 190
+	bbox	0 0 0 0
+	fastattack	1
+	move	0
+	@cmd	stop
+	staydown	200 200
+	hitfx	data/sounds/xplosion.wav
+	frame	data/chars/3johnny/spa17.gif
+	delay	3
+	burn	145 65 90 80 120 1 0 0 30 20
+	dropv	6 0.5
+	frame	data/chars/3johnny/spa18.gif
+	@cmd	spawn01 "explosion1" 120 70 1
+	sound	data/sounds/xplosion.wav
+	frame	data/chars/3johnny/spa19.gif
+	@cmd	spawn01 "explosion1" 130 100 1
+	frame	data/chars/3johnny/spa18.gif
+	@cmd	spawn01 "explosion1" 180 70 1
+	frame	data/chars/3johnny/spa19.gif
+	@cmd	spawn01 "explosion1" 140 50 1
+	frame	data/chars/3johnny/spa18.gif
+	delay	5
+	frame	data/chars/3johnny/spa19.gif
+	frame	data/chars/3johnny/spa18.gif
+	frame	data/chars/3johnny/spa19.gif
+	burn	0 0 0 0
+	frame	data/chars/3johnny/spa18.gif
+	sound	data/sounds/bguyc04.wav
+	frame	data/chars/3johnny/spa19.gif
+	frame	data/chars/3johnny/spa18.gif #11
+	frame	data/chars/3johnny/spa19.gif
+	frame	data/chars/3johnny/spa18.gif
+	frame	data/chars/3johnny/spa19.gif
+	frame	data/chars/3johnny/spa18.gif
+	frame	data/chars/3johnny/spa19.gif
+	@cmd	looper 11 3
+	frame	data/chars/3johnny/spa18.gif
+	frame	data/chars/3johnny/spa19.gif
+	delay	11
+	frame	data/chars/3johnny/a201.gif
+	frame	data/chars/3johnny/a200.gif
+	frame	data/chars/3johnny/a107.gif
+
 
 
 anim	freespecial15
@@ -79,7 +225,7 @@ anim	freespecial15
 	frame	data/chars/3johnny/taunt04.gif
 	frame	data/chars/3johnny/taunt05.gif
 	frame	data/chars/3johnny/taunt05.gif
-	@cmd	spawnAni2 "movelist" 240 300 440 "ANI_FOLLOW5"
+	@cmd	spawnAni2 "movelist" 240 300 440 "ANI_FOLLOW9"
 	frame	data/chars/3johnny/taunt05.gif
 	frame	data/chars/3johnny/taunt05.gif
 	frame	data/chars/3johnny/taunt04.gif
@@ -337,7 +483,7 @@ anim	follow16
 
 anim	attack1
 	range	0 200
-	rangez	-30 30
+	rangez	-40 40
 	loop	0
 	delay	4
 	offset	101 190
@@ -368,7 +514,7 @@ anim	follow10
 	frame	data/chars/3johnny/grd01.gif
 	frame	data/chars/3johnny/grd02.gif
 	delay	15
-	attack11 95 167 80 25 50 1 0 0 30 10
+	attack11 95 167 80 25 65 1 0 0 30 10
 	dropv	2 3
 	frame	data/chars/3johnny/grd03.gif
 	attack11 0 0 0 0
@@ -379,7 +525,7 @@ anim	follow10
 
 anim	attack2
 	range	0 65
-	rangez	-30 30
+	rangez	-40 40
 	loop	0
 	delay	2
 	offset	101 190
@@ -394,7 +540,7 @@ anim	attack2
 	frame	data/chars/3johnny/a201.gif
 	move	0
 	delay	5
-	attack	100 95 80 30 20 0 0 0 15 0
+	attack	100 95 80 30 30 0 0 0 15 0
 	frame	data/chars/3johnny/a202.gif
 	frame	data/chars/3johnny/a203.gif
 	attack	0 0 0 0
@@ -404,7 +550,7 @@ anim	attack2
 
 anim	attack3
 	range	0 65
-	rangez	-30 30
+	rangez	-40 40
 	loop	0
 	delay	2
 	offset	101 190
@@ -419,7 +565,7 @@ anim	attack3
 	frame	data/chars/3johnny/a205.gif
 	frame	data/chars/3johnny/a206.gif
 	frame	data/chars/3johnny/a206.gif
-	attack10 100 40 70 85 35 1 0 0 20 0
+	attack10 100 40 70 85 55 1 0 0 20 0
 	dropv	6 1
 	frame	data/chars/3johnny/a207.gif
 	frame	data/chars/3johnny/a207.gif
@@ -441,7 +587,7 @@ anim	attack3
 
 anim	attack4
 	range	65 95
-	rangez	-30 30
+	rangez	-40 40
 	loop	0
 	delay	6
 	offset	101 190
@@ -450,7 +596,7 @@ anim	attack4
 	frame	data/chars/3johnny/b101.gif
 	frame	data/chars/3johnny/b102.gif
 	bbox	0 0 0 0
-	attack10 100 80 85 45 20 1 0 0 12 0
+	attack10 100 80 85 45 30 1 0 0 12 0
 	dropv	3 0
 	frame	data/chars/3johnny/b103.gif
 	frame	data/chars/3johnny/b104.gif
@@ -461,7 +607,7 @@ anim	attack4
 
 anim	attack5
 	range	65 95
-	rangez	-30 30
+	rangez	-40 40
 	loop	0
 	delay	3
 	offset	101 190
@@ -474,7 +620,7 @@ anim	attack5
 	frame	data/chars/3johnny/b106.gif
 	frame	data/chars/3johnny/b106.gif
 	bbox	0 0 0 0
-	attack9	100 80 90 45 30 1 0 0 15 0
+	attack9	100 80 90 45 55 1 0 0 15 0
 	dropv	2 4
 	frame	data/chars/3johnny/b107.gif
 	frame	data/chars/3johnny/b107.gif
@@ -493,7 +639,7 @@ anim	attack5
 
 anim	attack6
 	range	95 170
-	rangez	-30 30
+	rangez	-40 40
 	loop	0
 	delay	3
 	offset	101 190
@@ -511,7 +657,7 @@ anim	attack6
 	frame	data/chars/3johnny/c02.gif
 	frame	data/chars/3johnny/c03.gif
 	frame	data/chars/3johnny/c03.gif
-	attack9	100 85 90 55 55 1 0 0 25 0
+	attack9	100 85 90 55 75 1 0 0 25 0
 	dropv	3 4
 	frame	data/chars/3johnny/c03a.gif
 	frame	data/chars/3johnny/c03b.gif
@@ -599,7 +745,7 @@ anim	jumpattack
 	sound	data/sounds/bguyc02.wav
 	frame	data/chars/3johnny/jatk02.gif
 	frame	data/chars/3johnny/jatk02a.gif
-	attack	95 100 100 65 55 1 0 0 25 0
+	attack	95 100 100 65 45 1 0 0 25 0
 	frame	data/chars/3johnny/jatk03.gif
 	delay	15
 	frame	data/chars/3johnny/jatk04.gif
@@ -704,6 +850,7 @@ anim	freespecial4
 	@cmd	position 1 -5 115 1 1
 	frame	data/chars/3johnny/1grab05b.gif
 	delay	15
+	@cmd	hurt 15
 	sound	data/sounds/break.wav
 	@cmd	spawn01 "Flash" 0 30 1
 	@cmd	position 2 -5 50 1 1
@@ -720,6 +867,9 @@ anim	freespecial4
 	@cmd	position 2 -5 50 1 1
 	frame	data/chars/3johnny/1grab06.gif
 	@cmd	position 2 -5 50 1 1
+	frame	data/chars/3johnny/1grab06.gif #9
+	delay	2
+	@cmd	position 2 0 50 1 1
 	frame	data/chars/3johnny/1grab06.gif 
 	@cmd	depost 0
 	@cmd	finish 65 1 0 3 0.3 -1
@@ -728,6 +878,7 @@ anim	freespecial4
 	delay	14
 	frame	data/chars/3johnny/rise2.gif
 	frame	data/chars/3johnny/rise3.gif
+	@cmd	clearL
 	frame	data/chars/3johnny/rise4.gif
 	frame	data/chars/3johnny/rise5.gif
 
@@ -746,6 +897,7 @@ anim	freespecial5
 	@cmd	position 1 -5 115 1 1
 	frame	data/chars/3johnny/1grab05b.gif
 	delay	15
+	@cmd	hurt 15
 	sound	data/sounds/break.wav
 	@cmd	spawn01 "Flash" 0 30 1
 	@cmd	position 2 -5 50 1 1
@@ -762,7 +914,10 @@ anim	freespecial5
 	@cmd	position 2 -5 50 1 1
 	frame	data/chars/3johnny/1grab06.gif
 	@cmd	position 2 -5 50 1 1
-	frame	data/chars/3johnny/1grab06.gif 
+	frame	data/chars/3johnny/1grab06.gif
+	delay	2
+	@cmd	position 2 0 50 1 1
+	frame	data/chars/3johnny/1grab06.gif
 	@cmd	depost 0
 	@cmd	finish 85 1 0 3 0.3 -1
 	delay	25
@@ -770,6 +925,7 @@ anim	freespecial5
 	delay	14
 	frame	data/chars/3johnny/rise2.gif
 	frame	data/chars/3johnny/rise3.gif
+	@cmd	clearL
 	frame	data/chars/3johnny/rise4.gif
 	frame	data/chars/3johnny/rise5.gif
 
@@ -788,6 +944,7 @@ anim	freespecial6
 	@cmd	position 1 -5 115 1 1
 	frame	data/chars/3johnny/1grab05b.gif
 	delay	15
+	@cmd	hurt 15
 	sound	data/sounds/break.wav
 	@cmd	spawn01 "Flash" 0 30 1
 	@cmd	position 2 -5 50 1 1
@@ -804,7 +961,10 @@ anim	freespecial6
 	@cmd	position 2 -5 50 1 1
 	frame	data/chars/3johnny/1grab06.gif
 	@cmd	position 2 -5 50 1 1
-	frame	data/chars/3johnny/1grab06.gif 
+	frame	data/chars/3johnny/1grab06.gif
+	delay	2
+	@cmd	position 2 0 50 1 1
+	frame	data/chars/3johnny/1grab06.gif
 	@cmd	depost 0
 	@cmd	finish 115 1 0 3 0.3 -1
 	delay	25
@@ -812,6 +972,7 @@ anim	freespecial6
 	delay	14
 	frame	data/chars/3johnny/rise2.gif
 	frame	data/chars/3johnny/rise3.gif
+	@cmd	clearL
 	frame	data/chars/3johnny/rise4.gif
 	frame	data/chars/3johnny/rise5.gif
 
@@ -830,6 +991,7 @@ anim	freespecial7
 	@cmd	position 1 -5 115 1 1
 	frame	data/chars/3johnny/1grab05b.gif
 	delay	15
+	@cmd	hurt 15
 	sound	data/sounds/break.wav
 	@cmd	spawn01 "Flash" 0 30 1
 	@cmd	position 2 -5 50 1 1
@@ -846,7 +1008,10 @@ anim	freespecial7
 	@cmd	position 2 -5 50 1 1
 	frame	data/chars/3johnny/1grab06.gif
 	@cmd	position 2 -5 50 1 1
-	frame	data/chars/3johnny/1grab06.gif 
+	frame	data/chars/3johnny/1grab06.gif
+	delay	2
+	@cmd	position 2 0 50 1 1
+	frame	data/chars/3johnny/1grab06.gif
 	@cmd	depost 0
 	@cmd	finish 135 1 0 3 0.3 -1
 	delay	25
@@ -854,6 +1019,7 @@ anim	freespecial7
 	delay	14
 	frame	data/chars/3johnny/rise2.gif
 	frame	data/chars/3johnny/rise3.gif
+	@cmd	clearL
 	frame	data/chars/3johnny/rise4.gif
 	frame	data/chars/3johnny/rise5.gif
 
@@ -884,6 +1050,7 @@ anim	freespecial8
 	@cmd	position 1 -5 85 1 1
 	frame	data/chars/3johnny/1grab05d.gif
 	delay	15
+	@cmd	hurt 15
 	sound	data/sounds/break.wav
 	@cmd	spawn01 "flashscreen2" 0 30 1
 	@cmd	position 2 -5 50 1 1
@@ -892,6 +1059,9 @@ anim	freespecial8
 	frame	data/chars/3johnny/1grab07.gif
 	@cmd	position 2 -5 50 1 1
 	frame	data/chars/3johnny/1grab06.gif
+	delay	2
+	@cmd	position 2 0 50 1 1
+	frame	data/chars/3johnny/1grab06.gif
 	@cmd	depost 0
 	@cmd	finish 155 1 0 3 0.3 -1
 	delay	35
@@ -899,6 +1069,7 @@ anim	freespecial8
 	delay	14
 	frame	data/chars/3johnny/rise2.gif
 	frame	data/chars/3johnny/rise3.gif
+	@cmd	clearL
 	frame	data/chars/3johnny/rise4.gif
 	frame	data/chars/3johnny/rise5.gif
 
@@ -916,10 +1087,12 @@ anim	idle
 	delay	28
 	@cmd	mpgain 6
 	frame	data/chars/3johnny/idle01b.gif
-	delay	16
+	delay	5
 	@cmd	mpgain 6
 	frame	data/chars/3johnny/idle01a.gif
-		
+	frame	data/chars/3johnny/idle01a.gif
+	@cmd	clearL
+	frame	data/chars/3johnny/idle01a.gif	
 
 	
 anim	rise
@@ -937,10 +1110,37 @@ anim	rise
 
 anim	spawn
 	loop	0
-	delay	20
+	delay	25
 	offset	101 190
 	bbox	0 0 0 0
-	frame	data/chars/3johnny/spawn01.gif
+	frame	data/chars/3johnny/taunt06.gif
+	delay	8
+	frame	data/chars/3johnny/taunt07.gif
+	frame	data/chars/3johnny/taunt08.gif
+	frame	data/chars/3johnny/taunt07.gif
+	frame	data/chars/3johnny/taunt08.gif
+	frame	data/chars/3johnny/taunt07.gif
+	frame	data/chars/3johnny/taunt08.gif
+	frame	data/chars/3johnny/taunt09.gif
+	delay	40
+	frame	data/chars/3johnny/taunt10.gif
+
+anim	respawn
+	loop	0
+	delay	25
+	offset	101 190
+	bbox	0 0 0 0
+	frame	data/chars/3johnny/taunt06.gif
+	delay	8
+	frame	data/chars/3johnny/taunt07.gif
+	frame	data/chars/3johnny/taunt08.gif
+	frame	data/chars/3johnny/taunt07.gif
+	frame	data/chars/3johnny/taunt08.gif
+	frame	data/chars/3johnny/taunt07.gif
+	frame	data/chars/3johnny/taunt08.gif
+	frame	data/chars/3johnny/taunt09.gif
+	delay	40
+	frame	data/chars/3johnny/taunt10.gif
 
 
 anim	special
@@ -1039,7 +1239,7 @@ anim	runattack
 	frame	data/chars/3johnny/runatk05.gif
 	delay	10
 	#hitfx	data/sounds/beat4.wav
-	attack 85 50 80 115 35 1 0 0 45 0
+	attack 85 50 80 115 40 1 0 0 45 0
 	dropv	5 1.5
 	frame	data/chars/3johnny/runatk06.gif
 	@cmd	dasher 1 0 0
@@ -1095,7 +1295,6 @@ anim	burn
 	delay	500
 	frame	data/chars/3johnny/fall3.gif
 	attack	0 0 0 0
-	bbox	58 175 85 15
 	delay	15
 	frame	data/chars/3johnny/fall4.gif
 	frame	data/chars/3johnny/fall5.gif
@@ -1115,7 +1314,6 @@ anim	fall
 	delay	500
 	frame	data/chars/3johnny/fall3.gif
 	attack	0 0 0 0
-	bbox	58 175 85 15
 	delay	15
 	frame	data/chars/3johnny/fall4.gif
 	frame	data/chars/3johnny/fall5.gif
@@ -1137,7 +1335,6 @@ anim	fall2
 	delay	500
 	frame	data/chars/3johnny/fall3.gif
 	attack	0 0 0 0
-	bbox	58 175 85 15
 	delay	15
 	frame	data/chars/3johnny/fall4.gif
 	frame	data/chars/3johnny/fall5.gif
@@ -1162,7 +1359,7 @@ anim	fall3
 	bbox	77 130 67 35
 	attack	0 0 0 0
 	frame	data/chars/3johnny/fall3.gif
-	bbox	58 167 85 15
+	bbox	0 0 0 0
 	delay	15
 	frame	data/chars/3johnny/fall4.gif
 	frame	data/chars/3johnny/fall5.gif
@@ -1204,7 +1401,6 @@ anim	fall5
 	delay	500
 	frame	data/chars/3johnny/fall3.gif
 	attack	0 0 0 0
-	bbox	58 175 85 15
 	delay	15
 	frame	data/chars/3johnny/fall4.gif
 	frame	data/chars/3johnny/fall5.gif
@@ -1320,7 +1516,7 @@ anim	grabattack
 	@cmd	position 1 -5 50 1 1
 	frame	data/chars/3johnny/1grab07.gif #6
 	@cmd	position 1 -5 50 1 1
-	frame	data/chars/3johnny/1grab07.gif
+	frame	data/chars/3johnny/1grab07.gif #7
 	@cmd	position 1 -5 50 1 1
 	frame	data/chars/3johnny/1grab07.gif
 	@cmd	position 2 -5 50 1 1
@@ -1328,7 +1524,9 @@ anim	grabattack
 	@cmd	position 2 -5 50 1 1
 	frame	data/chars/3johnny/1grab06.gif
 	@cmd	position 2 -5 50 1 1
-	frame	data/chars/3johnny/1grab06.gif 
+	frame	data/chars/3johnny/1grab06.gif
+	@cmd	position 2 0 50 1 1
+	frame	data/chars/3johnny/1grab06.gif
 	@cmd	depost 0
 	@cmd	finish 45 1 0 3 0.3 -1
 	delay	35
@@ -1336,6 +1534,7 @@ anim	grabattack
 	delay	14
 	frame	data/chars/3johnny/rise2.gif
 	frame	data/chars/3johnny/rise3.gif
+	@cmd	clearL
 	frame	data/chars/3johnny/rise4.gif
 	frame	data/chars/3johnny/rise5.gif
 
@@ -1343,9 +1542,25 @@ anim	grabattack
 
 
 
-
-
 anim	grabattack2
+@script
+	void self = getlocalvar("self");
+	void plyr = getentityproperty(self, "playerindex");
+	float Vx = getlocalvar("x"+self);
+	float Vz = getlocalvar("z"+self);
+
+	if(frame >= 3 && frame <= 15 )
+	{
+	  if( playerkeys(plyr, 0, "moveleft"))
+	  {
+	  changeentityproperty(self, "velocity", -1.5, Vz);
+	  }
+	  if( playerkeys(plyr, 0, "moveright"))
+	  {
+	  changeentityproperty(self, "velocity", 1.5, Vz);
+	  }
+	}
+@end_script
 	loop	0
 	delay	15
 	offset	101 190
@@ -1393,7 +1608,7 @@ anim	grabattack2
 	frame	data/chars/3johnny/2grab04.gif
 	sound	data/sounds/punch2.wav
 	@cmd	looper 11 30
-	@cmd	position 6 5 30 -1 -1
+	@cmd	position 6 0 30 1 -1
 	frame	data/chars/3johnny/2grab05.gif #15
 	@cmd	position 3 1 30 1 1
 	frame	data/chars/3johnny/2grab04.gif #16
@@ -1401,7 +1616,7 @@ anim	grabattack2
 	@cmd	tosser3 "frag" -10 95 0 0.3 2 -0.1 "ANI_FOLLOW1"
 	@cmd	tosser3 "frag" 10 95 0 -0.4 2 0.1 "ANI_FOLLOW1"
 	@cmd	tosser3 "frag" -10 95 0 0.4 2 0.1 "ANI_FOLLOW1"
-	@cmd	spawn02 "flashsc1" -100 500 300
+	@cmd	spawn02 "flashsc1" -10 200 190
 	@cmd	depost 0
 	@cmd	finish 85 1 0 7 0 -1
 	frame	data/chars/3johnny/2grab06.gif
@@ -1412,6 +1627,7 @@ anim	grabattack2
 	@cmd	flip
 	frame	data/chars/3johnny/d02.gif
 	frame	data/chars/3johnny/d03.gif
+	@cmd	clearL
 	frame	data/chars/3johnny/d04.gif
 	frame	data/chars/3johnny/d05.gif
 	frame	data/chars/3johnny/d06.gif
@@ -1489,6 +1705,9 @@ anim	grabbackward
 	frame	data/chars/3johnny/1grab10.gif
 	@cmd	position 1 -15 50 1 1
 	frame	data/chars/3johnny/1grab10.gif #10
+	delay	2
+	@cmd	position 1 0 50 1 1
+	frame	data/chars/3johnny/1grab10.gif
 	@cmd	depost 0
 	@cmd	finish 45 1 -1 3 0 -1
 	delay	15
@@ -1496,6 +1715,7 @@ anim	grabbackward
 	@cmd	flip
 	frame	data/chars/3johnny/rise3.gif
 	frame	data/chars/3johnny/rise4.gif
+	@cmd	clearL
 	frame	data/chars/3johnny/rise5.gif
 
 
@@ -1511,6 +1731,26 @@ anim	grabforward
 	@cmd	flip
 	@cmd	position 1 -5 125 1 1
 	frame	data/chars/3johnny/1grab02.gif
+	delay	2
+	@cmd	antiwall -20 5 0
+	@cmd	position 2 -15 100 -1 1
+	frame	data/chars/3johnny/1grab11.gif
+	@cmd	antiwall -20 5 0
+	@cmd	position 2 -15 100 -1 1
+	frame	data/chars/3johnny/1grab11.gif
+	@cmd	antiwall -20 5 0
+	@cmd	position 2 -15 100 -1 1
+	frame	data/chars/3johnny/1grab11.gif
+	@cmd	antiwall -20 5 0
+	@cmd	position 2 -15 100 -1 1
+	frame	data/chars/3johnny/1grab11.gif
+	@cmd	antiwall -20 5 0
+	@cmd	position 2 -15 100 -1 1
+	frame	data/chars/3johnny/1grab11.gif
+	@cmd	antiwall -20 5 0
+	@cmd	position 2 -15 100 -1 1
+	frame	data/chars/3johnny/1grab11.gif
+	@cmd	antiwall -20 5 0
 	@cmd	position 2 -15 100 -1 1
 	frame	data/chars/3johnny/1grab11.gif
 	@cmd	depost 0
@@ -1519,11 +1759,12 @@ anim	grabforward
 	frame	data/chars/3johnny/1grab12.gif
 	delay	15
 	@cmd	flip
+	@cmd	clearL
 	frame	data/chars/3johnny/a201.gif
 
 anim	pain
 	loop	0
-	delay	8
+	delay	7
 	offset	104 190
 	bbox	85 96 39 91
 	frame	data/chars/3johnny/pain0.gif
@@ -1536,7 +1777,7 @@ anim	pain
 
 anim	pain2
 	loop	0
-	delay	8
+	delay	7
 	offset	104 190
 	bbox	85 96 39 91
 	frame	data/chars/3johnny/pain0.gif
@@ -1564,7 +1805,7 @@ anim	pain3
 	frame	data/chars/3johnny/pain2.gif
 	move	-1
 	frame	data/chars/3johnny/pain2.gif
-	delay	35
+	delay	25
 	frame	data/chars/3johnny/pain2.gif
 
 anim	pain5

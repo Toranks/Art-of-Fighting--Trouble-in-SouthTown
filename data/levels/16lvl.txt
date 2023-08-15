@@ -4,8 +4,8 @@ bossmusic	data/music/jack.ogg
 background	data/bgs/16lvl/2back.gif 0 0
 bglayer         data/bgs/16lvl/outback1.gif 0 0 0 0 0 0 1 1 1
 panel		data/bgs/16lvl/burndojo.gif
-fglayer         data/bgs/16lvl/outfront.gif 200 -0.5 0 0 0 100 1 3 1 1
-fglayer		data/bgs/16lvl/light1.gif 2000 0 0 0 0 0 0 1 1 1 1 0 0 0 0 0
+fglayer         data/bgs/16lvl/outfront.gif 3000 -0.5 0 0 0 100 1 3 1 1
+fglayer		data/bgs/16lvl/light1.gif 6000 0 0 0 0 0 0 1 1 1 1 0 0 0 0 0
 
 
 
@@ -106,11 +106,13 @@ at      0
 #2--------------------------
 
 spawn   barrel
-item    food3
 coords  400 245
 at      0
 
 spawn  barrel
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+} @end_script
 map    2
 coords  470 245
 at      0
@@ -141,7 +143,6 @@ coords  940 320
 at      0
 
 spawn  drum
-item   food2
 coords  920 300
 at      0
 
@@ -170,7 +171,6 @@ coords  870 280 190
 at      0
 
 spawn  drum2
-item   money2
 map    1
 coords  850 260 190
 at      0
@@ -213,7 +213,6 @@ coords  -90 290
 at      0
 
 spawn   dan
-item    food4
 map     1
 health  60
 coords  -70 270
@@ -233,7 +232,6 @@ coords  610 280
 at      0
 
 3pspawn   rashad
-item    food5
 health  60
 coords  610 250
 at      0
@@ -270,7 +268,6 @@ coords  680 230
 at      0
 
 spawn   FatGuy
-item    food5
 map     2
 health  90
 coords  -110 300
@@ -303,7 +300,6 @@ coords  580 260
 at      0
 
 3pspawn   shion
-item    food1
 map     1
 health  200
 coords  580 250
@@ -473,7 +469,7 @@ wait
 at      2080
 
 spawn   jack
-health  1150
+health  1750
 aggression 100
 2phealth 1250
 3phealth 1350
@@ -522,7 +518,6 @@ at      1940
 spawn   mrpink
 map     3
 health  80
-item   	money2
 coords  630 290
 at      1940
 
@@ -565,7 +560,6 @@ at      1940
 
 spawn   mrpink
 map     1
-item   	food2
 health  80
 coords  600 250
 at      1940

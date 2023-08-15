@@ -8,7 +8,6 @@ throw         5 2
 throwdamage   18
 shadow        0
 noquake       1
-nolife        1
 falldie	      2
 blockodds     1
 nodieblink    1
@@ -18,6 +17,8 @@ candamage     player npc
 hostile       player npc
 projectilehit enemy obstacle
 diesound      data/sounds/alien7.wav
+icon		data/chars/beyond/1alien6/icon.gif
+icondie		data/chars/beyond/1alien6/icond.gif
 animationscript data/scripts/escript.c
 
 load	syarm
@@ -102,7 +103,7 @@ anim	jumpland
 
 
 anim	attack1
-	range	40 140
+	range	40 110
 	loop	0
 	delay	8
 	offset	100 189
@@ -114,7 +115,7 @@ anim	attack1
 	hitfx	data/sounds/beat2.wav
 	frame	data/chars/beyond/1alien6/ab10.gif
 	offset	70 189
-	attack	95 100 105 35 8 0 0 0 25 0
+	attack	95 100 85 35 8 0 0 0 25 0
 	frame	data/chars/beyond/1alien6/ab11.gif
 	frame	data/chars/beyond/1alien6/ab12.gif
 	frame	data/chars/beyond/1alien6/ab13.gif
@@ -240,10 +241,10 @@ anim	burn
 	@cmd	spawnbind "burn1" 1 1 1
 	@cmd	spawnbind "burn2" 1 1 1
 	@cmd	spawnbind "burn3" 1 1 1
-	attack	75 103 29 43 5 1 0 0 13
+	attack	75 103 29 43 5 1 0 0 13 40
 	frame	data/chars/beyond/1alien6/fall10.gif
 	delay	15
-	attack	64 134 40 22 5 1 0 0 13
+	attack	64 134 40 22 5 1 0 0 13 40
 	frame	data/chars/beyond/1alien6/fall11.gif
 	delay	500
 	frame	data/chars/beyond/1alien6/fall12.gif
@@ -303,10 +304,10 @@ anim	fall
 	bbox	0 0 0 0
 	drawmethod	200 200 0 0 0 0 -1 0 0 0 0 -1
 	landframe	3
-	attack	75 103 29 43 5 1 0 0 13
+	attack	75 103 29 43 5 1 0 0 13 40
 	frame	data/chars/beyond/1alien6/fall10.gif
 	delay	15
-	attack	64 134 40 22 5 1 0 0 13
+	attack	64 134 40 22 5 1 0 0 13 40
 	frame	data/chars/beyond/1alien6/fall11.gif
 	delay	500
 	frame	data/chars/beyond/1alien6/fall12.gif
@@ -322,13 +323,13 @@ anim	fall10
 	bbox	79 97 50 91
 	drawmethod	200 200 0 0 0 0 -1 0 0 0 0 -1
 	landframe	4
-	attack	78 104 28 44 5 1 0 0 13
+	attack	78 104 28 44 5 1 0 0 13 40
 	frame	data/chars/beyond/1alien6/pain6.gif
 	delay	40
 	frame	data/chars/beyond/1alien6/pain7.gif
 	delay	30
 	bbox	71 132 63 30
-	attack	64 134 40 22 5 1 0 0 13
+	attack	64 134 40 22 5 1 0 0 13 40
 	frame	data/chars/beyond/1alien6/fall11.gif
 	delay	1000
 	bbox	77 154 67 31
@@ -353,13 +354,14 @@ anim	fall2
 	offset	102 189
 	bbox	0 0 0 0
 	drawmethod	200 200 0 0 0 0 -1 0 0 0 0 -1
-	attack	78 104 28 44 5 1 0 0 13
+	attack	78 104 28 44 5 1 0 0 13 40
 	frame	data/chars/beyond/1alien6/pain6.gif
 	delay	10
-	attack	64 134 40 22 5 1 0 0 13
+	attack	64 134 40 22 5 1 0 0 13 40
 	frame	data/chars/beyond/1alien6/fall11.gif
 	attack	0 0 0 0
 	frame	data/chars/beyond/1alien6/fall12.gif
+	bbox	58 175 85 15
 	frame	data/chars/beyond/1alien6/fall4.gif
 		
 anim	fall4
@@ -423,10 +425,10 @@ anim	fall9
 	drawmethod	200 200 0 0 0 0 -1
 	quakeframe	2 5 5
 	landframe	2 dust
-	attack	75 103 29 43 5 1 0 0 13
+	attack	75 103 29 43 5 1 0 0 13 40
 	frame	data/chars/beyond/1alien6/fall10.gif
 	delay	350
-	attack	75 159 42 31 5 1 0 0 13
+	attack	75 159 42 31 5 1 0 0 13 40
 	frame	data/chars/beyond/1alien6/fall11.gif
 	delay	2
 	move	-4
@@ -464,7 +466,7 @@ anim	follow1
 	offset	90 189
 	frame	data/chars/beyond/1alien6/ab01.gif
 	frame	data/chars/beyond/1alien6/ab02.gif
-	attack	100 92 100 30 9 0 0 0 15 0
+	attack	100 92 80 30 9 0 0 0 15 0
 	offset	70 189
 	frame	data/chars/beyond/1alien6/ab03.gif
 	frame	data/chars/beyond/1alien6/ab04.gif
@@ -479,11 +481,11 @@ anim	follow1
 	hitfx	data/sounds/sl1.wav
 	frame	data/chars/beyond/1alien6/ba03.gif
 	bbox	24 108 44 65
-	attack	42 70 100 45 10 1 0 0 45 0
+	attack	42 70 80 45 10 1 0 0 45 0
 	dropv	3 3
 	offset	10 189
 	frame	data/chars/beyond/1alien6/ba04.gif
-	attack	70 92 130 53 10 0 0 0 45 0
+	attack	70 92 100 53 10 0 0 0 45 0
 	dropv	3 3
 	frame	data/chars/beyond/1alien6/ba05.gif
 	offset	2 189
@@ -552,6 +554,7 @@ anim	idle
 	bbox	79 97 50 91
 	drawmethod	200 200 0 0 0 0 -1
 	frame	data/chars/beyond/1alien6/idle10.gif
+	@cmd	clearL
 	frame	data/chars/beyond/1alien6/idle11.gif
 	frame	data/chars/beyond/1alien6/idle12.gif
 	frame	data/chars/beyond/1alien6/idle13.gif

@@ -5,7 +5,7 @@ layer         data/bgs/18lvl/newback.gif -2000 0.7 0 0 0 0 0 -1 1 1
 layer         data/bgs/18lvl/total2.gif -1500 0.5 0 0 0 0 0 1 1 1
 layer         data/bgs/18lvl/truck.gif -800 0 0 0 25 1500 0 -1 1 1 0 0 0 0 0 3
 panel		data/bgs/18lvl/panel.gif
-fglayer      	data/bgs/18lvl/st3front2.gif 2000 0 0 0 0 0 0 1 1 1
+fglayer      	data/bgs/18lvl/st3front2.gif 3000 0 0 0 0 0 0 1 1 1
 
 
 
@@ -226,7 +226,6 @@ coords  190 210
 at      0
 
 spawn 	trash3
-item    apple
 coords  240 210
 at      0
 
@@ -247,7 +246,6 @@ coords  720 205
 at      0
 
 spawn 	trash
-item    gold
 coords  1500 205
 at      0
 
@@ -259,7 +257,6 @@ at      0
 
 spawn  	xphone
 flip    1
-item    money1
 coords  1960 305
 at      0
 
@@ -281,7 +278,6 @@ at      0
 
 spawn  	yphone
 map     3
-item    money1
 coords  1530 305
 at      0
 #--------------------------
@@ -299,7 +295,6 @@ at      0
 
 spawn   tire1
 health  20
-item    money2
 coords  920 305
 at      0
 
@@ -326,7 +321,6 @@ at      0
 
 spawn   tire2
 health  20
-item    food6
 coords  2370 210
 at      0
 
@@ -342,7 +336,6 @@ coords  2140 310
 at      0
 
 spawn   tire1
-item    lulcardx
 coords  2220 310
 at      0
 
@@ -354,7 +347,6 @@ at      0
 #-------------------------------
 spawn   tire1
 health  20
-item    ruby
 coords  2680 300
 at      0
 
@@ -365,7 +357,6 @@ at      0
 
 spawn   tire1
 health  20
-item    food3
 coords  2810 300
 at      0
 
@@ -375,7 +366,6 @@ coords  2870 300
 at      0
 
 spawn   trash2
-item    food2
 coords  3200 295
 at      0
 
@@ -397,7 +387,6 @@ at      0
 
 spawn   bik1
 flip    1
-item    moneybag
 coords  3450 445
 at      0
 
@@ -448,11 +437,7 @@ coords  3300 225
 at      0
 
 #-------------------------------
-
-
 #-------------------------------
-
-
 
 blockade 10
 at      10
@@ -486,7 +471,7 @@ coords  600 255
 at      10
 
 spawn   valarie
-#health  140
+health  240
 coords  700 240
 at      10
 
@@ -498,38 +483,13 @@ at      90
 wait
 at      90
 
-
 #------------------
 blockade 400
 at      400
-group   3 3
-at      400
-wait
-at      400
-
-spawn   rashad
-map	2
-#health  120
-coords  600 240
-at      400
-
-spawn   mrpink
-#health  120
-item    money2
-coords  -560 260
-at      400
-
-spawn   mrred
-#health  120
-coords  660 260
-at      400
-
-
 
 #------------------
 blockade 700
 at      700
-
 #------------------
 blockade 900
 at      900
@@ -554,6 +514,7 @@ at      1100
 
 spawn   bdrum
 flip    1
+map	3
 item	explosion4
 coords  595 290
 at      1100
@@ -563,7 +524,6 @@ coords  -180 240
 at      1100
 
 spawn   bdrum
-item    money1
 coords  -200 265
 at      1100
 
@@ -578,28 +538,25 @@ at      1100
 
 spawn   bbarrel
 flip    1
-item    money2
 coords  640 265
 at      1100
 
 spawn   bdrum
 flip    1
+map	3
 item	explosion4
 coords  595 290
 at      1100
 
 spawn   bdrum
-item    1up
 coords  -170 240
 at      1100
 
 spawn   bdrum
-item    food4
 coords  -210 265
 at      1100
 
 spawn   bbarrel
-item    apple
 coords  -190 295
 at      1100
 
@@ -616,6 +573,7 @@ at      1100
 
 spawn   bdrum
 flip    1
+map	3
 item    explosion4
 coords  595 290
 at      1100
@@ -625,11 +583,11 @@ coords  -180 240
 at      1100
 
 spawn   bdrum
-item    money1
 coords  -200 265
 at      1100
 
 spawn   bdrum
+map	3
 item	explosion4
 coords  -190 295
 at      1100
@@ -641,12 +599,12 @@ at      1100
 
 spawn   bdrum
 flip    1
-item    money2
 coords  640 265
 at      1100
 
 spawn   bdrum
 flip    1
+map	3
 item	explosion4
 coords  595 290
 at      1100
@@ -661,13 +619,13 @@ at      1100
 spawn   steroid
 map     2
 item    food6
-#health  900
+health  800
 coords  730 295
 at      1100
 
 2pspawn   steroid
 map     3
-#health  900
+#health  600
 coords  -330 295
 at      1100
 
@@ -699,7 +657,6 @@ at      1400
 
 spawn   rodder
 map     4
-item    apple2
 #health  140
 coords  690 225 100
 at      1400
@@ -709,6 +666,90 @@ map     3
 #health  200
 coords  610 295
 at      1400
+
+#-----------------//----------
+group   1 1
+at      1400
+wait
+at      1400
+
+spawn   ghosttime
+health  8
+coords  610 295
+at      1400
+
+group   3 3
+at      1400
+wait
+at      1400
+
+spawn   rodder2
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+health	1
+coords  590 250
+at      1400
+
+spawn   rodder2
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+flip    1
+health	1
+coords  -110 220
+at      1400
+
+spawn   rodder2
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+health	1
+coords  590 285
+at      1400
+
+
+spawn   rodder2
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+health	1
+coords  590 250
+at      1400
+
+spawn   rodder2
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+flip    1
+health	1
+coords  -110 260
+at      1400
+
+spawn   rodder2
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+health	1
+coords  590 285
+at      1400
+
+
+#//------------------------//-------
+
+
 
 #------------------
 
@@ -723,30 +764,7 @@ at      1800
 
 #------------------
 
-
 blockade 2000
-at      2000
-
-group   3 3
-at      2000
-wait
-at	2000
-
-spawn   sheila
-#health  220
-item    bannana
-coords  -490 250
-at      2000
-
-spawn   lucy
-#health  120
-coords  -290 280
-at      2000
-
-spawn   kimberry
-#health  170
-item    ring
-coords  -590 260
 at      2000
 
 #--------------------------
@@ -759,26 +777,6 @@ at      2300
 #----------------------------
 
 group   3 3
-at      2300
-
-spawn   vigo
-map     1
-coords  670 340
-at      2300
-
-3pspawn   vigo
-map     2
-coords  600 390
-at      2300
-
-spawn   vigo
-map     3
-coords  700 415
-at      2300
-
-spawn   vigo
-map     4
-coords  -770 260
 at      2300
 
 2pspawn   psycho
@@ -823,22 +821,11 @@ at      2300
 
 spawn   elisa
 map     1
-#health  130
+health  330
 coords  -780 260
 at      2300
 #----------------------
 group   3 3
-at      2300
-
-spawn   ron
-map     3
-coords  -770 255
-at      2300
-
-spawn   ren
-map     2
-#health  210
-coords  600 390
 at      2300
 
 spawn   8ball
@@ -875,7 +862,6 @@ at      2300
 
 2pspawn   wendy
 map     2
-item    bannana
 coords  580 360
 at      2300
 
@@ -887,13 +873,8 @@ at      2300
 spawn   malenko
 map     4
 item    apple
-#health  210
+health  700
 coords  680 385
-at      2300
-
-spawn   dash
-map     3
-coords  -780 260
 at      2300
 
 #-------------------
@@ -913,6 +894,7 @@ coords  -780 260
 at      2300
 
 spawn   brock
+health  300
 map     3
 coords  580 360
 at      2300
@@ -925,7 +907,6 @@ at      2300
 
 spawn   fatguy
 #health  200
-item    money2
 map     3
 coords  580 360
 at      2300
@@ -1002,14 +983,13 @@ spawn   bdrum
 @script void main() {
    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
 } @end_script
-item    1up
 map	3
 coords  -10 365 170
 at      2300
 
 spawn   vigo
 map     2
-#health  80
+health  280
 coords  -780 260
 at      2300
 
@@ -1057,7 +1037,6 @@ spawn   bdrum
 @script void main() {
    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
 } @end_script
-item    diamond
 map	3
 coords  0 425 170
 at      2300
@@ -1150,7 +1129,7 @@ at      2300
 
 spawn   rodder
 map     4
-#health  80
+health  380
 coords  -800 255
 at      2300
 
@@ -1187,13 +1166,12 @@ spawn   bbarrel
 @script void main() {
    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
 } @end_script
-item    money2
 coords  -50 395 170
 at      2300
 
 spawn   rodder
 map     3
-#health  80
+health  280
 coords  -780 260
 at      2300
 

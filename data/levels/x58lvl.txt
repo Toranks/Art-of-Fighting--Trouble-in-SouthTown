@@ -1,0 +1,151 @@
+#music         data/music/enterbig.ogg
+
+
+background 	data/bgs/58lvl/back.gif 0.3 0
+panel		data/bgs/58lvl/panel1.gif
+layer		data/bgs/58lvl/panel3.gif -800 0 0 0 -4 0 0 1 1 1
+fglayer         data/bgs/58lvl/front.gif 1000 0 0 0 0 0 0 1 1 1
+layer		data/bgs/58lvl/sun.gif 2000 0 0 1570 -5 0 0 1 1 1 1 0 0 0 0 0
+layer		data/bgs/58lvl/light.gif 2000 0 0 0 0 0 0 1 1 1 1 0 0 0 0 0
+
+
+
+direction       both
+light 		0 -80
+at      	0
+shadowcolor     -2
+at              0
+shadowalpha     1
+at              0
+settime         0
+notime          1
+noslow          0
+order		a
+spawn1  	180 30
+spawn2  	195 40
+spawn3  	205 50
+
+cameratype      1
+cameraoffset    0 -90
+
+
+#-----wall--------------------
+wall   -340 450 0 0 530 390 150 5000
+wall   1540 475 0 0 140 140 70 5000
+
+wall   2120 365 0 72 310 310 60 5000
+wall   2225 520 0 0 220 220 120 5000
+wall   2310 445 -145 -40 -50 110 110 60
+
+hole   2190 450 10 130 1650 1650 110
+
+#------------------------
+
+spawn   lbdoor
+flip    1
+#health  90
+coords  1517 371
+at      0
+
+spawn   blockw
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+flip    1
+coords  75 370 220
+at      0
+
+spawn   lbwin
+flip    1
+map     1
+#health  200
+coords  2231 350
+at      0
+
+
+spawn   blockw
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+coords  1555 370 220
+at      0
+
+
+#------------------------
+
+spawn   1statue
+flip    1
+health  30
+item    1up
+map     4
+coords  340 350
+at      0
+
+spawn   1statue
+flip    1
+health  30
+item    diamond
+map     4
+coords  540 350
+at      0
+
+spawn   1statue
+health  30
+item    7putin
+map     4
+coords  1030 350
+at      0
+
+spawn   1statue
+health  30
+item    1up
+map     4
+coords  1230 350
+at      0
+
+#--------------------------
+
+
+
+#--------------------------
+
+spawn   arrow3
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+coords  60 360 135
+at      990
+
+
+spawn   mrbig3
+spawnscript data/scripts/noscpos.c
+item    1up
+flip    1
+health  3100
+aggression 200
+coords  550 380
+at      1000
+
+#--------------------------
+light 		10 -30
+at       	1380
+shadowcolor     1
+at        	1380
+shadowalpha     -1
+at        	1380
+
+#--------------------------
+
+
+
+blockade 1570
+at       1410
+
+#--------------------------
+#-------//-badbreak---//--------
+spawn   badbreak
+coords  50 350
+at      1420
+#-------//-badbreak---//--------
+
+#--------------------------

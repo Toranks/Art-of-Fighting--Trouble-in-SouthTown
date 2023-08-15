@@ -1,7 +1,7 @@
 name          MrBigg
 type          enemy
-health        18000
-score	      100 100
+health        59000
+mp		3000
 speed         25
 jumpheight    4
 jumpmove      0 4
@@ -319,7 +319,7 @@ anim	attack9
 	loop	0
 	delay	8
 	offset	110 190
-	bbox	0 0 0 0
+	bbox	85 140 50 50
 	followanim	8
 	followcond	1
 	fastattack	1
@@ -472,7 +472,7 @@ anim	fall
 	attack	78 98 30 45 5 1 0 0 13 0
 	frame	data/chars/3Mrbig2/fall1.gif
 	delay	15
-	@cmd	hpgain 75
+	@cmd	hpgain 175
 	attack	64 130 50 25 5 1 0 0 13 0
 	frame	data/chars/3Mrbig2/fall2.gif
 	delay	500
@@ -535,6 +535,7 @@ anim	fall2
 	delay	300
 	frame	data/chars/3Mrbig2/fall3.gif
 	delay	15
+	bbox	58 175 85 15
 	frame	data/chars/3Mrbig2/fall4.gif
 	frame	data/chars/3Mrbig2/fall5.gif
 	frame	data/chars/3Mrbig2/fall4.gif
@@ -897,7 +898,7 @@ anim	follow4
 	@cmd	position 9 20 5 -1 1
 	frame	data/chars/3Mrbig2/upper09.gif
 	sound	data/sounds/fall.wav
-	@cmd	spawn02 "flashsc1" -100 500 300
+	@cmd	spawn02 "flashsc1" -10 200 190
 	@cmd	antiwall 50 -5 -1
 	@cmd	position 9 20 5 -1 1
 	frame	data/chars/3Mrbig2/upper09.gif
@@ -1005,6 +1006,8 @@ anim	follow5
 	@cmd	antiwall 50 -5 -1
 	@cmd	position 18 40 10 -1 1
 	frame	data/chars/3Mrbig2/ga06.gif
+	sound	data/sounds/fall.wav
+	@cmd	spawn01 "dust" 15 1 1
 	@cmd	antiwall 50 -5 -1
 	@cmd	position 18 40 10 -1 1
 	frame	data/chars/3Mrbig2/ga06.gif
@@ -1363,7 +1366,7 @@ anim	follow8
 	@cmd	killgun 8 0
 	@cmd	position 14 -10 45 -1 1
 	frame	data/chars/3Mrbig2/c14.gif
-	@cmd	spawn02 "flashsc2" -100 500 300
+	@cmd	spawn02 "flashsc2" -10 200 190
 	@cmd	depost 0
 	@cmd	finish 25 1 -4 3 0 0
 	delay	15
@@ -1442,6 +1445,12 @@ anim	idle
 	offset	104 190
 	bbox	76 93 56 89
 	frame	data/chars/3Mrbig2/idle01.gif
+	@cmd	depost 0
+	frame	data/chars/3Mrbig2/idle01.gif
+	@cmd	clearL
+	frame	data/chars/3Mrbig2/idle01.gif
+	frame	data/chars/3Mrbig2/idle01.gif
+	frame	data/chars/3Mrbig2/idle01.gif
 		
 anim	pain
 @script
@@ -1458,7 +1467,7 @@ anim	pain
 	delay	3
 	offset	107 190
 	bbox	76 93 56 89
-	@cmd	hpgain 75
+	@cmd	hpgain 175
 	frame	data/chars/3Mrbig2/pain0.gif
 	offset	104 190
 	frame	data/chars/3Mrbig2/pain1.gif
@@ -1473,7 +1482,7 @@ anim	pain2
 	delay	3
 	offset	107 190
 	bbox	76 93 56 89
-	@cmd	hpgain 75
+	@cmd	hpgain 175
 	frame	data/chars/3Mrbig2/pain0.gif
 	offset	104 190
 	frame	data/chars/3Mrbig2/pain2.gif
@@ -1489,7 +1498,7 @@ anim	pain3
 	offset	104 190
 	bbox	0 0 0 0
 	jumpframe	1 2 -1 0
-	@cmd	hpgain 75
+	@cmd	hpgain 175
 	frame	data/chars/3Mrbig2/pain1.gif
 	delay	25
 	frame	data/chars/3Mrbig2/fall2.gif
@@ -1514,7 +1523,7 @@ anim	pain5
 	delay	23
 	offset	104 190
 	bbox	76 93 56 89
-	@cmd	hpgain 75
+	@cmd	hpgain 175
 	frame	data/chars/3Mrbig2/pain1.gif
 		
 anim	pain6
@@ -1522,7 +1531,7 @@ anim	pain6
 	delay	23
 	offset	104 190
 	bbox	76 93 56 89
-	@cmd	hpgain 75
+	@cmd	hpgain 175
 	frame	data/chars/3Mrbig2/pain2.gif
 		
 anim	pain8
@@ -1530,7 +1539,7 @@ anim	pain8
 	delay	2
 	offset	104 190
 	bbox	76 93 56 89
-	@cmd	hpgain 75
+	@cmd	hpgain 175
 	move	-6
 	frame	data/chars/3Mrbig2/pain1.gif
 	frame	data/chars/3Mrbig2/pain1.gif
@@ -1551,17 +1560,20 @@ anim	pain9
 	delay	15
 	offset	104 190
 	bbox	76 93 56 89
-	@cmd	hpgain 75
+	@cmd	hpgain 175
 	frame	data/chars/3Mrbig2/pain1.gif
 	delay	150
 	frame	data/chars/3Mrbig2/pain2.gif
 		
 anim	rise
 	loop	0
-	delay	14
+	delay	5
 	offset	104 190
 	bbox	0 0 0 0
-	@cmd	hpgain 75
+	frame	data/chars/3Mrbig2/fall4.gif
+	@cmd	hpgain 175
+	frame	data/chars/3Mrbig2/fall4.gif
+	delay	14
 	frame	data/chars/3Mrbig2/rise01.gif
 	@cmd	riseattack 120 20 "ANI_FOLLOW9"
 	frame	data/chars/3Mrbig2/rise02.gif
@@ -1742,6 +1754,8 @@ anim	special
 
 
 anim	special2
+	energycost	10
+	mponly	1
 	loop	0
 	delay	30
 	offset	104 190
@@ -2189,7 +2203,7 @@ anim	special2
 	@cmd	position 2 0 60 1 1
 	frame	data/chars/3Mrbig2/gb12.gif
 	sound	data/sounds/punch2.wav
-	@cmd	spawn02 "flashsc2" -100 500 300
+	@cmd	spawn02 "flashsc2" -10 200 190
 	@cmd	depost 0
 	@cmd	finish 20 2 -5 4 0 0
 	frame	data/chars/3Mrbig2/gb12.gif

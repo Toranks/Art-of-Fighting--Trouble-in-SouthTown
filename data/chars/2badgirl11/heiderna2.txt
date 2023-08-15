@@ -1,22 +1,23 @@
 name          heiderna2
 type          enemy
 subtype	      chase
-health        170
-speed         14
-running	      25 0 0 1 0
+health        160
+speed         6
+running	      20 0 0 1 0
 jumpheight    5
 jumpspeed     22
 throw         5 2
 throwdamage   18
 shadow        0
 noquake       1
-nolife        1
 falldie	      2
 nodieblink    1
 gfxshadow     1
 dust            dust
 projectilehit enemy obstacle
 diesound      data/sounds/bgdie7.wav
+icon	data/chars/2badgirl11/icon.gif
+icondie	data/chars/2badgirl11/icond.gif
 animationscript data/scripts/escript.c
 
 
@@ -428,10 +429,10 @@ anim	burn
 	@cmd	spawnbind "burn1" 1 1 1
 	@cmd	spawnbind "burn2" 1 1 1
 	@cmd	spawnbind "burn3" 1 1 1
-	attack	78 98 30 45 5 1 0 0 13 0
+	attack	78 98 30 45 5 1 0 0 13 30
 	frame	data/chars/2badgirl11/fall1.gif
 	delay	15
-	attack	64 130 50 25 5 1 0 0 13 0
+	attack	64 130 50 25 5 1 0 0 13 30
 	frame	data/chars/2badgirl11/fall2.gif
 	delay	500
 	frame	data/chars/2badgirl11/fall3.gif
@@ -447,10 +448,10 @@ anim	fall
 	delay	30
 	offset	100 189
 	bbox	0 0 0 0
-	attack	75 103 29 43 5 1 0 0 13 0
+	attack	75 103 29 43 5 1 0 0 13 30
 	frame	data/chars/2badgirl11/fall1.gif
 	delay	10
-	attack	64 134 40 22 5 1 0 0 13
+	attack	64 134 40 22 5 1 0 0 13 30
 	frame	data/chars/2badgirl11/fall2.gif
 	attack	0 0 0 0
 	frame	data/chars/2badgirl11/fall3.gif
@@ -462,11 +463,11 @@ anim	fall10
 	offset	100 189
 	bbox	79 97 50 91
 	landframe	3
-	attack	78 104 28 44 5 1 0 0 13
+	attack	78 104 28 44 5 1 0 0 13 30
 	frame	data/chars/2badgirl11/pain6.gif
 	delay	30
 	bbox	71 132 63 30
-	attack	64 134 40 22 5 1 0 0 13
+	attack	64 134 40 22 5 1 0 0 13 30
 	frame	data/chars/2badgirl11/fall2.gif
 	delay	300
 	bbox	77 154 67 31
@@ -480,12 +481,13 @@ anim	fall2
 	delay	30
 	offset	102 189
 	bbox	0 0 0 0
-	attack	78 104 28 44 5 1 0 0 13
+	attack	78 104 28 44 5 1 0 0 13 30
 	frame	data/chars/2badgirl11/pain6.gif
 	delay	10
-	attack	64 134 40 22 5 1 0 0 13
+	attack	64 134 40 22 5 1 0 0 13 30
 	frame	data/chars/2badgirl11/fall2.gif
 	attack	0 0 0 0
+	bbox	58 175 85 15
 	frame	data/chars/2badgirl11/fall3.gif
 	frame	data/chars/2badgirl11/fall4.gif
 		
@@ -517,10 +519,10 @@ anim	fall9
 	delay	10
 	offset	100 189
 	bbox	0 0 0 0
-	attack	75 103 29 43 5 1 0 0 13
+	attack	75 103 29 43 5 1 0 0 13 30
 	frame	data/chars/2badgirl11/fall1.gif
 	delay	37
-	attack	75 159 42 31 5 1 0 0 13
+	attack	75 159 42 31 5 1 0 0 13 30
 	frame	data/chars/2badgirl11/fall3.gif
 	delay	8
 	attack	0 0 0 0
@@ -554,7 +556,7 @@ anim	follow1
 	frame	data/chars/2badgirl11/a112.gif
 	frame	data/chars/2badgirl11/a113.gif
 	frame	data/chars/2badgirl11/a114.gif
-	attack5	95 105 80 35 12 1 0 0 20 0
+	attack5	95 105 80 35 12 1 0 0 40 0
 	dropv	3 4
 	frame	data/chars/2badgirl11/a115.gif
 	frame	data/chars/2badgirl11/a116.gif
@@ -863,6 +865,7 @@ anim	follow2
 	delay	14
 	offset	100 195
 	frame	data/chars/2badgirl11/rise8.gif
+	@cmd	clearL
 	frame	data/chars/2badgirl11/rise9.gif
 	frame	data/chars/2badgirl11/rise10.gif
 
@@ -908,7 +911,9 @@ anim	idle
 	offset	100 195
 	bbox	79 97 50 91
 	frame	data/chars/2badgirl11/idle01.gif
+	@cmd	depost 0
 	frame	data/chars/2badgirl11/idle02.gif
+	@cmd	clearL
 	frame	data/chars/2badgirl11/idle03.gif
 	frame	data/chars/2badgirl11/idle04.gif
 	frame	data/chars/2badgirl11/idle05.gif

@@ -2,8 +2,8 @@ music		data/music/karatehd1.ogg
 
 background	data/bgs/65lvl/1room1/back.gif 0 0
 panel		data/bgs/65lvl/1room1/panel.gif
-fglayer    	data/bgs/65lvl/1room1/front.gif 1 0 0 0 0 0 0 1 1 1
-layer	        data/bgs/65lvl/1room1/light.gif 1500 0 0 -10 -10 0 0 1 1 1 1 0 0 0 0 0
+fglayer    	data/bgs/65lvl/1room1/front.gif 2000 0 0 0 0 0 0 1 1 1
+layer	        data/bgs/65lvl/1room1/light.gif 4000 0 0 -10 -10 0 0 1 1 1 1 0 0 0 0 0
 
 
 
@@ -15,8 +15,8 @@ notime          1
 noslow          1
 order		a
 spawn1  	150 40
-spawn2  	145 20
-spawn3  	185 20
+spawn2  	155 40
+spawn3  	165 40
 
 cameraoffset            0 -90
 
@@ -27,6 +27,9 @@ wall    780 380  250 350 650 650 120 5000
 
 #----------------------
 spawn   barrel
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+} @end_script
 map     3
 health  35
 item    food1
@@ -34,6 +37,9 @@ coords  560 305
 at      0
 
 spawn   barrel
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+} @end_script
 map     3
 health  35
 item    7donut
@@ -49,6 +55,11 @@ spawn   stgSET6
 coords  -500 515 350
 at      0
 #----------------------------------
+#-------//-badbreak---//--------
+spawn   badbreak
+coords  50 320
+at      0
+#-------//-badbreak---//--------
 
 spawn   spike2
 coords  290 325
@@ -119,7 +130,7 @@ at      0
 
 spawn   glstatue
 map     1
-health  400
+health  100
 item    room1ext
 coords  900 305
 at      0

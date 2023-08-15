@@ -4,25 +4,39 @@ background	data/bgs/38lvl/1back.gif 1 0
 bglayer         data/bgs/38lvl/2back 0.5 0 0 0 0 0 1 1 1
 panel		data/bgs/38lvl/tdojo2.gif
 layer		data/bgs/38lvl/sun.gif -10 1 0 0 0 0 0 1 1 1 1 0 0 0 0 0
-layer		data/bgs/38lvl/layer.gif 500 0 0 650 0 0 0 1 1 1 1 0 0 0 0 0
-fglayer         data/bgs/38lvl/front2.gif 200 0 0 0 0 0 0 1 1 1
-fglayer         data/bgs/38lvl/front.gif 500 -0.5 0 1420 0 0 0 3 1 1
+layer		data/bgs/38lvl/layer.gif 1500 0 0 650 0 0 0 1 1 1 1 0 0 0 0 0
+layer		data/bgs/38lvl/dark.gif 3500 0 0 0 0 0 0 1 1 1 2 0 0 0 0 0
+fglayer         data/bgs/38lvl/front2.gif 2000 0 0 0 0 0 0 1 1 1
+fglayer         data/bgs/38lvl/front5.gif 1500 0 0 900 340 0 1 1 1 1
+fglayer         data/bgs/38lvl/front5.gif 1500 0 0 1450 380 0 0 1 1 1
+fglayer         data/bgs/38lvl/front5.gif 1500 0 0 2000 340 0 0 1 1 1
+fglayer         data/bgs/38lvl/front5.gif 1500 0 0 2600 370 0 0 1 1 1
+fglayer         data/bgs/38lvl/front.gif 2500 -0.5 0 1420 320 0 0 3 1 1
+fglayer         data/bgs/38lvl/front3.gif 2500 -0.5 0 1420 0 0 0 3 1 1
+fglayer         data/bgs/38lvl/front4.gif 3500 0 0 0 0 0 0 1 1 1
 
-direction       right
+
+#direction       right
+direction       both
 light  		10   -30
 at       	0
 settime         0
 notime          1
 noslow          0
 order		a
-spawn1  	125 120 a
-spawn2  	145 20
-spawn3  	185 20
+spawn1  	125 30
+spawn2  	145 30
+spawn3  	185 30
+
+cameraoffset            0 -90
+#cameratype              1
 
 
 #-----------------------
 wall    -40 340  0 0 300 100 100 5000
 wall    0 265  0 0 1000 950 35 5000
+wall    -110 530  0 0 1150 1150 215 5000
+
 #-----------------------
 #----stage-------------
 spawn   stgSET3
@@ -54,41 +68,43 @@ at      0
 
 #-----------------------
 spawn  barrel
-coords  1570 320
+coords  1570 420
 at      0
 
 spawn  barrel
-coords  1550 300
+coords  1550 400
 at      0
 
 spawn  barrel
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+} @end_script
 item    gold
-coords  1530 280
+coords  1530 380
 at      0
 
 spawn  barrel
-coords  1510 260
+coords  1510 360
 at      0
 
 #-------
 
 spawn  barrel
-coords  1640 320
+coords  1640 420
 at      0
 
 spawn  barrel
-item   7shuss
-coords  1620 300
+coords  1620 400
+at      0
+
+spawn  barrel
+coords  1600 380
 at      0
 
 spawn  barrel
 item	rune
 itemalias ANI_FOLLOW3
-coords  1600 280
-at      0
-
-spawn  barrel
-coords  1680 260
+coords  1680 500
 at      0
 
 
@@ -96,21 +112,20 @@ at      0
 
 spawn  barrel
 item    apple
-coords  1610 320 190
+coords  1610 420 190
 at      0
 
 spawn  barrel
-coords  1590 300 190
+coords  1590 400 190
 at      0
 
 spawn  barrel
-coords  1570 280 190
+coords  1570 380 190
 at      0
 
 spawn  barrel
-item   money2
 map    1
-coords  1550 260 190
+coords  1550 360 190
 at      0
 
 
@@ -119,13 +134,12 @@ at      0
 spawn  woodtrain1
 #health 140
 item   5dime
-coords  1350 260
+coords  1300 360
 at      0
 
 spawn  woodtrain1
 #health 140
-item   food1
-coords  1250 260
+coords  1150 360
 at      0
 
 #----------------------------
@@ -139,7 +153,6 @@ at      0
 
 spawn  zenpot
 map    1
-item   food6
 coords  2420 260
 at      0
 
@@ -151,7 +164,6 @@ at      0
 
 spawn  zenpot
 map    3
-item   1up
 coords  3100 260
 at      0
 
@@ -164,11 +176,124 @@ at      0
 
 spawn  woodtrain1
 #health 140
-item   ruby
-coords  2650 290
+coords  2650 390
 at      0
 
 #----------------------------
+spawn  nwbar
+@script void main()
+{
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+coords  1550 265
+at      0
+
+spawn  nwbar
+coords  1610 265
+at      0
+
+spawn  nwbar
+item    apple
+coords  1670 265
+at      0
+
+spawn  nwbar
+@script void main()
+{
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+coords  1730 265
+at      0
+
+spawn  nwbar
+coords  1790 265
+at      0
+#----------------------------
+spawn  nwbar
+coords  1500 280
+at      0
+
+spawn  nwbar
+@script void main()
+{
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+flip    1
+item    apple
+coords  1560 280
+at      0
+
+spawn  nwbar
+coords  1620 280
+at      0
+
+spawn  nwbar
+@script void main()
+{
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+coords  1680 280
+at      0
+
+spawn  nwbar
+coords  1740 280
+at      0
+
+#------------------------//--------------
+spawn  nwbar
+item    apple
+coords  2300 445
+at      0
+
+spawn  nwbar
+coords  2400 445
+at      0
+
+spawn  nwbar
+@script void main()
+{
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+coords  2500 445
+at      0
+
+spawn  nwbar
+coords  2600 445
+at      0
+
+spawn  nwbar
+item    apple
+coords  2700 445
+at      0
+
+spawn  nwbar
+coords  2800 445
+at      0
+
+spawn  nwbar
+coords  2900 445
+at      0
+
+spawn  nwbar
+coords  3000 445
+at      0
+
+spawn  nwbar
+@script void main()
+{
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+flip    1
+coords  3100 445
+at      0
+
+#-------------------------
 
 group   2 2
 at      50
@@ -198,6 +323,7 @@ health	5
 coords  0 305
 at      50
 
+
 spawn   shimali
 map     2
 #health  300
@@ -209,58 +335,42 @@ at      50
 
 spawn   gen
 map     4
-#health  180
-aggression 100
+health  480
+aggression 5
 coords  600 295
 at      50
 
 spawn   daldo
+@script
+void main()
+	{
+	void self = getlocalvar("self");
+	performattack(self, openborconstant("ANI_JUMP"));
+	tossentity(self, 4, -3, 0);
+	}
+@end_script
 map     1
 #health  220
-aggression 100
+aggression 5
 coords  555 290
 at      50
 
 #----------------------------
+#-----------------------
+blockade 850
+at 	 900
 
-group   2 2
-at      250
-wait
-at      250
-
-spawn   jay
-#health  190
-map     1
-aggression 100
-coords  580 300 50
-at      250
-
-spawn   jay
-#health  190
-map     3
-aggression 100
-coords  670 310 150
-at      250
-
-spawn   randy
-map	2
-#health  190
-item   food1
-aggression 100
-coords  -75 320
-at      250
-
-
+#------------------
 #----------------------------
 
 group   3 3
 at      1005
-wait
-at      1005
+#wait
+#at      1005
 
 spawn   zen
 map     2
-#health  210
+aggression 5
 coords  -225 300
 at      1005
 
@@ -268,91 +378,44 @@ at      1005
 spawn   bob
 map     4
 #health  190
-aggression 100
-coords  520 280 320
+aggression 5
+coords  10 310 320
 at      1005
 
 spawn   gen
 map     2
 #health  190
-aggression 100
-coords  515 260 320
+aggression 5
+coords  815 260
 at      1005
 
 
-3pspawn   gen
+spawn   gen
 map     3
-#health  190
-aggression 100
-coords  -275 290
+health  390
+aggression 5
+coords  85 330 340
 at      1005
 
 
 spawn   bob
 map     3
 #health  190
-item   7donut
-aggression 100
-coords  -275 300
+aggression 5
+coords  195 300 200
 at      1005
 
 #----------------------------
 
-group   3 3
-at      1590
-wait
-at      1590
-
-spawn   daldo
-map     1
-#health  220
-aggression 100
-coords  555 260
-at      1590
-
-2pspawn   wendy
-#health  220
-aggression 100
-coords  575 280
-at      1590
-
-
-spawn   shimali
-map     1
-#health  300
-item   diamond
-aggression 100
-coords  585 290
-at      1590
-
-
-spawn   zen
-map     1
-#health  200
-aggression 100
-coords  615 290
-at      1590
-
-2pspawn   jimcombo
-map     1
-#health  220
-item   7cofe
-aggression 100
-coords  615 290
-at      1590
-
-#---------------
-
-group   3 3
+group   4 4
 at      1850
-wait
-at      1850
+#wait
+#at      1850
 
 spawn   shimali
 map     2
 #health  300
-item   ruby
-aggression 100
+aggression 5
 coords  585 290
 at      1850
 
@@ -360,14 +423,14 @@ at      1850
 spawn   gen
 map     4
 #health  180
-aggression 100
-coords  600 300
+aggression 5
+coords  200 360 370
 at      1850
 
 spawn   gen
 map     2
 #health  180
-aggression 100
+aggression 5
 coords  630 300
 at      1850
 
@@ -375,7 +438,7 @@ at      1850
 3pspawn   daldo
 map     3
 #health  210
-aggression 100
+aggression 5
 coords  -180 270
 at      1850
 
@@ -383,35 +446,35 @@ at      1850
 map     1
 #health  210
 item   7putin
-aggression 100
+aggression 5
 coords  -180 290
 at      1850
 
 spawn   shimali
 map     3
-#health  300
-aggression 100
+health  300
+aggression 5
 coords  -180 260
 at      1850
 
 
 #---------------
 
-group   3 3
+group   5 5
 at      2100
-wait
-at      2100
+#wait
+#at      2100
 
 spawn   bob
 #health  170
-aggression 100
-coords  680 300
+aggression 5
+coords  180 400 430
 at      2100
 
 spawn   wendy
 #health  170
 map     1
-aggression 100
+aggression 5
 coords  -200 260
 at      2100
 
@@ -419,50 +482,49 @@ at      2100
 spawn   daldo
 #health  170
 map     2
-aggression 100
+aggression 5
 coords  580 300
 at      2100
 
 spawn   wendy
-#health  170
+health  270
 map     2
-item    moneybag
-aggression 100
+aggression 5
 coords  -200 260
 at      2100
 
 
-2pspawn   bob
+spawn   bob
 #health  170
 map     4
-aggression 100
-coords  -200 260
+aggression 5
+coords  200 310 320
 at      2100
 
 
 #---------------
 
-group   3 3
+group   6 6
 at      2500
-wait
-at      2500
+#wait
+#at      2500
 
 spawn   jay
 #health  190
-aggression 100
+aggression 5
 coords  580 300
 at      2500
 
 2pspawn   thong
 #health  190
-aggression 100
+aggression 5
 coords  600 290
 at      2500
 
 spawn   randy
 #health  190
 item   food1
-aggression 100
+aggression 5
 coords  -200 290
 at      2500
 
@@ -470,37 +532,64 @@ at      2500
 spawn   fox
 #health  320
 map     4
-item   lulcardx
-aggression 100
+aggression 5
 coords  -200 290
+at      2500
+
+
+spawn   daldo
+@script
+void main()
+	{
+	void self = getlocalvar("self");
+	performattack(self, openborconstant("ANI_JUMP"));
+	tossentity(self, 4, -3, 0);
+	}
+@end_script
+map     2
+#health  220
+aggression 5
+coords  555 390
 at      2500
 
 
 #---------------
 
-group   3 3
+group   7 7
 at      2780
 
 spawn   shimali
 #health  300
-aggression 100
+aggression 5
 coords  -580 260 150
 at      2780
 
+
+spawn   gen
+map	1
+coords  180 360 370
+at      2780
+
 spawn   shimali
 #health  300
 map     1
-aggression 100
+aggression 5
 coords  -310 260 150
 at      2780
 
-spawn   beloche
+spawn   daldo
+@script
+void main()
+	{
+	void self = getlocalvar("self");
+	performattack(self, openborconstant("ANI_JUMP"));
+	tossentity(self, 4, -3, 0);
+	}
+@end_script
 map     1
-#health  650
-item    5dime
-boss    1
-aggression 100
-coords  600 260
+#health  320
+aggression 5
+coords  555 290
 at      2780
 
 
@@ -508,29 +597,61 @@ spawn   shimali
 #health  300
 map     2
 item    food4
-aggression 100
+aggression 5
 coords  580 260
+at      2780
+
+spawn   gen
+map	2
+coords  220 360 370
+at      2780
+
+spawn   beloche
+map     1
+boss    1
+health  1200
+aggression 5
+coords  600 260
 at      2780
 
 spawn   shimali
 #health  300
 map     3
-aggression 100
+aggression 5
 coords  -310 260 150
 at      2780
 
 
 spawn   shimali
 #health  300
-item    7putin
-aggression 100
+aggression 5
 coords  580 260
+at      2780
+
+spawn   daldo
+@script
+void main()
+	{
+	void self = getlocalvar("self");
+	performattack(self, openborconstant("ANI_JUMP"));
+	tossentity(self, 4, -3, 0);
+	}
+@end_script
+map     3
+#health  320
+aggression 5
+coords  555 290
+at      2780
+
+spawn   bob
+map	2
+coords  110 400 410
 at      2780
 
 spawn   shimali
 #health  300
 map     2
-aggression 100
+aggression 5
 coords  -310 260 150
 at      2780
 

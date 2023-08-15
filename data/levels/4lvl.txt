@@ -3,8 +3,8 @@ bossmusic	data/music/pitt3b.ogg
 
 background      data/bgs/4lvl/pittback.gif
 panel		data/bgs/4lvl/PittRing.gif
-fglayer    	data/bgs/4lvl/pfront1.gif 10 0 0 0 0 0 0 1 1 1
-fglayer    	data/bgs/4lvl/front2.gif 700 0 0 1190 395 0 0 1 1 1
+fglayer    	data/bgs/4lvl/pfront1.gif 1000 0 0 0 0 0 0 1 1 1
+fglayer    	data/bgs/4lvl/front2.gif 1700 0 0 1190 395 0 0 1 1 1
 
 direction       right
 light  		10   -30
@@ -93,8 +93,10 @@ coords  260 320
 at      0
 
 spawn   barrel
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+} @end_script
 flip    1
-item    food3
 coords  330 320
 at      0
 
@@ -106,11 +108,13 @@ at      0
 
 spawn   barrel
 flip    1
-item    money1
 coords  1100 320
 at      0
 
 spawn   barrel
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+} @end_script
 flip    1
 item    food1
 coords  1110 350
@@ -118,11 +122,13 @@ at      0
 
 spawn   barrel
 flip    1
-item    diamond
 coords  1110 380
 at      0
 
 spawn   barrel
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+} @end_script
 flip    1
 item    gold
 coords  1135 400
@@ -144,7 +150,6 @@ at      0
 
 spawn   tire1
 flip    1
-item    money1
 coords  570 325
 at      0
 
@@ -188,7 +193,6 @@ at      0
 
 spawn   tire2
 flip    1
-item    moneybag
 coords  680 365
 at      0
 
@@ -232,7 +236,6 @@ at      0
 
 spawn   tire2
 flip    1
-item    gold
 coords  785 405
 at      0
 
@@ -274,7 +277,6 @@ at      0
 
 spawn   barrel
 flip    1
-item    money2
 coords  260 320
 at      0
 
@@ -286,7 +288,6 @@ at      0
 
 spawn   barrel
 flip    1
-item    money1
 coords  1030 320
 at      0
 
@@ -298,7 +299,6 @@ at      0
 
 spawn   barrel
 flip    1
-item    food1
 coords  1110 350
 at      0
 
@@ -310,7 +310,6 @@ at      0
 
 spawn   barrel
 flip    1
-item    gold
 coords  1135 400
 at      0
 
@@ -346,52 +345,70 @@ coords  30 325
 at      0
 
 spawn   jay
-health  150
+health  100
+aggression -40
 coords  510 320
 at      0
 
 spawn   randy
-health  150
-aggression 100
+map	2
+health  90
+aggression -40
 coords  520 340
 at      0
 
 spawn   thong
-health  150
+health  70
+aggression -40
 coords  520 360
 at      0
 
 2pspawn   butterbean
 health  300
-aggression 100
+aggression -40
 item    money1
 coords  530 380
 at      0
 
 3pspawn   bash
-health  380
-aggression 100
+health  400
+aggression -40
 map     2
 coords  560 390
 at      0
 
 spawn   fox
-health  380
-aggression 100
-item    apple
+@script
+void main()
+	{
+	void self = getlocalvar("self");
+	performattack(self, openborconstant("ANI_JUMP"));
+	tossentity(self, 4, -3, 0);
+	}
+@end_script
+health  250
+aggression -40
 map     2
 coords  550 390
 at      0
 
 2pspawn   jay
-health  150
+health  90
 map     1
 coords  510 320
 at      0
 
 spawn   thong
-health  150
-aggression 100
+@script
+void main()
+	{
+	void self = getlocalvar("self");
+	performattack(self, openborconstant("ANI_JUMP"));
+	tossentity(self, 4, -3, 0);
+	}
+@end_script
+health  100
+aggression -40
 map     1
 coords  540 360
 at      0
@@ -407,50 +424,56 @@ at      250
 
 
 spawn   rider1b
-health  230
+health  90
+aggression -40
 coords  550 340
 at      250
 
 spawn   rider2b
-flip    1
-health  160
+health  100
+aggression -40
 item    food2
 coords  -280 360
 at      250
 
 spawn   rider3b
 flip    1
-health  160
+health  90
+aggression -40
 coords  550 380
 at      250
 
 spawn   rider4b
 flip    1
-health  200
+health  80
+aggression -40
 coords  -280 380
 at      250
 
 spawn   rider1b
-health  260
+health  90
+aggression -40
 coords  550 340
 at      250
 
 spawn   rider2b
 flip    1
-health  160
-item    money2
+aggression -40
+health  80
 coords  -280 360
 at      250
 
 spawn   rider3b
 flip    1
-health  160
+health  70
+aggression -40
 coords  550 380
 at      250
 
 spawn   rider4b
 flip    1
-health  200
+health  100
+aggression -40
 item    food5
 coords  -280 380
 at      250
@@ -465,46 +488,54 @@ wait
 at      580
 
 spawn   randy
-health  150
-aggression 100
-item    moneybag
+@script
+void main()
+	{
+	void self = getlocalvar("self");
+	performattack(self, openborconstant("ANI_JUMP"));
+	tossentity(self, 4, -3, 0);
+	}
+@end_script
+health  100
+aggression -40
 map     1
 coords  650 380 100
 at      580
 
 spawn   thong
-health  150
-aggression 100
+health  80
+aggression -40
 map     2
 coords  630 350 100
 at      580
 
 
 spawn   jay
-health  150
-aggression 100
+@script
+void main()
+	{
+	void self = getlocalvar("self");
+	performattack(self, openborconstant("ANI_JUMP"));
+	tossentity(self, 4, 3, 0);
+	}
+@end_script
+flip	1
+health  70
+aggression -40
 map     2
-coords  -500 350
+coords  -100 350
 at      580
 
 spawn   fox
-health  270
-aggression 100
-item    food6
+health  250
+aggression -40
 map     2
 coords  -550 380
 at      580
 
-spawn   dan
-health  150
-aggression 100
-map     2
-coords  650 350 100
-at      580
-
 
 2pspawn   bash
-health  350
+#health  350
 aggression 100
 item    diamond
 map     3
@@ -513,39 +544,47 @@ at      580
 
 
 spawn   butterbean
-health  320
-aggression 100
+@script
+void main()
+	{
+	void self = getlocalvar("self");
+	performattack(self, openborconstant("ANI_JUMP"));
+	tossentity(self, 4, 3, 0);
+	}
+@end_script
+flip	1
+health  250
+aggression -40
 map     3
 coords  -520 350
 at      580
 
 
 2pspawn   randy
-health  150
-aggression 100
+#health  150
+aggression -40
 map     2
 coords  640 380 100
 at      580
 
 3pspawn   thong
-health  150
-aggression 100
+health  90
+aggression -40
 map     3
 coords  630 350 100
 at      580
 
 
 3pspawn   jay
-health  150
-aggression 100
+#health  150
+aggression -40
 map     3
 coords  -500 350
 at      580
 
 2pspawn   butterbean
-health  320
-aggression 100
-item    food5
+health  250
+aggression -40
 map     4
 coords  -520 350
 at      580
@@ -561,7 +600,7 @@ coords  140 410
 at      1070
 
 spawn   griff
-health  2800
+health  1800
 aggression 180
 boss    1
 coords  545 330 180

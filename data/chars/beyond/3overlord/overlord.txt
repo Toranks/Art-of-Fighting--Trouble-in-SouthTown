@@ -480,38 +480,46 @@ anim	fall7
 	void self = getlocalvar("self");
  	void opp = getentityproperty(self, "opponent");
 
-	if(frame >= 0)
+	if(frame >= 0 && frame <= 5)
 	{
      	bindentity(opp, NULL());
      	bindentity(self, NULL());
      	performattack(opp, openborconstant("ANI_PAIN"));
-     	performattack(self, openborconstant("ANI_FOLLOW2"));
+	}
+	if(frame >= 6 && frame <= 15)
+	{
+     	bindentity(opp, NULL());
+     	bindentity(self, NULL());
+    	performattack(self, openborconstant("ANI_FOLLOW2"));
 	}
 @end_script
 	loop	0
 	delay	5
-	offset	103 189
+	offset	100 189
 	bbox	0 0 0 0
-	frame	data/chars/beyond/3overlord/idle43.gif
-	frame	data/chars/beyond/3overlord/idle43.gif
-	frame	data/chars/beyond/3overlord/idle43.gif
-	frame	data/chars/beyond/3overlord/idle43.gif
-	frame	data/chars/beyond/3overlord/idle43.gif
-	frame	data/chars/beyond/3overlord/idle43.gif
-	frame	data/chars/beyond/3overlord/idle43.gif
-	frame	data/chars/beyond/3overlord/idle43.gif
-	frame	data/chars/beyond/3overlord/idle43.gif
-	frame	data/chars/beyond/3overlord/idle43.gif
-	frame	data/chars/beyond/3overlord/idle43.gif
-	frame	data/chars/beyond/3overlord/idle43.gif
-	frame	data/chars/beyond/3overlord/idle43.gif
-	frame	data/chars/beyond/3overlord/idle43.gif
-	frame	data/chars/beyond/3overlord/idle43.gif
-	frame	data/chars/beyond/3overlord/idle43.gif
-	frame	data/chars/beyond/3overlord/idle43.gif
-	frame	data/chars/beyond/3overlord/idle43.gif
-	frame	data/chars/beyond/3overlord/idle43.gif
-	frame	data/chars/beyond/3overlord/idle43.gif
+	frame	data/chars/beyond/3overlord/pain5.gif
+	frame	data/chars/beyond/3overlord/pain5.gif
+	frame	data/chars/beyond/3overlord/pain5.gif
+	frame	data/chars/beyond/3overlord/pain5.gif
+	frame	data/chars/beyond/3overlord/pain5.gif
+	frame	data/chars/beyond/3overlord/pain5.gif
+	frame	data/chars/beyond/3overlord/pain5.gif
+	frame	data/chars/beyond/3overlord/pain5.gif
+	frame	data/chars/beyond/3overlord/pain5.gif
+	frame	data/chars/beyond/3overlord/pain5.gif
+	frame	data/chars/beyond/3overlord/pain5.gif
+	frame	data/chars/beyond/3overlord/pain5.gif
+	frame	data/chars/beyond/3overlord/pain5.gif
+	frame	data/chars/beyond/3overlord/pain5.gif
+	frame	data/chars/beyond/3overlord/pain5.gif
+	frame	data/chars/beyond/3overlord/pain5.gif
+	frame	data/chars/beyond/3overlord/pain5.gif
+	frame	data/chars/beyond/3overlord/pain5.gif
+	frame	data/chars/beyond/3overlord/pain5.gif
+	frame	data/chars/beyond/3overlord/pain5.gif
+	frame	data/chars/beyond/3overlord/pain5.gif
+	@cmd	beidle
+	frame	data/chars/beyond/3overlord/pain5.gif
 
 
 		
@@ -634,7 +642,7 @@ anim	follow4
 	@cmd	position 7 60 30 -1 -1
 	frame	data/chars/beyond/3overlord/d01.gif
 	delay	15
-	@cmd	spawngrab "grab1" 200 200 450 325 1 8
+	@cmd	spawngrab "grab1" 200 200 450 385 1 8
 	@cmd	position 11 55 55 -1 -1
 	frame	data/chars/beyond/3overlord/d02.gif
 	delay	220
@@ -715,9 +723,10 @@ anim	idle
 	delay	1
 	offset	100 189
 	bbox	79 97 50 91
-	@cmd	clearL
 	frame	data/chars/beyond/3overlord/idle01.gif
+	@cmd	depost 0
 	frame	data/chars/beyond/3overlord/idle02.gif
+	@cmd	clearL
 	frame	data/chars/beyond/3overlord/idle03.gif
 	frame	data/chars/beyond/3overlord/idle04.gif
 	frame	data/chars/beyond/3overlord/idle05.gif

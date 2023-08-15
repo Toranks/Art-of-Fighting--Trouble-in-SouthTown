@@ -1,7 +1,7 @@
 name          MrSmart
 type          enemy
-health        420
-speed         9
+health        390
+speed         7
 jumpheight    4
 jumpmove      0 4
 throw         5 2
@@ -9,13 +9,14 @@ throwdamage   18
 shadow        0
 noquake       0
 blockodds     1
-nolife        1
 falldie	      2
 nodieblink    1
 gfxshadow     1
 dust            dust
 projectilehit enemy obstacle
-diesound      data/sounds/die12.wav
+diesound      data/sounds/die6.wav
+icon		data/chars/2officeguy5/icon.gif
+icondie		data/chars/2officeguy5/icond.gif
 animationscript data/scripts/escript.c
 
 
@@ -40,7 +41,7 @@ alternatepal       data/chars/2officeguy5/map5.gif
    int jp = 1;   //----jump velocity
 
 
-if(anim != openborconstant("ANI_DIE") || anim != openborconstant("ANI_FALL") || anim != openborconstant("ANI_RISE") || anim != openborconstant("ANI_JUMP"))
+if(anim == openborconstant("ANI_WALK") || anim == openborconstant("ANI_RUN"))
 {
 	float Hy;
 	if(Dir==0)
@@ -53,9 +54,9 @@ if(anim != openborconstant("ANI_DIE") || anim != openborconstant("ANI_FALL") || 
 
 	if(Hy > 1 && a <= 7 && hp > 0)
 	{
-	performattack(self,openborconstant("ANI_JUMP"));
-	changeentityproperty(self, "velocity", 0, 0, 0);
+	//changeentityproperty(self, "velocity", 0, 0, 0);
 	tossentity(self, 4, jp, 0);
+	performattack(self,openborconstant("ANI_JUMP"));
 	}
 }
 @end_script
@@ -108,7 +109,7 @@ anim	attack1
 	frame	data/chars/2officeguy5/a102.gif
 	move	0
 	delay	9
-	attack	125 105 90 30 12 1 0 0 13 0
+	attack	125 105 90 30 18 1 0 0 43 0
 	dropv	3 4 0
 	frame	data/chars/2officeguy5/a103.gif
 	frame	data/chars/2officeguy5/a104.gif
@@ -130,7 +131,7 @@ anim	attack2
 	sound	data/sounds/bguya01.wav
 	frame	data/chars/2officeguy5/a111.gif
 	frame	data/chars/2officeguy5/a112.gif
-	attack	115 110 90 25 12 1 0 0 13 0
+	attack	115 110 90 25 20 1 0 0 43 0
 	dropv	3 3 0
 	frame	data/chars/2officeguy5/a113.gif
 	frame	data/chars/2officeguy5/a114.gif
@@ -146,7 +147,7 @@ anim	attack4
 	range	5 60
 	delay	10
 	offset	100 189
-	bbox	0 0 0 0
+	bbox	79 97 50 91
 	followanim	1
 	followcond	3
 	hitfx	data/sounds/grab.wav
@@ -181,7 +182,7 @@ anim	attack5
 	frame	data/chars/2officeguy5/b103.gif
 	frame	data/chars/2officeguy5/b104.gif
 	frame	data/chars/2officeguy5/b105.gif
-	attack	100 95 95 60 14 1 0 0 17 0
+	attack	100 95 95 60 18 1 0 0 17 0
 	dropv	3 5 0
 	frame	data/chars/2officeguy5/b106.gif
 	delay	200
@@ -217,10 +218,10 @@ anim	burn
 	@cmd	spawnbind "burn1" 1 1 1
 	@cmd	spawnbind "burn2" 1 1 1
 	@cmd	spawnbind "burn3" 1 1 1
-	attack	78 98 30 45 5 1 0 0 13 0
+	attack	78 98 30 45 5 1 0 0 13 30
 	frame	data/chars/2officeguy5/fall1.gif
 	delay	15
-	attack	64 130 50 25 5 1 0 0 13 0
+	attack	64 130 50 25 5 1 0 0 13 30
 	frame	data/chars/2officeguy5/fall2.gif
 	delay	500
 	frame	data/chars/2officeguy5/fall3.gif
@@ -262,10 +263,10 @@ anim	fall
 	offset	100 189
 	bbox	0 0 0 0
 	landframe	3
-	attack	78 98 30 45 5 1 0 0 13 0
+	attack	78 98 30 45 5 1 0 0 13 30
 	frame	data/chars/2officeguy5/fall1.gif
 	delay	15
-	attack	64 130 50 25 5 1 0 0 13 0
+	attack	64 130 50 25 5 1 0 0 13 30
 	frame	data/chars/2officeguy5/fall2.gif
 	delay	500
 	frame	data/chars/2officeguy5/fall3.gif
@@ -282,13 +283,13 @@ anim	fall10
 	offset	100 189
 	bbox	80 80 50 75
 	landframe	4
-	attack	85 88 30 50 5 1 0 0 13 0
+	attack	85 88 30 50 5 1 0 0 13 30
 	frame	data/chars/2officeguy5/pain6.gif
 	delay	40
 	frame	data/chars/2officeguy5/pain7.gif
 	delay	30
 	bbox	71 125 63 30
-	attack	64 125 45 25 5 1 0 0 13 0
+	attack	64 125 45 25 5 1 0 0 13 30
 	frame	data/chars/2officeguy5/fall2.gif
 	delay	300
 	bbox	77 130 67 35
@@ -315,15 +316,16 @@ anim	fall2
 	offset	100 189
 	bbox	0 0 0 0
 	landframe	3
-	attack	85 90 35 45 5 1 0 0 13 0
+	attack	85 90 35 45 5 1 0 0 13 30
 	frame	data/chars/2officeguy5/pain7.gif
 	delay	10
-	attack	64 125 55 25 5 1 0 0 13 0
+	attack	64 125 55 25 5 1 0 0 13 30
 	frame	data/chars/2officeguy5/fall2.gif
 	attack	0 0 0 0
 	delay	300
 	frame	data/chars/2officeguy5/fall3.gif
 	delay	15
+	bbox	58 175 85 15
 	frame	data/chars/2officeguy5/fall4.gif
 	frame	data/chars/2officeguy5/fall5.gif
 	frame	data/chars/2officeguy5/fall4.gif
@@ -386,10 +388,10 @@ anim	fall9
 	bbox	0 0 0 0
 	quakeframe	2 5 5
 	landframe	2 dust
-	attack	75 105 35 45 5 1 0 0 13 0
+	attack	75 105 35 45 5 1 0 0 13 30
 	frame	data/chars/2officeguy5/fall1.gif
 	delay	350
-	attack	75 125 45 35 5 1 0 0 13 0
+	attack	75 125 45 35 5 1 0 0 13 30
 	offset	100 180
 	frame	data/chars/2officeguy5/fall2.gif
 	delay	2
@@ -419,6 +421,7 @@ anim	fall9
 anim	follow1
 	delay	12
 	offset	100 189
+	bbox	0 0 0 0
 	@cmd	slamstart2
 	@cmd	grabcheck2
 	@cmd	position 7 60 30 -1 -1
@@ -470,10 +473,11 @@ anim	follow1
 	frame	data/chars/2officeguy5/th08.gif
 	delay	12
 	@cmd	depost 0
-	@cmd	finish 15 1 -2 5 0 0
+	@cmd	finish 25 1 -2 5 0 0
 	frame	data/chars/2officeguy5/th09.gif
 	frame	data/chars/2officeguy5/th10.gif
 	delay	20
+	@cmd	clearL
 	frame	data/chars/2officeguy5/th11.gif
 	delay	60
 	frame	data/chars/2officeguy5/th12.gif
@@ -493,10 +497,10 @@ anim	follow2
 	frame	data/chars/2officeguy5/rise5.gif
 	frame	data/chars/2officeguy5/rise6.gif
 	delay	10
-	attack2	105 90 66 58 12 1 1 0 17 0
+	attack2	105 90 66 58 12 1 1 0 47 0
 	dropv	4 2 0
 	frame	data/chars/2officeguy5/b107.gif
-	attack2	105 90 88 58 12 1 1 0 17 0
+	attack2	105 90 88 58 12 1 1 0 47 0
 	dropv	4 2 0
 	frame	data/chars/2officeguy5/b106.gif
 	attack2	0 0 0 0
@@ -509,12 +513,14 @@ anim	follow2
 anim	grab
 	loop	0
 	delay	30
+	bbox	79 97 50 91
 	attackone	0
 	offset	100 189
 	sound	data/sounds/grab.wav
-	@cmd	grabcheck
 	frame	data/chars/2officeguy5/a107.gif
+	bbox	0 0 0 0
 	delay	12
+	@cmd	grabcheck
 	@cmd	slamstart
 	@cmd	position 7 60 30 -1 -1
 	frame	data/chars/2officeguy5/th01.gif
@@ -566,10 +572,11 @@ anim	grab
 	frame	data/chars/2officeguy5/th08.gif
 	delay	12
 	@cmd	depost 0
-	@cmd	finish 15 1 -2 5 0 0
+	@cmd	finish 25 1 -2 5 0 0
 	frame	data/chars/2officeguy5/th09.gif
 	frame	data/chars/2officeguy5/th10.gif
 	delay	20
+	@cmd	clearL
 	frame	data/chars/2officeguy5/th11.gif
 	delay	60
 	frame	data/chars/2officeguy5/th12.gif
@@ -589,7 +596,9 @@ anim	idle
 	offset	100 189
 	bbox	79 97 50 91
 	frame	data/chars/2officeguy5/idle02.gif
+	@cmd	depost 0
 	frame	data/chars/2officeguy5/idle03.gif
+	@cmd	clearL
 	frame	data/chars/2officeguy5/idle02.gif
 	frame	data/chars/2officeguy5/idle03.gif
 	frame	data/chars/2officeguy5/idle02.gif
@@ -743,6 +752,16 @@ anim	spawn
 	frame	data/chars/2officeguy5/idle01.gif
 		
 anim	special
+@script
+	void self = getlocalvar("self");
+	int eTime = openborvariant("elapsed_time");
+	if (frame == 0)
+	{
+	changeentityproperty(self, "invincible", 1);
+	changeentityproperty(self, "invinctime", eTime + 130);
+	changeentityproperty(self, "blink", 1);
+	}
+@end_script
 	loop	0
 	delay	14
 	offset	100 189

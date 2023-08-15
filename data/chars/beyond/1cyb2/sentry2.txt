@@ -1,14 +1,13 @@
 name          sentry2
 type          enemy
 subtype	      notgrab
-health        450
-speedf        1.2
+health        400
+speed	      7
 jumpheight    0
 throw         5 2
 throwdamage   18
 shadow        0
 cantgrab      1
-nolife        1
 falldie	      1
 nodieblink    1
 gfxshadow     1
@@ -18,7 +17,8 @@ hostile       player npc
 KOMap		3 0
 projectilehit enemy obstacle
 diesound      data/sounds/Eagle2.wav
-
+icon		data/chars/beyond/1cyb2/icon.gif
+icondie		data/chars/beyond/1cyb2/icond.gif
 animationscript data/scripts/escript.c
 
 palette		data/chars/beyond/1cyb2/mpal.gif
@@ -44,21 +44,28 @@ anim	attack1
 	@cmd	dasher 0 0 -1
 	frame	data/chars/beyond/1cyb2/a01.gif
 	sound	data/sounds/alien9.wav
+	frame	data/chars/beyond/1cyb2/a01a.gif
+	frame	data/chars/beyond/1cyb2/a01.gif
+	frame	data/chars/beyond/1cyb2/a01a.gif
+	@cmd	stop
+	frame	data/chars/beyond/1cyb2/a01.gif
+	frame	data/chars/beyond/1cyb2/a01a.gif
+	frame	data/chars/beyond/1cyb2/a01.gif
 	frame	data/chars/beyond/1cyb2/a02.gif
 	frame	data/chars/beyond/1cyb2/a03.gif
 	@cmd	spawnbind4 "cybpwr1" 50 80 1 1 4
 	frame	data/chars/beyond/1cyb2/a04.gif
-	@cmd	stop
+	frame	data/chars/beyond/1cyb2/a05.gif
+	frame	data/chars/beyond/1cyb2/a04.gif #11
 	frame	data/chars/beyond/1cyb2/a05.gif
 	frame	data/chars/beyond/1cyb2/a04.gif
 	frame	data/chars/beyond/1cyb2/a05.gif
-	frame	data/chars/beyond/1cyb2/a04.gif
-	frame	data/chars/beyond/1cyb2/a05.gif
-	@cmd	looper 5 7
+	@cmd	looper 11 7
 	frame	data/chars/beyond/1cyb2/a03.gif
 	frame	data/chars/beyond/1cyb2/a02.gif
 	frame	data/chars/beyond/1cyb2/a01.gif
 		
+
 anim	attack2
 	range	50 190
 	rangez	15 50
@@ -69,18 +76,25 @@ anim	attack2
 	@cmd	dasher 0 0 1
 	frame	data/chars/beyond/1cyb2/b01.gif
 	sound	data/sounds/alien9.wav
+	frame	data/chars/beyond/1cyb2/b01a.gif
+	frame	data/chars/beyond/1cyb2/b01.gif
+	frame	data/chars/beyond/1cyb2/b01a.gif
+	@cmd	stop
+	frame	data/chars/beyond/1cyb2/b01.gif
+	frame	data/chars/beyond/1cyb2/b01a.gif
+	frame	data/chars/beyond/1cyb2/b01.gif
+	frame	data/chars/beyond/1cyb2/b01a.gif
 	frame	data/chars/beyond/1cyb2/b02.gif
 	frame	data/chars/beyond/1cyb2/b03.gif
 	frame	data/chars/beyond/1cyb2/b04.gif
-	@cmd	stop
 	@cmd	spawnbind4 "cybpwr1" 20 60 1 1 4
 	frame	data/chars/beyond/1cyb2/b05.gif
 	frame	data/chars/beyond/1cyb2/b06.gif
-	frame	data/chars/beyond/1cyb2/b05.gif
+	frame	data/chars/beyond/1cyb2/b05.gif #13
 	frame	data/chars/beyond/1cyb2/b06.gif
 	frame	data/chars/beyond/1cyb2/b05.gif
 	frame	data/chars/beyond/1cyb2/b06.gif
-	@cmd	looper 6 7
+	@cmd	looper 13 7
 	frame	data/chars/beyond/1cyb2/b04.gif
 	frame	data/chars/beyond/1cyb2/b03.gif
 	frame	data/chars/beyond/1cyb2/b02.gif
@@ -95,6 +109,14 @@ anim	attack4
 	bbox	100 90 60 100
 	frame	data/chars/beyond/1cyb2/c01.gif
 	sound	data/sounds/alien12.wav
+	frame	data/chars/beyond/1cyb2/c01a.gif
+	frame	data/chars/beyond/1cyb2/c01.gif
+	frame	data/chars/beyond/1cyb2/c01a.gif
+	frame	data/chars/beyond/1cyb2/c01.gif
+	frame	data/chars/beyond/1cyb2/c01a.gif
+	frame	data/chars/beyond/1cyb2/c01.gif
+	frame	data/chars/beyond/1cyb2/c01a.gif
+	frame	data/chars/beyond/1cyb2/c01.gif
 	frame	data/chars/beyond/1cyb2/c02.gif
 	frame	data/chars/beyond/1cyb2/c03.gif
 	frame	data/chars/beyond/1cyb2/c04.gif
@@ -105,7 +127,7 @@ anim	attack4
 	frame	data/chars/beyond/1cyb2/c06.gif
 	frame	data/chars/beyond/1cyb2/c05.gif
 	frame	data/chars/beyond/1cyb2/c06.gif
-	@cmd	looper 6 7
+	@cmd	looper 14 7
 	frame	data/chars/beyond/1cyb2/c04.gif
 	frame	data/chars/beyond/1cyb2/c03.gif
 	frame	data/chars/beyond/1cyb2/c02.gif
@@ -202,7 +224,7 @@ anim	fall
 anim	fall7
 	loop	0
 	delay	1000
-	offset	132 197
+	offset	132 135
 	frame	data/chars/beyond/1cyb2/pain1.gif
 	frame	data/chars/beyond/1cyb2/pain3.gif
 	frame	data/chars/beyond/1cyb2/pain4.gif

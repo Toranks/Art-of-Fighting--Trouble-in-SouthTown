@@ -1,0 +1,146 @@
+music		data/music/wind.ogg
+
+
+background	data/bgs/beyond/lvl9/back.gif 1 1
+bglayer		data/bgs/beyond/lvl10/back2.gif 0 0 0 475 0 0 -1 1 1 0 0 0 0 0 0.8
+panel		data/bgs/beyond/lvl10/panel.gif
+fglayer		data/bgs/beyond/lvl10/light2.gif 1000 0 0 90 -10 0 0 1 1 1 1 1 2 15 1
+fglayer		data/bgs/beyond/lvl10/front.gif 1200 0 0 0 -5 0 0 1 1 1 0 0 0 0 0
+fglayer		data/bgs/beyond/lvl10/light.gif 2000 0 0 880 400 0 0 1 1 1 1 1 2 15 1
+fglayer		data/bgs/beyond/lvl10/light3.gif 2000 0 0 4190 440 0 0 1 1 1 1 1 2 15 1
+fglayer	        data/bgs/beyond/lvl10/dark.gif 8000 1 1 -5 -5 0 0 1 1 1 2 0 0 0 0 0
+
+direction       both
+light  		-155   -55
+at       	0
+settime         0
+notime          1
+noslow          1
+order		a
+spawn1  	185 10
+spawn2  	190 15
+spawn3  	195 20
+
+bgspeed			1
+cameraoffset            0 -90
+cameratype              1
+
+#----------------------
+wall    -120 820  0 0 1310 1190 150 5000
+wall    -50 1010  0 0 310 100 250 5000
+wall    20 1010  230 20 1050 800 250 510
+wall    4250 840  0 0 320 170 150 5000
+wall    4130 1030  0 0 1230 1355 125 5000
+wall    5130 1040  0 350 700 700 350 5000
+wall    4698 790  0 100 330 230 50 5000
+#----------------------------------
+
+spawn   byoplat2
+coords  1070 795 500
+at      0
+
+spawn   byocont3
+flip    1
+item    orb
+coords  1570 795
+at      0
+
+spawn   byocont3
+flip    1
+item    testla
+coords  2240 795
+at      0
+
+spawn   byocont2
+flip    1
+item    fluid
+coords  2600 930
+at      0
+
+spawn   source
+flip    1
+item    fluid
+coords  4550 800
+at      0
+
+spawn   source
+item    ssoul
+coords  5140 800
+at      0
+
+spawn   byojar2
+flip    1
+item    herb
+coords  3360 790
+at      0
+
+spawn   byojar2
+flip    1
+item    byofoot
+coords  3500 790
+at      0
+
+spawn   byojar2
+flip    1
+item    gold
+coords  3640 790
+at      0
+
+spawn   byojar
+flip    1
+item    byopris
+coords  3810 790
+at      0
+
+spawn   byojar2
+flip    1
+item    byogem
+coords  3260 945
+at      0
+
+spawn   byojar2
+flip    1
+item    gold
+coords  3400 945
+at      0
+
+spawn   byojar2
+flip    1
+item    byofoot
+coords  3540 945
+at      0
+
+spawn   byojar
+flip    1
+item    charge
+coords  3750 945
+at      0
+
+#---------------------------
+blockade 4000
+at      4000
+#---------------------------
+#-------//-badbreak---//--------
+spawn   badbreak
+coords  50 880
+at      4020
+#-------//-badbreak---//--------
+
+#--------mother-A-I----------
+spawn   cyberai
+@script void main(){
+    void self = getlocalvar("self");
+    int x = getentityproperty(self,"x");
+    int XPos = openborvariant("xpos");
+    changeentityproperty(self, "position", x - XPos);
+    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW20"));
+}@end_script
+coords  4860 787
+at      4110
+
+#---------------------------
+
+#----------------------------
+blockade 4300
+at      4300
+#---------------------------

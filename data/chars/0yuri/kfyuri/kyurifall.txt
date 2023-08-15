@@ -14,6 +14,8 @@ makeinv		3
 shadow		0
 dust            zero
 risetime        350
+modelflag	1
+weaploss	3
 candamage	enemy obstacle npc
 diesound        data/sounds/yurde.wav
 atchain         1 1 2 3
@@ -37,7 +39,7 @@ anim	attack1
 	fastattack	1
 	frame	data/chars/0yuri/kfyuri/spw09a.gif
 	frame	data/chars/0yuri/kfyuri/spw09.gif
-	attack	135 112 84 30 8 0 0 0 12 0
+	attack	135 112 84 30 12 0 0 0 7 0
 	frame	data/chars/0yuri/kfyuri/spw08.gif
 	frame	data/chars/0yuri/kfyuri/spw07.gif
 	attack	0 0 0 0
@@ -47,13 +49,13 @@ anim	attack1
 anim	attack2
 	range	0 61
 	loop	0
-	delay	5
+	delay	4
 	offset	135 178
 	bbox	114 90 45 72
 	hitfx	data/sounds/beat5.wav
 	frame	data/chars/0yuri/kfyuri/air/a05.gif
 	frame	data/chars/0yuri/kfyuri/air/a06.gif
-	attack2	130 98 90 35 10 0 0 0 24 0
+	attack2	130 98 90 35 25 0 0 0 12 0
 	frame	data/chars/0yuri/kfyuri/air/a07.gif
 	attack2	0 0 0 0
 	frame	data/chars/0yuri/kfyuri/air/a08.gif
@@ -64,13 +66,13 @@ anim	attack2
 anim	attack3
 	range	0 61
 	loop	0
-	delay	6
+	delay	5
 	offset	135 178
 	bbox	114 90 45 72
 	hitfx	data/sounds/beat5.wav
 	frame	data/chars/0yuri/kfyuri/air/a11.gif
 	frame	data/chars/0yuri/kfyuri/air/a12.gif
-	attack	130 82 90 50 15 1 0 0 16 0
+	attack	130 82 90 50 50 1 0 0 50 0
 	dropv	2 2 -0.5
 	frame	data/chars/0yuri/kfyuri/air/a13.gif
 	frame	data/chars/0yuri/kfyuri/air/a14.gif
@@ -175,7 +177,7 @@ anim	death
 	frame	data/chars/0yuri/kfyuri/fall6.gif
 	frame	data/chars/0yuri/kfyuri/fall7.gif
 	frame	data/chars/0yuri/kfyuri/fall8.gif
-	@cmd	looper 4 6
+	@cmd	looper 16 6
 	frame	data/chars/0yuri/kfyuri/fall5.gif
 	frame	data/chars/0yuri/kfyuri/fall6.gif
 	frame	data/chars/0yuri/kfyuri/fall7.gif
@@ -194,6 +196,67 @@ anim	fall
 	delay	12
 	frame	data/chars/0yuri/kfyuri/fall3.gif
 	frame	data/chars/0yuri/kfyuri/fall3.gif
+
+
+anim	fall7
+	delay	1000
+	offset	45 95
+	bbox	0 0 0 0
+	frame	data/chars/0yuri/kfyuri/slam0.gif
+	offset	45 95
+	frame	data/chars/0yuri/kfyuri/slam1.gif
+	offset	50 85
+	frame	data/chars/0yuri/kfyuri/slam2.gif
+	offset	45 95
+	frame	data/chars/0yuri/kfyuri/slam3.gif
+	offset	45 95
+	frame	data/chars/0yuri/kfyuri/slam4.gif
+	offset	75 55
+	frame	data/chars/0yuri/kfyuri/slam5.gif
+	offset	40 87
+	frame	data/chars/0yuri/kfyuri/slam6.gif
+	offset	20 90
+	frame	data/chars/0yuri/kfyuri/slam7.gif
+	offset	65 55
+	frame	data/chars/0yuri/kfyuri/slam8.gif
+	offset	65 83
+	frame	data/chars/0yuri/kfyuri/slam9.gif
+	offset	65 83
+	frame	data/chars/0yuri/kfyuri/slam10.gif
+	offset	20 90
+	frame	data/chars/0yuri/kfyuri/slam11.gif
+	offset	75 55
+	frame	data/chars/0yuri/kfyuri/slam12.gif
+	offset	75 55
+	frame	data/chars/0yuri/kfyuri/slam13.gif
+	offset	50 85
+	frame	data/chars/0yuri/kfyuri/slam14.gif
+	offset	48 100
+	frame	data/chars/0yuri/kfyuri/slam15.gif
+	offset	55 70
+	frame	data/chars/0yuri/kfyuri/slam16.gif
+	offset	65 83
+	frame	data/chars/0yuri/kfyuri/slam17.gif
+	offset	65 83
+	frame	data/chars/0yuri/kfyuri/slam18.gif
+	offset	50 100
+	frame	data/chars/0yuri/kfyuri/slam19.gif
+	offset	45 95
+	frame	data/chars/0yuri/kfyuri/slam20.gif
+	offset	50 95
+	frame	data/chars/0yuri/kfyuri/slam21.gif
+	offset	50 95
+	frame	data/chars/0yuri/kfyuri/slam22.gif
+	offset	59 95
+	frame	data/chars/0yuri/kfyuri/slam23.gif
+	offset	59 80
+	frame	data/chars/0yuri/kfyuri/slam24.gif
+	offset	50 100
+	bbox	25 10 60 80
+	frame	data/chars/0yuri/kfyuri/slambbox1.gif
+	bbox	0 0 0 0
+
+
 		
 anim	forwardjump
 	loop	1
@@ -259,7 +322,7 @@ anim	grabattack
 	attack	0 0 0 0
 	frame	data/chars/0yuri/kfyuri/air/grab01.gif
 	delay	23
-	attack6	120 138 30 26 8 0 1 0 16 0
+	attack6	120 138 30 26 15 0 1 0 16 0
 	frame	data/chars/0yuri/kfyuri/air/hold1.gif
 		
 anim	grabattack2
@@ -273,7 +336,7 @@ anim	grabattack2
 	sound	data/sounds/yur01.wav
 	frame	data/chars/0yuri/kfyuri/air/hold3.gif
 	frame	data/chars/0yuri/kfyuri/air/hold4.gif
-	blast	125 102 43 94 15 0 0 0 20 0
+	blast	125 102 43 94 35 0 0 0 20 0
 	dropv	1 1 4
 	delay	15
 	frame	data/chars/0yuri/kfyuri/air/hold5.gif
@@ -330,7 +393,7 @@ anim	grabforward
 	attack	0 0 0 0
 	frame	data/chars/0yuri/kfyuri/air/grab02.gif
 	delay	23
-	attack6	141 138 30 28 8 0 1 0 16 0
+	attack6	141 138 30 28 15 0 1 0 16 0
 	frame	data/chars/0yuri/kfyuri/air/hold2.gif
 		
 anim	grabforward2
@@ -344,7 +407,7 @@ anim	grabforward2
 	sound	data/sounds/yur01.wav
 	frame	data/chars/0yuri/kfyuri/air/hold3.gif
 	frame	data/chars/0yuri/kfyuri/air/hold4.gif
-	blast	125 102 43 94 15 0 0 0 20 0
+	blast	125 102 43 94 35 0 0 0 20 0
 	dropv	1 1 4
 	delay	15
 	frame	data/chars/0yuri/kfyuri/air/hold5.gif
@@ -438,7 +501,7 @@ anim	jumpattack
 	frame	data/chars/0yuri/kfyuri/jub03.gif
 	frame	data/chars/0yuri/kfyuri/jub04.gif
 	delay	35
-	attack	125 80 50 60 14 1 1 0 50 0
+	attack	125 80 50 60 25 1 1 0 50 0
 	@cmd	leaper 2 -1 0
 	dropv	1 1 2
 	frame	data/chars/0yuri/kfyuri/jub05.gif
@@ -473,7 +536,7 @@ anim	runjumpattack
 	frame	data/chars/0yuri/kfyuri/air/jua28.gif
 	frame	data/chars/0yuri/kfyuri/air/jua29.gif
 	delay	15
-	attack2	129 103 53 70 25 1 0 0 30 0
+	attack2	129 103 53 70 30 1 0 0 30 0
 	frame	data/chars/0yuri/kfyuri/air/jua30.gif
 	frame	data/chars/0yuri/kfyuri/air/jua30.gif
 
@@ -573,7 +636,7 @@ anim	runattack
 	frame	data/chars/0yuri/kfyuri/air/jua08.gif
 	frame	data/chars/0yuri/kfyuri/air/jua08.gif
 	delay	3
-	attack	121 110 75 45 14 1 1 0 50 0
+	attack	121 110 75 45 30 1 1 0 50 0
 	dropv	2 2 0
 	frame	data/chars/0yuri/kfyuri/air/jua09.gif
 	frame	data/chars/0yuri/kfyuri/air/jua09.gif

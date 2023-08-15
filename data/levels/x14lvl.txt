@@ -1,0 +1,184 @@
+#music		data/music/gclub2.ogg
+
+background	data/bgs/14lvl/roomsback.gif
+panel		data/bgs/14lvl/rooms2.gif
+layer           data/bgs/14lvl/light2.gif 120 0 0 2659 -5 0 0 1 1 1
+layer           data/bgs/14lvl/light3.gif 120 0 0 695 -5 0 0 1 1 1
+layer           data/bgs/14lvl/front1.gif 115 0 0 2550 45 0 0 1 1 1
+fglayer         data/bgs/14lvl/light1.gif 5 0 0 0 0 1 1 1 1 1 1
+fglayer         data/bgs/14lvl/roomsFront.gif 10 0 0 0 0 0 0 1 1 1
+fglayer         data/bgs/14lvl/front2.gif  2500 0 0 2195 210 0 0 1 1 1
+
+
+
+direction       both
+light  		10   -30
+at       	0
+settime         0
+notime          1
+blocked         1
+noslow          0
+order		a
+spawn1  	130 250
+spawn2  	145 20
+spawn3  	185 20
+
+
+
+
+#--------------------------------
+wall    1180 190  -85 -85 750 600 70 5000
+wall    1810 180  -20 -20 590 590 70 5000
+wall    2410 200  -20 -20 145 20 70 5000
+wall    2490 175  -20 -20 800 800 70 5000
+wall    210 300  -45 -45 700 700 80 5000
+wall    -10 295  0 0 80 30 80 5000
+wall    -10 215  0 0 360 90 120 5000
+wall    830 295  75 75 240 300 75 5000
+wall    1480 295  125 0 240 280 75 5000
+wall    1730 295  0 0 500 500 35 5000
+wall    2140 295  115 15 460 460 75 5000
+wall    3285 295  -110 200 240 240 150 5000
+wall    3115 255  50 195 380 380 70 60
+#--------------------------------
+
+spawn door3
+map   1
+flip  1
+coords  1715 218
+at      0
+
+spawn door3
+map   2
+flip  1
+coords  1103 218
+at      0
+
+spawn door3
+map   3
+flip  1
+coords  2390 220
+at      0
+
+spawn ggirl6
+flip  1
+coords  2237 280
+at      0
+
+spawn vicemat
+flip  1
+coords  3328 145
+at      0
+
+#---------------------------
+
+spawn   1statue
+map     2
+item    1up
+coords  455 160
+at      0
+
+spawn   1statue
+map     2
+flip    1
+item    ruby
+coords  210 160
+at      0
+
+spawn   1statue
+map     1
+flip    1
+item    ring
+map     4
+coords  3100 175
+at      0
+
+spawn   3statue
+flip    1
+map     4
+item    apple2
+coords  3175 180
+at      0
+
+spawn   3statue
+flip    1
+map     2
+item    moneybag
+coords  855 160
+at      0
+
+spawn   3statue
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW3"));
+} @end_script
+flip    1
+map     2
+coords  725 160
+at      0
+
+spawn   2statue
+flip    1
+item    lulcardx
+coords  2650 285
+at      0
+
+spawn   3statue
+flip    1
+map	4
+item    food6
+coords  3420 290
+at      0
+
+spawn   3statue
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+flip    1
+map	4
+item    money2
+coords  2750 180
+at      0
+
+spawn   3statue
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW3"));
+} @end_script
+flip    1
+item	1up
+map	4
+coords  2560 180
+at      0
+
+spawn   gdesk
+flip    1
+coords  3240 195
+at      0
+
+#------------------
+
+blockade 2500
+at       2500
+
+#------------------
+
+group	2 2
+at	2700
+
+spawn   vice
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW20"));
+} @end_script
+health  1000
+boss    1
+aggression 180
+coords  535 220
+at      2700
+
+spawn   mature
+health  1200
+boss    1
+aggression 180
+coords  575 240
+at      2700
+
+

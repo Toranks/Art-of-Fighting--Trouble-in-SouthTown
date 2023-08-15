@@ -1,7 +1,7 @@
 name          micky
 type          enemy
 health        100
-speed         15
+speed         9
 jumpheight    4
 throw         5 2
 throwdamage   18
@@ -27,6 +27,34 @@ nolife 1
 
 
 
+script	@script
+void main()
+{
+   	void self = getlocalvar("self");
+	int x = getentityproperty(self, "x");
+	int XPos = openborvariant("xpos");
+	int Screen = openborvariant("hResolution");
+	int hp = getentityproperty(self, "health");
+    	void anim = getentityproperty(self,"animationID");
+
+if(anim != openborconstant("ANI_DIE")){
+
+   if( hp <=0 && x >= XPos+Screen-60) // right
+   	{
+	tossentity(self, 1, -2, 0);
+   	}
+   else if( hp <=0 && x <= XPos+60) // left
+   	{
+	tossentity(self, 1, 2, 0);
+   	}
+  }
+}
+@end_script
+
+
+
+
+
 load	pw6
 load	taolg
 
@@ -44,7 +72,7 @@ anim	attack1
 	followcond	1
 	hitfx	data/sounds/beat2.wav
 	frame	data/chars/3micky/a096.gif
-	attack	100 80 90 40 8 0 0 0 13 0
+	attack	100 80 90 40 14 0 0 0 13 0
 	frame	data/chars/3micky/a098.gif
 	attack	0 0 0 0
 	frame	data/chars/3micky/a097.gif
@@ -64,7 +92,7 @@ anim	attack2
 	frame	data/chars/3micky/a109.gif
 	frame	data/chars/3micky/a110.gif
 	frame	data/chars/3micky/a111.gif
-	attack3	80 80 105 85 8 0 0 0 13 0
+	attack3	80 80 105 85 15 0 0 0 13 0
 	frame	data/chars/3micky/a112.gif
 	frame	data/chars/3micky/a113.gif
 	frame	data/chars/3micky/a114.gif
@@ -149,7 +177,7 @@ anim	attack4
 	hitfx	data/sounds/beat4.wav
 	hitflash	flashscreen2
 	frame	data/chars/3micky/b07.gif
-	attack	95 80 105 40 60 1 0 0 13 0
+	attack	95 80 105 40 70 1 0 0 13 0
 	dropv	3 5
 	frame	data/chars/3micky/b08.gif
 	frame	data/chars/3micky/b07.gif
@@ -247,10 +275,10 @@ anim	fall
 	offset	100 189
 	bbox	0 0 0 0
 	landframe	3
-	attack	78 98 30 45 5 1 0 0 13 0
+	attack	78 98 30 45 5 1 0 0 13 30
 	frame	data/chars/3micky/fall1.gif
 	delay	15
-	attack	64 115 50 25 5 1 0 0 13 0
+	attack	64 115 50 25 5 1 0 0 13 30
 	frame	data/chars/3micky/fall2.gif
 	delay	500
 	frame	data/chars/3micky/fall3.gif
@@ -267,13 +295,13 @@ anim	fall10
 	offset	100 189
 	bbox	80 80 50 75
 	landframe	4
-	attack	85 88 30 50 5 1 0 0 13 0
+	attack	85 88 30 50 5 1 0 0 13 30
 	frame	data/chars/3micky/pain6.gif
 	delay	40
 	frame	data/chars/3micky/pain7.gif
 	delay	30
 	bbox	65 115 63 30
-	attack	64 115 45 25 5 1 0 0 13 0
+	attack	64 115 45 25 5 1 0 0 13 30
 	frame	data/chars/3micky/fall2.gif
 	delay	300
 	bbox	77 130 67 35
@@ -300,15 +328,16 @@ anim	fall2
 	offset	100 189
 	bbox	0 0 0 0
 	landframe	3
-	attack	85 90 35 45 5 1 0 0 13 0
+	attack	85 90 35 45 5 1 0 0 13 30
 	frame	data/chars/3micky/pain7.gif
 	delay	10
-	attack	64 125 55 25 5 1 0 0 13 0
+	attack	64 125 55 25 5 1 0 0 13 30
 	frame	data/chars/3micky/fall2.gif
 	attack	0 0 0 0
 	delay	300
 	frame	data/chars/3micky/fall3.gif
 	delay	15
+	bbox	58 175 85 15
 	frame	data/chars/3micky/fall4.gif
 	frame	data/chars/3micky/fall5.gif
 	frame	data/chars/3micky/fall4.gif
@@ -371,11 +400,11 @@ anim	fall9
 	bbox	0 0 0 0
 	quakeframe	2 5 5
 	landframe	2 dust
-	attack	75 95 35 45 5 1 0 0 13 0
+	attack	75 95 35 45 5 1 0 0 13 30
 	frame	data/chars/3micky/fall1.gif
 	delay	350
 	offset	100 175
-	attack	75 113 45 35 5 1 0 0 13 0
+	attack	75 113 45 35 5 1 0 0 13 30
 	frame	data/chars/3micky/fall2.gif
 	delay	2
 	offset	100 170
@@ -412,7 +441,7 @@ anim	follow1
 	frame	data/chars/3micky/a099.gif
 	frame	data/chars/3micky/a100.gif
 	frame	data/chars/3micky/a101.gif
-	attack	95 90 100 30 10 0 0 0 13 0
+	attack	95 90 100 30 17 0 0 0 13 0
 	delay	12
 	frame	data/chars/3micky/a102.gif
 	attack	0 0 0 0
@@ -423,7 +452,7 @@ anim	follow1
 	bbox	0 0 0 0
 	frame	data/chars/3micky/a103.gif
 	frame	data/chars/3micky/a103.gif
-	attack	95 40 60 80 15 1 1 0 13 0
+	attack	95 40 60 80 25 1 1 0 13 0
 	dropv	5 2
 	frame	data/chars/3micky/a104.gif
 	frame	data/chars/3micky/a104.gif
@@ -455,7 +484,7 @@ anim	follow2
 	frame	data/chars/3micky/upper01.gif
 	frame	data/chars/3micky/upper02.gif
 	delay	30
-	attack	80 40 85 105 10 1 0 0 13 0
+	attack	80 40 85 105 17 1 0 0 13 0
 	dropv	5 2
 	frame	data/chars/3micky/upper03.gif
 	attack	0 0 0 0
@@ -670,7 +699,7 @@ anim	grab
 	sound	data/sounds/beat4.wav
 	@cmd	spawn01 "flashscreen1" 40 100 5
 	@cmd	depost 0
-	@cmd	finish 30 1 -2 4 0 0
+	@cmd	finish 40 1 -2 4 0 0
 	delay	30
 	@cmd	clearL
 	frame	data/chars/3micky/a105.gif
@@ -701,6 +730,12 @@ anim	idle
 	delay	10
 	offset	100 189
 	bbox	79 80 50 109
+	frame	data/chars/3micky/idle01.gif
+	@cmd	depost 0
+	frame	data/chars/3micky/idle02.gif
+	frame	data/chars/3micky/idle03.gif
+	frame	data/chars/3micky/idle04.gif
+	@cmd	clearL
 	frame	data/chars/3micky/idle01.gif
 	frame	data/chars/3micky/idle02.gif
 	frame	data/chars/3micky/idle03.gif
@@ -1035,7 +1070,7 @@ anim	special
 	sound	data/sounds/beat4.wav
 	@cmd	spawn01 "Flash" 40 100 5
 	@cmd	depost 0
-	@cmd	finish 30 1 -2 4 0 0
+	@cmd	finish 40 1 -2 4 0 0
 	delay	30
 	@cmd	clearL
 	frame	data/chars/3micky/a105.gif
@@ -1067,7 +1102,7 @@ anim	upper
 	frame	data/chars/3micky/upper02.gif
 	delay	5
 	move	5
-	attack	80 40 75 85 10 1 0 0 13 0
+	attack	80 40 75 85 20 1 0 0 13 0
 	dropv	5 2
 	frame	data/chars/3micky/upper02.gif
 	frame	data/chars/3micky/upper02.gif

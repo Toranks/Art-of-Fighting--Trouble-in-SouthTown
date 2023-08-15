@@ -8,6 +8,7 @@ panel		data/bgs/beyond/lvl11/panel.gif
 fglayer		data/bgs/beyond/lvl11/front.gif 1000 0 0 0 0 0 0 1 1 1 0 0 0 0 0 0
 fglayer		data/bgs/beyond/lvl11/front2.gif 1700 -0.4 0 730 650 0 0 2 1 1 0 0 0 0 0 0
 fglayer		data/bgs/beyond/lvl11/smoke.gif 2000 0 0 -50 450 0 0 1 1 1 1 1 2 15 1
+fglayer		data/bgs/beyond/lvl11/smoke.gif 2000 0 0 -50 0 0 0 1 1 1 1 1 2 15 1
 
 direction       both
 light  		-155   -55
@@ -239,13 +240,12 @@ coords  4050 800
 at      0
 
 spawn   byojar2
-item	byofoot
+item	orb
 flip    1
 coords  3450 870
 at      0
 
 spawn   byojar2
-item	byohand
 flip    1
 coords  3600 870
 at      0
@@ -263,7 +263,7 @@ coords  3900 870
 at      0
 
 spawn   byojar2
-item	byohand
+item	fluid
 flip    1
 coords  4050 870
 at      0
@@ -330,6 +330,7 @@ coords  580 855
 at      600
 
 spawn 	sentry2
+health	450
 coords  630 845
 at      600
 
@@ -415,15 +416,15 @@ wait
 at      1500
 
 spawn  	nosedgrey
-map     1
-health  240
+map     3
+health  340
 coords  340 845
 at      1500
 
 spawn  	nosedgrey
-map     1
+map     3
 flip    1
-health  350
+health  450
 item	fluid
 coords  120 845
 at      1500
@@ -467,28 +468,13 @@ at      1700
 blockade 1800
 at      1800
 #----------------------
-group   3 3
+group   1 1
 at      1800
 wait
 at      1800
 
-spawn   sentry2
-map     1
-coords  -350 845
-at      1800
-
-spawn   sentry2
-map     1
-item	cell
-coords  650 845
-at      1800
-
-spawn   ghost1
-coords  250 845
-at      1800
-
-spawn   sentry3
-map     2
+spawn   ghosttime
+health  5
 coords  -350 845
 at      1800
 
@@ -585,7 +571,7 @@ at      2300
 
 spawn   omega
 map     1
-health  350
+health  550
 coords  250 845
 at      2300
 
@@ -610,33 +596,14 @@ at      2500
 blockade 2600
 at      2600
 #----------------------
-group   3 3
+group   1 1
 at      2600
 wait
 at      2600
 
-2pspawn   nosedgrey
-health  350
+spawn   ghosttime
+health  5
 coords  200 845
-at      2600
-
-spawn   byocargo
-item	fluid
-coords  900 350 15
-at      2600
-
-2pspawn   bignose
-map     2
-flip    1
-item	fluid
-health  250
-coords  50 845
-at      2600
-
-3pspawn   bignose
-map     3
-health  250
-coords  350 845
 at      2600
 
 #----------------------
@@ -772,11 +739,11 @@ map     2
 coords  650 845
 at      3300
 
-spawn   sentry1
-item	cell
-map     2
-coords  -400 845
-at      3300
+#-------//-badbreak---//--------
+spawn   badbreak
+coords  50 830
+at      4000
+#-------//-badbreak---//--------
 
 #------------------------------
 blockade 4100

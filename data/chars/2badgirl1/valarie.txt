@@ -1,7 +1,8 @@
 name          valarie
 type          enemy
 health        100
-speed         14
+mp		3000
+speed         6
 running	      25 3 3 1 0
 jumpheight    4
 jumpmove      0 4
@@ -12,18 +13,19 @@ nopassiveblock 1
 escapehits    2
 shadow        0
 noquake       1
-nolife        1
 falldie	      2
 nodieblink    1
 gfxshadow     1
 dust            dust
 projectilehit enemy obstacle
 diesound      data/sounds/bgdie2.wav
+icon	data/chars/2badgirl1/icon.gif
+icondie	data/chars/2badgirl1/icond.gif
 animationscript data/scripts/escript.c
 
 
 
-
+palette		data/chars/2badgirl1/mapal.gif
 alternatepal       data/chars/2badgirl1/map1.gif
 alternatepal       data/chars/2badgirl1/map2.gif
 alternatepal       data/chars/2badgirl1/map3.gif
@@ -43,7 +45,7 @@ alternatepal       data/chars/2badgirl1/map5.gif
    int jp = 1;   //----jump velocity
 
 
-if(anim != openborconstant("ANI_DIE") || anim != openborconstant("ANI_FALL") || anim != openborconstant("ANI_RISE") || anim != openborconstant("ANI_JUMP"))
+if(anim == openborconstant("ANI_WALK") || anim == openborconstant("ANI_RUN"))
 {
 	float Hy;
 	if(Dir==0)
@@ -56,9 +58,9 @@ if(anim != openborconstant("ANI_DIE") || anim != openborconstant("ANI_FALL") || 
 
 	if(Hy > 1 && a <= 7 && hp > 0)
 	{
-	performattack(self,openborconstant("ANI_JUMP"));
-	changeentityproperty(self, "velocity", 0, 0, 0);
+	//changeentityproperty(self, "velocity", 0, 0, 0);
 	tossentity(self, 4, jp, 0);
+	performattack(self,openborconstant("ANI_JUMP"));
 	}
 }
 @end_script
@@ -149,7 +151,7 @@ anim attack2
          frame      data/chars/2badgirl1/ju06.gif
          frame      data/chars/2badgirl1/ju07.gif
 	 delay      100
-	 attack     95 125 79 45 20 1 1 0 10
+	 attack     95 125 79 45 20 1 0 0 40 0
          frame      data/chars/2badgirl1/ju08.gif
 	 delay      20
 	 attack     0 0 0 0
@@ -208,10 +210,10 @@ anim	burn
 	@cmd	spawnbind "burn1" 1 1 1
 	@cmd	spawnbind "burn2" 1 1 1
 	@cmd	spawnbind "burn3" 1 1 1
-	attack	78 98 30 45 5 1 0 0 13 0
+	attack	78 98 30 45 5 1 0 0 13 30
 	frame	data/chars/2badgirl1/fall1.gif
 	delay	15
-	attack	64 130 50 25 5 1 0 0 13 0
+	attack	64 130 50 25 5 1 0 0 13 30
 	frame	data/chars/2badgirl1/fall2.gif
 	delay	500
 	frame	data/chars/2badgirl1/fall3.gif
@@ -231,10 +233,10 @@ anim	fall
 	offset	100 189
 	bbox	0 0 0 0
 	landframe	3
-	attack	78 98 30 45 5 1 0 0 13 0
+	attack	78 98 30 45 5 1 0 0 13 30
 	frame	data/chars/2badgirl1/fall1.gif
 	delay	15
-	attack	64 130 50 25 5 1 0 0 13 0
+	attack	64 130 50 25 5 1 0 0 13 30
 	frame	data/chars/2badgirl1/fall2.gif
 	delay	500
 	frame	data/chars/2badgirl1/fall3.gif
@@ -252,17 +254,17 @@ anim	fall10
 	offset	100 189
 	bbox	80 80 50 75
 	landframe	4
-	attack	85 88 30 50 5 1 0 0 13 0
+	attack	85 88 30 50 5 1 0 0 13 30
 	frame	data/chars/2badgirl1/pain6.gif
 	delay	40
 	frame	data/chars/2badgirl1/pain7.gif
 	delay	30
 	bbox	71 125 63 30
-	attack	64 125 45 25 5 1 0 0 13 0
+	attack	64 125 45 25 5 1 0 0 13 30
 	frame	data/chars/2badgirl1/fall2.gif
 	delay	300
 	bbox	77 130 67 35
-	attack	0 0 0 0 0 0 0 0 0 0
+	attack	0 0 0 0
 	frame	data/chars/2badgirl1/fall3.gif
 	bbox	58 167 85 15
 	delay	15
@@ -286,15 +288,16 @@ anim	fall2
 	offset	100 189
 	bbox	0 0 0 0
 	landframe	3
-	attack	85 90 35 45 5 1 0 0 13 0
+	attack	85 90 35 45 5 1 0 0 13 30
 	frame	data/chars/2badgirl1/pain7.gif
 	delay	10
-	attack	64 125 55 25 5 1 0 0 13 0
+	attack	64 125 55 25 5 1 0 0 13 30
 	frame	data/chars/2badgirl1/fall2.gif
 	attack	0 0 0 0
 	delay	300
 	frame	data/chars/2badgirl1/fall3.gif
 	delay	15
+	bbox	58 167 85 15
 	frame	data/chars/2badgirl1/fall4.gif
 	frame	data/chars/2badgirl1/fall5.gif
 	frame	data/chars/2badgirl1/fall4.gif
@@ -357,10 +360,10 @@ anim	fall9
 	bbox	0 0 0 0
 	quakeframe	2 5 5
 	landframe	2 dust
-	attack	75 105 35 45 5 1 0 0 13 0
+	attack	75 105 35 45 5 1 0 0 13 30
 	frame	data/chars/2badgirl1/fall1.gif
 	delay	350
-	attack	75 125 45 35 5 1 0 0 13 0
+	attack	75 125 45 35 5 1 0 0 13 30
 	frame	data/chars/2badgirl1/fall2.gif
 	delay	2
 	move	-4
@@ -390,11 +393,12 @@ anim	fall9
 		
 anim	follow1
 	loop	0
-	delay	9
+	delay	19
 	offset	100 189
 	bbox	79 97 50 91
 	hitfx	data/sounds/beat2.wav
 	frame	data/chars/2badgirl1/a103.gif
+	delay	9
 	frame	data/chars/2badgirl1/a104.gif
 	frame	data/chars/2badgirl1/a105.gif
 	attack	121 106 59 20 13 0 0 0 13
@@ -403,7 +407,7 @@ anim	follow1
 	frame	data/chars/2badgirl1/a107.gif
 	frame	data/chars/2badgirl1/a108.gif
 	frame	data/chars/2badgirl1/a109.gif
-	attack	121 106 59 20 13 1 0 0 13	
+	attack	121 106 59 20 13 1 0 0 43	
 	frame	data/chars/2badgirl1/a110.gif
 	attack	0 0 0 0
 	frame	data/chars/2badgirl1/a111.gif
@@ -637,7 +641,7 @@ anim	follow2
 	frame	    data/chars/2badgirl1/rise7.gif
 	frame	    data/chars/2badgirl1/a108.gif
 	frame	    data/chars/2badgirl1/a109.gif
-	attack	    121 106 59 20 13 1 0 0 13	
+	attack	    121 106 59 20 13 1 0 0 43	
 	frame	    data/chars/2badgirl1/a110.gif
 	attack	    0 0 0 0
 	frame	    data/chars/2badgirl1/a111.gif
@@ -660,7 +664,7 @@ anim	follow2
 anim	special
 	loop	0
 	delay	3
-	offset	105 180
+	offset	100 189
 	bbox	0 0 0 0
 	move	-9
         frame      data/chars/2badgirl1/blk01.gif
@@ -691,9 +695,11 @@ anim	special
 
 
 anim	special2
+	energycost	10
+	mponly	1
 	loop	0
 	delay	3
-	offset	105 180
+	offset	100 189
 	bbox	0 0 0 0
 	move	-9
         frame      data/chars/2badgirl1/blk01.gif

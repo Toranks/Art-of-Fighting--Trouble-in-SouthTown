@@ -1,6 +1,7 @@
 name          naomi
 type          enemy
 health        250
+mp		3000
 speed         15
 jumpheight    4
 jumpmove      0 4
@@ -11,7 +12,6 @@ nopassiveblock 1
 escapehits    2
 shadow        0
 noquake       1
-nolife        1
 falldie	      2
 nodieblink    1
 gfxshadow     1
@@ -19,6 +19,8 @@ dust            dust
 projectilehit enemy obstacle
 subject_to_wall 0
 diesound      data/sounds/bgdie5.wav
+icon	data/chars/2badgirl13/icon.gif
+icondie	data/chars/2badgirl13/icond.gif
 animationscript data/scripts/escript.c
 
 
@@ -48,7 +50,7 @@ alternatepal       data/chars/2badgirl13/map4.gif
    int jp = 1;   //----jump velocity
 
 
-if(anim != openborconstant("ANI_DIE") || anim != openborconstant("ANI_FALL") || anim != openborconstant("ANI_RISE") || anim != openborconstant("ANI_JUMP"))
+if(anim == openborconstant("ANI_WALK") || anim == openborconstant("ANI_RUN"))
 {
 	float Hy;
 	if(Dir==0)
@@ -61,9 +63,9 @@ if(anim != openborconstant("ANI_DIE") || anim != openborconstant("ANI_FALL") || 
 
 	if(Hy > 1 && a <= 7 && hp > 0)
 	{
-	performattack(self,openborconstant("ANI_JUMP"));
-	changeentityproperty(self, "velocity", 0, 0, 0);
+	//changeentityproperty(self, "velocity", 0, 0, 0);
 	tossentity(self, 4, jp, 0);
+	performattack(self,openborconstant("ANI_JUMP"));
 	}
 }
 @end_script
@@ -204,10 +206,10 @@ anim	burn
 	@cmd	spawnbind "burn1" 1 1 1
 	@cmd	spawnbind "burn2" 1 1 1
 	@cmd	spawnbind "burn3" 1 1 1
-	attack	78 98 30 45 5 1 0 0 13 0
+	attack	78 98 30 45 5 1 0 0 13 30
 	frame	data/chars/2badgirl13/fall1.gif
 	delay	15
-	attack	75 120 50 25 5 1 0 0 13 0
+	attack	75 120 50 25 5 1 0 0 13 30
 	frame	data/chars/2badgirl13/fall2.gif
 	delay	500
 	frame	data/chars/2badgirl13/fall3.gif
@@ -238,10 +240,10 @@ anim	fall
 	offset	100 189
 	bbox	0 0 0 0
 	landframe	3
-	attack	78 98 30 45 5 1 0 0 13 0
+	attack	78 98 30 45 5 1 0 0 13 30
 	frame	data/chars/2badgirl13/fall1.gif
 	delay	15
-	attack	75 120 50 25 5 1 0 0 13 0
+	attack	75 120 50 25 5 1 0 0 13 30
 	frame	data/chars/2badgirl13/fall2.gif
 	delay	500
 	frame	data/chars/2badgirl13/fall3.gif
@@ -258,13 +260,13 @@ anim	fall10
 	offset	100 189
 	bbox	80 80 50 75
 	landframe	4
-	attack	85 88 30 50 5 1 0 0 13 0
+	attack	85 88 30 50 5 1 0 0 13 30
 	frame	data/chars/2badgirl13/pain6.gif
 	delay	40
 	frame	data/chars/2badgirl13/pain7.gif
 	delay	30
 	bbox	71 125 63 30
-	attack	64 125 45 25 5 1 0 0 13 0
+	attack	64 125 45 25 5 1 0 0 13 30
 	frame	data/chars/2badgirl13/fall2.gif
 	delay	300
 	bbox	77 130 67 35
@@ -291,15 +293,16 @@ anim	fall2
 	offset	100 189
 	bbox	0 0 0 0
 	landframe	3
-	attack	85 90 35 45 5 1 0 0 13 0
+	attack	85 90 35 45 5 1 0 0 13 30
 	frame	data/chars/2badgirl13/pain7.gif
 	delay	10
-	attack	64 125 55 25 5 1 0 0 13 0
+	attack	64 125 55 25 5 1 0 0 13 30
 	frame	data/chars/2badgirl13/fall2.gif
 	attack	0 0 0 0
 	delay	300
 	frame	data/chars/2badgirl13/fall3.gif
 	delay	15
+	bbox	58 175 85 15
 	frame	data/chars/2badgirl13/fall4.gif
 	frame	data/chars/2badgirl13/fall5.gif
 	frame	data/chars/2badgirl13/fall4.gif
@@ -362,10 +365,10 @@ anim	fall9
 	bbox	0 0 0 0
 	quakeframe	2 5 5
 	landframe	2 dust
-	attack	75 105 35 45 5 1 0 0 13 0
+	attack	75 105 35 45 5 1 0 0 13 30
 	frame	data/chars/2badgirl13/fall1.gif
 	delay	350
-	attack	75 125 45 35 5 1 0 0 13 0
+	attack	75 125 45 35 5 1 0 0 13 30
 	frame	data/chars/2badgirl13/fall2.gif
 	delay	2
 	move	-4
@@ -408,7 +411,7 @@ anim	follow1
 	frame	data/chars/2badgirl13/a107.gif
 	move	0
 	delay	12
-	attack5	95 85 95 70 14 1 0 0 30 0
+	attack5	95 85 95 70 14 1 0 0 40 0
 	dropv	3 4
 	frame	data/chars/2badgirl13/a108.gif
 	frame	data/chars/2badgirl13/a109.gif
@@ -683,6 +686,7 @@ anim	follow2
 	frame	data/chars/2badgirl13/grab19.gif
 	delay	12
 	frame	data/chars/2badgirl13/grab18.gif
+	@cmd	clearL
 	frame	data/chars/2badgirl13/grab17.gif
 	frame	data/chars/2badgirl13/grab07.gif
 	frame	data/chars/2badgirl13/grab08.gif
@@ -708,7 +712,7 @@ anim	follow4
 	frame	data/chars/2badgirl13/c02.gif
 	frame	data/chars/2badgirl13/c03.gif
 	frame	data/chars/2badgirl13/c03.gif
-	attack	95 130 80 50 9 1 0 0 20 15
+	attack	95 130 80 50 9 1 0 0 40 15
 	dropv	3 1
 	frame	data/chars/2badgirl13/c04.gif
 	frame	data/chars/2badgirl13/c04.gif
@@ -737,7 +741,9 @@ anim	idle
 	offset	100 195
 	bbox	79 97 50 91
 	frame	data/chars/2badgirl13/idle01.gif
+	@cmd	depost 0
 	frame	data/chars/2badgirl13/idle02.gif
+	@cmd	clearL
 	frame	data/chars/2badgirl13/idle03.gif
 	frame	data/chars/2badgirl13/idle04.gif
 	frame	data/chars/2badgirl13/idle03.gif
@@ -906,6 +912,16 @@ anim	spawn
 	frame	data/chars/2badgirl13/idle01.gif
 		
 anim	special
+@script
+	void self = getlocalvar("self");
+	int eTime = openborvariant("elapsed_time");
+	if (frame == 0)
+	{
+	changeentityproperty(self, "invincible", 1);
+	changeentityproperty(self, "invinctime", eTime + 35);
+	changeentityproperty(self, "blink", 1);
+	}
+@end_script
 	loop	0
 	delay	5
 	offset	105 195
@@ -925,6 +941,8 @@ anim	special
 	frame	data/chars/2badgirl13/d04.gif
 		
 anim	special2
+	energycost	10
+	mponly	1
 	loop	0
 	delay	12
 	offset	105 195
@@ -950,7 +968,7 @@ anim	upper
 	hitfx	data/sounds/sl2.wav
 	jumpframe	1 4 2
 	landframe	9 dust
-	attack5	65 55 130 75 15 1 0 0 10 15
+	attack5	65 55 130 75 15 1 0 0 40 15
 	dropv	4 3
 	frame	data/chars/2badgirl13/upper01.gif
 	sound	data/sounds/bgirl11.wav

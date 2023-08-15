@@ -1,6 +1,7 @@
 name          reptile3
 type          enemy
 health        350
+mp		3000
 speed         20
 jumpheight    4
 throw         5 2
@@ -17,6 +18,8 @@ candamage     player npc
 hostile       player npc
 projectilehit enemy obstacle
 diesound      data/sounds/alien7.wav
+icon		data/chars/beyond/2rep1/icon.gif
+icondie		data/chars/beyond/2rep1/icond.gif
 animationscript data/scripts/escript.c
 
 palette		data/chars/beyond/2rep1/mpal.gif
@@ -90,22 +93,26 @@ anim	jumpland
 
 
 anim	attack1
-	range	50 130
+	range	50 120
 	loop	0
-	delay	17
+	delay	20
 	offset	110 210
 	bbox	81 105 55 91
 	hitflash	Flash4
 	hitfx	data/sounds/sl1.wav
 	frame	data/chars/beyond/2rep1/a01.gif
+	delay	30
+	frame	data/chars/beyond/2rep1/a07.gif
+	delay	12
+	frame	data/chars/beyond/2rep1/a01.gif
 	delay	7
-	attack2	155 130 75 70 8 0 0 0 15 0
+	attack2	145 130 75 50 8 0 0 0 8 0
 	frame	data/chars/beyond/2rep1/a02.gif
 	frame	data/chars/beyond/2rep1/a03.gif
 	attack2	0 0 0 0
 	delay	10
 	frame	data/chars/beyond/2rep1/a04.gif
-	attack	155 130 75 70 8 1 0 0 15 0
+	attack	145 130 75 50 8 1 0 0 15 0
 	dropv	3 3
 	frame	data/chars/beyond/2rep1/a05.gif
 	frame	data/chars/beyond/2rep1/a06.gif
@@ -117,18 +124,22 @@ anim	attack2
 	range	140 200
 	rangez	-35 35
 	loop	0
-	delay	17
+	delay	12
 	offset	110 210
 	bbox	81 105 55 91
 	hitflash	Flash6
 	hitfx	data/sounds/sl2.wav
+	frame	data/chars/beyond/2rep1/b09.gif
+	delay	40
+	frame	data/chars/beyond/2rep1/blk01.gif
+	delay	20
 	frame	data/chars/beyond/2rep1/b01.gif
 	delay	7
 	@cmd	target 3 0.5 0 0 0
 	@cmd	dash
 	frame	data/chars/beyond/2rep1/b02.gif
 	frame	data/chars/beyond/2rep1/b03.gif
-	attack	123 110 95 75 14 1 0 0 30 0
+	attack	123 110 95 75 14 1 0 0 8 0
 	dropv	3 4
 	delay	11
 	frame	data/chars/beyond/2rep1/b04.gif
@@ -199,10 +210,10 @@ anim	burn
 	@cmd	spawnbind "burn1" 1 1 1
 	@cmd	spawnbind "burn2" 1 1 1
 	@cmd	spawnbind "burn3" 1 1 1
-	attack	85 105 35 43 5 1 0 0 13 0
+	attack	85 105 35 43 5 1 0 0 13 40
 	frame	data/chars/beyond/2rep1/fall1.gif
 	delay	15
-	attack	75 120 45 30 5 1 0 0 13 0
+	attack	75 120 45 30 5 1 0 0 13 40
 	frame	data/chars/beyond/2rep1/fall2.gif
 	delay	500
 	frame	data/chars/beyond/2rep1/fall3.gif
@@ -248,10 +259,10 @@ anim	fall
 	offset	110 210
 	bbox	0 0 0 0
 	landframe	3
-	attack	85 105 35 43 5 1 0 0 13 0
+	attack	85 105 35 43 5 1 0 0 13 40
 	frame	data/chars/beyond/2rep1/fall1.gif
 	delay	15
-	attack	75 120 45 30 5 1 0 0 13 0
+	attack	75 120 45 30 5 1 0 0 13 40
 	frame	data/chars/beyond/2rep1/fall2.gif
 	delay	500
 	frame	data/chars/beyond/2rep1/fall3.gif
@@ -266,13 +277,13 @@ anim	fall10
 	offset	110 210
 	bbox	83 102 50 91
 	landframe	4
-	attack	93 110 35 50 5 1 0 0 13 0
+	attack	93 110 35 50 5 1 0 0 13 40
 	frame	data/chars/beyond/2rep1/pain6.gif
 	delay	40
 	frame	data/chars/beyond/2rep1/pain7.gif
 	delay	30
 	bbox	70 120 55 40
-	attack	60 125 50 30 5 1 0 0 13 0
+	attack	60 125 50 30 5 1 0 0 13 40
 	frame	data/chars/beyond/2rep1/fall2.gif
 	delay	1000
 	bbox	65 145 67 35
@@ -295,13 +306,14 @@ anim	fall2
 	delay	30
 	offset	110 210
 	bbox	0 0 0 0
-	attack	90 105 40 50 5 1 0 0 13 0
+	attack	90 105 40 50 5 1 0 0 13 40
 	frame	data/chars/beyond/2rep1/pain6.gif
 	delay	10
-	attack	75 123 50 30 5 1 0 0 13 0
+	attack	75 123 50 30 5 1 0 0 13 40
 	frame	data/chars/beyond/2rep1/fall2.gif
 	attack	0 0 0 0
 	frame	data/chars/beyond/2rep1/fall3.gif
+	bbox	72 193 105 15
 	frame	data/chars/beyond/2rep1/fall4.gif
 		
 anim	fall4
@@ -362,10 +374,10 @@ anim	fall9
 	bbox	0 0 0 0
 	quakeframe	2 5 5
 	landframe	2 dust
-	attack	85 105 35 45 5 1 0 0 13 0
+	attack	85 105 35 45 5 1 0 0 13 40
 	frame	data/chars/beyond/2rep1/fall1.gif
 	delay	350
-	attack	75 120 45 35 5 1 0 0 13 0
+	attack	75 120 45 35 5 1 0 0 13 40
 	frame	data/chars/beyond/2rep1/fall2.gif
 	delay	2
 	move	-4
@@ -390,6 +402,16 @@ anim	fall9
 	frame	data/chars/beyond/2rep1/fall4.gif
 		
 anim	follow1
+@script
+	void self = getlocalvar("self");
+	int eTime = openborvariant("elapsed_time");
+	if (frame == 0)
+	{
+	changeentityproperty(self, "invincible", 1);
+	changeentityproperty(self, "invinctime", eTime + 120);
+	changeentityproperty(self, "blink", 1);
+	}
+@end_script
 	loop	0
 	delay	6
 	offset	110 210
@@ -430,6 +452,16 @@ anim	follow1
 	frame	data/chars/beyond/2rep1/pain0.gif
 		
 anim	follow2
+@script
+	void self = getlocalvar("self");
+	int eTime = openborvariant("elapsed_time");
+	if (frame == 0)
+	{
+	changeentityproperty(self, "invincible", 1);
+	changeentityproperty(self, "invinctime", eTime + 130);
+	changeentityproperty(self, "blink", 1);
+	}
+@end_script
 	loop	0
 	delay	7
 	offset	110 210
@@ -662,6 +694,16 @@ anim	spawn
 
 		
 anim	special
+@script
+	void self = getlocalvar("self");
+	int eTime = openborvariant("elapsed_time");
+	if (frame == 0)
+	{
+	changeentityproperty(self, "invincible", 1);
+	changeentityproperty(self, "invinctime", eTime + 120);
+	changeentityproperty(self, "blink", 1);
+	}
+@end_script
 	loop	0
 	delay	15
 	offset	110 210
@@ -676,6 +718,8 @@ anim	special
 	frame	data/chars/beyond/2rep1/e05.gif
 		
 anim	special2
+	energycost	10
+	mponly	1
 	loop	0
 	delay	9
 	offset	110 210
@@ -713,8 +757,8 @@ anim	special2
 	frame	data/chars/beyond/2rep1/pain0.gif
 		
 anim	upper
-	range	5 120
-	rangez	-30 30
+	range	5 100
+	rangez	-20 20
 	loop	0
 	delay	8
 	offset	110 210
@@ -728,8 +772,10 @@ anim	upper
 	attack	105 40 75 110 14 1 0 0 20 16
 	dropv	5 1
 	frame	data/chars/beyond/2rep1/upper03.gif
+	bbox	81 105 55 91
 	frame	data/chars/beyond/2rep1/upper04.gif
 	frame	data/chars/beyond/2rep1/upper05.gif
+	attack	0 0 0 0
 	frame	data/chars/beyond/2rep1/upper02.gif
 	frame	data/chars/beyond/2rep1/pain0.gif
 		

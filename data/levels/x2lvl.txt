@@ -1,0 +1,127 @@
+#music		data/music/pitt1.ogg
+
+background	data/bgs/2lvl/in1back.gif
+panel		data/bgs/2lvl/inside1.gif
+fglayer    	data/bgs/2lvl/frontin1.gif 10 0 0 0 0 0 0 1 1 1
+fglayer		data/bgs/2lvl/light.gif 3000 0 0 0 0 0 0 1 1 1 1 0 0 0 0 0
+layer		data/bgs/2lvl/smoke.gif 200 0 0 915 -10 0 0 1 1 1 1 1 2 22 1
+
+mirror          1
+
+shadowcolor     -2
+at              0
+
+
+wall            0 180 -40 -40 620 620 50 5000
+wall            690 215 -110 -40 20 20 70 5000
+
+
+
+direction       right
+light		0 -100
+at		0
+shadowalpha     6
+at              0
+settime         0
+notime          1
+noslow          0
+order		a
+spawn1  	105 20
+spawn2  	145 20
+spawn3  	185 20
+
+
+
+#-------1
+
+
+spawn  smoke1
+flip	1
+coords	1055 95
+at      0
+
+
+spawn 	smoke2
+flip	1
+coords	1165 55
+at      0
+
+spawn  barrel
+flip	1
+item    gold
+coords	265 190
+at      0
+
+spawn  barrel
+flip	1
+item    food1
+map     1
+coords	335 190
+at      0
+
+
+spawn  box2
+flip	1
+item    food3
+coords	570 195
+at      0
+
+spawn  box2
+flip	1
+coords	490 195
+at      0
+
+
+spawn  box2
+flip	1
+item    apple
+coords	530 195 200
+at      0
+
+spawn   table
+flip	1
+item    food3
+coords	1135 260
+at      0
+
+spawn   table
+flip	1
+item    money1
+coords	1270 250
+at      0
+
+spawn   table
+flip	1
+item    money1
+coords	1415 260
+at      0
+
+spawn  door5
+flip	1
+coords	690 240
+at      0
+
+
+#-------------enemy-----------------
+
+group   1 1
+at      1450
+
+spawn   steroid2
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW20"));
+} @end_script
+health  1000
+map     1
+flip    1
+boss    1
+aggression 100
+coords  -310 220
+at      1450
+
+
+
+
+
+
+

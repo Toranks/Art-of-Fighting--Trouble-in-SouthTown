@@ -1,7 +1,8 @@
 name          reptile1
 type          enemy
 health        250
-speed         9
+mp		3000
+speed         8
 jumpheight    4
 throw         5 2
 throwdamage   18
@@ -19,6 +20,8 @@ hostile       player npc
 projectilehit enemy obstacle
 subject_to_wall 0
 diesound      data/sounds/alien6.wav
+icon		data/chars/beyond/1rep/icon.gif
+icondie		data/chars/beyond/1rep/icond.gif
 animationscript data/scripts/escript.c
 
 palette		data/chars/beyond/1rep/map0.gif
@@ -65,18 +68,22 @@ anim	follow10
 	@cmd	spawnGun5 "byowater" 1 10 1.5 2 "ANI_FOLLOW1"
 	frame	data/chars/beyond/1rep/wt00.gif
 	frame	data/chars/beyond/1rep/wt01.gif
+	sound	data/sounds/splash1.wav
 	frame	data/chars/beyond/1rep/wt02.gif
 	frame	data/chars/beyond/1rep/wt03.gif
 	frame	data/chars/beyond/1rep/wt04.gif
 	frame	data/chars/beyond/1rep/wt05.gif
+	sound	data/sounds/splash1.wav
 	frame	data/chars/beyond/1rep/wt06.gif
 	frame	data/chars/beyond/1rep/wt07.gif
 	frame	data/chars/beyond/1rep/wt08.gif
 	frame	data/chars/beyond/1rep/wt09.gif
+	sound	data/sounds/splash1.wav
 	frame	data/chars/beyond/1rep/wt10.gif
 	frame	data/chars/beyond/1rep/wt11.gif
 	frame	data/chars/beyond/1rep/wt12.gif
 	frame	data/chars/beyond/1rep/wt13.gif
+	sound	data/sounds/splash1.wav
 	frame	data/chars/beyond/1rep/wt14.gif
 	frame	data/chars/beyond/1rep/wt15.gif
 	delay	17
@@ -390,10 +397,10 @@ anim	burn
 	@cmd	spawnbind "burn1" 1 1 1
 	@cmd	spawnbind "burn2" 1 1 1
 	@cmd	spawnbind "burn3" 1 1 1
-	attack	85 105 35 43 5 1 0 0 13 0
+	attack	85 105 35 43 5 1 0 0 13 40
 	frame	data/chars/beyond/1rep/fall1.gif
 	delay	15
-	attack	75 120 45 30 5 1 0 0 13 0
+	attack	75 120 45 30 5 1 0 0 13 40
 	frame	data/chars/beyond/1rep/fall2.gif
 	delay	500
 	frame	data/chars/beyond/1rep/fall3.gif
@@ -415,10 +422,10 @@ anim	fall
 	offset	110 210
 	bbox	0 0 0 0
 	landframe	3
-	attack	85 105 35 43 5 1 0 0 13 0
+	attack	85 105 35 43 5 1 0 0 13 40
 	frame	data/chars/beyond/1rep/fall1.gif
 	delay	15
-	attack	75 120 45 30 5 1 0 0 13 0
+	attack	75 120 45 30 5 1 0 0 13 40
 	frame	data/chars/beyond/1rep/fall2.gif
 	delay	500
 	frame	data/chars/beyond/1rep/fall3.gif
@@ -433,13 +440,13 @@ anim	fall10
 	offset	110 210
 	bbox	83 102 50 91
 	landframe	4
-	attack	93 110 35 50 5 1 0 0 13 0
+	attack	93 110 35 50 5 1 0 0 13 40
 	frame	data/chars/beyond/1rep/pain6.gif
 	delay	40
 	frame	data/chars/beyond/1rep/pain7.gif
 	delay	30
 	bbox	70 120 55 40
-	attack	60 125 50 30 5 1 0 0 13 0
+	attack	60 125 50 30 5 1 0 0 13 40
 	frame	data/chars/beyond/1rep/fall2.gif
 	delay	1000
 	bbox	65 145 67 35
@@ -462,13 +469,14 @@ anim	fall2
 	delay	30
 	offset	110 210
 	bbox	0 0 0 0
-	attack	90 105 40 50 5 1 0 0 13 0
+	attack	90 105 40 50 5 1 0 0 13 40
 	frame	data/chars/beyond/1rep/pain6.gif
 	delay	10
-	attack	75 123 50 30 5 1 0 0 13 0
+	attack	75 123 50 30 5 1 0 0 13 40
 	frame	data/chars/beyond/1rep/fall2.gif
 	attack	0 0 0 0
 	frame	data/chars/beyond/1rep/fall3.gif
+	bbox	62 194 90 15
 	frame	data/chars/beyond/1rep/fall4.gif
 		
 anim	fall4
@@ -529,10 +537,10 @@ anim	fall9
 	bbox	0 0 0 0
 	quakeframe	2 5 5
 	landframe	2 dust
-	attack	85 105 35 45 5 1 0 0 13 0
+	attack	85 105 35 45 5 1 0 0 13 40
 	frame	data/chars/beyond/1rep/fall1.gif
 	delay	350
-	attack	75 120 45 35 5 1 0 0 13 0
+	attack	75 120 45 35 5 1 0 0 13 40
 	frame	data/chars/beyond/1rep/fall2.gif
 	delay	2
 	move	-4
@@ -698,6 +706,7 @@ anim	idle
 	frame	data/chars/beyond/1rep/idle01.gif
 	@cmd	depost 0
 	frame	data/chars/beyond/1rep/idle02.gif
+	@cmd	clearL
 	frame	data/chars/beyond/1rep/idle03.gif
 	frame	data/chars/beyond/1rep/idle04.gif
 	frame	data/chars/beyond/1rep/idle03.gif
@@ -802,15 +811,10 @@ anim	pain9
 		
 anim	rise
 	loop	0
-	delay	30
+	delay	7
 	offset	110 210
 	bbox	0 0 0 0
 	frame	data/chars/beyond/1rep/fall4.gif
-	delay	7
-	frame	data/chars/beyond/1rep/fall4.gif
-	@cmd	attack1 0 120 14 "ANI_FOLLOW4"
-	frame	data/chars/beyond/1rep/rise1.gif
-	@cmd	attack1 0 120 14 "ANI_FOLLOW4"
 	frame	data/chars/beyond/1rep/rise1.gif
 	@cmd	attack1 0 120 14 "ANI_FOLLOW4"
 	frame	data/chars/beyond/1rep/rise2.gif
@@ -867,6 +871,8 @@ anim	special
 	frame	data/chars/beyond/1rep/wk07.gif
 		
 anim	special2
+	energycost	10
+	mponly	1
 	loop	0
 	delay	9
 	offset	110 210

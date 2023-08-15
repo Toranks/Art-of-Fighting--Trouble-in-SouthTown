@@ -1,7 +1,7 @@
 name          crazyjoe
 type          enemy
 health        100
-speed         14
+speed         11
 jumpheight    7
 throw         5 2
 throwdamage   18
@@ -54,7 +54,7 @@ anim	attack1
 	frame	data/chars/3crazyjoe/a02.gif
 	move	0
 	delay	8
-	attack	100 110 70 25 12 0 0 0 13 0
+	attack	100 110 70 25 4 0 0 0 13 0
 	frame	data/chars/3crazyjoe/a03.gif
 	frame	data/chars/3crazyjoe/a04.gif
 	attack	0 0 0 0
@@ -79,7 +79,7 @@ anim	attack2
 	frame	data/chars/3crazyjoe/jump01.gif
 	frame	data/chars/3crazyjoe/jump02.gif
 	delay	60
-	attack3	90 115 80 45 12 1 0 0 30 15
+	attack3	90 115 80 45 4 1 0 0 30 15
 	dropv	3 1
 	frame	data/chars/3crazyjoe/jump03.gif
 	attack3	0 0 0 0
@@ -254,6 +254,7 @@ anim	fall2
 	delay	300
 	frame	data/chars/3crazyjoe/fall3.gif
 	delay	15
+	bbox	58 175 85 15
 	frame	data/chars/3crazyjoe/fall4.gif
 	frame	data/chars/3crazyjoe/fall5.gif
 	frame	data/chars/3crazyjoe/fall4.gif
@@ -359,7 +360,7 @@ anim	follow1
 	sound	data/sounds/crjoe07.wav
 	frame	data/chars/3crazyjoe/a05.gif
 	frame	data/chars/3crazyjoe/a06.gif
-	attack2	90 125 80 25 14 0 0 0 13 0
+	attack2	90 125 80 25 4 0 0 0 13 0
 	frame	data/chars/3crazyjoe/a07.gif
 	frame	data/chars/3crazyjoe/a08.gif
 	attack2	0 0 0 0
@@ -369,7 +370,7 @@ anim	follow1
 	frame	data/chars/3crazyjoe/a09.gif
 	frame	data/chars/3crazyjoe/a10.gif
 	frame	data/chars/3crazyjoe/a10.gif
-	attack	95 80 50 60 16 1 1 0 13 15
+	attack	95 80 50 60 5 1 1 0 13 15
 	dropv	5 1
 	frame	data/chars/3crazyjoe/a11.gif
 	frame	data/chars/3crazyjoe/a11.gif
@@ -1147,7 +1148,7 @@ anim	follow2
 	frame	data/chars/3crazyjoe/jump04.gif
 	frame	data/chars/3crazyjoe/jump05.gif
 	delay	50
-	attack5	95 100 80 40 14 1 0 0 35 15
+	attack5	95 100 80 40 4 1 0 0 35 15
 	dropv	3 4
 	frame	data/chars/3crazyjoe/jump06.gif
 	attack5	0 0 0 0
@@ -1155,6 +1156,16 @@ anim	follow2
 	frame	data/chars/3crazyjoe/rise3.gif
 		
 anim	follow3
+@script
+	void self = getlocalvar("self");
+	int eTime = openborvariant("elapsed_time");
+	if (frame == 0)
+	{
+	changeentityproperty(self, "invincible", 1);
+	changeentityproperty(self, "invinctime", eTime + 180);
+	changeentityproperty(self, "blink", 1);
+	}
+@end_script
 	loop	0
 	delay	7
 	offset	100 189
@@ -1167,7 +1178,7 @@ anim	follow3
 	frame	data/chars/3crazyjoe/roll02.gif
 	delay	14
 	frame	data/chars/3crazyjoe/e01.gif
-	attack	95 100 90 50 12 1 1 0 35 15
+	attack	95 100 90 50 2 1 1 0 35 15
 	dropv	4 2
 	delay	11
 	frame	data/chars/3crazyjoe/e02.gif
@@ -1233,8 +1244,9 @@ anim	idle
 	bbox	79 97 50 91
 	@cmd	jonydam
 	frame	data/chars/3crazyjoe/idle01.gif
-	@cmd	clearL
+	@cmd	depost 0
 	frame	data/chars/3crazyjoe/idle02.gif
+	@cmd	clearL
 	frame	data/chars/3crazyjoe/idle03.gif
 	frame	data/chars/3crazyjoe/idle04.gif
 		
@@ -1373,10 +1385,13 @@ anim	rise
 	frame	data/chars/3crazyjoe/rise1.gif
 	@cmd	riseattack 120 15 "ANI_FOLLOW3"
 	frame	data/chars/3crazyjoe/rise2.gif
+	sound	data/sounds/crjoe04.wav
 	@cmd	riseattack 120 15 "ANI_FOLLOW3"
 	frame	data/chars/3crazyjoe/rise3.gif
 	@cmd	riseattack 120 15 "ANI_FOLLOW3"
 	frame	data/chars/3crazyjoe/idle01.gif
+
+#-----------------------------//------------//----------
 		
 anim	spawn
 @script
@@ -1459,8 +1474,107 @@ anim	spawn
 	frame	data/chars/3crazyjoe/wk04.gif
 	@cmd	clearL
 	frame	data/chars/3crazyjoe/wk04.gif
+
+
+anim	follow20
+@script
+	void self = getlocalvar("self");
+	if(frame==1){
+
+	changelevelproperty("scrollspeed", 0);
+    	changeopenborvariant("xpos", 450);
+    	changeopenborvariant("ypos", 270);
+	changeentityproperty(self, "aggression", 30);
+	}
+	if(frame==39){
+	changelevelproperty("scrollspeed", 1);
+	}
+@end_script
+	loop	0
+	delay	500
+	offset	100 197
+	bbox	0 0 0 0
+	platform	40 205 0 0 250 250 40 200
+	frame	data/chars/3crazyjoe/empty.gif
+	delay	15
+	frame	data/chars/3crazyjoe/span01.gif
+	@cmd	 playmusic "data/music/crazyjoe.ogg" 1
+	frame	data/chars/3crazyjoe/span02.gif
+	frame	data/chars/3crazyjoe/span03.gif
+	frame	data/chars/3crazyjoe/span04.gif
+	delay	100
+	frame	data/chars/3crazyjoe/span05.gif
+	delay	14
+	frame	data/chars/3crazyjoe/span06.gif
+	frame	data/chars/3crazyjoe/span07.gif
+	frame	data/chars/3crazyjoe/span08.gif
+	frame	data/chars/3crazyjoe/span09.gif
+	delay	70
+	frame	data/chars/3crazyjoe/span10.gif
+	delay	14
+	frame	data/chars/3crazyjoe/span11.gif
+	frame	data/chars/3crazyjoe/span12.gif
+	frame	data/chars/3crazyjoe/span13.gif
+	frame	data/chars/3crazyjoe/span14.gif
+	frame	data/chars/3crazyjoe/span15.gif
+	frame	data/chars/3crazyjoe/span16.gif
+	delay	80
+	frame	data/chars/3crazyjoe/span17.gif
+	delay	14
+	frame	data/chars/3crazyjoe/span18.gif
+	frame	data/chars/3crazyjoe/span19.gif
+	frame	data/chars/3crazyjoe/span20.gif
+	frame	data/chars/3crazyjoe/span21.gif
+	frame	data/chars/3crazyjoe/span22.gif
+	delay	100
+	frame	data/chars/3crazyjoe/span22.gif
+	offset	95 189
+	delay	14
+	movez	1
+	frame	data/chars/3crazyjoe/xwk03.gif
+	frame	data/chars/3crazyjoe/xwk01.gif
+	frame	data/chars/3crazyjoe/xwk02.gif
+	frame	data/chars/3crazyjoe/xwk03.gif
+	frame	data/chars/3crazyjoe/xwk01.gif
+	frame	data/chars/3crazyjoe/xwk02.gif
+	frame	data/chars/3crazyjoe/xwk03.gif
+	frame	data/chars/3crazyjoe/xwk01.gif
+	frame	data/chars/3crazyjoe/xwk02.gif
+	frame	data/chars/3crazyjoe/xwk03.gif
+	movez	0
+	offset	100 189
+	@cmd	flip
+	frame	data/chars/3crazyjoe/wk02.gif
+	frame	data/chars/3crazyjoe/wk03.gif
+	delay	50
+	frame	data/chars/3crazyjoe/wk04.gif
+	frame	data/chars/3crazyjoe/wk04.gif
+	frame	data/chars/3crazyjoe/wk04.gif
+	frame	data/chars/3crazyjoe/wk04.gif
+	frame	data/chars/3crazyjoe/wk04.gif
+	sound	data/sounds/crjoe04.wav
+	frame	data/chars/3crazyjoe/wk04.gif
+	@cmd	clearL
+	frame	data/chars/3crazyjoe/wk04.gif
+
+
+
+
+
+
+#----------------------------//------------------//---------------
 		
 anim	special
+@script
+	void self = getlocalvar("self");
+	int eTime = openborvariant("elapsed_time");
+	if (frame == 0)
+	{
+	changeentityproperty(self, "invincible", 1);
+	changeentityproperty(self, "invinctime", eTime + 100);
+	changeentityproperty(self, "blink", 1);
+	}
+@end_script
 	loop	0
 	delay	8
 	offset	100 189
@@ -1473,7 +1587,7 @@ anim	special
 	sound	data/sounds/crjoe07.wav
 	frame	data/chars/3crazyjoe/jump01.gif
 	frame	data/chars/3crazyjoe/c01.gif
-	attack	35 100 130 55 17 1 1 0 40 15
+	attack	35 100 130 55 3 1 1 0 40 15
 	dropv	3 4
 	frame	data/chars/3crazyjoe/c02.gif
 	frame	data/chars/3crazyjoe/c03.gif
@@ -1511,58 +1625,58 @@ anim	upper
 	fastattack	1
 	hitfx	data/sounds/beat2.wav
 	hitflash	flash
-	attack3	99 65 115 90 7 1 0 0 30 15
+	attack3	99 65 115 90 2 1 0 0 30 15
 	dropv	1 0
 	frame	data/chars/3crazyjoe/upper01.gif
 	attack3	0 0 0 0
 	frame	data/chars/3crazyjoe/upper02.gif
-	attack3	99 65 115 90 7 1 0 0 30 15
+	attack3	99 65 115 90 2 1 0 0 30 15
 	dropv	1 0
 	frame	data/chars/3crazyjoe/upper03.gif
 	sound	data/sounds/crjoe03.wav
 	attack3	0 0 0 0
 	frame	data/chars/3crazyjoe/upper04.gif
-	attack3	99 65 115 90 7 1 0 0 30 15
+	attack3	99 65 115 90 2 1 0 0 30 15
 	dropv	1 0
 	frame	data/chars/3crazyjoe/upper01.gif
 	attack3	0 0 0 0
 	frame	data/chars/3crazyjoe/upper02.gif
-	attack3	99 65 115 90 7 1 0 0 30 15
+	attack3	99 65 115 90 2 1 0 0 30 15
 	dropv	1 0
 	frame	data/chars/3crazyjoe/upper03.gif
 	attack3	0 0 0 0
 	hitflash	flashscreen1
 	frame	data/chars/3crazyjoe/upper04.gif
-	attack3	99 65 115 90 7 1 0 0 30 15
+	attack3	99 65 115 90 2 1 0 0 30 15
 	dropv	1 0
 	frame	data/chars/3crazyjoe/upper01.gif
 	attack3	0 0 0 0
 	hitflash	flash
 	frame	data/chars/3crazyjoe/upper02.gif
-	attack3	99 65 115 90 7 1 0 0 30 15
+	attack3	99 65 115 90 2 1 0 0 30 15
 	dropv	1 0
 	frame	data/chars/3crazyjoe/upper03.gif
 	attack3	0 0 0 0
 	frame	data/chars/3crazyjoe/upper04.gif
-	attack3	99 65 115 90 7 1 0 0 30 15
+	attack3	99 65 115 90 2 1 0 0 30 15
 	dropv	1 0
 	frame	data/chars/3crazyjoe/upper01.gif
 	attack3	0 0 0 0
 	frame	data/chars/3crazyjoe/upper02.gif
-	attack3	99 65 115 90 7 1 0 0 30 15
+	attack3	99 65 115 90 2 1 0 0 30 15
 	dropv	1 0
 	frame	data/chars/3crazyjoe/upper03.gif
 	attack3	0 0 0 0
 	hitflash	flashscreen2
 	frame	data/chars/3crazyjoe/upper04.gif
-	attack3	99 65 115 90 7 1 0 0 30 15
+	attack3	99 65 115 90 2 1 0 0 30 15
 	dropv	1 0
 	frame	data/chars/3crazyjoe/upper01.gif
 	attack3	0 0 0 0
 	hitflash	flash
 	frame	data/chars/3crazyjoe/upper02.gif
 	hitfx	data/sounds/beat3.wav
-	attack3	99 65 115 90 7 1 0 0 30 15
+	attack3	99 65 115 90 2 1 0 0 30 15
 	dropv	3 3
 	frame	data/chars/3crazyjoe/upper03.gif
 	attack3	0 0 0 0

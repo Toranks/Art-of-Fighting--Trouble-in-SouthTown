@@ -1,0 +1,2530 @@
+name		kingpl
+type		player
+health		150
+mp		100
+mprate          2
+chargerate      5
+speed		12
+running		28 3.1 3.1 1 0
+jumpheight	4.2
+falldie		2
+noquake		1
+secret		1 1
+nodieblink	2
+makeinv		3
+riseinv		1
+gfxshadow	1
+holdblock 	1
+modelflag	1
+weaploss	3
+dust            dust
+weapons		pltank kingpl syuribike2 yurifall syurwtr syurivent mapcurs mrzero
+candamage	enemy obstacle
+diesound        data/sounds/xking10.wav
+atchain         1 1 2 3 4 0 5 6 7 0 8 1 0
+combostyle      1
+icon            data/chars/3king/icon.png
+parrow          data/chars/misc/flash/flash/player1.gif  -36 -145
+parrow2         data/chars/misc/flash/flash/player2.gif  -36 -145
+parrow3         data/chars/misc/flash/flash/player3.gif  -36 -145
+
+animationscript	data/scripts/grabscript.c
+ondrawscript	data/scripts/water_puddle_script.c
+script		data/scripts/player_script.c
+
+#load	kohkn2
+load	hadok2
+
+
+alternatepal	data/chars/3king/map1.png
+alternatepal	data/chars/3king/map2.png
+alternatepal	data/chars/3king/map3.png
+
+
+com     d f d f a	freespecial20
+com     d f d f s	freespecial27
+com     d f s		freespecial1
+com	f b b a		freespecial2
+com	f d f a		freespecial3
+com     d f j		freespecial4
+com     d u s		freespecial5
+com     a2		freespecial15
+com     a3		freespecial29
+
+
+
+anim	freespecial29
+@script
+	void self = getlocalvar("self");
+	void plyr = getentityproperty(self, "playerindex");
+
+	if(frame >= 15 && playerkeys(plyr, 0, "attack3"))
+	{
+	  updateframe(self, 7);
+	}
+@end_script
+	loop	0
+	delay	6
+	offset	140 199
+	bbox	132 115 33 80
+	sound	data/sounds/xking03.wav
+	frame	data/chars/3king/chrg01.png
+	delay	2
+	frame	data/chars/3king/chrg02.png
+	frame	data/chars/3king/chrg02.png
+	sound	data/sounds/xking15.wav
+	frame	data/chars/3king/chrg03.png
+	frame	data/chars/3king/chrg03.png
+	frame	data/chars/3king/chrg02.png
+	frame	data/chars/3king/chrg02.png
+	frame	data/chars/3king/chrg03a.png	#7
+	@cmd	mpgain 1
+	frame	data/chars/3king/chrg03a.png
+	frame	data/chars/3king/chrg03b.png
+	@cmd	mpgain 2
+	frame	data/chars/3king/chrg03b.png
+	frame	data/chars/3king/chrg03c.png
+	@cmd	mpgain 1
+	frame	data/chars/3king/chrg03c.png
+	frame	data/chars/3king/chrg03d.png
+	@cmd	mpgain 2
+	frame	data/chars/3king/chrg03d.png
+	frame	data/chars/3king/chrg03d.png	#15
+	frame	data/chars/3king/chrg02.png
+	frame	data/chars/3king/chrg02.png
+	frame	data/chars/3king/chrg01.png
+	frame	data/chars/3king/chrg01.png
+
+
+
+
+anim	freespecial15
+	loop	0
+	delay	9
+	offset	140 199
+	bbox	0 0 0 0
+	frame	data/chars/3king/taunt10.png
+	frame	data/chars/3king/taunt11.png
+	frame	data/chars/3king/taunt12.png
+	frame	data/chars/3king/taunt13.png
+	frame	data/chars/3king/taunt14.png
+	delay	20
+	frame	data/chars/3king/taunt14.png
+	frame	data/chars/3king/taunt15.png
+	delay	50
+	frame	data/chars/3king/taunt15.png
+	delay	20
+	frame	data/chars/3king/taunt14.png
+	sound	data/sounds/xking11.wav
+	frame	data/chars/3king/taunt13.png
+	frame	data/chars/3king/taunt13.png
+	@cmd	spawnAni3 "movelist" 240 300 440 "ANI_FOLLOW14"
+	frame	data/chars/3king/taunt13.png
+	frame	data/chars/3king/taunt13.png
+	delay	9
+	frame	data/chars/3king/taunt12.png
+	frame	data/chars/3king/taunt13.png
+	frame	data/chars/3king/taunt10.png
+
+
+
+
+
+#--------------------//-grab-escape-beds-//-----------------------
+
+
+anim	follow17
+@script
+	void self = getlocalvar("self");
+	int eTime = openborvariant("elapsed_time");
+	if (frame == 13)
+	{
+	changeentityproperty(self, "invincible", 1);
+	changeentityproperty(self, "invinctime", eTime + 1000);
+	changeentityproperty(self, "blink", 1);
+	}
+@end_script
+	loop	0
+	delay	800
+	offset	140 199
+	bbox	0 0 0 0
+	frame	data/chars/3king/emp.png
+	delay	9
+	frame	data/chars/3king/taunt1.png
+	frame	data/chars/3king/taunt2.png
+	frame	data/chars/3king/taunt3.png
+	frame	data/chars/3king/taunt4.png
+	frame	data/chars/3king/taunt5.png
+	frame	data/chars/3king/taunt6.png
+	frame	data/chars/3king/taunt7.png
+	sound	data/sounds/xking11.wav
+	frame	data/chars/3king/taunt7.png
+	delay	30
+	frame	data/chars/3king/taunt7.png
+
+
+
+anim	follow15
+@script
+	void self = getlocalvar("self");
+   	void opp = getentityproperty(self, "opponent");
+	int enedir = getentityproperty(opp,"direction");
+	if (frame == 0 && enedir == 0)
+	{
+	changeentityproperty(self, "direction", 1);
+	}
+	else if (frame == 0 && enedir == 1)
+	{
+	changeentityproperty(self, "direction", 0);
+	}
+@end_script
+	loop	0
+	delay	6
+	offset	140 199
+	bbox	0 0 0 0
+	jumpframe 0 3 -1
+	landframe 7
+	frame	data/chars/3king/jup03.png
+	frame	data/chars/3king/jup07.png
+	frame	data/chars/3king/jup06.png
+	frame	data/chars/3king/jup05.png
+	frame	data/chars/3king/jup04.png
+	frame	data/chars/3king/jup03.png
+	delay	300
+	frame	data/chars/3king/jup02.png
+	delay	9
+	frame	data/chars/3king/jupland.png
+
+
+
+anim	follow16
+@script
+	void self = getlocalvar("self");
+   	void opp = getentityproperty(self, "opponent");
+	int enedir = getentityproperty(opp,"direction");
+	if (frame == 0 && enedir == 0)
+	{
+	changeentityproperty(self, "direction", 1);
+	}
+	else if (frame == 0 && enedir == 1)
+	{
+	changeentityproperty(self, "direction", 0);
+	}
+@end_script
+	loop	0
+	delay	7
+	offset	140 199
+	bbox	0 0 0 0
+	frame	data/chars/3king/rise1.png
+	frame	data/chars/3king/rise2.png
+	@cmd	dasher -3 0 0
+	frame	data/chars/3king/rise3.png
+	frame	data/chars/3king/rise4.png
+	@cmd	spawn01 "dust" 1 1 1
+	frame	data/chars/3king/rise5.png
+	frame	data/chars/3king/rise6.png
+	frame	data/chars/3king/thw10.png
+	delay	12
+	@cmd	stop
+	frame	data/chars/3king/thw11.png
+
+
+#--------------------------------//-----------------------
+
+
+
+anim	attack1
+	range	0 135
+	rangez	-40 40
+	loop	0
+	delay	3
+	offset	140 199
+	bbox	125 115 25 80
+	@cmd	attackgrd -60 60 0 1 10 "ANI_FOLLOW10"
+	frame	data/chars/3king/ak06a.png
+	attack	144 110 80 26 12 0 0 0 1 0
+	frame	data/chars/3king/ak07.png
+	frame	data/chars/3king/ak08.png
+	attack	0 0 0 0
+	delay	4
+	frame	data/chars/3king/ak08a.png
+
+
+anim	attack2
+	range	0 60
+	rangez	-40 40
+	loop	0
+	delay	5
+	offset	140 199
+	bbox	125 115 25 80
+	sound	data/sounds/xking12.wav
+	hitfx	data/sounds/beat2.wav
+	frame	data/chars/3king/ak01.png
+	frame	data/chars/3king/ak02.png
+	attack	144 105 50 35 25 0 0 0 5 0
+	frame	data/chars/3king/ak03.png
+	frame	data/chars/3king/ak04.png
+	attack	0 0 0 0
+	delay	6
+	frame	data/chars/3king/ak02.png
+
+
+anim	attack3
+	range	0 60
+	rangez	-40 40
+	loop	0
+	delay	5
+	offset	140 199
+	bbox	125 115 25 80
+	sound	data/sounds/xking12.wav
+	hitfx	data/sounds/beat2.wav
+	frame	data/chars/3king/ak05.png
+	frame	data/chars/3king/ak05a.png
+	attack2	144 110 56 40 35 0 0 0 7 0
+	frame	data/chars/3king/ak08b.png
+	frame	data/chars/3king/ak08c.png
+	attack2	0 0 0 0
+	delay	6
+	frame	data/chars/3king/ak06a.png
+
+anim	attack4
+	range	0 60
+	rangez	-40 40
+	loop	0
+	delay	5
+	offset	140 199
+	bbox	125 115 25 80
+	sound	data/sounds/xking13.wav
+	hitfx	data/sounds/beat2.wav
+	frame	data/chars/3king/ak09.png
+	frame	data/chars/3king/ak10.png
+	attack10 144 85 50 50 45 1 0 0 40 0
+	dropv	5 0.5
+	frame	data/chars/3king/ak11.png
+	frame	data/chars/3king/ak12.png
+	frame	data/chars/3king/ak13.png
+	attack10 0 0 0 0
+	delay	6
+	frame	data/chars/3king/ak10.png
+	frame	data/chars/3king/ak06a.png
+
+
+
+
+anim	attack5
+	range	0 85
+	rangez	-40 40
+	loop	0
+	delay	5
+	offset	145 199
+	bbox	125 115 25 80
+	sound	data/sounds/xking03.wav
+	hitfx	data/sounds/beat2.wav
+	frame	data/chars/3king/akb01.png
+	frame	data/chars/3king/akb02.png
+	attack	144 130 70 55 25 0 0 0 5 0
+	frame	data/chars/3king/akb03.png
+	frame	data/chars/3king/akb04.png
+	attack	0 0 0 0
+	delay	6
+	frame	data/chars/3king/akb02.png
+	frame	data/chars/3king/akb01.png
+
+anim	attack6
+	range	0 85
+	rangez	-40 40
+	loop	0
+	delay	5
+	offset	130 199
+	bbox	125 115 25 80
+	sound	data/sounds/xking03.wav
+	hitfx	data/sounds/beat2.wav
+	frame	data/chars/3king/akb15.png
+	frame	data/chars/3king/akb18.png
+	attack	133 85 60 60 35 0 0 0 7 0
+	frame	data/chars/3king/akb16.png
+	frame	data/chars/3king/akb17.png
+	attack	0 0 0 0
+	delay	6
+	frame	data/chars/3king/akb18.png
+	frame	data/chars/3king/akb15.png
+
+
+anim	attack7
+	range	0 85
+	rangez	-40 40
+	loop	0
+	delay	6
+	offset	140 199
+	bbox	125 115 25 80
+	forcedirection	-1
+	sound	data/sounds/xking04.wav
+	hitfx	data/sounds/beat5.wav
+	frame	data/chars/3king/akb05.png
+	frame	data/chars/3king/akb06.png
+	frame	data/chars/3king/akb07.png
+	attack	144 100 70 50 45 1 0 0 40 0
+	dropv	2 3
+	frame	data/chars/3king/akb08.png
+	frame	data/chars/3king/akb09.png
+	attack	0 0 0 0
+	delay	7
+	frame	data/chars/3king/akb10.png
+	frame	data/chars/3king/akb01.png
+
+anim	attack8
+	range	0 145
+	rangez	-40 40
+	loop	0
+	delay	6
+	offset	140 199
+	bbox	125 115 25 80
+	forcedirection	-1
+	sound	data/sounds/xking02.wav
+	hitfx	data/sounds/beat5.wav
+	frame	data/chars/3king/akb22.png
+	frame	data/chars/3king/akb23.png
+	frame	data/chars/3king/akb24.png
+	frame	data/chars/3king/akb25.png
+	attack	144 100 85 65 55 1 0 0 50 0
+	dropv	2 3.5
+	frame	data/chars/3king/akb26.png
+	frame	data/chars/3king/akb46.png
+	attack	0 0 0 0
+	frame	data/chars/3king/akb47.png
+	delay	7
+	frame	data/chars/3king/akb48.png
+	frame	data/chars/3king/akb06.png
+	frame	data/chars/3king/akb05.png
+
+
+anim	attackdown
+	loop	0
+	delay	7
+	offset	140 199
+	bbox	0 0 0 0
+	@cmd	dasher 2.5 0 0.5
+	frame	data/chars/3king/dgd00.png
+	frame	data/chars/3king/dgd01.png
+	frame	data/chars/3king/dgd02.png
+	@cmd	spawn01 "dust" 15 1 1
+	frame	data/chars/3king/dgd03.png
+	frame	data/chars/3king/dgd04.png
+	frame	data/chars/3king/dgd05.png
+	frame	data/chars/3king/dgd06.png
+	@cmd	stop
+	frame	data/chars/3king/jupland.png
+
+
+anim	attackup
+	loop	0
+	delay	7
+	offset	140 199
+	bbox	0 0 0 0
+	@cmd	dasher 2.5 0 -0.5
+	frame	data/chars/3king/dgd00.png
+	frame	data/chars/3king/dgd01.png
+	frame	data/chars/3king/dgd02.png
+	@cmd	spawn01 "dust" 15 1 1
+	frame	data/chars/3king/dgd03.png
+	frame	data/chars/3king/dgd04.png
+	frame	data/chars/3king/dgd05.png
+	frame	data/chars/3king/dgd06.png
+	@cmd	stop
+	frame	data/chars/3king/jupland.png
+
+
+anim	follow10
+	loop	0
+	delay	10
+	offset	140 199
+	bbox	0 0 0 0
+	forcedirection	-1
+	attackone	1
+	otg	2
+	sound	data/sounds/xking02.wav
+	hitfx	data/sounds/beat5.wav
+	hitflash	flashscreen1
+	frame	data/chars/3king/ak06a.png
+	frame	data/chars/3king/ak01.png
+	frame	data/chars/3king/grd00.png
+	attack11 130 185 45 25 50 1 0 0 40 10
+	dropv	2 3 0
+	frame	data/chars/3king/grd01.png
+	frame	data/chars/3king/grd02.png
+	attack11 0 0 0 0
+	delay	12
+	frame	data/chars/3king/get02.png
+	frame	data/chars/3king/get01.png
+
+
+
+anim	block
+	loop	0
+	delay	7
+	offset	140 199
+	bbox	132 115 33 80
+	frame	data/chars/3king/blk01.png
+	frame	data/chars/3king/blk02.png
+	delay	20
+	frame	data/chars/3king/blk02.png
+
+		
+anim	burn
+	loop	0
+	delay	50
+	offset	140 199
+	bbox	0 0 0 0
+	landframe	3
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 200_50_0
+	@cmd	spawnbind "burn1" 1 1 1
+	@cmd	spawnbind "burn2" 1 1 1
+	@cmd	spawnbind "burn3" 1 1 1
+	sound	data/sounds/xking09.wav
+	frame	data/chars/3king/fall1.png
+	delay	10
+	frame	data/chars/3king/fall2.png
+	delay	300
+	frame	data/chars/3king/fall3.png
+	delay	180
+	frame	data/chars/3king/fall4.png
+	delay	20
+	frame	data/chars/3king/fall4.png
+		
+anim	cant
+	loop	0
+	delay	8
+	offset	140 199
+	bbox	132 115 33 80
+	sound	data/sounds/xking09.wav
+	frame	data/chars/3king/det01.png
+	frame	data/chars/3king/det02.png
+	frame	data/chars/3king/det03.png
+	frame	data/chars/3king/det04.png
+	frame	data/chars/3king/det03.png
+	frame	data/chars/3king/det02.png
+	frame	data/chars/3king/det01.png
+
+anim	charge
+	loop	0
+	delay	7
+	offset	140 199
+	bbox	132 115 33 80
+	sound	data/sounds/xking03.wav
+	frame	data/chars/3king/chrg01.png
+	delay	4
+	frame	data/chars/3king/chrg02.png
+	sound	data/sounds/xking15.wav
+	frame	data/chars/3king/chrg03.png
+	frame	data/chars/3king/chrg02.png
+	frame	data/chars/3king/chrg03a.png #4
+	frame	data/chars/3king/chrg03b.png
+	frame	data/chars/3king/chrg03c.png
+	frame	data/chars/3king/chrg03d.png
+	@cmd	updateframe getlocalvar("self") 4
+	frame	data/chars/3king/chrg02.png
+	frame	data/chars/3king/chrg01.png
+
+
+anim	chargeattack
+	loop	0
+	delay	6
+	offset	140 199
+	bbox	0 0 0 0
+	staydown	300 300
+	frame	data/chars/3king/idle01.png
+
+anim	death
+	delay	35
+	offset	140 199
+	bbox	0 0 0 0
+	frame	data/chars/3king/fall4.png
+	delay	8
+	frame	data/chars/3king/rise1.png
+	frame	data/chars/3king/rise2.png
+	frame	data/chars/3king/rise3.png
+	frame	data/chars/3king/rise4.png
+	frame	data/chars/3king/rise5.png
+	frame	data/chars/3king/rise6.png
+	frame	data/chars/3king/thw01.png
+	delay	12
+	frame	data/chars/3king/det01.png
+	frame	data/chars/3king/det02.png
+	frame	data/chars/3king/det03.png
+	frame	data/chars/3king/det04.png
+	frame	data/chars/3king/det05.png
+	frame	data/chars/3king/fall3.png
+	delay	70
+	frame	data/chars/3king/det06.png
+
+
+anim	fall
+	loop	0
+	delay	50
+	offset	140 199
+	bbox	0 0 0 0
+	landframe	3
+	sound	data/sounds/xking09.wav
+	frame	data/chars/3king/fall1.png
+	delay	10
+	frame	data/chars/3king/fall2.png
+	delay	300
+	frame	data/chars/3king/fall3.png
+	delay	10
+	frame	data/chars/3king/fall4.png
+		
+anim	fall2
+	loop	0
+	delay	50
+	offset	140 199
+	bbox	0 0 0 0
+	landframe	3
+	sound	data/sounds/xking09.wav
+	frame	data/chars/3king/pain4.png
+	delay	10
+	frame	data/chars/3king/fall2.png
+	delay	300
+	frame	data/chars/3king/fall3.png
+	delay	10
+	frame	data/chars/3king/fall4.png
+		
+anim	fall3
+	loop	0
+	delay	50
+	offset	140 199
+	bbox	109 123 50 59
+	landframe	3
+	frame	data/chars/3king/pain5.png
+	delay	10
+	bbox	100 140 74 26
+	frame	data/chars/3king/fall2.png
+	delay	300
+	bbox	96 160 59 30
+	frame	data/chars/3king/fall3.png
+	delay	10
+	bbox	0 0 0 0
+	frame	data/chars/3king/fall4.png
+
+
+anim	fall4
+	loop	0
+	delay	2
+	offset	140 199
+	bbox	0 0 0 0
+	flipframe	0
+	move	-3
+	frame	data/chars/3king/fall9.png
+	frame	data/chars/3king/fall9.png
+	frame	data/chars/3king/fall10.png
+	frame	data/chars/3king/fall10.png
+	@cmd	spawn01 "dust3" 25 20 5
+	frame	data/chars/3king/fall11.png
+	@cmd	leaper 0 0.4 0
+	frame	data/chars/3king/fall11.png
+	frame	data/chars/3king/fall12.png
+	frame	data/chars/3king/fall12.png
+	frame	data/chars/3king/fall9.png
+	frame	data/chars/3king/fall9.png
+	@cmd	spawn01 "dust3" 25 20 5
+	frame	data/chars/3king/fall10.png
+	@cmd	leaper 0 0.4 0
+	frame	data/chars/3king/fall10.png
+	frame	data/chars/3king/fall11.png
+	frame	data/chars/3king/fall11.png
+	frame	data/chars/3king/fall12.png
+	frame	data/chars/3king/fall12.png
+	@cmd	spawn01 "dust3" 25 20 5
+	frame	data/chars/3king/fall9.png	#16
+	@cmd	leaper 0 0.3 0
+	frame	data/chars/3king/fall9.png
+	frame	data/chars/3king/fall10.png
+	frame	data/chars/3king/fall10.png
+	@cmd	spawn01 "dust3" 25 20 5
+	frame	data/chars/3king/fall11.png
+	frame	data/chars/3king/fall11.png
+	frame	data/chars/3king/fall12.png
+	@cmd	leaper 0 0.4 0
+	frame	data/chars/3king/fall12.png
+	@cmd	looper 16 10
+	frame	data/chars/3king/emp.png
+	frame	data/chars/3king/fall9.png
+	frame	data/chars/3king/emp.png
+	frame	data/chars/3king/fall9.png
+	frame	data/chars/3king/emp.png
+	frame	data/chars/3king/fall10.png
+	frame	data/chars/3king/emp.png
+	frame	data/chars/3king/fall10.png
+	frame	data/chars/3king/emp.png
+	frame	data/chars/3king/fall11.png
+	frame	data/chars/3king/emp.png
+	frame	data/chars/3king/fall11.png
+	frame	data/chars/3king/emp.png
+	frame	data/chars/3king/fall12.png
+	frame	data/chars/3king/emp.png
+	frame	data/chars/3king/fall12.png
+	frame	data/chars/3king/emp.png
+	frame	data/chars/3king/fall9.png
+	frame	data/chars/3king/emp.png
+	frame	data/chars/3king/fall9.png
+	frame	data/chars/3king/emp.png
+	frame	data/chars/3king/fall10.png
+	frame	data/chars/3king/emp.png
+	frame	data/chars/3king/fall10.png
+	frame	data/chars/3king/emp.png
+
+
+anim	fall5
+	loop	0
+	delay	9
+	offset	140 199
+	bbox	0 0 0 0
+	landframe	9
+	sound	data/sounds/xking09.wav
+	frame	data/chars/3king/fall5.png
+	frame	data/chars/3king/fall6.png
+	frame	data/chars/3king/fall7.png
+	frame	data/chars/3king/fall8.png
+	frame	data/chars/3king/fall5.png
+	frame	data/chars/3king/fall6.png
+	frame	data/chars/3king/fall7.png
+	frame	data/chars/3king/fall8.png
+	@cmd	looper 4 10
+	delay	300
+	frame	data/chars/3king/fall5.png
+	delay	100
+	frame	data/chars/3king/fall4.png
+
+anim	fall8
+	loop	0
+	delay	5
+	offset	140 199
+	bbox	0 0 0 0
+	sound	data/sounds/water_splash01.wav
+	frame	data/chars/3king/emp.png
+	@cmd	spawnAni "byowater" 1 1 1 "ANI_FOLLOW2"
+	frame	data/chars/3king/emp.png
+	delay	300
+	frame	data/chars/3king/emp.png
+	delay	10
+	frame	data/chars/3king/emp.png
+	@cmd	suicide
+	frame	data/chars/3king/emp.png
+
+anim	fall15
+	loop	0
+	delay	5
+	offset	140 199
+	bbox	0 0 0 0
+	sound	data/sounds/water_splash01.wav
+	frame	data/chars/3king/emp.png
+	@cmd	spawnAni "byowater" 1 1 1 "ANI_FOLLOW3"
+	frame	data/chars/3king/emp.png
+	delay	300
+	frame	data/chars/3king/emp.png
+	delay	10
+	frame	data/chars/3king/emp.png
+	@cmd	suicide
+	frame	data/chars/3king/emp.png
+
+anim	fall9
+	loop	0
+	delay	9
+	offset	140 199
+	bbox	0 0 0 0
+	landframe	9
+	sound	data/sounds/xking09.wav
+	frame	data/chars/3king/fall5.png
+	frame	data/chars/3king/fall6.png
+	frame	data/chars/3king/fall7.png
+	frame	data/chars/3king/fall8.png
+	frame	data/chars/3king/fall5.png
+	frame	data/chars/3king/fall6.png
+	frame	data/chars/3king/fall7.png
+	frame	data/chars/3king/fall8.png
+	@cmd	looper 4 10
+	delay	300
+	frame	data/chars/3king/fall5.png
+	delay	100
+	frame	data/chars/3king/fall4.png
+
+anim	freespecial1
+	energycost	17
+	mponly	1
+	loop	0
+	delay	8
+	offset	140 199
+	bbox	125 115 25 80
+	sound	data/sounds/xking05.wav
+	frame	data/chars/3king/ak06a.png
+	frame	data/chars/3king/spa01.png
+	frame	data/chars/3king/spa02.png
+	frame	data/chars/3king/spa03.png
+	@cmd	shooter3 "hadok2" 5 70 0 2.2 0 0 "ANI_FOLLOW1"
+	frame	data/chars/3king/spa04.png
+	frame	data/chars/3king/spa05.png
+	frame	data/chars/3king/c15.png
+	frame	data/chars/3king/akb34.png
+
+anim	freespecial2
+	energycost	15
+	mponly	1
+	loop	0
+	delay	9
+	offset	140 199
+	bbox	125 115 25 80
+	followanim	2
+	followcond	1
+	forcedirection	-1
+	fastattack	1
+	seal	7 3
+	@cmd	dasher 1.5 0 0
+	sound	data/sounds/xking07.wav
+	frame	data/chars/3king/hsk01.png
+	delay	2
+	attack9	135 66 83 133 1 0 1 0 0 0
+	frame	data/chars/3king/hsk02.png
+	frame	data/chars/3king/hsk12.png
+	frame	data/chars/3king/hsk02.png
+	frame	data/chars/3king/hsk12.png
+	frame	data/chars/3king/hsk02.png
+	attack9	0 0 0 0
+	delay	9
+	frame	data/chars/3king/rise4.png
+	frame	data/chars/3king/rise5.png
+	@cmd	stop
+	frame	data/chars/3king/rise6.png
+	frame	data/chars/3king/dgd00.png
+	frame	data/chars/3king/get01.png
+
+
+
+anim	follow2
+	loop	0
+	delay	2
+	offset	140 199
+	bbox	125 115 25 80
+	forcedirection	-1
+	fastattack	1
+	jumpframe 53 3 3
+	landframe 55
+	frame	data/chars/3king/hsk02.png
+	frame	data/chars/3king/hsk12.png
+	frame	data/chars/3king/hsk12.png
+	frame	data/chars/3king/hsk02.png
+	delay	5
+	@cmd	stop
+	frame	data/chars/3king/rise4.png
+	frame	data/chars/3king/rise6.png
+	frame	data/chars/3king/dgd00.png
+	frame	data/chars/3king/get01.png
+	offset	158 199
+	bbox	0 0 0 0
+	frame	data/chars/3king/akb23.png
+	frame	data/chars/3king/akb24.png
+	delay	3
+	frame	data/chars/3king/hsk03.png
+	attack5	156 95 70 42 1 0 1 0 0 0
+	frame	data/chars/3king/hsk04.png
+	attack5	0 0 0 0
+	frame	data/chars/3king/hsk05.png
+	frame	data/chars/3king/hsk06.png
+	attack6	156 115 70 42 1 0 1 0 0 0
+	frame	data/chars/3king/hsk07.png
+	attack6	0 0 0 0
+	frame	data/chars/3king/hsk08.png
+	frame	data/chars/3king/hsk09.png
+	attack6	156 135 70 42 1 0 1 0 0 0
+	frame	data/chars/3king/hsk10.png
+	attack6	0 0 0 0
+	frame	data/chars/3king/hsk11.png
+	frame	data/chars/3king/hsk06.png
+	attack6	156 115 70 42 1 0 1 0 0 0
+	frame	data/chars/3king/hsk07.png
+	attack6	0 0 0 0
+	frame	data/chars/3king/hsk08.png
+	frame	data/chars/3king/hsk03.png
+	attack5	156 95 70 42 1 0 1 0 0 0
+	frame	data/chars/3king/hsk04.png
+	attack5	0 0 0 0
+	frame	data/chars/3king/hsk05.png
+	frame	data/chars/3king/hsk06.png
+	attack6	156 115 70 42 1 0 1 0 0 0
+	frame	data/chars/3king/hsk07.png
+	attack6	0 0 0 0
+	frame	data/chars/3king/hsk08.png
+	frame	data/chars/3king/hsk09.png
+	attack6	156 135 70 42 1 0 1 0 0 0
+	frame	data/chars/3king/hsk10.png
+	attack6	0 0 0 0
+	frame	data/chars/3king/hsk11.png	#30
+	frame	data/chars/3king/hsk06.png
+	attack6	156 115 70 42 1 0 1 0 0 0
+	frame	data/chars/3king/hsk07.png
+	attack6	0 0 0 0
+	frame	data/chars/3king/hsk08.png
+	frame	data/chars/3king/hsk03.png
+	attack5	156 95 70 42 1 0 1 0 0 0
+	frame	data/chars/3king/hsk04.png
+	attack5	0 0 0 0
+	frame	data/chars/3king/hsk05.png
+	frame	data/chars/3king/hsk06.png
+	attack6	156 115 70 42 1 0 1 0 0 0
+	frame	data/chars/3king/hsk07.png
+	attack6	0 0 0 0
+	frame	data/chars/3king/hsk08.png
+	frame	data/chars/3king/hsk09.png
+	attack6	156 135 70 42 1 0 1 0 0 0
+	frame	data/chars/3king/hsk10.png
+	attack6	0 0 0 0
+	frame	data/chars/3king/hsk11.png
+	frame	data/chars/3king/hsk06.png
+	attack6	156 115 70 42 1 0 1 0 0 0
+	frame	data/chars/3king/hsk07.png
+	attack6	0 0 0 0
+	frame	data/chars/3king/hsk08.png	#45
+	frame	data/chars/3king/hsk03.png
+	attack9	156 95 70 42 1 0 1 0 0 0
+	frame	data/chars/3king/hsk04.png
+	attack9	0 0 0 0
+	frame	data/chars/3king/hsk05.png
+	delay	5
+	offset	148 199
+	frame	data/chars/3king/c12.png
+	frame	data/chars/3king/c13.png
+	sound	data/sounds/xking02.wav
+	frame	data/chars/3king/c14.png
+	hitflash flashscreen1
+	hitfx	data/sounds/beat5.wav
+	frame	data/chars/3king/c00.png
+	blast	141 108 51 58 60 0 0 40 15
+	dropv	3 5
+	frame	data/chars/3king/c01.png	#53
+	delay	300
+	frame	data/chars/3king/c01.png
+	delay	9
+	blast	0 0 0 0
+	frame	data/chars/3king/akb18.png	#55
+	frame	data/chars/3king/ak06a.png
+
+
+anim	freespecial3
+	energycost	12
+	mponly	1
+	loop	0
+	delay	7
+	offset	140 199
+	bbox	0 0 0 0
+	forcedirection	-1
+	fastattack	1
+	staydown 300 300
+	jumpframe 3 4 1
+	@cmd	dasher 1.5 0 0
+	sound	data/sounds/xking14.wav
+	frame	data/chars/3king/akb01.png
+	frame	data/chars/3king/akb02.png
+	attack10 140 109 55 64 12 1 0 0 20 0
+	dropv	3 0.5
+	frame	data/chars/3king/sp01a.png
+	attack10 0 0 0 0
+	frame	data/chars/3king/sp01c.png
+	delay	4
+	hitflash flashscreen1
+	hitfx	data/sounds/beat5.wav
+	attack10 140 75 60 90 10 1 0 0 6 0
+	dropv	2 1
+	frame	data/chars/3king/sp02.png
+	attack10 0 0 0 0
+	hitflash flash
+	frame	data/chars/3king/sp03.png
+	attack10 140 75 60 90 10 1 0 0 6 0
+	dropv	2 1
+	frame	data/chars/3king/sp02.png
+	attack10 0 0 0 0
+	frame	data/chars/3king/sp03.png
+	attack10 140 75 60 90 10 1 0 0 6 0
+	dropv	2 1
+	frame	data/chars/3king/sp02.png
+	attack10 0 0 0 0
+	frame	data/chars/3king/sp03.png
+	attack10 140 75 60 90 20 1 0 0 36 0
+	dropv	4 1
+	frame	data/chars/3king/sp02.png
+	attack10 0 0 0 0
+	frame	data/chars/3king/sp03.png
+	delay	7
+	frame	data/chars/3king/sp04.png
+	frame	data/chars/3king/sp05.png
+	frame	data/chars/3king/jup04.png
+	frame	data/chars/3king/jup03.png
+	frame	data/chars/3king/jup02.png
+
+
+
+anim	freespecial4
+	loop	0
+	delay	6
+	offset	140 199
+	bbox	132 115 33 80
+	forcedirection	-1
+	fastattack	1
+	jumpframe	3 3.5 1
+	landframe	21
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/xking06.wav
+	@cmd	dasher 2.8 0 0
+	frame	data/chars/3king/akb22.png
+	offset	153 199
+	bbox	140 115 33 35
+	frame	data/chars/3king/akb23.png
+	offset	140 199
+	bbox	132 115 33 35
+	attack10 138 119 39 45 12 1 1 0 30 15
+	dropv	3 2
+	frame	data/chars/3king/akb35.png
+	sound	data/sounds/punch2.wav
+	frame	data/chars/3king/akb36.png	#3
+	attack10 0 0 0 0
+	frame	data/chars/3king/akb37.png
+	frame	data/chars/3king/akb38.png
+	sound	data/sounds/punch2.wav
+	attack10 138 101 77 51 12 1 0 0 20 15
+	dropv	2 1.2
+	frame	data/chars/3king/akb39.png
+	attack10 0 0 0 0
+	frame	data/chars/3king/akb40.png
+	@cmd	leaper 1 1
+	frame	data/chars/3king/akb41.png
+	sound	data/sounds/punch2.wav
+	attack10 138 101 77 51 12 1 0 0 20 15
+	dropv	2 1.2
+	frame	data/chars/3king/akb42.png
+	attack10 0 0 0 0
+	@cmd	leaper 1 1
+	frame	data/chars/3king/akb37.png
+	frame	data/chars/3king/akb38.png
+	sound	data/sounds/punch2.wav
+	@cmd	leaper 1 1
+	attack10 138 101 77 51 12 1 0 0 20 15
+	dropv	2 1.2
+	frame	data/chars/3king/akb39.png
+	attack10 0 0 0 0
+	@cmd	leaper 1 1
+	frame	data/chars/3king/akb40.png
+	hitflash flashscreen1
+	frame	data/chars/3king/akb41.png
+	sound	data/sounds/punch2.wav
+	@cmd	leaper 1 0.5
+	blast	138 101 77 51 12 0 0 35 15
+	dropv	1 4
+	frame	data/chars/3king/akb42.png
+	blast	0 0 0 0
+	frame	data/chars/3king/akb43.png
+	frame	data/chars/3king/akb49.png
+	frame	data/chars/3king/jup03.png
+	frame	data/chars/3king/jup02.png
+	delay	400
+	frame	data/chars/3king/jup01.png
+	delay	7
+	frame	data/chars/3king/jupland.png #21
+
+
+anim	freespecial5
+	energycost	15
+	mponly	1
+	loop	0
+	delay	6
+	offset	140 199
+	bbox	126 115 33 30
+	forcedirection	-1
+	fastattack	1
+	jumpframe	2 4 2
+	landframe	15
+	seal	7 1
+	sound	data/sounds/xking08.wav
+	hitfx	data/sounds/beat2.wav
+	@cmd	dasher 2 0 0
+	frame	data/chars/3king/blk01.png
+	frame	data/chars/3king/c00.png
+	attack8 141 113 50 50 20 0 0 0 35 15
+	frame	data/chars/3king/c01.png	#2
+	attack8 0 0 0 0
+	frame	data/chars/3king/c02.png
+	bbox	0 0 0 0
+	frame	data/chars/3king/c03.png
+	hitfx	data/sounds/beat5.wav
+	frame	data/chars/3king/c04.png
+	frame	data/chars/3king/c05.png
+	delay	4
+	frame	data/chars/3king/c08.png	#7
+	attack8 136 142 50 57 8 0 0 0 15 15
+	frame	data/chars/3king/c06.png
+	frame	data/chars/3king/c07.png
+	attack8 0 0 0 0
+	@cmd	leaper 2.5 0.1
+	frame	data/chars/3king/c08.png
+	attack8 136 142 50 57 8 0 0 0 15 15
+	frame	data/chars/3king/c09.png
+	frame	data/chars/3king/c10.png
+	attack8 0 0 0 0
+	frame	data/chars/3king/c08.png
+	@cmd	looper 8 30
+	frame	data/chars/3king/jup03.png
+	@cmd	stop
+	frame	data/chars/3king/jup02.png #15
+	delay	8
+	frame	data/chars/3king/jupland.png
+	frame	data/chars/3king/sld07.png
+
+anim	freespecial20
+	energycost	35
+	mponly	1
+	loop	0
+	delay	6
+	offset	140 199
+	bbox	126 115 33 30
+	forcedirection	-1
+	fastattack	1
+	hitflash flashscreen2
+	hitfx	data/sounds/beat4.wav
+	staydown 400 400
+	frame	data/chars/3king/blk01.png
+	@cmd	spawnAni2 "allsp" 1 1 1 2 "ANI_FOLLOW1"
+	frame	data/chars/3king/chrg01.png
+	sound	data/sounds/xking15.wav
+	frame	data/chars/3king/chrg04.png
+	frame	data/chars/3king/chrg05.png
+	delay	50
+	frame	data/chars/3king/chrg05.png
+	delay	9
+	frame	data/chars/3king/chrg01.png
+	frame	data/chars/3king/taunt1.png
+	sound	data/sounds/xking11.wav
+	frame	data/chars/3king/taunt2.png
+	frame	data/chars/3king/taunt3.png
+	frame	data/chars/3king/taunt4.png
+	frame	data/chars/3king/taunt5.png
+	frame	data/chars/3king/taunt6.png
+	delay	60
+	frame	data/chars/3king/taunt7.png
+	delay	5
+	frame	data/chars/3king/taunt7.png
+	@cmd	anichange "ANI_FREESPECIAL26"
+	frame	data/chars/3king/taunt7.png
+
+
+
+
+anim	freespecial26
+	loop	0
+	delay	2
+	offset	140 199
+	bbox	0 0 0 0
+	forcedirection	-1
+	fastattack	1
+	hitflash flashscreen2
+	hitfx	data/sounds/beat4.wav
+	staydown 400 400
+	frame	data/chars/3king/chrg01.png
+	frame	data/chars/3king/chrg01.png
+	frame	data/chars/3king/chrg01.png
+	offset	156 199
+	frame	data/chars/3king/akb23.png
+	move	6
+	frame	data/chars/3king/akb23.png
+	sound	data/sounds/xking02.wav
+	frame	data/chars/3king/akb23.png
+	@cmd	keymove 1.3
+	frame	data/chars/3king/akb43.png
+	frame	data/chars/3king/akb43.png
+	@cmd	keymove 1.3
+	frame	data/chars/3king/akb43.png
+	frame	data/chars/3king/akb49.png
+	@cmd	keymove 1.3
+	frame	data/chars/3king/akb49.png
+	frame	data/chars/3king/akb49.png
+	@cmd	keymove 1.3
+	frame	data/chars/3king/akb50.png
+	frame	data/chars/3king/akb50.png
+	@cmd	keymove 1.3
+	frame	data/chars/3king/akb50.png
+	offset	132 199
+	frame	data/chars/3king/akb15.png
+	@cmd	keymove 1.3
+	frame	data/chars/3king/akb15.png
+	frame	data/chars/3king/akb15.png
+	@cmd	keymove 1.3
+	frame	data/chars/3king/akb18.png
+	move	5
+	frame	data/chars/3king/akb18.png
+	@cmd	keymove 1.3
+	frame	data/chars/3king/akb18.png
+	attack	125 85 75 100 110 1 1 0 55 20
+	dropv	11 0.5
+	frame	data/chars/3king/spb06a.png
+	@cmd	keymove 1.3
+	frame	data/chars/3king/spb06a.png
+	frame	data/chars/3king/spb06a.png
+	@cmd	keymove 1.3
+	frame	data/chars/3king/spb06a.png
+	offset	139 199
+	attack	125 85 75 100 110 1 1 0 55 20
+	dropv	11 0.5
+	frame	data/chars/3king/spb07a.png
+	@cmd	keymove 1.3
+	move	4
+	frame	data/chars/3king/spb07a.png
+	frame	data/chars/3king/spb07a.png
+	@cmd	keymove 1.3
+	frame	data/chars/3king/spb07b.png
+	frame	data/chars/3king/spb07.png
+	@cmd	keymove 1.3
+	move	3
+	frame	data/chars/3king/spb07.png
+	frame	data/chars/3king/spb07.png
+	@cmd	keymove 1.3
+	frame	data/chars/3king/spb07.png
+	frame	data/chars/3king/spb08.png
+	@cmd	keymove 1.3
+	move	2
+	frame	data/chars/3king/spb08.png
+	frame	data/chars/3king/spb08.png
+	@cmd	keymove 1.3
+	frame	data/chars/3king/spb08.png
+	frame	data/chars/3king/spb09.png
+	@cmd	keymove 1.3
+	frame	data/chars/3king/spb09.png
+	frame	data/chars/3king/spb09.png
+	@cmd	keymove 1.3
+	frame	data/chars/3king/spb09.png
+	frame	data/chars/3king/spb09.png
+	@cmd	stop
+	move	0
+	delay	10
+	frame	data/chars/3king/spb09.png
+	frame	data/chars/3king/spb09.png
+	attack	0 0 0 0
+	delay	35
+	frame	data/chars/3king/spb09.png
+	offset	132 199
+	delay	12
+	frame	data/chars/3king/spb06.png
+	frame	data/chars/3king/spb10.png
+	frame	data/chars/3king/akb15.png
+
+
+
+
+anim	freespecial27
+	energycost	75
+	mponly	1
+	loop	0
+	delay	6
+	offset	140 199
+	bbox	0 0 0 0
+	followanim	3
+	followcond	1
+	forcedirection	-1
+	fastattack	1
+	seal	7 4
+	hitflash flashscreen2
+	hitfx	data/sounds/empty.wav
+	frame	data/chars/3king/blk01.png
+	frame	data/chars/3king/chrg01.png
+	sound	data/sounds/xking15.wav
+	frame	data/chars/3king/chrg04.png
+	@cmd	spawn04 "allsp" 10 1 1 3
+	frame	data/chars/3king/chrg05.png
+	delay	20
+	frame	data/chars/3king/chrg05.png
+	delay	8
+	frame	data/chars/3king/chrg05.png
+	frame	data/chars/3king/chrg01.png
+	frame	data/chars/3king/taunt1.png
+	sound	data/sounds/xking11.wav
+	frame	data/chars/3king/taunt2.png
+	frame	data/chars/3king/taunt3.png
+	frame	data/chars/3king/taunt4.png
+	frame	data/chars/3king/taunt5.png
+	frame	data/chars/3king/taunt6.png
+	delay	12
+	frame	data/chars/3king/taunt7.png
+	delay	2
+	move	6
+	frame	data/chars/3king/run05.png	#14
+	move	3
+	frame	data/chars/3king/run05.png
+	frame	data/chars/3king/run05.png
+	move	4
+	frame	data/chars/3king/run05.png
+	@cmd	keymove 1.3
+	frame	data/chars/3king/run05.png
+	move	5
+	frame	data/chars/3king/run06.png
+	@cmd	keymove 1.3
+	frame	data/chars/3king/run06.png
+	move	6
+	@cmd	keymove 1.3
+	frame	data/chars/3king/run06.png
+	@cmd	keymove 1.3
+	frame	data/chars/3king/run06.png
+	move	7
+	attack	125 105 47 92 0 0 1 1 0 15
+	frame	data/chars/3king/sp01.png	#23
+	@cmd	keymove 1.3
+	frame	data/chars/3king/sp01.png
+	frame	data/chars/3king/sp01.png
+	@cmd	keymove 1.3
+	frame	data/chars/3king/sp01.png
+	@cmd	looper 23 7
+	frame	data/chars/3king/sp01.png
+	frame	data/chars/3king/sp01.png
+	move	6
+	frame	data/chars/3king/sp01.png
+	frame	data/chars/3king/sp01.png
+	frame	data/chars/3king/sp01.png
+	frame	data/chars/3king/sp01.png
+	attack	0 0 0 0
+	@cmd	stop
+	move	5
+	frame	data/chars/3king/run06.png
+	frame	data/chars/3king/run06.png
+	frame	data/chars/3king/run06.png
+	frame	data/chars/3king/run06.png
+	move	4
+	frame	data/chars/3king/run06.png
+	frame	data/chars/3king/run06.png
+	frame	data/chars/3king/run06.png
+	frame	data/chars/3king/run06.png
+	move	3
+	frame	data/chars/3king/run01.png
+	frame	data/chars/3king/run01.png
+	frame	data/chars/3king/run01.png
+	frame	data/chars/3king/run01.png
+	frame	data/chars/3king/run02.png
+	frame	data/chars/3king/run02.png
+	frame	data/chars/3king/run02.png
+	frame	data/chars/3king/run02.png
+	frame	data/chars/3king/run03.png
+	frame	data/chars/3king/run03.png
+	frame	data/chars/3king/run03.png
+	frame	data/chars/3king/run03.png
+	move	0
+	delay	8
+	frame	data/chars/3king/run04.png
+	frame	data/chars/3king/run05.png
+	frame	data/chars/3king/sld07.png
+	frame	data/chars/3king/get01.png
+
+
+
+
+anim	follow3
+	loop	0
+	delay	2
+	offset	140 199
+	bbox	0 0 0 0
+	forcedirection	-1
+	fastattack	1
+	#jumpframe	76 3.5 0.5
+	landframe 110	
+	@cmd	stop
+	@cmd	clearL
+	frame	data/chars/3king/ak06a.png
+	hitfx	data/sounds/beat1.wav
+	attack	142 102 75 50 0 0 1 0 20 17
+	frame	data/chars/3king/ak08d.png
+	frame	data/chars/3king/ak08e.png
+	attack	0 0 0 0
+	frame	data/chars/3king/ak14a.png
+	attack	142 102 75 50 0 0 1 0 20 0
+	frame	data/chars/3king/ak15.png
+	frame	data/chars/3king/ak16.png
+	attack	0 0 0 0
+	frame	data/chars/3king/ak17.png
+	frame	data/chars/3king/ak06a.png	#7
+	attack	142 102 75 50 0 0 1 0 20 17
+	frame	data/chars/3king/ak08d.png
+	frame	data/chars/3king/ak08e.png
+	attack	0 0 0 0
+	frame	data/chars/3king/ak14a.png
+	attack	142 102 75 50 0 0 1 0 20 17
+	frame	data/chars/3king/ak15.png
+	frame	data/chars/3king/ak16.png
+	attack	0 0 0 0
+	frame	data/chars/3king/ak17.png
+	@cmd	looper 7 4
+	frame	data/chars/3king/akb22.png
+	hitfx	data/sounds/beat2.wav
+	delay	4
+	attack	0 0 0 0
+	frame	data/chars/3king/c16.png	#15
+	attack2	142 102 75 50 0 0 1 0 5 17
+	frame	data/chars/3king/c20.png
+	@cmd	stop
+	frame	data/chars/3king/c17.png
+	attack2	0 0 0 0
+	frame	data/chars/3king/c16.png
+	attack	142 102 75 50 0 0 1 0 5 17
+	frame	data/chars/3king/c21.png
+	frame	data/chars/3king/c18.png
+	attack	0 0 0 0
+	frame	data/chars/3king/c16.png
+	attack	142 102 75 50 0 0 1 0 5 17
+	frame	data/chars/3king/c22.png
+	frame	data/chars/3king/c19.png
+	attack	0 0 0 0
+	frame	data/chars/3king/c16.png
+	attack	142 102 75 50 0 0 1 0 5 17
+	frame	data/chars/3king/c21.png
+	frame	data/chars/3king/c18.png
+	attack	0 0 0 0
+	frame	data/chars/3king/c16.png
+	attack2	142 102 75 50 0 0 1 0 5 17
+	frame	data/chars/3king/c20.png
+	frame	data/chars/3king/c17.png
+	attack2	0 0 0 0
+	@cmd	looper 15 2
+	frame	data/chars/3king/c16.png	#30
+	@cmd	clearL
+	offset	158 199
+	frame	data/chars/3king/akb23.png
+	frame	data/chars/3king/hsk03.png
+	attack	160 102 75 50 0 0 1 0 5 17
+	frame	data/chars/3king/hsk04.png
+	attack	0 0 0 0
+	frame	data/chars/3king/hsk05.png
+	frame	data/chars/3king/hsk06.png
+	attack2	160 102 75 50 0 0 1 0 5 17
+	frame	data/chars/3king/hsk07.png
+	attack2	0 0 0 0
+	frame	data/chars/3king/hsk08.png
+	frame	data/chars/3king/hsk09.png
+	attack	160 102 75 50 0 0 1 0 5 17
+	frame	data/chars/3king/hsk10.png
+	attack	0 0 0 0
+	frame	data/chars/3king/hsk11.png
+	frame	data/chars/3king/hsk06.png
+	attack2	160 102 75 50 0 0 1 0 5 17
+	frame	data/chars/3king/hsk07.png
+	attack2	0 0 0 0
+	frame	data/chars/3king/hsk08.png
+	frame	data/chars/3king/hsk03.png
+	attack	160 102 75 50 0 0 1 0 5 17
+	frame	data/chars/3king/hsk04.png
+	attack	0 0 0 0
+	frame	data/chars/3king/hsk05.png
+	frame	data/chars/3king/hsk06.png
+	attack2	160 102 75 50 0 0 1 0 5 17
+	frame	data/chars/3king/hsk07.png	#48
+	attack2	0 0 0 0
+	frame	data/chars/3king/hsk08.png
+	frame	data/chars/3king/hsk09.png
+	attack	160 102 75 50 0 0 1 0 5 17
+	frame	data/chars/3king/hsk10.png
+	attack	0 0 0 0
+	frame	data/chars/3king/hsk11.png
+	frame	data/chars/3king/hsk06.png
+	attack2	160 102 75 50 0 0 1 0 5 17
+	frame	data/chars/3king/hsk07.png
+	attack2	0 0 0 0
+	frame	data/chars/3king/hsk08.png
+	frame	data/chars/3king/hsk03.png
+	attack	160 102 75 50 0 0 1 0 5 17
+	frame	data/chars/3king/hsk04.png
+	attack	0 0 0 0
+	frame	data/chars/3king/hsk05.png
+	frame	data/chars/3king/hsk06.png
+	attack2	160 102 75 50 0 0 1 0 5 17
+	frame	data/chars/3king/hsk07.png
+	attack2	0 0 0 0
+	frame	data/chars/3king/hsk08.png
+	frame	data/chars/3king/hsk09.png
+	attack	160 102 75 50 0 0 1 0 5 17
+	frame	data/chars/3king/hsk10.png
+	attack	0 0 0 0
+	frame	data/chars/3king/hsk11.png
+	frame	data/chars/3king/hsk06.png
+	attack2	160 102 75 50 0 0 1 0 5 17
+	frame	data/chars/3king/hsk07.png
+	attack2	0 0 0 0
+	frame	data/chars/3king/hsk08.png
+	frame	data/chars/3king/hsk03.png	#68
+	attack	160 102 75 50 0 0 1 0 5 17
+	frame	data/chars/3king/hsk04.png
+	attack	0 0 0 0
+	frame	data/chars/3king/hsk05.png
+	hitfx	data/sounds/beat5.wav
+	delay	5
+	@cmd	dasher 0.5 0 0
+	frame	data/chars/3king/akb22.png
+	offset	153 199
+	frame	data/chars/3king/akb23.png
+	offset	140 199
+	attack10 142 102 75 50 0 1 1 0 35 17
+	dropv	3 0.5
+	frame	data/chars/3king/akb35.png
+	sound	data/sounds/punch2.wav
+	@cmd	leaper 0.5 3		#------------------------
+	frame	data/chars/3king/akb36.png	#74----jump
+	attack10 0 0 0 0
+	frame	data/chars/3king/akb37.png
+	frame	data/chars/3king/akb38.png
+	@cmd	leaper 0.5 1		#------------------------
+	sound	data/sounds/punch2.wav
+	attack10 142 102 75 50 0 0 1 0 25 17
+	dropv	1.5 0.5
+	frame	data/chars/3king/akb39.png
+	@cmd	leaper 0.5 1		#------------------------
+	attack10 0 0 0 0
+	frame	data/chars/3king/akb40.png
+	frame	data/chars/3king/akb41.png
+	@cmd	leaper 0.5 1		#------------------------
+	sound	data/sounds/punch2.wav
+	attack10 142 102 75 50 0 0 1 0 25 17
+	dropv	1.5 0.5
+	frame	data/chars/3king/akb42.png
+	attack10 0 0 0 0
+	frame	data/chars/3king/akb37.png
+	@cmd	leaper 0.5 1		#------------------------
+	frame	data/chars/3king/akb38.png
+	sound	data/sounds/punch2.wav
+	attack10 142 102 75 50 0 0 1 0 25 17
+	dropv	1.5 0.5
+	frame	data/chars/3king/akb39.png
+	@cmd	leaper 0.5 1		#------------------------
+	attack10 0 0 0 0
+	frame	data/chars/3king/akb40.png
+	frame	data/chars/3king/akb41.png
+	@cmd	leaper 0.5 1		#------------------------
+	sound	data/sounds/punch2.wav
+	attack10 142 102 75 50 0 0 1 0 25 17
+	dropv	1.5 0.5
+	frame	data/chars/3king/akb42.png
+	attack10 0 0 0 0
+	frame	data/chars/3king/akb37.png
+	@cmd	leaper 0.5 1		#------------------------
+	frame	data/chars/3king/akb38.png
+	sound	data/sounds/punch2.wav
+	attack10 142 102 75 50 0 0 1 0 25 17
+	dropv	1.5 0.5
+	frame	data/chars/3king/akb39.png
+	attack10 0 0 0 0
+	@cmd	leaper 0.5 1		#------------------------
+	frame	data/chars/3king/akb40.png
+	frame	data/chars/3king/akb41.png
+	@cmd	leaper 0.5 1		#------------------------
+	sound	data/sounds/punch2.wav
+	attack10 142 102 75 50 0 0 1 0 25 17
+	dropv	1.5 0.5
+	frame	data/chars/3king/akb42.png
+	attack10 0 0 0 0
+	frame	data/chars/3king/akb37.png
+	@cmd	leaper 0.5 1		#------------------------
+	frame	data/chars/3king/akb38.png
+	sound	data/sounds/punch2.wav
+	attack10 142 102 75 50 0 0 1 0 25 17
+	dropv	1.5 0.5
+	frame	data/chars/3king/akb39.png
+	attack10 0 0 0 0
+	@cmd	leaper 0.5 1		#------------------------
+	frame	data/chars/3king/akb40.png
+	frame	data/chars/3king/akb41.png
+	@cmd	leaper 0.5 1		#------------------------
+	sound	data/sounds/punch2.wav
+	attack10 142 102 75 50 0 0 1 0 25 17
+	dropv	1.5 0.5
+	frame	data/chars/3king/akb42.png
+	attack10 0 0 0 0
+	frame	data/chars/3king/akb43.png
+	@cmd	leaper 0.5 1		#------------------------
+	frame	data/chars/3king/akb49.png	#100
+	drawmethod 256 256 0 1 0 0 -1
+	offset	140 80
+	sound	data/sounds/xking02.wav
+	frame	data/chars/3king/sp01a.png
+	@cmd	leaper 0.5 1		#------------------------
+	frame	data/chars/3king/sp01c.png
+	delay	6
+	hitflash flashscreen2
+	hitfx	data/sounds/beat4.wav
+	staydown 500 500
+	attack	142 -20 75 50 220 0 1 0 45 20
+	dropv	-1 2
+	frame	data/chars/3king/sp02.png
+	@cmd	leaper 0.5 1		#------------------------
+	delay	12
+	frame	data/chars/3king/sp03.png
+	attack	0 0 0 0
+	delay	7
+	frame	data/chars/3king/sp04.png
+	@cmd	leaper 0.5 -5
+	frame	data/chars/3king/sp05.png
+	nodrawmethod
+	@cmd	flip
+	offset	140 199
+	frame	data/chars/3king/jup04.png	#107
+	frame	data/chars/3king/jup03.png
+	delay	300
+	frame	data/chars/3king/jup02.png
+	delay	5
+	frame	data/chars/3king/get02.png	#110
+	delay	50
+	frame	data/chars/3king/get03.png
+	delay	12
+	frame	data/chars/3king/sld07.png
+	frame	data/chars/3king/get01.png
+
+
+
+
+
+
+anim	special
+	energycost	40
+	mponly	1
+	loop	0
+	delay	5
+	offset	140 199
+	bbox	0 0 0 0
+	fastattack 1
+	jumpframe 0 2.5 0
+	landframe 15
+	hitfx	data/sounds/beat5.wav
+	frame	data/chars/3king/jup01.png
+	sound	data/sounds/xking03.wav
+	frame	data/chars/3king/jup02.png
+	frame	data/chars/3king/jup04a.png
+	frame	data/chars/3king/jup04b.png
+	frame	data/chars/3king/jup04c.png
+	frame	data/chars/3king/jup04d.png
+	delay	5
+	@cmd	leaper 0 0.1			#-----------
+	frame	data/chars/3king/spw01a.png #6
+	attack	0 0 0 0
+	@cmd	leaper 0 0.1			#-----------
+	frame	data/chars/3king/spw02.png
+	sound	data/sounds/punch2.wav
+	forcedirection 1
+	attack	35 110 100 69 40 1 1 0 30 40
+	dropv	3 3
+	@cmd	leaper 0 0.1			#-----------
+	frame	data/chars/3king/spw03a.png
+	attack	0 0 0 0
+	@cmd	leaper 0 0.1			#-----------
+	frame	data/chars/3king/spw04a.png
+	@cmd	leaper 0 0.1			#-----------
+	frame	data/chars/3king/spw05.png
+	sound	data/sounds/punch2.wav
+	forcedirection -1
+	attack	140 108 70 64 40 1 0 0 30 40
+	dropv	3 3
+	@cmd	leaper 0 0.1			#-----------
+	attack	140 90 105 64 40 1 0 0 30 40
+	frame	data/chars/3king/spw06a.png
+	attack	0 0 0 0
+	@cmd	looper 6 5
+	frame	data/chars/3king/spa01.png
+	frame	data/chars/3king/jup02.png
+	delay	300
+	frame	data/chars/3king/jup03.png
+	delay	9
+	frame	data/chars/3king/jupland.png #15
+
+
+anim	get
+	loop	0
+	delay	8
+	offset	140 199
+	frame	data/chars/3king/get02.png
+	delay	15
+	frame	data/chars/3king/get03.png
+	delay	8
+	frame	data/chars/3king/get02.png
+	frame	data/chars/3king/get01.png
+
+anim	grab
+	loop	1
+	delay	35
+	offset	140 199
+	bbox	132 115 33 80
+	frame	data/chars/3king/grab.png
+	frame	data/chars/3king/grab.png
+
+anim	grabbed
+	loop	0
+	delay	100
+	offset	140 199
+	bbox	132 115 33 80
+	frame	data/chars/3king/pain3.png
+
+anim	grabattack
+	loop	0
+	delay	5
+	offset	140 199
+	bbox	132 115 33 80
+	attack	0 0 0 0
+	frame	data/chars/3king/grab.png
+	delay	20
+	attack6	140 115 45 30 15 0 1 0 16 0
+	frame	data/chars/3king/hold1.png
+
+anim	grabattack2
+	loop	0
+	delay	5
+	offset	140 199
+	bbox	132 115 33 80
+	attack	0 0 0 0
+	staydown 300 300
+	hitflash flashscreen1
+	hitfx	data/sounds/beat3.wav
+	frame	data/chars/3king/grab.png
+	delay	7
+	offset	162 199
+	bbox	148 115 33 80
+	sound	data/sounds/xking03.wav
+	frame	data/chars/3king/hold5.png
+	frame	data/chars/3king/hold6.png
+	frame	data/chars/3king/hold7.png
+	frame	data/chars/3king/hold8.png
+	blast	151 83 46 60 40 0 0 30 0
+	frame	data/chars/3king/hold9.png
+	frame	data/chars/3king/hold10.png
+	blast	0 0 0 0
+	frame	data/chars/3king/hold11.png
+
+anim	grabforward
+	loop	0
+	delay	5
+	offset	140 199
+	bbox	132 115 33 80
+	attack	0 0 0 0
+	frame	data/chars/3king/grab.png
+	delay	20
+	attack5	140 100 45 35 15 0 1 0 16 0
+	frame	data/chars/3king/hold2.png
+
+
+anim	grabforward2
+	loop	0
+	delay	7
+	offset	130 199
+	bbox	125 115 25 80
+	staydown 200 200
+	sound	data/sounds/xking03.wav
+	hitfx	data/sounds/beat5.wav
+	frame	data/chars/3king/akb15.png
+	frame	data/chars/3king/akb18.png
+	attack	133 85 60 60 30 1 0 0 30 0
+	dropv	4 2
+	frame	data/chars/3king/akb19.png
+	frame	data/chars/3king/akb19.png
+	delay	11
+	frame	data/chars/3king/akb21.png
+	attack	0 0 0 0
+	frame	data/chars/3king/akb18.png
+	frame	data/chars/3king/akb15.png
+
+
+anim	grabbackward
+	loop	0
+	delay	20
+	offset	140 199
+	bbox	0 0 0 0
+	@cmd	slamstart
+	sound	data/sounds/xking12.wav
+	@cmd	position 10 45 50 -1 -1
+	frame	data/chars/3king/thw01.png
+	delay	9
+	@cmd	position 10 45 50 -1 -1
+	frame	data/chars/3king/thw02.png
+	@cmd	position 10 45 50 -1 -1
+	frame	data/chars/3king/thw03.png
+	sound	data/sounds/grab.wav
+	delay	20
+	@cmd	position 10 45 50 -1 -1
+	frame	data/chars/3king/thw04.png
+	delay	9
+	@cmd	position 0 40 70 -1 1
+	frame	data/chars/3king/thw05.png
+	@cmd	position 2 0 95 -1 1
+	frame	data/chars/3king/thw06.png
+	sound	data/sounds/xking13.wav
+	delay	2
+	@cmd	antiwall -15 5 0
+	@cmd	position 2 -10 85 1 1
+	frame	data/chars/3king/thw07.png
+	@cmd	antiwall -15 5 0
+	@cmd	position 2 -10 85 1 1
+	frame	data/chars/3king/thw07.png
+	@cmd	antiwall -15 5 0
+	@cmd	position 2 -10 85 1 1
+	frame	data/chars/3king/thw07.png
+	@cmd	antiwall -15 5 0
+	@cmd	position 2 -10 85 1 1
+	frame	data/chars/3king/thw07.png
+	delay	1
+	@cmd	antiwall -15 5 0
+	@cmd	position 2 -10 85 1 1
+	frame	data/chars/3king/thw07.png
+	delay	9
+	@cmd	depost 0
+	@cmd	throw 65 1 -3 0.5 0 1
+	frame	data/chars/3king/thw08.png
+	frame	data/chars/3king/thw09.png
+	@cmd	clearL
+	frame	data/chars/3king/thw10.png
+	frame	data/chars/3king/thw11.png
+	frame	data/chars/3king/ak09.png
+
+
+anim	grabup
+	loop	0
+	delay	20
+	offset	140 199
+	bbox	0 0 0 0
+	jumpframe 5 4 1
+	landframe 11
+	quakeframe 11 5 5
+	sound	data/sounds/grab.wav
+	@cmd	slamstart
+	@cmd	position 10 45 50 -1 -1
+	frame	data/chars/3king/gb01.png
+	delay	8
+	@cmd	position 13 40 55 -1 1
+	frame	data/chars/3king/gb02.png
+	sound	data/sounds/xking02.wav
+	@cmd	position 4 30 100 -1 -1
+	frame	data/chars/3king/gb03.png
+	@cmd	position 3 20 100 -1 -1
+	frame	data/chars/3king/gb03.png
+	delay	20
+	@cmd	position 2 10 100 -1 -1
+	frame	data/chars/3king/gb03.png
+	delay	7
+	@cmd	position 1 0 100 -1 -1
+	frame	data/chars/3king/gb04.png
+	@cmd	keywlk 1.2
+	@cmd	position 1 0 100 -1 -1
+	frame	data/chars/3king/gb04.png	#6
+	@cmd	keywlk 1.2
+	@cmd	position 1 0 100 -1 -1
+	frame	data/chars/3king/gb04.png
+	@cmd	keywlk 1.2
+	@cmd	position 1 0 100 -1 -1
+	frame	data/chars/3king/gb04.png
+	@cmd	looper 6 30
+	delay	4
+	@cmd	position 1 0 100 -1 -1
+	frame	data/chars/3king/gb04.png
+	@cmd	position 1 0 100 -1 -1
+	frame	data/chars/3king/gb04.png
+	delay	2
+	dropv	2 4
+	@cmd	stop
+	@cmd	antiwall 50 -5 0
+	@cmd	position 15 45 45 -1 1
+	frame	data/chars/3king/gb05.png	#11
+	attackone 0
+	attack	130 125 100 70 12 1 1 1 20 20
+	@cmd	antiwall 50 -5 0
+	@cmd	position 15 45 45 -1 1
+	frame	data/chars/3king/gb05.png
+	attackone 0
+	attack	130 125 100 70 12 1 1 1 20 20
+	@cmd	spawn01 "qfx" 30 1 1
+	@cmd	antiwall 50 -5 0
+	@cmd	position 15 45 45 -1 1
+	frame	data/chars/3king/gb05.png
+	@cmd	antiwall 50 -5 0
+	@cmd	position 15 45 45 -1 1
+	frame	data/chars/3king/gb05.png
+	sound	data/sounds/bang2.wav
+	@cmd	antiwall 50 -5 0
+	@cmd	position 15 45 45 -1 1
+	frame	data/chars/3king/gb05.png
+	attack	130 125 100 70 12 1 1 1 20 20
+	@cmd	antiwall 50 -5 0
+	@cmd	position 15 45 45 -1 1
+	frame	data/chars/3king/gb05.png
+	@cmd	antiwall 50 -5 0
+	@cmd	position 14 45 50 -1 1
+	frame	data/chars/3king/gb06.png
+	@cmd	antiwall 50 -5 0
+	@cmd	position 14 45 50 -1 1
+	frame	data/chars/3king/gb06.png
+	@cmd	antiwall 50 -5 0
+	@cmd	position 14 45 50 -1 1
+	frame	data/chars/3king/gb06.png
+	@cmd	antiwall 50 -5 0
+	@cmd	position 14 45 50 -1 1
+	frame	data/chars/3king/gb06.png
+	@cmd	antiwall 50 -5 0
+	@cmd	position 14 45 50 -1 1
+	frame	data/chars/3king/gb06.png
+	@cmd	antiwall 50 -5 0
+	@cmd	position 14 45 50 -1 1
+	frame	data/chars/3king/gb06.png
+	attack	0 0 0 0
+	delay	12
+	@cmd	depost 0
+	@cmd	finish 70 1 1 4 0 1
+	frame	data/chars/3king/gb06.png
+	@cmd	clearL
+	frame	data/chars/3king/gb06.png
+	offset	130 199
+	frame	data/chars/3king/sld07.png
+	offset	133 199
+	frame	data/chars/3king/get01.png
+
+
+
+
+anim	grabdown
+	loop	0
+	delay	8
+	offset	140 199
+	bbox	125 135 25 50
+	hitfx	data/sounds/beat4.wav
+	hitflash	flashscreen1
+	frame	data/chars/3king/ak14.png
+	sound	data/sounds/xking12.wav
+	frame	data/chars/3king/ak14a.png
+	frame	data/chars/3king/akd02.png
+	bbox	0 0 0 0
+	attack10 140 87 43 83 40 1 0 0 40 15
+	dropv	6 0.5
+	frame	data/chars/3king/akd03.png
+	delay	10
+	frame	data/chars/3king/akd04.png
+	attack10 0 0 0 0
+	delay	9
+	frame	data/chars/3king/akd02.png
+	frame	data/chars/3king/akd01.png
+	frame	data/chars/3king/sld07.png
+	frame	data/chars/3king/get01.png
+
+
+anim	idle
+	loop	0
+	delay	9
+	offset	140 199
+	bbox	125 115 25 80
+	frame	data/chars/3king/idle01.png
+	@cmd	clearL
+	frame	data/chars/3king/win1.png
+	frame	data/chars/3king/win2.png
+	frame	data/chars/3king/win3.png
+	frame	data/chars/3king/win4.png
+	frame	data/chars/3king/win5.png
+	frame	data/chars/3king/win6.png
+	frame	data/chars/3king/win7.png
+	frame	data/chars/3king/win8.png
+	frame	data/chars/3king/win9.png
+	frame	data/chars/3king/win9.png
+	frame	data/chars/3king/win9.png
+
+anim	jump
+	loop	0
+	delay	9
+	offset	140 199
+	bbox	129 105 33 35
+	frame	data/chars/3king/jup01.png
+	frame	data/chars/3king/jup02.png
+	delay	25
+	frame	data/chars/3king/jup03.png
+	delay	9
+	frame	data/chars/3king/jup02.png
+	frame	data/chars/3king/jup01.png
+
+anim	forwardjump
+	loop	0
+	delay	7
+	offset	140 199
+	bbox	129 105 33 35
+	frame	data/chars/3king/jup01.png
+	frame	data/chars/3king/jup04.png
+	frame	data/chars/3king/jup04a.png
+	frame	data/chars/3king/jup04b.png
+	frame	data/chars/3king/jup04c.png
+	frame	data/chars/3king/jup04d.png
+	frame	data/chars/3king/jup02.png
+	frame	data/chars/3king/jup01.png
+
+anim	jumpland
+	loop	0
+	delay	6
+	offset	140 199
+	bbox	132 120 33 50
+	frame	data/chars/3king/jupland.png
+
+anim	jumpdelay
+	loop	0
+	delay	6
+	offset	140 199
+	bbox	132 120 33 50
+	frame	data/chars/3king/win1.png
+
+anim	jumpattack
+	loop	0
+	delay	7
+	offset	140 199
+	bbox	129 105 33 35
+	staydown 500 500
+	forcedirection -1
+	sound	data/sounds/xking12.wav
+	hitfx	data/sounds/beat5.wav
+	frame	data/chars/3king/c14.png
+	frame	data/chars/3king/spa05.png
+	delay	30
+	attack	135 119 80 52 30 1 1 0 30 0
+	frame	data/chars/3king/spa06.png
+	attack	0 0 0 0
+	delay	9
+	frame	data/chars/3king/spa02.png
+	frame	data/chars/3king/spa01.png
+
+
+
+anim	jumpattack2
+	loop	0
+	delay	7
+	offset	140 199
+	bbox	129 105 33 35
+	landframe 4 dust
+	quakeframe 4 8 5
+	staydown 400 400
+	forcedirection -1
+	sound	data/sounds/xking02.wav
+	hitfx	data/sounds/beat5.wav
+	frame	data/chars/3king/jua03.png
+	frame	data/chars/3king/jua04.png
+	frame	data/chars/3king/jua05.png
+	delay	300
+	attack	111 140 75 40 20 1 0 0 30 0
+	dropv	2 1.5
+	frame	data/chars/3king/jua06.png
+	attack	0 0 0 0
+	delay	4
+	offset	140 190
+	bbox	0 0 0 0
+	sound	data/sounds/bang2.wav
+	frame	data/chars/3king/jua06.png
+	offset	140 199
+	frame	data/chars/3king/jua07.png #4
+	offset	140 195
+	frame	data/chars/3king/jua07.png
+	frame	data/chars/3king/jua08.png
+	frame	data/chars/3king/jua08.png
+	frame	data/chars/3king/jua08.png
+	frame	data/chars/3king/jua08.png
+	frame	data/chars/3king/jua09.png
+	frame	data/chars/3king/jua09.png
+	offset	140 199
+	frame	data/chars/3king/jua10.png
+	frame	data/chars/3king/jua10.png
+	frame	data/chars/3king/ak09.png
+	frame	data/chars/3king/ak09.png
+
+anim	jumpattack3
+	loop	0
+	delay	2
+	offset	140 199
+	bbox	129 105 33 35
+	staydown 400 400
+	forcedirection -1
+	sound	data/sounds/xking04.wav
+	hitfx	data/sounds/beat5.wav
+	move	2
+	frame	data/chars/3king/jup02.png
+	frame	data/chars/3king/jup02.png
+	blast	135 90 80 85 30 0 0 20 0
+	dropv	3 4
+	frame	data/chars/3king/akb28.png
+	frame	data/chars/3king/akb28.png
+	frame	data/chars/3king/akb28.png
+	frame	data/chars/3king/akb29.png
+	frame	data/chars/3king/akb29.png
+	frame	data/chars/3king/akb29.png
+	frame	data/chars/3king/akb30.png
+	frame	data/chars/3king/akb30.png
+	frame	data/chars/3king/akb30.png
+	frame	data/chars/3king/akb31.png
+	frame	data/chars/3king/akb31.png
+	frame	data/chars/3king/akb31.png
+	blast	0 0 0 0
+	frame	data/chars/3king/akb32.png
+	frame	data/chars/3king/akb32.png
+	frame	data/chars/3king/akb32.png
+	frame	data/chars/3king/akb33.png
+	frame	data/chars/3king/akb33.png
+	frame	data/chars/3king/akb33.png
+	delay	6
+	frame	data/chars/3king/jup02.png
+	frame	data/chars/3king/jup01.png
+
+
+anim	jumpforward
+	loop	0
+	delay	9
+	offset	140 199
+	bbox	129 105 33 35
+	staydown 300 300
+	sound	data/sounds/xking12.wav
+	hitfx	data/sounds/beat5.wav
+	frame	data/chars/3king/akb11a.png
+	offset	140 199
+	frame	data/chars/3king/jua00.png
+	attack	137 125 80 60 30 1 0 0 35 0
+	frame	data/chars/3king/jua01.png
+	delay	30
+	frame	data/chars/3king/jua02.png
+	attack	0 0 0 0
+	delay	9
+	frame	data/chars/3king/jua00.png
+	frame	data/chars/3king/jup02.png
+	frame	data/chars/3king/jup03.png
+
+anim	walkoff
+	loop	0
+	delay	6
+	offset	140 199
+	bbox	129 105 33 35
+	frame	data/chars/3king/jup02.png
+	frame	data/chars/3king/jup01.png
+
+
+	
+anim	pain
+	loop	0
+	delay	7
+	offset	140 199
+	bbox	132 115 33 80
+	frame	data/chars/3king/pain1.png
+	frame	data/chars/3king/pain2.png
+	frame	data/chars/3king/pain3.png
+		
+anim	pain2
+	loop	0
+	delay	7
+	offset	140 199
+	bbox	132 115 33 80
+	frame	data/chars/3king/pain4.png
+	frame	data/chars/3king/pain5.png
+	frame	data/chars/3king/pain6.png
+		
+anim	pain3
+	loop	0
+	delay	2
+	offset	140 199
+	bbox	132 115 33 80
+	move	-6
+	frame	data/chars/3king/pain1.png
+	frame	data/chars/3king/pain1.png
+	frame	data/chars/3king/pain1.png
+	frame	data/chars/3king/pain2.png
+	frame	data/chars/3king/pain2.png
+	frame	data/chars/3king/pain2.png
+	move	-3
+	frame	data/chars/3king/pain3.png
+	frame	data/chars/3king/pain3.png
+	move	-1
+	frame	data/chars/3king/pain3.png
+	delay	55
+	frame	data/chars/3king/pain3.png
+
+anim	pain5
+	loop	0
+	delay	12
+	offset	140 199
+	bbox	132 115 33 80
+	frame	data/chars/3king/pain1.png
+	frame	data/chars/3king/pain2.png
+	frame	data/chars/3king/pain3.png
+	frame	data/chars/3king/pain4.png
+	frame	data/chars/3king/pain5.png
+	frame	data/chars/3king/pain6.png
+	frame	data/chars/3king/ak09.png
+	frame	data/chars/3king/thw10.png
+	frame	data/chars/3king/thw11.png
+	frame	data/chars/3king/thw11.png
+	delay	18
+	frame	data/chars/3king/thw11.png
+	delay	12
+	frame	data/chars/3king/ak09.png
+	frame	data/chars/3king/akb05.png
+
+
+anim	pain6
+	loop	0
+	delay	14
+	offset	140 199
+	bbox	0 0 0 0
+	frame	data/chars/3king/det01.png
+	frame	data/chars/3king/det02.png
+	frame	data/chars/3king/det03.png
+	frame	data/chars/3king/det04.png
+	frame	data/chars/3king/det05.png
+	frame	data/chars/3king/fall3.png
+	delay	750
+	frame	data/chars/3king/fall4.png
+	delay	8
+	frame	data/chars/3king/rise1.png
+	frame	data/chars/3king/rise2.png
+	frame	data/chars/3king/rise3.png
+	frame	data/chars/3king/rise4.png
+	frame	data/chars/3king/rise5.png
+	frame	data/chars/3king/rise6.png
+	frame	data/chars/3king/thw10.png
+	frame	data/chars/3king/thw11.png
+
+
+anim	fall6
+	loop	0
+	delay	9
+	offset	140 199
+	bbox	0 0 0 0
+	landframe	9
+	sound	data/sounds/yurpa.wav
+	frame	data/chars/3king/fall5.png
+	frame	data/chars/3king/fall6.png
+	frame	data/chars/3king/fall7.png
+	frame	data/chars/3king/fall8.png
+	frame	data/chars/3king/fall5.png
+	frame	data/chars/3king/fall6.png
+	frame	data/chars/3king/fall7.png
+	frame	data/chars/3king/fall8.png
+	@cmd	looper 4 10
+	delay	300
+	frame	data/chars/3king/fall5.png
+	delay	14
+	frame	data/chars/3king/fall4.png
+	offset	140 198
+	frame	data/chars/3king/fall4.png
+	delay	700
+	offset	140 199
+	frame	data/chars/3king/fall4.png
+
+
+anim	fall7
+	delay	1000
+	offset	45 95
+	bbox	0 0 0 0
+	frame	data/chars/3king/slam0.png
+	offset	45 95
+	frame	data/chars/3king/slam1.png
+	offset	50 85
+	frame	data/chars/3king/slam2.png
+	offset	45 95
+	frame	data/chars/3king/slam3.png
+	offset	45 95
+	frame	data/chars/3king/slam4.png
+	offset	75 55
+	frame	data/chars/3king/slam5.png
+	offset	40 80
+	frame	data/chars/3king/slam6.png
+	offset	20 90
+	frame	data/chars/3king/slam7.png
+	offset	65 55
+	frame	data/chars/3king/slam8.png
+	offset	65 83
+	frame	data/chars/3king/slam9.png
+	offset	65 83
+	frame	data/chars/3king/slam10.png
+	offset	20 90
+	frame	data/chars/3king/slam11.png
+	offset	75 55
+	frame	data/chars/3king/slam12.png
+	offset	75 55
+	frame	data/chars/3king/slam13.png
+	offset	50 85
+	frame	data/chars/3king/slam14.png
+	offset	45 95
+	frame	data/chars/3king/slam15.png
+	offset	55 70
+	frame	data/chars/3king/slam16.png
+	offset	65 83
+	frame	data/chars/3king/slam17.png
+	offset	65 83
+	frame	data/chars/3king/slam18.png
+	offset	45 95
+	frame	data/chars/3king/slam19.png
+	offset	45 95
+	frame	data/chars/3king/slam20.png
+	offset	45 95
+	frame	data/chars/3king/slam21.png
+	offset	45 95
+	frame	data/chars/3king/slam22.png
+	offset	59 85
+	frame	data/chars/3king/slam23.png
+	offset	59 80
+	frame	data/chars/3king/slam24.png
+	offset	45 95
+	bbox	25 10 60 80
+	frame	data/chars/3king/slambbox1.png
+	bbox	0 0 0 0
+
+
+
+anim	rise
+	loop	0
+	delay	35
+	offset	140 199
+	bbox	0 0 0 0
+	frame	data/chars/3king/fall4.png
+	delay	8
+	frame	data/chars/3king/rise1.png
+	frame	data/chars/3king/rise2.png
+	frame	data/chars/3king/rise3.png
+	frame	data/chars/3king/rise4.png
+	frame	data/chars/3king/rise5.png
+	frame	data/chars/3king/rise6.png
+	frame	data/chars/3king/dgd00.png
+	frame	data/chars/3king/get01.png
+
+
+anim	run
+	loop	1
+	delay	8
+	offset	140 199
+	bbox	132 115 33 80
+	frame	data/chars/3king/run01.png
+	sound	data/sounds/run.wav
+	frame	data/chars/3king/run02.png
+	frame	data/chars/3king/run03.png
+	frame	data/chars/3king/run04.png
+	sound	data/sounds/run.wav
+	frame	data/chars/3king/run05.png
+	frame	data/chars/3king/run06.png
+
+
+anim	runattack
+	loop	0
+	delay	6
+	offset	140 199
+	bbox	132 115 33 80
+	followanim	1
+	followcond	1
+	forcedirection	-1
+	fastattack	1
+	seal	7 2
+	sound	data/sounds/xking13.wav
+	hitfx	data/sounds/beat2.wav
+	@cmd	dasher 2.8 0 0
+	frame	data/chars/3king/c15.png
+	frame	data/chars/3king/c14.png
+	frame	data/chars/3king/c13.png
+	offset	149 199
+	frame	data/chars/3king/c12.png
+	offset	153 199
+	attack8	140 94 81 67 5 0 0 0 40 0
+	frame	data/chars/3king/c11.png
+	offset	161 199
+	frame	data/chars/3king/akb45.png
+	attack8	0 0 0 0
+	frame	data/chars/3king/akb24.png
+	frame	data/chars/3king/akb23.png
+
+
+anim	follow1
+	loop	0
+	delay	30
+	offset	140 199
+	bbox	132 115 33 80
+	forcedirection -1
+	fastattack 1
+	hitfx	data/sounds/beat5.wav
+	@cmd	dasher 1 0 0
+	frame	data/chars/3king/akb45.png
+	attack8 0 0 0 0
+	delay	6
+	sound	data/sounds/xking03.wav
+	frame	data/chars/3king/akb24.png
+	frame	data/chars/3king/akb23.png
+	delay	3
+	frame	data/chars/3king/c16.png
+	attack2	140 130 66 55 8 0 0 0 3 0
+	frame	data/chars/3king/c20.png
+	@cmd	stop
+	frame	data/chars/3king/c17.png
+	attack2	0 0 0 0
+	hitflash flashscreen1
+	frame	data/chars/3king/c16.png
+	attack	138 110 78 50 10 0 0 0 3 0
+	frame	data/chars/3king/c21.png
+	frame	data/chars/3king/c18.png
+	attack	0 0 0 0
+	hitflash flash
+	frame	data/chars/3king/c16.png
+	attack	138 110 78 50 14 0 0 0 3 0
+	frame	data/chars/3king/c22.png
+	frame	data/chars/3king/c19.png
+	attack	0 0 0 0
+	frame	data/chars/3king/c16.png
+	attack	138 110 78 50 10 0 0 0 3 0
+	frame	data/chars/3king/c21.png
+	frame	data/chars/3king/c18.png
+	attack	0 0 0 0
+	staydown 150 150
+	frame	data/chars/3king/c16.png
+	attack	140 130 75 55 8 1 0 0 40 0
+	dropv	-5 0
+	frame	data/chars/3king/c20.png
+	frame	data/chars/3king/c17.png
+	attack	0 0 0 0
+	frame	data/chars/3king/c17.png
+	frame	data/chars/3king/ak06a.png
+
+
+anim	runjump
+	loop	0
+	delay	12
+	offset	140 199
+	bbox	129 105 33 35
+	frame	data/chars/3king/jup01.png
+	frame	data/chars/3king/jup02.png
+	frame	data/chars/3king/jup03.png
+
+
+anim	runjumpattack
+	loop	0
+	delay	6
+	offset	140 199
+	bbox	129 105 33 35
+	staydown 300 300
+	forcedirection -1
+	sound	data/sounds/xking02.wav
+	hitfx	data/sounds/beat5.wav
+	frame	data/chars/3king/akb11.png
+	frame	data/chars/3king/akb11a.png
+	frame	data/chars/3king/akb12.png
+	blast	121 98 93 69 30 0 0 30 0
+	dropv	3 4
+	frame	data/chars/3king/akb13.png
+	frame	data/chars/3king/akb14.png
+	frame	data/chars/3king/akb13.png
+	frame	data/chars/3king/akb14.png
+	frame	data/chars/3king/akb13.png
+	frame	data/chars/3king/akb14.png
+	frame	data/chars/3king/akb13.png
+	frame	data/chars/3king/akb14.png
+	frame	data/chars/3king/akb13.png
+	frame	data/chars/3king/akb14.png
+	frame	data/chars/3king/akb13.png
+	frame	data/chars/3king/akb14.png
+	frame	data/chars/3king/akb13.png
+
+
+anim	runslide
+	loop	0
+	delay	8
+	offset	140 199
+	bbox	125 155 33 40
+	forcedirection -1
+	@cmd	dasher 3 0 0
+	frame	data/chars/3king/sld01.png
+	sound	data/sounds/xking13.wav
+	frame	data/chars/3king/sld02.png
+	frame	data/chars/3king/sld03.png
+	attack	130 160 87 40 25 1 0 0 18 0
+	dropv	3 3
+	frame	data/chars/3king/sld04.png
+	frame	data/chars/3king/sld04a.png
+	frame	data/chars/3king/sld04.png
+	frame	data/chars/3king/sld04a.png
+	frame	data/chars/3king/sld04.png
+	frame	data/chars/3king/sld04a.png
+	@cmd	dasher 2.5 0 0
+	frame	data/chars/3king/sld04.png
+	frame	data/chars/3king/sld04a.png
+	attack	0 0 0 0
+	@cmd	stop
+	frame	data/chars/3king/sld05.png
+	frame	data/chars/3king/sld06.png
+	frame	data/chars/3king/sld07.png
+	frame	data/chars/3king/get01.png
+
+
+anim	respawn
+	loop	0
+	delay	40
+	offset	140 199
+	bbox	0 0 0 0
+	frame	data/chars/3king/taunt14.png
+	delay	40
+	frame	data/chars/3king/taunt15.png
+	delay	20
+	frame	data/chars/3king/taunt14.png
+	delay	9
+	frame	data/chars/3king/taunt14.png
+	sound	data/sounds/xking11.wav
+	frame	data/chars/3king/taunt13.png
+	frame	data/chars/3king/taunt12.png
+	frame	data/chars/3king/taunt11.png
+	frame	data/chars/3king/taunt10.png
+
+
+anim	spawn
+	loop	0
+	delay	40
+	offset	140 199
+	bbox	0 0 0 0
+	frame	data/chars/3king/taunt14.png
+	delay	40
+	frame	data/chars/3king/taunt15.png
+	delay	20
+	frame	data/chars/3king/taunt14.png
+	delay	9
+	frame	data/chars/3king/taunt14.png
+	sound	data/sounds/xking11.wav
+	frame	data/chars/3king/taunt13.png
+	frame	data/chars/3king/taunt12.png
+	frame	data/chars/3king/taunt11.png
+	frame	data/chars/3king/taunt10.png
+
+
+anim	waiting
+	loop	0
+	delay	9
+	offset	0 0
+	frame	data/chars/3king/wait1.png
+	frame	data/chars/3king/wait2.png
+	frame	data/chars/3king/wait3.png
+	frame	data/chars/3king/wait4.png
+	frame	data/chars/3king/wait5.png
+	frame	data/chars/3king/wait6.png
+	frame	data/chars/3king/wait7.png
+	frame	data/chars/3king/wait8.png
+	frame	data/chars/3king/wait9.png
+
+
+anim	select
+	loop	0
+	delay	10
+	offset	0 0
+	bbox	0 0 0 0
+	frame	data/chars/3king/wait9.png
+	frame	data/chars/3king/wait9.png
+
+
+
+
+		
+anim	walk
+	loop	1
+	delay	10
+	offset	140 199
+	bbox	130 112 33 80
+	frame	data/chars/3king/wk01.png
+	frame	data/chars/3king/wk02.png
+	frame	data/chars/3king/wk03.png
+	frame	data/chars/3king/wk04.png
+	frame	data/chars/3king/wk05.png
+		
+anim	walkoff
+	loop	0
+	delay	8
+	offset	140 199
+	bbox	130 100 33 45
+	frame	data/chars/3king/jup01.png
+		

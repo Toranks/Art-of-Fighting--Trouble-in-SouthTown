@@ -1,20 +1,20 @@
 name		pipasplr
 type		player
-health		170
+health		100
 mp		100
 mprate		2
 chargerate      15
-speed		18
-running		28 3 1.5 1 0
-jumpheight	4.3
-jumpspeed	20
+speed		19
+running		29 3 2 1 0
+jumpheight	4
+jumpspeed	17
 nodieblink	2
 secret		1 1
 weaploss	3
 modelflag	1
 noquake         0
 makeinv		3
-riseinv		2
+riseinv		1
 gfxshadow	1
 fmap		1
 holdblock 	1
@@ -152,16 +152,16 @@ anim	follow16
 
 anim	attack1
 	loop	0
-	delay	4
+	delay	3
 	offset	100 189
 	bbox	79 97 50 91
 	fastattack	1
 	hitfx	data/sounds/beat2.wav
 	@cmd	attackgrd -60 60 0 1 10 "ANI_FOLLOW10"
 	frame	data/chars/3pipas/a101.gif
-	attack	115 95 60 25 12 0 0 0 10 0
+	attack	115 95 60 25 12 0 0 0 3 0
 	frame	data/chars/3pipas/a102.gif
-	delay	5
+	delay	4
 	frame	data/chars/3pipas/a103.gif
 	attack	0 0 0 0
 	frame	data/chars/3pipas/a104.gif
@@ -207,13 +207,13 @@ anim	follow10
 
 anim	attack2
 	loop	0
-	delay	6
+	delay	5
 	offset	100 189
 	bbox	79 97 50 91
 	fastattack	1
 	hitfx	data/sounds/beat2.wav
 	frame	data/chars/3pipas/a105.gif
-	attack	110 101 75 30 15 0 0 0 15 0
+	attack	110 101 75 30 15 0 0 0 8 0
 	frame	data/chars/3pipas/a106.gif
 	frame	data/chars/3pipas/a107.gif
 	attack	0 0 0 0
@@ -222,16 +222,16 @@ anim	attack2
 
 anim	attack3
 	loop	0
-	delay	5
+	delay	4
 	offset	100 189
 	bbox	79 97 50 91
 	fastattack	1
 	hitfx	data/sounds/beat5.wav
 	frame	data/chars/3pipas/a121.gif
 	frame	data/chars/3pipas/a122.gif
-	attack	105 80 75 70 15 0 0 0 20 0
+	attack	105 80 75 70 15 0 0 0 12 0
 	frame	data/chars/3pipas/a123.gif
-	delay	6
+	delay	5
 	frame	data/chars/3pipas/a124.gif
 	attack	0 0 0 0
 	frame	data/chars/3pipas/a125.gif
@@ -241,10 +241,11 @@ anim	attack3
 
 anim	attack4
 	loop	0
-	delay	5
+	delay	4
 	offset	100 189
 	bbox	79 97 50 91
 	fastattack	1
+	staydown 300 300
 	hitfx	data/sounds/beat5.wav
 	frame	data/chars/3pipas/a109.gif
 	frame	data/chars/3pipas/a110.gif
@@ -254,7 +255,7 @@ anim	attack4
 	frame	data/chars/3pipas/a112.gif
 	attack	112 83 85 71 25 1 0 0 35 0
 	dropv	3 3
-	delay	6
+	delay	5
 	frame	data/chars/3pipas/a113.gif
 	attack	112 110 85 45 25 1 0 0 35 0
 	dropv	3 3
@@ -393,13 +394,28 @@ anim	grabbackward
 	sound	data/sounds/grab.wav
 	@cmd	position 13 40 50 -1 -1
 	frame	data/chars/3pipas/grab10.gif
-	#delay	9
 	@cmd	position 1 40 90 -1 1
 	frame	data/chars/3pipas/grab11.gif
+	@cmd	antiwall 30 -5 0
 	@cmd	position 2 5 90 -1 1
 	frame	data/chars/3pipas/grab12.gif
+	delay	2
+	@cmd	antiwall 30 -5 0
 	@cmd	position 12 -25 60 -1 1
 	frame	data/chars/3pipas/grab13.gif
+	@cmd	antiwall 30 -5 0
+	@cmd	position 12 -25 60 -1 1
+	frame	data/chars/3pipas/grab13.gif
+	@cmd	antiwall 30 -5 0
+	@cmd	position 12 -25 60 -1 1
+	frame	data/chars/3pipas/grab13.gif
+	@cmd	antiwall 30 -5 0
+	@cmd	position 12 -25 60 -1 1
+	frame	data/chars/3pipas/grab13.gif
+	@cmd	antiwall 30 -5 0
+	@cmd	position 12 -25 60 -1 1
+	frame	data/chars/3pipas/grab13.gif
+	delay	9
 	@cmd	depost 0
 	@cmd	throw 55 1 -3.5 2 0 -1
 	frame	data/chars/3pipas/grab14.gif
@@ -407,6 +423,7 @@ anim	grabbackward
 	frame	data/chars/3pipas/grab15.gif
 	delay	12
 	frame	data/chars/3pipas/grab16.gif
+	@cmd	clearL
 	frame	data/chars/3pipas/rise6.gif
 
 
@@ -455,6 +472,7 @@ anim	idle
 	bbox	79 97 50 91
 	@cmd	mpgain 1
 	frame	data/chars/3pipas/idle01.gif
+	@cmd	clearL
 	@cmd	mpgain 1
 	frame	data/chars/3pipas/idle01.gif
 	@cmd	clearL
@@ -524,7 +542,7 @@ anim	special
 		
 anim	walk
 	loop	1
-	delay	8
+	delay	7
 	offset	100 189
 	bbox	79 97 50 91
 	frame	data/chars/3pipas/wk01.gif
@@ -734,27 +752,6 @@ anim	fall
 	delay	50
 	frame	data/chars/3pipas/fall4.gif
 		
-anim	fall10
-	loop	0
-	delay	50
-	offset	100 189
-	bbox	79 97 50 91
-	landframe 3 dust
-	attack	78 104 28 44 5 1 0 0 13
-	frame	data/chars/3pipas/pain6.gif
-	delay	30
-	bbox	71 132 63 30
-	attack	64 134 40 22 5 1 0 0 13
-	frame	data/chars/3pipas/fall2.gif
-	delay	1000
-	bbox	77 154 67 31
-	attack	0 0 0 0
-	frame	data/chars/3pipas/fall3.gif
-	bbox	0 0 0 0
-	delay	10
-	frame	data/chars/3pipas/fall4.gif
-	delay	50
-	frame	data/chars/3pipas/fall4.gif
 		
 anim	fall2
 	loop	0

@@ -6,6 +6,12 @@ subject_to_gravity 0
 setlayer	999999000
 animationscript data/scripts/escript.c
 
+
+alternatepal       data/bgs/beyond/lvl19/bck/sp04.gif
+alternatepal       data/bgs/beyond/lvl19/bck/sp04.gif
+
+
+
 anim	idle
 	loop	0
 	delay	10
@@ -24,6 +30,22 @@ anim	idle
 
 
 anim	follow1
+@script
+	void self = getlocalvar("self");
+	int p1 = getplayerproperty(0, "entity");
+	int p2 = getplayerproperty(1, "entity");
+	int p3 = getplayerproperty(2, "entity");
+
+	if (frame == 30 && p1 != NULL()){
+	performattack(p1, openborconstant("ANI_FOLLOW2"));
+	}
+	else if (frame == 30 && p2 != NULL()){
+	performattack(p2, openborconstant("ANI_FOLLOW2"));
+	}
+	else if (frame == 30 && p3 != NULL()){
+	performattack(p3, openborconstant("ANI_FOLLOW2"));
+	}
+@end_script
 	loop	0
 	delay	100
 	offset	160 50
@@ -34,36 +56,52 @@ anim	follow1
 	@cmd	clearL
 	frame	data/bgs/beyond/lvl19/bck/sp00.gif
 	delay	80
-	frame	data/bgs/beyond/lvl19/bck/sp00.gif #4
+	drawmethod 256 256 0 0 0 0 1
+	frame	data/bgs/beyond/lvl19/bck/sp01.gif #4
+	nodrawmethod
 	frame	data/bgs/beyond/lvl19/bck/sp01.gif
-	frame	data/bgs/beyond/lvl19/bck/sp00.gif
+	drawmethod 256 256 0 0 0 0 1
+	frame	data/bgs/beyond/lvl19/bck/sp01.gif
+	nodrawmethod
 	frame	data/bgs/beyond/lvl19/bck/sp01.gif
 	@cmd	looper 4 5
-	frame	data/bgs/beyond/lvl19/bck/sp00.gif
+	frame	data/bgs/beyond/lvl19/bck/sp01.gif
 	frame	data/bgs/beyond/lvl19/bck/sp01.gif 
 	delay	30
-	frame	data/bgs/beyond/lvl19/bck/sp00.gif #10
+	drawmethod 256 256 0 0 0 0 1
+	frame	data/bgs/beyond/lvl19/bck/sp01.gif #10
+	nodrawmethod
 	frame	data/bgs/beyond/lvl19/bck/sp01.gif
-	frame	data/bgs/beyond/lvl19/bck/sp00.gif
+	drawmethod 256 256 0 0 0 0 1
+	frame	data/bgs/beyond/lvl19/bck/sp01.gif
+	nodrawmethod
 	frame	data/bgs/beyond/lvl19/bck/sp01.gif
 	@cmd	looper 10 15
-	frame	data/bgs/beyond/lvl19/bck/sp00.gif
+	frame	data/bgs/beyond/lvl19/bck/sp01.gif
 	frame	data/bgs/beyond/lvl19/bck/sp01.gif
 	delay	10
-	frame	data/bgs/beyond/lvl19/bck/sp00.gif #16
+	drawmethod 256 256 0 0 0 0 1
+	frame	data/bgs/beyond/lvl19/bck/sp01.gif #16
+	nodrawmethod
 	frame	data/bgs/beyond/lvl19/bck/sp01.gif
-	frame	data/bgs/beyond/lvl19/bck/sp00.gif
+	drawmethod 256 256 0 0 0 0 1
+	frame	data/bgs/beyond/lvl19/bck/sp01.gif
+	nodrawmethod
 	frame	data/bgs/beyond/lvl19/bck/sp01.gif
 	@cmd	looper 16 25
-	frame	data/bgs/beyond/lvl19/bck/sp00.gif
+	frame	data/bgs/beyond/lvl19/bck/sp01.gif
 	frame	data/bgs/beyond/lvl19/bck/sp01.gif
 	delay	5
-	frame	data/bgs/beyond/lvl19/bck/sp00.gif #22
+	drawmethod 256 256 0 0 0 0 1
+	frame	data/bgs/beyond/lvl19/bck/sp01.gif #22
+	nodrawmethod
 	frame	data/bgs/beyond/lvl19/bck/sp01.gif
-	frame	data/bgs/beyond/lvl19/bck/sp00.gif
+	drawmethod 256 256 0 0 0 0 1
+	frame	data/bgs/beyond/lvl19/bck/sp01.gif
+	nodrawmethod
 	frame	data/bgs/beyond/lvl19/bck/sp01.gif
 	@cmd	looper 22 45
-	frame	data/bgs/beyond/lvl19/bck/sp00.gif
+	frame	data/bgs/beyond/lvl19/bck/sp01.gif
 	frame	data/bgs/beyond/lvl19/bck/sp01.gif
 	delay	30
 	frame	data/bgs/beyond/lvl19/bck/sp00.gif
@@ -79,46 +117,78 @@ anim	follow1
 	frame	data/bgs/beyond/lvl19/bck/sp00.gif
 
 anim	follow2
+@script
+	void self = getlocalvar("self");
+	int p1 = getplayerproperty(0, "entity");
+	int p2 = getplayerproperty(1, "entity");
+	int p3 = getplayerproperty(2, "entity");
+
+	if (frame == 30 && p1 != NULL()){
+	performattack(p1, openborconstant("ANI_FOLLOW2"));
+	}
+	else if (frame == 30 && p2 != NULL()){
+	performattack(p2, openborconstant("ANI_FOLLOW2"));
+	}
+	else if (frame == 30 && p3 != NULL()){
+	performattack(p3, openborconstant("ANI_FOLLOW2"));
+	}
+@end_script
 	loop	0
 	delay	100
 	offset	160 50
-	frame	data/bgs/beyond/lvl19/bck/sp02.gif
-	delay	5
-	frame	data/bgs/beyond/lvl19/bck/sp02.gif
-	frame	data/bgs/beyond/lvl19/bck/sp02.gif
-	@cmd	clearL
-	frame	data/bgs/beyond/lvl19/bck/sp02.gif
-	delay	80
-	frame	data/bgs/beyond/lvl19/bck/sp00.gif #4
-	frame	data/bgs/beyond/lvl19/bck/sp02.gif
 	frame	data/bgs/beyond/lvl19/bck/sp00.gif
+	delay	5
+	frame	data/bgs/beyond/lvl19/bck/sp00.gif
+	frame	data/bgs/beyond/lvl19/bck/sp00.gif
+	@cmd	clearL
+	frame	data/bgs/beyond/lvl19/bck/sp00.gif
+	delay	80
+	drawmethod 256 256 0 0 0 0 1
+	frame	data/bgs/beyond/lvl19/bck/sp02.gif #4
+	nodrawmethod
+	frame	data/bgs/beyond/lvl19/bck/sp02.gif
+	drawmethod 256 256 0 0 0 0 1
+	frame	data/bgs/beyond/lvl19/bck/sp02.gif
+	nodrawmethod
 	frame	data/bgs/beyond/lvl19/bck/sp02.gif
 	@cmd	looper 4 4
-	frame	data/bgs/beyond/lvl19/bck/sp00.gif
+	frame	data/bgs/beyond/lvl19/bck/sp02.gif
 	frame	data/bgs/beyond/lvl19/bck/sp02.gif 
 	delay	30
-	frame	data/bgs/beyond/lvl19/bck/sp00.gif #10
+	drawmethod 256 256 0 0 0 0 1
+	frame	data/bgs/beyond/lvl19/bck/sp02.gif #10
+	nodrawmethod
 	frame	data/bgs/beyond/lvl19/bck/sp02.gif
-	frame	data/bgs/beyond/lvl19/bck/sp00.gif
+	drawmethod 256 256 0 0 0 0 1
+	frame	data/bgs/beyond/lvl19/bck/sp02.gif
+	nodrawmethod
 	frame	data/bgs/beyond/lvl19/bck/sp02.gif
 	@cmd	looper 10 14
-	frame	data/bgs/beyond/lvl19/bck/sp00.gif
+	frame	data/bgs/beyond/lvl19/bck/sp02.gif
 	frame	data/bgs/beyond/lvl19/bck/sp02.gif
 	delay	10
-	frame	data/bgs/beyond/lvl19/bck/sp00.gif #16
+	drawmethod 256 256 0 0 0 0 1
+	frame	data/bgs/beyond/lvl19/bck/sp02.gif #16
+	nodrawmethod
 	frame	data/bgs/beyond/lvl19/bck/sp02.gif
-	frame	data/bgs/beyond/lvl19/bck/sp00.gif
+	drawmethod 256 256 0 0 0 0 1
+	frame	data/bgs/beyond/lvl19/bck/sp02.gif
+	nodrawmethod
 	frame	data/bgs/beyond/lvl19/bck/sp02.gif
 	@cmd	looper 16 24
-	frame	data/bgs/beyond/lvl19/bck/sp00.gif
+	frame	data/bgs/beyond/lvl19/bck/sp02.gif
 	frame	data/bgs/beyond/lvl19/bck/sp02.gif
 	delay	5
-	frame	data/bgs/beyond/lvl19/bck/sp00.gif #22
+	drawmethod 256 256 0 0 0 0 1
+	frame	data/bgs/beyond/lvl19/bck/sp02.gif #22
+	nodrawmethod
 	frame	data/bgs/beyond/lvl19/bck/sp02.gif
-	frame	data/bgs/beyond/lvl19/bck/sp00.gif
+	drawmethod 256 256 0 0 0 0 1
+	frame	data/bgs/beyond/lvl19/bck/sp02.gif
+	nodrawmethod
 	frame	data/bgs/beyond/lvl19/bck/sp02.gif
 	@cmd	looper 22 44
-	frame	data/bgs/beyond/lvl19/bck/sp00.gif
+	frame	data/bgs/beyond/lvl19/bck/sp02.gif
 	frame	data/bgs/beyond/lvl19/bck/sp02.gif
 	delay	30
 	frame	data/bgs/beyond/lvl19/bck/sp00.gif
@@ -134,6 +204,22 @@ anim	follow2
 	frame	data/bgs/beyond/lvl19/bck/sp00.gif
 
 anim	follow3
+@script
+	void self = getlocalvar("self");
+	int p1 = getplayerproperty(0, "entity");
+	int p2 = getplayerproperty(1, "entity");
+	int p3 = getplayerproperty(2, "entity");
+
+	if (frame == 30 && p1 != NULL()){
+	performattack(p1, openborconstant("ANI_FOLLOW2"));
+	}
+	else if (frame == 30 && p2 != NULL()){
+	performattack(p2, openborconstant("ANI_FOLLOW2"));
+	}
+	else if (frame == 30 && p3 != NULL()){
+	performattack(p3, openborconstant("ANI_FOLLOW2"));
+	}
+@end_script
 	loop	0
 	delay	100
 	offset	160 50
@@ -144,33 +230,49 @@ anim	follow3
 	@cmd	clearL
 	frame	data/bgs/beyond/lvl19/bck/sp00.gif
 	delay	80
-	frame	data/bgs/beyond/lvl19/bck/sp00.gif #4
+	drawmethod 256 256 0 0 0 0 1
+	frame	data/bgs/beyond/lvl19/bck/sp03.gif #4
+	nodrawmethod
 	frame	data/bgs/beyond/lvl19/bck/sp03.gif
-	frame	data/bgs/beyond/lvl19/bck/sp00.gif
+	drawmethod 256 256 0 0 0 0 1
+	frame	data/bgs/beyond/lvl19/bck/sp03.gif
+	nodrawmethod
 	frame	data/bgs/beyond/lvl19/bck/sp03.gif
 	@cmd	looper 4 3
-	frame	data/bgs/beyond/lvl19/bck/sp00.gif
+	frame	data/bgs/beyond/lvl19/bck/sp03.gif
 	frame	data/bgs/beyond/lvl19/bck/sp03.gif 
 	delay	30
-	frame	data/bgs/beyond/lvl19/bck/sp00.gif #10
+	drawmethod 256 256 0 0 0 0 1
+	frame	data/bgs/beyond/lvl19/bck/sp03.gif #10
+	nodrawmethod
 	frame	data/bgs/beyond/lvl19/bck/sp03.gif
-	frame	data/bgs/beyond/lvl19/bck/sp00.gif
+	drawmethod 256 256 0 0 0 0 1
+	frame	data/bgs/beyond/lvl19/bck/sp03.gif
+	nodrawmethod
 	frame	data/bgs/beyond/lvl19/bck/sp03.gif
 	@cmd	looper 10 13
-	frame	data/bgs/beyond/lvl19/bck/sp00.gif
+	frame	data/bgs/beyond/lvl19/bck/sp03.gif
 	frame	data/bgs/beyond/lvl19/bck/sp03.gif
 	delay	10
-	frame	data/bgs/beyond/lvl19/bck/sp00.gif #16
+	drawmethod 256 256 0 0 0 0 1
+	frame	data/bgs/beyond/lvl19/bck/sp03.gif #16
+	nodrawmethod
 	frame	data/bgs/beyond/lvl19/bck/sp03.gif
-	frame	data/bgs/beyond/lvl19/bck/sp00.gif
+	drawmethod 256 256 0 0 0 0 1
+	frame	data/bgs/beyond/lvl19/bck/sp03.gif
+	nodrawmethod
 	frame	data/bgs/beyond/lvl19/bck/sp03.gif
 	@cmd	looper 16 23
-	frame	data/bgs/beyond/lvl19/bck/sp00.gif
+	frame	data/bgs/beyond/lvl19/bck/sp03.gif
 	frame	data/bgs/beyond/lvl19/bck/sp03.gif
 	delay	5
-	frame	data/bgs/beyond/lvl19/bck/sp00.gif #22
+	drawmethod 256 256 0 0 0 0 1
+	frame	data/bgs/beyond/lvl19/bck/sp03.gif #22
+	nodrawmethod
 	frame	data/bgs/beyond/lvl19/bck/sp03.gif
-	frame	data/bgs/beyond/lvl19/bck/sp00.gif
+	drawmethod 256 256 0 0 0 0 1
+	frame	data/bgs/beyond/lvl19/bck/sp03.gif
+	nodrawmethod
 	frame	data/bgs/beyond/lvl19/bck/sp03.gif
 	@cmd	looper 22 43
 	frame	data/bgs/beyond/lvl19/bck/sp00.gif
@@ -189,11 +291,7 @@ anim	follow3
 	frame	data/bgs/beyond/lvl19/bck/sp00.gif
 
 
-
-
-
-
-
-
+#drawmethod {scalex} {scaley} {flipx} {flipy} 
+#{shiftx} {alpha} {remap} {fillcolor} {rotate}{fliprotate} 
 
 

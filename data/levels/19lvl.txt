@@ -2,8 +2,8 @@ music		data/music/taocafe.ogg
 
 background	data/bgs/19lvl/taotaobck.gif
 panel		data/bgs/19lvl/taotaocafe.gif
-fglayer      	data/bgs/19lvl/taotaofrt.gif 1 0 0 0 0 0 1 1 1 1
-fglayer         data/bgs/19lvl/light.gif 1000 0 0 0 -5 1 1 1 1 1 1
+fglayer      	data/bgs/19lvl/taotaofrt.gif 2000 0 0 0 0 0 1 1 1 1
+fglayer         data/bgs/19lvl/light.gif 3000 0 0 0 -5 1 1 1 1 1 1
 layer		data/bgs/19lvl/smoke.gif 180 0 0 590 0 0 0 1 1 1 1 1 2 22 1
 
 
@@ -61,7 +61,6 @@ at      0
 spawn   taotable
 flip    1
 map     1
-item    food3
 coords  1345 170
 at      0
 
@@ -92,17 +91,22 @@ coords  1400 190 190
 at      0
 
 spawn   barrel
-item    diamond
 map     3
 coords  1120 285
 at      0
 
 spawn   barrel
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+} @end_script
 map     3
 coords  1055 285
 at      0
 
 spawn   barrel
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+} @end_script
 map     3
 coords  990 285
 at      0
@@ -160,7 +164,6 @@ at      20
 
 spawn   brock
 map     4
-item    lulcardx
 aggression 100
 #health  140
 coords  600 230
@@ -180,142 +183,130 @@ spawn   wylerout
 coords  485 200
 at      150
 
-
-
 #-----------------------
 blockade 470
 at 	 470
 #-----------------------
-
-group   3 3
-at      500
-wait
-at      500
-
-2pspawn   vigo
-map     1
-aggression 100
-#health  150
-coords  630 200
+spawn   swrat
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+coords  500 205
 at      500
 
-spawn   vigo
-map     2
-aggression 100
-#health  150
-coords  830 190
+spawn   swrat
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+coords  700 200
 at      500
 
-
-spawn   slay
-map     2
-aggression 100
-item       food4
-#health  230
-coords  -230 240
+spawn   swrat
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+coords  800 195
 at      500
 
-spawn   vigo
-map     3
-item    ring
-aggression 100
-#health  150
-coords  -230 240
+spawn   swrat
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+coords  900 200
 at      500
 
-
-spawn   psycho
-map     1
-aggression 100
-#health  140
-coords  630 200
+#------------------
+spawn   swrat
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+flip    1
+coords  -100 240
 at      500
 
-2pspawn   slay
-map     3
-aggression 100
-#health  240
-coords  -230 190
+spawn   swrat
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+flip    1
+coords  -150 225
 at      500
 
-3pspawn   vigo
-map     4
-item    ruby
-aggression 100
-#health  150
-coords  730 200
+spawn   swrat
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+flip    1
+coords  -250 240
 at      500
 
-#--------------------------
+spawn   swrat
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+flip    1
+coords  300 220
+at      500
+
+#-----------------------
 
 
-group      4 4
+group      3 3
 at         700
 wait
 at         700
-
-
 
 spawn   kraven
 map     2
-item    apple
-aggression 100
+aggression 10
 #health  220
-coords  -490 240
+coords  -290 240
 at      700
 
 
-spawn   ron
+spawn   malenko
+@script
+void main()
+	{
+	void self = getlocalvar("self");
+	performattack(self, openborconstant("ANI_JUMP"));
+	tossentity(self, 5, 3, 0);
+	}
+@end_script
+flip	1
 map     2
-aggression 100
-#health  120
-coords  -500 240
+aggression 10
+health  520
+coords  -130 240
 at      700
 
 spawn   ron
-aggression 100
+aggression 10
 #health  120
 coords  530 200
 at      700
 
-2pspawn   dash
+spawn   dash
 map     3
-item    moneybag
-aggression 100
-#health  210
+aggression 10
+health  310
 coords  530 190
-at      700
-
-spawn   malenko
-map     4
-item    food2
-aggression 100
-#health  220
-coords  -500 200
-at      700
-
-
-2pspawn   shion
-map     3
-aggression 100
-#health  150
-coords  530 190
-at      700
-
-3pspawn   kimberry
-map     3
-item    bannana
-aggression 100
-#health  150
-coords  -500 200
-at      700
-
-spawn   kimberry
-aggression 100
-map     4
-item    bannana
-#health  150
-coords  -490 260
 at      700
 
 
@@ -323,66 +314,87 @@ at      700
 blockade 800
 at 	 800
 #-----------------------
+#-----------------//----------
 
+group      3 3
+at         800
+wait
+at         800
 
+spawn   rodder2
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+health	1
+map     2
+coords  590 195
+at      800
+
+spawn   rodder2
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+flip    1
+health	1
+map     2
+coords  -110 210
+at      800
+
+spawn   rodder2
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+health	1
+map     2
+coords  580 235
+at      800
+
+#------------------------//-------
 
 group      4 4
 at         900
 
 spawn   meloke
 map     3
-aggression 100
+aggression 10
 item    apple2
-#health  650
+health  950
 coords  500 190
 at      900
 
 spawn   beloche
-aggression 100
-item    diamond
+aggression 10
 #health  550
 coords  490 230
 at      900
 
 spawn   fox
 map     4
-aggression 100
+aggression 10
 #health  350
 coords  510 210
 at      900
 
-spawn   bash
-map     3
-aggression 100
-item       food3
-#health  650
-coords  -670 220
-at      900
-
-
-spawn   dan
-map     3
-#health  120
-coords  -670 220
-at      900
-
 2pspawn   rashad
 map     1
-item    food4
-#health  120
+health  320
 coords  -670 220
 at      900
 
 spawn   thong
 map     1
-#health  120
+health  320
 coords  -670 220
 at      900
 
-
 spawn   ren
 map     1
-item    ruby
 #health  120
 coords  -670 220
 at      900
@@ -391,7 +403,5 @@ at      900
 #health  120
 coords  -670 220
 at      900
-
-
 
 

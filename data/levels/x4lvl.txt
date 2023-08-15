@@ -1,0 +1,132 @@
+#music		data/music/pitt3.ogg
+bossmusic	data/music/pitt3b.ogg
+
+background      data/bgs/4lvl/pittback.gif
+panel		data/bgs/4lvl/PittRing.gif
+fglayer    	data/bgs/4lvl/pfront1.gif 10 0 0 0 0 0 0 1 1 1
+fglayer    	data/bgs/4lvl/front2.gif 700 0 0 1190 395 0 0 1 1 1
+
+direction       right
+light  		10   -30
+at       	0
+settime         0
+notime          1
+noslow          0
+order		a
+spawn1  	150 30
+spawn2  	145 35
+spawn3  	165 50
+
+cameraoffset            0 -70
+cameratype              1
+
+#----------------------------------------
+wall    1160 380 150 150 455 455 130 60
+wall    1160 429 0 0 490 490 50 5000
+wall    1455 380 150 150 290 290 130 5000
+wall    1130 380 110 110 180 180 130 130
+wall    1190 380 -70 -70 50 50 130 60
+#----------------------------------------
+
+spawn	croud
+coords	0 0
+at	0
+
+spawn	croud
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+} @end_script
+coords	1200 320
+at	0
+
+spawn   disco02
+flip    1
+coords	0 410 140
+at	0
+
+spawn   bar07
+flip    1
+coords	-55 -10
+at	0
+
+spawn   bar07
+flip    1
+coords	1370 -20
+at	0
+
+spawn   bar04
+flip    1
+coords	490 380
+at	0
+
+spawn   bar04
+flip    1
+map     1
+coords	220 425
+at	0
+
+spawn   bar04
+flip    1
+map     2
+coords	910 425
+at	0
+
+
+#------------------
+spawn   grfmon
+coords  500 302
+at      0
+
+#---------------------
+
+spawn   barrel
+flip    1
+item    money1
+coords  1030 320
+at      0
+
+spawn   barrel
+flip    1
+item    money1
+coords  1100 320
+at      0
+
+spawn   barrel
+flip    1
+item    food1
+coords  1110 350
+at      0
+
+spawn   barrel
+flip    1
+item    diamond
+coords  1110 380
+at      0
+
+spawn   barrel
+flip    1
+item    gold
+coords  1135 400
+at      0
+
+#-------------------
+
+group   2 2
+at      1070
+
+spawn   wall1
+health  5000
+coords  140 410
+at      1070
+
+spawn   griff
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW20"));
+} @end_script
+health  1400
+aggression 180
+boss    1
+coords  545 330 180
+at      1070
+
+

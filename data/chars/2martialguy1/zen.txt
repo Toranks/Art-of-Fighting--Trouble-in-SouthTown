@@ -1,6 +1,6 @@
 name          zen
 type          enemy
-health        240
+health        330
 speed         9
 jumpheight    5
 jumpmove       0  4
@@ -10,13 +10,14 @@ blockodds     1
 thold         80
 shadow        0
 noquake       1
-nolife        1
 falldie	      2
 nodieblink    1
 gfxshadow     1
 dust            dust
 projectilehit enemy obstacle
 diesound      data/sounds/bguyc06.wav
+icon		data/chars/2martialguy1/icon.gif
+icondie		data/chars/2martialguy1/icond.gif
 animationscript data/scripts/escript.c
 
 
@@ -41,7 +42,7 @@ alternatepal       data/chars/2martialguy1/map6.gif
    int jp = 1;   //----jump velocity
 
 
-if(anim != openborconstant("ANI_DIE") || anim != openborconstant("ANI_FALL") || anim != openborconstant("ANI_RISE") || anim != openborconstant("ANI_JUMP"))
+if(anim == openborconstant("ANI_WALK") || anim == openborconstant("ANI_RUN"))
 {
 	float Hy;
 	if(Dir==0)
@@ -54,9 +55,9 @@ if(anim != openborconstant("ANI_DIE") || anim != openborconstant("ANI_FALL") || 
 
 	if(Hy > 1 && a <= 7 && hp > 0)
 	{
-	performattack(self,openborconstant("ANI_JUMP"));
-	changeentityproperty(self, "velocity", 0, 0, 0);
+	//changeentityproperty(self, "velocity", 0, 0, 0);
 	tossentity(self, 4, jp, 0);
+	performattack(self,openborconstant("ANI_JUMP"));
 	}
 }
 @end_script
@@ -98,7 +99,7 @@ anim	follow15
         frame   data/chars/2martialguy1/b201.gif
         frame   data/chars/2martialguy1/b201.gif
         frame   data/chars/2martialguy1/b202.gif
-	attack     102 112 89 71 25 1 1 0 10
+	attack     102 112 89 71 25 1 1 0 40
         frame   data/chars/2martialguy1/b202.gif
         frame   data/chars/2martialguy1/b202.gif
         frame   data/chars/2martialguy1/b202.gif
@@ -153,7 +154,7 @@ anim	attack2
 	sound	data/sounds/bguye2.wav
 	frame	data/chars/2martialguy1/a102.gif
 	frame	data/chars/2martialguy1/a103.gif
-	attack	114 91 90 31 9 1 0 0 10 0
+	attack	114 91 90 31 9 1 0 0 40 0
 	frame	data/chars/2martialguy1/a104.gif
 	delay	8
 	attack	0 0 0 0
@@ -184,7 +185,7 @@ anim	attack3
 	frame	data/chars/2martialguy1/b207.gif
 	frame	data/chars/2martialguy1/b207.gif
 	move	11
-	attack	97 153 76 40 7 1 0 0 18 0
+	attack	97 153 76 40 7 1 0 0 38 0
 	dropv	5 0.5 0
 	frame	data/chars/2martialguy1/b205.gif
 	frame	data/chars/2martialguy1/b205.gif
@@ -226,7 +227,7 @@ anim	attack4
 	frame	data/chars/2martialguy1/b201.gif
 	frame	data/chars/2martialguy1/b202.gif
 	delay	30
-	attack	102 127 85 35 10 1 0 0 18 0
+	attack	102 127 85 35 10 1 0 0 38 0
 	dropv	3 5 0
 	frame	data/chars/2martialguy1/b202.gif
 	delay	8
@@ -260,10 +261,10 @@ anim	burn
 	@cmd	spawnbind "burn1" 1 1 1
 	@cmd	spawnbind "burn2" 1 1 1
 	@cmd	spawnbind "burn3" 1 1 1
-	attack	78 98 30 45 5 1 0 0 13 0
+	attack	78 98 30 45 5 1 0 0 13 30
 	frame	data/chars/2martialguy1/fall1.gif
 	delay	15
-	attack	64 130 50 25 5 1 0 0 13 0
+	attack	64 130 50 25 5 1 0 0 13 30
 	frame	data/chars/2martialguy1/fall2.gif
 	delay	500
 	frame	data/chars/2martialguy1/fall3.gif
@@ -297,10 +298,10 @@ anim	fall
 	offset	100 190
 	bbox	0 0 0 0
 	landframe	3
-	attack	78 98 30 45 5 1 0 0 13 0
+	attack	78 98 30 45 5 1 0 0 13 30
 	frame	data/chars/2martialguy1/fall1.gif
 	delay	15
-	attack	64 130 50 25 5 1 0 0 13 0
+	attack	64 130 50 25 5 1 0 0 13 30
 	frame	data/chars/2martialguy1/fall2.gif
 	delay	500
 	frame	data/chars/2martialguy1/fall3.gif
@@ -317,13 +318,13 @@ anim	fall10
 	offset	100 190
 	bbox	80 80 50 75
 	landframe	4
-	attack	85 88 30 50 5 1 0 0 13 0
+	attack	85 88 30 50 5 1 0 0 13 30
 	frame	data/chars/2martialguy1/pain6.gif
 	delay	40
 	frame	data/chars/2martialguy1/pain7.gif
 	delay	30
 	bbox	71 125 63 30
-	attack	64 125 45 25 5 1 0 0 13 0
+	attack	64 125 45 25 5 1 0 0 13 30
 	frame	data/chars/2martialguy1/fall2.gif
 	delay	300
 	bbox	77 130 67 35
@@ -350,15 +351,16 @@ anim	fall2
 	offset	100 190
 	bbox	0 0 0 0
 	landframe	3
-	attack	85 90 35 45 5 1 0 0 13 0
+	attack	85 90 35 45 5 1 0 0 13 30
 	frame	data/chars/2martialguy1/pain7.gif
 	delay	10
-	attack	64 125 55 25 5 1 0 0 13 0
+	attack	64 125 55 25 5 1 0 0 13 30
 	frame	data/chars/2martialguy1/fall2.gif
 	attack	0 0 0 0
 	delay	300
 	frame	data/chars/2martialguy1/fall3.gif
 	delay	15
+	bbox	58 175 85 15
 	frame	data/chars/2martialguy1/fall4.gif
 	frame	data/chars/2martialguy1/fall5.gif
 	frame	data/chars/2martialguy1/fall4.gif
@@ -421,10 +423,10 @@ anim	fall9
 	bbox	0 0 0 0
 	quakeframe	2 5 5
 	landframe	2 dust
-	attack	75 105 35 45 5 1 0 0 13 0
+	attack	75 105 35 45 5 1 0 0 13 30
 	frame	data/chars/2martialguy1/fall1.gif
 	delay	350
-	attack	75 125 45 35 5 1 0 0 13 0
+	attack	75 125 45 35 5 1 0 0 13 30
 	frame	data/chars/2martialguy1/fall2.gif
 	delay	2
 	move	-4
@@ -458,7 +460,7 @@ anim	follow2
 	frame	data/chars/2martialguy1/a101.gif
 	frame	data/chars/2martialguy1/a102.gif
 	frame	data/chars/2martialguy1/a103.gif
-	attack	114 91 90 31 22 1 1 0 10
+	attack	114 91 90 31 22 1 1 0 40
 	frame	data/chars/2martialguy1/a104.gif
 	delay	8
 	attack	0 0 0 0

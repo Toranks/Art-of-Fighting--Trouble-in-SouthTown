@@ -1,17 +1,18 @@
 music		data/music/base3.ogg
 
-background	data/bgs/48lvl/back.gif 0 -0.1
-layer      	data/bgs/48lvl/back3.gif -2000 0 -0.5 0 -31000 0 0 1 56 1
-layer      	data/bgs/48lvl/back4.gif -1000 0 -0.8 -65 -16000 0 0 1 31 1
+
+background	data/bgs/48lvl/panel.gif 0 0						
 panel		data/bgs/48lvl/panel.gif
-layer      	data/bgs/48lvl/back1.gif -500 0 -2 -65 0 0 0 -1 -1 1 0 0 0 0 0 0
-layer      	data/bgs/48lvl/back2.gif -400 0 3 75 -120 0 0 1 -1 1 0 0 0 0 0 0
 
-layer      	data/bgs/48lvl/light.gif 2000 0 -1 -65 -8500 0 -20 1 20 1 1
+fglayer      	data/bgs/48lvl/back.gif -10000 0 0 -65 -120 0 0 1 -1 1			#--0
+fglayer      	data/bgs/48lvl/back3.gif -8000 0 -0.5 0 -31000 0 0 1 -1 1		#--1
+fglayer      	data/bgs/48lvl/back4.gif -7000 0 -0.8 -65 -16000 0 0 1 -1 1		#--2
+fglayer      	data/bgs/48lvl/back1.gif -5000 0 -2 -65 0 0 0 -1 -1 1 0 0 0 0 0 0	#--3
+fglayer      	data/bgs/48lvl/back2.gif -4000 0 3 75 -120 0 0 1 -1 1 0 0 0 0 0 0	#--4
+fglayer      	data/bgs/48lvl/light.gif 3000 0 -1 -65 -8500 0 -40 1 -1 1 1		#--5
+fglayer      	data/bgs/48lvl/front2.gif 2000 0 -2 -65 -120 0 0 1 -1 1			#--6
 
-fglayer      	data/bgs/48lvl/front1.gif 100 0 1 -65 160 5 5 1 1 1
-fglayer      	data/bgs/48lvl/front2.gif 200 0 -2 -65 -120 0 0 1 -1 1
-
+fglayer      	data/bgs/48lvl/front1.gif 1000 0 1 -65 160 5 5 1 1 1
 
 
 direction       up
@@ -22,14 +23,13 @@ notime          1
 noslow          0
 order		a
 spawn1  	190 50
-spawn2  	145 50
-spawn3  	185 50
+spawn2  	195 50
+spawn3  	200 50
 
 
 cameraoffset            0 -70
-cameratype              1
+cameratype              0
 
-bgspeed		1 0
 
 
 #--------------------------
@@ -49,6 +49,11 @@ map     1
 coords  -62 -255
 at      0
 #--------------------------
+#-------//-badbreak---//--------
+spawn   badbreak
+coords  50 250
+at      0
+#-------//-badbreak---//--------
 
 spawn   barrel
 flip    1
@@ -67,9 +72,10 @@ group 1 1
 at    0
 
 spawn   ghost1
-coords  250 220 400
+coords  -450 220 400
 at      0
 
+--------------------------
 #--------------------------
 
 group 3 3
@@ -84,7 +90,7 @@ coords  115 230 320
 at      0
 
 spawn   ghost1
-coords  250 220 400
+coords  -450 220 400
 at      0
 
 
@@ -93,12 +99,12 @@ at      0
    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW15"));
 } @end_script
 map	1
-health  210
+#health  210
 coords  250 200 400
 at      0
 
 spawn   ghost1
-coords  250 220 400
+coords  -250 220 400
 at      0
 
 
@@ -107,13 +113,13 @@ spawn   ironman
    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW15"));
 } @end_script
 map     1
-health  190
+#health  190
 coords  240 234 400
 at      0
 
 
 spawn   ghost1
-coords  250 220 400
+coords  -250 220 400
 at      0
 
 
@@ -122,8 +128,7 @@ at      0
    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW15"));
 } @end_script
 map     1
-health  170
-item    5neckl
+#health  170
 coords  350 234 400
 at      0
 
@@ -133,28 +138,201 @@ spawn   heiderna
    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW15"));
 } @end_script
 map     1
-health  90
+#health  90
 flip    1
 item    bannana
 coords  115 230 400
 at      0
 
 
-#-------------------
+#--------------------------//---------TEST------//-------------1
+#--------------------------//---------TEST------//-------------1
+#-----------------//----ELEV-STOP------//----------------------1
+
 group 1 1
 at    0
 
-
-spawn   ghost2
-coords  250 220 400
+spawn   ghosttime
+health  2
+coords  -200 220
 at      0
+
+spawn   ghosttime
+health  10
+coords  -200 220
+at      0
+
+#-----------------//----////-----------//--------------------
+#--------------PRETOIL-TIME-------//-----------------//------
+spawn   petroil 
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+map     1
+coords  150 190 #----------------------------------------------------------//--///--nr
+at      0
+
+spawn   ghosttime
+health  8
+coords  -200 220
+at      0
+
+spawn   petroil 
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+map     1
+coords  235 215 #----------------------------------------------------------//--///--nr
+at      0
+
+spawn   ghosttime
+health  8
+coords  -200 220
+at      0
+
+spawn   elevat1
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+health	35
+coords  -600 0
+at      0
+
+spawn   petroil 
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+map     1
+coords  420 245 #----------------------------------------------------------//--///--nr
+at      0
+
+spawn   ghosttime
+health  8
+coords  -200 220
+at      0
+
+spawn   petroil 
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+map     1
+coords  60 230 #----------------------------------------------------------//--///--nr
+at      0
+
+spawn   ghosttime
+health  8
+coords  -200 220
+at      0
+
+
+spawn   petroil 
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+map     1
+coords  235 200 #----------------------------------------------------------//--///--nr
+at      0
+
+spawn   ghosttime
+health  8
+coords  -200 220
+at      0
+
+spawn   petroil 
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+map     1
+coords  40 245 #----------------------------------------------------------//--///--nr
+at      0
+
+spawn   ghosttime
+health  8
+coords  -200 220
+at      0
+
+spawn   petroil 
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+map     1
+coords  450 250 #----------------------------------------------------------//--///--nr
+at      0
+
+spawn   ghosttime
+health  8
+coords  -200 220
+at      0
+
+
+spawn   petroil 
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+map     1
+coords  200 200 #----------------------------------------------------------//--///--nr
+at      0
+
+spawn   ghosttime
+health  15
+coords  -200 220
+at      0
+
+#-----------------//----ELEV-MOVE------//-------------------------------
+spawn   elevat1
+@script
+void main() {
+
+	performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+
+	changelayerproperty("fglayer",0, "zratio",1);
+	changelayerproperty("fglayer",1, "zratio",-1.5);
+	changelayerproperty("fglayer",2, "zratio",-1.8);
+	changelayerproperty("fglayer",3, "zratio",-3);
+	changelayerproperty("fglayer",4, "zratio",4);
+	changelayerproperty("fglayer",5, "zratio",-2);
+	changelayerproperty("fglayer",5, "zrepeat", -120);
+	changelayerproperty("fglayer",6, "zratio",-3);
+}
+@end_script
+health  120
+coords  1 1
+at      0
+
+spawn   ghosttime
+health  15
+coords  -200 220
+at      0
+#-----------------//----///---------------//----------------------1
+#-----------------//----LEVEL-GO------//----------------------1
+#--------------------------//---------TEST------//--------------------1
+#--------------------------//---------TEST------//--------------------1
+
 
 #-------------------
 group 3 3
 at    0
 
 spawn   ghost1
-coords  250 220 400
+coords  -250 220 400
 at      0
 
 spawn   donna
@@ -162,13 +340,12 @@ spawn   donna
    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW15"));
 } @end_script
 map     1
-health  160
-item    5bill
+#health  160
 coords  250 200 400
 at      0
 
 spawn   ghost1
-coords  250 220 400
+coords  -250 220 400
 at      0
 
 
@@ -177,7 +354,7 @@ spawn   schnell
    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW15"));
 } @end_script
 map     1
-health  210
+#health  210
 item    apple
 coords  240 234 400
 at      0
@@ -193,7 +370,7 @@ at      0
 
 
 spawn   ghost1
-coords  250 220 400
+coords  -250 220 400
 at      0
 
 
@@ -202,18 +379,18 @@ spawn   trevor
    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW15"));
 } @end_script
 map     2
-health  110
+#health  110
 flip    1
 coords  115 230 400
 at      0
 
 
 spawn   ghost1
-coords  250 220 400
+coords  -250 220 400
 at      0
 
 spawn   ghost2
-coords  250 220 400
+coords  -250 220 400
 at      0
 
 
@@ -222,7 +399,7 @@ at      0
    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW15"));
 } @end_script
 map     2
-health  120
+#health  120
 coords  250 200 400
 at      0
 
@@ -232,7 +409,7 @@ at      0
    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW15"));
 } @end_script
 map     3
-health  120
+#health  120
 coords  240 234 400
 at      0
 
@@ -241,18 +418,221 @@ spawn   schnell
    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW15"));
 } @end_script
 map     2
-item    1up
-health  210
+#health  210
 coords  240 234 400
 at      0
 
 #-----------------------
+#--------------------------//---------TEST------//--------------------2
+#--------------------------//---------TEST------//--------------------2
+#-----------------//----ELEV-STOP------//----------------------2
+
 group 1 1
 at    0
 
-spawn   ghost2
-coords  250 220 400
+spawn   ghosttime
+health  2
+coords  -200 220
 at      0
+
+spawn   ghosttime
+health  10
+coords  -200 220
+at      0
+#-----------------//----////-----------//----------------------
+#--------------PRETOIL-TIME-------//-----------------//------
+spawn   petroil 
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+map     1
+coords  300 210 #----------------------------------------------------------//--///--nr
+at      0
+
+spawn   ghosttime
+health  8
+coords  -200 220
+at      0
+
+spawn   petroil 
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+map     1
+coords  140 235 #----------------------------------------------------------//--///--nr
+at      0
+
+spawn   ghosttime
+health  8
+coords  -200 220
+at      0
+
+spawn   elevat1
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+health	45
+coords  -600 0
+at      0
+
+spawn   petroil 
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+map     1
+coords  400 240 #----------------------------------------------------------//--///--nr
+at      0
+
+spawn   ghosttime
+health  8
+coords  -200 220
+at      0
+
+spawn   petroil 
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+map     1
+coords  140 190 #----------------------------------------------------------//--///--nr
+at      0
+
+spawn   ghosttime
+health  8
+coords  -260 220
+at      0
+
+spawn   petroil 
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+map     1
+coords  350 240 #----------------------------------------------------------//--///--nr
+at      0
+
+spawn   ghosttime
+health  8
+coords  -200 220
+at      0
+
+spawn   petroil
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+map     1
+coords  200 230 #----------------------------------------------------------//--///--nr
+at      0
+
+spawn   ghosttime
+health  8
+coords  -200 220
+at      0
+
+
+spawn   petroil 
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+map     1
+coords  60 250 #----------------------------------------------------------//--///--nr
+at      0
+
+spawn   ghosttime
+health  8
+coords  -200 220
+at      0
+
+spawn   petroil 
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+map     1
+coords  200 190 #----------------------------------------------------------//--///--nr
+at      0
+
+spawn   ghosttime
+health  8
+coords  -200 220
+at      0
+
+spawn   petroil 
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+map     1
+coords  350 240 #----------------------------------------------------------//--///--nr
+at      0
+
+spawn   ghosttime
+health  8
+coords  -200 220
+at      0
+
+spawn   petroil
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+map     1
+coords  250 240 #----------------------------------------------------------//--///--nr
+at      0
+
+spawn   ghosttime
+health  15
+coords  -200 220
+at      0
+
+
+#-----------------//----ELEV-MOVE------//-------------------------------
+
+spawn   elevat1
+@script
+void main() {
+
+	performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+
+	changelayerproperty("fglayer",0, "zratio",-2);
+	changelayerproperty("fglayer",1, "zratio",-2.5);
+	changelayerproperty("fglayer",2, "zratio",-2.8);
+	changelayerproperty("fglayer",2, "zrepeat", 20);
+	changelayerproperty("fglayer",3, "zratio",-4);
+	changelayerproperty("fglayer",4, "zratio",5);
+	changelayerproperty("fglayer",5, "zratio",-3);
+	changelayerproperty("fglayer",6, "zratio",-4);
+}
+@end_script
+health  120
+coords  1 1
+at      0
+
+spawn   ghosttime
+health  15
+coords  -200 220
+at      0
+#-----------------//----///---------------//----------------------
+#-----------------//----LEVEL-GO------//----------------------2
+#--------------------------//---------TEST------//--------------------2
+#--------------------------//---------TEST------//--------------------2
 
 #-----------------------
 group 4 4
@@ -264,12 +644,12 @@ spawn   kmi
    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW15"));
 } @end_script
 map     1
-health  90
+#health  90
 coords  350 234 400
 at      0
 
-spawn   ghost2
-coords  250 220
+spawn   ghost1
+coords  -250 220
 at      0
 
 
@@ -278,7 +658,7 @@ spawn   kmi
    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW15"));
 } @end_script
 map     2
-health  100
+#health  100
 flip    1
 coords  115 230 400
 at      0
@@ -289,12 +669,12 @@ at      0
    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW15"));
 } @end_script
 map     3
-health  90
+#health  90
 coords  250 200 400
 at      0
 
 spawn   ghost1
-coords  250 220
+coords  -250 220
 at      0
 
 
@@ -303,7 +683,7 @@ spawn   kraven
    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW15"));
 } @end_script
 map     2
-health  170
+#health  170
 item    cheese
 coords  240 234 400
 at      0
@@ -314,13 +694,13 @@ at      0
    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW15"));
 } @end_script
 map     2
-health  120
+#health  120
 coords  350 234 400
 at      0
 
 
 spawn   ghost1
-coords  250 220
+coords  -250 220
 at      0
 
 
@@ -329,8 +709,7 @@ spawn   heiderna
    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW15"));
 } @end_script
 map     3
-health  100
-item    7donut
+#health  100
 flip    1
 coords  115 230 400
 at      0
@@ -341,7 +720,7 @@ spawn   donna
    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW15"));
 } @end_script
 map     2
-health  120
+#health  120
 coords  250 200 400
 at      0
 
@@ -353,23 +732,319 @@ at      0
 } @end_script
 map     3
 item    ring
-health  120
+#health  120
 coords  240 234 400
 at      0
 
 
 #-----------------------
+#--------------------------//---------TEST------//--------------------3
+#--------------------------//---------TEST------//--------------------3
+#-----------------//----ELEV-STOP------//----------------------3
+
 group 1 1
 at    0
 
-spawn   ghost1
-item    7burger
-coords  200 220
+spawn   ghosttime
+health  2
+coords  -200 220
 at      0
 
-spawn   ghost1
-coords  300 220 400
+spawn   ghosttime
+health  10
+coords  -200 220
 at      0
+#-----------------//----////-----------//----------------------
+#--------------PRETOIL-TIME-------//-----------------//------
+
+spawn   petroil 
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+map     1
+coords  280 220 #----------------------------------------------------------//--///--nr
+at      0
+
+spawn   ghosttime
+health  8
+coords  -200 220
+at      0
+
+spawn   petroil 
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+map     1
+coords  180 235 #----------------------------------------------------------//--///--nr
+at      0
+
+spawn   ghosttime
+health  8
+coords  -200 220
+at      0
+
+spawn   elevat1
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+health	45
+coords  -600 0
+at      0
+
+spawn   petroil 
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+map     1
+coords  300 240 #----------------------------------------------------------//--///--nr
+at      0 
+
+spawn   ghosttime
+health  8
+coords  -200 220
+at      0
+
+spawn   petroil 
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+map     1
+coords  415 240 #----------------------------------------------------------//--///--nr
+at      0
+
+spawn   ghosttime
+health  8
+coords  -200 220
+at      0
+
+spawn   petroil 
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+map     1
+coords  100 240 #----------------------------------------------------------//--///--nr
+at      0
+
+spawn   ghosttime
+health  8
+coords  -200 220
+at      0
+
+spawn   petroil 
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+map     1
+coords  240 190 #----------------------------------------------------------//--///--nr
+at      0
+
+spawn   ghosttime
+health  8
+coords  -200 220
+at      0
+
+
+spawn   petroil 
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+map     1
+coords  350 240 #----------------------------------------------------------//--///--nr
+at      0
+
+spawn   ghosttime
+health  8
+coords  -200 220
+at      0
+
+
+spawn   petroil 
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+map     1
+coords  100 240 #----------------------------------------------------------//--///--nr
+at      0
+
+spawn   ghosttime
+health  8
+coords  -200 220
+at      0
+
+
+spawn   petroil 
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+map     1
+coords  220 210 #----------------------------------------------------------//--///--nr
+at      0
+
+
+spawn   ghosttime
+health  8
+coords  -200 220
+at      0
+
+
+spawn   petroil 
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+map     1
+coords  420 250 #----------------------------------------------------------//--///--nr
+at      0 
+
+spawn   ghosttime
+health  8
+coords  -200 220
+at      0
+
+spawn   petroil 
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+map     1
+coords  45 240 #----------------------------------------------------------//--///--nr
+at      0
+
+spawn   ghosttime
+health  8
+coords  -200 220
+at      0
+
+spawn   petroil 
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+map     1
+coords  100 190 #----------------------------------------------------------//--///--nr
+at      0
+
+spawn   ghosttime
+health  8
+coords  -200 220
+at      0
+
+spawn   petroil 
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+map     1
+coords  140 250 #----------------------------------------------------------//--///--nr
+at      0
+
+spawn   ghosttime
+health  8
+coords  -200 220
+at      0
+
+
+spawn   petroil 
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+map     1
+coords  350 240 #----------------------------------------------------------//--///--nr
+at      0
+
+spawn   ghosttime
+health  8
+coords  -410 220
+at      0
+
+
+spawn   petroil 
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+map     1
+coords  100 240 #----------------------------------------------------------//--///--nr
+at      0
+
+spawn   ghosttime
+health  8
+coords  -200 220
+at      0
+
+
+spawn   petroil 
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+map     1
+coords  200 240 #----------------------------------------------------------//--///--nr
+at      0
+
+
+spawn   ghosttime
+health  15
+coords  -200 220
+at      0
+
+#-----------------//----ELEV-MOVE------//-------------------------------
+
+spawn   elevat1
+@script
+void main() {
+
+	performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+
+	changelayerproperty("fglayer",0, "zratio",-3);
+	changelayerproperty("fglayer",1, "zratio",-3.5);
+	changelayerproperty("fglayer",2, "zratio",-3.8);
+	changelayerproperty("fglayer",3, "zratio",-5);
+	changelayerproperty("fglayer",4, "zratio",6);
+	changelayerproperty("fglayer",5, "zratio",-4);
+	changelayerproperty("fglayer",6, "zratio",-5);
+}
+@end_script
+health  120
+coords  1 1
+at      0
+
+spawn   ghosttime
+health  15
+coords  -200 220
+at      0
+#-----------------//----///---------------//----------------------
+#-----------------//----LEVEL-GO------//----------------------3
+#--------------------------//---------TEST------//--------------------3
+#--------------------------//---------TEST------//--------------------3
 
 #-----------------------
 
@@ -381,7 +1056,7 @@ spawn   schnell
    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW15"));
 } @end_script
 map     3
-health  210
+#health  210
 coords  240 234 400
 at      0
 
@@ -392,22 +1067,21 @@ at      0
    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW15"));
 } @end_script
 map     4
-health  210
-item    money1
+#health  210
 coords  350 234 400
 at      0
 
 
 spawn   ghost1
-coords  200 220
+coords  -200 220
 at      0
 
 spawn   ghost2
-coords  200 220
+coords  -200 220
 at      0
 
 spawn   ghost1
-coords  200 220
+coords  -200 220
 at      0
 
 
@@ -417,7 +1091,7 @@ spawn   ironman
    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW15"));
 } @end_script
 map     4
-health  120
+#health  120
 flip    1
 coords  115 230 400
 at      0
@@ -428,12 +1102,12 @@ spawn   berret
    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW15"));
 } @end_script
 map     4
-health  210
+#health  210
 coords  250 200 400
 at      0
 
 spawn   ghost1
-coords  200 220
+coords  -200 220
 at      0
 
 
@@ -442,7 +1116,7 @@ spawn   trevor
    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW15"));
 } @end_script
 map     4
-health  210
+#health  210
 coords  240 234 400
 at      0
 
@@ -450,14 +1124,12 @@ at      0
 group 2 2
 at    0
 
-
-
 2pspawn   snake
 @script void main() {
    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW15"));
 } @end_script
 map     4
-health  110
+#health  110
 coords  350 234 400
 at      0
 
@@ -467,20 +1139,9 @@ spawn   snake
    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW15"));
 } @end_script
 map     3
-health  120
+#health  120
 flip    1
 coords  115 230 400
-at      0
-
-
-
-spawn   heiderna
-@script void main() {
-   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW15"));
-} @end_script
-map     4
-health  130
-coords  250 200 400
 at      0
 
 3pspawn   donna
@@ -488,23 +1149,474 @@ at      0
    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW15"));
 } @end_script
 map     4
-health  90
+#health  90
 coords  240 234 400
 at      0
 
 
-#-------------------
+#--------------------------//---------TEST------//--------------------4
+#--------------------------//---------TEST------//--------------------4
+#-----------------//----ELEV-STOP------//----------------------4
+
 group 1 1
 at    0
 
-spawn   ghost2
-item    5gbar
-coords  200 220
+spawn   ghosttime
+health  2
+coords  -200 220
+at      0
+
+spawn   ghosttime
+health  10
+coords  -200 220
+at      0
+#-------------------
+#-----------------//----////-----------//----------------------
+#--------------PRETOIL-TIME-------//-----------------//------
+spawn   petroil #----------
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+map     1
+coords  170 200 #----------------------------------------------------------//--///--nr
+at      0
+
+spawn   ghosttime
+health  8
+coords  -200 220
+at      0
+
+spawn   petroil #----------
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+map     1
+coords  330 240 #----------------------------------------------------------//--///--nr
+at      0
+
+spawn   ghosttime
+health  8
+coords  -200 220
+at      0
+
+spawn   elevat1
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+health	55
+coords  -600 0
+at      0
+
+spawn   petroil #----------
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+map     1
+coords  100 190  #----------------------------------------------------------//--///--nr
 at      0
 
 
+spawn   ghosttime
+health  8
+coords  -200 220
+at      0
+
+spawn   petroil #----------
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+map     1
+coords  225 225 #----------------------------------------------------------//--///--nr
+at      0
+
+spawn   ghosttime
+health  8
+coords  -200 220
+at      0
+
+spawn   petroil #----------
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+map     1
+coords  330 190 #----------------------------------------------------------//--///--nr
+at      0
+
+
+spawn   ghosttime
+health  8
+coords  -200 220
+at      0
+
+spawn   petroil #----------
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+map     1
+coords  85 230 #----------------------------------------------------------//--///--nr
+at      0
+
+spawn   ghosttime
+health  8
+coords  -200 220
+at      0
+
+spawn   petroil #----------
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+map     1
+coords  200 190 #----------------------------------------------------------//--///--nr
+at      0
+
+spawn   ghosttime
+health  8
+coords  -200 220
+at      0
+
+spawn   petroil #----------
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+map     1
+coords  320 250 #----------------------------------------------------------//--///--nr
+at      0
+
+
+spawn   ghosttime
+health  8
+coords  -200 220
+at      0
+
+spawn   petroil #----------
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+map     1
+coords  415 250 #----------------------------------------------------------//--///--nr
+at      0
+
+spawn   ghosttime
+health  8
+coords  -200 220
+at      0
+
+spawn   petroil #----------
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+map     1
+coords  200 210 #----------------------------------------------------------//--///--nr
+at      0
+
+spawn   ghosttime
+health  8
+coords  -200 220
+at      0
+
+spawn   petroil #----------
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+map     1
+coords  110 230 #----------------------------------------------------------//--///--nr
+at      0
+
+
+spawn   ghosttime
+health  8
+coords  -200 220
+at      0
+
+spawn   petroil #----------
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+map     1
+coords  350 195 #----------------------------------------------------------//--///--nr
+at      0
+
+spawn   ghosttime
+health  8
+coords  -200 220
+at      0
+
+spawn   petroil #----------
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+map     1
+coords  420 250 #----------------------------------------------------------//--///--nr
+at      0
+
+spawn   ghosttime
+health  8
+coords  -200 220
+at      0
+
+spawn   petroil #----------
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+map     1
+coords  60 240 #----------------------------------------------------------//--///--nr
+at      0
+
+
+spawn   ghosttime
+health  8
+coords  -200 220
+at      0
+
+spawn   petroil #----------
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+map     1
+coords  100 190  #----------------------------------------------------------//--///--nr
+at      0
+
+
+spawn   ghosttime
+health  8
+coords  -200 220
+at      0
+
+spawn   petroil #----------
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+map     1
+coords  425 245 #----------------------------------------------------------//--///--nr
+at      0
+
+spawn   ghosttime
+health  8
+coords  -200 220
+at      0
+
+spawn   petroil #----------
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+map     1
+coords  330 240 #----------------------------------------------------------//--///--nr
+at      0
+
+
+spawn   ghosttime
+health  8
+coords  -210 220
+at      0
+
+spawn   petroil #----------
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+map     1
+coords  85 230 #----------------------------------------------------------//--///--nr
+at      0
+
+spawn   ghosttime
+health  8
+coords  -200 220
+at      0
+
+spawn   petroil #----------
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+map     1
+coords  220 190 #----------------------------------------------------------//--///--nr
+at      0
+
+spawn   ghosttime
+health  8
+coords  -200 220
+at      0
+
+spawn   petroil #----------
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+map     1
+coords  320 250 #----------------------------------------------------------//--///--nr
+at      0
+
+
+spawn   ghosttime
+health  8
+coords  -200 220
+at      0
+
+spawn   petroil #----------
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+map     1
+coords  415 250 #----------------------------------------------------------//--///--nr
+at      0
+
+spawn   ghosttime
+health  8
+coords  -200 220
+at      0
+
+spawn   petroil #----------
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+map     1
+coords  200 210 #----------------------------------------------------------//--///--nr
+at      0
+
+spawn   ghosttime
+health  8
+coords  -200 220
+at      0
+
+spawn   petroil #----------
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+map     1
+coords  110 230 #----------------------------------------------------------//--///--nr
+at      0
+
+
+spawn   ghosttime
+health  8
+coords  -200 220
+at      0
+
+spawn   petroil #----------
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+map     1
+coords  350 195 #----------------------------------------------------------//--///--nr
+at      0
+
+spawn   ghosttime
+health  8
+coords  -200 220
+at      0
+
+spawn   petroil #----------
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+map     1
+coords  420 250 #----------------------------------------------------------//--///--nr
+at      0
+
+spawn   ghosttime
+health  8
+coords  -200 220
+at      0
+
+spawn   petroil #----------
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+map     1
+coords  60 240 #----------------------------------------------------------//--///--nr
+at      0
+
+
+spawn   ghosttime
+health  15
+coords  -200 220
+at      0
+
+#-----------------//----ELEV-MOVE------//-------------------------------
+
+spawn   elevat1
+@script
+void main() {
+
+	performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+
+	changelayerproperty("fglayer",0, "zratio",-4);
+	changelayerproperty("fglayer",1, "zratio",-4.5);
+	changelayerproperty("fglayer",1, "zrepeat", 20);
+	changelayerproperty("fglayer",2, "zratio",-4.8);
+	changelayerproperty("fglayer",3, "zratio",-6);
+	changelayerproperty("fglayer",4, "zratio",7);
+	changelayerproperty("fglayer",5, "zratio",-5);
+	changelayerproperty("fglayer",6, "zratio",-6);
+}
+@end_script
+health  120
+coords  1 1
+at      0
+
+spawn   ghosttime
+health  15
+coords  200 220
+at      0
+#-----------------//----///---------------//----------------------
+#-----------------//----LEVEL-GO------//----------------------4
+#--------------------------//---------TEST------//--------------------4
+#--------------------------//---------TEST------//--------------------4
+
+
 #-------------------
-group 3 3
+group 30 30
 at    0
 
 
@@ -513,13 +1625,12 @@ spawn   berret
    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW15"));
 } @end_script
 map     3
-item    food4
 coords  350 234 400
 at      0
 
 
 spawn   ghost1
-coords  200 220
+coords  -200 220
 at      0
 
 
@@ -528,14 +1639,14 @@ at      0
    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW15"));
 } @end_script
 map     2
-health  120
+#health  120
 item    5dime
 flip    1
 coords  115 230 400
 at      0
 
 spawn   ghost1
-coords  200 220
+coords  -200 220
 at      0
 
 
@@ -544,7 +1655,7 @@ spawn   schnell
    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW15"));
 } @end_script
 map     4
-health  200
+#health  200
 coords  250 200 400
 at      0
 
@@ -554,42 +1665,8 @@ spawn   schnell
    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW15"));
 } @end_script
 map     2
-health  170
-coords  240 234 400
-at      0
-
-
-#-------------------
-group 2 2
-at    0
-
-spawn   ghost1
-coords  200 220
-at      0
-
-spawn   ghost2
-coords  200 220
-at      0
-
-
-spawn   ironman
-@script void main() {
-   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW15"));
-} @end_script
-map     4
-health  110
-coords  350 234 400
-at      0
-
-
-spawn   ironman
-@script void main() {
-   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW15"));
-} @end_script
-map     2
-flip    1
-health  180
-coords  115 230 400
+#health  170
+coords  200 234 400
 at      0
 
 #-------------------
@@ -601,96 +1678,10 @@ item    moneybag
 coords  200 220
 at      0
 
-spawn   ghost1
-coords  300 220
-at      0
-
 #-------------------
 
-group 3 3
-at    0
-
-
-spawn   kmi
-@script void main() {
-   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW15"));
-} @end_script
-map     4
-coords  350 234 400
-at      0
-
-spawn   ghost2
-coords  250 220
-at      0
-
-
-2pspawn   kmi
-@script void main() {
-   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW15"));
-} @end_script
-flip    1
-item    cheese
-coords  115 230 400
-at      0
-
-
-spawn   kmi
-@script void main() {
-   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW15"));
-} @end_script
-map     1
-health  140
-coords  250 200 400
-at      0
 
 spawn   ghost1
-coords  250 220
+#boss    1
+coords  -200 220
 at      0
-
-spawn   kraven
-@script void main() {
-   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW15"));
-} @end_script
-map     2
-health  170
-item    5pearl
-coords  240 234 400
-at      0
-
-
-3pspawn   kraven
-@script void main() {
-   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW15"));
-} @end_script
-map     3
-health  170
-coords  350 234 400
-at      0
-
-2pspawn   kraven
-@script void main() {
-   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW15"));
-} @end_script
-map     4
-flip    1
-health  170
-coords  115 230 400
-at      0
-
-#-------------------
-
-group 1 1
-at    0
-
-spawn   ghost1
-item    1up
-coords  200 220
-at      0
-
-
-spawn   ghost2
-boss    1
-coords  200 220
-at      0
-
-

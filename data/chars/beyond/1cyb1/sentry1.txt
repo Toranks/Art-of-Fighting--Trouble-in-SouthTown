@@ -2,13 +2,12 @@ name          sentry1
 type          enemy
 subtype	      notgrab
 health        190
-speedf        1.5
+speed         12
 jumpheight    0
 throw         5 2
 throwdamage   18
 shadow        0
 cantgrab      1
-nolife        1
 falldie	      1
 nodieblink    1
 gfxshadow     1
@@ -17,7 +16,8 @@ candamage     player npc
 hostile       player npc
 projectilehit enemy obstacle
 diesound      data/sounds/xplosion.wav
-
+icon		data/chars/beyond/1cyb1/icon.gif
+icondie		data/chars/beyond/1cyb1/icond.gif
 animationscript data/scripts/escript.c
 
 alternatepal	data/chars/beyond/1cyb1/map1.gif
@@ -44,14 +44,18 @@ anim	attack1
 	frame	data/chars/beyond/1cyb1/a01.gif
 	frame	data/chars/beyond/1cyb1/a02.gif
 	frame	data/chars/beyond/1cyb1/a03.gif
-	@cmd	spawnbind4 "fdpwr1" -10 25 1 1 4
 	frame	data/chars/beyond/1cyb1/a04.gif
-	sound	data/sounds/Electricity4.wav
 	frame	data/chars/beyond/1cyb1/a05.gif
 	frame	data/chars/beyond/1cyb1/a06.gif
 	frame	data/chars/beyond/1cyb1/a07.gif
+	@cmd	spawnbind4 "fdpwr1" -10 25 1 1 4
+	frame	data/chars/beyond/1cyb1/a04.gif
+	sound	data/sounds/Electricity4.wav
+	frame	data/chars/beyond/1cyb1/a05.gif #9
+	frame	data/chars/beyond/1cyb1/a06.gif
+	frame	data/chars/beyond/1cyb1/a07.gif
 	frame	data/chars/beyond/1cyb1/a08.gif
-	@cmd	looper 5 4
+	@cmd	looper 9 4
 	frame	data/chars/beyond/1cyb1/a05.gif
 	attack	100 83 355 65 10 1 0 0 10 15
 	dropv	3 4
@@ -95,9 +99,9 @@ anim	follow4
 	delay	7
 	offset	106 189
 	bbox	80 70 55 80
-	sound	data/sounds/alien10.wav
 	frame	data/chars/beyond/1cyb1/b01.gif
 	frame	data/chars/beyond/1cyb1/b02.gif
+	sound	data/sounds/alien10.wav
 	frame	data/chars/beyond/1cyb1/b03.gif
 	frame	data/chars/beyond/1cyb1/b04.gif
 	frame	data/chars/beyond/1cyb1/b05.gif
@@ -107,16 +111,20 @@ anim	follow4
 	frame	data/chars/beyond/1cyb1/b09.gif
 	frame	data/chars/beyond/1cyb1/b10.gif
 	frame	data/chars/beyond/1cyb1/b11.gif
+	frame	data/chars/beyond/1cyb1/b08.gif
+	frame	data/chars/beyond/1cyb1/b09.gif
+	frame	data/chars/beyond/1cyb1/b10.gif
+	frame	data/chars/beyond/1cyb1/b11.gif
 	@cmd	spawnbind4 "fdpwr1" -5 1 1 2 4
 	frame	data/chars/beyond/1cyb1/b12.gif
-	frame	data/chars/beyond/1cyb1/b09.gif
+	frame	data/chars/beyond/1cyb1/b09.gif	#16
 	@cmd	targetrgt 1.5 1 1 1 0
 	@cmd	dash
 	frame	data/chars/beyond/1cyb1/b10.gif
 	sound	data/sounds/Electricity4.wav
 	frame	data/chars/beyond/1cyb1/b11.gif
 	frame	data/chars/beyond/1cyb1/b12.gif
-	@cmd	looper 12 8
+	@cmd	looper 16 8
 	frame	data/chars/beyond/1cyb1/b09.gif
 	@cmd	targetrgt 1.5 1 1 1 0
 	@cmd	dash
@@ -160,12 +168,12 @@ anim	block
 	frame	data/chars/beyond/1cyb1/idle02.gif
 	frame	data/chars/beyond/1cyb1/idle03.gif
 	frame	data/chars/beyond/1cyb1/idle04.gif
-	@cmd	dasher -2.5 0 0
+	@cmd	dasher -2 0 0
 	frame	data/chars/beyond/1cyb1/idle01.gif
 	frame	data/chars/beyond/1cyb1/idle02.gif
 	frame	data/chars/beyond/1cyb1/idle03.gif
 	frame	data/chars/beyond/1cyb1/idle04.gif
-	@cmd	dasher -1.5 0 0
+	@cmd	dasher -1 0 0
 	frame	data/chars/beyond/1cyb1/idle01.gif
 	frame	data/chars/beyond/1cyb1/idle02.gif
 	frame	data/chars/beyond/1cyb1/idle03.gif
@@ -231,7 +239,7 @@ anim	death
 		
 anim	fall7
 	delay	500
-	offset	106 189
+	offset	106 110
 	frame	data/chars/beyond/1cyb1/idle01.gif
 	frame	data/chars/beyond/1cyb1/idle01.gif
 	frame	data/chars/beyond/1cyb1/idle01.gif

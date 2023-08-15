@@ -1,20 +1,21 @@
 name          swat
 type          enemy
-health        240
-speed         14
+health        150
+speed         7
 jumpheight    4
 throw         5 2
 throwdamage   18
 blockodds     1
 nopassiveblock 1
 noquake       1
-nolife        1
 falldie	      2
 nodieblink    1
 gfxshadow     1
 dust          dust
 projectilehit enemy obstacle
 diesound      data/sounds/die12.wav
+icon		data/chars/2swat1/icon.gif
+icondie		data/chars/2swat1/icond.gif
 animationscript data/scripts/escript.c
 
 
@@ -267,6 +268,7 @@ anim	fall2
 	delay	300
 	frame	data/chars/2swat1/fall3.gif
 	delay	15
+	bbox	58 175 85 15
 	frame	data/chars/2swat1/fall4.gif
 	frame	data/chars/2swat1/fall5.gif
 	frame	data/chars/2swat1/fall4.gif
@@ -399,7 +401,10 @@ anim	idle
 	offset	100 189
 	bbox	79 97 50 91
 	frame	data/chars/2swat1/idle01.gif
+	@cmd	depost 0
+	frame	data/chars/2swat1/idle01.gif
 	@cmd	clearL
+	frame	data/chars/2swat1/idle01.gif
 	frame	data/chars/2swat1/idle01.gif
 		
 anim	pain
@@ -823,6 +828,7 @@ anim	special
 	@cmd	depost 0
 	@cmd	finish 20 1 -2 3 0 0
 	frame	data/chars/2swat1/grab05.gif
+	@cmd	clearL
 	frame	data/chars/2swat1/grab06.gif
 		
 anim	upper

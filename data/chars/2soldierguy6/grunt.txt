@@ -8,13 +8,14 @@ throw         5 2
 throwdamage   18
 shadow        0
 noquake       1
-nolife        1
 falldie	      2
 nodieblink    1
 gfxshadow     1
 dust            dust
 projectilehit enemy obstacle
 diesound      data/sounds/die1.wav
+icon		data/chars/2soldierguy6/icon.gif
+icondie		data/chars/2soldierguy6/icond.gif
 animationscript data/scripts/escript.c
 
 
@@ -42,7 +43,7 @@ alternatepal       data/chars/2soldierguy6/map5.gif
    int jp = 1;   //----jump velocity
 
 
-if(anim != openborconstant("ANI_DIE") || anim != openborconstant("ANI_FALL") || anim != openborconstant("ANI_RISE") || anim != openborconstant("ANI_JUMP"))
+if(anim == openborconstant("ANI_WALK") || anim == openborconstant("ANI_RUN"))
 {
 	float Hy;
 	if(Dir==0)
@@ -55,9 +56,9 @@ if(anim != openborconstant("ANI_DIE") || anim != openborconstant("ANI_FALL") || 
 
 	if(Hy > 1 && a <= 7 && hp > 0)
 	{
-	performattack(self,openborconstant("ANI_JUMP"));
-	changeentityproperty(self, "velocity", 0, 0, 0);
+	//changeentityproperty(self, "velocity", 0, 0, 0);
 	tossentity(self, 4, jp, 0);
+	performattack(self,openborconstant("ANI_JUMP"));
 	}
 }
 @end_script
@@ -84,7 +85,7 @@ anim	attack1
 	frame	data/chars/2soldierguy6/a06.gif
 	frame	data/chars/2soldierguy6/a07.gif
 	frame	data/chars/2soldierguy6/a04.gif
-	attack8	95 100 285 25 8 0 0 0 10 0
+	attack8	95 100 285 25 8 0 0 0 4 0
 	frame	data/chars/2soldierguy6/a07.gif
 	sound	data/sounds/gun6.wav
 	frame	data/chars/2soldierguy6/a06.gif
@@ -93,7 +94,7 @@ anim	attack1
 	frame	data/chars/2soldierguy6/a06.gif
 	frame	data/chars/2soldierguy6/a07.gif
 	frame	data/chars/2soldierguy6/a04.gif
-	attack8	95 100 285 25 8 0 0 0 10 0
+	attack8	95 100 285 25 8 0 0 0 4 0
 	frame	data/chars/2soldierguy6/a07.gif
 	sound	data/sounds/gun6.wav
 	frame	data/chars/2soldierguy6/a06.gif
@@ -102,7 +103,7 @@ anim	attack1
 	frame	data/chars/2soldierguy6/a06.gif
 	frame	data/chars/2soldierguy6/a07.gif
 	frame	data/chars/2soldierguy6/a04.gif
-	attack8	95 100 285 25 8 0 0 0 10 0
+	attack8	95 100 285 25 8 0 0 0 4 0
 	frame	data/chars/2soldierguy6/a07.gif
 	sound	data/sounds/gun6.wav
 	frame	data/chars/2soldierguy6/a06.gif
@@ -111,7 +112,7 @@ anim	attack1
 	frame	data/chars/2soldierguy6/a06.gif
 	frame	data/chars/2soldierguy6/a07.gif
 	frame	data/chars/2soldierguy6/a04.gif
-	attack8	95 100 285 25 8 1 0 0 10 0
+	attack8	95 100 285 25 8 1 0 0 4 0
 	dropv	4 3
 	frame	data/chars/2soldierguy6/a07.gif
 	sound	data/sounds/gun6.wav

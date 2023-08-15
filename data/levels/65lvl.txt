@@ -2,8 +2,8 @@ music		data/music/karatehd2.ogg
 
 background	data/bgs/65lvl/back.gif
 panel		data/bgs/65lvl/panel1.gif
-fglayer    	data/bgs/65lvl/front1.gif 1 0 0 0 0 0 0 1 1 1
-fglayer	        data/bgs/65lvl/dark.gif 8000 1 1 -10 -10 0 0 1 1 1 2 0 0 0 0 0
+fglayer    	data/bgs/65lvl/front1.gif 1000 0 0 0 0 0 0 1 1 1
+fglayer	        data/bgs/65lvl/dark.gif 6000 1 1 -10 -10 0 0 1 1 1 2 0 0 0 0 0
 fglayer	        data/bgs/65lvl/light.gif 5000 0 0 -10 -10 0 0 1 1 1 1 0 0 0 0 0
 
 direction       both
@@ -14,8 +14,8 @@ notime          1
 noslow          1
 order		a
 spawn1  	105 20
-spawn2  	145 20
-spawn3  	185 20
+spawn2  	110 20
+spawn3  	115 20
 
 
 
@@ -55,6 +55,11 @@ spawn   stgSET6
 coords  -500 515 350
 at      0
 #----------------------------------
+#-------//-badbreak---//--------
+spawn   badbreak
+coords  50 210
+at      0
+#-------//-badbreak---//--------
 
 spawn  firefly
 flip   1
@@ -99,6 +104,9 @@ coords  460 200
 at      0
 
 spawn   barrel
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+} @end_script
 map     3
 health  40
 item    food6

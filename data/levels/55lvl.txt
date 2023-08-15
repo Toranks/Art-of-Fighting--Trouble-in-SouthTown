@@ -1,9 +1,9 @@
 music         data/music/office2.ogg
 
-background 	data/bgs/55lvl/back.gif 0.3 0
+background 	data/bgs/55lvl/back.gif 0.3 0.3
 panel		data/bgs/55lvl/panel.gif
-layer		data/bgs/55lvl/light1.gif 1500 0 0 0 -5 0 0 1 1 1 1 0 0 0 0 0
-fglayer         data/bgs/55lvl/front.gif 600 0 0 0 0 0 0 1 1 1
+layer		data/bgs/55lvl/light1.gif 2200 0 0 0 -5 0 0 1 1 1 1 0 0 0 0 0
+fglayer         data/bgs/55lvl/front.gif 3000 0 0 0 0 0 0 1 1 1
 
 
 direction       both
@@ -19,8 +19,8 @@ noslow          0
 blocked         1
 order		a
 spawn1  	180 100
-spawn2  	145 110
-spawn3  	185 120
+spawn2  	185 110
+spawn3  	195 120
 
 
 cameraoffset            0 -115
@@ -81,14 +81,14 @@ at      0
 
 spawn   mdoor1
 flip    1
-health  500
+health  1500
 coords  1268 418
 at      0
 
 
 spawn   mdoor2
 flip    1
-health  100
+health  800
 coords  3397 422
 at      0
 
@@ -202,14 +202,12 @@ spawn   moneybag
 coords  3100 370 100
 at      0
 
-
 #------------------
 
 spawn   camera1
 health  25
 coords  200 370 120
 at      0
-
 
 spawn   camera1
 health  25
@@ -238,8 +236,6 @@ spawn   atenna
 map     1
 coords  -100 430
 at      0
-
-
 
 #-------begin--------------------------
 
@@ -279,13 +275,10 @@ at      20
 
 spawn   mrpink
 map     2
+item    food5
 #health  190
 coords  580 440
 at      20
-
-
-
-
 
 #--ghost-pause--to-next---
 group 1 1
@@ -326,7 +319,6 @@ spawn   copheli2
 coords  70 30
 at      350
 
-
 spawn   naomi
 #health  250
 item	bannana
@@ -347,16 +339,11 @@ item	apple2
 coords  -340 440
 at      350
 
-
 spawn   naomi
 map     2
 #health  250
 coords  -340 440
 at      350
-
-
-
-
 
 #--ghost-pause--to-next---
 group 1 1
@@ -364,7 +351,7 @@ at    350
 wait
 at    350
 
-spawn   ghosttime
+spawn   ghost1
 health  5
 coords  520 400
 at      350
@@ -384,7 +371,7 @@ map     1
 coords  -200 450
 at      480
 
-#------
+#-------------------------------------
 group 3 3
 at    490
 
@@ -438,28 +425,95 @@ spawn   ghosttime
 health  5
 coords  520 400
 at      490
+
+#--------------------------
+
+group 3 3
+at    490
+
+spawn   naomi
+item    ruby
+map     2
+#health  240
+coords  -420 450
+at      490
+
+spawn   ghosttime
+health  15
+coords  520 400
+at      490
+
+spawn   ghost1
+health  7
+coords  520 400
+at      490
+
+spawn   mrred
+#health  240
+coords  -320 450
+at      490
+
+spawn   ghost2
+health  7
+coords  520 400
+at      490
+
+spawn   mrpink
+#health  240
+coords  -420 450
+at      490
+
+spawn   elisa
+map     3
+item    apple
+#health  190
+coords  -250 470
+at      490
+
+spawn   ghosttime
+health  7
+coords  520 400
+at      490
+
+spawn   mrred
+#health  240
+coords  -320 450
+at      490
+
+spawn   ghosttime
+health  7
+coords  520 400
+at      490
+
+spawn   mrwhite
+item    apple2
+health  310
+coords  -420 450
+at      490
+
+spawn   mrpink
+#health  240
+coords  -420 450
+at      490
+
+spawn   mrwolf
+map     1
+#health  240
+coords  -320 450
+at      490
+
+spawn   mrwolf
+map     2
+#health  240
+coords  -320 450
+at      490
+
 #-----------------------------------
 scrollx  700  970
 at  710
 blockade 580
 at       710
 #-------------begin-4----------------------
-
-
-
-spawn   naomi
-map     2
-#health  240
-coords  -420 450
-at      750
-
-
-spawn   elisa
-map     3
-#health  190
-coords  -450 470
-at      750
-
 
 #--ghost-pause--to-next---
 group 1 1
@@ -743,7 +797,7 @@ at      1900
 
 spawn   mrwolf
 map     4
-#health  210
+health  510
 item	gold
 coords  -350 440
 at      1900
@@ -820,7 +874,7 @@ at      2200
 
 spawn   mrfat
 map     2
-#health  210
+health  310
 coords  -350 450
 at      2200
 
@@ -905,7 +959,7 @@ at      2700
 
 spawn   xion
 map     4
-#health  250
+health  350
 item	7donut
 coords  -320 460
 at      2700
@@ -955,7 +1009,7 @@ at      2700
 
 spawn   mrfat
 map     3
-#health  210
+health  410
 coords  -220 440
 at      2700
 
@@ -974,7 +1028,7 @@ at      2700
 
 spawn   mrwolf
 map     3
-#health  210
+health  610
 coords  -220 440
 at      2700
 
@@ -997,18 +1051,10 @@ at      2700
 group 1 1
 at    2700
 
-spawn   ghost1
-coords  0 440
-at      2700
-
 spawn   mrgreen
 map     4
 #health  250
 coords  -120 460
-at      2700
-
-spawn   ghost1
-coords  0 440
 at      2700
 
 #------------boss-show----------------------
@@ -1051,11 +1097,6 @@ spawnscript data/scripts/noscpos.c
 coords  3955 420
 at      3500
 
-spawn   ghost4
-spawnscript data/scripts/noscpos.c
-coords  3955 420
-at      3500
-
 spawn   ghost3
 spawnscript data/scripts/noscpos.c
 coords  3955 420
@@ -1068,6 +1109,12 @@ at      3500
 
 spawn   ghost1
 spawnscript data/scripts/noscpos.c
+coords  3955 420
+at      3500
+
+spawn   ghosttime
+spawnscript data/scripts/noscpos.c
+health  15
 coords  3955 420
 at      3500
 

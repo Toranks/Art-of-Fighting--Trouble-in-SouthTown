@@ -2,8 +2,8 @@ music		data/music/pitt1.ogg
 
 background	data/bgs/2lvl/in1back.gif
 panel		data/bgs/2lvl/inside2.gif
-fglayer    	data/bgs/2lvl/frontin1.gif 10 0 0 0 0 0 0 1 1 1
-fglayer		data/bgs/2lvl/light.gif 3000 0 0 0 0 0 0 1 1 1 1 0 0 0 0 0
+fglayer    	data/bgs/2lvl/frontin1.gif 5000 0 0 0 0 0 0 1 1 1
+fglayer		data/bgs/2lvl/light.gif 6000 0 0 0 0 0 0 1 1 1 1 0 0 0 0 0
 layer		data/bgs/2lvl/smoke.gif 200 0 0 915 -10 0 0 1 1 1 1 1 2 22 1
 
 mirror          1
@@ -88,56 +88,6 @@ at      0
 #--------alt-go----enemy--
 
 #-----------------------
-#-----------------------
-
-group   3 3
-at      1100
-wait
-at      1100
-
-
-spawn   kimberry
-health  200
-map     1
-aggression 100
-coords  740 230
-at      1100
-
-spawn   kimberry
-health  210
-map     4
-aggression 100
-coords  740 230
-at      1100
-
-2pspawn   shion
-health  110
-item    food1
-map     1
-aggression 100
-coords  740 230
-at      1100
-
-spawn   lucy
-health  150
-map     4
-aggression 100
-coords  740 230
-at      1100
-
-
-spawn   valarie
-health  210
-map     4
-aggression 100
-coords  740 230
-at      1100
-
-
-
-#-----------------------
-
-
 
 group   3 3
 at      1600
@@ -145,82 +95,69 @@ wait
 at      1600
 
 spawn   fatguy
-health  290
-aggression 100
+health  210
+aggression -40
 coords  740 230
 at      1600
 
 2pspawn  biff
-health  300
-aggression 100
+health  220
+aggression -40
 coords  -740 230
 at      1600
 
 2pspawn   dash
-health  210
-item    apple
+health  110
 map     1
-aggression 100
+aggression -40
 coords  740 230
 at      1600
 
 spawn   kmi
-health  200
+@script
+void main()
+	{
+	void self = getlocalvar("self");
+	performattack(self, openborconstant("ANI_JUMP"));
+	tossentity(self, 4, 3, 0);
+	}
+@end_script
+flip	1
+health  90
 map     1
-aggression 100
-coords  -740 230
+aggression -40
+coords  -100 230
 at      1600
 
 spawn   rashad
-health  110
-item    diamond
+health  90
 map     1
-aggression 100
+aggression -40
 coords  740 230
 at      1600
 
 spawn   fatguy
-health  300
+@script
+void main()
+	{
+	void self = getlocalvar("self");
+	performattack(self, openborconstant("ANI_JUMP"));
+	tossentity(self, 4, 3, 0);
+	}
+@end_script
+flip	1
+health  200
 map     2
-aggression 100
-coords  -740 230
+aggression -40
+coords  -100 230
 at      1600
 
 3pspawn   biff
-health  310
+health  190
 item    food4
 map     2
-aggression 100
+aggression -40
 coords  740 230
-at      1600
-
-spawn   dan
-health  120
-map     2
-aggression 100
-coords  740 230
-at      1600
-
-2pspawn   dan
-health  110
-map     1
-aggression 100
-coords  -740 230
-at      1600
-
-spawn   jimcombo
-health  270
-item    money1
-map     4
-aggression 100
-coords  640 230
-at      1600
-
-2pspawn   kraven
-health  230
-map     2
-aggression 100
-coords  -740 230
 at      1600
 
 
@@ -230,19 +167,27 @@ group   1 1
 at      1450
 
 spawn   kmi
-health  210
-item    1up
+@script
+void main()
+	{
+	void self = getlocalvar("self");
+	performattack(self, openborconstant("ANI_JUMP"));
+	tossentity(self, 4, 3, 0);
+	}
+@end_script
+health  100
 map     2
-aggression 100
-coords  -740 230
+flip	1
+aggression -40
+coords  -100 230
 at      1450
 
 
 spawn   dan
-health  120
+health  90
 item    food6
-aggression 100
-coords  -450 210
+aggression -40
+coords  -150 210
 at      1450
 
 
@@ -253,112 +198,218 @@ at      1450
 
 
 spawn   steroid2
-health  1700
+health  700
 map     1
 flip    1
 boss    1
-aggression 100
 coords  -310 220
 at      1450
 
 
+spawn   ghost2
+coords  -150 210
+at      1450
+
+spawn   ghost3
+coords  150 210
+at      1450
+
+
 spawn   vigo
-health  90
+@script
+void main()
+	{
+	void self = getlocalvar("self");
+	performattack(self, openborconstant("ANI_JUMP"));
+	tossentity(self, 4, -3, 0);
+	}
+@end_script
+health  70
 map     1
-aggression 100
-coords  2550 230
+aggression -40
+coords  600 230
 at      1450
 
 
 spawn   vigo
-health  90
+@script
+void main()
+	{
+	void self = getlocalvar("self");
+	performattack(self, openborconstant("ANI_JUMP"));
+	tossentity(self, 5, -3, 0);
+	}
+@end_script
+health  80
 map     2
-aggression 100
-coords  2340 200
+aggression -40
+coords  600 200
 at      1450
 
 
 spawn   vigo
-health  90
+@script
+void main()
+	{
+	void self = getlocalvar("self");
+	performattack(self, openborconstant("ANI_JUMP"));
+	tossentity(self, 4, 4, 0);
+	}
+@end_script
+flip	1
+health  70
 map     3
-item    food2
-aggression 100
-coords  -740 200
+aggression -40
+coords  -100 200
 at      1450
 
 spawn   vigo
-health  90
+@script
+void main()
+	{
+	void self = getlocalvar("self");
+	performattack(self, openborconstant("ANI_JUMP"));
+	tossentity(self, 5, 3, 0);
+	}
+@end_script
+flip	1
+health  60
 map     4
 item    money2
-aggression 100
-coords  -600 180
+aggression -40
+coords  -110 180
 at      1450
 
 spawn   vigo
-health  90
+@script
+void main()
+	{
+	void self = getlocalvar("self");
+	performattack(self, openborconstant("ANI_JUMP"));
+	tossentity(self, 4, -3, 0);
+	}
+@end_script
+health  70
 map     1
-aggression 100
-coords  750 230
+aggression -40
+coords  600 230
 at      1450
 
 
 2pspawn   vigo
-health  90
+@script
+void main()
+	{
+	void self = getlocalvar("self");
+	performattack(self, openborconstant("ANI_JUMP"));
+	tossentity(self, 4, -4, 0);
+	}
+@end_script
+flip	1
+health  80
 map     2
-aggression 100
+aggression -40
 coords  540 180
 at      1450
 
 
 3pspawn   vigo
+@script
+void main()
+	{
+	void self = getlocalvar("self");
+	performattack(self, openborconstant("ANI_JUMP"));
+	tossentity(self, 4, 4, 0);
+	}
+@end_script
+flip	1
 health  90
 map     3
-aggression 100
-coords  -740 200
+aggression -40
+coords  -140 200
 at      1450
 
 spawn   vigo
-health  90
+@script
+void main()
+	{
+	void self = getlocalvar("self");
+	performattack(self, openborconstant("ANI_JUMP"));
+	tossentity(self, 4, 3, 0);
+	}
+@end_script
+flip	1
+health  80
 map     4
-aggression 100
-coords  -600 190
+aggression -40
+coords  -120 190
 at      1450
 
 
 2pspawn   vigo
-health  90
+@script
+void main()
+	{
+	void self = getlocalvar("self");
+	performattack(self, openborconstant("ANI_JUMP"));
+	tossentity(self, 4, -4, 0);
+	}
+@end_script
+health  70
 map     1
-aggression 100
+aggression -40
 coords  750 230
 at      1450
 
 
 3pspawn   vigo
-health  90
+@script
+void main()
+	{
+	void self = getlocalvar("self");
+	performattack(self, openborconstant("ANI_JUMP"));
+	tossentity(self, 4, -3, 0);
+	}
+@end_script
+health  60
 map     2
-aggression 100
+aggression -40
 coords  540 180
 at      1450
 
 
 spawn   vigo
-health  90
-item    food4
+@script
+void main()
+	{
+	void self = getlocalvar("self");
+	performattack(self, openborconstant("ANI_JUMP"));
+	tossentity(self, 3, 3, 0);
+	}
+@end_script
+flip	1
+health  70
 map     3
-aggression 100
-coords  -740 200
+aggression -40
+coords  -140 200
 at      1450
 
 spawn   vigo
-health  90
+@script
+void main()
+	{
+	void self = getlocalvar("self");
+	performattack(self, openborconstant("ANI_JUMP"));
+	tossentity(self, 4, 3, 0);
+	}
+@end_script
+flip	1
+health  50
 item    money1
 map     4
-aggression 100
-coords  -600 190
+aggression -40
+coords  -100 190
 at      1450
-
-
-
 
 #------------------------------
 

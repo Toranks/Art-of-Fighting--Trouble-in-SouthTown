@@ -1,0 +1,89 @@
+#music		data/music/level1.ogg
+bossmusic	data/music/meloke.ogg
+
+background	data/bgs/15lvl/back.gif
+panel		data/bgs/15lvl/dojo.gif
+fglayer         data/bgs/15lvl/light.gif 1000 0 0 0 -5 1 1 1 1 1 1
+fglayer         data/bgs/15lvl/dojofront.gif 2000 -0.5 0 0 -10 1 1 1 1 1
+
+
+direction       right
+light  		10   -30
+at       	0
+settime         0
+notime          1
+noslow          0
+order		a
+spawn1  	175 60
+spawn2  	125 70
+spawn3  	125 50
+
+
+#---stuff----
+
+
+spawn   xenpot
+flip    1
+item    potfire2
+health  5
+coords  1250 210
+at      0
+
+spawn   zenpot
+flip    1
+map     3
+item    food4
+health  5
+coords  1340 215
+at      0
+
+
+spawn   xenpot
+flip    1
+item    potfire2
+health  5
+coords  1350 270
+at      0
+
+spawn   xenpot
+flip    1
+item    potfire2
+health  5
+coords  990 270
+at      0
+
+spawn   zenpot
+flip    1
+map     5
+item    food1
+health  5
+coords  1210 280
+at      0
+
+
+
+#----boss-----
+
+group   1 1
+at      1100
+
+wait
+at      1110
+
+spawn   meloke2
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW20"));
+} @end_script
+map     1
+health  750
+aggression 200
+2phealth 850
+3phealth 1000
+boss    1
+coords  530 240
+at      1100
+
+
+
+
+

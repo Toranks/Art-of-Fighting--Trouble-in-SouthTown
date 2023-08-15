@@ -59,10 +59,6 @@ void attackgrd(int RxMin, int RxMax, int RaMin, int RaMax, int Rz, void Ani)
 
 
 
-
-
-
-
 void paus0001(int iToggle, int iTime){
     //paus0001-Damon Vaughn Caskey-11022009
     //Pause or unpause action for all entities except self.
@@ -170,7 +166,7 @@ void hurt2(int Damage)
 
 
 void hurt(int Damage)
-{ // Damage opponent if health is higher than 5
+{ // Damage opponent if health is higher than 20
 	void self = getlocalvar("self");
 	void target = getentityproperty(self, "opponent");
 
@@ -1281,10 +1277,6 @@ void spawnbind4(void Name, float dx, float dy, float dz, int Dir, int Flag)
    changeentityproperty(Spawn, "map", iMap);
    bindentity(Spawn, self, dx, dz, dy, Dir, Flag);
 }
-
-
-
-
 
 
 void spawnbind5(void Name, float dx, float dy, float dz, float map)

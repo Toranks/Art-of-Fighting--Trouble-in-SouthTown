@@ -5,20 +5,23 @@ nolife  1
 noatflash 1
 shadow	6
 flash     Flash
+animationscript data/scripts/escript.c
+
+alternatepal       data/chars/misc/junk/petroilMAP1.gif
 
 
-
-
+load	lookout	
+load	explosion4
 
 
 anim	fall
 	delay	1000
 	offset	36 103
-	hitfx	data/sounds/beat5.wav
 	sound	data/sounds/klunk.wav
 	frame	data/chars/misc/junk/petroil02.gif
 		
 anim	idle
+	loop	1
 	delay	1000
 	offset	36 98
 	bbox	4 25 63 79
@@ -30,9 +33,50 @@ anim	follow1
 	loop	1
 	delay	1000
 	offset	36 98
-	bbox	0 0 0 0
+	bbox	4 25 63 79
 	platform	-10 105 10 10 85 85 20 70
-	frame	data/chars/misc/junk/petroil01.gif
+	frame	data/chars/misc/junk/petroil00.gif
+
+
 		
-#|edited by openBor Stats v 0.53
+anim	follow2
+@script
+    void self = getlocalvar("self");
+
+	if(frame >= 12)
+	{
+        damageentity(self, self, 50, 0, openborconstant("ATK_NORMAL"));
+	}
+@end_script
+	loop	1 6 10
+	delay	5
+	offset	36 145
+	bbox	0 0 0 0
+	jumpframe 2 12 0
+	landframe 10
+	platform	1 1 1 1 1 1 1 1
+	frame	data/chars/misc/junk/empty.gif
+	@cmd	spawnAni "lookout" 1 1 -1 "ANI_FOLLOW5"
+	frame	data/chars/misc/junk/empty.gif
+	delay	50
+	frame	data/chars/misc/junk/empty.gif #2
+	delay	5
+	frame	data/chars/misc/junk/empty.gif
+	frame	data/chars/misc/junk/petroil03.gif #4
+	frame	data/chars/misc/junk/petroil04.gif
+	frame	data/chars/misc/junk/petroil03.gif #6
+	frame	data/chars/misc/junk/petroil04.gif
+	frame	data/chars/misc/junk/petroil03.gif
+	frame	data/chars/misc/junk/petroil04.gif #10--------loop 1 6 10
+	delay	2
+	frame	data/chars/misc/junk/petroil03.gif #--10------land
+	@cmd	spawn01 "explosion4" 1 80 1
+	sound	data/sounds/klunk.wav
+	frame	data/chars/misc/junk/petroil04.gif #11
+	frame	data/chars/misc/junk/petroil03.gif
+	frame	data/chars/misc/junk/petroil04.gif
+
 		
+
+
+

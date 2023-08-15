@@ -1,10 +1,10 @@
 music		data/music/tdstreet.ogg
-bossmusic	data/music/tdstreetb.ogg
+bossmusic	data/music/taostreet2.ogg
 
 background	data/bgs/37lvl/stodobck.gif 0.5 0
 panel		data/bgs/37lvl/todostreet3.gif
-fglayer         data/bgs/37lvl/front.gif 200 -0.5 0 0 155 0 0 2 1 1
-layer		data/bgs/37lvl/sun.gif 500 1 0 0 0 0 0 1 1 1 1 0 0 0 0 0
+fglayer         data/bgs/37lvl/front.gif 2000 -0.5 0 0 155 0 0 2 1 1
+fglayer		data/bgs/37lvl/sun.gif 3000 1 0 0 0 0 0 1 1 1 1 0 0 0 0 0
 
 direction       right
 light  		10   -30
@@ -130,7 +130,49 @@ item    7burger
 coords  240 260
 at      0
 
+#---------------------------
+spawn   nwbar
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW8"));
+} @end_script
+map	2
+coords  90 260
+at      0
 
+spawn   nwbar
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW8"));
+} @end_script
+map	2
+coords  1220 385
+at      0
+
+spawn   nwbar
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW8"));
+} @end_script
+map	2
+coords  1370 385
+at      0
+
+spawn   nwbar
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW8"));
+} @end_script
+map	2
+item    food1
+coords  1520 385
+at      0
+
+
+spawn   nwbar
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW8"));
+} @end_script
+map	2
+coords  1670 385
+at      0
+#------------//-------------
 
 
 #----------2nd-go----------//------------------------------
@@ -174,9 +216,6 @@ spawn   stgSET2
 coords  -500 515 350
 at      0
 #-------------------
-
-
-
 #---------------------
 group   2 2
 at      640
@@ -184,10 +223,9 @@ wait
 at      640
 
 
-spawn   bash
+spawn   fox
 map     1
 #health  510
-item    food4
 aggression 100
 coords  700 270
 at      640
@@ -199,58 +237,27 @@ map     1
 aggression 100
 coords  -350 310
 at      640
-
-
-
 #-----------------------
 group   1 1
-at      900
+at      800
 wait
-at      900
+at      800
 
 spawn   ghosttime
 health  10
 coords  650 270
-at      900
+at      800
 
 spawn   runvan3
 flip    1
 coords  -180 330
-at      900
+at      800
 
 spawn   ghost1
 coords  650 270
-at      900
+at      800
 
 #----------------------
-
-group   3 3
-at      900
-wait
-at      900
-
-spawn   biff
-map     2
-#health  220
-aggression 100
-coords  650 270
-at      900
-
-spawn   fatguy
-map     2
-#health  200
-aggression 100
-coords  700 340
-at      900
-
-spawn   8ball
-map     2
-#health  180
-aggression 100
-coords  -350 310
-at      900
-
-#---------------------
 
 group   3 3
 at      1350
@@ -259,7 +266,7 @@ at      1350
 
 spawn   rider1
 #health  200
-aggression 100
+aggression 5
 coords  650 270
 at      1350
 
@@ -267,40 +274,40 @@ at      1350
 
 spawn   rider2
 #health  150
-aggression 100
+aggression 5
 coords  650 330
 at      1350
 
 
 spawn   rider3
 #health  140
-aggression 100
+aggression 5
 coords  -300 330
 at      1350
 
 
 spawn   rashad
 #health  160
-aggression 100
+aggression 5
 coords  -350 330
 at      1350
 
 spawn   rider4
 #health  200
-aggression 100
+aggression 5
 coords  650 330
 at      1350
 
 spawn   biff
 map     4
 #health  200
-aggression 100
+aggression 5
 coords  650 270
 at      1350
 
 spawn   rider1
 #health  200
-aggression 100
+aggression 5
 coords  650 270
 at      1350
 
@@ -308,7 +315,7 @@ at      1350
 
 spawn   rider2
 #health  170
-aggression 100
+aggression 5
 coords  650 330
 at      1350
 
@@ -316,7 +323,7 @@ at      1350
 spawn   fatguy
 map     4
 #health  200
-aggression 100
+aggression 5
 coords  -350 320
 at      1350
 
@@ -348,7 +355,9 @@ spawn   ghost1
 coords  650 320
 at      2000
 
-spawn   ghost1
+spawn   dan
+map     2
+health  200
 coords  650 320
 at      2000
 
@@ -368,7 +377,6 @@ at      2000
 spawn   dan
 #health  100
 map     2
-item    7cofe
 coords  -350 270
 at      2000
 
@@ -389,7 +397,6 @@ at      2000
 
 spawn   dan
 #health  100
-item    apple2
 coords  -350 270
 at      2000
 
@@ -411,7 +418,6 @@ at      2000
 spawn   dan
 map     3
 #health  100
-item    cheese
 coords  650 320
 at      2000
 
@@ -422,7 +428,8 @@ at      2000
 wait
 at      2000
 
-spawn   ghost1
+spawn   ghosttime
+health  15
 coords  650 320
 at      2000
 

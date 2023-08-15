@@ -5,13 +5,13 @@ bglayer      	data/bgs/49lvl/back.gif 0.5 0 0 0 0 0 -1 1 1 0 0 0 0 0 0
 layer		data/bgs/49lvl/back2.gif -4000 0.3 0 500 260 0 0 1 1 1 0 0 0 0 0 0
 layer      	data/bgs/49lvl/plane.gif -5000 0 0 0 350 6000 0 -1 1 1 0 0 0 0 0 1.2
 panel		data/bgs/49lvl/panel.gif
-layer		data/bgs/49lvl/front.gif 1000 0 0 0 0 0 0 -1 1 1 0 0 0 0 0 0
+layer		data/bgs/49lvl/front.gif 1200 0 0 0 0 0 0 -1 1 1 0 0 0 0 0 0
 layer		data/bgs/49lvl/fog.gif -2000 0 0 0 5 0 0 -1 1 1 1 0 0 0 0 0.2
-fglayer		data/bgs/49lvl/front2.gif 5000 -0.5 0 1450 300 450 0 4 1 1 0 0 0 0 0 0
-fglayer		data/bgs/49lvl/light1.gif 200 0 0 2820 255 0 0 1 1 1 1 0 0 0 0 0
-fglayer		data/bgs/49lvl/light2.gif 200 0 0 3250 255 0 0 1 1 1 1 0 0 0 0 0
-fglayer		data/bgs/49lvl/light1.gif 200 0 0 2660 300 0 0 1 1 1 1 0 0 0 0 0
-fglayer		data/bgs/49lvl/light2.gif 200 0 0 3420 300 0 0 1 1 1 1 0 0 0 0 0
+fglayer		data/bgs/49lvl/front2.gif 3000 -0.5 0 1450 300 450 0 4 1 1 0 0 0 0 0 0
+fglayer		data/bgs/49lvl/light1.gif 700 0 0 2820 255 0 0 1 1 1 1 0 0 0 0 0
+fglayer		data/bgs/49lvl/light2.gif 700 0 0 3250 255 0 0 1 1 1 1 0 0 0 0 0
+fglayer		data/bgs/49lvl/light1.gif 700 0 0 2660 300 0 0 1 1 1 1 0 0 0 0 0
+fglayer		data/bgs/49lvl/light2.gif 700 0 0 3420 300 0 0 1 1 1 1 0 0 0 0 0
 
 
 direction       both
@@ -22,8 +22,8 @@ notime          1
 noslow          0
 order		a
 spawn1  	190 100 250
-spawn2  	145 20
-spawn3  	185 20
+spawn2  	195 100 250
+spawn3  	200 100 250
 
 bgspeed		14 0
 cameraoffset            0 -100
@@ -45,8 +45,17 @@ spawn   stgSET4
 } @end_script
 coords  -500 515 350
 at      0
+#-----------UP-BITCH----------------------
+spawn   elevat1
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW5"));
+} @end_script
+map     2
+coords  265 610
+at      0
 #----------------------------------
 
+ #----------------------------------
 spawn   tire2
 health  3
 coords  1250 555
@@ -258,6 +267,9 @@ coords  1050 560
 at      0
 
 spawn   barrel
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+} @end_script
 map     2
 health  3
 coords  1120 560
@@ -324,11 +336,17 @@ coords  2420 550
 at      0
 
 spawn   petroil
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+} @end_script
 health  3
 coords  2480 550
 at      0
 
 spawn   petroil
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+} @end_script
 health  3
 coords  2540 550
 at      0
@@ -351,16 +369,25 @@ at      0
 
 #-
 spawn   petroil
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+} @end_script
 health  3
 coords  2460 580
 at      0
 
 spawn   petroil
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+} @end_script
 health  3
 coords  2520 580
 at      0
 
 spawn   petroil
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+} @end_script
 health  3
 coords  2590 580
 at      0
@@ -368,6 +395,12 @@ at      0
 
 #-
 spawn   petroil
+void main()
+	{
+	void self = getlocalvar("self");
+	performattack(self, openborconstant("ANI_FOLLOW1"));
+	}
+@end_script
 health  3
 coords  2480 605
 at      0
@@ -389,6 +422,9 @@ coords  2520 625
 at      0
 
 spawn   petroil
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+} @end_script
 health  3
 coords  2580 625
 at      0
@@ -551,10 +587,13 @@ blockade 2630
 at       2630
 
 #----------------
-
+#-------//-badbreak---//--------
+spawn   badbreak
+coords  650 590
+at      2700
 
 spawn   johnny
-health  2700
+health  2400
 boss    1
 coords  583 537
 at      2700

@@ -1,7 +1,8 @@
 name          graynosed
 type          enemy
 health        100
-speed         18
+mp		3000
+speed         16
 jumpheight    6
 jumpmove      0  4
 throw         5 2
@@ -9,7 +10,6 @@ throwdamage   18
 shadow        0
 noquake       1
 blockodds     1
-nolife        1
 falldie	      2
 nodieblink    1
 gfxshadow     1
@@ -20,6 +20,8 @@ hostile       player npc
 dust            dust
 projectilehit enemy obstacle
 diesound      data/sounds/alien6.wav
+icon		data/chars/beyond/1alien4/icon.gif
+icondie		data/chars/beyond/1alien4/icond.gif
 animationscript data/scripts/escript.c
 
 
@@ -468,8 +470,8 @@ anim	idle
 	delay	8
 	offset	101 190
 	bbox	85 96 39 91
-	@cmd	clearL
 	frame	data/chars/beyond/1alien4/idle01.gif
+	@cmd	clearL
 	frame	data/chars/beyond/1alien4/idle02.gif
 	frame	data/chars/beyond/1alien4/idle03.gif
 	frame	data/chars/beyond/1alien4/idle04.gif
@@ -725,6 +727,8 @@ anim	special
 	frame	data/chars/beyond/1alien4/b05.gif
 		
 anim	special2
+	energycost	10
+	mponly	1
 	loop	0
 	delay	6
 	offset	101 190

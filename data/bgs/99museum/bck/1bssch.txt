@@ -1,0 +1,713 @@
+name	1bssch
+type	npc
+health	300
+nolife	1
+nomove	1 1
+falldie	1
+nopain	1
+nodrop	2
+facing	1
+gfxshadow 1
+subject_to_minz    	0
+subject_to_maxz    	0
+subject_to_wall    	0
+subject_to_platform     0
+subject_to_obstacle     0
+subject_to_hole     	0
+subject_to_gravity     	0
+hostile	player
+setlayer 999999000
+candamage	npc
+offscreenkill	50000
+
+animationscript data/scripts/grabscript.c
+
+palette	none
+
+#--------------//---boss-choose-//-------------
+
+
+#--------------//---meloke-//-------------
+anim	idle
+	loop	1
+	delay	8
+	offset	35 35
+	bbox	15 15 40 35 400
+	counterrange 0 3 1 1
+     	followanim	1
+	frame	data/bgs/99museum/bck/1melo.gif
+	frame	data/bgs/99museum/bck/1melo.gif
+	frame	data/bgs/99museum/bck/1melo.gif
+	frame	data/bgs/99museum/bck/1melo.gif
+
+anim	follow1
+@script
+	void self = getlocalvar("self");
+	if (frame == 4)
+	{
+	jumptobranch("bss1", 1);
+	}
+@end_script
+	loop	1 6 8 
+	delay	5
+	offset	35 35
+	bbox	0 0 0 0
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 0_70_200
+	frame	data/bgs/99museum/bck/1melo.gif
+	nodrawmethod
+	frame	data/bgs/99museum/bck/1melo.gif
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 0_70_200
+	frame	data/bgs/99museum/bck/1melo.gif
+	@cmd	looper 1 10
+	frame	data/bgs/99museum/bck/1melo.gif
+	delay	100
+	frame	data/bgs/99museum/bck/1melo.gif #4
+	frame	data/bgs/99museum/bck/1melo.gif
+	delay	9000
+	frame	data/bgs/99museum/bck/1melo.gif
+
+
+#--------------//---steroid-//-------------
+
+anim	attack2
+	loop	1
+	delay	8
+	offset	35 35
+	bbox	15 15 40 35 400
+	counterrange 0 3 1 1
+     	followanim	2
+	frame	data/bgs/99museum/bck/1stero.gif
+	frame	data/bgs/99museum/bck/1stero.gif
+	frame	data/bgs/99museum/bck/1stero.gif
+	frame	data/bgs/99museum/bck/1stero.gif
+
+anim	follow2
+@script
+	void self = getlocalvar("self");
+	if (frame == 4)
+	{
+	jumptobranch("bss2", 1);
+	}
+@end_script
+	loop	1 6 8 
+	delay	5
+	offset	35 35
+	bbox	0 0 0 0
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 0_70_200
+	frame	data/bgs/99museum/bck/1stero.gif
+	nodrawmethod
+	frame	data/bgs/99museum/bck/1stero.gif
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 0_70_200
+	frame	data/bgs/99museum/bck/1stero.gif
+	@cmd	looper 1 10
+	frame	data/bgs/99museum/bck/1stero.gif
+	delay	100
+	frame	data/bgs/99museum/bck/1stero.gif #4
+	frame	data/bgs/99museum/bck/1stero.gif
+	delay	9000
+	frame	data/bgs/99museum/bck/1stero.gif
+
+#--------------//---griff-//-------------
+
+anim	attack3
+	loop	1
+	delay	8
+	offset	35 35
+	bbox	15 15 40 35 400
+	counterrange 0 3 1 1
+     	followanim	3
+	frame	data/bgs/99museum/bck/1griff.gif
+	frame	data/bgs/99museum/bck/1griff.gif
+	frame	data/bgs/99museum/bck/1griff.gif
+	frame	data/bgs/99museum/bck/1griff.gif
+
+anim	follow3
+@script
+	void self = getlocalvar("self");
+	if (frame == 4)
+	{
+	jumptobranch("bss3", 1);
+	}
+@end_script
+	loop	1 6 8 
+	delay	5
+	offset	35 35
+	bbox	0 0 0 0
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 0_70_200
+	frame	data/bgs/99museum/bck/1griff.gif
+	nodrawmethod
+	frame	data/bgs/99museum/bck/1griff.gif
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 0_70_200
+	frame	data/bgs/99museum/bck/1griff.gif
+	@cmd	looper 1 10
+	frame	data/bgs/99museum/bck/1griff.gif
+	delay	100
+	frame	data/bgs/99museum/bck/1griff.gif #4
+	frame	data/bgs/99museum/bck/1griff.gif
+	delay	9000
+	frame	data/bgs/99museum/bck/1griff.gif
+
+#--------------//---mature-vice-//-------------
+
+anim	attack4
+	loop	1
+	delay	8
+	offset	50 50
+	bbox	17 15 65 60 400
+	counterrange 0 3 1 1
+     	followanim	4
+	frame	data/bgs/99museum/bck/1matvce.gif
+	frame	data/bgs/99museum/bck/1matvce.gif
+	frame	data/bgs/99museum/bck/1matvce.gif
+	frame	data/bgs/99museum/bck/1matvce.gif
+
+anim	follow4
+@script
+	void self = getlocalvar("self");
+	if (frame == 4)
+	{
+	jumptobranch("bss4", 1);
+	}
+@end_script
+	loop	1 6 8 
+	delay	5
+	offset	50 50
+	bbox	0 0 0 0
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 0_70_200
+	frame	data/bgs/99museum/bck/1matvce.gif
+	nodrawmethod
+	frame	data/bgs/99museum/bck/1matvce.gif
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 0_70_200
+	frame	data/bgs/99museum/bck/1matvce.gif
+	@cmd	looper 1 10
+	frame	data/bgs/99museum/bck/1matvce.gif
+	delay	100
+	frame	data/bgs/99museum/bck/1matvce.gif #4
+	frame	data/bgs/99museum/bck/1matvce.gif
+	delay	9000
+	frame	data/bgs/99museum/bck/1matvce.gif
+
+
+
+#--------------//---todo-kasumi-//-------------
+
+anim	attack5
+	loop	1
+	delay	8
+	offset	50 50
+	bbox	17 15 65 60 400
+	counterrange 0 3 1 1
+     	followanim	5
+	frame	data/bgs/99museum/bck/1todkami.gif
+	frame	data/bgs/99museum/bck/1todkami.gif
+	frame	data/bgs/99museum/bck/1todkami.gif
+	frame	data/bgs/99museum/bck/1todkami.gif
+
+anim	follow5
+@script
+	void self = getlocalvar("self");
+	if (frame == 4)
+	{
+	jumptobranch("bss5", 1);
+	}
+@end_script
+	loop	1 6 8 
+	delay	5
+	offset	50 50
+	bbox	0 0 0 0
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 0_70_200
+	frame	data/bgs/99museum/bck/1todkami.gif
+	nodrawmethod
+	frame	data/bgs/99museum/bck/1todkami.gif
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 0_70_200
+	frame	data/bgs/99museum/bck/1todkami.gif
+	@cmd	looper 1 10
+	frame	data/bgs/99museum/bck/1todkami.gif
+	delay	100
+	frame	data/bgs/99museum/bck/1todkami.gif #4
+	frame	data/bgs/99museum/bck/1todkami.gif
+	delay	9000
+	frame	data/bgs/99museum/bck/1todkami.gif
+
+
+#--------------//---kagahin-//-------------
+
+anim	attack6
+	loop	1
+	delay	8
+	offset	35 35
+	bbox	15 15 40 35 400
+	counterrange 0 3 1 1
+     	followanim	6
+	frame	data/bgs/99museum/bck/1kaga.gif
+	frame	data/bgs/99museum/bck/1kaga.gif
+	frame	data/bgs/99museum/bck/1kaga.gif
+	frame	data/bgs/99museum/bck/1kaga.gif
+
+anim	follow6
+@script
+	void self = getlocalvar("self");
+	if (frame == 4)
+	{
+	jumptobranch("bss6", 1);
+	}
+@end_script
+	loop	1 6 8 
+	delay	5
+	offset	35 35
+	bbox	0 0 0 0
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 0_70_200
+	frame	data/bgs/99museum/bck/1kaga.gif
+	nodrawmethod
+	frame	data/bgs/99museum/bck/1kaga.gif
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 0_70_200
+	frame	data/bgs/99museum/bck/1kaga.gif
+	@cmd	looper 1 10
+	frame	data/bgs/99museum/bck/1kaga.gif
+	delay	100
+	frame	data/bgs/99museum/bck/1kaga.gif #4
+	frame	data/bgs/99museum/bck/1kaga.gif
+	delay	9000
+	frame	data/bgs/99museum/bck/1kaga.gif
+
+
+
+#--------------//---joe-//-------------
+
+anim	attack7
+	loop	1
+	delay	8
+	offset	35 35
+	bbox	15 15 40 35 400
+	counterrange 0 3 1 1
+     	followanim	7
+	frame	data/bgs/99museum/bck/1joe.gif
+	frame	data/bgs/99museum/bck/1joe.gif
+	frame	data/bgs/99museum/bck/1joe.gif
+	frame	data/bgs/99museum/bck/1joe.gif
+
+anim	follow7
+@script
+	void self = getlocalvar("self");
+	if (frame == 4)
+	{
+	jumptobranch("bss7", 1);
+	}
+@end_script
+	loop	1 6 8 
+	delay	5
+	offset	35 35
+	bbox	0 0 0 0
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 0_70_200
+	frame	data/bgs/99museum/bck/1joe.gif
+	nodrawmethod
+	frame	data/bgs/99museum/bck/1joe.gif
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 0_70_200
+	frame	data/bgs/99museum/bck/1joe.gif
+	@cmd	looper 1 10
+	frame	data/bgs/99museum/bck/1joe.gif
+	delay	100
+	frame	data/bgs/99museum/bck/1joe.gif #4
+	frame	data/bgs/99museum/bck/1joe.gif
+	delay	9000
+	frame	data/bgs/99museum/bck/1joe.gif
+
+
+#--------------//---jack-//-------------
+
+anim	attack8
+	loop	1
+	delay	8
+	offset	35 35
+	bbox	15 15 40 35 400
+	counterrange 0 3 1 1
+     	followanim	8
+	frame	data/bgs/99museum/bck/1jack.gif
+	frame	data/bgs/99museum/bck/1jack.gif
+	frame	data/bgs/99museum/bck/1jack.gif
+	frame	data/bgs/99museum/bck/1jack.gif
+
+anim	follow8
+@script
+	void self = getlocalvar("self");
+	if (frame == 4)
+	{
+	jumptobranch("bss8", 1);
+	}
+@end_script
+	loop	1 6 8 
+	delay	5
+	offset	35 35
+	bbox	0 0 0 0
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 0_70_200
+	frame	data/bgs/99museum/bck/1jack.gif
+	nodrawmethod
+	frame	data/bgs/99museum/bck/1jack.gif
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 0_70_200
+	frame	data/bgs/99museum/bck/1jack.gif
+	@cmd	looper 1 10
+	frame	data/bgs/99museum/bck/1jack.gif
+	delay	100
+	frame	data/bgs/99museum/bck/1jack.gif #4
+	frame	data/bgs/99museum/bck/1jack.gif
+	delay	9000
+	frame	data/bgs/99museum/bck/1jack.gif
+
+#--------------//---jon-//-------------
+
+anim	attack9
+	loop	1
+	delay	8
+	offset	35 35
+	bbox	15 15 40 35 400
+	counterrange 0 3 1 1
+     	followanim	9
+	frame	data/bgs/99museum/bck/1jon.gif
+	frame	data/bgs/99museum/bck/1jon.gif
+	frame	data/bgs/99museum/bck/1jon.gif
+	frame	data/bgs/99museum/bck/1jon.gif
+
+anim	follow9
+@script
+	void self = getlocalvar("self");
+	if (frame == 4)
+	{
+	jumptobranch("bss9", 1);
+	}
+@end_script
+	loop	1 6 8 
+	delay	5
+	offset	35 35
+	bbox	0 0 0 0
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 0_70_200
+	frame	data/bgs/99museum/bck/1jon.gif
+	nodrawmethod
+	frame	data/bgs/99museum/bck/1jon.gif
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 0_70_200
+	frame	data/bgs/99museum/bck/1jon.gif
+	@cmd	looper 1 10
+	frame	data/bgs/99museum/bck/1jon.gif
+	delay	100
+	frame	data/bgs/99museum/bck/1jon.gif #4
+	frame	data/bgs/99museum/bck/1jon.gif
+	delay	9000
+	frame	data/bgs/99museum/bck/1jon.gif
+
+#--------------//---remuinho--//-------------
+
+anim	attack10
+	loop	1
+	delay	8
+	offset	35 35
+	bbox	15 15 40 35 400
+	counterrange 0 3 1 1
+     	followanim	10
+	frame	data/bgs/99museum/bck/1rem.gif
+	frame	data/bgs/99museum/bck/1rem.gif
+	frame	data/bgs/99museum/bck/1rem.gif
+	frame	data/bgs/99museum/bck/1rem.gif
+
+anim	follow10
+@script
+	void self = getlocalvar("self");
+	if (frame == 4)
+	{
+	jumptobranch("bss10", 1);
+	}
+@end_script
+	loop	1 6 8 
+	delay	5
+	offset	35 35
+	bbox	0 0 0 0
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 0_70_200
+	frame	data/bgs/99museum/bck/1rem.gif
+	nodrawmethod
+	frame	data/bgs/99museum/bck/1rem.gif
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 0_70_200
+	frame	data/bgs/99museum/bck/1rem.gif
+	@cmd	looper 1 10
+	frame	data/bgs/99museum/bck/1rem.gif
+	delay	100
+	frame	data/bgs/99museum/bck/1rem.gif #4
+	frame	data/bgs/99museum/bck/1rem.gif
+	delay	9000
+	frame	data/bgs/99museum/bck/1rem.gif
+
+#--------------//---mr-karate-//-------------
+
+anim	attack11
+	loop	1
+	delay	8
+	offset	35 35
+	bbox	15 15 40 35 400
+	counterrange 0 3 1 1
+     	followanim	11
+	frame	data/bgs/99museum/bck/1kara.gif
+	frame	data/bgs/99museum/bck/1kara.gif
+	frame	data/bgs/99museum/bck/1kara.gif
+	frame	data/bgs/99museum/bck/1kara.gif
+
+anim	follow11
+@script
+	void self = getlocalvar("self");
+	if (frame == 4)
+	{
+	jumptobranch("bss11", 1);
+	}
+@end_script
+	loop	1 6 8 
+	delay	5
+	offset	35 35
+	bbox	0 0 0 0
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 0_70_200
+	frame	data/bgs/99museum/bck/1kara.gif
+	nodrawmethod
+	frame	data/bgs/99museum/bck/1kara.gif
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 0_70_200
+	frame	data/bgs/99museum/bck/1kara.gif
+	@cmd	looper 1 10
+	frame	data/bgs/99museum/bck/1kara.gif
+	delay	100
+	frame	data/bgs/99museum/bck/1kara.gif #4
+	frame	data/bgs/99museum/bck/1kara.gif
+	delay	9000
+	frame	data/bgs/99museum/bck/1kara.gif
+
+
+#--------------//---mr-big-//-------------
+
+anim	attack12
+	loop	1
+	delay	8
+	offset	35 35
+	bbox	15 15 40 35 400
+	counterrange 0 3 1 1
+     	followanim	12
+	frame	data/bgs/99museum/bck/1big.gif
+	frame	data/bgs/99museum/bck/1big.gif
+	frame	data/bgs/99museum/bck/1big.gif
+	frame	data/bgs/99museum/bck/1big.gif
+
+anim	follow12
+@script
+	void self = getlocalvar("self");
+	if (frame == 4)
+	{
+	jumptobranch("bss12", 1);
+	}
+@end_script
+	loop	1 6 8 
+	delay	5
+	offset	35 35
+	bbox	0 0 0 0
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 0_70_200
+	frame	data/bgs/99museum/bck/1big.gif
+	nodrawmethod
+	frame	data/bgs/99museum/bck/1big.gif
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 0_70_200
+	frame	data/bgs/99museum/bck/1big.gif
+	@cmd	looper 1 10
+	frame	data/bgs/99museum/bck/1big.gif
+	delay	100
+	frame	data/bgs/99museum/bck/1big.gif #4
+	frame	data/bgs/99museum/bck/1big.gif
+	delay	9000
+	frame	data/bgs/99museum/bck/1big.gif
+
+
+#--------------//---A-I-//-------------
+
+anim	attack13
+	loop	1
+	delay	8
+	offset	35 35
+	bbox	15 15 40 35 400
+	counterrange 0 3 1 1
+     	followanim	13
+	frame	data/bgs/99museum/bck/1ai.gif
+	frame	data/bgs/99museum/bck/1ai.gif
+	frame	data/bgs/99museum/bck/1ai.gif
+	frame	data/bgs/99museum/bck/1ai.gif
+
+anim	follow13
+@script
+	void self = getlocalvar("self");
+	if (frame == 4)
+	{
+	jumptobranch("bss13", 1);
+	}
+@end_script
+	loop	1 6 8 
+	delay	5
+	offset	35 35
+	bbox	0 0 0 0
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 0_70_200
+	frame	data/bgs/99museum/bck/1ai.gif
+	nodrawmethod
+	frame	data/bgs/99museum/bck/1ai.gif
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 0_70_200
+	frame	data/bgs/99museum/bck/1ai.gif
+	@cmd	looper 1 10
+	frame	data/bgs/99museum/bck/1ai.gif
+	delay	100
+	frame	data/bgs/99museum/bck/1ai.gif #4
+	frame	data/bgs/99museum/bck/1ai.gif
+	delay	9000
+	frame	data/bgs/99museum/bck/1ai.gif
+
+
+#--------------//---seth-//-------------
+
+anim	attack14
+	loop	1
+	delay	8
+	offset	35 35
+	bbox	15 15 40 35 400
+	counterrange 0 3 1 1
+     	followanim	14
+	frame	data/bgs/99museum/bck/1set.gif
+	frame	data/bgs/99museum/bck/1set.gif
+	frame	data/bgs/99museum/bck/1set.gif
+	frame	data/bgs/99museum/bck/1set.gif
+
+anim	follow14
+@script
+	void self = getlocalvar("self");
+	if (frame == 4)
+	{
+	jumptobranch("bss14", 1);
+	}
+@end_script
+	loop	1 6 8 
+	delay	5
+	offset	35 35
+	bbox	0 0 0 0
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 0_70_200
+	frame	data/bgs/99museum/bck/1set.gif
+	nodrawmethod
+	frame	data/bgs/99museum/bck/1set.gif
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 0_70_200
+	frame	data/bgs/99museum/bck/1set.gif
+	@cmd	looper 1 10
+	frame	data/bgs/99museum/bck/1set.gif
+	delay	100
+	frame	data/bgs/99museum/bck/1set.gif #4
+	frame	data/bgs/99museum/bck/1set.gif
+	delay	9000
+	frame	data/bgs/99museum/bck/1set.gif
+
+#--------------//---overlord-//-------------
+
+anim	attack15
+	loop	1
+	delay	8
+	offset	35 35
+	bbox	15 15 40 35 400
+	counterrange 0 3 1 1
+     	followanim	15
+	frame	data/bgs/99museum/bck/1ovl.gif
+	frame	data/bgs/99museum/bck/1ovl.gif
+	frame	data/bgs/99museum/bck/1ovl.gif
+	frame	data/bgs/99museum/bck/1ovl.gif
+
+anim	follow15
+@script
+	void self = getlocalvar("self");
+	if (frame == 4)
+	{
+	jumptobranch("bss15", 1);
+	}
+@end_script
+	loop	1 6 8 
+	delay	5
+	offset	35 35
+	bbox	0 0 0 0
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 0_70_200
+	frame	data/bgs/99museum/bck/1ovl.gif
+	nodrawmethod
+	frame	data/bgs/99museum/bck/1ovl.gif
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 0_70_200
+	frame	data/bgs/99museum/bck/1ovl.gif
+	@cmd	looper 1 10
+	frame	data/bgs/99museum/bck/1ovl.gif
+	delay	100
+	frame	data/bgs/99museum/bck/1ovl.gif #4
+	frame	data/bgs/99museum/bck/1ovl.gif
+	delay	9000
+	frame	data/bgs/99museum/bck/1ovl.gif
+
+
+
+
+#--------------//---exit-//-------------
+
+anim	attack16
+	loop	1
+	delay	8
+	offset	35 15
+	bbox	10 5 60 20 400
+	counterrange 0 3 1 1
+     	followanim	16
+	frame	data/bgs/99museum/bck/1exit.gif
+	frame	data/bgs/99museum/bck/1exit.gif
+	frame	data/bgs/99museum/bck/1exit.gif
+	frame	data/bgs/99museum/bck/1exit.gif
+
+anim	follow16
+@script
+	void self = getlocalvar("self");
+	if (frame == 4)
+	{
+	setglobalvar("bossex", 1);
+	}
+@end_script
+	loop	1 6 8 
+	delay	5
+	offset	35 15
+	bbox	0 0 0 0
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 0_70_200
+	frame	data/bgs/99museum/bck/1exit.gif
+	nodrawmethod
+	frame	data/bgs/99museum/bck/1exit.gif
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 0_70_200
+	frame	data/bgs/99museum/bck/1exit.gif
+	@cmd	looper 1 10
+	frame	data/bgs/99museum/bck/1exit.gif
+	delay	100
+	frame	data/bgs/99museum/bck/1exit.gif #4
+	frame	data/bgs/99museum/bck/1exit.gif
+	delay	9000
+	frame	data/bgs/99museum/bck/1exit.gif
+

@@ -1,6 +1,7 @@
 name          johnny
 type          enemy
-health        100
+health        1200
+mp		3000
 speed         14
 jumpheight    4
 jumpspeed     28
@@ -63,7 +64,7 @@ anim	attack1
 	move	0
 	delay	7
 	frame	data/chars/3johnny/a202.gif
-	attack	110 105 63 18 14 0 0 0 20 0
+	attack	110 105 63 18 15 0 0 0 20 0
 	frame	data/chars/3johnny/a203.gif
 	attack	0 0 0 0
 	frame	data/chars/3johnny/a201.gif
@@ -84,7 +85,7 @@ anim	follow1
 	frame	data/chars/3johnny/rise5.gif
 	frame	data/chars/3johnny/a204.gif
 	frame	data/chars/3johnny/a204.gif
-	attack	110 95 60 30 17 1 1 0 30 0
+	attack	110 95 60 30 25 1 1 0 30 0
 	dropv	5 1
 	frame	data/chars/3johnny/a206.gif
 	frame	data/chars/3johnny/a206.gif
@@ -114,7 +115,7 @@ anim	attack2
 	frame	data/chars/3johnny/b102.gif
 	frame	data/chars/3johnny/b102.gif
 	delay	12
-	attack	103 95 90 30 14 0 0 0 30 0
+	attack	103 95 90 30 15 0 0 0 30 0
 	frame	data/chars/3johnny/b103.gif
 	frame	data/chars/3johnny/b104.gif
 	move	0
@@ -138,7 +139,7 @@ anim	follow2
 	move	6
 	frame	data/chars/3johnny/b106.gif
 	frame	data/chars/3johnny/b106.gif
-	attack	105 95 85 35 17 1 1 0 35 0
+	attack	105 95 85 35 25 1 1 0 35 0
 	dropv	2 5
 	frame	data/chars/3johnny/b107.gif
 	frame	data/chars/3johnny/b107.gif
@@ -365,7 +366,7 @@ anim	attack6
 	frame	data/chars/3johnny/j02.gif
 	frame	data/chars/3johnny/j03.gif
 	delay	100
-	attack	100 120 55 55 12 0 0 0 30 0
+	attack	100 120 55 55 15 0 0 0 30 0
 	frame	data/chars/3johnny/j04.gif
 	attack	0 0 0 0
 	frame	data/chars/3johnny/j03.gif
@@ -433,6 +434,16 @@ anim	attack9
 	frame	data/chars/3johnny/rise5.gif
 		
 anim	block
+@script
+	void self = getlocalvar("self");
+	int eTime = openborvariant("elapsed_time");
+	if (frame == 8)
+	{
+	changeentityproperty(self, "invincible", 1);
+	changeentityproperty(self, "invinctime", eTime + 230);
+	changeentityproperty(self, "blink", 1);
+	}
+@end_script
 	loop	0
 	delay	2
 	offset	101 190
@@ -572,6 +583,7 @@ anim	fall2
 	delay	300
 	frame	data/chars/3johnny/fall3.gif
 	delay	15
+	bbox	58 175 85 15
 	frame	data/chars/3johnny/fall4.gif
 	frame	data/chars/3johnny/fall5.gif
 	frame	data/chars/3johnny/fall4.gif
@@ -955,18 +967,18 @@ anim	follow12
 
 
 anim	follow13
-	loop	0
-	delay	15
-	offset	101 190
-	bbox	0 0 0 0
-	jumpframe	18 8 0 0 dust
 @script
     void self = getlocalvar("self");
     if(frame==20)
 	{
 	changeentityproperty(self, "aggression", 50);
 	}
-@end_script	
+@end_script
+	loop	0
+	delay	15
+	offset	101 190
+	bbox	0 0 0 0
+	jumpframe	18 8 0 0 dust
 	frame	data/chars/3johnny/rise5.gif
 	frame	data/chars/3johnny/rise4.gif
 	delay	30
@@ -1036,18 +1048,18 @@ anim	follow13
 
 		
 anim	follow14
-	loop	0
-	delay	15
-	offset	101 190
-	bbox	0 0 0 0
-	jumpframe	18 8 0 0 dust
 @script
     void self = getlocalvar("self");
     if(frame==20)
 	{
 	changeentityproperty(self, "aggression", 60);
 	}
-@end_script	
+@end_script
+	loop	0
+	delay	15
+	offset	101 190
+	bbox	0 0 0 0
+	jumpframe	18 8 0 0 dust
 	frame	data/chars/3johnny/rise5.gif
 	frame	data/chars/3johnny/rise4.gif
 	delay	30
@@ -1117,18 +1129,18 @@ anim	follow14
 
 		
 anim	follow15
-	loop	0
-	delay	15
-	offset	101 190
-	bbox	0 0 0 0
-	jumpframe	18 8 0 0 dust
 @script
     void self = getlocalvar("self");
     if(frame==20)
 	{
 	changeentityproperty(self, "aggression", 70);
 	}
-@end_script	
+@end_script
+	loop	0
+	delay	15
+	offset	101 190
+	bbox	0 0 0 0
+	jumpframe	18 8 0 0 dust
 	frame	data/chars/3johnny/rise5.gif
 	frame	data/chars/3johnny/rise4.gif
 	delay	30
@@ -1197,18 +1209,18 @@ anim	follow15
 
 		
 anim	follow16
-	loop	0
-	delay	15
-	offset	101 190
-	bbox	0 0 0 0
-	jumpframe	18 8 0 0 dust
 @script
     void self = getlocalvar("self");
     if(frame==20)
 	{
 	changeentityproperty(self, "aggression", 80);
 	}
-@end_script	
+@end_script
+	loop	0
+	delay	15
+	offset	101 190
+	bbox	0 0 0 0
+	jumpframe	18 8 0 0 dust
 	frame	data/chars/3johnny/rise5.gif
 	frame	data/chars/3johnny/rise4.gif
 	delay	30
@@ -1276,18 +1288,18 @@ anim	follow16
 #------------//------flowers-6------//------------------
 
 anim	follow17
-	loop	0
-	delay	15
-	offset	101 190
-	bbox	0 0 0 0
-	jumpframe	18 8 0 0 dust
 @script
     void self = getlocalvar("self");
     if(frame==20)
 	{
 	changeentityproperty(self, "aggression", 90);
 	}
-@end_script	
+@end_script
+	loop	0
+	delay	15
+	offset	101 190
+	bbox	0 0 0 0
+	jumpframe	18 8 0 0 dust
 	frame	data/chars/3johnny/rise5.gif
 	frame	data/chars/3johnny/rise4.gif
 	delay	30
@@ -1541,7 +1553,7 @@ anim	follow8
 	@cmd	position 10 -10 35 1 -1
 	frame	data/chars/3johnny/1grab09.gif
 	@cmd	depost 0
-	@cmd	finish 25 1 1 3 0 -1
+	@cmd	finish 35 1 1 3 0 -1
 	delay	20
 	frame	data/chars/3johnny/1grab10.gif
 	delay	14
@@ -1741,6 +1753,8 @@ anim	idle
 	bbox	85 96 39 91
 	@cmd	jonydam
 	frame	data/chars/3johnny/idle01.gif
+	@cmd	depost 0
+	frame	data/chars/3johnny/idle01.gif
 	@cmd	clearL
 	frame	data/chars/3johnny/idle01.gif
 		
@@ -1908,6 +1922,8 @@ anim	special
 	frame	data/chars/3johnny/a204.gif
 		
 anim	special2
+	energycost	10
+	mponly	1
 	loop	0
 	delay	2
 	offset	101 190

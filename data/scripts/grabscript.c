@@ -23,7 +23,7 @@ void attackgrd(int RxMin, int RxMax, int RaMin, int RaMax, int Rz, void Ani)
         Disz = -Disz;
 	}
 
-      if( anim2 == openborconstant("ANI_FALL") || anim2 == openborconstant("ANI_FALL9") || anim2 == openborconstant("ANI_FALL10"))
+      if( anim2 == openborconstant("ANI_FALL") || anim2 == openborconstant("ANI_FALL2") || anim2 == openborconstant("ANI_FALL9") || anim2 == openborconstant("ANI_FALL10") || anim2 == openborconstant("ANI_FALL4"))
       {
       if(Disx >= RxMin && Disx <= RxMax && Disa >= RaMin && Disa <= RaMax && Disz <= Rz) // right
       	{
@@ -493,6 +493,23 @@ void finish(int Damage, int Type, int x, int y, int z, int Face)
    }
 }
 
+
+void hurt(int Damage)
+{ // Damage opponent if health is higher than 20
+	void self = getlocalvar("self");
+	void target = getentityproperty(self, "opponent");
+
+   if(target!=NULL())
+   {
+     void THealth = getentityproperty(target,"health");
+     if(THealth > 20)
+     {
+       changeentityproperty(target, "health", THealth - Damage);
+     }
+   }
+}
+
+
 void hurt2(int Damage)
 { // Damage without altering opponent's animation + less damage if opponent has less health
 // Mainly used for slams
@@ -900,23 +917,13 @@ void spawn06(void vName, int Tx, int Ty, int Tz, void Ani)
 
 void spawnAni(void vName, float fX, float fY, float fZ, void Ani)
 {
-	 //spawnB (Generic spawner) + Specific animation + velocities
-	 //Damon Vaughn Caskey + Douglas Baldan/O Ilusionista
-	 //07/06/2007 - 30/05/2013
-	 //
-	 //Spawns entity next to caller.
-	 //
-	 //vName: Model name of entity to be spawned in.
-	 //fX: X location adjustment.
-	 //fZ: Y location adjustment.
-      //fY: Z location adjustment.
 
-	 void self = getlocalvar("self"); //Get calling entity.
-	 void vSpawn; //Spawn object.
-	 int  iDirection = getentityproperty(self, "direction");
+	void self = getlocalvar("self"); //Get calling entity.
+	void vSpawn; //Spawn object.
+	int  iDirection = getentityproperty(self, "direction");
 
-	 clearspawnentry(); //Clear current spawn entry.
-      setspawnentry("name", vName); //Acquire spawn entity by name.
+	clearspawnentry(); //Clear current spawn entry.
+	setspawnentry("name", vName); //Acquire spawn entity by name.
 
 	 if (iDirection == 0){ //Is entity facing left?                  
           fX = -fX; //Reverse X direction to match facing.
@@ -1050,6 +1057,20 @@ void spawnbind3(void Name, float dx, float dy, float dz, void Ani)
    changeentityproperty(Spawn, "parent", self);
    bindentity(Spawn, self, dx, dz, dy, 0, 0);
 }
+
+
+
+void spawnbind4(void Name, float dx, float dy, float dz, int Dir, int Flag)
+{ // Spawn entity and bind it with same animation as caller
+   void self = getlocalvar("self");
+   void Spawn;
+   int iMap = getentityproperty(self,"map");
+
+   Spawn = spawn01(Name, dx, dy, dz);
+   changeentityproperty(Spawn, "map", iMap);
+   bindentity(Spawn, self, dx, dz, dy, Dir, Flag);
+}
+
 
 
 void shoot(void Shot, float dx, float dy, float dz)
@@ -1255,4 +1276,34 @@ void paus0001(int iToggle, int iTime){
             changeentityproperty(vEntity, "freezetime", iETime + iTime); //frozentime.
         }
     }    
+}
+
+
+
+void attack1(int RxMin, int RxMax, int Rz, void Ani)
+{// Attack interruption with range check
+    void self = getlocalvar("self");
+    void target = findtarget(self); //Get nearest player
+    float x = getentityproperty(self, "x");
+    float z = getentityproperty(self, "z");
+    int dir = getentityproperty(self, "direction");
+
+    if(target!=NULL()){
+      float Tx = getentityproperty(target, "x");
+      float Tz = getentityproperty(target, "z");
+      float Disx = Tx - x;
+      float Disz = Tz - z;
+
+      if(Disz < 0){
+        Disz = -Disz;
+      }
+
+      if( Disx >= RxMin && Disx <= RxMax && Disz <= Rz && dir == 1) // Target within range on right facing?
+      {
+        performattack(self, openborconstant(Ani)); //Change the animation
+      } else if( Disx >= -RxMax && Disx <= -RxMin && Disz <= Rz && dir == 0) // Target within range on left facing?
+      {
+        performattack(self, openborconstant(Ani)); //Change the animation
+      }
+    }
 }

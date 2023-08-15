@@ -1,20 +1,21 @@
 name          jimCombo
 type          enemy
 subtype       chase
-health        320
-speed         9
+health        310
+speed         8
 running	      25 3 3 1 0
 jumpheight    4
 throw         5 2
 throwdamage   18
 shadow        0
 noquake       1
-nolife        1
 falldie	      2
 nodieblink    1
 gfxshadow     1
 dust            dust
 projectilehit enemy obstacle
+icon	data/chars/1streetguy2/icon.gif
+icondie	data/chars/1streetguy2/icond.gif
 diesound      data/sounds/die2.wav
 animationscript data/scripts/escript.c
 
@@ -35,7 +36,7 @@ alternatepal       data/chars/1streetguy2/map3.gif
    int jp = 1;   //----jump velocity
 
 
-if(anim != openborconstant("ANI_DIE") || anim != openborconstant("ANI_FALL") || anim != openborconstant("ANI_RISE") || anim != openborconstant("ANI_JUMP"))
+if(anim == openborconstant("ANI_WALK") || anim == openborconstant("ANI_RUN"))
 {
 	float Hy;
 	if(Dir==0)
@@ -48,9 +49,9 @@ if(anim != openborconstant("ANI_DIE") || anim != openborconstant("ANI_FALL") || 
 
 	if(Hy > 1 && a <= 7 && hp > 0)
 	{
-	performattack(self,openborconstant("ANI_JUMP"));
-	changeentityproperty(self, "velocity", 0, 0, 0);
+	//changeentityproperty(self, "velocity", 0, 0, 0);
 	tossentity(self, 4, jp, 0);
+	performattack(self,openborconstant("ANI_JUMP"));
 	}
 }
 @end_script
@@ -91,7 +92,7 @@ anim	follow15
 	@cmd	leaper 0 5 -2
         frame   data/chars/1streetguy2/b103.gif
         frame   data/chars/1streetguy2/b104.gif
-	attack	100 95 100 50 17 1 0 0 13 0
+	attack	100 95 100 50 17 1 0 0 43 0
         frame   data/chars/1streetguy2/b105.gif
         frame   data/chars/1streetguy2/b106.gif
 	attack	0 0 0 0
@@ -106,18 +107,18 @@ anim	follow15
 anim	attack1
 	range	80 110
 	loop	0
-	delay	30
+	delay	40
 	offset	115 183
 	bbox	90 80 69 110
 	followanim	1
 	followcond	3
 	hitfx	data/sounds/beat2.wav
-	frame	data/chars/1streetguy2/idle01.gif
+	frame	data/chars/1streetguy2/idle06.gif
 	delay	6
 	offset	100 189
 	frame	data/chars/1streetguy2/a101.gif
 	frame	data/chars/1streetguy2/a102.gif
-	attack	121 106 80 20 13 0 0 0 13 0
+	attack	121 106 80 20 15 0 0 0 13 0
 	frame	data/chars/1streetguy2/a103.gif
 	attack	0 0 0 0
 	frame	data/chars/1streetguy2/a101.gif
@@ -125,12 +126,12 @@ anim	attack1
 anim	attack2
 	range	130 200
 	loop	0
-	delay	30
+	delay	40
 	offset	115 183
 	bbox	90 109 69 80
 	followanim	2
 	followcond	1
-	frame	data/chars/1streetguy2/idle01.gif
+	frame	data/chars/1streetguy2/idle06.gif
 	delay	17
 	offset	101 190
 	frame	data/chars/1streetguy2/rise6.gif
@@ -145,7 +146,7 @@ anim	attack2
 	frame	data/chars/1streetguy2/c03.gif
 	frame	data/chars/1streetguy2/c04.gif
 	frame	data/chars/1streetguy2/c04.gif
-	attack	110 100 85 80 12 0 0 0 10 0
+	attack	110 100 85 80 11 0 0 0 10 0
 	dropv	5 0 0
 	frame	data/chars/1streetguy2/c05.gif
 	frame	data/chars/1streetguy2/c05.gif
@@ -160,13 +161,13 @@ anim	attack2
 anim	attack3
 	range	200 230
 	loop	0
-	delay	30
+	delay	40
 	offset	115 183
 	bbox	90 80 69 110
 	jumpframe	1 2 4 0
 	landframe	7
 	hitfx	data/sounds/beat2.wav
-	frame	data/chars/1streetguy2/idle01.gif
+	frame	data/chars/1streetguy2/idle06.gif
 	delay	13
 	offset	100 189
 	frame	data/chars/1streetguy2/rise6.gif
@@ -176,26 +177,31 @@ anim	attack3
 	frame	data/chars/1streetguy2/b104.gif
 	frame	data/chars/1streetguy2/b105.gif
 	delay	13
-	attack	100 95 100 50 17 1 0 0 13 0
+	attack	100 95 100 50 17 1 0 0 43 0
 	frame	data/chars/1streetguy2/b106.gif
 	delay	1000
 	attack	0 0 0 0 0
 	frame	data/chars/1streetguy2/b103.gif
 	delay	10
 	frame	data/chars/1streetguy2/rise6.gif
+	frame	data/chars/1streetguy2/rise5.gif
+	frame	data/chars/1streetguy2/idle06.gif
+	frame	data/chars/1streetguy2/idle01.gif
 		
 anim	attack4
 	range	0 80
 	loop	0
-	delay	5
+	delay	35
 	offset	100 189
 	bbox	90 115 69 75
+	frame	data/chars/1streetguy2/idle06.gif
+	delay	5
 	frame	data/chars/1streetguy2/rise5.gif
 	frame	data/chars/1streetguy2/a107.gif
 	frame	data/chars/1streetguy2/a108.gif
 	frame	data/chars/1streetguy2/a109.gif
 	delay	9
-	attack	95 76 85 60 13 1 0 0 13 0
+	attack	95 76 85 60 15 1 0 0 43 0
 	frame	data/chars/1streetguy2/a110.gif
 	attack	0 0 0 0
 	frame	data/chars/1streetguy2/a111.gif
@@ -212,10 +218,10 @@ anim	burn
 	@cmd	spawnbind "burn1" 1 1 1
 	@cmd	spawnbind "burn2" 1 1 1
 	@cmd	spawnbind "burn3" 1 1 1
-	attack	89 100 29 43 5 1 0 0 13 0
+	attack	89 100 29 43 5 1 0 0 13 30
 	frame	data/chars/1streetguy2/fall1.gif
 	delay	20
-	attack	68 130 40 22 5 1 0 0 13 0
+	attack	68 130 40 22 5 1 0 0 13 30
 	frame	data/chars/1streetguy2/fall2.gif
 	attack	0 0 0 0
 	delay	300
@@ -239,10 +245,10 @@ anim	fall
 	offset	101 190
 	bbox	0 0 0 0
 	landframe	3
-	attack	89 100 29 43 5 1 0 0 13 0
+	attack	89 100 29 43 5 1 0 0 13 30
 	frame	data/chars/1streetguy2/fall1.gif
 	delay	20
-	attack	68 130 40 22 5 1 0 0 13 0
+	attack	68 130 40 22 5 1 0 0 13 30
 	frame	data/chars/1streetguy2/fall2.gif
 	attack	0 0 0 0
 	delay	300
@@ -260,17 +266,17 @@ anim	fall10
 	offset	101 190
 	bbox	80 80 50 75
 	landframe	4
-	attack	85 88 30 50 5 1 0 0 13 0
+	attack	85 88 30 50 5 1 0 0 13 30
 	frame	data/chars/1streetguy2/pain6.gif
 	delay	40
 	frame	data/chars/1streetguy2/pain7.gif
 	delay	30
 	bbox	71 125 63 30
-	attack	64 125 45 25 5 1 0 0 13 0
+	attack	64 125 45 25 5 1 0 0 13 30
 	frame	data/chars/1streetguy2/fall2.gif
 	delay	300
 	bbox	77 130 67 35
-	attack	0 0 0 0 0 0 0 0 0 0
+	attack	0 0 0 0
 	frame	data/chars/1streetguy2/fall3.gif
 	delay	15
 	bbox	58 175 85 15
@@ -294,16 +300,17 @@ anim	fall2
 	offset	101 190
 	bbox	0 0 0 0
 	landframe	3
-	attack	78 104 28 44 5 1 0 0 13
+	attack	78 104 28 44 5 1 0 0 13 30
 	frame	data/chars/1streetguy2/pain7.gif
 	delay	20
-	attack	64 134 40 22 5 1 0 0 13
+	attack	64 134 40 22 5 1 0 0 13 30
 	frame	data/chars/1streetguy2/fall2.gif
 	attack	0 0 0 0
 	delay	300
 	frame	data/chars/1streetguy2/fall3.gif
 	delay	15
 	frame	data/chars/1streetguy2/fall4.gif
+	bbox	58 175 85 15
 	frame	data/chars/1streetguy2/fall5.gif
 	frame	data/chars/1streetguy2/fall4.gif
 		
@@ -365,10 +372,10 @@ anim	fall9
 	bbox	0 0 0 0
 	quakeframe	2 5 5
 	landframe	2 dust
-	attack	85 103 29 43 5 1 0 0 13 0
+	attack	85 103 29 43 5 1 0 0 13 30
 	frame	data/chars/1streetguy2/fall1.gif
 	delay	350
-	attack	75 125 42 31 5 1 0 0 13 0
+	attack	75 125 42 31 5 1 0 0 13 30
 	frame	data/chars/1streetguy2/fall2.gif
 	delay	2
 	move	-4
@@ -400,14 +407,14 @@ anim	follow1
 	hitfx	data/sounds/beat2.wav
 	frame	data/chars/1streetguy2/a101.gif
 	frame	data/chars/1streetguy2/a104.gif
-	attack	115 90 90 35 13 0 0 0 13 0
+	attack	115 90 90 35 17 0 0 0 13 0
 	frame	data/chars/1streetguy2/a105.gif
 	attack	0 0 0 0
 	frame	data/chars/1streetguy2/a106.gif
 	frame	data/chars/1streetguy2/a104.gif
 	delay	9
 	frame	data/chars/1streetguy2/a120.gif
-	attack	115 90 75 35 13 1 0 0 13 0
+	attack	115 90 75 35 17 1 0 0 43 0
 	frame	data/chars/1streetguy2/a121.gif
 	attack	0 0 0 0
 	frame	data/chars/1streetguy2/a122.gif
@@ -426,7 +433,7 @@ anim	follow2
 	frame	data/chars/1streetguy2/a108.gif
 	frame	data/chars/1streetguy2/a109.gif
 	delay	9
-	attack	110 80 90 60 13 1 0 0 13 0
+	attack	110 80 90 60 17 1 0 0 43 0
 	frame	data/chars/1streetguy2/a110.gif
 	attack	0 0 0 0
 	frame	data/chars/1streetguy2/a111.gif
@@ -446,7 +453,7 @@ anim	follow3
 	frame	data/chars/1streetguy2/a108.gif
 	frame	data/chars/1streetguy2/a109.gif
 	delay	10
-	attack	100 80 80 50 13 1 0 0 13 0
+	attack	100 80 80 50 17 1 0 0 43 0
 	frame	data/chars/1streetguy2/a110.gif
 	attack	0 0 0 0
 	frame	data/chars/1streetguy2/a111.gif
@@ -461,10 +468,15 @@ anim	grabbed
 		
 anim	idle
 	loop	1
-	delay	200
+	delay	20
 	offset	115 183
 	bbox	90 80 69 110
 	frame	data/chars/1streetguy2/idle01.gif
+	@cmd	clearL
+	frame	data/chars/1streetguy2/idle01.gif
+	frame	data/chars/1streetguy2/idle01.gif
+	frame	data/chars/1streetguy2/idle01.gif
+
 		
 anim	pain
 	loop	0

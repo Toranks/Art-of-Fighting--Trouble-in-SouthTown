@@ -1,20 +1,20 @@
 name          rodder
 type          enemy
 subtype       chase
-health        100
-speed         25
+health        90
+speed         19
 jumpheight     6
 jumpmove       0  4
 throw         5 2
 throwdamage   18
 shadow        0
 noquake       1
-nolife        1
 falldie	      2
 nodieblink    1
 gfxshadow     1
 dust            dust
-
+icon	data/chars/1streetguy4/icon.gif
+icondie	data/chars/1streetguy4/icond.gif
 projectilehit enemy obstacle
 diesound      data/sounds/die4.wav
 animationscript data/scripts/escript.c
@@ -40,7 +40,7 @@ alternatepal       data/chars/1streetguy4/map4.gif
    int jp = 1;   //----jump velocity
 
 
-if(anim != openborconstant("ANI_DIE") || anim != openborconstant("ANI_FALL") || anim != openborconstant("ANI_RISE") || anim != openborconstant("ANI_JUMP"))
+if(anim == openborconstant("ANI_WALK") || anim == openborconstant("ANI_RUN"))
 {
 	float Hy;
 	if(Dir==0)
@@ -53,9 +53,9 @@ if(anim != openborconstant("ANI_DIE") || anim != openborconstant("ANI_FALL") || 
 
 	if(Hy > 1 && a <= 7 && hp > 0)
 	{
-	performattack(self,openborconstant("ANI_JUMP"));
-	changeentityproperty(self, "velocity", 0, 0, 0);
+	//changeentityproperty(self, "velocity", 0, 0, 0);
 	tossentity(self, 4, jp, 0);
+	performattack(self,openborconstant("ANI_JUMP"));
 	}
 }
 @end_script
@@ -98,7 +98,7 @@ anim	attack1
 	frame	data/chars/1streetguy4/b102.gif
 	frame	data/chars/1streetguy4/b103.gif
 	delay	13
-	attack2	97 110 69 28 15 0 0 0 8
+	attack2	97 110 69 28 11 0 0 0 8
 	frame	data/chars/1streetguy4/b104.gif
 	delay	8
 	attack2	0 0 0 0
@@ -123,10 +123,10 @@ anim	attack2
 	frame	data/chars/1streetguy4/ju02.gif
 	frame	data/chars/1streetguy4/ju03.gif
 	delay	15
-	attack	104 124 62 31 18 1 0 0 8
+	attack2	104 124 62 31 12 0 0 0 38
 	frame	data/chars/1streetguy4/ju04.gif
 	delay	8
-	attack	0 0 0 0
+	attack2	0 0 0 0
 	frame	data/chars/1streetguy4/ju03.gif
 	delay	30
 	frame	data/chars/1streetguy4/ju01.gif
@@ -146,10 +146,10 @@ anim	burn
 	@cmd	spawnbind "burn1" 1 1 1
 	@cmd	spawnbind "burn2" 1 1 1
 	@cmd	spawnbind "burn3" 1 1 1
-	attack	78 98 30 45 5 1 0 0 13 0
+	attack	78 98 30 45 5 1 0 0 13 30
 	frame	data/chars/1streetguy4/fall1.gif
 	delay	15
-	attack	64 130 50 25 5 1 0 0 13 0
+	attack	64 130 50 25 5 1 0 0 13 30
 	frame	data/chars/1streetguy4/fall2.gif
 	delay	500
 	frame	data/chars/1streetguy4/fall3.gif
@@ -175,10 +175,10 @@ anim	fall
 	offset	103 189
 	bbox	0 0 0 0
 	landframe	3
-	attack	78 98 30 45 5 1 0 0 13 0
+	attack	78 98 30 45 5 1 0 0 13 30
 	frame	data/chars/1streetguy4/fall1.gif
 	delay	15
-	attack	64 130 50 25 5 1 0 0 13 0
+	attack	64 130 50 25 5 1 0 0 13 30
 	frame	data/chars/1streetguy4/fall2.gif
 	delay	500
 	frame	data/chars/1streetguy4/fall3.gif
@@ -196,17 +196,17 @@ anim	fall10
 	offset	103 189
 	bbox	80 80 50 75
 	landframe	4
-	attack	85 88 30 50 5 1 0 0 13 0
+	attack	85 88 30 50 5 1 0 0 13 30
 	frame	data/chars/1streetguy4/pain6.gif
 	delay	40
 	frame	data/chars/1streetguy4/pain7.gif
 	delay	30
 	bbox	71 125 63 30
-	attack	64 125 45 25 5 1 0 0 13 0
+	attack	64 125 45 25 5 1 0 0 13 30
 	frame	data/chars/1streetguy4/fall2.gif
 	delay	300
 	bbox	77 130 67 35
-	attack	0 0 0 0 0 0 0 0 0 0
+	attack	0 0 0 0
 	frame	data/chars/1streetguy4/fall3.gif
 	bbox	58 167 85 15
 	delay	15
@@ -229,15 +229,16 @@ anim	fall2
 	offset	103 189
 	bbox	0 0 0 0
 	landframe	3
-	attack	85 90 35 45 5 1 0 0 13 0
+	attack	85 90 35 45 5 1 0 0 13 30
 	frame	data/chars/1streetguy4/pain6.gif
 	delay	10
-	attack	64 125 55 25 5 1 0 0 13 0
+	attack	64 125 55 25 5 1 0 0 13 30
 	frame	data/chars/1streetguy4/fall2.gif
 	attack	0 0 0 0
 	delay	300
 	frame	data/chars/1streetguy4/fall3.gif
 	delay	15
+	bbox	58 175 85 15
 	frame	data/chars/1streetguy4/fall4.gif
 	frame	data/chars/1streetguy4/fall5.gif
 	frame	data/chars/1streetguy4/fall4.gif
@@ -300,10 +301,10 @@ anim	fall9
 	bbox	0 0 0 0
 	quakeframe	2 5 5
 	landframe	2 dust
-	attack	75 105 35 45 5 1 0 0 13 0
+	attack	75 105 35 45 5 1 0 0 13 30
 	frame	data/chars/1streetguy4/fall1.gif
 	delay	350
-	attack	75 125 45 35 5 1 0 0 13 0
+	attack	75 125 45 35 5 1 0 0 13 30
 	frame	data/chars/1streetguy4/fall2.gif
 	delay	2
 	move	-4

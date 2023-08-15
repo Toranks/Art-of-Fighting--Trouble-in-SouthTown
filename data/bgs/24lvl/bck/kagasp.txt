@@ -12,7 +12,7 @@ makeinv		3
 gfxshadow	1
 nodrop		1
 antigrab	10
-lifespan        45
+lifespan        15
 #diesound        data/sounds/die3.wav
 animationscript data/scripts/escript.c
 
@@ -22,9 +22,9 @@ load	templst
 
 
 #-------moves
-anim spawn
+anim	spawn
 	loop    0
-	delay   2500
+	delay   100
 	offset  0 0
 	bbox    0 0 0 0
 	frame	data/bgs/24lvl/bck/empty.gif
@@ -33,12 +33,30 @@ anim spawn
 	frame	data/bgs/24lvl/bck/empty.gif
 
 
-
-anim idle
+anim	idle
 	loop    1
 	delay   5
 	offset  0 0
 	bbox    0 0 0 0
+	frame	data/bgs/24lvl/bck/empty.gif
+	frame	data/bgs/24lvl/bck/empty.gif
+
+
+anim	follow20
+@script
+	void self = getlocalvar("self");
+	int  mp20 = getglobalvar("map");
+	if(frame==0 && mp20==20)
+	{
+	changeentityproperty(self, "lifespancountdown", 1500);
+	}
+@end_script
+	loop    0
+	delay   500
+	offset  0 0
+	bbox    0 0 0 0
+	frame	data/bgs/24lvl/bck/empty.gif
+	@cmd	spawn01 "templst" 0 0 1
 	frame	data/bgs/24lvl/bck/empty.gif
 	frame	data/bgs/24lvl/bck/empty.gif
 

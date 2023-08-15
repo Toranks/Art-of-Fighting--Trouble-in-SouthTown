@@ -3,11 +3,10 @@ music		data/music/templest2.ogg
 background	data/bgs/25lvl/b01.gif 0.6 1
 bglayer         data/bgs/25lvl/stadbck2.gif 0.3 0 0 0 0 0 1 1 1
 panel		data/bgs/25lvl/Pstadium2.gif
-fglayer      	data/bgs/25lvl/light1.gif 1000 0 0 320 -5 0 0 1 1 1 1 0 0 0 0
-fglayer      	data/bgs/25lvl/FRTstadium2.gif  1500 0 0 0 0 0 1 1 1 1
-layer          data/bgs/25lvl/fog.gif 1200 0 0 1870 0 0 0 1 1 1 1 0 0 0 0 3
-
-
+fglayer      	data/bgs/25lvl/light1.gif 2000 0 0 320 -5 0 0 1 1 1 1 0 0 0 0
+fglayer      	data/bgs/25lvl/FRTstadium2.gif  4000 0 0 0 0 0 1 1 1 1
+layer          data/bgs/25lvl/fog.gif 2000 0 0 1870 0 0 0 1 1 1 1 0 0 0 0 3
+fglayer         data/bgs/25lvl/front2.gif 5000 -0.3 0 130 170 0 0 1 1 1
 
 direction       both
 light  		10   -30
@@ -55,10 +54,18 @@ at      0
 
 spawn   door4
 flip    1
+health	250
 coords  1734 260
 at      0
 
 spawn   door4
+@script void main()
+{
+   void self = getlocalvar("self");
+   changeentityproperty(self, "setlayer", 1000);
+}
+@end_script
+health	250
 coords  2743 260
 at      0
 
@@ -101,7 +108,6 @@ at      0
 
 spawn   zenpot
 map     1
-item    1up
 coords  3175 200
 at      0
 
@@ -201,14 +207,13 @@ at      400
 
 spawn   slay
 map     1
-#health  220
+health  220
 aggression 150
 coords  -300 240
 at      400
 
 spawn   bomber
 flip    1
-item    diamond
 map     1
 #health  30
 coords  -300 240
@@ -244,7 +249,6 @@ at      1140
 spawn   kimberry
 map     1
 #health  190
-item    cheese
 aggression 150
 coords  -300 240
 at      1140
@@ -262,7 +266,6 @@ at      1140
 spawn   eve
 map     2
 #health  290
-item    bannana
 aggression 150
 coords  -300 280
 at      1140
@@ -271,7 +274,6 @@ at      1140
 spawn   sheila
 map     3
 #health  250
-item    bannana
 aggression 150
 coords  520 285
 at      1140
@@ -279,7 +281,7 @@ at      1140
 
 spawn   shikky
 map     2
-#health  190
+health  390
 aggression 150
 coords  -300 240
 at      1140
@@ -290,14 +292,6 @@ map     2
 #health  190
 aggression 150
 coords  -300 250
-at      1140
-
-
-spawn   lucy
-map     3
-#health  190
-aggression 150
-coords  520 285
 at      1140
 
 
@@ -424,12 +418,6 @@ item    ruby
 coords  510 290
 at      2000
 
-spawn   slay
-map     2
-#health  220
-coords  -250 290
-at      2000
-
 spawn   rodder
 map     3
 #health  140
@@ -450,18 +438,9 @@ item    food4
 coords  510 290
 at      2000
 
-
-spawn   psycho
-map     2
-#health  190
-item    cheese
-coords  -250 290
-at      2000
-
 spawn   vigo
 map     3
-#health  190
-item    money2
+health  190
 coords  510 290
 at      2000
 
@@ -499,16 +478,8 @@ at      2000
 
 spawn   gazz
 map     3
-#health  220
+health  320
 coords  510 290
-at      2000
-
-
-spawn   meloke
-map     3
-#health  550
-item    food3
-coords  -250 290
 at      2000
 
 3pspawn   psycho
@@ -528,7 +499,6 @@ at      2000
 spawn   vigo
 #health  190
 map     2
-item    money1
 coords  510 290
 at      2000
 
@@ -549,13 +519,13 @@ coords  510 290
 at      2500
 
 #---------------------------
-blockade 2990
+blockade 2920
 at       2990
 
 group   3 3
 at      2990
-wait
-at      2990
+#wait
+#at      2990
 
 spawn   wendy
 map     3
@@ -576,7 +546,7 @@ at      2990
 
 spawn   kimberry
 map     4
-#health  190
+health  390
 aggression 150
 coords  -250 290
 at      2990
@@ -597,14 +567,6 @@ aggression 150
 coords  -250 290
 at      2990
 
-spawn   sheila
-map     2
-#health  250
-item    bannana
-aggression 150
-coords  510 290
-at      2990
-
 
 3pspawn   eve
 #health  300
@@ -622,14 +584,13 @@ at      2990
 
 spawn   rodder
 #health  190
-item    ruby
 map     1
 aggression 150
 coords  550 290
 at      2990
 
 spawn   rodder
-#health  190
+health  190
 map     2
 aggression 150
 coords  -250 290
@@ -651,14 +612,29 @@ coords  -250 290
 at      2990
 
 
-#---------------------------
-
 group   1 1
 at      3000
 
+spawn   ghosttime
+health  10
+coords  330 185
+at      2990
 
 spawn   doorIN
+spawnscript data/scripts/noscpos.c
+coords  3330 185
+at      2990
+
+spawn   ghosttest
 coords  330 185
 at      3000
+
+
+#---------------------------
+
+
+
+
+
 
 

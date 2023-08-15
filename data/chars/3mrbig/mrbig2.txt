@@ -1,6 +1,7 @@
 name          MrBig2
 type          enemy	
 health        100
+mp		3000
 speed         25
 jumpheight    4
 jumpmove      0 4
@@ -653,6 +654,7 @@ anim	fall2
 	delay	300
 	frame	data/chars/3Mrbig/fall3.gif
 	delay	15
+	bbox	58 175 85 15
 	frame	data/chars/3Mrbig/fall4.gif
 	frame	data/chars/3Mrbig/fall5.gif
 	frame	data/chars/3Mrbig/fall4.gif
@@ -791,6 +793,18 @@ anim	follow1
 	frame	data/chars/3Mrbig/a127.gif
 		
 anim	follow10
+@script
+	void self = getlocalvar("self");
+	if(frame==0){
+
+	changelevelproperty("scrollspeed", 0);
+    	changeopenborvariant("xpos", 2900);
+    	changeopenborvariant("ypos", 95);
+	}
+	if(frame==5){
+	changelevelproperty("scrollspeed", 1);
+	}
+@end_script
 	loop	1
 	delay	350
 	offset	104 190
@@ -803,6 +817,8 @@ anim	follow10
 	frame	data/chars/3Mrbig/xspawn01.gif
 	frame	data/chars/3Mrbig/xspawn01.gif
 	frame	data/chars/3Mrbig/xspawn01.gif
+	frame	data/chars/3Mrbig/xspawn01.gif
+	delay	100
 	frame	data/chars/3Mrbig/xspawn01.gif
 	delay	400
 	frame	data/chars/3Mrbig/xspawn01.gif
@@ -1096,6 +1112,7 @@ anim	follow6
 	@cmd	finish 12 1 3 4 0 1
 	delay	14
 	frame	data/chars/3Mrbig/hd09.gif
+	@cmd	clearL
 	frame	data/chars/3Mrbig/c11.gif
 	frame	data/chars/3Mrbig/c12.gif
 	frame	data/chars/3Mrbig/c13.gif
@@ -1176,8 +1193,9 @@ anim	idle
 	delay	9
 	offset	104 190
 	bbox	76 93 56 89
-	@cmd	clearL
+	@cmd	depost 0
 	frame	data/chars/3Mrbig/idle05.gif
+	@cmd	clearL
 	frame	data/chars/3Mrbig/idle06.gif
 	@cmd	spawnbind "pw12" 1 1 1
 	frame	data/chars/3Mrbig/idle07.gif
@@ -1439,6 +1457,8 @@ anim	special
 
 		
 anim	special2
+	energycost	10
+	mponly	1
 	loop	0
 	delay	30
 	offset	104 190
@@ -1562,7 +1582,7 @@ anim	special2
 	frame	data/chars/3Mrbig/crs34.gif
 	sound	data/sounds/punch2.wav
 	attack	-20 85 80 35 3 1 0 1 15 10
-	@cmd	spawn02 "flashsc2" -100 500 300
+	@cmd	spawn02 "flashsc2" -10 200 190
 	@cmd	position 10 -90 100 -1 -1
 	frame	data/chars/3Mrbig/crs35.gif
 	attack	0 0 0 0

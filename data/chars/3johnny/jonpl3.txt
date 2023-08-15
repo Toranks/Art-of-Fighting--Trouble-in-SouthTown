@@ -48,52 +48,6 @@ com	a2	  freespecial15
 load	bullnpc
 load	mine1
 
-
-
-
-script	@script
-void main()
-{
-    void self = getlocalvar("self");
-	void mp2 = getentityproperty(self,"mp");
-	void anim = getentityproperty(self,"animationID");
-	void frame = getentityproperty(self,"animpos");
-  	void plyr = getentityproperty(self, "playerindex");
-
-	if(anim == openborconstant("ANI_FREESPECIAL1") && frame == 12 && playerkeys(plyr, 0, "attack") && mp2 > 15 )
-		{
-		performattack(self, openborconstant("ANI_FREESPECIAL1"));
-		updateframe(self, 5);
-		}
-
-
-	if(anim == openborconstant("ANI_FREESPECIAL3") && frame == 18 && playerkeys(plyr, 0, "attack") && mp2 > 15 )
-		{
-		performattack(self, openborconstant("ANI_FREESPECIAL3"));
-		updateframe(self, 4);
-		}
-	if(anim == openborconstant("ANI_SPECIAL") && frame == 35 && playerkeys(plyr, 0, "special") && mp2 > 15 )
-		{
-		performattack(self, openborconstant("ANI_SPECIAL"));
-		updateframe(self, 4);
-		}
-
-	if(anim == openborconstant("ANI_FREESPECIAL1") && frame > 5 && playerkeys(plyr, 0, "special") && mp2 > 15 )
-		{
-		performattack(self, openborconstant("ANI_SPECIAL"));
-		}
-	if(anim == openborconstant("ANI_FREESPECIAL3") && frame > 5 && playerkeys(plyr, 0, "special") && mp2 > 15 )
-		{
-		performattack(self, openborconstant("ANI_SPECIAL"));
-		}
-
-}
-@end_script
-
-
-
-
-
 anim	freespecial15
 	loop	0
 	delay	9
@@ -181,6 +135,7 @@ anim	freespecial2
 	bbox	0 0 0 0
 	jumpframe	2 4 2.5
 	landframe	9
+	staydown	500 500
 	hitfx	data/sounds/sl1.wav
 	hitflash	Flash2
 	frame	data/chars/3johnny/a301.gif
@@ -206,7 +161,22 @@ anim	freespecial2
 	frame	data/chars/3johnny/gnju01.gif
 
 
+
+
 anim	freespecial1
+@script
+	void self = getlocalvar("self");
+	int mp1 = getentityproperty(self,"mp");
+	void plyr = getentityproperty(self, "playerindex");
+
+	if(frame >= 12 && frame <= 17 && mp1 >= 15)
+	{
+	  if( playerkeys(plyr, 0, "attack"))
+	  {
+	  updateframe(self, 5);
+	  }
+	}
+@end_script
 	energycost	15
 	mponly	1
 	loop	0
@@ -230,7 +200,7 @@ anim	freespecial1
 	sound	data/sounds/plgun1.wav
 	frame	data/chars/3johnny/gun10.gif
 	frame	data/chars/3johnny/gun11.gif
-	@cmd	mpgain -3
+	@cmd	mpgain -5
 	@cmd	projectile 1 "bullnpc" 105 1 63
 	frame	data/chars/3johnny/gun08.gif
 	frame	data/chars/3johnny/gun09.gif
@@ -238,8 +208,13 @@ anim	freespecial1
 	@cmd	projectile 1 "bullnpc" 105 1 68
 	sound	data/sounds/plgun1.wav
 	frame	data/chars/3johnny/gun10.gif
-	delay	30
+	delay	5
+	frame	data/chars/3johnny/gun11.gif #12
 	frame	data/chars/3johnny/gun11.gif
+	frame	data/chars/3johnny/gun11.gif
+	frame	data/chars/3johnny/gun11.gif
+	frame	data/chars/3johnny/gun11.gif
+	frame	data/chars/3johnny/gun11.gif #17
 	delay	11
 	offset	101 190
 	frame	data/chars/3johnny/gun06.gif
@@ -248,6 +223,19 @@ anim	freespecial1
 	frame	data/chars/3johnny/gun01.gif
 
 anim	freespecial3
+@script
+	void self = getlocalvar("self");
+	int mp1 = getentityproperty(self,"mp");
+	void plyr = getentityproperty(self, "playerindex");
+
+	if(frame >= 18 && frame <= 22 && mp1 >= 15)
+	{
+	  if( playerkeys(plyr, 0, "attack"))
+	  {
+	  updateframe(self, 4);
+	  }
+	}
+@end_script
 	energycost	15
 	mponly	1
 	loop	0
@@ -262,7 +250,7 @@ anim	freespecial3
 	frame	data/chars/3johnny/mg03.gif
 	delay	6
 	offset	76 190
-	frame	data/chars/3johnny/mg04.gif
+	frame	data/chars/3johnny/mg04.gif #4
 	@cmd	mpgain -3
 	@cmd	shooter "bullnpc" 105 55 1 2.5 0 0
 	frame	data/chars/3johnny/mg05.gif
@@ -270,7 +258,7 @@ anim	freespecial3
 	@cmd	shooter "bullnpc" 105 55 1 2.5 0 -1
 	frame	data/chars/3johnny/mg06.gif
 	frame	data/chars/3johnny/mg07.gif
-	@cmd	mpgain -3
+	@cmd	mpgain -5
 	@cmd	shooter "bullnpc" 105 55 1 2.5 0 0
 	frame	data/chars/3johnny/mg08.gif
 	frame	data/chars/3johnny/mg09.gif
@@ -286,15 +274,20 @@ anim	freespecial3
 	@cmd	shooter "bullnpc" 105 55 1 2.5 0 -1
 	frame	data/chars/3johnny/mg14.gif
 	frame	data/chars/3johnny/mg15.gif
-	@cmd	mpgain -3
+	@cmd	mpgain -5
 	@cmd	shooter "bullnpc" 105 55 1 2.5 0 0
 	frame	data/chars/3johnny/mg16.gif
 	sound	data/sounds/plgun1.wav
 	frame	data/chars/3johnny/mg17.gif
 	@cmd	shooter "bullnpc" 105 55 1 2.5 0 1
-	delay	11
+	delay	2
 	offset	101 190
 	frame	data/chars/3johnny/mg03.gif #18
+	frame	data/chars/3johnny/mg03.gif
+	frame	data/chars/3johnny/mg03.gif
+	frame	data/chars/3johnny/mg03.gif
+	frame	data/chars/3johnny/mg03.gif #22
+	delay	11
 	frame	data/chars/3johnny/mg02.gif
 	frame	data/chars/3johnny/mg01.gif
 	frame	data/chars/3johnny/gun01.gif
@@ -321,7 +314,20 @@ anim	freespecial4
 
 
 anim	special
-	energycost	5
+@script
+	void self = getlocalvar("self");
+	int mp1 = getentityproperty(self,"mp");
+	void plyr = getentityproperty(self, "playerindex");
+
+	if(frame >= 35 && frame <= 40 && mp1 >= 15)
+	{
+	  if( playerkeys(plyr, 0, "special"))
+	  {
+	  updateframe(self, 4);
+	  }
+	}
+@end_script
+	energycost	15
 	mponly	1
 	loop	0
 	delay	11
@@ -334,7 +340,7 @@ anim	special
 	delay	25
 	frame	data/chars/3johnny/gnbck13a.gif
 	delay	4
-	frame	data/chars/3johnny/gnbck28.gif
+	frame	data/chars/3johnny/gnbck28.gif #4
 	frame	data/chars/3johnny/gnbck29.gif
 	@cmd	mpgain -3
 	sound	data/sounds/plgun1.wav
@@ -345,7 +351,7 @@ anim	special
 	@cmd	shooter "bullnpc" 100 83 1 2.5 0 0
 	frame	data/chars/3johnny/gnbck28.gif
 	frame	data/chars/3johnny/gnbck29.gif
-	@cmd	mpgain -3
+	@cmd	mpgain -5
 	@cmd	shooter3 "bullnpc" -105 70 1 -2.5 0 0 "ANI_FOLLOW1"
 	frame	data/chars/3johnny/gnbck30.gif
 	frame	data/chars/3johnny/gnbck31.gif
@@ -360,7 +366,7 @@ anim	special
 	@cmd	shooter "bullnpc" 100 83 1 2.5 0 0
 	frame	data/chars/3johnny/gnbck24.gif
 	frame	data/chars/3johnny/gnbck25.gif
-	@cmd	mpgain -3
+	@cmd	mpgain -5
 	@cmd	shooter3 "bullnpc" -105 70 1 -2.5 0 0 "ANI_FOLLOW1"
 	frame	data/chars/3johnny/gnbck26.gif
 	frame	data/chars/3johnny/gnbck27.gif
@@ -375,7 +381,7 @@ anim	special
 	@cmd	shooter "bullnpc" 100 83 1 2.5 0 0
 	frame	data/chars/3johnny/gnbck20.gif
 	frame	data/chars/3johnny/gnbck21.gif
-	@cmd	mpgain -3
+	@cmd	mpgain -5
 	@cmd	shooter3 "bullnpc" -105 70 1 -2.5 0 0 "ANI_FOLLOW1"
 	frame	data/chars/3johnny/gnbck22.gif
 	frame	data/chars/3johnny/gnbck23.gif
@@ -390,12 +396,17 @@ anim	special
 	@cmd	shooter "bullnpc" 100 83 1 2.5 0 0
 	frame	data/chars/3johnny/gnbck24.gif
 	frame	data/chars/3johnny/gnbck25.gif
-	@cmd	mpgain -3
+	@cmd	mpgain -5
 	@cmd	shooter3 "bullnpc" -105 70 1 -2.5 0 0 "ANI_FOLLOW1"
 	frame	data/chars/3johnny/gnbck26.gif
 	frame	data/chars/3johnny/gnbck27.gif # 35
-	delay	11
+	delay	2
 	frame	data/chars/3johnny/gnbck13a.gif
+	frame	data/chars/3johnny/gnbck13a.gif
+	frame	data/chars/3johnny/gnbck13a.gif
+	frame	data/chars/3johnny/gnbck13a.gif
+	frame	data/chars/3johnny/gnbck13a.gif #40
+	delay	11
 	frame	data/chars/3johnny/gnbck12.gif
 	frame	data/chars/3johnny/gnbck10.gif
 	offset	101 190
@@ -518,23 +529,81 @@ anim	follow16
 
 
 anim	attack1
-	range	20 120
+	range	0 120
+	rangez	-40 40
 	loop	0
 	delay	5
 	offset	101 190
 	bbox	85 96 39 91
+	staydown	300 300
+	fastattack	1
 	hitflash	Flash4
 	hitfx	data/sounds/sl1.wav
+	@cmd	attackgrd -15 90 0 1 10 "ANI_FOLLOW10"
 	frame	data/chars/3johnny/a301.gif
-	attack	105 25 110 90 20 0 1 0 5 15
+	attack	105 25 110 90 20 0 1 0 5 0
 	frame	data/chars/3johnny/a303.gif
 	frame	data/chars/3johnny/a304.gif
 	attack	0 0 0 0
 	frame	data/chars/3johnny/a302.gif
 
 
+anim	follow10
+	loop	0
+	delay	10
+	offset	101 190
+	bbox	0 0 0 0
+	forcedirection	-1
+	fastattack	1
+	attackone	0
+	otg		1
+	hitflash	flashscreen1
+	hitfx	data/sounds/empty.wav
+	frame	data/chars/3johnny/gun01.gif
+	sound	data/sounds/grab2.wav
+	frame	data/chars/3johnny/grd13.gif
+	frame	data/chars/3johnny/grd14.gif
+	delay	18
+	frame	data/chars/3johnny/grd15.gif
+	delay	4
+	frame	data/chars/3johnny/grd16.gif
+	frame	data/chars/3johnny/grd17.gif
+	frame	data/chars/3johnny/grd18.gif
+	sound	data/sounds/gun2.wav
+	frame	data/chars/3johnny/grd19.gif
+	frame	data/chars/3johnny/grd20.gif #8
+	attack11 90 167 150 40 35 1 0 0 20 10
+	dropv	1.5 0.2
+	frame	data/chars/3johnny/grd21.gif
+	sound	data/sounds/gun2.wav
+	frame	data/chars/3johnny/grd22.gif
+	frame	data/chars/3johnny/grd23.gif
+	frame	data/chars/3johnny/grd24.gif
+	sound	data/sounds/gun2.wav
+	frame	data/chars/3johnny/grd25.gif
+	frame	data/chars/3johnny/grd26.gif
+	frame	data/chars/3johnny/grd27.gif
+	sound	data/sounds/gun2.wav
+	frame	data/chars/3johnny/grd28.gif
+	attack11 0 0 0 0
+	frame	data/chars/3johnny/grd29.gif
+	@cmd	looper 8 5
+	delay	7
+	frame	data/chars/3johnny/grd15.gif
+	frame	data/chars/3johnny/grd16.gif
+	frame	data/chars/3johnny/grd17.gif
+	frame	data/chars/3johnny/grd18.gif
+	frame	data/chars/3johnny/grd19.gif
+	delay	11
+	frame	data/chars/3johnny/grd14.gif
+	frame	data/chars/3johnny/grd13.gif
+	sound	data/sounds/grab2.wav
+	frame	data/chars/3johnny/gun01.gif
+
+
 anim	attack2
-	range	20 120
+	range	0 120
+	rangez	-40 40
 	loop	0
 	delay	5
 	offset	101 190
@@ -544,7 +613,7 @@ anim	attack2
 	frame	data/chars/3johnny/a301b.gif
 	bbox	85 96 39 91
 	frame	data/chars/3johnny/a305.gif
-	attack	105 90 110 45 25 0 1 0 5 15
+	attack	105 90 110 45 25 0 1 0 5 0
 	dropv	4 2
 	frame	data/chars/3johnny/a307.gif
 	frame	data/chars/3johnny/a308.gif
@@ -554,17 +623,20 @@ anim	attack2
 
 
 anim	attack3
+	range	0 120
+	rangez	-40 40
 	loop	0
 	delay	7
 	offset	101 190
 	bbox	85 96 39 91
+	staydown 300 300
 	hitfx	data/sounds/beat5.wav
 	frame	data/chars/3johnny/gun01.gif
 	move	6
 	frame	data/chars/3johnny/bx01.gif
 	frame	data/chars/3johnny/bx02.gif
 	frame	data/chars/3johnny/bx03.gif
-	attack	115 85 80 50 35 1 1 0 30 20
+	attack	115 85 80 50 55 1 1 0 20 15
 	dropv	3 4
 	frame	data/chars/3johnny/bx04.gif
 	delay	12
@@ -636,10 +708,11 @@ anim	jumpattack
 	delay	12
 	offset	101 190
 	bbox	95 80 40 40
+	staydown	500 500
 	hitfx	data/sounds/beat5.wav
 	frame	data/chars/3johnny/gnju06.gif
 	sound	data/sounds/bguyc02.wav
-	attack	75 105 110 60 22 1 0 0 35 35
+	attack	75 105 110 60 32 1 0 0 35 15
 	frame	data/chars/3johnny/gnju04.gif
 	delay	15
 	frame	data/chars/3johnny/gnju05.gif
@@ -655,7 +728,7 @@ anim	jumpattack2
 	bbox	95 80 40 40
 	hitfx	data/sounds/beat5.wav
 	frame	data/chars/3johnny/gnju06.gif
-	attack	75 105 110 60 22 1 0 0 35 35
+	attack	75 105 110 60 22 1 0 0 35 15
 	frame	data/chars/3johnny/gnju04.gif
 	delay	15
 	frame	data/chars/3johnny/gnju05.gif
@@ -706,7 +779,6 @@ anim	burn
 	delay	500
 	frame	data/chars/3johnny/gnfall3.gif
 	attack	0 0 0 0
-	bbox	58 175 85 15
 	delay	15
 	frame	data/chars/3johnny/gnfall4.gif
 	frame	data/chars/3johnny/gnfall5.gif
@@ -745,7 +817,6 @@ anim	fall
 	delay	500
 	frame	data/chars/3johnny/gnfall3.gif
 	attack	0 0 0 0
-	bbox	58 175 85 15
 	delay	15
 	frame	data/chars/3johnny/gnfall4.gif
 	frame	data/chars/3johnny/gnfall5.gif
@@ -828,12 +899,17 @@ anim	idle
 	frame	data/chars/3johnny/idle04.gif
 	@cmd	mpgain 5
 	frame	data/chars/3johnny/idle05.gif
+	delay	5
 	@cmd	mpgain 5
 	frame	data/chars/3johnny/idle04.gif
+	@cmd	clearL
+	frame	data/chars/3johnny/idle04.gif
+	frame	data/chars/3johnny/idle04.gif
+
 
 anim	pain
 	loop	0
-	delay	8
+	delay	7
 	offset	104 190
 	bbox	85 96 39 91
 	frame	data/chars/3johnny/gnpain1.gif
@@ -853,7 +929,7 @@ anim	pain11
 		
 anim	pain2
 	loop	0
-	delay	8
+	delay	7
 	offset	104 190
 	bbox	85 96 39 91
 	frame	data/chars/3johnny/gnpain1.gif
@@ -988,6 +1064,7 @@ anim	runjumpattack
 	bbox	85 85 30 30
 	followanim	1
 	followcond	1
+	staydown	600 600
 	hitfx	data/sounds/beat5.wav
 	sound	data/sounds/punch.wav
 	frame	data/chars/3johnny/gnju06.gif
@@ -995,7 +1072,7 @@ anim	runjumpattack
 	offset	105 190
 	frame	data/chars/3johnny/gnju07.gif
 	offset	115 190
-	attack	93 100 115 60 20 1 0 0 40 20
+	attack	93 100 115 60 50 1 0 0 25 15
 	dropv	3 4
 	frame	data/chars/3johnny/gnju08.gif
 	frame	data/chars/3johnny/gnju09.gif

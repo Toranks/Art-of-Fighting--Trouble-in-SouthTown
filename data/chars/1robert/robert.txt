@@ -1,17 +1,17 @@
 name		Robert
 type		player
-health		150
+health		120
 mp		100
 mprate          1
-chargerate      4
-speed		10
-running		25 3 3 1 0
+chargerate      5
+speed		11
+running		26 3.1 3 1 0
 jumpheight	4
 noquake		1
 nodieblink	2
 falldie		2
 makeinv		3
-riseinv		2
+riseinv		1
 gfxshadow	1
 holdblock 	1
 modelflag	1
@@ -21,7 +21,7 @@ candamage	enemy obstacle
 weapons		Robcar kgnrob Robcar2 robfall Robwtr Robvent mapcurs mrzero
 diesound        data/sounds/robde.wav
 combostyle      1
-atchain         1 1 2 3 4 0 5 6 7 0 8
+atchain         1 1 2 3 4 0 5 6 7 0 8 1
 icon            data/chars/1robert/icon.gif
 parrow          data/chars/misc/flash/flash/player1.gif  -36 -155
 parrow2         data/chars/misc/flash/flash/player2.gif  -36 -155
@@ -31,8 +31,8 @@ animationscript	data/scripts/grabscript.c
 ondrawscript	data/scripts/water_puddle_script.c
 script		data/scripts/player_script.c
 
-load	kohkn2
-load	haskk2
+load	hsken
+load	hadok2
 
 palette		data/chars/1robert/mapal.gif
 alternatepal	data/chars/1robert/map1.gif
@@ -42,7 +42,7 @@ alternatepal	data/chars/1robert/map4.gif
 
 
 
-
+com	a3	  freespecial29
 com	d f d f a freespecial26
 com     d f d f s freespecial27
 com	d f j     freespecial2
@@ -50,9 +50,48 @@ com	f d f a   freespecial3
 com	f b b a   freespecial4
 com	d f s     freespecial5
 com	f d s     freespecial6
-com	b b s     freespecial8
 com	a2	  freespecial15
 com	d u d u s freespecial20
+
+
+
+
+
+
+anim	freespecial29
+@script
+	void self = getlocalvar("self");
+	int mp1 = getentityproperty(self,"mp");
+	void plyr = getentityproperty(self, "playerindex");
+
+	if(frame >= 11 && playerkeys(plyr, 0, "attack3"))
+	{
+	  updateframe(self, 5);
+	}
+@end_script
+	loop	0
+	delay	6
+	offset	135 191
+	bbox	119 105 41 85
+	sound	data/sounds/robch.wav
+	frame	data/chars/1robert/ch01.gif
+	frame	data/chars/1robert/ch02.gif
+	frame	data/chars/1robert/ch03.gif
+	frame	data/chars/1robert/ch04.gif
+	frame	data/chars/1robert/ch05.gif
+	delay	2
+	frame	data/chars/1robert/ch10.gif	#5
+	@cmd	mpgain 1
+	frame	data/chars/1robert/ch10.gif
+	frame	data/chars/1robert/ch11.gif
+	@cmd	mpgain 1
+	frame	data/chars/1robert/ch11.gif
+	frame	data/chars/1robert/ch12.gif
+	@cmd	mpgain 1
+	frame	data/chars/1robert/ch12.gif
+	frame	data/chars/1robert/ch08.gif	#11
+	frame	data/chars/1robert/ch08.gif
+
 
 
 anim	freespecial20
@@ -93,13 +132,13 @@ anim	freespecial15
 	bbox	0 0 0 0
 	sound	data/sounds/robta.wav
 	frame	data/chars/1robert/taunt1.gif
-	@cmd	spawnAni3 "movelist" 240 300 440 "ANI_FOLLOW2"
 	frame	data/chars/1robert/taunt2.gif
 	frame	data/chars/1robert/taunt3.gif
 	frame	data/chars/1robert/taunt4.gif
 	delay	12
 	frame	data/chars/1robert/taunt4.gif
 	frame	data/chars/1robert/taunt4.gif
+	@cmd	spawnAni3 "movelist" 240 300 440 "ANI_FOLLOW2"
 	frame	data/chars/1robert/taunt4.gif
 
 
@@ -208,22 +247,24 @@ anim	follow16
 
 
 anim	attack1
-	range	0 125
+	range	0 135
+	rangez	-20 20
 	loop	0
 	delay	4
 	offset	135 191
 	bbox	115 95 41 94
-	@cmd	attackgrd -60 60 0 1 10 "ANI_FOLLOW10"
+	@cmd	attackgrd -75 75 0 1 20 "ANI_FOLLOW10"
 	frame	data/chars/1robert/a001.gif
 	frame	data/chars/1robert/a002.gif
 	delay	5
-	attack2	122 120 95 30 12 0 0 0 5 0
+	attack2	122 120 95 30 6 0 0 0 1 0
 	frame	data/chars/1robert/a003.gif
 	attack2	0 0 0 0
 	frame	data/chars/1robert/a004.gif
 		
 anim	attack2
 	range	0 65
+	rangez	-20 20
 	loop	0
 	delay	4
 	offset	135 191
@@ -231,18 +272,19 @@ anim	attack2
 	hitfx	data/sounds/beat2.wav
 	frame	data/chars/1robert/a05.gif
 	frame	data/chars/1robert/a06.gif
-	delay	5
-	attack2	138 110 60 30 14 0 0 0 8 0
+	attack2	138 110 60 30 20 0 0 0 5 0
 	frame	data/chars/1robert/a007.gif
 	frame	data/chars/1robert/a008.gif
 	attack2	0 0 0 0
+	delay	5
 	frame	data/chars/1robert/a11.gif
 	frame	data/chars/1robert/a12.gif
 		
 anim	attack3
 	range	0 65
+	rangez	-20 20
 	loop	0
-	delay	5
+	delay	4
 	offset	135 191
 	bbox	135 95 41 94
 	fastattack	1
@@ -250,16 +292,17 @@ anim	attack3
 	sound	data/sounds/rob01.wav
 	frame	data/chars/1robert/a13.gif
 	frame	data/chars/1robert/a14.gif
-	delay	6
-	attack	150 80 72 50 17 0 0 0 12 0
+	attack	150 80 72 50 30 0 0 0 7 0
 	frame	data/chars/1robert/a15.gif
 	frame	data/chars/1robert/a16.gif
 	attack	0 0 0 0
+	delay	5
 	frame	data/chars/1robert/a17.gif
 	frame	data/chars/1robert/a13.gif
 		
 anim	attack4
 	range	0 65
+	rangez	-20 20
 	loop	0
 	delay	4
 	offset	135 191
@@ -270,21 +313,22 @@ anim	attack4
 	frame	data/chars/1robert/a19.gif
 	frame	data/chars/1robert/a20.gif
 	frame	data/chars/1robert/a21.gif
-	delay	7
-	attack	129 95 75 28 40 1 0 0 25 0
+	delay	6
+	attack	129 95 75 28 40 1 0 0 40 0
 	dropv	2 4
 	frame	data/chars/1robert/a22.gif
 	frame	data/chars/1robert/a23.gif
 	attack	0 0 0 0
-	delay	8
+	delay	7
 	frame	data/chars/1robert/a24.gif
 	frame	data/chars/1robert/a25.gif
 	frame	data/chars/1robert/a26.gif
 		
 anim	attack5
-	range	0 85
+	range	65 85
+	rangez	-20 20
 	loop	0
-	delay	5
+	delay	4
 	offset	135 191
 	bbox	130 95 41 94
 	hitfx	data/sounds/beat3.wav
@@ -292,7 +336,7 @@ anim	attack5
 	frame	data/chars/1robert/b01.gif
 	frame	data/chars/1robert/b02.gif
 	delay	6
-	attack2	165 135 85 52 14 0 0 0 8 0
+	attack2	165 135 85 52 20 0 0 0 5 0
 	frame	data/chars/1robert/b03.gif
 	attack2	0 0 0 0
 	frame	data/chars/1robert/b04.gif
@@ -301,7 +345,8 @@ anim	attack5
 	frame	data/chars/1robert/b01.gif
 		
 anim	attack6
-	range	0 85
+	range	65 85
+	rangez	-20 20
 	loop	0
 	delay	4
 	offset	135 191
@@ -310,8 +355,8 @@ anim	attack6
 	frame	data/chars/1robert/b05.gif
 	frame	data/chars/1robert/b06.gif
 	frame	data/chars/1robert/b07.gif
-	delay	6
-	attack	125 75 90 60 17 0 0 0 12 0
+	delay	5
+	attack	125 75 90 60 30 0 0 0 7 0
 	frame	data/chars/1robert/b08.gif
 	attack	0 0 0 0
 	frame	data/chars/1robert/b09.gif
@@ -320,9 +365,10 @@ anim	attack6
 	frame	data/chars/1robert/b12.gif
 		
 anim	attack7
-	range	0 85
+	range	65 85
+	rangez	-20 20
 	loop	0
-	delay	6
+	delay	5
 	offset	135 191
 	bbox	115 95 41 94
 	hitfx	data/sounds/beat5.wav
@@ -330,18 +376,19 @@ anim	attack7
 	frame	data/chars/1robert/b13.gif
 	frame	data/chars/1robert/b14.gif
 	frame	data/chars/1robert/b15.gif
-	delay	9
-	attack10	155 80 97 60 40 1 0 0 25 0
+	delay	7
+	attack10 155 80 97 60 40 1 0 0 40 0
 	dropv	2 4
 	frame	data/chars/1robert/b16.gif
-	attack10	0 0 0 0
+	attack10 0 0 0 0
 	frame	data/chars/1robert/b17.gif
 	frame	data/chars/1robert/b18.gif
 	frame	data/chars/1robert/b21.gif
 	frame	data/chars/1robert/b22.gif
 		
 anim	attack8
-	range	0 125
+	range	85 135
+	rangez	-20 20
 	loop	0
 	delay	5
 	offset	135 191
@@ -353,15 +400,14 @@ anim	attack8
 	frame	data/chars/1robert/c03.gif
 	frame	data/chars/1robert/c04.gif
 	frame	data/chars/1robert/c05.gif
-	delay	7
-	attack	155 108 105 45 55 1 0 0 30 0
+	attack	155 108 105 45 60 1 0 0 50 0
 	dropv	3 3
 	frame	data/chars/1robert/c06.gif
 	frame	data/chars/1robert/c07.gif
 	attack	0 0 0 0
 	frame	data/chars/1robert/c08.gif
+	delay	6
 	frame	data/chars/1robert/c09.gif
-	delay	8
 	frame	data/chars/1robert/c10.gif
 	frame	data/chars/1robert/c11.gif
 	frame	data/chars/1robert/c12.gif
@@ -416,6 +462,8 @@ anim	block
 	frame	data/chars/1robert/blk03.gif
 	delay	35
 	frame	data/chars/1robert/blk04.gif
+
+
 		
 anim	burn
 	loop	0
@@ -803,6 +851,7 @@ anim	follow3
 	offset	135 191
 	bbox	93 100 41 85
 	fastattack	1
+	forcedirection -1
 	jumpframe	57 3 2
 	landframe	60
 	hitflash	Flash3
@@ -915,7 +964,7 @@ anim	follow3
 	bbox	147 100 41 85
 	hitfx	data/sounds/beat4.wav
 	staydown	500 500
-	blast	133 91 70 65 85 1 0 5 15
+	blast	133 91 70 65 85 1 1 5 15
 	dropv	4 3 0
 	frame	data/chars/1robert/gnk15.gif
 	frame	data/chars/1robert/gnk24.gif
@@ -935,46 +984,47 @@ anim	follow4
 	offset	135 191
 	bbox	0 0 0 0
 	fastattack	1
-	hitflash	Flash3
+	forcedirection	-1
+	hitflash	Flash
 	@cmd	stop
 	frame	data/chars/1robert/sp24.gif
 	frame	data/chars/1robert/sup09.gif
-	attack	130 105 65 40 0 0 1 0 30 0
+	attack	130 105 65 40 0 0 1 0 30 30
 	frame	data/chars/1robert/sup10.gif
 	attack	0 0 0 0
 	frame	data/chars/1robert/sup11.gif
 	frame	data/chars/1robert/sup09.gif
-	attack	130 105 65 40 0 0 1 0 30 0
+	attack	130 105 65 40 0 0 1 0 30 30
 	frame	data/chars/1robert/sup10.gif
 	attack	0 0 0 0
 	frame	data/chars/1robert/sup11.gif
 	frame	data/chars/1robert/sup09.gif
-	attack	130 105 65 40 0 0 1 0 30 0
+	attack	130 105 65 40 0 0 1 0 30 30
 	frame	data/chars/1robert/sup10.gif
 	attack	0 0 0 0
 	frame	data/chars/1robert/sup11.gif
 	frame	data/chars/1robert/sup09.gif
-	attack	130 105 65 40 0 0 1 0 30 0
+	attack	130 105 65 40 0 0 1 0 30 30
 	frame	data/chars/1robert/sup10.gif
 	attack	0 0 0 0
 	frame	data/chars/1robert/sup11.gif
 	frame	data/chars/1robert/sup09.gif
 	frame	data/chars/1robert/a06.gif
 	frame	data/chars/1robert/a07.gif
-	attack2	130 105 65 45 0 0 1 0 30 0
+	attack2	130 105 65 40 0 0 1 0 30 30
 	frame	data/chars/1robert/a08.gif
 	attack2	0 0 0 0
 	frame	data/chars/1robert/a09.gif
 	frame	data/chars/1robert/sup12.gif
 	frame	data/chars/1robert/sup13.gif
-	attack	130 105 65 45 0 0 1 0 30 0
+	attack	130 105 65 40 0 0 1 0 20 30
 	frame	data/chars/1robert/sup14.gif
 	attack	0 0 0 0
 	frame	data/chars/1robert/sup15.gif
 	frame	data/chars/1robert/a18.gif
 	frame	data/chars/1robert/a20.gif
 	frame	data/chars/1robert/a21.gif
-	attack	130 105 65 45 0 0 1 0 30 0
+	attack	130 105 65 40 0 0 1 0 20 30
 	frame	data/chars/1robert/a22.gif
 	frame	data/chars/1robert/a23.gif
 	attack	0 0 0 0
@@ -983,7 +1033,7 @@ anim	follow4
 	frame	data/chars/1robert/a26.gif
 	frame	data/chars/1robert/sup15.gif
 	frame	data/chars/1robert/sup16.gif
-	attack	130 105 65 45 0 0 1 0 30 0
+	attack	130 105 65 40 0 0 1 0 20 30
 	frame	data/chars/1robert/sup17.gif
 	frame	data/chars/1robert/sup18.gif
 	attack	0 0 0 0
@@ -991,44 +1041,44 @@ anim	follow4
 	frame	data/chars/1robert/sup16.gif
 	frame	data/chars/1robert/b24.gif
 	frame	data/chars/1robert/b23.gif
-	attack2	130 105 65 45 0 0 1 0 25 0
+	attack2	130 105 65 40 0 0 1 0 20 30
 	frame	data/chars/1robert/b25.gif
 	frame	data/chars/1robert/b26.gif
 	attack2	0 0 0 0
 	frame	data/chars/1robert/b27.gif
 	frame	data/chars/1robert/b23.gif
 	hitfx	data/sounds/beat3.wav
-	attack	116 135 85 46 0 0 0 0 10 0
+	attack	130 105 65 40 0 0 1 0 7 30
 	frame	data/chars/1robert/gnk08.gif
 	attack	0 0 0 0
 	frame	data/chars/1robert/gnk09.gif
 	frame	data/chars/1robert/gnk10.gif
 	hitfx	data/sounds/beat1.wav
-	attack2	116 135 85 46 0 0 0 0 10 0
+	attack2	130 105 65 40 0 0 1 0 7 30
 	frame	data/chars/1robert/gnk08.gif
 	attack2	0 0 0 0
 	frame	data/chars/1robert/gnk09.gif
 	frame	data/chars/1robert/gnk10.gif
 	hitfx	data/sounds/beat3.wav
-	attack	116 105 85 42 0 0 0 0 10 0
+	attack	130 105 65 40 0 0 1 0 7 30
 	frame	data/chars/1robert/gnk02.gif
 	attack	0 0 0 0
 	frame	data/chars/1robert/gnk03.gif
 	frame	data/chars/1robert/gnk04.gif
 	hitfx	data/sounds/beat2.wav
-	attack2	116 105 85 42 0 0 0 0 10 0
+	attack2	130 105 65 40 0 0 1 0 7 30
 	frame	data/chars/1robert/gnk02.gif
 	attack2	0 0 0 0
 	frame	data/chars/1robert/gnk03.gif
 	frame	data/chars/1robert/gnk04.gif
 	hitfx	data/sounds/beat3.wav
-	attack2	116 84 85 55 0 0 0 0 10 0
+	attack2	130 105 65 40 0 0 1 0 7 30
 	frame	data/chars/1robert/gnk05.gif
 	attack2	0 0 0 0
 	frame	data/chars/1robert/gnk06.gif
 	frame	data/chars/1robert/gnk07.gif
 	hitfx	data/sounds/beat2.wav
-	attack	116 84 85 55 0 0 0 0 10 0
+	attack	130 105 65 40 0 0 1 0 7 30
 	frame	data/chars/1robert/gnk05.gif
 	attack	0 0 0 0
 	frame	data/chars/1robert/gnk06.gif
@@ -1037,7 +1087,7 @@ anim	follow4
 	hitfx	data/sounds/beat5.wav
 	frame	data/chars/1robert/b01.gif
 	frame	data/chars/1robert/b02.gif
-	attack	116 120 95 55 0 0 0 0 20 0
+	attack	130 105 65 40 0 0 1 0 30 30
 	frame	data/chars/1robert/b03.gif
 	frame	data/chars/1robert/b04.gif
 	attack	0 0 0 0
@@ -1048,7 +1098,7 @@ anim	follow4
 	frame	data/chars/1robert/b21.gif
 	frame	data/chars/1robert/b18.gif
 	frame	data/chars/1robert/b17.gif
-	attack	116 84 95 55 0 0 0 0 20 0
+	attack	130 105 65 40 0 0 1 0 30 30
 	frame	data/chars/1robert/b16.gif
 	attack	0 0 0 0
 	frame	data/chars/1robert/b15.gif
@@ -1056,12 +1106,13 @@ anim	follow4
 	frame	data/chars/1robert/b13.gif
 	delay	2
 	frame	data/chars/1robert/gnk11.gif
+	hitflash	Flash3
 	frame	data/chars/1robert/gnk12.gif
 	frame	data/chars/1robert/gnk13.gif
 	frame	data/chars/1robert/gnk14.gif
 	delay	6
 	@cmd	leaper 1 2.7 0
-	attack10	133 91 70 65 0 1 0 0 30 0
+	attack10	133 91 70 65 0 1 0 0 30 30
 	dropv	2.8 1 0
 	frame	data/chars/1robert/gnk15.gif
 	attack10	0 0 0 0
@@ -1072,7 +1123,7 @@ anim	follow4
 	frame	data/chars/1robert/sup23.gif
 	frame	data/chars/1robert/sup24.gif
 	@cmd	leaper 0 1.5 0
-	attack10	133 75 70 80 0 1 0 0 15 0
+	attack10	133 75 70 80 0 1 0 0 15 30
 	dropv	1.6 0 0
 	frame	data/chars/1robert/sup25.gif
 	attack10	0 0 0 0
@@ -1080,7 +1131,7 @@ anim	follow4
 	frame	data/chars/1robert/sup27.gif
 	frame	data/chars/1robert/sup20.gif
 	@cmd	leaper 0 1.5 0
-	attack10	133 75 70 80 0 1 0 0 15 0
+	attack10	133 75 70 80 0 1 0 0 15 30
 	dropv	1.6 0 0
 	frame	data/chars/1robert/sup21.gif
 	attack10	0 0 0 0
@@ -1088,7 +1139,7 @@ anim	follow4
 	frame	data/chars/1robert/sup23.gif
 	frame	data/chars/1robert/sup24.gif
 	@cmd	leaper 0 1.5 0
-	attack10	133 75 70 80 0 1 0 0 15 0
+	attack10	133 75 70 80 0 1 0 0 15 30
 	dropv	1.6 0 0
 	frame	data/chars/1robert/sup25.gif
 	attack10	0 0 0 0
@@ -1096,7 +1147,7 @@ anim	follow4
 	frame	data/chars/1robert/sup27.gif
 	frame	data/chars/1robert/sup20.gif
 	@cmd	leaper 0 1.5 0
-	attack10	133 75 70 80 0 1 0 0 15 0
+	attack10	133 75 70 80 0 1 0 0 15 30
 	dropv	1.9 0 0
 	frame	data/chars/1robert/sup21.gif
 	attack10	0 0 0 0
@@ -1105,7 +1156,7 @@ anim	follow4
 	hitfx	data/sounds/beat2.wav
 	frame	data/chars/1robert/sb03.gif
 	frame	data/chars/1robert/sb04.gif
-	attack10	133 91 80 65 0 1 0 0 35 0
+	attack10	133 91 80 65 0 1 0 0 35 30
 	dropv	0.2 0 0
 	frame	data/chars/1robert/sb05.gif
 	attack10	0 0 0 0
@@ -1113,7 +1164,7 @@ anim	follow4
 	@cmd	leaper 0 1.3 0
 	frame	data/chars/1robert/sb07.gif
 	frame	data/chars/1robert/sb08.gif
-	attack10	133 91 80 65 0 1 0 0 35 0
+	attack10	133 91 80 65 0 1 0 0 35 30
 	dropv	0.3 0 0
 	frame	data/chars/1robert/sb09.gif
 	attack10	0 0 0 0
@@ -1123,7 +1174,7 @@ anim	follow4
 	@cmd	leaper 0 1.3 0
 	hitfx	data/sounds/beat5.wav
 	frame	data/chars/1robert/sup30.gif
-	attack10	133 91 70 65 0 1 0 0 35 0
+	attack10	133 91 70 65 0 1 0 0 35 30
 	dropv	0.2 0 0
 	frame	data/chars/1robert/sup31.gif
 	attack10	0 0 0 0
@@ -1133,7 +1184,7 @@ anim	follow4
 	staydown	300 300
 	frame	data/chars/1robert/sup32.gif
 	@cmd	leaper 0 1 0
-	attack9	133 91 85 65 150 1 0 0 55 0
+	attack9	133 91 85 65 250 1 0 0 55 30
 	dropv	-3 1 0
 	frame	data/chars/1robert/sup33.gif
 	attack9	0 0 0 0
@@ -1174,10 +1225,10 @@ anim	freespecial2
 	frame	data/chars/1robert/sb03.gif
 	frame	data/chars/1robert/sb04.gif
 	delay	15
-	attack10	120 106 100 45 12 1 0 0 15 0
+	attack10 120 106 100 45 15 1 1 0 15 0
 	dropv	3 1.5 0
 	frame	data/chars/1robert/sb05.gif
-	attack10	0 0 0 0
+	attack10 0 0 0 0
 	delay	6
 	frame	data/chars/1robert/sb06.gif
 	frame	data/chars/1robert/sb06.gif #6
@@ -1209,7 +1260,7 @@ anim	freespecial10
 	sound	data/sounds/punch2.wav
 	frame	data/chars/1robert/sb08.gif
 	@cmd	leaper 1 0.5 0
-	attack10 120 106 105 45 4 1 0 0 15 0
+	attack10 120 106 105 45 15 1 1 0 15 0
 	dropv	1 1
 	delay	8
 	frame	data/chars/1robert/sb09.gif
@@ -1243,13 +1294,13 @@ anim	freespecial11
 	hitfx	data/sounds/beat5.wav
 	frame	data/chars/1robert/sb12.gif
 	sound	data/sounds/punch2.wav
-	attack10	120 106 105 45 4 1 0 0 15 0
+	attack10 120 106 105 45 25 1 1 0 15 0
 	dropv	1 1
 	delay	8
 	frame	data/chars/1robert/sb13.gif
 	@cmd	leaper 1 0.5 0
 	frame	data/chars/1robert/sb13.gif
-	attack10	0 0 0 0
+	attack10 0 0 0 0
 	delay	3
 	frame	data/chars/1robert/sb14.gif
 	frame	data/chars/1robert/sb14.gif
@@ -1264,7 +1315,6 @@ anim	freespecial11
 	frame	data/chars/1robert/sb14.gif
 	delay	12
 	frame	data/chars/1robert/rise4.gif #14
-
 
 
 
@@ -1285,7 +1335,7 @@ anim	freespecial12
 	delay	25
 	@cmd	leaper 1.5 -0.3 0
 	hitfx	data/sounds/beat3.wav
-	attack9	120 106 95 60 6 1 0 0 25 0
+	attack9	120 106 95 60 35 1 1 0 25 0
 	dropv	-1 2 0
 	frame	data/chars/1robert/sb17.gif
 	attack9	0 0 0 0
@@ -1299,34 +1349,33 @@ anim	freespecial3
 	energycost	12
 	mponly	1
 	loop	0
-	delay	8
+	delay	7
 	offset	135 191
 	bbox	0 0 0 0
 	forcedirection	-1
 	fastattack	1
-	jumpframe	2 4 1.5 0
+	jumpframe	2 3.5 1.5 0
 	landframe	12 dust
 	hitfx	data/sounds/beat2.wav
 	sound	data/sounds/rob01.wav
 	frame	data/chars/1robert/s01.gif
 	frame	data/chars/1robert/s02.gif
-	attack	145 110 55 75 15 0 0 0 15 0
+	attack	145 110 55 75 10 0 1 0 15 0
 	frame	data/chars/1robert/s03.gif
 	attack	0 0 0 0
 	frame	data/chars/1robert/s04.gif
 	hitfx	data/sounds/beat4.wav
 	hitflash	flashscreen1
 	staydown	400 400
-	attack10 105 64 127 104 40 1 0 0 35 0
-	dropv	4 2
+	attack10 105 64 127 104 40 1 1 0 35 0
+	dropv	4 1.7
 	frame	data/chars/1robert/s05.gif
 	frame	data/chars/1robert/s06.gif
-	bbox	120 80 45 70
 	attack10 90 35 105 65 40 1 0 0 35 0
 	frame	data/chars/1robert/s07.gif
 	frame	data/chars/1robert/s08.gif
 	attack10	0 0 0 0
-	delay	7
+	delay	6
 	frame	data/chars/1robert/s09.gif
 	frame	data/chars/1robert/s10.gif
 	frame	data/chars/1robert/s11.gif
@@ -1344,23 +1393,24 @@ anim	freespecial4
 	bbox	96 95 41 94
 	followanim	3
 	followcond	3
+	seal		7 2
 	hitflash	Flash3
 	hitfx	data/sounds/beat1.wav
 	sound	data/sounds/robsp1.wav
 	frame	data/chars/1robert/gnk00.gif
 	frame	data/chars/1robert/gnk01.gif
 	delay	6
-	attack2	116 110 85 42 0 0 0 0 10 0
+	attack2	116 110 85 42 0 0 1 0 10 0
 	frame	data/chars/1robert/gnk02.gif
 	attack2	0 0 0 0
 	frame	data/chars/1robert/gnk03.gif
 	frame	data/chars/1robert/gnk04.gif
-	attack	116 90 85 45 0 0 0 0 10 0
+	attack	116 90 85 45 0 0 1 0 10 0
 	frame	data/chars/1robert/gnk05.gif
 	attack	0 0 0 0
 	frame	data/chars/1robert/gnk06.gif
 	frame	data/chars/1robert/gnk07.gif
-	attack2	116 143 85 42 0 0 0 0 10 0
+	attack2	116 143 85 42 0 0 1 0 10 0
 	frame	data/chars/1robert/gnk08.gif
 	attack2	0 0 0 0
 	frame	data/chars/1robert/gnk09.gif
@@ -1377,7 +1427,7 @@ anim	freespecial5
 	delay	9
 	offset	135 191
 	bbox	110 100 41 85
-	custknife	kohkn2
+	custknife	hsken
 	throwframe	4
 	sound	data/sounds/robsp5.wav
 	frame	data/chars/1robert/s13.gif
@@ -1399,7 +1449,7 @@ anim	freespecial6
 	delay	7
 	offset	135 191
 	bbox	110 100 41 85
-	custknife	haskk2
+	custknife	hadok2
 	throwframe	9
 	sound	data/sounds/robsp2.wav
 	frame	data/chars/1robert/hskk00.gif
@@ -1430,6 +1480,7 @@ anim	freespecial27
 	bbox	0 0 0 0
 	followanim	4
 	followcond	3
+	seal	7 4
 	sound	data/sounds/robch.wav
 	frame	data/chars/1robert/sp24.gif
 	@cmd	spawn04 "allsp" 1 1 1 2
@@ -1441,12 +1492,12 @@ anim	freespecial27
 	frame	data/chars/1robert/sup04.gif
 	delay	7
 	frame	data/chars/1robert/sup05.gif
+	sound	data/sounds/slowm.wav
 	frame	data/chars/1robert/run3.gif
 	delay	1
-	sound	data/sounds/slowm.wav
 	move	4
-	attack	120 120 65 42 0 0 0 0 10 0
-	frame	data/chars/1robert/run4.gif
+	attack	130 120 55 42 0 0 1 0 10 20
+	frame	data/chars/1robert/run4.gif #7
 	@cmd	keymove 1.2
 	frame	data/chars/1robert/run4.gif
 	attack	0 0 0 0
@@ -1462,6 +1513,7 @@ anim	freespecial27
 	frame	data/chars/1robert/sup04.gif
 	move	1
 	frame	data/chars/1robert/rise2.gif
+	@cmd	stop
 	frame	data/chars/1robert/rise2.gif
 	@cmd	spawn01 "dust" 30 1 1
 	frame	data/chars/1robert/rise2.gif
@@ -1482,6 +1534,7 @@ anim	freespecial26
 	offset	135 191
 	bbox	115 95 41 94
 	staydown	500 500
+	forcedirection	-1
 	frame	data/chars/1robert/sp24.gif
 	@cmd	spawnAni2 "allsp" 1 1 1 2 "ANI_FOLLOW1"
 	frame	data/chars/1robert/sup01.gif
@@ -1519,7 +1572,7 @@ anim	freespecial26
 	frame	data/chars/1robert/b54.gif
 	hitfx	data/sounds/beat4.wav
 	hitflash	flashscreen2
-	attack9	122 105 95 40 65 1 0 0 55 15
+	attack9	122 105 95 40 150 1 1 0 55 15
 	dropv	2 4
 	@cmd	keymove 1.5
 	frame	data/chars/1robert/b55.gif
@@ -1625,7 +1678,7 @@ anim	grabattack
 		
 anim	grabattack2
 	loop	0
-	delay	8
+	delay	7
 	offset	135 191
 	bbox	115 100 41 85
 	fastattack	1
@@ -1699,7 +1752,7 @@ anim	grabbackward
 	frame	data/chars/1robert/th06.gif
 	attack	0 0 0 0
 	@cmd	depost 0
-	@cmd	throw 60 1 -2 4 0 1
+	@cmd	throw 70 1 -3 2 0 1
 	delay	11
 	frame	data/chars/1robert/th06.gif
 	delay	11
@@ -1731,7 +1784,7 @@ anim	grabforward
 anim	grabforward2
 	attackone	0
 	loop	0
-	delay	7
+	delay	6
 	offset	135 191
 	bbox	120 100 41 85
 	staydown	350 350
@@ -1745,7 +1798,7 @@ anim	grabforward2
 	frame	data/chars/1robert/d19.gif
 	frame	data/chars/1robert/d20.gif
 	blast	0 0 0 0
-	delay	8
+	delay	7
 	frame	data/chars/1robert/d21.gif
 	frame	data/chars/1robert/d22.gif
 	frame	data/chars/1robert/d23.gif
@@ -1756,6 +1809,7 @@ anim	idle
 	offset	135 191
 	bbox	115 95 41 94
 	frame	data/chars/1robert/win06.gif
+	@cmd	clearL
 	frame	data/chars/1robert/idle00.gif
 	frame	data/chars/1robert/idle01.gif
 	frame	data/chars/1robert/idle02.gif
@@ -2135,6 +2189,7 @@ anim	runjumpattack
 	attack	118 130 100 43 35 1 0 0 40
 	dropv	2 4
 	frame	data/chars/1robert/ja08.gif
+	delay	20
 	frame	data/chars/1robert/ja09.gif
 	attack	0 0 0 0
 	delay	5

@@ -1,0 +1,78 @@
+#music  		data/music/tdojo2.ogg
+bossmusic		data/music/kasumi.ogg
+
+background	data/bgs/39lvl/back3.gif 0.5 0
+panel		data/bgs/39lvl/tdojo2.gif
+layer		data/bgs/39lvl/front2.gif 500 0 0 0 0 0 0 1 1 1 1 0 0 0 0 0
+layer           data/bgs/39lvl/front1.gif 700 0 0 0 0 0 0 1 1 1 0 0 0 0 0 3
+
+
+direction       both
+light  		10   -30
+at       	0
+settime         0
+notime          1
+noslow          0
+order		a
+spawn1  	125 40
+spawn2  	135 45
+spawn3  	145 50
+
+
+
+
+#-----------------------
+wall    1820 320  0 160 240 240 70 5000
+#-----------------------
+
+spawn   zenpot
+map     1
+item    diamond
+coords  250 270
+at      0
+
+
+spawn   zenpot
+map     2
+item    food5
+coords  940 270
+at      0
+
+
+spawn   zenpot
+map     2
+item    1up
+coords  1020 270
+at      0
+
+
+#-----------------------
+blockade 1200
+at 	 1100
+
+#------------------
+
+group   2 2
+at      1100
+
+spawn   todo
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW20"));
+} @end_script
+health  900
+boss    1
+aggression 70
+coords  500 270
+at      1100
+
+
+spawn   kasumi
+flip    1
+health  1100
+boss    1
+aggression 200
+coords  570 295
+at      1100
+
+
+

@@ -3,7 +3,7 @@ nolife    1
 type      enemy
 nomove	  1 1
 hostile   player
-lifespan  350
+lifespan  225
 subject_to_hole 0
 subject_to_wall 0
 offscreenkill 	10000
@@ -12,14 +12,24 @@ candamage player
 animationscript data/scripts/escript.c
 
 load	mine2
+load	wrmine
 
 
 
 
 
 
-
-
+anim	follow5
+	loop	0
+	delay	5
+	offset	1 1
+	frame	data/chars/misc/traps/mine/empty.gif
+	@cmd	spawn02 "wrmine" 20 530 550
+	frame	data/chars/misc/traps/mine/empty.gif
+	@cmd	clearL
+	frame	data/chars/misc/traps/mine/empty.gif
+	@cmd	suicide
+	frame	data/chars/misc/traps/mine/empty.gif
 
 
 
@@ -33,6 +43,10 @@ anim	follow7
 	@cmd	spawn01 "mine2" 1 1 1
 	frame	data/chars/misc/traps/mine/empty.gif
 	delay	200
+	frame	data/chars/misc/traps/mine/empty.gif
+	delay	5
+	frame	data/chars/misc/traps/mine/empty.gif
+	@cmd	clearL
 	frame	data/chars/misc/traps/mine/empty.gif
 	@cmd	beidle
 	frame	data/chars/misc/traps/mine/empty.gif
@@ -55,6 +69,9 @@ anim	idle
 	frame	data/chars/misc/traps/mine/empty.gif
 	delay	120
 	frame	data/chars/misc/traps/mine/empty.gif
-		
-#|edited by openBor Stats v 0.53
+	delay	5
+	frame	data/chars/misc/traps/mine/empty.gif
+	@cmd	clearL
+	frame	data/chars/misc/traps/mine/empty.gif	
+
 		

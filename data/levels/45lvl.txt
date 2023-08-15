@@ -41,7 +41,7 @@ wall 2660 660 -10 -20 360 375 75 195
 #-----------------------------------
 
 #-------------train-frt-----------------
-wall 3350 675 -215 -265 470 470 40 75
+wall 3350 680 -215 -265 470 470 43 75
 wall 3800 660 0 0 270 270 25 75
 wall 3145 642 30 -15 350 350 20 205
 wall 3490 642 0 0 460 460 20 180
@@ -139,7 +139,6 @@ at      0
 #------------------------
 spawn   box2
 health  15
-item    1up
 coords  450 565 207
 at      0
 
@@ -151,8 +150,10 @@ coords  545 570 207
 at      0
 
 spawn   barrel
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+} @end_script
 health  15
-item    5bill
 coords  525 605 207
 at      0
 
@@ -170,7 +171,6 @@ at      0
 spawn   barrel
 map     1
 health  15
-item    5dime
 coords  1445 570 220
 at      0
 
@@ -198,7 +198,6 @@ at      0
 
 spawn   box
 health  10
-item    diamond
 coords  2390 630 180
 at      0
 
@@ -220,7 +219,6 @@ at      0
 
 spawn   barrel
 health  15
-item    apple
 coords  3450 645 120
 at      0
 
@@ -283,7 +281,6 @@ spawn   kmi
 spawnscript data/scripts/noscpos.c
 aggression 100
 map     2
-item    ruby
 health  120
 coords  840 640 450
 at      5
@@ -314,7 +311,6 @@ at      5
 spawn   berret2
 spawnscript data/scripts/noscpos.c
 aggression 100
-item    7shuss
 health  230
 coords  555 615 450
 at      5
@@ -377,7 +373,6 @@ spawnscript data/scripts/noscpos.c
 map     1
 aggression 100
 health  120
-item    7burger
 coords  480 645 450
 at      5
 
@@ -444,7 +439,6 @@ spawnscript data/scripts/noscpos.c
 map 4
 aggression 100
 health  210
-item    5dime
 coords  810 630 450
 at      470
 
@@ -506,7 +500,6 @@ spawnscript data/scripts/noscpos.c
 map 3
 aggression 100
 health  200
-item    7putin
 coords  900 630 450
 at      470
 
@@ -580,7 +573,6 @@ spawnscript data/scripts/noscpos.c
 map 3
 aggression 100
 health  140
-item    5dime
 coords  1650 640 215
 at      1010
 
@@ -625,7 +617,6 @@ at      1200
 
 spawn   ghost1
 spawnscript data/scripts/noscpos.c
-item    apple
 coords  1550 630 222
 at      1220
 
@@ -715,7 +706,6 @@ spawn   trevor2
 spawnscript data/scripts/noscpos.c
 map     2
 aggression 100
-item    1up
 health  190
 coords  1300 625 450
 at      1200
@@ -775,7 +765,6 @@ at      1200
 
 spawn   ghost1
 spawnscript data/scripts/noscpos.c
-item    1up
 coords  1500 620 222
 at      1220
 
@@ -866,7 +855,6 @@ spawn   berret2
 spawnscript data/scripts/noscpos.c
 map     2
 aggression 100
-item    1up
 health  250
 coords  1300 615 450
 at      1200
@@ -923,7 +911,6 @@ spawn   ironman2
 spawnscript data/scripts/noscpos.c
 map     3
 aggression 100
-item    food5
 health  250
 coords  2400 645 400
 at      1850
@@ -965,7 +952,6 @@ spawnscript data/scripts/noscpos.c
 map 2
 aggression 100
 health  140
-item    money2
 coords  1710 640 220
 at      1800
 
@@ -1040,7 +1026,6 @@ spawn   snake2
 spawnscript data/scripts/noscpos.c
 map     3
 aggression 90
-item    5dime
 health  130
 coords  2400 645 400
 at      1850
@@ -1061,7 +1046,6 @@ at      1800
 
 spawn   ghost3
 spawnscript data/scripts/noscpos.c
-item    7shuss
 coords  2210 645 100
 at      1800
 
@@ -1081,7 +1065,7 @@ coords  2170 640 400
 at      1800
 
 
-spawn   snake2
+2pspawn   snake2
 spawnscript data/scripts/noscpos.c
 map     4
 aggression 100
@@ -1115,17 +1099,16 @@ coords  2170 640 400
 at      1800
 
 
-spawn   schnell2
+2pspawn   schnell2
 spawnscript data/scripts/noscpos.c
 map     1
 aggression 100
-item    5dime
 health  310
 coords  2300 640 400
 at      1800
 
 
-spawn   ironman2
+3pspawn   ironman2
 spawnscript data/scripts/noscpos.c
 map     1
 aggression 100
@@ -1134,7 +1117,7 @@ coords  2000 640 400
 at      1850
 
 
-spawn   ironman2
+3pspawn   ironman2
 spawnscript data/scripts/noscpos.c
 map     2
 aggression 100
@@ -1144,7 +1127,7 @@ at      1850
 
 
 
-spawn   kmi
+2pspawn   kmi
 spawnscript data/scripts/noscpos.c
 map 4
 aggression 100
@@ -1152,15 +1135,13 @@ health  140
 coords  1700 640 225
 at      1800
 
-spawn   kraven
+2pspawn   kraven
 spawnscript data/scripts/noscpos.c
 map 2
 aggression 100
 health  190
 coords  2720 640 225
 at      1800
-
-
 
 
 group   1 1
@@ -1191,45 +1172,6 @@ aggression 100
 health  280
 coords  2730 645 450
 at      2390
-
-
-spawn   schnell2
-spawnscript data/scripts/noscpos.c
-map     3
-aggression 100
-item    diamond
-health  310
-coords  2860 645 450
-at      2390
-
-
-spawn   snake2
-spawnscript data/scripts/noscpos.c
-map     4
-aggression 100
-health  160
-coords  2730 645 450
-at      2390
-
-
-spawn   trevor2
-spawnscript data/scripts/noscpos.c
-map     3
-aggression 100
-health  210
-coords  2860 645 450
-at      2390
-
-
-spawn   heiderna2
-spawnscript data/scripts/noscpos.c
-map     3
-aggression 100
-health  180
-coords  2800 645 450
-at      2390
-
-
 
 #---------------------
 
@@ -1264,7 +1206,7 @@ health  290
 coords  2940 645 450
 at      2390
 
-spawn   berret2
+2pspawn   berret2
 spawnscript data/scripts/noscpos.c
 map     3
 aggression 100
@@ -1279,8 +1221,13 @@ map     4
 coords  2150 690
 at      2390
 
+2pspawn   ghost1
+spawnscript data/scripts/noscpos.c
+coords  2745 645 450
+at      2390
 
-spawn   atkvan6
+
+2pspawn   atkvan6
 spawnscript data/scripts/noscpos.c
 map     2
 coords  3490 690
@@ -1343,13 +1290,6 @@ at    2920
 
 #------------1st---go-----------------
 
-spawn   berret2
-spawnscript data/scripts/noscpos3.c
-map     1
-health  230
-flip	1
-coords  2950 650 500
-at      2920
 
 spawn   berret2
 spawnscript data/scripts/noscpos3.c
@@ -1377,23 +1317,6 @@ at      2920
 #-----------truck----------------------
 
 
-spawn   trevor2
-spawnscript data/scripts/noscpos3.c
-map     2
-aggression 100
-health  210
-flip	1
-coords  2900 650 220
-at      2920
-
-spawn   schnell2
-spawnscript data/scripts/noscpos3.c
-map     1
-health  330
-flip	1
-coords  2950 650 400
-at      2920
-
 spawn   schnell2
 spawnscript data/scripts/noscpos3.c
 map     2
@@ -1409,7 +1332,6 @@ spawnscript data/scripts/noscpos3.c
 map     1
 aggression 100
 health  130
-item    5bill
 flip	1
 coords  2900 650 220
 at      2920
@@ -1456,33 +1378,6 @@ coords  4250 750
 at      2920
 #-----------truck----------------------
 
-
-spawn   berret2
-spawnscript data/scripts/noscpos3.c
-map     2
-health  230
-flip	1
-coords  2900 650 220
-at      2920
-
-
-spawn   trevor2
-spawnscript data/scripts/noscpos3.c
-map     1
-health  210
-flip	1
-coords  2950 650 400
-at      2920
-
-spawn   trevor2
-spawnscript data/scripts/noscpos3.c
-map     2
-health  210
-flip	1
-coords  2930 650 500
-at      2920
-
-
 spawn   schnell2
 spawnscript data/scripts/noscpos3.c
 map     1
@@ -1491,31 +1386,10 @@ flip	1
 coords  2900 650 220
 at      2920
 
-spawn   schnell2
-spawnscript data/scripts/noscpos3.c
-map     2
-health  290
-flip	1
-coords  2950 650 400
+spawn   ghost1
+coords  250 650
 at      2920
 
-#-----------truck-----------------------
-spawn   atkvan5
-spawnscript data/scripts/noscpos.c
-map     2
-coords  2800 720
-at      2920
-#-----------truck----------------------
-
-
-spawn   heiderna2
-spawnscript data/scripts/noscpos3.c
-map     1
-aggression 100
-health  190
-flip	1
-coords  2930 650 500
-at      2920
 
 spawn   heiderna2
 spawnscript data/scripts/noscpos3.c
@@ -1527,48 +1401,13 @@ coords  2900 650 220
 at      2920
 
 #-----------truck-----------------------
-spawn   atkvan6
-spawnscript data/scripts/noscpos.c
-map     2
-coords  4250 750
-at      2920
-#-----------truck----------------------
-
-spawn   trevor2
-spawnscript data/scripts/noscpos3.c
-map     2
-aggression 100
-item    1up
-health  210
-flip	1
-coords  2950 650 400
-at      2920
-
-
-spawn   schnell2
-spawnscript data/scripts/noscpos3.c
-map     1
-health  330
-flip	1
-coords  2930 650 500
-at      2920
-
-spawn   schnell2
-spawnscript data/scripts/noscpos3.c
-map     2
-health  300
-flip	1
-coords  2900 650 220
-at      2920
-
-
-#-----------truck-----------------------
 spawn   atkvan5
 spawnscript data/scripts/noscpos.c
 map     2
 coords  2800 720
 at      2920
 #-----------truck----------------------
+
 
 group 1 1
 at    3100

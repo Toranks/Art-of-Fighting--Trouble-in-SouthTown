@@ -20,7 +20,7 @@ light  		10   -30
 at       	0
 settime         0
 notime          1
-noslow          1
+noslow          0
 order		a
 spawn1  	105 20
 spawn2  	185 20
@@ -127,7 +127,6 @@ at      0
 spawn   log
 flip    1
 health  30
-item    food4
 coords  1275 765
 at      0
 
@@ -148,7 +147,6 @@ at      0
 spawn   log
 flip    1
 health  50
-item    1up
 coords  300 740
 at      0
 
@@ -389,7 +387,6 @@ at      0
 
 spawn barrel
 health  5
-item    food5
 coords  1240 735
 at      0
 
@@ -403,25 +400,28 @@ at      0
 
 #----------enemy------------
 
-group   3 3
-at      20
-wait
-at      25
-
-spawn   bigbear
-health  300
-coords  610 255
-at      25
-
-spawn   bigbear
-health  340
-coords  800 270
-at      25
-
-spawn   bigbear
-health  280
-coords  950 220
-at      25
+spawn   ghosttime
+@script
+void main()
+{
+	setglobalvar("Kgnextday", NULL());
+	setglobalvar("challenge", NULL());
+	setglobalvar("killelle", NULL());
+	setglobalvar("cupkill", NULL());
+	setglobalvar("bn1", NULL());
+	setglobalvar("bn2", NULL());
+	setglobalvar("bn3", NULL());
+	setglobalvar("bn4", NULL());
+	setglobalvar("rsh1", NULL());
+	setglobalvar("rsh2", NULL());
+	setglobalvar("maphold1", NULL());
+	setglobalvar("maphold2", NULL());
+	setglobalvar("maphold3", NULL());
+}
+@end_script
+health	5
+coords  0 255
+at      0
 
 
 #--------------------
@@ -434,38 +434,32 @@ at      320
 wait
 at      325
 
-spawn   wolf
-health  160
+spawn   wolfen
+map     2
 coords  650 220
 at      320
 
 
-2pspawn   wolf
-health  180
+2pspawn   wolfen
+map       4
 coords  720 260
 at      320
 
-spawn   wolf
-health  160
+spawn   wolfen
+map     2
 coords  -220 240
 at      320
 
-spawn   wolf
-health  140
+spawn   wolfen
+map     2
 item    food1
 coords  650 220
 at      320
 
 
-spawn   wolf
-health  160
+spawn   wolfen
+map     4
 coords  720 260
-at      320
-
-spawn   wolf
-health  190
-item    gold
-coords  -220 240
 at      320
 
 #-------------------
@@ -485,20 +479,14 @@ coords  620 240
 at      550
 
 spawn   bull
-health  320
+health  120
 map     2
 coords  -320 240
 at      550
 
 spawn   bull
-health  280
+health  230
 coords  600 220
-at      550
-
-spawn   bull
-health  300
-map     1
-coords  -300 260
 at      550
 
 #-----------------------
@@ -511,6 +499,12 @@ at   	 1000
 
 blockade 1700
 at   	 1700
+
+#-------//-badbreak---//--------
+spawn   badbreak
+coords  50 670
+at      1720
+#-------//-badbreak---//--------
 
 #----------------------
 
@@ -531,7 +525,6 @@ at      1750
 
 spawn   eagle
 health  60
-item    diamond
 coords  730 670
 at      1750
 
@@ -570,8 +563,16 @@ wait
 at      2555
 
 spawn   tiger
-health  280
+health  180
 coords  730 670
+at      2550
+
+spawn   ghost1
+coords  730 670
+at      2550
+
+spawn   ghost1
+coords  -130 670
 at      2550
 
 2pspawn   tiger
@@ -579,14 +580,26 @@ health  300
 coords  850 670
 at      2550
 
+spawn   ghost1
+coords  730 670
+at      2550
+
 spawn   tiger
 health  290
 coords  -130 680
 at      2550
 
+spawn   ghost1
+coords  730 670
+at      2550
+
 spawn   tiger
-health  280
+health  180
 coords  -150 680
+at      2550
+
+spawn   ghost1
+coords  730 670
 at      2550
 
 spawn   tiger
@@ -594,19 +607,22 @@ health  310
 coords  730 670
 at      2550
 
+spawn   ghost1
+coords  730 670
+at      2550
+
 spawn   tiger
-health  280
+health  80
 coords  850 670
+at      2550
+
+spawn   ghost1
+coords  730 670
 at      2550
 
 spawn   tiger
 health  320
 coords  -130 680
-at      2550
-
-spawn   tiger
-health  350
-coords  -150 680
 at      2550
 
 #------------------
@@ -630,7 +646,7 @@ wait
 at      3300
 
 
-spawn   ghost3
+spawn   ghost4
 @script
 void main()
 {

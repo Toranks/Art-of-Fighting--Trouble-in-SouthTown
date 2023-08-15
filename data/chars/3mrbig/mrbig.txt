@@ -1,6 +1,7 @@
 name          MrBig
 type          enemy	
 health        100
+mp		3000
 speed         11
 jumpheight    4
 throw         5 2
@@ -649,6 +650,7 @@ anim	fall2
 	delay	300
 	frame	data/chars/3Mrbig/fall3.gif
 	delay	15
+	bbox	58 175 85 15
 	frame	data/chars/3Mrbig/fall4.gif
 	frame	data/chars/3Mrbig/fall5.gif
 	frame	data/chars/3Mrbig/fall4.gif
@@ -1059,7 +1061,9 @@ anim	idle
 	offset	104 190
 	bbox	76 93 56 89
 	frame	data/chars/3Mrbig/idle01.gif
+	@cmd	depost 0
 	frame	data/chars/3Mrbig/idle02.gif
+	@cmd	clearL
 	frame	data/chars/3Mrbig/idle03.gif
 	frame	data/chars/3Mrbig/idle02.gif
 		
@@ -1280,6 +1284,8 @@ anim	special
 	frame	data/chars/3Mrbig/c14.gif
 		
 anim	special2
+	energycost	10
+	mponly	1
 	loop	0
 	delay	12
 	offset	104 190
@@ -1670,7 +1676,7 @@ anim	special2
 	frame	data/chars/3Mrbig/crs35.gif
 	attack	0 0 0 0
 	@cmd	killgun 8 0
-	@cmd	spawn02 "flashsc2" -100 500 300
+	@cmd	spawn02 "flashsc2" -10 200 190
 	@cmd	position 2 -50 60 -1 1
 	frame	data/chars/3Mrbig/crs36.gif
 	delay	5

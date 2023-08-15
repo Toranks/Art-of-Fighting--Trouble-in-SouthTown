@@ -21,8 +21,10 @@ animationscript data/scripts/escript.c
 
 palette	none
 
+load	imgpw2
 load	imgpw
 load	newspaper1
+load	1bssch1
 
 
 script	@script
@@ -40,7 +42,7 @@ void main()
 	int Screen = openborvariant("hResolution");
 	int Screen2 = openborvariant("vResolution");
 
-     	if ( Ani == openborconstant("ANI_FOLLOW1") ||  Ani == openborconstant("ANI_FOLLOW2") ||  Ani == openborconstant("ANI_FOLLOW3")||  Ani == openborconstant("ANI_FOLLOW4"))
+     	if ( Ani == openborconstant("ANI_FOLLOW1") ||  Ani == openborconstant("ANI_FOLLOW2") ||  Ani == openborconstant("ANI_FOLLOW3") || Ani == openborconstant("ANI_FOLLOW4") || Ani == openborconstant("ANI_FOLLOW7") || Ani == openborconstant("ANI_FOLLOW8"))
 	{
 		if(frame == 2 && playerkeys(plyr, 1, "moveright"))
 		{
@@ -402,7 +404,7 @@ anim	follow4
 
 
 
-#----------------------//---NEWPAPER---//---------------
+#----------------------//---NEWSPAPER---//---------------
 
 anim	follow5
 	loop	1
@@ -410,9 +412,9 @@ anim	follow5
 	offset	5 5
 	bbox	0 0 0 0
 	frame	data/bgs/99museum/bck/empty.gif
-	@cmd	attack1 -5 5 5 "ANI_FOLLOW6"
+	@cmd	attack1 -10 10 10 "ANI_FOLLOW6"
 	frame	data/bgs/99museum/bck/empty.gif
-	@cmd	attack1 -5 5 5 "ANI_FOLLOW6"
+	@cmd	attack1 -10 10 10 "ANI_FOLLOW6"
 	frame	data/bgs/99museum/bck/empty.gif
 
 
@@ -456,3 +458,151 @@ anim	follow6
 
 
 
+
+#--------------//---scroll-passwords-and-quiz--//---------------
+
+anim	follow7
+@script
+	void self = getlocalvar("self");
+	if (frame == 0)
+	{
+	changeopenborvariant("xpos", 2810);
+	changeopenborvariant("ypos", 5);
+	}
+@end_script
+	loop	1
+	delay	5
+	offset	-30 200
+	frame	data/bgs/99museum/bck/scroll14.gif
+	frame	data/bgs/99museum/bck/scroll14.gif
+	delay	85000
+	sound	data/sounds/beep.wav
+	frame	data/bgs/99museum/bck/scroll14.gif #2
+	sound	data/sounds/beep.wav
+	frame	data/bgs/99museum/bck/scroll15.gif #3
+	delay	3
+	frame	data/bgs/99museum/bck/scroll13.gif #4
+	sound	data/sounds/go.wav
+	frame	data/bgs/99museum/bck/scroll14.gif
+	frame	data/bgs/99museum/bck/scroll13.gif
+	frame	data/bgs/99museum/bck/scroll14.gif
+	@cmd	looper 6 15
+	frame	data/bgs/99museum/bck/scroll13.gif
+	@cmd	spawnGun11 "imgpw" 250 1 120 1 "ANI_FOLLOW8"
+	@cmd	spawnAni2 "imgpw2" 240 1 150 "ANI_IDLE"
+	frame	data/bgs/99museum/bck/scroll14.gif #9
+	@cmd	killgun 1 0
+	@cmd	anichange "ANI_FOLLOW16"
+	frame	data/bgs/99museum/bck/scroll14.gif
+	delay	85000
+	frame	data/bgs/99museum/bck/scroll14.gif
+	delay	3
+	frame	data/bgs/99museum/bck/scroll13.gif #12
+	sound	data/sounds/go.wav
+	frame	data/bgs/99museum/bck/scroll15.gif
+	frame	data/bgs/99museum/bck/scroll13.gif
+	frame	data/bgs/99museum/bck/scroll15.gif
+	@cmd	looper 14 10
+	frame	data/bgs/99museum/bck/scroll13.gif
+	frame	data/bgs/99museum/bck/scroll15.gif
+	frame	data/bgs/99museum/bck/scroll15.gif
+	@cmd	anichange "ANI_FOLLOW16"
+	frame	data/bgs/99museum/bck/scroll15.gif
+	frame	data/bgs/99museum/bck/scroll15.gif
+
+
+
+
+#--------------//---boss-chosse--//---------------
+
+anim	follow8
+@script
+	void self = getlocalvar("self");
+	if (frame == 0)
+	{
+	changeopenborvariant("xpos", 3200);
+	changeopenborvariant("ypos", 5);
+	}
+@end_script
+	loop	1
+	delay	5
+	offset	-30 200
+	frame	data/bgs/99museum/bck/scroll17.gif
+	frame	data/bgs/99museum/bck/scroll17.gif
+	delay	85000
+	sound	data/sounds/beep.wav
+	frame	data/bgs/99museum/bck/scroll17.gif #2
+	sound	data/sounds/beep.wav
+	frame	data/bgs/99museum/bck/scroll18.gif #3
+	delay	3
+	frame	data/bgs/99museum/bck/scroll16.gif #4
+	sound	data/sounds/go.wav
+	frame	data/bgs/99museum/bck/scroll17.gif
+	frame	data/bgs/99museum/bck/scroll16.gif
+	frame	data/bgs/99museum/bck/scroll17.gif
+	@cmd	looper 6 15
+	frame	data/bgs/99museum/bck/scroll16.gif
+	@cmd	spawnAni "1bssch1" -10 100 100 "ANI_IDLE"
+	@cmd	anichange "ANI_FOLLOW9"
+	frame	data/bgs/99museum/bck/scroll14.gif #9
+	@cmd	anichange "ANI_FOLLOW16"
+	frame	data/bgs/99museum/bck/scroll17.gif
+	delay	85000
+	frame	data/bgs/99museum/bck/scroll17.gif
+	delay	3
+	frame	data/bgs/99museum/bck/scroll16.gif #12
+	sound	data/sounds/go.wav
+	frame	data/bgs/99museum/bck/scroll18.gif
+	frame	data/bgs/99museum/bck/scroll16.gif
+	frame	data/bgs/99museum/bck/scroll18.gif
+	@cmd	looper 14 10
+	frame	data/bgs/99museum/bck/scroll16.gif
+	frame	data/bgs/99museum/bck/scroll18.gif
+	frame	data/bgs/99museum/bck/scroll18.gif
+	@cmd	anichange "ANI_FOLLOW16"
+	frame	data/bgs/99museum/bck/scroll18.gif
+	frame	data/bgs/99museum/bck/scroll18.gif
+
+
+
+
+anim	follow9
+@script
+   	void self = getlocalvar("self");
+	int  exit1 = getglobalvar("bossex");
+	if(frame >=1 && frame <=5 && exit1 == 1)
+	{
+		updateframe(self, 7);
+	}
+	if(frame == 8)
+	{
+	setglobalvar("bossex", 0);
+	}
+@end_script
+	loop	1 1 5 
+	delay	10
+	offset	-30 200
+	frame	data/bgs/99museum/bck/empty.gif
+	frame	data/bgs/99museum/bck/empty.gif #1
+	frame	data/bgs/99museum/bck/empty.gif
+	frame	data/bgs/99museum/bck/empty.gif
+	frame	data/bgs/99museum/bck/empty.gif #5
+	frame	data/bgs/99museum/bck/empty.gif
+	frame	data/bgs/99museum/bck/empty.gif
+	delay	60
+	frame	data/bgs/99museum/bck/empty.gif #7
+	frame	data/bgs/99museum/bck/empty.gif
+	delay	10
+	frame	data/bgs/99museum/bck/empty.gif
+	@cmd	clearL
+	frame	data/bgs/99museum/bck/empty.gif
+	@cmd	beidle
+	frame	data/bgs/99museum/bck/empty.gif
+
+
+
+
+
+
+
+	

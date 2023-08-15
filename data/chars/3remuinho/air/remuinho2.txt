@@ -3,7 +3,7 @@ type          enemy
 subtype	      chase
 health        8000
 speed         25
-running	      45 3 3 1 0
+running	      35 3 3 1 0
 jumpheight    4
 throw         5 2
 throwdamage   18
@@ -35,6 +35,7 @@ alternatepal       data/chars/3remuinho/map3.gif
 load	pw2
 load	torn1
 load	torn2
+load	allsmtlk
 
 
 
@@ -85,8 +86,6 @@ anim	attack1
 	delay	8
 	offset	100 189
 	bbox	79 97 50 91
-	fastattack	1
-	#attackone	1
 	followanim	1
 	followcond	1
 	hitfx	data/sounds/beat2.wav
@@ -99,7 +98,7 @@ anim	attack1
 		
 anim	attack2
 	range	0 100
-	rangez	12 140
+	rangez	25 40
 	loop	0
 	delay	14
 	offset	100 189
@@ -133,7 +132,7 @@ anim	attack2
 		
 anim	attack3
 	range	0 100
-	rangez	-140 -12
+	rangez	-40 -25
 	loop	0
 	delay	14
 	offset	100 189
@@ -304,7 +303,7 @@ anim	follow1
 	loop	0
 	delay	7
 	offset	100 189
-	bbox	0 0 0 0
+	bbox	79 97 50 91
 	fastattack	1
 	#attackone	1
 	hitfx	data/sounds/beat2.wav
@@ -334,6 +333,25 @@ anim	follow1
 	frame	data/chars/3remuinho/air/a15.gif
 	attack	0 0 0 0
 	frame	data/chars/3remuinho/air/a16.gif
+
+
+anim	follow10
+	loop	0
+	delay	9
+	offset	100 189
+	bbox	79 97 50 91
+	frame	data/chars/3remuinho/air/e09.gif
+	frame	data/chars/3remuinho/air/a12.gif
+	frame	data/chars/3remuinho/air/a13.gif
+	delay	14
+	attack	110 106 70 30 15 1 0 0 30 0
+	frame	data/chars/3remuinho/air/a14.gif
+	frame	data/chars/3remuinho/air/a15.gif
+	attack	0 0 0 0
+	frame	data/chars/3remuinho/air/a16.gif
+
+
+
 		
 anim	follow2
 	loop	0
@@ -342,7 +360,6 @@ anim	follow2
 	bbox	0 0 0 0
 	quakeframe	0 3 5
 	@cmd	slamstart2
-	@cmd	grabcheck2
 	@cmd	position 7 15 10 -1 -1
 	frame	data/chars/3remuinho/air/upper01.gif
 	delay	5
@@ -394,168 +411,6 @@ anim	follow2
 	@cmd	position 18 15 10 -1 1
 	sound	data/sounds/punch2.wav
 	frame	data/chars/3remuinho/air/upper20.gif
-	@cmd	position 18 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper21.gif
-	@cmd	position 17 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper22.gif
-	@cmd	position 17 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper23.gif
-	sound	data/sounds/punch2.wav
-	@cmd	position 17 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper02.gif
-	@cmd	position 10 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper03.gif
-	@cmd	spawn01 "Flash" 20 45 15
-	sound	data/sounds/beat3.wav
-	@cmd	leaper 0 1.5 0
-	@cmd	position 10 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper04.gif
-	@cmd	position 17 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper05.gif
-	@cmd	position 17 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper06.gif
-	@cmd	position 18 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper07.gif
-	@cmd	position 18 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper08.gif
-	sound	data/sounds/punch2.wav
-	@cmd	position 18 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper09.gif
-	@cmd	position 18 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper10.gif
-	@cmd	position 17 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper11.gif
-	@cmd	position 17 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper12.gif
-	@cmd	position 17 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper13.gif
-	sound	data/sounds/punch2.wav
-	@cmd	position 10 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper14.gif
-	@cmd	position 10 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper15.gif
-	@cmd	spawn01 "Flash" 20 45 15
-	sound	data/sounds/beat3.wav
-	@cmd	leaper 0 1.5 0
-	@cmd	position 17 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper16.gif
-	@cmd	position 17 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper17.gif
-	@cmd	position 18 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper18.gif
-	@cmd	position 18 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper19.gif
-	@cmd	position 18 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper20.gif
-	sound	data/sounds/punch2.wav
-	@cmd	position 18 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper21.gif
-	@cmd	position 17 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper22.gif
-	@cmd	position 17 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper23.gif
-	sound	data/sounds/punch2.wav
-	@cmd	position 17 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper02.gif
-	@cmd	position 10 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper03.gif
-	@cmd	spawn01 "Flash" 20 45 15
-	sound	data/sounds/beat3.wav
-	@cmd	leaper 0 1.5 0
-	@cmd	position 10 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper04.gif
-	@cmd	position 17 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper05.gif
-	@cmd	position 17 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper06.gif
-	@cmd	position 18 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper07.gif
-	@cmd	position 18 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper08.gif
-	@cmd	position 18 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper09.gif
-	sound	data/sounds/punch2.wav
-	@cmd	position 18 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper10.gif
-	@cmd	position 17 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper11.gif
-	@cmd	position 17 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper12.gif
-	@cmd	position 17 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper13.gif
-	sound	data/sounds/punch2.wav
-	@cmd	position 10 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper14.gif
-	@cmd	position 10 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper15.gif
-	@cmd	spawn01 "Flash" 20 45 15
-	sound	data/sounds/beat3.wav
-	@cmd	leaper 0 1.5 0
-	@cmd	position 17 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper16.gif
-	@cmd	position 17 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper17.gif
-	@cmd	position 18 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper18.gif
-	@cmd	position 18 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper19.gif
-	@cmd	position 18 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper20.gif
-	sound	data/sounds/punch2.wav
-	@cmd	position 18 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper21.gif
-	@cmd	position 17 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper22.gif
-	@cmd	position 17 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper23.gif
-	sound	data/sounds/punch2.wav
-	@cmd	position 17 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper02.gif
-	@cmd	position 10 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper03.gif
-	@cmd	spawn01 "Flash" 20 45 15
-	sound	data/sounds/beat3.wav
-	@cmd	leaper 0 1.5 0
-	@cmd	position 10 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper04.gif
-	@cmd	position 17 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper05.gif
-	@cmd	position 17 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper06.gif
-	@cmd	position 18 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper07.gif
-	@cmd	position 18 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper08.gif
-	@cmd	position 18 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper09.gif
-	sound	data/sounds/punch2.wav
-	@cmd	position 18 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper10.gif
-	@cmd	position 17 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper11.gif
-	@cmd	position 17 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper12.gif
-	@cmd	position 17 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper13.gif
-	sound	data/sounds/punch2.wav
-	@cmd	position 10 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper14.gif
-	@cmd	position 10 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper15.gif
-	@cmd	spawn01 "Flash" 20 45 15
-	sound	data/sounds/beat3.wav
-	@cmd	leaper 0 1.5 0
-	@cmd	position 17 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper16.gif
-	@cmd	position 17 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper17.gif
-	@cmd	position 18 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper18.gif
-	@cmd	position 18 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper19.gif
-	@cmd	position 18 15 10 -1 1
-	frame	data/chars/3remuinho/air/upper20.gif
-	sound	data/sounds/punch2.wav
 	@cmd	position 18 15 10 -1 1
 	frame	data/chars/3remuinho/air/upper21.gif
 	@cmd	position 17 15 10 -1 1
@@ -754,6 +609,7 @@ anim	follow3
 	attack5	0 0 0 0
 	delay	7
 	frame	data/chars/3remuinho/air/e07.gif
+	bbox	79 97 50 91
 	frame	data/chars/3remuinho/air/e08.gif
 	frame	data/chars/3remuinho/air/e09.gif
 	frame	data/chars/3remuinho/air/e10.gif
@@ -798,12 +654,70 @@ anim	grabbed
 	frame	data/chars/3remuinho/air/grabbed.gif
 		
 anim	idle
-	loop	1
+@script
+void self = getlocalvar("self");
+if( frame == 1)
+{
+	int r = rand()%50;
+	if( r > 30)
+	{
+	performattack(self,openborconstant("ANI_FOLLOW22"));
+	}
+}
+@end_script
+	loop	1 2 6
 	delay	9
 	offset	100 189
 	bbox	79 97 50 91
 	frame	data/chars/3remuinho/air/idle01.gif
 	frame	data/chars/3remuinho/air/idle02.gif
+	frame	data/chars/3remuinho/air/idle01.gif
+	frame	data/chars/3remuinho/air/idle02.gif
+	frame	data/chars/3remuinho/air/idle01.gif
+	frame	data/chars/3remuinho/air/idle02.gif
+	frame	data/chars/3remuinho/air/idle01.gif
+	frame	data/chars/3remuinho/air/idle02.gif
+
+
+anim	follow22
+	loop	0
+	delay	5
+	offset	100 189
+	bbox	0 0 0 0
+	frame	data/chars/3remuinho/air/idle01.gif
+	@cmd	spawnbind4 "allsmtlk" 10 100 1 0 4
+	frame	data/chars/3remuinho/air/idle02.gif
+	movez	1
+	frame	data/chars/3remuinho/air/idle01.gif
+	bbox	79 97 50 91
+	frame	data/chars/3remuinho/air/idle02.gif
+	frame	data/chars/3remuinho/air/idle01.gif #4
+	frame	data/chars/3remuinho/air/idle02.gif
+	frame	data/chars/3remuinho/air/idle01.gif
+	frame	data/chars/3remuinho/air/idle02.gif
+	@cmd	looper 4 15
+	frame	data/chars/3remuinho/air/idle01.gif
+	@cmd	clearL
+	frame	data/chars/3remuinho/air/idle02.gif
+	movez	0
+	delay	9
+	frame	data/chars/3remuinho/air/idle01.gif
+	frame	data/chars/3remuinho/air/idle02.gif
+	frame	data/chars/3remuinho/air/idle01.gif #12
+	frame	data/chars/3remuinho/air/idle02.gif
+	frame	data/chars/3remuinho/air/idle01.gif
+	frame	data/chars/3remuinho/air/idle02.gif
+	@cmd	looper 12 2
+	frame	data/chars/3remuinho/air/idle01.gif
+	frame	data/chars/3remuinho/air/idle02.gif
+	frame	data/chars/3remuinho/air/idle01.gif
+	frame	data/chars/3remuinho/air/idle02.gif
+	@cmd	clearL
+	frame	data/chars/3remuinho/air/idle01.gif
+	@cmd	beidle
+	frame	data/chars/3remuinho/air/idle02.gif
+
+
 		
 anim	pain
 	loop	0
@@ -1009,752 +923,13 @@ anim	run
 	loop	1
 	delay	5
 	offset	100 189
-	bbox	0 0 0 0
+	bbox	79 97 50 91
 	frame	data/chars/3remuinho/run01.gif
-	@cmd	attack1 0 280 30 "ANI_FOLLOW10"
+	@cmd	attack1 0 180 20 "ANI_FOLLOW10"
 	frame	data/chars/3remuinho/run02.gif
 
 
 
-
-anim	follow10
-	loop	0
-	delay	3
-	offset	100 189
-	bbox	0 0 0 0
-	followanim	8
-	followcond	1
-	@cmd	stop
-	move	10
-	frame	data/chars/3remuinho/run02.gif
-	attack	90 130 90 40 0 0 1 1 30 0
-	frame	data/chars/3remuinho/run01.gif
-	frame	data/chars/3remuinho/run02.gif
-	frame	data/chars/3remuinho/run01.gif
-	frame	data/chars/3remuinho/run02.gif
-	frame	data/chars/3remuinho/run01.gif
-	frame	data/chars/3remuinho/run02.gif
-	frame	data/chars/3remuinho/run01.gif
-	frame	data/chars/3remuinho/run02.gif
-	frame	data/chars/3remuinho/run01.gif
-	frame	data/chars/3remuinho/run02.gif
-	frame	data/chars/3remuinho/run01.gif
-	frame	data/chars/3remuinho/run02.gif
-	frame	data/chars/3remuinho/run02.gif
-	frame	data/chars/3remuinho/run01.gif
-	frame	data/chars/3remuinho/run02.gif
-	attack	0 0 0 0
-	move	0
-	move	3
-	delay	5
-	frame	data/chars/3remuinho/air/blk01.gif
-	@cmd	attack1 -100 100 30 "ANI_FOLLOW3"
-	frame	data/chars/3remuinho/air/blk02.gif
-	@cmd	attack1 -100 100 30 "ANI_FOLLOW3"
-	frame	data/chars/3remuinho/air/blk03.gif
-	@cmd	attack1 -100 100 30 "ANI_FOLLOW3"
-	frame	data/chars/3remuinho/air/blk04.gif
-	@cmd	attack1 -100 100 30 "ANI_FOLLOW3"
-	frame	data/chars/3remuinho/air/blk05.gif
-
-
-
-
-
-anim	follow8
-	loop	0
-	delay	25
-	offset	100 189
-	bbox	0 0 0 0
-	fastattack	1
-	@cmd	slamstart2
-	@cmd	grabcheck2
-	@cmd	position 7 85 10 1 -1
-	frame	data/chars/3remuinho/2grab01.gif
-	delay	14
-	@cmd	position 1 100 10 1 -1
-	frame	data/chars/3remuinho/2grab02.gif
-	sound	data/sounds/grab.wav
-	@cmd	position 2 85 40 1 -1
-	frame	data/chars/3remuinho/2grab03.gif
-	@cmd	position 14 85 40 1 -1
-	frame	data/chars/3remuinho/2grab04.gif
-
-
-
-
-
-
-
-	delay	7
-	@cmd	position 20 60 20 1 -1
-	frame	data/chars/3remuinho/2grab05.gif
-	attack	60 130 90 50 8 1 0 0 20 30
-	dropv	3 4 0
-	@cmd	position 22 0 15 1 1
-	frame	data/chars/3remuinho/2grab06.gif
-	attack	0 0 0 0
-	@cmd	position 20 -40 25 1 1
-	frame	data/chars/3remuinho/2grab07.gif
-	attack	-30 85 125 35 5 1 0 0 15 0
-	dropv	3 4 0
-	sound	data/sounds/punch2.wav
-	@cmd	position 10 -60 95 1 -1
-	frame	data/chars/3remuinho/2grab08.gif
-	attack	0 0 0 0
-	@cmd	position 0 -35 60 -1 1
-	frame	data/chars/3remuinho/2grab09.gif
-	attack	60 60 90 40 5 1 0 0 15 30
-	dropv	3 4 0
-	@cmd	position 21 0 70 -1 1
-	frame	data/chars/3remuinho/2grab10.gif
-	attack	0 0 0 0
-	delay	6
-	movez	5
-	@cmd	spawnGun4 "torn2" 60 0 10 -1 1
-	@cmd	spawnGun4 "torn2" -40 0 10 0 2
-	@cmd	position 0 55 65 -1 -1
-	frame	data/chars/3remuinho/2grab11.gif
-	sound	data/sounds/punch2.wav
-	attack	100 90 125 35 5 1 0 0 15 0
-	dropv	3 4 0
-	@cmd	position 10 75 90 1 1
-	frame	data/chars/3remuinho/2grab12.gif
-	attack	0 0 0 0
-	@cmd	position 20 60 20 1 -1
-	frame	data/chars/3remuinho/2grab05.gif
-	attack	60 130 90 50 8 1 0 0 20 30
-	dropv	3 4 0
-	@cmd	position 22 0 15 1 1
-	frame	data/chars/3remuinho/2grab06.gif
-	attack	0 0 0 0
-	@cmd	position 20 -40 25 1 1
-	frame	data/chars/3remuinho/2grab07.gif
-	attack	-30 85 125 35 5 1 0 0 15 0
-	dropv	3 4 0
-	sound	data/sounds/punch2.wav
-	@cmd	position 10 -60 95 1 -1
-	frame	data/chars/3remuinho/2grab08.gif
-	attack	0 0 0 0
-	@cmd	position 0 -35 60 -1 1
-	frame	data/chars/3remuinho/2grab09.gif
-	attack	60 60 90 40 5 1 0 0 15 30
-	dropv	3 4 0
-	@cmd	position 21 0 70 -1 1
-	frame	data/chars/3remuinho/2grab10.gif
-	attack	0 0 0 0
-	@cmd	position 0 55 65 -1 -1
-	frame	data/chars/3remuinho/2grab11.gif
-	sound	data/sounds/punch2.wav
-	attack	100 90 125 35 5 1 0 0 15 0
-	dropv	3 4 0
-	@cmd	position 10 75 90 1 1
-	frame	data/chars/3remuinho/2grab12.gif
-	attack	0 0 0 0
-
-	movez	-6
-
-	@cmd	position 20 60 20 1 -1
-	frame	data/chars/3remuinho/2grab05.gif
-	attack	60 130 90 50 8 1 0 0 20 30
-	dropv	3 4 0
-	@cmd	position 22 0 15 1 1
-	frame	data/chars/3remuinho/2grab06.gif
-	attack	0 0 0 0
-	@cmd	position 20 -40 25 1 1
-	frame	data/chars/3remuinho/2grab07.gif
-	attack	-30 85 125 35 5 1 0 0 15 0
-	dropv	3 4 0
-	sound	data/sounds/punch2.wav
-	@cmd	position 10 -60 95 1 -1
-	frame	data/chars/3remuinho/2grab08.gif
-	attack	0 0 0 0
-	@cmd	position 0 -35 60 -1 1
-	frame	data/chars/3remuinho/2grab09.gif
-	attack	60 60 90 40 5 1 0 0 15 30
-	dropv	3 4 0
-	@cmd	position 21 0 70 -1 1
-	frame	data/chars/3remuinho/2grab10.gif
-	attack	0 0 0 0
-	@cmd	position 0 55 65 -1 -1
-	frame	data/chars/3remuinho/2grab11.gif
-	sound	data/sounds/punch2.wav
-	attack	100 90 125 35 5 1 0 0 15 0
-	dropv	3 4 0
-	@cmd	position 10 75 90 1 1
-	frame	data/chars/3remuinho/2grab12.gif
-	attack	0 0 0 0
-	@cmd	position 20 60 20 1 -1
-	frame	data/chars/3remuinho/2grab05.gif
-	attack	60 130 90 50 8 1 0 0 20 30
-	dropv	3 4 0
-	@cmd	position 22 0 15 1 1
-	frame	data/chars/3remuinho/2grab06.gif
-	attack	0 0 0 0
-	@cmd	position 20 -40 25 1 1
-	frame	data/chars/3remuinho/2grab07.gif
-	attack	-30 85 125 35 5 1 0 0 15 0
-	dropv	3 4 0
-	sound	data/sounds/punch2.wav
-	@cmd	position 10 -60 95 1 -1
-	frame	data/chars/3remuinho/2grab08.gif
-	attack	0 0 0 0
-	@cmd	position 0 -35 60 -1 1
-	frame	data/chars/3remuinho/2grab09.gif
-	attack	60 60 90 40 5 1 0 0 15 30
-	dropv	3 4 0
-	@cmd	position 21 0 70 -1 1
-	frame	data/chars/3remuinho/2grab10.gif
-	attack	0 0 0 0
-	@cmd	position 0 55 65 -1 -1
-	frame	data/chars/3remuinho/2grab11.gif
-	sound	data/sounds/punch2.wav
-	attack	100 90 125 35 5 1 0 0 15 0
-	dropv	3 4 0
-	@cmd	position 10 75 90 1 1
-	frame	data/chars/3remuinho/2grab12.gif
-	attack	0 0 0 0
-	@cmd	position 20 60 20 1 -1
-	frame	data/chars/3remuinho/2grab05.gif
-	attack	60 130 90 50 8 1 0 0 20 30
-	dropv	3 4 0
-	@cmd	position 22 0 15 1 1
-	frame	data/chars/3remuinho/2grab06.gif
-	attack	0 0 0 0
-	@cmd	position 20 -40 25 1 1
-	frame	data/chars/3remuinho/2grab07.gif
-	attack	-30 85 125 35 5 1 0 0 15 0
-	dropv	3 4 0
-	sound	data/sounds/punch2.wav
-	@cmd	position 10 -60 95 1 -1
-	frame	data/chars/3remuinho/2grab08.gif
-	attack	0 0 0 0
-	@cmd	position 0 -35 60 -1 1
-	frame	data/chars/3remuinho/2grab09.gif
-	attack	60 60 90 40 5 1 0 0 15 30
-	dropv	3 4 0
-	@cmd	position 21 0 70 -1 1
-	frame	data/chars/3remuinho/2grab10.gif
-	attack	0 0 0 0
-	@cmd	position 0 55 65 -1 -1
-	frame	data/chars/3remuinho/2grab11.gif
-	sound	data/sounds/punch2.wav
-	attack	100 90 125 35 5 1 0 0 15 0
-	dropv	3 4 0
-	@cmd	position 10 75 90 1 1
-	frame	data/chars/3remuinho/2grab12.gif
-	attack	0 0 0 0
-	@cmd	position 20 60 20 1 -1
-	frame	data/chars/3remuinho/2grab05.gif
-	attack	60 130 90 50 8 1 0 0 20 30
-	dropv	3 4 0
-	@cmd	position 22 0 15 1 1
-	frame	data/chars/3remuinho/2grab06.gif
-	attack	0 0 0 0
-	@cmd	position 20 -40 25 1 1
-	frame	data/chars/3remuinho/2grab07.gif
-	attack	-30 85 125 35 5 1 0 0 15 0
-	dropv	3 4 0
-	sound	data/sounds/punch2.wav
-	@cmd	position 10 -60 95 1 -1
-	frame	data/chars/3remuinho/2grab08.gif
-	attack	0 0 0 0
-	@cmd	position 0 -35 60 -1 1
-	frame	data/chars/3remuinho/2grab09.gif
-	attack	60 60 90 40 5 1 0 0 15 30
-	dropv	3 4 0
-	@cmd	position 21 0 70 -1 1
-	frame	data/chars/3remuinho/2grab10.gif
-	attack	0 0 0 0
-	@cmd	position 0 55 65 -1 -1
-	frame	data/chars/3remuinho/2grab11.gif
-	sound	data/sounds/punch2.wav
-	attack	100 90 125 35 5 1 0 0 15 0
-	dropv	3 4 0
-	@cmd	position 10 75 90 1 1
-	frame	data/chars/3remuinho/2grab12.gif
-	attack	0 0 0 0
-	@cmd	position 20 60 20 1 -1
-	frame	data/chars/3remuinho/2grab05.gif
-	attack	60 130 90 50 8 1 0 0 20 30
-	dropv	3 4 0
-	@cmd	position 22 0 15 1 1
-	frame	data/chars/3remuinho/2grab06.gif
-	attack	0 0 0 0
-	@cmd	position 20 -40 25 1 1
-	frame	data/chars/3remuinho/2grab07.gif
-	attack	-30 85 125 35 5 1 0 0 15 0
-	dropv	3 4 0
-	sound	data/sounds/punch2.wav
-	@cmd	position 10 -60 95 1 -1
-	frame	data/chars/3remuinho/2grab08.gif
-	attack	0 0 0 0
-	@cmd	position 0 -35 60 -1 1
-	frame	data/chars/3remuinho/2grab09.gif
-	attack	60 60 90 40 5 1 0 0 15 30
-	dropv	3 4 0
-	@cmd	position 21 0 70 -1 1
-	frame	data/chars/3remuinho/2grab10.gif
-	attack	0 0 0 0
-	@cmd	position 0 55 65 -1 -1
-	frame	data/chars/3remuinho/2grab11.gif
-	sound	data/sounds/punch2.wav
-	attack	100 90 125 35 5 1 0 0 15 0
-	dropv	3 4 0
-	@cmd	position 10 75 90 1 1
-	frame	data/chars/3remuinho/2grab12.gif
-	attack	0 0 0 0
-
-
-	movez	7
-
-
-	@cmd	position 20 60 20 1 -1
-	frame	data/chars/3remuinho/2grab05.gif
-	attack	60 130 90 50 8 1 0 0 20 30
-	dropv	3 4 0
-	@cmd	position 22 0 15 1 1
-	frame	data/chars/3remuinho/2grab06.gif
-	attack	0 0 0 0
-	@cmd	position 20 -40 25 1 1
-	frame	data/chars/3remuinho/2grab07.gif
-	attack	-30 85 125 35 5 1 0 0 15 0
-	dropv	3 4 0
-	sound	data/sounds/punch2.wav
-	@cmd	position 10 -60 95 1 -1
-	frame	data/chars/3remuinho/2grab08.gif
-	attack	0 0 0 0
-	@cmd	position 0 -35 60 -1 1
-	frame	data/chars/3remuinho/2grab09.gif
-	attack	60 60 90 40 5 1 0 0 15 30
-	dropv	3 4 0
-	@cmd	position 21 0 70 -1 1
-	frame	data/chars/3remuinho/2grab10.gif
-	attack	0 0 0 0
-	@cmd	position 0 55 65 -1 -1
-	frame	data/chars/3remuinho/2grab11.gif
-	sound	data/sounds/punch2.wav
-	attack	100 90 125 35 5 1 0 0 15 0
-	dropv	3 4 0
-	@cmd	position 10 75 90 1 1
-	frame	data/chars/3remuinho/2grab12.gif
-	attack	0 0 0 0
-	@cmd	position 20 60 20 1 -1
-	frame	data/chars/3remuinho/2grab05.gif
-	attack	60 130 90 50 8 1 0 0 20 30
-	dropv	3 4 0
-	@cmd	position 22 0 15 1 1
-	frame	data/chars/3remuinho/2grab06.gif
-	attack	0 0 0 0
-	@cmd	position 20 -40 25 1 1
-	frame	data/chars/3remuinho/2grab07.gif
-	attack	-30 85 125 35 5 1 0 0 15 0
-	dropv	3 4 0
-	sound	data/sounds/punch2.wav
-	@cmd	position 10 -60 95 1 -1
-	frame	data/chars/3remuinho/2grab08.gif
-	attack	0 0 0 0
-	@cmd	position 0 -35 60 -1 1
-	frame	data/chars/3remuinho/2grab09.gif
-	attack	60 60 90 40 5 1 0 0 15 30
-	dropv	3 4 0
-	@cmd	position 21 0 70 -1 1
-	frame	data/chars/3remuinho/2grab10.gif
-	attack	0 0 0 0
-	@cmd	position 0 55 65 -1 -1
-	frame	data/chars/3remuinho/2grab11.gif
-	sound	data/sounds/punch2.wav
-	attack	100 90 125 35 5 1 0 0 15 0
-	dropv	3 4 0
-	@cmd	position 10 75 90 1 1
-	frame	data/chars/3remuinho/2grab12.gif
-	attack	0 0 0 0
-	@cmd	position 20 60 20 1 -1
-	frame	data/chars/3remuinho/2grab05.gif
-	attack	60 130 90 50 8 1 0 0 20 30
-	dropv	3 4 0
-	@cmd	position 22 0 15 1 1
-	frame	data/chars/3remuinho/2grab06.gif
-	attack	0 0 0 0
-	@cmd	position 20 -40 25 1 1
-	frame	data/chars/3remuinho/2grab07.gif
-	attack	-30 85 125 35 5 1 0 0 15 0
-	dropv	3 4 0
-	sound	data/sounds/punch2.wav
-	@cmd	position 10 -60 95 1 -1
-	frame	data/chars/3remuinho/2grab08.gif
-	attack	0 0 0 0
-	@cmd	position 0 -35 60 -1 1
-	frame	data/chars/3remuinho/2grab09.gif
-	attack	60 60 90 40 5 1 0 0 15 30
-	dropv	3 4 0
-	@cmd	position 21 0 70 -1 1
-	frame	data/chars/3remuinho/2grab10.gif
-	attack	0 0 0 0
-	@cmd	position 0 55 65 -1 -1
-	frame	data/chars/3remuinho/2grab11.gif
-	sound	data/sounds/punch2.wav
-	attack	100 90 125 35 5 1 0 0 15 0
-	dropv	3 4 0
-	@cmd	position 10 75 90 1 1
-	frame	data/chars/3remuinho/2grab12.gif
-	attack	0 0 0 0
-	@cmd	position 20 60 20 1 -1
-	frame	data/chars/3remuinho/2grab05.gif
-	attack	60 130 90 50 8 1 0 0 20 30
-	dropv	3 4 0
-	@cmd	position 22 0 15 1 1
-	frame	data/chars/3remuinho/2grab06.gif
-	attack	0 0 0 0
-	@cmd	position 20 -40 25 1 1
-	frame	data/chars/3remuinho/2grab07.gif
-	attack	-30 85 125 35 5 1 0 0 15 0
-	dropv	3 4 0
-	sound	data/sounds/punch2.wav
-	@cmd	position 10 -60 95 1 -1
-	frame	data/chars/3remuinho/2grab08.gif
-	attack	0 0 0 0
-	@cmd	position 0 -35 60 -1 1
-	frame	data/chars/3remuinho/2grab09.gif
-	attack	60 60 90 40 5 1 0 0 15 30
-	dropv	3 4 0
-	@cmd	position 21 0 70 -1 1
-	frame	data/chars/3remuinho/2grab10.gif
-	attack	0 0 0 0
-	@cmd	position 0 55 65 -1 -1
-	frame	data/chars/3remuinho/2grab11.gif
-	sound	data/sounds/punch2.wav
-	attack	100 90 125 35 5 1 0 0 15 0
-	dropv	3 4 0
-	@cmd	position 10 75 90 1 1
-	frame	data/chars/3remuinho/2grab12.gif
-	attack	0 0 0 0
-	@cmd	position 20 60 20 1 -1
-	frame	data/chars/3remuinho/2grab05.gif
-	attack	60 130 90 50 8 1 0 0 20 30
-	dropv	3 4 0
-	@cmd	position 22 0 15 1 1
-	frame	data/chars/3remuinho/2grab06.gif
-	attack	0 0 0 0
-	@cmd	position 20 -40 25 1 1
-	frame	data/chars/3remuinho/2grab07.gif
-	attack	-30 85 125 35 5 1 0 0 15 0
-	dropv	3 4 0
-	sound	data/sounds/punch2.wav
-	@cmd	position 10 -60 95 1 -1
-	frame	data/chars/3remuinho/2grab08.gif
-	attack	0 0 0 0
-	@cmd	position 0 -35 60 -1 1
-	frame	data/chars/3remuinho/2grab09.gif
-	attack	60 60 90 40 5 1 0 0 15 30
-	dropv	3 4 0
-	@cmd	position 21 0 70 -1 1
-	frame	data/chars/3remuinho/2grab10.gif
-	attack	0 0 0 0
-	@cmd	position 0 55 65 -1 -1
-	frame	data/chars/3remuinho/2grab11.gif
-	sound	data/sounds/punch2.wav
-	attack	100 90 125 35 5 1 0 0 15 0
-	dropv	3 4 0
-	@cmd	position 10 75 90 1 1
-	frame	data/chars/3remuinho/2grab12.gif
-	attack	0 0 0 0
-	@cmd	position 20 60 20 1 -1
-	frame	data/chars/3remuinho/2grab05.gif
-	attack	60 130 90 50 8 1 0 0 20 30
-	dropv	3 4 0
-	@cmd	position 22 0 15 1 1
-	frame	data/chars/3remuinho/2grab06.gif
-	attack	0 0 0 0
-	@cmd	position 20 -40 25 1 1
-	frame	data/chars/3remuinho/2grab07.gif
-	attack	-30 85 125 35 5 1 0 0 15 0
-	dropv	3 4 0
-	sound	data/sounds/punch2.wav
-	@cmd	position 10 -60 95 1 -1
-	frame	data/chars/3remuinho/2grab08.gif
-	attack	0 0 0 0
-	@cmd	position 0 -35 60 -1 1
-	frame	data/chars/3remuinho/2grab09.gif
-	attack	60 60 90 40 5 1 0 0 15 30
-	dropv	3 4 0
-	@cmd	position 21 0 70 -1 1
-	frame	data/chars/3remuinho/2grab10.gif
-	attack	0 0 0 0
-	@cmd	position 0 55 65 -1 -1
-	frame	data/chars/3remuinho/2grab11.gif
-	sound	data/sounds/punch2.wav
-	attack	100 90 125 35 5 1 0 0 15 0
-	dropv	3 4 0
-	@cmd	position 10 75 90 1 1
-	frame	data/chars/3remuinho/2grab12.gif
-	attack	0 0 0 0
-	@cmd	position 20 60 20 1 -1
-	frame	data/chars/3remuinho/2grab05.gif
-	attack	60 130 90 50 8 1 0 0 20 30
-	dropv	3 4 0
-	@cmd	position 22 0 15 1 1
-	frame	data/chars/3remuinho/2grab06.gif
-	attack	0 0 0 0
-	@cmd	position 20 -40 25 1 1
-	frame	data/chars/3remuinho/2grab07.gif
-	attack	-30 85 125 35 5 1 0 0 15 0
-	dropv	3 4 0
-	sound	data/sounds/punch2.wav
-	@cmd	position 10 -60 95 1 -1
-	frame	data/chars/3remuinho/2grab08.gif
-	attack	0 0 0 0
-	@cmd	position 0 -35 60 -1 1
-	frame	data/chars/3remuinho/2grab09.gif
-
-	movez	-3
-
-	attack	60 60 90 40 5 1 0 0 15 30
-	dropv	3 4 0
-	@cmd	position 21 0 70 -1 1
-	frame	data/chars/3remuinho/2grab10.gif
-	attack	0 0 0 0
-	@cmd	position 0 55 65 -1 -1
-	frame	data/chars/3remuinho/2grab11.gif
-	sound	data/sounds/punch2.wav
-	attack	100 90 125 35 5 1 0 0 15 0
-	dropv	3 4 0
-	@cmd	position 10 75 90 1 1
-	frame	data/chars/3remuinho/2grab12.gif
-	attack	0 0 0 0
-	@cmd	position 20 60 20 1 -1
-	frame	data/chars/3remuinho/2grab05.gif
-	attack	60 130 90 50 8 1 0 0 20 30
-	dropv	3 4 0
-	@cmd	position 22 0 15 1 1
-	frame	data/chars/3remuinho/2grab06.gif
-	attack	0 0 0 0
-	@cmd	position 20 -40 25 1 1
-	frame	data/chars/3remuinho/2grab07.gif
-	attack	-30 85 125 35 5 1 0 0 15 0
-	dropv	3 4 0
-	sound	data/sounds/punch2.wav
-	@cmd	position 10 -60 95 1 -1
-	frame	data/chars/3remuinho/2grab08.gif
-	attack	0 0 0 0
-	@cmd	position 0 -35 60 -1 1
-	frame	data/chars/3remuinho/2grab09.gif
-	attack	60 60 90 40 5 1 0 0 15 30
-	dropv	3 4 0
-	@cmd	position 21 0 70 -1 1
-	frame	data/chars/3remuinho/2grab10.gif
-	attack	0 0 0 0
-	@cmd	position 0 55 65 -1 -1
-	frame	data/chars/3remuinho/2grab11.gif
-	sound	data/sounds/punch2.wav
-	attack	100 90 125 35 5 1 0 0 15 0
-	dropv	3 4 0
-	@cmd	position 10 75 90 1 1
-	frame	data/chars/3remuinho/2grab12.gif
-	attack	0 0 0 0
-
-
-	@cmd	position 20 60 20 1 -1
-	frame	data/chars/3remuinho/2grab05.gif
-	attack	60 130 90 50 8 1 0 0 20 30
-	dropv	3 4 0
-	@cmd	position 22 0 15 1 1
-	frame	data/chars/3remuinho/2grab06.gif
-	attack	0 0 0 0
-	@cmd	position 20 -40 25 1 1
-	frame	data/chars/3remuinho/2grab07.gif
-	attack	-30 85 125 35 5 1 0 0 15 0
-	dropv	3 4 0
-	sound	data/sounds/punch2.wav
-	@cmd	position 10 -60 95 1 -1
-	frame	data/chars/3remuinho/2grab08.gif
-	attack	0 0 0 0
-	@cmd	position 0 -35 60 -1 1
-	frame	data/chars/3remuinho/2grab09.gif
-	attack	60 60 90 40 5 1 0 0 15 30
-	dropv	3 4 0
-	@cmd	position 21 0 70 -1 1
-	frame	data/chars/3remuinho/2grab10.gif
-	attack	0 0 0 0
-	@cmd	position 0 55 65 -1 -1
-	frame	data/chars/3remuinho/2grab11.gif
-	sound	data/sounds/punch2.wav
-	attack	100 90 125 35 5 1 0 0 15 0
-	dropv	3 4 0
-	@cmd	position 10 75 90 1 1
-	frame	data/chars/3remuinho/2grab12.gif
-	attack	0 0 0 0
-	@cmd	position 20 60 20 1 -1
-	frame	data/chars/3remuinho/2grab05.gif
-	attack	60 130 90 50 8 1 0 0 20 30
-	dropv	3 4 0
-	@cmd	position 22 0 15 1 1
-	frame	data/chars/3remuinho/2grab06.gif
-	attack	0 0 0 0
-	@cmd	position 20 -40 25 1 1
-	frame	data/chars/3remuinho/2grab07.gif
-	attack	-30 85 125 35 5 1 0 0 15 0
-	dropv	3 4 0
-	sound	data/sounds/punch2.wav
-	@cmd	position 10 -60 95 1 -1
-	frame	data/chars/3remuinho/2grab08.gif
-	attack	0 0 0 0
-	@cmd	position 0 -35 60 -1 1
-	frame	data/chars/3remuinho/2grab09.gif
-	attack	60 60 90 40 5 1 0 0 15 30
-	dropv	3 4 0
-	@cmd	position 21 0 70 -1 1
-	frame	data/chars/3remuinho/2grab10.gif
-	attack	0 0 0 0
-	@cmd	position 0 55 65 -1 -1
-	frame	data/chars/3remuinho/2grab11.gif
-	sound	data/sounds/punch2.wav
-	attack	100 90 125 35 5 1 0 0 15 0
-	dropv	3 4 0
-	@cmd	position 10 75 90 1 1
-	frame	data/chars/3remuinho/2grab12.gif
-	attack	0 0 0 0
-	@cmd	position 20 60 20 1 -1
-	frame	data/chars/3remuinho/2grab05.gif
-	attack	60 130 90 50 8 1 0 0 20 30
-	dropv	3 4 0
-	@cmd	position 22 0 15 1 1
-	frame	data/chars/3remuinho/2grab06.gif
-	attack	0 0 0 0
-	@cmd	position 20 -40 25 1 1
-	frame	data/chars/3remuinho/2grab07.gif
-	attack	-30 85 125 35 5 1 0 0 15 0
-	dropv	3 4 0
-	sound	data/sounds/punch2.wav
-	@cmd	position 10 -60 95 1 -1
-	frame	data/chars/3remuinho/2grab08.gif
-	attack	0 0 0 0
-	@cmd	position 0 -35 60 -1 1
-	frame	data/chars/3remuinho/2grab09.gif
-	attack	60 60 90 40 5 1 0 0 15 30
-	dropv	3 4 0
-	@cmd	position 21 0 70 -1 1
-	frame	data/chars/3remuinho/2grab10.gif
-	attack	0 0 0 0
-	@cmd	position 0 55 65 -1 -1
-	frame	data/chars/3remuinho/2grab11.gif
-	sound	data/sounds/punch2.wav
-	attack	100 90 125 35 5 1 0 0 15 0
-	dropv	3 4 0
-	@cmd	position 10 75 90 1 1
-	frame	data/chars/3remuinho/2grab12.gif
-	attack	0 0 0 0
-	@cmd	position 20 60 20 1 -1
-	frame	data/chars/3remuinho/2grab05.gif
-	attack	60 130 90 50 8 1 0 0 20 30
-	dropv	3 4 0
-	@cmd	position 22 0 15 1 1
-	frame	data/chars/3remuinho/2grab06.gif
-	attack	0 0 0 0
-	@cmd	position 20 -40 25 1 1
-	frame	data/chars/3remuinho/2grab07.gif
-	attack	-30 85 125 35 5 1 0 0 15 0
-	dropv	3 4 0
-	sound	data/sounds/punch2.wav
-	@cmd	position 10 -60 95 1 -1
-	frame	data/chars/3remuinho/2grab08.gif
-	attack	0 0 0 0
-	@cmd	position 0 -35 60 -1 1
-	frame	data/chars/3remuinho/2grab09.gif
-	attack	60 60 90 40 5 1 0 0 15 30
-	dropv	3 4 0
-	@cmd	position 21 0 70 -1 1
-	frame	data/chars/3remuinho/2grab10.gif
-	attack	0 0 0 0
-	@cmd	position 0 55 65 -1 -1
-	frame	data/chars/3remuinho/2grab11.gif
-	sound	data/sounds/punch2.wav
-	attack	100 90 125 35 5 1 0 0 15 0
-	dropv	3 4 0
-	@cmd	position 10 75 90 1 1
-	frame	data/chars/3remuinho/2grab12.gif
-	attack	0 0 0 0
-	@cmd	position 20 60 20 1 -1
-	frame	data/chars/3remuinho/2grab05.gif
-	attack	60 130 90 50 8 1 0 0 20 30
-	dropv	3 4 0
-	@cmd	position 22 0 15 1 1
-	frame	data/chars/3remuinho/2grab06.gif
-	attack	0 0 0 0
-	@cmd	position 20 -40 25 1 1
-	frame	data/chars/3remuinho/2grab07.gif
-	attack	-30 85 125 35 5 1 0 0 15 0
-	dropv	3 4 0
-	sound	data/sounds/punch2.wav
-	@cmd	position 10 -60 95 1 -1
-	frame	data/chars/3remuinho/2grab08.gif
-	attack	0 0 0 0
-	@cmd	position 0 -35 60 -1 1
-	frame	data/chars/3remuinho/2grab09.gif
-	attack	60 60 90 40 5 1 0 0 15 30
-	dropv	3 4 0
-	@cmd	position 21 0 70 -1 1
-	frame	data/chars/3remuinho/2grab10.gif
-	attack	0 0 0 0
-	@cmd	position 0 55 65 -1 -1
-	frame	data/chars/3remuinho/2grab11.gif
-	sound	data/sounds/punch2.wav
-	attack	100 90 125 35 5 1 0 0 15 0
-	dropv	3 4 0
-	@cmd	position 10 75 90 1 1
-	frame	data/chars/3remuinho/2grab12.gif
-	attack	0 0 0 0
-	@cmd	position 20 60 20 1 -1
-	frame	data/chars/3remuinho/2grab05.gif
-	attack	60 130 90 50 8 1 0 0 20 30
-	dropv	3 4 0
-	@cmd	position 22 0 15 1 1
-	frame	data/chars/3remuinho/2grab06.gif
-	attack	0 0 0 0
-	@cmd	position 20 -40 25 1 1
-	frame	data/chars/3remuinho/2grab07.gif
-	attack	-30 85 125 35 5 1 0 0 15 0
-	dropv	3 4 0
-	sound	data/sounds/punch2.wav
-	@cmd	position 10 -60 95 1 -1
-	frame	data/chars/3remuinho/2grab08.gif
-	attack	0 0 0 0
-	@cmd	position 0 -35 60 -1 1
-	frame	data/chars/3remuinho/2grab09.gif
-	attack	60 60 90 40 5 1 0 0 15 30
-	dropv	3 4 0
-	@cmd	position 21 0 70 -1 1
-	frame	data/chars/3remuinho/2grab10.gif
-	attack	0 0 0 0
-	@cmd	position 0 55 65 -1 -1
-	frame	data/chars/3remuinho/2grab11.gif
-	@cmd	position 10 75 90 1 1
-	frame	data/chars/3remuinho/2grab12.gif
-	movez	0
-	@cmd	position 15 10 20 -1 1
-	frame	data/chars/3remuinho/3grab02.gif
-	@cmd	killgun 1 0
-	@cmd	killgun 2 0
-	delay	10
-	@cmd	position 1 10 40 -1 1
-	frame	data/chars/3remuinho/3grab03.gif
-	@cmd	position 2 0 75 -1 1
-	frame	data/chars/3remuinho/3grab04.gif
-	delay	14
-	@cmd	position 14 -40 30 -1 1
-	frame	data/chars/3remuinho/3grab05.gif
-	@cmd	depost 0
-	@cmd	finish 20 1 -2 1 3 0
-	@cmd	clearL
-	frame	data/chars/3remuinho/3grab06.gif
-	frame	data/chars/3remuinho/3grab07.gif
-
-
-
-
-
-
-		
 anim	spawn
 	loop	0
 	delay	8

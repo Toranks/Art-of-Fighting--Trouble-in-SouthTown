@@ -14,7 +14,7 @@ light  		10   -30
 at       	0
 settime         0
 notime          1
-noslow          1
+noslow          0
 order		a
 spawn1  	105 200
 spawn2  	145 200
@@ -26,9 +26,8 @@ wall            0 320 0 0 440 340 135 50
 wall            0 190 0 0 440 440 35 5000
 wall            380 170 0 0 420 460 35 5000
 wall            410 330 -80 -120 500 540 60 5000
-wall            800 320 0 90 195 195 135 50
-wall            780 190 0 20 215 215 50 5000
-
+wall            800 320 0 90 235 235 135 50
+wall            780 190 0 20 255 255 50 5000
 
 
 #wall            460 320 300 440 1700 1500 190 50
@@ -43,6 +42,22 @@ spawn   stgSET2
 } @end_script
 coords  -500 515 350
 at      0
+#-------------------
+spawn water_puddle_test
+@script
+void main() {
+	 void self = getlocalvar("self");
+
+	 setentityvar(self, 0, "water_puddle"); // name/type
+	 setentityvar(self, 400, 600); // width
+	 setentityvar(self, 2, 10);    // height
+	 setentityvar(self, 3, 380);  // depth
+	 setentityvar(self, "map", 0);  // ripple/splash map
+	 setentityvar(self, "transp", 60);  // alpha transp value
+}
+@end_script
+coords 0 200 40
+at 0
 #-------------------
 
 
@@ -101,6 +116,9 @@ spawn bird4
 coords  2820 340
 at      0
 
+
+#----------------
+
 spawn bird5
 coords  580 90
 at      0
@@ -109,6 +127,8 @@ spawn bird6
 flip  1
 coords  180 -50
 at      0
+
+#----------------
 
 spawn dojobck
 flip  1
@@ -127,7 +147,6 @@ at      0
 
 spawn   log
 health  100
-item    food1
 coords 	1200 230 200
 at      0
 
@@ -137,207 +156,54 @@ item    food1
 coords 	1800 200 200
 at      0
 
-
-
-
-
-
 #------enemie---------
-
-group   4 4
-at      100
-wait
-at      100
-
-spawn   ghosttime
-@script
-void main()
-{
-	setglobalvar("Kgnextday", NULL());
-	setglobalvar("challenge", NULL());
-	setglobalvar("killelle", NULL());
-	setglobalvar("cupkill", NULL());
-	setglobalvar("bn1", NULL());
-	setglobalvar("bn2", NULL());
-	setglobalvar("bn3", NULL());
-	setglobalvar("bn4", NULL());
-	setglobalvar("rsh1", NULL());
-	setglobalvar("rsh2", NULL());
-	setglobalvar("maphold1", NULL());
-	setglobalvar("maphold2", NULL());
-	setglobalvar("maphold3", NULL());
-}
-@end_script
-health	5
-coords  0 255
-at      100
+#---------------------
 
 
-2pspawn   frog
-health  30
-coords  710 250
-at      100
-
-spawn   frog
-health  50
-map     1
-coords  740 240
-at      100
-
-spawn   frog
-health  30
-map     2
-coords  760 230
-at      100
-
-2pspawn   frog
-health  50
-map     3
-coords  790 250
-at      100
-
-3pspawn   frog
-health  30
-map     4
-coords  -20 250 200
-at      100
-
-spawn   frog
-health  50
-coords  -20 220 200
-at      100
-
-spawn   frog
-health  30
-map     1
-coords  -20 220 200
-at      100
-
-2pspawn   frog
-health  50
-map     2
-coords  -20 220 200
-at      100
-
-spawn   frog
-health  50
-item    food3
-map     3
-coords  790 250 300
-at      100
-
-
-
-
-spawn   frog
-health  30
-coords  710 250
-at      100
-
-2pspawn   frog
-health  50
-map     1
-coords  740 240
-at      100
-
-3pspawn   frog
-health  30
-map     2
-coords  760 230
-at      100
-
-spawn   frog
-health  50
-map     3
-coords  790 250
-at      100
-
-2pspawn   frog
-health  30
-map     4
-coords  -20 250 200
-at      100
-
-spawn   frog
-health  50
-coords  -20 220 200
-at      100
-
-spawn   frog
-health  30
-item    apple
-map     1
-coords  -20 220 200
-at      100
-
-3pspawn   frog
-health  50
-map     2
-coords  -20 220 200
-at      100
-
-spawn   frog
-health  30
-map     3
-coords  790 250 300
-at      100
-
-
-
-#------------------------
-
-
-group   4 4
+group   3 3
 at      350
 wait
 at      360
 
-2pspawn   frog
+2pspawn   frog2
 health  50
 coords  -20 220 200
 at      300
 
-spawn   frog
+spawn   frog2
 health  30
 map     1
 coords  790 250 300
 at      300
 
-spawn   frog
-health  50
+spawn   frog2
 item    apple
 map     2
 coords  -20 250 200
 at      300
 
-3pspawn   frog
+3pspawn   frog2
 health  30
 map     3
 coords  790 220 300
 at      300
 
-spawn   frog
+spawn   frog2
 health  50
 map     4
 coords  -20 220 200
 at      300
 
-3pspawn   frog
+3pspawn   frog2
 health  30
 map     1
 coords  790 250 300
 at      300
 
-2pspawn   frog
+2pspawn   frog2
 health  50
 map     2
 coords  -20 250 200
-at      300
-
-spawn   frog
-health  30
-map     3
-coords  790 220 300
 at      300
 
 #------------------------
@@ -352,314 +218,216 @@ at      300
 #------------------------
 
 
-group   7 7
+group   5 5
 at      350
 wait
 at      360
 
 
-spawn   frog
+spawn   frog2
 health  50
-item    apple
 coords  -20 220 200
 at      300
 
-spawn   frog
+spawn   frog2
 health  30
 map     1
 coords  790 250 300
 at      300
 
-2pspawn   frog
+2pspawn   frog2
 health  50
 map     2
 coords  -50 250 200
 at      300
 
-spawn   frog
+spawn   frog2
 health  30
 map     3
 coords  830 220 300
 at      300
 
 
-2pspawn   frog
-health  50
-map     2
-coords  -100 230 200
-at      300
-
-spawn   frog
-health  30
-map     3
-coords  800 260 300
-at      300
-
-
-spawn   frog
+spawn   frog2
 health  50
 item    apple
 coords  -20 220 200
 at      300
 
-3pspawn   frog
+3pspawn   frog2
 health  30
 map     1
 coords  790 250 300
 at      300
 
-spawn   frog
+spawn   frog2
 health  50
 map     2
 coords  -50 250 200
 at      300
 
-3pspawn   frog
+3pspawn   frog2
 health  30
 map     3
 coords  830 220 300
 at      300
 
 
-spawn   frog
+spawn   frog2
 health  50
 map     2
 coords  -100 230 200
 at      300
 
-3pspawn   frog
+3pspawn   frog2
 health  30
 map     4
 coords  800 260 300
 at      300
 
 
-spawn   frog
+spawn   frog2
 health  50
-item    apple
 coords  -20 220 200
 at      300
 
-spawn   frog
+spawn   frog2
 health  30
 map     1
 coords  790 250 300
 at      300
 
-spawn   frog
+spawn   frog2
 health  50
 map     2
 coords  -50 250 200
 at      300
 
-2pspawn   frog
+2pspawn   frog2
 health  30
 map     3
 coords  830 220 300
 at      300
 
-
-2pspawn   frog
+2pspawn   frog2
 health  50
 map     2
 coords  -100 230 200
 at      300
 
-spawn   frog
+spawn   frog2
 health  30
 map     3
 coords  800 260 300
 at      300
 
-
-spawn   frog
+spawn   frog2
 health  50
 item    apple
 coords  -20 220 200
 at      300
 
-2pspawn   frog
+2pspawn   frog2
 health  50
 map     1
 coords  790 250 300
 at      300
 
-spawn   frog
-health  30
-map     2
-coords  -50 250 200
-at      300
-
-spawn   frog
+spawn   frog2
 health  50
 map     3
 coords  830 220 300
 at      300
 
-
-spawn   frog
+spawn   frog2
 health  30
 map     2
 coords  -100 230 200
 at      300
 
-spawn   frog
+spawn   frog2
 health  50
 map     4
 coords  800 260 300
 at      300
 
-3pspawn   frog
+3pspawn   frog2
 health  30
-item    apple
 coords  -20 220 200
 at      300
 
-spawn   frog
+spawn   frog2
 health  50
 map     1
 coords  790 250 300
 at      300
 
-2pspawn   frog
+2pspawn   frog2
 health  50
 map     2
 coords  -50 250 200
 at      300
 
-spawn   frog
+spawn   frog2
 health  30
 map     3
 coords  830 220 300
 at      300
 
 
-3pspawn   frog
+3pspawn   frog2
 health  50
 map     2
 coords  -100 230 200
 at      300
 
-spawn   frog
+spawn   frog2
 health  30
 map     3
 coords  800 260 300
 at      300
 
 
-spawn   frog
+spawn   frog2
 health  50
 item    apple
 coords  -20 220 200
 at      300
 
-2pspawn   frog
+2pspawn   frog2
 health  50
 map     1
 coords  790 250 300
 at      300
 
-spawn   frog
+spawn   frog2
 health  30
 map     2
 coords  -50 250 200
 at      300
 
-spawn   frog
+spawn   frog2
 health  50
 map     3
 coords  830 220 300
 at      300
 
-
-spawn   frog
+2pspawn   frog2
 health  30
-map     2
-coords  -100 230 200
-at      300
-
-3pspawn   frog
-health  50
-map     4
-coords  800 260 300
-at      300
-
-
-2pspawn   frog
-health  30
-item    apple
 coords  -20 220 200
 at      300
 
-3pspawn   frog
+3pspawn   frog2
 health  50
 map     1
 coords  790 250 300
 at      300
 
-2pspawn   frog
+2pspawn   frog2
 health  50
 map     2
 coords  -50 250 200
 at      300
-
-spawn   frog
-health  30
-map     3
-coords  830 220 300
-at      300
-
-
-spawn   frog
-health  50
-map     2
-coords  -100 230 200
-at      300
-
-spawn   frog
-health  30
-map     3
-coords  800 260 300
-at      300
-
-
-3pspawn   frog
-health  50
-item    apple
-coords  -20 220 200
-at      300
-
-spawn   frog
-health  30
-map     1
-coords  790 250 300
-at      300
-
-2pspawn   frog
-health  50
-map     2
-coords  -50 250 200
-at      300
-
-spawn   frog
-health  30
-map     3
-coords  830 220 300
-at      300
-
-
-2pspawn   frog
-health  50
-map     2
-coords  -100 230 200
-at      300
-
-3pspawn   frog
-health  30
-map     4
-coords  800 260 300
-at      300
-
 
 #-----------------------
 
@@ -669,62 +437,59 @@ at      1100
 wait
 at      1110
 
-spawn   wolf
-map     1
-health  170
+spawn   wolfen
+map     2
+health  90
 coords  800 260 300
 at      1100
 
-spawn   wolf
+spawn   wolfen
+map     4
 health  100
 coords  870 240 300
 at      1100
 
-spawn   wolf
-health  170
+spawn   wolfen
+map     2
 coords  -180 200
 at      1100
 
-spawn   wolf
-map     2
-health  170
+spawn   wolfen
+map     4
+health  90
 coords  800 260 300
 at      1100
 
-2pspawn   wolf
-health  170
+2pspawn   wolfen
+health  90
+map     2
 coords  -180 240
 at      1100
 
-spawn  wolf
+spawn  wolfen
 health  100
-item    food5
+map     4
 coords  860 200 300
 at      1100
 
 
-3pspawn   wolf
-map     3
-health  100
+3pspawn   wolfen
+map     2
+health  90
 coords  -180 200
 at      1100
 
-spawn   wolf
-health  170
+spawn   wolfen
+health  90
+map     4
 coords  800 260
 at      1100
 
-spawn   wolf
-health  170
+spawn   wolfen
+health  100
+map     2
 coords  -180 240 300
 at      1100
-
-spawn   wolf
-map     1
-health  100
-coords  860 200
-at      1100
-
 
 #-----------------------
 
@@ -741,8 +506,7 @@ coords  860 200
 at      1500
 
 spawn   bear
-map     1
-health  190
+health  90
 coords  -260 220
 at      1500
 
@@ -753,39 +517,34 @@ at      1500
 
 spawn   bear
 map     2
-health  190
+health  90
 coords  -260 220
 at      1500
 
 spawn   bear
 health  100
-item    1up
-map     1
 coords  860 200
 at      1500
 
 3pspawn   bear
-map     3
-health  190
+health  90
 coords  -260 220
 at      1500
 
 2pspawn   bear
-map     1
+map     2
 health  190
 coords  860 200
 at      1500
 
 spawn   bear
-map     3
 health  190
-item    food3
 coords  -260 220
 at      1500
 
 spawn   bear
 map     2
-health  100
+health  80
 coords  -260 220
 at      1500
 
@@ -800,9 +559,7 @@ coords  -260 240
 at      1500
 
 3pspawn   bear
-map     1
 health  190
-item    diamond
 coords  860 220
 at      1500
 
@@ -827,23 +584,6 @@ item    diamond
 coords  -260 220
 at      2070
 
-spawn   eagle
-health  90
-coords  560 200
-at      2070
-
-spawn   eagle
-health  90
-coords  -360 200
-at      2070
-
-spawn   eagle
-health  90
-item    diamond
-coords  560 220
-at      2070
-
-
 #---------------------------
 spawn   bird1
 spawnscript data/scripts/noscpos2.c
@@ -852,6 +592,14 @@ map     1
 coords  2220 70
 at      2350
 #---------------------------
+
+spawn   eagle
+health  90
+coords  960 230
+at      2070
+
+
+#--------------------//---------------
 
 group   3 3
 at      2350
@@ -870,7 +618,6 @@ at      2350
 
 spawn   eagle
 health  90
-item    apple
 coords  560 190
 at      2350
 
@@ -884,38 +631,303 @@ health  90
 coords  -360 210
 at      2350
 
-spawn   eagle
-health  90
-item    gold
-coords  560 260
-at      2350
 
 
 
-#---------------------------
+#---------rat-1-----------------
+spawn   swrat
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+map     2
+coords  600 160
+at      2750
 
-group   2 2
-at      2780
-wait
-at      2790
+spawn   swrat
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+map     1
+coords  700 160
+at      2750
+
+spawn   swrat
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+map     2
+coords  800 160
+at      2750
+
+spawn   swrat
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+map     1
+coords  900 160
+at      2750
+
+spawn   swrat
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+map     1
+coords  1000 160
+at      2750
+
+#---------rat-2-----------------
+spawn   swrat
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+map     1
+coords  650 180
+at      2750
+
+spawn   swrat
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+map     2
+coords  750 180
+at      2750
+
+spawn   swrat
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+map     1
+coords  850 180
+at      2750
+
+spawn   swrat
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+map     1
+coords  950 180
+at      2750
+
+spawn   swrat
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+map     2
+coords  1050 180
+at      2750
+
+spawn   swrat
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+map     1
+coords  1250 180
+at      2750
+
+spawn   swrat
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+map     2
+coords  1350 180
+at      2750
+
+spawn   swrat
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+map     2
+coords  1550 180
+at      2750
+
+#---------rat-3-----------------
+spawn   swrat
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+map     1
+coords  500 200
+at      2750
+
+spawn   swrat
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+map     1
+coords  600 200
+at      2750
+
+spawn   swrat
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+map     2
+coords  700 200
+at      2750
+
+spawn   swrat
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+map     1
+coords  800 200
+at      2750
+
+spawn   swrat
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+map     2
+coords  900 200
+at      2750
+
+spawn   swrat
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+map     1
+coords  1000 200
+at      2750
+
+spawn   swrat
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+map     1
+coords  1100 200
+at      2750
+
+spawn   swrat
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+map     1
+coords  1300 200
+at      2750
+
+spawn   swrat
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+map     2
+coords  1500 200
+at      2750
+
+spawn   swrat
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+map     1
+coords  1700 200
+at      2750
 
 
-spawn   tiger
-health  220
-coords  600 260
-at      2780
+#---------rat-4-----------------
+spawn   swrat
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+map     2
+coords  550 220
+at      2750
 
-spawn   tiger
-health  250
-coords  760 220
-at      2780
+spawn   swrat
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+map     1
+coords  650 220
+at      2750
 
-spawn   tiger
-health  260
-coords  860 200
-at      2780
+spawn   swrat
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+map     2
+coords  750 220
+at      2750
 
+spawn   swrat
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+map     1
+coords  850 220
+at      2750
 
+spawn   swrat
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+map     2
+coords  950 220
+at      2750
+
+spawn   swrat
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+map     1
+coords  1050 220
+at      2750
 
 #---------------------------
 
@@ -923,7 +935,7 @@ group   4 4
 at      3500
 
 spawn   bull
-health  250
+health  150
 map     1
 boss    1
 coords  640 220
@@ -931,14 +943,8 @@ at      3500
 
 
 spawn   bull2
-health  250
+health  100
 coords  470 200
-at      3500
-
-spawn   bull
-health  250
-map     2
-coords  -150 260
 at      3500
 
 spawn   bull2
@@ -947,18 +953,19 @@ coords  -190 240
 at      3500
 
 3pspawn   bull2
-health  250
-item    food4
+health  350
 coords  -150 210
 at      3500
 
 spawn   tiger
-health  270
+health  470
+map     1
 coords  -240 220
 at      3500
 
 spawn   tiger
 health  270
+map     1
 coords  540 260
 at      3500
 
@@ -969,25 +976,25 @@ coords  -150 260
 at      3500
 
 spawn   bull2
-health  250
+health  150
 coords  490 240
 at      3500
 
 spawn   tiger
-health  290
-item    1up
+health  490
+map     1
 coords  540 260
 at      3500
 
 spawn   bull
-health  250
+health  80
 map     2
-item    food2
 coords  -250 210
 at      3500
 
 2pspawn   tiger
 health  270
+map     1
 coords  -240 220
 at      3500
 
@@ -998,18 +1005,18 @@ coords  490 240
 at      3500
 
 spawn   bull2
-health  250
+health  90
 coords  490 240
 at      3500
 
 spawn   bull2
 health  250
-item    food6
 coords  -150 210
 at      3500
 
 spawn   tiger
-health  270
+health  470
+map     1
 coords  -240 220
 at      3500
 
@@ -1022,19 +1029,13 @@ at      3500
 spawn   bull
 health  250
 map     1
-item    food5
 coords  -150 210
 at      3500
 
 spawn   tiger
-health  550
+health  350
 boss    1
+map     1
 aggression 100
 coords  640 260
 at      3500
-
-
-
-
-
-

@@ -5,7 +5,7 @@ panel		data/bgs/40lvl/taotaocafe2.gif
 layer		data/bgs/40lvl/smk01.gif 215 0 0 210 160 0 0 1 1 1 1 1 2 15 1
 layer		data/bgs/40lvl/smk02.gif 245 0 0 60 195 0 0 1 1 1 1 1 2 15 1
 layer		data/bgs/40lvl/smk03.gif 285 0 0 180 230 0 0 1 1 1 1 1 2 15 1
-fglayer      	data/bgs/40lvl/taotaocafe2frt.gif 2500 0 0 0 0 0 1 1 1 1
+fglayer      	data/bgs/40lvl/taotaocafe2frt.gif 3500 0 0 0 0 0 1 1 1 1
 
 
 direction       leftright
@@ -16,8 +16,8 @@ notime          1
 noslow          0
 order		a
 spawn1  	140 5
-spawn2  	145 10
-spawn3  	150 15
+spawn2  	145 5
+spawn3  	150 5
 
 
 #----------------------
@@ -52,7 +52,6 @@ at      0
 
 
 spawn   chair
-item    5bill
 flip    1
 coords  60 227
 at      0
@@ -64,7 +63,6 @@ coords  110 227
 at      0
 
 spawn   chair
-item    5neckl
 coords  160 227
 at      0
 
@@ -75,7 +73,6 @@ coords  110 0
 at      0
 
 spawn   chair
-item    5gbar
 flip    1
 coords  310 260
 at      0
@@ -113,7 +110,6 @@ at      0
 #------------------
 spawn   box2
 flip    1
-item    5dime
 coords  -950 220
 at      0
 
@@ -181,7 +177,6 @@ at      0
 
 spawn   box
 flip    1
-item    apple
 coords  -1000 210 200
 at      0
 
@@ -193,7 +188,6 @@ at      0
 
 spawn   box
 flip    1
-item    money2
 coords  -990 260 150
 at      0
 
@@ -205,6 +199,9 @@ at      0
 
 
 spawn   barrel
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+} @end_script
 flip    1
 item    apple2
 coords  -770 220
@@ -213,11 +210,13 @@ at      0
 spawn   barrel
 map     1
 flip    1
-item    5pearl
 coords  -750 200
 at      0
 
 spawn   barrel
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+} @end_script
 map     1
 flip    1
 item    ring
@@ -293,15 +292,15 @@ at    -320
 
 spawn   micky
 flip    1
-health  1900
+health  1250
 boss    1
-aggression 200
+aggression -20
 coords  -90 215
 at      -320
 
 spawn   jack3
 flip    1
-health  2100
+health  1700
 boss    1
 aggression 200
 coords  -30 240
@@ -310,9 +309,9 @@ at      -320
 
 spawn   temjin
 flip    1
-health  1900
+health  1350
 boss    1
-aggression 200
+aggression -20
 coords  -60 265
 at      -320
 

@@ -1,0 +1,290 @@
+#music		data/music/templest3.ogg
+bossmusic	data/music/kagashin1.ogg
+
+background	data/bgs/24lvl/finalRing2.gif
+panel		data/bgs/24lvl/finalRing2.gif
+layer           data/bgs/24lvl/front2.gif 480 0 0 0 70 0 0 1 1 1 0 0 0 0 0 3
+layer           data/bgs/24lvl/front.gif 500 0 0 0 280 0 0 1 1 1 0 0 0 0 0 3
+
+direction       both
+light  		10   -30
+at       	0
+settime         0
+notime          1
+noslow          0
+order		a
+spawn1  	90 0
+spawn2  	100 10
+spawn3  	110 20
+
+
+cameraoffset            0 -80
+cameratype              1
+
+
+wall    1170 375 250 170 845 925 130 60
+wall    2380 480 -280 -70 10 10 210 5000
+wall    1210 380 185 185 825 825 20 80
+#------------------------
+
+spawn   crowdbegin
+flip    1
+map	1
+coords  0 55
+at      0
+
+spawn   ringcam2
+flip    1
+coords  2220 295
+at      0
+
+spawn   crowdend
+map     1
+coords  2343 257
+at      0
+
+spawn   crowddown
+flip    1
+map     1
+coords  0 480
+at      0
+
+spawn   fringfront
+flip    1
+coords  1717 375 60
+at      0
+
+#---------------
+spawn  bar04
+flip    1
+map     1
+coords  20 355
+at      0
+
+spawn  bar04
+flip    1
+map     1
+coords  275 355
+at      0
+
+spawn  bar04
+flip    1
+coords  530 355
+at      0
+
+spawn  bar04
+flip    1
+map     2
+coords  790 355
+at      0
+
+spawn  bar04
+flip    1
+map     2
+coords  1020 355
+at      0
+
+spawn   ringsmoke
+map     1
+coords  55 297
+at      0
+
+spawn   ringsmoke
+map     1
+coords  300 297
+at      0
+
+spawn   ringsmoke
+map     1
+coords  550 297
+at      0
+
+spawn   ringsmoke
+map     1
+coords  143 355
+at      0
+
+spawn   ringsmoke
+map     1
+coords  410 355
+at      0
+
+spawn   ringsmoke
+map     1
+coords  665 355
+at      0
+
+#-------------------------
+
+spawn   ringcam
+flip    1
+map     1
+coords  640 420
+at      0
+
+#--------------------
+
+spawn   stlg1
+flip    1
+map     3
+coords  390 -10
+at      0
+
+spawn   stlg1
+map     3
+coords  790 -10
+at      0
+
+spawn   stlg1
+flip    1
+map     3
+coords  1180 -10
+at      0
+
+#----------------------
+
+spawn   stlg1
+coords  190 70
+at      0
+
+spawn   stlg1
+flip    1
+coords  600 70
+at      0
+
+spawn   stlg1
+coords  1000 70
+at      0
+
+#-----------------
+
+spawn   stlg1
+map     1
+coords  1570 -20
+at      0
+
+spawn   stlg1
+map     1
+flip    1
+coords  1860 -20
+at      0
+
+spawn   stlg1
+flip    1
+coords  2240 -20
+at      0
+
+spawn   stlg1
+map     2
+coords  2200 70
+at      0
+
+
+#----------------------
+spawn   ringirl
+map     1
+coords  1700 450
+at      0
+
+spawn   ringirl
+flip    1
+coords  1900 450
+at      0
+
+spawn   bar07
+flip    1
+map     1
+coords  1620 -115
+at      0
+
+spawn   stadisco
+flip    1
+coords	0 400 130
+at	0
+
+#---------------------
+
+spawn   bar07
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+} @end_script
+flip    1
+coords  1480 200
+at      0
+
+spawn   bar07
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+} @end_script
+coords  1965 200
+at      0
+
+
+spawn   bar07
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+} @end_script
+coords  1410 300
+at      0
+
+spawn   bar07
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+} @end_script
+flip    1
+coords  2020 300
+at      0
+
+#-----------------------
+spawn   kagatv
+coords	1635 45
+at	0
+#-----------------------
+
+
+#-----------------------
+blockade 1180
+at       1180
+#-----------------------
+
+group   1 1
+
+spawn   ghost1
+coords  200 340 100
+at      1200
+
+#-----------------------
+
+
+
+group   1 1
+at      1450
+
+spawn   kagasp
+@script void main(){
+    void self = getlocalvar("self"); //Get calling entity.
+    int x = getentityproperty(self,"x"); //Get character's x coordinate
+    int XPos = openborvariant("xpos");
+    changeentityproperty(self, "position", x - XPos);
+    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW20"));
+}@end_script
+coords  1650 350 100
+at      1450
+
+
+spawn   kagajin
+@script void main(){
+    void self = getlocalvar("self"); //Get calling entity.
+    int x = getentityproperty(self,"x"); //Get character's x coordinate
+    int XPos = openborvariant("xpos");
+    changeentityproperty(self, "position", x - XPos);
+    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW20"));
+}@end_script
+aggression 200
+boss    1
+coords  1730 330 100
+at      1450
+
+
+
+

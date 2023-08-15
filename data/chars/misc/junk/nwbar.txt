@@ -1,0 +1,201 @@
+name	 nwbar
+type	 obstacle
+health	 1000
+nolife   1
+falldie	 1
+noatflash 1	
+shadow	  6
+flash     Flash
+offscreenkill 	15000
+hostile		player npc
+animationscript data/scripts/escript.c
+
+
+alternatepal       data/chars/misc/junk/nwbarMAP1.gif
+alternatepal       data/chars/misc/junk/nwbarMAP2.gif
+
+
+
+#---------//------barrel---------//------------------
+
+anim	idle
+	loop	1
+	delay	1
+	offset	38 93
+	bbox	8 14 60 80
+	platform	1 1 1 1 1 1 1 1
+	frame	data/chars/misc/junk/nwbar01.gif
+	@cmd	damage 99.9 "ANI_FOLLOW2"
+	frame	data/chars/misc/junk/nwbar01.gif
+
+
+anim	follow1
+	loop	1
+	delay	1
+	offset	38 93
+	bbox	8 14 60 80
+	platform	1 1 1 1 1 1 1 1
+	frame	data/chars/misc/junk/nwbar03.gif
+	@cmd	damage 99.9 "ANI_FOLLOW2"
+	frame	data/chars/misc/junk/nwbar03.gif
+
+anim	follow2
+@script
+    void self = getlocalvar("self");
+    int HP = getentityproperty(self,"health");
+	if(frame == 7)
+	{
+        damageentity(self, self, 1200, 0, openborconstant("ATK_NORMAL"));
+	}
+@end_script
+	jumpframe 0 3 -1
+	loop	0
+	delay	4
+	offset	38 93
+	bbox	0 0 0 0
+	platform	1 1 1 1 1 1 1 1
+	sound	data/sounds/wood.wav
+	@cmd	target 50 50 900 600 0
+	frame	data/chars/misc/junk/nwbar02.gif
+	frame	data/chars/misc/junk/empty.gif
+	frame	data/chars/misc/junk/nwbar02.gif
+	frame	data/chars/misc/junk/empty.gif
+	frame	data/chars/misc/junk/nwbar02.gif
+	frame	data/chars/misc/junk/empty.gif
+	@cmd	looper 2 3
+	frame	data/chars/misc/junk/nwbar02.gif
+	delay	10
+	frame	data/chars/misc/junk/empty.gif #7
+	frame	data/chars/misc/junk/empty.gif
+	frame	data/chars/misc/junk/empty.gif
+
+#---------//------drum---------//------------------
+
+
+anim	follow4
+	loop	1
+	delay	1
+	offset	38 102
+	bbox	8 19 60 85
+	platform	1 1 1 1 1 1 1 1
+	frame	data/chars/misc/junk/nwbar05.gif
+	@cmd	damage 99 "ANI_FOLLOW6"
+	frame	data/chars/misc/junk/nwbar05.gif
+
+anim	follow5
+	loop	1
+	delay	1
+	offset	38 102
+	bbox	8 19 60 85
+	platform	1 1 1 1 1 1 1 1
+	frame	data/chars/misc/junk/nwbar06.gif
+	@cmd	damage 99 "ANI_FOLLOW6"
+	frame	data/chars/misc/junk/nwbar06.gif
+
+anim	follow6
+@script
+    void self = getlocalvar("self");
+    int HP = getentityproperty(self,"health");
+	if(frame == 7)
+	{
+        damageentity(self, self, 1200, 0, openborconstant("ATK_NORMAL"));
+	}
+@end_script
+	jumpframe 0 3 -1
+	loop	0
+	delay	4
+	offset	38 102
+	bbox	0 0 0 0
+	platform	1 1 1 1 1 1 1 1
+	@cmd	target 50 50 900 600 0
+	sound	data/sounds/klunk.wav
+	frame	data/chars/misc/junk/nwbar07.gif
+	frame	data/chars/misc/junk/empty.gif
+	frame	data/chars/misc/junk/nwbar07.gif
+	frame	data/chars/misc/junk/empty.gif
+	frame	data/chars/misc/junk/nwbar07.gif
+	frame	data/chars/misc/junk/empty.gif
+	@cmd	looper 2 3
+	frame	data/chars/misc/junk/nwbar07.gif
+	delay	10
+	frame	data/chars/misc/junk/empty.gif #7
+	frame	data/chars/misc/junk/empty.gif
+	frame	data/chars/misc/junk/empty.gif
+
+
+
+#---------//------postal---------//------------------
+
+
+anim	follow8
+	loop	1
+	delay	1
+	offset	43 103
+	bbox	8 4 70 96
+	platform	1 1 1 1 1 1 1 1
+	frame	data/chars/misc/junk/nwbar10.gif
+	@cmd	damage 99 "ANI_FOLLOW9"
+	frame	data/chars/misc/junk/nwbar10.gif
+
+anim	follow9
+@script
+    void self = getlocalvar("self");
+    int HP = getentityproperty(self,"health");
+	if(frame == 7)
+	{
+        damageentity(self, self, 1200, 0, openborconstant("ATK_NORMAL"));
+	}
+@end_script
+	jumpframe 0 3 -1
+	loop	0
+	delay	4
+	offset	43 103
+	bbox	0 0 0 0
+	platform	1 1 1 1 1 1 1 1
+	sound	data/sounds/klunk.wav
+	@cmd	target 50 50 900 600 0
+	frame	data/chars/misc/junk/nwbar11.gif
+	frame	data/chars/misc/junk/empty.gif
+	frame	data/chars/misc/junk/nwbar11.gif
+	frame	data/chars/misc/junk/empty.gif
+	frame	data/chars/misc/junk/nwbar11.gif
+	frame	data/chars/misc/junk/empty.gif
+	@cmd	looper 2 3
+	frame	data/chars/misc/junk/nwbar11.gif
+	delay	10
+	frame	data/chars/misc/junk/empty.gif #7
+	frame	data/chars/misc/junk/empty.gif
+	frame	data/chars/misc/junk/empty.gif
+
+
+
+
+#---------//---------------//------------------
+#---------//---------------//------------------
+#---------//---------------//------------------
+
+anim	fall
+	loop	0
+	delay	5
+	offset	38 93
+	frame	data/chars/misc/junk/empty.gif
+	frame	data/chars/misc/junk/empty.gif
+	@cmd	suicide
+	frame	data/chars/misc/junk/empty.gif
+
+anim	death
+	loop	0
+	delay	5
+	offset	38 93
+	frame	data/chars/misc/junk/empty.gif
+	frame	data/chars/misc/junk/empty.gif
+	@cmd	suicide
+	frame	data/chars/misc/junk/empty.gif
+
+				
+anim	spawn
+	loop	0
+	delay	1
+	offset	38 93
+	frame	data/chars/misc/junk/empty.gif
+		

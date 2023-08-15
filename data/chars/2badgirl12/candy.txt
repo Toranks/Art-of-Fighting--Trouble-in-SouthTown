@@ -1,7 +1,8 @@
 name          candy
 type          enemy
-health        190
-speed         12
+health        200
+mp		3000
+speed         10
 jumpheight    4
 jumpmove      0 4
 throw         5 2
@@ -11,13 +12,14 @@ nopassiveblock 1
 escapehits    2
 shadow        0
 noquake       1
-nolife        1
 falldie	      2
 nodieblink    1
 gfxshadow     1
 dust            dust
 projectilehit enemy obstacle
 diesound        data/sounds/robot2.wav
+icon	data/chars/2badgirl12/icon.gif
+icondie	data/chars/2badgirl12/icond.gif
 animationscript data/scripts/escript.c
 
 
@@ -27,6 +29,9 @@ load	bfire
 load	elect1
 load	grdbrk
 load	cardam2
+load	explosion3
+
+
 
 alternatepal       data/chars/2badgirl12/map1.gif
 alternatepal       data/chars/2badgirl12/map2.gif
@@ -45,7 +50,7 @@ alternatepal       data/chars/2badgirl12/map3.gif
    int jp = 1;   //----jump velocity
 
 
-if(anim != openborconstant("ANI_DIE") || anim != openborconstant("ANI_FALL") || anim != openborconstant("ANI_RISE") || anim != openborconstant("ANI_JUMP"))
+if(anim == openborconstant("ANI_WALK") || anim == openborconstant("ANI_RUN"))
 {
 	float Hy;
 	if(Dir==0)
@@ -58,9 +63,9 @@ if(anim != openborconstant("ANI_DIE") || anim != openborconstant("ANI_FALL") || 
 
 	if(Hy > 1 && a <= 7 && hp > 0)
 	{
-	performattack(self,openborconstant("ANI_JUMP"));
-	changeentityproperty(self, "velocity", 0, 0, 0);
+	//changeentityproperty(self, "velocity", 0, 0, 0);
 	tossentity(self, 4, jp, 0);
+	performattack(self,openborconstant("ANI_JUMP"));
 	}
 }
 @end_script
@@ -139,7 +144,7 @@ anim	attack2
 	frame	data/chars/2badgirl12/c02.gif
 	frame	data/chars/2badgirl12/c03.gif
 	frame	data/chars/2badgirl12/c04.gif
-	attack	65 145 170 85 5 1 1 1 10 50
+	attack	65 145 170 85 5 1 1 1 40 50
 	dropv	5 0
 	@cmd	spawn01 "grdbrk" 30 1 -1
 	frame	data/chars/2badgirl12/c05.gif
@@ -164,7 +169,7 @@ anim	attack7
 	frame	data/chars/2badgirl12/blk02.gif
 	frame	data/chars/2badgirl12/blk01.gif
 	frame	data/chars/2badgirl12/b01.gif
-	attack	50 130 125 25 12 1 0 0 10 8
+	attack	50 130 125 25 12 1 0 0 40 8
 	dropv	5 1
 	frame	data/chars/2badgirl12/b02.gif
 	sound	data/sounds/fast.wav
@@ -178,7 +183,7 @@ anim	attack7
 	delay	8
 	frame	data/chars/2badgirl12/b01.gif
 	frame	data/chars/2badgirl12/b02.gif
-	attack	50 130 125 25 12 1 0 0 10 8
+	attack	50 130 125 25 12 1 0 0 40 8
 	dropv	5 1
 	frame	data/chars/2badgirl12/b03.gif
 	frame	data/chars/2badgirl12/b04.gif
@@ -196,7 +201,7 @@ anim	attack7
 	@cmd	target 3 1 1 1 0
 	@cmd	dash
 	frame	data/chars/2badgirl12/b01.gif
-	attack	50 130 125 25 12 1 0 0 10 8
+	attack	50 130 125 25 12 1 0 0 40 8
 	dropv	5 1
 	frame	data/chars/2badgirl12/b02.gif
 	frame	data/chars/2badgirl12/b03.gif
@@ -214,7 +219,7 @@ anim	attack7
 	@cmd	target 3 1 1 1 0
 	@cmd	dash
 	frame	data/chars/2badgirl12/b01.gif
-	attack	50 130 125 25 12 1 0 0 10 8
+	attack	50 130 125 25 12 1 0 0 40 8
 	dropv	5 1
 	frame	data/chars/2badgirl12/b02.gif
 	frame	data/chars/2badgirl12/b03.gif
@@ -233,7 +238,7 @@ anim	attack7
 	@cmd	dash
 	frame	data/chars/2badgirl12/b01.gif
 	frame	data/chars/2badgirl12/b02.gif
-	attack	50 130 125 25 12 1 0 0 10 8
+	attack	50 130 125 25 12 1 0 0 40 8
 	dropv	5 1
 	frame	data/chars/2badgirl12/b03.gif
 	frame	data/chars/2badgirl12/b04.gif
@@ -289,7 +294,7 @@ anim	attack5
 	frame	data/chars/2badgirl12/c02.gif
 	frame	data/chars/2badgirl12/c03.gif
 	frame	data/chars/2badgirl12/c04.gif
-	attack	65 145 170 85 5 1 1 1 10 50
+	attack	65 145 170 85 5 1 1 1 40 50
 	dropv	5 0
 	@cmd	spawn01 "grdbrk" 30 1 -1
 	frame	data/chars/2badgirl12/c05.gif
@@ -452,7 +457,7 @@ anim	attack9
 	frame	data/chars/2badgirl12/blk02.gif
 	frame	data/chars/2badgirl12/blk01.gif
 	frame	data/chars/2badgirl12/b01.gif
-	attack	50 130 125 25 12 1 0 0 10 8
+	attack	50 130 125 25 12 1 0 0 40 8
 	dropv	5 1
 	frame	data/chars/2badgirl12/b02.gif
 	sound	data/sounds/fast.wav
@@ -466,7 +471,7 @@ anim	attack9
 	delay	8
 	frame	data/chars/2badgirl12/b01.gif
 	frame	data/chars/2badgirl12/b02.gif
-	attack	50 130 125 25 12 1 0 0 10 8
+	attack	50 130 125 25 12 1 0 0 40 8
 	dropv	5 1
 	frame	data/chars/2badgirl12/b03.gif
 	frame	data/chars/2badgirl12/b04.gif
@@ -484,7 +489,7 @@ anim	attack9
 	@cmd	target 3 1 1 1 0
 	@cmd	dash
 	frame	data/chars/2badgirl12/b01.gif
-	attack	50 130 125 25 12 1 0 0 10 8
+	attack	50 130 125 25 12 1 0 0 40 8
 	dropv	5 1
 	frame	data/chars/2badgirl12/b02.gif
 	frame	data/chars/2badgirl12/b03.gif
@@ -502,7 +507,7 @@ anim	attack9
 	@cmd	target 3 1 1 1 0
 	@cmd	dash
 	frame	data/chars/2badgirl12/b01.gif
-	attack	50 130 125 25 12 1 0 0 10 8
+	attack	50 130 125 25 12 1 0 0 40 8
 	dropv	5 1
 	frame	data/chars/2badgirl12/b02.gif
 	frame	data/chars/2badgirl12/b03.gif
@@ -521,7 +526,7 @@ anim	attack9
 	@cmd	dash
 	frame	data/chars/2badgirl12/b01.gif
 	frame	data/chars/2badgirl12/b02.gif
-	attack	50 130 125 25 12 1 0 0 10 8
+	attack	50 130 125 25 12 1 0 0 40 8
 	dropv	5 1
 	frame	data/chars/2badgirl12/b03.gif
 	frame	data/chars/2badgirl12/b04.gif
@@ -629,10 +634,10 @@ anim	burn
 	@cmd	spawnbind "burn1" 1 1 1
 	@cmd	spawnbind "burn2" 1 1 1
 	@cmd	spawnbind "burn3" 1 1 1
-	attack	78 98 30 45 5 1 0 0 13 0
+	attack	78 98 30 45 5 1 0 0 13 30
 	frame	data/chars/2badgirl12/fall1.gif
 	delay	15
-	attack	64 130 50 25 5 1 0 0 13 0
+	attack	64 130 50 25 5 1 0 0 13 30
 	frame	data/chars/2badgirl12/fall2.gif
 	delay	500
 	frame	data/chars/2badgirl12/fall3.gif
@@ -651,12 +656,16 @@ anim	death
 	frame	data/chars/2badgirl12/fall4.gif
 	@cmd	spawn01 "cardam2" 1 1 1
 	frame	data/chars/2badgirl12/fall5.gif
+	@cmd	spawn01 "explosion3" -40 10 1
 	frame	data/chars/2badgirl12/fall4.gif
 	frame	data/chars/2badgirl12/fall5.gif
+	@cmd	spawn01 "explosion3" 0 10 1
 	frame	data/chars/2badgirl12/fall4.gif
 	frame	data/chars/2badgirl12/fall5.gif
+	@cmd	spawn01 "explosion3" 40 10 1
 	frame	data/chars/2badgirl12/fall4.gif
 	frame	data/chars/2badgirl12/fall5.gif
+	@cmd	spawn01 "explosion3" 0 10 1
 	frame	data/chars/2badgirl12/fall4.gif
 	frame	data/chars/2badgirl12/fall5.gif
 	delay	50
@@ -668,10 +677,10 @@ anim	fall
 	offset	100 189
 	bbox	0 0 0 0
 	landframe	3
-	attack	78 98 30 45 5 1 0 0 13 0
+	attack	78 98 30 45 5 1 0 0 13 30
 	frame	data/chars/2badgirl12/fall1.gif
 	delay	15
-	attack	64 130 50 25 5 1 0 0 13 0
+	attack	64 130 50 25 5 1 0 0 13 30
 	frame	data/chars/2badgirl12/fall2.gif
 	delay	500
 	frame	data/chars/2badgirl12/fall3.gif
@@ -688,13 +697,13 @@ anim	fall10
 	offset	100 189
 	bbox	80 80 50 75
 	landframe	4
-	attack	85 88 30 50 5 1 0 0 13 0
+	attack	85 88 30 50 5 1 0 0 13 30
 	frame	data/chars/2badgirl12/pain6.gif
 	delay	40
 	frame	data/chars/2badgirl12/pain7.gif
 	delay	30
 	bbox	71 125 63 30
-	attack	64 125 45 25 5 1 0 0 13 0
+	attack	64 125 45 25 5 1 0 0 13 30
 	frame	data/chars/2badgirl12/fall2.gif
 	delay	300
 	bbox	77 130 67 35
@@ -721,15 +730,16 @@ anim	fall2
 	offset	100 189
 	bbox	0 0 0 0
 	landframe	3
-	attack	85 90 35 45 5 1 0 0 13 0
+	attack	85 90 35 45 5 1 0 0 13 30
 	frame	data/chars/2badgirl12/pain7.gif
 	delay	10
-	attack	64 125 55 25 5 1 0 0 13 0
+	attack	64 125 55 25 5 1 0 0 13 30
 	frame	data/chars/2badgirl12/fall2.gif
 	attack	0 0 0 0
 	delay	300
 	frame	data/chars/2badgirl12/fall3.gif
 	delay	15
+	bbox	58 175 85 15
 	frame	data/chars/2badgirl12/fall4.gif
 	frame	data/chars/2badgirl12/fall5.gif
 	frame	data/chars/2badgirl12/fall4.gif
@@ -792,10 +802,10 @@ anim	fall9
 	bbox	0 0 0 0
 	quakeframe	2 5 5
 	landframe	2 dust
-	attack	75 105 35 45 5 1 0 0 13 0
+	attack	75 105 35 45 5 1 0 0 13 30
 	frame	data/chars/2badgirl12/fall1.gif
 	delay	350
-	attack	75 125 45 35 5 1 0 0 13 0
+	attack	75 125 45 35 5 1 0 0 13 30
 	frame	data/chars/2badgirl12/fall2.gif
 	delay	2
 	move	-4
@@ -936,7 +946,7 @@ anim	follow1
 	frame	data/chars/2badgirl12/grab05.gif
 	delay	12
 	frame	data/chars/2badgirl12/grab02.gif
-	@cmd	antiwall -60 5 0
+	@cmd	clearL
 	frame	data/chars/2badgirl12/grab01.gif
 	frame	data/chars/2badgirl12/a110.gif
 		
@@ -955,9 +965,10 @@ anim	idle
 	@cmd	killgun 1 0
 	@cmd	killgun 2 0
 	@cmd	killgun 3 0
-	@cmd	clearL
 	frame	data/chars/2badgirl12/idle01.gif
+	@cmd	depost 0
 	frame	data/chars/2badgirl12/idle02.gif
+	@cmd	clearL
 	frame	data/chars/2badgirl12/idle03.gif
 	frame	data/chars/2badgirl12/idle04.gif
 		
@@ -1151,6 +1162,8 @@ anim	special
 	frame	data/chars/2badgirl12/rise7.gif
 		
 anim	special2
+	energycost	10
+	mponly	1
 	loop	0
 	delay	3
 	offset	105 195

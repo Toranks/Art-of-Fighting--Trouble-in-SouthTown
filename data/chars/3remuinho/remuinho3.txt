@@ -2,6 +2,7 @@ name          remuinho3
 type          enemy
 subtype	      chase
 health        100
+mp		3000
 speed         25
 running	      45 3 3 1 0
 jumpheight    4
@@ -161,14 +162,13 @@ anim	attack7
 	frame	data/chars/3remuinho/a104.gif
 		
 anim	attack8
-	range	300 500
+	range	300 370
 	loop	0
-	delay	12
+	delay	14
 	offset	100 189
 	@cmd	spawn01 "pw2" 20 0 5
 	frame	data/chars/3remuinho/c01.gif
 	frame	data/chars/3remuinho/c02.gif
-	@cmd	spawn01 "pw2" 20 0 15
 	frame	data/chars/3remuinho/c03.gif
 	frame	data/chars/3remuinho/c04.gif
 		
@@ -246,6 +246,18 @@ anim	burn
 	frame	data/chars/3remuinho/fall6.gif
 		
 anim	death
+@script
+	void self = getlocalvar("self");
+	int  mp20 = getglobalvar("map");
+	if(frame==41 && mp20==20)
+	{
+	jumptobranch("dummy", 1);
+	}
+	if(frame==50)
+	{
+	jumptobranch("dummy", 1);
+	}
+@end_script
 	loop	0
 	delay	5
 	offset	100 189
@@ -336,6 +348,14 @@ anim	death
 	delay	530
 	frame	data/chars/3remuinho/idle01.gif
 	delay	50
+	frame	data/chars/3remuinho/idle01.gif	#45
+	frame	data/chars/3remuinho/idle01.gif
+	frame	data/chars/3remuinho/idle01.gif
+	delay	530
+	frame	data/chars/3remuinho/idle01.gif
+	delay	50
+	frame	data/chars/3remuinho/idle01.gif
+	frame	data/chars/3remuinho/idle01.gif
 	frame	data/chars/3remuinho/idle01.gif
 	frame	data/chars/3remuinho/idle01.gif
 	frame	data/chars/3remuinho/idle01.gif
@@ -1091,7 +1111,7 @@ anim	follow12
 	@cmd	position 0 55 65 -1 -1
 	frame	data/chars/3remuinho/2grab11.gif
 	move	0
-	@cmd	spawn02 "flashsc1" -100 500 300
+	@cmd	spawn02 "flashsc1" -10 200 190
 	@cmd	depost 0
 	@cmd	finish 30 2 -3 1 0 0
 	delay	10
@@ -1181,7 +1201,7 @@ anim	follow14
 	frame	data/chars/3remuinho/f01.gif
 	frame	data/chars/3remuinho/f02.gif
 	delay	12
-	@cmd	spawn01 "pw2" 5 -65 0
+	@cmd	spawn01 "pw2" 5 -60 1
 	frame	data/chars/3remuinho/f03.gif
 	delay	9
 	frame	data/chars/3remuinho/f04.gif
@@ -1189,14 +1209,14 @@ anim	follow14
 	frame	data/chars/3remuinho/f06.gif
 	delay	12
 	frame	data/chars/3remuinho/f07.gif
-	@cmd	spawn01 "pw2" 5 -65 30
+	@cmd	spawn01 "pw2" 5 -65 20
 	frame	data/chars/3remuinho/f08.gif
 	frame	data/chars/3remuinho/f09.gif
 	delay	9
 	frame	data/chars/3remuinho/f01.gif
 	frame	data/chars/3remuinho/f02.gif
 	delay	12
-	@cmd	spawn01 "pw2" 5 -65 0
+	@cmd	spawn01 "pw2" 5 -60 1
 	frame	data/chars/3remuinho/f03.gif
 	delay	9
 	frame	data/chars/3remuinho/f04.gif
@@ -1204,7 +1224,7 @@ anim	follow14
 	frame	data/chars/3remuinho/f06.gif
 	delay	12
 	frame	data/chars/3remuinho/f07.gif
-	@cmd	spawn01 "pw2" 5 -65 30
+	@cmd	spawn01 "pw2" 5 -60 20
 	frame	data/chars/3remuinho/f08.gif
 	frame	data/chars/3remuinho/f09.gif
 	@cmd	degravity 0
@@ -1247,6 +1267,16 @@ anim	follow2
 	frame	data/chars/3remuinho/rise3.gif
 		
 anim	follow4
+@script
+	void self = getlocalvar("self");
+	int eTime = openborvariant("elapsed_time");
+	if (frame == 0)
+	{
+	changeentityproperty(self, "invincible", 1);
+	changeentityproperty(self, "invinctime", eTime + 100);
+	changeentityproperty(self, "blink", 1);
+	}
+@end_script
 	range	100 130
 	loop	0
 	delay	6
@@ -2239,7 +2269,7 @@ anim	follow8
 	@cmd	position 0 0 65 -1 -1
 	frame	data/chars/3remuinho/2grab11.gif
 	move	0
-	@cmd	spawn02 "flashsc1" -100 500 300
+	@cmd	spawn02 "flashsc1" -10 200 190
 	@cmd	depost 0
 	@cmd	finish 30 2 -3 4 0 0
 	delay	5
@@ -2472,17 +2502,62 @@ anim	grabbed
 	offset	100 189
 	bbox	79 97 50 91
 	frame	data/chars/3remuinho/grabbed.gif
+
+
+
 		
 anim	idle
+@script
+void self = getlocalvar("self");
+if( frame == 1)
+{
+	int r = rand()%50;
+	if( r > 30)
+	{
+	performattack(self,openborconstant("ANI_FOLLOW25"));
+	}
+}
+@end_script
 	loop	0
 	delay	8
 	offset	100 189
 	bbox	79 97 50 91
-	@cmd	depost 0
-	@cmd	clearL
 	frame	data/chars/3remuinho/rise3.gif
+	@cmd	depost 0
 	frame	data/chars/3remuinho/rise4.gif
+	@cmd	clearL
 	frame	data/chars/3remuinho/idle05.gif
+	frame	data/chars/3remuinho/idle05.gif
+	frame	data/chars/3remuinho/idle05.gif
+	frame	data/chars/3remuinho/idle05.gif
+
+anim	follow25
+	loop	0
+	delay	5
+	offset	100 189
+	bbox	79 97 50 91
+	frame	data/chars/3remuinho/idle02.gif
+	delay	9
+	@cmd	stop
+	frame	data/chars/3remuinho/idle02.gif
+	delay	12
+	frame	data/chars/3remuinho/idle04.gif
+	@cmd	spawnbind4 "allsmtlk" 10 100 1 0 4
+	frame	data/chars/3remuinho/idle03.gif
+	frame	data/chars/3remuinho/sp01.gif
+	bbox	79 97 50 91
+	frame	data/chars/3remuinho/sp02.gif
+	delay	330
+	frame	data/chars/3remuinho/sp02.gif
+	frame	data/chars/3remuinho/sp02.gif
+	delay	10
+	frame	data/chars/3remuinho/sp02.gif
+	@cmd	clearL
+	frame	data/chars/3remuinho/sp01.gif
+	@cmd	beidle
+	frame	data/chars/3remuinho/sp01.gif
+
+
 		
 anim	pain
 	loop	0
@@ -2632,9 +2707,9 @@ anim	run
 	loop	1
 	delay	8
 	offset	100 189
-	bbox	0 0 0 0
+	bbox	85 130 50 60
 	frame	data/chars/3remuinho/run01.gif
-	@cmd	attack1 0 280 30 "ANI_FOLLOW10"
+	@cmd	attack1 0 280 20 "ANI_FOLLOW10"
 	frame	data/chars/3remuinho/run02.gif
 		
 anim	spawn
@@ -2720,6 +2795,8 @@ anim	special
 	frame	data/chars/3remuinho/rise4.gif
 		
 anim	special2
+	energycost	10
+	mponly	1
 	delay	9
 	offset	100 189
 	bbox	0 0 0 0

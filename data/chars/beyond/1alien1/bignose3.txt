@@ -1,7 +1,8 @@
 name          bignose3
 type          enemy
 health        300
-speed         11
+mp		3000
+speed         9
 jumpheight    6
 jumpmove      0  4
 throw         5 2
@@ -9,7 +10,6 @@ throwdamage   18
 shadow        0
 noquake       1
 blockodds     1
-nolife        1
 falldie	      2
 nodieblink    1
 gfxshadow     1
@@ -20,6 +20,8 @@ candamage     player
 hostile       player
 projectilehit enemy obstacle
 diesound      data/sounds/alien14.wav
+icon		data/chars/beyond/1alien1/icon.gif
+icondie		data/chars/beyond/1alien1/icond.gif
 animationscript data/scripts/escript.c
 
 palette		   data/chars/beyond/1alien1/map0.gif
@@ -147,7 +149,19 @@ anim	attack5
 	bbox	85 96 39 91
 	frame	data/chars/beyond/1alien1/c01.gif
 	frame	data/chars/beyond/1alien1/c02.gif
+	delay	7
 	frame	data/chars/beyond/1alien1/c03.gif
+	frame	data/chars/beyond/1alien1/c03a.gif
+	frame	data/chars/beyond/1alien1/c03.gif
+	frame	data/chars/beyond/1alien1/c03a.gif
+	frame	data/chars/beyond/1alien1/c03.gif
+	frame	data/chars/beyond/1alien1/c03a.gif
+	frame	data/chars/beyond/1alien1/c03.gif
+	frame	data/chars/beyond/1alien1/c03a.gif
+	frame	data/chars/beyond/1alien1/c03.gif
+	frame	data/chars/beyond/1alien1/c03a.gif
+	frame	data/chars/beyond/1alien1/c03.gif
+	frame	data/chars/beyond/1alien1/c03a.gif
 	@cmd	spawn01 "pw14a" 75 1 1
 	delay	17
 	frame	data/chars/beyond/1alien1/c04.gif
@@ -267,10 +281,10 @@ anim	burn
 	@cmd	spawnbind "burn1" 1 1 1
 	@cmd	spawnbind "burn2" 1 1 1
 	@cmd	spawnbind "burn3" 1 1 1
-	attack	77 101 35 54 5 1 0 0 13
+	attack	77 101 35 54 5 1 0 0 13 40
 	frame	data/chars/beyond/1alien1/fall1.gif	
 	delay	10
-	attack	61 124 61 26 5 1 0 0 13
+	attack	61 124 61 26 5 1 0 0 13 40
 	frame	data/chars/beyond/1alien1/fall2.gif
 	attack	0 0 0 0
 	delay	400
@@ -328,12 +342,12 @@ anim	fall
 	bouncefactor	0
 	@cmd	dethrown
 	landframe	3
-	attack	77 101 35 54 5 1 0 0 13
+	attack	77 101 35 54 5 1 0 0 13 40
 	drawmethod	256 256 0 0 0 2 -1
 	frame	data/chars/beyond/1alien1/fall1.gif
 	nodrawmethod	
 	delay	10
-	attack	61 124 61 26 5 1 0 0 13
+	attack	61 124 61 26 5 1 0 0 13 40
 	frame	data/chars/beyond/1alien1/fall2.gif
 	attack	0 0 0 0
 	delay	400
@@ -349,7 +363,7 @@ anim	fall10
 	bouncefactor	0
 	@cmd	dethrown
 	landframe	4
-	attack	87 110 25 61 5 1 0 0 13
+	attack	87 110 25 61 5 1 0 0 13 40
 	drawmethod	256 256 0 0 0 4 -1
 	frame	data/chars/beyond/1alien1/pain6.gif
 	delay	40
@@ -357,7 +371,7 @@ anim	fall10
 	nodrawmethod	
 	delay	30
 	bbox	67 120 54 28
-	attack	61 124 61 26 5 1 0 0 13
+	attack	61 124 61 26 5 1 0 0 13 40
 	frame	data/chars/beyond/1alien1/fall2.gif
 	delay	1000
 	bbox	72 156 55 33
@@ -400,12 +414,12 @@ anim	fall2
 	bouncefactor	0
 	@cmd	dethrown
 	landframe	3
-	attack	87 110 25 61 5 1 0 0 13
+	attack	87 110 25 61 5 1 0 0 13 40
 	drawmethod	256 256 0 0 0 2 -1
 	frame	data/chars/beyond/1alien1/pain6.gif
 	nodrawmethod	
 	delay	10
-	attack	61 124 61 26 5 1 0 0 13
+	attack	61 124 61 26 5 1 0 0 13 40
 	frame	data/chars/beyond/1alien1/fall2.gif
 	attack	0 0 0 0
 	delay	400
@@ -656,9 +670,10 @@ anim	idle
 	delay	12
 	offset	101 190
 	bbox	85 96 39 91
-	@cmd	clearL
 	frame	data/chars/beyond/1alien1/idle01.gif
+	@cmd	depost 0
 	frame	data/chars/beyond/1alien1/idle02.gif
+	@cmd	clearL
 	frame	data/chars/beyond/1alien1/idle03.gif
 	frame	data/chars/beyond/1alien1/idle02.gif
 		
@@ -997,6 +1012,8 @@ anim	special
 	frame	data/chars/beyond/1alien1/b109.gif
 		
 anim	special2
+	energycost	10
+	mponly	1
 	loop	0
 	delay	8
 	offset	101 190

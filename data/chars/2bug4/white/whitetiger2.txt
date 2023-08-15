@@ -1,0 +1,199 @@
+name          whitetiger2
+type          enemy
+subtype	      chase
+health        500
+speedf        1.8
+jumpheight    4
+throw         5 2
+throwdamage   18
+shadow        0
+cantgrab      1
+notgrab	      1
+nolife        1
+falldie	      1
+facing		1
+nodieblink    2
+gfxshadow     1
+knockdowncount 500
+lifespan        12
+antigravity   60
+subject_to_hole 0
+subject_to_platform 0
+projectilehit enemy obstacle
+diesound      data/sounds/Tiger3.wav
+animationscript data/scripts/escript.c
+
+
+
+palette	none
+
+load	gas
+
+
+
+anim	attack1
+	range	-50 50
+	rangez	-20 20
+	loop	0
+	delay	8
+	offset	200 275
+	bbox	0 0 0 0
+	platform   1 1 1 1 1 1 1 1
+	frame	data/chars/2bug4/white/xa02.gif
+	frame	data/chars/2bug4/white/xa03.gif
+	@cmd	clearL
+	frame	data/chars/2bug4/white/xa04.gif
+	frame	data/chars/2bug4/white/xa05.gif
+	sound	data/sounds/Tiger3.wav
+	frame	data/chars/2bug4/white/xb04.gif
+	frame	data/chars/2bug4/white/xa02.gif	#5
+	frame	data/chars/2bug4/white/xa03.gif
+	frame	data/chars/2bug4/white/xa04.gif
+	frame	data/chars/2bug4/white/xa05.gif
+	frame	data/chars/2bug4/white/xb04.gif
+	frame	data/chars/2bug4/white/xa02.gif
+	frame	data/chars/2bug4/white/xa03.gif
+	frame	data/chars/2bug4/white/xa04.gif
+	frame	data/chars/2bug4/white/xa05.gif
+	frame	data/chars/2bug4/white/xb04.gif
+
+
+
+anim	idle
+	loop	1
+	delay	8
+	offset	200 275
+	bbox	0 0 0 0
+	platform   1 1 1 1 1 1 1 1
+	frame	data/chars/2bug4/white/xa02.gif
+	frame	data/chars/2bug4/white/xa03.gif
+	frame	data/chars/2bug4/white/xa04.gif
+	frame	data/chars/2bug4/white/xa05.gif
+	frame	data/chars/2bug4/white/xb04.gif
+
+
+anim	spawn
+@script
+if(frame==1)
+{
+  changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_OBSTACLE"));
+}
+@end_script
+	loop	0
+	delay	8
+	offset	200 275
+	bbox	0 0 0 0
+	platform   1 1 1 1 1 1 1 1
+	frame	data/chars/2bug4/white/xa02.gif
+	frame	data/chars/2bug4/white/xa03.gif
+	frame	data/chars/2bug4/white/xa04.gif
+	frame	data/chars/2bug4/white/xa05.gif
+	frame	data/chars/2bug4/white/xb04.gif
+
+
+anim	death
+	loop	0
+	delay	8
+	offset	200 275
+	bbox	0 0 0 0
+	platform   1 1 1 1 1 1 1 1
+	frame	data/chars/2bug4/white/a02.gif
+	frame	data/chars/2bug4/white/a03.gif
+	@cmd	spawn01 "gas" 10 1 1 
+	frame	data/chars/2bug4/white/a04.gif
+	@cmd	clearL
+	frame	data/chars/2bug4/white/a05.gif
+	frame	data/chars/2bug4/white/b04.gif
+	frame	data/chars/2bug4/white/a02.gif #5
+	frame	data/chars/2bug4/white/a03.gif
+	frame	data/chars/2bug4/white/a04.gif
+	frame	data/chars/2bug4/white/a05.gif
+	frame	data/chars/2bug4/white/b04.gif
+	@cmd	looper 5 2
+	frame	data/chars/2bug4/white/a02.gif
+	frame	data/chars/2bug4/white/a03.gif
+	@cmd	clearL
+	frame	data/chars/2bug4/white/a04.gif
+	@cmd	dasher -1.5 0 0
+	frame	data/chars/2bug4/white/a05.gif
+	frame	data/chars/2bug4/white/b04.gif
+	frame	data/chars/2bug4/white/a02.gif	#15
+	frame	data/chars/2bug4/white/a03.gif
+	frame	data/chars/2bug4/white/a04.gif
+	frame	data/chars/2bug4/white/a05.gif
+	frame	data/chars/2bug4/white/b04.gif
+	@cmd	looper 15 25
+	frame	data/chars/2bug4/white/a02.gif
+	delay	4
+	frame	data/chars/2bug4/white/emp.gif
+	frame	data/chars/2bug4/white/a03.gif
+	frame	data/chars/2bug4/white/emp.gif
+	frame	data/chars/2bug4/white/a04.gif
+	frame	data/chars/2bug4/white/emp.gif
+	frame	data/chars/2bug4/white/a05.gif
+	frame	data/chars/2bug4/white/emp.gif
+	frame	data/chars/2bug4/white/b04.gif
+	frame	data/chars/2bug4/white/emp.gif
+	frame	data/chars/2bug4/white/a02.gif
+	frame	data/chars/2bug4/white/emp.gif
+	frame	data/chars/2bug4/white/a03.gif
+	frame	data/chars/2bug4/white/emp.gif
+	frame	data/chars/2bug4/white/a04.gif
+	frame	data/chars/2bug4/white/emp.gif
+	frame	data/chars/2bug4/white/a05.gif
+	frame	data/chars/2bug4/white/emp.gif
+	frame	data/chars/2bug4/white/b04.gif
+	frame	data/chars/2bug4/white/emp.gif
+	frame	data/chars/2bug4/white/a02.gif
+	frame	data/chars/2bug4/white/emp.gif
+	frame	data/chars/2bug4/white/a03.gif
+	frame	data/chars/2bug4/white/emp.gif
+	frame	data/chars/2bug4/white/a04.gif
+	frame	data/chars/2bug4/white/emp.gif
+	frame	data/chars/2bug4/white/a05.gif
+	frame	data/chars/2bug4/white/emp.gif
+	frame	data/chars/2bug4/white/b04.gif
+	frame	data/chars/2bug4/white/emp.gif
+	frame	data/chars/2bug4/white/a02.gif
+	frame	data/chars/2bug4/white/emp.gif
+	@cmd	suicide
+	frame	data/chars/2bug4/white/emp.gif
+
+
+
+
+
+
+
+#---------------------------//------------//--------------------
+
+anim	fall
+	loop	0
+	delay	9
+	offset	200 275
+	bbox	0 0 0 0
+	platform   1 1 1 1 1 1 1 1
+	sound	data/sounds/Tiger2.wav
+	attack	105 145 80 100 5 1 0 0 13 0
+	frame	data/chars/2bug4/white/fall1.gif
+
+	
+anim	pain
+	loop	0
+	delay	9
+	offset	200 275
+	bbox	0 0 0 0
+	platform   1 1 1 1 1 1 1 1
+	frame	data/chars/2bug4/white/pain0.gif
+
+		
+anim	rise
+	loop	0
+	delay	9
+	offset	200 275
+	bbox	0 0 0 0
+	platform   1 1 1 1 1 1 1 1
+	frame	data/chars/2bug4/white/rise01.gif
+	frame	data/chars/2bug4/white/rise02.gif
+
+		

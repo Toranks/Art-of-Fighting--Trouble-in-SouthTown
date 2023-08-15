@@ -1,6 +1,6 @@
 name          overlordfn
 type          enemy
-health        7500
+health        7000
 speed         35
 running	      18 0 0 1 0
 jumpheight    0
@@ -458,38 +458,46 @@ anim	fall7
 	void self = getlocalvar("self");
  	void opp = getentityproperty(self, "opponent");
 
-	if(frame >= 0)
+	if(frame >= 0 && frame <= 5)
 	{
      	bindentity(opp, NULL());
      	bindentity(self, NULL());
      	performattack(opp, openborconstant("ANI_PAIN"));
-     	performattack(self, openborconstant("ANI_FOLLOW2"));
+	}
+	if(frame >= 6 && frame <= 15)
+	{
+     	bindentity(opp, NULL());
+     	bindentity(self, NULL());
+    	performattack(self, openborconstant("ANI_FOLLOW2"));
 	}
 @end_script
 	loop	0
 	delay	5
-	offset	103 189
+	offset	100 189
 	bbox	0 0 0 0
-	frame	data/chars/beyond/3overlord/idle43.gif
-	frame	data/chars/beyond/3overlord/idle43.gif
-	frame	data/chars/beyond/3overlord/idle43.gif
-	frame	data/chars/beyond/3overlord/idle43.gif
-	frame	data/chars/beyond/3overlord/idle43.gif
-	frame	data/chars/beyond/3overlord/idle43.gif
-	frame	data/chars/beyond/3overlord/idle43.gif
-	frame	data/chars/beyond/3overlord/idle43.gif
-	frame	data/chars/beyond/3overlord/idle43.gif
-	frame	data/chars/beyond/3overlord/idle43.gif
-	frame	data/chars/beyond/3overlord/idle43.gif
-	frame	data/chars/beyond/3overlord/idle43.gif
-	frame	data/chars/beyond/3overlord/idle43.gif
-	frame	data/chars/beyond/3overlord/idle43.gif
-	frame	data/chars/beyond/3overlord/idle43.gif
-	frame	data/chars/beyond/3overlord/idle43.gif
-	frame	data/chars/beyond/3overlord/idle43.gif
-	frame	data/chars/beyond/3overlord/idle43.gif
-	frame	data/chars/beyond/3overlord/idle43.gif
-	frame	data/chars/beyond/3overlord/idle43.gif
+	frame	data/chars/beyond/3overlord/pain5.gif
+	frame	data/chars/beyond/3overlord/pain5.gif
+	frame	data/chars/beyond/3overlord/pain5.gif
+	frame	data/chars/beyond/3overlord/pain5.gif
+	frame	data/chars/beyond/3overlord/pain5.gif
+	frame	data/chars/beyond/3overlord/pain5.gif
+	frame	data/chars/beyond/3overlord/pain5.gif
+	frame	data/chars/beyond/3overlord/pain5.gif
+	frame	data/chars/beyond/3overlord/pain5.gif
+	frame	data/chars/beyond/3overlord/pain5.gif
+	frame	data/chars/beyond/3overlord/pain5.gif
+	frame	data/chars/beyond/3overlord/pain5.gif
+	frame	data/chars/beyond/3overlord/pain5.gif
+	frame	data/chars/beyond/3overlord/pain5.gif
+	frame	data/chars/beyond/3overlord/pain5.gif
+	frame	data/chars/beyond/3overlord/pain5.gif
+	frame	data/chars/beyond/3overlord/pain5.gif
+	frame	data/chars/beyond/3overlord/pain5.gif
+	frame	data/chars/beyond/3overlord/pain5.gif
+	frame	data/chars/beyond/3overlord/pain5.gif
+	frame	data/chars/beyond/3overlord/pain5.gif
+	@cmd	beidle
+	frame	data/chars/beyond/3overlord/pain5.gif
 
 
 
@@ -846,8 +854,9 @@ anim	idle
 	frame	data/chars/beyond/3overlord/idle39.gif
 	@cmd	damchg3
 	frame	data/chars/beyond/3overlord/idle43.gif
-	@cmd	clearL
+	@cmd	depost 0
 	frame	data/chars/beyond/3overlord/idle42.gif
+	@cmd	clearL
 	frame	data/chars/beyond/3overlord/idle41.gif
 	frame	data/chars/beyond/3overlord/idle40.gif
 	frame	data/chars/beyond/3overlord/idle39.gif
@@ -1893,14 +1902,19 @@ anim	follow17
 
 #--------------------end--------//----------------------
 
+
 anim	death
 @script
 	void self = getlocalvar("self");
+	int  mp20 = getglobalvar("map");
 	if(frame==7){
-
 	changelevelproperty("scrollspeed", 0);
     	changeopenborvariant("xpos", 6590);
     	changeopenborvariant("ypos", 1);
+	}
+	if(frame==30 && mp20==20)
+	{
+	jumptobranch("dummy", 1);
 	}
 @end_script
 	loop	0
@@ -1950,9 +1964,9 @@ anim	death
 	frame	data/chars/beyond/3overlord/go02.gif
 	frame	data/chars/beyond/3overlord/go01.gif
 	delay	15
-	frame	data/chars/beyond/3overlord/chg02.gif	
+	frame	data/chars/beyond/3overlord/chg02.gif
 	frame	data/chars/beyond/3overlord/chg03.gif
-	frame	data/chars/beyond/3overlord/chg04.gif
+	frame	data/chars/beyond/3overlord/chg04.gif #23
 	delay	25
 	frame	data/chars/beyond/3overlord/idle39.gif
 	frame	data/chars/beyond/3overlord/idle39.gif
@@ -1970,7 +1984,7 @@ anim	death
 	@cmd	target 1 1 1 1 0
 	frame	data/chars/beyond/3overlord/idle39.gif
 	@cmd	killgun 25 0
-	frame	data/chars/beyond/3overlord/idle39.gif
+	frame	data/chars/beyond/3overlord/idle39.gif	#34
 	@cmd	spawnAni2 "ovtlk2" 10 50 50 "ANI_FOLLOW1" #------------- 
 	frame	data/chars/beyond/3overlord/idle39.gif
 	frame	data/chars/beyond/3overlord/idle39.gif

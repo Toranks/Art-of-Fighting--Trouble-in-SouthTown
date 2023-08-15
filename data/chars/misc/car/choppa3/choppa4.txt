@@ -15,7 +15,7 @@ nodrop		1
 antigrab	10
 setlayer	10000
 hostile		player
-lifespan  	160
+lifespan  	90
 offscreenkill 	2500
 subject_to_screen 1
 subject_to_platform 0
@@ -30,7 +30,7 @@ animationscript data/scripts/escript.c
 load	cursor
 load	choppatlk
 
-
+palette		data/chars/misc/car/choppa3/mapal.gif
 
 
 anim	death
@@ -39,6 +39,7 @@ anim	death
 	offset	95 155
 	bbox	0 0 0 0
 	movea	4
+	platform 1 1 1 1 1 1 1 1
 	frame	data/chars/misc/car/choppa3/chop01.gif
 	sound	data/sounds/heli1.wav
 	@cmd	subscreen 0
@@ -74,6 +75,7 @@ anim	idle
 	delay	3
 	offset	95 155
 	bbox	0 0 0 0
+	platform 1 1 1 1 1 1 1 1
 	sound	data/sounds/heli2.wav
 	frame	data/chars/misc/car/choppa3/chop01.gif
 	frame	data/chars/misc/car/choppa3/chop02.gif
@@ -109,13 +111,14 @@ anim	spawn
 @script
 if(frame==1)
 {
-  changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_TRAP"));
+  changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_OBSTACLE"));
 }
 @end_script
 	drawmethod	190 190
 	move	3
 	movez	3
 	@cmd	degravity 0.9
+	platform 1 1 1 1 1 1 1 1
 	frame	data/chars/misc/car/choppa3/heli01.gif
 	frame	data/chars/misc/car/choppa3/heli02.gif
 	frame	data/chars/misc/car/choppa3/heli03.gif
@@ -129,7 +132,6 @@ if(frame==1)
 	frame	data/chars/misc/car/choppa3/heli01.gif
 	frame	data/chars/misc/car/choppa3/heli02.gif
 	frame	data/chars/misc/car/choppa3/heli03.gif
-
 	drawmethod	205 205 
 	frame	data/chars/misc/car/choppa3/heli01.gif
 	frame	data/chars/misc/car/choppa3/heli02.gif
@@ -144,7 +146,6 @@ if(frame==1)
 	frame	data/chars/misc/car/choppa3/heli01.gif
 	frame	data/chars/misc/car/choppa3/heli02.gif
 	frame	data/chars/misc/car/choppa3/heli03.gif
-
 	drawmethod	210 210 
 	frame	data/chars/misc/car/choppa3/heli01.gif
 	frame	data/chars/misc/car/choppa3/heli02.gif
@@ -159,7 +160,6 @@ if(frame==1)
 	frame	data/chars/misc/car/choppa3/heli01.gif
 	frame	data/chars/misc/car/choppa3/heli02.gif
 	frame	data/chars/misc/car/choppa3/heli03.gif
-
 	drawmethod	215 215 
 	frame	data/chars/misc/car/choppa3/heli01.gif
 	frame	data/chars/misc/car/choppa3/heli02.gif
@@ -174,7 +174,6 @@ if(frame==1)
 	frame	data/chars/misc/car/choppa3/heli01.gif
 	frame	data/chars/misc/car/choppa3/heli02.gif
 	frame	data/chars/misc/car/choppa3/heli03.gif
-
 	drawmethod	220 220 
 	frame	data/chars/misc/car/choppa3/heli01.gif
 	frame	data/chars/misc/car/choppa3/heli02.gif
@@ -189,7 +188,6 @@ if(frame==1)
 	frame	data/chars/misc/car/choppa3/heli01.gif
 	frame	data/chars/misc/car/choppa3/heli02.gif
 	frame	data/chars/misc/car/choppa3/heli03.gif
-
 	drawmethod	225 225 
 	frame	data/chars/misc/car/choppa3/heli01.gif
 	frame	data/chars/misc/car/choppa3/heli02.gif
@@ -204,7 +202,6 @@ if(frame==1)
 	frame	data/chars/misc/car/choppa3/heli01.gif
 	frame	data/chars/misc/car/choppa3/heli02.gif
 	frame	data/chars/misc/car/choppa3/heli03.gif
-
 	drawmethod	230 230 
 	frame	data/chars/misc/car/choppa3/heli01.gif
 	frame	data/chars/misc/car/choppa3/heli02.gif
@@ -219,7 +216,6 @@ if(frame==1)
 	frame	data/chars/misc/car/choppa3/heli01.gif
 	frame	data/chars/misc/car/choppa3/heli02.gif
 	frame	data/chars/misc/car/choppa3/heli03.gif
-
 	drawmethod	235 235 
 	frame	data/chars/misc/car/choppa3/heli01.gif
 	frame	data/chars/misc/car/choppa3/heli02.gif
@@ -234,7 +230,6 @@ if(frame==1)
 	frame	data/chars/misc/car/choppa3/heli01.gif
 	frame	data/chars/misc/car/choppa3/heli02.gif
 	frame	data/chars/misc/car/choppa3/heli03.gif
-
 	drawmethod	240 240 
 	frame	data/chars/misc/car/choppa3/heli01.gif
 	frame	data/chars/misc/car/choppa3/heli02.gif
@@ -249,7 +244,6 @@ if(frame==1)
 	frame	data/chars/misc/car/choppa3/heli01.gif
 	frame	data/chars/misc/car/choppa3/heli02.gif
 	frame	data/chars/misc/car/choppa3/heli03.gif
-
 	drawmethod	245 245 
 	frame	data/chars/misc/car/choppa3/heli01.gif
 	frame	data/chars/misc/car/choppa3/heli02.gif
@@ -264,7 +258,6 @@ if(frame==1)
 	frame	data/chars/misc/car/choppa3/heli01.gif
 	frame	data/chars/misc/car/choppa3/heli02.gif
 	frame	data/chars/misc/car/choppa3/heli03.gif
-
 	drawmethod	250 250 
 	frame	data/chars/misc/car/choppa3/heli01.gif
 	frame	data/chars/misc/car/choppa3/heli02.gif
@@ -279,7 +272,6 @@ if(frame==1)
 	frame	data/chars/misc/car/choppa3/heli01.gif
 	frame	data/chars/misc/car/choppa3/heli02.gif
 	frame	data/chars/misc/car/choppa3/heli03.gif
-
 	drawmethod	255 255 
 	frame	data/chars/misc/car/choppa3/heli01.gif
 	frame	data/chars/misc/car/choppa3/heli02.gif
@@ -294,7 +286,6 @@ if(frame==1)
 	frame	data/chars/misc/car/choppa3/heli01.gif
 	frame	data/chars/misc/car/choppa3/heli02.gif
 	frame	data/chars/misc/car/choppa3/heli03.gif
-
 	nodrawmethod 
 	frame	data/chars/misc/car/choppa3/heli01.gif
 	frame	data/chars/misc/car/choppa3/heli02.gif
@@ -320,7 +311,7 @@ if(frame==1)
 	frame	data/chars/misc/car/choppa3/empty.gif
 	movez	0
 	move	0
-	delay	3100
+	delay	2000
 	@cmd	degravity 0
 	frame	data/chars/misc/car/choppa3/empty.gif
 	delay	20

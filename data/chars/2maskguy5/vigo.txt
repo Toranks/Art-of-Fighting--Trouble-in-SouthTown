@@ -2,6 +2,7 @@ name          vigo
 type          enemy
 subtype	      chase
 health        80
+mp		3000
 speed         18
 jumpheight     6
 jumpmove       0  4
@@ -12,13 +13,14 @@ nopassiveblock 1
 shadow        0
 noquake       1
 escapehits    2
-nolife        1
 falldie	      2
 nodieblink    1
 gfxshadow     1
 dust            dust
 projectilehit enemy obstacle
 diesound      data/sounds/die4.wav
+icon		data/chars/2maskguy5/icon.gif
+icondie		data/chars/2maskguy5/icond.gif
 animationscript data/scripts/escript.c
 
 
@@ -42,7 +44,7 @@ alternatepal       data/chars/2maskguy5/map4.gif
    int jp = 1;   //----jump velocity
 
 
-if(anim != openborconstant("ANI_DIE") || anim != openborconstant("ANI_FALL") || anim != openborconstant("ANI_RISE") || anim != openborconstant("ANI_JUMP"))
+if(anim == openborconstant("ANI_WALK") || anim == openborconstant("ANI_RUN"))
 {
 	float Hy;
 	if(Dir==0)
@@ -55,9 +57,9 @@ if(anim != openborconstant("ANI_DIE") || anim != openborconstant("ANI_FALL") || 
 
 	if(Hy > 1 && a <= 7 && hp > 0)
 	{
-	performattack(self,openborconstant("ANI_JUMP"));
-	changeentityproperty(self, "velocity", 0, 0, 0);
+	//changeentityproperty(self, "velocity", 0, 0, 0);
 	tossentity(self, 4, jp, 0);
+	performattack(self,openborconstant("ANI_JUMP"));
 	}
 }
 @end_script
@@ -132,12 +134,14 @@ anim	attack1
 anim	attack2
 	range	130 190
 	loop	0
-	delay	9
+	delay	29
 	offset	100 189
 	bbox	79 97 50 91
 	hitflash	Flash6
 	hitfx	data/sounds/sl1.wav
-	jumpframe	2 2 2
+	jumpframe	3 2 2
+	frame	data/chars/2maskguy5/rise6.gif
+	delay	9
 	frame	data/chars/2maskguy5/b101.gif
 	frame	data/chars/2maskguy5/b102.gif
 	sound	data/sounds/bguy05.wav
@@ -148,7 +152,7 @@ anim	attack2
 	frame	data/chars/2maskguy5/b104.gif
 	frame	data/chars/2maskguy5/b104.gif
 	frame	data/chars/2maskguy5/b104.gif
-	attack	99 122 77 25 10 1 0 0 16 0
+	attack	99 122 77 25 10 1 0 0 45 0
 	frame	data/chars/2maskguy5/b105.gif
 	frame	data/chars/2maskguy5/b105.gif
 	frame	data/chars/2maskguy5/b105.gif
@@ -208,6 +212,7 @@ anim	block
 	offset	100 189
 	bbox	0 0 0 0
 	jumpframe	0 2 -4
+	sound	data/sounds/bguylaugh3.wav
 	frame	data/chars/2maskguy5/blk01.gif
 	frame	data/chars/2maskguy5/blk01.gif
 	frame	data/chars/2maskguy5/blk02.gif
@@ -232,10 +237,10 @@ anim	burn
 	@cmd	spawnbind "burn1" 1 1 1
 	@cmd	spawnbind "burn2" 1 1 1
 	@cmd	spawnbind "burn3" 1 1 1
-	attack	78 98 30 45 5 1 0 0 13 0
+	attack	78 98 30 45 5 1 0 0 13 30
 	frame	data/chars/2maskguy5/fall1.gif
 	delay	15
-	attack	64 130 50 25 5 1 0 0 13 0
+	attack	64 130 50 25 5 1 0 0 13 30
 	frame	data/chars/2maskguy5/fall2.gif
 	delay	500
 	frame	data/chars/2maskguy5/fall3.gif
@@ -260,10 +265,10 @@ anim	fall
 	offset	100 189
 	bbox	0 0 0 0
 	landframe	3
-	attack	78 98 30 45 5 1 0 0 13 0
+	attack	78 98 30 45 5 1 0 0 13 30
 	frame	data/chars/2maskguy5/fall1.gif
 	delay	15
-	attack	64 130 50 25 5 1 0 0 13 0
+	attack	64 130 50 25 5 1 0 0 13 30
 	frame	data/chars/2maskguy5/fall2.gif
 	delay	500
 	frame	data/chars/2maskguy5/fall3.gif
@@ -281,13 +286,13 @@ anim	fall10
 	offset	100 189
 	bbox	80 80 50 75
 	landframe	4
-	attack	85 88 30 50 5 1 0 0 13 0
+	attack	85 88 30 50 5 1 0 0 13 30
 	frame	data/chars/2maskguy5/pain6.gif
 	delay	40
 	frame	data/chars/2maskguy5/pain7.gif
 	delay	30
 	bbox	71 125 63 30
-	attack	64 125 45 25 5 1 0 0 13 0
+	attack	64 125 45 25 5 1 0 0 13 30
 	frame	data/chars/2maskguy5/fall2.gif
 	delay	300
 	bbox	77 130 67 35
@@ -315,15 +320,16 @@ anim	fall2
 	offset	100 189
 	bbox	0 0 0 0
 	landframe	3
-	attack	85 90 35 45 5 1 0 0 13 0
+	attack	85 90 35 45 5 1 0 0 13 30
 	frame	data/chars/2maskguy5/pain7.gif
 	delay	10
-	attack	64 125 55 25 5 1 0 0 13 0
+	attack	64 125 55 25 5 1 0 0 13 30
 	frame	data/chars/2maskguy5/fall2.gif
 	attack	0 0 0 0
 	delay	300
 	frame	data/chars/2maskguy5/fall3.gif
 	delay	15
+	bbox	58 175 85 15
 	frame	data/chars/2maskguy5/fall4.gif
 	frame	data/chars/2maskguy5/fall5.gif
 	frame	data/chars/2maskguy5/fall4.gif
@@ -386,11 +392,11 @@ anim	fall9
 	bbox	0 0 0 0
 	quakeframe	2 5 5
 	landframe	2 dust
-	attack	75 105 35 45 5 1 0 0 13 0
+	attack	75 105 35 45 5 1 0 0 13 30
 	frame	data/chars/2maskguy5/fall1.gif
 	delay	350
 	offset	100 180
-	attack	75 125 45 35 5 1 0 0 13 0
+	attack	75 125 45 35 5 1 0 0 13 30
 	frame	data/chars/2maskguy5/fall2.gif
 	delay	2
 	move	-4
@@ -426,6 +432,38 @@ anim	follow1
 	frame	data/chars/2maskguy5/ju06.gif
 	delay	9
 	@cmd	spawngrab "grab1" 200 200 450 40 2 8
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 7 10 10 -1 -1
+	frame	data/chars/2maskguy5/ju07.gif
+	sound	data/sounds/bguy06.wav
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 11 10 10 -1 -1
+	frame	data/chars/2maskguy5/ju08.gif
+	sound	data/sounds/sl1.wav
+	@cmd	hurt 3
+	@cmd	spawn01 "Flash4" 0 70 5
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 7 10 10 -1 -1
+	frame	data/chars/2maskguy5/ju09.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 11 10 10 -1 -1
+	frame	data/chars/2maskguy5/ju10.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 7 10 10 -1 -1
+	frame	data/chars/2maskguy5/ju07.gif
+	sound	data/sounds/bguy06.wav
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 11 10 10 -1 -1
+	frame	data/chars/2maskguy5/ju08.gif
+	sound	data/sounds/sl1.wav
+	@cmd	hurt 3
+	@cmd	spawn01 "Flash4" 0 70 5
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 7 10 10 -1 -1
+	frame	data/chars/2maskguy5/ju09.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 11 10 10 -1 -1
+	frame	data/chars/2maskguy5/ju10.gif
 	@cmd	antiwall 50 -5 -1
 	@cmd	position 7 10 10 -1 -1
 	frame	data/chars/2maskguy5/ju07.gif
@@ -702,6 +740,8 @@ anim	spawn
 
 		
 anim	special2
+	energycost	10
+	mponly	1
 	loop	0
 	delay	6
 	offset	100 189
