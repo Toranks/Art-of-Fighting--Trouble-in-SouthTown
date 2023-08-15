@@ -76,8 +76,12 @@ void hpgain(int Give)
 {// gives health
     void self = getlocalvar("self");
     int HP = getentityproperty(self,"health");
-    changeentityproperty(self, "health", HP+Give); //Spend!
+	 if(HP > 0)
+     {
+		changeentityproperty(self, "health", HP+Give); //Spend!
+	 }
 }
+
 
 
 void mpgain(int Give)
@@ -106,6 +110,24 @@ void spawnGun2(void Name, float dx, float dy, float dz, int Num, void Ani)
    performattack(Spawn, openborconstant(Ani));
 }
 
+void spawnGun4(void Name, float dx, float dy, float dz, int Face, int Num)
+{ // Spawn gun, store it and bind it, facing direct
+   void self = getlocalvar("self");
+   void Spawn;
+   Spawn = spawn01(Name, dx, dy, 0);
+   setentityvar(self, Num, Spawn); // Stores spawned gun to be killed later
+   bindentity(Spawn, self, dx, dz, dy, Face, 0); // Bind spawned gun
+}
+
+void spawnChild5(void Name, float dx, float dy, float dz, int Num, void Ani)
+{ // Spawn gun, store it and doesnt bind it, spawn position relative to screen Ani
+   void self = getlocalvar("self");
+   void Spawn;
+   Spawn = spawn02(Name, dx, dy, dz);
+   changeentityproperty(Spawn, "parent", self);
+   setentityvar(self, Num, Spawn); // Stores spawned gun to be killed later
+   performattack(Spawn, openborconstant(Ani));
+}
 
 void spawnGun5(void Name, float dx, float dy, float dz, int Num, void Ani)
 { // Spawn gun with ani animation, store it and bind it
@@ -117,6 +139,17 @@ void spawnGun5(void Name, float dx, float dy, float dz, int Num, void Ani)
    performattack(Spawn, openborconstant(Ani));
 }
 
+void spawnChild(void Name, float dx, float dy, float dz, int Num, void Ani)
+{ // Spawn entity and set it as child with ani animation, store it and bind it
+   void self = getlocalvar("self");
+   void Spawn;
+
+   Spawn = spawn01(Name, dx, dy, dz);
+   changeentityproperty(Spawn, "parent", self);
+   setentityvar(self, Num, Spawn); // Stores spawned gun to be killed later
+   bindentity(Spawn, self, dx, dz, dy, 0, 0); // Bind spawned gun
+   performattack(Spawn, openborconstant(Ani));
+}
 
 void spawnGun6(void Name, float dx, float dy, float dz, int Num, void Ani)
 { // Spawn gun, store it and doesnt bind it, spawn position relative to screen Ani
@@ -261,22 +294,36 @@ void anichange(void Ani)
 }
 
 
-
-
-
-
+void clearSlam()
+{
+	void self = getlocalvar("self");
+	int id = getentityproperty(self, "animationid");
+	changeentityproperty(self,"escapehits",id);
+	void target = getlocalvar("Target" + self);
+	if(target)
+	{
+		setlocalvar("Target"+self,NULL());
+	}
+}
 
 
 void slamstart()
-{ // Slam Starter
-// Use finish after using this
+{ // Slam Starter for grab slams
+// Use finish or throw after using this
    void self = getlocalvar("self");
    void target = getlocalvar("Target" + self);
+   clearSlam();
+
 
    if(target==NULL())
    {
      target = getentityproperty(self, "grabbing");
      setlocalvar("Target" + self, target);
+     if(target == NULL() || getentityproperty(target, "dead") == 1){ //USED WHEN PLAYER DIES BY TIME OVER AND THE GRABBER IS THE ENEMY
+			setidle(self);
+		}else{
+			setentityvar(self, "grabbed", target);
+		}
    }
    if(target!=NULL())
    {
@@ -290,7 +337,6 @@ void slamstart2()
    void self = getlocalvar("self");
    void target = getlocalvar("Target" + self);
 
-
    if(target==NULL())
    {
      target = getentityproperty(self, "opponent");
@@ -301,7 +347,6 @@ void slamstart2()
      damageentity(target, self, 0, 1, openborconstant("ATK_NORMAL7")); // Slam Starter
    }
 }
-
 
 
 void slamstart3()
@@ -335,6 +380,7 @@ void slamstart3()
 
 void position(int Frame, float dx, float dy, float dz, int face)
 { // Modify grabbed entity's position relative to grabber
+// Use slamstart 1st before using this
    void self = getlocalvar("self");
    void target = getlocalvar("Target" + self);
 
@@ -349,6 +395,7 @@ void position(int Frame, float dx, float dy, float dz, int face)
      bindentity(target, self, dx, dz, dy, face, 0);
    }
 }
+
 
 void depost(int Gr)
 {// Release grabbed entity
@@ -373,6 +420,10 @@ void depost(int Gr)
    }
 }
 
+
+
+
+
 void antiwall(int Dist, int Move, int Distz)
 {// Checks if there is wall at defined distance
 // If there is wall, entity will be moved away with defined movement
@@ -382,18 +433,24 @@ void antiwall(int Dist, int Move, int Distz)
    int z = getentityproperty(self, "z");
    float H;
    float Hz;
+   float Hw;
 
-   if (Direction == 0){ //Is entity facing left?                  
+   if(Direction == 0){ //Is entity facing left?                 
       Dist = -Dist; //Reverse Dist to match facing
       Move = -Move; //Reverse Move to match facing
    }
 
    H = checkwall(x+Dist,z);
    Hz = checkwall(x+Dist,z+Distz);
+   Hw = checkwall(x+Dist,z-Distz);
 
    if(Hz > 0)
    {
      changeentityproperty(self, "position", x, z-Distz);
+   }
+   if(Hw > 0)
+   {
+     changeentityproperty(self, "position", x, z+Distz);
    }
 
    if(H > 0)
@@ -401,6 +458,136 @@ void antiwall(int Dist, int Move, int Distz)
      changeentityproperty(self, "position", x+Move);
    }
 }
+
+
+void antiWallG()
+{//Checks distance from the walls, used for grab scripts only
+ //If inside of the walls, entity will be moved away with defined movement
+	void self 		= getlocalvar("self");
+	void target 	= getlocalvar("Target" + self);
+	int x 			= getentityproperty(self, "x");
+	int Tx 			= getentityproperty(target, "x");
+	int z 			= getentityproperty(self, "z");
+	int Tz 			= getentityproperty(target, "z");
+	float wall 		= checkwall(Tx, Tz);
+
+	if(target != NULL()){
+		if(wall){
+			changeentityproperty(target, "position", x, z);
+			changeentityproperty(target, "velocity", NULL(), 0, NULL());
+		}
+	}
+}
+
+
+void finish(int Damage, int Type, int x, int y, int z, int Face)
+{ // Damage as slam finisher
+   void self = getlocalvar("self");
+   void target = getlocalvar("Target" + self);
+   int SDir = getentityproperty(target,"direction");
+   int MDir;
+
+   if(Face==0){ // Same facing?
+       MDir = SDir;
+   }
+
+   if(Face==1){ // Opposite facing?
+
+     if(SDir==0){ // Facing left?
+       MDir = 1;
+     } else { MDir = 0;}
+   }
+
+   if(target==NULL())
+   {
+     target = getentityproperty(self, "grabbing");
+     setlocalvar("Target" + self, target);
+   }
+   if(target!=NULL())
+   {
+     int dir = getentityproperty(target,"direction"); //Get opponent's facing direction
+     if(dir==0){ // Facing left?
+       x = -x;
+     }
+
+     if(Type==1)
+     {
+       damageentity(target, self, Damage, 1, openborconstant("ATK_NORMAL")); // 1st Finisher
+     }
+
+     if(Type==2)
+     {
+       damageentity(target, self, Damage, 1, openborconstant("ATK_NORMAL9")); // 2nd Finisher
+     }
+
+     tossentity(target, y, x, z); // Toss opponent ;)
+     changeentityproperty(target, "direction", MDir);
+	 antiWallG();
+     setlocalvar("Target"+self, NULL()); //Clears variable
+   }
+}
+
+void throw(int Damage, int Type, int Vx, int Vy, int Vz, int Face)
+{ // Damage as throw finisher
+   void self = getlocalvar("self");
+   void target = getlocalvar("Target" + self);
+   int z = getentityproperty(self,"z");
+   int SDir = getentityproperty(target,"direction");
+   int MDir;
+
+   if(Face==0){ // Same facing?
+       MDir = SDir;
+   }
+
+   if(Face==1){ // Opposite facing?
+
+     if(SDir==0){ // Facing left?
+       MDir = 1;
+     } else { MDir = 0;}
+   }
+
+   if(target==NULL())
+   {
+     target = getentityproperty(self, "grabbing");
+     setlocalvar("Target" + self, target);
+   }
+   if(target!=NULL())
+   {
+     int dir = getentityproperty(target,"direction"); //Get opponent's facing direction
+     if(dir==0){ // Facing left?
+       Vx = -Vx;
+     }
+
+     if(Type==1)
+     {
+       damageentity(target, self, 0, 1, openborconstant("ATK_NORMAL")); // 1st throw type
+     }
+
+     if(Type==2)
+     {
+       damageentity(target, self, 0, 1, openborconstant("ATK_NORMAL9")); // 2nd throw type
+     }
+
+     if(Type==3)
+     {
+       damageentity(target, self, 0, 1, openborconstant("ATK_NORMAL2")); // 3rd throw type
+     }
+
+     changeentityproperty(target, "attacking", 1);
+     changeentityproperty(target, "damage_on_landing", Damage);
+     changeentityproperty(target, "projectile", 1);
+     changeentityproperty(target, "direction", MDir);
+
+     if(z > (openborconstant("PLAYER_MIN_Z") + openborconstant("PLAYER_MAX_Z")) / 2 ) {
+       Vz = -Vz ;
+     }
+
+     tossentity(target, Vy, Vx, Vz); // Toss opponent ;)
+	 antiWallG();
+   }
+}
+
+
 
 //on hold
 void antiwall3(int Dist, int Move, int Distz)
@@ -457,60 +644,14 @@ void wallhit(int Dist, int Move, float Vy,int Face)
 }
 
 
-void finish(int Damage, int Type, int x, int y, int z, int Face)
-{ // Damage as slam finisher
-   void self = getlocalvar("self");
-   void target = getlocalvar("Target" + self);
-   int SDir = getentityproperty(target,"direction");
-   int MDir;
-
-   if(Face==0){ // Same facing?
-       MDir = SDir;
-   }
-
-   if(Face==1){ // Opposite facing?
-
-     if(SDir==0){ // Facing left?
-       MDir = 1;
-     } else { MDir = 0;}
-   }
-
-   if(target==NULL())
-   {
-     target = getentityproperty(self, "grabbing");
-     setlocalvar("Target" + self, target);
-   }
-   if(target!=NULL())
-   {
-     int dir = getentityproperty(target,"direction"); //Get opponent's facing direction
-     if(dir==0){ // Facing left?
-       x = -x;
-     }
-
-     if(Type==1)
-     {
-       damageentity(target, self, Damage, 1, openborconstant("ATK_NORMAL")); // 1st Finisher
-     }
-
-     if(Type==2)
-     {
-       damageentity(target, self, Damage, 1, openborconstant("ATK_NORMAL9")); // 2nd Finisher
-     }
-     changeentityproperty(target, "attacking", 1);
-     changeentityproperty(target, "projectile", 1);
-     changeentityproperty(target, "direction", MDir);
-     tossentity(target, y, x, z); // Toss opponent ;)
-
-
-     setlocalvar("Target"+self, NULL()); //Clears variable
-   }
-}
 
 
 void hurt(int Damage)
 { // Damage opponent if health is higher than 20
 	void self = getlocalvar("self");
-	void target = getentityproperty(self, "opponent");
+	void target = getlocalvar("Target" + self);
+	void target1 = getentityproperty(self, "grabbing");
+	void target2 = getentityproperty(self, "opponent");
 
    if(target!=NULL())
    {
@@ -518,6 +659,22 @@ void hurt(int Damage)
      if(THealth > 20)
      {
        changeentityproperty(target, "health", THealth - Damage);
+     }
+   }
+   else if (target1 !=NULL())
+   {
+	  void THealth = getentityproperty(target1,"health");
+     if(THealth > 20)
+     {
+       changeentityproperty(target1, "health", THealth - Damage);
+     }
+   }
+   else if (target2 !=NULL())
+   {
+	  void THealth = getentityproperty(target2,"health");
+     if(THealth > 20)
+     {
+       changeentityproperty(target2, "health", THealth - Damage);
      }
    }
 }
@@ -550,60 +707,6 @@ void hurt2(int Damage)
    }
 }
 
-
-
-void throw(int Damage, int Type, int x, int y, int z, int Face)
-{ // Damage as throw finisher
-   void self = getlocalvar("self");
-   void target = getlocalvar("Target" + self);
-   int SDir = getentityproperty(target,"direction");
-   int MDir;
-
-   if(Face==0){ // Same facing?
-       MDir = SDir;
-   }
-
-   if(Face==1){ // Opposite facing?
-
-     if(SDir==0){ // Facing left?
-       MDir = 1;
-     } else { MDir = 0;}
-   }
-
-   if(target==NULL())
-   {
-     target = getentityproperty(self, "grabbing");
-     setlocalvar("Target" + self, target);
-   }
-   if(target!=NULL())
-   {
-     int dir = getentityproperty(target,"direction"); //Get opponent's facing direction
-     if(dir==0){ // Facing left?
-       x = -x;
-     }
-
-     if(Type==1)
-     {
-       damageentity(target, self, 0, 1, openborconstant("ATK_NORMAL")); // 1st throw type
-     }
-
-     if(Type==2)
-     {
-       damageentity(target, self, 0, 1, openborconstant("ATK_NORMAL9")); // 2nd throw type
-     }
-
-     if(Type==3)
-     {
-       damageentity(target, self, 0, 1, openborconstant("ATK_NORMAL2")); // 3rd throw type
-     }
-
-     changeentityproperty(target, "attacking", 1);
-     changeentityproperty(target, "damage_on_landing", Damage);
-     changeentityproperty(target, "projectile", 1);
-     changeentityproperty(target, "direction", MDir);
-     tossentity(target, y, x, z); // Toss opponent ;)
-   }
-}
 
 
 
@@ -797,34 +900,64 @@ void keyflip()
     }
 }
 
+void keyflipchild()
+{// Change hero's facing direction if left or right is pressed
+    void self = getlocalvar("self");
+	int Par = getentityproperty(self,"parent"); //Get player index	
+    int iPIndex = getentityproperty(Par,"playerindex"); //Get player index
+
+    if (playerkeys(iPIndex, 0, "moveleft")){ // Left is pressed?
+      changeentityproperty(self, "direction", 0); //Face left
+    } else if (playerkeys(iPIndex, 0, "moveright")){ // Right is pressed?
+      changeentityproperty(self, "direction", 1); //Face right
+    }
+}
+
 void keymove(float V)
 {// Move hero if direction button is pressed
       void self = getlocalvar("self");
-      int iPIndex = getentityproperty(self,"playerindex");
+      int iPIndex = getentityproperty(self,"playerindex"); //Get player index
 	float xdir = 0;
 	float zdir = 0;
 
-	if (playerkeys(iPIndex, 0, "moveleft"))
-	{
+      if (playerkeys(iPIndex, 0, "moveleft")){// Left is pressed?
 	  xdir = -V;
-	} 
-	else if(playerkeys(iPIndex, 0, "moveright"))
-	{
+	} else if(playerkeys(iPIndex, 0, "moveright")){// Right is pressed?
 	  xdir = V;
-	}
+      }
 
-	if(playerkeys(iPIndex, 0, "moveup"))
-	{
+	if(playerkeys(iPIndex, 0, "moveup")){// Up is pressed?
 	  zdir = -V/2;
-	} 
-	  else if(playerkeys(iPIndex, 0, "movedown")){
+	} else if(playerkeys(iPIndex, 0, "movedown")){// Down is pressed?
 	  zdir = V/2;
-	}
+      }
 
 	changeentityproperty(self, "velocity", xdir, zdir);
 }
 
 
+void keychild(float V)
+{// Move hero if direction button is pressed
+      void self = getlocalvar("self");
+      int Par = getentityproperty(self,"parent"); //Get player index	  
+      int iPIndex = getentityproperty(Par,"playerindex"); //Get player index
+	float xdir = 0;
+	float zdir = 0;
+
+      if (playerkeys(iPIndex, 0, "moveleft")){// Left is pressed?
+	  xdir = -V;
+	} else if(playerkeys(iPIndex, 0, "moveright")){// Right is pressed?
+	  xdir = V;
+      }
+
+	if(playerkeys(iPIndex, 0, "moveup")){// Up is pressed?
+	  zdir = -V/2;
+	} else if(playerkeys(iPIndex, 0, "movedown")){// Down is pressed?
+	  zdir = V/2;
+      }
+
+	changeentityproperty(self, "velocity", xdir, zdir);
+}
 
 
 void keywlk(float V)
@@ -873,6 +1006,35 @@ void spawn01(void vName, float fX, float fY, float fZ)
 	return vSpawn; //Return spawn.
 }
 
+void spawnChild4(void vName, float fX, float fY, float fZ)
+{
+	//Damon Vaughn Caskey
+	//Spawns entity next to caller
+
+
+	void self = getlocalvar("self"); //Get calling entity.
+	void vSpawn; //Spawn object.
+	int  iDirection = getentityproperty(self, "direction");
+
+	clearspawnentry(); //Clear current spawn entry.
+      setspawnentry("name", vName); //Acquire spawn entity by name.
+
+	if (iDirection == 0){ //Is entity facing left?                  
+          fX = -fX; //Reverse X direction to match facing.
+	}
+
+      fX = fX + getentityproperty(self, "x"); //Get X location and add adjustment.
+      fY = fY + getentityproperty(self, "a"); //Get Y location and add adjustment.
+      fZ = fZ + getentityproperty(self, "z"); //Get Z location and add adjustment.
+	
+	vSpawn = spawn(); //Spawn in entity.
+	changeentityproperty(vSpawn, "parent", self);
+	changeentityproperty(vSpawn, "position", fX, fZ, fY); //Set spawn location.
+	changeentityproperty(vSpawn, "direction", iDirection); //Set direction.
+    
+	return vSpawn; //Return spawn.
+}
+
 void spawn02(void vName, float fX, float fY, float fZ)
 {	//Spawns entity based on left screen edge
 	//vName: Model name of entity to be spawned in.
@@ -892,6 +1054,43 @@ void spawn02(void vName, float fX, float fY, float fZ)
 	changeentityproperty(vSpawn, "position", fX + XPos, fZ + YPos, fY);
 	return vSpawn; //Return spawn.
 }
+
+void spawn03(void vName, float fX, float fY, float fZ, int Face)
+{
+	//spawn with facing direction
+
+
+	void self = getlocalvar("self"); //Get calling entity.
+	void vSpawn; //Spawn object.
+   	int SDir = getentityproperty(self, "direction");
+   	int MDir;
+
+	clearspawnentry(); //Clear current spawn entry.
+      setspawnentry("name", vName); //Acquire spawn entity by name.
+
+   	if(Face==0){ // Same facing?
+       	MDir = SDir;
+   	}
+
+   	if(Face==1){ // Opposite facing?
+
+     	if(SDir==0){ // Facing left?
+      	 MDir = 1;
+     		} else { MDir = 0;}
+   	}
+
+      fX = fX + getentityproperty(self, "x"); //Get X location and add adjustment.
+      fY = fY + getentityproperty(self, "a"); //Get Y location and add adjustment.
+      fZ = fZ + getentityproperty(self, "z"); //Get Z location and add adjustment.
+	
+	vSpawn = spawn(); //Spawn in entity.
+
+	changeentityproperty(vSpawn, "position", fX, fZ, fY, Face); //Set spawn location.
+	changeentityproperty(vSpawn, "direction", MDir); //Set direction.
+    
+	return vSpawn; //Return spawn.
+}
+
 
 void spawn05(void vName, int Tx, int Ty, int Tz)
 {
@@ -960,7 +1159,31 @@ void spawnAni(void vName, float fX, float fY, float fZ, void Ani)
 	 return vSpawn; //Return spawn.
 }
 
+void spawnChild6(void vName, float fX, float fY, float fZ, void Ani)
+{
 
+	void self = getlocalvar("self"); //Get calling entity.
+	void vSpawn; //Spawn object.
+	int  iDirection = getentityproperty(self, "direction");
+
+	clearspawnentry(); //Clear current spawn entry.
+	setspawnentry("name", vName); //Acquire spawn entity by name.
+
+	 if (iDirection == 0){ //Is entity facing left?                  
+          fX = -fX; //Reverse X direction to match facing.
+	 }
+
+      fX = fX + getentityproperty(self, "x"); //Get X location and add adjustment.
+      fY = fY + getentityproperty(self, "a"); //Get Y location and add adjustment.
+      fZ = fZ + getentityproperty(self, "z"); //Get Z location and add adjustment.
+	
+	 vSpawn = spawn(); //Spawn in entity.
+	 changeentityproperty(vSpawn, "parent", self);
+	 changeentityproperty(vSpawn, "position", fX, fZ, fY); //Set spawn location.
+	 changeentityproperty(vSpawn, "direction", iDirection); //Set direction.
+    	 performattack(vSpawn, openborconstant(Ani)); 
+	 return vSpawn; //Return spawn.
+}
 
 void spawnAni2(void Name, float dx, float dy, float dz, int iMap, void Ani)
 { 	 //Spawns entity next to caller with ani animation and map number 
@@ -974,7 +1197,18 @@ void spawnAni2(void Name, float dx, float dy, float dz, int iMap, void Ani)
    performattack(Spawn, openborconstant(Ani));
 }
 
+void spawnChild3(void Name, float dx, float dy, float dz, int iMap, void Ani)
+{ 	 //Spawns entity next to caller with ani animation and map number 
+	 //example: @cmd spawnAni2 "haduken" 35 1 1 2 "ANI_FOLLOW1"
 
+
+   void self = getlocalvar("self");
+   void Spawn;
+   Spawn = spawn01(Name, dx, dy, 0);
+   changeentityproperty(Spawn, "parent", self);
+   changeentityproperty(Spawn, "map", iMap);
+   performattack(Spawn, openborconstant(Ani));
+}
 
 void spawnAni3(void vName, float fX, float fY, float fZ, void Ani)
 {
@@ -997,6 +1231,27 @@ void spawnAni3(void vName, float fX, float fY, float fZ, void Ani)
 	return vSpawn; //Return spawn.
 }
 
+
+void spawnChild2(void vName, float fX, float fY, float fZ, void Ani)
+{
+	//Spawns entity based on level panel coordinate
+
+ void self = getlocalvar("self"); //Get calling entity.
+	void vSpawn; //Spawn object.
+        int XPos = openborvariant("xpos"); //Get screen edge's x position
+        int YPos = openborvariant("ypos"); //Get screen edge's y position
+
+	clearspawnentry(); //Clear current spawn entry.
+      setspawnentry("name", vName); //Acquire spawn entity by name.
+
+
+
+	vSpawn = spawn(); //Spawn in entity.
+	changeentityproperty(vSpawn, "parent", self);
+	changeentityproperty(vSpawn, "position", fX + XPos, fZ + YPos, fY); //Set spawn location.
+    	performattack(vSpawn, openborconstant(Ani));
+	return vSpawn; //Return spawn.
+}
 
 void spawnAni4(void vName, int Tx, int Ty, int Tz, void Ani)
 {
@@ -1327,3 +1582,31 @@ void attack1(int RxMin, int RxMax, int Rz, void Ani)
       }
     }
 }
+
+
+
+
+void tosser3(void Bomb, float dx, float dy, float dz, float Vx, float Vy, float Vz, void Ani)
+{ // Tossing bomb with desired speed with ANI animation
+   void self = getlocalvar("self");
+   int Direction = getentityproperty(self, "direction");
+   int x = getentityproperty(self, "x");
+   int y = getentityproperty(self, "a");
+   int z = getentityproperty(self, "z");
+   void Shot;
+
+   if (Direction == 0){ //Is entity facing left?                  
+      dx = -dx;
+      Vx = -Vx;
+   }
+
+   Shot = projectile(Bomb, x+dx, z+dz, y+dy, Direction, 0, 1, 0);
+   tossentity(Shot, Vy, Vx, Vz);
+   changeentityproperty(Shot, "speed", Vx);
+   performattack(Shot, openborconstant(Ani));
+}
+
+
+
+
+

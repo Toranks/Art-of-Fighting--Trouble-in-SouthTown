@@ -1,6 +1,6 @@
 name		Ryobike
 type		none
-health		150
+health		170
 mp		100
 speedf		1.7
 running		17 0 0 0 0
@@ -20,7 +20,7 @@ weaploss	3
 candamage	enemy obstacle
 diesound        data/sounds/ryode.wav
 atchain         1 0 0 0 
-icon		data/chars/1ryo/icon.gif
+icon            data/chars/misc/icons/ryo.gif
 parrow          data/chars/misc/flash/flash/player1.gif  -45 -130
 parrow2         data/chars/misc/flash/flash/player2.gif  -45 -130
 parrow3         data/chars/misc/flash/flash/player3.gif  -45 -130
@@ -36,11 +36,14 @@ alternatepal	data/chars/1ryo/map3.gif
 alternatepal	data/chars/1ryo/map4.gif
 alternatepal	data/chars/1ryo/map5.gif
 alternatepal	data/chars/1ryo/map6.gif
+alternatepal	data/chars/1ryo/map7.gif
+alternatepal	data/chars/1ryo/map8.gif
 
 
-com	a4	freespecial15
-com	a2	freespecial2
+com	a2	freespecial15
+com	s	freespecial2
 com	a3	freespecial3
+com	a4	freespecial2
 com	j	freespecial4
 
 load	rbikecrash
@@ -53,7 +56,9 @@ load	dust4
 script	@script
 void main()
 {
-    void self = getlocalvar("self");
+   void self = getlocalvar("self");
+   void anim = getentityproperty(self,"animationID");
+   void hp = getentityproperty(self,"health");
    int x = getentityproperty(self, "x");
    int y = getentityproperty(self, "a");
    int z = getentityproperty(self, "z");
@@ -81,30 +86,24 @@ void main()
    {
      changeentityproperty(self, "position", x+1);
    }
+
+   if(anim == openborconstant("ANI_RESPAWN"))
+	{
+ 	changeentityproperty(self, "health", 170);
+	}
 }
-@end_script
-
-
-
-anim	freespecial15
-	loop	0
-	delay	5
-	offset	220 187
-	bbox	0 0 0 0
-	frame	data/chars/1ryo/ryobike/1ryobck02.gif
-	@cmd	spawnAni3 "freewaytot" 250 1 140 "ANI_FOLLOW5"
-	frame	data/chars/1ryo/ryobike/1ryobck01.gif
-	frame	data/chars/1ryo/ryobike/1ryobck02.gif
-	frame	data/chars/1ryo/ryobike/1ryobck01.gif
-
-
-
+	@end_script	
+		
+		
+		
+		
+		
 anim	attack1
 	loop	0
 	delay	5
 	offset	220 187
 	bbox	170 95 110 80
-	@cmd	keymove 0.7 
+	@cmd	keymove 0.7
 	frame	data/chars/1ryo/ryobike/ryobck1att01.gif
 	@cmd	keymove 0.7
 	frame	data/chars/1ryo/ryobike/ryobck1att02.gif
@@ -119,7 +118,7 @@ anim	attack1
 	frame	data/chars/1ryo/ryobike/ryobck1att07.gif
 	@cmd	keymove 0.7
 	frame	data/chars/1ryo/ryobike/ryobck1att010.gif
-	attack	230 93 145 30 35 0 0 0 11 0
+	attack	230 93 145 30 35 0 0 0 11 10
 	frame	data/chars/1ryo/ryobike/ryobck1att011.gif
 	@cmd	keymove 0.7
 	frame	data/chars/1ryo/ryobike/ryobck1att014.gif
@@ -127,7 +126,7 @@ anim	attack1
 	attack	0 0 0 0
 	frame	data/chars/1ryo/ryobike/ryobck1att015.gif
 	frame	data/chars/1ryo/ryobike/ryobck1att018.gif
-	attack	230 93 170 30 50 0 0 0 11 0
+	attack	230 93 170 30 50 0 0 0 11 10
 	frame	data/chars/1ryo/ryobike/ryobck1att019.gif
 	frame	data/chars/1ryo/ryobike/ryobck1att022.gif
 	attack	0 0 0 0
@@ -138,49 +137,18 @@ anim	attack1
 	frame	data/chars/1ryo/ryobike/ryobck1att030.gif
 	frame	data/chars/1ryo/ryobike/ryobck1att01.gif
 	frame	data/chars/1ryo/ryobike/ryobck1att02.gif
-
-
-anim	freespecial4
-	loop	0
+		
+anim	attackdown
+		
+anim	attackup
+		
+anim	backwalk
+	loop	1
 	delay	5
 	offset	220 187
 	bbox	170 95 110 80
-	@cmd	keymove 0.7
-	frame	data/chars/1ryo/ryobike/xryobck1att01.gif
-	@cmd	keymove 0.7
-	frame	data/chars/1ryo/ryobike/xryobck1att02.gif
-	@cmd	keymove 0.7
-	frame	data/chars/1ryo/ryobike/ryobck2att01.gif
-	@cmd	keymove 0.7
-	frame	data/chars/1ryo/ryobike/ryobck2att02.gif
-	@cmd	keymove 0.7
-	frame	data/chars/1ryo/ryobike/ryobck2att01.gif
-	@cmd	keymove 0.7
-	sound	data/sounds/punch.wav
-	attack2	45 85 140 40 35 0 0 0 11 0
-	frame	data/chars/1ryo/ryobike/ryobck2att03.gif
-	@cmd	keymove 0.7
-	frame	data/chars/1ryo/ryobike/ryobck2att04.gif
-	@cmd	keymove 0.7
-	frame	data/chars/1ryo/ryobike/ryobck2att05.gif
-	attack2	0 0 0 0
-	frame	data/chars/1ryo/ryobike/ryobck2att08.gif
-	frame	data/chars/1ryo/ryobike/ryobck2att09.gif
-	frame	data/chars/1ryo/ryobike/ryobck2att012.gif
-	attack2	10 85 160 40 50 0 0 0 11 0
-	frame	data/chars/1ryo/ryobike/ryobck2att013.gif
-	frame	data/chars/1ryo/ryobike/ryobck2att014.gif
-	attack2	0 0 0 0
-	frame	data/chars/1ryo/ryobike/ryobck2att015.gif
-	frame	data/chars/1ryo/ryobike/ryobck2att016.gif
-	frame	data/chars/1ryo/ryobike/ryobck2att017.gif
-	frame	data/chars/1ryo/ryobike/ryobck2att018.gif
-	frame	data/chars/1ryo/ryobike/ryobck2att019.gif
-	frame	data/chars/1ryo/ryobike/ryobck2att020.gif
-	frame	data/chars/1ryo/ryobike/xryobck1att01.gif
-	frame	data/chars/1ryo/ryobike/xryobck1att02.gif
-
-
+	frame	data/chars/1ryo/ryobike/1ryobck03.gif
+	frame	data/chars/1ryo/ryobike/1ryobck04.gif
 		
 anim	block
 	loop	0
@@ -206,274 +174,6 @@ anim	chargeattack
 	frame	data/chars/1ryo/ryobike/1ryobck02.gif
 	frame	data/chars/1ryo/ryobike/1ryobck01.gif
 		
-anim	fall
-	loop	0
-	delay	1
-	offset	220 187
-	bbox	170 95 110 80
-	frame	data/chars/1ryo/ryobike/pain01.gif
-	frame	data/chars/1ryo/ryobike/pain02.gif
-	frame	data/chars/1ryo/ryobike/pain01.gif
-		
-anim	forwardjump
-	loop	0
-	delay	1
-	offset	220 187
-	bbox	170 95 110 80
-	frame	data/chars/1ryo/ryobike/1ryobck01.gif
-	frame	data/chars/1ryo/ryobike/1ryobck02.gif
-
-
-anim	freespecial2
-@script
-	void self = getlocalvar("self");
-	int eTime = openborvariant("elapsed_time");
-	if (frame == 0)
-	{
-	changeentityproperty(self, "invincible", 1);
-	changeentityproperty(self, "invinctime", eTime + 85);
-	changeentityproperty(self, "blink", 1);
-	}
-@end_script
-	loop	0
-	delay	2
-	offset	220 187
-	bbox	170 95 110 80
-	move	10
-	sound	data/sounds/car1.wav
-	hitfx	data/sounds/beat3.wav
-	attack	275 115 60 72 10 1 1 0 5 0
-	@cmd	keymove 1.0
-	frame	data/chars/1ryo/ryobike/1ryobck01.gif
-	@cmd	spawnbind2 "dust4" -40 0 2 "ANI_FOLLOW5"
-	@cmd	keymove 1.0
-	frame	data/chars/1ryo/ryobike/1ryobck02.gif
-	@cmd	keymove 1.0
-	frame	data/chars/1ryo/ryobike/1ryobck01.gif
-	@cmd	keymove 1.0
-	frame	data/chars/1ryo/ryobike/1ryobck02.gif
-	@cmd	keymove 1.0
-	frame	data/chars/1ryo/ryobike/1ryobck01.gif
-	@cmd	keymove 1.0
-	frame	data/chars/1ryo/ryobike/1ryobck02.gif
-	@cmd	keymove 1.0
-	frame	data/chars/1ryo/ryobike/1ryobck01.gif
-	@cmd	keymove 1.0
-	frame	data/chars/1ryo/ryobike/1ryobck02.gif
-	@cmd	keymove 1.0
-	frame	data/chars/1ryo/ryobike/1ryobck01.gif
-	@cmd	keymove 1.0
-	frame	data/chars/1ryo/ryobike/1ryobck02.gif
-	@cmd	keymove 1.0
-	frame	data/chars/1ryo/ryobike/1ryobck01.gif
-	@cmd	keymove 1.0
-	frame	data/chars/1ryo/ryobike/1ryobck02.gif
-	@cmd	keymove 1.0
-	frame	data/chars/1ryo/ryobike/1ryobck01.gif
-	@cmd	keymove 1.0
-	frame	data/chars/1ryo/ryobike/1ryobck02.gif
-	@cmd	keymove 1.0
-	move	8
-	frame	data/chars/1ryo/ryobike/1ryobck01.gif
-	@cmd	keymove 1.0
-	frame	data/chars/1ryo/ryobike/1ryobck02.gif
-	@cmd	keymove 1.0
-	frame	data/chars/1ryo/ryobike/1ryobck01.gif
-	@cmd	keymove 1.0
-	frame	data/chars/1ryo/ryobike/1ryobck02.gif
-	@cmd	keymove 1.0
-	frame	data/chars/1ryo/ryobike/1ryobck01.gif
-	@cmd	keymove 1.0
-	frame	data/chars/1ryo/ryobike/1ryobck02.gif
-	frame	data/chars/1ryo/ryobike/1ryobck01.gif
-	frame	data/chars/1ryo/ryobike/1ryobck02.gif
-	move	6
-	frame	data/chars/1ryo/ryobike/1ryobck01.gif
-	frame	data/chars/1ryo/ryobike/1ryobck02.gif
-	frame	data/chars/1ryo/ryobike/1ryobck01.gif
-	frame	data/chars/1ryo/ryobike/1ryobck02.gif
-	frame	data/chars/1ryo/ryobike/1ryobck01.gif
-	move	3
-	attack	0 0 0 0
-	frame	data/chars/1ryo/ryobike/1ryobck02.gif
-	frame	data/chars/1ryo/ryobike/1ryobck01.gif
-	frame	data/chars/1ryo/ryobike/1ryobck02.gif
-	frame	data/chars/1ryo/ryobike/1ryobck01.gif
-	frame	data/chars/1ryo/ryobike/1ryobck02.gif
-		
-anim	freespecial3
-@script
-	void self = getlocalvar("self");
-	int eTime = openborvariant("elapsed_time");
-	if (frame == 0)
-	{
-	changeentityproperty(self, "invincible", 1);
-	changeentityproperty(self, "invinctime", eTime + 85);
-	changeentityproperty(self, "blink", 1);
-	}
-@end_script
-	loop	0
-	delay	2
-	offset	220 187
-	bbox	170 95 110 80
-	move	-10
-	sound	data/sounds/car2.wav
-	hitfx	data/sounds/beat3.wav
-	attack2	140 125 50 64 10 1 1 0 5 0
-	@cmd	keymove 1.0
-	frame	data/chars/1ryo/ryobike/1ryobck03.gif
-	@cmd	spawnbind2 "dust4" 85 0 2 "ANI_FOLLOW5"
-	@cmd	keymove 1.0
-	frame	data/chars/1ryo/ryobike/1ryobck04.gif
-	@cmd	keymove 1.0
-	frame	data/chars/1ryo/ryobike/1ryobck03.gif
-	@cmd	keymove 1.0
-	frame	data/chars/1ryo/ryobike/1ryobck04.gif
-	@cmd	keymove 1.0
-	frame	data/chars/1ryo/ryobike/1ryobck03.gif
-	@cmd	keymove 1.0
-	frame	data/chars/1ryo/ryobike/1ryobck04.gif
-	@cmd	keymove 1.0
-	frame	data/chars/1ryo/ryobike/1ryobck03.gif
-	@cmd	keymove 1.0
-	frame	data/chars/1ryo/ryobike/1ryobck04.gif
-	@cmd	keymove 1.0
-	frame	data/chars/1ryo/ryobike/1ryobck03.gif
-	@cmd	keymove 1.0
-	frame	data/chars/1ryo/ryobike/1ryobck04.gif
-	@cmd	keymove 1.0
-	frame	data/chars/1ryo/ryobike/1ryobck03.gif
-	@cmd	keymove 1.0
-	frame	data/chars/1ryo/ryobike/1ryobck04.gif
-	@cmd	keymove 1.0
-	frame	data/chars/1ryo/ryobike/1ryobck03.gif
-	@cmd	keymove 1.0
-	frame	data/chars/1ryo/ryobike/1ryobck04.gif
-	@cmd	keymove 1.0
-	move	-8
-	frame	data/chars/1ryo/ryobike/1ryobck03.gif
-	@cmd	keymove 1.0
-	frame	data/chars/1ryo/ryobike/1ryobck04.gif
-	@cmd	keymove 1.0
-	frame	data/chars/1ryo/ryobike/1ryobck03.gif
-	@cmd	keymove 1.0
-	frame	data/chars/1ryo/ryobike/1ryobck04.gif
-	@cmd	keymove 1.0
-	frame	data/chars/1ryo/ryobike/1ryobck03.gif
-	@cmd	keymove 1.0
-	frame	data/chars/1ryo/ryobike/1ryobck04.gif
-	frame	data/chars/1ryo/ryobike/1ryobck03.gif
-	frame	data/chars/1ryo/ryobike/1ryobck04.gif
-	move	-6
-	frame	data/chars/1ryo/ryobike/1ryobck03.gif
-	frame	data/chars/1ryo/ryobike/1ryobck04.gif
-	frame	data/chars/1ryo/ryobike/1ryobck03.gif
-	frame	data/chars/1ryo/ryobike/1ryobck04.gif
-	frame	data/chars/1ryo/ryobike/1ryobck03.gif
-	move	-3
-	attack	0 0 0 0
-	frame	data/chars/1ryo/ryobike/1ryobck04.gif
-	frame	data/chars/1ryo/ryobike/1ryobck03.gif
-	frame	data/chars/1ryo/ryobike/1ryobck04.gif
-	frame	data/chars/1ryo/ryobike/1ryobck03.gif
-	frame	data/chars/1ryo/ryobike/1ryobck04.gif
-		
-
-anim	get
-	loop	0
-	delay	5
-	offset	220 187
-	bbox	170 95 110 80
-	frame	data/chars/1ryo/ryobike/1ryobck02.gif
-
-		
-anim	idle
-	loop	1
-	delay	5
-	offset	220 187
-	bbox	170 95 110 80
-	frame	data/chars/1ryo/ryobike/1ryobck02.gif
-	frame	data/chars/1ryo/ryobike/1ryobck01.gif
-	frame	data/chars/1ryo/ryobike/1ryobck02.gif
-	frame	data/chars/1ryo/ryobike/1ryobck01.gif
-	frame	data/chars/1ryo/ryobike/1ryobck02.gif
-	frame	data/chars/1ryo/ryobike/1ryobck01.gif
-	@cmd	clearL
-	frame	data/chars/1ryo/ryobike/1ryobck02.gif
-	frame	data/chars/1ryo/ryobike/1ryobck01.gif
-		
-anim	jump
-	loop	0
-	delay	1
-	offset	220 187
-	bbox	170 95 110 80
-	frame	data/chars/1ryo/ryobike/1ryobck02.gif
-		
-anim	jumpdelay
-	loop	0
-	delay	1
-	offset	220 187
-	bbox	170 95 110 80
-	frame	data/chars/1ryo/ryobike/1ryobck01.gif
-		
-anim	jumpland
-	loop	0
-	delay	1
-	offset	220 187
-	bbox	170 95 110 80
-	frame	data/chars/1ryo/ryobike/1ryobck01.gif
-		
-anim	pain
-	loop	0
-	delay	5
-	offset	220 187
-	bbox	170 95 110 80
-	move	4
-	@cmd	keymove 0.7
-	frame	data/chars/1ryo/ryobike/pain01.gif
-	bbox	0 0 0 0
-	frame	data/chars/1ryo/ryobike/pain02.gif
-	frame	data/chars/1ryo/ryobike/pain01.gif
-	frame	data/chars/1ryo/ryobike/pain02.gif
-	frame	data/chars/1ryo/ryobike/pain01.gif
-	frame	data/chars/1ryo/ryobike/pain02.gif
-		
-anim	pain2
-	loop	0
-	delay	5
-	offset	220 187
-	bbox	170 95 110 80
-	move	-4
-	@cmd	keymove 0.7
-	frame	data/chars/1ryo/ryobike/pain01.gif
-	bbox	0 0 0 0
-	frame	data/chars/1ryo/ryobike/pain02.gif
-	frame	data/chars/1ryo/ryobike/pain01.gif
-	frame	data/chars/1ryo/ryobike/pain02.gif
-	frame	data/chars/1ryo/ryobike/pain01.gif
-	frame	data/chars/1ryo/ryobike/pain02.gif
-		
-anim	pain5
-	loop	0
-	delay	5
-	offset	220 187
-	bbox	170 95 110 80
-	@cmd	keymove 1
-	frame	data/chars/1ryo/ryobike/pain01.gif
-	move	7
-	movez	-1
-	bbox	0 0 0 0
-	frame	data/chars/1ryo/ryobike/pain02.gif
-	@cmd	keymove 1
-	frame	data/chars/1ryo/ryobike/pain01.gif
-	frame	data/chars/1ryo/ryobike/pain02.gif
-	frame	data/chars/1ryo/ryobike/pain01.gif
-	frame	data/chars/1ryo/ryobike/pain02.gif
-	frame	data/chars/1ryo/ryobike/pain01.gif
-	frame	data/chars/1ryo/ryobike/pain02.gif
-
-
-
 anim	death
 	loop	0
 	delay	9
@@ -622,11 +322,327 @@ anim	death
 	frame	data/chars/1ryo/empty.gif
 	frame	data/chars/1ryo/fall16.gif
 	frame	data/chars/1ryo/empty.gif
-
-
-
-
-
+		
+anim	fall
+	loop	0
+	delay	1
+	offset	220 187
+	bbox	170 95 110 80
+	frame	data/chars/1ryo/ryobike/pain01.gif
+	frame	data/chars/1ryo/ryobike/pain02.gif
+	frame	data/chars/1ryo/ryobike/pain01.gif
+		
+anim	forwardjump
+	loop	0
+	delay	1
+	offset	220 187
+	bbox	170 95 110 80
+	frame	data/chars/1ryo/ryobike/1ryobck01.gif
+	frame	data/chars/1ryo/ryobike/1ryobck02.gif
+		
+anim	freespecial15
+	loop	0
+	delay	5
+	offset	220 187
+	bbox	0 0 0 0
+	frame	data/chars/1ryo/ryobike/1ryobck02.gif
+	@cmd	spawnAni3 "freewaytot" 250 1 140 "ANI_FOLLOW5"
+	frame	data/chars/1ryo/ryobike/1ryobck01.gif
+	frame	data/chars/1ryo/ryobike/1ryobck02.gif
+	frame	data/chars/1ryo/ryobike/1ryobck01.gif
+		
+anim	freespecial2
+@script
+	void self = getlocalvar("self");
+	int eTime = openborvariant("elapsed_time");
+	if (frame == 0)
+	{
+	changeentityproperty(self, "invincible", 1);
+	changeentityproperty(self, "invinctime", eTime + 85);
+	changeentityproperty(self, "blink", 1);
+	}
+	@end_script	
+	loop	0
+	delay	2
+	offset	220 187
+	bbox	170 95 110 80
+	move	10
+	sound	data/sounds/car1.wav
+	hitfx	data/sounds/beat3.wav
+	attack	275 115 60 72 10 1 1 0 5 0
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/ryobike/1ryobck01.gif
+	@cmd	spawnbind2 "dust4" -40 0 2 "ANI_FOLLOW5"
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/ryobike/1ryobck02.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/ryobike/1ryobck01.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/ryobike/1ryobck02.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/ryobike/1ryobck01.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/ryobike/1ryobck02.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/ryobike/1ryobck01.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/ryobike/1ryobck02.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/ryobike/1ryobck01.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/ryobike/1ryobck02.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/ryobike/1ryobck01.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/ryobike/1ryobck02.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/ryobike/1ryobck01.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/ryobike/1ryobck02.gif
+	@cmd	keymove 1.0
+	move	8
+	frame	data/chars/1ryo/ryobike/1ryobck01.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/ryobike/1ryobck02.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/ryobike/1ryobck01.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/ryobike/1ryobck02.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/ryobike/1ryobck01.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/ryobike/1ryobck02.gif
+	frame	data/chars/1ryo/ryobike/1ryobck01.gif
+	frame	data/chars/1ryo/ryobike/1ryobck02.gif
+	move	6
+	frame	data/chars/1ryo/ryobike/1ryobck01.gif
+	frame	data/chars/1ryo/ryobike/1ryobck02.gif
+	frame	data/chars/1ryo/ryobike/1ryobck01.gif
+	frame	data/chars/1ryo/ryobike/1ryobck02.gif
+	frame	data/chars/1ryo/ryobike/1ryobck01.gif
+	move	3
+	attack	0 0 0 0
+	frame	data/chars/1ryo/ryobike/1ryobck02.gif
+	frame	data/chars/1ryo/ryobike/1ryobck01.gif
+	frame	data/chars/1ryo/ryobike/1ryobck02.gif
+	frame	data/chars/1ryo/ryobike/1ryobck01.gif
+	frame	data/chars/1ryo/ryobike/1ryobck02.gif
+		
+anim	freespecial3
+@script
+	void self = getlocalvar("self");
+	int eTime = openborvariant("elapsed_time");
+	if (frame == 0)
+	{
+	changeentityproperty(self, "invincible", 1);
+	changeentityproperty(self, "invinctime", eTime + 85);
+	changeentityproperty(self, "blink", 1);
+	}
+	@end_script	
+	loop	0
+	delay	2
+	offset	220 187
+	bbox	170 95 110 80
+	move	-10
+	sound	data/sounds/car2.wav
+	hitfx	data/sounds/beat3.wav
+	attack2	140 125 50 64 10 1 1 0 5 0
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/ryobike/1ryobck03.gif
+	@cmd	spawnbind2 "dust4" 85 0 2 "ANI_FOLLOW5"
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/ryobike/1ryobck04.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/ryobike/1ryobck03.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/ryobike/1ryobck04.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/ryobike/1ryobck03.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/ryobike/1ryobck04.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/ryobike/1ryobck03.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/ryobike/1ryobck04.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/ryobike/1ryobck03.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/ryobike/1ryobck04.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/ryobike/1ryobck03.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/ryobike/1ryobck04.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/ryobike/1ryobck03.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/ryobike/1ryobck04.gif
+	@cmd	keymove 1.0
+	move	-8
+	frame	data/chars/1ryo/ryobike/1ryobck03.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/ryobike/1ryobck04.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/ryobike/1ryobck03.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/ryobike/1ryobck04.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/ryobike/1ryobck03.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/ryobike/1ryobck04.gif
+	frame	data/chars/1ryo/ryobike/1ryobck03.gif
+	frame	data/chars/1ryo/ryobike/1ryobck04.gif
+	move	-6
+	frame	data/chars/1ryo/ryobike/1ryobck03.gif
+	frame	data/chars/1ryo/ryobike/1ryobck04.gif
+	frame	data/chars/1ryo/ryobike/1ryobck03.gif
+	frame	data/chars/1ryo/ryobike/1ryobck04.gif
+	frame	data/chars/1ryo/ryobike/1ryobck03.gif
+	move	-3
+	attack	0 0 0 0
+	frame	data/chars/1ryo/ryobike/1ryobck04.gif
+	frame	data/chars/1ryo/ryobike/1ryobck03.gif
+	frame	data/chars/1ryo/ryobike/1ryobck04.gif
+	frame	data/chars/1ryo/ryobike/1ryobck03.gif
+	frame	data/chars/1ryo/ryobike/1ryobck04.gif
+		
+anim	freespecial4
+	loop	0
+	delay	5
+	offset	220 187
+	bbox	170 95 110 80
+	@cmd	keymove 0.7
+	frame	data/chars/1ryo/ryobike/xryobck1att01.gif
+	@cmd	keymove 0.7
+	frame	data/chars/1ryo/ryobike/xryobck1att02.gif
+	@cmd	keymove 0.7
+	frame	data/chars/1ryo/ryobike/ryobck2att01.gif
+	@cmd	keymove 0.7
+	frame	data/chars/1ryo/ryobike/ryobck2att02.gif
+	@cmd	keymove 0.7
+	frame	data/chars/1ryo/ryobike/ryobck2att01.gif
+	@cmd	keymove 0.7
+	sound	data/sounds/punch.wav
+	attack2	45 85 140 40 35 0 0 0 11 10
+	frame	data/chars/1ryo/ryobike/ryobck2att03.gif
+	@cmd	keymove 0.7
+	frame	data/chars/1ryo/ryobike/ryobck2att04.gif
+	@cmd	keymove 0.7
+	frame	data/chars/1ryo/ryobike/ryobck2att05.gif
+	attack2	0 0 0 0
+	frame	data/chars/1ryo/ryobike/ryobck2att08.gif
+	frame	data/chars/1ryo/ryobike/ryobck2att09.gif
+	frame	data/chars/1ryo/ryobike/ryobck2att012.gif
+	attack2	10 85 160 40 50 0 0 0 11 10
+	frame	data/chars/1ryo/ryobike/ryobck2att013.gif
+	frame	data/chars/1ryo/ryobike/ryobck2att014.gif
+	attack2	0 0 0 0
+	frame	data/chars/1ryo/ryobike/ryobck2att015.gif
+	frame	data/chars/1ryo/ryobike/ryobck2att016.gif
+	frame	data/chars/1ryo/ryobike/ryobck2att017.gif
+	frame	data/chars/1ryo/ryobike/ryobck2att018.gif
+	frame	data/chars/1ryo/ryobike/ryobck2att019.gif
+	frame	data/chars/1ryo/ryobike/ryobck2att020.gif
+	frame	data/chars/1ryo/ryobike/xryobck1att01.gif
+	frame	data/chars/1ryo/ryobike/xryobck1att02.gif
+		
+anim	get
+	loop	0
+	delay	5
+	offset	220 187
+	bbox	170 95 110 80
+	frame	data/chars/1ryo/ryobike/1ryobck02.gif
+		
+anim	idle
+	loop	1
+	delay	5
+	offset	220 187
+	bbox	170 95 110 80
+	frame	data/chars/1ryo/ryobike/1ryobck02.gif
+	frame	data/chars/1ryo/ryobike/1ryobck01.gif
+	frame	data/chars/1ryo/ryobike/1ryobck02.gif
+	frame	data/chars/1ryo/ryobike/1ryobck01.gif
+	frame	data/chars/1ryo/ryobike/1ryobck02.gif
+	frame	data/chars/1ryo/ryobike/1ryobck01.gif
+	@cmd	clearL
+	frame	data/chars/1ryo/ryobike/1ryobck02.gif
+	frame	data/chars/1ryo/ryobike/1ryobck01.gif
+		
+anim	jump
+	loop	0
+	delay	1
+	offset	220 187
+	bbox	170 95 110 80
+	frame	data/chars/1ryo/ryobike/1ryobck02.gif
+		
+anim	jumpdelay
+	loop	0
+	delay	1
+	offset	220 187
+	bbox	170 95 110 80
+	frame	data/chars/1ryo/ryobike/1ryobck01.gif
+		
+anim	jumpland
+	loop	0
+	delay	1
+	offset	220 187
+	bbox	170 95 110 80
+	frame	data/chars/1ryo/ryobike/1ryobck01.gif
+		
+anim	pain
+	loop	0
+	delay	5
+	offset	220 187
+	bbox	170 95 110 80
+	move	4
+	@cmd	keymove 0.7
+	frame	data/chars/1ryo/ryobike/pain01.gif
+	bbox	0 0 0 0
+	frame	data/chars/1ryo/ryobike/pain02.gif
+	frame	data/chars/1ryo/ryobike/pain01.gif
+	frame	data/chars/1ryo/ryobike/pain02.gif
+	frame	data/chars/1ryo/ryobike/pain01.gif
+	frame	data/chars/1ryo/ryobike/pain02.gif
+		
+anim	pain2
+	loop	0
+	delay	5
+	offset	220 187
+	bbox	170 95 110 80
+	move	-4
+	@cmd	keymove 0.7
+	frame	data/chars/1ryo/ryobike/pain01.gif
+	bbox	0 0 0 0
+	frame	data/chars/1ryo/ryobike/pain02.gif
+	frame	data/chars/1ryo/ryobike/pain01.gif
+	frame	data/chars/1ryo/ryobike/pain02.gif
+	frame	data/chars/1ryo/ryobike/pain01.gif
+	frame	data/chars/1ryo/ryobike/pain02.gif
+		
+anim	pain5
+	loop	0
+	delay	5
+	offset	220 187
+	bbox	170 95 110 80
+	@cmd	keymove 1
+	frame	data/chars/1ryo/ryobike/pain01.gif
+	move	7
+	movez	-1
+	bbox	0 0 0 0
+	frame	data/chars/1ryo/ryobike/pain02.gif
+	@cmd	keymove 1
+	frame	data/chars/1ryo/ryobike/pain01.gif
+	frame	data/chars/1ryo/ryobike/pain02.gif
+	frame	data/chars/1ryo/ryobike/pain01.gif
+	frame	data/chars/1ryo/ryobike/pain02.gif
+	frame	data/chars/1ryo/ryobike/pain01.gif
+	frame	data/chars/1ryo/ryobike/pain02.gif
+		
+anim	respawn
+	loop	0
+	delay	5
+	offset	220 187
+	bbox	0 0 0 0
+	frame	data/chars/1ryo/ryobike/1ryobck01.gif
 		
 anim	rise
 	loop	0
@@ -644,8 +660,8 @@ anim	run
 	bbox	170 95 110 80
 	frame	data/chars/1ryo/ryobike/1ryobck02.gif
 	frame	data/chars/1ryo/ryobike/1ryobck01.gif
-
-
+		
+anim	runattack
 		
 anim	runjump
 	loop	0
@@ -661,15 +677,8 @@ anim	spawn
 	offset	220 187
 	bbox	0 0 0 0
 	frame	data/chars/1ryo/ryobike/1ryobck01.gif
-
-
-
-anim	respawn
-	loop	0
-	delay	5
-	offset	220 187
-	bbox	0 0 0 0
-	frame	data/chars/1ryo/ryobike/1ryobck01.gif
+		
+anim	special
 		
 anim	walk
 	loop	1
@@ -678,23 +687,6 @@ anim	walk
 	bbox	170 95 110 80
 	frame	data/chars/1ryo/ryobike/1ryobck02.gif
 	frame	data/chars/1ryo/ryobike/1ryobck01.gif
-
-anim	backwalk
-	loop	1
-	delay	5
-	offset	220 187
-	bbox	170 95 110 80
-	frame	data/chars/1ryo/ryobike/1ryobck03.gif
-	frame	data/chars/1ryo/ryobike/1ryobck04.gif
-
-
-#----------------------------//-----------------
-
-anim	attackdown
 		
-anim	attackup
-		
-anim	runattack
-		
-anim	special
+#|edited by openBor Stats v 0.53
 		

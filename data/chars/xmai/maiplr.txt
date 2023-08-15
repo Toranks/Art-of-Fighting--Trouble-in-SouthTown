@@ -1,14 +1,14 @@
 name		maiplr
 type		player
-health		200
+health		150
 mp		100
 mprate          1
-chargerate      6
+chargerate      2
 speed		11
-running		26 3.1 3 1 0
+running		26 3.1 3 1 1
 jumpheight	4
 nodieblink	2
-secret		1 1
+secret		0 1
 modelflag	1
 weaploss	3
 noquake         0
@@ -17,12 +17,11 @@ riseinv		1
 gfxshadow	1
 fmap		1
 holdblock 	1
-blockpain	1
 falldie		2
 dust            dust
 candamage	enemy obstacle
 projectilehit 	player npc enemy
-weapons		pltank kasumiplr syuribike2 yurifall syurwtr syurivent mapcurs mrzero kingpl
+weapons		kyuribike maiplr kyuribike2 kyurifall kyurwtr kyurivent mapcurs mrzero
 atchain         1 1 2 3 4 0 5 6 7 0 8 1
 combostyle      1
 icon		data/chars/xmai/iconpl.png
@@ -37,10 +36,8 @@ script			data/scripts/player_script.c
 
 
 palette		data/chars/xmai/map1.png
-alternatepal	data/chars/xmai/map0.png
-alternatepal	data/chars/xmai/map2.png
-alternatepal	data/chars/xmai/map3.png
-alternatepal	data/chars/xmai/map4.png
+alternatepal	data/chars/xmai/palall.png
+alternatepal	data/chars/xmai/palall.png
 
 load	maipw
 
@@ -51,1088 +48,23 @@ com	a3	  freespecial29
 com	d f j 	  freespecial6
 com	f d s	  freespecial3
 com	d f s	  freespecial8
-com	f d f a	  freespecial9
-com     d f d f a freespecial26
-com     d f d f s freespecial27
+com	d f a	  freespecial9
+com     f d f a freespecial26
+com     f d f s freespecial27
 
-com	d u d u s freespecial30
-com	u d u d s freespecial31
 
 
 
 
-anim	freespecial30
-	energycost 55
-	mponly	1
-	weaponframe 15 2
-	loop	0
-	delay	9
-	offset	145 211
-	bbox	0 0 0 0
-	frame	data/chars/xmai/spw01.png
-	sound	data/sounds/xmaiTlk.wav
-	frame	data/chars/xmai/spw02.png
-	frame	data/chars/xmai/spw03.png
-	frame	data/chars/xmai/spw04.png
-	frame	data/chars/xmai/spw05.png
-	delay	5
-	frame	data/chars/xmai/spw06.png
-	frame	data/chars/xmai/spw07.png
-	frame	data/chars/xmai/spw08.png
-	frame	data/chars/xmai/spw09.png
-	frame	data/chars/xmai/spw10.png
-	frame	data/chars/xmai/emp.png
-	frame	data/chars/xmai/spw11.png
-	frame	data/chars/xmai/emp.png
-	frame	data/chars/xmai/spw12.png
-	frame	data/chars/xmai/emp.png
-	frame	data/chars/xmai/spw12.png #19
-	frame	data/chars/xmai/emp.png
-	frame	data/chars/xmai/spw12.png
 
 
-anim	freespecial31
-	energycost 55
-	mponly	1
-	weaponframe 15 9
-	loop	0
-	delay	9
-	offset	145 211
-	bbox	0 0 0 0
-	frame	data/chars/xmai/spw01.png
-	sound	data/sounds/xmaiTlk.wav
-	frame	data/chars/xmai/spw02.png
-	frame	data/chars/xmai/spw03.png
-	frame	data/chars/xmai/spw04.png
-	frame	data/chars/xmai/spw05.png
-	delay	5
-	frame	data/chars/xmai/spw06.png
-	frame	data/chars/xmai/spw07.png
-	frame	data/chars/xmai/spw08.png
-	frame	data/chars/xmai/spw09.png
-	frame	data/chars/xmai/spw10.png
-	frame	data/chars/xmai/emp.png
-	frame	data/chars/xmai/spw11.png
-	frame	data/chars/xmai/emp.png
-	frame	data/chars/xmai/spw12.png
-	frame	data/chars/xmai/emp.png
-	frame	data/chars/xmai/spw12.png #19
-	frame	data/chars/xmai/emp.png
-	frame	data/chars/xmai/spw12.png
 
 
 
 
-anim	freespecial27
-	energycost	75
-	mponly	1
-	loop	0
-	delay	7
-	offset	145 211
-	bbox	0 0 0 0
-	bbox	0 0 0 0
-	fastattack	1
-	forcedirection	-1
-	seal	15 2
-	followanim	9
-	followcond	1
-	hitfx	data/sounds/empty.wav
-	frame	data/chars/xmai/chg01.png
-	frame	data/chars/xmai/chg02.png
-	sound	data/sounds/super1.wav
-	@cmd	spawn04 "allsp" 1 1 1 4
-	frame	data/chars/xmai/chg03.png
-	delay	14
-	frame	data/chars/xmai/chg04.png
-	delay	7
-	frame	data/chars/xmai/chg05.png
-	frame	data/chars/xmai/chg06.png
-	frame	data/chars/xmai/chg07.png
-	frame	data/chars/xmai/chg08.png
-	frame	data/chars/xmai/chg09.png
-	sound	data/sounds/slowm.wav
-	frame	data/chars/xmai/run01.png
-	frame	data/chars/xmai/run02.png
 
-	delay	2
-	move	6
-	attack	130 140 45 55 0 0 1 1 0 10
-	@cmd	keymove 1.2
-	frame	data/chars/xmai/run03.png #11
-	frame	data/chars/xmai/run03.png
-	@cmd	keymove 1.2
-	frame	data/chars/xmai/run03.png
-	frame	data/chars/xmai/run03.png
-	@cmd	looper 11 5
-	attack	0 0 0 0
 
-	delay	7
-	@cmd	stop
-	@cmd	dasher 2 0 0
-	frame	data/chars/xmai/run04.png
-	frame	data/chars/xmai/run05.png
-	frame	data/chars/xmai/run06.png
-	@cmd	stop
-	frame	data/chars/xmai/jump00a.png
-	frame	data/chars/xmai/jump00.png
-	frame	data/chars/xmai/a38.png
-	frame	data/chars/xmai/a40.png
 
-
-
-
-
-anim	follow9
-	loop	0
-	delay	3
-	offset	145 211
-	bbox	0 0 0 0
-	forcedirection	-1
-	fastattack	1
-	#jumpframe 45 5 1
-	#landframe 54
-	seal	15 2
-	move	0
-	@cmd	stop
-	@cmd	clearL
-	frame	data/chars/xmai/jump00.png
-
-	hitfx	data/sounds/beat2.wav
-	frame	data/chars/xmai/b01.png
-	frame	data/chars/xmai/b02.png
-	attack	130 130 75 55 0 0 1 0 8 15
-	frame	data/chars/xmai/b03.png
-	frame	data/chars/xmai/b04.png
-	attack	0 0 0 0
-	frame	data/chars/xmai/b02.png
-	frame	data/chars/xmai/b01.png
-
-
-	frame	data/chars/xmai/b11.png
-	frame	data/chars/xmai/b12.png
-	attack	130 130 75 55 0 0 1 0 8 15
-	frame	data/chars/xmai/b13.png
-	frame	data/chars/xmai/b14.png
-	attack	0 0 0 0
-	frame	data/chars/xmai/b11.png
-	frame	data/chars/xmai/b10.png
-	@cmd	looper 1 7
-
-	frame	data/chars/xmai/jump00.png
-
-	delay	5
-	hitfx	data/sounds/beat3.wav
-	frame	data/chars/xmai/a12.png		#14
-	attack	130 130 75 55 0 0 1 0 3 15
-	frame	data/chars/xmai/a13.png
-	frame	data/chars/xmai/a14.png
-	attack	0 0 0 0
-	frame	data/chars/xmai/a15.png
-	frame	data/chars/xmai/a16.png
-	attack	130 130 75 55 0 0 1 0 3 15
-	frame	data/chars/xmai/a17.png
-	frame	data/chars/xmai/a18.png
-	attack	0 0 0 0
-	frame	data/chars/xmai/a19.png
-	@cmd	looper 14 7
-	attack5	130 130 75 55 0 0 1 1 0 15
-	frame	data/chars/xmai/jump00.png	#22
-	attack5	0 0 0 0
-	frame	data/chars/xmai/jump00a.png
-
-	delay	5
-	hitfx	data/sounds/empty.wav
-	attack5	130 130 75 55 0 0 1 1 0 15
-	frame	data/chars/xmai/c01.png
-	sound	data/sounds/xmai03.wav
-	frame	data/chars/xmai/c02.png
-	attack5	0 0 0 0
-	@cmd	clearL
-	frame	data/chars/xmai/c03.png
-	frame	data/chars/xmai/c04.png
-	attack5	130 130 75 55 0 0 1 1 0 15
-	frame	data/chars/xmai/c05.png
-	frame	data/chars/xmai/c06.png
-	attack5	0 0 0 0
-	frame	data/chars/xmai/c07.png
-	frame	data/chars/xmai/c08.png
-	attack5	130 130 75 55 0 0 1 1 0 15
-	frame	data/chars/xmai/c09.png
-	frame	data/chars/xmai/c10.png
-	attack5	0 0 0 0
-	frame	data/chars/xmai/c11.png
-	sound	data/sounds/xmaiPW02.wav
-	frame	data/chars/xmai/c12.png
-
-	delay	7
-	frame	data/chars/xmai/c13.png		#36
-	attack6	130 130 75 55 0 0 1 1 0 15
-	frame	data/chars/xmai/c13.png
-	attack6	0 0 0 0
-	@cmd	spawn01 "flashscreen1" 1 900 5
-	frame	data/chars/xmai/c13.png
-	attack6	130 130 75 55 0 0 1 1 0 15
-	frame	data/chars/xmai/c13.png
-	attack6	0 0 0 0
-	frame	data/chars/xmai/c13.png
-	attack6	130 130 75 55 0 0 1 1 0 15
-	frame	data/chars/xmai/c13.png
-	attack6	0 0 0 0
-	frame	data/chars/xmai/c13.png
-	attack6	130 130 75 55 0 0 1 1 0 15
-	frame	data/chars/xmai/c13.png
-	attack6	0 0 0 0
-	@cmd	looper 36 3
-
-	delay	5
-	attack5	130 130 75 55 0 0 1 1 0 15
-	frame	data/chars/xmai/c12.png
-	frame	data/chars/xmai/c11.png
-	attack5	0 0 0 0
-	@cmd	clearL
-	frame	data/chars/xmai/c10.png
-	frame	data/chars/xmai/c09.png
-	attack5	130 130 75 55 0 0 1 1 0 15
-	frame	data/chars/xmai/c08.png
-	frame	data/chars/xmai/c07.png
-	attack5	0 0 0 0
-	frame	data/chars/xmai/c06.png
-	frame	data/chars/xmai/c05.png
-	attack5	130 130 75 55 0 0 1 1 0 15
-	frame	data/chars/xmai/c04.png
-	frame	data/chars/xmai/c03.png
-	attack5	0 0 0 0
-	frame	data/chars/xmai/c02.png
-	frame	data/chars/xmai/c01.png
-
-
-	attack5	130 130 75 55 0 0 1 1 0 15
-	frame	data/chars/xmai/c20.png		#56
-	frame	data/chars/xmai/c21.png
-	attack5	0 0 0 0
-	frame	data/chars/xmai/c22.png
-	frame	data/chars/xmai/c23.png
-	attack5	130 130 75 55 0 0 1 1 0 15
-	frame	data/chars/xmai/c24.png
-	frame	data/chars/xmai/c25.png
-	attack5	0 0 0 0
-	sound	data/sounds/xmaiPW02.wav
-	frame	data/chars/xmai/c26.png
-
-	delay	7
-	attack6	130 130 75 55 0 0 1 1 0 15
-	frame	data/chars/xmai/c27.png		#63
-	attack6	0 0 0 0
-	frame	data/chars/xmai/c27.png
-	@cmd	spawn01 "flashscreen1" 1 900 5
-	attack6	130 130 75 55 0 0 1 1 0 15
-	frame	data/chars/xmai/c27.png
-	attack6	0 0 0 0
-	frame	data/chars/xmai/c27.png
-	attack6	130 130 75 55 0 0 1 1 0 15
-	frame	data/chars/xmai/c27.png
-	attack6	0 0 0 0
-	frame	data/chars/xmai/c27.png
-	attack6	130 130 75 55 0 0 1 1 0 15
-	frame	data/chars/xmai/c27.png
-	attack6	0 0 0 0
-	frame	data/chars/xmai/c27.png
-	@cmd	looper 63 3
-
-
-	delay	5
-	attack5	130 130 75 55 0 0 1 1 0 15
-	frame	data/chars/xmai/c26.png
-	frame	data/chars/xmai/c25.png
-	attack5	0 0 0 0
-	frame	data/chars/xmai/c24.png
-	frame	data/chars/xmai/c23.png
-	attack5	130 130 75 55 0 0 1 1 0 15
-	frame	data/chars/xmai/c22.png
-	frame	data/chars/xmai/c21.png
-	attack5	0 0 0 0
-	frame	data/chars/xmai/c20.png
-
-
-	frame	data/chars/xmai/c30.png		#78
-	attack5	130 130 75 55 0 0 1 1 0 15
-	frame	data/chars/xmai/c31.png
-	frame	data/chars/xmai/c32.png
-	attack5	0 0 0 0
-	@cmd	clearL
-	frame	data/chars/xmai/c33.png
-	frame	data/chars/xmai/c34.png
-	attack5	130 130 75 55 0 0 1 1 0 15
-	frame	data/chars/xmai/c35.png
-	sound	data/sounds/xmaiPW02.wav
-	frame	data/chars/xmai/c36.png
-	attack5	0 0 0 0
-
-	delay	7
-	frame	data/chars/xmai/c37.png		#85
-	attack6	130 130 75 55 0 0 1 1 0 15
-	frame	data/chars/xmai/c37.png
-	attack6	0 0 0 0
-	@cmd	spawn01 "flashscreen2" 1 900 5
-	frame	data/chars/xmai/c37.png
-	attack6	130 130 75 55 0 0 1 1 0 15
-	frame	data/chars/xmai/c37.png
-	attack6	0 0 0 0
-	frame	data/chars/xmai/c37.png
-	attack6	130 130 75 55 0 0 1 1 0 15
-	frame	data/chars/xmai/c37.png
-	attack6	0 0 0 0
-	frame	data/chars/xmai/c37.png
-	attack6	130 130 75 55 0 0 1 1 0 15
-	frame	data/chars/xmai/c37.png
-	attack6	0 0 0 0 
-	@cmd	looper 85 1
-
-	delay	7
-	frame	data/chars/xmai/c37.png
-	staydown 500 500
-	hitfx	data/sounds/beat4.wav
-	#hitflash	flashscreen2
-	@cmd	spawn01 "flashscreen2" 1 550 1
-	attack	130 105 75 90 210 1 1 0 90 15
-	dropv	8 1
-	frame	data/chars/xmai/c37.png
-	attack	0 0 0 0
-	delay	150
-	frame	data/chars/xmai/c37.png
-	delay	9
-	frame	data/chars/xmai/c36.png
-	frame	data/chars/xmai/c35.png
-	frame	data/chars/xmai/c34.png
-	@cmd	clearL
-	frame	data/chars/xmai/c33.png
-	frame	data/chars/xmai/c32.png
-	frame	data/chars/xmai/c31.png
-	frame	data/chars/xmai/c30.png
-
-
-
-
-
-
-
-
-
-
-
-
-anim	freespecial26
-	energycost	35
-	mponly	1
-	loop	0
-	delay	7
-	offset	145 211
-	bbox	130 125 30 75
-	fastattack	1
-	forcedirection	-1
-	staydown 500 500
-	hitfx	data/sounds/beat4.wav
-	hitflash	flashscreen2
-	frame	data/chars/xmai/chg01.png
-	frame	data/chars/xmai/chg02.png
-	sound	data/sounds/super1.wav
-	@cmd	spawnAni2 "allsp" 1 1 1 4 "ANI_FOLLOW1"
-	frame	data/chars/xmai/chg03.png
-	delay	14
-	frame	data/chars/xmai/chg04.png
-	delay	7
-	frame	data/chars/xmai/chg05.png
-	frame	data/chars/xmai/chg06.png
-	frame	data/chars/xmai/chg07.png
-	frame	data/chars/xmai/chg08.png
-	frame	data/chars/xmai/chg09.png
-
-	delay	9
-	frame	data/chars/xmai/pw20.png
-	frame	data/chars/xmai/pw21.png
-	frame	data/chars/xmai/pw22.png
-	frame	data/chars/xmai/pw23.png
-	frame	data/chars/xmai/pw24.png
-	frame	data/chars/xmai/pw25.png
-	frame	data/chars/xmai/pw26.png
-	frame	data/chars/xmai/pw27.png
-	delay	20
-	frame	data/chars/xmai/pw28.png
-	delay	9
-	frame	data/chars/xmai/pw29.png
-	frame	data/chars/xmai/pw30.png
-	frame	data/chars/xmai/pw31.png
-	frame	data/chars/xmai/pw32.png
-
-	bbox	0 0 0 0
-	burn	110 110 95 75 110 1 1 0 70 25
-	dropv	3 4
-	sound	data/sounds/xmaiPW03.wav
-	frame	data/chars/xmai/runatk01.png #22
-	frame	data/chars/xmai/runatk02.png
-	frame	data/chars/xmai/runatk03.png
-	frame	data/chars/xmai/runatk04.png
-	frame	data/chars/xmai/runatk05.png
-
-	delay	2
-	move	5
-	@cmd	spawnbind4 "maipw" 1 5 5 1 4
-	frame	data/chars/xmai/runatk06.png
-	@cmd	keymove 1.2
-	frame	data/chars/xmai/runatk06.png
-
-	@cmd	keymove 1.2
-	frame	data/chars/xmai/runatk06.png #29
-	frame	data/chars/xmai/runatk06.png
-	@cmd	keymove 1.2
-	frame	data/chars/xmai/runatk07.png
-	frame	data/chars/xmai/runatk07.png
-	@cmd	looper 29 10
-	burn	0 0 0 0
-	frame	data/chars/xmai/runatk06.png
-	@cmd	anichange "ANI_FOLLOW8"
-	frame	data/chars/xmai/runatk06.png
-
-
-
-anim	follow8
-	loop	0
-	delay	6
-	offset	145 211
-	bbox	0 0 0 0
-	jumpframe 1 4 1 
-	landframe 10
-	hitfx	data/sounds/burn.wav
-	frame	data/chars/xmai/runatk10.png
-	sound	data/sounds/xmai03.wav
-	frame	data/chars/xmai/runatk11.png
-
-	burn	100 115 100 75 20 1 1 0 10 25
-	dropv	5 1
-	frame	data/chars/xmai/runatk12.png
-	@cmd	spawnAni "maipw" 80 40 4 "ANI_FOLLOW1"
-	frame	data/chars/xmai/runatk13.png
-	frame	data/chars/xmai/runatk14.png
-	frame	data/chars/xmai/runatk15.png
-	delay	1
-	@cmd	flip
-	@cmd	spawnAni "maipw" 10 1 4 "ANI_FOLLOW1"
-	frame	data/chars/xmai/emp.png
-	@cmd	flip
-	delay	6
-	frame	data/chars/xmai/runatk16.png
-	frame	data/chars/xmai/runatk17.png
-
-	delay	500
-	frame	data/chars/xmai/runatk18.png
-	burn	0 0 0 0
-	delay	7
-	frame	data/chars/xmai/jump00a.png #10
-	frame	data/chars/xmai/jump00.png
-	frame	data/chars/xmai/a38.png
-	frame	data/chars/xmai/a40.png
-
-
-
-
-
-anim	freespecial6
-	loop	0
-	delay	7
-	offset	145 211
-	bbox	130 110 30 60
-	jumpframe 3 5 1.5 
-	landframe 13
-	staydown 300 300
-	hitfx	data/sounds/burn.wav
-	frame	data/chars/xmai/jump00.png
-	delay	12
-	frame	data/chars/xmai/jump00a.png
-	delay	7
-	sound	data/sounds/xmaiPW02.wav
-	frame	data/chars/xmai/jump00.png
-
-	@cmd	spawnbind4 "maipw" 1 60 5 1 4
-	frame	data/chars/xmai/sp01.png
-	delay	3
-	burn	102 95 100 90 25 1 0 0 15 20
-	dropv	5 1
-	frame	data/chars/xmai/sp02.png #4
-	frame	data/chars/xmai/sp03.png
-	frame	data/chars/xmai/sp04.png
-	frame	data/chars/xmai/sp05.png
-	frame	data/chars/xmai/sp06.png
-	frame	data/chars/xmai/sp07.png
-	frame	data/chars/xmai/sp08.png
-	frame	data/chars/xmai/sp09.png
-	attack	0 0 0 0
-	@cmd	looper 4 30
-	frame	data/chars/xmai/sp01.png
-	frame	data/chars/xmai/jump00.png #13
-	@cmd	anichange "ANI_FOLLOW7"
-	frame	data/chars/xmai/jump00.png
-	frame	data/chars/xmai/a38.png
-	frame	data/chars/xmai/a40.png
-
-
-anim	follow7
-	loop	0
-	delay	6
-	offset	145 211
-	bbox	0 0 0 0
-	frame	data/chars/xmai/jump00.png
-	frame	data/chars/xmai/jump00a.png
-	frame	data/chars/xmai/jump00.png
-	frame	data/chars/xmai/a38.png
-	frame	data/chars/xmai/a40.png
-
-
-
-
-
-anim	freespecial8
-	cancel	8 15 0 a freespecial7
-	cancel	8 15 0 s freespecial7
-	energycost	7
-	mponly	1
-	loop	0
-	delay	6
-	offset	145 211
-	bbox	130 125 30 75
-	frame	data/chars/xmai/spa01.png
-	frame	data/chars/xmai/spa02.png
-	sound	data/sounds/xmaiPW01.wav
-	frame	data/chars/xmai/spa03.png
-	frame	data/chars/xmai/spa04.png
-	frame	data/chars/xmai/spa05.png
-	delay	40
-	@cmd	spawnAni "maipw" 30 60 -1 "ANI_FOLLOW2"
-	frame	data/chars/xmai/spa06.png
-	delay	8
-	frame	data/chars/xmai/spa07.png
-	frame	data/chars/xmai/spa08.png
-	delay	2
-	frame	data/chars/xmai/spa09.png #8
-	frame	data/chars/xmai/spa09.png
-	frame	data/chars/xmai/spa09.png
-	frame	data/chars/xmai/spa09.png
-	frame	data/chars/xmai/spa10.png
-	frame	data/chars/xmai/spa10.png
-	frame	data/chars/xmai/spa10.png
-	frame	data/chars/xmai/spa10.png #15
-
-
-anim	freespecial7
-	cancel	5 12 0 a freespecial5
-	cancel	5 12 0 s freespecial5
-	energycost	7
-	mponly	1
-	loop	0
-	delay	6
-	offset	145 211
-	bbox	130 125 30 75
-	sound	data/sounds/xmaiPW01.wav
-	frame	data/chars/xmai/spa11.png
-	frame	data/chars/xmai/spa12.png
-	@cmd	spawnAni "maipw" 20 60 -1 "ANI_FOLLOW2"
-	delay	40
-	frame	data/chars/xmai/spa13.png
-	delay	8
-	frame	data/chars/xmai/spa07.png
-	frame	data/chars/xmai/spa08.png
-	delay	2
-	frame	data/chars/xmai/spa09.png #5
-	frame	data/chars/xmai/spa09.png
-	frame	data/chars/xmai/spa09.png
-	frame	data/chars/xmai/spa09.png
-	frame	data/chars/xmai/spa10.png
-	frame	data/chars/xmai/spa10.png
-	frame	data/chars/xmai/spa10.png
-	frame	data/chars/xmai/spa10.png #12
-
-
-
-anim	freespecial5
-	cancel	5 12 0 a freespecial7
-	cancel	5 12 0 s freespecial7
-	energycost	7
-	mponly	1
-	loop	0
-	delay	6
-	offset	145 211
-	bbox	130 125 30 75
-	sound	data/sounds/xmaiPW01.wav
-	frame	data/chars/xmai/spa04.png
-	frame	data/chars/xmai/spa05.png
-	delay	40
-	@cmd	spawnAni "maipw" 30 60 1 "ANI_FOLLOW2"
-	frame	data/chars/xmai/spa06.png
-	delay	8
-	frame	data/chars/xmai/spa07.png
-	frame	data/chars/xmai/spa08.png
-	delay	2
-	frame	data/chars/xmai/spa09.png #5
-	frame	data/chars/xmai/spa09.png
-	frame	data/chars/xmai/spa09.png
-	frame	data/chars/xmai/spa09.png
-	frame	data/chars/xmai/spa10.png
-	frame	data/chars/xmai/spa10.png
-	frame	data/chars/xmai/spa10.png
-	frame	data/chars/xmai/spa10.png #12
-
-
-anim	freespecial3
-	energycost	30
-	mponly	1
-	loop	0
-	delay	7
-	offset	145 211
-	bbox	130 125 30 75
-	sound	data/sounds/xmaiPW01.wav
-	frame	data/chars/xmai/spa10.png
-	sound	data/sounds/xmaiPW01.wav
-	frame	data/chars/xmai/spa09.png
-	sound	data/sounds/xmaiPW01.wav
-	frame	data/chars/xmai/spa08.png
-	delay	30
-	frame	data/chars/xmai/spa14.png
-	delay	7
-	frame	data/chars/xmai/spa15.png
-	frame	data/chars/xmai/spa16.png
-	frame	data/chars/xmai/spa17.png
-	delay	5
-	sound	data/sounds/super2.wav
-	frame	data/chars/xmai/spa18.png
-	@cmd	shooter3 "maipw" 30 50 1 2 0 0 "ANI_FOLLOW4"
-	frame	data/chars/xmai/spa18.png
-	frame	data/chars/xmai/spa19.png
-	@cmd	shooter3 "maipw" 30 50 1 2 0 1 "ANI_FOLLOW4"
-	frame	data/chars/xmai/spa19.png
-	@cmd	shooter3 "maipw" 30 50 1 2 0 -1 "ANI_FOLLOW4"
-	frame	data/chars/xmai/spa19.png
-	@cmd	shooter3 "maipw" 30 50 1 2 0 0.3 "ANI_FOLLOW4"
-	frame	data/chars/xmai/spa19.png
-	@cmd	shooter3 "maipw" 30 50 1 2 0 -0.3 "ANI_FOLLOW4"
-	frame	data/chars/xmai/spa19.png
-	@cmd	shooter3 "maipw" 30 50 1 2 0 0 "ANI_FOLLOW4"
-	frame	data/chars/xmai/spa19.png
-	delay	40
-	frame	data/chars/xmai/spa19.png
-	delay	8
-	frame	data/chars/xmai/spa07.png
-	frame	data/chars/xmai/spa08.png
-	frame	data/chars/xmai/spa09.png
-	frame	data/chars/xmai/spa10.png
-
-
-
-
-
-
-
-anim	freespecial9
-	energycost	15
-	mponly	1
-	loop	0
-	delay	6
-	offset	145 211
-	bbox	0 0 0 0
-	jumpframe 4 4 0
-	landframe 17
-	fastattack 1
-	forcedirection -1
-	staydown 500 500
-	hitfx	data/sounds/beat5.wav
-	@cmd	dasher 2.5 0 0
-	sound	data/sounds/xmaiPW04.wav
-	frame	data/chars/xmai/pw01.png
-	frame	data/chars/xmai/pw02.png
-	attack10	135 125 95 50 8 1 0 0 12 10
-	dropv	4 0
-	frame	data/chars/xmai/pw03.png
-	frame	data/chars/xmai/pw04.png
-	attack10	0 0 0 0
-	frame	data/chars/xmai/pw05.png #----------4
-	attack10	135 80 95 70 10 1 0 0 12 10
-	dropv	3.5 0
-	frame	data/chars/xmai/pw06.png
-	frame	data/chars/xmai/pw07.png
-	attack10	0 0 0 0
-	frame	data/chars/xmai/pw08.png
-	attack10	135 80 95 70 12 1 0 0 12 10
-	dropv	3 0
-	frame	data/chars/xmai/pw09.png
-	frame	data/chars/xmai/pw10.png
-	attack10	0 0 0 0
-
-	frame	data/chars/xmai/pw11.png
-	frame	data/chars/xmai/pw12.png
-	@cmd	leaper 0 0.5
-	hitflash	flashscreen1
-	attack	135 80 95 70 20 1 0 0 30 10
-	dropv	1 3
-	#delay	4
-	frame	data/chars/xmai/pw13.png
-	frame	data/chars/xmai/pw14.png
-	attack	0 0 0 0
-	frame	data/chars/xmai/pw15.png
-	frame	data/chars/xmai/pw16.png
-	delay	500
-	frame	data/chars/xmai/pw17.png
-	delay	8
-	frame	data/chars/xmai/pw18.png #17
-	frame	data/chars/xmai/jump00.png
-
-
-
-#//-------------------//-------//-------------------
-
-
-
-
-anim	idle
-	loop	1
-	delay	7
-	offset	145 211
-	bbox	130 125 30 75
-	frame	data/chars/xmai/idle10.png
-	@cmd	clearL
-	frame	data/chars/xmai/idle11.png
-	delay	7
-	frame	data/chars/xmai/idle01.png #2
-	frame	data/chars/xmai/idle02.png 
-	delay	10
-	frame	data/chars/xmai/idle03.png
-	frame	data/chars/xmai/idle04.png
-	delay	7
-	frame	data/chars/xmai/idle05.png
-	frame	data/chars/xmai/idle06.png
-	frame	data/chars/xmai/idle07.png
-	frame	data/chars/xmai/idle08.png
-	delay	10
-	frame	data/chars/xmai/idle09.png #10
-	frame	data/chars/xmai/idle10.png
-	delay	7
-	frame	data/chars/xmai/idle11.png
-	@cmd	looper 2 2
-
-	delay	12
-	frame	data/chars/xmai/idle15.png
-	frame	data/chars/xmai/idle16.png
-	frame	data/chars/xmai/idle17.png
-
-	delay	10
-	frame	data/chars/xmai/idle18.png #16
-	frame	data/chars/xmai/idle19.png
-	frame	data/chars/xmai/idle20.png
-	frame	data/chars/xmai/idle19.png
-	@cmd	looper 16 10
-	delay	12
-	frame	data/chars/xmai/idle17.png
-	frame	data/chars/xmai/idle16.png
-	frame	data/chars/xmai/idle15.png
-
-
-
-
-
-
-
-
-
-anim	walk
-	loop	1
-	delay	8
-	offset	145 211
-	bbox	130 125 30 75
-	frame	data/chars/xmai/wk01.png
-	frame	data/chars/xmai/wk02.png
-	frame	data/chars/xmai/wk03.png
-	frame	data/chars/xmai/wk04.png
-	frame	data/chars/xmai/wk05.png
-	frame	data/chars/xmai/wk06.png
-
-
-
-anim	run
-	loop	1
-	delay	7
-	offset	145 211
-	bbox	130 125 30 75
-	sound	data/sounds/run.wav
-	frame	data/chars/xmai/run01.png
-	frame	data/chars/xmai/run02.png
-	frame	data/chars/xmai/run03.png
-	sound	data/sounds/run.wav
-	frame	data/chars/xmai/run04.png
-	frame	data/chars/xmai/run05.png
-	frame	data/chars/xmai/run06.png
-
-
-
-anim	block
-	loop	0
-	delay	6
-	offset	145 211
-	bbox	130 125 30 75
-	frame	data/chars/xmai/blk01.png
-	frame	data/chars/xmai/blk02.png
-	frame	data/chars/xmai/blk03.png
-	frame	data/chars/xmai/blk04.png
-	frame	data/chars/xmai/blk05.png
-	frame	data/chars/xmai/blk06.png
-
-
-#---------//----//-jump-//----------
-
-anim	jumpland
-	loop	0
-	delay	6
-	offset	145 211
-	bbox	130 125 30 75
-	frame	data/chars/xmai/jump00.png
-
-anim	jumpdelay
-	loop	0
-	delay	6
-	offset	145 211
-	bbox	130 125 30 75
-	frame	data/chars/xmai/jump00a.png
-
-
-anim	walkoff
-	loop	0
-	delay	12
-	offset	145 211
-	bbox	130 110 30 60
-	frame	data/chars/xmai/jump06.png
-
-
-anim	jump
-	loop	0
-	delay	12
-	offset	145 211
-	bbox	130 110 30 60
-	frame	data/chars/xmai/jump01.png
-	delay	7
-	frame	data/chars/xmai/jump02.png
-	frame	data/chars/xmai/jump03.png
-	delay	20
-	frame	data/chars/xmai/jump04.png
-	delay	7
-	frame	data/chars/xmai/jump03.png
-	frame	data/chars/xmai/jump05.png
-	delay	6
-	frame	data/chars/xmai/jump06.png
-	frame	data/chars/xmai/jump07.png
-	frame	data/chars/xmai/jump06.png
-	frame	data/chars/xmai/jump07.png
-	frame	data/chars/xmai/jump06.png
-	frame	data/chars/xmai/jump07.png
-	frame	data/chars/xmai/jump06.png
-	frame	data/chars/xmai/jump07.png
-	frame	data/chars/xmai/jump06.png
-	frame	data/chars/xmai/jump07.png
-	frame	data/chars/xmai/jump06.png
-	frame	data/chars/xmai/jump07.png
-	frame	data/chars/xmai/jump06.png
-	frame	data/chars/xmai/jump07.png
-
-
-
-
-
-
-
-
-anim	forwardjump
-	loop	0
-	delay	12
-	offset	145 211
-	bbox	130 110 30 60
-	frame	data/chars/xmai/jump01.png
-	delay	6
-	frame	data/chars/xmai/jump08.png
-	frame	data/chars/xmai/jump09.png
-	frame	data/chars/xmai/jump10.png
-	frame	data/chars/xmai/jump11.png
-	frame	data/chars/xmai/jump12.png
-	frame	data/chars/xmai/jump05.png
-	frame	data/chars/xmai/jump06.png
-	frame	data/chars/xmai/jump07.png
-	frame	data/chars/xmai/jump06.png
-	frame	data/chars/xmai/jump07.png
-	frame	data/chars/xmai/jump06.png
-	frame	data/chars/xmai/jump07.png
-	frame	data/chars/xmai/jump06.png
-	frame	data/chars/xmai/jump07.png
-	frame	data/chars/xmai/jump06.png
-	frame	data/chars/xmai/jump07.png
-	frame	data/chars/xmai/jump06.png
-	frame	data/chars/xmai/jump07.png
-
-
-
-
-
-
-
-
-anim	runjump
-	delay	8
-	offset	145 211
-	bbox	130 110 30 60
-	frame	data/chars/xmai/jump01.png
-	delay	6
-	frame	data/chars/xmai/jump02.png
-	frame	data/chars/xmai/jump03.png
-	frame	data/chars/xmai/jump04.png
-
-
-
-#--------------------//-grab-escape-beds-//-----------------------
-
-
-anim	freespecial15
-	loop	0
-	delay	9
-	offset	145 211
-	bbox	0 0 0 0
-	frame	data/chars/xmai/spw01.png
-	frame	data/chars/xmai/spw02.png
-	frame	data/chars/xmai/spw03.png
-	frame	data/chars/xmai/spw04.png
-	frame	data/chars/xmai/spw05.png
-	frame	data/chars/xmai/spw06.png
-	frame	data/chars/xmai/spw07.png
-	frame	data/chars/xmai/spw08.png
-	frame	data/chars/xmai/spw09.png
-	frame	data/chars/xmai/spw10.png
-	frame	data/chars/xmai/spw11.png
-	frame	data/chars/xmai/spw12.png
-	@cmd	spawnAni3 "toturi3" 1 1 1 "ANI_IDLE"
-	frame	data/chars/xmai/spw11.png
-	frame	data/chars/xmai/spw10.png
-	frame	data/chars/xmai/spw09.png
-	frame	data/chars/xmai/spw08.png
-	@cmd	clearL
-	frame	data/chars/xmai/spw11.png
-	frame	data/chars/xmai/spw02.png
-	frame	data/chars/xmai/spw01.png
-
-
-
-
-
-
-anim	follow17
-@script
-	void self = getlocalvar("self");
-	int eTime = openborvariant("elapsed_time");
-	if (frame == 11)
-	{
-	changeentityproperty(self, "invincible", 1);
-	changeentityproperty(self, "invinctime", eTime + 1000);
-	changeentityproperty(self, "blink", 1);
-	}
-@end_script
-	loop	0
-	delay	800
-	offset	145 211
-	bbox	0 0 0 0
-	frame	data/chars/xmai/emp.png
-	delay	9
-	frame	data/chars/xmai/spw12.png
-	frame	data/chars/xmai/spw11.png
-	frame	data/chars/xmai/spw10.png
-	frame	data/chars/xmai/spw09.png
-	frame	data/chars/xmai/spw08.png
-	frame	data/chars/xmai/spw07.png
-	frame	data/chars/xmai/spw06.png
-	frame	data/chars/xmai/spw05.png
-	frame	data/chars/xmai/spw04.png
-	frame	data/chars/xmai/spw03.png
-	frame	data/chars/xmai/spw02.png
-	frame	data/chars/xmai/spw01.png
-
-
-
-
-
-
-
-
-anim	follow15
-@script
-	void self = getlocalvar("self");
-   	void opp = getentityproperty(self, "opponent");
-	int enedir = getentityproperty(opp,"direction");
-	if (frame == 0 && enedir == 0)
-	{
-	changeentityproperty(self, "direction", 1);
-	}
-	else if (frame == 0 && enedir == 1)
-	{
-	changeentityproperty(self, "direction", 0);
-	}
-@end_script
-	loop	0
-	delay	7
-	offset	145 211
-	bbox	0 0 0 0
-	jumpframe 0 3 -1
-	landframe 6
-	frame	data/chars/xmai/jump12.png
-	frame	data/chars/xmai/jump11.png
-	frame	data/chars/xmai/jump10.png
-	frame	data/chars/xmai/jump09.png
-	frame	data/chars/xmai/jump08.png
-	delay	500
-	frame	data/chars/xmai/jump05.png
-	delay	8
-	frame	data/chars/xmai/jump00.png #6
-
-
-
-
-
-
-anim	follow16
-@script
-	void self = getlocalvar("self");
-   	void opp = getentityproperty(self, "opponent");
-	int enedir = getentityproperty(opp,"direction");
-	if (frame == 0 && enedir == 0)
-	{
-	changeentityproperty(self, "direction", 1);
-	}
-	else if (frame == 0 && enedir == 1)
-	{
-	changeentityproperty(self, "direction", 0);
-	}
-@end_script
-	loop	0
-	delay	7
-	offset	145 211
-	bbox	0 0 0 0
-	frame	data/chars/xmai/jump00.png
-	@cmd	dasher -3 0 0
-	@cmd	spawn01 "dust" -35 1 1
-	frame	data/chars/xmai/dgd05.png
-	frame	data/chars/xmai/dgd04.png
-	frame	data/chars/xmai/dgd03.png
-	frame	data/chars/xmai/dgd02.png
-	frame	data/chars/xmai/dgd01.png
-	frame	data/chars/xmai/jump00.png
-	frame	data/chars/xmai/jump00a.png
-	@cmd	stop
-	frame	data/chars/xmai/jump00.png
-
-
-
-
-
-#--------------------------------//-----------------------
 
 
 
@@ -1154,287 +86,7 @@ anim	attack1
 	frame	data/chars/xmai/a04.png
 	attack2	0 0 0 0
 	frame	data/chars/xmai/a05.png
-
-
-
-
-
-
-
-anim	follow10
-	followanim	11
-	followcond	1
-	loop	0
-	delay	7
-	offset	145 211
-	bbox	0 0 0 0
-	staydown 800 800
-	forcedirection	-1
-	attackone	1
-	fastattack	1
-	jumpframe 0 2 0.2
-	landframe 2
-	otg	2
-	hitfx	data/sounds/empty.wav
-	sound	data/sounds/xmai03.wav
-	frame	data/chars/xmai/grd01.png
-	delay	500
-	frame	data/chars/xmai/grd02.png
-	delay	1
-	attack11 120 190 95 30 0 1 1 1 0 10
-	dropv	0 0
-	frame	data/chars/xmai/grd03.png #2
-	attack11 0 0 0 0
-	delay	9
-	frame	data/chars/xmai/jump00a.png
-	@cmd	clearL
-	frame	data/chars/xmai/jump00.png
-	bbox	0 0 0 0
-	frame	data/chars/xmai/a37.png
-	frame	data/chars/xmai/a38.png
-	frame	data/chars/xmai/a39.png
-	frame	data/chars/xmai/a40.png
-
-
-
-
-
-anim	follow11
-	cancel	9 19 1 a freespecial1
-	cancel	9 19 1 j freespecial1
-	loop	0
-	delay	1
-	offset	145 211
-	bbox	0 0 0 0
-	staydown 800 800
-	forcedirection	-1
-	attackone	1
-	fastattack	1
-	otg	2
-	hitfx	data/sounds/beat5.wav
-	hitflash	flashscreen1
-
-	attack11 0 0 0 0
-	frame	data/chars/xmai/grd03.png
-	delay	8
-	attack11 120 190 95 30 25 1 0 0 25 10
-	dropv	0 0
-	movez	4
-	frame	data/chars/xmai/grd03.png #1
-	movez	0
-	frame	data/chars/xmai/grd04.png
-	frame	data/chars/xmai/grd05.png
-	attack11 0 0 0 0
-	frame	data/chars/xmai/grd06.png
-	frame	data/chars/xmai/grd07.png
-	frame	data/chars/xmai/grd06.png
-	frame	data/chars/xmai/grd07.png
-	delay	3
-	frame	data/chars/xmai/grd08.png
-	delay	5
-	frame	data/chars/xmai/grd08.png #9
-	frame	data/chars/xmai/grd08.png
-	frame	data/chars/xmai/grd08.png
-	frame	data/chars/xmai/grd08.png
-	frame	data/chars/xmai/grd08.png
-	frame	data/chars/xmai/grd08.png
-	frame	data/chars/xmai/grd08a.png
-	frame	data/chars/xmai/grd08a.png
-	frame	data/chars/xmai/grd08a.png
-	frame	data/chars/xmai/grd08.png
-	frame	data/chars/xmai/grd08.png #19
-	@cmd	looper 9 3
-	delay	9
-	frame	data/chars/xmai/jump00a.png
-	@cmd	clearL
-	frame	data/chars/xmai/jump00.png
-	bbox	0 0 0 0
-	frame	data/chars/xmai/a37.png
-	frame	data/chars/xmai/a38.png
-	frame	data/chars/xmai/a39.png
-	frame	data/chars/xmai/a40.png
-
-
-
-
-
-
-anim	freespecial1
-	followanim	12
-	followcond	1
-	loop	0
-	delay	10
-	offset	145 211
-	bbox	0 0 0 0
-	staydown 800 800
-	forcedirection	-1
-	attackone	1
-	fastattack	1
-	otg	2
-	hitfx	data/sounds/beat5.wav
-	frame	data/chars/xmai/grd08.png
-	delay	2
-	frame	data/chars/xmai/grd09.png
-	attack11 120 190 95 30 0 1 1 1 0 10
-	dropv	0 0
-	frame	data/chars/xmai/grd10.png
-	attack11 0 0 0 0
-	delay	9
-	frame	data/chars/xmai/jump00a.png
-	@cmd	clearL
-	frame	data/chars/xmai/jump00.png
-	bbox	0 0 0 0
-	frame	data/chars/xmai/a37.png
-	frame	data/chars/xmai/a38.png
-	frame	data/chars/xmai/a39.png
-	frame	data/chars/xmai/a40.png
-
-
-
-
-
-anim	follow12
-	cancel	7 11 1 a freespecial4
-	cancel	7 11 1 j freespecial4
-	loop	0
-	delay	1
-	offset	145 211
-	bbox	0 0 0 0
-	staydown 800 800
-	forcedirection	-1
-	attackone	1
-	fastattack	1
-	otg	2
-	hitfx	data/sounds/empty.wav
-	hitflash	flashscreen1
-	attack11 0 0 0 0
-	frame	data/chars/xmai/grd10.png
-	attack11 120 190 95 30 25 1 0 0 25 10
-	dropv	0 0
-	delay	7
-	frame	data/chars/xmai/grd10.png
-	attack11 0 0 0 0
-	delay	8
-	frame	data/chars/xmai/grd11.png
-	frame	data/chars/xmai/grd12.png
-	frame	data/chars/xmai/grd13.png
-	frame	data/chars/xmai/grd12.png
-	frame	data/chars/xmai/grd13.png
-	frame	data/chars/xmai/grd10.png
-	delay	11
-	frame	data/chars/xmai/grd14.png #8
-	frame	data/chars/xmai/grd15.png
-	frame	data/chars/xmai/grd14.png
-	frame	data/chars/xmai/grd15.png #11
-	@cmd	looper 8 5
-	frame	data/chars/xmai/grd14.png
-	delay	9
-	frame	data/chars/xmai/jump00a.png
-	@cmd	clearL
-	frame	data/chars/xmai/jump00.png
-	bbox	0 0 0 0
-	frame	data/chars/xmai/a37.png
-	frame	data/chars/xmai/a38.png
-	frame	data/chars/xmai/a39.png
-	frame	data/chars/xmai/a40.png
-
-
-
-
-
-
-anim	freespecial4
-	followanim	13
-	followcond	1
-	loop	0
-	delay	10
-	offset	145 211
-	bbox	0 0 0 0
-	staydown 500 500
-	forcedirection	-1
-	attackone	1
-	fastattack	1
-	jumpframe 1 2.3 0
-	landframe 6
-	otg	2
-	hitfx	data/sounds/empty.wav
-	sound	data/sounds/xmai04.wav
-	frame	data/chars/xmai/grd15.png
-	delay	7
-	frame	data/chars/xmai/grd16.png
-	frame	data/chars/xmai/grd17.png
-	frame	data/chars/xmai/grd18.png
-	frame	data/chars/xmai/grd19.png
-	delay	500
-	frame	data/chars/xmai/grd20.png
-	delay	2
-	attack11 120 190 95 30 0 1 1 1 0 10
-	dropv	0 0
-	frame	data/chars/xmai/grd21.png #6
-	attack11 0 0 0 0
-	delay	9
-	frame	data/chars/xmai/jump00a.png
-	@cmd	clearL
-	frame	data/chars/xmai/jump00.png
-	bbox	0 0 0 0
-	frame	data/chars/xmai/a37.png
-	frame	data/chars/xmai/a38.png
-	frame	data/chars/xmai/a39.png
-	frame	data/chars/xmai/a40.png
-
-
-
-
-
-
-anim	follow13
-	loop	0
-	delay	1
-	offset	145 211
-	bbox	0 0 0 0
-	staydown 500 500
-	forcedirection	-1
-	attackone	1
-	fastattack	1
-	otg	2
-	hitfx	data/sounds/beat5.wav
-	hitflash	flashscreen1
-	attack11 0 0 0 0
-	frame	data/chars/xmai/grd21.png
-	delay	9
-	attack11 120 190 95 30 25 1 0 0 35 10
-	dropv	0 0
-	@cmd	spawn01 "qfx" 1 1 5
-	frame	data/chars/xmai/grd21.png
-	frame	data/chars/xmai/grd22.png
-	frame	data/chars/xmai/grd23.png
-	attack11 0 0 0 0
-	frame	data/chars/xmai/grd24.png
-	frame	data/chars/xmai/grd25.png
-	frame	data/chars/xmai/grd25a.png
-	delay	55
-	frame	data/chars/xmai/grd25.png
-	delay	9
-	frame	data/chars/xmai/jump00a.png
-	@cmd	clearL
-	frame	data/chars/xmai/jump00.png
-	bbox	0 0 0 0
-	frame	data/chars/xmai/a37.png
-	frame	data/chars/xmai/a38.png
-	frame	data/chars/xmai/a39.png
-	frame	data/chars/xmai/a40.png
-
-
-
-
-
-
-
-
-
-
-
-
+		
 anim	attack2
 	range	0 65
 	rangez	-15 15
@@ -1454,11 +106,7 @@ anim	attack2
 	attack	0 0 0 0
 	frame	data/chars/xmai/b02.png
 	frame	data/chars/xmai/b01.png
-
-
-
-
-
+		
 anim	attack3
 	range	0 65
 	rangez	-15 15
@@ -1478,12 +126,7 @@ anim	attack3
 	attack	0 0 0 0
 	frame	data/chars/xmai/b12.png
 	frame	data/chars/xmai/b10.png
-
-
-
-
-
-
+		
 anim	attack4
 	range	0 65
 	rangez	-15 15
@@ -1492,7 +135,7 @@ anim	attack4
 	offset	145 211
 	bbox	130 125 30 75
 	fastattack	1
-	staydown 300 300
+	staydown	300 300
 	hitfx	data/sounds/burn.wav
 	frame	data/chars/xmai/a30.png
 	sound	data/sounds/xmaiPW05.wav
@@ -1518,11 +161,7 @@ anim	attack4
 	frame	data/chars/xmai/a40.png
 	burn	0 0 0 0
 	frame	data/chars/xmai/a40.png
-
-
-
-
-
+		
 anim	attack5
 	range	65 95
 	rangez	-15 15
@@ -1542,12 +181,7 @@ anim	attack5
 	attack	0 0 0 0
 	frame	data/chars/xmai/a02.png
 	frame	data/chars/xmai/a01.png
-
-
-
-
-
-
+		
 anim	attack6
 	range	65 95
 	rangez	-15 15
@@ -1568,13 +202,7 @@ anim	attack6
 	frame	data/chars/xmai/a54.png
 	frame	data/chars/xmai/a11.png
 	frame	data/chars/xmai/a10.png
-
-
-
-
-
-
-
+		
 anim	attack7
 	range	65 95
 	rangez	-15 15
@@ -1600,15 +228,7 @@ anim	attack7
 	attack	0 0 0 0
 	frame	data/chars/xmai/a68.png
 	frame	data/chars/xmai/a69.png
-
-
-
-
-
-
-
-
-
+		
 anim	attack8
 	range	95 145
 	rangez	-15 15
@@ -1623,19 +243,19 @@ anim	attack8
 	@cmd	dasher 2 0 0
 	frame	data/chars/xmai/a11.png
 	frame	data/chars/xmai/a12.png
-	attack10 80 100 135 75 10 1 0 0 3 15
+	attack10	80 100 135 75 10 1 0 0 3 15
 	dropv	2 1
 	frame	data/chars/xmai/a13.png
 	frame	data/chars/xmai/a14.png
 	frame	data/chars/xmai/a15.png
-	attack10 0 0 0 0
+	attack10	0 0 0 0
 	@cmd	dasher 1 0 0
 	frame	data/chars/xmai/a16.png
-	attack10 95 70 115 100 10 1 0 0 3 15
+	attack10	95 70 115 100 10 1 0 0 3 15
 	dropv	2 1
 	frame	data/chars/xmai/a17.png
 	frame	data/chars/xmai/a18.png
-	attack10 0 0 0 0
+	attack10	0 0 0 0
 	frame	data/chars/xmai/a19.png
 	attack	95 110 130 75 50 1 0 0 30 15
 	dropv	2 4
@@ -1652,17 +272,7 @@ anim	attack8
 	frame	data/chars/xmai/a25.png
 	frame	data/chars/xmai/a11.png
 	frame	data/chars/xmai/a10.png
-
-
-
-
-
-
-
-
-
-
-	
+		
 anim	attackdown
 	loop	0
 	delay	7
@@ -1680,15 +290,7 @@ anim	attackdown
 	@cmd	stop
 	frame	data/chars/xmai/jump00a.png
 	frame	data/chars/xmai/jump00.png
-
-
-
-
-
-
-
-
-
+		
 anim	attackup
 	loop	0
 	delay	7
@@ -1706,488 +308,44 @@ anim	attackup
 	@cmd	stop
 	frame	data/chars/xmai/jump00a.png
 	frame	data/chars/xmai/jump00.png
-
-
-
-
-
-
-
-
-anim	jumpforward
+		
+anim	block
 	loop	0
 	delay	6
 	offset	145 211
-	bbox	130 110 30 60
-	hitfx	data/sounds/beat5.wav
-	forcedirection	-1
-	staydown	500 500
-	sound	data/sounds/xmai02.wav
-	frame	data/chars/xmai/jua05.png
-	frame	data/chars/xmai/jump04.png
-	frame	data/chars/xmai/jua09.png
-	attack	125 115 92 65 30 1 0 0 35 15
-	frame	data/chars/xmai/jua14.png
-	delay	15
-	frame	data/chars/xmai/jua15.png
-
-
-
-
-
-
-
-
-anim	jumpattack
+	bbox	130 125 30 75
+	frame	data/chars/xmai/blk01.png
+	frame	data/chars/xmai/blk02.png
+	frame	data/chars/xmai/blk03.png
+	frame	data/chars/xmai/blk04.png
+	frame	data/chars/xmai/blk05.png
+	frame	data/chars/xmai/blk06.png
+		
+anim	burn
 	loop	0
-	delay	7
-	offset	145 211
-	bbox	135 98 30 60
-	forcedirection	-1
-	staydown	500 500
-	hitfx	data/sounds/beat5.wav
-	sound	data/sounds/xmai03.wav
-	frame	data/chars/xmai/jua05.png
-	frame	data/chars/xmai/jump04.png
-	frame	data/chars/xmai/jua09.png
-	delay	20
-	attack	120 105 90 70 25 1 0 0 35 15
-	frame	data/chars/xmai/jua10.png
-	attack	0 0 0 0
-
-
-
-
-
-
-
-
-anim	jumpattack2
-	loop	0
-	delay	7
-	offset	145 211
-	bbox	135 98 30 60
-	frame	data/chars/xmai/jua01.png
-	attack2	120 120 80 55 12 0 0 0 35 0
-	frame	data/chars/xmai/jua03.png
-
-
-
-anim	jumpattack3
-	followanim	6
-	followcond	1
-	loop	0
-	delay	6
-	offset	145 211
-	bbox	135 98 30 40
-	forcedirection	-1
-	fastattack 1
-	hitfx	data/sounds/beat3.wav
-	frame	data/chars/xmai/jua05.png
-	frame	data/chars/xmai/jua30.png
-	attack2	130 120 35 65 8 0 0 0 15 15
-	frame	data/chars/xmai/jua31.png
-	delay	15
-	frame	data/chars/xmai/jua32.png
-
-
-
-
-anim	follow6
-	loop	0
-	delay	20
+	delay	30
 	offset	145 211
 	bbox	0 0 0 0
-	jumpframe 0 4 0.5
-	landframe 4
-	forcedirection	-1
-	fastattack 1
-	staydown	500 500
-	hitfx	data/sounds/beat5.wav
-	attack	0 0 0 0
-	frame	data/chars/xmai/jua31.png
-	sound	data/sounds/xmai03.wav
-	delay	9
-	frame	data/chars/xmai/jua32.png
-	frame	data/chars/xmai/jua33.png
+	landframe	3
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 200_50_0
+	@cmd	spawnbind "burn1" 1 1 1
+	@cmd	spawnbind "burn2" 1 1 1
+	@cmd	spawnbind "burn3" 1 1 1
+	sound	data/sounds/xmaiPain.wav
+	attack	130 130 29 43 5 1 0 0 13 0
+	frame	data/chars/xmai/fall1.png
+	frame	data/chars/xmai/fall2.png
 	delay	500
-	attack2	125 110 45 50 20 1 0 0 15 15
-	dropv	2 0
-	frame	data/chars/xmai/jua34.png
-	delay	12
-	frame	data/chars/xmai/jua35.png #4
-	delay	30
-	@cmd	spawn01 "qfx" 1 1 3
-	frame	data/chars/xmai/jua36.png
+	frame	data/chars/xmai/fall3.png
 	attack	0 0 0 0
-	delay	12
-	frame	data/chars/xmai/jua37.png
-	frame	data/chars/xmai/jua38.png
-	delay	30
-	frame	data/chars/xmai/jua39.png
-	delay	9
-	frame	data/chars/xmai/jua40.png
-	frame	data/chars/xmai/jua41.png
-	frame	data/chars/xmai/jua42.png
-
-
-
-
-
-
-anim	runjumpattack
-	loop	0
-	delay	6
-	offset	145 211
-	bbox	138 92 30 55
-	fastattack 1
-	forcedirection	-1
-	staydown	500 500
-	hitfx	data/sounds/beat5.wav
-	sound	data/sounds/xmai03.wav
-	frame	data/chars/xmai/jua06.png
-	frame	data/chars/xmai/jua06a.png
-	frame	data/chars/xmai/jua06b.png
-	frame	data/chars/xmai/jua06c.png
-	delay	20
-	attack	115 105 100 70 20 1 0 0 30 14
-	dropv	2 4
-	frame	data/chars/xmai/jua07.png
-	attack	0 0 0 0
-
-
-
-
-
-
-
-
-anim	grab
-	loop	0
-	delay	12
-	offset	145 211
-	bbox	130 125 30 75
-	frame	data/chars/xmai/grab00.png
-
-
-anim	grabattack
-	loop	0
-	delay	5
-	offset	145 211
-	bbox	130 125 30 75
-	attack	0 0 0 0
-	frame	data/chars/xmai/grab00.png
-	delay	23
-	attack6	139 139 40 44 15 0 0 0 16 0
-	frame	data/chars/xmai/grab01.png
-
-
-
-anim	grabattack2
-	loop	0
-	delay	5
-	offset	145 211
-	bbox	130 125 30 75
-	hitfx	data/sounds/beat5.wav
-	fastattack	1
-	attackone 0
-	attack	0 0 0 0
-	frame	data/chars/xmai/grab00.png
-	movez	1
-	frame	data/chars/xmai/sld01.png
-	movez	0
-	sound	data/sounds/xmai03.wav
-	frame	data/chars/xmai/sld02.png
-	frame	data/chars/xmai/sld03.png
-	@cmd	dasher 2 0 0
-	frame	data/chars/xmai/sld04.png
-	frame	data/chars/xmai/sld05.png
-	blast	139 140 40 45 30 0 0 40 15
-	dropv	2 5
-	frame	data/chars/xmai/sld06.png
-	delay	5
-	frame	data/chars/xmai/sld07.png
-	frame	data/chars/xmai/sld08.png
-	frame	data/chars/xmai/sld07.png
-	frame	data/chars/xmai/sld08.png
-	@cmd	stop
-	frame	data/chars/xmai/sld07.png
-	frame	data/chars/xmai/sld08.png
-	blast	0 0 0 0
-	delay	6
-	frame	data/chars/xmai/sld09.png
-	frame	data/chars/xmai/sld09a.png
-	frame	data/chars/xmai/sld09b.png
-	frame	data/chars/xmai/sld09c.png
-	frame	data/chars/xmai/a38.png
-
-
-
-anim	grabup
-	loop	0
-	delay	7
-	offset	145 211
-	bbox	130 110 30 60
-	jumpframe 2 3 0
-	landframe 10
-	attackone 0
-	staydown 400 400
-	attack	0 0 0 0
-	hitfx	data/sounds/burn.wav
-	movez	1
-	frame	data/chars/xmai/a30.png
-	movez	0
-	sound	data/sounds/xmaiPW05.wav
-	frame	data/chars/xmai/a31.png
-	offset	145 220
-	@cmd	spawnAni "maipw" 55 90 4 "ANI_FOLLOW1"
-	frame	data/chars/xmai/grd16.png
-	burn	125 120 60 70 15 1 0 0 20 15
-	dropv	4 1
-	delay	1
-	@cmd	flip
-	@cmd	spawnAni "maipw" 45 80 4 "ANI_FOLLOW1"
-	frame	data/chars/xmai/emp.png
-	@cmd	flip
-	delay	7
-	frame	data/chars/xmai/grd17.png
-	offset	145 235
-	frame	data/chars/xmai/grd18.png
-	offset	145 245
-	frame	data/chars/xmai/grd19.png
-	burn	0 0 0 0
-	offset	145 260
-	frame	data/chars/xmai/grd20.png
-	offset	145 211
-	frame	data/chars/xmai/jump08.png
-	delay	500
-	frame	data/chars/xmai/jump07.png
-	delay	8
-	@cmd	clearL
-	frame	data/chars/xmai/jump00.png #10
-
-
-
-anim	grabforward
-	loop	0
-	delay	20
-	offset	145 211
-	bbox	0 0 0 0
-	attack	0 0 0 0
-	@cmd	slamstart
-	sound	data/sounds/grab.wav
-	@cmd	position 10 35 49 -1 -1
-	frame	data/chars/xmai/grab00.png
-	delay	7
-	@cmd	position 10 30 49 -1 -1
-	frame	data/chars/xmai/grab20.png
-	@cmd	position 10 25 49 -1 -1
-	frame	data/chars/xmai/grab21.png
-	@cmd	position 11 20 49 -1 -1
-	frame	data/chars/xmai/grab22.png
-	@cmd	position 11 15 49 -1 -1
-	frame	data/chars/xmai/grab23.png
-	@cmd	position 0 -10 49 -1 -1
-	frame	data/chars/xmai/grab24.png
-	@cmd	position 13 -25 49 -1 1
-	frame	data/chars/xmai/grab25.png
-	@cmd	position 1 5 90 -1 -1
-	frame	data/chars/xmai/grab26.png
-	sound	data/sounds/xmai02.wav
-	delay	1
-	@cmd	position 6 30 30 -1 -1
-	frame	data/chars/xmai/grab27.png
-	@cmd	depost 0
-	@cmd	finish 70 1 -4 2 0 1
-	delay	6
-	frame	data/chars/xmai/grab27.png
-	delay	7
-	frame	data/chars/xmai/grab28.png
-	frame	data/chars/xmai/grab29.png
-	frame	data/chars/xmai/grab29.png
-	delay	8
-	frame	data/chars/xmai/jump00.png
-	frame	data/chars/xmai/a38.png
-	@cmd	clearL
-	frame	data/chars/xmai/a39.png
-	frame	data/chars/xmai/a40.png
-
-
-
-
-anim	grabbackward
-	otg	2
-	loop	0
-	delay	20
-	offset	145 211
-	bbox	0 0 0 0
-	forcedirection	-1
-	staydown	500 500
-	@cmd	slamstart
-	@cmd	position 10 35 49 -1 -1
-	frame	data/chars/xmai/grab10.png
-	delay	30
-	sound	data/sounds/grab.wav
-	@cmd	position 11 60 49 -1 -1
-	frame	data/chars/xmai/grab14.png
-	delay	9
-	sound	data/sounds/xmai01.wav
-	@cmd	position 8 40 70 -1 -1
-	frame	data/chars/xmai/grab15.png
-	@cmd	position 9 10 80 -1 1
-	frame	data/chars/xmai/grab16.png
-	delay	5
-	attack	80 160 90 40 6 1 0 0 1 15
-	@cmd	antiwall -20 5 0
-	@cmd	position 14 -20 45 -1 1
-	frame	data/chars/xmai/grab17.png
-	@cmd	antiwall -20 5 0
-	@cmd	position 14 -20 45 -1 1
-	frame	data/chars/xmai/grab17.png
-
-	@cmd	spawn01 "qfx" -30 1 2
-
-	@cmd	antiwall -20 5 0
-	@cmd	position 15 -20 45 -1 1
-	frame	data/chars/xmai/grab17.png
-	@cmd	antiwall -20 5 0
-	@cmd	position 15 -20 45 -1 1
-	frame	data/chars/xmai/grab17.png
-	@cmd	depost 0
-	@cmd	finish 70 1 -3 2 0 1
-	delay	30
-	frame	data/chars/xmai/grab17.png
-	attack	0 0 0 0
-	delay	8
-	@cmd	flip
-	frame	data/chars/xmai/rise02.png
-	frame	data/chars/xmai/jump00a.png
-	frame	data/chars/xmai/jump00.png
-	@cmd	clearL
-	frame	data/chars/xmai/a38.png
-	frame	data/chars/xmai/a40.png
-
-
-
-
-anim	grabdown
-	loop	0
-	delay	15
-	offset	145 211
-	bbox	0 0 0 0
-	attack	0 0 0 0
-	@cmd	slamstart
-	@cmd	position 10 35 49 -1 -1
-	frame	data/chars/xmai/grab00.png
-	@cmd	position 10 35 49 -1 -1
-	frame	data/chars/xmai/grab30.png
-	delay	45
-	sound	data/sounds/grab.wav
-	@cmd	position 10 35 49 -1 -1
-	frame	data/chars/xmai/grab31.png
-	delay	12
-	@cmd	position 10 40 49 -1 -1
-	frame	data/chars/xmai/grab32.png
-	delay	35
-	@cmd	position 10 40 49 -1 -1
-	frame	data/chars/xmai/grab33.png
-	delay	9
-	sound	data/sounds/xmai03.wav
-	@cmd	position 11 30 45 -1 -1
-	frame	data/chars/xmai/grab34.png
-	@cmd	position 2 30 45 -1 1
-	frame	data/chars/xmai/grab35.png
-	attack	125 160 90 40 6 1 0 0 1 15
-	@cmd	position 14 0 55 -1 -1
-	frame	data/chars/xmai/grab36.png
-	@cmd	spawn01 "qfx" 10 5 2
-	delay	40
-	@cmd	position 15 0 55 -1 -1
-	frame	data/chars/xmai/grab37.png
-	attack	0 0 0 0
-	@cmd	depost 0
-	@cmd	finish 70 1 -2 3 0 1
-	delay	15
-	frame	data/chars/xmai/grab36.png
-	delay	7
-	frame	data/chars/xmai/grab38.png
-	frame	data/chars/xmai/grab39.png
-	@cmd	clearL
-	frame	data/chars/xmai/grab40.png
-	frame	data/chars/xmai/grab41.png
-	frame	data/chars/xmai/grab42.png
-	frame	data/chars/xmai/sld03.png
-	frame	data/chars/xmai/sld02.png
-	frame	data/chars/xmai/sld01.png
-
-
-
-		
-		
-		
-anim	rise
-	loop	0
-	delay	25
-	offset	145 211
-	bbox	0 0 0 0
+	delay	10
+	offset	145 210
 	frame	data/chars/xmai/fall4.png
-	delay	8
-	frame	data/chars/xmai/rise01.png
-	frame	data/chars/xmai/rise02.png
-	frame	data/chars/xmai/jump00a.png
-	frame	data/chars/xmai/jump00.png
-	frame	data/chars/xmai/a38.png
-	frame	data/chars/xmai/a40.png
-
-
-
-anim	respawn
-	loop	0
-	delay	9
+	delay	50
 	offset	145 211
-	bbox	0 0 0 0
-	frame	data/chars/xmai/spw12.png
-	sound	data/sounds/xmaiTlk.wav
-	frame	data/chars/xmai/spw11.png
-	frame	data/chars/xmai/spw10.png
-	frame	data/chars/xmai/spw09.png
-	frame	data/chars/xmai/spw08.png
-	frame	data/chars/xmai/spw07.png
-	frame	data/chars/xmai/spw06.png
-	frame	data/chars/xmai/spw05.png
-	frame	data/chars/xmai/spw04.png
-	frame	data/chars/xmai/spw03.png
-	frame	data/chars/xmai/spw02.png
-	frame	data/chars/xmai/spw01.png
-
-
-
-
+	frame	data/chars/xmai/fall4.png
 		
-anim	spawn
-	loop	0
-	delay	9
-	offset	145 211
-	bbox	0 0 0 0
-	frame	data/chars/xmai/spw12.png
-	sound	data/sounds/xmaiTlk.wav
-	frame	data/chars/xmai/spw11.png
-	frame	data/chars/xmai/spw10.png
-	frame	data/chars/xmai/spw09.png
-	frame	data/chars/xmai/spw08.png
-	frame	data/chars/xmai/spw07.png
-	frame	data/chars/xmai/spw06.png
-	frame	data/chars/xmai/spw05.png
-	frame	data/chars/xmai/spw04.png
-	frame	data/chars/xmai/spw03.png
-	frame	data/chars/xmai/spw02.png
-	frame	data/chars/xmai/spw01.png
-
-
-
-
-
-
 anim	charge
 	loop	0
 	delay	6
@@ -2199,510 +357,53 @@ anim	charge
 	delay	5
 	frame	data/chars/xmai/chg03.png
 	offset	145 248
-	@cmd	mpgain 3
-	frame	data/chars/xmai/chg05a.png #3
+	bbox	133 140 30 75
+	frame	data/chars/xmai/chg05a.png
 	frame	data/chars/xmai/chg05b.png
-	@cmd	mpgain 3
 	frame	data/chars/xmai/chg05c.png
-	frame	data/chars/xmai/chg05d.png #6
-	@cmd	mpgain 3
+	frame	data/chars/xmai/chg05d.png
 	frame	data/chars/xmai/chg05e.png
 	frame	data/chars/xmai/chg05f.png
-	@cmd	mpgain 3
 	frame	data/chars/xmai/chg05g.png
 	frame	data/chars/xmai/chg05h.png
-	@cmd	mpgain 3
 	frame	data/chars/xmai/chg05i.png
-	frame	data/chars/xmai/chg05j.png #12
+	frame	data/chars/xmai/chg05j.png
 	@cmd	updateframe getlocalvar("self") 3
 	offset	145 211
+	bbox	130 125 30 75
 	delay	6
 	frame	data/chars/xmai/chg06.png
 	frame	data/chars/xmai/chg07.png
 	frame	data/chars/xmai/chg08.png
 	frame	data/chars/xmai/chg09.png
 	frame	data/chars/xmai/chg03.png
-
-
-
-
-anim	freespecial29
-@script
-	void self = getlocalvar("self");
-	int mp1 = getentityproperty(self,"mp");
-	void plyr = getentityproperty(self, "playerindex");
-
-	if(frame > 12 && playerkeys(plyr, 0, "attack3"))
-	{
-	  updateframe(self, 3);
-	}
-@end_script
-	loop	0
-	delay	6
-	offset	145 211
-	bbox	130 125 30 75
-	sound	data/sounds/xclark05.wav
-	frame	data/chars/xmai/chg01.png
-	frame	data/chars/xmai/chg02.png
-	delay	5
-	frame	data/chars/xmai/chg03.png
-	offset	145 248
-	@cmd	mpgain 2
-	frame	data/chars/xmai/chg05a.png #3
-	frame	data/chars/xmai/chg05b.png
-	@cmd	mpgain 3
-	frame	data/chars/xmai/chg05c.png
-	frame	data/chars/xmai/chg05d.png #6
-	@cmd	mpgain 3
-	frame	data/chars/xmai/chg05e.png
-	frame	data/chars/xmai/chg05f.png
-	@cmd	mpgain 3
-	frame	data/chars/xmai/chg05g.png
-	frame	data/chars/xmai/chg05h.png
-	@cmd	mpgain 3
-	frame	data/chars/xmai/chg05i.png
-	frame	data/chars/xmai/chg05j.png #12
-	delay	6
-	offset	145 211
-	frame	data/chars/xmai/chg06.png
-	frame	data/chars/xmai/chg07.png
-	frame	data/chars/xmai/chg08.png
-	frame	data/chars/xmai/chg09.png
-	frame	data/chars/xmai/chg02.png
-
-
-
-
-
-
-anim	special
-@script
-	void self = getlocalvar("self");
-	int plr = getentityproperty(self,"playerindex");
-	float energ = getentityproperty(self,"mp");
-
-	if (frame >= 5 && frame <= 20)
-	{
-		if ( playerkeys(plr,0, "attack"))
-		{
-			updateframe(self, 21);
-		}
-		if (energ <= 8)
-		{
-			updateframe(self, 42);
-		}
-		if (playerkeys(plr,0,"special"))
-		{
-		updateframe(self, 42);
-		}
-	}
-@end_script
-	#energycost	10
-	mponly	1
-	loop	1 16 19
-	delay	8
-	offset	145 211
-	bbox	0 0 0 0
-	hitfx	data/sounds/beat5.wav
-
-	frame	data/chars/xmai/spwb01.png
-	@cmd	stop
-	sound	data/sounds/xmai03.wav
-	frame	data/chars/xmai/spwb02.png #1
-	frame	data/chars/xmai/spwb03.png
-	frame	data/chars/xmai/spwb04.png
-	frame	data/chars/xmai/spwb05.png
-	delay	4
-	sound	data/sounds/grab2.wav
-#---//-------------//---ready--//--------------------
-	frame	data/chars/xmai/spwb06a.png #5
-	frame	data/chars/xmai/spwb06.png
-	frame	data/chars/xmai/spwb07.png
-	frame	data/chars/xmai/spwb08.png
-	frame	data/chars/xmai/spwb09.png
-	frame	data/chars/xmai/spwb10.png
-	frame	data/chars/xmai/spwb11.png
-	frame	data/chars/xmai/spwb12.png
-	frame	data/chars/xmai/spwb13.png
-	frame	data/chars/xmai/spwb14.png
-	frame	data/chars/xmai/spwb15.png
-
-
-	delay	3
-#---//----------//---IDLE-stance--//-----------------
-	frame	data/chars/xmai/spwb15.png #16
-	bbox	130 145 30 60
-	frame	data/chars/xmai/spwb15.png
-	frame	data/chars/xmai/spwb15.png
-	frame	data/chars/xmai/spwb15.png
-	frame	data/chars/xmai/spwb15.png #19 --/--#20
-#---//-----------------------------------------------
-
-#---//-------------//---ATTACK--//-------------------
-	delay	5
-	bbox	0 0 0 0
-	hitfx	data/sounds/burn.wav
-	burn	87 125 130 65 30 1 1 0 12 30
-	dropv	5.5 1
-	@cmd	keymove 2.3
-	frame	data/chars/xmai/spwb21.png #21
-	@cmd	mpgain -10
-	@cmd	keymove 2.3
-	frame	data/chars/xmai/spwb22.png
-	@cmd	keymove 2.3
-	frame	data/chars/xmai/spwb23.png
-	@cmd	keymove 2.3
-	@cmd	spawnbind "maipw" 80 1 5 #--------------
-	sound	data/sounds/punch2.wav
-	frame	data/chars/xmai/spwb24.png
-	@cmd	keymove 2.3
-	frame	data/chars/xmai/spwb25.png
-	@cmd	keymove 2.3
-	frame	data/chars/xmai/spwb26.png #26
-
-	@cmd	keymove 2.3
-	frame	data/chars/xmai/spwb20.png
-	@cmd	keymove 2.3
-	frame	data/chars/xmai/spwb21.png
-	@cmd	keymove 2.3
-	frame	data/chars/xmai/spwb22.png
-	@cmd	spawnbind2 "maipw" -60 1 5 "ANI_FOLLOW5" #--------------
-	sound	data/sounds/punch2.wav
-	@cmd	keymove 2.3
-	frame	data/chars/xmai/spwb23.png
-	@cmd	keymove 2.3
-	frame	data/chars/xmai/spwb24.png
-	@cmd	keymove 2.3
-	frame	data/chars/xmai/spwb25.png
-	@cmd	keymove 2.3
-	frame	data/chars/xmai/spwb26.png
-
-	@cmd	keymove 2.3
-	frame	data/chars/xmai/spwb20.png
-	sound	data/sounds/punch2.wav
-	@cmd	spawnbind "maipw" 80 1 5 #--------------
-	@cmd	keymove 2.3
-	frame	data/chars/xmai/spwb21.png
-	@cmd	keymove 2.3
-	frame	data/chars/xmai/spwb22.png
-	@cmd	keymove 2.3
-	frame	data/chars/xmai/spwb23.png
-	@cmd	keymove 2.3
-	frame	data/chars/xmai/spwb24.png
-	@cmd	keymove 2.3
-	frame	data/chars/xmai/spwb25.png
-	@cmd	keymove 2.3
-	frame	data/chars/xmai/spwb26.png
-
-	attack	0 0 0 0
-	@cmd	stop
-	@cmd	updateframe getlocalvar("self") 1
-#---//-----------------------------------------------
-	delay	7
-	frame	data/chars/xmai/spwb06.png
-	frame	data/chars/xmai/spwb06.png #42
-	sound	data/sounds/grab2.wav
-	frame	data/chars/xmai/spwb05.png
-	frame	data/chars/xmai/spwb04.png
-	frame	data/chars/xmai/spwb03.png
-	frame	data/chars/xmai/spwb02.png
-	frame	data/chars/xmai/spwb01.png
-	frame	data/chars/xmai/jump00.png
-	frame	data/chars/xmai/a38.png
-	frame	data/chars/xmai/a40.png
-
-
-
-
-
-
-
-
-anim	runattack
-	loop	0
-	delay	5
-	offset	145 211
-	bbox	130 125 30 75
-	fastattack	1
-	forcedirection	-1
-	hitfx	data/sounds/beat5.wav
-	@cmd	dasher 3.5 0 0
-
-	@cmd	dasher 3 0 0
-
-	frame	data/chars/xmai/runatk31.png
-	sound	data/sounds/xmaiPW02.wav
-	frame	data/chars/xmai/runatk32.png
-	frame	data/chars/xmai/runatk33.png
-	frame	data/chars/xmai/runatk33a.png
-	delay	6
-	attack8	135 85 55 75 5 0 0 0 10 15
-	frame	data/chars/xmai/runatk34.png
-	frame	data/chars/xmai/runatk35.png
-	frame	data/chars/xmai/runatk36.png
-	attack8	0 0 0 0
-	frame	data/chars/xmai/runatk37.png
-	delay	5
-	attack9	135 125 85 50 30 1 0 0 40 15
-	dropv	2 3
-	frame	data/chars/xmai/runatk38.png
-	frame	data/chars/xmai/runatk39.png
-	@cmd	dasher 2 0 0
-	attack9	135 125 85 50 30 1 0 0 40 15
-	dropv	2 2
-	frame	data/chars/xmai/runatk40.png
-	frame	data/chars/xmai/runatk38.png
-	frame	data/chars/xmai/runatk39.png
-	attack9	135 125 85 50 30 1 0 0 40 15
-	dropv	2 1
-	@cmd	dasher 1 0 0
-	frame	data/chars/xmai/runatk40.png
-	frame	data/chars/xmai/runatk38.png
-	frame	data/chars/xmai/runatk39.png
-	attack9	0 0 0 0
-	delay	7
-	@cmd	stop
-	frame	data/chars/xmai/runatk37.png
-	delay	8
-	bbox	0 0 0 0
-	frame	data/chars/xmai/a37.png
-	frame	data/chars/xmai/a38.png
-	frame	data/chars/xmai/a39.png
-	frame	data/chars/xmai/a40.png
-
-
-
-
-
-
-
-
-anim	runslide
-	cancel	6 14 0 a freespecial2
-	cancel	6 14 0 j freespecial2
-	loop	0
-	delay	6
-	offset	145 211
-	bbox	130 175 30 25
-	fastattack 1
-	forcedirection	-1
-	hitfx	data/sounds/beat5.wav
-	@cmd	dasher 3 0 0
-	frame	data/chars/xmai/jump00.png
-	sound	data/sounds/xmai02.wav
-	frame	data/chars/xmai/jump00a.png
-	frame	data/chars/xmai/sld10.png
-	attack10 135 170 85 40 20 1 0 0 25 15
-	dropv	3.5 1.5
-	frame	data/chars/xmai/sld11.png
-	frame	data/chars/xmai/sld12.png
-	frame	data/chars/xmai/sld11.png
-	frame	data/chars/xmai/sld12.png #6
-	frame	data/chars/xmai/sld11.png 
-	frame	data/chars/xmai/sld12.png
-	@cmd	dasher 2 0 0
-	frame	data/chars/xmai/sld11.png
-	frame	data/chars/xmai/sld12.png
-	frame	data/chars/xmai/sld11.png
-	frame	data/chars/xmai/sld12.png
-	@cmd	dasher 1 0 0
-	frame	data/chars/xmai/sld11.png
-	frame	data/chars/xmai/sld12.png # 14
-	attack10 0 0 0 0
-	@cmd	stop
-	frame	data/chars/xmai/sld11.png
-	delay	7
-	frame	data/chars/xmai/sld10.png
-	frame	data/chars/xmai/jump00a.png
-	frame	data/chars/xmai/jump00.png
-
-
-
-
-anim	freespecial2
-	loop	0
-	delay	5
-	offset	145 211
-	bbox	130 175 30 25
-	forcedirection	-1
-	fastattack 1
-	hitfx	data/sounds/beat3.wav
-	@cmd	dasher 2 0 0
-	attack	0 0 0 0
-	frame	data/chars/xmai/sld13.png
-	sound	data/sounds/xmai03.wav
-	frame	data/chars/xmai/sld14.png
-	frame	data/chars/xmai/sld15.png
-	blast	135 115 85 85 15 0 0 5 15
-	dropv	0.5 -4
-	frame	data/chars/xmai/sld15a.png
-	frame	data/chars/xmai/sld16.png
-	frame	data/chars/xmai/sld17.png
-	@cmd	dasher 1 0 0
-	frame	data/chars/xmai/sld18.png
-	blast	0 0 0 0
-	frame	data/chars/xmai/sld19.png
-	frame	data/chars/xmai/sld20.png
-	@cmd	stop
-	frame	data/chars/xmai/sld21.png
-	frame	data/chars/xmai/sld22.png
-	frame	data/chars/xmai/sld23.png
-	delay	12
-	frame	data/chars/xmai/sld24.png
-	delay	8
-	frame	data/chars/xmai/jump00a.png
-	frame	data/chars/xmai/jump00.png
-
-
-
-
-
-
-
-#--------------------------//-----------------------
-
-anim	waiting
-	loop	1
-	delay	12
-	offset	0 0
-	frame	data/chars/xmai/xwait1.png
-	frame	data/chars/xmai/xwait1.png
-
-anim	select
-	loop	0
-	delay	5
-	offset	0 0
-	sound	data/sounds/blink.wav
-	frame	data/chars/xmai/xwait2.png
-	sound	data/sounds/xmaiTlk.wav
-	frame	data/chars/xmai/xwait3.png
-	frame	data/chars/xmai/xwait2.png #2
-	frame	data/chars/xmai/xwait3.png
-	@cmd	looper 2 10
-	delay	100
-	frame	data/chars/xmai/xwait2.png
-
-#--------------------------//-----------------------
-
-anim	grabbed
-	loop	0
-	delay	10
-	offset	145 211
-	bbox	130 125 30 75
-	frame	data/chars/xmai/pain2.png
-
-
-
-anim	pain
-	loop	0
-	delay	3
-	offset	145 211
-	bbox	130 125 30 75
-	frame	data/chars/xmai/pain1.png
-	offset	140 211
-	frame	data/chars/xmai/pain2.png
-	offset	146 211
-	frame	data/chars/xmai/pain2.png
-	offset	145 211
-	frame	data/chars/xmai/pain2.png
-
 		
-anim	pain2
+anim	death
 	loop	0
-	delay	3
+	delay	40
 	offset	145 211
-	bbox	130 125 30 75
-	frame	data/chars/xmai/pain3.png
-	offset	140 211
-	frame	data/chars/xmai/pain4.png
-	offset	146 211
-	frame	data/chars/xmai/pain4.png
-	offset	145 211
-	frame	data/chars/xmai/pain4.png
-		
-anim	pain3
-	loop	0
-	delay	2
-	offset	145 211
-	bbox	130 125 30 75
-	move	-6
-	frame	data/chars/xmai/pain1.png
-	frame	data/chars/xmai/pain1.png
-	frame	data/chars/xmai/pain1.png
-	frame	data/chars/xmai/pain2.png
-	frame	data/chars/xmai/pain2.png
-	frame	data/chars/xmai/pain2.png
-	move	-4
-	frame	data/chars/xmai/pain1.png
-	frame	data/chars/xmai/pain1.png
-	frame	data/chars/xmai/pain1.png
-	frame	data/chars/xmai/pain3.png
-	frame	data/chars/xmai/pain3.png
-	move	-2
-	frame	data/chars/xmai/pain3.png
-	frame	data/chars/xmai/pain4.png
-	frame	data/chars/xmai/pain4.png
-	delay	50
-	frame	data/chars/xmai/pain4.png
-
-
-anim	pain5
-	loop	0
-	delay	12
-	offset	145 211
-	bbox	130 125 30 75
-	frame	data/chars/xmai/pain1.png
-	frame	data/chars/xmai/pain2.png
-	frame	data/chars/xmai/pain3.png
-	frame	data/chars/xmai/pain4.png
-	frame	data/chars/xmai/pain2.png
-	frame	data/chars/xmai/jump00a.png
-	delay	50
-	frame	data/chars/xmai/rise02.png
-	delay	9
+	bbox	0 0 0 0
+	frame	data/chars/xmai/fall4.png
+	delay	8
+	sound	data/sounds/xmaiDet.wav
 	frame	data/chars/xmai/rise01.png
 	frame	data/chars/xmai/rise02.png
-	frame	data/chars/xmai/jump00a.png
-	frame	data/chars/xmai/jump00.png
-
-
-
-
-		
-anim	burn
-	loop	0
 	delay	30
-	offset	145 211
-	bbox	0 0 0 0
-	landframe 3
-	drawmethod	tintmode 4
-	drawmethod	tintcolor 200_50_0
-	@cmd	spawnbind "burn1" 1 1 1
-	@cmd	spawnbind "burn2" 1 1 1
-	@cmd	spawnbind "burn3" 1 1 1
-
-	sound	data/sounds/xmaiPain.wav
-
-	attack	130 130 29 43 5 1 0 0 13 0
-	frame	data/chars/xmai/fall1.png
-	frame	data/chars/xmai/fall2.png
-	delay	500
-	frame	data/chars/xmai/fall3.png
-	attack	0 0 0 0
-	delay	10
-	offset	145 210
-	frame	data/chars/xmai/fall4.png
-	delay	50
-	offset	145 211
-	frame	data/chars/xmai/fall4.png
-
-
+	frame	data/chars/xmai/det01.png
+	delay	8
+	frame	data/chars/xmai/det02.png
+	frame	data/chars/xmai/det03.png
+	frame	data/chars/xmai/det04.png
+	frame	data/chars/xmai/det05.png
+	delay	160
+	frame	data/chars/xmai/det06.png
+		
 anim	fall
 	loop	0
 	delay	30
 	offset	145 211
 	bbox	0 0 0 0
-	landframe 3
+	landframe	3
 	sound	data/sounds/xmaiPain.wav
 	attack	130 130 29 43 5 1 0 0 13 0
 	frame	data/chars/xmai/fall1.png
@@ -2716,14 +417,13 @@ anim	fall
 	delay	50
 	offset	145 211
 	frame	data/chars/xmai/fall4.png
-		
 		
 anim	fall2
 	loop	0
 	delay	30
 	offset	145 211
 	bbox	0 0 0 0
-	landframe 3 dust
+	landframe	3 dust
 	sound	data/sounds/xmaiPain.wav
 	attack	130 130 29 43 5 1 0 0 13 0
 	frame	data/chars/xmai/pain4.png
@@ -2737,8 +437,7 @@ anim	fall2
 	delay	50
 	offset	145 211
 	frame	data/chars/xmai/fall4.png
-
-
+		
 anim	fall3
 	loop	0
 	delay	30
@@ -2762,9 +461,6 @@ anim	fall3
 	offset	145 211
 	bbox	0 0 0 0
 	frame	data/chars/xmai/fall4.png
-
-
-
 		
 anim	fall7
 	delay	1000
@@ -2823,11 +519,7 @@ anim	fall7
 	bbox	25 10 60 80
 	frame	data/chars/xmai/slambbox1.png
 	bbox	0 0 0 0
-
-
-
-
-
+		
 anim	fall9
 	loop	0
 	delay	9
@@ -2850,32 +542,1175 @@ anim	fall9
 	delay	15
 	@cmd	clearL
 	frame	data/chars/xmai/fall4.png
-
-
-
-anim	death
+		
+anim	follow10
+	followanim	11
+	followcond	1
 	loop	0
-	delay	40
+	delay	7
 	offset	145 211
 	bbox	0 0 0 0
-	frame	data/chars/xmai/fall4.png
+	staydown	800 800
+	forcedirection	-1
+	attackone	1
+	fastattack	1
+	jumpframe	0 2 0.2
+	landframe	2
+	otg	2
+	hitfx	data/sounds/empty.wav
+	sound	data/sounds/xmai03.wav
+	frame	data/chars/xmai/grd01.png
+	delay	500
+	frame	data/chars/xmai/grd02.png
+	delay	1
+	attack11	120 190 95 30 0 1 1 1 0 10
+	dropv	0 0
+	frame	data/chars/xmai/grd03.png #2
+	attack11	0 0 0 0
+	delay	9
+	frame	data/chars/xmai/jump00a.png
+	@cmd	clearL
+	frame	data/chars/xmai/jump00.png
+	bbox	0 0 0 0
+	frame	data/chars/xmai/a37.png
+	frame	data/chars/xmai/a38.png
+	frame	data/chars/xmai/a39.png
+	frame	data/chars/xmai/a40.png
+		
+anim	follow11
+	cancel	9 19 1 a freespecial1
+	cancel	9 19 1 j freespecial1
+	cancel	9 19 1 u freespecial10
+	loop	0
+	delay	1
+	offset	145 211
+	bbox	0 0 0 0
+	staydown	800 800
+	forcedirection	-1
+	attackone	1
+	fastattack	1
+	otg	2
+	hitfx	data/sounds/beat5.wav
+	hitflash	flashscreen1
+	attack11	0 0 0 0
+	frame	data/chars/xmai/grd03.png
 	delay	8
-	sound	data/sounds/xmaiDet.wav
-	frame	data/chars/xmai/rise01.png
-	frame	data/chars/xmai/rise02.png
+	attack11	120 190 95 30 25 1 0 0 25 10
+	dropv	0 0
+	movez	4
+	frame	data/chars/xmai/grd03.png #1
+	movez	0
+	frame	data/chars/xmai/grd04.png
+	frame	data/chars/xmai/grd05.png
+	attack11	0 0 0 0
+	frame	data/chars/xmai/grd06.png
+	frame	data/chars/xmai/grd07.png
+	frame	data/chars/xmai/grd06.png
+	frame	data/chars/xmai/grd07.png
+	delay	3
+	frame	data/chars/xmai/grd08.png
+	delay	5
+	frame	data/chars/xmai/grd08.png #9
+	frame	data/chars/xmai/grd08.png
+	frame	data/chars/xmai/grd08.png
+	frame	data/chars/xmai/grd08.png
+	frame	data/chars/xmai/grd08.png
+	frame	data/chars/xmai/grd08.png
+	frame	data/chars/xmai/grd08a.png
+	frame	data/chars/xmai/grd08a.png
+	frame	data/chars/xmai/grd08a.png
+	frame	data/chars/xmai/grd08.png
+	frame	data/chars/xmai/grd08.png #19
+	@cmd	looper 9 3
+	delay	9
+	frame	data/chars/xmai/jump00a.png
+	@cmd	clearL
+	frame	data/chars/xmai/jump00.png
+	bbox	0 0 0 0
+	frame	data/chars/xmai/a37.png
+	frame	data/chars/xmai/a38.png
+	frame	data/chars/xmai/a39.png
+	frame	data/chars/xmai/a40.png
+		
+anim	follow12
+	cancel	7 11 1 a freespecial4
+	cancel	7 11 1 j freespecial4
+	cancel	7 11 1 u freespecial10
+	loop	0
+	delay	1
+	offset	145 211
+	bbox	0 0 0 0
+	staydown	800 800
+	forcedirection	-1
+	attackone	1
+	fastattack	1
+	otg	2
+	hitfx	data/sounds/empty.wav
+	hitflash	flashscreen1
+	attack11	0 0 0 0
+	frame	data/chars/xmai/grd10.png
+	attack11	120 190 95 30 25 1 0 0 25 10
+	dropv	0 0
+	delay	7
+	frame	data/chars/xmai/grd10.png
+	attack11	0 0 0 0
+	delay	8
+	frame	data/chars/xmai/grd11.png
+	frame	data/chars/xmai/grd12.png
+	frame	data/chars/xmai/grd13.png
+	frame	data/chars/xmai/grd12.png
+	frame	data/chars/xmai/grd13.png
+	frame	data/chars/xmai/grd10.png
+	delay	11
+	frame	data/chars/xmai/grd14.png #8
+	frame	data/chars/xmai/grd15.png
+	frame	data/chars/xmai/grd14.png
+	frame	data/chars/xmai/grd15.png #11
+	@cmd	looper 8 5
+	frame	data/chars/xmai/grd14.png
+	delay	9
+	frame	data/chars/xmai/jump00a.png
+	@cmd	clearL
+	frame	data/chars/xmai/jump00.png
+	bbox	0 0 0 0
+	frame	data/chars/xmai/a37.png
+	frame	data/chars/xmai/a38.png
+	frame	data/chars/xmai/a39.png
+	frame	data/chars/xmai/a40.png
+		
+anim	follow13
+	loop	0
+	delay	1
+	offset	145 211
+	bbox	0 0 0 0
+	staydown	500 500
+	forcedirection	-1
+	attackone	1
+	fastattack	1
+	otg	2
+	hitfx	data/sounds/beat5.wav
+	hitflash	flashscreen1
+	attack11	0 0 0 0
+	frame	data/chars/xmai/grd21.png
+	delay	9
+	attack11	120 190 95 30 25 1 0 0 35 10
+	dropv	0 0
+	@cmd	spawn01 "qfx" 1 1 5
+	frame	data/chars/xmai/grd21.png
+	frame	data/chars/xmai/grd22.png
+	frame	data/chars/xmai/grd23.png
+	attack11	0 0 0 0
+	frame	data/chars/xmai/grd24.png
+	frame	data/chars/xmai/grd25.png
+	frame	data/chars/xmai/grd25a.png
+	delay	55
+	frame	data/chars/xmai/grd25.png
+	delay	9
+	frame	data/chars/xmai/jump00a.png
+	@cmd	clearL
+	frame	data/chars/xmai/jump00.png
+	bbox	0 0 0 0
+	frame	data/chars/xmai/a37.png
+	frame	data/chars/xmai/a38.png
+	frame	data/chars/xmai/a39.png
+	frame	data/chars/xmai/a40.png
+		
+anim	follow15
+@script
+	void self = getlocalvar("self");
+   	void opp = getentityproperty(self, "opponent");
+	int enedir = getentityproperty(opp,"direction");
+	if (frame == 0 && enedir == 0)
+	{
+	changeentityproperty(self, "direction", 1);
+	}
+	else if (frame == 0 && enedir == 1)
+	{
+	changeentityproperty(self, "direction", 0);
+	}
+	@end_script	
+	loop	0
+	delay	7
+	offset	145 211
+	bbox	0 0 0 0
+	jumpframe	0 3 -1
+	landframe	6
+	frame	data/chars/xmai/jump12.png
+	frame	data/chars/xmai/jump11.png
+	frame	data/chars/xmai/jump10.png
+	frame	data/chars/xmai/jump09.png
+	frame	data/chars/xmai/jump08.png
+	delay	500
+	frame	data/chars/xmai/jump05.png
+	delay	8
+	frame	data/chars/xmai/jump00.png #6
+		
+anim	follow16
+@script
+	void self = getlocalvar("self");
+   	void opp = getentityproperty(self, "opponent");
+	int enedir = getentityproperty(opp,"direction");
+	if (frame == 0 && enedir == 0)
+	{
+	changeentityproperty(self, "direction", 1);
+	}
+	else if (frame == 0 && enedir == 1)
+	{
+	changeentityproperty(self, "direction", 0);
+	}
+	@end_script	
+	loop	0
+	delay	7
+	offset	145 211
+	bbox	0 0 0 0
+	frame	data/chars/xmai/jump00.png
+	@cmd	dasher -3 0 0
+	@cmd	spawn01 "dust" -35 1 1
+	frame	data/chars/xmai/dgd05.png
+	frame	data/chars/xmai/dgd04.png
+	frame	data/chars/xmai/dgd03.png
+	frame	data/chars/xmai/dgd02.png
+	frame	data/chars/xmai/dgd01.png
+	frame	data/chars/xmai/jump00.png
+	frame	data/chars/xmai/jump00a.png
+	@cmd	stop
+	frame	data/chars/xmai/jump00.png
+		
+anim	follow17
+@script
+	void self = getlocalvar("self");
+	int eTime = openborvariant("elapsed_time");
+	if (frame == 11)
+	{
+	changeentityproperty(self, "invincible", 1);
+	changeentityproperty(self, "invinctime", eTime + 1000);
+	changeentityproperty(self, "blink", 1);
+	}
+	@end_script	
+	loop	0
+	delay	800
+	offset	145 211
+	bbox	0 0 0 0
+	frame	data/chars/xmai/emp.png
+	delay	9
+	frame	data/chars/xmai/spw12.png
+	frame	data/chars/xmai/spw11.png
+	frame	data/chars/xmai/spw10.png
+	frame	data/chars/xmai/spw09.png
+	frame	data/chars/xmai/spw08.png
+	frame	data/chars/xmai/spw07.png
+	frame	data/chars/xmai/spw06.png
+	frame	data/chars/xmai/spw05.png
+	frame	data/chars/xmai/spw04.png
+	frame	data/chars/xmai/spw03.png
+	frame	data/chars/xmai/spw02.png
+	frame	data/chars/xmai/spw01.png
+		
+anim	follow6
+	loop	0
+	delay	20
+	offset	145 211
+	bbox	0 0 0 0
+	jumpframe	0 4 0.5
+	landframe	4
+	forcedirection	-1
+	fastattack	1
+	staydown	500 500
+	hitfx	data/sounds/beat5.wav
+	attack	0 0 0 0
+	frame	data/chars/xmai/jua31.png
+	sound	data/sounds/xmai03.wav
+	delay	9
+	frame	data/chars/xmai/jua32.png
+	frame	data/chars/xmai/jua33.png
+	delay	500
+	attack2	125 110 45 50 20 1 0 0 15 15
+	dropv	2 0
+	frame	data/chars/xmai/jua34.png
+	delay	12
+	attack2	125 160 45 50 20 1 0 0 15 15
+	frame	data/chars/xmai/jua35.png
 	delay	30
-	frame	data/chars/xmai/det01.png
+	@cmd	spawn01 "qfx" 1 1 3
+	frame	data/chars/xmai/jua36.png
+	attack	0 0 0 0
+	delay	12
+	frame	data/chars/xmai/jua37.png
+	frame	data/chars/xmai/jua38.png
+	delay	30
+	frame	data/chars/xmai/jua39.png
+	delay	9
+	frame	data/chars/xmai/jua40.png
+	frame	data/chars/xmai/jua41.png
+	frame	data/chars/xmai/jua42.png
+		
+anim	follow7
+	loop	0
+	delay	6
+	offset	145 211
+	bbox	130 145 30 68
+	frame	data/chars/xmai/jump00.png
+	frame	data/chars/xmai/jump00a.png
+	frame	data/chars/xmai/jump00.png
+	frame	data/chars/xmai/a38.png
+	frame	data/chars/xmai/a40.png
+		
+anim	follow8
+	loop	0
+	delay	6
+	offset	145 211
+	bbox	0 0 0 0
+	jumpframe	1 4 1
+	landframe	10
+	hitfx	data/sounds/burn.wav
+	frame	data/chars/xmai/runatk10.png
+	sound	data/sounds/xmai03.wav
+	frame	data/chars/xmai/runatk11.png
+	burn	100 115 100 75 20 1 1 0 10 25
+	dropv	5 1
+	frame	data/chars/xmai/runatk12.png
+	@cmd	spawnAni "maipw" 80 40 4 "ANI_FOLLOW1"
+	frame	data/chars/xmai/runatk13.png
+	frame	data/chars/xmai/runatk14.png
+	frame	data/chars/xmai/runatk15.png
+	delay	1
+	@cmd	flip
+	@cmd	spawnAni "maipw" 10 1 4 "ANI_FOLLOW1"
+	frame	data/chars/xmai/emp.png
+	@cmd	flip
+	delay	6
+	frame	data/chars/xmai/runatk16.png
+	frame	data/chars/xmai/runatk17.png
+	delay	500
+	frame	data/chars/xmai/runatk18.png
+	burn	0 0 0 0
+	delay	7
+	frame	data/chars/xmai/jump00a.png #10
+	frame	data/chars/xmai/jump00.png
+	frame	data/chars/xmai/a38.png
+	frame	data/chars/xmai/a40.png
+		
+anim	follow9
+	loop	0
+	delay	3
+	offset	145 211
+	bbox	0 0 0 0
+	forcedirection	-1
+	fastattack	1
+	seal	15 2
+	move	0
+	@cmd	stop
+	@cmd	clearL
+	frame	data/chars/xmai/jump00.png
+	hitfx	data/sounds/beat2.wav
+	frame	data/chars/xmai/b01.png
+	frame	data/chars/xmai/b02.png
+	attack	130 130 75 55 2 0 1 0 8 20
+	frame	data/chars/xmai/b03.png
+	frame	data/chars/xmai/b04.png
+	attack	0 0 0 0
+	frame	data/chars/xmai/b02.png
+	frame	data/chars/xmai/b01.png
+	frame	data/chars/xmai/b11.png
+	frame	data/chars/xmai/b12.png
+	attack	130 130 75 55 2 0 1 0 8 20
+	frame	data/chars/xmai/b13.png
+	frame	data/chars/xmai/b14.png
+	attack	0 0 0 0
+	frame	data/chars/xmai/b11.png
+	frame	data/chars/xmai/b10.png
+	@cmd	looper 1 7
+	frame	data/chars/xmai/jump00.png
+	delay	5
+	hitfx	data/sounds/beat3.wav
+	frame	data/chars/xmai/a12.png
+	attack	130 130 75 55 2 0 1 0 3 20
+	frame	data/chars/xmai/a13.png
+	frame	data/chars/xmai/a14.png
+	attack	0 0 0 0
+	frame	data/chars/xmai/a15.png
+	frame	data/chars/xmai/a16.png
+	attack	130 130 75 55 2 0 1 0 3 20
+	frame	data/chars/xmai/a17.png
+	frame	data/chars/xmai/a18.png
+	attack	0 0 0 0
+	frame	data/chars/xmai/a19.png
+	@cmd	looper 14 7
+	attack5	130 130 75 55 2 0 1 1 0 20
+	frame	data/chars/xmai/jump00.png
+	attack5	0 0 0 0
+	frame	data/chars/xmai/jump00a.png
+	delay	5
+	hitfx	data/sounds/empty.wav
+	attack5	130 130 75 55 2 0 1 1 0 20
+	frame	data/chars/xmai/c01.png
+	sound	data/sounds/xmai03.wav
+	frame	data/chars/xmai/c02.png
+	attack5	0 0 0 0
+	@cmd	clearL
+	frame	data/chars/xmai/c03.png
+	frame	data/chars/xmai/c04.png
+	attack5	130 130 75 55 2 0 1 1 0 20
+	frame	data/chars/xmai/c05.png
+	frame	data/chars/xmai/c06.png
+	attack5	0 0 0 0
+	frame	data/chars/xmai/c07.png
+	frame	data/chars/xmai/c08.png
+	attack5	130 130 75 55 2 0 1 1 0 20
+	frame	data/chars/xmai/c09.png
+	frame	data/chars/xmai/c10.png
+	attack5	0 0 0 0
+	frame	data/chars/xmai/c11.png
+	sound	data/sounds/xmaiPW02.wav
+	frame	data/chars/xmai/c12.png
+	delay	7
+	@cmd	spawn01 "flashscreen1" 1 900 5
+	frame	data/chars/xmai/c13.png
+	attack6	130 130 75 55 2 0 1 1 0 20
+	frame	data/chars/xmai/c13.png
+	attack6	0 0 0 0
+	frame	data/chars/xmai/c13.png
+	attack6	130 130 75 55 2 0 1 1 0 20
+	frame	data/chars/xmai/c13.png
+	attack6	0 0 0 0
+	frame	data/chars/xmai/c13.png
+	attack6	130 130 75 55 2 0 1 1 0 20
+	frame	data/chars/xmai/c13.png
+	attack6	0 0 0 0
+	frame	data/chars/xmai/c13.png
+	attack6	130 130 75 55 2 0 1 1 0 20
+	frame	data/chars/xmai/c13.png
+	attack6	0 0 0 0
+	@cmd	looper 36 3
+	delay	5
+	attack5	130 130 75 55 2 0 1 1 0 20
+	frame	data/chars/xmai/c12.png
+	frame	data/chars/xmai/c11.png
+	attack5	0 0 0 0
+	@cmd	clearL
+	frame	data/chars/xmai/c10.png
+	frame	data/chars/xmai/c09.png
+	attack5	130 130 75 55 2 0 1 1 0 20
+	frame	data/chars/xmai/c08.png
+	frame	data/chars/xmai/c07.png
+	attack5	0 0 0 0
+	frame	data/chars/xmai/c06.png
+	frame	data/chars/xmai/c05.png
+	attack5	130 130 75 55 2 0 1 1 0 20
+	frame	data/chars/xmai/c04.png
+	frame	data/chars/xmai/c03.png
+	attack5	0 0 0 0
+	frame	data/chars/xmai/c02.png
+	frame	data/chars/xmai/c01.png
+	attack5	130 130 75 55 2 0 1 1 0 20
+	frame	data/chars/xmai/c20.png
+	frame	data/chars/xmai/c21.png
+	attack5	0 0 0 0
+	frame	data/chars/xmai/c22.png
+	frame	data/chars/xmai/c23.png
+	attack5	130 130 75 55 2 0 1 1 0 20
+	frame	data/chars/xmai/c24.png
+	frame	data/chars/xmai/c25.png
+	attack5	0 0 0 0
+	sound	data/sounds/xmaiPW02.wav
+	frame	data/chars/xmai/c26.png
+	delay	7
+	@cmd	spawn01 "flashscreen1" 1 900 5
+	attack6	130 130 75 55 2 0 1 1 0 20
+	frame	data/chars/xmai/c27.png
+	attack6	0 0 0 0
+	frame	data/chars/xmai/c27.png
+	attack6	130 130 75 55 2 0 1 1 0 20
+	frame	data/chars/xmai/c27.png
+	attack6	0 0 0 0
+	frame	data/chars/xmai/c27.png
+	attack6	130 130 75 55 2 0 1 1 0 20
+	frame	data/chars/xmai/c27.png
+	attack6	0 0 0 0
+	frame	data/chars/xmai/c27.png
+	attack6	130 130 75 55 2 0 1 1 0 20
+	frame	data/chars/xmai/c27.png
+	attack6	0 0 0 0
+	frame	data/chars/xmai/c27.png
+	@cmd	looper 63 3
+	delay	5
+	attack5	130 130 75 55 2 0 1 1 0 20
+	frame	data/chars/xmai/c26.png
+	frame	data/chars/xmai/c25.png
+	attack5	0 0 0 0
+	frame	data/chars/xmai/c24.png
+	frame	data/chars/xmai/c23.png
+	attack5	130 130 75 55 2 0 1 1 0 20
+	frame	data/chars/xmai/c22.png
+	frame	data/chars/xmai/c21.png
+	attack5	0 0 0 0
+	frame	data/chars/xmai/c20.png
+	frame	data/chars/xmai/c30.png
+	attack5	130 130 75 55 2 0 1 1 0 20
+	frame	data/chars/xmai/c31.png
+	frame	data/chars/xmai/c32.png
+	attack5	0 0 0 0
+	@cmd	clearL
+	frame	data/chars/xmai/c33.png
+	frame	data/chars/xmai/c34.png
+	attack5	130 130 75 55 2 0 1 1 0 20
+	frame	data/chars/xmai/c35.png
+	frame	data/chars/xmai/c36.png
+	attack5	0 0 0 0
+	delay	7
+	frame	data/chars/xmai/c37.png
+	attack6	130 130 75 55 2 0 1 1 0 20
+	frame	data/chars/xmai/c37.png
+	attack6	0 0 0 0
+	frame	data/chars/xmai/c37.png
+	attack6	130 130 75 55 2 0 1 1 0 20
+	frame	data/chars/xmai/c37.png
+	attack6	0 0 0 0
+	frame	data/chars/xmai/c37.png
+	attack6	130 130 75 55 2 0 1 1 0 20
+	sound	data/sounds/xmaiPW02.wav
+	frame	data/chars/xmai/c37.png
+	attack6	0 0 0 0
+	frame	data/chars/xmai/c37.png
+	attack6	130 130 75 55 2 0 1 1 0 20
+	frame	data/chars/xmai/c37.png
+	attack6	0 0 0 0
+	@cmd	looper 85 1
+	delay	7
+	frame	data/chars/xmai/c37.png
+	staydown	500 500
+	hitfx	data/sounds/beat4.wav
+	hitflash	flashscreen2
+	@cmd	spawn01 "flashscreen2" 1 900 5
+	attack	80 100 150 90 80 1 0 1 90 30
+	dropv	8 1
+	frame	data/chars/xmai/c37.png
+	attack	0 0 0 0
+	delay	150
+	frame	data/chars/xmai/c37.png
+	delay	9
+	frame	data/chars/xmai/c36.png
+	frame	data/chars/xmai/c35.png
+	frame	data/chars/xmai/c34.png
+	@cmd	clearL
+	frame	data/chars/xmai/c33.png
+	frame	data/chars/xmai/c32.png
+	frame	data/chars/xmai/c31.png
+	frame	data/chars/xmai/c30.png
+		
+anim	forwardjump
+	loop	0
+	delay	12
+	offset	145 211
+	bbox	130 110 30 40
+	frame	data/chars/xmai/jump01.png
+	delay	6
+	frame	data/chars/xmai/jump08.png
+	frame	data/chars/xmai/jump09.png
+	frame	data/chars/xmai/jump10.png
+	frame	data/chars/xmai/jump11.png
+	frame	data/chars/xmai/jump12.png
+	frame	data/chars/xmai/jump05.png
+	frame	data/chars/xmai/jump06.png
+	frame	data/chars/xmai/jump07.png
+	frame	data/chars/xmai/jump06.png
+	frame	data/chars/xmai/jump07.png
+	frame	data/chars/xmai/jump06.png
+	frame	data/chars/xmai/jump07.png
+	frame	data/chars/xmai/jump06.png
+	frame	data/chars/xmai/jump07.png
+	frame	data/chars/xmai/jump06.png
+	frame	data/chars/xmai/jump07.png
+	frame	data/chars/xmai/jump06.png
+	frame	data/chars/xmai/jump07.png
+		
+anim	freespecial1
+	followanim	12
+	followcond	1
+	energycost	8
+	mponly	1
+	loop	0
+	delay	10
+	offset	145 211
+	bbox	0 0 0 0
+	staydown	800 800
+	forcedirection	-1
+	attackone	1
+	fastattack	1
+	otg	2
+	hitfx	data/sounds/beat5.wav
+	frame	data/chars/xmai/grd08.png
+	delay	2
+	frame	data/chars/xmai/grd09.png
+	attack11	120 190 95 30 0 1 1 1 0 10
+	dropv	0 0
+	frame	data/chars/xmai/grd10.png
+	attack11	0 0 0 0
+	delay	9
+	frame	data/chars/xmai/jump00a.png
+	@cmd	clearL
+	frame	data/chars/xmai/jump00.png
+	bbox	0 0 0 0
+	frame	data/chars/xmai/a37.png
+	frame	data/chars/xmai/a38.png
+	frame	data/chars/xmai/a39.png
+	frame	data/chars/xmai/a40.png
+		
+anim	freespecial10
+	loop	0
+	delay	6
+	offset	145 211
+	bbox	130 145 30 68
+	frame	data/chars/xmai/jump00a.png
+	frame	data/chars/xmai/jump00.png
+	frame	data/chars/xmai/a38.png
+	frame	data/chars/xmai/a40.png
+		
+anim	freespecial15
+	loop	0
+	delay	9
+	offset	145 211
+	bbox	0 0 0 0
+	frame	data/chars/xmai/spw01.png
+	frame	data/chars/xmai/spw02.png
+	frame	data/chars/xmai/spw03.png
+	frame	data/chars/xmai/spw04.png
+	frame	data/chars/xmai/spw05.png
+	frame	data/chars/xmai/spw06.png
+	frame	data/chars/xmai/spw07.png
+	frame	data/chars/xmai/spw08.png
+	frame	data/chars/xmai/spw09.png
+	frame	data/chars/xmai/spw10.png
+	frame	data/chars/xmai/spw11.png
+	frame	data/chars/xmai/spw12.png
+	@cmd	spawnChild2  "toturi3" 1 1 1 "ANI_IDLE"
+	frame	data/chars/xmai/spw11.png
+	frame	data/chars/xmai/spw10.png
+	frame	data/chars/xmai/spw09.png
+	frame	data/chars/xmai/spw08.png
+	@cmd	clearL
+	frame	data/chars/xmai/spw11.png
+	frame	data/chars/xmai/spw02.png
+	frame	data/chars/xmai/spw01.png
+		
+anim	freespecial2
+	loop	0
+	delay	5
+	offset	145 211
+	bbox	130 175 30 25
+	forcedirection	-1
+	fastattack	1
+	hitfx	data/sounds/beat3.wav
+	@cmd	dasher 2 0 0
+	attack	0 0 0 0
+	frame	data/chars/xmai/sld13.png
+	sound	data/sounds/xmai03.wav
+	frame	data/chars/xmai/sld14.png
+	frame	data/chars/xmai/sld15.png
+	blast	135 115 85 85 15 0 0 5 15
+	dropv	0.5 -4
+	frame	data/chars/xmai/sld15a.png
+	frame	data/chars/xmai/sld16.png
+	frame	data/chars/xmai/sld17.png
+	@cmd	dasher 1 0 0
+	frame	data/chars/xmai/sld18.png
+	blast	0 0 0 0
+	frame	data/chars/xmai/sld19.png
+	frame	data/chars/xmai/sld20.png
+	@cmd	stop
+	frame	data/chars/xmai/sld21.png
+	frame	data/chars/xmai/sld22.png
+	frame	data/chars/xmai/sld23.png
+	delay	12
+	frame	data/chars/xmai/sld24.png
 	delay	8
-	frame	data/chars/xmai/det02.png
-	frame	data/chars/xmai/det03.png
-	frame	data/chars/xmai/det04.png
-	frame	data/chars/xmai/det05.png
-	delay	160
-	frame	data/chars/xmai/det06.png
+	frame	data/chars/xmai/jump00a.png
+	frame	data/chars/xmai/jump00.png
+		
+anim	freespecial26
+	energycost	35
+	mponly	1
+	loop	0
+	delay	7
+	offset	145 211
+	bbox	130 125 30 75
+	fastattack	1
+	forcedirection	-1
+	staydown	500 500
+	hitfx	data/sounds/beat4.wav
+	hitflash	flashscreen2
+	frame	data/chars/xmai/chg01.png
+	frame	data/chars/xmai/chg02.png
+	sound	data/sounds/super1.wav
+	@cmd	spawnAni2 "allsp" 1 1 1 4 "ANI_FOLLOW1"
+	frame	data/chars/xmai/chg03.png
+	delay	14
+	frame	data/chars/xmai/chg04.png
+	delay	7
+	frame	data/chars/xmai/chg05.png
+	frame	data/chars/xmai/chg06.png
+	frame	data/chars/xmai/chg07.png
+	frame	data/chars/xmai/chg08.png
+	frame	data/chars/xmai/chg09.png
+	delay	9
+	bbox	140 160 30 50
+	frame	data/chars/xmai/pw20.png
+	frame	data/chars/xmai/pw21.png
+	frame	data/chars/xmai/pw22.png
+	frame	data/chars/xmai/pw23.png
+	frame	data/chars/xmai/pw24.png
+	frame	data/chars/xmai/pw25.png
+	frame	data/chars/xmai/pw26.png
+	frame	data/chars/xmai/pw27.png
+	delay	20
+	frame	data/chars/xmai/pw28.png
+	delay	9
+	frame	data/chars/xmai/pw29.png
+	frame	data/chars/xmai/pw30.png
+	frame	data/chars/xmai/pw31.png
+	frame	data/chars/xmai/pw32.png
+	bbox	0 0 0 0
+	burn	110 110 95 75 150 1 1 0 70 30
+	dropv	3 4
+	sound	data/sounds/xmaiPW03.wav
+	frame	data/chars/xmai/runatk01.png
+	frame	data/chars/xmai/runatk02.png
+	frame	data/chars/xmai/runatk03.png
+	frame	data/chars/xmai/runatk04.png
+	frame	data/chars/xmai/runatk05.png
+	delay	2
+	move	5
+	@cmd	spawnbind4 "maipw" 1 5 5 1 4
+	frame	data/chars/xmai/runatk06.png
+	@cmd	keymove 1.2
+	frame	data/chars/xmai/runatk06.png
+	@cmd	keymove 1.2
+	frame	data/chars/xmai/runatk06.png
+	frame	data/chars/xmai/runatk06.png
+	@cmd	keymove 1.2
+	frame	data/chars/xmai/runatk07.png
+	frame	data/chars/xmai/runatk07.png
+	@cmd	looper 29 10
+	burn	0 0 0 0
+	frame	data/chars/xmai/runatk06.png
+	@cmd	anichange "ANI_FOLLOW8"
+	frame	data/chars/xmai/runatk06.png
+		
+anim	freespecial27
+	energycost	75
+	mponly	1
+	loop	0
+	delay	7
+	offset	145 211
+	bbox	0 0 0 0
+	fastattack	1
+	forcedirection	-1
+	seal	15 2
+	followanim	9
+	followcond	1
+	hitfx	data/sounds/empty.wav
+	frame	data/chars/xmai/chg01.png
+	frame	data/chars/xmai/chg02.png
+	sound	data/sounds/super1.wav
+	@cmd	spawn04 "allsp" 1 1 1 4
+	frame	data/chars/xmai/chg03.png
+	delay	14
+	frame	data/chars/xmai/chg04.png
+	delay	7
+	frame	data/chars/xmai/chg05.png
+	frame	data/chars/xmai/chg06.png
+	frame	data/chars/xmai/chg07.png
+	frame	data/chars/xmai/chg08.png
+	frame	data/chars/xmai/chg09.png
+	sound	data/sounds/slowm.wav
+	frame	data/chars/xmai/run01.png
+	frame	data/chars/xmai/run02.png
+	delay	2
+	move	6
+	attack	130 140 45 55 0 0 1 1 0 15
+	@cmd	keymove 1.2
+	frame	data/chars/xmai/run03.png #11
+	frame	data/chars/xmai/run03.png
+	@cmd	keymove 1.2
+	frame	data/chars/xmai/run03.png
+	frame	data/chars/xmai/run03.png
+	@cmd	looper 11 5
+	attack	0 0 0 0
+	delay	7
+	@cmd	stop
+	@cmd	dasher 2 0 0
+	frame	data/chars/xmai/run04.png
+	frame	data/chars/xmai/run05.png
+	frame	data/chars/xmai/run06.png
+	@cmd	stop
+	frame	data/chars/xmai/jump00a.png
+	frame	data/chars/xmai/jump00.png
+	frame	data/chars/xmai/a38.png
+	frame	data/chars/xmai/a40.png
+		
+anim	freespecial29
+@script
+	void self = getlocalvar("self");
+	int mp1 = getentityproperty(self,"mp");
+	void plyr = getentityproperty(self, "playerindex");
 
-
-
-
+	if(frame > 12 && playerkeys(plyr, 0, "attack3"))
+	{
+	  updateframe(self, 3);
+	}
+	@end_script	
+	loop	0
+	delay	6
+	offset	145 211
+	bbox	130 125 30 75
+	sound	data/sounds/xclark05.wav
+	frame	data/chars/xmai/chg01.png
+	frame	data/chars/xmai/chg02.png
+	delay	5
+	frame	data/chars/xmai/chg03.png
+	offset	145 248
+	bbox	133 140 30 75
+	frame	data/chars/xmai/chg05a.png
+	frame	data/chars/xmai/chg05b.png
+	frame	data/chars/xmai/chg05c.png
+	@cmd	mpgain 1
+	frame	data/chars/xmai/chg05d.png
+	frame	data/chars/xmai/chg05e.png
+	frame	data/chars/xmai/chg05f.png
+	frame	data/chars/xmai/chg05g.png
+	frame	data/chars/xmai/chg05h.png
+	@cmd	mpgain 1
+	frame	data/chars/xmai/chg05i.png
+	frame	data/chars/xmai/chg05j.png
+	delay	6
+	offset	145 211
+	bbox	130 125 30 75
+	frame	data/chars/xmai/chg06.png
+	frame	data/chars/xmai/chg07.png
+	frame	data/chars/xmai/chg08.png
+	frame	data/chars/xmai/chg09.png
+	frame	data/chars/xmai/chg02.png
+		
+anim	freespecial3
+	energycost	30
+	mponly	1
+	loop	0
+	delay	7
+	offset	145 211
+	bbox	130 125 30 75
+	sound	data/sounds/xmaiPW01.wav
+	frame	data/chars/xmai/spa10.png
+	sound	data/sounds/xmaiPW01.wav
+	frame	data/chars/xmai/spa09.png
+	sound	data/sounds/xmaiPW01.wav
+	frame	data/chars/xmai/spa08.png
+	delay	30
+	frame	data/chars/xmai/spa14.png
+	delay	7
+	frame	data/chars/xmai/spa15.png
+	frame	data/chars/xmai/spa16.png
+	frame	data/chars/xmai/spa17.png
+	delay	5
+	sound	data/sounds/super2.wav
+	frame	data/chars/xmai/spa18.png
+	@cmd	shooter3 "maipw" 30 50 1 2 0 0 "ANI_FOLLOW4"
+	frame	data/chars/xmai/spa18.png
+	frame	data/chars/xmai/spa19.png
+	@cmd	shooter3 "maipw" 30 50 1 2 0 1 "ANI_FOLLOW4"
+	frame	data/chars/xmai/spa19.png
+	@cmd	shooter3 "maipw" 30 50 1 2 0 -1 "ANI_FOLLOW4"
+	frame	data/chars/xmai/spa19.png
+	@cmd	shooter3 "maipw" 30 50 1 2 0 0.3 "ANI_FOLLOW4"
+	frame	data/chars/xmai/spa19.png
+	@cmd	shooter3 "maipw" 30 50 1 2 0 -0.3 "ANI_FOLLOW4"
+	frame	data/chars/xmai/spa19.png
+	@cmd	shooter3 "maipw" 30 50 1 2 0 0 "ANI_FOLLOW4"
+	frame	data/chars/xmai/spa19.png
+	delay	40
+	frame	data/chars/xmai/spa19.png
+	delay	8
+	frame	data/chars/xmai/spa07.png
+	frame	data/chars/xmai/spa08.png
+	frame	data/chars/xmai/spa09.png
+	frame	data/chars/xmai/spa10.png
+		
+anim	freespecial30
+	energycost	55
+	mponly	1
+	weaponframe	15 2
+	loop	0
+	delay	9
+	offset	145 211
+	bbox	0 0 0 0
+	frame	data/chars/xmai/spw01.png
+	sound	data/sounds/xmaiTlk.wav
+	frame	data/chars/xmai/spw02.png
+	frame	data/chars/xmai/spw03.png
+	frame	data/chars/xmai/spw04.png
+	frame	data/chars/xmai/spw05.png
+	delay	5
+	frame	data/chars/xmai/spw06.png
+	frame	data/chars/xmai/spw07.png
+	frame	data/chars/xmai/spw08.png
+	frame	data/chars/xmai/spw09.png
+	frame	data/chars/xmai/spw10.png
+	frame	data/chars/xmai/emp.png
+	frame	data/chars/xmai/spw11.png
+	frame	data/chars/xmai/emp.png
+	frame	data/chars/xmai/spw12.png
+	frame	data/chars/xmai/emp.png
+	frame	data/chars/xmai/spw12.png #19
+	frame	data/chars/xmai/emp.png
+	frame	data/chars/xmai/spw12.png
+		
+anim	freespecial31
+	energycost	55
+	mponly	1
+	weaponframe	15 9
+	loop	0
+	delay	9
+	offset	145 211
+	bbox	0 0 0 0
+	frame	data/chars/xmai/spw01.png
+	sound	data/sounds/xmaiTlk.wav
+	frame	data/chars/xmai/spw02.png
+	frame	data/chars/xmai/spw03.png
+	frame	data/chars/xmai/spw04.png
+	frame	data/chars/xmai/spw05.png
+	delay	5
+	frame	data/chars/xmai/spw06.png
+	frame	data/chars/xmai/spw07.png
+	frame	data/chars/xmai/spw08.png
+	frame	data/chars/xmai/spw09.png
+	frame	data/chars/xmai/spw10.png
+	frame	data/chars/xmai/emp.png
+	frame	data/chars/xmai/spw11.png
+	frame	data/chars/xmai/emp.png
+	frame	data/chars/xmai/spw12.png
+	frame	data/chars/xmai/emp.png
+	frame	data/chars/xmai/spw12.png #19
+	frame	data/chars/xmai/emp.png
+	frame	data/chars/xmai/spw12.png
+		
+anim	freespecial4
+	followanim	13
+	followcond	1
+	energycost	8
+	mponly	1
+	loop	0
+	delay	10
+	offset	145 211
+	bbox	0 0 0 0
+	staydown	500 500
+	forcedirection	-1
+	attackone	1
+	fastattack	1
+	jumpframe	1 2.3 0
+	landframe	6
+	otg	2
+	hitfx	data/sounds/empty.wav
+	sound	data/sounds/xmai04.wav
+	frame	data/chars/xmai/grd15.png
+	delay	7
+	frame	data/chars/xmai/grd16.png
+	frame	data/chars/xmai/grd17.png
+	frame	data/chars/xmai/grd18.png
+	frame	data/chars/xmai/grd19.png
+	delay	500
+	frame	data/chars/xmai/grd20.png
+	delay	2
+	attack11	120 190 95 30 0 1 1 1 0 10
+	dropv	0 0
+	frame	data/chars/xmai/grd21.png #6
+	attack11	0 0 0 0
+	delay	9
+	frame	data/chars/xmai/jump00a.png
+	@cmd	clearL
+	frame	data/chars/xmai/jump00.png
+	bbox	0 0 0 0
+	frame	data/chars/xmai/a37.png
+	frame	data/chars/xmai/a38.png
+	frame	data/chars/xmai/a39.png
+	frame	data/chars/xmai/a40.png
+		
+anim	freespecial5
+	cancel	5 12 0 a freespecial7
+	cancel	5 12 0 s freespecial7
+	energycost	6
+	mponly	1
+	loop	0
+	delay	6
+	offset	145 211
+	bbox	130 125 30 75
+	sound	data/sounds/xmaiPW01.wav
+	frame	data/chars/xmai/spa04.png
+	frame	data/chars/xmai/spa05.png
+	delay	40
+	@cmd	spawnAni "maipw" 30 60 1 "ANI_FOLLOW2"
+	frame	data/chars/xmai/spa06.png
+	delay	8
+	frame	data/chars/xmai/spa07.png
+	frame	data/chars/xmai/spa08.png
+	delay	2
+	frame	data/chars/xmai/spa09.png #5
+	frame	data/chars/xmai/spa09.png
+	frame	data/chars/xmai/spa09.png
+	frame	data/chars/xmai/spa09.png
+	frame	data/chars/xmai/spa10.png
+	frame	data/chars/xmai/spa10.png
+	frame	data/chars/xmai/spa10.png
+	frame	data/chars/xmai/spa10.png #12
+		
+anim	freespecial6
+	loop	0
+	delay	7
+	offset	145 211
+	bbox	130 133 30 60
+	jumpframe	3 5 1.5
+	landframe	13
+	staydown	300 300
+	fastattack	1
+	hitfx	data/sounds/burn.wav
+	frame	data/chars/xmai/jump00.png
+	delay	12
+	frame	data/chars/xmai/jump00a.png
+	delay	7
+	sound	data/sounds/xmaiPW02.wav
+	frame	data/chars/xmai/jump00.png
+	@cmd	spawnbind4 "maipw" 1 60 5 1 4
+	bbox	136 118 30 40
+	frame	data/chars/xmai/sp01.png
+	delay	3
+	burn	102 95 100 90 15 1 0 0 15 20
+	dropv	5 1
+	frame	data/chars/xmai/sp02.png
+	frame	data/chars/xmai/sp03.png
+	frame	data/chars/xmai/sp04.png
+	frame	data/chars/xmai/sp05.png
+	frame	data/chars/xmai/sp06.png
+	frame	data/chars/xmai/sp07.png
+	frame	data/chars/xmai/sp08.png
+	attack	0 0 0 0
+	frame	data/chars/xmai/sp09.png
+	@cmd	looper 4 30
+	frame	data/chars/xmai/sp01.png
+	bbox	130 133 30 60
+	frame	data/chars/xmai/jump00.png
+	@cmd	anichange "ANI_FOLLOW7"
+	frame	data/chars/xmai/jump00.png
+	frame	data/chars/xmai/a38.png
+	frame	data/chars/xmai/a40.png
+		
+anim	freespecial7
+	cancel	5 12 0 a freespecial5
+	cancel	5 12 0 s freespecial5
+	energycost	6
+	mponly	1
+	loop	0
+	delay	6
+	offset	145 211
+	bbox	130 125 30 75
+	sound	data/sounds/xmaiPW01.wav
+	frame	data/chars/xmai/spa11.png
+	frame	data/chars/xmai/spa12.png
+	@cmd	spawnAni "maipw" 20 60 -1 "ANI_FOLLOW2"
+	delay	40
+	frame	data/chars/xmai/spa13.png
+	delay	8
+	frame	data/chars/xmai/spa07.png
+	frame	data/chars/xmai/spa08.png
+	delay	2
+	frame	data/chars/xmai/spa09.png #5
+	frame	data/chars/xmai/spa09.png
+	frame	data/chars/xmai/spa09.png
+	frame	data/chars/xmai/spa09.png
+	frame	data/chars/xmai/spa10.png
+	frame	data/chars/xmai/spa10.png
+	frame	data/chars/xmai/spa10.png
+	frame	data/chars/xmai/spa10.png #12
+		
+anim	freespecial8
+	cancel	8 15 0 a freespecial7
+	cancel	8 15 0 s freespecial7
+	energycost	6
+	mponly	1
+	loop	0
+	delay	6
+	offset	145 211
+	bbox	130 125 30 75
+	frame	data/chars/xmai/spa01.png
+	frame	data/chars/xmai/spa02.png
+	sound	data/sounds/xmaiPW01.wav
+	frame	data/chars/xmai/spa03.png
+	frame	data/chars/xmai/spa04.png
+	frame	data/chars/xmai/spa05.png
+	delay	40
+	@cmd	spawnAni "maipw" 30 60 -1 "ANI_FOLLOW2"
+	frame	data/chars/xmai/spa06.png
+	delay	8
+	frame	data/chars/xmai/spa07.png
+	frame	data/chars/xmai/spa08.png
+	delay	2
+	frame	data/chars/xmai/spa09.png #8
+	frame	data/chars/xmai/spa09.png
+	frame	data/chars/xmai/spa09.png
+	frame	data/chars/xmai/spa09.png
+	frame	data/chars/xmai/spa10.png
+	frame	data/chars/xmai/spa10.png
+	frame	data/chars/xmai/spa10.png
+	frame	data/chars/xmai/spa10.png #15
+		
+anim	freespecial9
+	energycost	12
+	mponly	1
+	loop	0
+	delay	6
+	offset	145 211
+	bbox	0 0 0 0
+	jumpframe	4 4 0
+	landframe	17
+	fastattack	1
+	forcedirection	-1
+	staydown	500 500
+	hitfx	data/sounds/beat5.wav
+	@cmd	dasher 2.5 0 0
+	sound	data/sounds/xmaiPW04.wav
+	frame	data/chars/xmai/pw01.png
+	frame	data/chars/xmai/pw02.png
+	attack10	135 125 95 50 8 1 0 0 12 10
+	dropv	4 0
+	frame	data/chars/xmai/pw03.png
+	frame	data/chars/xmai/pw04.png
+	attack10	0 0 0 0
+	frame	data/chars/xmai/pw05.png #----------4
+	attack10	135 80 95 70 10 1 0 0 12 10
+	dropv	3.5 0
+	frame	data/chars/xmai/pw06.png
+	frame	data/chars/xmai/pw07.png
+	attack10	0 0 0 0
+	frame	data/chars/xmai/pw08.png
+	attack10	135 80 95 70 12 1 0 0 12 10
+	dropv	3 0
+	frame	data/chars/xmai/pw09.png
+	frame	data/chars/xmai/pw10.png
+	attack10	0 0 0 0
+	frame	data/chars/xmai/pw11.png
+	frame	data/chars/xmai/pw12.png
+	@cmd	leaper 0 0.5
+	hitflash	flashscreen1
+	attack	135 80 95 70 20 1 0 0 30 10
+	dropv	1 3
+	frame	data/chars/xmai/pw13.png
+	frame	data/chars/xmai/pw14.png
+	attack	0 0 0 0
+	frame	data/chars/xmai/pw15.png
+	frame	data/chars/xmai/pw16.png
+	delay	500
+	frame	data/chars/xmai/pw17.png
+	delay	8
+	frame	data/chars/xmai/pw18.png #17
+	frame	data/chars/xmai/jump00.png
+		
 anim	get
 	delay	7
 	offset	145 211
@@ -2888,5 +1723,829 @@ anim	get
 	frame	data/chars/xmai/get02.png
 	frame	data/chars/xmai/get01.png
 	frame	data/chars/xmai/jump00.png
+		
+anim	grab
+	loop	0
+	delay	12
+	offset	145 211
+	bbox	130 125 30 75
+	frame	data/chars/xmai/grab00.png
+		
+anim	grabattack
+	loop	0
+	delay	5
+	offset	145 211
+	bbox	130 125 30 75
+	attack	0 0 0 0
+	frame	data/chars/xmai/grab00.png
+	delay	23
+	attack6	139 139 40 44 15 0 0 0 16 0
+	frame	data/chars/xmai/grab01.png
+		
+anim	grabattack2
+	loop	0
+	delay	5
+	offset	145 211
+	bbox	0 0 0 0
+	hitfx	data/sounds/beat5.wav
+	fastattack	1
+	attackone	0
+	attack	0 0 0 0
+	frame	data/chars/xmai/grab00.png
+	movez	1
+	frame	data/chars/xmai/sld01.png
+	movez	0
+	sound	data/sounds/xmai03.wav
+	frame	data/chars/xmai/sld02.png
+	frame	data/chars/xmai/sld03.png
+	@cmd	dasher 2 0 0
+	frame	data/chars/xmai/sld04.png
+	frame	data/chars/xmai/sld05.png
+	blast	139 140 40 45 30 0 0 40 15
+	dropv	2 5
+	frame	data/chars/xmai/sld06.png
+	delay	5
+	frame	data/chars/xmai/sld07.png
+	frame	data/chars/xmai/sld08.png
+	frame	data/chars/xmai/sld07.png
+	frame	data/chars/xmai/sld08.png
+	@cmd	stop
+	frame	data/chars/xmai/sld07.png
+	frame	data/chars/xmai/sld08.png
+	blast	0 0 0 0
+	delay	6
+	frame	data/chars/xmai/sld09.png
+	frame	data/chars/xmai/sld09a.png
+	frame	data/chars/xmai/sld09b.png
+	frame	data/chars/xmai/sld09c.png
+	frame	data/chars/xmai/a38.png
+		
+anim	grabbackward
+	otg	2
+	loop	0
+	delay	20
+	attackone	0
+	offset	145 211
+	bbox	0 0 0 0
+	forcedirection	-1
+	staydown	500 500
+	@cmd	slamstart
+	@cmd	position 10 35 49 -1 -1
+	frame	data/chars/xmai/grab10.png
+	delay	30
+	sound	data/sounds/grab.wav
+	@cmd	position 11 60 49 -1 -1
+	frame	data/chars/xmai/grab14.png
+	delay	9
+	sound	data/sounds/xmai01.wav
+	@cmd	position 8 40 70 -1 -1
+	frame	data/chars/xmai/grab15.png
+	@cmd	position 9 10 80 -1 1
+	frame	data/chars/xmai/grab16.png
+	delay	5
+	attack	80 160 90 40 6 1 0 0 1 15
+	
+	@cmd	position 14 -20 45 -1 1
+	frame	data/chars/xmai/grab17.png
+	
+	@cmd	position 14 -20 45 -1 1
+	frame	data/chars/xmai/grab17.png
+	@cmd	spawn01 "qfx" -30 1 2
+	
+	@cmd	position 15 -20 45 -1 1
+	frame	data/chars/xmai/grab17.png
+	
+	@cmd	position 15 -20 45 -1 1
+	frame	data/chars/xmai/grab17.png
+	@cmd	depost 0
+	@cmd	finish 70 1 -3 2 0 1
+	delay	30
+	frame	data/chars/xmai/grab17.png
+	attack	0 0 0 0
+	delay	8
+	@cmd	flip
+	frame	data/chars/xmai/rise02.png
+	frame	data/chars/xmai/jump00a.png
+	frame	data/chars/xmai/jump00.png
+	@cmd	clearL
+	frame	data/chars/xmai/a38.png
+	frame	data/chars/xmai/a40.png
+		
+anim	grabbed
+	loop	0
+	delay	10
+	offset	145 211
+	bbox	130 125 30 75
+	frame	data/chars/xmai/pain2.png
+		
+anim	grabdown
+	loop	0
+	delay	15
+	attackone	0
+	offset	145 211
+	bbox	0 0 0 0
+	attack	0 0 0 0
+	@cmd	slamstart
+	
+	@cmd	position 10 35 49 -1 -1
+	frame	data/chars/xmai/grab00.png
+	@cmd	position 10 35 49 -1 -1
+	frame	data/chars/xmai/grab30.png
+	delay	45
+	sound	data/sounds/grab.wav
+	@cmd	position 10 35 49 -1 -1
+	frame	data/chars/xmai/grab31.png
+	delay	12
+	@cmd	position 10 40 49 -1 -1
+	frame	data/chars/xmai/grab32.png
+	delay	35
+	@cmd	position 10 40 49 -1 -1
+	frame	data/chars/xmai/grab33.png
+	delay	9
+	sound	data/sounds/xmai03.wav
+	@cmd	position 11 30 45 -1 -1
+	frame	data/chars/xmai/grab34.png
+	
+	@cmd	position 2 30 45 -1 1
+	frame	data/chars/xmai/grab35.png
+	attack	125 160 90 40 6 1 0 0 1 15
+	
+	@cmd	position 14 0 55 -1 -1
+	frame	data/chars/xmai/grab36.png
+	@cmd	spawn01 "qfx" 10 5 2
+	delay	40
+	
+	@cmd	position 15 0 55 -1 -1
+	frame	data/chars/xmai/grab37.png
+	attack	0 0 0 0
+	@cmd	depost 0
+	@cmd	finish 70 1 -2 3 0 1
+	delay	15
+	frame	data/chars/xmai/grab36.png
+	delay	7
+	frame	data/chars/xmai/grab38.png
+	frame	data/chars/xmai/grab39.png
+	@cmd	clearL
+	frame	data/chars/xmai/grab40.png
+	frame	data/chars/xmai/grab41.png
+	frame	data/chars/xmai/grab42.png
+	frame	data/chars/xmai/sld03.png
+	frame	data/chars/xmai/sld02.png
+	frame	data/chars/xmai/sld01.png
+		
+anim	grabforward
+	loop	0
+	delay	20
+	offset	145 211
+	bbox	0 0 0 0
+	attack	0 0 0 0
+	@cmd	slamstart
+	sound	data/sounds/grab.wav
+	
+	@cmd	position 10 35 49 -1 -1
+	frame	data/chars/xmai/grab00.png
+	delay	7
+	@cmd	position 10 30 49 -1 -1
+	frame	data/chars/xmai/grab20.png
+	@cmd	position 10 25 49 -1 -1
+	frame	data/chars/xmai/grab21.png
+	@cmd	position 11 20 49 -1 -1
+	frame	data/chars/xmai/grab22.png
+	@cmd	position 11 15 49 -1 -1
+	frame	data/chars/xmai/grab23.png
+	@cmd	position 0 -10 49 -1 -1
+	frame	data/chars/xmai/grab24.png
+	
+	@cmd	position 13 -25 49 -1 1
+	frame	data/chars/xmai/grab25.png
+	
+	@cmd	position 1 5 90 -1 -1
+	frame	data/chars/xmai/grab26.png
+	sound	data/sounds/xmai02.wav
+	delay	1
+	
+	@cmd	position 6 30 30 -1 -1
+	frame	data/chars/xmai/grab27.png
+	@cmd	depost 0
+	@cmd	finish 70 1 -4 2 0 1
+	delay	6
+	frame	data/chars/xmai/grab27.png
+	delay	7
+	frame	data/chars/xmai/grab28.png
+	frame	data/chars/xmai/grab29.png
+	frame	data/chars/xmai/grab29.png
+	delay	8
+	frame	data/chars/xmai/jump00.png
+	frame	data/chars/xmai/a38.png
+	@cmd	clearL
+	frame	data/chars/xmai/a39.png
+	frame	data/chars/xmai/a40.png
+		
+anim	grabup
+	loop	0
+	delay	7
+	attackone	0
+	offset	145 211
+	bbox	0 0 0 0
+	jumpframe	2 3 0
+	landframe	10
+	attackone	0
+	staydown	400 400
+	attack	0 0 0 0
+	hitfx	data/sounds/burn.wav
+	movez	1
+	frame	data/chars/xmai/a30.png
+	movez	0
+	sound	data/sounds/xmaiPW05.wav
+	frame	data/chars/xmai/a31.png
+	offset	145 220
+	@cmd	spawnAni "maipw" 55 90 4 "ANI_FOLLOW1"
+	frame	data/chars/xmai/grd16.png
+	burn	125 120 60 70 15 1 0 0 20 15
+	dropv	4 1
+	delay	1
+	@cmd	flip
+	@cmd	spawnAni "maipw" 45 80 4 "ANI_FOLLOW1"
+	frame	data/chars/xmai/emp.png
+	@cmd	flip
+	delay	7
+	frame	data/chars/xmai/grd17.png
+	offset	145 235
+	frame	data/chars/xmai/grd18.png
+	offset	145 245
+	frame	data/chars/xmai/grd19.png
+	burn	0 0 0 0
+	offset	145 260
+	frame	data/chars/xmai/grd20.png
+	offset	145 211
+	frame	data/chars/xmai/jump08.png
+	delay	500
+	frame	data/chars/xmai/jump07.png
+	delay	8
+	@cmd	clearL
+	frame	data/chars/xmai/jump00.png
+		
+anim	idle
+	loop	1
+	delay	7
+	offset	145 211
+	bbox	130 125 30 75
+	frame	data/chars/xmai/idle10.png
+	@cmd	clearL
+	frame	data/chars/xmai/idle11.png
+	delay	7
+	frame	data/chars/xmai/idle01.png #2
+	frame	data/chars/xmai/idle02.png
+	delay	10
+	frame	data/chars/xmai/idle03.png
+	frame	data/chars/xmai/idle04.png
+	delay	7
+	frame	data/chars/xmai/idle05.png
+	frame	data/chars/xmai/idle06.png
+	frame	data/chars/xmai/idle07.png
+	frame	data/chars/xmai/idle08.png
+	delay	10
+	frame	data/chars/xmai/idle09.png #10
+	frame	data/chars/xmai/idle10.png
+	delay	7
+	frame	data/chars/xmai/idle11.png
+	@cmd	looper 2 2
+	delay	12
+	frame	data/chars/xmai/idle15.png
+	frame	data/chars/xmai/idle16.png
+	frame	data/chars/xmai/idle17.png
+	delay	10
+	frame	data/chars/xmai/idle18.png #16
+	frame	data/chars/xmai/idle19.png
+	frame	data/chars/xmai/idle20.png
+	frame	data/chars/xmai/idle19.png
+	@cmd	looper 16 10
+	delay	12
+	frame	data/chars/xmai/idle17.png
+	frame	data/chars/xmai/idle16.png
+	frame	data/chars/xmai/idle15.png
+		
+anim	jump
+	loop	0
+	delay	12
+	offset	145 211
+	bbox	130 87 30 60
+	frame	data/chars/xmai/jump01.png
+	delay	7
+	frame	data/chars/xmai/jump02.png
+	frame	data/chars/xmai/jump03.png
+	delay	20
+	frame	data/chars/xmai/jump04.png
+	delay	7
+	frame	data/chars/xmai/jump03.png
+	frame	data/chars/xmai/jump05.png
+	delay	6
+	frame	data/chars/xmai/jump06.png
+	frame	data/chars/xmai/jump07.png
+	frame	data/chars/xmai/jump06.png
+	frame	data/chars/xmai/jump07.png
+	frame	data/chars/xmai/jump06.png
+	frame	data/chars/xmai/jump07.png
+	frame	data/chars/xmai/jump06.png
+	frame	data/chars/xmai/jump07.png
+	frame	data/chars/xmai/jump06.png
+	frame	data/chars/xmai/jump07.png
+	frame	data/chars/xmai/jump06.png
+	frame	data/chars/xmai/jump07.png
+	frame	data/chars/xmai/jump06.png
+	frame	data/chars/xmai/jump07.png
+		
+anim	jumpattack
+	loop	0
+	delay	7
+	offset	145 211
+	bbox	126 85 30 60
+	forcedirection	-1
+	staydown	500 500
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/xmai03.wav
+	frame	data/chars/xmai/jua05.png
+	frame	data/chars/xmai/jump04.png
+	frame	data/chars/xmai/jua09.png
+	delay	20
+	bbox	113 94 30 50
+	attack	120 105 90 70 25 1 0 0 35 15
+	frame	data/chars/xmai/jua10.png
+		
+anim	jumpattack2
+	loop	0
+	delay	7
+	offset	145 211
+	bbox	126 92 30 50
+	frame	data/chars/xmai/jua01.png
+	attack2	120 120 80 55 12 0 0 0 35 0
+	frame	data/chars/xmai/jua03.png
+		
+anim	jumpattack3
+	followanim	6
+	followcond	1
+	loop	0
+	delay	6
+	offset	145 211
+	bbox	125 98 30 40
+	forcedirection	-1
+	fastattack	1
+	hitfx	data/sounds/beat3.wav
+	frame	data/chars/xmai/jua05.png
+	frame	data/chars/xmai/jua30.png
+	attack2	130 120 35 65 8 0 0 0 15 15
+	frame	data/chars/xmai/jua31.png
+	delay	15
+	frame	data/chars/xmai/jua32.png
+		
+anim	jumpdelay
+	loop	0
+	delay	6
+	offset	145 211
+	bbox	130 145 30 68
+	frame	data/chars/xmai/jump00a.png
+		
+anim	jumpforward
+	loop	0
+	delay	6
+	offset	145 211
+	bbox	125 89 30 60
+	hitfx	data/sounds/beat5.wav
+	forcedirection	-1
+	staydown	500 500
+	sound	data/sounds/xmai02.wav
+	frame	data/chars/xmai/jua05.png
+	frame	data/chars/xmai/jump04.png
+	frame	data/chars/xmai/jua09.png
+	attack	125 115 92 65 30 1 0 0 35 15
+	frame	data/chars/xmai/jua14.png
+	delay	15
+	frame	data/chars/xmai/jua15.png
+		
+anim	jumpland
+	loop	0
+	delay	6
+	offset	145 211
+	bbox	130 125 30 75
+	frame	data/chars/xmai/jump00.png
+		
+anim	pain
+	loop	0
+	delay	3
+	offset	145 211
+	bbox	130 125 30 75
+	frame	data/chars/xmai/pain1.png
+	offset	140 211
+	frame	data/chars/xmai/pain2.png
+	offset	146 211
+	frame	data/chars/xmai/pain2.png
+	offset	145 211
+	frame	data/chars/xmai/pain2.png
+		
+anim	pain2
+	loop	0
+	delay	3
+	offset	145 211
+	bbox	130 125 30 75
+	frame	data/chars/xmai/pain3.png
+	offset	140 211
+	frame	data/chars/xmai/pain4.png
+	offset	146 211
+	frame	data/chars/xmai/pain4.png
+	offset	145 211
+	frame	data/chars/xmai/pain4.png
+		
+anim	pain3
+	loop	0
+	delay	2
+	offset	145 211
+	bbox	130 125 30 75
+	move	-6
+	frame	data/chars/xmai/pain1.png
+	frame	data/chars/xmai/pain1.png
+	frame	data/chars/xmai/pain1.png
+	frame	data/chars/xmai/pain2.png
+	frame	data/chars/xmai/pain2.png
+	frame	data/chars/xmai/pain2.png
+	move	-4
+	frame	data/chars/xmai/pain1.png
+	frame	data/chars/xmai/pain1.png
+	frame	data/chars/xmai/pain1.png
+	frame	data/chars/xmai/pain3.png
+	frame	data/chars/xmai/pain3.png
+	move	-2
+	frame	data/chars/xmai/pain3.png
+	frame	data/chars/xmai/pain4.png
+	frame	data/chars/xmai/pain4.png
+	delay	50
+	frame	data/chars/xmai/pain4.png
+		
+anim	pain5
+	loop	0
+	delay	12
+	offset	145 211
+	bbox	130 125 30 75
+	frame	data/chars/xmai/pain1.png
+	frame	data/chars/xmai/pain2.png
+	frame	data/chars/xmai/pain3.png
+	frame	data/chars/xmai/pain4.png
+	frame	data/chars/xmai/pain2.png
+	frame	data/chars/xmai/jump00a.png
+	delay	50
+	frame	data/chars/xmai/rise02.png
+	delay	9
+	frame	data/chars/xmai/rise01.png
+	frame	data/chars/xmai/rise02.png
+	frame	data/chars/xmai/jump00a.png
+	frame	data/chars/xmai/jump00.png
+		
+anim	respawn
+	loop	0
+	delay	9
+	offset	145 211
+	bbox	0 0 0 0
+	frame	data/chars/xmai/spw12.png
+	sound	data/sounds/xmaiTlk.wav
+	frame	data/chars/xmai/spw11.png
+	frame	data/chars/xmai/spw10.png
+	frame	data/chars/xmai/spw09.png
+	frame	data/chars/xmai/spw08.png
+	frame	data/chars/xmai/spw07.png
+	frame	data/chars/xmai/spw06.png
+	frame	data/chars/xmai/spw05.png
+	frame	data/chars/xmai/spw04.png
+	frame	data/chars/xmai/spw03.png
+	frame	data/chars/xmai/spw02.png
+	frame	data/chars/xmai/spw01.png
+		
+anim	rise
+	loop	0
+	delay	25
+	offset	145 211
+	bbox	0 0 0 0
+	frame	data/chars/xmai/fall4.png
+	delay	8
+	frame	data/chars/xmai/rise01.png
+	frame	data/chars/xmai/rise02.png
+	frame	data/chars/xmai/jump00a.png
+	frame	data/chars/xmai/jump00.png
+	frame	data/chars/xmai/a38.png
+	frame	data/chars/xmai/a40.png
+		
+anim	run
+	loop	1
+	delay	7
+	offset	145 211
+	bbox	130 138 30 75
+	sound	data/sounds/run.wav
+	frame	data/chars/xmai/run01.png
+	frame	data/chars/xmai/run02.png
+	frame	data/chars/xmai/run03.png
+	sound	data/sounds/run.wav
+	frame	data/chars/xmai/run04.png
+	frame	data/chars/xmai/run05.png
+	frame	data/chars/xmai/run06.png
+		
+anim	runattack
+	loop	0
+	delay	5
+	offset	145 211
+	bbox	130 135 30 75
+	fastattack	1
+	forcedirection	-1
+	hitfx	data/sounds/beat5.wav
+	@cmd	dasher 3.5 0 0
+	@cmd	dasher 3 0 0
+	frame	data/chars/xmai/runatk31.png
+	sound	data/sounds/xmaiPW02.wav
+	frame	data/chars/xmai/runatk32.png
+	frame	data/chars/xmai/runatk33.png
+	frame	data/chars/xmai/runatk33a.png
+	delay	6
+	attack8	146 106 55 75 5 0 0 0 10 15
+	frame	data/chars/xmai/runatk34.png
+	frame	data/chars/xmai/runatk35.png
+	frame	data/chars/xmai/runatk36.png
+	attack8	0 0 0 0
+	frame	data/chars/xmai/runatk37.png
+	delay	5
+	attack9	135 125 60 50 30 1 0 0 40 15
+	dropv	2 3
+	frame	data/chars/xmai/runatk38.png
+	frame	data/chars/xmai/runatk39.png
+	@cmd	dasher 2 0 0
+	attack9	135 125 60 50 30 1 0 0 40 15
+	dropv	2 2
+	frame	data/chars/xmai/runatk40.png
+	frame	data/chars/xmai/runatk38.png
+	frame	data/chars/xmai/runatk39.png
+	attack9	135 125 60 50 30 1 0 0 40 15
+	dropv	2 1
+	@cmd	dasher 1 0 0
+	frame	data/chars/xmai/runatk40.png
+	frame	data/chars/xmai/runatk38.png
+	frame	data/chars/xmai/runatk39.png
+	attack9	0 0 0 0
+	delay	7
+	@cmd	stop
+	frame	data/chars/xmai/runatk37.png
+	delay	8
+	bbox	0 0 0 0
+	frame	data/chars/xmai/a37.png
+	frame	data/chars/xmai/a38.png
+	frame	data/chars/xmai/a39.png
+	frame	data/chars/xmai/a40.png
+		
+anim	runjump
+	delay	8
+	offset	145 211
+	bbox	130 110 30 60
+	frame	data/chars/xmai/jump01.png
+	delay	6
+	frame	data/chars/xmai/jump02.png
+	frame	data/chars/xmai/jump03.png
+	frame	data/chars/xmai/jump04.png
+		
+anim	runjumpattack
+	loop	0
+	delay	6
+	offset	145 211
+	bbox	117 89 30 55
+	fastattack	1
+	forcedirection	-1
+	staydown	500 500
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/xmai03.wav
+	frame	data/chars/xmai/jua06.png
+	frame	data/chars/xmai/jua06a.png
+	frame	data/chars/xmai/jua06b.png
+	frame	data/chars/xmai/jua06c.png
+	delay	20
+	attack	115 105 100 54 20 1 0 0 30 14
+	dropv	2 4
+	frame	data/chars/xmai/jua07.png
+		
+anim	runslide
+	cancel	6 14 0 a freespecial2
+	cancel	6 14 0 j freespecial2
+	loop	0
+	delay	6
+	offset	145 211
+	bbox	130 175 30 25
+	fastattack	1
+	forcedirection	-1
+	hitfx	data/sounds/beat5.wav
+	@cmd	dasher 3 0 0
+	frame	data/chars/xmai/jump00.png
+	sound	data/sounds/xmai02.wav
+	frame	data/chars/xmai/jump00a.png
+	frame	data/chars/xmai/sld10.png
+	attack10	135 170 85 40 20 1 0 0 25 15
+	dropv	3.5 1.5
+	frame	data/chars/xmai/sld11.png
+	frame	data/chars/xmai/sld12.png
+	frame	data/chars/xmai/sld11.png
+	frame	data/chars/xmai/sld12.png #6
+	frame	data/chars/xmai/sld11.png
+	frame	data/chars/xmai/sld12.png
+	@cmd	dasher 2 0 0
+	frame	data/chars/xmai/sld11.png
+	frame	data/chars/xmai/sld12.png
+	frame	data/chars/xmai/sld11.png
+	frame	data/chars/xmai/sld12.png
+	@cmd	dasher 1 0 0
+	frame	data/chars/xmai/sld11.png
+	frame	data/chars/xmai/sld12.png # 14
+	attack10	0 0 0 0
+	@cmd	stop
+	frame	data/chars/xmai/sld11.png
+	delay	7
+	frame	data/chars/xmai/sld10.png
+	frame	data/chars/xmai/jump00a.png
+	frame	data/chars/xmai/jump00.png
+		
+anim	select
+	loop	0
+	delay	5
+	offset	0 0
+	sound	data/sounds/blink.wav
+	frame	data/chars/xmai/xwait2.png
+	sound	data/sounds/xmaiTlk.wav
+	frame	data/chars/xmai/xwait3.png
+	frame	data/chars/xmai/xwait2.png #2
+	frame	data/chars/xmai/xwait3.png
+	@cmd	looper 2 10
+	delay	100
+	frame	data/chars/xmai/xwait2.png
+		
+anim	spawn
+	loop	0
+	delay	9
+	offset	145 211
+	bbox	0 0 0 0
+	frame	data/chars/xmai/spw12.png
+	sound	data/sounds/xmaiTlk.wav
+	frame	data/chars/xmai/spw11.png
+	frame	data/chars/xmai/spw10.png
+	frame	data/chars/xmai/spw09.png
+	frame	data/chars/xmai/spw08.png
+	frame	data/chars/xmai/spw07.png
+	frame	data/chars/xmai/spw06.png
+	frame	data/chars/xmai/spw05.png
+	frame	data/chars/xmai/spw04.png
+	frame	data/chars/xmai/spw03.png
+	frame	data/chars/xmai/spw02.png
+	frame	data/chars/xmai/spw01.png
+		
+anim	special
+@script
+	void self = getlocalvar("self");
+	int plr = getentityproperty(self,"playerindex");
+	float energ = getentityproperty(self,"mp");
 
+	if (frame >= 5 && frame <= 20)
+	{
 
+		if (energ <= 8)
+		{
+			updateframe(self, 42);
+		}
+		if ( playerkeys(plr,0, "attack"))
+		{
+			updateframe(self, 21);
+		}
+		if (playerkeys(plr,0,"special"))
+		{
+		updateframe(self, 42);
+		}
+	}
+	@end_script	
+	energycost	20
+	mponly	1
+	loop	1 16 19
+	delay	8
+	offset	145 211
+	bbox	0 0 0 0
+	hitfx	data/sounds/beat5.wav
+	frame	data/chars/xmai/spwb01.png
+	@cmd	stop
+	sound	data/sounds/xmai03.wav
+	frame	data/chars/xmai/spwb02.png #1
+	frame	data/chars/xmai/spwb03.png
+	frame	data/chars/xmai/spwb04.png
+	frame	data/chars/xmai/spwb05.png
+	delay	4
+	sound	data/sounds/grab2.wav
+	frame	data/chars/xmai/spwb06a.png #5
+	frame	data/chars/xmai/spwb06.png
+	frame	data/chars/xmai/spwb07.png
+	frame	data/chars/xmai/spwb08.png
+	frame	data/chars/xmai/spwb09.png
+	frame	data/chars/xmai/spwb10.png
+	frame	data/chars/xmai/spwb11.png
+	frame	data/chars/xmai/spwb12.png
+	frame	data/chars/xmai/spwb13.png
+	frame	data/chars/xmai/spwb14.png
+	frame	data/chars/xmai/spwb15.png
+	delay	8
+  	frame	data/chars/xmai/spwb15.png #16
+	@cmd	mpgain -1
+	frame	data/chars/xmai/spwb15.png
+	frame	data/chars/xmai/spwb15.png
+	frame	data/chars/xmai/spwb15.png
+	frame	data/chars/xmai/spwb15.png #19 --/--#20
+	delay	5
+	hitfx	data/sounds/burn.wav
+	burn	87 125 130 65 30 1 1 0 12 30
+	dropv	5.5 1
+	@cmd	keymove 2.3
+	@cmd	mpgain -8
+	frame	data/chars/xmai/spwb21.png #21
+	@cmd	keymove 2.3
+	frame	data/chars/xmai/spwb22.png
+	@cmd	keymove 2.3
+	frame	data/chars/xmai/spwb23.png
+	@cmd	keymove 2.3
+	@cmd	spawnbind "maipw" 80 1 5 #--------------
+	sound	data/sounds/punch2.wav
+	frame	data/chars/xmai/spwb24.png
+	@cmd	keymove 2.3
+	frame	data/chars/xmai/spwb25.png
+	@cmd	keymove 2.3
+	frame	data/chars/xmai/spwb26.png #26
+	@cmd	keymove 2.3
+	frame	data/chars/xmai/spwb20.png
+	@cmd	keymove 2.3
+	frame	data/chars/xmai/spwb21.png
+	@cmd	keymove 2.3
+	frame	data/chars/xmai/spwb22.png
+	@cmd	spawnbind2 "maipw" -60 1 5 "ANI_FOLLOW5" #--------------
+	sound	data/sounds/punch2.wav
+	@cmd	keymove 2.3
+	frame	data/chars/xmai/spwb23.png
+	@cmd	keymove 2.3
+	frame	data/chars/xmai/spwb24.png
+	@cmd	keymove 2.3
+	frame	data/chars/xmai/spwb25.png
+	@cmd	keymove 2.3
+	frame	data/chars/xmai/spwb26.png
+	@cmd	keymove 2.3
+	frame	data/chars/xmai/spwb20.png
+	sound	data/sounds/punch2.wav
+	@cmd	spawnbind "maipw" 80 1 5 #--------------
+	@cmd	keymove 2.3
+	frame	data/chars/xmai/spwb21.png
+	@cmd	keymove 2.3
+	frame	data/chars/xmai/spwb22.png
+	@cmd	keymove 2.3
+	frame	data/chars/xmai/spwb23.png
+	@cmd	keymove 2.3
+	frame	data/chars/xmai/spwb24.png
+	@cmd	keymove 2.3
+	frame	data/chars/xmai/spwb25.png
+	@cmd	keymove 2.3
+	frame	data/chars/xmai/spwb26.png
+	attack	0 0 0 0
+	@cmd	stop
+	@cmd	updateframe getlocalvar("self") 1
+	delay	7
+	frame	data/chars/xmai/spwb06.png
+	frame	data/chars/xmai/spwb06.png #42
+	sound	data/sounds/grab2.wav
+	frame	data/chars/xmai/spwb05.png
+	frame	data/chars/xmai/spwb04.png
+	frame	data/chars/xmai/spwb03.png
+	frame	data/chars/xmai/spwb02.png
+	frame	data/chars/xmai/spwb01.png
+	frame	data/chars/xmai/jump00.png
+	frame	data/chars/xmai/a38.png
+	frame	data/chars/xmai/a40.png
+		
+anim	waiting
+	loop	1
+	delay	12
+	offset	0 0
+	frame	data/chars/xmai/xwait1.png
+	frame	data/chars/xmai/xwait1.png
+		
+anim	walk
+	loop	1
+	delay	8
+	offset	145 211
+	bbox	130 125 30 75
+	frame	data/chars/xmai/wk01.png
+	frame	data/chars/xmai/wk02.png
+	frame	data/chars/xmai/wk03.png
+	frame	data/chars/xmai/wk04.png
+	frame	data/chars/xmai/wk05.png
+	frame	data/chars/xmai/wk06.png
+		
+anim	walkoff
+	loop	0
+	delay	12
+	offset	145 211
+	bbox	130 110 30 60
+	frame	data/chars/xmai/jump06.png
+		
+#|edited by openBor Stats v 0.53
+		

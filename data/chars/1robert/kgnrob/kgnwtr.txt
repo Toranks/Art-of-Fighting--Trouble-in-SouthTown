@@ -2,7 +2,7 @@ name		kgnwtr
 type		none
 health		150
 mp		100
-speedf		1.9
+speedf		1.7
 running		17 0 0 0 0
 jumpheight	0
 cantgrab	1
@@ -27,14 +27,14 @@ parrow3         data/chars/misc/flash/flash/player3.gif  -45 -130
 animationscript data/scripts/escript.c
 
 
-palette		data/chars/1robert/kgnrob/map1.gif
-
-alternatepal       data/chars/1robert/kgnrob/map2.gif
-alternatepal       data/chars/1robert/kgnrob/map3.gif
-alternatepal       data/chars/1robert/kgnrob/map4.gif
-alternatepal       data/chars/1robert/kgnrob/map5.gif
-alternatepal       data/chars/1robert/kgnrob/map6.gif
-alternatepal       data/chars/1robert/kgnrob/map7.gif
+palette		data/chars/1robert/kgnrob/mapal.gif
+alternatepal	data/chars/1robert/kgnrob/map2.gif
+alternatepal	data/chars/1robert/kgnrob/map3.gif
+alternatepal	data/chars/1robert/kgnrob/map4.gif
+alternatepal	data/chars/1robert/kgnrob/map5.gif
+alternatepal	data/chars/1robert/kgnrob/map6.gif
+alternatepal	data/chars/1robert/kgnrob/map7.gif
+alternatepal	data/chars/1robert/kgnrob/map1.gif
 
 load	Splash3
 load	swater2
@@ -54,38 +54,6 @@ anim	charge
 		
 anim	chargeattack
 		
-anim	fall
-	loop	0
-	delay	10
-	offset	125 150
-	bbox	0 0 0 0
-	jumpframe 0 4.5 -3.5 0 Splash3
-	landframe 3 Splash3
-	frame	data/chars/1robert/kgnrob/kgnwtr/pain1.gif
-	@cmd	killgun 2 0
-	delay	50
-	frame	data/chars/1robert/kgnrob/kgnwtr/pain1.gif
-	delay	280
-	frame	data/chars/1robert/kgnrob/kgnwtr/pain2.gif
-	delay	6
-	sound	data/sounds/Splash1.wav
-	frame	data/chars/1robert/kgnrob/kgnwtr/pain3.gif
-	frame	data/chars/1robert/kgnrob/kgnwtr/pain4.gif
-	frame	data/chars/1robert/kgnrob/kgnwtr/pain5.gif
-	frame	data/chars/1robert/kgnrob/kgnwtr/pain6.gif
-
-
-anim	rise
-	loop	0
-	delay	5
-	offset	125 150
-	bbox	0 0 0 0
-	frame	data/chars/1robert/kgnrob/kgnwtr/pain7.gif
-	@cmd	spawnGun5 "swater2" 15 1 1 2 "ANI_FOLLOW2"
-	frame	data/chars/1robert/kgnrob/kgnwtr/pain7.gif
-
-
-
 anim	death
 	loop	0
 	delay	30
@@ -100,10 +68,28 @@ anim	death
 	frame	data/chars/1robert/kgnrob/empty.gif
 	@cmd	spawn01 "Splash3" -10 1 1
 	frame	data/chars/1robert/kgnrob/empty.gif
-
-
+		
+anim	fall
+	loop	0
+	delay	10
+	offset	125 150
+	bbox	0 0 0 0
+	jumpframe	0 4.5 -3.5 0 Splash3
+	landframe	3 Splash3
+	frame	data/chars/1robert/kgnrob/kgnwtr/pain1.gif
+	@cmd	killgun 2 0
+	delay	50
+	frame	data/chars/1robert/kgnrob/kgnwtr/pain1.gif
+	delay	280
+	frame	data/chars/1robert/kgnrob/kgnwtr/pain2.gif
+	delay	6
+	sound	data/sounds/Splash1.wav
+	frame	data/chars/1robert/kgnrob/kgnwtr/pain3.gif
+	frame	data/chars/1robert/kgnrob/kgnwtr/pain4.gif
+	frame	data/chars/1robert/kgnrob/kgnwtr/pain5.gif
+	frame	data/chars/1robert/kgnrob/kgnwtr/pain6.gif
+		
 anim	forwardjump
-
 		
 anim	freespecial2
 		
@@ -140,15 +126,14 @@ anim	jump
 anim	jumpdelay
 		
 anim	jumpland
-
 		
 anim	pain
 	loop	0
 	delay	60
 	offset	125 150
 	bbox	0 0 0 0
-	jumpframe 0 4.5 -3.5 0 Splash3
-	landframe 2 Splash3
+	jumpframe	0 4.5 -3.5 0 Splash3
+	landframe	2 Splash3
 	frame	data/chars/1robert/kgnrob/kgnwtr/pain1.gif
 	delay	280
 	frame	data/chars/1robert/kgnrob/kgnwtr/pain2.gif
@@ -161,15 +146,14 @@ anim	pain
 	delay	9
 	@cmd	clearL
 	frame	data/chars/1robert/kgnrob/kgnwtr/pain7.gif
-
-
+		
 anim	pain2
 	loop	0
 	delay	60
 	offset	125 150
 	bbox	0 0 0 0
-	jumpframe 0 4.5 -3.5 0 Splash3
-	landframe 2 Splash3
+	jumpframe	0 4.5 -3.5 0 Splash3
+	landframe	2 Splash3
 	frame	data/chars/1robert/kgnrob/kgnwtr/pain1.gif
 	delay	280
 	frame	data/chars/1robert/kgnrob/kgnwtr/pain2.gif
@@ -182,8 +166,24 @@ anim	pain2
 	delay	9
 	@cmd	clearL
 	frame	data/chars/1robert/kgnrob/kgnwtr/pain7.gif
-
-
+		
+anim	respawn
+	loop	0
+	delay	10
+	offset	125 150
+	bbox	0 0 0 0
+	frame	data/chars/1robert/kgnrob/kgnwtr/idle04.gif
+	@cmd	spawnGun5 "swater2" 15 1 1 2 "ANI_FOLLOW2"
+	frame	data/chars/1robert/kgnrob/kgnwtr/idle05.gif
+		
+anim	rise
+	loop	0
+	delay	5
+	offset	125 150
+	bbox	0 0 0 0
+	frame	data/chars/1robert/kgnrob/kgnwtr/pain7.gif
+	@cmd	spawnGun5 "swater2" 15 1 1 2 "ANI_FOLLOW2"
+	frame	data/chars/1robert/kgnrob/kgnwtr/pain7.gif
 		
 anim	run
 		
@@ -199,18 +199,10 @@ anim	spawn
 	frame	data/chars/1robert/kgnrob/kgnwtr/idle04.gif
 	@cmd	spawnGun5 "swater2" 15 1 1 2 "ANI_FOLLOW2"
 	frame	data/chars/1robert/kgnrob/kgnwtr/idle05.gif
-
-anim	respawn
-	loop	0
-	delay	10
-	offset	125 150
-	bbox	0 0 0 0
-	frame	data/chars/1robert/kgnrob/kgnwtr/idle04.gif
-	@cmd	spawnGun5 "swater2" 15 1 1 2 "ANI_FOLLOW2"
-	frame	data/chars/1robert/kgnrob/kgnwtr/idle05.gif
 		
 anim	special
 		
 anim	walk
-
+		
+#|edited by openBor Stats v 0.53
 		

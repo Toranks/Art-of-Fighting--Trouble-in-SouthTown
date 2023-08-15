@@ -1,6 +1,6 @@
 name		robfall
 type		none
-health		180
+health		150
 mp		100
 speedf		2
 jumpmove	1 0
@@ -25,12 +25,15 @@ parrow2         data/chars/misc/flash/flash/player2.gif  -36 -155
 parrow3         data/chars/misc/flash/flash/player3.gif  -36 -155
 animationscript data/scripts/grabscript.c
 
-palette		data/chars/1robert/idle01.gif
+palette		data/chars/1robert/mapal.gif
+alternatepal	data/chars/1robert/map3.gif
+alternatepal	data/chars/1robert/map1.gif
+alternatepal	data/chars/1robert/map2.gif
+alternatepal	data/chars/1robert/map4.gif
+alternatepal	data/chars/1robert/map1.gif
+alternatepal	data/chars/1robert/mapal.gif
+alternatepal	data/chars/1robert/map3.gif
 
-alternatepal       data/chars/1robert/map1.gif
-alternatepal       data/chars/1robert/map2.gif
-alternatepal       data/chars/1robert/map3.gif
-alternatepal       data/chars/1robert/map4.gif
 
 
 
@@ -41,7 +44,7 @@ anim	attack1
 	loop	0
 	delay	3
 	offset	135 201
-	bbox	114 105 45 72
+	bbox	120 90 45 72
 	fastattack	1
 	frame	data/chars/1robert/air/a01.gif
 	frame	data/chars/1robert/air/a02.gif
@@ -57,7 +60,7 @@ anim	attack2
 	loop	0
 	delay	6
 	offset	135 201
-	bbox	114 105 45 72
+	bbox	120 90 45 72
 	hitfx	data/sounds/beat5.wav
 	frame	data/chars/1robert/air/a07.gif
 	frame	data/chars/1robert/air/a08.gif
@@ -78,7 +81,7 @@ anim	attack3
 	loop	0
 	delay	5
 	offset	135 201
-	bbox	114 105 45 72
+	bbox	120 90 45 72
 	hitfx	data/sounds/beat5.wav
 	frame	data/chars/1robert/air/b23.gif
 	frame	data/chars/1robert/air/b24.gif
@@ -152,13 +155,17 @@ anim	block
 	loop	1 2 4
 	delay	8
 	offset	135 201
-	bbox	114 105 45 72
+	bbox	120 90 45 50
 	frame	data/chars/1robert/air/blk00.gif
 	frame	data/chars/1robert/air/blk01.gif
 	frame	data/chars/1robert/air/blk02.gif
 	frame	data/chars/1robert/air/blk03.gif
 	frame	data/chars/1robert/air/blk02.gif
 	frame	data/chars/1robert/air/blk03.gif
+		
+anim	charge
+		
+anim	chargeattack
 		
 anim	death
 	loop	0
@@ -194,8 +201,7 @@ anim	death
 	frame	data/chars/1robert/fall6.gif
 	frame	data/chars/1robert/fall7.gif
 	frame	data/chars/1robert/fall8.gif
-
-	
+		
 anim	fall
 	loop	0
 	delay	50
@@ -209,8 +215,7 @@ anim	fall
 	delay	12
 	frame	data/chars/1robert/fall3.gif
 	frame	data/chars/1robert/fall3.gif
-
-
+		
 anim	fall7
 	delay	1000
 	offset	45 95
@@ -267,16 +272,12 @@ anim	fall7
 	offset	45 95
 	bbox	25 10 60 80
 	frame	data/chars/1robert/slambbox1.gif
-	bbox	0 0 0 0
-
-
-
 		
 anim	forwardjump
 	loop	1
 	delay	5
 	offset	135 201
-	bbox	114 105 45 60
+	bbox	114 100 45 55
 	frame	data/chars/1robert/air/b35.gif
 	frame	data/chars/1robert/air/ju03.gif
 	frame	data/chars/1robert/air/ju04.gif
@@ -340,6 +341,7 @@ anim	grabattack
 	frame	data/chars/1robert/air/hold1.gif
 		
 anim	grabattack2
+	attackone	0
 	loop	0
 	delay	9
 	offset	117 212
@@ -351,7 +353,7 @@ anim	grabattack2
 	frame	data/chars/1robert/air/hold5.gif
 	frame	data/chars/1robert/air/hold4.gif
 	frame	data/chars/1robert/air/hold3.gif
-	blast	112 102 43 94 53 1 0 0 0 0
+	blast	112 102 43 94 35 1 0 0 0 0
 	dropv	1 1 4
 	frame	data/chars/1robert/air/hold6.gif
 	delay	15
@@ -393,7 +395,7 @@ anim	grabbackward
 	@cmd	position 12 -30 50 -1 1
 	frame	data/chars/1robert/air/grab10.gif
 	@cmd	depost 0
-	@cmd	throw 65 1 -1 1 3 1
+	@cmd	throw 50 1 -1 1 3 1
 	delay	25
 	frame	data/chars/1robert/air/grab11.gif
 	delay	12
@@ -404,6 +406,8 @@ anim	grabbackward
 	offset	135 201
 	@cmd	flip
 	frame	data/chars/1robert/air/ju00.gif
+		
+anim	grabdown
 		
 anim	grabforward
 	loop	0
@@ -417,6 +421,7 @@ anim	grabforward
 	frame	data/chars/1robert/air/hold2.gif
 		
 anim	grabforward2
+	attackone	0
 	loop	0
 	delay	9
 	offset	117 212
@@ -453,7 +458,7 @@ anim	idle
 	loop	1 1 5
 	delay	7
 	offset	135 201
-	bbox	114 105 45 72
+	bbox	120 90 45 72
 	frame	data/chars/1robert/air/ju00.gif
 	@cmd	clearL
 	frame	data/chars/1robert/air/ju01.gif
@@ -465,7 +470,7 @@ anim	jump
 	loop	1
 	delay	5
 	offset	135 201
-	bbox	114 105 45 55
+	bbox	114 100 45 55
 	frame	data/chars/1robert/air/b35.gif
 	frame	data/chars/1robert/air/ju03.gif
 	frame	data/chars/1robert/air/ju04.gif
@@ -513,7 +518,7 @@ anim	jumpattack
 	loop	0
 	delay	9
 	offset	121 201
-	bbox	104 111 33 50
+	bbox	100 100 60 30
 	hitfx	data/sounds/beat3.wav
 	sound	data/sounds/rob02.wav
 	frame	data/chars/1robert/air/juatk04.gif
@@ -537,11 +542,19 @@ anim	jumpattack
 	frame	data/chars/1robert/air/juatk14b.gif
 	frame	data/chars/1robert/air/juatk14c.gif
 		
+anim	jumpattack2
+		
+anim	jumpattack3
+		
+anim	jumpdelay
+		
+anim	jumpforward
+		
 anim	jumpland
 	loop	0
 	delay	5
 	offset	135 201
-	bbox	114 105 45 72
+	bbox	114 105 45 55
 	@cmd	keymove 1
 	frame	data/chars/1robert/air/ju06.gif
 	@cmd	keymove 1
@@ -592,7 +605,7 @@ anim	run
 	loop	1 4 8
 	delay	7
 	offset	135 201
-	bbox	114 105 45 72
+	bbox	120 100 45 60
 	frame	data/chars/1robert/air/run01.gif
 	frame	data/chars/1robert/air/run02.gif
 	frame	data/chars/1robert/air/run03.gif
@@ -608,7 +621,7 @@ anim	runattack
 	loop	0
 	delay	2
 	offset	135 201
-	bbox	114 105 45 72
+	bbox	114 105 45 60
 	hitfx	data/sounds/beat5.wav
 	sound	data/sounds/rob01.wav
 	move	7
@@ -629,7 +642,7 @@ anim	runattack
 	frame	data/chars/1robert/air/runatk09.gif
 	delay	5
 	move	6
-	attack	130 80 87 48 35 1 1 0 50 0
+	attack	130 80 87 48 30 1 1 0 50 0
 	dropv	1 2 -3
 	frame	data/chars/1robert/air/runatk10.gif
 	frame	data/chars/1robert/air/runatk10.gif
@@ -648,7 +661,7 @@ anim	runjump
 	loop	1
 	delay	5
 	offset	135 201
-	bbox	114 105 45 60
+	bbox	114 105 45 55
 	frame	data/chars/1robert/air/b35.gif
 	frame	data/chars/1robert/air/ju03.gif
 	frame	data/chars/1robert/air/ju04.gif
@@ -696,19 +709,21 @@ anim	runjumpattack
 	loop	0
 	delay	9
 	offset	135 201
-	bbox	114 105 45 72
+	bbox	114 105 45 55
 	hitfx	data/sounds/beat3.wav
 	sound	data/sounds/rob02.wav
 	frame	data/chars/1robert/air/juatk15.gif
 	frame	data/chars/1robert/air/juatk16.gif
 	frame	data/chars/1robert/air/juatk17.gif
-	attack	135 119 86 42 30 1 1 0 50 0
+	attack	135 119 86 42 35 1 1 0 50 0
 	dropv	1 2 3
 	frame	data/chars/1robert/air/juatk18.gif
 	frame	data/chars/1robert/air/juatk19.gif
 	attack	0 0 0 0
 	frame	data/chars/1robert/air/juatk20.gif
 	frame	data/chars/1robert/air/juatk21.gif
+		
+anim	runslide
 		
 anim	spawn
 	loop	0
@@ -755,26 +770,10 @@ anim	spawn
 	frame	data/chars/1robert/air/ju04.gif
 	frame	data/chars/1robert/air/ju03.gif
 	frame	data/chars/1robert/air/ju10.gif
-
-#-----------------------------//--------------------------
-
-anim	charge
-		
-anim	chargeattack
-		
-anim	grabdown
-		
-anim	jumpattack2
-		
-anim	jumpattack3
-		
-anim	jumpdelay
-		
-anim	jumpforward
-		
-anim	runslide
 		
 anim	special
 		
 anim	walk
+		
+#|edited by openBor Stats v 0.53
 		

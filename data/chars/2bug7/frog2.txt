@@ -1,7 +1,7 @@
 name          frog2
 type          enemy
 subtype	      chase
-health        40
+health        50
 speedf         1.4
 jumpheight    4
 height		300
@@ -26,30 +26,7 @@ alternatepal       data/chars/2bug7/map3.gif
 alternatepal       data/chars/2bug7/map3.gif
 
 
-anim	follow10
-	@cmd	subwall 0
-	loop	0
-	delay	5
-	offset	100 195
-	bbox	0 0 0 0
-	jumpframe 0 2 3
-	landframe 4 dust
-	frame	data/chars/2bug7/wk02.gif
-	frame	data/chars/2bug7/wk02.gif
-	delay	12
-	sound	data/sounds/frog2.wav
-	frame	data/chars/2bug7/wk03.gif
-	delay	200
-	frame	data/chars/2bug7/wk04.gif
-	delay	12
-	frame	data/chars/2bug7/wk05.gif
-	@cmd	subwall 1
-	frame	data/chars/2bug7/idle01.gif
-	frame	data/chars/2bug7/idle02.gif
-	frame	data/chars/2bug7/idle03.gif
 
-
-	
 
 
 anim	attack1
@@ -57,7 +34,7 @@ anim	attack1
 	loop	0
 	delay	10
 	offset	100 195
-	bbox	79 97 50 91
+	bbox	79 159 50 40
 	hitfx	data/sounds/beat2.wav
 	frame	data/chars/2bug7/b01.gif
 	sound	data/sounds/frog2.wav
@@ -83,7 +60,7 @@ anim	attack2
 	loop	0
 	delay	14
 	offset	100 195
-	bbox	79 97 50 91
+	bbox	79 159 50 40
 	hitfx	data/sounds/beat3.wav
 	frame	data/chars/2bug7/a01.gif
 	sound	data/sounds/frog2.wav
@@ -144,23 +121,6 @@ anim	fall
 	attack	0 0 0 0
 	bbox	81 175 52 15
 	frame	data/chars/2bug7/fall4.gif
-
-anim	fall9
-	loop	0
-	delay	10
-	offset	100 190
-	bbox	87 115 40 50
-	attack	87 116 40 49 5 1 0 0 13 30
-	frame	data/chars/2bug7/fall1.gif
-	delay	37
-	bbox	80 145 49 40
-	attack	84 145 41 38 5 1 0 0 13 30
-	frame	data/chars/2bug7/fall3.gif
-	delay	8
-	frame	data/chars/2bug7/fall3.gif
-	attack	0 0 0 0
-	bbox	81 175 52 15
-	frame	data/chars/2bug7/fall4.gif
 		
 anim	fall10
 	loop	0
@@ -182,7 +142,20 @@ anim	fall10
 	bbox	81 175 52 15
 	frame	data/chars/2bug7/fall4.gif
 		
-
+anim	fall2
+	loop	0
+	delay	30
+	offset	102 190
+	bbox	83 128 50 45
+	attack	85 110 40 50 5 1 0 0 13 0
+	frame	data/chars/2bug7/pain3.gif
+	delay	10
+	attack	80 135 40 35 5 1 0 0 13 0
+	frame	data/chars/2bug7/fall2.gif
+	attack	0 0 0 0
+	bbox	0 0 0 0
+	frame	data/chars/2bug7/fall3.gif
+	frame	data/chars/2bug7/fall4.gif
 		
 anim	fall7
 	delay	1000
@@ -207,6 +180,44 @@ anim	fall7
 	offset	100 130
 	frame	data/chars/2bug7/fall2.gif
 		
+anim	fall9
+	loop	0
+	delay	10
+	offset	100 190
+	bbox	87 115 40 50
+	attack	87 116 40 49 5 1 0 0 13 30
+	frame	data/chars/2bug7/fall1.gif
+	delay	37
+	bbox	80 145 49 40
+	attack	84 145 41 38 5 1 0 0 13 30
+	frame	data/chars/2bug7/fall3.gif
+	delay	8
+	frame	data/chars/2bug7/fall3.gif
+	attack	0 0 0 0
+	bbox	81 175 52 15
+	frame	data/chars/2bug7/fall4.gif
+		
+anim	follow10
+	@cmd	subwall 0
+	loop	0
+	delay	5
+	offset	100 195
+	bbox	0 0 0 0
+	jumpframe	0 2 3
+	landframe	4 dust
+	frame	data/chars/2bug7/wk02.gif
+	frame	data/chars/2bug7/wk02.gif
+	delay	12
+	sound	data/sounds/frog2.wav
+	frame	data/chars/2bug7/wk03.gif
+	delay	200
+	frame	data/chars/2bug7/wk04.gif
+	delay	12
+	frame	data/chars/2bug7/wk05.gif
+	@cmd	subwall 1
+	frame	data/chars/2bug7/idle01.gif
+	frame	data/chars/2bug7/idle02.gif
+	frame	data/chars/2bug7/idle03.gif
 		
 anim	grabbed
 	loop	0
@@ -219,7 +230,7 @@ anim	idle
 	loop	1
 	delay	10
 	offset	100 195
-	bbox	79 97 50 91
+	bbox	79 159 50 40
 	frame	data/chars/2bug7/idle01.gif
 	sound	data/sounds/frog2.wav
 	frame	data/chars/2bug7/idle02.gif
@@ -232,7 +243,7 @@ anim	pain
 	loop	0
 	delay	3
 	offset	103 195
-	bbox	79 97 50 91
+	bbox	79 159 50 40
 	frame	data/chars/2bug7/pain0.gif
 	offset	100 189
 	frame	data/chars/2bug7/pain1.gif
@@ -284,7 +295,7 @@ anim	pain2
 	loop	0
 	delay	3
 	offset	103 195
-	bbox	79 97 50 91
+	bbox	79 159 50 40
 	frame	data/chars/2bug7/pain0.gif
 	offset	100 189
 	frame	data/chars/2bug7/pain1.gif
@@ -367,14 +378,14 @@ anim	pain6
 	loop	0
 	delay	23
 	offset	100 195
-	bbox	79 97 50 91
+	bbox	79 159 50 40
 	frame	data/chars/2bug7/pain2.gif
 		
 anim	pain8
 	loop	0
 	delay	2
 	offset	100 195
-	bbox	79 97 50 91
+	bbox	79 159 50 40
 	move	-6
 	frame	data/chars/2bug7/pain0.gif
 	frame	data/chars/2bug7/pain0.gif
@@ -394,7 +405,7 @@ anim	pain9
 	loop	0
 	delay	15
 	offset	100 195
-	bbox	79 97 50 91
+	bbox	79 159 50 40
 	frame	data/chars/2bug7/pain0.gif
 	delay	150
 	frame	data/chars/2bug7/pain2.gif
@@ -414,16 +425,16 @@ anim	spawn
 	loop	0
 	delay	1
 	offset	100 195
-	bbox	79 97 50 91
+	bbox	79 159 50 40
 	frame	data/chars/2bug7/idle01.gif
 		
 anim	walk
 	loop	1
 	delay	14
 	offset	100 195
-	bbox	79 97 50 91
-	jumpframe 0 4 2
-	landframe 4
+	bbox	79 141 50 57
+	jumpframe	0 4 2
+	landframe	4
 	frame	data/chars/2bug7/wk01.gif
 	sound	data/sounds/frog1.wav
 	frame	data/chars/2bug7/wk02.gif

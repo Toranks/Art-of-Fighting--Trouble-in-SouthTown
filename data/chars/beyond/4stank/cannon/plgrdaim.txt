@@ -15,6 +15,131 @@ load	plrocket2
 
 
 
+
+
+
+anim	death
+	loop	0
+	delay	1
+	offset	58 62
+	bbox	0 0 0 0
+	frame	data/chars/3deterrent/damage/grdempty.gif
+		
+anim	fall
+	loop	0
+	delay	1
+	offset	58 62
+	bbox	0 0 0 0
+	frame	data/chars/3deterrent/damage/grdempty.gif
+		
+anim	follow1
+@script
+	void self = getlocalvar("self");
+	void Par = getentityproperty(self,"parent");
+	int iPIndex = getentityproperty(Par,"playerindex");
+	float V = 2;
+	float xdir = 0;
+	float zdir = 0;
+
+
+
+if (frame > 1 && frame < 10 )
+{
+	if (playerkeys(iPIndex, 0, "moveleft"))
+	{
+		xdir = -V;
+	} 
+	else if (playerkeys(iPIndex, 0, "moveright"))
+	{
+		xdir = V;
+	}
+
+
+	if(playerkeys(iPIndex, 0, "moveup"))
+	{
+		zdir = -V/2;
+	} 
+	else if(playerkeys(iPIndex, 0, "movedown"))
+	{
+		zdir = V/2;
+	}
+
+	if ( playerkeys(iPIndex,0, "attack"))
+	{
+		performattack(self, openborconstant("ANI_FOLLOW2"));
+	}
+
+
+changeentityproperty(self, "lifespancountdown", 800);
+changeentityproperty(self, "velocity", xdir, zdir);
+}
+	@end_script	
+	loop	1 2 9
+	delay	5
+	offset	58 62
+	bbox	0 0 0 0
+	frame	data/chars/3deterrent/damage/grdempty.gif
+	frame	data/chars/3deterrent/damage/grdempty.gif
+	delay	5
+	frame	data/chars/3deterrent/damage/scope01.gif #2
+	sound	data/sounds/bip2.wav
+	frame	data/chars/3deterrent/damage/scope02.gif
+	frame	data/chars/3deterrent/damage/scope03.gif
+	frame	data/chars/3deterrent/damage/scope04.gif
+	frame	data/chars/3deterrent/damage/scope01.gif
+	frame	data/chars/3deterrent/damage/scope02.gif
+	frame	data/chars/3deterrent/damage/scope03.gif
+	sound	data/sounds/bip2.wav
+	frame	data/chars/3deterrent/damage/scope04.gif #9
+	frame	data/chars/3deterrent/damage/grdempty.gif
+	frame	data/chars/3deterrent/damage/grdempty.gif
+		
+anim	follow2
+	loop	0
+	delay	5
+	offset	58 62
+	bbox	0 0 0 0
+	frame	data/chars/3deterrent/damage/grdempty.gif
+	sound	data/sounds/missilego.wav
+	@cmd	stop
+	@cmd	tosser "plrocket2" 0 400 0 0 -3 0
+	delay	250
+	frame	data/chars/3deterrent/damage/grdempty.gif
+	delay	5
+	frame	data/chars/3deterrent/damage/scope03.gif #2
+	frame	data/chars/3deterrent/damage/scope04.gif
+	frame	data/chars/3deterrent/damage/scope03.gif
+	frame	data/chars/3deterrent/damage/scope04.gif
+	frame	data/chars/3deterrent/damage/scope03.gif
+	frame	data/chars/3deterrent/damage/scope04.gif
+	frame	data/chars/3deterrent/damage/scope03.gif
+	frame	data/chars/3deterrent/damage/scope04.gif
+	frame	data/chars/3deterrent/damage/grdempty.gif
+	@cmd	anichange "ANI_FOLLOW1"
+	frame	data/chars/3deterrent/damage/grdempty.gif
+		
+anim	follow4
+@script
+void self = getlocalvar("self");
+
+if (frame == 0 )
+{
+	changeentityproperty(self, "lifespancountdown", 3000);
+}
+	@end_script	
+	loop	1 4 6
+	delay	15
+	offset	42 145
+	bbox	0 0 0 0
+	drawmethod	255 255 0 0 0 1
+	frame	data/chars/3deterrent/damage/grdempty.gif
+	frame	data/chars/3deterrent/damage/grdempty.gif
+	delay	6
+	frame	data/chars/3deterrent/damage/clarkPW.gif #4
+	frame	data/chars/3deterrent/damage/grdempty.gif
+	frame	data/chars/3deterrent/damage/clarkPW.gif
+	frame	data/chars/3deterrent/damage/grdempty.gif
+		
 anim	idle
 	loop	0
 	delay	5
@@ -93,20 +218,6 @@ anim	idle
 	frame	data/chars/3deterrent/damage/grdempty.gif
 	frame	data/chars/3deterrent/damage/grdempty.gif
 		
-anim	death
-	loop	0
-	delay	1
-	offset	58 62
-	bbox	0 0 0 0
-	frame	data/chars/3deterrent/damage/grdempty.gif
-		
-anim	fall
-	loop	0
-	delay	1
-	offset	58 62
-	bbox	0 0 0 0
-	frame	data/chars/3deterrent/damage/grdempty.gif
-		
 anim	pain
 	loop	0
 	delay	1
@@ -125,136 +236,5 @@ anim	spawn
 	@cmd	beidle
 	frame	data/chars/3deterrent/damage/grdempty.gif
 		
-
-
-
-
-#------------//---clark-special--//----------------------
-
-
-anim	follow1
-@script
-	void self = getlocalvar("self");
-	int iPIndex = getentityproperty(self,"playerindex");
-	float V = 2;
-	float xdir = 0;
-	float zdir = 0;
-
-
-
-if (frame > 1 && frame < 10 )
-{
-	if (playerkeys(iPIndex, 0, "moveleft"))
-	{
-		xdir = -V;
-	} 
-	else if (playerkeys(iPIndex, 0, "moveright"))
-	{
-		xdir = V;
-	}
-
-
-	if(playerkeys(iPIndex, 0, "moveup"))
-	{
-		zdir = -V/2;
-	} 
-	else if(playerkeys(iPIndex, 0, "movedown"))
-	{
-		zdir = V/2;
-	}
-
-	if ( playerkeys(iPIndex,0, "attack"))
-	{
-		performattack(self, openborconstant("ANI_FOLLOW2"));
-	}
-
-
-changeentityproperty(self, "lifespancountdown", 800);
-changeentityproperty(self, "velocity", xdir, zdir);
-}
-@end_script
-
-
-	loop	1 2 9
-	delay	5
-	offset	58 62
-	bbox	0 0 0 0
-	frame	data/chars/3deterrent/damage/grdempty.gif
-	frame	data/chars/3deterrent/damage/grdempty.gif
-	delay	5
-	frame	data/chars/3deterrent/damage/scope01.gif #2
-	sound	data/sounds/bip2.wav
-	frame	data/chars/3deterrent/damage/scope02.gif
-	frame	data/chars/3deterrent/damage/scope03.gif
-	frame	data/chars/3deterrent/damage/scope04.gif
-	frame	data/chars/3deterrent/damage/scope01.gif
-	frame	data/chars/3deterrent/damage/scope02.gif
-	frame	data/chars/3deterrent/damage/scope03.gif
-	sound	data/sounds/bip2.wav
-	frame	data/chars/3deterrent/damage/scope04.gif #9
-	#@cmd	looper 2 150
-	frame	data/chars/3deterrent/damage/grdempty.gif
-	frame	data/chars/3deterrent/damage/grdempty.gif
-
-
-
-anim	follow2
-	loop	0
-	delay	5
-	offset	58 62
-	bbox	0 0 0 0
-	frame	data/chars/3deterrent/damage/grdempty.gif
-	sound	data/sounds/missilego.wav
-	@cmd	stop
-	@cmd	tosser "plrocket2" 0 400 0 0 -3 0
-	frame	data/chars/3deterrent/damage/grdempty.gif
-	delay	5
-	frame	data/chars/3deterrent/damage/scope03.gif #2
-	#sound	data/sounds/bip2.wav
-	frame	data/chars/3deterrent/damage/scope04.gif
-	frame	data/chars/3deterrent/damage/scope03.gif
-	frame	data/chars/3deterrent/damage/scope04.gif
-	frame	data/chars/3deterrent/damage/scope03.gif
-	frame	data/chars/3deterrent/damage/scope04.gif
-	frame	data/chars/3deterrent/damage/scope03.gif
-	#sound	data/sounds/bip2.wav
-	frame	data/chars/3deterrent/damage/scope04.gif
-
-	frame	data/chars/3deterrent/damage/grdempty.gif
-	@cmd	anichange "ANI_FOLLOW1"
-	frame	data/chars/3deterrent/damage/grdempty.gif
-
-
-
-anim	follow4
-@script
-void self = getlocalvar("self");
-
-if (frame == 0 )
-{
-	changeentityproperty(self, "lifespancountdown", 3000);
-}
-@end_script
-	loop	1 4 6
-	delay	15
-	offset	42 145
-	bbox	0 0 0 0
-	drawmethod	255 255 0 0 0 1
-	frame	data/chars/3deterrent/damage/grdempty.gif
-	frame	data/chars/3deterrent/damage/grdempty.gif
-	delay	6
-	frame	data/chars/3deterrent/damage/clarkPW.gif #4
-	frame	data/chars/3deterrent/damage/grdempty.gif
-	frame	data/chars/3deterrent/damage/clarkPW.gif
-	frame	data/chars/3deterrent/damage/grdempty.gif
-
-
-
-
-
-
-
-
-
-
+#|edited by openBor Stats v 0.53
 		

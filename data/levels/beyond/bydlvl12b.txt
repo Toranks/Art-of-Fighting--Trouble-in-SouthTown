@@ -18,6 +18,7 @@ order		a
 spawn1  	105 20
 spawn2  	110 20
 spawn3  	115 20
+scrollspeed		2
 
 bgspeed			1
 cameraoffset            0 -90
@@ -55,7 +56,7 @@ at      0
 #---------mrkarate-change--------------
 spawn   1pchosse
 alias   mrk
-health	700
+#health	700
 aggression 300
 coords  300 380
 at      0
@@ -208,19 +209,19 @@ at      0
 spawn   byocont3
 map	1
 flip	1
-item	herb
+item	cell
 coords  1400 265
 at      0
 
 spawn   byocont2
 flip    1
-item	diamond
+item	orb
 coords  2210 265
 at      0
 
 spawn   byocont
 map     2
-item	ruby
+item	orb
 coords  1900 420
 at      0
 
@@ -231,7 +232,7 @@ coords  2000 420
 at      0
 
 spawn   byocont2
-item	orb
+item	1up
 coords  2750 420
 at      0
 
@@ -250,13 +251,13 @@ at      0
 
 spawn   byocont
 map   	1
-item	cell
+item	fluid
 coords  3700 265
 at      0
 
 spawn   byocont
 map   	2
-item	orb
+item	crystal
 coords  5630 265
 at      0
 
@@ -277,24 +278,24 @@ coords  5450 420
 at      0
 
 spawn   source
-item	fluid
+item	testla
 coords  4300 265
 at      0
 
 spawn   source
-item	herb
+item	crystal
 coords  4650 265
 at      0
 
 spawn   byocont3
 map	1
-item	cell
+item	1up
 flip	1
 coords  5000 265
 at      0
 
 spawn   source
-item	fluid
+item	cell
 coords  5870 335
 at      0
 
@@ -322,29 +323,6 @@ at      0
 
 #------------------------------
 blockade 1580
-at      1580
-
-blockade 1700
-at      1700
-blockade 1800
-at      1800
-blockade 1900
-at      1900
-blockade 2000
-at      2000
-blockade 2100
-at      2100
-blockade 2200
-at      2200
-blockade 2300
-at      2300
-blockade 2400
-at      2400
-blockade 2500
-at      2500
-blockade 2600
-at      2600
-blockade 2700
 at      2700
 #-------------------------
 
@@ -371,6 +349,7 @@ at      2700
 
 spawn   reptile1
 map     4
+item	chargemp
 coords  -100 335
 at      2700
 
@@ -387,16 +366,6 @@ at      2700
 
 #-------------------------
 blockade 2800
-at      2800
-blockade 2900
-at      2900
-blockade 3000
-at      3000
-blockade 3100
-at      3100
-blockade 3200
-at      3200
-blockade 3300
 at      3300
 #-------------------------
 group 3 3
@@ -410,6 +379,7 @@ spawn   reptile3
 } @end_script
 map     3
 flip    1
+item	chargemp
 coords  -100 305
 at      3300
 
@@ -427,6 +397,7 @@ spawn   reptile3
    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW10"));
 } @end_script
 map     3
+item	charge
 coords  600 315
 at      3300
 
@@ -444,22 +415,6 @@ at      3300
 #-------------------------
 
 blockade 3400
-at      3400
-blockade 3500
-at      3500
-blockade 3600
-at      3600
-blockade 3700
-at      3700
-blockade 3800
-at      3800
-blockade 3900
-at      3900
-blockade 4000
-at      4000
-blockade 4100
-at      4100
-blockade 4200
 at      4200
 
 #-------------------------
@@ -475,8 +430,15 @@ health  500
 coords  80 360
 at      4200
 
+2pspawn   omega
+map     1
+health  1000
+coords  150 290
+at      4200
+
 spawn   graynosed
 map     2
+item	chargemp
 coords  350 350
 at      4200
 
@@ -487,6 +449,7 @@ at      4200
 
 spawn   graynosed
 map     1
+item	charge
 coords  300 360
 at      4200
 
@@ -496,57 +459,108 @@ item	crystal
 coords  150 290
 at      4200
 
-#//-------------------------------
-
-
-
 #-------------------------
 blockade 4300
-at      4300
-blockade 4400
-at      4400
-blockade 4500
 at      4500
 
-blockade 4600
-at      4600
-blockade 4700
-at      4700
-blockade 4800
+spawn   sylo2
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+map     3
+coords  600 350
+at      4500
+
+spawn   sylo2
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+map     3
+flip    1
+coords  -150 350
 at      4800
 
-blockade 4900
-at      4900
-blockade 5000
+spawn   sylo2
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+map     3
+coords  650 350
 at      5000
 
-blockade 5100
-at      5100
-blockade 5200
+#-------------------------
+
+group 3 3
+at    5200
+wait
+at    5200
+
+spawn   bignose
+map     2
+coords  -200 300
 at      5200
-#-------------------------
+
+2pspawn   omega
+map     1
+health  1000
+coords  600 400
+at      5200
+
+spawn   bignose
+map     3
+item	chargemp
+coords  -100 400
+at      5200
+
+spawn   bignose
+map     4
+health  500
+coords  600 400
+at      5200
+
+spawn   graynose
+map     1
+item	fluid
+coords  -200 300
+at      5200
+
+spawn   nosedgrey
+map     4
+coords  100 400
+at      5200
+
+spawn   bignose
+map     2
+coords  600 400
+at      5200
 
 #-------------------------
 
-blockade 5300
-at      5300
+group 100 100
+at    5300
+wait
+at    5300
 
 blockade 5400
 at      5400
 
-blockade 5500
-at      5500
-blockade 5600
-at      5600
-blockade 5700
-at      5700
-blockade 5800
-at      5800
+spawn   sylo2
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+map     3
+coords  650 360
+at      5400
 
 
+spawn   sylo2
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+map     3
+coords  -150 300
+at      5400
 
-group 15 15
-at    5800
 
 #-------------------------
 
@@ -571,6 +585,7 @@ spawn   morph
    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW12"));
 } @end_script
 map     2
+item	chargemp
 coords  1000 360
 at      5800
 
@@ -593,8 +608,8 @@ at      5800
 
 #--------------------------------
 
-blockade 5900
-at      5900
+blockade 5800
+at      5800
 
 #--------------------------------
 
@@ -611,6 +626,7 @@ spawn   morph
    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW12"));
 } @end_script
 map     3
+item	chargemp
 coords  800 390
 at      5900
 
@@ -635,6 +651,7 @@ spawn   morph
    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW12"));
 } @end_script
 map     5
+item	charge
 coords  1250 390
 at      5900
 
@@ -649,12 +666,6 @@ at      5900
 #--------------------------------
 
 blockade 6000
-at      6000
-blockade 6100
-at      6100
-blockade 6200
-at      6200
-blockade 6300
 at      6300
 
 #--------------------------------
@@ -663,7 +674,7 @@ group   1 1
 at      6400
 
 spawn   ghosttime
-health  5
+health  10
 coords  150 320
 at      6400
 

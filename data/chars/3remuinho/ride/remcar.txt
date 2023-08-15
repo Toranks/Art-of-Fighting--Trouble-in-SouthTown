@@ -1,7 +1,6 @@
 name		remcar
 type		none
-#health		600
-health		60
+health		200
 mp		100
 speedf		1.4
 jumpheight	0
@@ -19,17 +18,20 @@ facing		1
 grabforce       0
 candamage	enemy obstacle
 diesound      data/sounds/bguyd08.wav
-atchain         0 0 0 0 
-icon		data/chars/3remuinho/iconpl.gif
+icon            data/chars/misc/icons/rem.gif
 parrow          data/chars/misc/flash/flash/player1.gif  -36 -145
 parrow2         data/chars/misc/flash/flash/player2.gif  -36 -145
 parrow3         data/chars/misc/flash/flash/player3.gif  -36 -145
 diesound        data/sounds/bang2.wav
 
 animationscript data/scripts/escript.c
+animationscript data/scripts/grabscript.c
 
-com     a2	freespecial1
+com     s	freespecial1
+com     a4	freespecial1
+com     j	freespecial2
 com     a3	freespecial2
+com     a2      freespecial15
 
 load	remboat2
 load	Steam
@@ -42,7 +44,9 @@ load	explosion3
 script	@script
 void main()
 {
-    void self = getlocalvar("self");
+   void self = getlocalvar("self");
+   void anim = getentityproperty(self,"animationID");
+   void hp = getentityproperty(self,"health");
    int x = getentityproperty(self, "x");
    int y = getentityproperty(self, "a");
    int z = getentityproperty(self, "z");
@@ -70,20 +74,110 @@ void main()
    {
      changeentityproperty(self, "position", x+1);
    }
+
+   if(anim == openborconstant("ANI_RESPAWN"))
+	{
+ 	changeentityproperty(self, "health", 200);
+	}
 }
-@end_script
-
-
+	@end_script	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 anim	attack
 	loop	0
 	delay	3
 	offset	165 135
-	bbox	55 40 220 95
+	bbox	33 50 274 85
 	frame	data/chars/3remuinho/ride/remcar02.gif
 	frame	data/chars/3remuinho/ride/remcar01.gif
+		
+anim	death
+@script
+	void self = getlocalvar("self");
+	void Gun = getentityvar(self, 1);
 
-
-
+	if(frame == 0 )
+	{
+        damageentity(Gun, self, 1000, 0, openborconstant("ATK_NORMAL"));
+	}
+	if(frame == 24 )
+	{
+	bindentity(Gun, NULL());
+	setentityvar(self, 1, NULL());
+	}
+	@end_script	
+	loop	0
+	delay	5
+	offset	165 135
+	bbox	0 0 0 0
+	frame	data/chars/3remuinho/ride/remcar03.gif
+	@cmd	spawn01 "explosion1" 20 60 10
+	frame	data/chars/3remuinho/ride/remcar04.gif
+	@cmd	spawnGun "burn2" 45 50 5 2
+	frame	data/chars/3remuinho/ride/remcar03.gif
+	@cmd	spawnGun "Steam" 20 60 5 3
+	frame	data/chars/3remuinho/ride/remcar04.gif
+	@cmd	spawn01 "explosion1" -20 70 10
+	frame	data/chars/3remuinho/ride/remcar03.gif
+	@cmd	spawn01 "cardam2" 0 40 10
+	frame	data/chars/3remuinho/ride/remcar04.gif
+	frame	data/chars/3remuinho/ride/remcar03.gif #6
+	frame	data/chars/3remuinho/ride/remcar04.gif
+	frame	data/chars/3remuinho/ride/remcar03.gif
+	frame	data/chars/3remuinho/ride/remcar04.gif
+	@cmd	looper 6 10
+	frame	data/chars/3remuinho/ride/remcar03.gif
+	move	-6
+	frame	data/chars/3remuinho/ride/remcar04.gif #11
+	frame	data/chars/3remuinho/ride/empty.gif
+	frame	data/chars/3remuinho/ride/remcar03.gif
+	@cmd	spawn01 "explosion3" 30 50 3
+	frame	data/chars/3remuinho/ride/empty.gif
+	frame	data/chars/3remuinho/ride/remcar04.gif
+	frame	data/chars/3remuinho/ride/empty.gif
+	frame	data/chars/3remuinho/ride/remcar03.gif
+	frame	data/chars/3remuinho/ride/empty.gif
+	@cmd	spawn01 "explosion3" 30 50 3
+	frame	data/chars/3remuinho/ride/remcar04.gif
+	frame	data/chars/3remuinho/ride/empty.gif
+	frame	data/chars/3remuinho/ride/remcar03.gif
+	frame	data/chars/3remuinho/ride/empty.gif
+	@cmd	looper 11 7
+	frame	data/chars/3remuinho/ride/remcar04.gif
+	@cmd	killgun 2 0
+	frame	data/chars/3remuinho/ride/empty.gif #24
+	@cmd	killgun 3 0
+	frame	data/chars/3remuinho/ride/remcar03.gif
+	frame	data/chars/3remuinho/ride/empty.gif
+	frame	data/chars/3remuinho/ride/remcar04.gif
+	frame	data/chars/3remuinho/ride/empty.gif
+	frame	data/chars/3remuinho/ride/remcar03.gif
+	frame	data/chars/3remuinho/ride/empty.gif
+	frame	data/chars/3remuinho/ride/empty.gif
+		
+anim	fall
+	loop	0
+	delay	5
+	offset	165 135
+	bbox	0 0 0 0
+	frame	data/chars/3remuinho/ride/remcar02.gif
+	frame	data/chars/3remuinho/ride/remcar01.gif
+		
 anim	freespecial1
 @script
 	void self = getlocalvar("self");
@@ -110,7 +204,7 @@ anim	freespecial1
 	  changeentityproperty(self, "velocity", 2, Vz);
 	  }
 	}
-@end_script
+	@end_script	
 	loop	0
 	delay	1
 	offset	165 135
@@ -126,7 +220,7 @@ anim	freespecial1
 	sound	data/sounds/bike5.wav
 	frame	data/chars/3remuinho/ride/empty.gif
 	move	8
-	attack	130 60 180 70 15 1 1 0 10 0
+	attack	130 60 180 70 15 1 1 0 10 10
 	frame	data/chars/3remuinho/ride/remcar01.gif
 	frame	data/chars/3remuinho/ride/empty.gif
 	frame	data/chars/3remuinho/ride/remcar01.gif
@@ -181,6 +275,17 @@ anim	freespecial1
 	@cmd	stop
 	frame	data/chars/3remuinho/ride/remcar01.gif
 		
+anim	freespecial15
+	loop	0
+	delay	5
+	offset	165 135
+	bbox	0 0 0 0
+	frame	data/chars/3remuinho/ride/remcar02.gif
+	@cmd	spawnAni3 "freewaytot" 250 1 140 "ANI_FOLLOW5"
+	frame	data/chars/3remuinho/ride/remcar01.gif
+	frame	data/chars/3remuinho/ride/remcar02.gif
+	frame	data/chars/3remuinho/ride/remcar01.gif
+		
 anim	freespecial2
 @script
 	void self = getlocalvar("self");
@@ -207,7 +312,7 @@ anim	freespecial2
 	  changeentityproperty(self, "velocity", 2, Vz);
 	  }
 	}
-@end_script
+	@end_script	
 	loop	0
 	delay	1
 	offset	165 135
@@ -223,7 +328,7 @@ anim	freespecial2
 	sound	data/sounds/bike5.wav
 	frame	data/chars/3remuinho/ride/empty.gif
 	move	-8
-	attack	30 65 180 70 15 0 0 0 10 20
+	attack	30 65 180 70 15 1 0 0 10 10
 	frame	data/chars/3remuinho/ride/remcar01.gif
 	frame	data/chars/3remuinho/ride/empty.gif
 	frame	data/chars/3remuinho/ride/remcar01.gif
@@ -278,87 +383,11 @@ anim	freespecial2
 	@cmd	stop
 	frame	data/chars/3remuinho/ride/remcar01.gif
 		
-anim	death
-@script
-	void self = getlocalvar("self");
-	void Gun = getentityvar(self, 1);
-
-	if(frame == 0 )
-	{
-        damageentity(Gun, self, 1000, 0, openborconstant("ATK_NORMAL"));
-	}
-	if(frame == 24 )
-	{
-	bindentity(Gun, NULL());
-	setentityvar(self, 1, NULL());
-	}
-@end_script
-	loop	0
-	delay	5
-	offset	165 135	
-	bbox	0 0 0 0
-	frame	data/chars/3remuinho/ride/remcar03.gif
-	#@cmd	killgun 1 1
-	@cmd	spawn01 "explosion1" 20 60 10
-	frame	data/chars/3remuinho/ride/remcar04.gif
-	@cmd	spawnGun "burn2" 45 50 5 2
-	frame	data/chars/3remuinho/ride/remcar03.gif
-	@cmd	spawnGun "Steam" 20 60 5 3
-	frame	data/chars/3remuinho/ride/remcar04.gif
-	@cmd	spawn01 "explosion1" -20 70 10
-	frame	data/chars/3remuinho/ride/remcar03.gif
-	@cmd	spawn01 "cardam2" 0 40 10
-	frame	data/chars/3remuinho/ride/remcar04.gif
-	frame	data/chars/3remuinho/ride/remcar03.gif #6
-	frame	data/chars/3remuinho/ride/remcar04.gif
-	frame	data/chars/3remuinho/ride/remcar03.gif
-	frame	data/chars/3remuinho/ride/remcar04.gif
-	@cmd	looper 6 10
-	frame	data/chars/3remuinho/ride/remcar03.gif
-	move	-6
-	frame	data/chars/3remuinho/ride/remcar04.gif #11
-	frame	data/chars/3remuinho/ride/empty.gif
-	frame	data/chars/3remuinho/ride/remcar03.gif
-	@cmd	spawn01 "explosion3" 30 50 3
-	frame	data/chars/3remuinho/ride/empty.gif
-	frame	data/chars/3remuinho/ride/remcar04.gif
-	frame	data/chars/3remuinho/ride/empty.gif
-	frame	data/chars/3remuinho/ride/remcar03.gif
-	frame	data/chars/3remuinho/ride/empty.gif
-	@cmd	spawn01 "explosion3" 30 50 3
-	frame	data/chars/3remuinho/ride/remcar04.gif
-	frame	data/chars/3remuinho/ride/empty.gif
-	frame	data/chars/3remuinho/ride/remcar03.gif
-	frame	data/chars/3remuinho/ride/empty.gif
- 	@cmd	looper 11 7
-	frame	data/chars/3remuinho/ride/remcar04.gif
-	@cmd	killgun 2 0
-	frame	data/chars/3remuinho/ride/empty.gif #24
-	@cmd	killgun 3 0
-	frame	data/chars/3remuinho/ride/remcar03.gif
-	frame	data/chars/3remuinho/ride/empty.gif
-	frame	data/chars/3remuinho/ride/remcar04.gif
-	frame	data/chars/3remuinho/ride/empty.gif
-	frame	data/chars/3remuinho/ride/remcar03.gif
-	frame	data/chars/3remuinho/ride/empty.gif
-	frame	data/chars/3remuinho/ride/empty.gif
-
-
-
-		
-anim	fall
-	loop	0
-	delay	5
-	offset	165 135
-	bbox	0 0 0 0
-	frame	data/chars/3remuinho/ride/remcar02.gif
-	frame	data/chars/3remuinho/ride/remcar01.gif
-		
 anim	idle
 	loop	1
 	delay	5
 	offset	165 135
-	bbox	55 40 220 95
+	bbox	33 50 274 85
 	frame	data/chars/3remuinho/ride/remcar02.gif
 	frame	data/chars/3remuinho/ride/remcar01.gif
 	frame	data/chars/3remuinho/ride/remcar02.gif
@@ -368,35 +397,41 @@ anim	idle
 	frame	data/chars/3remuinho/ride/remcar01.gif
 	frame	data/chars/3remuinho/ride/remcar02.gif
 	frame	data/chars/3remuinho/ride/remcar01.gif
-
-
-
 		
 anim	pain
 	loop	0
 	delay	5
 	offset	165 135
-	bbox	55 40 220 95
+	bbox	33 50 274 85
 	move	6
 	frame	data/chars/3remuinho/ride/remcar02.gif
 	frame	data/chars/3remuinho/ride/remcar01.gif
 	frame	data/chars/3remuinho/ride/remcar02.gif
 	bbox	0 0 0 0
 	frame	data/chars/3remuinho/ride/remcar01.gif
-
 		
 anim	pain2
 	loop	0
 	delay	5
 	offset	165 135
-	bbox	55 40 220 95
+	bbox	33 50 274 85
 	move	-6
 	frame	data/chars/3remuinho/ride/remcar02.gif
 	frame	data/chars/3remuinho/ride/remcar01.gif
 	frame	data/chars/3remuinho/ride/remcar02.gif
 	bbox	0 0 0 0
 	frame	data/chars/3remuinho/ride/remcar01.gif
-
+		
+anim	respawn
+	loop	0
+	delay	5
+	offset	165 135
+	bbox	0 0 0 0
+	frame	data/chars/3remuinho/ride/remcar02.gif
+	@cmd	spawnChild "remboat2" -85 60 1 1 "ANI_FOLLOW9"
+	frame	data/chars/3remuinho/ride/remcar01.gif
+	frame	data/chars/3remuinho/ride/remcar02.gif
+	frame	data/chars/3remuinho/ride/remcar01.gif
 		
 anim	rise
 	loop	0
@@ -412,20 +447,10 @@ anim	spawn
 	offset	165 135
 	bbox	0 0 0 0
 	frame	data/chars/3remuinho/ride/remcar02.gif
-	@cmd	spawnGun5 "remboat2" -85 60 1 1 "ANI_FOLLOW9" 
+	@cmd	spawnChild "remboat2" -85 60 1 1 "ANI_FOLLOW9"
 	frame	data/chars/3remuinho/ride/remcar01.gif
 	frame	data/chars/3remuinho/ride/remcar02.gif
 	frame	data/chars/3remuinho/ride/remcar01.gif
-
-
-anim	respawn
-	loop	0
-	delay	5
-	offset	165 135
-	bbox	0 0 0 0
-	frame	data/chars/3remuinho/ride/remcar02.gif
-	@cmd	spawnGun5 "remboat2" -85 60 1 1 "ANI_FOLLOW9" 
-	frame	data/chars/3remuinho/ride/remcar01.gif
-	frame	data/chars/3remuinho/ride/remcar02.gif
-	frame	data/chars/3remuinho/ride/remcar01.gif
-
+		
+#|edited by openBor Stats v 0.53
+		

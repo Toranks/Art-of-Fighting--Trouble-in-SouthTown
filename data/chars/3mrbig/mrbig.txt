@@ -21,7 +21,7 @@ dust            dust
 projectilehit enemy obstacle
 hostile	  player
 candamage player
-#subject_to_hole 0
+
 diesound      data/sounds/big07.wav
 
 animationscript data/scripts/escript.c
@@ -71,206 +71,7 @@ void main()
 
 
 
-#-------------------//-----ROAD-RUN-----//-------
 
-anim	follow15
-@script
-	void self = getlocalvar("self");
-	float x = getentityproperty(self, "x");
-   	float z = getentityproperty(self, "z");
-   	float wall = checkwall(x+200,z-25);
-   	float wall2 = checkwall(x-200,z-25);
-
-   if(wall > 0 || wall2 > 0)
-   {
-     changeentityproperty(self, "position", x, z+2);
-   }
-
-
-   if (x > 482 ){
-        changeentityproperty(self, "velocity", -1);
-   }
-   if (x < 462 ){
-        changeentityproperty(self, "velocity", 1);
-   }
-   if (x >= 460 && x <=480 ){
-       changeentityproperty(self, "velocity", 0);
-   }
-@end_script
-	delay	3
-	offset	104 190
-	bbox	0 0 0 0
-	sound	data/sounds/big05.wav
-	frame	data/chars/3Mrbig/b105.gif
-	@cmd	killgun 8 0
-	frame	data/chars/3Mrbig/b105.gif
-	frame	data/chars/3Mrbig/b104.gif
-	frame	data/chars/3Mrbig/b104.gif
-	frame	data/chars/3Mrbig/b103.gif
-	frame	data/chars/3Mrbig/b103.gif
-	frame	data/chars/3Mrbig/b102.gif
-	frame	data/chars/3Mrbig/b102.gif
-	frame	data/chars/3Mrbig/b101.gif
-	frame	data/chars/3Mrbig/b101.gif
-	delay	5
-	frame	data/chars/3Mrbig/run01.gif #10
-	frame	data/chars/3Mrbig/run02.gif
-	sound	data/sounds/run.wav
-	frame	data/chars/3Mrbig/run03.gif
-	@cmd	spawn01 "dust" -20 1 1
-	frame	data/chars/3Mrbig/run04.gif
-	frame	data/chars/3Mrbig/run05.gif
-	sound	data/sounds/run.wav
-	frame	data/chars/3Mrbig/run06.gif
-	@cmd	looper 10 20
-	frame	data/chars/3Mrbig/run01.gif
-	frame	data/chars/3Mrbig/run02.gif
-	frame	data/chars/3Mrbig/run03.gif
-	@cmd	leaper 0 7 -0.7
-	frame	data/chars/3Mrbig/b202.gif
-	@cmd	anichange "ANI_FOLLOW16"
-	frame	data/chars/3Mrbig/b202.gif
-	frame	data/chars/3Mrbig/b202.gif
-	frame	data/chars/3Mrbig/b202.gif
-
-
-
-anim	follow16
-@script
-	void self = getlocalvar("self");
-	float hp = getentityproperty(self, "health");
-   	if (hp <= 0 && frame >=3){
-	changeentityproperty(self, "animation", openborconstant("ANI_FOLLOW17"));
-   	}
-@end_script
-	delay	300
-	offset	104 190
-	bbox	0 0 0 0
-	landframe 1 dust
-	sound	data/sounds/big01.wav
-	frame	data/chars/3Mrbig/b202.gif
-	delay	2
-	frame	data/chars/3Mrbig/rise05.gif
-	frame	data/chars/3Mrbig/rise05.gif
-	frame	data/chars/3Mrbig/rise05.gif
-	frame	data/chars/3Mrbig/rise05.gif
-	delay	9
-	frame	data/chars/3Mrbig/rise04.gif
-	@cmd	spawnbind "pw12" 1 1 1
-	sound	data/sounds/bang.wav
-	attack	60 60 95 140 50 1 0 1 15 20
-	dropv	6 2
-	frame	data/chars/3Mrbig/rise03.gif
-	delay	45
-	frame	data/chars/3Mrbig/rise03.gif
-	attack	0 0 0 0
-	delay	14
-	frame	data/chars/3Mrbig/rise04.gif
-	delay	2
-	frame	data/chars/3Mrbig/rise05.gif
-	@cmd	subhole 1
-	frame	data/chars/3Mrbig/rise05.gif
-	frame	data/chars/3Mrbig/rise05.gif #8
-	frame	data/chars/3Mrbig/rise05.gif
-	frame	data/chars/3Mrbig/rise05.gif
-	frame	data/chars/3Mrbig/rise05.gif
-	frame	data/chars/3Mrbig/rise05.gif
-	@cmd	beidle
-	frame	data/chars/3Mrbig/rise05.gif
-
-#--------------------------------//---------------
-
-#-------------------//-----DIE-THING-----//-------
-
-anim	follow17
-@script
-	void self = getlocalvar("self");
-	if(frame==6){
-	changelevelproperty("scrollspeed", 0);
-	changeopenborvariant("nojoin",1);
-	}
-	if(frame==12){
-	changeplayerproperty(0, "weapon", 8);
-	changeplayerproperty(1, "weapon", 8);
-	changeplayerproperty(2, "weapon", 8);
-    	changeopenborvariant("xpos", 230);
-    	changeopenborvariant("ypos", 57);
-	changeopenborvariant("nojoin",1);
-	}
-@end_script
-	loop	0
-	delay	17
-	offset	104 190
-	bbox	0 0 0 0
-	frame	data/chars/3Mrbig/rise05.gif
-	@cmd	changeopenborvariant "slowmotion" 0
-	frame	data/chars/3Mrbig/idle01.gif
-	@cmd	target 50 50 100 100 0
-	delay	24
-	frame	data/chars/3Mrbig/idle01.gif
-	frame	data/chars/3Mrbig/spawn0.gif
-	frame	data/chars/3Mrbig/spawn1.gif
-	frame	data/chars/3Mrbig/spawn2.gif
-	frame	data/chars/3Mrbig/spawn3.gif
-	delay	70
-	frame	data/chars/3Mrbig/spawn4.gif #6
-	delay	5
-	frame	data/chars/3Mrbig/spawn4.gif
-	@cmd	spawn05 "whitepn" -10 10 1
-	delay	90
-	frame	data/chars/3Mrbig/spawn4.gif
-	delay	20
-	frame	data/chars/3Mrbig/spawn4.gif #9
-	delay	5
-	frame	data/chars/3Mrbig/spawn4.gif
-	frame	data/chars/3Mrbig/spawn4.gif
-	frame	data/chars/3Mrbig/empty.gif
-	@cmd	spawn05 "robshw1" 310 130 390
-	@cmd	spawn05 "ryoshw1" 330 130 405
-	@cmd	spawn05 "yurshw1" 285 130 430
-	@cmd	spawn05 "mbigshw1" 640 130 400
-	@cmd	spawn05 "bgfntrck" 300 170 230
-	frame	data/chars/3Mrbig/empty.gif
-	@cmd	 playmusic "data/music/matrix4.ogg" 1
-	frame	data/chars/3Mrbig/empty.gif
-	frame	data/chars/3Mrbig/empty.gif
-	frame	data/chars/3Mrbig/empty.gif
-	delay	55000
-	frame	data/chars/3Mrbig/empty.gif
-	frame	data/chars/3Mrbig/empty.gif
-	frame	data/chars/3Mrbig/empty.gif
-	frame	data/chars/3Mrbig/empty.gif
-	@cmd	suicide
-	frame	data/chars/3Mrbig/empty.gif
-
-
-
-anim	death
-	loop	0
-	delay	3
-	offset	104 190
-	bbox	0 0 0 0
-	jumpframe 0 2 0
-	landframe 4
-	frame	data/chars/3Mrbig/fall3.gif
-	@cmd	changeopenborvariant "slowmotion" 1
-	delay	300
-	frame	data/chars/3Mrbig/fall3.gif
-	delay	10
-	frame	data/chars/3Mrbig/fall4.gif
-	frame	data/chars/3Mrbig/fall3.gif
-	frame	data/chars/3Mrbig/fall4.gif
-	delay	80
-	frame	data/chars/3Mrbig/fall4.gif
-	delay	14
-	frame	data/chars/3Mrbig/rise01.gif
-	frame	data/chars/3Mrbig/rise02.gif
-	frame	data/chars/3Mrbig/rise03.gif
-	frame	data/chars/3Mrbig/rise04.gif
-	@cmd	anichange "ANI_FOLLOW17"
-	frame	data/chars/3Mrbig/rise04.gif
-
-#-------------------------//---------------------
 
 
 anim	attack1
@@ -291,7 +92,6 @@ anim	attack1
 	attack	0 0 0 0
 	frame	data/chars/3Mrbig/a104.gif
 	frame	data/chars/3Mrbig/a102.gif
-
 		
 anim	attack2
 	range	97 170
@@ -541,7 +341,7 @@ anim	burn
    	if (hp <= 0 && frame >=3){
 	changeentityproperty(self, "animation", openborconstant("ANI_FOLLOW17"));
    	}
-@end_script
+	@end_script	
 	loop	0
 	delay	25
 	offset	104 190
@@ -566,8 +366,31 @@ anim	burn
 	frame	data/chars/3Mrbig/fall5.gif
 	frame	data/chars/3Mrbig/fall4.gif
 		
-
-	
+anim	death
+	loop	0
+	delay	3
+	offset	104 190
+	bbox	0 0 0 0
+	jumpframe	0 2 0
+	landframe	4
+	frame	data/chars/3Mrbig/fall3.gif
+	@cmd	changeopenborvariant "slowmotion" 1
+	delay	300
+	frame	data/chars/3Mrbig/fall3.gif
+	delay	10
+	frame	data/chars/3Mrbig/fall4.gif
+	frame	data/chars/3Mrbig/fall3.gif
+	frame	data/chars/3Mrbig/fall4.gif
+	delay	80
+	frame	data/chars/3Mrbig/fall4.gif
+	delay	14
+	frame	data/chars/3Mrbig/rise01.gif
+	frame	data/chars/3Mrbig/rise02.gif
+	frame	data/chars/3Mrbig/rise03.gif
+	frame	data/chars/3Mrbig/rise04.gif
+	@cmd	anichange "ANI_FOLLOW17"
+	frame	data/chars/3Mrbig/rise04.gif
+		
 anim	fall
 @script
 	void self = getlocalvar("self");
@@ -575,7 +398,7 @@ anim	fall
    	if (hp <= 0 && frame >=3){
 	changeentityproperty(self, "animation", openborconstant("ANI_FOLLOW17"));
    	}
-@end_script
+	@end_script	
 	loop	0
 	delay	25
 	offset	104 190
@@ -597,57 +420,6 @@ anim	fall
 	frame	data/chars/3Mrbig/fall4.gif
 	frame	data/chars/3Mrbig/fall5.gif
 	frame	data/chars/3Mrbig/fall4.gif
-
-anim	fall9
-@script
-	void self = getlocalvar("self");
-	float hp = getentityproperty(self, "health");
-   	if (hp <= 0 && frame >=3){
-	changeentityproperty(self, "animation", openborconstant("ANI_FOLLOW17"));
-   	}
-@end_script
-	loop	0
-	delay	10
-	offset	104 190
-	bbox	78 97 50 68
-	quakeframe	2 5 5
-	landframe	2 dust
-	attack	81 95 40 70 5 1 0 0 13 30
-	frame	data/chars/3Mrbig/fall1.gif
-	delay	350
-	offset	104 185
-	bbox	59 125 86 50
-	attack	56 129 91 45 5 1 0 0 13 30
-	frame	data/chars/3Mrbig/fall2.gif
-	delay	2
-	offset	104 180
-	move	-4
-	bbox	70 145 85 40
-	attack	65 143 91 45 5 1 0 0 13 30
-	frame	data/chars/3Mrbig/fall3.gif
-	frame	data/chars/3Mrbig/fall3.gif
-	frame	data/chars/3Mrbig/fall3.gif
-	@cmd	looper 3 5
-	offset	104 190
-	move	-3
-	attack	0 0 0 0
-	bbox	0 0 0 0
-	frame	data/chars/3Mrbig/fall4.gif
-	frame	data/chars/3Mrbig/fall4.gif
-	frame	data/chars/3Mrbig/fall4.gif
-	@cmd	looper 6 4
-	move	-2
-	frame	data/chars/3Mrbig/fall5.gif
-	frame	data/chars/3Mrbig/fall5.gif
-	frame	data/chars/3Mrbig/fall5.gif
-	loop	0
-	delay	15
-	move	0
-	bbox	60 177 85 15
-	frame	data/chars/3Mrbig/fall4.gif
-
-
-
 		
 anim	fall10
 @script
@@ -656,7 +428,7 @@ anim	fall10
    	if (hp <= 0 && frame >=3){
 	changeentityproperty(self, "animation", openborconstant("ANI_FOLLOW17"));
    	}
-@end_script
+	@end_script	
 	loop	0
 	delay	10
 	offset	104 190
@@ -685,12 +457,31 @@ anim	fall11
 	loop	0
 	delay	20
 	offset	104 190
-	bbox	61 185 90 5	
+	bbox	61 185 90 5
 	frame	data/chars/3Mrbig/pain12.gif
 	delay	35
 	frame	data/chars/3Mrbig/fall4.gif
 		
-
+anim	fall2
+	loop	0
+	delay	30
+	offset	104 190
+	bbox	81 71 55 91
+	landframe	3
+	attack	85 90 35 45 5 1 0 0 13 0
+	frame	data/chars/3Mrbig/pain7.gif
+	delay	10
+	bbox	59 125 86 50
+	attack	64 125 55 25 5 1 0 0 13 0
+	frame	data/chars/3Mrbig/fall2.gif
+	attack	0 0 0 0
+	delay	300
+	frame	data/chars/3Mrbig/fall3.gif
+	delay	15
+	bbox	58 175 85 15
+	frame	data/chars/3Mrbig/fall4.gif
+	frame	data/chars/3Mrbig/fall5.gif
+	frame	data/chars/3Mrbig/fall4.gif
 		
 anim	fall4
 	loop	0
@@ -743,7 +534,53 @@ anim	fall7
 	offset	115 125
 	frame	data/chars/3Mrbig/slamck15.gif
 		
-
+anim	fall9
+@script
+	void self = getlocalvar("self");
+	float hp = getentityproperty(self, "health");
+   	if (hp <= 0 && frame >=3){
+	changeentityproperty(self, "animation", openborconstant("ANI_FOLLOW17"));
+   	}
+	@end_script	
+	loop	0
+	delay	10
+	offset	104 190
+	bbox	78 97 50 68
+	quakeframe	2 5 5
+	landframe	2 dust
+	attack	81 95 40 70 5 1 0 0 13 30
+	frame	data/chars/3Mrbig/fall1.gif
+	delay	350
+	offset	104 185
+	bbox	59 125 86 50
+	attack	56 129 91 45 5 1 0 0 13 30
+	frame	data/chars/3Mrbig/fall2.gif
+	delay	2
+	offset	104 180
+	move	-4
+	bbox	70 145 85 40
+	attack	65 143 91 45 5 1 0 0 13 30
+	frame	data/chars/3Mrbig/fall3.gif
+	frame	data/chars/3Mrbig/fall3.gif
+	frame	data/chars/3Mrbig/fall3.gif
+	@cmd	looper 3 5
+	offset	104 190
+	move	-3
+	attack	0 0 0 0
+	bbox	0 0 0 0
+	frame	data/chars/3Mrbig/fall4.gif
+	frame	data/chars/3Mrbig/fall4.gif
+	frame	data/chars/3Mrbig/fall4.gif
+	@cmd	looper 6 4
+	move	-2
+	frame	data/chars/3Mrbig/fall5.gif
+	frame	data/chars/3Mrbig/fall5.gif
+	frame	data/chars/3Mrbig/fall5.gif
+	loop	0
+	delay	15
+	move	0
+	bbox	60 177 85 15
+	frame	data/chars/3Mrbig/fall4.gif
 		
 anim	follow1
 	loop	0
@@ -775,6 +612,170 @@ anim	follow1
 	delay	12
 	frame	data/chars/3Mrbig/a116.gif
 	frame	data/chars/3Mrbig/a117.gif
+		
+anim	follow15
+@script
+	void self = getlocalvar("self");
+	float x = getentityproperty(self, "x");
+   	float z = getentityproperty(self, "z");
+   	float wall = checkwall(x+200,z-25);
+   	float wall2 = checkwall(x-200,z-25);
+
+   if(wall > 0 || wall2 > 0)
+   {
+     changeentityproperty(self, "position", x, z+2);
+   }
+
+
+   if (x > 482 ){
+        changeentityproperty(self, "velocity", -1);
+   }
+   if (x < 462 ){
+        changeentityproperty(self, "velocity", 1);
+   }
+   if (x >= 460 && x <=480 ){
+       changeentityproperty(self, "velocity", 0);
+   }
+	@end_script	
+	delay	3
+	offset	104 190
+	bbox	0 0 0 0
+	sound	data/sounds/big05.wav
+	frame	data/chars/3Mrbig/b105.gif
+	@cmd	killgun 8 0
+	frame	data/chars/3Mrbig/b105.gif
+	frame	data/chars/3Mrbig/b104.gif
+	frame	data/chars/3Mrbig/b104.gif
+	frame	data/chars/3Mrbig/b103.gif
+	frame	data/chars/3Mrbig/b103.gif
+	frame	data/chars/3Mrbig/b102.gif
+	frame	data/chars/3Mrbig/b102.gif
+	frame	data/chars/3Mrbig/b101.gif
+	frame	data/chars/3Mrbig/b101.gif
+	delay	5
+	frame	data/chars/3Mrbig/run01.gif #10
+	frame	data/chars/3Mrbig/run02.gif
+	sound	data/sounds/run.wav
+	frame	data/chars/3Mrbig/run03.gif
+	@cmd	spawn01 "dust" -20 1 1
+	frame	data/chars/3Mrbig/run04.gif
+	frame	data/chars/3Mrbig/run05.gif
+	sound	data/sounds/run.wav
+	frame	data/chars/3Mrbig/run06.gif
+	@cmd	looper 10 20
+	frame	data/chars/3Mrbig/run01.gif
+	frame	data/chars/3Mrbig/run02.gif
+	frame	data/chars/3Mrbig/run03.gif
+	@cmd	leaper 0 7 -0.7
+	frame	data/chars/3Mrbig/b202.gif
+	@cmd	anichange "ANI_FOLLOW16"
+	frame	data/chars/3Mrbig/b202.gif
+	frame	data/chars/3Mrbig/b202.gif
+	frame	data/chars/3Mrbig/b202.gif
+		
+anim	follow16
+@script
+	void self = getlocalvar("self");
+	float hp = getentityproperty(self, "health");
+   	if (hp <= 0 && frame >=3){
+	changeentityproperty(self, "animation", openborconstant("ANI_FOLLOW17"));
+   	}
+	@end_script	
+	delay	300
+	offset	104 190
+	bbox	0 0 0 0
+	landframe	1 dust
+	sound	data/sounds/big01.wav
+	frame	data/chars/3Mrbig/b202.gif
+	delay	2
+	frame	data/chars/3Mrbig/rise05.gif
+	frame	data/chars/3Mrbig/rise05.gif
+	frame	data/chars/3Mrbig/rise05.gif
+	frame	data/chars/3Mrbig/rise05.gif
+	delay	9
+	frame	data/chars/3Mrbig/rise04.gif
+	@cmd	spawnbind "pw12" 1 1 1
+	sound	data/sounds/bang.wav
+	attack	60 60 95 140 50 1 0 1 15 20
+	dropv	6 2
+	frame	data/chars/3Mrbig/rise03.gif
+	delay	45
+	frame	data/chars/3Mrbig/rise03.gif
+	attack	0 0 0 0
+	delay	14
+	frame	data/chars/3Mrbig/rise04.gif
+	delay	2
+	frame	data/chars/3Mrbig/rise05.gif
+	@cmd	subhole 1
+	frame	data/chars/3Mrbig/rise05.gif
+	frame	data/chars/3Mrbig/rise05.gif #8
+	frame	data/chars/3Mrbig/rise05.gif
+	frame	data/chars/3Mrbig/rise05.gif
+	frame	data/chars/3Mrbig/rise05.gif
+	frame	data/chars/3Mrbig/rise05.gif
+	@cmd	beidle
+	frame	data/chars/3Mrbig/rise05.gif
+		
+anim	follow17
+@script
+	void self = getlocalvar("self");
+	if(frame==6){
+	changelevelproperty("scrollspeed", 0);
+	changeopenborvariant("nojoin",1);
+	}
+	if(frame==12){
+	changeplayerproperty(0, "weapon", 8);
+	changeplayerproperty(1, "weapon", 8);
+	changeplayerproperty(2, "weapon", 8);
+    	changeopenborvariant("xpos", 230);
+    	changeopenborvariant("ypos", 57);
+	changeopenborvariant("nojoin",1);
+	}
+	@end_script	
+	loop	0
+	delay	17
+	offset	104 190
+	bbox	0 0 0 0
+	frame	data/chars/3Mrbig/rise05.gif
+	@cmd	changeopenborvariant "slowmotion" 0
+	frame	data/chars/3Mrbig/idle01.gif
+	@cmd	target 50 50 100 100 0
+	delay	24
+	frame	data/chars/3Mrbig/idle01.gif
+	frame	data/chars/3Mrbig/spawn0.gif
+	frame	data/chars/3Mrbig/spawn1.gif
+	frame	data/chars/3Mrbig/spawn2.gif
+	frame	data/chars/3Mrbig/spawn3.gif
+	delay	70
+	frame	data/chars/3Mrbig/spawn4.gif #6
+	delay	5
+	frame	data/chars/3Mrbig/spawn4.gif
+	@cmd	spawn05 "whitepn" -10 10 1
+	delay	90
+	frame	data/chars/3Mrbig/spawn4.gif
+	delay	20
+	frame	data/chars/3Mrbig/spawn4.gif #9
+	delay	5
+	frame	data/chars/3Mrbig/spawn4.gif
+	frame	data/chars/3Mrbig/spawn4.gif
+	frame	data/chars/3Mrbig/empty.gif
+	@cmd	spawn05 "robshw1" 310 130 390
+	@cmd	spawn05 "ryoshw1" 330 130 405
+	@cmd	spawn05 "yurshw1" 285 130 430
+	@cmd	spawn05 "mbigshw1" 640 130 400
+	@cmd	spawn05 "bgfntrck" 300 170 230
+	frame	data/chars/3Mrbig/empty.gif
+	@cmd	playmusic "data/music/matrix4.ogg" 1
+	frame	data/chars/3Mrbig/empty.gif
+	frame	data/chars/3Mrbig/empty.gif
+	frame	data/chars/3Mrbig/empty.gif
+	delay	55000
+	frame	data/chars/3Mrbig/empty.gif
+	frame	data/chars/3Mrbig/empty.gif
+	frame	data/chars/3Mrbig/empty.gif
+	frame	data/chars/3Mrbig/empty.gif
+	@cmd	suicide
+	frame	data/chars/3Mrbig/empty.gif
 		
 anim	follow2
 	loop	0
@@ -813,7 +814,7 @@ anim	follow3
 	sound	data/sounds/run.wav
 	attack	128 92 75 35 8 0 0 0 15 0
 	frame	data/chars/3Mrbig/sp02.gif
-	@cmd	spawngrab "grab1" 200 200 450 85 1 8
+	@cmd	spawngrab "grab1" 200 200 450 110 1 8
 	frame	data/chars/3Mrbig/sp02.gif
 	frame	data/chars/3Mrbig/sp03.gif
 	sound	data/sounds/run.wav
@@ -1177,8 +1178,8 @@ anim	spawn
 	delay	5
 	offset	103 188
 	bbox	0 0 0 0
-	custentity   mbig1tlk
-	spawnframe   26 10 20 25 1
+	custentity	mbig1tlk
+	spawnframe	26 10 20 25 1
 	jumpframe	0 1 0
 	frame	data/chars/3Mrbig/idle01.gif
 	delay	950
@@ -1292,7 +1293,7 @@ anim	special2
 	sound	data/sounds/grab.wav
 	@cmd	position 1 50 10 -1 -1
 	frame	data/chars/3Mrbig/crs00.gif
-	@cmd	spawngrab "grab1" 200 200 450 200 1 8
+	@cmd	spawngrab "grab1" 200 200 450 250 1 8
 	frame	data/chars/3Mrbig/crs00.gif
 	@cmd	position 7 -20 30 1 -1
 	frame	data/chars/3Mrbig/crs01.gif
@@ -1411,7 +1412,6 @@ anim	special2
 	@cmd	position 9 0 10 -1 1
 	frame	data/chars/3Mrbig/crs13.gif
 	delay	14
-
 	@cmd	position 10 20 10 -1 1
 	frame	data/chars/3Mrbig/crs14.gif
 	@cmd	position 16 -15 30 2 1
@@ -1568,7 +1568,6 @@ anim	special2
 	@cmd	hurt 1
 	@cmd	position 2 -50 60 -1 1
 	frame	data/chars/3Mrbig/crs36.gif
-
 	@cmd	position 16 0 60 1 1
 	frame	data/chars/3Mrbig/crs31.gif
 	sound	data/sounds/punch2.wav
@@ -1589,7 +1588,6 @@ anim	special2
 	@cmd	hurt 1
 	@cmd	position 2 -50 60 -1 1
 	frame	data/chars/3Mrbig/crs36.gif
-
 	@cmd	position 16 0 60 1 1
 	frame	data/chars/3Mrbig/crs31.gif
 	sound	data/sounds/punch2.wav
@@ -1610,7 +1608,6 @@ anim	special2
 	@cmd	hurt 1
 	@cmd	position 2 -50 60 -1 1
 	frame	data/chars/3Mrbig/crs36.gif
-
 	@cmd	position 16 0 60 1 1
 	frame	data/chars/3Mrbig/crs31.gif
 	sound	data/sounds/punch2.wav
@@ -1631,7 +1628,6 @@ anim	special2
 	@cmd	hurt 1
 	@cmd	position 2 -50 60 -1 1
 	frame	data/chars/3Mrbig/crs36.gif
-
 	@cmd	position 16 0 60 1 1
 	frame	data/chars/3Mrbig/crs31.gif
 	sound	data/sounds/punch2.wav
@@ -1652,7 +1648,6 @@ anim	special2
 	@cmd	hurt 1
 	@cmd	position 2 -50 60 -1 1
 	frame	data/chars/3Mrbig/crs36.gif
-
 	@cmd	position 16 0 60 1 1
 	frame	data/chars/3Mrbig/crs31.gif
 	sound	data/sounds/punch2.wav

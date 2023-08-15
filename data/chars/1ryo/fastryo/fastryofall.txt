@@ -1,6 +1,6 @@
 name		fastryofall
 type		none
-health		180
+health		150
 mp		100
 speedf		2
 jumpmove	1 0
@@ -35,6 +35,12 @@ alternatepal	data/chars/1ryo/map3.gif
 alternatepal	data/chars/1ryo/map4.gif
 alternatepal	data/chars/1ryo/map5.gif
 alternatepal	data/chars/1ryo/map6.gif
+alternatepal	data/chars/1ryo/map7.gif
+alternatepal	data/chars/1ryo/map8.gif
+
+
+
+
 
 
 
@@ -47,7 +53,7 @@ anim	attack1
 	fastattack	1
 	frame	data/chars/1ryo/air/ju09.gif
 	delay	4
-	attack	115 100 75 45 8 0 0 0 7 0
+	attack	115 100 75 45 12 0 0 0 7 0
 	frame	data/chars/1ryo/air/ju10.gif
 	frame	data/chars/1ryo/air/ju11.gif
 	attack	0 0 0 0
@@ -119,7 +125,6 @@ anim	attackdown
 	frame	data/chars/1ryo/air/ju36.gif
 	frame	data/chars/1ryo/air/ju37.gif
 	frame	data/chars/1ryo/air/ju38.gif
-	sound	data/sounds/jump.wav
 		
 anim	attackup
 	loop	0
@@ -152,13 +157,17 @@ anim	block
 	loop	1 2 4
 	delay	8
 	offset	121 201
-	bbox	97 110 45 65
+	bbox	100 105 45 50
 	frame	data/chars/1ryo/air/ju30a.gif
 	frame	data/chars/1ryo/air/ju30b.gif
 	frame	data/chars/1ryo/air/ju30c.gif
 	frame	data/chars/1ryo/air/ju30d.gif
 	frame	data/chars/1ryo/air/ju30c.gif
 	frame	data/chars/1ryo/air/ju30d.gif
+		
+anim	charge
+		
+anim	chargeattack
 		
 anim	death
 	loop	0
@@ -203,7 +212,7 @@ anim	fall
 	frame	data/chars/1ryo/air/fall1.gif
 	frame	data/chars/1ryo/air/fall2.gif
 	frame	data/chars/1ryo/air/fall3.gif
-
+		
 anim	fall7
 	delay	1000
 	offset	45 95
@@ -260,14 +269,12 @@ anim	fall7
 	offset	45 95
 	bbox	25 10 60 80
 	frame	data/chars/1ryo/slambbox1.gif
-	bbox	0 0 0 0
-
 		
 anim	forwardjump
 	loop	1
 	delay	5
 	offset	121 201
-	bbox	102 100 39 97
+	bbox	102 100 39 55
 	frame	data/chars/1ryo/air/ju35.gif
 	frame	data/chars/1ryo/air/ju36.gif
 	frame	data/chars/1ryo/air/ju37.gif
@@ -282,7 +289,6 @@ anim	forwardjump
 	frame	data/chars/1ryo/air/ju36.gif
 	frame	data/chars/1ryo/air/ju37.gif
 	frame	data/chars/1ryo/air/ju38.gif
-	sound	data/sounds/jump.wav
 		
 anim	grab
 	loop	1
@@ -304,19 +310,20 @@ anim	grabattack
 	frame	data/chars/1ryo/air/hold1.gif
 		
 anim	grabattack2
+	attackone	0
 	loop	0
 	delay	7
 	offset	121 225
-	bbox	95 100 65 55
+	bbox	110 90 60 45
 	jumpframe	4 2 0 -2
-	landframe 	9
+	landframe	9
 	hitfx	data/sounds/beat5.wav
 	sound	data/sounds/ryo02.wav
 	frame	data/chars/1ryo/air/ak04.gif
 	frame	data/chars/1ryo/air/ak05.gif
 	frame	data/chars/1ryo/air/ak01.gif
 	frame	data/chars/1ryo/air/ak02.gif
-	blast	110 102 64 53 35 1 0 60
+	blast	110 110 64 66 35 1 0 0 20 0
 	dropv	1 1 4
 	frame	data/chars/1ryo/air/ak06.gif
 	delay	15
@@ -426,7 +433,7 @@ anim	grabbackward
 	movea	0
 	movez	-2
 	@cmd	depost 0
-	@cmd	throw 65 1 1 1 3 0
+	@cmd	throw 50 1 1 1 3 0
 	frame	data/chars/1ryo/air/hold04.gif
 	frame	data/chars/1ryo/air/hold04.gif
 	frame	data/chars/1ryo/air/hold04.gif
@@ -452,6 +459,8 @@ anim	grabbackward
 	frame	data/chars/1ryo/air/ju36.gif
 	frame	data/chars/1ryo/air/ju35.gif
 		
+anim	grabdown
+		
 anim	grabforward
 	loop	0
 	delay	5
@@ -464,19 +473,20 @@ anim	grabforward
 	frame	data/chars/1ryo/air/hold2.gif
 		
 anim	grabforward2
+	attackone	0
 	loop	0
 	delay	7
 	offset	121 225
-	bbox	95 100 65 55
+	bbox	110 90 60 45
 	jumpframe	4 2 0 -2
-	landframe 	9
+	landframe	9
 	hitfx	data/sounds/beat5.wav
 	sound	data/sounds/ryo02.wav
 	frame	data/chars/1ryo/air/ak04.gif
 	frame	data/chars/1ryo/air/ak05.gif
 	frame	data/chars/1ryo/air/ak01.gif
 	frame	data/chars/1ryo/air/ak02.gif
-	blast	110 102 64 53 35 1 0 60
+	blast	110 110 64 66 35 1 0 0 20 0
 	dropv	1 1 4
 	frame	data/chars/1ryo/air/ak06.gif
 	delay	15
@@ -498,7 +508,7 @@ anim	grabforward2
 	frame	data/chars/1ryo/air/ju41.gif
 		
 anim	idle
-	loop	1 1 9  
+	loop	1 1 9
 	delay	7
 	offset	121 201
 	bbox	97 105 45 72
@@ -512,7 +522,6 @@ anim	idle
 	frame	data/chars/1ryo/air/ju08.gif
 	frame	data/chars/1ryo/air/ju07.gif
 	frame	data/chars/1ryo/air/ju08.gif
-
 	frame	data/chars/1ryo/air/ju07.gif
 	frame	data/chars/1ryo/air/ju08.gif
 	frame	data/chars/1ryo/air/ju07.gif
@@ -559,7 +568,14 @@ anim	jumpattack
 	frame	data/chars/1ryo/air/ju47.gif
 	frame	data/chars/1ryo/air/ju46.gif
 	frame	data/chars/1ryo/air/ju45.gif
-
+		
+anim	jumpattack2
+		
+anim	jumpattack3
+		
+anim	jumpdelay
+		
+anim	jumpforward
 		
 anim	jumpland
 	loop	0
@@ -661,7 +677,7 @@ anim	runattack
 	frame	data/chars/1ryo/air/hsk07.gif
 	sound	data/sounds/ryo01.wav
 	frame	data/chars/1ryo/air/hsk07.gif
-	attack	109 120 91 42 30 1 1 0 50 0
+	attack	109 120 91 42 20 1 1 0 50 0
 	frame	data/chars/1ryo/air/hsk08.gif
 	frame	data/chars/1ryo/air/hsk08.gif
 	frame	data/chars/1ryo/air/hsk09.gif
@@ -700,13 +716,15 @@ anim	runjumpattack
 	frame	data/chars/1ryo/air/runat00.gif
 	frame	data/chars/1ryo/air/runat01.gif
 	frame	data/chars/1ryo/air/runat02.gif
-	attack	109 126 77 42 25 1 1 0 50 0
+	attack	109 126 77 42 40 1 1 0 50 0
 	dropv	1 2 3
 	frame	data/chars/1ryo/air/runat03.gif
-	attack	109 126 67 52 25 1 1 0 50 0
+	attack	109 126 67 52 40 1 1 0 50 0
 	dropv	1 2 3
 	frame	data/chars/1ryo/air/runat04.gif
 	frame	data/chars/1ryo/air/runat05.gif
+		
+anim	runslide
 		
 anim	spawn
 	loop	0
@@ -753,27 +771,10 @@ anim	spawn
 	frame	data/chars/1ryo/air/ju36.gif
 	frame	data/chars/1ryo/air/ju43.gif
 	frame	data/chars/1ryo/air/ju42.gif
-
-#-----------------------------//--------------------------
-
-anim	charge
-		
-anim	chargeattack
-		
-anim	grabdown
-		
-anim	jumpattack2
-		
-anim	jumpattack3
-		
-anim	jumpdelay
-		
-anim	jumpforward
-		
-anim	runslide
 		
 anim	special
 		
 anim	walk
 		
+#|edited by openBor Stats v 0.53
 		

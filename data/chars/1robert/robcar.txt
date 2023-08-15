@@ -1,6 +1,6 @@
 name		Robcar
 type		none
-health		150
+health		200
 mp		100
 speedf		2.3
 running		20 0 0 0 0
@@ -20,21 +20,26 @@ weaploss	3
 candamage	enemy obstacle
 diesound        data/sounds/robde.wav
 atchain         1 0 0 0 
-icon            data/chars/1robert/icon.gif
+icon            data/chars/misc/icons/robert.gif
 parrow          data/chars/misc/flash/flash/player1.gif  -36 -155
 parrow2         data/chars/misc/flash/flash/player2.gif  -36 -155
 parrow3         data/chars/misc/flash/flash/player3.gif  -36 -155
 animationscript data/scripts/grabscript.c
 
-KOMap		4 0
+KOMap		8 0
 
-com	a4	freespecial15
-com	a2	freespecial2
+com	a2	freespecial15
+com	s	freespecial2
+com	a4	freespecial2
 com	a3	freespecial3
 com	j	freespecial4
 
 
 palette		data/chars/1robert/car/map1.gif
+alternatepal	data/chars/1robert/car/map1.gif
+alternatepal	data/chars/1robert/car/map1.gif
+alternatepal	data/chars/1robert/car/map1.gif
+alternatepal	data/chars/1robert/car/map1.gif
 alternatepal	data/chars/1robert/car/map1.gif
 alternatepal	data/chars/1robert/car/map1.gif
 alternatepal	data/chars/1robert/car/map1.gif
@@ -51,7 +56,9 @@ load	cardam2
 script	@script
 void main()
 {
-    void self = getlocalvar("self");
+   void self = getlocalvar("self");
+   void anim = getentityproperty(self,"animationID");
+   void hp = getentityproperty(self,"health");
    int x = getentityproperty(self, "x");
    int y = getentityproperty(self, "a");
    int z = getentityproperty(self, "z");
@@ -79,28 +86,31 @@ void main()
    {
      changeentityproperty(self, "position", x+1);
    }
+
+   if(anim == openborconstant("ANI_RESPAWN"))
+	{
+ 	changeentityproperty(self, "health", 200);
+	}
 }
-@end_script
-
-
-
-anim	freespecial15
-	loop	0
-	delay	3
-	offset	170 124
-	bbox	0 0 0 0
-	frame	data/chars/1robert/car/car01.gif
-	@cmd	spawnAni3 "freewaytot" 250 1 140 "ANI_FOLLOW5"
-	frame	data/chars/1robert/car/car02.gif
-	frame	data/chars/1robert/car/car03.gif
-	frame	data/chars/1robert/car/car02.gif
-
-
+	@end_script	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 anim	attack1
 	loop	0
 	delay	3
 	offset	170 124
-	bbox	110 45 110 70
+	bbox	110 55 110 70
 	sound	data/sounds/robcar4.wav
 	frame	data/chars/1robert/car/car01.gif
 	@cmd	spawnbind2 "dust4" -85 0 3 "ANI_FOLLOW1"
@@ -142,7 +152,7 @@ anim	attack1
 	frame	data/chars/1robert/car/car16.gif
 	@cmd	keymove 1.2
 	frame	data/chars/1robert/car/car16.gif
-	attack	179 70 145 45 45 0 0 0 11 0
+	attack	179 70 145 45 50 0 0 0 11 50
 	frame	data/chars/1robert/car/car01.gif
 	@cmd	keymove 1.2
 	frame	data/chars/1robert/car/car01.gif
@@ -200,132 +210,24 @@ anim	attack1
 	frame	data/chars/1robert/car/car02.gif
 	frame	data/chars/1robert/car/car01.gif
 	frame	data/chars/1robert/car/car02.gif
-
-
-
-anim	freespecial4
-	loop	0
-	delay	3
-	offset	170 124
-	bbox	110 45 110 70
-	sound	data/sounds/robcar5.wav
-	frame	data/chars/1robert/car/car04.gif
-	@cmd	spawnbind2 "dust4" -85 0 3 "ANI_FOLLOW2"
-	@cmd	spawnbind2 "dust4" 90 0 3 "ANI_FOLLOW1"
-	frame	data/chars/1robert/car/car05.gif
-	delay	1
-	move	2
-	frame	data/chars/1robert/car/car20.gif
-	@cmd	keymove 1.2
-	frame	data/chars/1robert/car/car20.gif
-	@cmd	keymove 1.2
-	frame	data/chars/1robert/car/car20.gif
-	@cmd	keymove 1.2
-	frame	data/chars/1robert/car/car21.gif
-	@cmd	keymove 1.2
-	frame	data/chars/1robert/car/car21.gif
-	@cmd	keymove 1.2
-	frame	data/chars/1robert/car/car21.gif
-	frame	data/chars/1robert/car/car22.gif
-	@cmd	keymove 1.2
-	frame	data/chars/1robert/car/car22.gif
-	@cmd	keymove 1.2
-	frame	data/chars/1robert/car/car22.gif
-	@cmd	keymove 1.2
-	frame	data/chars/1robert/car/car23.gif
-	@cmd	keymove 1.2
-	frame	data/chars/1robert/car/car23.gif
-	@cmd	keymove 1.2
-	frame	data/chars/1robert/car/car23.gif
-	move	-3
-	frame	data/chars/1robert/car/car20.gif
-	@cmd	keymove 1.2
-	frame	data/chars/1robert/car/car20.gif
-	@cmd	keymove 1.2
-	frame	data/chars/1robert/car/car20.gif
-	@cmd	keymove 1.2
-	frame	data/chars/1robert/car/car21.gif
-	@cmd	keymove 1.2
-	frame	data/chars/1robert/car/car21.gif
-	@cmd	keymove 1.2
-	frame	data/chars/1robert/car/car21.gif
-	attack2	30 70 140 40 45 0 0 0 11 0
-	frame	data/chars/1robert/car/car04.gif
-	@cmd	keymove 1.2
-	frame	data/chars/1robert/car/car04.gif
-	@cmd	keymove 1.2
-	frame	data/chars/1robert/car/car04.gif
-	@cmd	keymove 1.2
-	frame	data/chars/1robert/car/car05.gif
-	@cmd	keymove 1.2
-	frame	data/chars/1robert/car/car05.gif
-	@cmd	keymove 1.2
-	frame	data/chars/1robert/car/car05.gif
-	frame	data/chars/1robert/car/car25.gif
-	@cmd	keymove 1.2
-	frame	data/chars/1robert/car/car25.gif
-	@cmd	keymove 1.2
-	frame	data/chars/1robert/car/car25.gif
-	@cmd	keymove 1.2
-	frame	data/chars/1robert/car/car26.gif
-	@cmd	keymove 1.2
-	frame	data/chars/1robert/car/car26.gif
-	@cmd	keymove 1.2
-	frame	data/chars/1robert/car/car26.gif
-	frame	data/chars/1robert/car/car27.gif
-	@cmd	keymove 1.2
-	frame	data/chars/1robert/car/car27.gif
-	@cmd	keymove 1.2
-	frame	data/chars/1robert/car/car27.gif
-	@cmd	keymove 1.2
-	frame	data/chars/1robert/car/car28.gif
-	@cmd	keymove 1.2
-	frame	data/chars/1robert/car/car28.gif
-	@cmd	keymove 1.2
-	frame	data/chars/1robert/car/car28.gif
-	frame	data/chars/1robert/car/car25.gif
-	@cmd	keymove 1.2
-	frame	data/chars/1robert/car/car25.gif
-	@cmd	keymove 1.2
-	frame	data/chars/1robert/car/car25.gif
-	attack2	0 0 0 0
-	sound	data/sounds/robcar6.wav
-	@cmd	keymove 1.2
-	frame	data/chars/1robert/car/car26.gif
-	@cmd	keymove 1.2
-	frame	data/chars/1robert/car/car26.gif
-	@cmd	keymove 1.2
-	frame	data/chars/1robert/car/car26.gif
-	move	3
-	delay	3
-	frame	data/chars/1robert/car/car04.gif
-	frame	data/chars/1robert/car/car05.gif
-	frame	data/chars/1robert/car/car04.gif
-	frame	data/chars/1robert/car/car05.gif
-	frame	data/chars/1robert/car/car04.gif
-	frame	data/chars/1robert/car/car05.gif
-	frame	data/chars/1robert/car/car04.gif
-	frame	data/chars/1robert/car/car05.gif
-
-
-
-
+		
+anim	attackdown
+		
+anim	attackup
+		
 anim	backwalk
 	loop	1
 	delay	3
 	offset	170 124
-	bbox	110 45 110 70
+	bbox	110 55 110 70
 	frame	data/chars/1robert/car/car04.gif
 	frame	data/chars/1robert/car/car05.gif
-
-anim	walk
-	loop	1
-	delay	3
-	offset	170 124
-	bbox	110 45 110 70
-	frame	data/chars/1robert/car/car01.gif
-	frame	data/chars/1robert/car/car02.gif
-
+		
+anim	block
+		
+anim	charge
+		
+anim	chargeattack
 		
 anim	death
 	loop	0
@@ -345,7 +247,6 @@ anim	death
 	frame	data/chars/1robert/car/death04.gif
 	@cmd	spawn01 "explosion1" 40 50 5
 	frame	data/chars/1robert/car/death03.gif
-	#delay	4
 	frame	data/chars/1robert/car/death10.gif
 	@cmd	spawn01 "explosion2" -60 60 3
 	frame	data/chars/1robert/car/car02.gif
@@ -407,8 +308,6 @@ anim	death
 	frame	data/chars/misc/empty.gif
 	frame	data/chars/1robert/car/death15.gif
 	frame	data/chars/misc/empty.gif
-	
-
 		
 anim	fall
 	loop	0
@@ -417,7 +316,19 @@ anim	fall
 	bbox	0 0 0 0
 	frame	data/chars/1robert/car/car01.gif
 	frame	data/chars/1robert/car/car02.gif
-
+		
+anim	forwardjump
+		
+anim	freespecial15
+	loop	0
+	delay	3
+	offset	170 124
+	bbox	0 0 0 0
+	frame	data/chars/1robert/car/car01.gif
+	@cmd	spawnAni3 "freewaytot" 250 1 140 "ANI_FOLLOW5"
+	frame	data/chars/1robert/car/car02.gif
+	frame	data/chars/1robert/car/car03.gif
+	frame	data/chars/1robert/car/car02.gif
 		
 anim	freespecial2
 @script
@@ -429,18 +340,48 @@ anim	freespecial2
 	changeentityproperty(self, "invinctime", eTime + 115);
 	changeentityproperty(self, "blink", 1);
 	}
-@end_script
+	@end_script	
 	loop	0
 	delay	2
 	offset	170 124
-	bbox	110 45 110 70
+	bbox	110 55 110 70
 	sound	data/sounds/robcar2.wav
 	frame	data/chars/1robert/car/car01.gif
 	@cmd	spawnbind2 "dust4" -135 0 3 "ANI_FOLLOW3"
 	@cmd	spawnbind2 "dust4" 35 0 3 "ANI_FOLLOW4"
 	frame	data/chars/1robert/car/car02.gif
+	move	12
+	attack	179 70 145 45 20 1 0 0 11 20
+	frame	data/chars/1robert/car/car01.gif
+	frame	data/chars/1robert/car/car02.gif
+	@cmd	keymove 1.3
+	frame	data/chars/1robert/car/car01.gif
+	frame	data/chars/1robert/car/car02.gif
+	@cmd	keymove 1.3
+	frame	data/chars/1robert/car/car01.gif
+	frame	data/chars/1robert/car/car02.gif
+	@cmd	keymove 1.3
+	frame	data/chars/1robert/car/car01.gif
+	frame	data/chars/1robert/car/car02.gif
+	@cmd	keymove 1.3
+	frame	data/chars/1robert/car/car01.gif
+	frame	data/chars/1robert/car/car02.gif
+	@cmd	keymove 1.3
+	frame	data/chars/1robert/car/car01.gif
+	frame	data/chars/1robert/car/car02.gif
+	@cmd	keymove 1.3
+	frame	data/chars/1robert/car/car01.gif
+	frame	data/chars/1robert/car/car02.gif
+	@cmd	keymove 1.3
+	frame	data/chars/1robert/car/car01.gif
+	frame	data/chars/1robert/car/car02.gif
+	@cmd	keymove 1.3
+	frame	data/chars/1robert/car/car01.gif
+	frame	data/chars/1robert/car/car02.gif
+	@cmd	keymove 1.3
+	frame	data/chars/1robert/car/car01.gif
+	frame	data/chars/1robert/car/car02.gif
 	move	10
-	attack	179 70 145 45 25 0 0 0 11 0
 	frame	data/chars/1robert/car/car01.gif
 	frame	data/chars/1robert/car/car02.gif
 	@cmd	keymove 1.3
@@ -458,37 +399,7 @@ anim	freespecial2
 	@cmd	keymove 1.3
 	frame	data/chars/1robert/car/car01.gif
 	frame	data/chars/1robert/car/car02.gif
-	@cmd	keymove 1.3
-	frame	data/chars/1robert/car/car01.gif
-	frame	data/chars/1robert/car/car02.gif
-	@cmd	keymove 1.3
-	frame	data/chars/1robert/car/car01.gif
-	frame	data/chars/1robert/car/car02.gif
-	@cmd	keymove 1.3
-	frame	data/chars/1robert/car/car01.gif
-	frame	data/chars/1robert/car/car02.gif
-	@cmd	keymove 1.3
-	frame	data/chars/1robert/car/car01.gif
-	frame	data/chars/1robert/car/car02.gif
-	move	6
-	frame	data/chars/1robert/car/car01.gif
-	frame	data/chars/1robert/car/car02.gif
-	@cmd	keymove 1.3
-	frame	data/chars/1robert/car/car01.gif
-	frame	data/chars/1robert/car/car02.gif
-	@cmd	keymove 1.3
-	frame	data/chars/1robert/car/car01.gif
-	frame	data/chars/1robert/car/car02.gif
-	@cmd	keymove 1.3
-	frame	data/chars/1robert/car/car01.gif
-	frame	data/chars/1robert/car/car02.gif
-	@cmd	keymove 1.3
-	frame	data/chars/1robert/car/car01.gif
-	frame	data/chars/1robert/car/car02.gif
-	@cmd	keymove 1.3
-	frame	data/chars/1robert/car/car01.gif
-	frame	data/chars/1robert/car/car02.gif
-	move	4
+	move	8
 	sound	data/sounds/robcar1.wav
 	frame	data/chars/1robert/car/car01.gif
 	frame	data/chars/1robert/car/car02.gif
@@ -515,9 +426,7 @@ anim	freespecial2
 	frame	data/chars/1robert/car/car02.gif
 	frame	data/chars/1robert/car/car01.gif
 	frame	data/chars/1robert/car/car02.gif
-	
-	
-
+		
 anim	freespecial3
 @script
 	void self = getlocalvar("self");
@@ -528,18 +437,48 @@ anim	freespecial3
 	changeentityproperty(self, "invinctime", eTime + 115);
 	changeentityproperty(self, "blink", 1);
 	}
-@end_script
+	@end_script	
 	loop	0
 	delay	2
 	offset	170 124
-	bbox	110 45 110 70
+	bbox	110 55 110 70
 	sound	data/sounds/robcar3.wav
 	frame	data/chars/1robert/car/car04.gif
 	@cmd	spawnbind2 "dust4" -145 0 3 "ANI_FOLLOW4"
 	@cmd	spawnbind2 "dust4" 35 0 3 "ANI_FOLLOW3"
 	frame	data/chars/1robert/car/car05.gif
+	move	-12
+	attack	20 70 145 45 20 1 0 0 11 20
+	frame	data/chars/1robert/car/car04.gif
+	frame	data/chars/1robert/car/car05.gif
+	@cmd	keymove 1.3
+	frame	data/chars/1robert/car/car04.gif
+	frame	data/chars/1robert/car/car05.gif
+	@cmd	keymove 1.3
+	frame	data/chars/1robert/car/car04.gif
+	frame	data/chars/1robert/car/car05.gif
+	@cmd	keymove 1.3
+	frame	data/chars/1robert/car/car04.gif
+	frame	data/chars/1robert/car/car05.gif
+	@cmd	keymove 1.3
+	frame	data/chars/1robert/car/car04.gif
+	frame	data/chars/1robert/car/car05.gif
+	@cmd	keymove 1.3
+	frame	data/chars/1robert/car/car04.gif
+	frame	data/chars/1robert/car/car05.gif
+	@cmd	keymove 1.3
+	frame	data/chars/1robert/car/car04.gif
+	frame	data/chars/1robert/car/car05.gif
+	@cmd	keymove 1.3
+	frame	data/chars/1robert/car/car04.gif
+	frame	data/chars/1robert/car/car05.gif
+	@cmd	keymove 1.3
+	frame	data/chars/1robert/car/car04.gif
+	frame	data/chars/1robert/car/car05.gif
+	@cmd	keymove 1.3
+	frame	data/chars/1robert/car/car04.gif
+	frame	data/chars/1robert/car/car05.gif
 	move	-10
-	attack	179 70 145 45 25 0 0 0 11 0
 	frame	data/chars/1robert/car/car04.gif
 	frame	data/chars/1robert/car/car05.gif
 	@cmd	keymove 1.3
@@ -557,37 +496,7 @@ anim	freespecial3
 	@cmd	keymove 1.3
 	frame	data/chars/1robert/car/car04.gif
 	frame	data/chars/1robert/car/car05.gif
-	@cmd	keymove 1.3
-	frame	data/chars/1robert/car/car04.gif
-	frame	data/chars/1robert/car/car05.gif
-	@cmd	keymove 1.3
-	frame	data/chars/1robert/car/car04.gif
-	frame	data/chars/1robert/car/car05.gif
-	@cmd	keymove 1.3
-	frame	data/chars/1robert/car/car04.gif
-	frame	data/chars/1robert/car/car05.gif
-	@cmd	keymove 1.3
-	frame	data/chars/1robert/car/car04.gif
-	frame	data/chars/1robert/car/car05.gif
-	move	-6
-	frame	data/chars/1robert/car/car04.gif
-	frame	data/chars/1robert/car/car05.gif
-	@cmd	keymove 1.3
-	frame	data/chars/1robert/car/car04.gif
-	frame	data/chars/1robert/car/car05.gif
-	@cmd	keymove 1.3
-	frame	data/chars/1robert/car/car04.gif
-	frame	data/chars/1robert/car/car05.gif
-	@cmd	keymove 1.3
-	frame	data/chars/1robert/car/car04.gif
-	frame	data/chars/1robert/car/car05.gif
-	@cmd	keymove 1.3
-	frame	data/chars/1robert/car/car04.gif
-	frame	data/chars/1robert/car/car05.gif
-	@cmd	keymove 1.3
-	frame	data/chars/1robert/car/car04.gif
-	frame	data/chars/1robert/car/car05.gif
-	move	-4
+	move	-8
 	sound	data/sounds/robcar1.wav
 	frame	data/chars/1robert/car/car04.gif
 	frame	data/chars/1robert/car/car05.gif
@@ -615,12 +524,117 @@ anim	freespecial3
 	frame	data/chars/1robert/car/car04.gif
 	frame	data/chars/1robert/car/car05.gif
 		
+anim	freespecial4
+	loop	0
+	delay	3
+	offset	170 124
+	bbox	110 55 110 70
+	sound	data/sounds/robcar5.wav
+	frame	data/chars/1robert/car/car04.gif
+	@cmd	spawnbind2 "dust4" -85 0 3 "ANI_FOLLOW2"
+	@cmd	spawnbind2 "dust4" 90 0 3 "ANI_FOLLOW1"
+	frame	data/chars/1robert/car/car05.gif
+	delay	1
+	move	2
+	frame	data/chars/1robert/car/car20.gif
+	@cmd	keymove 1.2
+	frame	data/chars/1robert/car/car20.gif
+	@cmd	keymove 1.2
+	frame	data/chars/1robert/car/car20.gif
+	@cmd	keymove 1.2
+	frame	data/chars/1robert/car/car21.gif
+	@cmd	keymove 1.2
+	frame	data/chars/1robert/car/car21.gif
+	@cmd	keymove 1.2
+	frame	data/chars/1robert/car/car21.gif
+	frame	data/chars/1robert/car/car22.gif
+	@cmd	keymove 1.2
+	frame	data/chars/1robert/car/car22.gif
+	@cmd	keymove 1.2
+	frame	data/chars/1robert/car/car22.gif
+	@cmd	keymove 1.2
+	frame	data/chars/1robert/car/car23.gif
+	@cmd	keymove 1.2
+	frame	data/chars/1robert/car/car23.gif
+	@cmd	keymove 1.2
+	frame	data/chars/1robert/car/car23.gif
+	move	-3
+	frame	data/chars/1robert/car/car20.gif
+	@cmd	keymove 1.2
+	frame	data/chars/1robert/car/car20.gif
+	@cmd	keymove 1.2
+	frame	data/chars/1robert/car/car20.gif
+	@cmd	keymove 1.2
+	frame	data/chars/1robert/car/car21.gif
+	@cmd	keymove 1.2
+	frame	data/chars/1robert/car/car21.gif
+	@cmd	keymove 1.2
+	frame	data/chars/1robert/car/car21.gif
+	attack2	30 70 140 40 50 0 0 0 11 50
+	frame	data/chars/1robert/car/car04.gif
+	@cmd	keymove 1.2
+	frame	data/chars/1robert/car/car04.gif
+	@cmd	keymove 1.2
+	frame	data/chars/1robert/car/car04.gif
+	@cmd	keymove 1.2
+	frame	data/chars/1robert/car/car05.gif
+	@cmd	keymove 1.2
+	frame	data/chars/1robert/car/car05.gif
+	@cmd	keymove 1.2
+	frame	data/chars/1robert/car/car05.gif
+	frame	data/chars/1robert/car/car25.gif
+	@cmd	keymove 1.2
+	frame	data/chars/1robert/car/car25.gif
+	@cmd	keymove 1.2
+	frame	data/chars/1robert/car/car25.gif
+	@cmd	keymove 1.2
+	frame	data/chars/1robert/car/car26.gif
+	@cmd	keymove 1.2
+	frame	data/chars/1robert/car/car26.gif
+	@cmd	keymove 1.2
+	frame	data/chars/1robert/car/car26.gif
+	frame	data/chars/1robert/car/car27.gif
+	@cmd	keymove 1.2
+	frame	data/chars/1robert/car/car27.gif
+	@cmd	keymove 1.2
+	frame	data/chars/1robert/car/car27.gif
+	@cmd	keymove 1.2
+	frame	data/chars/1robert/car/car28.gif
+	@cmd	keymove 1.2
+	frame	data/chars/1robert/car/car28.gif
+	@cmd	keymove 1.2
+	frame	data/chars/1robert/car/car28.gif
+	frame	data/chars/1robert/car/car25.gif
+	@cmd	keymove 1.2
+	frame	data/chars/1robert/car/car25.gif
+	@cmd	keymove 1.2
+	frame	data/chars/1robert/car/car25.gif
+	attack2	0 0 0 0
+	sound	data/sounds/robcar6.wav
+	@cmd	keymove 1.2
+	frame	data/chars/1robert/car/car26.gif
+	@cmd	keymove 1.2
+	frame	data/chars/1robert/car/car26.gif
+	@cmd	keymove 1.2
+	frame	data/chars/1robert/car/car26.gif
+	move	3
+	delay	3
+	frame	data/chars/1robert/car/car04.gif
+	frame	data/chars/1robert/car/car05.gif
+	frame	data/chars/1robert/car/car04.gif
+	frame	data/chars/1robert/car/car05.gif
+	frame	data/chars/1robert/car/car04.gif
+	frame	data/chars/1robert/car/car05.gif
+	frame	data/chars/1robert/car/car04.gif
+	frame	data/chars/1robert/car/car05.gif
+		
+anim	get
 		
 anim	idle
 	loop	1
 	delay	3
 	offset	170 124
-	bbox	110 45 110 70
+	bbox	110 55 110 70
 	frame	data/chars/1robert/car/car01.gif
 	frame	data/chars/1robert/car/car02.gif
 	frame	data/chars/1robert/car/car03.gif
@@ -634,13 +648,18 @@ anim	idle
 	frame	data/chars/1robert/car/car02.gif
 	frame	data/chars/1robert/car/car03.gif
 	frame	data/chars/1robert/car/car02.gif
-
+		
+anim	jump
+		
+anim	jumpdelay
+		
+anim	jumpland
 		
 anim	pain
 	loop	0
 	delay	3
 	offset	170 124
-	bbox	110 45 110 70
+	bbox	110 55 110 70
 	@cmd	keymove 1.2
 	frame	data/chars/1robert/car/car04.gif
 	frame	data/chars/1robert/car/car05.gif
@@ -652,7 +671,7 @@ anim	pain2
 	loop	0
 	delay	3
 	offset	170 124
-	bbox	110 45 110 70
+	bbox	110 55 110 70
 	@cmd	keymove 1.2
 	frame	data/chars/1robert/car/car01.gif
 	frame	data/chars/1robert/car/car02.gif
@@ -664,20 +683,77 @@ anim	pain5
 	loop	0
 	delay	3
 	offset	170 124
-	bbox	110 45 110 70
+	bbox	110 55 110 70
 	@cmd	keymove 1.2
 	frame	data/chars/1robert/car/car01.gif
 	frame	data/chars/1robert/car/car02.gif
+		
+anim	respawn
+	loop	0
+	delay	5
+	offset	170 124
+	bbox	0 0 0 0
+	frame	data/chars/1robert/car/spawn05.gif
+	frame	data/chars/1robert/car/spawn06.gif
+	@cmd	keymove 2.0
+	frame	data/chars/1robert/car/spawn01.gif
+	frame	data/chars/1robert/car/spawn02.gif
+	@cmd	keymove 2.0
+	frame	data/chars/1robert/car/spawn03.gif
+	frame	data/chars/1robert/car/spawn04.gif
+	@cmd	keymove 2.0
+	frame	data/chars/1robert/car/spawn05.gif
+	frame	data/chars/1robert/car/spawn06.gif
+	@cmd	keymove 2.0
+	frame	data/chars/1robert/car/spawn07.gif
+	frame	data/chars/1robert/car/spawn08.gif
+	@cmd	keymove 2.0
+	frame	data/chars/1robert/car/spawn09.gif
+	frame	data/chars/1robert/car/spawn10.gif
+	@cmd	keymove 2.0
+	frame	data/chars/1robert/car/spawn11.gif
+	frame	data/chars/1robert/car/spawn12.gif
+	@cmd	keymove 2.0
+	frame	data/chars/1robert/car/spawn13.gif
+	frame	data/chars/1robert/car/spawn14.gif
+	@cmd	keymove 2.0
+	frame	data/chars/1robert/car/spawn15.gif
+	frame	data/chars/1robert/car/spawn16.gif
+	@cmd	keymove 2.0
+	frame	data/chars/1robert/car/spawn17.gif
+	frame	data/chars/1robert/car/spawn02.gif
+	@cmd	keymove 2.0
+	frame	data/chars/1robert/car/spawn01.gif
+	frame	data/chars/1robert/car/spawn02.gif
+	@cmd	keymove 2.0
+	frame	data/chars/1robert/car/spawn01.gif
+	frame	data/chars/1robert/car/spawn02.gif
+	@cmd	keymove 2.0
+	frame	data/chars/1robert/car/spawn18.gif
+	frame	data/chars/1robert/car/spawn19.gif
+	@cmd	keymove 2.0
+	frame	data/chars/1robert/car/spawn20.gif
+	frame	data/chars/1robert/car/spawn21.gif
+	@cmd	keymove 2.0
+	frame	data/chars/1robert/car/spawn22.gif
+	frame	data/chars/1robert/car/spawn23.gif
+	@cmd	keymove 2.0
+	frame	data/chars/1robert/car/spawn24.gif
+	frame	data/chars/1robert/car/spawn25.gif
 		
 anim	rise
 	loop	0
 	delay	1
 	offset	170 124
-	bbox	110 45 110 70
+	bbox	110 55 110 70
 	frame	data/chars/1robert/car/car01.gif
 	frame	data/chars/1robert/car/car02.gif
 		
-
+anim	run
+		
+anim	runattack
+		
+anim	runjump
 		
 anim	spawn
 	loop	0
@@ -773,96 +849,16 @@ anim	spawn
 	@cmd	keymove 2.0
 	frame	data/chars/1robert/car/spawn24.gif
 	frame	data/chars/1robert/car/spawn25.gif
-
-
-
-
-
-anim	respawn
-	loop	0
-	delay	5
-	offset	170 124
-	bbox	0 0 0 0
-	frame	data/chars/1robert/car/spawn05.gif
-	frame	data/chars/1robert/car/spawn06.gif
-	@cmd	keymove 2.0
-	frame	data/chars/1robert/car/spawn01.gif
-	frame	data/chars/1robert/car/spawn02.gif
-	@cmd	keymove 2.0
-	frame	data/chars/1robert/car/spawn03.gif
-	frame	data/chars/1robert/car/spawn04.gif
-	@cmd	keymove 2.0
-	frame	data/chars/1robert/car/spawn05.gif
-	frame	data/chars/1robert/car/spawn06.gif
-	@cmd	keymove 2.0
-	frame	data/chars/1robert/car/spawn07.gif
-	frame	data/chars/1robert/car/spawn08.gif
-	@cmd	keymove 2.0
-	frame	data/chars/1robert/car/spawn09.gif
-	frame	data/chars/1robert/car/spawn10.gif
-	@cmd	keymove 2.0
-	frame	data/chars/1robert/car/spawn11.gif
-	frame	data/chars/1robert/car/spawn12.gif
-	@cmd	keymove 2.0
-	frame	data/chars/1robert/car/spawn13.gif
-	frame	data/chars/1robert/car/spawn14.gif
-	@cmd	keymove 2.0
-	frame	data/chars/1robert/car/spawn15.gif
-	frame	data/chars/1robert/car/spawn16.gif
-	@cmd	keymove 2.0
-	frame	data/chars/1robert/car/spawn17.gif
-	frame	data/chars/1robert/car/spawn02.gif
-	@cmd	keymove 2.0
-	frame	data/chars/1robert/car/spawn01.gif
-	frame	data/chars/1robert/car/spawn02.gif
-	@cmd	keymove 2.0
-	frame	data/chars/1robert/car/spawn01.gif
-	frame	data/chars/1robert/car/spawn02.gif
-	@cmd	keymove 2.0
-	frame	data/chars/1robert/car/spawn18.gif
-	frame	data/chars/1robert/car/spawn19.gif
-	@cmd	keymove 2.0
-	frame	data/chars/1robert/car/spawn20.gif
-	frame	data/chars/1robert/car/spawn21.gif
-	@cmd	keymove 2.0
-	frame	data/chars/1robert/car/spawn22.gif
-	frame	data/chars/1robert/car/spawn23.gif
-	@cmd	keymove 2.0
-	frame	data/chars/1robert/car/spawn24.gif
-	frame	data/chars/1robert/car/spawn25.gif
-
-
-#----------------------------//-----------------
-
-anim	block
-		
-anim	charge
-		
-anim	chargeattack
-
-anim	get
-
-anim	jump
-		
-anim	jumpdelay
-		
-anim	jumpland
-
-anim	forwardjump
-
-anim	run
-		
-anim	runjump
-
-anim	attackdown
-		
-anim	attackup
-		
-anim	runattack
 		
 anim	special
-
-
-
-
-
+		
+anim	walk
+	loop	1
+	delay	3
+	offset	170 124
+	bbox	110 55 110 70
+	frame	data/chars/1robert/car/car01.gif
+	frame	data/chars/1robert/car/car02.gif
+		
+#|edited by openBor Stats v 0.53
+		

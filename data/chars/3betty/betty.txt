@@ -1,7 +1,7 @@
 name          betty
 type          enemy
 subtype	      chase	
-health        1000
+health        4000
 speed         7
 running	      21 3 3 1 0
 jumpheight    4
@@ -32,6 +32,14 @@ iconposition 50 227
 nolife 1
 
 palette	none
+
+
+
+
+
+
+
+
 
 anim	attack1
 	range	110 150
@@ -71,7 +79,7 @@ anim	attack1
 	frame	data/chars/3betty/a10.png
 	frame	data/chars/3betty/a10.png
 	attack9	130 83 55 65 12 1 0 0 40 0
-	dropv	6 1	
+	dropv	6 1
 	frame	data/chars/3betty/a11.png
 	frame	data/chars/3betty/a11.png
 	attack9	118 61 45 79 12 1 0 0 40 0
@@ -86,8 +94,7 @@ anim	attack1
 	frame	data/chars/3betty/a14.png
 	frame	data/chars/3betty/a15.png
 	frame	data/chars/3betty/a15.png
-
-
+		
 anim	attack2
 	range	60 90
 	loop	0
@@ -97,7 +104,7 @@ anim	attack2
 	fastattack	1
 	sound	data/sounds/bgirl12.wav
 	hitfx	data/sounds/beat2.wav
-	hitflash flash4
+	hitflash	flash4
 	frame	data/chars/3betty/b01.png
 	frame	data/chars/3betty/b01.png
 	frame	data/chars/3betty/b02.png
@@ -144,9 +151,7 @@ anim	attack2
 	frame	data/chars/3betty/bc07.png
 	frame	data/chars/3betty/bc08.png
 	frame	data/chars/3betty/bc08.png
-
-
-
+		
 anim	attack5
 	range	80 110
 	rangez	25 45
@@ -156,8 +161,6 @@ anim	attack5
 	bbox	104 94 47 90
 	followanim	4
 	followcond	1
-	#jumpframe 2 3 1.2 0.6
-	#landframe 5 dust
 	hitfx	data/sounds/grab.wav
 	move	4
 	movez	2
@@ -187,8 +190,7 @@ anim	attack5
 	frame	data/chars/3betty/c04.png
 	offset	130 183
 	frame	data/chars/3betty/blk01.png
-
-
+		
 anim	attack6
 	range	80 110
 	rangez	-45 -25
@@ -198,8 +200,6 @@ anim	attack6
 	bbox	104 94 47 90
 	followanim	4
 	followcond	1
-	#jumpframe 2 2 1.2 -0.6
-	#landframe 5 dust
 	hitfx	data/sounds/grab.wav
 	move	4
 	movez	-2
@@ -229,82 +229,7 @@ anim	attack6
 	frame	data/chars/3betty/c04.png
 	offset	130 183
 	frame	data/chars/3betty/blk01.png
-
-
-
-anim	follow4
-	loop	0
-	delay	20
-	offset	130 183
-	bbox	0 0 0 0
-	jumpframe 0 3 1 0
-	landframe 5 dust
-	@cmd	slamstart2
-	@cmd	position 7 35 15 -1 -1
-	frame	data/chars/3betty/gb01.png
-	delay	12
-	offset	130 175
-	@cmd	position 0 35 5 -1 -1
-	frame	data/chars/3betty/gb02.png
-	delay	8
-	@cmd	position 2 -5 10 -1 -1
-	frame	data/chars/3betty/gb03.png #2
-	@cmd	position 2 -5 10 -1 -1
-	frame	data/chars/3betty/gb04.png
-	@cmd	looper 2 30  
-	delay	14
-	offset	130 172
-	@cmd	position 10 -5 8 -1 1
-	frame	data/chars/3betty/gb05.png
-	sound	data/sounds/fall.wav
-	@cmd	position 10 -5 8 -1 1
-	frame	data/chars/3betty/gb05.png	#5
-	@cmd	spawn01 "dust" 1 1 1
-	@cmd	position 9 -15 8 -1 1
-	frame	data/chars/3betty/gb06.png
-	delay	9
-	@cmd	depost 0
-	@cmd	finish 40 1 3 2 0 1
-	frame	data/chars/3betty/gb06.png
-	delay	2
-	move	-4
-	movea	5
-	frame	data/chars/3betty/gb11.png
-	@cmd	clearL
-	frame	data/chars/3betty/gb11.png
-	frame	data/chars/3betty/gb12.png
-	frame	data/chars/3betty/gb12.png
-	frame	data/chars/3betty/gb13.png
-	frame	data/chars/3betty/gb13.png
-	frame	data/chars/3betty/gb14.png
-	frame	data/chars/3betty/gb14.png
-	frame	data/chars/3betty/gb15.png
-	frame	data/chars/3betty/gb15.png
-	frame	data/chars/3betty/gb16.png
-	frame	data/chars/3betty/gb16.png
-	frame	data/chars/3betty/gb17.png
-	frame	data/chars/3betty/gb17.png
-	frame	data/chars/3betty/gb18.png
-	frame	data/chars/3betty/gb18.png
-	movea	0
-	frame	data/chars/3betty/jup05.png
-	frame	data/chars/3betty/jup05.png
-	frame	data/chars/3betty/jup06.png
-	frame	data/chars/3betty/jup06.png
-	frame	data/chars/3betty/jup07.png
-	frame	data/chars/3betty/jup07.png
-	move	0
-	frame	data/chars/3betty/jup07.png
-
-
-anim	jumpland
-	loop	0
-	delay	9
-	offset	130 183
-	bbox	104 94 47 90
-	frame	data/chars/3betty/rise3.png
-
-
+		
 anim	block
 	loop	0
 	delay	2
@@ -325,43 +250,6 @@ anim	block
 	frame	data/chars/3betty/blk02.png
 	@cmd	attack1 0 180 15 "ANI_FOLLOW5"
 	frame	data/chars/3betty/blk02.png
-
-
-anim	follow5
-	loop	0
-	delay	3
-	offset	130 183
-	bbox	0 0 0 0
-	hitfx	data/sounds/beat5.wav
-	hitflash	flashscreen1
-	frame	data/chars/3betty/d01.png
-	move	5
-	frame	data/chars/3betty/d01.png
-	frame	data/chars/3betty/d02.png
-	frame	data/chars/3betty/d02.png
-	frame	data/chars/3betty/d03.png
-	frame	data/chars/3betty/d03.png
-	attack	125 117 51 44 12 1 1 0 40 20
-	dropv	5 2
-	frame	data/chars/3betty/d04.png
-	frame	data/chars/3betty/d04.png
-	attack	108 68 77 89 16 1 1 0 50 20
-	dropv	5 2
-	frame	data/chars/3betty/d05.png
-	frame	data/chars/3betty/d05.png
-	frame	data/chars/3betty/d06.png
-	frame	data/chars/3betty/d06.png
-	frame	data/chars/3betty/d06.png
-	move	0
-	frame	data/chars/3betty/d06.png
-	attack	0 0 0 0
-	delay	8
-	frame	data/chars/3betty/d04.png
-	frame	data/chars/3betty/d03.png
-	frame	data/chars/3betty/d02.png
-	frame	data/chars/3betty/d01.png
-	frame	data/chars/3betty/rise3.png
-
 		
 anim	burn
 	loop	0
@@ -397,7 +285,7 @@ anim	death
 	changeentityproperty(self, "running", 5, 3, 3, 1, 0);
 	changeentityproperty(self, "edelay", 0, -5, 2, 22, 2, 22);
 	}
-@end_script
+	@end_script	
 	loop	0
 	delay	32
 	offset	130 173
@@ -431,16 +319,12 @@ anim	death
 	frame	data/chars/3betty/det10.png
 	@cmd	spawnAni2 "bettytlk" 20 340 350 "ANI_FOLLOW1"
 	frame	data/chars/3betty/det10.png
-	delay	1200
+	delay	100
 	frame	data/chars/3betty/det10.png
 	delay	30
 	frame	data/chars/3betty/det10.png
 	frame	data/chars/3betty/det10.png
 	frame	data/chars/3betty/det10.png
-
-
-
-
 		
 anim	fall
 	loop	0
@@ -492,7 +376,7 @@ anim	fall11
 	loop	0
 	delay	20
 	offset	130 173
-	bbox	90 160 85 15	
+	bbox	90 160 85 15
 	frame	data/chars/3betty/pain12.png
 	delay	35
 	frame	data/chars/3betty/fall4.png
@@ -501,11 +385,12 @@ anim	fall2
 	loop	0
 	delay	30
 	offset	130 183
-	bbox	0 0 0 0
+	bbox	103 80 50 75
 	landframe	3
 	attack	109 98 30 45 7 1 0 0 18 15
 	frame	data/chars/3betty/pain7.png
 	delay	10
+	bbox	93 125 63 30
 	attack	97 119 50 25 7 1 0 0 18 15
 	frame	data/chars/3betty/fall2.png
 	attack	0 0 0 0
@@ -607,7 +492,245 @@ anim	fall9
 	bbox	90 160 85 15
 	frame	data/chars/3betty/fall4.png
 		
-
+anim	follow1
+	loop	0
+	delay	8
+	offset	130 183
+	bbox	104 94 47 90
+	fastattack	1
+	hitfx	data/sounds/beat2.wav
+	move	4
+	@cmd	target 1 1 0 0 0
+	frame	data/chars/3betty/c01.png
+	attack	124 102 61 46 8 0 0 0 40 15
+	frame	data/chars/3betty/c03.png
+	attack	0 0 0 0
+	frame	data/chars/3betty/c04.png
+	delay	7
+	frame	data/chars/3betty/c05.png
+	@cmd	target 1 1 0 0 0
+	hitfx	data/sounds/beat5.wav
+	frame	data/chars/3betty/c06.png
+	delay	8
+	attack2	117 98 48 64 10 0 0 0 40 15
+	frame	data/chars/3betty/c07.png
+	attack2	0 0 0 0
+	frame	data/chars/3betty/rise3.png
+	@cmd	target 1 1 0 0 0
+	frame	data/chars/3betty/c08.png
+	hitfx	data/sounds/beat4.wav
+	hitflash	flashscreen1
+	attack	113 86 51 65 12 1 0 0 50 15
+	dropv	6 1
+	frame	data/chars/3betty/c09.png
+	frame	data/chars/3betty/c10.png
+	attack	0 0 0 0
+	frame	data/chars/3betty/c11.png
+	move	0
+	frame	data/chars/3betty/c10.png
+	frame	data/chars/3betty/c11.png
+	frame	data/chars/3betty/c10.png
+	delay	10
+	frame	data/chars/3betty/c08.png
+	frame	data/chars/3betty/blk01.png
+		
+anim	follow2
+	loop	0
+	delay	9
+	offset	130 183
+	bbox	0 0 0 0
+	hitfx	data/sounds/beat4.wav
+	frame	data/chars/3betty/a09.png
+	frame	data/chars/3betty/a10.png
+	attack9	130 83 55 65 17 1 0 0 40 0
+	dropv	3 1
+	frame	data/chars/3betty/a11.png
+	frame	data/chars/3betty/a12.png
+	delay	12
+	frame	data/chars/3betty/a13.png
+	frame	data/chars/3betty/a13.png
+	attack9	0 0 0 0
+	frame	data/chars/3betty/a14.png
+	frame	data/chars/3betty/a15.png
+		
+anim	follow4
+	loop	0
+	delay	20
+	offset	130 183
+	bbox	0 0 0 0
+	jumpframe	0 3 1 0
+	landframe	5 dust
+	@cmd	slamstart2
+	@cmd	position 7 35 15 -1 -1
+	frame	data/chars/3betty/gb01.png
+	delay	12
+	offset	130 175
+	@cmd	position 0 35 5 -1 -1
+	frame	data/chars/3betty/gb02.png
+	delay	8
+	@cmd	position 2 -5 10 -1 -1
+	frame	data/chars/3betty/gb03.png #2
+	@cmd	position 2 -5 10 -1 -1
+	frame	data/chars/3betty/gb04.png
+	@cmd	looper 2 30
+	delay	14
+	offset	130 172
+	@cmd	position 10 -5 8 -1 1
+	frame	data/chars/3betty/gb05.png
+	sound	data/sounds/fall.wav
+	@cmd	position 10 -5 8 -1 1
+	frame	data/chars/3betty/gb05.png	#5
+	@cmd	spawn01 "dust" 1 1 1
+	@cmd	position 9 -15 8 -1 1
+	frame	data/chars/3betty/gb06.png
+	delay	9
+	@cmd	depost 0
+	@cmd	finish 40 1 3 2 0 1
+	frame	data/chars/3betty/gb06.png
+	delay	2
+	move	-4
+	movea	5
+	frame	data/chars/3betty/gb11.png
+	@cmd	clearL
+	frame	data/chars/3betty/gb11.png
+	frame	data/chars/3betty/gb12.png
+	frame	data/chars/3betty/gb12.png
+	frame	data/chars/3betty/gb13.png
+	frame	data/chars/3betty/gb13.png
+	frame	data/chars/3betty/gb14.png
+	frame	data/chars/3betty/gb14.png
+	frame	data/chars/3betty/gb15.png
+	frame	data/chars/3betty/gb15.png
+	frame	data/chars/3betty/gb16.png
+	frame	data/chars/3betty/gb16.png
+	frame	data/chars/3betty/gb17.png
+	frame	data/chars/3betty/gb17.png
+	frame	data/chars/3betty/gb18.png
+	frame	data/chars/3betty/gb18.png
+	movea	0
+	frame	data/chars/3betty/jup05.png
+	frame	data/chars/3betty/jup05.png
+	frame	data/chars/3betty/jup06.png
+	frame	data/chars/3betty/jup06.png
+	frame	data/chars/3betty/jup07.png
+	frame	data/chars/3betty/jup07.png
+	move	0
+	frame	data/chars/3betty/jup07.png
+		
+anim	follow5
+	loop	0
+	delay	3
+	offset	130 183
+	bbox	0 0 0 0
+	hitfx	data/sounds/beat5.wav
+	hitflash	flashscreen1
+	frame	data/chars/3betty/d01.png
+	move	5
+	frame	data/chars/3betty/d01.png
+	frame	data/chars/3betty/d02.png
+	frame	data/chars/3betty/d02.png
+	frame	data/chars/3betty/d03.png
+	frame	data/chars/3betty/d03.png
+	attack	125 117 51 44 12 1 1 0 40 20
+	dropv	5 2
+	frame	data/chars/3betty/d04.png
+	frame	data/chars/3betty/d04.png
+	attack	108 68 77 89 16 1 1 0 50 20
+	dropv	5 2
+	frame	data/chars/3betty/d05.png
+	frame	data/chars/3betty/d05.png
+	frame	data/chars/3betty/d06.png
+	frame	data/chars/3betty/d06.png
+	frame	data/chars/3betty/d06.png
+	move	0
+	frame	data/chars/3betty/d06.png
+	attack	0 0 0 0
+	delay	8
+	frame	data/chars/3betty/d04.png
+	frame	data/chars/3betty/d03.png
+	frame	data/chars/3betty/d02.png
+	frame	data/chars/3betty/d01.png
+	frame	data/chars/3betty/rise3.png
+		
+anim	follow8
+	loop	0
+	delay	50
+	offset	130 183
+	bbox	0 0 0 0
+	custentity	bettytlk
+	spawnframe	1 20 420 410 1
+	platform	-50 500 80 80 250 250 800 1000
+	frame	data/chars/3betty/span01.png
+	frame	data/chars/3betty/span01.png
+	frame	data/chars/3betty/span01.png
+	delay	900
+	frame	data/chars/3betty/span01.png
+	delay	7
+	frame	data/chars/3betty/span01.png
+	frame	data/chars/3betty/span01.png
+	frame	data/chars/3betty/span01.png
+	frame	data/chars/3betty/span02.png
+	frame	data/chars/3betty/span03.png
+	sound	data/sounds/super3.wav
+	frame	data/chars/3betty/span04.png
+	frame	data/chars/3betty/span05.png
+	frame	data/chars/3betty/span06.png
+	frame	data/chars/3betty/span07.png
+	frame	data/chars/3betty/span08.png
+	frame	data/chars/3betty/span07.png
+	frame	data/chars/3betty/span09.png
+	frame	data/chars/3betty/span07.png
+	frame	data/chars/3betty/span10.png
+	frame	data/chars/3betty/span07.png
+	frame	data/chars/3betty/span11.png
+	frame	data/chars/3betty/span07.png
+	frame	data/chars/3betty/span12.png
+	frame	data/chars/3betty/span07.png
+	frame	data/chars/3betty/span13.png
+	frame	data/chars/3betty/span07.png
+	frame	data/chars/3betty/span14.png
+	frame	data/chars/3betty/span07.png
+	frame	data/chars/3betty/span15.png
+	frame	data/chars/3betty/span07.png
+	delay	70
+	frame	data/chars/3betty/span07.png
+	delay	12
+	frame	data/chars/3betty/span16.png
+		
+anim	follow9
+@script
+	void self = getlocalvar("self");
+	if(frame==1)
+	{
+	changeentityproperty(self, "aggression", 290);
+	changeentityproperty(self, "speed", 3);
+	changeentityproperty(self, "running", 5, 3, 3, 1, 0);
+	changeentityproperty(self, "edelay", 0, -15, 2, 22, 2, 22);
+	}
+	@end_script	
+	loop	0
+	delay	7
+	offset	130 183
+	bbox	0 0 0 0
+	frame	data/chars/3betty/win1.png
+	frame	data/chars/3betty/win2.png
+	@cmd	spawnGun11 "bettytlk" 20 340 350 5 "ANI_FOLLOW2"
+	frame	data/chars/3betty/win3.png
+	@cmd	changeopenborvariant "slowmotion" 1
+	frame	data/chars/3betty/win4.png
+	@cmd	degravity -1
+	frame	data/chars/3betty/win5.png
+	frame	data/chars/3betty/win6.png
+	frame	data/chars/3betty/win7.png
+	frame	data/chars/3betty/win8.png
+	frame	data/chars/3betty/win9.png
+	frame	data/chars/3betty/win10.png
+	frame	data/chars/3betty/win11.png
+	delay	50
+	frame	data/chars/3betty/win11.png
+	@cmd	beidle
+	frame	data/chars/3betty/win11.png
+		
 anim	grab
 	loop	0
 	delay	30
@@ -653,8 +776,6 @@ anim	grab
 	frame	data/chars/3betty/hold03.png
 	delay	12
 	frame	data/chars/3betty/ab01.png
-
-
 		
 anim	grabbed
 	loop	0
@@ -662,8 +783,42 @@ anim	grabbed
 	offset	135 183
 	bbox	104 94 47 90
 	frame	data/chars/3betty/grabbed.png
+		
+anim	idle
+@script
+    void self = getlocalvar("self");
+    int MHealth = getentityproperty(self,"maxhealth");
+    int PHealth = 100*getentityproperty(self,"health")/MHealth;
+    float aggro = getentityproperty(self, "aggression"); 
 
 
+    if(frame >= 0)
+	{
+		if(PHealth<=40 && aggro == 30)
+		{
+		performattack(self, openborconstant("ANI_FOLLOW9"));
+ 		}
+	}
+	@end_script	
+	loop	0
+	delay	8
+	offset	130 183
+	bbox	104 94 47 90
+	frame	data/chars/3betty/idle01.png
+	@cmd	depost 0
+	frame	data/chars/3betty/idle02.png
+	@cmd	clearL
+	frame	data/chars/3betty/idle03.png
+	frame	data/chars/3betty/idle04.png
+	frame	data/chars/3betty/idle05.png
+	frame	data/chars/3betty/idle06.png
+		
+anim	jumpland
+	loop	0
+	delay	9
+	offset	130 183
+	bbox	104 94 47 90
+	frame	data/chars/3betty/rise3.png
 		
 anim	pain
 	loop	0
@@ -677,7 +832,7 @@ anim	pain
 	delay	20
 	offset	130 183
 	frame	data/chars/3betty/pain2.png
-
+		
 anim	pain2
 	loop	0
 	delay	3
@@ -690,7 +845,6 @@ anim	pain2
 	delay	20
 	offset	130 183
 	frame	data/chars/3betty/pain4.png
-
 		
 anim	pain5
 	loop	0
@@ -750,35 +904,113 @@ anim	rise
 	@cmd	attack1 80 10 "ANI_FOLLOW2"
 	frame	data/chars/3betty/rise3.png
 	frame	data/chars/3betty/idle01.png
-
-
-anim	follow2
+		
+anim	run
+	loop	1
+	delay	8
+	offset	130 183
+	bbox	104 94 47 90
+	frame	data/chars/3betty/run01.png
+	frame	data/chars/3betty/run02.png
+	sound	data/sounds/run.wav
+	frame	data/chars/3betty/run03.png
+	frame	data/chars/3betty/run04.png
+	frame	data/chars/3betty/run05.png
+	sound	data/sounds/run.wav
+	frame	data/chars/3betty/run06.png
+		
+anim	runattack
+	range	50 250
+	rangez	-20 20
 	loop	0
-	delay	9
+	delay	3
 	offset	130 183
 	bbox	0 0 0 0
-	hitfx	data/sounds/beat4.wav
-	frame	data/chars/3betty/a09.png
-	frame	data/chars/3betty/a10.png
-	attack9	130 83 55 65 17 1 0 0 40 0
-	dropv	3 1
-	frame	data/chars/3betty/a11.png
-	frame	data/chars/3betty/a12.png
-	delay	12
-	frame	data/chars/3betty/a13.png
-	frame	data/chars/3betty/a13.png
-	attack9	0 0 0 0
-	frame	data/chars/3betty/a14.png
-	frame	data/chars/3betty/a15.png
-
-
+	fastattack	1
+	followanim	1
+	followcond	1
+	hitfx	data/sounds/empty.wav
+	move	8
+	frame	data/chars/3betty/c01.png
+	frame	data/chars/3betty/c01.png
+	@cmd	target 1 1 0 0 0
+	frame	data/chars/3betty/c02.png
+	frame	data/chars/3betty/c02.png
+	attack	124 90 50 79 0 0 1 1 0 12
+	frame	data/chars/3betty/c01.png #4
+	@cmd	target 1 1 0 0 0
+	frame	data/chars/3betty/c01.png
+	frame	data/chars/3betty/c02.png
+	attack	0 0 0 0
+	frame	data/chars/3betty/c02.png
+	@cmd	looper 4 5
+	frame	data/chars/3betty/c01.png
+	frame	data/chars/3betty/c01.png
+	move	4
+	frame	data/chars/3betty/c02.png
+	frame	data/chars/3betty/c02.png
+	frame	data/chars/3betty/c01.png
+	frame	data/chars/3betty/c01.png
+	move	0
+	frame	data/chars/3betty/c02.png
+	frame	data/chars/3betty/c02.png
+	delay	9
+	frame	data/chars/3betty/blk01.png
+		
+anim	spawn
+@script
+	void self = getlocalvar("self");
+	void P1 = getplayerproperty(0, "entity");
+    void P2 = getplayerproperty(1, "entity");
+    void P3 = getplayerproperty(2, "entity");
+	if(frame==1){
+	changeentityproperty(self, "aggression", 30);
+	}
+	if (P1 != NULL() && P2 != NULL() && P3 != NULL())
+	{
+	changeentityproperty(self, "maxhealth", 6000);
+	changeentityproperty(self, "health", 6000);
+	}
+	else if (P1 != NULL() && P2 != NULL() && P3 == NULL())
+	{
+	changeentityproperty(self, "maxhealth", 5000);
+	changeentityproperty(self, "health", 5000);
+	}
+	else if (P1 != NULL() && P2 == NULL() && P3 != NULL())
+	{
+	changeentityproperty(self, "maxhealth", 5000);
+	changeentityproperty(self, "health", 5000);
+	}
+	else if (P1 == NULL() && P2 != NULL() && P3 != NULL())
+	{
+	changeentityproperty(self, "maxhealth", 5000);
+	changeentityproperty(self, "health", 5000);
+	}
+	@end_script	
+	loop	1 2 7
+	delay	20
+	offset	130 183
+	bbox	0 0 0 0
+	platform	-50 500 80 80 300 300 800 1000
+	frame	data/chars/3betty/span01.png
+	frame	data/chars/3betty/span01.png
+	delay	5
+	frame	data/chars/3betty/span01.png
+	frame	data/chars/3betty/span01.png
+	@cmd	attack1 0 200 400 "ANI_FOLLOW8"
+	frame	data/chars/3betty/span01.png
+	@cmd	attack1 0 200 400 "ANI_FOLLOW8"
+	frame	data/chars/3betty/span01.png
+	@cmd	attack1 0 200 400 "ANI_FOLLOW8"
+	frame	data/chars/3betty/span01.png
+	frame	data/chars/3betty/span01.png
+	frame	data/chars/3betty/span01.png
 		
 anim	special
 	delay	20
-	attackone 0
+	attackone	0
 	offset	130 183
 	sound	data/sounds/grab.wav
-	#@cmd	grabcheck2
 	@cmd	slamstart2
 	@cmd	position 7 35 15 -1 1
 	frame	data/chars/3betty/grab.png
@@ -801,8 +1033,7 @@ anim	special
 	frame	data/chars/3betty/det01.png
 	@cmd	clearL
 	frame	data/chars/3betty/rise3.png
-
-
+		
 anim	special2
 	loop	0
 	delay	3
@@ -836,105 +1067,7 @@ anim	special2
 	move	0
 	delay	9
 	frame	data/chars/3betty/rise3.png	#7
-
-
-anim	run
-	loop	1
-	delay	8
-	offset	130 183
-	bbox	104 94 47 90
-	frame	data/chars/3betty/run01.png
-	frame	data/chars/3betty/run02.png
-	sound	data/sounds/run.wav
-	frame	data/chars/3betty/run03.png
-	frame	data/chars/3betty/run04.png
-	frame	data/chars/3betty/run05.png
-	sound	data/sounds/run.wav
-	frame	data/chars/3betty/run06.png
-
-
-anim	runattack
-	range	50 250
-	rangez	-20 20
-	loop	0
-	delay	3
-	offset	130 183
-	bbox	0 0 0 0
-	fastattack	1
-	followanim	1
-	followcond	1
-	hitfx		data/sounds/empty.wav
-	move	8
-	frame	data/chars/3betty/c01.png
-	frame	data/chars/3betty/c01.png
-	@cmd	target 1 1 0 0 0
-	frame	data/chars/3betty/c02.png
-	frame	data/chars/3betty/c02.png
-	attack	124 90 50 79 0 0 1 1 0 12
-	frame	data/chars/3betty/c01.png #4
-	@cmd	target 1 1 0 0 0
-	frame	data/chars/3betty/c01.png
-	frame	data/chars/3betty/c02.png
-	attack	0 0 0 0
-	frame	data/chars/3betty/c02.png
-	@cmd	looper 4 5
-	frame	data/chars/3betty/c01.png
-	frame	data/chars/3betty/c01.png
-	move	4
-	frame	data/chars/3betty/c02.png
-	frame	data/chars/3betty/c02.png
-	frame	data/chars/3betty/c01.png
-	frame	data/chars/3betty/c01.png
-	move	0
-	frame	data/chars/3betty/c02.png
-	frame	data/chars/3betty/c02.png
-	delay	9
-	frame	data/chars/3betty/blk01.png
-
-
-anim	follow1
-	loop	0
-	delay	8
-	offset	130 183
-	bbox	104 94 47 90
-	fastattack	1
-	hitfx		data/sounds/beat2.wav
-	move	4
-	@cmd	target 1 1 0 0 0
-	frame	data/chars/3betty/c01.png
-	attack	124 102 61 46 8 0 0 0 40 15
-	frame	data/chars/3betty/c03.png
-	attack	0 0 0 0
-	frame	data/chars/3betty/c04.png
-	delay	7
-	frame	data/chars/3betty/c05.png
-	@cmd	target 1 1 0 0 0
-	hitfx		data/sounds/beat5.wav
-	frame	data/chars/3betty/c06.png
-	delay	8
-	attack2	117 98 48 64 10 0 0 0 40 15
-	frame	data/chars/3betty/c07.png
-	attack2	0 0 0 0
-	frame	data/chars/3betty/rise3.png
-	@cmd	target 1 1 0 0 0
-	frame	data/chars/3betty/c08.png
-	hitfx	data/sounds/beat4.wav
-	hitflash	flashscreen1
-	attack	113 86 51 65 12 1 0 0 50 15
-	dropv	6 1
-	frame	data/chars/3betty/c09.png
-	frame	data/chars/3betty/c10.png
-	attack	0 0 0 0
-	frame	data/chars/3betty/c11.png
-	move	0
-	frame	data/chars/3betty/c10.png
-	frame	data/chars/3betty/c11.png
-	frame	data/chars/3betty/c10.png
-	delay	10
-	frame	data/chars/3betty/c08.png
-	frame	data/chars/3betty/blk01.png
-
-
+		
 anim	upper
 	range	30 150
 	rangez	-15 15
@@ -960,9 +1093,7 @@ anim	upper
 	attack3	0 0 0 0
 	frame	data/chars/3betty/upper06a.png
 	frame	data/chars/3betty/upper07.png
-
-
-	
+		
 anim	walk
 	loop	1
 	delay	9
@@ -976,151 +1107,5 @@ anim	walk
 	frame	data/chars/3betty/wk06.png
 	frame	data/chars/3betty/wk07.png
 		
-
-
-
-#------------------//----------//------------------
-
-anim	follow8
-	loop	0
-	delay	50
-	offset	130 183
-	bbox	0 0 0 0
-	custentity	bettytlk
-	spawnframe	1 20 420 410 1
-	platform	-50 500 80 80 250 250 800 1000
-	frame	data/chars/3betty/span01.png
-	frame	data/chars/3betty/span01.png
-	frame	data/chars/3betty/span01.png
-	delay	900
-	frame	data/chars/3betty/span01.png
-	delay	7
-	frame	data/chars/3betty/span01.png
-	frame	data/chars/3betty/span01.png
-	frame	data/chars/3betty/span01.png
-	frame	data/chars/3betty/span02.png
-	frame	data/chars/3betty/span03.png
-	sound	data/sounds/super3.wav
-	frame	data/chars/3betty/span04.png
-	frame	data/chars/3betty/span05.png
-	frame	data/chars/3betty/span06.png
-	frame	data/chars/3betty/span07.png
-	frame	data/chars/3betty/span08.png
-	frame	data/chars/3betty/span07.png
-	frame	data/chars/3betty/span09.png
-	frame	data/chars/3betty/span07.png
-	frame	data/chars/3betty/span10.png
-	frame	data/chars/3betty/span07.png
-	frame	data/chars/3betty/span11.png
-	frame	data/chars/3betty/span07.png
-	frame	data/chars/3betty/span12.png
-	frame	data/chars/3betty/span07.png
-	frame	data/chars/3betty/span13.png
-	frame	data/chars/3betty/span07.png
-	frame	data/chars/3betty/span14.png
-	frame	data/chars/3betty/span07.png
-	frame	data/chars/3betty/span15.png
-	frame	data/chars/3betty/span07.png
-	delay	70
-	frame	data/chars/3betty/span07.png
-	delay	12
-	frame	data/chars/3betty/span16.png
-
-
-
-
-anim	spawn
-@script
-	void self = getlocalvar("self");
-	if(frame==1){
-	changeentityproperty(self, "aggression", 30);
-	}
-@end_script
-	loop	1 2 7
-	delay	20
-	offset	130 183
-	bbox	0 0 0 0
-	platform	-50 500 80 80 300 300 800 1000
-	frame	data/chars/3betty/span01.png
-	frame	data/chars/3betty/span01.png
-	delay	5
-	frame	data/chars/3betty/span01.png
-	frame	data/chars/3betty/span01.png
-	@cmd	attack1 0 200 400 "ANI_FOLLOW8"
-	frame	data/chars/3betty/span01.png
-	@cmd	attack1 0 200 400 "ANI_FOLLOW8"
-	frame	data/chars/3betty/span01.png
-	@cmd	attack1 0 200 400 "ANI_FOLLOW8"
-	frame	data/chars/3betty/span01.png
-	frame	data/chars/3betty/span01.png
-	frame	data/chars/3betty/span01.png
-
-
-#------------//------aggro-trigger---30-40-50-80--//------------------
-
-anim	idle
-@script
-    void self = getlocalvar("self");
-    int MHealth = getentityproperty(self,"maxhealth");
-    int PHealth = 100*getentityproperty(self,"health")/MHealth;
-    float aggro = getentityproperty(self, "aggression"); 
-
-
-    if(frame >= 0)
-	{
-		if(PHealth<=80 && aggro == 30)
-		{
-		performattack(self, openborconstant("ANI_FOLLOW9"));
- 		}
-	}
-@end_script
-	loop	0
-	delay	8
-	offset	130 183
-	bbox	104 94 47 90
-	frame	data/chars/3betty/idle01.png
-	@cmd	depost 0
-	frame	data/chars/3betty/idle02.png
-	@cmd	clearL
-	frame	data/chars/3betty/idle03.png
-	frame	data/chars/3betty/idle04.png
-	frame	data/chars/3betty/idle05.png
-	frame	data/chars/3betty/idle06.png
-
-
-
-
-anim	follow9
-@script
-	void self = getlocalvar("self");
-	if(frame==1)
-	{
-	changeentityproperty(self, "aggression", 290);
-	changeentityproperty(self, "speed", 3);
-	changeentityproperty(self, "running", 5, 3, 3, 1, 0);
-	changeentityproperty(self, "edelay", 0, -15, 2, 22, 2, 22);
-	}
-@end_script
-	loop	0
-	delay	7
-	offset	130 183
-	bbox	0 0 0 0
-	frame	data/chars/3betty/win1.png
-	frame	data/chars/3betty/win2.png
-	@cmd	spawnGun11 "bettytlk" 20 340 350 5 "ANI_FOLLOW2"
-	frame	data/chars/3betty/win3.png
-	@cmd	changeopenborvariant "slowmotion" 1
-	frame	data/chars/3betty/win4.png
-	@cmd	degravity -1
-	frame	data/chars/3betty/win5.png
-	frame	data/chars/3betty/win6.png
-	frame	data/chars/3betty/win7.png
-	frame	data/chars/3betty/win8.png
-	frame	data/chars/3betty/win9.png
-	frame	data/chars/3betty/win10.png
-	frame	data/chars/3betty/win11.png
-	delay	50
-	frame	data/chars/3betty/win11.png
-	@cmd	beidle
-	frame	data/chars/3betty/win11.png
+#|edited by openBor Stats v 0.53
 		

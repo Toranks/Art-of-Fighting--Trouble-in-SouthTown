@@ -1,7 +1,7 @@
 name		syurifall
 type		none
-health		800
-mp		100
+health		170
+mp		200
 speedf		2
 jumpmove	1 0
 running		25 2 1.5 1 0
@@ -23,7 +23,16 @@ parrow2         data/chars/misc/flash/flash/player2.gif  -36 -145
 parrow3         data/chars/misc/flash/flash/player3.gif  -36 -145
 animationscript data/scripts/grabscript.c
 
-palette    	data/chars/0yuri/syuri/map1.gif
+palette    	data/chars/0yuri/syuri/pal.gif
+alternatepal    data/chars/0yuri/syuri/map1.gif
+alternatepal    data/chars/0yuri/syuri/map2.gif
+alternatepal    data/chars/0yuri/syuri/map3.gif
+alternatepal    data/chars/0yuri/syuri/map4.gif
+
+
+
+
+
 
 anim	attack1
 	loop	0
@@ -65,7 +74,7 @@ anim	attack3
 	bbox	114 90 45 72
 	hitfx	data/sounds/beat5.wav
 	frame	data/chars/0yuri/syuri/air/a18.gif
-	@cmd	dasher 1.5 0 0 
+	@cmd	dasher 1.5 0 0
 	frame	data/chars/0yuri/syuri/air/a19.gif
 	frame	data/chars/0yuri/syuri/air/a20.gif
 	frame	data/chars/0yuri/syuri/air/a21.gif
@@ -137,13 +146,17 @@ anim	block
 	loop	1 2 6
 	delay	8
 	offset	135 186
-	bbox	114 90 45 72
+	bbox	125 90 45 50
 	frame	data/chars/0yuri/syuri/air/blk00.gif
 	frame	data/chars/0yuri/syuri/air/blk01.gif
 	frame	data/chars/0yuri/syuri/air/blk02.gif
 	frame	data/chars/0yuri/syuri/air/blk03.gif
 	frame	data/chars/0yuri/syuri/air/blk02.gif
 	frame	data/chars/0yuri/syuri/air/blk03.gif
+		
+anim	charge
+		
+anim	chargeattack
 		
 anim	death
 	loop	0
@@ -179,9 +192,21 @@ anim	death
 	frame	data/chars/0yuri/syuri/air/fall6.gif
 	frame	data/chars/0yuri/syuri/air/fall7.gif
 	frame	data/chars/0yuri/syuri/air/fall8.gif
-
-
-
+		
+anim	fall
+	loop	0
+	delay	50
+	offset	149 205
+	bbox	0 0 0 0
+	landframe	2
+	sound	data/sounds/yurpa.wav
+	frame	data/chars/0yuri/syuri/air/fall1.gif
+	delay	350
+	frame	data/chars/0yuri/syuri/air/fall2.gif
+	delay	12
+	frame	data/chars/0yuri/syuri/air/fall3.gif
+	frame	data/chars/0yuri/syuri/air/fall3.gif
+		
 anim	fall7
 	delay	1000
 	offset	45 95
@@ -238,23 +263,6 @@ anim	fall7
 	offset	45 95
 	bbox	25 10 60 80
 	frame	data/chars/0yuri/syuri/slambbox1.gif
-	bbox	0 0 0 0
-
-
-		
-anim	fall
-	loop	0
-	delay	50
-	offset	149 205
-	bbox	0 0 0 0
-	landframe	2
-	sound	data/sounds/yurpa.wav
-	frame	data/chars/0yuri/syuri/air/fall1.gif
-	delay	350
-	frame	data/chars/0yuri/syuri/air/fall2.gif
-	delay	12
-	frame	data/chars/0yuri/syuri/air/fall3.gif
-	frame	data/chars/0yuri/syuri/air/fall3.gif
 		
 anim	forwardjump
 	loop	1
@@ -324,6 +332,7 @@ anim	grabattack
 	frame	data/chars/0yuri/syuri/air/hold1.gif
 		
 anim	grabattack2
+	attackone	0
 	loop	0
 	delay	9
 	offset	121 201
@@ -376,7 +385,7 @@ anim	grabbackward
 	sound	data/sounds/yur01.wav
 	delay	30
 	@cmd	depost 0
-	@cmd	throw 65 1 -1 1 3 -1
+	@cmd	throw 50 1 -1 1 3 -1
 	frame	data/chars/0yuri/syuri/air/grab12.gif
 	delay	10
 	frame	data/chars/0yuri/syuri/air/grab13.gif
@@ -386,9 +395,8 @@ anim	grabbackward
 	@cmd	clearL
 	delay	2
 	frame	data/chars/0yuri/syuri/air/grab14.gif
-
-
-
+		
+anim	grabdown
 		
 anim	grabforward
 	loop	0
@@ -402,6 +410,7 @@ anim	grabforward
 	frame	data/chars/0yuri/syuri/air/hold2.gif
 		
 anim	grabforward2
+	attackone	0
 	loop	0
 	delay	9
 	offset	121 201
@@ -434,11 +443,13 @@ anim	grabforward2
 	@cmd	keymove 1
 	frame	data/chars/0yuri/syuri/air/ju05.gif
 		
+anim	grabup
+		
 anim	idle
 	loop	1 1 7
 	delay	7
 	offset	135 186
-	bbox	114 95 45 72
+	bbox	118 90 45 72
 	@cmd	clearL
 	frame	data/chars/0yuri/syuri/air/ju00.gif
 	frame	data/chars/0yuri/syuri/air/ju01.gif
@@ -495,8 +506,7 @@ anim	jump
 	frame	data/chars/0yuri/syuri/air/ju03.gif
 	frame	data/chars/0yuri/syuri/air/ju04.gif
 	frame	data/chars/0yuri/syuri/air/ju05.gif
-
-
+		
 anim	jumpattack
 	loop	0
 	delay	8
@@ -508,10 +518,10 @@ anim	jumpattack
 	frame	data/chars/0yuri/syuri/air/ju28.gif
 	frame	data/chars/0yuri/syuri/air/ju29.gif
 	frame	data/chars/0yuri/syuri/air/ju30.gif
-	attack	125 113 125 60 14 1 1 0 50 0
+	attack	125 113 125 60 25 1 1 0 50 0
 	dropv	1 1 2
 	frame	data/chars/0yuri/syuri/air/ju31.gif
-	attack	100 127 95 60 14 1 1 0 50 0
+	attack	100 127 95 60 25 1 1 0 50 0
 	dropv	1 1 2
 	frame	data/chars/0yuri/syuri/air/ju32.gif
 	attack	0 0 0 0
@@ -519,37 +529,14 @@ anim	jumpattack
 	frame	data/chars/0yuri/syuri/air/ju33.gif
 	frame	data/chars/0yuri/syuri/air/ju34.gif
 	frame	data/chars/0yuri/syuri/air/ju35.gif
-
-
-
-anim	runjumpattack
-	loop	0
-	delay	7
-	offset	130 186
-	bbox	120 90 33 50
-	fastattack	1
-	hitfx	data/sounds/beat3.wav
-	sound	data/sounds/yur02.wav
-	frame	data/chars/0yuri/syuri/air/ju03.gif
-	frame	data/chars/0yuri/syuri/air/juatk05.gif
-	frame	data/chars/0yuri/syuri/air/juatk06.gif
-	frame	data/chars/0yuri/syuri/air/juatk07.gif
-	frame	data/chars/0yuri/syuri/air/juatk08.gif
-	delay	6
-	attack	129 103 90 50 30 1 1 0 50 0
-	dropv	1 1 2
-	frame	data/chars/0yuri/syuri/air/juatk09.gif
-	frame	data/chars/0yuri/syuri/air/juatk10.gif
-	frame	data/chars/0yuri/syuri/air/juatk09.gif
-	frame	data/chars/0yuri/syuri/air/juatk10.gif
-	frame	data/chars/0yuri/syuri/air/juatk09.gif
-	frame	data/chars/0yuri/syuri/air/juatk10.gif
-	frame	data/chars/0yuri/syuri/air/juatk09.gif
-	frame	data/chars/0yuri/syuri/air/juatk10.gif
-	attack	0 0 0 0
-	delay	12
-	frame	data/chars/0yuri/syuri/air/juatk11.gif
-
+		
+anim	jumpattack2
+		
+anim	jumpattack3
+		
+anim	jumpdelay
+		
+anim	jumpforward
 		
 anim	jumpland
 	loop	0
@@ -621,7 +608,6 @@ anim	run
 	frame	data/chars/0yuri/syuri/air/run06.gif
 	frame	data/chars/0yuri/syuri/air/run05.gif
 	frame	data/chars/0yuri/syuri/air/run06.gif
-
 		
 anim	runattack
 	loop	0
@@ -635,18 +621,15 @@ anim	runattack
 	frame	data/chars/0yuri/syuri/air/ju40.gif
 	frame	data/chars/0yuri/syuri/air/ju40.gif
 	frame	data/chars/0yuri/syuri/air/ju40.gif
-
 	frame	data/chars/0yuri/syuri/air/ju41.gif
 	frame	data/chars/0yuri/syuri/air/ju41.gif
 	frame	data/chars/0yuri/syuri/air/ju41.gif
 	frame	data/chars/0yuri/syuri/air/ju41.gif
-
 	frame	data/chars/0yuri/syuri/air/ju42.gif
 	frame	data/chars/0yuri/syuri/air/ju42.gif
 	frame	data/chars/0yuri/syuri/air/ju42.gif
 	frame	data/chars/0yuri/syuri/air/ju42.gif
-
-	attack	139 105 90 45 25 1 1 0 50 0
+	attack	139 105 90 45 30 1 1 0 50 0
 	dropv	2 2 1
 	frame	data/chars/0yuri/syuri/air/ju43.gif
 	frame	data/chars/0yuri/syuri/air/ju43.gif
@@ -654,7 +637,6 @@ anim	runattack
 	frame	data/chars/0yuri/syuri/air/ju43.gif
 	frame	data/chars/0yuri/syuri/air/ju43.gif
 	frame	data/chars/0yuri/syuri/air/ju43.gif
-
 	frame	data/chars/0yuri/syuri/air/ju44.gif
 	frame	data/chars/0yuri/syuri/air/ju44.gif
 	frame	data/chars/0yuri/syuri/air/ju44.gif
@@ -663,7 +645,6 @@ anim	runattack
 	frame	data/chars/0yuri/syuri/air/ju44.gif
 	frame	data/chars/0yuri/syuri/air/ju44.gif
 	attack	0 0 0 0
-
 	frame	data/chars/0yuri/syuri/air/ju45.gif
 	frame	data/chars/0yuri/syuri/air/ju45.gif
 	frame	data/chars/0yuri/syuri/air/ju45.gif
@@ -673,15 +654,10 @@ anim	runattack
 	frame	data/chars/0yuri/syuri/air/ju46.gif
 	frame	data/chars/0yuri/syuri/air/ju46.gif
 	frame	data/chars/0yuri/syuri/air/ju46.gif
-
-
 	frame	data/chars/0yuri/syuri/air/ju47.gif
 	frame	data/chars/0yuri/syuri/air/ju47.gif
 	frame	data/chars/0yuri/syuri/air/ju47.gif
 	frame	data/chars/0yuri/syuri/air/ju47.gif
-
-
-
 		
 anim	runjump
 	loop	1
@@ -731,6 +707,36 @@ anim	runjump
 	frame	data/chars/0yuri/syuri/air/ju04.gif
 	frame	data/chars/0yuri/syuri/air/ju05.gif
 		
+anim	runjumpattack
+	loop	0
+	delay	7
+	offset	130 186
+	bbox	120 90 33 50
+	fastattack	1
+	hitfx	data/sounds/beat3.wav
+	sound	data/sounds/yur02.wav
+	frame	data/chars/0yuri/syuri/air/ju03.gif
+	frame	data/chars/0yuri/syuri/air/juatk05.gif
+	frame	data/chars/0yuri/syuri/air/juatk06.gif
+	frame	data/chars/0yuri/syuri/air/juatk07.gif
+	frame	data/chars/0yuri/syuri/air/juatk08.gif
+	delay	6
+	attack	129 103 90 50 40 1 1 0 50 0
+	dropv	1 1 2
+	frame	data/chars/0yuri/syuri/air/juatk09.gif
+	frame	data/chars/0yuri/syuri/air/juatk10.gif
+	frame	data/chars/0yuri/syuri/air/juatk09.gif
+	frame	data/chars/0yuri/syuri/air/juatk10.gif
+	frame	data/chars/0yuri/syuri/air/juatk09.gif
+	frame	data/chars/0yuri/syuri/air/juatk10.gif
+	frame	data/chars/0yuri/syuri/air/juatk09.gif
+	frame	data/chars/0yuri/syuri/air/juatk10.gif
+	attack	0 0 0 0
+	delay	12
+	frame	data/chars/0yuri/syuri/air/juatk11.gif
+		
+anim	runslide
+		
 anim	spawn
 	loop	0
 	delay	5
@@ -775,28 +781,10 @@ anim	spawn
 	frame	data/chars/0yuri/syuri/air/ju04.gif
 	frame	data/chars/0yuri/syuri/air/ju03.gif
 	frame	data/chars/0yuri/syuri/air/ju10.gif
-
-#------------------------------------//----------------
-
-anim	charge
-		
-anim	chargeattack
-		
-anim	grabdown
-
-anim	grabup
-		
-anim	jumpattack2
-		
-anim	jumpattack3
-		
-anim	jumpdelay
-		
-anim	jumpforward
-			
-anim	runslide
 		
 anim	special
 		
 anim	walk
+		
+#|edited by openBor Stats v 0.53
 		

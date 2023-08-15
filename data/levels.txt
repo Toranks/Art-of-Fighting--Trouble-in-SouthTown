@@ -4,6 +4,8 @@ noslowfx   	1
 hiscorebg 	1
 completebg	1
 equalairpause	1
+scbonuses	30000 15000 1000 1 
+	
 loadingbg    1 5 200 310 120 180 3
 loadingbg2   1 5 200 310 120 180 3
 
@@ -20,7 +22,8 @@ lbarsize  100 5 1 1 0 -999 -999 -999 -999
 mpbarsize 90 5 1 1 0 -999 -999 -999 -999
 timeloc    150 50 31 21 0
 
-rush 1 2 Hits: 4 4 Max! 4 4
+rush 1 5 Hits 4 4 Max! 4 4
+showrushbonus	1
 p1rush 10 50 55 50 10 70 55 70
 p2rush 10 90 55 90 10 110 55 110
 p3rush 10 130 55 130 10 150 55 150
@@ -62,15 +65,15 @@ e3name      -150 -50
 
 #-----------main story
 
-
 set	   story_mode
-lives      4
+lives      10
 credits    3
 custfade   90
 nosame     1
-noshare    1
-cansave    1
+cansave    2
+#toranks
 maxplayers 3
+
 
 
 #-------------test------------
@@ -82,7 +85,8 @@ maxplayers 3
 
 
 #---/-start-//--intro-/----
-#skipselect mrzero
+skipselect
+select  data/bgs/select1.txt
 z	160 320 290	   
 file	data/levels/0begin.txt
 
@@ -103,7 +107,7 @@ file	data/levels/0tutorial.txt
 branch	   ststart
 scene      data/scenes/1tutorial/tutlv1.txt
 #-----------karatedojo------------
-#select  data/bgs/select1.txt
+
 z          210 277 290
 file       data/levels/15lvl.txt
 
@@ -149,6 +153,7 @@ file       data/levels/34lvl.txt
 #--------------------------------------
 
 scene      data/scenes/lvl7/truckcrash.txt
+next
 branch	   01
 z	10 545 290	   
 file	data/levels/0map.txt
@@ -452,7 +457,6 @@ file       data/levels/42lvl.txt
 branch	bonus3
 z          275 450 420
 file       data/levels/0bonus3.txt
-next
 
 #-------ballsofsteel-B--------
 
@@ -576,12 +580,12 @@ scene      data/scenes/3afall/airfall.txt
 z          375 470 800
 file       data/levels/51lvl.txt
 scene      data/scenes/3john/johnend.txt
-next
 
 #-----------desert-mine---------
 
 z          320 455 570
 file       data/levels/52lvl.txt
+next
 
 #---------------------------------------------MAP----------------------------
 
@@ -769,15 +773,18 @@ scene      data/scenes/3ryorob/wallbrk.txt
 
 z          855 1060 820
 file       data/levels/68lvl.txt
-scene      data/scenes/3leave/leave.txt
 next
 
 #---------------//////////--beyond--////////-----------------------------------
 
+branch	   12
+z	10 545 290	   
+file	data/levels/0map12.txt
 
 #---/------start----/---
 
 branch	   byo
+scene      data/scenes/3leave/leave.txt
 z	365 465 290	   
 file	data/levels/beyond/0start.txt
 
@@ -807,7 +814,6 @@ file	data/levels/beyond/bydlvl4.txt
 scene      data/scenes/4tank/tankin.txt
 z	260 415 290	   
 file	data/levels/beyond/bydlvl5.txt
-next
 
 #----------cave-end-------------
 scene      data/scenes/4tank/tankout.txt
@@ -819,6 +825,8 @@ file	data/levels/beyond/bydlvl5b.txt
 branch	   byo2
 z	395 470 290	   
 file	data/levels/beyond/bydlvl6.txt
+
+next
 
 #---/-byo-underground--/---
 
@@ -856,9 +864,8 @@ file	data/levels/beyond/bydlvl12.txt
 
 z	225 430 290	   
 file	data/levels/beyond/bydlvl13.txt
-scene      data/scenes/4byostff/byobtl.txt
 next
-
+scene      data/scenes/4byostff/byobtl.txt
 #---/-byo-base5-/---------
 
 branch	   byo3
@@ -880,6 +887,7 @@ file	data/levels/beyond/bydlvl12b.txt
 
 z	225 430 290	   
 file	data/levels/beyond/bydlvl13b.txt
+next
 scene   data/scenes/4byostff/meanwl.txt
 
 #---/-byo-base7-/--torture-time--
@@ -906,7 +914,7 @@ file	data/levels/beyond/bydlvl12c.txt
 
 #------//---OVERLORD-3rd-meet---//------------
 
-
+branch	   tryag
 z	225 430 290	   
 file	data/levels/beyond/bydlvl13c.txt
 scene	   data/scenes/5final1/grabhand1.txt
@@ -914,7 +922,6 @@ scene	   data/scenes/5final1/grabhand2.txt
 
 #---/-byo-brain-pitt--/------------
 
-branch	   tryag
 z          120 280 300
 file	data/levels/beyond/bydlvl19.txt
 
@@ -933,9 +940,9 @@ z          120 280 300
 file	data/levels/beyond/sadend.txt
 
 branch	   sadend2
+scene      data/scenes/5final2/death1.txt
 z          120 280 300
 file	data/levels/beyond/sadend2.txt
-
 #---/-GOOD-ENDING-/------------
 
 branch	   goodend
@@ -949,12 +956,12 @@ end
 #-------------------//------------end-game--free-map--//------------------
 
 set		south_town_free_map
+#toranks
 ifcomplete	1
-lives		4
-credits		12
+lives		5
+credits		9
 custfade	90
 nosame		1
-noshare		1
 cansave		0
 maxplayers	3
 
@@ -1018,7 +1025,7 @@ file       data/levels/15lvl.txt
 branch	   001
 z          235 390 390
 file       data/levels/16lvl.txt
-
+next
 branch	   002
 scene      data/scenes/lvl2/lvl2end.txt
 z          275 450 570
@@ -1080,7 +1087,6 @@ file	data/levels/0mapfinal.txt
 branch	   rush1
 z          225 300 420
 file       data/levels/0rush1.txt
-next
 
 z          200 900 300
 file       data/levels/6lvlb.txt
@@ -1221,11 +1227,11 @@ file	data/levels/0mapfinal.txt
 #--------------------------//---yuri-apartment---//-------
 branch	   yaptr
 z          120 280 570
-file       data/levels/22lvl.txt
+file       data/levels/22blvl.txt
 
 branch	   021
 z          170 280 570
-file       data/levels/23lvl.txt
+file       data/levels/23blvl.txt
 scene      data/scenes/3yuri/yuriend.txt
 next
 #-----------------------------------------------final-map----//------------
@@ -1445,11 +1451,11 @@ file	data/levels/66lvl.txt
 
 
 z	230 360 320
-file	data/levels/66lvl2.txt
+file	data/levels/66lvl2b.txt
 
 
 z	230 360 320
-file	data/levels/66lvl3.txt
+file	data/levels/66lvl3b.txt
 
 branch	   055
 scene	data/scenes/3ryorob/ryorob.txt
@@ -1493,13 +1499,12 @@ branch	   060
 scene      data/scenes/4tank/tankin.txt
 z	260 415 290	   
 file	data/levels/beyond/bydlvl5.txt
-next
 
 branch	   061
 scene      data/scenes/4tank/tankout.txt
 z	240 500 290	   
 file	data/levels/beyond/bydlvl5b.txt
-
+next
 
 branch	   062
 z	395 470 290	   
@@ -1541,28 +1546,28 @@ branch	   069
 z	225 430 290	   
 file	data/levels/beyond/bydlvl13.txt
 
+next
 
 branch	   070
 scene      data/scenes/4byostff/byobtl.txt
-next
 z	250 430 290	   
-file	data/levels/beyond/bydlvl14.txt
+file	data/levels/beyond/bydlvl14b.txt
 
 
 branch	   071
 z	995 1185 290	   
-file	data/levels/beyond/bydlvl15.txt
+file	data/levels/beyond/bydlvl15b.txt
 
 
 branch	   072
 scene      data/scenes/4byostff/byoelevdn.txt
 z	260 430 290	   
-file	data/levels/beyond/bydlvl12b.txt
+file	data/levels/beyond/bydlvl12bb.txt
 
 
 branch	   073
 z	225 430 290	   
-file	data/levels/beyond/bydlvl13b.txt
+file	data/levels/beyond/bydlvl13bb.txt
 scene   data/scenes/4byostff/meanwl.txt
 
 
@@ -1607,10 +1612,15 @@ file	data/levels/beyond/bydlvl20.txt
 
 #---/-sad-ending-/------------
 
-branch	sadend
+branch	   sadend
 scene      data/scenes/5final2/death1b.txt
-z	120 280 300
+z          120 280 300
 file	data/levels/beyond/sadend.txt
+
+branch	   sadend2
+scene      data/scenes/5final2/death1b.txt
+z          120 280 300
+file	data/levels/beyond/sadend2.txt
 
 #---/-GOOD-ENDING-/------------
 
@@ -1624,21 +1634,22 @@ z	10 545 290
 file	data/levels/0mapfinal.txt
 #-----------------------------------------------final-map----//------------
 
+branch	   sel00 
+select  data/sele00.txt
+z	200 200 200
+file	data/selgo.txt
 branch	   sel01 
 select  data/sele01.txt
 z	200 200 200
 file	data/selgo.txt
-
 branch	   sel02 
 select  data/sele02.txt
 z	200 200 200	   
 file	data/selgo.txt
-
 branch	   sel03
 select  data/sele03.txt
 z	200 200 200	   
 file	data/selgo.txt
-
 branch	   sel04
 select  data/sele04.txt
 z	200 200 200	   
@@ -1648,7 +1659,6 @@ branch	   sel05
 select  data/sele05.txt
 z	200 200 200	   
 file	data/selgo.txt
-
 
 z          170 460 750
 file       data/levels/test.txt

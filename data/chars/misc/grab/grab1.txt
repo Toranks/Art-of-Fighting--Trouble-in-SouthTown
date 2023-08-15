@@ -1,6 +1,6 @@
 name			grab1
 type			obstacle
-#type			npc
+
 scroll			1
 health			300
 speed			0
@@ -31,15 +31,17 @@ void main()
 {
     	void self = getlocalvar("self");
 	void attacker = getentityproperty(self,"parent");
-   	void victim2 = getentityproperty(attacker, "opponent");
-  	void victim = getentityproperty(victim2, "playerindex");
+   	void victim2 = getentityvar(self, "target");
+  	void victim = getentityvar(self, "player");
 	int HP = getentityproperty(self,"health");
 	int HPmax = getentityproperty(self,"maxhealth");
-   
+
 	int x1 = getentityproperty(attacker,"x");
 	int z1 = getentityproperty(attacker,"z");
 
     	int escape = getentityvar(self, "grabgo"); //johnny madjon
+  if (attacker!=NULL() && victim2 !=NULL())
+   {// checking if the pointers are valid
 
 	if(HP>=HPmax && escape == 1){
 	changeentityproperty(victim2, "position", x1, z1);
@@ -60,41 +62,24 @@ void main()
 	killentity(self);
 
       	} else if(playerkeys(victim, 2, "moveleft")){// Left is pressed?
-    	changeentityproperty(self, "health", HP+2);
+    	changeentityproperty(self, "health", HP+1);
+  	} else if(playerkeys(victim, 2, "moveup")){// Left is pressed?
+    	changeentityproperty(self, "health", HP+1);
+   	} else if(playerkeys(victim, 2, "movedown")){// Left is pressed?
+    	changeentityproperty(self, "health", HP+1);
 	} else if(playerkeys(victim, 2, "moveright")){// Right is pressed?
-    	changeentityproperty(self, "health", HP+2);
+    	changeentityproperty(self, "health", HP+1);
 	} else if(playerkeys(victim, 2, "attack")){// Right is pressed?
-    	changeentityproperty(self, "health", HP+2);
+    	changeentityproperty(self, "health", HP+1);
 	} else if(playerkeys(victim, 2, "jump")){// Right is pressed?
+    	changeentityproperty(self, "health", HP+1);
+	} else if(playerkeys(victim, 2, "special")){// Right is pressed?
     	changeentityproperty(self, "health", HP+2);
       	}
+   }// end checking valid pointers
 }
 @end_script
 
-
-
-
-
-
-anim	idle
-	loop	1
-	delay	6
-	offset	90 90
-	bbox	0 0 0 0
-	#quakeframe	0 10 5
-	platform	1 1 1 1 1 1 1 1
-	frame     data/chars/misc/grab/grab01.gif
-	frame     data/chars/misc/grab/grab02.gif
-	frame     data/chars/misc/grab/grab03.gif
-	frame     data/chars/misc/grab/grab02.gif
-	frame     data/chars/misc/grab/grab01.gif #4
-	frame     data/chars/misc/grab/grab02.gif
-	frame     data/chars/misc/grab/grab03.gif
-	frame     data/chars/misc/grab/grab02.gif
-	frame     data/chars/misc/grab/grab01.gif
-	frame     data/chars/misc/grab/grab02.gif
-	frame     data/chars/misc/grab/grab03.gif
-	frame     data/chars/misc/grab/grab02.gif #12
 
 
 
@@ -105,48 +90,74 @@ anim	death
 	offset	50 90
 	bbox	0 0 0 0
 	platform	1 1 1 1 1 1 1 1
-	frame     data/chars/misc/grab/empty.gif
-	frame     data/chars/misc/grab/empty.gif
-
-
-
-anim	spawn
-@script
-	void self = getlocalvar("self");
-	void atk = getentityproperty(self,"parent");
-  	void vtm = getentityproperty(atk, "opponent");
-    	changeentityproperty(self, "health",-5);
-
-	if(getentityproperty(vtm, "type")==openborconstant("TYPE_NPC"))
-	{
-	killentity(self);
-	}
-@end_script
-	loop	0
-	delay	5
-	offset	50 90
-	bbox	0 0 0 0
-	platform	1 1 1 1 1 1 1 1
-	frame     data/chars/misc/grab/empty.gif
-	frame     data/chars/misc/grab/empty.gif
-	frame     data/chars/misc/grab/empty.gif
-	frame     data/chars/misc/grab/empty.gif
-
-
-#-------------------//-----OTHER-------//-------------
-
+	frame	data/chars/misc/grab/empty.gif
+	frame	data/chars/misc/grab/empty.gif
+		
 anim	follow1
 	loop	1
 	delay	6
 	offset	50 90
 	bbox	0 0 0 0
 	platform	1 1 1 1 1 1 1 1
-	frame     data/chars/misc/grab/grab04.gif
-	frame     data/chars/misc/grab/grab05.gif
-	frame     data/chars/misc/grab/grab04.gif
-	frame     data/chars/misc/grab/grab06.gif
+	frame	data/chars/misc/grab/grab04.gif
+	frame	data/chars/misc/grab/grab05.gif
+	frame	data/chars/misc/grab/grab04.gif
+	frame	data/chars/misc/grab/grab06.gif
+		
+anim	idle
+	loop	0
+	delay	15
+	offset	90 90
+	bbox	0 0 0 0
+	platform	1 1 1 1 1 1 1 1
+	frame	data/chars/misc/grab/grab00.gif
+	frame	data/chars/misc/grab/grab07.gif
+	frame	data/chars/misc/grab/grab08.gif
+	frame	data/chars/misc/grab/grab00.gif
+	frame	data/chars/misc/grab/grab07.gif
+	frame	data/chars/misc/grab/grab08.gif
+	frame	data/chars/misc/grab/grab00.gif
+	frame	data/chars/misc/grab/grab07.gif
+	frame	data/chars/misc/grab/grab08.gif
+	frame	data/chars/misc/grab/grab00.gif
+	frame	data/chars/misc/grab/grab07.gif
+	frame	data/chars/misc/grab/grab08.gif
+	frame	data/chars/misc/grab/grab00.gif
+	frame	data/chars/misc/grab/empty.gif
+		
+anim	pain
+	loop	0
+	delay	5
+	offset	50 90
+	bbox	0 0 0 0
+	platform	1 1 1 1 1 1 1 1
+	frame	data/chars/misc/grab/empty.gif
+	frame	data/chars/misc/grab/empty.gif
+		
+anim	spawn
+@script
+	void self = getlocalvar("self");
+	void atk = getentityproperty(self,"parent");
+  	void vtm = getentityproperty(atk, "opponent");
+  	void plyr = getentityproperty(vtm, "playerindex");
+    	changeentityproperty(self, "health",-5);
+    	setentityvar(self, "target", vtm);
+    	setentityvar(self, "player", plyr);
 
-
-
-
-
+	if(getentityproperty(vtm, "type")==openborconstant("TYPE_NPC"))
+	{
+	killentity(self);
+	}
+	@end_script	
+	loop	0
+	delay	5
+	offset	50 90
+	bbox	0 0 0 0
+	platform	1 1 1 1 1 1 1 1
+	frame	data/chars/misc/grab/empty.gif
+	frame	data/chars/misc/grab/empty.gif
+	frame	data/chars/misc/grab/empty.gif
+	frame	data/chars/misc/grab/empty.gif
+		
+#|edited by openBor Stats v 0.53
+		

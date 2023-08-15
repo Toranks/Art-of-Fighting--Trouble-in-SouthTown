@@ -6,7 +6,7 @@ falldie	1
 noatflash 1
 flash	Flash
 shadow	6
-lifespan 50
+lifespan 39
 
 subject_to_wall		1
 subject_to_platform	1
@@ -24,79 +24,6 @@ load	steel
 
 
 palette	none
-
-
-
-anim	idle
-	loop	1
-	delay	7
-	offset	225 480
-	bbox	0 0 0 0
-	frame	data/chars/3jackballs/walk01a.gif
-
-
-
-anim	follow1
-	loop	0
-	delay	7
-	offset	225 480
-	bbox	0 0 0 0
-	staydown 5 5
-	sound	data/sounds/mhmh.wav
-	hitflash	flashscreen1
-	frame	data/chars/3jackballs/walk01a.gif
-
-	hitfx	data/sounds/steel2.wav
-
-	@cmd	keyflip
-	@cmd	keymove 1.6
-	frame	data/chars/3jackballs/walk02.gif #1
-
-	attack	200 350 230 130 40 1 1 0 0 30
-	dropv	5 1
-	@cmd	keyflip
-	@cmd	keymove 1.6
-	frame	data/chars/3jackballs/walk03a.gif
-
-	@cmd	keyflip
-	@cmd	keymove 1.6
-	frame	data/chars/3jackballs/walk04.gif
-	@cmd	keyflip
-	@cmd	keymove 1.6
-	frame	data/chars/3jackballs/walk01a.gif
-	@cmd	keyflip
-	@cmd	keymove 1.6
-	frame	data/chars/3jackballs/walk02.gif
-	@cmd	keyflip
-	@cmd	keymove 1.6
-	frame	data/chars/3jackballs/walk03a.gif
-	attack	0 0 0 0
-	@cmd	keyflip
-	@cmd	keymove 1.6
-	frame	data/chars/3jackballs/walk04.gif
-	@cmd	looper 1 60
-#--------------------//--DEATH--//----------------------
-	delay	100
-	@cmd	stop
-	frame	data/chars/3jackballs/walk01.gif
-	delay	5
-	frame	data/chars/3jackballs/walk01.gif
-	frame	data/chars/3jackballs/walk01.gif
-	movea	10
-	frame	data/chars/3jackballs/walk01.gif #11
-	frame	data/chars/3jackballs/walk01.gif
-	frame	data/chars/3jackballs/walk01.gif
-	@cmd	looper 11 20
-	frame	data/chars/3jackballs/emp.gif
-	@cmd	killgun 5 0
-	frame	data/chars/3jackballs/emp.gif
-	@cmd	suicide
-	frame	data/chars/3jackballs/emp.gif
-
-
-
-
-
 
 
 
@@ -129,26 +56,80 @@ anim	death
 	frame	data/chars/3jackballs/emp.gif
 	frame	data/chars/3jackballs/emp.gif
 	frame	data/chars/3jackballs/emp.gif
-
-
-
+		
+anim	follow1
+	loop	0
+	delay	7
+	offset	225 480
+	bbox	0 0 0 0
+	staydown	5 5
+	sound	data/sounds/mhmh.wav
+	hitflash	flashscreen1
+	frame	data/chars/3jackballs/walk01a.gif
+	hitfx	data/sounds/steel2.wav
+	@cmd	keyflipchild
+	@cmd	keychild 1.6
+	frame	data/chars/3jackballs/walk02.gif #1
+	attack	200 350 230 130 20 1 1 0 0 30
+	dropv	5 1
+	@cmd	keyflipchild
+	@cmd	keychild 1.6
+	frame	data/chars/3jackballs/walk03a.gif
+	@cmd	keyflipchild
+	@cmd	keychild 1.6
+	frame	data/chars/3jackballs/walk04.gif
+	@cmd	keyflipchild
+	@cmd	keychild 1.6
+	frame	data/chars/3jackballs/walk01a.gif
+	@cmd	keyflipchild
+	@cmd	keychild 1.6
+	frame	data/chars/3jackballs/walk02.gif
+	@cmd	keyflipchild
+	@cmd	keychild 1.6
+	frame	data/chars/3jackballs/walk03a.gif
+	attack	0 0 0 0
+	@cmd	keyflipchild
+	@cmd	keychild 1.6
+	frame	data/chars/3jackballs/walk04.gif
+	@cmd	looper 1 40
+	delay	100
+	@cmd	stop
+	frame	data/chars/3jackballs/walk01.gif
+	delay	5
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk01.gif
+	movea	10
+	frame	data/chars/3jackballs/walk01.gif #11
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk01.gif
+	@cmd	looper 11 20
+	frame	data/chars/3jackballs/emp.gif
+	@cmd	killgun 5 0
+	frame	data/chars/3jackballs/emp.gif
+	@cmd	suicide
+	frame	data/chars/3jackballs/emp.gif
+		
+anim	idle
+	loop	1
+	delay	7
+	offset	225 480
+	bbox	0 0 0 0
+	frame	data/chars/3jackballs/walk01a.gif
+		
 anim	spawn
 	loop	0
 	delay	7
 	offset	225 480
 	bbox	0 0 0 0
-	jumpframe 1 7 0
+	jumpframe	1 7 0
 	frame	data/chars/3jackballs/emp.gif
-	@cmd	spawnGun5 "steel" 170 80 1 5 "ANI_FOLLOW1" 
+	@cmd	spawnGun5 "steel" 170 80 1 5 "ANI_FOLLOW1"
 	delay	50
 	frame	data/chars/3jackballs/emp.gif
 	delay	7
 	frame	data/chars/3jackballs/walk04.gif
 	@cmd	anichange "ANI_FOLLOW1"
 	frame	data/chars/3jackballs/walk04.gif
-
-
-
-
-
+		
+#|edited by openBor Stats v 0.53
 		

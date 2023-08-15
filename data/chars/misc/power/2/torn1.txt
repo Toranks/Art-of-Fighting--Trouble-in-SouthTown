@@ -8,7 +8,7 @@ nomove  1 1
 gfxshadow 1
 lifespan  8
 setlayer 100
-candamage player npc
+candamage player npc obstacle
 hostile	  player npc
 subject_to_platform 0
 subject_to_gravity 0
@@ -23,11 +23,32 @@ load	wind4
 
 
 
+
+
+anim	follow1
+@script
+void self = getlocalvar("self");
+	if(frame == 0 )
+	{
+	changeentityproperty(self, "candamage",openborconstant("TYPE_ENEMY")+openborconstant("TYPE_OBSTACLE"));
+	changeentityproperty(self, "setlayer", 0);
+	}
+	@end_script	
+	loop	0
+	delay	2
+	offset	65 195
+	bbox	0 0 0 0
+	frame	data/chars/misc/power/2/b1.gif
+	frame	data/chars/misc/power/2/b2.gif
+	frame	data/chars/misc/power/2/b1.gif
+	@cmd	beidle
+	frame	data/chars/misc/power/2/b2.gif
+		
 anim	idle
 	loop	0
 	delay	4
 	offset	65 195
-	fastattack 1
+	fastattack	1
 	bbox	0 0 0 0
 	frame	data/chars/misc/power/2/b1.gif
 	frame	data/chars/misc/power/2/b2.gif
@@ -42,12 +63,12 @@ anim	idle
 	frame	data/chars/misc/power/2/b9.gif
 	sound	data/sounds/fast.wav
 	frame	data/chars/misc/power/2/b10.gif
-	frame	data/chars/misc/power/2/b11.gif   
+	frame	data/chars/misc/power/2/b11.gif
 	frame	data/chars/misc/power/2/b12.gif
 	frame	data/chars/misc/power/2/b13.gif
 	@cmd	spawn01 "wind4" 900 -30 30
 	frame	data/chars/misc/power/2/b14.gif
-	attack5	0 120 125 110 8 1 0 0 40 20
+	attack5	0 120 125 110 5 1 0 0 40 30
 	dropv	5 2 0
 	frame	data/chars/misc/power/2/b15.gif
 	frame	data/chars/misc/power/2/b16.gif
@@ -56,7 +77,7 @@ anim	idle
 	attack5	0 0 0 0
 	frame	data/chars/misc/power/2/b11.gif
 	frame	data/chars/misc/power/2/b12.gif
-	attack5	0 120 125 110 8 1 0 0 40 20
+	attack5	0 120 125 110 5 1 0 0 40 30
 	dropv	5 2 0
 	frame	data/chars/misc/power/2/b13.gif
 	frame	data/chars/misc/power/2/b14.gif
@@ -65,7 +86,7 @@ anim	idle
 	attack5	0 0 0 0
 	frame	data/chars/misc/power/2/b17.gif
 	frame	data/chars/misc/power/2/b18.gif
-	attack5	0 120 125 110 8 1 0 0 40 20
+	attack5	0 120 125 110 5 1 0 0 40 30
 	dropv	5 2 0
 	frame	data/chars/misc/power/2/b11.gif
 	frame	data/chars/misc/power/2/b12.gif
@@ -74,7 +95,7 @@ anim	idle
 	attack5	0 0 0 0
 	frame	data/chars/misc/power/2/b15.gif
 	frame	data/chars/misc/power/2/b16.gif
-	attack5	0 120 125 110 8 1 0 0 40 20
+	attack5	0 120 125 110 5 1 0 0 40 30
 	dropv	5 2 0
 	frame	data/chars/misc/power/2/b17.gif
 	frame	data/chars/misc/power/2/b18.gif
@@ -83,23 +104,23 @@ anim	idle
 	attack5	0 0 0 0
 	frame	data/chars/misc/power/2/b13.gif
 	frame	data/chars/misc/power/2/b14.gif
-	attack5	0 120 125 110 8 1 0 0 40 20
+	attack5	0 120 125 110 5 1 0 0 40 30
 	dropv	5 2 0
 	frame	data/chars/misc/power/2/b15.gif
 	frame	data/chars/misc/power/2/b16.gif
 	frame	data/chars/misc/power/2/b17.gif
 	frame	data/chars/misc/power/2/b18.gif
-	attack5 0 0 0 0
+	attack5	0 0 0 0
 	frame	data/chars/misc/power/2/b11.gif
 	frame	data/chars/misc/power/2/b12.gif
-	attack5	0 120 125 110 8 1 0 0 40 20
+	attack5	0 120 125 110 5 1 0 0 40 30
 	dropv	5 2 0
 	frame	data/chars/misc/power/2/b13.gif
 	frame	data/chars/misc/power/2/b14.gif
-	attack  0 0 0 0
+	attack	0 0 0 0
 	frame	data/chars/misc/power/2/b15.gif
 	frame	data/chars/misc/power/2/b16.gif
-	attack5	0 120 125 110 8 1 0 0 40 20
+	attack5	0 120 125 110 5 1 0 0 40 30
 	dropv	5 2 0
 	frame	data/chars/misc/power/2/b17.gif
 	frame	data/chars/misc/power/2/b18.gif
@@ -107,7 +128,7 @@ anim	idle
 	sound	data/sounds/fast.wav
 	frame	data/chars/misc/power/2/b11.gif
 	frame	data/chars/misc/power/2/b12.gif
-	attack5	0 120 125 110 8 1 0 0 40 20
+	attack5	0 120 125 110 5 1 0 0 40 30
 	dropv	5 2 0
 	frame	data/chars/misc/power/2/b13.gif
 	frame	data/chars/misc/power/2/b14.gif
@@ -116,7 +137,7 @@ anim	idle
 	attack5	0 0 0 0
 	frame	data/chars/misc/power/2/b17.gif
 	frame	data/chars/misc/power/2/b18.gif
-	attack5	0 120 125 110 8 1 0 0 40 20
+	attack5	0 120 125 110 5 1 0 0 40 30
 	dropv	5 2 0
 	frame	data/chars/misc/power/2/b11.gif
 	frame	data/chars/misc/power/2/b12.gif
@@ -125,7 +146,7 @@ anim	idle
 	attack5	0 0 0 0
 	frame	data/chars/misc/power/2/b15.gif
 	frame	data/chars/misc/power/2/b16.gif
-	attack5	0 120 125 110 8 1 0 0 40 20
+	attack5	0 120 125 110 5 1 0 0 40 30
 	dropv	5 2 0
 	frame	data/chars/misc/power/2/b17.gif
 	frame	data/chars/misc/power/2/b18.gif
@@ -134,7 +155,7 @@ anim	idle
 	attack5	0 0 0 0
 	frame	data/chars/misc/power/2/b13.gif
 	frame	data/chars/misc/power/2/b14.gif
-	attack5	0 120 125 110 8 1 0 0 40 20
+	attack5	0 120 125 110 5 1 0 0 40 30
 	dropv	5 2 0
 	frame	data/chars/misc/power/2/b15.gif
 	frame	data/chars/misc/power/2/b16.gif
@@ -143,7 +164,7 @@ anim	idle
 	attack5	0 0 0 0
 	frame	data/chars/misc/power/2/b11.gif
 	frame	data/chars/misc/power/2/b12.gif
-	attack5	0 120 125 110 8 1 0 0 40 20
+	attack5	0 120 125 110 5 1 0 0 40 30
 	dropv	5 2 0
 	frame	data/chars/misc/power/2/b13.gif
 	frame	data/chars/misc/power/2/b14.gif
@@ -152,7 +173,7 @@ anim	idle
 	attack5	0 0 0 0
 	frame	data/chars/misc/power/2/b17.gif
 	frame	data/chars/misc/power/2/b18.gif
-	attack5	0 120 125 110 8 1 0 0 40 20
+	attack5	0 120 125 110 5 1 0 0 40 30
 	dropv	5 2 0
 	frame	data/chars/misc/power/2/b11.gif
 	frame	data/chars/misc/power/2/b12.gif
@@ -161,7 +182,7 @@ anim	idle
 	attack5	0 0 0 0
 	frame	data/chars/misc/power/2/b15.gif
 	frame	data/chars/misc/power/2/b16.gif
-	attack5	0 120 125 110 8 1 0 0 40 20
+	attack5	0 120 125 110 5 1 0 0 40 30
 	dropv	5 2 0
 	frame	data/chars/misc/power/2/b17.gif
 	frame	data/chars/misc/power/2/b18.gif
@@ -170,7 +191,7 @@ anim	idle
 	attack5	0 0 0 0
 	frame	data/chars/misc/power/2/b13.gif
 	frame	data/chars/misc/power/2/b14.gif
-	attack5	0 120 125 110 8 1 0 0 40 20
+	attack5	0 120 125 110 5 1 0 0 40 30
 	dropv	5 2 0
 	frame	data/chars/misc/power/2/b15.gif
 	frame	data/chars/misc/power/2/b16.gif
@@ -179,7 +200,7 @@ anim	idle
 	attack5	0 0 0 0
 	frame	data/chars/misc/power/2/b11.gif
 	frame	data/chars/misc/power/2/b12.gif
-	attack5	0 120 125 110 8 1 0 0 40 20
+	attack5	0 120 125 110 5 1 0 0 40 30
 	dropv	5 2 0
 	frame	data/chars/misc/power/2/b13.gif
 	frame	data/chars/misc/power/2/b14.gif
@@ -200,25 +221,5 @@ anim	idle
 	frame	data/chars/misc/power/2/b1.gif
 	frame	data/chars/misc/power/2/empty.gif
 		
-anim	follow1
-@script
-void self = getlocalvar("self");
-	if(frame == 0 )
-	{
-	changeentityproperty(self, "candamage",openborconstant("TYPE_ENEMY"));
-	changeentityproperty(self, "setlayer", 0);
-	}
-@end_script
-	loop	0
-	delay	2
-	offset	65 195
-	bbox	0 0 0 0
-	frame	data/chars/misc/power/2/b1.gif
-	frame	data/chars/misc/power/2/b2.gif
-	frame	data/chars/misc/power/2/b1.gif
-	@cmd	beidle
-	frame	data/chars/misc/power/2/b2.gif
-
-
-
-
+#|edited by openBor Stats v 0.53
+		

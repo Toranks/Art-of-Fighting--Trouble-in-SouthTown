@@ -1,6 +1,6 @@
 name		jontram
 type		npc
-health		700
+health		1000
 cantgrab	1
 falldie		1
 nodrop		2
@@ -45,112 +45,13 @@ void main()
 
 
 
-anim	idle
-	loop	1
-	delay	5
-	offset	110 165
-	bbox	60 65 75 91 50
-	frame	data/chars/3johnny/xtram01.gif
-	@cmd	anichange "ANI_FOLLOW1"
-	frame	data/chars/3johnny/xtram01.gif
 
-anim	follow1
-	loop	1
-	delay	5
-	offset	110 165
-	bbox	65 65 75 91 50
-	frame	data/chars/3johnny/xtram01.gif
-	@cmd	attack4 -160 10 -5 40 -300 300 "ANI_FOLLOW2"
-	frame	data/chars/3johnny/xtram01.gif
-
-anim	follow2
-	loop	0
-	delay	9
-	offset	110 165
-	bbox	0 0 0 0
-	frame	data/chars/3johnny/xtram01.gif
-	@cmd	clearL
-	frame	data/chars/3johnny/xtram03.gif
-	frame	data/chars/3johnny/xtram04.gif
-	attack	-5 60 120 65 40 1 1 0 30 70
-	dropv	2 4
-	frame	data/chars/3johnny/xtram05.gif
-	frame	data/chars/3johnny/xtram05.gif
-	attack	0 0 0 0
-	delay	12
-	frame	data/chars/3johnny/xtram03.gif
-	frame	data/chars/3johnny/xtram01.gif
-	@cmd	anichange "ANI_FOLLOW1"
-	frame	data/chars/3johnny/xtram01.gif
-
-anim	special2
-	loop	0
-	delay	9
-	offset	110 165
-	bbox	0 0 0 0
-	frame	data/chars/3johnny/xtram01.gif
-	@cmd	clearL
-	frame	data/chars/3johnny/xtram03.gif
-	frame	data/chars/3johnny/xtram04.gif
-	attack	-5 60 120 65 40 1 1 0 30 70
-	dropv	2 4
-	frame	data/chars/3johnny/xtram05.gif
-	frame	data/chars/3johnny/xtram05.gif
-	attack	0 0 0 0
-	delay	12
-	frame	data/chars/3johnny/xtram03.gif
-	frame	data/chars/3johnny/xtram01.gif
-	@cmd	anichange "ANI_FOLLOW1"
-	frame	data/chars/3johnny/xtram01.gif
-
-anim	pain
-	loop	0
-	delay	3
-	offset	110 165
-	bbox	0 0 0 0
-	frame	data/chars/3johnny/xtram01.gif
-	delay	10
-	bbox	65 65 75 91 50
-	frame	data/chars/3johnny/xtram02.gif
-	frame	data/chars/3johnny/xtram02.gif
-	frame	data/chars/3johnny/xtram02.gif
-	@cmd	beidle
-	frame	data/chars/3johnny/xtram02.gif
-
-anim	spawn
-@script
-	void self = getlocalvar("self");
-	if(frame==10){
-	changelevelproperty("scrollspeed", 1);
-	}
-@end_script
-	loop	0 
-	delay	10
-	offset	110 165
-	bbox	0 0 0 0
-	frame	data/chars/3johnny/xtram01.gif
-	frame	data/chars/3johnny/xtram01.gif
-	frame	data/chars/3johnny/xtram01.gif
-	frame	data/chars/3johnny/xtram01.gif
-	frame	data/chars/3johnny/xtram01.gif
-	frame	data/chars/3johnny/xtram01.gif
-	@cmd	spawn04 "jbyo3" 0 40 40 "ANI_FOLLOW2"
-	frame	data/chars/3johnny/xtram01.gif
-	frame	data/chars/3johnny/xtram01.gif
-	frame	data/chars/3johnny/xtram01.gif
-	frame	data/chars/3johnny/xtram01.gif
-	frame	data/chars/3johnny/xtram01.gif
-	frame	data/chars/3johnny/xtram01.gif
-	frame	data/chars/3johnny/xtram01.gif
-	@cmd	beidle
-	frame	data/chars/3johnny/xtram01.gif
-	
 anim	death
 @script
     if(frame==15){
 	jumptobranch("tramdye", 1);
     }
-	@end_script
+	@end_script	
 	loop	0
 	delay	14
 	offset	110 165
@@ -180,7 +81,7 @@ anim	death
 	frame	data/chars/3johnny/xtram06.gif
 	delay	1000
 	frame	data/chars/3johnny/xtram06.gif
-
+		
 anim	fall
 	loop	0
 	delay	12
@@ -190,7 +91,7 @@ anim	fall
 	frame	data/chars/3johnny/xtram02.gif
 	frame	data/chars/3johnny/xtram02.gif
 	frame	data/chars/3johnny/xtram02.gif
-
+		
 anim	fall7
 	delay	1000
 	offset	105 130
@@ -225,4 +126,106 @@ anim	fall7
 	frame	data/chars/3johnny/slamck14.gif
 	offset	115 125
 	frame	data/chars/3johnny/slamck15.gif
+		
+anim	follow1
+	loop	1
+	delay	5
+	offset	110 165
+	bbox	65 65 75 91 50
+	frame	data/chars/3johnny/xtram01.gif
+	@cmd	attack4 -200 10 -5 40 -300 300 "ANI_FOLLOW2"
+	frame	data/chars/3johnny/xtram01.gif
+		
+anim	follow2
+	loop	0
+	delay	9
+	offset	110 165
+	bbox	0 0 0 0
+	frame	data/chars/3johnny/xtram01.gif
+	@cmd	clearL
+	frame	data/chars/3johnny/xtram03.gif
+	frame	data/chars/3johnny/xtram04.gif
+	attack	-5 60 120 65 60 1 1 0 30 70
+	dropv	2 4
+	frame	data/chars/3johnny/xtram05.gif
+	frame	data/chars/3johnny/xtram05.gif
+	attack	0 0 0 0
+	delay	12
+	frame	data/chars/3johnny/xtram03.gif
+	frame	data/chars/3johnny/xtram01.gif
+	@cmd	anichange "ANI_FOLLOW1"
+	frame	data/chars/3johnny/xtram01.gif
+		
+anim	idle
+	loop	1
+	delay	5
+	offset	110 165
+	bbox	60 65 75 91 50
+	frame	data/chars/3johnny/xtram01.gif
+	@cmd	anichange "ANI_FOLLOW1"
+	frame	data/chars/3johnny/xtram01.gif
+		
+anim	pain
+	loop	0
+	delay	3
+	offset	110 165
+	bbox	0 0 0 0
+	frame	data/chars/3johnny/xtram01.gif
+	delay	10
+	bbox	65 65 75 91 50
+	frame	data/chars/3johnny/xtram02.gif
+	frame	data/chars/3johnny/xtram02.gif
+	frame	data/chars/3johnny/xtram02.gif
+	@cmd	beidle
+	frame	data/chars/3johnny/xtram02.gif
+		
+anim	spawn
+@script
+	void self = getlocalvar("self");
+	if(frame==10){
+	changelevelproperty("scrollspeed", 1);
+	}
+	@end_script	
+	loop	0
+	delay	10
+	offset	110 165
+	bbox	0 0 0 0
+	frame	data/chars/3johnny/xtram01.gif
+	frame	data/chars/3johnny/xtram01.gif
+	frame	data/chars/3johnny/xtram01.gif
+	frame	data/chars/3johnny/xtram01.gif
+	frame	data/chars/3johnny/xtram01.gif
+	frame	data/chars/3johnny/xtram01.gif
+	@cmd	spawn04 "jbyo3" 0 40 40 "ANI_FOLLOW2"
+	frame	data/chars/3johnny/xtram01.gif
+	frame	data/chars/3johnny/xtram01.gif
+	frame	data/chars/3johnny/xtram01.gif
+	frame	data/chars/3johnny/xtram01.gif
+	frame	data/chars/3johnny/xtram01.gif
+	frame	data/chars/3johnny/xtram01.gif
+	frame	data/chars/3johnny/xtram01.gif
+	@cmd	beidle
+	frame	data/chars/3johnny/xtram01.gif
+		
+anim	special2
+	loop	0
+	delay	9
+	offset	110 165
+	bbox	0 0 0 0
+	frame	data/chars/3johnny/xtram01.gif
+	@cmd	clearL
+	frame	data/chars/3johnny/xtram03.gif
+	frame	data/chars/3johnny/xtram04.gif
+	attack	-5 60 120 65 40 1 1 0 30 70
+	dropv	2 4
+	frame	data/chars/3johnny/xtram05.gif
+	frame	data/chars/3johnny/xtram05.gif
+	attack	0 0 0 0
+	delay	12
+	frame	data/chars/3johnny/xtram03.gif
+	frame	data/chars/3johnny/xtram01.gif
+	@cmd	anichange "ANI_FOLLOW1"
+	frame	data/chars/3johnny/xtram01.gif
+		
+#|edited by openBor Stats v 0.53
 		

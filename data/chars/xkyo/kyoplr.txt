@@ -1,14 +1,14 @@
 name		kyoplr
 type		player
-health		200
+health		150
 mp		100
 mprate          1
-chargerate      6
+chargerate      2
 speed		11
-running		26 3.1 3 1 0
+running		26 3.1 3 1 1
 jumpheight	4
 nodieblink	2
-secret		1 1
+secret		0 1
 weaploss	3
 modelflag	1
 noquake         0
@@ -17,12 +17,11 @@ riseinv		1
 gfxshadow	1
 fmap		1
 holdblock 	1
-blockpain	1
 falldie		2
 dust            dust
 candamage	enemy obstacle
 projectilehit 	player npc enemy
-weapons		pltank daimonplr syuribike2 yurifall syurwtr syurivent mapcurs mrzero Beniplr
+weapons		Robcar kyoplr Robcar2 robfall Robwtr Robvent mapcurs mrzero ryoturt
 atchain         1 1 2 3 4 0 5 6 7 0 8 1
 combostyle      1
 icon		data/chars/xkyo/iconpl.png
@@ -38,6 +37,7 @@ script			data/scripts/player_script.c
 
 palette		data/chars/xkyo/idle01.png
 alternatepal	data/chars/xkyo/map1.png
+alternatepal	data/chars/xkyo/map1.png
 alternatepal	data/chars/xkyo/map2.png
 alternatepal	data/chars/xkyo/map3.png
 alternatepal	data/chars/xkyo/map4.png
@@ -47,852 +47,26 @@ alternatepal	data/chars/xkyo/map5.png
 load	xkyopw
 
 
-com	f d f a	  freespecial9
-com	d f s 	  freespecial5
-com	f d s 	  freespecial6
-com	d f j 	  freespecial7
+com	d f a	  freespecial9
+com	d f s 	  freespecial7
+com	f d s 	  freespecial5
+com	d f j 	  freespecial6
 com	a2	  freespecial15
-com     d f d f a freespecial26
-com	d f d f s freespecial27
+com     f d f a freespecial26
+com	f d f s freespecial27
 com	a3	  freespecial29
 
-com	d u d u s freespecial30
-com	u d u d s freespecial31
 
 
 
-anim	freespecial30
-	energycost 55
-	mponly	1
-	weaponframe 18 2
-	loop	0
-	delay	8
-	offset	91 138
-	bbox	0 0 0 0
-	frame	data/chars/xkyo/spp01.png
-	delay	6
-	sound	data/sounds/xkyotlk.wav
-	frame	data/chars/xkyo/spp02.png
-	frame	data/chars/xkyo/spp03.png
-	frame	data/chars/xkyo/spp04.png #3
-	frame	data/chars/xkyo/spp05.png
-	frame	data/chars/xkyo/spp06.png
-	@cmd	looper 3 1
-	frame	data/chars/xkyo/spp07.png
-	offset	88 121
-	frame	data/chars/xkyo/spp10.png
-	frame	data/chars/xkyo/spp11.png
-	delay	10
-	frame	data/chars/xkyo/spp11.png
-	delay	5
-	frame	data/chars/3pipas/empty.gif
-	frame	data/chars/xkyo/spp11.png
-	frame	data/chars/3pipas/empty.gif
-	frame	data/chars/xkyo/spp11.png
-	frame	data/chars/3pipas/empty.gif
-	frame	data/chars/xkyo/spp11.png
-	frame	data/chars/3pipas/empty.gif
-	frame	data/chars/xkyo/spp11.png
-	frame	data/chars/3pipas/empty.gif #18
-	frame	data/chars/xkyo/spp11.png
-	frame	data/chars/3pipas/empty.gif
-	frame	data/chars/xkyo/spp11.png
 
 
 
-anim	freespecial31
-	energycost 55
-	mponly	1
-	weaponframe 18 9
-	loop	0
-	delay	8
-	offset	91 138
-	bbox	0 0 0 0
-	frame	data/chars/xkyo/spp01.png
-	delay	6
-	sound	data/sounds/xkyotlk.wav
-	frame	data/chars/xkyo/spp02.png
-	frame	data/chars/xkyo/spp03.png
-	frame	data/chars/xkyo/spp04.png #3
-	frame	data/chars/xkyo/spp05.png
-	frame	data/chars/xkyo/spp06.png
-	@cmd	looper 3 1
-	frame	data/chars/xkyo/spp07.png
-	offset	88 121
-	frame	data/chars/xkyo/spp10.png
-	frame	data/chars/xkyo/spp11.png
-	delay	10
-	frame	data/chars/xkyo/spp11.png
-	delay	5
-	frame	data/chars/3pipas/empty.gif
-	frame	data/chars/xkyo/spp11.png
-	frame	data/chars/3pipas/empty.gif
-	frame	data/chars/xkyo/spp11.png
-	frame	data/chars/3pipas/empty.gif
-	frame	data/chars/xkyo/spp11.png
-	frame	data/chars/3pipas/empty.gif
-	frame	data/chars/xkyo/spp11.png
-	frame	data/chars/3pipas/empty.gif #18
-	frame	data/chars/xkyo/spp11.png
-	frame	data/chars/3pipas/empty.gif
-	frame	data/chars/xkyo/spp11.png
 
 
 
 
 
-
-
-
-
-
-
-
-anim	freespecial27
-	energycost	75
-	mponly	1
-	loop	0
-	delay	8
-	offset	57 109
-	bbox	0 0 0 0
-	followanim	4
-	followcond	1
-	fastattack	1
-	forcedirection	-1
-	seal	7 4
-	hitfx	data/sounds/beat5.wav
-	frame	data/chars/xkyo/blk01.png
-	@cmd	clearL
-	frame	data/chars/xkyo/blk03.png
-	offset	91 120
-	frame	data/chars/xkyo/spp11.png
-	sound	data/sounds/super1.wav
-	frame	data/chars/xkyo/spp10.png
-	@cmd	spawn04 "allsp" 1 1 1 4
-	delay	45
-	frame	data/chars/xkyo/spp10.png #4
-	delay	6
-	@cmd    spawn01 "dust" 10 1 1
-	offset	60 120
-	frame	data/chars/xkyo/sup01.png
-	delay	2
-	move	5
-	frame	data/chars/xkyo/sup02.png
-	frame	data/chars/xkyo/sup02.png
-	frame	data/chars/xkyo/sup02.png
-	attack2	60 45 53 60 0 0 1 0 15 15
-	frame	data/chars/xkyo/sup03.png #9
-	@cmd	keymove 1.2
-	frame	data/chars/xkyo/sup03.png
-	@cmd	looper 9 15
-	attack2	0 0 0 0
-	frame	data/chars/xkyo/sup03.png
-	move	0
-	@cmd	stop
-	delay	9
-	frame	data/chars/xkyo/sup04.png
-	delay	15
-	frame	data/chars/xkyo/sup05.png
-	delay	12
-	offset	46 134
-	frame	data/chars/xkyo/sup10.png
-	offset	73 118
-	frame	data/chars/xkyo/pik05.png
-	offset	57 109
-	frame	data/chars/xkyo/blk01.png
-
-
-anim	follow4
-	followanim	5
-	followcond	1
-	fastattack	1
-	loop	0
-	delay	9
-	move	0
-	@cmd	stop
-	offset	60 120
-	bbox	0 0 0 0
-	hitfx	data/sounds/grab.wav
-	frame	data/chars/xkyo/sup03.png
-	@cmd	clearL
-	attack2	0 0 0 0
-	frame	data/chars/xkyo/sup04.png
-	frame	data/chars/xkyo/sup05.png
-	offset	46 134
-	frame	data/chars/xkyo/sup10.png
-	frame	data/chars/xkyo/sup11.png
-	delay	20
-	attack	45 45 69 75 0 0 1 1 5 20
-	frame	data/chars/xkyo/sup12.png
-	attack	0 0 0
-	delay	12
-	frame	data/chars/xkyo/sup11.png
-	frame	data/chars/xkyo/sup10.png
-	offset	73 118
-	frame	data/chars/xkyo/pik05.png
-	offset	57 109
-	frame	data/chars/xkyo/blk01.png
-
-
-
-anim	follow5
-	loop	0
-	delay	30
-	offset	46 134
-	bbox	0 0 0 0
-	@cmd	slamstart3
-	@cmd	grabcheck2
-	@cmd	position 10 55 60 -1 -1
-	frame	data/chars/xkyo/sup12.png
-	delay	70
-	@cmd	position 11 45 100 -1 -1
-	frame	data/chars/xkyo/sup13.png
-	delay	15
-	sound	data/sounds/xkyo04.wav
-	@cmd	spawn01 "explosion1" 90 120 1
-	@cmd	position 11 45 100 -1 -1
-	attack	10 20 120 110 85 1 1 0 15 35
-	dropv	8 1
-	@cmd	spawn01 "flashscreen2" 20 30 1
-	frame	data/chars/xkyo/sup13.png
-	@cmd	spawn01 "explosion2" 0 60 5
-	@cmd	spawn01 "explosion1" 50 80 -1
-	@cmd	position 13 50 80 -1 1
-	frame	data/chars/xkyo/sup14.png
-	@cmd	spawn01 "explosion2" 70 60 5
-	@cmd	position 13 50 80 -1 1
-	frame	data/chars/xkyo/sup14.png
-	attack	0 0 0 0
-	@cmd	depost 0
-	@cmd	finish 200 1 1 8 0 1
-	delay	45
-	frame	data/chars/xkyo/sup14.png
-	delay	10
-	offset	46 134
-	frame	data/chars/xkyo/sup15.png
-	@cmd	clearL
-	frame	data/chars/xkyo/sup16.png
-	offset	72 120
-	frame	data/chars/xkyo/pik05.png
-	offset	55 109
-	frame	data/chars/xkyo/blk03.png
-
-
-
-
-anim	freespecial9
-	energycost	12
-	mponly	1
-	loop	0
-	delay	8
-	offset	77 120
-	bbox	0 0 0 0
-	jumpframe 3 4 1
-	landframe 10
-	fastattack	1
-	forcedirection	-1
-	hitfx	data/sounds/beat5.wav
-	sound	data/sounds/xkyo04.wav
-	@cmd	dasher 1.5 0 0
-	frame	data/chars/xkyo/a12.png
-	frame	data/chars/xkyo/a13.png
-	attack10 73 32 64 80 15 1 0 0 15 15
-	dropv	4 1
-	frame	data/chars/xkyo/a14.png
-	attack10 0 0 0 0
-	offset	95 123
-	frame	data/chars/xkyo/sp05.png
-	@cmd	spawnbind2 "xkyopw" 70 45 1 "ANI_FOLLOW2"
-	attack10 55 10 100 110 6 1 0 0 35 20
-	dropv	2 1
-	frame	data/chars/xkyo/sp06.png
-	attack10 0 0 0 0
-	frame	data/chars/xkyo/sp07.png
-	hitflash	flashscreen1
-	hitfx	data/sounds/burn.wav
-	burn	55 10 100 110 20 1 0 0 3 20
-	dropv	4 1
-	frame	data/chars/xkyo/sp08.png
-	@cmd	spawnbind2 "xkyopw" -40 80 1 "ANI_FOLLOW3"
-	frame	data/chars/xkyo/sp09.png
-	frame	data/chars/xkyo/sp10.png
-	burn	0 0 0 0
-	delay	15
-	#frame	data/chars/xkyo/sp05.png
-	delay	500
-	frame	data/chars/xkyo/sp11.png
-	offset	73 120
-	delay	12
-	frame	data/chars/xkyo/pik05.png #11
-
-
-anim	freespecial5
-	energycost	20
-	mponly	1
-	loop	0
-	delay	15
-	offset	95 123
-	bbox	50 25 50 91
-	sound	data/sounds/xkyo02.wav
-	frame	data/chars/xkyo/pw05.png
-	frame	data/chars/xkyo/pw06.png
-	delay	7
-	frame	data/chars/xkyo/pw07.png
-	sound	data/sounds/super2.wav
-	frame	data/chars/xkyo/pw08.png
-	@cmd	projectile 1 "xkyopw" 1 1 0
-	frame	data/chars/xkyo/pw09.png
-	delay	20
-	frame	data/chars/xkyo/pw10.png
-	delay	12
-	frame	data/chars/xkyo/pw11.png
-
-
-
-anim	freespecial6
-	loop	0
-	delay	8
-	jumpframe 2 3.1 2.5
-	landframe 11
-	offset	61 137
-	bbox	5 18 50 91
-	hitflash	flashscreen1
-	forcedirection	-1
-	hitfx	data/sounds/beat5.wav
-	sound	data/sounds/xkyo04.wav
-	frame	data/chars/xkyo/pw_0010.png
-	delay	6
-	frame	data/chars/xkyo/pw_0009.png
-	bbox	45 30 35 35
-	frame	data/chars/xkyo/pw_0008.png
-	frame	data/chars/xkyo/pw_0007.png
-	frame	data/chars/xkyo/pw_0006.png
-	frame	data/chars/xkyo/pw_0005.png
-	frame	data/chars/xkyo/pw_0004.png
-	staydown	500 500
-	attack	60 28 85 80 25 1 1 0 45 0
-	dropv	1 2
-	frame	data/chars/xkyo/pw_0003.png
-	delay	8
-	frame	data/chars/xkyo/pw_0002.png
-	frame	data/chars/xkyo/pw_0001.png
-	delay	500
-	frame	data/chars/xkyo/pw_0000.png
-	delay	5
-	offset	73 120
-	bbox	0 0 0 0
-	attack	0 0 0 0
-	frame	data/chars/xkyo/pik05.png
-	frame	data/chars/xkyo/pik05.png
-
-
-anim	freespecial7
-cancel	10 21 0 J freespecial8
-	loop	0
-	delay	7
-	offset	67 123
-	bbox	50 40 35 70
-	forcedirection	-1
-	fastattack	1
-	hitfx	data/sounds/beat5.wav
-	frame	data/chars/xkyo/pwy01.png
-	frame	data/chars/xkyo/pwy02.png
-	sound	data/sounds/xkyo01.wav
-	frame	data/chars/xkyo/pwy03.png
-	delay	4
-	@cmd	spawn01 "dust" 1 1 1
-	@cmd	dasher 3 0 0
-	frame	data/chars/xkyo/pwy04.png
-	@cmd	spawnbind2 "xkyopw" 60 40 1 "ANI_FOLLOW2"
-	frame	data/chars/xkyo/pwy05.png
-	frame	data/chars/xkyo/pwy06.png
-	frame	data/chars/xkyo/pwy07.png
-	@cmd	dasher 2 0 0
-	attack10 60 40 85 50 15 1 0 0 25 15
-	dropv	3 1.2
-	frame	data/chars/xkyo/pwy09.png
-	frame	data/chars/xkyo/pwy10.png
-	delay	5
-	frame	data/chars/xkyo/pwy11.png
-	@cmd	dasher 1 0 0
-	frame	data/chars/xkyo/pwy12.png #10
-	frame	data/chars/xkyo/pwy13.png
-	attack10 0 0 0 0
-	delay	2
-	frame	data/chars/xkyo/pwy14.png
-	frame	data/chars/xkyo/pwy14.png
-	@cmd	stop
-	frame	data/chars/xkyo/pwy15.png
-	frame	data/chars/xkyo/pwy15.png
-	frame	data/chars/xkyo/pwy16.png
-	frame	data/chars/xkyo/pwy16.png
-	frame	data/chars/xkyo/pwy16.png
-	frame	data/chars/xkyo/pwy17.png
-	frame	data/chars/xkyo/pwy17.png
-	frame	data/chars/xkyo/pwy17.png
-
-
-anim	freespecial8
-cancel	11 19 0 J freespecial3
-	loop	0
-	delay	4
-	offset	67 123
-	bbox	50 40 35 70
-	forcedirection	-1
-	fastattack	1
-	hitfx	data/sounds/beat5.wav
-	attack8	0 0 0 0
-	frame	data/chars/xkyo/pwx3.png
-	sound	data/sounds/xkyo02.wav
-	frame	data/chars/xkyo/pwx4.png
-	frame	data/chars/xkyo/pwx5.png
-	frame	data/chars/xkyo/pwx6.png
-	@cmd	spawn01 "dust" 1 1 1
-	@cmd	dasher 2 0 0
-	delay	4
-	sound	data/sounds/punch2.wav
-	frame	data/chars/xkyo/pwx7.png
-	frame	data/chars/xkyo/pwx8.png
-	@cmd	spawnbind2 "xkyopw" 70 75 -1 "ANI_FOLLOW3"
-	frame	data/chars/xkyo/pwx9.png
-	frame	data/chars/xkyo/pwx10.png
-	attack10 65 40 80 40 20 1 0 0 25 15
-	dropv	3 1.5
-	frame	data/chars/xkyo/pwx11.png
-	delay	5
-	@cmd	dasher 1 0 0
-	frame	data/chars/xkyo/pwx12.png
-	frame	data/chars/xkyo/pwx13.png
-	@cmd	stop
-	frame	data/chars/xkyo/pwx14.png #11
-	attack10 0 0 0 0
-	delay	2
-	frame	data/chars/xkyo/pwx15.png
-	frame	data/chars/xkyo/pwx15.png
-	frame	data/chars/xkyo/pwx16.png
-	frame	data/chars/xkyo/pwx16.png
-	frame	data/chars/xkyo/pwx16.png
-	frame	data/chars/xkyo/pwx17.png
-	frame	data/chars/xkyo/pwx17.png
-	frame	data/chars/xkyo/pwx17.png
-
-
-anim	freespecial3
-	loop	0
-	delay	5
-	jumpframe 5 3.5 1.5
-	landframe 10
-	offset	61 137
-	bbox	0 0 0 0
-	forcedirection	-1
-	hitflash	flashscreen1
-	hitfx	data/sounds/beat5.wav
-	@cmd	dasher 1 0 0
-	frame	data/chars/xkyo/spw_0007.png
-	frame	data/chars/xkyo/spw_0006.png
-	sound	data/sounds/xkyo03.wav
-	frame	data/chars/xkyo/spw_0005.png
-	@cmd	spawnbind2 "xkyopw" 70 70 1 "ANI_FOLLOW2"
-	burn	65 30 70 80 30 1 0 0 25 15
-	dropv	4 1.5
-	frame	data/chars/xkyo/spw_0004.png
-	frame	data/chars/xkyo/spw_0003.png
-	delay	35
-	frame	data/chars/xkyo/spw_0002.png #5
-	delay	8
-	frame	data/chars/xkyo/spw_0001.png
-	burn	0 0 0 0
-	frame	data/chars/xkyo/spw_0000.png
-	offset	75 145
-	frame	data/chars/xkyo/jump02.png
-	delay	500
-	frame	data/chars/xkyo/jump01.png
-	delay	9
-	offset	73 120
-	frame	data/chars/xkyo/pik05.png
-
-
-
-anim	freespecial26
-	energycost	35
-	loop	0
-	delay	7
-	offset	61 137
-	bbox	35 45 39 65
-	staydown	500 500
-	forcedirection	-1
-	hitfx	data/sounds/beat4.wav
-	hitflash	flashscreen2
-	sound	data/sounds/xkyochrg.wav
-	frame	data/chars/xkyo/pwb_0025.png
-	frame	data/chars/xkyo/pwb_0024.png
-	frame	data/chars/xkyo/pwb_0023.png
-	frame	data/chars/xkyo/pwb_0022.png
-	sound	data/sounds/super1.wav
-	@cmd	spawnAni2 "allsp" 1 1 1 4 "ANI_FOLLOW1"
-	frame	data/chars/xkyo/pwb_0021.png
-	frame	data/chars/xkyo/pwb_0020.png
-	frame	data/chars/xkyo/pwb_0019.png
-	frame	data/chars/xkyo/pwb_0018.png
-	frame	data/chars/xkyo/pwb_0017.png
-	frame	data/chars/xkyo/pwb_0016.png
-	frame	data/chars/xkyo/pwb_0015.png
-	frame	data/chars/xkyo/pwb_0018.png
-	frame	data/chars/xkyo/pwb_0017.png
-	frame	data/chars/xkyo/pwb_0016.png
-	frame	data/chars/xkyo/pwb_0015.png
-	frame	data/chars/xkyo/pwb_0014.png
-	frame	data/chars/xkyo/pwb_0013.png
-	frame	data/chars/xkyo/pwb_0012.png
-	delay	2
-	move	7
-	bbox	0 0 0 0
-	sound	data/sounds/xkyo04.wav
-	frame	data/chars/xkyo/pwb_0011.png
-	frame	data/chars/xkyo/pwb_0011.png
-	@cmd	keymove 1.2
-	frame	data/chars/xkyo/pwb_0010.png
-	frame	data/chars/xkyo/pwb_0010.png
-	@cmd	keymove 1.2
-	frame	data/chars/xkyo/pwb_0009.png
-	frame	data/chars/xkyo/pwb_0009.png
-	@cmd	keymove 1.2
-	burn	65 50 60 55 110 1 1 0 50 20
-	dropv	3 4 0
-	frame	data/chars/xkyo/pwb_0008.png
-	frame	data/chars/xkyo/pwb_0008.png
-	@cmd	keymove 1.2
-	frame	data/chars/xkyo/pwb_0007.png
-	move	6
-	frame	data/chars/xkyo/pwb_0007.png
-	@cmd	keymove 1.2
-	burn	65 50 90 55 110 1 1 0 50 20
-	dropv	3 4 0
-	frame	data/chars/xkyo/pwb_0006.png
-	@cmd	keymove 1.2
-	frame	data/chars/xkyo/pwb_0006.png
-	@cmd	keymove 1.2
-	frame	data/chars/xkyo/pwb_0005.png
-	@cmd	keymove 1.2
-	frame	data/chars/xkyo/pwb_0005.png
-	move	5
-	frame	data/chars/xkyo/pwb_0004.png
-	@cmd	keymove 1.2
-	frame	data/chars/xkyo/pwb_0004.png
-	burn	65 50 46 55 110 1 1 0 50 20
-	dropv	3 4 0
-	delay	3
-	@cmd	keymove 1.2
-	frame	data/chars/xkyo/pwb_0003.png
-	@cmd	keymove 1.2
-	frame	data/chars/xkyo/pwb_0003.png
-	@cmd	keymove 1.2
-	frame	data/chars/xkyo/pwb_0003.png
-	@cmd	keymove 1.2
-	frame	data/chars/xkyo/pwb_0002.png
-	@cmd	keymove 1.2
-	frame	data/chars/xkyo/pwb_0002.png
-	@cmd	keymove 1.2
-	frame	data/chars/xkyo/pwb_0002.png
-	@cmd	keymove 1.2
-	frame	data/chars/xkyo/pwb_0001.png
-	@cmd	keymove 1.2
-	frame	data/chars/xkyo/pwb_0001.png
-	@cmd	keymove 1.2
-	frame	data/chars/xkyo/pwb_0001.png
-	@cmd	keymove 1.2
-	frame	data/chars/xkyo/pwb_0001.png
-	@cmd	keymove 1.2
-	frame	data/chars/xkyo/pwb_0001.png
-	move	4
-	frame	data/chars/xkyo/pwb_0001.png
-	@cmd	keymove 1.2
-	frame	data/chars/xkyo/pwb_0001.png
-	@cmd	keymove 1.2
-	frame	data/chars/xkyo/pwb_0001.png
-	@cmd	keymove 1.2
-	frame	data/chars/xkyo/pwb_0001.png
-	@cmd	stop
-	move	0
-	delay	12
-	frame	data/chars/xkyo/pwb_0001.png
-	burn	0 0 0 0
-	delay	9
-	frame	data/chars/xkyo/pwb_0001.png
-	frame	data/chars/xkyo/pwb_0000.png
-	offset	55 120
-	frame	data/chars/xkyo/pik05.png
-	offset	50 109
-	frame	data/chars/xkyo/blk01.png
-
-
-
-
-
-
-
-
-anim	freespecial15
-	loop	0
-	delay	11
-	offset	38 115
-	bbox	0 0 0 0
-	frame	data/chars/xkyo/taunt01.png
-	frame	data/chars/xkyo/taunt02.png
-	frame	data/chars/xkyo/taunt03.png
-	frame	data/chars/xkyo/taunt04.png
-	@cmd	spawnAni3 "toturi3" 1 1 1 "ANI_FOLLOW9"
-	frame	data/chars/xkyo/taunt01.png
-	frame	data/chars/xkyo/taunt02.png
-	frame	data/chars/xkyo/taunt03.png
-	frame	data/chars/xkyo/taunt04.png
-
-
-
-anim	idle
-	loop	1
-	delay	8
-	offset	33 110
-	bbox	5 18 50 91
-	frame	data/chars/xkyo/idle01.png
-	@cmd	clearL
-	frame	data/chars/xkyo/idle02.png
-	frame	data/chars/xkyo/idle03.png
-	frame	data/chars/xkyo/idle04.png
-	frame	data/chars/xkyo/idle05.png
-	frame	data/chars/xkyo/idle06.png
-	frame	data/chars/xkyo/idle07.png
-	frame	data/chars/xkyo/idle08.png
-	frame	data/chars/xkyo/idle09.png
-	frame	data/chars/xkyo/idle10.png
-
-
-anim	walk
-	loop	1
-	delay	10
-	offset	42 120
-	bbox	5 18 50 91
-	frame	data/chars/xkyo/walk01.png
-	frame	data/chars/xkyo/walk02.png
-	frame	data/chars/xkyo/walk03.png
-	frame	data/chars/xkyo/walk04.png
-	frame	data/chars/xkyo/walk05.png
-
-
-anim	run
-	loop	1
-	delay	7
-	offset	67 120
-	bbox	45 18 50 91
-	frame	data/chars/xkyo/run01.png
-	sound	data/sounds/run.wav
-	delay	8
-	frame	data/chars/xkyo/run02.png
-	delay	7
-	frame	data/chars/xkyo/run03.png
-	frame	data/chars/xkyo/run04.png
-	delay	8
-	sound	data/sounds/run.wav
-	frame	data/chars/xkyo/run05.png
-	delay	7
-	frame	data/chars/xkyo/run06.png
-
-
-anim	block
-	loop	0
-	delay	7
-	offset	55 110
-	bbox	30 18 50 91
-	frame	data/chars/xkyo/blk01.png
-	frame	data/chars/xkyo/blk03.png
-	frame	data/chars/xkyo/blk04.png
-
-
-#---------//----//-jump-//----------
-
-anim	walkoff
-	loop	0
-	delay	12
-	offset	90 144
-	bbox	65 55 45 85
-	frame	data/chars/xkyo/jump02.png
-
-
-anim	jumpland
-	loop	0
-	delay	7
-	offset	90 144
-	bbox	65 55 45 85
-	frame	data/chars/xkyo/jump00.png
-
-anim	jumpdelay
-	loop	0
-	delay	7
-	offset	90 144
-	bbox	65 55 45 85
-	frame	data/chars/xkyo/jump00.png
-
-anim	jump
-	cancel	0 7 0 D F S freespecial6
-	cancel	0 7 0 D F A freespecial6
-	cancel	0 7 0 D F J freespecial6
-	loop	0
-	delay	7
-	offset	90 144
-	bbox	75 37 45 51
-	frame	data/chars/xkyo/jump01.png
-	frame	data/chars/xkyo/jump02.png
-	frame	data/chars/xkyo/jump03.png
-	delay	25
-	frame	data/chars/xkyo/jump04.png
-	delay	7
-	frame	data/chars/xkyo/jump03.png
-	frame	data/chars/xkyo/jump02.png
-	frame	data/chars/xkyo/jump01.png
-
-anim	forwardjump
-	cancel	0 7 0 D F S freespecial6
-	cancel	0 7 0 D F A freespecial6
-	cancel	0 7 0 D F J freespecial6
-	loop	0
-	delay	12
-	offset	90 144
-	bbox	75 37 45 51
-	frame	data/chars/xkyo/jump04a.png
-	delay	8
-	frame	data/chars/xkyo/jump05.png
-	frame	data/chars/xkyo/jump06.png
-	frame	data/chars/xkyo/jump07.png
-	frame	data/chars/xkyo/jump08.png
-	frame	data/chars/xkyo/jump09.png
-	frame	data/chars/xkyo/jump10.png
-
-
-anim	runjump
-	cancel	0 7 0 D F S freespecial6
-	cancel	0 7 0 D F A freespecial6
-	cancel	0 7 0 D F J freespecial6
-	loop	0
-	delay	6
-	offset	90 144
-	bbox	75 37 45 51
-	frame	data/chars/xkyo/jump01.png
-	frame	data/chars/xkyo/jump02.png
-	frame	data/chars/xkyo/jump03.png
-	delay	120
-	frame	data/chars/xkyo/jump04.png
-	delay	8
-	frame	data/chars/xkyo/jump03.png
-	frame	data/chars/xkyo/jump02.png
-	frame	data/chars/xkyo/jump01.png
-
-
-
-#--------------------//-grab-escape-beds-//-----------------------
-
-
-anim	follow17
-@script
-	void self = getlocalvar("self");
-	int eTime = openborvariant("elapsed_time");
-	if (frame == 7)
-	{
-	changeentityproperty(self, "invincible", 1);
-	changeentityproperty(self, "invinctime", eTime + 1000);
-	changeentityproperty(self, "blink", 1);
-	}
-@end_script
-	loop	0
-	delay	800
-	offset	38 115
-	bbox	0 0 0 0
-	frame	data/chars/3pipas/empty.gif
-	delay	6
-	frame	data/chars/xkyo/taunt01.png
-	frame	data/chars/xkyo/taunt02.png
-	frame	data/chars/xkyo/taunt03.png
-	frame	data/chars/xkyo/taunt04.png
-	frame	data/chars/xkyo/taunt03.png
-	frame	data/chars/xkyo/taunt02.png
-	frame	data/chars/xkyo/taunt01.png
-	frame	data/chars/xkyo/taunt02.png
-	frame	data/chars/xkyo/taunt03.png
-	frame	data/chars/xkyo/taunt04.png
-
-
-anim	follow15
-@script
-	void self = getlocalvar("self");
-   	void opp = getentityproperty(self, "opponent");
-	int enedir = getentityproperty(opp,"direction");
-	if (frame == 0 && enedir == 0)
-	{
-	changeentityproperty(self, "direction", 1);
-	}
-	else if (frame == 0 && enedir == 1)
-	{
-	changeentityproperty(self, "direction", 0);
-	}
-@end_script
-	loop	0
-	delay	7
-	offset	90 144
-	bbox	0 0 0 0
-	jumpframe 0 3 -1
-	landframe 7
-	frame	data/chars/xkyo/jump10.png
-	frame	data/chars/xkyo/jump09.png
-	frame	data/chars/xkyo/jump08.png
-	frame	data/chars/xkyo/jump07.png
-	frame	data/chars/xkyo/jump06.png
-	frame	data/chars/xkyo/jump05.png
-	delay	500
-	frame	data/chars/xkyo/jump04a.png
-	delay	9
-	frame	data/chars/xkyo/jump00.png
-
-
-
-
-
-
-anim	follow16
-@script
-	void self = getlocalvar("self");
-   	void opp = getentityproperty(self, "opponent");
-	int enedir = getentityproperty(opp,"direction");
-	if (frame == 0 && enedir == 0)
-	{
-	changeentityproperty(self, "direction", 1);
-	}
-	else if (frame == 0 && enedir == 1)
-	{
-	changeentityproperty(self, "direction", 0);
-	}
-@end_script
-	loop	0
-	delay	8
-	offset	73 120
-	bbox	0 0 0 0
-	frame	data/chars/xkyo/pik05.png
-	@cmd	dasher -3 0 0
-	frame	data/chars/xkyo/dgd10.png
-	@cmd	spawn01 "dust" 1 1 1
-	frame	data/chars/xkyo/dgd09.png
-	frame	data/chars/xkyo/dgd08.png
-	frame	data/chars/xkyo/dgd07.png
-	frame	data/chars/xkyo/dgd06.png
-	frame	data/chars/xkyo/dgd05.png
-	@cmd	stop
-	frame	data/chars/xkyo/pik05.png
-
-
-
-
-#--------------------------------//-----------------------
-
-
-      
 
 anim	attack1
 	range	0 135
@@ -900,7 +74,7 @@ anim	attack1
 	loop	0
 	delay	3
 	offset	73 120
-	bbox	50 25 50 91
+	bbox	50 25 40 91
 	fastattack	1
 	hitfx	data/sounds/beat2.wav
 	@cmd	attackgrd -60 60 0 1 10 "ANI_FOLLOW10"
@@ -912,15 +86,14 @@ anim	attack1
 	delay	3
 	attack	0 0 0 0
 	frame	data/chars/xkyo/a08.png
-
-
+		
 anim	attack2
 	range	0 65
 	rangez	-15 15
 	loop	0
 	delay	3
 	offset	73 120
-	bbox	50 25 50 91
+	bbox	50 25 40 91
 	fastattack	1
 	hitfx	data/sounds/beat3.wav
 	frame	data/chars/xkyo/a12.png
@@ -931,14 +104,14 @@ anim	attack2
 	frame	data/chars/xkyo/a15.png
 	attack2	0 0 0 0
 	frame	data/chars/xkyo/a12.png
-
+		
 anim	attack3
 	range	0 65
 	rangez	-15 15
 	loop	0
 	delay	3
 	offset	73 120
-	bbox	50 25 50 91
+	bbox	50 25 40 91
 	fastattack	1
 	hitfx	data/sounds/beat2.wav
 	sound	data/sounds/xkyo01.wav
@@ -947,17 +120,16 @@ anim	attack3
 	attack	75 30 60 20 30 0 0 0 7 0
 	frame	data/chars/xkyo/a10.png
 	frame	data/chars/xkyo/a11.png
-	attack	0 0 0 0	
+	attack	0 0 0 0
 	frame	data/chars/xkyo/a09.png
-
-
+		
 anim	attack4
 	range	0 65
 	rangez	-15 15
 	loop	0
 	delay	3
 	offset	73 120
-	bbox	50 25 50 91
+	bbox	50 25 40 91
 	fastattack	1
 	hitfx	data/sounds/beat5.wav
 	sound	data/sounds/xkyo01.wav
@@ -966,27 +138,26 @@ anim	attack4
 	frame	data/chars/xkyo/a18.png
 	offset	73 135
 	bbox	50 40 50 91
-	attack10 75 20 60 60 40 1 1 0 40 15
+	attack10	75 20 60 60 40 1 1 0 40 15
 	dropv	4.5 1.2 0
 	frame	data/chars/xkyo/a19.png
 	frame	data/chars/xkyo/a20.png
 	delay	6
 	frame	data/chars/xkyo/a21.png
-	attack10 0 0 0 0
+	attack10	0 0 0 0
 	frame	data/chars/xkyo/a22.png
 	offset	73 120
-	bbox	50 25 50 91
+	bbox	50 25 40 91
 	frame	data/chars/xkyo/a23.png
 	frame	data/chars/xkyo/a24.png
-
-
+		
 anim	attack5
 	range	65 85
 	rangez	-15 15
 	loop	0
 	delay	3
 	offset	73 120
-	bbox	50 25 50 91
+	bbox	50 25 40 91
 	fastattack	1
 	hitfx	data/sounds/beat3.wav
 	frame	data/chars/xkyo/b20.png
@@ -998,14 +169,14 @@ anim	attack5
 	delay	5
 	frame	data/chars/xkyo/b21.png
 	frame	data/chars/xkyo/b23.png
-
+		
 anim	attack6
 	range	65 85
 	rangez	-15 15
 	loop	0
 	delay	3
 	offset	73 120
-	bbox	50 25 50 91
+	bbox	50 25 40 91
 	fastattack	1
 	hitfx	data/sounds/beat3.wav
 	sound	data/sounds/xkyo02.wav
@@ -1018,15 +189,14 @@ anim	attack6
 	delay	5
 	frame	data/chars/xkyo/b42.png
 	frame	data/chars/xkyo/b39.png
-
-
+		
 anim	attack7
 	range	65 85
 	rangez	-15 15
 	loop	0
 	delay	5
 	offset	73 123
-	bbox	50 25 50 91
+	bbox	50 25 40 91
 	fastattack	1
 	hitfx	data/sounds/beat5.wav
 	sound	data/sounds/xkyo02.wav
@@ -1046,14 +216,14 @@ anim	attack7
 	offset	55 110
 	bbox	30 18 50 91
 	frame	data/chars/xkyo/blk01.png
-
+		
 anim	attack8
 	range	85 135
 	rangez	-15 15
 	loop	0
 	delay	5
 	offset	73 123
-	bbox	50 25 50 91
+	bbox	50 25 40 91
 	fastattack	1
 	hitfx	data/sounds/beat5.wav
 	sound	data/sounds/xkyo03.wav
@@ -1078,7 +248,7 @@ anim	attack8
 	frame	data/chars/xkyo/b12.png
 	frame	data/chars/xkyo/b13.png
 	frame	data/chars/xkyo/b14.png
-	
+		
 anim	attackdown
 	loop	0
 	delay	7
@@ -1095,7 +265,7 @@ anim	attackdown
 	frame	data/chars/xkyo/dgd10.png
 	@cmd	stop
 	frame	data/chars/xkyo/pik05.png
-
+		
 anim	attackup
 	loop	0
 	delay	7
@@ -1112,731 +282,22 @@ anim	attackup
 	frame	data/chars/xkyo/dgd10.png
 	@cmd	stop
 	frame	data/chars/xkyo/pik05.png
-
-
-anim	follow10
-	loop	0
-	delay	20
-	offset	73 120
-	bbox	0 0 0 0
-	forcedirection	-1
-	attackone	1
-	otg		2
-	hitfx	data/sounds/beat4.wav
-	hitflash	flashscreen1
-	sound	data/sounds/xkyo01.wav
-	frame	data/chars/xkyo/gdatk05.png
-	delay	8
-	frame	data/chars/xkyo/gdatk06.png
-	frame	data/chars/xkyo/gdatk07.png
-	delay	12
-	attack11 60 95 65 25 50 1 0 0 50 10
-	dropv	2 3
-	frame	data/chars/xkyo/gdatk08.png
-	frame	data/chars/xkyo/gdatk09.png
-	attack11 0 0 0 0
-	frame	data/chars/xkyo/gdatk10.png
-	frame	data/chars/xkyo/gdatk11.png
-	frame	data/chars/xkyo/gdatk12.png
-	frame	data/chars/xkyo/pik05.png
-
-
-anim	jumpforward
-	loop	0
-	delay	6
-	offset	90 144
-	bbox	70 40 38 42
-	forcedirection	-1
-	sound	data/sounds/punch1.wav
-	hitfx	data/sounds/beat3.wav
-	frame	data/chars/xkyo/jpatk01.png
-	frame	data/chars/xkyo/jpatk02.png
-	frame	data/chars/xkyo/jpatk03.png
-	delay	12
-	staydown 500 500
-	attack	90 50 82 47 25 1 0 0 35 0
-	frame	data/chars/xkyo/jpatk04a.png
-	delay	20
-	frame	data/chars/xkyo/jpatk04.png
-	delay	5
-	attack	0 0 0 0
-	frame	data/chars/xkyo/jpatk05.png
-
-
-anim	jumpattack
+		
+anim	block
 	loop	0
 	delay	7
-	offset	90 160
-	bbox	70 40 38 42
-	forcedirection	-1
-	hitfx	data/sounds/beat3.wav
-	sound	data/sounds/punch2.wav
-	frame	data/chars/xkyo/jpatk20.png
-	frame	data/chars/xkyo/jpatk21.png
-	frame	data/chars/xkyo/jpatk22.png
-	staydown 500 500
-	attack	80 60 82 50 25 1 0 0 35 0
-	frame	data/chars/xkyo/jpatk23.png
-
-anim	jumpattack2
-	loop	0
-	delay	7
-	offset	90 144
-	bbox	70 40 38 42
-	frame	data/chars/xkyo/jpatk10.png
-	attack2	90 60 47 55 12 0 0 0 35 0
-	frame	data/chars/xkyo/jpatk11.png
-
-
-anim	jumpattack3
-	followanim	6
-	followcond	1
-	fastattack	1
-	loop	0
-	delay	12
-	offset	90 144
-	bbox	70 40 38 42
-	jumpframe 1 -1 3.5
-	landframe 4 dust
-	attack 0 0 0 0
-	@cmd	leaper -1 3
-	hitfx	data/sounds/beat3.wav
-	sound	data/sounds/xkyo02.wav
-	frame	data/chars/xkyo/jpbtk02a.png
-	frame	data/chars/xkyo/jpbtk03.png
-	attack	84 45 75 70 20 1 0 0 35 0
-	dropv	2 4
-	frame	data/chars/xkyo/jpbtk04.png
-	delay	500
-	frame	data/chars/xkyo/jpbtk04.png
-	delay	9
-	offset	73 120
-	frame	data/chars/xkyo/pik06.png
-	frame	data/chars/xkyo/pik05.png
-
-
-
-anim	follow6
-	cancel	1 6 0 J freespecial12
-	cancel	1 6 0 A freespecial12
-	cancel	1 6 0 S freespecial12
-	fastattack	1
-	loop	1 2 6
-	delay	20
-	offset	90 144
-	bbox	0 0 0 0
-	jumpframe 0 3 -1
-	landframe 7 dust
-	attack 0 0 0 0
-	frame	data/chars/xkyo/jpbtk04.png
-	delay	6
-	frame	data/chars/xkyo/jump09.png
-	frame	data/chars/xkyo/jump08.png #2
-	frame	data/chars/xkyo/jump07.png
-	frame	data/chars/xkyo/jump06.png
-	frame	data/chars/xkyo/jump07a.png
-	#@cmd	looper 2 230
-	frame	data/chars/xkyo/jump08.png
-	delay	9
-	offset	73 120
-	frame	data/chars/xkyo/pik06.png
-	frame	data/chars/xkyo/pik05.png
-
-
-anim	freespecial12
-	fastattack	1
-	loop	0
-	delay	5
-	offset	90 144
-	bbox	0 0 0 0
-	jumpframe 0 0 4
-	landframe 5 dust
-	staydown	200 200
-	hitfx	data/sounds/beat3.wav
-	attack 0 0 0 0
-	@cmd	flip
-	frame	data/chars/xkyo/jx05.png
-	sound	data/sounds/punch3.wav
-	frame	data/chars/xkyo/jx06.png
-	@cmd	leaper 2.9 0.2 0
-	frame	data/chars/xkyo/jx07.png
-	frame	data/chars/xkyo/jx08.png
-	delay	500
-	attack	75 45 55 70 40 1 0 0 35 30
-	dropv	2 4
-	frame	data/chars/xkyo/jx09.png
-	attack	0 0 0 0
-	delay	9
-	offset	73 120
-	frame	data/chars/xkyo/pik06.png
-	frame	data/chars/xkyo/pik05.png
-
-
-
-
-
-
-
-
-anim	runjumpattack
-	loop	0
-	delay	5
-	offset	90 135
-	bbox	70 40 38 42
-	hitfx	data/sounds/beat5.wav
-	sound	data/sounds/punch.wav
-	forcedirection	-1
-	staydown	200 200
-	frame	data/chars/xkyo/jpatk30.png
-	frame	data/chars/xkyo/jpatk31.png
-	delay	8
-	attack10 90 15 60 115 9 1 1 0 20 0
-	dropv	2.6 3 0
-	frame	data/chars/xkyo/jpatk32.png
-	frame	data/chars/xkyo/jpatk33.png
-	attack10 0 0 0 0
-	delay	5
-	frame	data/chars/xkyo/jpatk34.png
-	@cmd	leaper 2.9 0.2 0
-	sound	data/sounds/punch.wav
-	frame	data/chars/xkyo/jpatk35.png
-	delay	8
-	attack 90 15 60 115 9 1 1 0 30 0
-	dropv	2.6 4 0
-	frame	data/chars/xkyo/jpatk36.png
-	delay	12
-	frame	data/chars/xkyo/jpatk37.png
-	attack 0 0 0 0
-	delay	8
-	frame	data/chars/xkyo/jpatk35.png
-	frame	data/chars/xkyo/jpatk38.png
-
-
-
-anim	grab
-	loop	0
-	delay	12
-	offset	73 120
-	bbox	50 25 50 91
-	frame	data/chars/xkyo/grab01.png
-
-
-anim	grabattack
-	loop	0
-	delay	5
-	offset	73 120
-	bbox	50 25 50 91
-	attack	0 0 0 0
-	frame	data/chars/xkyo/grab01.png
-	delay	23
-	attack6	75 50 40 44 15 0 1 0 16 0
-	frame	data/chars/xkyo/grab02.png
-
-anim	grabattack2
-	loop	0
-	delay	7
-	offset	73 120
-	bbox	50 25 50 91
-	hitfx	data/sounds/beat5.wav
-	fastattack	1
-	attack	0 0 0 0
-	sound	data/sounds/xkyo03.wav
-	frame	data/chars/xkyo/grab01.png
-	offset	73 134
-	frame	data/chars/xkyo/grab10.png
-	frame	data/chars/xkyo/grab11.png
-	delay	10
-	attack	70 2 60 80 12 0 0 0 12 0
-	frame	data/chars/xkyo/grab12.png
-	attack	0 0 0 0
-	frame	data/chars/xkyo/grab13.png
-	attack8	70 20 70 60 12 0 0 0 20 0
-	frame	data/chars/xkyo/grab14.png
-	attack8	0 0 0 0
-	frame	data/chars/xkyo/grab15.png
-	attack8	75 50 73 40 12 0 0 0 30 0
-	frame	data/chars/xkyo/grab16.png
-	attack8	0 0 0 0
-	frame	data/chars/xkyo/grab17.png
-	frame	data/chars/xkyo/grab18.png
 	offset	55 110
-	bbox	30 18 50 91
-	frame	data/chars/xkyo/blk01.png
-
-
-anim	grabforward
-	loop	0
-	delay	5
-	offset	73 120
-	bbox	50 25 50 91
-	attack	0 0 0 0
-	frame	data/chars/xkyo/grab01.png
-	delay	23
-	attack6	75 50 40 44 15 0 1 0 16 0
-	frame	data/chars/xkyo/grab03.png
-
-
-anim	grabforward2
-	loop	0
-	delay	9
-	offset	73 120
-	bbox	50 25 50 91
-	hitfx	data/sounds/beat5.wav
-	sound	data/sounds/xkyo01.wav
-	fastattack	1
-	staydown	400 400
-	attack	0 0 0 0
-	frame	data/chars/xkyo/pik05.png
-	frame	data/chars/xkyo/pik06.png
-	frame	data/chars/xkyo/grab20.png
-	@cmd	dasher 2 0 0
-	attack9	75 40 40 50 25 1 0 0 30 0
-	dropv	1 3
-	frame	data/chars/xkyo/grab21.png
-	frame	data/chars/xkyo/grab22.png
-	attack9	0 0 0 0
-	@cmd	stop
-	delay	25
-	frame	data/chars/xkyo/grab22.png
-	delay	10
-	frame	data/chars/xkyo/grab23.png
-	offset	42 119
-	bbox	5 18 50 91
-	frame	data/chars/xkyo/walk04.png
-
-
-anim	grabbackward
-	otg	2
-	loop	0
-	delay	12
-	offset	73 120
-	bbox	0 0 0 0
-	forcedirection	-1
-	@cmd	slamstart
-	sound	data/sounds/grab.wav
-	@cmd	position 10 35 48 -1 -1
-	frame	data/chars/xkyo/grab01.png
-	offset	135 120
-	@cmd	antiwall -40 10 0
-	@cmd	position 11 30 48 -1 -1
-	frame	data/chars/xkyo/thr01.png
-	@cmd	antiwall -40 10 0
-	@cmd	position 0 10 75 -1 1
-	frame	data/chars/xkyo/thr02.png
-	@cmd	antiwall -40 10 0
-	@cmd	position 6 -20 80 -1 1
-	frame	data/chars/xkyo/thr03.png
-	delay	3
-	@cmd	antiwall -40 12 0
-	@cmd	position 1 -40 15 1 1
-	frame	data/chars/xkyo/thr03a.png
-	delay	8
-	@cmd	depost 0
-	@cmd	finish 60 1 -2 -4 0 1
-	frame	data/chars/xkyo/thr03a.png
-	delay	20
-	frame	data/chars/xkyo/thr04.png
-	delay	9
-	frame	data/chars/xkyo/thr05.png
-	hitfx	data/sounds/beat5.wav
-	frame	data/chars/xkyo/thr06.png
-	hitflash	flashscreen1
-	attack11 30 95 85 35 50 1 0 0 50 10
-	dropv	2 -2
-	frame	data/chars/xkyo/thr07.png
-	delay	25
-	frame	data/chars/xkyo/thr07.png
-	delay	9
-	frame	data/chars/xkyo/thr08.png
-	offset	66 120
-	@cmd	flip
-	frame	data/chars/xkyo/pik06.png
-	offset	73 120
-	frame	data/chars/xkyo/pik05.png
-
-
-		
-anim	grabbed
-	loop	0
-	delay	10
-	offset	73 120
-	bbox	50 25 50 91
-	frame	data/chars/xkyo/pain0.png
-		
-		
-		
-anim	rise
-	loop	0
-	delay	25
-	offset	73 120
-	bbox	0 0 0 0
-	frame	data/chars/xkyo/fall4.png
-	delay	9
-	frame	data/chars/xkyo/rise1.png
-	frame	data/chars/xkyo/rise2.png
-	offset	73 135
-	frame	data/chars/xkyo/rise3.png
-	offset	73 120
-	frame	data/chars/xkyo/rise4.png
-	frame	data/chars/xkyo/pik05.png
-
-
-
-anim	respawn
-	loop	0
-	delay	12
-	offset	91 138
-	bbox	0 0 0 0
-	frame	data/chars/xkyo/spp01.png
-	delay	6
-	sound	data/sounds/xkyotlk.wav
-	frame	data/chars/xkyo/spp02.png
-	frame	data/chars/xkyo/spp03.png
-	frame	data/chars/xkyo/spp04.png #3
-	frame	data/chars/xkyo/spp05.png
-	frame	data/chars/xkyo/spp06.png
-	@cmd	looper 3 1
-	frame	data/chars/xkyo/spp07.png
-	offset	88 121
-	frame	data/chars/xkyo/spp10.png
-	frame	data/chars/xkyo/spp11.png
-	delay	20
-	frame	data/chars/xkyo/spp11.png
-
-
-		
-anim	spawn
-	loop	0
-	delay	12
-	offset	91 138
-	bbox	0 0 0 0
-	frame	data/chars/xkyo/spp01.png
-	delay	6
-	sound	data/sounds/xkyotlk.wav
-	frame	data/chars/xkyo/spp02.png
-	frame	data/chars/xkyo/spp03.png
-	frame	data/chars/xkyo/spp04.png #3
-	frame	data/chars/xkyo/spp05.png
-	frame	data/chars/xkyo/spp06.png
-	@cmd	looper 3 1
-	frame	data/chars/xkyo/spp07.png
-	offset	88 121
-	frame	data/chars/xkyo/spp10.png
-	frame	data/chars/xkyo/spp11.png
-	delay	20
-	frame	data/chars/xkyo/spp11.png
-
-anim	charge
-	loop	0
-	delay	11
-	offset	55 109
-	bbox	40 15 35 80
-	sound	data/sounds/xkyochrg2.wav
+	bbox	30 20 40 85
 	frame	data/chars/xkyo/blk01.png
 	frame	data/chars/xkyo/blk03.png
-	delay	3
-	offset	88 121
-	bbox	65 45 40 71
-	frame	data/chars/xkyo/spp08.png #2
-	frame	data/chars/xkyo/spp10.png
-	frame	data/chars/xkyo/spp09.png
-	frame	data/chars/xkyo/spp11.png
-	frame	data/chars/xkyo/spp08.png
-	frame	data/chars/xkyo/spp10.png
-	frame	data/chars/xkyo/spp09.png
-	frame	data/chars/xkyo/spp11.png
-	@cmd	updateframe getlocalvar("self") 2
-	delay	11
-	offset	55 109
-	bbox	40 15 35 80
-	frame	data/chars/xkyo/blk03.png
-	frame	data/chars/xkyo/blk01.png
-
-
-anim	freespecial29
-@script
-	void self = getlocalvar("self");
-	int mp1 = getentityproperty(self,"mp");
-	void plyr = getentityproperty(self, "playerindex");
-
-	if(frame > 9 && playerkeys(plyr, 0, "attack3"))
-	{
-	  updateframe(self, 2);
-	}
-@end_script
-	loop	0
-	loop	0
-	delay	11
-	offset	55 109
-	bbox	40 15 35 80
-	sound	data/sounds/xkyochrg2.wav
-	frame	data/chars/xkyo/blk01.png
-	frame	data/chars/xkyo/blk03.png
-	delay	3
-	offset	88 121
-	bbox	65 45 40 71
-	frame	data/chars/xkyo/spp08.png #2
-	frame	data/chars/xkyo/spp10.png
-	@cmd	mpgain 2
-	frame	data/chars/xkyo/spp09.png
-	frame	data/chars/xkyo/spp11.png
-	@cmd	mpgain 3
-	frame	data/chars/xkyo/spp08.png
-	frame	data/chars/xkyo/spp10.png
-	@cmd	mpgain 2
-	frame	data/chars/xkyo/spp09.png
-	frame	data/chars/xkyo/spp11.png #9
-	delay	11
-	offset	55 109
-	bbox	40 15 35 80
-	frame	data/chars/xkyo/blk03.png
-	frame	data/chars/xkyo/blk01.png
-
-
-anim	special
-	energycost	30
-	mponly	1
-	loop	0
-	delay	9
-	offset	92 161
-	bbox	0 0 0 0
-	staydown	500 500
-	hitfx	data/sounds/burn.wav
-	sound	data/sounds/xkyochrg.wav
-	frame	data/chars/xkyo/pwxx01.png
-	frame	data/chars/xkyo/pwxx02.png
-	frame	data/chars/xkyo/pwxx03.png
-	delay	15
-	frame	data/chars/xkyo/pwxx04.png
-	sound	data/sounds/super2.wav
-	delay	6
-	@cmd	spawnAni "xkyopw" 0 1 -5 "ANI_FOLLOW1"
-	@cmd	spawnAni "xkyopw" -40 1 -5 "ANI_FOLLOW1"
-	@cmd	spawnAni "xkyopw" 40 1 -5 "ANI_FOLLOW1"
-	frame	data/chars/xkyo/pwxx05.png #4
-	burn	20 40 150 100 35 1 0 0 4 0
-	dropv	5 1
-	frame	data/chars/xkyo/pwxx06.png
-	frame	data/chars/xkyo/pwxx07.png
-	frame	data/chars/xkyo/pwxx08.png
-	burn	0 0 0 0
-	frame	data/chars/xkyo/pwxx09.png
-	@cmd	looper 4 4
-	delay	25
-	frame	data/chars/xkyo/pwxx04.png
-	delay	9
-	frame	data/chars/xkyo/pwxx03.png
-	frame	data/chars/xkyo/pwxx02.png
-	frame	data/chars/xkyo/pwxx01.png
-
-
-anim	runattack
-	loop	0
-	delay	8
-	offset	73 120
-	bbox	50 25 50 91
-	forcedirection	-1
-	hitfx	data/sounds/beat5.wav
-	sound	data/sounds/xkyo02.wav
-	@cmd	dasher 2.5 0 0
-	frame	data/chars/xkyo/a12.png
-	sound	data/sounds/punch3.wav
-	attack8	75 25 60 45 15 0 0 0 5 0
-	frame	data/chars/xkyo/a30.png
-	attack8	0 0 0 0
-	delay	5
-	frame	data/chars/xkyo/a31.png
-	frame	data/chars/xkyo/a31a.png
-	delay	9
-	@cmd	dasher 2 0 0
-	attack	75 25 75 45 30 1 1 0 30 0
-	dropv	2 4 0
-	frame	data/chars/xkyo/a32.png
-	delay	9
-	attack	75 25 60 45 60 1 1 0 30 0
-	dropv	2 4 0
-	delay	7
-	frame	data/chars/xkyo/a33.png
-	@cmd	dasher 1 0 0
-	frame	data/chars/xkyo/a33.png
-	delay	14
-	@cmd	stop
-	frame	data/chars/xkyo/a34.png
-	attack	0 0 0
-	delay	8
-	frame	data/chars/xkyo/a05.png
-	frame	data/chars/xkyo/a04.png
-
-
-
-anim	runslide
-	loop	0
-	delay	6
-	offset	73 123
-	bbox	50 80 50 40
-	hitfx	data/sounds/beat5.wav
-	@cmd	dasher 3 0 0
-	frame	data/chars/xkyo/pik05.png
-	frame	data/chars/xkyo/pik06.png
-	@cmd	spawn01 "dust" 1 1 1
-	offset	90 123
-	bbox	65 80 50 40
-	frame	data/chars/xkyo/b50.png
-	attack10 85 80 80 40 12 1 0 0 20 0
-	dropv	2 2.5
-	sound	data/sounds/punch3.wav
-	frame	data/chars/xkyo/b51.png
-	delay	11
-	frame	data/chars/xkyo/b52.png
-	attack10 0 0 0 0
-	delay	6
-	@cmd	dasher 2 0 0
-	frame	data/chars/xkyo/b53.png
-	frame	data/chars/xkyo/b54.png
-	attack9	85 80 100 40 20 1 0 0 20 0
-	dropv	0.3 4
-	delay	8
-	frame	data/chars/xkyo/b55.png
-	frame	data/chars/xkyo/b56.png
-	@cmd	dasher 1 0 0
-	frame	data/chars/xkyo/b55.png
-	attack9	0 0 0
-	frame	data/chars/xkyo/b54.png
-	frame	data/chars/xkyo/b53.png
-	@cmd	stop
-	frame	data/chars/xkyo/b50.png
-	offset	73 123
-	frame	data/chars/xkyo/pik06.png
-	frame	data/chars/xkyo/pik05.png
-
-
-
-#--------------------------//-----------------------
-
-anim	waiting
-	loop	1
-	delay	12
-	offset	0 0
-	frame	data/chars/xkyo/xwait1.png
-	frame	data/chars/xkyo/xwait1.png
-
-
-anim	select
-	loop	0
-	delay	5
-	offset	0 0
-	sound	data/sounds/blink.wav
-	frame	data/chars/xkyo/xwait2.png
-	sound	data/sounds/xkyotlk.wav
-	frame	data/chars/xkyo/xwait3.png
-	frame	data/chars/xkyo/xwait2.png #2
-	frame	data/chars/xkyo/xwait3.png
-	@cmd	looper 2 10
-	delay	100
-	frame	data/chars/xkyo/xwait2.png
-
-
-
-
-anim	pain
-	loop	0
-	delay	3
-	offset	73 120
-	bbox	50 25 50 91
-	frame	data/chars/xkyo/pain0.png
-	offset	70 120
-	frame	data/chars/xkyo/pain1.png
-	offset	76 120
-	frame	data/chars/xkyo/pain1.png
-	delay	15
-	offset	73 120
-	frame	data/chars/xkyo/pain1.png
-
-		
-anim	pain2
-	loop	0
-	delay	3
-	offset	73 120
-	bbox	50 25 50 91
-	frame	data/chars/xkyo/pain0.png
-	offset	70 120
-	frame	data/chars/xkyo/pain2.png
-	offset	76 120
-	frame	data/chars/xkyo/pain2.png
-	delay	15
-	offset	73 120
-	frame	data/chars/xkyo/pain2.png
-		
-anim	pain3
-	loop	0
-	delay	2
-	offset	73 120
-	bbox	50 25 50 91
-	move	-6
-	frame	data/chars/xkyo/pain0.png
-	frame	data/chars/xkyo/pain0.png
-	frame	data/chars/xkyo/pain0.png
-	frame	data/chars/xkyo/pain1.png
-	frame	data/chars/xkyo/pain1.png
-	frame	data/chars/xkyo/pain1.png
-	move	-4
-	frame	data/chars/xkyo/pain1.png
-	frame	data/chars/xkyo/pain0.png
-	frame	data/chars/xkyo/pain0.png
-	frame	data/chars/xkyo/pain0.png
-	frame	data/chars/xkyo/pain2.png
-	move	-2
-	frame	data/chars/xkyo/pain2.png
-	frame	data/chars/xkyo/pain2.png
-	frame	data/chars/xkyo/pain2.png
-	delay	50
-	frame	data/chars/xkyo/pain2.png
-
-
-anim	pain5
-	loop	0
-	delay	12
-	offset	73 120
-	bbox	50 25 50 91
-	frame	data/chars/xkyo/pain0.png
-	frame	data/chars/xkyo/pain1.png
-	frame	data/chars/xkyo/pain0.png
-	frame	data/chars/xkyo/pain2.png
-	frame	data/chars/xkyo/pik05.png
-	delay	30
-	frame	data/chars/xkyo/pik06.png
-	delay	12
-	frame	data/chars/xkyo/pik05.png
-		
-		
-anim	pain6
-	loop	0
-	delay	12
-	offset	73 120
-	bbox	0 0 0 0
-	frame	data/chars/xkyo/fall1.png
-	frame	data/chars/xkyo/fall2.png
-	frame	data/chars/xkyo/fall3.png
-	frame	data/chars/xkyo/fall5.png
-	frame	data/chars/xkyo/fall4.png
-	delay	900
-	frame	data/chars/xkyo/fall4.png
-	delay	9
-	frame	data/chars/xkyo/rise1.png
-	frame	data/chars/xkyo/rise2.png
-	offset	73 135
-	frame	data/chars/xkyo/rise3.png
-	offset	73 120
-	frame	data/chars/xkyo/rise4.png
-	frame	data/chars/xkyo/pik05.png
-
+	frame	data/chars/xkyo/blk04.png
 		
 anim	burn
 	loop	0
 	delay	30
 	offset	73 120
 	bbox	0 0 0 0
-	landframe 3
+	landframe	3
 	drawmethod	tintmode 4
 	drawmethod	tintcolor 200_50_0
 	@cmd	spawnbind "burn1" 1 1 1
@@ -1852,14 +313,67 @@ anim	burn
 	frame	data/chars/xkyo/fall5.png
 	delay	50
 	frame	data/chars/xkyo/fall4.png
-
-
+		
+anim	charge
+	loop	0
+	delay	11
+	offset	55 109
+	bbox	40 15 35 80
+	sound	data/sounds/xkyochrg2.wav
+	frame	data/chars/xkyo/blk01.png
+	frame	data/chars/xkyo/blk03.png
+	delay	3
+	offset	88 121
+	bbox	70 45 40 71
+	frame	data/chars/xkyo/spp08.png
+	frame	data/chars/xkyo/spp10.png
+	frame	data/chars/xkyo/spp09.png
+	frame	data/chars/xkyo/spp11.png
+	frame	data/chars/xkyo/spp08.png
+	frame	data/chars/xkyo/spp10.png
+	frame	data/chars/xkyo/spp09.png
+	frame	data/chars/xkyo/spp11.png
+	@cmd	updateframe getlocalvar("self") 2
+	delay	11
+	offset	55 109
+	bbox	40 15 35 80
+	frame	data/chars/xkyo/blk03.png
+	frame	data/chars/xkyo/blk01.png
+		
+anim	death
+	loop	0
+	delay	14
+	offset	73 120
+	bbox	0 0 0 0
+	sound	data/sounds/xkyodeth.wav
+	frame	data/chars/xkyo/fall4.png
+	frame	data/chars/xkyo/fall6.png
+	offset	73 120
+	frame	data/chars/xkyo/pik06.png
+	offset	98 120
+	@cmd	flip
+	delay	35
+	frame	data/chars/xkyo/thr08.png
+	delay	14
+	@cmd	flip
+	offset	79 66
+	frame	data/chars/xkyo/slam5.gif
+	offset	73 120
+	delay	9
+	frame	data/chars/xkyo/deth01.png
+	frame	data/chars/xkyo/deth02.png
+	frame	data/chars/xkyo/deth01.png
+	delay	20
+	frame	data/chars/xkyo/deth02.png
+	delay	100
+	frame	data/chars/xkyo/deth02.png
+		
 anim	fall
 	loop	0
 	delay	30
 	offset	73 120
 	bbox	0 0 0 0
-	landframe 3
+	landframe	3
 	sound	data/sounds/xkyopain.wav
 	attack	60 40 29 43 5 1 0 0 13 0
 	frame	data/chars/xkyo/fall1.png
@@ -1872,14 +386,13 @@ anim	fall
 	delay	50
 	frame	data/chars/xkyo/fall4.png
 		
-		
 anim	fall2
 	loop	0
 	delay	30
 	offset	73 120
 	bbox	0 0 0 0
 	sound	data/sounds/xkyopain.wav
-	landframe 3 dust
+	landframe	3 dust
 	attack	60 40 29 43 5 1 0 0 13 0
 	frame	data/chars/xkyo/pain2.png
 	frame	data/chars/xkyo/fall2.png
@@ -1948,9 +461,7 @@ anim	fall7
 	bbox	25 10 60 80
 	frame	data/chars/xkyo/slambbox1.gif
 	bbox	0 0 0 0
-
-
-
+		
 anim	fall9
 	loop	0
 	delay	9
@@ -1977,39 +488,788 @@ anim	fall9
 	frame	data/chars/xkyo/fall4.png
 	frame	data/chars/xkyo/fall4.png
 	frame	data/chars/xkyo/fall4.png
-
-
-anim	death
+		
+anim	follow10
 	loop	0
-	delay	14
+	delay	20
 	offset	73 120
 	bbox	0 0 0 0
-	sound	data/sounds/xkyodeth.wav
-	frame	data/chars/xkyo/fall4.png
-	frame	data/chars/xkyo/fall6.png
+	forcedirection	-1
+	attackone	1
+	otg	2
+	hitfx	data/sounds/beat4.wav
+	hitflash	flashscreen1
+	sound	data/sounds/xkyo01.wav
+	frame	data/chars/xkyo/gdatk05.png
+	delay	8
+	frame	data/chars/xkyo/gdatk06.png
+	frame	data/chars/xkyo/gdatk07.png
+	delay	12
+	attack11	60 95 65 25 50 1 0 0 50 10
+	dropv	2 3
+	frame	data/chars/xkyo/gdatk08.png
+	frame	data/chars/xkyo/gdatk09.png
+	attack11	0 0 0 0
+	frame	data/chars/xkyo/gdatk10.png
+	frame	data/chars/xkyo/gdatk11.png
+	frame	data/chars/xkyo/gdatk12.png
+	frame	data/chars/xkyo/pik05.png
+		
+anim	follow15
+@script
+	void self = getlocalvar("self");
+   	void opp = getentityproperty(self, "opponent");
+	int enedir = getentityproperty(opp,"direction");
+	if (frame == 0 && enedir == 0)
+	{
+	changeentityproperty(self, "direction", 1);
+	}
+	else if (frame == 0 && enedir == 1)
+	{
+	changeentityproperty(self, "direction", 0);
+	}
+	@end_script	
+	loop	0
+	delay	7
+	offset	90 144
+	bbox	0 0 0 0
+	jumpframe	0 3 -1
+	landframe	7
+	frame	data/chars/xkyo/jump10.png
+	frame	data/chars/xkyo/jump09.png
+	frame	data/chars/xkyo/jump08.png
+	frame	data/chars/xkyo/jump07.png
+	frame	data/chars/xkyo/jump06.png
+	frame	data/chars/xkyo/jump05.png
+	delay	500
+	frame	data/chars/xkyo/jump04a.png
+	delay	9
+	frame	data/chars/xkyo/jump00.png
+		
+anim	follow16
+@script
+	void self = getlocalvar("self");
+   	void opp = getentityproperty(self, "opponent");
+	int enedir = getentityproperty(opp,"direction");
+	if (frame == 0 && enedir == 0)
+	{
+	changeentityproperty(self, "direction", 1);
+	}
+	else if (frame == 0 && enedir == 1)
+	{
+	changeentityproperty(self, "direction", 0);
+	}
+	@end_script	
+	loop	0
+	delay	8
+	offset	73 120
+	bbox	0 0 0 0
+	frame	data/chars/xkyo/pik05.png
+	@cmd	dasher -3 0 0
+	frame	data/chars/xkyo/dgd10.png
+	@cmd	spawn01 "dust" 1 1 1
+	frame	data/chars/xkyo/dgd09.png
+	frame	data/chars/xkyo/dgd08.png
+	frame	data/chars/xkyo/dgd07.png
+	frame	data/chars/xkyo/dgd06.png
+	frame	data/chars/xkyo/dgd05.png
+	@cmd	stop
+	frame	data/chars/xkyo/pik05.png
+		
+anim	follow17
+@script
+	void self = getlocalvar("self");
+	int eTime = openborvariant("elapsed_time");
+	if (frame == 7)
+	{
+	changeentityproperty(self, "invincible", 1);
+	changeentityproperty(self, "invinctime", eTime + 1000);
+	changeentityproperty(self, "blink", 1);
+	}
+	@end_script	
+	loop	0
+	delay	800
+	offset	38 115
+	bbox	0 0 0 0
+	frame	data/chars/3pipas/empty.gif
+	delay	6
+	frame	data/chars/xkyo/taunt01.png
+	frame	data/chars/xkyo/taunt02.png
+	frame	data/chars/xkyo/taunt03.png
+	frame	data/chars/xkyo/taunt04.png
+	frame	data/chars/xkyo/taunt03.png
+	frame	data/chars/xkyo/taunt02.png
+	frame	data/chars/xkyo/taunt01.png
+	frame	data/chars/xkyo/taunt02.png
+	frame	data/chars/xkyo/taunt03.png
+	frame	data/chars/xkyo/taunt04.png
+		
+anim	follow4
+	followanim	5
+	followcond	2
+	fastattack	1
+	loop	0
+	delay	9
+	move	0
+	@cmd	stop
+	offset	60 120
+	bbox	0 0 0 0
+	hitfx	data/sounds/grab.wav
+	frame	data/chars/xkyo/sup03.png
+	@cmd	clearL
+	attack2	0 0 0 0
+	frame	data/chars/xkyo/sup04.png
+	frame	data/chars/xkyo/sup05.png
+	offset	46 134
+	frame	data/chars/xkyo/sup10.png
+	frame	data/chars/xkyo/sup11.png
+	delay	20
+	attack	45 45 69 75 0 0 1 1 5 20
+	frame	data/chars/xkyo/sup12.png
+	attack	0 0 0
+	delay	12
+	frame	data/chars/xkyo/sup11.png
+	frame	data/chars/xkyo/sup10.png
+	offset	73 118
+	frame	data/chars/xkyo/pik05.png
+	offset	57 109
+	frame	data/chars/xkyo/blk01.png
+		
+anim	follow5
+	loop	0
+	delay	30
+	offset	46 134
+	bbox	0 0 0 0
+	@cmd	slamstart3
+	@cmd	grabcheck2
+	@cmd	position 10 55 60 -1 -1
+	frame	data/chars/xkyo/sup12.png
+	delay	70
+	@cmd	position 11 45 100 -1 -1
+	frame	data/chars/xkyo/sup13.png
+	delay	15
+	sound	data/sounds/xkyo04.wav
+	@cmd	spawn01 "explosion1" 90 120 1
+	@cmd	position 11 45 100 -1 -1
+	attack	10 20 120 110 85 1 1 0 15 35
+	dropv	8 1
+	@cmd	spawn01 "flashscreen2" 20 30 1
+	frame	data/chars/xkyo/sup13.png
+	@cmd	spawn01 "explosion2" 0 60 5
+	@cmd	spawn01 "explosion1" 50 80 -1
+	@cmd	position 13 50 80 -1 1
+	frame	data/chars/xkyo/sup14.png
+	@cmd	spawn01 "explosion2" 70 60 5
+	@cmd	position 13 50 80 -1 1
+	frame	data/chars/xkyo/sup14.png
+	attack	0 0 0 0
+	@cmd	depost 0
+	@cmd	finish 200 1 1 8 0 1
+	delay	45
+	frame	data/chars/xkyo/sup14.png
+	delay	10
+	offset	46 134
+	frame	data/chars/xkyo/sup15.png
+	@cmd	clearL
+	frame	data/chars/xkyo/sup16.png
+	offset	72 120
+	frame	data/chars/xkyo/pik05.png
+	offset	55 109
+	frame	data/chars/xkyo/blk03.png
+		
+anim	follow6
+	cancel	1 6 0 J freespecial12
+	cancel	1 6 0 A freespecial12
+	cancel	1 6 0 S freespecial12
+	fastattack	1
+	loop	1 2 6
+	delay	20
+	offset	90 144
+	bbox	0 0 0 0
+	jumpframe	0 3 -1
+	landframe	7 dust
+	attack	0 0 0 0
+	frame	data/chars/xkyo/jpbtk04.png
+	delay	6
+	frame	data/chars/xkyo/jump09.png
+	frame	data/chars/xkyo/jump08.png #2
+	frame	data/chars/xkyo/jump07.png
+	frame	data/chars/xkyo/jump06.png
+	frame	data/chars/xkyo/jump07a.png
+	frame	data/chars/xkyo/jump08.png
+	delay	9
 	offset	73 120
 	frame	data/chars/xkyo/pik06.png
-	offset	98 120
+	frame	data/chars/xkyo/pik05.png
+		
+anim	forwardjump
+	cancel	0 7 0 S freespecial6
+	loop	0
+	delay	12
+	offset	90 144
+	bbox	75 37 45 51
+	frame	data/chars/xkyo/jump04a.png
+	delay	8
+	frame	data/chars/xkyo/jump05.png
+	frame	data/chars/xkyo/jump06.png
+	frame	data/chars/xkyo/jump07.png
+	frame	data/chars/xkyo/jump08.png
+	frame	data/chars/xkyo/jump09.png
+	frame	data/chars/xkyo/jump10.png
+		
+anim	freespecial12
+	fastattack	1
+	loop	0
+	delay	5
+	offset	90 144
+	bbox	0 0 0 0
+	jumpframe	0 0 4
+	landframe	5 dust
+	staydown	200 200
+	hitfx	data/sounds/beat3.wav
+	attack	0 0 0 0
 	@cmd	flip
-	delay	35
-	frame	data/chars/xkyo/thr08.png
-	delay	14
-	@cmd	flip
-	offset	79 66
-	frame	data/chars/xkyo/slam5.gif
-	offset	73 120
+	frame	data/chars/xkyo/jx05.png
+	sound	data/sounds/punch3.wav
+	frame	data/chars/xkyo/jx06.png
+	@cmd	leaper 2.9 0.2 0
+	frame	data/chars/xkyo/jx07.png
+	frame	data/chars/xkyo/jx08.png
+	delay	500
+	attack	75 45 55 70 40 1 0 0 35 30
+	dropv	2 4
+	frame	data/chars/xkyo/jx09.png
+	attack	0 0 0 0 0 0 0 0 0 0
 	delay	9
-	frame	data/chars/xkyo/deth01.png
-	frame	data/chars/xkyo/deth02.png
-	frame	data/chars/xkyo/deth01.png
+	offset	73 120
+	bbox	50 60 40 50
+	frame	data/chars/xkyo/pik06.png
+	frame	data/chars/xkyo/pik05.png
+		
+anim	freespecial15
+	loop	0
+	delay	11
+	offset	38 115
+	bbox	0 0 0 0
+	frame	data/chars/xkyo/taunt01.png
+	frame	data/chars/xkyo/taunt02.png
+	frame	data/chars/xkyo/taunt03.png
+	frame	data/chars/xkyo/taunt04.png
+	@cmd	spawnChild2  "toturi3" 1 1 1 "ANI_FOLLOW9"
+	frame	data/chars/xkyo/taunt01.png
+	frame	data/chars/xkyo/taunt02.png
+	frame	data/chars/xkyo/taunt03.png
+	frame	data/chars/xkyo/taunt04.png
+		
+anim	freespecial26
+	energycost	35
+	loop	0
+	delay	7
+	offset	61 137
+	bbox	35 45 39 65
+	staydown	500 500
+	forcedirection	-1
+	hitfx	data/sounds/beat4.wav
+	hitflash	flashscreen2
+	sound	data/sounds/xkyochrg.wav
+	frame	data/chars/xkyo/pwb_0025.png
+	frame	data/chars/xkyo/pwb_0024.png
+	frame	data/chars/xkyo/pwb_0023.png
+	frame	data/chars/xkyo/pwb_0022.png
+	sound	data/sounds/super1.wav
+	@cmd	spawnAni2 "allsp" 1 1 1 4 "ANI_FOLLOW1"
+	frame	data/chars/xkyo/pwb_0021.png
+	frame	data/chars/xkyo/pwb_0020.png
+	frame	data/chars/xkyo/pwb_0019.png
+	frame	data/chars/xkyo/pwb_0018.png
+	frame	data/chars/xkyo/pwb_0017.png
+	frame	data/chars/xkyo/pwb_0016.png
+	frame	data/chars/xkyo/pwb_0015.png
+	frame	data/chars/xkyo/pwb_0018.png
+	frame	data/chars/xkyo/pwb_0017.png
+	frame	data/chars/xkyo/pwb_0016.png
+	frame	data/chars/xkyo/pwb_0015.png
+	frame	data/chars/xkyo/pwb_0014.png
+	frame	data/chars/xkyo/pwb_0013.png
+	frame	data/chars/xkyo/pwb_0012.png
+	delay	2
+	move	7
+	bbox	0 0 0 0
+	sound	data/sounds/xkyo04.wav
+	frame	data/chars/xkyo/pwb_0011.png
+	frame	data/chars/xkyo/pwb_0011.png
+	@cmd	keymove 1.2
+	frame	data/chars/xkyo/pwb_0010.png
+	frame	data/chars/xkyo/pwb_0010.png
+	@cmd	keymove 1.2
+	frame	data/chars/xkyo/pwb_0009.png
+	frame	data/chars/xkyo/pwb_0009.png
+	@cmd	keymove 1.2
+	burn	65 50 60 55 150 1 1 0 50 20
+	dropv	3 4 0
+	frame	data/chars/xkyo/pwb_0008.png
+	frame	data/chars/xkyo/pwb_0008.png
+	@cmd	keymove 1.2
+	frame	data/chars/xkyo/pwb_0007.png
+	move	6
+	frame	data/chars/xkyo/pwb_0007.png
+	@cmd	keymove 1.2
+	burn	65 50 90 55 150 1 1 0 50 20
+	dropv	3 4 0
+	frame	data/chars/xkyo/pwb_0006.png
+	@cmd	keymove 1.2
+	frame	data/chars/xkyo/pwb_0006.png
+	@cmd	keymove 1.2
+	frame	data/chars/xkyo/pwb_0005.png
+	@cmd	keymove 1.2
+	frame	data/chars/xkyo/pwb_0005.png
+	move	5
+	frame	data/chars/xkyo/pwb_0004.png
+	@cmd	keymove 1.2
+	frame	data/chars/xkyo/pwb_0004.png
+	burn	65 50 46 55 150 1 1 0 50 20
+	dropv	3 4 0
+	delay	3
+	@cmd	keymove 1.2
+	frame	data/chars/xkyo/pwb_0003.png
+	@cmd	keymove 1.2
+	frame	data/chars/xkyo/pwb_0003.png
+	@cmd	keymove 1.2
+	frame	data/chars/xkyo/pwb_0003.png
+	@cmd	keymove 1.2
+	frame	data/chars/xkyo/pwb_0002.png
+	@cmd	keymove 1.2
+	frame	data/chars/xkyo/pwb_0002.png
+	@cmd	keymove 1.2
+	frame	data/chars/xkyo/pwb_0002.png
+	@cmd	keymove 1.2
+	frame	data/chars/xkyo/pwb_0001.png
+	@cmd	keymove 1.2
+	frame	data/chars/xkyo/pwb_0001.png
+	@cmd	keymove 1.2
+	frame	data/chars/xkyo/pwb_0001.png
+	@cmd	keymove 1.2
+	frame	data/chars/xkyo/pwb_0001.png
+	@cmd	keymove 1.2
+	frame	data/chars/xkyo/pwb_0001.png
+	move	4
+	frame	data/chars/xkyo/pwb_0001.png
+	@cmd	keymove 1.2
+	frame	data/chars/xkyo/pwb_0001.png
+	@cmd	keymove 1.2
+	frame	data/chars/xkyo/pwb_0001.png
+	@cmd	keymove 1.2
+	frame	data/chars/xkyo/pwb_0001.png
+	@cmd	stop
+	move	0
+	delay	12
+	frame	data/chars/xkyo/pwb_0001.png
+	burn	0 0 0 0
+	delay	9
+	frame	data/chars/xkyo/pwb_0001.png
+	frame	data/chars/xkyo/pwb_0000.png
+	offset	55 120
+	frame	data/chars/xkyo/pik05.png
+	offset	50 109
+	frame	data/chars/xkyo/blk01.png
+		
+anim	freespecial27
+	energycost	75
+	mponly	1
+	loop	0
+	delay	8
+	offset	57 109
+	bbox	0 0 0 0
+	followanim	4
+	followcond	2
+	fastattack	1
+	forcedirection	-1
+	seal	7 4
+	hitfx	data/sounds/beat5.wav
+	frame	data/chars/xkyo/blk01.png
+	@cmd	clearL
+	frame	data/chars/xkyo/blk03.png
+	offset	91 120
+	frame	data/chars/xkyo/spp11.png
+	sound	data/sounds/super1.wav
+	frame	data/chars/xkyo/spp10.png
+	@cmd	spawn04 "allsp" 1 1 1 4
+	delay	45
+	frame	data/chars/xkyo/spp10.png #4
+	delay	6
+	@cmd	spawn01 "dust" 10 1 1
+	offset	60 120
+	frame	data/chars/xkyo/sup01.png
+	delay	2
+	move	5
+	frame	data/chars/xkyo/sup02.png
+	frame	data/chars/xkyo/sup02.png
+	frame	data/chars/xkyo/sup02.png
+	attack2	60 45 53 60 0 0 1 0 15 15
+	frame	data/chars/xkyo/sup03.png #9
+	@cmd	keymove 1.2
+	frame	data/chars/xkyo/sup03.png
+	@cmd	looper 9 15
+	attack2	0 0 0 0
+	frame	data/chars/xkyo/sup03.png
+	move	0
+	@cmd	stop
+	delay	9
+	frame	data/chars/xkyo/sup04.png
+	delay	15
+	frame	data/chars/xkyo/sup05.png
+	delay	12
+	offset	46 134
+	frame	data/chars/xkyo/sup10.png
+	offset	73 118
+	frame	data/chars/xkyo/pik05.png
+	offset	57 109
+	frame	data/chars/xkyo/blk01.png
+		
+anim	freespecial29
+@script
+	void self = getlocalvar("self");
+	int mp1 = getentityproperty(self,"mp");
+	void plyr = getentityproperty(self, "playerindex");
+
+	if(frame > 9 && playerkeys(plyr, 0, "attack3"))
+	{
+	  updateframe(self, 2);
+	}
+	@end_script	
+	loop	0
+	loop	0
+	delay	11
+	offset	55 109
+	bbox	40 15 35 80
+	sound	data/sounds/xkyochrg2.wav
+	frame	data/chars/xkyo/blk01.png
+	frame	data/chars/xkyo/blk03.png
+	delay	3
+	offset	88 121
+	bbox	70 45 40 71
+	frame	data/chars/xkyo/spp08.png
+	frame	data/chars/xkyo/spp10.png
+	frame	data/chars/xkyo/spp09.png
+	frame	data/chars/xkyo/spp11.png
+	frame	data/chars/xkyo/spp08.png
+	frame	data/chars/xkyo/spp10.png
+	@cmd	mpgain 1
+	frame	data/chars/xkyo/spp09.png
+	frame	data/chars/xkyo/spp11.png
+	delay	11
+	offset	55 109
+	bbox	40 15 35 80
+	frame	data/chars/xkyo/blk03.png
+	frame	data/chars/xkyo/blk01.png
+		
+anim	freespecial3
+	energycost	5
+	mponly	1
+	loop	0
+	delay	5
+	jumpframe	5 3.5 1.5
+	landframe	10
+	offset	61 137
+	bbox	0 0 0 0
+	forcedirection	-1
+	hitflash	flashscreen1
+	hitfx	data/sounds/beat5.wav
+	@cmd	dasher 1 0 0
+	frame	data/chars/xkyo/spw_0007.png
+	frame	data/chars/xkyo/spw_0006.png
+	sound	data/sounds/xkyo03.wav
+	frame	data/chars/xkyo/spw_0005.png
+	@cmd	spawnbind2 "xkyopw" 70 70 1 "ANI_FOLLOW2"
+	burn	65 30 70 80 30 1 0 0 25 15
+	dropv	4 1.5
+	frame	data/chars/xkyo/spw_0004.png
+	frame	data/chars/xkyo/spw_0003.png
+	delay	35
+	frame	data/chars/xkyo/spw_0002.png #5
+	delay	8
+	frame	data/chars/xkyo/spw_0001.png
+	burn	0 0 0 0
+	frame	data/chars/xkyo/spw_0000.png
+	offset	75 145
+	frame	data/chars/xkyo/jump02.png
+	delay	500
+	frame	data/chars/xkyo/jump01.png
+	delay	9
+	offset	73 120
+	frame	data/chars/xkyo/pik05.png
+		
+anim	freespecial30
+	energycost	55
+	mponly	1
+	weaponframe	18 2
+	loop	0
+	delay	8
+	offset	91 138
+	bbox	0 0 0 0
+	frame	data/chars/xkyo/spp01.png
+	delay	6
+	sound	data/sounds/xkyotlk.wav
+	frame	data/chars/xkyo/spp02.png
+	frame	data/chars/xkyo/spp03.png
+	frame	data/chars/xkyo/spp04.png #3
+	frame	data/chars/xkyo/spp05.png
+	frame	data/chars/xkyo/spp06.png
+	@cmd	looper 3 1
+	frame	data/chars/xkyo/spp07.png
+	offset	88 121
+	frame	data/chars/xkyo/spp10.png
+	frame	data/chars/xkyo/spp11.png
+	delay	10
+	frame	data/chars/xkyo/spp11.png
+	delay	5
+	frame	data/chars/3pipas/empty.gif
+	frame	data/chars/xkyo/spp11.png
+	frame	data/chars/3pipas/empty.gif
+	frame	data/chars/xkyo/spp11.png
+	frame	data/chars/3pipas/empty.gif
+	frame	data/chars/xkyo/spp11.png
+	frame	data/chars/3pipas/empty.gif
+	frame	data/chars/xkyo/spp11.png
+	frame	data/chars/3pipas/empty.gif #18
+	frame	data/chars/xkyo/spp11.png
+	frame	data/chars/3pipas/empty.gif
+	frame	data/chars/xkyo/spp11.png
+		
+anim	freespecial31
+	energycost	55
+	mponly	1
+	weaponframe	18 9
+	loop	0
+	delay	8
+	offset	91 138
+	bbox	0 0 0 0
+	frame	data/chars/xkyo/spp01.png
+	delay	6
+	sound	data/sounds/xkyotlk.wav
+	frame	data/chars/xkyo/spp02.png
+	frame	data/chars/xkyo/spp03.png
+	frame	data/chars/xkyo/spp04.png #3
+	frame	data/chars/xkyo/spp05.png
+	frame	data/chars/xkyo/spp06.png
+	@cmd	looper 3 1
+	frame	data/chars/xkyo/spp07.png
+	offset	88 121
+	frame	data/chars/xkyo/spp10.png
+	frame	data/chars/xkyo/spp11.png
+	delay	10
+	frame	data/chars/xkyo/spp11.png
+	delay	5
+	frame	data/chars/3pipas/empty.gif
+	frame	data/chars/xkyo/spp11.png
+	frame	data/chars/3pipas/empty.gif
+	frame	data/chars/xkyo/spp11.png
+	frame	data/chars/3pipas/empty.gif
+	frame	data/chars/xkyo/spp11.png
+	frame	data/chars/3pipas/empty.gif
+	frame	data/chars/xkyo/spp11.png
+	frame	data/chars/3pipas/empty.gif #18
+	frame	data/chars/xkyo/spp11.png
+	frame	data/chars/3pipas/empty.gif
+	frame	data/chars/xkyo/spp11.png
+		
+anim	freespecial5
+	energycost	10
+	mponly	1
+	loop	0
+	delay	15
+	offset	95 123
+	bbox	60 25 40 91
+	sound	data/sounds/xkyo02.wav
+	frame	data/chars/xkyo/pw05.png
+	frame	data/chars/xkyo/pw06.png
+	delay	7
+	frame	data/chars/xkyo/pw07.png
+	sound	data/sounds/super2.wav
+	frame	data/chars/xkyo/pw08.png
+	@cmd	projectile 1 "xkyopw" 1 1 0
+	frame	data/chars/xkyo/pw09.png
 	delay	20
-	frame	data/chars/xkyo/deth02.png
-	delay	100
-	frame	data/chars/xkyo/deth02.png
-
-
-
-
+	frame	data/chars/xkyo/pw10.png
+	delay	12
+	frame	data/chars/xkyo/pw11.png
+		
+anim	freespecial6
+	loop	0
+	delay	8
+	jumpframe	2 3.1 2.5
+	landframe	11
+	offset	61 137
+	bbox	40 55 40 80
+	hitflash	flashscreen1
+	forcedirection	-1
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/xkyo04.wav
+	frame	data/chars/xkyo/pw_0010.png
+	delay	6
+	frame	data/chars/xkyo/pw_0009.png
+	bbox	45 30 35 35
+	frame	data/chars/xkyo/pw_0008.png
+	frame	data/chars/xkyo/pw_0007.png
+	frame	data/chars/xkyo/pw_0006.png
+	frame	data/chars/xkyo/pw_0005.png
+	frame	data/chars/xkyo/pw_0004.png
+	staydown	500 500
+	attack	60 28 85 80 35 1 1 0 45 0
+	dropv	1 2
+	frame	data/chars/xkyo/pw_0003.png
+	delay	8
+	frame	data/chars/xkyo/pw_0002.png
+	frame	data/chars/xkyo/pw_0001.png
+	attack	45 30 40 110 35 1 1 0 45 0
+	dropv	1 2
+	delay	500
+	frame	data/chars/xkyo/pw_0000.png
+	delay	5
+	offset	73 120
+	bbox	50 30 40 91
+	frame	data/chars/xkyo/pik05.png
+	frame	data/chars/xkyo/pik05.png
+		
+anim	freespecial7
+	energycost	7
+	mponly	1
+	cancel	10 21 0 s freespecial8
+	cancel	10 21 0 a freespecial8
+	loop	0
+	delay	7
+	offset	67 123
+	bbox	0 0 0 0
+	forcedirection	-1
+	fastattack	1
+	hitfx	data/sounds/beat5.wav
+	frame	data/chars/xkyo/pwy01.png
+	frame	data/chars/xkyo/pwy02.png
+	sound	data/sounds/xkyo01.wav
+	frame	data/chars/xkyo/pwy03.png
+	delay	4
+	@cmd	spawn01 "dust" 1 1 1
+	@cmd	dasher 3 0 0
+	frame	data/chars/xkyo/pwy04.png
+	@cmd	spawnbind2 "xkyopw" 60 40 1 "ANI_FOLLOW2"
+	frame	data/chars/xkyo/pwy05.png
+	frame	data/chars/xkyo/pwy06.png
+	frame	data/chars/xkyo/pwy07.png
+	@cmd	dasher 2 0 0
+	attack10	60 40 85 50 20 1 0 0 25 15
+	dropv	3 1.2
+	frame	data/chars/xkyo/pwy09.png
+	frame	data/chars/xkyo/pwy10.png
+	delay	5
+	frame	data/chars/xkyo/pwy11.png
+	@cmd	dasher 1 0 0
+	frame	data/chars/xkyo/pwy12.png
+	frame	data/chars/xkyo/pwy13.png
+	attack10	0 0 0 0
+	delay	2
+	frame	data/chars/xkyo/pwy14.png
+	frame	data/chars/xkyo/pwy14.png
+	@cmd	stop
+	frame	data/chars/xkyo/pwy15.png
+	frame	data/chars/xkyo/pwy15.png
+	frame	data/chars/xkyo/pwy16.png
+	frame	data/chars/xkyo/pwy16.png
+	frame	data/chars/xkyo/pwy16.png
+	frame	data/chars/xkyo/pwy17.png
+	frame	data/chars/xkyo/pwy17.png
+	frame	data/chars/xkyo/pwy17.png
+		
+anim	freespecial8
+	energycost	5
+	mponly	1
+	cancel	11 19 0 s freespecial3
+	cancel	11 19 0 s freespecial3
+	loop	0
+	delay	4
+	offset	67 123
+	bbox	0 0 0 0
+	forcedirection	-1
+	fastattack	1
+	hitfx	data/sounds/beat5.wav
+	attack8	0 0 0 0
+	frame	data/chars/xkyo/pwx3.png
+	sound	data/sounds/xkyo02.wav
+	frame	data/chars/xkyo/pwx4.png
+	frame	data/chars/xkyo/pwx5.png
+	frame	data/chars/xkyo/pwx6.png
+	@cmd	spawn01 "dust" 1 1 1
+	@cmd	dasher 2 0 0
+	delay	4
+	sound	data/sounds/punch2.wav
+	frame	data/chars/xkyo/pwx7.png
+	frame	data/chars/xkyo/pwx8.png
+	@cmd	spawnbind2 "xkyopw" 70 75 -1 "ANI_FOLLOW3"
+	frame	data/chars/xkyo/pwx9.png
+	frame	data/chars/xkyo/pwx10.png
+	attack10	65 40 80 40 20 1 0 0 25 15
+	dropv	3 1.5
+	frame	data/chars/xkyo/pwx11.png
+	delay	5
+	@cmd	dasher 1 0 0
+	frame	data/chars/xkyo/pwx12.png
+	frame	data/chars/xkyo/pwx13.png
+	@cmd	stop
+	frame	data/chars/xkyo/pwx14.png #11
+	attack10	0 0 0 0
+	delay	2
+	frame	data/chars/xkyo/pwx15.png
+	frame	data/chars/xkyo/pwx15.png
+	frame	data/chars/xkyo/pwx16.png
+	frame	data/chars/xkyo/pwx16.png
+	frame	data/chars/xkyo/pwx16.png
+	frame	data/chars/xkyo/pwx17.png
+	frame	data/chars/xkyo/pwx17.png
+	frame	data/chars/xkyo/pwx17.png
+		
+anim	freespecial9
+	energycost	12
+	mponly	1
+	loop	0
+	delay	8
+	offset	77 120
+	bbox	0 0 0 0
+	jumpframe	3 4 1
+	landframe	10
+	fastattack	1
+	forcedirection	-1
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/xkyo04.wav
+	@cmd	dasher 1.5 0 0
+	frame	data/chars/xkyo/a12.png
+	frame	data/chars/xkyo/a13.png
+	attack10	73 32 64 80 15 1 0 0 15 15
+	dropv	4 1
+	frame	data/chars/xkyo/a14.png
+	attack10	0 0 0 0
+	offset	95 123
+	frame	data/chars/xkyo/sp05.png
+	@cmd	spawnbind2 "xkyopw" 70 45 1 "ANI_FOLLOW2"
+	attack10	55 10 100 110 6 1 0 0 35 20
+	dropv	2 1
+	frame	data/chars/xkyo/sp06.png
+	attack10	0 0 0 0
+	frame	data/chars/xkyo/sp07.png
+	hitflash	flashscreen1
+	hitfx	data/sounds/burn.wav
+	burn	55 10 100 110 20 1 0 0 3 20
+	dropv	4 1
+	frame	data/chars/xkyo/sp08.png
+	@cmd	spawnbind2 "xkyopw" -40 80 1 "ANI_FOLLOW3"
+	frame	data/chars/xkyo/sp09.png
+	frame	data/chars/xkyo/sp10.png
+	burn	0 0 0 0
+	delay	15
+	delay	500
+	frame	data/chars/xkyo/sp11.png
+	offset	73 120
+	delay	12
+	frame	data/chars/xkyo/pik05.png #11
+		
 anim	get
 	delay	9
 	offset	73 120
@@ -2020,6 +1280,635 @@ anim	get
 	delay	9
 	frame	data/chars/xkyo/pik06.png
 	frame	data/chars/xkyo/pik05.png
-
-
-
+		
+anim	grab
+	loop	0
+	delay	12
+	offset	73 120
+	bbox	50 25 40 91
+	frame	data/chars/xkyo/grab01.png
+		
+anim	grabattack
+	loop	0
+	delay	5
+	offset	73 120
+	bbox	50 25 40 91
+	attack	0 0 0 0
+	frame	data/chars/xkyo/grab01.png
+	delay	23
+	attack6	75 50 40 44 15 0 1 0 16 0
+	frame	data/chars/xkyo/grab02.png
+		
+anim	grabattack2
+	loop	0
+	delay	7
+	attackone	0
+	offset	73 120
+	bbox	0 0 0 0
+	hitfx	data/sounds/beat5.wav
+	fastattack	1
+	attack	0 0 0 0
+	sound	data/sounds/xkyo03.wav
+	frame	data/chars/xkyo/grab01.png
+	offset	73 134
+	frame	data/chars/xkyo/grab10.png
+	frame	data/chars/xkyo/grab11.png
+	delay	10
+	attack	70 2 60 80 12 0 0 0 12 0
+	frame	data/chars/xkyo/grab12.png
+	attack	0 0 0 0
+	frame	data/chars/xkyo/grab13.png
+	attack8	70 20 70 60 12 0 0 0 20 0
+	frame	data/chars/xkyo/grab14.png
+	attack8	0 0 0 0
+	frame	data/chars/xkyo/grab15.png
+	attack8	75 50 73 40 12 0 0 0 30 0
+	frame	data/chars/xkyo/grab16.png
+	attack8	0 0 0 0
+	frame	data/chars/xkyo/grab17.png
+	frame	data/chars/xkyo/grab18.png
+	offset	55 110
+	frame	data/chars/xkyo/blk01.png
+		
+anim	grabbackward
+	otg	2
+	loop	0
+	delay	12
+	attackone	0
+	offset	73 120
+	bbox	0 0 0 0
+	forcedirection	-1
+	@cmd	slamstart
+	sound	data/sounds/grab.wav
+	@cmd	position 10 35 48 -1 -1
+	frame	data/chars/xkyo/grab01.png
+	offset	135 120
+	
+	@cmd	position 11 30 48 -1 -1
+	frame	data/chars/xkyo/thr01.png
+	
+	@cmd	position 0 10 75 -1 1
+	frame	data/chars/xkyo/thr02.png
+	
+	@cmd	position 6 -20 80 -1 1
+	frame	data/chars/xkyo/thr03.png
+	delay	3
+	
+	@cmd	position 1 -40 15 1 1
+	frame	data/chars/xkyo/thr03a.png
+	delay	8
+	@cmd	depost 0
+	@cmd	finish 60 1 -2 -4 0 1
+	frame	data/chars/xkyo/thr03a.png
+	delay	20
+	frame	data/chars/xkyo/thr04.png
+	delay	9
+	frame	data/chars/xkyo/thr05.png
+	hitfx	data/sounds/beat5.wav
+	frame	data/chars/xkyo/thr06.png
+	hitflash	flashscreen1
+	attack11	30 95 85 35 50 1 0 0 50 10
+	dropv	2 -2
+	frame	data/chars/xkyo/thr07.png
+	delay	25
+	frame	data/chars/xkyo/thr07.png
+	delay	9
+	frame	data/chars/xkyo/thr08.png
+	offset	66 120
+	@cmd	flip
+	frame	data/chars/xkyo/pik06.png
+	offset	73 120
+	frame	data/chars/xkyo/pik05.png
+		
+anim	grabbed
+	loop	0
+	delay	10
+	offset	73 120
+	bbox	50 25 40 91
+	frame	data/chars/xkyo/pain0.png
+		
+anim	grabforward
+	loop	0
+	delay	5
+	offset	73 120
+	bbox	50 25 40 91
+	attack	0 0 0 0
+	frame	data/chars/xkyo/grab01.png
+	delay	23
+	attack6	75 50 40 44 15 0 1 0 16 0
+	frame	data/chars/xkyo/grab03.png
+		
+anim	grabforward2
+	loop	0
+	delay	9
+	attackone	0
+	offset	73 120
+	bbox	0 0 0 0
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/xkyo01.wav
+	fastattack	1
+	staydown	400 400
+	attack	0 0 0 0
+	frame	data/chars/xkyo/pik05.png
+	frame	data/chars/xkyo/pik06.png
+	frame	data/chars/xkyo/grab20.png
+	@cmd	dasher 2 0 0
+	attack9	75 40 40 50 25 1 0 0 30 0
+	dropv	1 3
+	frame	data/chars/xkyo/grab21.png
+	frame	data/chars/xkyo/grab22.png
+	attack9	0 0 0 0
+	@cmd	stop
+	delay	25
+	frame	data/chars/xkyo/grab22.png
+	delay	10
+	frame	data/chars/xkyo/grab23.png
+	offset	42 119
+	frame	data/chars/xkyo/walk04.png
+		
+anim	idle
+	loop	1
+	delay	8
+	offset	33 110
+	bbox	10 18 40 91
+	frame	data/chars/xkyo/idle01.png
+	@cmd	clearL
+	frame	data/chars/xkyo/idle02.png
+	frame	data/chars/xkyo/idle03.png
+	frame	data/chars/xkyo/idle04.png
+	frame	data/chars/xkyo/idle05.png
+	frame	data/chars/xkyo/idle06.png
+	frame	data/chars/xkyo/idle07.png
+	frame	data/chars/xkyo/idle08.png
+	frame	data/chars/xkyo/idle09.png
+	frame	data/chars/xkyo/idle10.png
+		
+anim	jump
+	cancel	0 7 0 S freespecial6
+	loop	0
+	delay	7
+	offset	90 144
+	bbox	75 37 45 51
+	frame	data/chars/xkyo/jump01.png
+	frame	data/chars/xkyo/jump02.png
+	frame	data/chars/xkyo/jump03.png
+	delay	25
+	frame	data/chars/xkyo/jump04.png
+	delay	7
+	frame	data/chars/xkyo/jump03.png
+	frame	data/chars/xkyo/jump02.png
+	frame	data/chars/xkyo/jump01.png
+		
+anim	jumpattack
+	loop	0
+	delay	7
+	offset	90 160
+	bbox	70 40 38 42
+	forcedirection	-1
+	hitfx	data/sounds/beat3.wav
+	sound	data/sounds/punch2.wav
+	frame	data/chars/xkyo/jpatk20.png
+	frame	data/chars/xkyo/jpatk21.png
+	frame	data/chars/xkyo/jpatk22.png
+	staydown	500 500
+	attack	80 60 82 50 25 1 0 0 35 0
+	frame	data/chars/xkyo/jpatk23.png
+		
+anim	jumpattack2
+	loop	0
+	delay	7
+	offset	90 144
+	bbox	70 40 38 42
+	frame	data/chars/xkyo/jpatk10.png
+	attack2	90 60 47 55 12 0 0 0 35 0
+	frame	data/chars/xkyo/jpatk11.png
+		
+anim	jumpattack3
+	followanim	6
+	followcond	1
+	fastattack	1
+	loop	0
+	delay	12
+	offset	90 144
+	bbox	70 40 38 42
+	jumpframe	1 -1 3.5
+	landframe	4 dust
+	attack	0 0 0 0
+	@cmd	leaper -1 3
+	hitfx	data/sounds/beat3.wav
+	sound	data/sounds/xkyo02.wav
+	frame	data/chars/xkyo/jpbtk02a.png
+	frame	data/chars/xkyo/jpbtk03.png
+	attack	84 45 75 70 20 1 0 0 35 0
+	dropv	2 4
+	frame	data/chars/xkyo/jpbtk04.png
+	delay	500
+	frame	data/chars/xkyo/jpbtk04.png
+	delay	9
+	offset	73 120
+	bbox	60 50 38 42
+	frame	data/chars/xkyo/pik06.png
+	frame	data/chars/xkyo/pik05.png
+		
+anim	jumpdelay
+	loop	0
+	delay	7
+	offset	90 144
+	bbox	70 65 40 75
+	frame	data/chars/xkyo/jump00.png
+		
+anim	jumpforward
+	loop	0
+	delay	6
+	offset	90 144
+	bbox	70 40 38 42
+	forcedirection	-1
+	sound	data/sounds/punch1.wav
+	hitfx	data/sounds/beat3.wav
+	frame	data/chars/xkyo/jpatk01.png
+	frame	data/chars/xkyo/jpatk02.png
+	frame	data/chars/xkyo/jpatk03.png
+	delay	12
+	staydown	500 500
+	attack	90 50 82 47 25 1 0 0 35 0
+	frame	data/chars/xkyo/jpatk04a.png
+	delay	20
+	frame	data/chars/xkyo/jpatk04.png
+	delay	5
+	attack	0 0 0 0
+	frame	data/chars/xkyo/jpatk05.png
+		
+anim	jumpland
+	loop	0
+	delay	7
+	offset	90 144
+	bbox	70 65 40 75
+	frame	data/chars/xkyo/jump00.png
+		
+anim	pain
+	loop	0
+	delay	3
+	offset	73 120
+	bbox	50 25 40 91
+	frame	data/chars/xkyo/pain0.png
+	offset	70 120
+	frame	data/chars/xkyo/pain1.png
+	offset	76 120
+	frame	data/chars/xkyo/pain1.png
+	delay	15
+	offset	73 120
+	frame	data/chars/xkyo/pain1.png
+		
+anim	pain2
+	loop	0
+	delay	3
+	offset	73 120
+	bbox	50 25 40 91
+	frame	data/chars/xkyo/pain0.png
+	offset	70 120
+	frame	data/chars/xkyo/pain2.png
+	offset	76 120
+	frame	data/chars/xkyo/pain2.png
+	delay	15
+	offset	73 120
+	frame	data/chars/xkyo/pain2.png
+		
+anim	pain3
+	loop	0
+	delay	2
+	offset	73 120
+	bbox	50 25 40 91
+	move	-6
+	frame	data/chars/xkyo/pain0.png
+	frame	data/chars/xkyo/pain0.png
+	frame	data/chars/xkyo/pain0.png
+	frame	data/chars/xkyo/pain1.png
+	frame	data/chars/xkyo/pain1.png
+	frame	data/chars/xkyo/pain1.png
+	move	-4
+	frame	data/chars/xkyo/pain1.png
+	frame	data/chars/xkyo/pain0.png
+	frame	data/chars/xkyo/pain0.png
+	frame	data/chars/xkyo/pain0.png
+	frame	data/chars/xkyo/pain2.png
+	move	-2
+	frame	data/chars/xkyo/pain2.png
+	frame	data/chars/xkyo/pain2.png
+	frame	data/chars/xkyo/pain2.png
+	delay	50
+	frame	data/chars/xkyo/pain2.png
+		
+anim	pain5
+	loop	0
+	delay	12
+	offset	73 120
+	bbox	50 25 40 91
+	frame	data/chars/xkyo/pain0.png
+	frame	data/chars/xkyo/pain1.png
+	frame	data/chars/xkyo/pain0.png
+	frame	data/chars/xkyo/pain2.png
+	frame	data/chars/xkyo/pik05.png
+	delay	30
+	frame	data/chars/xkyo/pik06.png
+	delay	12
+	frame	data/chars/xkyo/pik05.png
+		
+anim	pain6
+	loop	0
+	delay	12
+	offset	73 120
+	bbox	0 0 0 0
+	frame	data/chars/xkyo/fall1.png
+	frame	data/chars/xkyo/fall2.png
+	frame	data/chars/xkyo/fall3.png
+	frame	data/chars/xkyo/fall5.png
+	frame	data/chars/xkyo/fall4.png
+	delay	900
+	frame	data/chars/xkyo/fall4.png
+	delay	9
+	frame	data/chars/xkyo/rise1.png
+	frame	data/chars/xkyo/rise2.png
+	offset	73 135
+	frame	data/chars/xkyo/rise3.png
+	offset	73 120
+	frame	data/chars/xkyo/rise4.png
+	frame	data/chars/xkyo/pik05.png
+		
+anim	respawn
+	loop	0
+	delay	12
+	offset	91 138
+	bbox	0 0 0 0
+	frame	data/chars/xkyo/spp01.png
+	delay	6
+	sound	data/sounds/xkyotlk.wav
+	frame	data/chars/xkyo/spp02.png
+	frame	data/chars/xkyo/spp03.png
+	frame	data/chars/xkyo/spp04.png #3
+	frame	data/chars/xkyo/spp05.png
+	frame	data/chars/xkyo/spp06.png
+	@cmd	looper 3 1
+	frame	data/chars/xkyo/spp07.png
+	offset	88 121
+	frame	data/chars/xkyo/spp10.png
+	frame	data/chars/xkyo/spp11.png
+	delay	20
+	frame	data/chars/xkyo/spp11.png
+		
+anim	rise
+	loop	0
+	delay	25
+	offset	73 120
+	bbox	0 0 0 0
+	frame	data/chars/xkyo/fall4.png
+	delay	9
+	frame	data/chars/xkyo/rise1.png
+	frame	data/chars/xkyo/rise2.png
+	offset	73 135
+	frame	data/chars/xkyo/rise3.png
+	offset	73 120
+	frame	data/chars/xkyo/rise4.png
+	frame	data/chars/xkyo/pik05.png
+		
+anim	run
+	loop	1
+	delay	7
+	offset	67 120
+	bbox	50 35 35 85
+	frame	data/chars/xkyo/run01.png
+	sound	data/sounds/run.wav
+	delay	8
+	frame	data/chars/xkyo/run02.png
+	delay	7
+	frame	data/chars/xkyo/run03.png
+	frame	data/chars/xkyo/run04.png
+	delay	8
+	sound	data/sounds/run.wav
+	frame	data/chars/xkyo/run05.png
+	delay	7
+	frame	data/chars/xkyo/run06.png
+		
+anim	runattack
+	loop	0
+	delay	8
+	offset	73 120
+	bbox	50 25 40 91
+	forcedirection	-1
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/xkyo02.wav
+	@cmd	dasher 2.5 0 0
+	frame	data/chars/xkyo/a12.png
+	sound	data/sounds/punch3.wav
+	attack8	75 25 60 45 15 0 0 0 5 0
+	frame	data/chars/xkyo/a30.png
+	attack8	0 0 0 0
+	delay	5
+	frame	data/chars/xkyo/a31.png
+	frame	data/chars/xkyo/a31a.png
+	delay	9
+	@cmd	dasher 2 0 0
+	attack	75 25 75 45 30 1 1 0 30 0
+	dropv	2 4 0
+	frame	data/chars/xkyo/a32.png
+	delay	9
+	attack	75 25 60 45 60 1 1 0 30 0
+	dropv	2 4 0
+	delay	7
+	frame	data/chars/xkyo/a33.png
+	@cmd	dasher 1 0 0
+	frame	data/chars/xkyo/a33.png
+	delay	14
+	@cmd	stop
+	frame	data/chars/xkyo/a34.png
+	attack	0 0 0
+	delay	8
+	frame	data/chars/xkyo/a05.png
+	frame	data/chars/xkyo/a04.png
+		
+anim	runjump
+	cancel	0 7 0 S freespecial6
+	loop	0
+	delay	6
+	offset	90 144
+	bbox	75 37 40 51
+	frame	data/chars/xkyo/jump01.png
+	frame	data/chars/xkyo/jump02.png
+	frame	data/chars/xkyo/jump03.png
+	delay	120
+	frame	data/chars/xkyo/jump04.png
+	delay	8
+	frame	data/chars/xkyo/jump03.png
+	frame	data/chars/xkyo/jump02.png
+	frame	data/chars/xkyo/jump01.png
+		
+anim	runjumpattack
+	loop	0
+	delay	5
+	offset	90 135
+	bbox	70 40 38 42
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/punch.wav
+	forcedirection	-1
+	staydown	200 200
+	frame	data/chars/xkyo/jpatk30.png
+	frame	data/chars/xkyo/jpatk31.png
+	delay	8
+	attack10	90 15 60 115 10 1 1 0 20 0
+	dropv	2.6 3 0
+	frame	data/chars/xkyo/jpatk32.png
+	frame	data/chars/xkyo/jpatk33.png
+	attack10	0 0 0 0
+	delay	5
+	frame	data/chars/xkyo/jpatk34.png
+	@cmd	leaper 2.9 0.2 0
+	sound	data/sounds/punch.wav
+	frame	data/chars/xkyo/jpatk35.png
+	delay	8
+	attack	90 15 60 115 10 1 1 0 30 0
+	dropv	2.6 4 0
+	frame	data/chars/xkyo/jpatk36.png
+	delay	12
+	frame	data/chars/xkyo/jpatk37.png
+	attack	0 0 0 0
+	delay	8
+	frame	data/chars/xkyo/jpatk35.png
+	frame	data/chars/xkyo/jpatk38.png
+		
+anim	runslide
+	loop	0
+	delay	6
+	offset	73 123
+	bbox	50 80 50 40
+	hitfx	data/sounds/beat5.wav
+	@cmd	dasher 3 0 0
+	frame	data/chars/xkyo/pik05.png
+	frame	data/chars/xkyo/pik06.png
+	@cmd	spawn01 "dust" 1 1 1
+	offset	90 123
+	bbox	65 80 50 40
+	frame	data/chars/xkyo/b50.png
+	attack10	85 80 80 40 12 1 0 0 20 0
+	dropv	2 2.5
+	sound	data/sounds/punch3.wav
+	frame	data/chars/xkyo/b51.png
+	delay	11
+	frame	data/chars/xkyo/b52.png
+	attack10	0 0 0 0
+	delay	6
+	@cmd	dasher 2 0 0
+	frame	data/chars/xkyo/b53.png
+	frame	data/chars/xkyo/b54.png
+	attack9	85 80 100 40 20 1 0 0 20 0
+	dropv	0.3 4
+	delay	8
+	frame	data/chars/xkyo/b55.png
+	frame	data/chars/xkyo/b56.png
+	@cmd	dasher 1 0 0
+	frame	data/chars/xkyo/b55.png
+	attack9	0 0 0
+	frame	data/chars/xkyo/b54.png
+	frame	data/chars/xkyo/b53.png
+	@cmd	stop
+	frame	data/chars/xkyo/b50.png
+	offset	73 123
+	frame	data/chars/xkyo/pik06.png
+	frame	data/chars/xkyo/pik05.png
+		
+anim	select
+	loop	0
+	delay	5
+	offset	0 0
+	sound	data/sounds/blink.wav
+	frame	data/chars/xkyo/xwait2.png
+	sound	data/sounds/xkyotlk.wav
+	frame	data/chars/xkyo/xwait3.png
+	frame	data/chars/xkyo/xwait2.png #2
+	frame	data/chars/xkyo/xwait3.png
+	@cmd	looper 2 10
+	delay	100
+	frame	data/chars/xkyo/xwait2.png
+		
+anim	spawn
+	loop	0
+	delay	12
+	offset	91 138
+	bbox	0 0 0 0
+	frame	data/chars/xkyo/spp01.png
+	delay	6
+	sound	data/sounds/xkyotlk.wav
+	frame	data/chars/xkyo/spp02.png
+	frame	data/chars/xkyo/spp03.png
+	frame	data/chars/xkyo/spp04.png #3
+	frame	data/chars/xkyo/spp05.png
+	frame	data/chars/xkyo/spp06.png
+	@cmd	looper 3 1
+	frame	data/chars/xkyo/spp07.png
+	offset	88 121
+	frame	data/chars/xkyo/spp10.png
+	frame	data/chars/xkyo/spp11.png
+	delay	20
+	frame	data/chars/xkyo/spp11.png
+		
+anim	special
+	energycost	40
+	mponly	1
+	loop	0
+	delay	9
+	offset	92 161
+	bbox	0 0 0 0
+	staydown	500 500
+	hitfx	data/sounds/burn.wav
+	sound	data/sounds/xkyochrg.wav
+	frame	data/chars/xkyo/pwxx01.png
+	frame	data/chars/xkyo/pwxx02.png
+	frame	data/chars/xkyo/pwxx03.png
+	delay	15
+	frame	data/chars/xkyo/pwxx04.png
+	sound	data/sounds/super2.wav
+	delay	6
+	@cmd	spawnAni "xkyopw" 0 1 -5 "ANI_FOLLOW1"
+	@cmd	spawnAni "xkyopw" -40 1 -5 "ANI_FOLLOW1"
+	@cmd	spawnAni "xkyopw" 40 1 -5 "ANI_FOLLOW1"
+	frame	data/chars/xkyo/pwxx05.png
+	burn	20 40 150 100 25 1 0 0 4 0
+	dropv	5 1
+	frame	data/chars/xkyo/pwxx06.png
+	frame	data/chars/xkyo/pwxx07.png
+	frame	data/chars/xkyo/pwxx08.png
+	burn	0 0 0 0
+	frame	data/chars/xkyo/pwxx09.png
+	@cmd	looper 4 4
+	delay	25
+	frame	data/chars/xkyo/pwxx04.png
+	delay	9
+	frame	data/chars/xkyo/pwxx03.png
+	frame	data/chars/xkyo/pwxx02.png
+	frame	data/chars/xkyo/pwxx01.png
+		
+anim	waiting
+	loop	1
+	delay	12
+	offset	0 0
+	frame	data/chars/xkyo/xwait1.png
+	frame	data/chars/xkyo/xwait1.png
+		
+anim	walk
+	loop	1
+	delay	10
+	offset	42 120
+	bbox	20 20 40 90
+	frame	data/chars/xkyo/walk01.png
+	frame	data/chars/xkyo/walk02.png
+	frame	data/chars/xkyo/walk03.png
+	frame	data/chars/xkyo/walk04.png
+	frame	data/chars/xkyo/walk05.png
+		
+anim	walkoff
+	loop	0
+	delay	12
+	offset	90 144
+	bbox	70 31 40 85
+	frame	data/chars/xkyo/jump02.png
+		
+#|edited by openBor Stats v 0.53
+		

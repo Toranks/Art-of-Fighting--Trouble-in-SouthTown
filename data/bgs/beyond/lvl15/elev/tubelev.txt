@@ -15,63 +15,7 @@ load	tubeplat
 
 
 
-anim	spawn
-	loop	0
-	delay	5
-	offset	195 175
-	bbox	0 0 0 0
-	frame	data/bgs/beyond/lvl15/elev/elev30.gif
-	frame	data/bgs/beyond/lvl15/elev/elev30.gif
 
-
-
-anim	idle
-	loop	0
-	delay	5
-	offset	195 175
-	bbox	0 0 0 0
-	frame	data/bgs/beyond/lvl15/elev/elev30.gif
-	sound	data/sounds/exel.wav
-	frame	data/bgs/beyond/lvl15/elev/elev31.gif
-	frame	data/bgs/beyond/lvl15/elev/elev32.gif
-	frame	data/bgs/beyond/lvl15/elev/elev33.gif
-	frame	data/bgs/beyond/lvl15/elev/elev34.gif
-	frame	data/bgs/beyond/lvl15/elev/elev35.gif
-	frame	data/bgs/beyond/lvl15/elev/elev36.gif
-	frame	data/bgs/beyond/lvl15/elev/elev37.gif
-	frame	data/bgs/beyond/lvl15/elev/elev38.gif
-	frame	data/bgs/beyond/lvl15/elev/elev39.gif
-	frame	data/bgs/beyond/lvl15/elev/elev40.gif
-
-
-
-	frame	data/bgs/beyond/lvl15/elev/elev23.gif
-	@cmd	spawnAni "tubeplat" 0 -30 0 "ANI_FOLLOW9"
-	frame	data/bgs/beyond/lvl15/elev/elev22.gif
-	frame	data/bgs/beyond/lvl15/elev/elev21.gif
-	sound	data/sounds/tcannon.wav
-	frame	data/bgs/beyond/lvl15/elev/elev20.gif
-	frame	data/bgs/beyond/lvl15/elev/elev19.gif
-	frame	data/bgs/beyond/lvl15/elev/elev18.gif
-	frame	data/bgs/beyond/lvl15/elev/elev17.gif
-	frame	data/bgs/beyond/lvl15/elev/elev16.gif
-	frame	data/bgs/beyond/lvl15/elev/elev15.gif
-	frame	data/bgs/beyond/lvl15/elev/elev14.gif
-	frame	data/bgs/beyond/lvl15/elev/elev13.gif
-	frame	data/bgs/beyond/lvl15/elev/elev12.gif
-	frame	data/bgs/beyond/lvl15/elev/elev11.gif
-	frame	data/bgs/beyond/lvl15/elev/elev10.gif
-
-
-	@cmd	spawnGun5 "tubeplat" 0 0 0 1 "ANI_FOLLOW7"
-	@cmd	spawnGun5 "tubeplat" 0 0 0 2 "ANI_FOLLOW8"
-	frame	data/bgs/beyond/lvl15/elev/elev01.gif
-	sound	data/sounds/robot1.wav
-	frame	data/bgs/beyond/lvl15/elev/elev02.gif
-	frame	data/bgs/beyond/lvl15/elev/elev03.gif
-	frame	data/bgs/beyond/lvl15/elev/elev04.gif
-	@cmd 	anichange "ANI_FOLLOW1"
-	frame	data/bgs/beyond/lvl15/elev/elev04.gif
 
 
 anim	follow1
@@ -82,8 +26,7 @@ anim	follow1
 	frame	data/bgs/beyond/lvl15/elev/elev04.gif
 	@cmd	attack4 15 75 0 6 5 70 "ANI_FOLLOW2"
 	frame	data/bgs/beyond/lvl15/elev/elev04.gif
-
-
+		
 anim	follow2
 @script
 	void self = getlocalvar("self");
@@ -96,10 +39,22 @@ anim	follow2
 	changeplayerproperty(2, "weapon", 8);
 	}
 	if(frame==50){
-     	clearglobalvar();
+		setlocalvar("maxRush1", getglobalvar("maxRush1"));
+		setlocalvar("maxRush2", getglobalvar("maxRush2"));
+		setlocalvar("maxRush3", getglobalvar("maxRush3"));
+		setlocalvar("next1up0", getglobalvar("next1up0"));
+		setlocalvar("next1up1", getglobalvar("next1up1"));
+		setlocalvar("next1up2", getglobalvar("next1up2"));
+		clearglobalvar();
+		setglobalvar("maxRush1", getlocalvar("maxRush1"));
+		setglobalvar("maxRush2", getlocalvar("maxRush2"));
+		setglobalvar("maxRush3", getlocalvar("maxRush3"));
+		setglobalvar("next1up0", getlocalvar("next1up0"));
+		setglobalvar("next1up1", getlocalvar("next1up1"));
+		setglobalvar("next1up2", getlocalvar("next1up2"));
 	jumptobranch("dummy", 1);
 	}
-@end_script
+	@end_script	
 	loop	1 34 53
 	delay	5
 	offset	195 175
@@ -116,8 +71,7 @@ anim	follow2
 	frame	data/bgs/beyond/lvl15/elev/elev02.gif
 	delay	80
 	frame	data/bgs/beyond/lvl15/elev/elev01.gif
-	delay	8
-
+	delay	15
 	frame	data/bgs/beyond/lvl15/elev/elev10.gif
 	frame	data/bgs/beyond/lvl15/elev/elev11.gif
 	frame	data/bgs/beyond/lvl15/elev/elev12.gif
@@ -132,7 +86,6 @@ anim	follow2
 	frame	data/bgs/beyond/lvl15/elev/elev21.gif
 	frame	data/bgs/beyond/lvl15/elev/elev22.gif
 	frame	data/bgs/beyond/lvl15/elev/elev23.gif
-
 	frame	data/bgs/beyond/lvl15/elev/elev40.gif
 	frame	data/bgs/beyond/lvl15/elev/elev39.gif
 	frame	data/bgs/beyond/lvl15/elev/elev38.gif
@@ -144,7 +97,6 @@ anim	follow2
 	frame	data/bgs/beyond/lvl15/elev/elev32.gif
 	frame	data/bgs/beyond/lvl15/elev/elev31.gif
 	frame	data/bgs/beyond/lvl15/elev/elev30.gif
-
 	delay	30
 	frame	data/bgs/beyond/lvl15/empty.gif #33
 	frame	data/bgs/beyond/lvl15/empty.gif
@@ -168,27 +120,57 @@ anim	follow2
 	frame	data/bgs/beyond/lvl15/empty.gif
 	frame	data/bgs/beyond/lvl15/empty.gif
 	frame	data/bgs/beyond/lvl15/empty.gif #54
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+		
+anim	idle
+	loop	0
+	delay	15
+	offset	195 175
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl15/elev/elev30.gif
+	sound	data/sounds/exel.wav
+	frame	data/bgs/beyond/lvl15/elev/elev31.gif
+	frame	data/bgs/beyond/lvl15/elev/elev32.gif
+	frame	data/bgs/beyond/lvl15/elev/elev33.gif
+	frame	data/bgs/beyond/lvl15/elev/elev34.gif
+	frame	data/bgs/beyond/lvl15/elev/elev35.gif
+	frame	data/bgs/beyond/lvl15/elev/elev36.gif
+	frame	data/bgs/beyond/lvl15/elev/elev37.gif
+	frame	data/bgs/beyond/lvl15/elev/elev38.gif
+	frame	data/bgs/beyond/lvl15/elev/elev39.gif
+	frame	data/bgs/beyond/lvl15/elev/elev40.gif
+	frame	data/bgs/beyond/lvl15/elev/elev23.gif
+	@cmd	spawnAni "tubeplat" 0 -30 0 "ANI_FOLLOW9"
+	frame	data/bgs/beyond/lvl15/elev/elev22.gif
+	frame	data/bgs/beyond/lvl15/elev/elev21.gif
+	sound	data/sounds/tcannon.wav
+	frame	data/bgs/beyond/lvl15/elev/elev20.gif
+	frame	data/bgs/beyond/lvl15/elev/elev19.gif
+	frame	data/bgs/beyond/lvl15/elev/elev18.gif
+	frame	data/bgs/beyond/lvl15/elev/elev17.gif
+	frame	data/bgs/beyond/lvl15/elev/elev16.gif
+	frame	data/bgs/beyond/lvl15/elev/elev15.gif
+	frame	data/bgs/beyond/lvl15/elev/elev14.gif
+	frame	data/bgs/beyond/lvl15/elev/elev13.gif
+	frame	data/bgs/beyond/lvl15/elev/elev12.gif
+	frame	data/bgs/beyond/lvl15/elev/elev11.gif
+	frame	data/bgs/beyond/lvl15/elev/elev10.gif
+	@cmd	spawnGun5 "tubeplat" 0 0 0 1 "ANI_FOLLOW7"
+	@cmd	spawnGun5 "tubeplat" 0 0 0 2 "ANI_FOLLOW8"
+	frame	data/bgs/beyond/lvl15/elev/elev01.gif
+	sound	data/sounds/robot1.wav
+	frame	data/bgs/beyond/lvl15/elev/elev02.gif
+	frame	data/bgs/beyond/lvl15/elev/elev03.gif
+	frame	data/bgs/beyond/lvl15/elev/elev04.gif
+	@cmd	anichange "ANI_FOLLOW1"
+	frame	data/bgs/beyond/lvl15/elev/elev04.gif
+		
+anim	spawn
+	loop	0
+	delay	5
+	offset	195 175
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl15/elev/elev30.gif
+	frame	data/bgs/beyond/lvl15/elev/elev30.gif
+		
+#|edited by openBor Stats v 0.53
 		

@@ -57,11 +57,24 @@ void grabcheck2()
    }
 }
 
+void clearSlam()
+{
+	void self = getlocalvar("self");
+	int id = getentityproperty(self, "animationid");
+	changeentityproperty(self,"escapehits",id);
+	void target = getlocalvar("Target" + self);
+	if(target)
+	{
+		setlocalvar("Target"+self,NULL());
+	}
+}
+
 void slamstart()
-{ // Slam Starter
-// Use finish after using this
+{ // Slam Starter for grab slams
+// Use finish or throw after using this
    void self = getlocalvar("self");
    void target = getlocalvar("Target" + self);
+   clearSlam();
 
    if(target==NULL())
    {
@@ -76,7 +89,7 @@ void slamstart()
 
 void slamstart2()
 { // Slam Starter for nongrab slams
-// Use finish after using this
+// Use finish or throw after using this
    void self = getlocalvar("self");
    void target = getlocalvar("Target" + self);
 
@@ -91,9 +104,42 @@ void slamstart2()
    }
 }
 
+
+void slamstart3()
+{ // Slam Starter for nongrab slams release if obstacle 
+   void self = getlocalvar("self");
+   void target = getlocalvar("Target" + self);
+
+
+   if(target==NULL())
+   {
+     target = getentityproperty(self, "opponent");
+     setlocalvar("Target" + self, target);
+   }
+
+   if(target!=NULL())
+   {
+
+	if(getentityproperty(target, "type")==openborconstant("TYPE_OBSTACLE"))
+	{
+    	performattack(self, openborconstant("ANI_PAIN"));
+	bindentity(target, NULL());
+	}
+	else
+   	{
+     	damageentity(target, self, 0, 1, openborconstant("ATK_NORMAL7")); // Slam Starter
+   	}
+  }
+}
+
+
+
 void position(int Frame, float dx, float dy, float dz, int face)
 { // Modify grabbed entity's position relative to grabber
+// Use slamstart 1st before using this
    void self = getlocalvar("self");
+
+
    void target = getlocalvar("Target" + self);
 
    if(target==NULL())
@@ -108,9 +154,9 @@ void position(int Frame, float dx, float dy, float dz, int face)
    }
 }
 
+
 void depost(int Gr)
-{
-// Release grabbed entity
+{// Release grabbed entity
    void self = getlocalvar("self");
    void target = getlocalvar("Target" + self);
 
@@ -132,6 +178,10 @@ void depost(int Gr)
    }
 }
 
+
+
+
+
 void antiwall(int Dist, int Move, int Distz)
 {// Checks if there is wall at defined distance
 // If there is wall, entity will be moved away with defined movement
@@ -141,18 +191,24 @@ void antiwall(int Dist, int Move, int Distz)
    int z = getentityproperty(self, "z");
    float H;
    float Hz;
+   float Hw;
 
-   if (Direction == 0){ //Is entity facing left?                  
+   if(Direction == 0){ //Is entity facing left?                 
       Dist = -Dist; //Reverse Dist to match facing
       Move = -Move; //Reverse Move to match facing
    }
 
    H = checkwall(x+Dist,z);
    Hz = checkwall(x+Dist,z+Distz);
+   Hw = checkwall(x+Dist,z-Distz);
 
    if(Hz > 0)
    {
      changeentityproperty(self, "position", x, z-Distz);
+   }
+   if(Hw > 0)
+   {
+     changeentityproperty(self, "position", x, z+Distz);
    }
 
    if(H > 0)
@@ -161,8 +217,11 @@ void antiwall(int Dist, int Move, int Distz)
    }
 }
 
+
+
+
 void finish(int Damage, int Type, int x, int y, int z, int Face)
-{ // Damage as slam or throw finisher
+{ // Damage as slam finisher
    void self = getlocalvar("self");
    void target = getlocalvar("Target" + self);
    int SDir = getentityproperty(target,"direction");
@@ -203,6 +262,8 @@ void finish(int Damage, int Type, int x, int y, int z, int Face)
 
      tossentity(target, y, x, z); // Toss opponent ;)
      changeentityproperty(target, "direction", MDir);
+
+     setlocalvar("Target"+self, NULL()); //Clears variable
    }
 }
 
@@ -264,6 +325,9 @@ void throw(int Damage, int Type, int Vx, int Vy, int Vz, int Face)
      tossentity(target, Vy, Vx, Vz); // Toss opponent ;)
    }
 }
+
+
+
 
 void move(int dx, int dz,int da)
 { // Moves entity freely or ignores obstacles

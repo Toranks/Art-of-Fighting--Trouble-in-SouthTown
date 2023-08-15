@@ -11,7 +11,7 @@ nopain	      1
 knockdowncount 800
 antigravity	70
 cantgrab      1
-aggression    -135
+aggression    -100
 grabdistance  50
 nolife        1
 falldie	      1
@@ -36,7 +36,6 @@ load	endlevel_anim
 load	electov1
 load	greycll
 load	screenmover
-
 
 anim	attack1
 	range	70 95
@@ -102,7 +101,6 @@ anim	attack11
 	frame	data/chars/beyond/3overlord/k03.gif
 	frame	data/chars/beyond/3overlord/k02.gif
 	frame	data/chars/beyond/3overlord/k01.gif
-
 	frame	data/chars/beyond/3overlord/idle39.gif
 	frame	data/chars/beyond/3overlord/pain1.gif
 	frame	data/chars/beyond/3overlord/pain2.gif
@@ -126,8 +124,7 @@ anim	attack11
 	@cmd	attack1 0 120 25 "ANI_FOLLOW2"
 	frame	data/chars/beyond/3overlord/pain1.gif
 	frame	data/chars/beyond/3overlord/idle39.gif
-
-
+		
 anim	attack12
 	range	-10 50
 	rangez	-23 23
@@ -147,9 +144,7 @@ anim	attack12
 	delay	14
 	frame	data/chars/beyond/3overlord/pain2.gif
 	frame	data/chars/beyond/3overlord/pain1.gif
-
-
-
+		
 anim	attack14
 	range	180 280
 	rangez	-140 -25
@@ -195,9 +190,6 @@ anim	attack14
 	delay	14
 	frame	data/chars/beyond/3overlord/pain2.gif
 	frame	data/chars/beyond/3overlord/pain1.gif
-
-
-
 		
 anim	attack2
 	range	110 135
@@ -234,8 +226,7 @@ anim	attack4
 	frame	data/chars/beyond/3overlord/ab04.gif
 	frame	data/chars/beyond/3overlord/ab05.gif
 	frame	data/chars/beyond/3overlord/ab06.gif
-	#@cmd	spawnbind4 "ldrpwr" 1 1 1 1 4
-	@cmd	spawnGun5  "ldrpwr" 1 1 1 4 "ANI_ATTACK4"
+	@cmd	spawnGun5 "ldrpwr" 1 1 1 4 "ANI_ATTACK4"
 	delay	130
 	frame	data/chars/beyond/3overlord/ab07.gif
 	@cmd	spawn02 "ldrpwr3" 1 500 500
@@ -461,6 +452,9 @@ anim	burn
 	frame	data/chars/beyond/3overlord/pain2.gif
 	frame	data/chars/beyond/3overlord/pain1.gif
 		
+
+		
+	
 anim	fall
 	loop	0
 	delay	11
@@ -474,7 +468,7 @@ anim	fall
 	delay	11
 	frame	data/chars/beyond/3overlord/pain2.gif
 	frame	data/chars/beyond/3overlord/pain1.gif
-
+		
 anim	fall7
 @script
 	void self = getlocalvar("self");
@@ -492,7 +486,7 @@ anim	fall7
      	bindentity(self, NULL());
     	performattack(self, openborconstant("ANI_FOLLOW2"));
 	}
-@end_script
+	@end_script	
 	loop	0
 	delay	5
 	offset	100 189
@@ -520,8 +514,6 @@ anim	fall7
 	frame	data/chars/beyond/3overlord/pain5.gif
 	@cmd	beidle
 	frame	data/chars/beyond/3overlord/pain5.gif
-
-
 		
 anim	follow1
 	loop	0
@@ -573,8 +565,7 @@ anim	follow1
 	@cmd	attack1 0 120 25 "ANI_FOLLOW2"
 	frame	data/chars/beyond/3overlord/pain1.gif
 	frame	data/chars/beyond/3overlord/idle39.gif
-
-
+		
 anim	follow11
 	loop	0
 	delay	7
@@ -592,10 +583,6 @@ anim	follow11
 	frame	data/chars/beyond/3overlord/idle39.gif
 	@cmd	beidle
 	frame	data/chars/beyond/3overlord/idle39.gif
-
-
-
-
 		
 anim	follow2
 	loop	0
@@ -642,7 +629,7 @@ anim	follow4
 	@cmd	position 7 60 30 -1 -1
 	frame	data/chars/beyond/3overlord/d01.gif
 	delay	15
-	@cmd	spawngrab "grab1" 200 200 450 385 1 8
+	@cmd	spawngrab "grab1" 200 200 450 350 1 8
 	@cmd	position 11 55 55 -1 -1
 	frame	data/chars/beyond/3overlord/d02.gif
 	delay	220
@@ -716,7 +703,6 @@ anim	follow4
 	@cmd	attack1 0 120 25 "ANI_FOLLOW2"
 	frame	data/chars/beyond/3overlord/pain1.gif
 	frame	data/chars/beyond/3overlord/idle39.gif
-
 		
 anim	idle
 	loop	1
@@ -801,7 +787,7 @@ anim	pain2
 	delay	11
 	frame	data/chars/beyond/3overlord/pain2.gif
 	frame	data/chars/beyond/3overlord/pain1.gif
-
+		
 anim	pain8
 	loop	0
 	delay	25
@@ -810,8 +796,7 @@ anim	pain8
 	frame	data/chars/beyond/3overlord/idle39.gif
 	frame	data/chars/beyond/3overlord/idle39.gif
 	frame	data/chars/beyond/3overlord/idle39.gif
-
-
+		
 anim	rise
 	loop	0
 	delay	12
@@ -820,15 +805,41 @@ anim	rise
 	frame	data/chars/beyond/3overlord/idle01.gif
 	@cmd	beidle
 	frame	data/chars/beyond/3overlord/idle01.gif
-
-
+		
 anim	spawn
+@script
+	void self = getlocalvar("self");
+	void P1 = getplayerproperty(0, "entity");
+    void P2 = getplayerproperty(1, "entity");
+    void P3 = getplayerproperty(2, "entity");
+
+	if (P1 != NULL() && P2 != NULL() && P3 != NULL())
+	{
+	changeentityproperty(self, "maxhealth", 10000);
+	changeentityproperty(self, "health", 10000);
+	}
+	else if (P1 != NULL() && P2 != NULL() && P3 == NULL())
+	{
+	changeentityproperty(self, "maxhealth", 7500);
+	changeentityproperty(self, "health", 7500);
+	}
+	else if (P1 != NULL() && P2 == NULL() && P3 != NULL())
+	{
+	changeentityproperty(self, "maxhealth", 7500);
+	changeentityproperty(self, "health", 7500);
+	}
+	else if (P1 == NULL() && P2 != NULL() && P3 != NULL())
+	{
+	changeentityproperty(self, "maxhealth", 7500);
+	changeentityproperty(self, "health", 7500);
+	}
+	@end_script
 	loop	0
 	delay	9
 	offset	100 189
 	bbox	0 0 0 0
-	custentity   ovtlk
-	spawnframe   50 0 20 25 1
+	custentity	ovtlk
+	spawnframe	50 0 20 25 1
 	@cmd	degravity 1
 	@cmd	dasher 0.2 0.3 0
 	frame	data/chars/beyond/3overlord/wk01.gif
@@ -841,9 +852,7 @@ anim	spawn
 	frame	data/chars/beyond/3overlord/wk02.gif
 	frame	data/chars/beyond/3overlord/wk03.gif
 	frame	data/chars/beyond/3overlord/wk04.gif
-
 	@cmd	dasher 0.2 0 0
-
 	frame	data/chars/beyond/3overlord/wk03.gif #10
 	frame	data/chars/beyond/3overlord/wk02.gif
 	frame	data/chars/beyond/3overlord/wk01.gif
@@ -852,14 +861,12 @@ anim	spawn
 	frame	data/chars/beyond/3overlord/wk04.gif
 	frame	data/chars/beyond/3overlord/wk03.gif
 	frame	data/chars/beyond/3overlord/wk02.gif
-	@cmd	looper 12 5 
+	@cmd	looper 12 5
 	frame	data/chars/beyond/3overlord/wk01.gif
 	frame	data/chars/beyond/3overlord/wk02.gif
 	frame	data/chars/beyond/3overlord/wk03.gif
 	frame	data/chars/beyond/3overlord/wk04.gif
-
 	@cmd	dasher 0.2 -0.3 0
-
 	frame	data/chars/beyond/3overlord/wk01.gif
 	frame	data/chars/beyond/3overlord/wk02.gif
 	frame	data/chars/beyond/3overlord/wk03.gif
@@ -943,7 +950,7 @@ anim	death
 	if(frame==67){
 	jumptobranch("dummy", 1);
 	}
-@end_script
+	@end_script	
 	loop	0
 	delay	5
 	offset	100 189
@@ -986,7 +993,6 @@ anim	death
 	delay	12
 	frame	data/chars/beyond/3overlord/empty.gif
 	frame	data/chars/beyond/3overlord/empty.gif
-
 	frame	data/chars/beyond/3overlord/go07.gif
 	frame	data/chars/beyond/3overlord/go06.gif
 	frame	data/chars/beyond/3overlord/go05.gif
@@ -1000,7 +1006,7 @@ anim	death
 	delay	12
 	frame	data/chars/beyond/3overlord/pain1.gif
 	frame	data/chars/beyond/3overlord/idle39.gif #31
-	@cmd	target 1 1 1 1 0 
+	@cmd	target 1 1 1 1 0
 	frame	data/chars/beyond/3overlord/idle39.gif
 	delay	600
 	@cmd	target 1 1 1 1 0
@@ -1071,7 +1077,6 @@ anim	death
 	frame	data/chars/beyond/3overlord/pain4.gif
 	frame	data/chars/beyond/3overlord/pain4.gif
 	frame	data/chars/beyond/3overlord/pain4.gif
-	frame	data/chars/beyond/3overlord/pain4.gif
-
-
+	frame	data/chars/beyond/3overlord/pain4.gif		
+#|edited by openBor Stats v 0.53
 		

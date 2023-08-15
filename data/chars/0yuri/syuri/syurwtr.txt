@@ -1,8 +1,8 @@
 name		syurwtr
 type		none
-health		800
-mp		100
-speedf		1.9
+health		170
+mp		200
+speedf		1.7
 running		17 0 0 0 0
 jumpheight	0
 cantgrab	1
@@ -17,7 +17,6 @@ facing		2
 grabforce       0
 candamage	enemy obstacle npc
 diesound        data/sounds/yurde.wav
-atchain         0 0 0 0 
 icon            data/chars/0yuri/icon.gif
 parrow          data/chars/misc/flash/flash/player1.gif  -36 -145
 parrow2         data/chars/misc/flash/flash/player2.gif  -36 -145
@@ -25,7 +24,11 @@ parrow3         data/chars/misc/flash/flash/player3.gif  -36 -145
 animationscript data/scripts/escript.c
 
 
-palette    	data/chars/0yuri/syuri/map1.gif
+palette    	data/chars/0yuri/syuri/pal.gif
+alternatepal    data/chars/0yuri/syuri/map1.gif
+alternatepal    data/chars/0yuri/syuri/map2.gif
+alternatepal    data/chars/0yuri/syuri/map3.gif
+alternatepal    data/chars/0yuri/syuri/map4.gif
 
 load	Splash3
 load	swater2
@@ -45,36 +48,6 @@ anim	charge
 		
 anim	chargeattack
 		
-anim	fall
-	loop	0
-	delay	70
-	offset	125 150
-	bbox	0 0 0 0
-	jumpframe 0 4.5 -3.5 0 Splash3
-	landframe 2 Splash3
-	frame	data/chars/0yuri/syuri/syurwtr/pain1.gif
-	@cmd	killgun 2 0
-	delay	280
-	frame	data/chars/0yuri/syuri/syurwtr/pain2.gif
-	delay	8
-	sound	data/sounds/Splash1.wav
-	frame	data/chars/0yuri/syuri/syurwtr/pain3.gif
-	frame	data/chars/0yuri/syuri/syurwtr/pain4.gif
-	frame	data/chars/0yuri/syuri/syurwtr/pain5.gif
-	frame	data/chars/0yuri/syuri/syurwtr/pain6.gif
-
-
-anim	rise
-	loop	0
-	delay	5
-	offset	125 150
-	bbox	0 0 0 0
-	frame	data/chars/0yuri/syuri/syurwtr/pain7.gif
-	@cmd	spawnGun5 "swater2" 15 1 1 2 "ANI_FOLLOW2"
-	frame	data/chars/0yuri/syuri/syurwtr/pain7.gif
-
-
-
 anim	death
 	loop	0
 	delay	30
@@ -89,10 +62,26 @@ anim	death
 	frame	data/chars/1robert/kgnrob/empty.gif
 	@cmd	spawn01 "Splash3" -10 1 1
 	frame	data/chars/1robert/kgnrob/empty.gif
-
-
+		
+anim	fall
+	loop	0
+	delay	70
+	offset	125 150
+	bbox	0 0 0 0
+	jumpframe	0 4.5 -3.5 0 Splash3
+	landframe	2 Splash3
+	frame	data/chars/0yuri/syuri/syurwtr/pain1.gif
+	@cmd	killgun 2 0
+	delay	280
+	frame	data/chars/0yuri/syuri/syurwtr/pain2.gif
+	delay	8
+	sound	data/sounds/Splash1.wav
+	frame	data/chars/0yuri/syuri/syurwtr/pain3.gif
+	frame	data/chars/0yuri/syuri/syurwtr/pain4.gif
+	frame	data/chars/0yuri/syuri/syurwtr/pain5.gif
+	frame	data/chars/0yuri/syuri/syurwtr/pain6.gif
+		
 anim	forwardjump
-
 		
 anim	freespecial2
 		
@@ -118,15 +107,14 @@ anim	jump
 anim	jumpdelay
 		
 anim	jumpland
-
 		
 anim	pain
 	loop	0
 	delay	60
 	offset	125 150
 	bbox	0 0 0 0
-	jumpframe 0 4.5 -3.5 0 Splash3
-	landframe 2 Splash3
+	jumpframe	0 4.5 -3.5 0 Splash3
+	landframe	2 Splash3
 	frame	data/chars/0yuri/syuri/syurwtr/pain1.gif
 	delay	280
 	frame	data/chars/0yuri/syuri/syurwtr/pain2.gif
@@ -139,15 +127,14 @@ anim	pain
 	delay	9
 	@cmd	clearL
 	frame	data/chars/0yuri/syuri/syurwtr/pain7.gif
-
-
+		
 anim	pain2
 	loop	0
 	delay	60
 	offset	125 150
 	bbox	0 0 0 0
-	jumpframe 0 4.5 -3.5 0 Splash3
-	landframe 2 Splash3
+	jumpframe	0 4.5 -3.5 0 Splash3
+	landframe	2 Splash3
 	frame	data/chars/0yuri/syuri/syurwtr/pain1.gif
 	delay	280
 	frame	data/chars/0yuri/syuri/syurwtr/pain2.gif
@@ -160,8 +147,24 @@ anim	pain2
 	delay	9
 	@cmd	clearL
 	frame	data/chars/0yuri/syuri/syurwtr/pain7.gif
-
-
+		
+anim	respawn
+	loop	0
+	delay	10
+	offset	125 150
+	bbox	0 0 0 0
+	frame	data/chars/0yuri/syuri/syurwtr/idle04.gif
+	@cmd	spawnGun5 "swater2" 15 1 1 2 "ANI_FOLLOW2"
+	frame	data/chars/0yuri/syuri/syurwtr/idle05.gif
+		
+anim	rise
+	loop	0
+	delay	5
+	offset	125 150
+	bbox	0 0 0 0
+	frame	data/chars/0yuri/syuri/syurwtr/pain7.gif
+	@cmd	spawnGun5 "swater2" 15 1 1 2 "ANI_FOLLOW2"
+	frame	data/chars/0yuri/syuri/syurwtr/pain7.gif
 		
 anim	run
 		
@@ -177,18 +180,10 @@ anim	spawn
 	frame	data/chars/0yuri/syuri/syurwtr/idle04.gif
 	@cmd	spawnGun5 "swater2" 15 1 1 2 "ANI_FOLLOW2"
 	frame	data/chars/0yuri/syuri/syurwtr/idle05.gif
-
-anim	respawn
-	loop	0
-	delay	10
-	offset	125 150
-	bbox	0 0 0 0
-	frame	data/chars/0yuri/syuri/syurwtr/idle04.gif
-	@cmd	spawnGun5 "swater2" 15 1 1 2 "ANI_FOLLOW2"
-	frame	data/chars/0yuri/syuri/syurwtr/idle05.gif
 		
 anim	special
 		
 anim	walk
-
+		
+#|edited by openBor Stats v 0.53
 		

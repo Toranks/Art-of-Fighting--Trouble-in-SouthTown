@@ -1,15 +1,15 @@
 name		eveplr
 type		player
-health		300
-mp		200
+health		150
+mp	100
 mprate          1
-chargerate      5
+chargerate      2
 speed		11
-running		28 3 3 1 0
+running		28 3 3 1 1
 jumpheight	4
 nodieblink	2
 noquake         0
-secret		1 1
+secret		0 1
 falldie		2
 makeinv		3
 riseinv		1
@@ -21,7 +21,7 @@ holdblock 	1
 dust            dust
 candamage	enemy obstacle
 projectilehit 	player npc enemy
-weapons		pltank sYuri syuribike2 yurifall syurwtr syurivent mapcurs mrzero
+weapons		syuribike eveplr syuribike2 syurifall syurwtr syurivent mapcurs mrzero
 atchain         1 1 2 3 0 4
 combostyle      1
 icon		data/chars/2badgirl10/iconpl.gif
@@ -36,17 +36,13 @@ animationscript		data/scripts/grabscript.c
 ondrawscript 		data/scripts/water_puddle_script.c
 script			data/scripts/player_script.c
 
-com	a2		freespecial15
 com	a3		freespecial29
-
-com	f d f a		freespecial1
+com	d f a		freespecial1
 com	d f j		freespecial2
-com	d f a		freespecial9
-com	d f d f a 	freespecial8
-com	d f d f s	freespecial27
-
-com	d u d u s	freespecial30
-
+com	f d a		freespecial9
+com	d u s 		freespecial8
+com	f d f s		freespecial27
+com	a2		freespecial15
 
 
 
@@ -70,44 +66,981 @@ load	angelbed
 load	whitepn
 
 
-#------//--H-play--//---------------
 
 
-anim	freespecial30
-	energycost	55
-	mponly	1
-	weaponframe	12 2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+anim	attack1
+	range	0 200
+	rangez	-25 25
 	loop	0
-	delay	9
-	offset	108 165
+	delay	3
+	offset	108 191
+	bbox	93 97 35 91
+	hitfx	data/sounds/beat2.wav
+	frame	data/chars/2badgirl10/xa03.gif
+	@cmd	attackgrd -60 60 0 1 10 "ANI_FOLLOW10"
+	frame	data/chars/2badgirl10/xa04.gif
+	attack	101 91 78 35 12 0 0 0 3 0
+	frame	data/chars/2badgirl10/xa05.gif
+	delay	3
+	frame	data/chars/2badgirl10/xa06.gif
+	attack	0 0 0 0
+	frame	data/chars/2badgirl10/xa07.gif
+	frame	data/chars/2badgirl10/xa03.gif
+		
+anim	attack2
+	range	0 70
+	rangez	-25 25
+	loop	0
+	delay	4
+	offset	108 191
+	bbox	91 100 35 75
+	move	1
+	frame	data/chars/2badgirl10/a101.gif
+	frame	data/chars/2badgirl10/a101a.gif
+	attack2	100 110 70 35 20 0 0 0 14 0
+	frame	data/chars/2badgirl10/a102.gif
+	frame	data/chars/2badgirl10/a102a.gif
+	attack2	0 0 0 0
+	move	0
+	frame	data/chars/2badgirl10/a103.gif
+	frame	data/chars/2badgirl10/a101a.gif
+	frame	data/chars/2badgirl10/a101.gif
+		
+anim	attack3
+	range	0 70
+	rangez	-25 25
+	loop	0
+	delay	5
+	offset	108 191
+	bbox	92 97 30 80
+	move	2
+	frame	data/chars/2badgirl10/a104.gif
+	frame	data/chars/2badgirl10/a105.gif
+	forcedirection	-1
+	attack10	100 77 55 65 50 1 1 0 40 10
+	dropv	5 0.7 0
+	frame	data/chars/2badgirl10/a106.gif
+	frame	data/chars/2badgirl10/a107.gif
+	frame	data/chars/2badgirl10/a108.gif
+	delay	7
+	move	0
+	frame	data/chars/2badgirl10/a109.gif
+	attack10	0 0 0 0
+	frame	data/chars/2badgirl10/a110.gif
+	frame	data/chars/2badgirl10/a111.gif
+		
+anim	attack4
+	range	70 200
+	rangez	-25 25
+	loop	0
+	delay	5
+	offset	108 191
+	bbox	95 100 30 70
+	fastattack	1
+	cancel	4 10 1 a freespecial13
+	seal	7 1
+	hitfx	data/sounds/beat5.wav
+	move	5
+	frame	data/chars/2badgirl10/b01.gif
+	frame	data/chars/2badgirl10/b02.gif
+	sound	data/sounds/bgirl08.wav
+	frame	data/chars/2badgirl10/b03.gif
+	frame	data/chars/2badgirl10/b04.gif
+	attack	100 90 90 45 30 0 0 0 25 0
+	frame	data/chars/2badgirl10/b05.gif #4
+	delay	6
+	frame	data/chars/2badgirl10/b06.gif
+	frame	data/chars/2badgirl10/b07.gif
+	attack	0 0 0 0
+	frame	data/chars/2badgirl10/b09.gif
+	move	0
+	frame	data/chars/2badgirl10/b10.gif
+	frame	data/chars/2badgirl10/b11.gif
+	frame	data/chars/2badgirl10/b12.gif #10
+	frame	data/chars/2badgirl10/blk16.gif
+		
+anim	attackdown
+	loop	0
+	delay	6
+	offset	108 191
 	bbox	0 0 0 0
+	frame	data/chars/2badgirl10/rise15.gif
+	@cmd	dasher 2.7 0 0.7
+	frame	data/chars/2badgirl10/blk11.gif
+	frame	data/chars/2badgirl10/blk10.gif
+	frame	data/chars/2badgirl10/blk09.gif
+	frame	data/chars/2badgirl10/blk08.gif
+	frame	data/chars/2badgirl10/blk07.gif
+	frame	data/chars/2badgirl10/blk06.gif
+	frame	data/chars/2badgirl10/blk05.gif
+	frame	data/chars/2badgirl10/blk04.gif
+	@cmd	spawn01 "dust" 1 1 1
+	frame	data/chars/2badgirl10/blk03.gif
+	@cmd	stop
+	frame	data/chars/2badgirl10/blk02.gif
+	@cmd	clearL
+	frame	data/chars/2badgirl10/blk01.gif
+		
+anim	attackup
+	loop	0
+	delay	6
+	offset	108 191
+	bbox	0 0 0 0
+	frame	data/chars/2badgirl10/rise15.gif
+	@cmd	dasher 2.7 0 -0.7
+	frame	data/chars/2badgirl10/blk11.gif
+	frame	data/chars/2badgirl10/blk10.gif
+	frame	data/chars/2badgirl10/blk09.gif
+	frame	data/chars/2badgirl10/blk08.gif
+	frame	data/chars/2badgirl10/blk07.gif
+	frame	data/chars/2badgirl10/blk06.gif
+	frame	data/chars/2badgirl10/blk05.gif
+	frame	data/chars/2badgirl10/blk04.gif
+	@cmd	spawn01 "dust" 1 1 1
+	frame	data/chars/2badgirl10/blk03.gif
+	@cmd	stop
+	frame	data/chars/2badgirl10/blk02.gif
+	@cmd	clearL
+	frame	data/chars/2badgirl10/blk01.gif
+		
+anim	block
+	loop	0
+	delay	8
+	offset	108 191
+	bbox	90 97 30 65
+	frame	data/chars/2badgirl10/idle07.gif
+	frame	data/chars/2badgirl10/blkx01.gif
+	delay	20
+	frame	data/chars/2badgirl10/blkx02.gif
+		
+anim	burn
+	loop	0
+	delay	25
+	offset	108 191
+	bbox	0 0 0 0
+	landframe	3
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 200_50_0
+	@cmd	spawnbind "burn1" 1 1 1
+	@cmd	spawnbind "burn2" 1 1 1
+	@cmd	spawnbind "burn3" 1 1 1
+	attack	78 98 30 45 5 1 0 0 13 30
+	frame	data/chars/2badgirl10/fall1.gif
+	delay	15
+	attack	64 130 50 25 5 1 0 0 13 30
+	frame	data/chars/2badgirl10/fall2.gif
+	delay	500
+	frame	data/chars/2badgirl10/fall3.gif
+	attack	0 0 0 0
+	delay	15
+	frame	data/chars/2badgirl10/fall4.gif
+	frame	data/chars/2badgirl10/fall5.gif
+	frame	data/chars/2badgirl10/fall4.gif
+		
+anim	charge
+	loop	0
+	delay	7
+	offset	108 165
+	bbox	93 75 35 91
+	sound	data/sounds/bgirl03.wav
 	frame	data/chars/2badgirl10/slamck13.gif
 	offset	108 191
+	bbox	93 100 35 91
 	frame	data/chars/2badgirl10/b00.gif
 	frame	data/chars/2badgirl10/ch01.gif
 	frame	data/chars/2badgirl10/ch02.gif
-	delay	20
+	delay	2
+	frame	data/chars/2badgirl10/ch05.gif
+	frame	data/chars/2badgirl10/ch03.gif
+	frame	data/chars/2badgirl10/ch06.gif
 	frame	data/chars/2badgirl10/ch04.gif
+	frame	data/chars/2badgirl10/ch07.gif
+	frame	data/chars/2badgirl10/ch03.gif
+	frame	data/chars/2badgirl10/ch08.gif
+	frame	data/chars/2badgirl10/ch04.gif
+	@cmd	updateframe getlocalvar("self") 4
+	frame	data/chars/2badgirl10/ch02.gif
+	frame	data/chars/2badgirl10/ch01.gif
+	frame	data/chars/2badgirl10/ch03.gif
+	frame	data/chars/2badgirl10/ch03.gif
+	delay	7
+	frame	data/chars/2badgirl10/ch02.gif
+	frame	data/chars/2badgirl10/ch01.gif
+		
+anim	death
+	loop	0
+	delay	45
+	offset	108 191
+	bbox	0 0 0 0
+	frame	data/chars/2badgirl10/fall4.gif
+	delay	11
+	frame	data/chars/2badgirl10/rise0.gif
+	frame	data/chars/2badgirl10/rise1.gif
+	frame	data/chars/2badgirl10/rise15a.gif
+	frame	data/chars/2badgirl10/rise15.gif
+	frame	data/chars/2badgirl10/rise16.gif
+	frame	data/chars/2badgirl10/pain0.gif
+	frame	data/chars/2badgirl10/pain1.gif
+	frame	data/chars/2badgirl10/fall1.gif
+	frame	data/chars/2badgirl10/fall2.gif
+	frame	data/chars/2badgirl10/fall3.gif
+	delay	8
+	frame	data/chars/2badgirl10/fall4.gif
+	frame	data/chars/2badgirl10/fall5.gif
+	frame	data/chars/2badgirl10/fall4.gif
+	frame	data/chars/2badgirl10/fall5.gif
+	delay	30
+	frame	data/chars/2badgirl10/fall4.gif
+		
+anim	fall
+	loop	0
+	delay	25
+	offset	108 191
+	bbox	0 0 0 0
+	landframe	3
+	frame	data/chars/2badgirl10/fall1.gif
+	delay	15
+	frame	data/chars/2badgirl10/fall2.gif
+	delay	500
+	frame	data/chars/2badgirl10/fall3.gif
+	attack	0 0 0 0
+	delay	15
+	frame	data/chars/2badgirl10/fall4.gif
+	frame	data/chars/2badgirl10/fall5.gif
+	frame	data/chars/2badgirl10/fall4.gif
+		
+anim	fall2
+	loop	0
+	delay	30
+	offset	108 191
+	bbox	0 0 0 0
+	landframe	3 dust
+	attack	87 104 28 44 5 1 0 0 30 30
+	frame	data/chars/2badgirl10/pain6.gif
+	attack	85 118 40 22 5 1 0 0 30 30
+	frame	data/chars/2badgirl10/fall2.gif
+	attack	0 0 0 0
+	delay	500
+	frame	data/chars/2badgirl10/fall3.gif
+	delay	10
+	frame	data/chars/2badgirl10/fall4.gif
+	delay	50
+	frame	data/chars/2badgirl10/fall4.gif
+		
+anim	fall3
+	loop	0
+	delay	25
+	offset	108 191
+	bbox	79 95 62 45
+	landframe	3
+	frame	data/chars/2badgirl10/fall1.gif
+	delay	15
+	frame	data/chars/2badgirl10/fall2.gif
+	delay	500
+	bbox	81 133 61 34
+	frame	data/chars/2badgirl10/fall3.gif
+	attack	0 0 0 0
+	delay	15
+	bbox	0 0 0 0
+	frame	data/chars/2badgirl10/fall4.gif
+	frame	data/chars/2badgirl10/fall5.gif
+	frame	data/chars/2badgirl10/fall4.gif
+		
+anim	fall7
+	delay	1000
+	offset	100 165
+	frame	data/chars/2badgirl10/slamck0.gif
+	offset	80 185
+	frame	data/chars/2badgirl10/pain1.gif
+	offset	115 145
+	frame	data/chars/2badgirl10/slamck2.gif
+	offset	95 150
+	frame	data/chars/2badgirl10/slamck3.gif
+	offset	95 155
+	frame	data/chars/2badgirl10/slamck12.gif
+	offset	125 140
+	frame	data/chars/2badgirl10/slamck7.gif
+	offset	106 135
+	frame	data/chars/2badgirl10/slamck12.gif
+	offset	90 175
+	frame	data/chars/2badgirl10/slamck11.gif
+	offset	110 135
+	frame	data/chars/2badgirl10/slamck14.gif
+	offset	115 160
+	frame	data/chars/2badgirl10/slamck18.gif
+	offset	115 160
+	frame	data/chars/2badgirl10/slamck19.gif
+	bbox	0 0 0 0
+	offset	103 150
+	frame	data/chars/2badgirl10/slamck5.gif
+	offset	130 135
+	frame	data/chars/2badgirl10/slamck7.gif
+	offset	124 100
+	frame	data/chars/2badgirl10/slamck8.gif
+	offset	105 125
+	frame	data/chars/2badgirl10/slamck1.gif
+	offset	85 180
+	frame	data/chars/2badgirl10/pain0.gif
+	offset	125 110
+	frame	data/chars/2badgirl10/slamck8.gif
+	offset	120 155
+	frame	data/chars/2badgirl10/slamck16.gif
+	offset	120 155
+	frame	data/chars/2badgirl10/slamck17.gif
+	offset	100 170
+	frame	data/chars/2badgirl10/slamck14.gif
+	offset	100 165
+	frame	data/chars/2badgirl10/slamck20.gif
+	offset	95 175
+	frame	data/chars/2badgirl10/slamck11.gif
+	offset	95 170
+	frame	data/chars/2badgirl10/slamck15.gif
+	offset	100 170
+	frame	data/chars/2badgirl10/slamck10.gif
+	offset	90 165
+	frame	data/chars/2badgirl10/slamck11.gif
+	offset	95 175
+	bbox	80 85 60 80
+	frame	data/chars/2badgirl10/slamck14.gif
+		
+anim	fall9
+	loop	0
+	delay	10
+	offset	108 191
+	bbox	0 0 0 0
+	landframe	3 dust
+	attack	90 93 29 43 5 1 0 0 30 30
+	frame	data/chars/2badgirl10/fall1.gif
+	delay	37
+	attack	75 140 42 31 5 1 0 0 30 30
+	frame	data/chars/2badgirl10/fall3.gif
+	delay	500
+	attack	0 0 0 0
+	frame	data/chars/2badgirl10/fall3.gif
+	delay	10
+	frame	data/chars/2badgirl10/fall4.gif
+	delay	50
+	frame	data/chars/2badgirl10/fall4.gif
+		
+anim	follow1
+	loop	0
+	delay	8
+	offset	140 185
+	bbox	0 0 0 0
+	frame	data/chars/2badgirl10/1grab14.gif
+	frame	data/chars/2badgirl10/1grab15.gif
+	attack11	0 0 0 0
+	frame	data/chars/2badgirl10/1grab16.gif
+	frame	data/chars/2badgirl10/1grab17.gif
+	frame	data/chars/2badgirl10/1grab18.gif
+	frame	data/chars/2badgirl10/1grab19.gif
+	frame	data/chars/2badgirl10/1grab20.gif
+	frame	data/chars/2badgirl10/1grab21.gif
+	delay	40
+	frame	data/chars/2badgirl10/1grab22.gif
+	offset	108 191
+	@cmd	flip
+	delay	9
+	frame	data/chars/2badgirl10/rise1.gif
+	frame	data/chars/2badgirl10/rise15.gif
+	frame	data/chars/2badgirl10/rise16.gif
+		
+anim	follow10
+	loop	0
+	delay	9
+	offset	108 180
+	bbox	0 0 0 0
+	forcedirection	1
+	attackone	1
+	followanim	1
+	followcond	1
+	otg	2
+	jumpframe	0 2 0.5
+	landframe	4
+	hitfx	data/sounds/beat5.wav
+	hitflash	flashscreen1
+	frame	data/chars/2badgirl10/2grab02.gif
+	frame	data/chars/2badgirl10/2grab03.gif
+	frame	data/chars/2badgirl10/2grab04.gif
+	delay	300
+	frame	data/chars/2badgirl10/2grab05.gif
+	offset	135 185
+	delay	8
+	@cmd	flip
+	frame	data/chars/2badgirl10/1grab13.gif #4
+	staydown	370 370
+	attack11	85 170 65 25 50 1 0 0 12 10
+	dropv	1 0
+	frame	data/chars/2badgirl10/1grab14.gif
+	frame	data/chars/2badgirl10/1grab15.gif
+	attack11	0 0 0 0
+	offset	108 191
+	@cmd	flip
+	delay	9
+	frame	data/chars/2badgirl10/rise1.gif
+	frame	data/chars/2badgirl10/rise15.gif
+	frame	data/chars/2badgirl10/rise16.gif
+		
+anim	follow15
+@script
+	void self = getlocalvar("self");
+   	void opp = getentityproperty(self, "opponent");
+	int enedir = getentityproperty(opp,"direction");
+	if (frame == 0 && enedir == 0)
+	{
+	changeentityproperty(self, "direction", 1);
+	}
+	else if (frame == 0 && enedir == 1)
+	{
+	changeentityproperty(self, "direction", 0);
+	}
+	@end_script	
+	loop	0
+	delay	6
+	offset	108 191
+	bbox	0 0 0 0
+	jumpframe	0 3 -1
+	landframe	7
+	frame	data/chars/2badgirl10/2grab02.gif
+	frame	data/chars/2badgirl10/2grab03.gif
+	frame	data/chars/2badgirl10/2grab04.gif
+	frame	data/chars/2badgirl10/2grab05.gif
+	frame	data/chars/2badgirl10/2grab05a.gif
+	frame	data/chars/2badgirl10/2grab05b.gif
+	delay	300
+	frame	data/chars/2badgirl10/2grab05c.gif
+	delay	9
+	frame	data/chars/2badgirl10/2grab00.gif #7
+		
+anim	follow16
+@script
+	void self = getlocalvar("self");
+   	void opp = getentityproperty(self, "opponent");
+	int enedir = getentityproperty(opp,"direction");
+	if (frame == 0 && enedir == 0)
+	{
+	changeentityproperty(self, "direction", 1);
+	}
+	else if (frame == 0 && enedir == 1)
+	{
+	changeentityproperty(self, "direction", 0);
+	}
+	@end_script	
+	loop	0
+	delay	6
+	offset	108 191
+	bbox	0 0 0 0
+	frame	data/chars/2badgirl10/blk11.gif
+	@cmd	dasher -3 0 0
+	frame	data/chars/2badgirl10/blk10.gif
+	frame	data/chars/2badgirl10/blk09.gif
+	frame	data/chars/2badgirl10/blk08.gif
+	frame	data/chars/2badgirl10/blk07.gif
+	frame	data/chars/2badgirl10/blk06.gif
+	frame	data/chars/2badgirl10/blk05.gif
+	frame	data/chars/2badgirl10/blk04.gif
+	frame	data/chars/2badgirl10/blk03.gif
+	@cmd	stop
+	frame	data/chars/2badgirl10/blk02.gif
+	@cmd	clearL
+	frame	data/chars/2badgirl10/blk01.gif
+		
+anim	follow17
+@script
+	void self = getlocalvar("self");
+	int eTime = openborvariant("elapsed_time");
+	if (frame == 1)
+	{
+	changeentityproperty(self, "invincible", 1);
+	changeentityproperty(self, "invinctime", eTime + 1000);
+	changeentityproperty(self, "blink", 1);
+	}
+	@end_script	
+	loop	0
+	delay	800
+	offset	108 191
+	bbox	0 0 0 0
+	frame	data/chars/2badgirl10/empty.gif
+	delay	120
+	frame	data/chars/2badgirl10/ch03.gif
+	delay	12
+	frame	data/chars/2badgirl10/ch02.gif
+	frame	data/chars/2badgirl10/ch01.gif
+	frame	data/chars/2badgirl10/b00.gif
+	offset	108 165
+	frame	data/chars/2badgirl10/slamck13.gif
+		
+anim	follow5
+	loop	0
+	delay	3
+	offset	108 191
+	bbox	0 0 0 0
+	fastattack	1
+	hitflash	flashscreen1
+	forcedirection	-1
+	hitfx	data/sounds/beat5.wav
+	frame	data/chars/2badgirl10/rise14.gif
+	@cmd	clearL
+	sound	data/sounds/bgirl08.wav
+	frame	data/chars/2badgirl10/rise14.gif
 	delay	5
-	frame	data/chars/2badgirl10/empty.gif
-	frame	data/chars/2badgirl10/ch04.gif
-	frame	data/chars/2badgirl10/empty.gif
-	frame	data/chars/2badgirl10/ch04.gif
-	frame	data/chars/2badgirl10/empty.gif
-	frame	data/chars/2badgirl10/ch04.gif
-	frame	data/chars/2badgirl10/empty.gif
-	frame	data/chars/2badgirl10/ch04.gif #12
-	frame	data/chars/2badgirl10/empty.gif
-	frame	data/chars/2badgirl10/ch04.gif
-
-
-
-
-
-
-
-
-
+	move	3
+	frame	data/chars/2badgirl10/rise13.gif
+	sound	data/sounds/super1.wav
+	@cmd	spawnbind2 "allsp" 1 1 1 "ANI_FOLLOW1"
+	frame	data/chars/2badgirl10/rise12.gif
+	frame	data/chars/2badgirl10/rise11.gif
+	frame	data/chars/2badgirl10/rise10.gif
+	delay	2
+	frame	data/chars/2badgirl10/rise5.gif #6
+	move	2
+	hitfx	data/sounds/beat5.wav
+	attack10	73 85 110 55 15 1 1 0 9 30
+	dropv	1.5 1 0
+	frame	data/chars/2badgirl10/rise5.gif
+	sound	data/sounds/punch2.wav
+	frame	data/chars/2badgirl10/rise6.gif
+	frame	data/chars/2badgirl10/rise6.gif
+	attack10	0 0 0 0
+	frame	data/chars/2badgirl10/rise7.gif
+	frame	data/chars/2badgirl10/rise7.gif
+	frame	data/chars/2badgirl10/rise8.gif
+	frame	data/chars/2badgirl10/rise8.gif
+	frame	data/chars/2badgirl10/rise9.gif
+	frame	data/chars/2badgirl10/rise9.gif
+	frame	data/chars/2badgirl10/rise10.gif
+	frame	data/chars/2badgirl10/rise10.gif
+	@cmd	looper 6 3
+	delay	8
+	frame	data/chars/2badgirl10/rise4.gif
+	move	0
+	frame	data/chars/2badgirl10/rise3.gif #35
+	frame	data/chars/2badgirl10/rise2.gif
+	frame	data/chars/2badgirl10/rise1.gif
+	@cmd	clearL
+	frame	data/chars/2badgirl10/rise15.gif
+	frame	data/chars/2badgirl10/rise16.gif
+		
+anim	follow6
+	loop	0
+	delay	11
+	offset	108 191
+	bbox	0 0 0 0
+	frame	data/chars/2badgirl10/ch02.gif
+	@cmd	degravity 0
+	frame	data/chars/2badgirl10/ch01.gif
+	frame	data/chars/2badgirl10/b00.gif
+	offset	108 165
+	frame	data/chars/2badgirl10/slamck13.gif
+	offset	108 191
+	frame	data/chars/2badgirl10/idle06.gif
+	delay	12
+	frame	data/chars/2badgirl10/idle07a.gif
+	frame	data/chars/2badgirl10/idle07b.gif
+	frame	data/chars/2badgirl10/idle07a.gif
+	frame	data/chars/2badgirl10/idle07b.gif
+	frame	data/chars/2badgirl10/idle07a.gif
+	frame	data/chars/2badgirl10/idle07b.gif
+	frame	data/chars/2badgirl10/idle07a.gif
+	frame	data/chars/2badgirl10/idle07b.gif
+		
+anim	follow8
+	loop	0
+	delay	4
+	offset	108 191
+	bbox	0 0 0 0
+	landframe	72
+	fastattack	1
+	forcedirection	-1
+	@cmd	stop
+	frame	data/chars/2badgirl10/blk16.gif
+	hitfx	data/sounds/beat2.wav
+	frame	data/chars/2badgirl10/runatk02.gif
+	frame	data/chars/2badgirl10/runatk03.gif
+	attack	110 105 70 60 2 0 1 0 5 20
+	frame	data/chars/2badgirl10/runatk04.gif
+	attack	0 0 0 0
+	frame	data/chars/2badgirl10/runatk05.gif
+	frame	data/chars/2badgirl10/a101.gif
+	frame	data/chars/2badgirl10/a101a.gif
+	attack2	110 105 70 60 2 0 1 0 20 20
+	frame	data/chars/2badgirl10/a102.gif
+	attack2	0 0 0 0
+	frame	data/chars/2badgirl10/a103.gif
+	@cmd	looper 1 5
+	frame	data/chars/2badgirl10/rise16.gif
+	hitfx	data/sounds/beat1.wav
+	frame	data/chars/2badgirl10/a105.gif
+	frame	data/chars/2badgirl10/a106.gif
+	attack	110 105 70 60 2 0 1 0 5 20
+	frame	data/chars/2badgirl10/a107.gif
+	attack	0 0 0 0
+	frame	data/chars/2badgirl10/a108.gif
+	frame	data/chars/2badgirl10/runatk11.gif
+	frame	data/chars/2badgirl10/runatk13.gif
+	attack	110 105 70 60 2 0 1 0 3 20
+	frame	data/chars/2badgirl10/runatk16.gif
+	attack	0 0 0 0
+	frame	data/chars/2badgirl10/runatk17.gif
+	@cmd	looper 10 6
+	sound	data/sounds/bgirl08.wav
+	frame	data/chars/2badgirl10/rise16.gif
+	hitfx	data/sounds/beat5.wav
+	delay	6
+	sound	data/sounds/punch1.wav
+	frame	data/chars/2badgirl10/spa01.gif
+	move	1
+	frame	data/chars/2badgirl10/spa02.gif
+	hitflash	Flash3
+	frame	data/chars/2badgirl10/spa03.gif
+	attack10	65 73 110 100 5 1 1 0 60 30
+	dropv	3 0 0
+	frame	data/chars/2badgirl10/spa04.gif
+	frame	data/chars/2badgirl10/spa05.gif
+	attack10	0 0 0 0
+	frame	data/chars/2badgirl10/spa06.gif
+	frame	data/chars/2badgirl10/spa07.gif
+	frame	data/chars/2badgirl10/rise16.gif
+	sound	data/sounds/punch1.wav
+	frame	data/chars/2badgirl10/spa01.gif
+	frame	data/chars/2badgirl10/spa02.gif
+	frame	data/chars/2badgirl10/spa03.gif
+	attack10	65 73 110 100 5 1 1 0 60 30
+	dropv	3 0 0
+	frame	data/chars/2badgirl10/spa04.gif
+	frame	data/chars/2badgirl10/spa05.gif
+	attack10	0 0 0 0
+	frame	data/chars/2badgirl10/spa06.gif
+	frame	data/chars/2badgirl10/spa07.gif
+	frame	data/chars/2badgirl10/rise16.gif
+	sound	data/sounds/punch1.wav
+	frame	data/chars/2badgirl10/spa01.gif
+	frame	data/chars/2badgirl10/spa02.gif
+	frame	data/chars/2badgirl10/spa03.gif
+	attack10	65 73 110 100 5 1 1 0 60 30
+	dropv	3 0 0
+	frame	data/chars/2badgirl10/spa04.gif
+	frame	data/chars/2badgirl10/spa05.gif
+	attack10	0 0 0 0
+	frame	data/chars/2badgirl10/spa06.gif
+	frame	data/chars/2badgirl10/spa07.gif
+	frame	data/chars/2badgirl10/rise16.gif
+	delay	5
+	move	0
+	hitfx	data/sounds/beat3.wav
+	sound	data/sounds/bgirl02.wav
+	frame	data/chars/2badgirl10/rise14.gif
+	@cmd	leaper 0 4 0
+	frame	data/chars/2badgirl10/rise12.gif
+	frame	data/chars/2badgirl10/rise11.gif
+	frame	data/chars/2badgirl10/rise10.gif
+	delay	2
+	frame	data/chars/2badgirl10/rise5.gif
+	attack10	65 73 110 100 5 1 1 0 5 30
+	dropv	1.1 0 0
+	frame	data/chars/2badgirl10/rise5.gif
+	sound	data/sounds/punch2.wav
+	frame	data/chars/2badgirl10/rise6.gif
+	@cmd	leaper 0 0.5 0
+	frame	data/chars/2badgirl10/rise6.gif
+	attack10	0 0 0 0
+	frame	data/chars/2badgirl10/rise7.gif
+	frame	data/chars/2badgirl10/rise7.gif
+	frame	data/chars/2badgirl10/rise8.gif
+	frame	data/chars/2badgirl10/rise8.gif
+	frame	data/chars/2badgirl10/rise9.gif
+	@cmd	leaper 0 0.5 0
+	frame	data/chars/2badgirl10/rise9.gif
+	frame	data/chars/2badgirl10/rise10.gif
+	frame	data/chars/2badgirl10/rise10.gif
+	@cmd	looper 47 9
+	delay	9
+	@cmd	leaper 0 2 0
+	sound	data/sounds/bgirl02.wav
+	frame	data/chars/2badgirl10/slamck4.gif
+	attack10	65 73 110 100 5 1 1 1 1 30
+	dropv	2 0 0
+	hitfx	data/sounds/beat4.wav
+	frame	data/chars/2badgirl10/upk04.gif
+	attack10	0 0 0 0
+	frame	data/chars/2badgirl10/spa15.gif
+	delay	6
+	staydown	500 500
+	hitflash	flashscreen2
+	attack	65 73 110 100 150 1 1 0 85 30
+	dropv	4 1 0
+	frame	data/chars/2badgirl10/spa16.gif
+	@cmd	leaper 0 1 0
+	frame	data/chars/2badgirl10/spa17.gif
+	frame	data/chars/2badgirl10/spa18.gif
+	@cmd	leaper 0 1 0
+	frame	data/chars/2badgirl10/spa10.gif
+	attack	0 0 0 0
+	frame	data/chars/2badgirl10/spa11.gif
+	frame	data/chars/2badgirl10/spa10.gif
+	frame	data/chars/2badgirl10/spa11.gif
+	frame	data/chars/2badgirl10/spa10.gif
+	frame	data/chars/2badgirl10/spa11.gif
+	@cmd	looper 67 15
+	delay	9
+	frame	data/chars/2badgirl10/rise16.gif
+	frame	data/chars/2badgirl10/rise16.gif
+	frame	data/chars/2badgirl10/rise15.gif
+	frame	data/chars/2badgirl10/rise15a.gif
+	frame	data/chars/2badgirl10/rise16.gif
+		
+anim	forwardjump
+@script
+	void self = getlocalvar("self");
+	if (frame == 0 )
+	{
+        changeentityproperty(self, "aggression", 20);
+	}
+	@end_script	
+	loop	1 6 12
+	delay	5
+	offset	108 191
+	bbox	101 85 35 35
+	frame	data/chars/2badgirl10/2grab02.gif
+	frame	data/chars/2badgirl10/2grab03.gif
+	frame	data/chars/2badgirl10/2grab04.gif
+	frame	data/chars/2badgirl10/2grab05.gif
+	frame	data/chars/2badgirl10/2grab05a.gif
+	frame	data/chars/2badgirl10/2grab05b.gif
+	delay	3
+	frame	data/chars/2badgirl10/2grab05c.gif
+	frame	data/chars/2badgirl10/2grab05d.gif
+	frame	data/chars/2badgirl10/2grab05c.gif
+	frame	data/chars/2badgirl10/2grab05d.gif
+	frame	data/chars/2badgirl10/2grab05c.gif
+	frame	data/chars/2badgirl10/2grab05d.gif
+	frame	data/chars/2badgirl10/2grab05c.gif
+	frame	data/chars/2badgirl10/2grab05d.gif
+		
+anim	freespecial1
+	energycost	12
+	mponly	1
+	loop	0
+	delay	6
+	offset	108 191
+	bbox	0 0 0 0
+	fastattack	1
+	forcedirection	-1
+	staydown	400 400
+	jumpframe	4 5 1
+	landframe	17
+	hitflash	flashscreen1
+	hitfx	data/sounds/beat4.wav
+	@cmd	dasher 1.5 0 0
+	frame	data/chars/2badgirl10/1grab01.gif
+	offset	108 160
+	sound	data/sounds/bgirl08.wav
+	frame	data/chars/2badgirl10/1grab06b.gif
+	frame	data/chars/2badgirl10/1grab07.gif
+	frame	data/chars/2badgirl10/1grab08.gif
+	offset	108 191
+	attack10	85 57 60 110 60 1 1 0 20 15
+	dropv	5 0.5 0
+	frame	data/chars/2badgirl10/upper03.gif
+	delay	5
+	frame	data/chars/2badgirl10/upper04.gif
+	frame	data/chars/2badgirl10/upper05.gif
+	attack10	0 0 0 0
+	@cmd	looper 5 3
+	frame	data/chars/2badgirl10/upper06.gif
+	frame	data/chars/2badgirl10/upper07.gif
+	frame	data/chars/2badgirl10/upper08.gif
+	frame	data/chars/2badgirl10/2grab03.gif
+	frame	data/chars/2badgirl10/2grab04.gif
+	frame	data/chars/2badgirl10/2grab05c.gif
+	frame	data/chars/2badgirl10/2grab05d.gif
+	frame	data/chars/2badgirl10/2grab05c.gif
+	frame	data/chars/2badgirl10/2grab05d.gif
+	@cmd	looper 12 10
+	delay	5
+	frame	data/chars/2badgirl10/2grab00.gif
+	frame	data/chars/2badgirl10/2grab00.gif
+	frame	data/chars/2badgirl10/2grab00.gif
+		
+anim	freespecial12
+@script
+	void self = getlocalvar("self");
+	void aggro = getentityproperty(self,"aggression");
+	void mana = getentityproperty(self,"mp");
+	if (aggro >= 90 && frame >= 0 && (mana>=20))
+	{
+	performattack(getlocalvar("self"), openborconstant("ANI_freespecial14"));
+	}
+	else if (frame == 0)
+	{
+	changeentityproperty(self, "aggression", aggro+10);
+	}
+	if (aggro >= 90 && frame >= 0 && (mana<=19))
+	{
+ 	performattack(getlocalvar("self"), openborconstant("ANI_freespecial31"));
+	}
+	@end_script	
+	loop	0
+	delay	7
+	offset	108 191
+	bbox	95 100 30 70
+	fastattack	1
+	cancel	4 10 1 a freespecial13
+	hitfx	data/sounds/beat5.wav
+	frame	data/chars/2badgirl10/b09.gif
+	frame	data/chars/2badgirl10/b10.gif
+	attack	100 100 100 40 7 0 1 0 15 0
+	frame	data/chars/2badgirl10/b08.gif
+	frame	data/chars/2badgirl10/b05.gif
+	frame	data/chars/2badgirl10/b09.gif
+	attack	0 0 0 0
+	delay	6
+	frame	data/chars/2badgirl10/b10.gif #5
+	frame	data/chars/2badgirl10/b10.gif
+	frame	data/chars/2badgirl10/b11.gif
+	frame	data/chars/2badgirl10/b11.gif
+	frame	data/chars/2badgirl10/b12.gif
+	frame	data/chars/2badgirl10/b12.gif #10
+	frame	data/chars/2badgirl10/blk16.gif
+		
+anim	freespecial13
+@script
+	void self = getlocalvar("self");
+	void aggro = getentityproperty(self,"aggression");
+	void mana = getentityproperty(self,"mp");
+	if (aggro >= 90 && frame >= 0 && (mana>=20))
+	{
+	performattack(getlocalvar("self"), openborconstant("ANI_freespecial14"));
+	}
+	else if (frame == 0)
+	{
+	changeentityproperty(self, "aggression", aggro+10);
+	}
+	if (aggro >= 90 && frame >= 0 && (mana<=19))
+	{
+ 	performattack(getlocalvar("self"), openborconstant("ANI_freespecial31"));
+	}
+	@end_script	
+	loop	0
+	delay	7
+	offset	108 191
+	bbox	95 100 30 70
+	fastattack	1
+	cancel	4 10 1 a freespecial12
+	hitfx	data/sounds/beat5.wav
+	frame	data/chars/2badgirl10/b09.gif
+	frame	data/chars/2badgirl10/b10.gif
+	attack2	110 130 90 40 7 0 1 0 15 0
+	frame	data/chars/2badgirl10/b08a.gif
+	frame	data/chars/2badgirl10/b05a.gif
+	frame	data/chars/2badgirl10/b09.gif
+	attack2	0 0 0 0
+	delay	6
+	frame	data/chars/2badgirl10/b10.gif #5
+	frame	data/chars/2badgirl10/b10.gif
+	frame	data/chars/2badgirl10/b11.gif
+	frame	data/chars/2badgirl10/b11.gif
+	frame	data/chars/2badgirl10/b12.gif
+	frame	data/chars/2badgirl10/b12.gif #10
+	frame	data/chars/2badgirl10/blk16.gif
+		
+anim	freespecial14
+@script
+	void self = getlocalvar("self");
+	if (frame == 0 )
+	{
+        changeentityproperty(self, "aggression", 20);
+	}
+	@end_script	
+	range	70 200
+	loop	0
+	delay	8
+	offset	108 191
+	bbox	0 0 0 0
+	fastattack	1
+	hitflash	flashscreen1
+	hitfx	data/sounds/beat4.wav
+	sound	data/sounds/super1.wav
+	@cmd	spawnbind2 "allsp" 1 1 1 "ANI_FOLLOW1"
+	@cmd	mpgain -15
+	staydown	400 400
+	@cmd	dasher 0.5 0 0
+	frame	data/chars/2badgirl10/blk16.gif
+	frame	data/chars/2badgirl10/b00.gif
+	attack2	90 90 90 65 0 0 1 1 0 20
+	sound	data/sounds/bgirl07.wav
+	frame	data/chars/2badgirl10/b01.gif
+	attack2	0 0 0 0
+	frame	data/chars/2badgirl10/b02.gif
+	frame	data/chars/2badgirl10/b03.gif
+	frame	data/chars/2badgirl10/b04.gif
+	delay	12
+	attack9	100 90 90 45 80 1 1 0 65 20
+	dropv	2 2 0
+	frame	data/chars/2badgirl10/b05.gif
+	@cmd	stop
+	frame	data/chars/2badgirl10/b06.gif
+	frame	data/chars/2badgirl10/b07.gif
+	attack9	0 0 0 0
+	frame	data/chars/2badgirl10/b09.gif
+	move	0
+	frame	data/chars/2badgirl10/b10.gif
+	frame	data/chars/2badgirl10/b11.gif
+	frame	data/chars/2badgirl10/b12.gif
+	frame	data/chars/2badgirl10/blk16.gif
+		
 anim	freespecial15
 	loop	0
 	delay	9
@@ -121,7 +1054,7 @@ anim	freespecial15
 	frame	data/chars/2badgirl10/ch04.gif
 	delay	70
 	frame	data/chars/2badgirl10/ch03.gif
-	@cmd	spawnAni3 "movelist" 1 1 1 "ANI_FOLLOW7"
+	@cmd	spawnChild2  "toturi3" 1 1 1 "ANI_FOLLOW16"
 	frame	data/chars/2badgirl10/ch03.gif
 	delay	9
 	frame	data/chars/2badgirl10/ch02.gif
@@ -129,14 +1062,460 @@ anim	freespecial15
 	frame	data/chars/2badgirl10/b00.gif
 	offset	108 165
 	frame	data/chars/2badgirl10/slamck13.gif
+		
+anim	freespecial2
+@script
+	void self = getlocalvar("self");
+	void plyr = getentityproperty(self, "playerindex");
+	void aggro = getentityproperty(self,"aggression");
 
+	if(frame == 5)
+	{
+		changeentityproperty(self, "aggression", aggro+10);
+	}
 
+	if(frame >= 11 && frame <= 15 && playerkeys(plyr, 0, "jump") && aggro != 70)
+	{
+		updateframe(self, 3);
+	}
+	else if(frame <= 15 && aggro >= 70)
+	{
+		performattack(self, openborconstant("ANI_FOLLOW5"));
+	}
+	@end_script	
+	loop	0
+	delay	6
+	offset	108 191
+	bbox	102 108 25 60
+	fastattack	1
+	forcedirection	-1
+	landframe	20
+	hitfx	data/sounds/beat2.wav
+	frame	data/chars/2badgirl10/2grab00.gif
+	@cmd	leaper 1 2 0
+	frame	data/chars/2badgirl10/2grab02.gif
+	frame	data/chars/2badgirl10/2grab03.gif
+	bbox	95 99 26 30
+	frame	data/chars/2badgirl10/upk01.gif
+	attack10	87 101 90 70 7 1 1 0 15 30
+	dropv	1.7 0.4 0
+	@cmd	leaper 0.3 0.6 0
+	frame	data/chars/2badgirl10/upk02.gif
+	sound	data/sounds/bgirl07.wav
+	@cmd	leaper 0.3 0.6 0
+	frame	data/chars/2badgirl10/upk03.gif
+	attack10	0 0 0 0
+	@cmd	leaper 0.3 0.6 0
+	frame	data/chars/2badgirl10/upk04.gif
+	@cmd	leaper 0.3 0.6 0
+	frame	data/chars/2badgirl10/upk05.gif
+	attack10	87 101 90 70 7 1 1 0 15 30
+	dropv	1 0.3 0
+	@cmd	leaper 0.3 0.5 0
+	frame	data/chars/2badgirl10/upk06.gif
+	sound	data/sounds/bgirl07.wav
+	@cmd	leaper 0.3 0.5 0
+	frame	data/chars/2badgirl10/upk07.gif
+	attack10	0 0 0 0
+	delay	1
+	frame	data/chars/2badgirl10/upk08.gif
+	frame	data/chars/2badgirl10/upk08.gif
+	frame	data/chars/2badgirl10/upk08.gif
+	frame	data/chars/2badgirl10/upk08.gif
+	frame	data/chars/2badgirl10/upk08.gif
+	frame	data/chars/2badgirl10/upk08.gif
+	delay	5
+	frame	data/chars/2badgirl10/upk08.gif
+	frame	data/chars/2badgirl10/2grab03.gif
+	frame	data/chars/2badgirl10/2grab05a.gif
+	delay	200
+	frame	data/chars/2badgirl10/2grab05b.gif
+	delay	4
+	frame	data/chars/2badgirl10/rise16.gif
+	frame	data/chars/2badgirl10/rise16.gif
+		
+anim	freespecial27
+	energycost	75
+	mponly	1
+	loop	0
+	delay	8
+	offset	145 204
+	bbox	0 0 0 0
+	followanim	8
+	followcond	1
+	fastattack	1
+	forcedirection	-1
+	seal	7 1
+	offset	108 165
+	bbox	0 0 0 0
+	hitfx	data/sounds/empty.wav
+	frame	data/chars/2badgirl10/slamck13.gif
+	offset	108 191
+	sound	data/sounds/bgirl03.wav
+	frame	data/chars/2badgirl10/b00.gif
+	sound	data/sounds/super1.wav
+	@cmd	spawnbind "allsp" 10 1 3
+	frame	data/chars/2badgirl10/ch01.gif
+	frame	data/chars/2badgirl10/ch02.gif
+	frame	data/chars/2badgirl10/ch03.gif
+	delay	60
+	frame	data/chars/2badgirl10/ch04.gif
+	delay	5
+	frame	data/chars/2badgirl10/rise15.gif
+	sound	data/sounds/slowm.wav
+	frame	data/chars/2badgirl10/rise15a.gif
+	frame	data/chars/2badgirl10/rise14.gif
+	delay	2
+	frame	data/chars/2badgirl10/run06.gif
+	move	4
+	@cmd	keymove 1.2
+	frame	data/chars/2badgirl10/run06.gif
+	frame	data/chars/2badgirl10/run06.gif
+	@cmd	keymove 1.2
+	frame	data/chars/2badgirl10/run06.gif
+	move	6
+	frame	data/chars/2badgirl10/run06.gif
+	@cmd	keymove 1.2
+	frame	data/chars/2badgirl10/run06.gif
+	frame	data/chars/2badgirl10/run06.gif
+	move	7
+	@cmd	keymove 1.2
+	frame	data/chars/2badgirl10/run06.gif
+	attack	110 105 35 60 0 0 1 1 10 20
+	frame	data/chars/2badgirl10/run06.gif
+	@cmd	keymove 1.2
+	frame	data/chars/2badgirl10/run05.gif
+	frame	data/chars/2badgirl10/run05.gif
+	@cmd	keymove 1.2
+	frame	data/chars/2badgirl10/run06.gif
+	frame	data/chars/2badgirl10/run06.gif
+	@cmd	keymove 1.2
+	frame	data/chars/2badgirl10/run05.gif
+	frame	data/chars/2badgirl10/run05.gif
+	@cmd	keymove 1.2
+	frame	data/chars/2badgirl10/run01.gif
+	frame	data/chars/2badgirl10/run01.gif
+	@cmd	keymove 1.2
+	frame	data/chars/2badgirl10/run02.gif
+	frame	data/chars/2badgirl10/run02.gif
+	@cmd	keymove 1.2
+	frame	data/chars/2badgirl10/run03.gif
+	frame	data/chars/2badgirl10/run03.gif
+	@cmd	keymove 1.2
+	frame	data/chars/2badgirl10/run04.gif
+	frame	data/chars/2badgirl10/run04.gif
+	attack	0 0 0 0
+	@cmd	keymove 1.2
+	frame	data/chars/2badgirl10/rise15.gif
+	frame	data/chars/2badgirl10/rise15.gif
+	@cmd	keymove 1.2
+	frame	data/chars/2badgirl10/rise15.gif
+	frame	data/chars/2badgirl10/rise15.gif
+	@cmd	keymove 1.2
+	frame	data/chars/2badgirl10/rise15a.gif
+	frame	data/chars/2badgirl10/rise15a.gif
+	@cmd	keymove 1.2
+	frame	data/chars/2badgirl10/rise15b.gif
+	frame	data/chars/2badgirl10/rise15b.gif
+	@cmd	keymove 1.2
+	frame	data/chars/2badgirl10/blk12.gif
+	move	0
+	@cmd	stop
+	frame	data/chars/2badgirl10/blk12.gif
+	delay	10
+	frame	data/chars/2badgirl10/blk13.gif
+	frame	data/chars/2badgirl10/blk14.gif
+	frame	data/chars/2badgirl10/blk15.gif
+		
+anim	freespecial29
+@script
+	void self = getlocalvar("self");
+	int mp1 = getentityproperty(self,"mp");
+	void plyr = getentityproperty(self, "playerindex");
 
-#--------------------//--extra-super-//-----------------------
-#------------spawnAni3(void vName, float fX, float fY, float fZ, void Ani)----
-#-----------------------------------------------------------------------------
+	if(frame >= 11 && playerkeys(plyr, 0, "attack3"))
+	{
+	  updateframe(self, 4);
+	}
+	@end_script	
+	loop	0
+	delay	7
+	offset	108 165
+	bbox	93 75 35 91
+	sound	data/sounds/bgirl03.wav
+	frame	data/chars/2badgirl10/slamck13.gif
+	offset	108 191
+	bbox	93 100 35 91
+	frame	data/chars/2badgirl10/b00.gif
+	frame	data/chars/2badgirl10/ch01.gif
+	frame	data/chars/2badgirl10/ch02.gif
+	delay	2
+	frame	data/chars/2badgirl10/ch05.gif
+	frame	data/chars/2badgirl10/ch03.gif
+	frame	data/chars/2badgirl10/ch06.gif
+	frame	data/chars/2badgirl10/ch04.gif
+	@cmd	mpgain 1
+	frame	data/chars/2badgirl10/ch07.gif
+	frame	data/chars/2badgirl10/ch03.gif
+	frame	data/chars/2badgirl10/ch08.gif
+	frame	data/chars/2badgirl10/ch04.gif
+	frame	data/chars/2badgirl10/ch03.gif
+	frame	data/chars/2badgirl10/ch03.gif
+	delay	7
+	frame	data/chars/2badgirl10/ch02.gif
+	frame	data/chars/2badgirl10/ch01.gif
+		
+anim	freespecial30
+@script
+	void self = getlocalvar("self");
+	if (frame == 0 )
+	{
+        changeentityproperty(self, "aggression", 20);
+	}
+	@end_script	
+	loop	0
+	delay	7
+	offset	108 191
+	bbox	0 0 0 0
+	fastattack	1
+	forcedirection	-1
+	staydown	200 200
+	hitflash	flashscreen1
+	hitfx	data/sounds/empty.wav
+	frame	data/chars/2badgirl10/runatk05.gif
+	sound	data/sounds/super1.wav
+	frame	data/chars/2badgirl10/runatk02.gif
+	move	-4
+	sound	data/sounds/bgirl07.wav
+	attack6	112 90 95 47 0 0 1 1 0 30
+	frame	data/chars/2badgirl10/runatk01.gif
+	attack6	0 0 0 0
+	frame	data/chars/2badgirl10/rise16.gif
+	attack6	112 90 95 47 0 0 1 0 0 30
+	frame	data/chars/2badgirl10/runatk10.gif
+	attack6	0 0 0 0
+	frame	data/chars/2badgirl10/runatk11.gif
+	delay	15
+	move	0
+	attack6	112 90 95 47 0 0 1 1 0 30
+	frame	data/chars/2badgirl10/runatk12.gif
+	attack6	0 0 0 0
+	delay	8
+	hitfx	data/sounds/beat4.wav
+	@cmd	dasher 2 0 0
+	frame	data/chars/2badgirl10/runatk13.gif
+	delay	3
+	attack	112 90 84 47 40 1 1 0 20 10
+	dropv	1 2
+	frame	data/chars/2badgirl10/runatk14.gif
+	frame	data/chars/2badgirl10/runatk15.gif
+	frame	data/chars/2badgirl10/runatk14.gif
+	frame	data/chars/2badgirl10/runatk15.gif
+	delay	20
+	frame	data/chars/2badgirl10/runatk16.gif
+	attack	0 0 0 0
+	@cmd	stop
+	delay	30
+	frame	data/chars/2badgirl10/runatk16.gif
+	delay	10
+	frame	data/chars/2badgirl10/runatk17.gif
+	frame	data/chars/2badgirl10/blk16.gif
+	frame	data/chars/2badgirl10/a101a.gif
+	frame	data/chars/2badgirl10/a101.gif
+		
+anim	freespecial31
+@script
+	void self = getlocalvar("self");
+	if (frame == 0 )
+	{
+        changeentityproperty(self, "aggression", 20);
+	}
+	@end_script	
+	range	70 200
+	loop	0
+	delay	8
+	offset	108 191
+	bbox	0 0 0 0
+	fastattack	1
+	hitflash	flashscreen1
+	hitfx	data/sounds/beat4.wav
+	sound	data/sounds/super1.wav
+	staydown	100 100
+	@cmd	dasher 0.5 0 0
+	frame	data/chars/2badgirl10/blk16.gif
+	frame	data/chars/2badgirl10/b00.gif
+	attack2	90 90 90 65 0 0 1 1 0 20
+	sound	data/sounds/bgirl07.wav
+	frame	data/chars/2badgirl10/b01.gif
+	attack2	0 0 0 0
+	frame	data/chars/2badgirl10/b02.gif
+	frame	data/chars/2badgirl10/b03.gif
+	frame	data/chars/2badgirl10/b04.gif
+	delay	12
+	attack9	100 90 90 45 40 1 1 0 65 20
+	dropv	2 2 0
+	frame	data/chars/2badgirl10/b05.gif
+	@cmd	stop
+	frame	data/chars/2badgirl10/b06.gif
+	frame	data/chars/2badgirl10/b07.gif
+	attack9	0 0 0 0
+	frame	data/chars/2badgirl10/b09.gif
+	move	0
+	frame	data/chars/2badgirl10/b10.gif
+	frame	data/chars/2badgirl10/b11.gif
+	frame	data/chars/2badgirl10/b12.gif
+	frame	data/chars/2badgirl10/blk16.gif
+		
+anim	freespecial4
+@script
+	void self = getlocalvar("self");
+	void aggro = getentityproperty(self,"aggression");
+	void mana = getentityproperty(self,"mp");
+	if (aggro >= 90 && frame >= 0 && (mana>=16))
+	{
+	performattack(getlocalvar("self"), openborconstant("ANI_freespecial6"));
+	}
+	else if (frame == 0)
+	{
+	changeentityproperty(self, "aggression", aggro+10);
+	}
+	if (aggro >= 90 && frame >= 0 && (mana<=15))
+	{
+ 	performattack(getlocalvar("self"), openborconstant("ANI_freespecial30"));
+	}
+	@end_script	
+	loop	0
+	delay	6
+	offset	108 191
+	bbox	92 115 40 50
+	fastattack	1
+	cancel	5 11 1 a freespecial5
+	forcedirection	-1
+	hitfx	data/sounds/beat5.wav
+	frame	data/chars/2badgirl10/runatk01.gif
+	frame	data/chars/2badgirl10/runatk02.gif
+	attack2	105 104 85 35 10 0 1 0 15 20
+	frame	data/chars/2badgirl10/runatk06.gif
+	frame	data/chars/2badgirl10/runatk07.gif
+	attack2	0 0 0 0
+	delay	2
+	frame	data/chars/2badgirl10/runatk08.gif
+	frame	data/chars/2badgirl10/runatk08.gif
+	frame	data/chars/2badgirl10/runatk08.gif
+	frame	data/chars/2badgirl10/runatk08.gif
+	frame	data/chars/2badgirl10/runatk02.gif
+	frame	data/chars/2badgirl10/runatk02.gif
+	frame	data/chars/2badgirl10/runatk02.gif
+	frame	data/chars/2badgirl10/runatk01.gif
+	frame	data/chars/2badgirl10/runatk01.gif
+	frame	data/chars/2badgirl10/runatk01.gif
+		
+anim	freespecial5
+@script
+	void self = getlocalvar("self");
+	void aggro = getentityproperty(self,"aggression");
+	void mana = getentityproperty(self,"mp");
+	if (aggro >= 90 && frame >= 0 && (mana>=20))
+	{
+	performattack(getlocalvar("self"), openborconstant("ANI_freespecial6"));
+	}
+	else if (frame == 0)
+	{
+	changeentityproperty(self, "aggression", aggro+10);
+	}
+	if (aggro >= 90 && frame >= 0 && (mana<=19))
+	{
+ 	performattack(getlocalvar("self"), openborconstant("ANI_freespecial30"));
+	}
+	@end_script	
+	loop	0
+	delay	6
+	offset	108 191
+	bbox	92 115 40 50
+	fastattack	1
+	cancel	5 11 1 a freespecial4
+	forcedirection	-1
+	hitfx	data/sounds/beat5.wav
+	frame	data/chars/2badgirl10/runatk01.gif
+	frame	data/chars/2badgirl10/runatk02.gif
+	attack2	105 104 85 35 11 0 1 0 15 20
+	frame	data/chars/2badgirl10/runatk03.gif
+	frame	data/chars/2badgirl10/runatk04.gif
+	attack2	0 0 0 0
+	delay	2
+	frame	data/chars/2badgirl10/runatk05.gif
+	frame	data/chars/2badgirl10/runatk05.gif #5
+	frame	data/chars/2badgirl10/runatk05.gif
+	frame	data/chars/2badgirl10/runatk05.gif
+	frame	data/chars/2badgirl10/runatk02.gif
+	frame	data/chars/2badgirl10/runatk02.gif
+	frame	data/chars/2badgirl10/runatk02.gif
+	frame	data/chars/2badgirl10/runatk01.gif
+	frame	data/chars/2badgirl10/runatk01.gif #11
+	frame	data/chars/2badgirl10/runatk01.gif
+		
+anim	freespecial6
+@script
+	void self = getlocalvar("self");
+	if (frame == 0 )
+	{
+        changeentityproperty(self, "aggression", 20);
+	}
+	@end_script	
+	loop	0
+	delay	7
+	offset	108 191
+	bbox	0 0 0 0
+	fastattack	1
+	forcedirection	-1
+	staydown	500 500
+	hitfx	data/sounds/empty.wav
+	hitflash	flashscreen1
+	frame	data/chars/2badgirl10/runatk05.gif
+	sound	data/sounds/super1.wav
+	@cmd	spawnbind2 "allsp" 1 1 1 "ANI_FOLLOW1"
+	@cmd	mpgain -15
+	frame	data/chars/2badgirl10/runatk02.gif
+	move	-4
+	sound	data/sounds/bgirl07.wav
+	attack6	112 90 95 47 0 0 1 1 0 30
+	frame	data/chars/2badgirl10/runatk01.gif
+	attack6	0 0 0 0
+	frame	data/chars/2badgirl10/rise16.gif
+	attack6	112 90 95 47 0 0 1 0 0 30
+	frame	data/chars/2badgirl10/runatk10.gif
+	attack6	0 0 0 0
+	frame	data/chars/2badgirl10/runatk11.gif
+	delay	15
+	move	0
+	attack6	112 90 95 47 0 0 1 1 0 30
+	frame	data/chars/2badgirl10/runatk12.gif
+	attack6	0 0 0 0
+	delay	8
+	hitfx	data/sounds/beat4.wav
+	@cmd	dasher 2 0 0
+	frame	data/chars/2badgirl10/runatk13.gif
+	delay	3
+	attack	112 90 84 47 80 1 1 0 65 30
+	dropv	2 3
+	frame	data/chars/2badgirl10/runatk14.gif
+	frame	data/chars/2badgirl10/runatk15.gif
+	frame	data/chars/2badgirl10/runatk14.gif
+	frame	data/chars/2badgirl10/runatk15.gif
+	@cmd	looper 10 3
+	delay	20
+	frame	data/chars/2badgirl10/runatk16.gif
+	attack	0 0 0 0
+	@cmd	stop
+	delay	30
+	frame	data/chars/2badgirl10/runatk16.gif
+	delay	10
+	frame	data/chars/2badgirl10/runatk17.gif
+	frame	data/chars/2badgirl10/blk16.gif
+	frame	data/chars/2badgirl10/a101a.gif
+	frame	data/chars/2badgirl10/a101.gif
+		
 anim	freespecial8
-
 @script
 	void self = getlocalvar("self");
 	void vSpawn;
@@ -170,7 +1549,7 @@ anim	freespecial8
 
 	if (frame == 33 )
 	{
-	changelevelproperty("scrollspeed", 0);
+	//changelevelproperty("scrollspeed", 0);
 	//changeentityproperty(self, "subject_to_wall", 0);
 	changeentityproperty(self, "subject_to_obstacle", 0);
 	changeentityproperty(self, "subject_to_platform", 0);
@@ -179,22 +1558,21 @@ anim	freespecial8
 
 	if (frame == 40 )
 	{
-	changelevelproperty("scrollspeed", 1);
+	//changelevelproperty("scrollspeed", 1);
 	changeentityproperty(self, "subject_to_wall", 1);
 	changeentityproperty(self, "subject_to_obstacle", 1);
 	changeentityproperty(self, "subject_to_platform", 1);
 	changeentityproperty(self, "subject_to_hole", 1);
 	}
-@end_script
-
+	@end_script	
 	loop	0
 	delay	8
-	energycost 100
+	energycost	95
 	mponly	1
 	offset	108 191
 	bbox	0 0 0 0
-	jumpframe 13 3 0
-	landframe 29
+	jumpframe	13 3 0
+	landframe	29
 	frame	data/chars/2badgirl10/ch01.gif
 	frame	data/chars/2badgirl10/ch02.gif #1
 	@cmd	spawnbind "allsp" 10 1 3
@@ -208,7 +1586,6 @@ anim	freespecial8
 	frame	data/chars/2badgirl10/c1.gif #6
 	frame	data/chars/2badgirl10/sp03.gif
 	frame	data/chars/2badgirl10/sp04.gif #8
-	#@cmd	spawnAni3 "angelbed" 270 300 190 "ANI_FOLLOW1" 
 	frame	data/chars/2badgirl10/sp05.gif
 	sound	data/sounds/bgirl12.wav
 	frame	data/chars/2badgirl10/sp05.gif
@@ -294,1019 +1671,12 @@ anim	freespecial8
 	frame	data/chars/2badgirl10/rise1.gif
 	frame	data/chars/2badgirl10/rise15.gif
 	frame	data/chars/2badgirl10/rise16.gif
-
-
-
-
-anim	follow6
-	loop	0
-	delay	11
-	offset	108 191
-	bbox	0 0 0 0
-	frame	data/chars/2badgirl10/ch02.gif
-	@cmd	degravity 0
-	frame	data/chars/2badgirl10/ch01.gif
-	frame	data/chars/2badgirl10/b00.gif
-	offset	108 165
-	frame	data/chars/2badgirl10/slamck13.gif
-	offset	108 191
-	frame	data/chars/2badgirl10/idle06.gif
-	delay	12
-	frame	data/chars/2badgirl10/idle07a.gif
-	frame	data/chars/2badgirl10/idle07b.gif
-	frame	data/chars/2badgirl10/idle07a.gif
-	frame	data/chars/2badgirl10/idle07b.gif
-	frame	data/chars/2badgirl10/idle07a.gif
-	frame	data/chars/2badgirl10/idle07b.gif
-	frame	data/chars/2badgirl10/idle07a.gif
-	frame	data/chars/2badgirl10/idle07b.gif
-
-
-
-#--------------------//-grab-escape-beds-//-----------------------
-
-
-anim	follow17
-@script
-	void self = getlocalvar("self");
-	int eTime = openborvariant("elapsed_time");
-	if (frame == 1)
-	{
-	changeentityproperty(self, "invincible", 1);
-	changeentityproperty(self, "invinctime", eTime + 1000);
-	changeentityproperty(self, "blink", 1);
-	}
-@end_script
-	loop	0
-	delay	800
-	offset	108 191
-	bbox	0 0 0 0
-	frame	data/chars/2badgirl10/empty.gif
-	delay	120
-	frame	data/chars/2badgirl10/ch03.gif
-	delay	12
-	frame	data/chars/2badgirl10/ch02.gif
-	frame	data/chars/2badgirl10/ch01.gif
-	frame	data/chars/2badgirl10/b00.gif
-	offset	108 165
-	frame	data/chars/2badgirl10/slamck13.gif
-
-
-
-anim	follow15
-@script
-	void self = getlocalvar("self");
-   	void opp = getentityproperty(self, "opponent");
-	int enedir = getentityproperty(opp,"direction");
-	if (frame == 0 && enedir == 0)
-	{
-	changeentityproperty(self, "direction", 1);
-	}
-	else if (frame == 0 && enedir == 1)
-	{
-	changeentityproperty(self, "direction", 0);
-	}
-@end_script
-	loop	0
-	delay	6
-	offset	108 191
-	bbox	0 0 0 0
-	jumpframe 0 3 -1
-	landframe 7
-	frame	data/chars/2badgirl10/2grab02.gif
-	frame	data/chars/2badgirl10/2grab03.gif
-	frame	data/chars/2badgirl10/2grab04.gif
-	frame	data/chars/2badgirl10/2grab05.gif
-	frame	data/chars/2badgirl10/2grab05a.gif
-	frame	data/chars/2badgirl10/2grab05b.gif
-	delay	300
-	frame	data/chars/2badgirl10/2grab05c.gif
-	delay	9
-	frame	data/chars/2badgirl10/2grab00.gif #7
-
-
-
-anim	follow16
-@script
-	void self = getlocalvar("self");
-   	void opp = getentityproperty(self, "opponent");
-	int enedir = getentityproperty(opp,"direction");
-	if (frame == 0 && enedir == 0)
-	{
-	changeentityproperty(self, "direction", 1);
-	}
-	else if (frame == 0 && enedir == 1)
-	{
-	changeentityproperty(self, "direction", 0);
-	}
-@end_script
-	loop	0
-	delay	6
-	offset	108 191
-	bbox	0 0 0 0
-	frame	data/chars/2badgirl10/blk11.gif
-	@cmd	dasher -3 0 0
-	frame	data/chars/2badgirl10/blk10.gif
-	frame	data/chars/2badgirl10/blk09.gif
-	frame	data/chars/2badgirl10/blk08.gif
-	frame	data/chars/2badgirl10/blk07.gif
-	frame	data/chars/2badgirl10/blk06.gif
-	frame	data/chars/2badgirl10/blk05.gif
-	frame	data/chars/2badgirl10/blk04.gif
-	frame	data/chars/2badgirl10/blk03.gif
-	@cmd	stop
-	frame	data/chars/2badgirl10/blk02.gif
-	@cmd	clearL
-	frame	data/chars/2badgirl10/blk01.gif
-
-
-
-
-#--------------------------------//-----------------------
-#--------------------//-------------//-----------------------
-
-anim	freespecial27
-	energycost	150
-	mponly	1
-	loop	0
-	delay	8
-	offset	145 204
-	bbox	0 0 0 0
-	followanim	8
-	followcond	1
-	fastattack	1
-	forcedirection	-1
-	seal	7 4
-	offset	108 165
-	bbox	0 0 0 0
-	hitfx	data/sounds/empty.wav
-	frame	data/chars/2badgirl10/slamck13.gif
-	offset	108 191
-	sound	data/sounds/bgirl03.wav
-	frame	data/chars/2badgirl10/b00.gif
-	sound	data/sounds/super1.wav
-	@cmd	spawnbind "allsp" 10 1 3
-	frame	data/chars/2badgirl10/ch01.gif
-	frame	data/chars/2badgirl10/ch02.gif
-	frame	data/chars/2badgirl10/ch03.gif
-	delay	60
-	frame	data/chars/2badgirl10/ch04.gif
-	delay	5
-	frame	data/chars/2badgirl10/rise15.gif
-	sound	data/sounds/slowm.wav
-	frame	data/chars/2badgirl10/rise15a.gif
-	frame	data/chars/2badgirl10/rise14.gif
-	delay	2
-	frame	data/chars/2badgirl10/run06.gif
-	move	4
-	@cmd	keymove 1.2
-	frame	data/chars/2badgirl10/run06.gif
-
-	frame	data/chars/2badgirl10/run06.gif
-	@cmd	keymove 1.2
-	frame	data/chars/2badgirl10/run06.gif
-	move	6
-	frame	data/chars/2badgirl10/run06.gif
-	@cmd	keymove 1.2
-	frame	data/chars/2badgirl10/run06.gif
-	frame	data/chars/2badgirl10/run06.gif
-	move	7
-	@cmd	keymove 1.2
-	frame	data/chars/2badgirl10/run06.gif
-	attack	110 105 35 60 0 0 1 1 10 0
-	frame	data/chars/2badgirl10/run06.gif
-	@cmd	keymove 1.2
-	frame	data/chars/2badgirl10/run06.gif
-	frame	data/chars/2badgirl10/run06.gif
-	@cmd	keymove 1.2
-	frame	data/chars/2badgirl10/run06.gif
-	frame	data/chars/2badgirl10/run06.gif
-	@cmd	keymove 1.2
-	frame	data/chars/2badgirl10/run06.gif
-	frame	data/chars/2badgirl10/run06.gif
-	@cmd	keymove 1.2
-	frame	data/chars/2badgirl10/run01.gif
-	frame	data/chars/2badgirl10/run01.gif
-	@cmd	keymove 1.2
-	frame	data/chars/2badgirl10/run02.gif
-	frame	data/chars/2badgirl10/run02.gif
-	@cmd	keymove 1.2
-	frame	data/chars/2badgirl10/run03.gif
-	frame	data/chars/2badgirl10/run03.gif
-	@cmd	keymove 1.2
-	frame	data/chars/2badgirl10/run04.gif
-	frame	data/chars/2badgirl10/run04.gif
-	attack	0 0 0 0
-	@cmd	keymove 1.2
-	frame	data/chars/2badgirl10/rise15.gif
-	frame	data/chars/2badgirl10/rise15.gif
-	@cmd	keymove 1.2
-	frame	data/chars/2badgirl10/rise15.gif
-	frame	data/chars/2badgirl10/rise15.gif
-	@cmd	keymove 1.2
-	frame	data/chars/2badgirl10/rise15a.gif
-	frame	data/chars/2badgirl10/rise15a.gif
-	@cmd	keymove 1.2
-	frame	data/chars/2badgirl10/rise15b.gif
-	frame	data/chars/2badgirl10/rise15b.gif
-	@cmd	keymove 1.2
-	frame	data/chars/2badgirl10/blk12.gif
-	move	0
-	@cmd	stop
-	frame	data/chars/2badgirl10/blk12.gif
-	delay	10
-	frame	data/chars/2badgirl10/blk13.gif
-	frame	data/chars/2badgirl10/blk14.gif
-	frame	data/chars/2badgirl10/blk15.gif
-
-
-
-
-anim	follow8
-	loop	0
-	delay	4
-	offset	108 191
-	bbox	0 0 0 0
-	landframe 72
-	fastattack	1
-	forcedirection	-1
-	@cmd	stop
-	frame	data/chars/2badgirl10/blk16.gif
-	hitfx	data/sounds/beat2.wav
-	frame	data/chars/2badgirl10/runatk02.gif #1
-	frame	data/chars/2badgirl10/runatk03.gif
-	attack	110 105 70 60 0 0 1 0 5 20
-	frame	data/chars/2badgirl10/runatk04.gif
-	attack	0 0 0 0
-	frame	data/chars/2badgirl10/runatk05.gif
-	frame	data/chars/2badgirl10/a101.gif
-	frame	data/chars/2badgirl10/a101a.gif
-	attack2	110 105 70 60 0 0 1 0 20 20
-	frame	data/chars/2badgirl10/a102.gif
-	attack2	0 0 0 0
-	frame	data/chars/2badgirl10/a103.gif
-	@cmd	looper 1 5
-
-
-	frame	data/chars/2badgirl10/rise16.gif
-	hitfx	data/sounds/beat1.wav
-	frame	data/chars/2badgirl10/a105.gif #10
-	frame	data/chars/2badgirl10/a106.gif
-	attack	110 105 70 60 0 0 1 0 5 20
-	frame	data/chars/2badgirl10/a107.gif
-	attack	0 0 0 0
-	frame	data/chars/2badgirl10/a108.gif
-	frame	data/chars/2badgirl10/runatk11.gif
-	frame	data/chars/2badgirl10/runatk13.gif
-	attack	110 105 70 60 0 0 1 0 3 20
-	frame	data/chars/2badgirl10/runatk16.gif
-	attack	0 0 0 0
-	frame	data/chars/2badgirl10/runatk17.gif
-	@cmd	looper 10 6
-
-
-	sound	data/sounds/bgirl08.wav
-	frame	data/chars/2badgirl10/rise16.gif
-	hitfx	data/sounds/beat5.wav
-	delay	6
-	sound	data/sounds/punch1.wav
-	frame	data/chars/2badgirl10/spa01.gif
-	move	1
-	frame	data/chars/2badgirl10/spa02.gif
-	hitflash	Flash3
-	frame	data/chars/2badgirl10/spa03.gif
-	attack10 65 73 110 100 0 1 1 0 60 20
-	dropv	3 0 0
-	frame	data/chars/2badgirl10/spa04.gif
-	frame	data/chars/2badgirl10/spa05.gif
-	attack10 0 0 0 0
-	frame	data/chars/2badgirl10/spa06.gif
-	frame	data/chars/2badgirl10/spa07.gif
-	frame	data/chars/2badgirl10/rise16.gif
-
-	sound	data/sounds/punch1.wav
-	frame	data/chars/2badgirl10/spa01.gif
-	frame	data/chars/2badgirl10/spa02.gif
-	frame	data/chars/2badgirl10/spa03.gif
-	attack10 65 73 110 100 0 1 1 0 60 20
-	dropv	3 0 0
-	frame	data/chars/2badgirl10/spa04.gif
-	frame	data/chars/2badgirl10/spa05.gif
-	attack10 0 0 0 0
-	frame	data/chars/2badgirl10/spa06.gif
-	frame	data/chars/2badgirl10/spa07.gif
-	frame	data/chars/2badgirl10/rise16.gif
-
-	sound	data/sounds/punch1.wav
-	frame	data/chars/2badgirl10/spa01.gif #35
-	frame	data/chars/2badgirl10/spa02.gif
-	frame	data/chars/2badgirl10/spa03.gif
-	attack10 65 73 110 100 0 1 1 0 60 20
-	dropv	3 0 0
-	frame	data/chars/2badgirl10/spa04.gif
-	frame	data/chars/2badgirl10/spa05.gif
-	attack10 0 0 0 0
-	frame	data/chars/2badgirl10/spa06.gif
-	frame	data/chars/2badgirl10/spa07.gif
-	frame	data/chars/2badgirl10/rise16.gif
-	delay	5
-	move	0
-	hitfx	data/sounds/beat3.wav
-	sound	data/sounds/bgirl02.wav
-	frame	data/chars/2badgirl10/rise14.gif
-	@cmd	leaper 0 4 0
-	frame	data/chars/2badgirl10/rise12.gif
-	frame	data/chars/2badgirl10/rise11.gif
-	frame	data/chars/2badgirl10/rise10.gif
-	delay	2
-	frame	data/chars/2badgirl10/rise5.gif #47
-	attack10 65 73 110 100 0 1 1 0 5 20
-	dropv	1.1 0 0
-	frame	data/chars/2badgirl10/rise5.gif
-	sound	data/sounds/punch2.wav
-	frame	data/chars/2badgirl10/rise6.gif
-	@cmd	leaper 0 0.5 0
-	frame	data/chars/2badgirl10/rise6.gif
-	attack10 0 0 0 0
-	frame	data/chars/2badgirl10/rise7.gif
-	frame	data/chars/2badgirl10/rise7.gif
-	frame	data/chars/2badgirl10/rise8.gif
-	frame	data/chars/2badgirl10/rise8.gif
-	frame	data/chars/2badgirl10/rise9.gif
-	@cmd	leaper 0 0.5 0
-	frame	data/chars/2badgirl10/rise9.gif
-	frame	data/chars/2badgirl10/rise10.gif
-	frame	data/chars/2badgirl10/rise10.gif
-	@cmd	looper 47 9
-	delay	9
-	@cmd	leaper 0 2 0
-	sound	data/sounds/bgirl02.wav
-	frame	data/chars/2badgirl10/slamck4.gif
-	attack10 65 73 110 100 0 1 1 1 1 20
-	dropv	2 0 0
-	hitfx	data/sounds/beat4.wav
-	frame	data/chars/2badgirl10/upk04.gif
-	attack10 0 0 0 0
-	frame	data/chars/2badgirl10/spa15.gif
-	delay	6
-	staydown 500 500
-	hitflash	flashscreen2
-	attack	65 73 110 100 320 1 1 0 85 20
-	dropv	4 1 0
-	frame	data/chars/2badgirl10/spa16.gif
-	@cmd	leaper 0 1 0
-	frame	data/chars/2badgirl10/spa17.gif
-	frame	data/chars/2badgirl10/spa18.gif
-	@cmd	leaper 0 1 0
-	frame	data/chars/2badgirl10/spa10.gif
-	attack	0 0 0 0
-	frame	data/chars/2badgirl10/spa11.gif
-	frame	data/chars/2badgirl10/spa10.gif #67
-	frame	data/chars/2badgirl10/spa11.gif
-	frame	data/chars/2badgirl10/spa10.gif
-	frame	data/chars/2badgirl10/spa11.gif
-	@cmd	looper 67 15
-	delay	9
-	frame	data/chars/2badgirl10/rise16.gif
-	frame	data/chars/2badgirl10/rise16.gif #72
-	frame	data/chars/2badgirl10/rise15.gif
-	frame	data/chars/2badgirl10/rise15a.gif
-	frame	data/chars/2badgirl10/rise16.gif
-
-
-
-
-anim	jump
-	loop	1 6 12
-	delay	5
-	offset	108 191
-	bbox	95 97 35 35
-	frame	data/chars/2badgirl10/2grab02.gif
-	frame	data/chars/2badgirl10/2grab03.gif
-	frame	data/chars/2badgirl10/2grab04.gif
-	frame	data/chars/2badgirl10/2grab05.gif
-	frame	data/chars/2badgirl10/2grab05a.gif
-	frame	data/chars/2badgirl10/2grab05b.gif
-	delay	3
-	frame	data/chars/2badgirl10/2grab05c.gif #6
-	frame	data/chars/2badgirl10/2grab05d.gif
-	frame	data/chars/2badgirl10/2grab05c.gif
-	frame	data/chars/2badgirl10/2grab05d.gif
-	frame	data/chars/2badgirl10/2grab05c.gif
-	frame	data/chars/2badgirl10/2grab05d.gif #12
-	frame	data/chars/2badgirl10/2grab05c.gif
-	frame	data/chars/2badgirl10/2grab05d.gif
-
-
-anim	jumpattack3
-	loop	0
-	delay	8
-	offset	108 191
-	bbox	95 97 35 35
-	hitfx	data/sounds/beat5.wav
-	frame	data/chars/2badgirl10/2grab03.gif
-	attack	0 0 0 0
-	sound	data/sounds/bgirl08.wav
-	frame	data/chars/2badgirl10/upk04.gif
-	delay	3
-	frame	data/chars/2badgirl10/spa15.gif
-	attack	45 95 135 70 40 1 0 0 25 20
-	dropv	3 3
-	frame	data/chars/2badgirl10/spa16.gif
-	frame	data/chars/2badgirl10/spa17.gif
-	frame	data/chars/2badgirl10/spa18.gif
-	delay	5
-	frame	data/chars/2badgirl10/spa10.gif
-	frame	data/chars/2badgirl10/spa11.gif
-	frame	data/chars/2badgirl10/spa10.gif
-	frame	data/chars/2badgirl10/spa11.gif
-	frame	data/chars/2badgirl10/spa10.gif
-	frame	data/chars/2badgirl10/spa11.gif
-	frame	data/chars/2badgirl10/spa10.gif
-	frame	data/chars/2badgirl10/spa11.gif
-	frame	data/chars/2badgirl10/spa10.gif
-	frame	data/chars/2badgirl10/spa11.gif
-	frame	data/chars/2badgirl10/spa10.gif
-	frame	data/chars/2badgirl10/spa11.gif
-	frame	data/chars/2badgirl10/spa10.gif
-	frame	data/chars/2badgirl10/spa11.gif
-
-
-
-
-anim	jumpattack
-	loop	0
-	delay	9
-	offset	108 191
-	bbox	95 97 35 35
-	hitfx	data/sounds/beat5.wav
-	frame	data/chars/2badgirl10/2grab05e.gif
-	frame	data/chars/2badgirl10/2grab05f.gif
-	sound	data/sounds/bgirl08.wav
-	frame	data/chars/2badgirl10/2grab05g.gif
-	delay	4
-	forcedirection	-1
-	staydown 500 500
-	attack	101 95 70 60 30 1 0 0 25 0
-	dropv	3 3
-	frame	data/chars/2badgirl10/2grab05h.gif #3
-	frame	data/chars/2badgirl10/2grab05i.gif
-	frame	data/chars/2badgirl10/2grab05h.gif
-	frame	data/chars/2badgirl10/2grab05i.gif
-	frame	data/chars/2badgirl10/2grab05h.gif
-	frame	data/chars/2badgirl10/2grab05i.gif
-	attack	0 0 0 0
-	@cmd	looper 3 15
-	delay	7
-	frame	data/chars/2badgirl10/2grab05f.gif
-	frame	data/chars/2badgirl10/2grab05e.gif
-	frame	data/chars/2badgirl10/2grab05.gif
-	frame	data/chars/2badgirl10/2grab04.gif
-	frame	data/chars/2badgirl10/2grab03.gif
-	frame	data/chars/2badgirl10/2grab02.gif
-	frame	data/chars/2badgirl10/2grab01.gif
-
-
-
-anim	jumpattack2
-	loop	0
-	delay	9
-	offset	108 191
-	bbox	95 97 35 35
-	forcedirection	-1
-	staydown 500 500
-	frame	data/chars/2badgirl10/1grab06a.gif
-	sound	data/sounds/bgirl08.wav
-	frame	data/chars/2badgirl10/1grab06b.gif
-	frame	data/chars/2badgirl10/1grab06c.gif
-	delay	4
-	blast	101 95 82 47 20 0 0 18 0
-	dropv	2 3
-	frame	data/chars/2badgirl10/1grab06d.gif
-	frame	data/chars/2badgirl10/1grab06e.gif
-	frame	data/chars/2badgirl10/1grab06d.gif
-	frame	data/chars/2badgirl10/1grab06e.gif
-	frame	data/chars/2badgirl10/1grab06d.gif
-	frame	data/chars/2badgirl10/1grab06e.gif
-	frame	data/chars/2badgirl10/1grab06d.gif
-	frame	data/chars/2badgirl10/1grab06e.gif
-	frame	data/chars/2badgirl10/1grab06d.gif
-	frame	data/chars/2badgirl10/1grab06e.gif
-	frame	data/chars/2badgirl10/1grab06d.gif
-	frame	data/chars/2badgirl10/1grab06e.gif
-
-
-
-
-
-anim	forwardjump
-@script
-	void self = getlocalvar("self");
-	if (frame == 0 )
-	{
-        changeentityproperty(self, "aggression", 20);
-	}
-@end_script
-	loop	1 6 12
-	delay	5
-	offset	108 191
-	bbox	95 97 35 35
-	frame	data/chars/2badgirl10/2grab02.gif
-	frame	data/chars/2badgirl10/2grab03.gif
-	frame	data/chars/2badgirl10/2grab04.gif
-	frame	data/chars/2badgirl10/2grab05.gif
-	frame	data/chars/2badgirl10/2grab05a.gif
-	frame	data/chars/2badgirl10/2grab05b.gif
-	delay	3
-	frame	data/chars/2badgirl10/2grab05c.gif #6
-	frame	data/chars/2badgirl10/2grab05d.gif
-	frame	data/chars/2badgirl10/2grab05c.gif
-	frame	data/chars/2badgirl10/2grab05d.gif
-	frame	data/chars/2badgirl10/2grab05c.gif
-	frame	data/chars/2badgirl10/2grab05d.gif #12
-	frame	data/chars/2badgirl10/2grab05c.gif
-	frame	data/chars/2badgirl10/2grab05d.gif
-
-
-anim	jumpdelay
-	loop	0
-	delay	6
-	offset	108 191
-	bbox	79 97 50 91
-	frame	data/chars/2badgirl10/2grab00.gif
-
-anim	jumpland
-	loop	0
-	delay	6
-	offset	108 191
-	bbox	79 97 50 91
-	frame	data/chars/2badgirl10/2grab00.gif
-
-
-
-anim	attack1
-	range	0 200
-	loop	0
-	delay	3
-	offset	108 191
-	bbox	93 97 35 91
-	hitfx	data/sounds/beat2.wav
-	frame	data/chars/2badgirl10/xa03.gif
-	@cmd	attackgrd -60 60 0 1 10 "ANI_FOLLOW10"
-	frame	data/chars/2badgirl10/xa04.gif
-	attack	101 91 78 35 12 0 0 0 3 0
-	frame	data/chars/2badgirl10/xa05.gif
-	delay	3
-	frame	data/chars/2badgirl10/xa06.gif
-	attack	0 0 0 0
-	frame	data/chars/2badgirl10/xa07.gif
-	frame	data/chars/2badgirl10/xa03.gif
-
-
-
-
-anim	follow10
-	loop	0
-	delay	9
-	offset	108 180
-	bbox	0 0 0 0
-	forcedirection	1
-	attackone	1
-	followanim	1
-	followcond	1
-	otg	2
-	jumpframe	0 2 0.5
-	landframe	4
-	hitfx	data/sounds/beat5.wav
-	hitflash	flashscreen1
-	frame	data/chars/2badgirl10/2grab02.gif
-	frame	data/chars/2badgirl10/2grab03.gif
-	frame	data/chars/2badgirl10/2grab04.gif
-	delay	300
-	frame	data/chars/2badgirl10/2grab05.gif
-	offset	135 185
-	delay	8
-	@cmd	flip
-	frame	data/chars/2badgirl10/1grab13.gif #4
-	staydown 370 370
-	attack11 85 170 65 25 50 1 0 0 12 10
-	dropv	1 0
-	frame	data/chars/2badgirl10/1grab14.gif
-	frame	data/chars/2badgirl10/1grab15.gif
-	attack11 0 0 0 0
-	offset	108 191
-	@cmd	flip
-	delay	9
-	frame	data/chars/2badgirl10/rise1.gif
-	frame	data/chars/2badgirl10/rise15.gif
-	frame	data/chars/2badgirl10/rise16.gif
-
-
-
-
-anim	follow1
-	loop	0
-	delay	8
-	offset	140 185
-	bbox	0 0 0 0
-	frame	data/chars/2badgirl10/1grab14.gif
-	frame	data/chars/2badgirl10/1grab15.gif
-	attack11 0 0 0 0
-	frame	data/chars/2badgirl10/1grab16.gif
-	frame	data/chars/2badgirl10/1grab17.gif
-	frame	data/chars/2badgirl10/1grab18.gif
-	frame	data/chars/2badgirl10/1grab19.gif
-	frame	data/chars/2badgirl10/1grab20.gif
-	frame	data/chars/2badgirl10/1grab21.gif
-	delay	40
-	frame	data/chars/2badgirl10/1grab22.gif
-	offset	108 191
-	@cmd	flip
-	delay	9
-	frame	data/chars/2badgirl10/rise1.gif
-	frame	data/chars/2badgirl10/rise15.gif
-	frame	data/chars/2badgirl10/rise16.gif
-
-
-anim	attack2
-	range	0 70
-	loop	0
-	delay	4
-	offset	108 191
-	bbox	91 100 35 75
-	move	1
-	frame	data/chars/2badgirl10/a101.gif
-	frame	data/chars/2badgirl10/a101a.gif
-	attack2	100 110 70 35 28 0 0 0 14 0
-	frame	data/chars/2badgirl10/a102.gif
-	frame	data/chars/2badgirl10/a102a.gif
-	attack2	0 0 0 0
-	move	0
-	frame	data/chars/2badgirl10/a103.gif
-	frame	data/chars/2badgirl10/a101a.gif
-	frame	data/chars/2badgirl10/a101.gif
-
-anim	attack3
-	range	0 70
-	loop	0
-	delay	5
-	offset	108 191
-	bbox	92 97 30 80
-	move	2
-	frame	data/chars/2badgirl10/a104.gif
-	frame	data/chars/2badgirl10/a105.gif
-	forcedirection	-1
-	attack10 100 77 55 65 40 1 1 0 40 15
-	dropv	5 0.7 0
-	frame	data/chars/2badgirl10/a106.gif
-	frame	data/chars/2badgirl10/a107.gif
-	frame	data/chars/2badgirl10/a108.gif
-	delay	7
-	move	0
-	frame	data/chars/2badgirl10/a109.gif
-	attack10 0 0 0 0
-	frame	data/chars/2badgirl10/a110.gif
-	frame	data/chars/2badgirl10/a111.gif
-
-anim	attack4
-	range	70 200
-	loop	0
-	delay	5
-	offset	108 191
-	bbox	95 100 30 70
-	fastattack	1
-	cancel	4 10 1 a freespecial13
-	hitfx	data/sounds/beat5.wav
-	move	5
-	frame	data/chars/2badgirl10/b01.gif
-	frame	data/chars/2badgirl10/b02.gif
-	sound	data/sounds/bgirl08.wav
-	frame	data/chars/2badgirl10/b03.gif
-	frame	data/chars/2badgirl10/b04.gif
-	attack 100 90 90 45 35 0 0 0 25 0
-	#dropv	2.5 0 0
-	frame	data/chars/2badgirl10/b05.gif #4
-	delay	6
-	frame	data/chars/2badgirl10/b06.gif
-	frame	data/chars/2badgirl10/b07.gif
-	attack 0 0 0 0
-	frame	data/chars/2badgirl10/b09.gif
-	move	0
-	frame	data/chars/2badgirl10/b10.gif
-	frame	data/chars/2badgirl10/b11.gif
-	frame	data/chars/2badgirl10/b12.gif #10
-	frame	data/chars/2badgirl10/blk16.gif
-
-
-anim	freespecial13
-@script
-	void self = getlocalvar("self");
-	void aggro = getentityproperty(self,"aggression");
-	if (aggro >= 90 && frame >= 0)
-	{
-	performattack(getlocalvar("self"), openborconstant("ANI_freespecial14"));
-	}
-	else if (frame == 0)
-	{
-	changeentityproperty(self, "aggression", aggro+10);
-	}
-@end_script
-	loop	0
-	delay	7
-	offset	108 191
-	bbox	95 100 30 70
-	fastattack	1
-	cancel	4 10 1 a freespecial12
-	hitfx	data/sounds/beat5.wav
-	frame	data/chars/2badgirl10/b09.gif
-	frame	data/chars/2badgirl10/b10.gif
-	attack2	110 130 90 40 18 0 1 0 15 0
-	frame	data/chars/2badgirl10/b08a.gif
-	frame	data/chars/2badgirl10/b05a.gif
-	frame	data/chars/2badgirl10/b09.gif
-	attack2 0 0 0 0
-	delay	6
-	frame	data/chars/2badgirl10/b10.gif #5
-	frame	data/chars/2badgirl10/b10.gif
-	frame	data/chars/2badgirl10/b11.gif
-	frame	data/chars/2badgirl10/b11.gif
-	frame	data/chars/2badgirl10/b12.gif
-	frame	data/chars/2badgirl10/b12.gif #10
-	frame	data/chars/2badgirl10/blk16.gif
-
-
-
-anim	freespecial12
-@script
-	void self = getlocalvar("self");
-	void aggro = getentityproperty(self,"aggression");
-	if (aggro >= 90 && frame >= 0)
-	{
-	performattack(getlocalvar("self"), openborconstant("ANI_freespecial14"));
-	}
-	else if (frame == 0)
-	{
-	changeentityproperty(self, "aggression", aggro+10);
-	}
-@end_script
-	loop	0
-	delay	7
-	offset	108 191
-	bbox	95 100 30 70
-	fastattack	1
-	cancel	4 10 1 a freespecial13
-	hitfx	data/sounds/beat5.wav
-	frame	data/chars/2badgirl10/b09.gif
-	frame	data/chars/2badgirl10/b10.gif
-	attack 100 100 100 40 15 0 1 0 15 0
-	#dropv	1.8 0 0
-	frame	data/chars/2badgirl10/b08.gif
-	frame	data/chars/2badgirl10/b05.gif
-	frame	data/chars/2badgirl10/b09.gif
-	attack 0 0 0 0
-	delay	6
-	frame	data/chars/2badgirl10/b10.gif #5
-	frame	data/chars/2badgirl10/b10.gif
-	frame	data/chars/2badgirl10/b11.gif
-	frame	data/chars/2badgirl10/b11.gif
-	frame	data/chars/2badgirl10/b12.gif
-	frame	data/chars/2badgirl10/b12.gif #10
-	frame	data/chars/2badgirl10/blk16.gif
-
-
-
-anim	freespecial14
-@script
-	void self = getlocalvar("self");
-	if (frame == 0 )
-	{
-        changeentityproperty(self, "aggression", 20);
-	}
-@end_script
-	range	70 200
-	loop	0
-	delay	8
-	offset	108 191
-	bbox	0 0 0 0
-	fastattack	1
-	hitflash	flashscreen1
-	hitfx	data/sounds/beat4.wav
-	sound	data/sounds/super1.wav
-	@cmd	spawnbind2 "allsp" 1 1 1 "ANI_FOLLOW1"
-	staydown	400 400
-	@cmd	dasher 0.5 0 0
-	frame	data/chars/2badgirl10/blk16.gif
-	frame	data/chars/2badgirl10/b00.gif
-	attack2	90 90 90 65 0 0 1 1 0 20
-	sound	data/sounds/bgirl07.wav
-	frame	data/chars/2badgirl10/b01.gif
-	attack2	0 0 0 0
-	frame	data/chars/2badgirl10/b02.gif
-	frame	data/chars/2badgirl10/b03.gif
-	frame	data/chars/2badgirl10/b04.gif
-	delay	12
-	attack9	100 90 90 45 95 1 1 0 65 20
-	dropv	2 2 0
-	frame	data/chars/2badgirl10/b05.gif #4
-	@cmd	stop
-	frame	data/chars/2badgirl10/b06.gif
-	frame	data/chars/2badgirl10/b07.gif
-	attack9 0 0 0 0
-	frame	data/chars/2badgirl10/b09.gif
-	move	0
-	frame	data/chars/2badgirl10/b10.gif
-	frame	data/chars/2badgirl10/b11.gif
-	frame	data/chars/2badgirl10/b12.gif #10
-	frame	data/chars/2badgirl10/blk16.gif
-
-
-
-
-anim	freespecial1
-	mponly	1
-	energycost	40
-	loop	0
-	delay	6
-	offset	108 191
-	bbox	0 0 0 0
-	fastattack	1
-	forcedirection	-1
-	staydown	400 400
-	jumpframe 4 5 1
-	landframe 17
-	hitflash	flashscreen1
-	hitfx	data/sounds/beat4.wav
-	@cmd	dasher 1.5 0 0
-	frame	data/chars/2badgirl10/1grab01.gif
-	offset	108 160
-	sound	data/sounds/bgirl08.wav
-	frame	data/chars/2badgirl10/1grab06b.gif
-	frame	data/chars/2badgirl10/1grab07.gif
-	frame	data/chars/2badgirl10/1grab08.gif
-	offset	108 191
-	attack10 85 57 60 110 35 1 1 0 20 30
-	dropv	5 0.5 0
-	frame	data/chars/2badgirl10/upper03.gif #4
-	delay	5
-	frame	data/chars/2badgirl10/upper04.gif
-	frame	data/chars/2badgirl10/upper05.gif
-	attack10 0 0 0 0
-	@cmd	looper 5 3
-	frame	data/chars/2badgirl10/upper06.gif
-	frame	data/chars/2badgirl10/upper07.gif
-	frame	data/chars/2badgirl10/upper08.gif
-	frame	data/chars/2badgirl10/2grab03.gif
-	frame	data/chars/2badgirl10/2grab04.gif
-	frame	data/chars/2badgirl10/2grab05c.gif #12
-	frame	data/chars/2badgirl10/2grab05d.gif
-	frame	data/chars/2badgirl10/2grab05c.gif
-	frame	data/chars/2badgirl10/2grab05d.gif
-	@cmd	looper 12 10
-	delay	5
-	frame	data/chars/2badgirl10/2grab00.gif #16
-	frame	data/chars/2badgirl10/2grab00.gif
-	frame	data/chars/2badgirl10/2grab00.gif
-
-
-#leaper( float Vx, float Vy, float Vz )
-
-anim	freespecial2
-@script
-	void self = getlocalvar("self");
-	void plyr = getentityproperty(self, "playerindex");
-	void aggro = getentityproperty(self,"aggression");
-
-	if(frame == 5)
-	{
-		changeentityproperty(self, "aggression", aggro+10);
-	}
-
-	if(frame >= 11 && frame <= 15 && playerkeys(plyr, 0, "jump") && aggro != 70)
-	{
-		updateframe(self, 3);
-	}
-	else if(frame <= 15 && aggro >= 70)
-	{
-		performattack(self, openborconstant("ANI_FOLLOW5"));
-	}
-@end_script
-	loop	0
-	delay	6
-	offset	108 191
-	mponly	1
-	energycost	60
-	bbox	0 0 0 0
-	fastattack	1
-	forcedirection	-1
-	landframe 20
-	hitfx	data/sounds/beat2.wav
-
-	frame	data/chars/2badgirl10/2grab00.gif
-	@cmd	leaper 1 2 0
-	frame	data/chars/2badgirl10/2grab02.gif
-	frame	data/chars/2badgirl10/2grab03.gif
-	bbox	95 99 22 23
-	frame	data/chars/2badgirl10/upk01.gif #3
-	attack10 87 101 90 70 15 1 1 0 15 30
-	dropv	1.7 0.4 0
-	@cmd	leaper 0.3 0.6 0
-	frame	data/chars/2badgirl10/upk02.gif
-	sound	data/sounds/bgirl07.wav
-	@cmd	leaper 0.3 0.6 0
-	frame	data/chars/2badgirl10/upk03.gif
-	attack10 0 0 0 0
-	@cmd	leaper 0.3 0.6 0
-	frame	data/chars/2badgirl10/upk04.gif
-	@cmd	leaper 0.3 0.6 0
-	frame	data/chars/2badgirl10/upk05.gif
-	attack10 87 101 90 70 15 1 1 0 15 30
-	dropv	1 0.3 0
-	@cmd	leaper 0.3 0.5 0
-	frame	data/chars/2badgirl10/upk06.gif
-	sound	data/sounds/bgirl07.wav
-	@cmd	leaper 0.3 0.5 0
-	frame	data/chars/2badgirl10/upk07.gif
-	attack10 0 0 0 0
-	delay	1
-	frame	data/chars/2badgirl10/upk08.gif #10
-	frame	data/chars/2badgirl10/upk08.gif
-	frame	data/chars/2badgirl10/upk08.gif
-	frame	data/chars/2badgirl10/upk08.gif
-	frame	data/chars/2badgirl10/upk08.gif
-	frame	data/chars/2badgirl10/upk08.gif #15
-	delay	5
-	frame	data/chars/2badgirl10/upk08.gif
-	frame	data/chars/2badgirl10/2grab03.gif
-	frame	data/chars/2badgirl10/2grab05a.gif
-	delay	200
-	frame	data/chars/2badgirl10/2grab05b.gif
-	delay	4
-	frame	data/chars/2badgirl10/rise16.gif #20
-	frame	data/chars/2badgirl10/rise16.gif
-
-
-
-
-
-
-
-anim	follow5
-	loop	0
-	delay	3
-	offset	108 191
-	bbox	0 0 0 0
-	fastattack	1
-	hitflash	flashscreen1
-	forcedirection	-1
-	hitfx	data/sounds/beat5.wav
-	frame	data/chars/2badgirl10/rise14.gif
-	@cmd	clearL
-	sound	data/sounds/bgirl08.wav
-	frame	data/chars/2badgirl10/rise14.gif
-	delay	5
-	move	3
-	frame	data/chars/2badgirl10/rise13.gif
-	sound	data/sounds/super1.wav
-	@cmd	spawnbind2 "allsp" 1 1 1 "ANI_FOLLOW1"
-	frame	data/chars/2badgirl10/rise12.gif
-	frame	data/chars/2badgirl10/rise11.gif
-	frame	data/chars/2badgirl10/rise10.gif
-	delay	2
-	frame	data/chars/2badgirl10/rise5.gif #6
-	move	2
-	hitfx	data/sounds/beat5.wav
-	attack10 73 85 110 55 25 1 1 0 9 30
-	dropv	1.5 1 0
-	frame	data/chars/2badgirl10/rise5.gif
-	sound	data/sounds/punch2.wav
-	frame	data/chars/2badgirl10/rise6.gif
-	frame	data/chars/2badgirl10/rise6.gif
-	attack10 0 0 0 0
-	frame	data/chars/2badgirl10/rise7.gif
-	frame	data/chars/2badgirl10/rise7.gif
-	frame	data/chars/2badgirl10/rise8.gif
-	frame	data/chars/2badgirl10/rise8.gif
-	frame	data/chars/2badgirl10/rise9.gif
-	frame	data/chars/2badgirl10/rise9.gif
-	frame	data/chars/2badgirl10/rise10.gif
-	frame	data/chars/2badgirl10/rise10.gif
-	@cmd	looper 6 3
-	delay	8
-	frame	data/chars/2badgirl10/rise4.gif
-	move	0
-	frame	data/chars/2badgirl10/rise3.gif #35
-	frame	data/chars/2badgirl10/rise2.gif
-	frame	data/chars/2badgirl10/rise1.gif
-	@cmd	clearL
-	frame	data/chars/2badgirl10/rise15.gif
-	frame	data/chars/2badgirl10/rise16.gif
-
-
+		
 anim	freespecial9
-	energycost 25
+	energycost	12
 	mponly	1
 	loop	0
-	landframe 21
+	landframe	21
 	delay	7
 	offset	108 191
 	bbox	95 110 30 40
@@ -1319,42 +1689,37 @@ anim	freespecial9
 	frame	data/chars/2badgirl10/b10.gif
 	sound	data/sounds/punch3.wav
 	frame	data/chars/2badgirl10/spa01.gif
-	attack10 92 60 85 95 35 1 1 0 12 30
+	attack10	92 60 85 95 30 1 1 0 12 30
 	dropv	4 1 0
 	@cmd	dasher 3 1 0
 	frame	data/chars/2badgirl10/spa02.gif
-	attack10 43 50 148 96 35 1 1 0 12 30
+	attack10	43 50 148 96 30 1 1 0 12 30
 	dropv	4.1 2 0
 	@cmd	dasher 3 2 0
 	frame	data/chars/2badgirl10/spa03.gif
-	attack10 57 72 125 105 35 1 1 0 12 30
+	attack10	57 72 125 105 30 1 1 0 12 30
 	dropv	4 1 0
-
 	@cmd	dasher 2 3 0
-
 	frame	data/chars/2badgirl10/spa04.gif
-	attack10 64 65 100 116 35 1 1 0 12 30
+	attack10	64 65 100 116 30 1 1 0 12 30
 	dropv	4.5 1 0
 	frame	data/chars/2badgirl10/spa05.gif
-	attack10 61 61 70 121 35 1 1 0 12 30
+	attack10	61 61 70 121 30 1 1 0 12 30
 	dropv	4 1 0
-
 	@cmd	dasher 0 3 0
-
 	frame	data/chars/2badgirl10/spa06.gif
-	attack10 46 95 60 60 35 1 1 0 12 30
+	attack10	46 95 60 60 30 1 1 0 12 30
 	dropv	4 1 0
 	frame	data/chars/2badgirl10/spa07.gif
-	attack10 0 0 0 0
-
+	attack10	0 0 0 0
 	frame	data/chars/2badgirl10/blk11.gif
 	offset	118 155
 	sound	data/sounds/punch3.wav
 	bbox	110 81 30 30
 	frame	data/chars/2badgirl10/2grab05ba.gif
-	hitfx  data/sounds/sl1.wav
-	hitflash Flash2
-	blast	80 70 90 62 65 1 0 52 30
+	hitfx	data/sounds/sl1.wav
+	hitflash	Flash2
+	blast	80 70 90 62 60 1 0 52 30
 	dropv	-1 5 0
 	frame	data/chars/2badgirl10/2grab05j.gif
 	frame	data/chars/2badgirl10/2grab05k.gif
@@ -1371,99 +1736,53 @@ anim	freespecial9
 	delay	12
 	offset	108 191
 	frame	data/chars/2badgirl10/rise16.gif #21
-
-
-
-anim	special
-	mponly	1
-	energycost	70
+		
+anim	get
 	loop	0
 	delay	8
 	offset	108 191
 	bbox	0 0 0 0
-	fastattack	1
-	jumpframe 0 2.5 1
-	landframe 5 dust
-	hitfx	data/sounds/beat5.wav
-	hitflash	Flash3
 	frame	data/chars/2badgirl10/rise16.gif
-	frame	data/chars/2badgirl10/rise14.gif
-	frame	data/chars/2badgirl10/rise13.gif
-	frame	data/chars/2badgirl10/rise12.gif
-	delay	300
-	frame	data/chars/2badgirl10/rise11.gif
-	delay	4
-	frame	data/chars/2badgirl10/rise10.gif #5
-	frame	data/chars/2badgirl10/rise10.gif
-	attack10 73 85 110 55 30 1 1 0 9 30
-	dropv	4 0.5 0
-	frame	data/chars/2badgirl10/rise5.gif #7
-	@cmd	keymove 1.1
-	frame	data/chars/2badgirl10/rise5.gif
-	@cmd	keymove 1.1
-	sound	data/sounds/punch2.wav
-	frame	data/chars/2badgirl10/rise6.gif
-	@cmd	keymove 1.1
-	frame	data/chars/2badgirl10/rise6.gif
-	attack10 0 0 0 0
-	@cmd	keymove 1.1
-	frame	data/chars/2badgirl10/rise7.gif
-	@cmd	keymove 1.1
-	frame	data/chars/2badgirl10/rise7.gif
-	@cmd	keymove 1.1
-	frame	data/chars/2badgirl10/rise8.gif
-	@cmd	keymove 1.1
-	frame	data/chars/2badgirl10/rise8.gif
-	@cmd	keymove 1.1
-	frame	data/chars/2badgirl10/rise9.gif
-	@cmd	keymove 1.1
-	frame	data/chars/2badgirl10/rise9.gif
-	@cmd	keymove 1.1
-	frame	data/chars/2badgirl10/rise10.gif
-	@cmd	keymove 1.1
-	frame	data/chars/2badgirl10/rise10.gif
-	@cmd	looper 7 10
-	delay	9
-	frame	data/chars/2badgirl10/rise4.gif
-	frame	data/chars/2badgirl10/rise3.gif
-	frame	data/chars/2badgirl10/rise2.gif
-	frame	data/chars/2badgirl10/rise1.gif
-	frame	data/chars/2badgirl10/rise15.gif
-	@cmd	clearL
+	frame	data/chars/2badgirl10/rise15b.gif
+	delay	15
+	frame	data/chars/2badgirl10/rise15a.gif
+	delay	8
+	frame	data/chars/2badgirl10/rise15b.gif
 	frame	data/chars/2badgirl10/rise16.gif
-
-
+		
 anim	grab
 	delay	9
 	offset	108 191
 	bbox	90 97 36 91
-	frame	data/chars/2badgirl10/idle04.gif
-	frame	data/chars/2badgirl10/idle05.gif
-	frame	data/chars/2badgirl10/idle06.gif
-	frame	data/chars/2badgirl10/idle07a.gif
-
-
+	frame	data/chars/2badgirl10/xa03.gif
+	frame	data/chars/2badgirl10/xa04.gif
+	frame	data/chars/2badgirl10/xa05.gif
+	frame	data/chars/2badgirl10/xa06.gif
+	frame	data/chars/2badgirl10/xa07.gif
+	frame	data/chars/2badgirl10/xa03.gif
+	frame	data/chars/2badgirl10/xa07.gif
+		
 anim	grabattack
 	delay	12
 	offset	108 191
 	bbox	90 97 36 91
 	frame	data/chars/2badgirl10/blk16.gif
-	attack2 100 110 45 55 14 0 0 0 9 0
+	attack2	100 110 45 55 15 0 0 0 9 0
 	frame	data/chars/2badgirl10/b11.gif
 	attack2	0 0 0 0
 	frame	data/chars/2badgirl10/b12.gif
-
-
+		
 anim	grabattack2
+	attackone	0
 	delay	8
 	offset	108 191
-	bbox	90 97 36 91
+	bbox	0 0 0 0
 	hitfx	data/sounds/beat5.wav
 	frame	data/chars/2badgirl10/blk16.gif
 	frame	data/chars/2badgirl10/1grab01.gif
 	frame	data/chars/2badgirl10/1grab02.gif
 	delay	3
-	attack10 80 70 65 80 30 1 0 0 35 0
+	attack10	80 70 65 80 40 1 0 0 35 0
 	dropv	6 0.2
 	frame	data/chars/2badgirl10/1grab02c.gif
 	frame	data/chars/2badgirl10/1grab02b.gif
@@ -1476,835 +1795,21 @@ anim	grabattack2
 	frame	data/chars/2badgirl10/1grab02c.gif
 	delay	11
 	frame	data/chars/2badgirl10/1grab02b.gif
-	attack10 0 0 0 0
+	attack10	0 0 0 0
 	delay	9
 	frame	data/chars/2badgirl10/1grab02a.gif
 	frame	data/chars/2badgirl10/1grab02.gif
 	frame	data/chars/2badgirl10/b11.gif
 	frame	data/chars/2badgirl10/b12.gif
-
-
-
-anim	grabforward
-	delay	7
-	offset	108 191
-	bbox	0 0 0 0
-	hitfx	data/sounds/beat5.wav
-	frame	data/chars/2badgirl10/blk12.gif
-	frame	data/chars/2badgirl10/blk13.gif
-	frame	data/chars/2badgirl10/blk14.gif
-	frame	data/chars/2badgirl10/blk15.gif
-	delay	4
-	move	3
-	frame	data/chars/2badgirl10/blk16.gif
-	frame	data/chars/2badgirl10/blk16.gif
-	frame	data/chars/2badgirl10/c1.gif
-	frame	data/chars/2badgirl10/c1.gif
-	frame	data/chars/2badgirl10/c2.gif
-	attack10 92 93 45 50 30 1 0 0 25 0
-	dropv	5 0.2
-	frame	data/chars/2badgirl10/c2.gif
-	frame	data/chars/2badgirl10/c3.gif
-	frame	data/chars/2badgirl10/c3.gif
-	delay	7
-	frame	data/chars/2badgirl10/c4.gif
-	attack10 0 0 0 0
-	move	0
-	frame	data/chars/2badgirl10/c5.gif
-	frame	data/chars/2badgirl10/c6.gif
-	frame	data/chars/2badgirl10/c4.gif
-	frame	data/chars/2badgirl10/c5.gif
-	frame	data/chars/2badgirl10/c4.gif
-	delay	9
-	frame	data/chars/2badgirl10/blk16.gif
-	frame	data/chars/2badgirl10/c1.gif
-
-
-
-
-
-anim	idle
-@script
-	void self = getlocalvar("self");
-	void aggro = getentityproperty(self,"aggression");
-	if (frame == 0 && aggro == 10)
-	{
-        changeentityproperty(self, "aggression", 20);
-	updateframe(self, 4);
-	}
-@end_script
-	loop	1 9 13
-	delay	12
-	offset	108 191
-	bbox	90 97 36 91
-	frame	data/chars/2badgirl10/idle04.gif
-	frame	data/chars/2badgirl10/idle05.gif
-	@cmd	clearL
-	frame	data/chars/2badgirl10/idle06.gif
-	frame	data/chars/2badgirl10/idle07.gif
-	frame	data/chars/2badgirl10/idle01.gif
-	frame	data/chars/2badgirl10/idle02.gif #5
-	frame	data/chars/2badgirl10/idle03.gif
-	frame	data/chars/2badgirl10/idle02.gif
-	frame	data/chars/2badgirl10/idle01.gif
-	frame	data/chars/2badgirl10/idle01.gif #9
-	frame	data/chars/2badgirl10/idle02.gif
-	frame	data/chars/2badgirl10/idle03.gif
-	frame	data/chars/2badgirl10/idle02.gif #13
-	frame	data/chars/2badgirl10/idle01.gif
-
-			
-anim	block
-	loop	0
-	delay	8
-	offset	108 191
-	bbox	90 97 36 65
-	frame	data/chars/2badgirl10/idle07.gif
-	frame	data/chars/2badgirl10/blkx01.gif
-	delay	20
-	frame	data/chars/2badgirl10/blkx02.gif
-
-
-
-
-
-anim	attackdown
-	loop	0
-	delay	6
-	offset	108 191
-	bbox	0 0 0 0
-	frame	data/chars/2badgirl10/rise15.gif
-	@cmd	dasher 2.7 0 0.7
-	frame	data/chars/2badgirl10/blk11.gif
-	frame	data/chars/2badgirl10/blk10.gif
-	frame	data/chars/2badgirl10/blk09.gif
-	frame	data/chars/2badgirl10/blk08.gif
-	frame	data/chars/2badgirl10/blk07.gif
-	frame	data/chars/2badgirl10/blk06.gif
-	frame	data/chars/2badgirl10/blk05.gif
-	frame	data/chars/2badgirl10/blk04.gif
-	@cmd	spawn01 "dust" 1 1 1
-	frame	data/chars/2badgirl10/blk03.gif
-	@cmd	stop
-	frame	data/chars/2badgirl10/blk02.gif
-	@cmd	clearL
-	frame	data/chars/2badgirl10/blk01.gif
-
-
-
 		
-anim	attackup
-	loop	0
-	delay	6
-	offset	108 191
-	bbox	0 0 0 0
-	frame	data/chars/2badgirl10/rise15.gif
-	@cmd	dasher 2.7 0 -0.7
-	frame	data/chars/2badgirl10/blk11.gif
-	frame	data/chars/2badgirl10/blk10.gif
-	frame	data/chars/2badgirl10/blk09.gif
-	frame	data/chars/2badgirl10/blk08.gif
-	frame	data/chars/2badgirl10/blk07.gif
-	frame	data/chars/2badgirl10/blk06.gif
-	frame	data/chars/2badgirl10/blk05.gif
-	frame	data/chars/2badgirl10/blk04.gif
-	@cmd	spawn01 "dust" 1 1 1
-	frame	data/chars/2badgirl10/blk03.gif
-	@cmd	stop
-	frame	data/chars/2badgirl10/blk02.gif
-	@cmd	clearL
-	frame	data/chars/2badgirl10/blk01.gif
-
-
-
-
-
-
-
-		
-anim	burn
-	loop	0
-	delay	25
-	offset	108 191
-	bbox	0 0 0 0
-	landframe	3
-	drawmethod	tintmode 4
-	drawmethod	tintcolor 200_50_0
-	@cmd	spawnbind "burn1" 1 1 1
-	@cmd	spawnbind "burn2" 1 1 1
-	@cmd	spawnbind "burn3" 1 1 1
-	attack	78 98 30 45 5 1 0 0 13 30
-	frame	data/chars/2badgirl10/fall1.gif
-	delay	15
-	attack	64 130 50 25 5 1 0 0 13 30
-	frame	data/chars/2badgirl10/fall2.gif
-	delay	500
-	frame	data/chars/2badgirl10/fall3.gif
-	attack	0 0 0 0
-	delay	15
-	frame	data/chars/2badgirl10/fall4.gif
-	frame	data/chars/2badgirl10/fall5.gif
-	frame	data/chars/2badgirl10/fall4.gif
-
-
-		
-anim	fall
-	loop	0
-	delay	25
-	offset	108 191
-	bbox	0 0 0 0
-	landframe	3
-	frame	data/chars/2badgirl10/fall1.gif
-	delay	15
-	frame	data/chars/2badgirl10/fall2.gif
-	delay	500
-	frame	data/chars/2badgirl10/fall3.gif
-	attack	0 0 0 0
-	delay	15
-	frame	data/chars/2badgirl10/fall4.gif
-	frame	data/chars/2badgirl10/fall5.gif
-	frame	data/chars/2badgirl10/fall4.gif
-
-
-
-anim	fall2
-	loop	0
-	delay	30
-	offset	108 191
-	bbox	0 0 0 0
-	landframe	3 dust
-	attack	87 104 28 44 5 1 0 0 30 30
-	frame	data/chars/2badgirl10/pain6.gif
-	attack	85 118 40 22 5 1 0 0 30 30
-	frame	data/chars/2badgirl10/fall2.gif
-	attack	0 0 0 0
-	delay	500
-	frame	data/chars/2badgirl10/fall3.gif
-	delay	10
-	frame	data/chars/2badgirl10/fall4.gif
-	delay	50
-	frame	data/chars/2badgirl10/fall4.gif
-
-
-anim	fall3
-	loop	0
-	delay	25
-	offset	108 191
-	bbox	79 95 62 45
-	landframe	3
-	frame	data/chars/2badgirl10/fall1.gif
-	delay	15
-	frame	data/chars/2badgirl10/fall2.gif
-	delay	500
-	bbox	81 133 61 34
-	frame	data/chars/2badgirl10/fall3.gif
-	attack	0 0 0 0
-	delay	15
-	bbox	0 0 0 0
-	frame	data/chars/2badgirl10/fall4.gif
-	frame	data/chars/2badgirl10/fall5.gif
-	frame	data/chars/2badgirl10/fall4.gif
-
-
-
-
-anim	fall7
-	delay	1000
-	offset	100 165
-	frame	data/chars/2badgirl10/slamck0.gif
-	offset	80 185
-	frame	data/chars/2badgirl10/pain1.gif
-	offset	115 145
-	frame	data/chars/2badgirl10/slamck2.gif
-	offset	95 150
-	frame	data/chars/2badgirl10/slamck3.gif
-	offset	95 155
-	frame	data/chars/2badgirl10/slamck12.gif
-	offset	125 140
-	frame	data/chars/2badgirl10/slamck7.gif
-	offset	106 135
-	frame	data/chars/2badgirl10/slamck12.gif
-	offset	90 175
-	frame	data/chars/2badgirl10/slamck11.gif
-	offset	110 135
-	frame	data/chars/2badgirl10/slamck14.gif
-	offset	115 160
-	frame	data/chars/2badgirl10/slamck18.gif
-	offset	115 160
-	frame	data/chars/2badgirl10/slamck19.gif
-	bbox	0 0 0 0
-	offset	103 150
-	frame	data/chars/2badgirl10/slamck5.gif
-	offset	130 135
-	frame	data/chars/2badgirl10/slamck7.gif
-	offset	124 100
-	frame	data/chars/2badgirl10/slamck8.gif
-	offset	105 125
-	frame	data/chars/2badgirl10/slamck1.gif
-	offset	85 180
-	frame	data/chars/2badgirl10/pain0.gif
-	offset	125 110
-	frame	data/chars/2badgirl10/slamck8.gif
-	offset	120 155
-	frame	data/chars/2badgirl10/slamck16.gif
-	offset	120 155
-	frame	data/chars/2badgirl10/slamck17.gif
-	offset	100 170
-	frame	data/chars/2badgirl10/slamck14.gif
-	offset	100 165
-	frame	data/chars/2badgirl10/slamck20.gif
-	offset	95 175
-	frame	data/chars/2badgirl10/slamck11.gif
-	offset	95 170
-	frame	data/chars/2badgirl10/slamck15.gif
-	offset	100 170
-	frame	data/chars/2badgirl10/slamck10.gif
-	offset	90 165
-	frame	data/chars/2badgirl10/slamck11.gif
-	offset	95 175
-	bbox	80 85 60 80
-	frame	data/chars/2badgirl10/slamck14.gif
-	bbox	0 0 0 0
-
-
-anim	fall9
-	loop	0
-	delay	10
-	offset	108 191
-	bbox	0 0 0 0
-	landframe	3 dust
-	attack	90 93 29 43 5 1 0 0 30 30
-	frame	data/chars/2badgirl10/fall1.gif
-	delay	37
-	attack	75 140 42 31 5 1 0 0 30 30
-	frame	data/chars/2badgirl10/fall3.gif
-	delay	500
-	attack	0 0 0 0
-	frame	data/chars/2badgirl10/fall3.gif
-	delay	10
-	frame	data/chars/2badgirl10/fall4.gif
-	delay	50
-	frame	data/chars/2badgirl10/fall4.gif
-		
-
-	
-anim	grabbed
-	loop	0
-	delay	10
-	offset	108 191
-	bbox	79 97 50 91
-	frame	data/chars/2badgirl10/grabbed.gif
-		
-		
-anim	pain
-	loop	0
-	delay	3
-	offset	108 191
-	bbox	79 97 50 91
-	frame	data/chars/2badgirl10/pain0.gif
-	offset	100 189
-	frame	data/chars/2badgirl10/pain1.gif
-	offset	107 189
-	frame	data/chars/2badgirl10/pain1.gif
-	delay	15
-	offset	100 189
-	frame	data/chars/2badgirl10/pain1.gif
-
-
-anim	pain2
-	loop	0
-	delay	3
-	offset	108 191
-	bbox	79 97 50 91
-	frame	data/chars/2badgirl10/pain0.gif
-	offset	100 189
-	frame	data/chars/2badgirl10/pain2.gif
-	offset	107 189
-	frame	data/chars/2badgirl10/pain2.gif
-	delay	15
-	offset	100 189
-	frame	data/chars/2badgirl10/pain2.gif
-
-
-
-anim	pain3
-	loop	0
-	delay	2
-	offset	108 191
-	bbox	79 97 50 91
-	move	-6
-	frame	data/chars/2badgirl10/pain1.gif
-	frame	data/chars/2badgirl10/pain1.gif
-	frame	data/chars/2badgirl10/pain1.gif
-	frame	data/chars/2badgirl10/pain2.gif
-	frame	data/chars/2badgirl10/pain2.gif
-	frame	data/chars/2badgirl10/pain2.gif
-	move	-3
-	frame	data/chars/2badgirl10/pain2.gif
-	frame	data/chars/2badgirl10/pain2.gif
-	move	-1
-	frame	data/chars/2badgirl10/pain2.gif
-	delay	15
-	frame	data/chars/2badgirl10/pain2.gif
-
-anim	pain5
-	loop	0
-	delay	10
-	offset	108 191
-	bbox	79 97 50 91
-	frame	data/chars/2badgirl10/pain0.gif
-	frame	data/chars/2badgirl10/pain1.gif
-	frame	data/chars/2badgirl10/pain0.gif
-	frame	data/chars/2badgirl10/pain2.gif
-	frame	data/chars/2badgirl10/rise15b.gif
-	frame	data/chars/2badgirl10/rise1.gif
-	frame	data/chars/2badgirl10/rise15a.gif
-	frame	data/chars/2badgirl10/rise15b.gif
-	frame	data/chars/2badgirl10/rise16.gif
-
-
-
-
-anim	pain6
-	loop	0
-	delay	12
-	offset	108 191
-	bbox	0 0 0 0
-	frame	data/chars/2badgirl10/pain0.gif
-	frame	data/chars/2badgirl10/pain2.gif
-	frame	data/chars/2badgirl10/pain1.gif
-	frame	data/chars/2badgirl10/fall2.gif
-	frame	data/chars/2badgirl10/fall3.gif
-	frame	data/chars/2badgirl10/fall4.gif
-	frame	data/chars/2badgirl10/fall5.gif
-	delay	700
-	frame	data/chars/2badgirl10/fall5.gif
-	delay	14
-	frame	data/chars/2badgirl10/rise0.gif
-	frame	data/chars/2badgirl10/rise1.gif
-	frame	data/chars/2badgirl10/rise15.gif
-	frame	data/chars/2badgirl10/rise16.gif
-		
-
-		
-anim	rise
-	loop	0
-	delay	45
-	offset	108 191
-	bbox	0 0 0 0
-	frame	data/chars/2badgirl10/fall4.gif
-	delay	11
-	frame	data/chars/2badgirl10/rise0.gif
-	frame	data/chars/2badgirl10/rise1.gif
-	frame	data/chars/2badgirl10/rise15.gif
-	frame	data/chars/2badgirl10/rise16.gif
-
-
-
-anim	death
-	loop	0
-	delay	45
-	offset	108 191
-	bbox	0 0 0 0
-	frame	data/chars/2badgirl10/fall4.gif
-	delay	11
-	frame	data/chars/2badgirl10/rise0.gif
-	frame	data/chars/2badgirl10/rise1.gif
-	frame	data/chars/2badgirl10/rise15a.gif
-	frame	data/chars/2badgirl10/rise15.gif
-	frame	data/chars/2badgirl10/rise16.gif
-	frame	data/chars/2badgirl10/pain0.gif
-	frame	data/chars/2badgirl10/pain1.gif
-	frame	data/chars/2badgirl10/fall1.gif
-	frame	data/chars/2badgirl10/fall2.gif
-	frame	data/chars/2badgirl10/fall3.gif
-	delay	8
-	frame	data/chars/2badgirl10/fall4.gif
-	frame	data/chars/2badgirl10/fall5.gif
-	frame	data/chars/2badgirl10/fall4.gif
-	frame	data/chars/2badgirl10/fall5.gif
-	delay	30
-	frame	data/chars/2badgirl10/fall4.gif
-
-
-		
-anim	spawn
-	loop	0
-	delay	70
-	offset	108 191
-	bbox	0 0 0 0
-	frame	data/chars/2badgirl10/sp05a.gif
-	delay	12
-	@cmd	degravity 0
-	frame	data/chars/2badgirl10/sp04a.gif
-	frame	data/chars/2badgirl10/sp03.gif
-
-
-
-anim	respawn
-	loop	0
-	delay	70
-	offset	108 191
-	bbox	0 0 0 0
-	frame	data/chars/2badgirl10/sp05a.gif
-	delay	12
-	@cmd	degravity 0
-	frame	data/chars/2badgirl10/sp04a.gif
-	frame	data/chars/2badgirl10/sp03.gif
-
-
-
-
-anim	walk
-@script
-	void self = getlocalvar("self");
-	if (frame == 0)
-	{
-	changeentityproperty(self, "aggression", 10);
-	}
-@end_script
-	loop	1
-	delay	8
-	offset	108 191
-	bbox	79 97 50 91
-	frame	data/chars/2badgirl10/wk01.gif
-	frame	data/chars/2badgirl10/wk02.gif
-	frame	data/chars/2badgirl10/wk03.gif
-	frame	data/chars/2badgirl10/wk04.gif
-	frame	data/chars/2badgirl10/wk05.gif
-	frame	data/chars/2badgirl10/wk06.gif
-	frame	data/chars/2badgirl10/wk07.gif
-	frame	data/chars/2badgirl10/wk08.gif
-	frame	data/chars/2badgirl10/wk09.gif
-	frame	data/chars/2badgirl10/wk10.gif
-	frame	data/chars/2badgirl10/wk11.gif
-	frame	data/chars/2badgirl10/wk12.gif
-
-
-anim	run
-	loop	1
-	delay	7
-	offset	108 187
-	bbox	92 115 40 50
-	frame	data/chars/2badgirl10/run01.gif
-	sound	data/sounds/run.wav
-	frame	data/chars/2badgirl10/run02.gif
-	delay	12
-	frame	data/chars/2badgirl10/run03.gif
-	delay	7
-	frame	data/chars/2badgirl10/run04.gif
-	sound	data/sounds/run.wav
-	frame	data/chars/2badgirl10/run05.gif
-	delay	12
-	frame	data/chars/2badgirl10/run06.gif
-
-
-
-anim	runslide
-	loop	0
-	delay	7
-	offset	108 191
-	bbox	90 150 35 35
-	hitfx	data/sounds/beat5.wav
-	@cmd	dasher 4 0 0
-	frame	data/chars/2badgirl10/rise1.gif
-	sound	data/sounds/punch3.wav
-	frame	data/chars/2badgirl10/rise2.gif
-	delay	9
-	attack 	103 104 70 70 25 1 0 0 20 0
-	dropv	4.5 -1 0
-	frame	data/chars/2badgirl10/rise3a.gif
-	delay	8
-	attack 	93 63 75 80 25 1 0 0 20 0
-	dropv	4.5 -1 0
-	frame	data/chars/2badgirl10/rise8a.gif
-	attack 	93 66 65 70 25 1 0 0 20 0
-	dropv	4.5 -1 0
-	@cmd	dasher 3 0 0
-	frame	data/chars/2badgirl10/rise9a.gif
-	attack 	85 80 50 70 25 1 0 0 20 0
-	dropv	4.5 -1 0
-	@cmd	dasher 1.5 0 0
-	frame	data/chars/2badgirl10/rise10a.gif
-	attack	0 0 0 0
-	delay	7
-	frame	data/chars/2badgirl10/rise11.gif
-	@cmd	stop
-	frame	data/chars/2badgirl10/rise12.gif
-	frame	data/chars/2badgirl10/rise14.gif
-	frame	data/chars/2badgirl10/rise16.gif
-
-
-
-anim	runattack
-	loop	0
-	delay	8
-	offset	108 191
-	bbox	92 115 40 50
-	fastattack	1
-	cancel	6 12 1 a freespecial4
-	forcedirection	-1
-	#hitfx	data/sounds/beat2.wav
-	@cmd	dasher 3 0 0
-	frame	data/chars/2badgirl10/rise16.gif
-	sound	data/sounds/bgirl02.wav
-	frame	data/chars/2badgirl10/runatk01.gif
-	@cmd	dasher 2 0 0
-	frame	data/chars/2badgirl10/runatk02.gif
-	attack8	105 104 78 35 25 0 0 0 20 0
-	frame	data/chars/2badgirl10/runatk03.gif
-	@cmd	stop
-	frame	data/chars/2badgirl10/runatk04.gif
-	attack8	0 0 0 0
-	delay	3
-	frame	data/chars/2badgirl10/runatk05.gif #5
-	frame	data/chars/2badgirl10/runatk05.gif #6
-	frame	data/chars/2badgirl10/runatk05.gif
-	frame	data/chars/2badgirl10/runatk05.gif
-	frame	data/chars/2badgirl10/runatk02.gif
-	frame	data/chars/2badgirl10/runatk02.gif
-	frame	data/chars/2badgirl10/runatk02.gif
-	frame	data/chars/2badgirl10/runatk01.gif
-	frame	data/chars/2badgirl10/runatk01.gif #12
-	frame	data/chars/2badgirl10/runatk01.gif
-
-
-
-anim	freespecial4
-
-@script
-	void self = getlocalvar("self");
-	void aggro = getentityproperty(self,"aggression");
-	if (aggro >= 90 && frame >= 0)
-	{
-	performattack(getlocalvar("self"), openborconstant("ANI_freespecial6"));
-	}
-	else if (frame == 0)
-	{
-	changeentityproperty(self, "aggression", aggro+10);
-	}
-@end_script
-
-	loop	0
-	delay	6
-	offset	108 191
-	bbox	92 115 40 50
-	fastattack	1
-	cancel	5 11 1 a freespecial5
-	forcedirection	-1
-	hitfx	data/sounds/beat5.wav
-	frame	data/chars/2badgirl10/runatk01.gif
-	frame	data/chars/2badgirl10/runatk02.gif
-	attack2	105 104 85 35 11 0 1 0 15 20
-	frame	data/chars/2badgirl10/runatk06.gif
-	frame	data/chars/2badgirl10/runatk07.gif
-	attack2	0 0 0 0
-	delay	2
-	frame	data/chars/2badgirl10/runatk08.gif
-	frame	data/chars/2badgirl10/runatk08.gif #5
-	frame	data/chars/2badgirl10/runatk08.gif
-	frame	data/chars/2badgirl10/runatk08.gif
-	frame	data/chars/2badgirl10/runatk02.gif
-	frame	data/chars/2badgirl10/runatk02.gif
-	frame	data/chars/2badgirl10/runatk02.gif
-	frame	data/chars/2badgirl10/runatk01.gif
-	frame	data/chars/2badgirl10/runatk01.gif #11
-	frame	data/chars/2badgirl10/runatk01.gif
-
-
-
-anim	freespecial5
-@script
-	void self = getlocalvar("self");
-	void aggro = getentityproperty(self,"aggression");
-	if (aggro >= 90 && frame >= 0)
-	{
-	performattack(getlocalvar("self"), openborconstant("ANI_freespecial6"));
-	}
-	else if (frame == 0)
-	{
-	changeentityproperty(self, "aggression", aggro+10);
-	}
-@end_script
-
-	loop	0
-	delay	6
-	offset	108 191
-	bbox	92 115 40 50
-	fastattack	1
-	cancel	5 11 1 a freespecial4
-	forcedirection	-1
-	hitfx	data/sounds/beat5.wav
-	frame	data/chars/2badgirl10/runatk01.gif
-	frame	data/chars/2badgirl10/runatk02.gif
-	attack2	105 104 85 35 11 0 1 0 15 20
-	frame	data/chars/2badgirl10/runatk03.gif
-	frame	data/chars/2badgirl10/runatk04.gif
-	attack2	0 0 0 0
-	delay	2
-	frame	data/chars/2badgirl10/runatk05.gif
-	frame	data/chars/2badgirl10/runatk05.gif #5
-	frame	data/chars/2badgirl10/runatk05.gif
-	frame	data/chars/2badgirl10/runatk05.gif
-	frame	data/chars/2badgirl10/runatk02.gif
-	frame	data/chars/2badgirl10/runatk02.gif
-	frame	data/chars/2badgirl10/runatk02.gif
-	frame	data/chars/2badgirl10/runatk01.gif
-	frame	data/chars/2badgirl10/runatk01.gif #11
-	frame	data/chars/2badgirl10/runatk01.gif
-
-
-
-
-
-
-anim	freespecial6
-@script
-	void self = getlocalvar("self");
-	if (frame == 0 )
-	{
-        changeentityproperty(self, "aggression", 20);
-	}
-@end_script
-	loop	0
-	delay	7
-	offset	108 191
-	bbox	0 0 0 0
-	fastattack	1
-	forcedirection	-1
-	staydown	500 500
-	hitfx	data/sounds/empty.wav
-	hitflash	flashscreen1
-	frame	data/chars/2badgirl10/runatk05.gif
-	sound	data/sounds/super1.wav
-	@cmd	spawnbind2 "allsp" 1 1 1 "ANI_FOLLOW1"
-	frame	data/chars/2badgirl10/runatk02.gif
-	move	-4
-	sound	data/sounds/bgirl07.wav
-	attack6	112 90 95 47 0 0 1 1 0 30
-	frame	data/chars/2badgirl10/runatk01.gif
-	attack6	0 0 0 0
-	frame	data/chars/2badgirl10/rise16.gif
-	attack6	112 90 95 47 0 0 1 0 0 30
-	frame	data/chars/2badgirl10/runatk10.gif
-	attack6	0 0 0 0
-	frame	data/chars/2badgirl10/runatk11.gif
-	delay	15
-	move	0
-	attack6	112 90 95 47 0 0 1 1 0 30
-	frame	data/chars/2badgirl10/runatk12.gif
-	attack6	0 0 0 0
-	delay	8
-	hitfx	data/sounds/beat4.wav
-	@cmd	dasher 2 0 0
-	frame	data/chars/2badgirl10/runatk13.gif
-	delay	3
-	attack	112 90 84 47 95 1 1 0 65 30
-	dropv	2 3
-	frame	data/chars/2badgirl10/runatk14.gif #10
-	frame	data/chars/2badgirl10/runatk15.gif
-	frame	data/chars/2badgirl10/runatk14.gif
-	frame	data/chars/2badgirl10/runatk15.gif
-	@cmd	looper  10 3
-	delay	20
-	frame	data/chars/2badgirl10/runatk16.gif
-	attack	0 0 0 0
-	@cmd	stop
-	delay	30
-	frame	data/chars/2badgirl10/runatk16.gif
-	delay	10
-	frame	data/chars/2badgirl10/runatk17.gif
-	frame	data/chars/2badgirl10/blk16.gif
-	frame	data/chars/2badgirl10/a101a.gif
-	frame	data/chars/2badgirl10/a101.gif
-
-
-
-anim	grabup
-	loop	0
-	delay	20
-	offset	108 191
-	bbox	0 0 0 0
-	attackone	0
-	jumpframe 1 4 1
-	landframe 12 dust
-	@cmd	slamstart2
-	sound	data/sounds/grab.wav
-	@cmd	position 11 35 45 -1 -1
-	frame	data/chars/2badgirl10/rise15.gif
-	delay	8
-	sound	data/sounds/bgirl03.wav
-	@cmd	position 11 5 45 -1 -1
-	frame	data/chars/2badgirl10/2grab07.gif #1
-	offset	117 177
-	@cmd	flip
-	@cmd	keywlk 1.5
-	@cmd	position 10 25 45 -1 -1
-	frame	data/chars/2badgirl10/2grab08.gif #2
-	@cmd	position 0 30 45 -1 1
-	frame	data/chars/2badgirl10/2grab09.gif
-	@cmd	keywlk 1.5
-	@cmd	position 1 30 75 -1 1
-	frame	data/chars/2badgirl10/2grab10.gif
-	@cmd	keywlk 1.5
-	@cmd	position 1 10 90 -1 1
-	frame	data/chars/2badgirl10/2grab11.gif
-	attack	60 104 90 75 12 1 0 0 7 15
-	@cmd	keywlk 1.5
-	@cmd	position 12 0 50 -1 -1
-	frame	data/chars/2badgirl10/2grab12.gif
-	delay	5
-	@cmd	keywlk 1.5
-	@cmd	position 14 5 55 -1 1
-	frame	data/chars/2badgirl10/2grab13a.gif #7
-	@cmd	keywlk 1.5
-	@cmd	position 14 5 55 -1 1
-	frame	data/chars/2badgirl10/2grab13a.gif
-	@cmd	keywlk 1.5
-	@cmd	position 14 5 55 -1 1
-	frame	data/chars/2badgirl10/2grab13a.gif
-	@cmd	keywlk 1.5
-	@cmd	position 14 5 55 -1 1
-	frame	data/chars/2badgirl10/2grab13a.gif
-	@cmd	looper 7 60
-	@cmd	position 14 5 55 -1 1
-	frame	data/chars/2badgirl10/2grab13a.gif
-	delay	11
-	@cmd	stop
-	sound	data/sounds/fall.wav
-	@cmd	position 15 5 50 -1 1
-	frame	data/chars/2badgirl10/2grab15.gif #12
-	@cmd	position 14 5 45 -1 1
-	frame	data/chars/2badgirl10/2grab16.gif
-	@cmd	position 15 5 50 -1 1
-	frame	data/chars/2badgirl10/2grab15.gif
-	attack	0 0 0 0
-	delay	25
-	@cmd	position 14 0 45 -1 1
-	frame	data/chars/2badgirl10/2grab16.gif
-	delay	11
-	@cmd	depost 0
-	@cmd	finish 70 1 -0.5 4 0 0
-	frame	data/chars/2badgirl10/2grab16.gif
-	@cmd	flip
-	offset	108 191
-	frame	data/chars/2badgirl10/rise0.gif
-	@cmd	clearL
-	frame	data/chars/2badgirl10/rise1.gif
-	frame	data/chars/2badgirl10/rise15.gif
-	frame	data/chars/2badgirl10/rise16.gif
-
-	
-
-
 anim	grabbackward
 	loop	0
 	delay	20
 	offset	100 189
 	bbox	0 0 0 0
 	fastattack	1
-	attackone	1
-	otg		2
+	attackone	0
+	otg	2
 	staydown	610 610
 	forcedirection	1
 	jumpframe	8 4 -1
@@ -2362,8 +1867,8 @@ anim	grabbackward
 	@cmd	position 2 45 10 1 1
 	frame	data/chars/2badgirl10/1grab13.gif
 	@cmd	depost 0
-	@cmd	finish 70 1 0 -5 0 0
-	attack 77 157 75 25 0 1 1 0 0 0
+	@cmd	finish 60 1 0 -5 0 0
+	attack	77 157 75 25 5 1 1 0 0 0
 	dropv	-5 0
 	@cmd	position 2 30 10 1 1
 	frame	data/chars/2badgirl10/1grab14.gif
@@ -2372,7 +1877,7 @@ anim	grabbackward
 	offset	100 179
 	frame	data/chars/2badgirl10/1grab14.gif
 	frame	data/chars/2badgirl10/1grab15.gif
-	attack 0 0 0 0
+	attack	0 0 0 0
 	delay	12
 	frame	data/chars/2badgirl10/1grab16.gif
 	delay	9
@@ -2419,122 +1924,613 @@ anim	grabbackward
 	frame	data/chars/2badgirl10/blk15.gif
 	@cmd	flip
 	frame	data/chars/2badgirl10/blk16.gif
-
-
-
-anim	get
+		
+anim	grabbed
+	loop	0
+	delay	10
+	offset	108 191
+	bbox	85 97 50 91
+	frame	data/chars/2badgirl10/grabbed.gif
+		
+anim	grabforward
+	attackone	0
+	delay	7
+	offset	108 191
+	bbox	0 0 0 0
+	hitfx	data/sounds/beat5.wav
+	frame	data/chars/2badgirl10/blk12.gif
+	frame	data/chars/2badgirl10/blk13.gif
+	frame	data/chars/2badgirl10/blk14.gif
+	frame	data/chars/2badgirl10/blk15.gif
+	delay	4
+	move	3
+	frame	data/chars/2badgirl10/blk16.gif
+	frame	data/chars/2badgirl10/blk16.gif
+	frame	data/chars/2badgirl10/c1.gif
+	frame	data/chars/2badgirl10/c1.gif
+	frame	data/chars/2badgirl10/c2.gif
+	attack10	92 93 45 50 40 1 0 0 25 0
+	dropv	5 0.2
+	frame	data/chars/2badgirl10/c2.gif
+	frame	data/chars/2badgirl10/c3.gif
+	frame	data/chars/2badgirl10/c3.gif
+	delay	7
+	frame	data/chars/2badgirl10/c4.gif
+	attack10	0 0 0 0
+	move	0
+	frame	data/chars/2badgirl10/c5.gif
+	frame	data/chars/2badgirl10/c6.gif
+	frame	data/chars/2badgirl10/c4.gif
+	frame	data/chars/2badgirl10/c5.gif
+	frame	data/chars/2badgirl10/c4.gif
+	delay	9
+	frame	data/chars/2badgirl10/blk16.gif
+	frame	data/chars/2badgirl10/c1.gif
+		
+anim	grabup
+	loop	0
+	delay	20
+	offset	108 191
+	bbox	0 0 0 0
+	attackone	0
+	jumpframe	1 4 1
+	landframe	12 dust
+	@cmd	slamstart2
+	sound	data/sounds/grab.wav
+	@cmd	position 11 35 45 -1 -1
+	frame	data/chars/2badgirl10/rise15.gif
+	delay	8
+	sound	data/sounds/bgirl03.wav
+	@cmd	position 11 5 45 -1 -1
+	frame	data/chars/2badgirl10/2grab07.gif #1
+	offset	117 177
+	@cmd	flip
+	@cmd	keywlk 1.5
+	@cmd	position 10 25 45 -1 -1
+	frame	data/chars/2badgirl10/2grab08.gif #2
+	@cmd	position 0 30 45 -1 1
+	frame	data/chars/2badgirl10/2grab09.gif
+	@cmd	keywlk 1.5
+	@cmd	position 1 30 75 -1 1
+	frame	data/chars/2badgirl10/2grab10.gif
+	@cmd	keywlk 1.5
+	@cmd	position 1 10 90 -1 1
+	frame	data/chars/2badgirl10/2grab11.gif
+	attack	60 104 90 75 12 1 0 0 7 15
+	@cmd	keywlk 1.5
+	@cmd	position 12 0 50 -1 -1
+	frame	data/chars/2badgirl10/2grab12.gif
+	delay	5
+	@cmd	keywlk 1.5
+	@cmd	position 14 5 55 -1 1
+	frame	data/chars/2badgirl10/2grab13a.gif #7
+	@cmd	keywlk 1.5
+	@cmd	position 14 5 55 -1 1
+	frame	data/chars/2badgirl10/2grab13a.gif
+	@cmd	keywlk 1.5
+	@cmd	position 14 5 55 -1 1
+	frame	data/chars/2badgirl10/2grab13a.gif
+	@cmd	keywlk 1.5
+	@cmd	position 14 5 55 -1 1
+	frame	data/chars/2badgirl10/2grab13a.gif
+	@cmd	looper 7 60
+	@cmd	position 14 5 55 -1 1
+	frame	data/chars/2badgirl10/2grab13a.gif
+	delay	11
+	@cmd	stop
+	sound	data/sounds/fall.wav
+	@cmd	position 15 5 50 -1 1
+	frame	data/chars/2badgirl10/2grab15.gif #12
+	@cmd	position 14 5 45 -1 1
+	frame	data/chars/2badgirl10/2grab16.gif
+	@cmd	position 15 5 50 -1 1
+	frame	data/chars/2badgirl10/2grab15.gif
+	attack	0 0 0 0
+	delay	25
+	@cmd	position 14 0 45 -1 1
+	frame	data/chars/2badgirl10/2grab16.gif
+	delay	11
+	@cmd	depost 0
+	@cmd	finish 60 1 -0.5 4 0 0
+	frame	data/chars/2badgirl10/2grab16.gif
+	@cmd	flip
+	offset	108 191
+	frame	data/chars/2badgirl10/rise0.gif
+	@cmd	clearL
+	frame	data/chars/2badgirl10/rise1.gif
+	frame	data/chars/2badgirl10/rise15.gif
+	frame	data/chars/2badgirl10/rise16.gif
+		
+anim	idle
+@script
+	void self = getlocalvar("self");
+	void aggro = getentityproperty(self,"aggression");
+	if (frame == 0 && aggro == 10)
+	{
+        changeentityproperty(self, "aggression", 20);
+	updateframe(self, 4);
+	}
+	@end_script	
+	loop	1 9 13
+	delay	12
+	offset	108 191
+	bbox	90 97 35 91
+	frame	data/chars/2badgirl10/idle04.gif
+	frame	data/chars/2badgirl10/idle05.gif
+	@cmd	clearL
+	frame	data/chars/2badgirl10/idle06.gif
+	frame	data/chars/2badgirl10/idle07.gif
+	delay	20
+	bbox	93 97 35 91
+	frame	data/chars/2badgirl10/idle01.gif
+	frame	data/chars/2badgirl10/idle02.gif
+	frame	data/chars/2badgirl10/idle03.gif
+	frame	data/chars/2badgirl10/idle02.gif
+	frame	data/chars/2badgirl10/idle01.gif
+	frame	data/chars/2badgirl10/idle01.gif
+	frame	data/chars/2badgirl10/idle02.gif
+	frame	data/chars/2badgirl10/idle03.gif
+	frame	data/chars/2badgirl10/idle02.gif
+	frame	data/chars/2badgirl10/idle01.gif
+		
+anim	jump
+	loop	1 6 12
+	delay	5
+	offset	108 191
+	bbox	101 85 35 35
+	frame	data/chars/2badgirl10/2grab02.gif
+	frame	data/chars/2badgirl10/2grab03.gif
+	frame	data/chars/2badgirl10/2grab04.gif
+	frame	data/chars/2badgirl10/2grab05.gif
+	frame	data/chars/2badgirl10/2grab05a.gif
+	frame	data/chars/2badgirl10/2grab05b.gif
+	delay	3
+	frame	data/chars/2badgirl10/2grab05c.gif
+	frame	data/chars/2badgirl10/2grab05d.gif
+	frame	data/chars/2badgirl10/2grab05c.gif
+	frame	data/chars/2badgirl10/2grab05d.gif
+	frame	data/chars/2badgirl10/2grab05c.gif
+	frame	data/chars/2badgirl10/2grab05d.gif
+	frame	data/chars/2badgirl10/2grab05c.gif
+	frame	data/chars/2badgirl10/2grab05d.gif
+		
+anim	jumpattack
+	loop	0
+	delay	9
+	offset	108 191
+	bbox	101 85 35 35
+	hitfx	data/sounds/beat5.wav
+	frame	data/chars/2badgirl10/2grab05e.gif
+	frame	data/chars/2badgirl10/2grab05f.gif
+	sound	data/sounds/bgirl08.wav
+	frame	data/chars/2badgirl10/2grab05g.gif
+	delay	4
+	forcedirection	-1
+	attack	101 95 70 60 30 1 0 0 25 0
+	dropv	1 1
+	frame	data/chars/2badgirl10/2grab05h.gif
+	frame	data/chars/2badgirl10/2grab05i.gif
+	frame	data/chars/2badgirl10/2grab05h.gif
+	frame	data/chars/2badgirl10/2grab05i.gif
+	frame	data/chars/2badgirl10/2grab05h.gif
+	frame	data/chars/2badgirl10/2grab05i.gif
+	attack	0 0 0 0
+	@cmd	looper 3 15
+	delay	7
+	frame	data/chars/2badgirl10/2grab05f.gif
+	frame	data/chars/2badgirl10/2grab05e.gif
+	frame	data/chars/2badgirl10/2grab05.gif
+	frame	data/chars/2badgirl10/2grab04.gif
+	frame	data/chars/2badgirl10/2grab03.gif
+	frame	data/chars/2badgirl10/2grab02.gif
+	bbox	98 123 35 35
+	frame	data/chars/2badgirl10/2grab01.gif
+		
+anim	jumpattack2
+	loop	0
+	delay	9
+	offset	108 191
+	bbox	92 85 35 35
+	forcedirection	-1
+	frame	data/chars/2badgirl10/1grab06a.gif
+	sound	data/sounds/bgirl08.wav
+	frame	data/chars/2badgirl10/1grab06b.gif
+	frame	data/chars/2badgirl10/1grab06c.gif
+	delay	4
+	attack	101 95 82 47 20 0 0 0 40 0
+	frame	data/chars/2badgirl10/1grab06d.gif
+	frame	data/chars/2badgirl10/1grab06e.gif
+	frame	data/chars/2badgirl10/1grab06d.gif
+	frame	data/chars/2badgirl10/1grab06e.gif
+	frame	data/chars/2badgirl10/1grab06d.gif
+	frame	data/chars/2badgirl10/1grab06e.gif
+	frame	data/chars/2badgirl10/1grab06d.gif
+	frame	data/chars/2badgirl10/1grab06e.gif
+	frame	data/chars/2badgirl10/1grab06d.gif
+	frame	data/chars/2badgirl10/1grab06e.gif
+	frame	data/chars/2badgirl10/1grab06d.gif
+	frame	data/chars/2badgirl10/1grab06e.gif
+		
+anim	jumpattack3
+	loop	0
+	delay	8
+	offset	108 191
+	bbox	95 97 35 35
+	hitfx	data/sounds/beat5.wav
+	frame	data/chars/2badgirl10/2grab03.gif
+	attack	0 0 0 0
+	sound	data/sounds/bgirl08.wav
+	frame	data/chars/2badgirl10/upk04.gif
+	delay	3
+	frame	data/chars/2badgirl10/spa15.gif
+	staydown	500 500
+	attack	45 95 135 70 35 1 0 0 25 20
+	dropv	3 3
+	frame	data/chars/2badgirl10/spa16.gif
+	frame	data/chars/2badgirl10/spa17.gif
+	frame	data/chars/2badgirl10/spa18.gif
+	delay	5
+	frame	data/chars/2badgirl10/spa10.gif
+	frame	data/chars/2badgirl10/spa11.gif
+	frame	data/chars/2badgirl10/spa10.gif
+	frame	data/chars/2badgirl10/spa11.gif
+	frame	data/chars/2badgirl10/spa10.gif
+	frame	data/chars/2badgirl10/spa11.gif
+	frame	data/chars/2badgirl10/spa10.gif
+	frame	data/chars/2badgirl10/spa11.gif
+	frame	data/chars/2badgirl10/spa10.gif
+	frame	data/chars/2badgirl10/spa11.gif
+	frame	data/chars/2badgirl10/spa10.gif
+	frame	data/chars/2badgirl10/spa11.gif
+	frame	data/chars/2badgirl10/spa10.gif
+	frame	data/chars/2badgirl10/spa11.gif
+		
+anim	jumpdelay
+	loop	0
+	delay	6
+	offset	108 191
+	bbox	93 97 35 91
+	frame	data/chars/2badgirl10/2grab00.gif
+		
+anim	jumpland
+	loop	0
+	delay	6
+	offset	108 191
+	bbox	93 97 35 91
+	frame	data/chars/2badgirl10/2grab00.gif
+		
+anim	pain
+	loop	0
+	delay	3
+	offset	108 191
+	bbox	85 97 50 91
+	frame	data/chars/2badgirl10/pain0.gif
+	offset	100 189
+	frame	data/chars/2badgirl10/pain1.gif
+	offset	107 189
+	frame	data/chars/2badgirl10/pain1.gif
+	delay	15
+	offset	100 189
+	frame	data/chars/2badgirl10/pain1.gif
+		
+anim	pain2
+	loop	0
+	delay	3
+	offset	108 191
+	bbox	85 97 50 91
+	frame	data/chars/2badgirl10/pain0.gif
+	offset	100 189
+	frame	data/chars/2badgirl10/pain2.gif
+	offset	107 189
+	frame	data/chars/2badgirl10/pain2.gif
+	delay	15
+	offset	100 189
+	frame	data/chars/2badgirl10/pain2.gif
+		
+anim	pain3
+	loop	0
+	delay	2
+	offset	108 191
+	bbox	85 97 50 91
+	move	-6
+	frame	data/chars/2badgirl10/pain1.gif
+	frame	data/chars/2badgirl10/pain1.gif
+	frame	data/chars/2badgirl10/pain1.gif
+	frame	data/chars/2badgirl10/pain2.gif
+	frame	data/chars/2badgirl10/pain2.gif
+	frame	data/chars/2badgirl10/pain2.gif
+	move	-3
+	frame	data/chars/2badgirl10/pain2.gif
+	frame	data/chars/2badgirl10/pain2.gif
+	move	-1
+	frame	data/chars/2badgirl10/pain2.gif
+	delay	15
+	frame	data/chars/2badgirl10/pain2.gif
+		
+anim	pain5
+	loop	0
+	delay	10
+	offset	108 191
+	bbox	85 97 50 91
+	frame	data/chars/2badgirl10/pain0.gif
+	frame	data/chars/2badgirl10/pain1.gif
+	frame	data/chars/2badgirl10/pain0.gif
+	frame	data/chars/2badgirl10/pain2.gif
+	frame	data/chars/2badgirl10/rise15b.gif
+	frame	data/chars/2badgirl10/rise1.gif
+	frame	data/chars/2badgirl10/rise15a.gif
+	frame	data/chars/2badgirl10/rise15b.gif
+	frame	data/chars/2badgirl10/rise16.gif
+		
+anim	pain6
+	loop	0
+	delay	12
+	offset	108 191
+	bbox	0 0 0 0
+	frame	data/chars/2badgirl10/pain0.gif
+	frame	data/chars/2badgirl10/pain2.gif
+	frame	data/chars/2badgirl10/pain1.gif
+	frame	data/chars/2badgirl10/fall2.gif
+	frame	data/chars/2badgirl10/fall3.gif
+	frame	data/chars/2badgirl10/fall4.gif
+	frame	data/chars/2badgirl10/fall5.gif
+	delay	700
+	frame	data/chars/2badgirl10/fall5.gif
+	delay	14
+	frame	data/chars/2badgirl10/rise0.gif
+	frame	data/chars/2badgirl10/rise1.gif
+	frame	data/chars/2badgirl10/rise15.gif
+	frame	data/chars/2badgirl10/rise16.gif
+		
+anim	respawn
+	loop	0
+	delay	70
+	offset	108 191
+	bbox	0 0 0 0
+	frame	data/chars/2badgirl10/sp05a.gif
+	delay	12
+	@cmd	degravity 0
+	frame	data/chars/2badgirl10/sp04a.gif
+	frame	data/chars/2badgirl10/sp03.gif
+		
+anim	rise
+	loop	0
+	delay	45
+	offset	108 191
+	bbox	0 0 0 0
+	frame	data/chars/2badgirl10/fall4.gif
+	delay	11
+	frame	data/chars/2badgirl10/rise0.gif
+	frame	data/chars/2badgirl10/rise1.gif
+	frame	data/chars/2badgirl10/rise15.gif
+	frame	data/chars/2badgirl10/rise16.gif
+		
+anim	run
+	loop	1
+	delay	7
+	offset	108 187
+	bbox	92 115 40 50
+	frame	data/chars/2badgirl10/run01.gif
+	sound	data/sounds/run.wav
+	frame	data/chars/2badgirl10/run02.gif
+	delay	12
+	frame	data/chars/2badgirl10/run03.gif
+	delay	7
+	frame	data/chars/2badgirl10/run04.gif
+	sound	data/sounds/run.wav
+	frame	data/chars/2badgirl10/run05.gif
+	delay	12
+	frame	data/chars/2badgirl10/run06.gif
+		
+anim	runattack
+	loop	0
+	delay	8
+	offset	108 191
+	bbox	92 115 40 50
+	fastattack	1
+	cancel	6 12 1 a freespecial4
+	forcedirection	-1
+	seal	7 1
+	@cmd	dasher 3 0 0
+	frame	data/chars/2badgirl10/rise16.gif
+	sound	data/sounds/bgirl02.wav
+	frame	data/chars/2badgirl10/runatk01.gif
+	@cmd	dasher 2 0 0
+	frame	data/chars/2badgirl10/runatk02.gif
+	attack8	105 104 78 35 20 0 0 0 20 0
+	frame	data/chars/2badgirl10/runatk03.gif
+	@cmd	stop
+	frame	data/chars/2badgirl10/runatk04.gif
+	attack8	0 0 0 0
+	delay	3
+	frame	data/chars/2badgirl10/runatk05.gif #5
+	frame	data/chars/2badgirl10/runatk05.gif #6
+	frame	data/chars/2badgirl10/runatk05.gif
+	frame	data/chars/2badgirl10/runatk05.gif
+	frame	data/chars/2badgirl10/runatk02.gif
+	frame	data/chars/2badgirl10/runatk02.gif
+	frame	data/chars/2badgirl10/runatk02.gif
+	frame	data/chars/2badgirl10/runatk01.gif
+	frame	data/chars/2badgirl10/runatk01.gif #12
+	frame	data/chars/2badgirl10/runatk01.gif
+		
+anim	runjumpattack
+	loop	0
+	delay	9
+	offset	108 191
+	bbox	101 85 35 35
+	hitfx	data/sounds/beat5.wav
+	frame	data/chars/2badgirl10/2grab05e.gif
+	frame	data/chars/2badgirl10/2grab05f.gif
+	sound	data/sounds/bgirl08.wav
+	frame	data/chars/2badgirl10/2grab05g.gif
+	delay	4
+	forcedirection	-1
+	attack	101 95 70 60 30 1 0 0 25 0
+	dropv	1 3
+	frame	data/chars/2badgirl10/2grab05h.gif
+	frame	data/chars/2badgirl10/2grab05i.gif
+	frame	data/chars/2badgirl10/2grab05h.gif
+	frame	data/chars/2badgirl10/2grab05i.gif
+	frame	data/chars/2badgirl10/2grab05h.gif
+	frame	data/chars/2badgirl10/2grab05i.gif
+	attack	0 0 0 0
+	@cmd	looper 3 15
+	delay	7
+	frame	data/chars/2badgirl10/2grab05f.gif
+	frame	data/chars/2badgirl10/2grab05e.gif
+	frame	data/chars/2badgirl10/2grab05.gif
+	frame	data/chars/2badgirl10/2grab04.gif
+	frame	data/chars/2badgirl10/2grab03.gif
+	frame	data/chars/2badgirl10/2grab02.gif
+	bbox	98 123 35 35
+	frame	data/chars/2badgirl10/2grab01.gif
+		
+anim	runslide
+	loop	0
+	delay	7
+	offset	108 191
+	bbox	90 150 35 35
+	hitfx	data/sounds/beat5.wav
+	@cmd	dasher 4 0 0
+	frame	data/chars/2badgirl10/rise1.gif
+	sound	data/sounds/punch3.wav
+	frame	data/chars/2badgirl10/rise2.gif
+	delay	9
+	attack	103 104 70 70 25 1 0 0 20 0
+	dropv	4.5 -1 0
+	frame	data/chars/2badgirl10/rise3a.gif
+	delay	8
+	attack	93 63 75 80 25 1 0 0 20 0
+	dropv	4.5 -1 0
+	frame	data/chars/2badgirl10/rise8a.gif
+	attack	93 66 65 70 25 1 0 0 20 0
+	dropv	4.5 -1 0
+	@cmd	dasher 3 0 0
+	frame	data/chars/2badgirl10/rise9a.gif
+	attack	85 80 50 70 25 1 0 0 20 0
+	dropv	4.5 -1 0
+	@cmd	dasher 1.5 0 0
+	frame	data/chars/2badgirl10/rise10a.gif
+	attack	0 0 0 0
+	delay	7
+	frame	data/chars/2badgirl10/rise11.gif
+	@cmd	stop
+	frame	data/chars/2badgirl10/rise12.gif
+	frame	data/chars/2badgirl10/rise14.gif
+	frame	data/chars/2badgirl10/rise16.gif
+		
+anim	spawn
+	loop	0
+	delay	70
+	offset	108 191
+	bbox	0 0 0 0
+	frame	data/chars/2badgirl10/sp05a.gif
+	delay	12
+	@cmd	degravity 0
+	frame	data/chars/2badgirl10/sp04a.gif
+	frame	data/chars/2badgirl10/sp03.gif
+		
+anim	special
+	energycost	50
+	mponly	1
 	loop	0
 	delay	8
 	offset	108 191
 	bbox	0 0 0 0
+	fastattack	1
+	jumpframe	0 2.5 1
+	landframe	5 dust
+	hitfx	data/sounds/beat5.wav
+	hitflash	Flash3
 	frame	data/chars/2badgirl10/rise16.gif
-	frame	data/chars/2badgirl10/rise15b.gif
-	delay	15
-	frame	data/chars/2badgirl10/rise15a.gif
-	delay	8
-	frame	data/chars/2badgirl10/rise15b.gif
+	frame	data/chars/2badgirl10/rise14.gif
+	frame	data/chars/2badgirl10/rise13.gif
+	frame	data/chars/2badgirl10/rise12.gif
+	delay	300
+	frame	data/chars/2badgirl10/rise11.gif
+	delay	4
+	frame	data/chars/2badgirl10/rise10.gif #5
+	frame	data/chars/2badgirl10/rise10.gif
+	attack10	73 85 110 55 25 1 1 0 9 30
+	dropv	4 0.5 0
+	frame	data/chars/2badgirl10/rise5.gif #7
+	@cmd	keymove 1.1
+	frame	data/chars/2badgirl10/rise5.gif
+	@cmd	keymove 1.1
+	sound	data/sounds/punch2.wav
+	frame	data/chars/2badgirl10/rise6.gif
+	@cmd	keymove 1.1
+	frame	data/chars/2badgirl10/rise6.gif
+	attack10	0 0 0 0
+	@cmd	keymove 1.1
+	frame	data/chars/2badgirl10/rise7.gif
+	@cmd	keymove 1.1
+	frame	data/chars/2badgirl10/rise7.gif
+	@cmd	keymove 1.1
+	frame	data/chars/2badgirl10/rise8.gif
+	@cmd	keymove 1.1
+	frame	data/chars/2badgirl10/rise8.gif
+	@cmd	keymove 1.1
+	frame	data/chars/2badgirl10/rise9.gif
+	@cmd	keymove 1.1
+	frame	data/chars/2badgirl10/rise9.gif
+	@cmd	keymove 1.1
+	frame	data/chars/2badgirl10/rise10.gif
+	@cmd	keymove 1.1
+	frame	data/chars/2badgirl10/rise10.gif
+	@cmd	looper 7 10
+	delay	9
+	frame	data/chars/2badgirl10/rise4.gif
+	frame	data/chars/2badgirl10/rise3.gif
+	frame	data/chars/2badgirl10/rise2.gif
+	frame	data/chars/2badgirl10/rise1.gif
+	frame	data/chars/2badgirl10/rise15.gif
+	@cmd	clearL
 	frame	data/chars/2badgirl10/rise16.gif
-
-
-
-anim	charge
-	loop	0
-	delay	7
-	offset	108 165
-	bbox	90 75 36 60
-	sound	data/sounds/bgirl03.wav
-	frame	data/chars/2badgirl10/slamck13.gif
-	offset	108 191
-	bbox	90 95 30 60
-	frame	data/chars/2badgirl10/b00.gif
-	frame	data/chars/2badgirl10/ch01.gif
-	frame	data/chars/2badgirl10/ch02.gif
-	delay	2
-	frame	data/chars/2badgirl10/ch05.gif #4
-	frame	data/chars/2badgirl10/ch03.gif
-	frame	data/chars/2badgirl10/ch06.gif
-	@cmd	mpgain 1
-	frame	data/chars/2badgirl10/ch04.gif
-	frame	data/chars/2badgirl10/ch07.gif
-	frame	data/chars/2badgirl10/ch03.gif
-	frame	data/chars/2badgirl10/ch08.gif
-	@cmd	mpgain 1
-	frame	data/chars/2badgirl10/ch04.gif
-	@cmd	updateframe getlocalvar("self") 4
-	frame	data/chars/2badgirl10/ch02.gif
-	frame	data/chars/2badgirl10/ch01.gif
-
-	frame	data/chars/2badgirl10/ch03.gif
-	frame	data/chars/2badgirl10/ch03.gif
-	delay	7
-	frame	data/chars/2badgirl10/ch02.gif
-	frame	data/chars/2badgirl10/ch01.gif
-
-
-
-anim	freespecial29
-@script
-	void self = getlocalvar("self");
-	int mp1 = getentityproperty(self,"mp");
-	void plyr = getentityproperty(self, "playerindex");
-
-	if(frame >= 11 && playerkeys(plyr, 0, "attack3"))
-	{
-	  updateframe(self, 4);
-	}
-	@end_script
-	loop	0
-	delay	7
-	offset	108 165
-	bbox	90 75 36 60
-	sound	data/sounds/bgirl03.wav
-	frame	data/chars/2badgirl10/slamck13.gif
-	offset	108 191
-	bbox	90 95 30 60
-	frame	data/chars/2badgirl10/b00.gif
-	frame	data/chars/2badgirl10/ch01.gif
-	frame	data/chars/2badgirl10/ch02.gif
-	delay	2
-	frame	data/chars/2badgirl10/ch05.gif #4
-	frame	data/chars/2badgirl10/ch03.gif
-	@cmd	mpgain 4
-	frame	data/chars/2badgirl10/ch06.gif
-	frame	data/chars/2badgirl10/ch04.gif
-	@cmd	mpgain 4
-	frame	data/chars/2badgirl10/ch07.gif
-	frame	data/chars/2badgirl10/ch03.gif
-	@cmd	mpgain 4
-	frame	data/chars/2badgirl10/ch08.gif
-	frame	data/chars/2badgirl10/ch04.gif	#11
-
-	frame	data/chars/2badgirl10/ch03.gif
-	frame	data/chars/2badgirl10/ch03.gif
-	delay	7
-	frame	data/chars/2badgirl10/ch02.gif
-	frame	data/chars/2badgirl10/ch01.gif
-
-
-
-anim	walkoff
-	loop	0
-	delay	6
-	offset	108 191
-	bbox	90 97 36 91
-	frame	data/chars/2badgirl10/2grab05a.gif
-	frame	data/chars/2badgirl10/2grab05b.gif
-	frame	data/chars/2badgirl10/2grab05c.gif
-
 		
 anim	waiting
 	loop	1
-	delay	12
+	delay	20
 	offset	0 0
 	frame	data/chars/2badgirl10/wait1.gif
 	frame	data/chars/2badgirl10/wait2.gif
 	frame	data/chars/2badgirl10/wait3.gif
 	frame	data/chars/2badgirl10/wait2.gif
-
-
-
-
-
+		
+anim	walk
+@script
+	void self = getlocalvar("self");
+	if (frame == 0)
+	{
+	changeentityproperty(self, "aggression", 10);
+	}
+	@end_script	
+	loop	1
+	delay	8
+	offset	108 191
+	bbox	93 97 35 91
+	frame	data/chars/2badgirl10/wk01.gif
+	frame	data/chars/2badgirl10/wk02.gif
+	frame	data/chars/2badgirl10/wk03.gif
+	frame	data/chars/2badgirl10/wk04.gif
+	frame	data/chars/2badgirl10/wk05.gif
+	frame	data/chars/2badgirl10/wk06.gif
+	frame	data/chars/2badgirl10/wk07.gif
+	frame	data/chars/2badgirl10/wk08.gif
+	frame	data/chars/2badgirl10/wk09.gif
+	frame	data/chars/2badgirl10/wk10.gif
+	frame	data/chars/2badgirl10/wk11.gif
+	frame	data/chars/2badgirl10/wk12.gif
+		
+anim	walkoff
+	loop	0
+	delay	6
+	offset	108 191
+	bbox	101 69 36 77
+	frame	data/chars/2badgirl10/2grab05a.gif
+	frame	data/chars/2badgirl10/2grab05b.gif
+	frame	data/chars/2badgirl10/2grab05c.gif
+		
+#|edited by openBor Stats v 0.53
+		

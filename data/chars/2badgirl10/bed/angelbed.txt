@@ -19,7 +19,7 @@ hostile		enemy
 candamage	enemy
 
 offscreenkill		5000
-#subject_to_wall 	0
+
 subject_to_platform	0
 subject_to_obstacle	0
 subject_to_hole		0
@@ -85,29 +85,86 @@ load	pwblow
 			{
 
 			   bindentity(vEntity, NULL());
-			   damageentity(vEntity, self, 550, 1, openborconstant("ATK_NORMAL10"));
+			   damageentity(vEntity, self, 175, 1, openborconstant("ATK_NORMAL10"));
 			   tossentity(vEntity, 7, 0, 0);
 			}
 		}
 	}
 
-@end_script
-
-
-
-
-#--------------//---------------//--------------//--------------
-#--------------//---------------//--------------//--------------
-#--------------//---------------//--------------//--------------
-
-
-
+	@end_script	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+anim	death
+	loop	0
+	delay	7
+	offset	205 155
+	sound	data/sounds/wood.wav
+	frame	data/chars/2badgirl10/bed/bed00.gif
+	@cmd	tosser "brkwood" -50 10 30 -0.5 5 0 0
+	@cmd	tosser "brkwood" -25 10 30 -0.2 5 0 0
+	@cmd	tosser "brkwood" 0 10 30 0 5 0 0
+	@cmd	tosser "brkwood" 25 10 30 0.2 5 0 0
+	@cmd	tosser "brkwood" 50 10 30 0.5 5 0 0
+	frame	data/chars/2badgirl10/bed/bed05.gif
+	@cmd	spawn01 "brkwood4" 0 70 35
+	sound	data/sounds/wood.wav
+	frame	data/chars/2badgirl10/bed/bed00.gif
+	@cmd	tosser "brkwood2" -40 15 30 -0.1 5 0
+	@cmd	tosser "brkwood3" -10 15 30 -0.1 5 0
+	@cmd	tosser "brkwood2" 10 15 30 0.1 5 0
+	@cmd	tosser "brkwood3" 40 15 30 0.1 5 0
+	frame	data/chars/2badgirl10/bed/bed05.gif
+	@cmd	spawn01 "brkwood4" -60 70 35
+	frame	data/chars/2badgirl10/bed/bed00.gif
+	frame	data/chars/2badgirl10/bed/bed05.gif
+	@cmd	spawn01 "brkwood4" 60 70 35
+	frame	data/chars/2badgirl10/bed/bed00.gif
+	frame	data/chars/2badgirl10/bed/bed05.gif
+	frame	data/chars/2badgirl10/bed/bed00.gif
+	frame	data/chars/2badgirl10/bed/bed05.gif
+	frame	data/chars/2badgirl10/bed/bed00.gif
+	frame	data/chars/2badgirl10/bed/bed05.gif
+	frame	data/chars/2badgirl10/bed/bed00.gif
+	frame	data/chars/2badgirl10/bed/bed05.gif
+	frame	data/chars/2badgirl10/bed/bed00.gif
+	frame	data/chars/2badgirl10/bed/bed05.gif
+	frame	data/chars/2badgirl10/bed/bed00.gif
+	frame	data/chars/2badgirl10/bed/bed05.gif
+	frame	data/chars/2badgirl10/bed/bed00.gif
+	frame	data/chars/2badgirl10/bed/bed05.gif
+	frame	data/chars/2badgirl10/bed/bed06.gif
+	frame	data/chars/2badgirl10/bed/bed05.gif
+	frame	data/chars/2badgirl10/bed/bed06.gif
+	frame	data/chars/2badgirl10/bed/bed05.gif
+	frame	data/chars/2badgirl10/bed/bed06.gif
+	frame	data/chars/2badgirl10/bed/bed05.gif
+	frame	data/chars/2badgirl10/bed/bed06.gif
+	frame	data/chars/2badgirl10/bed/bed05.gif
+	delay	100
+	frame	data/chars/2badgirl10/bed/bed06.gif
+	delay	5
+	frame	data/chars/2badgirl10/bed/bed06.gif
+		
 anim	follow1
 	loop	1
 	delay	20
-	jumpframe 0 1 0
-	landframe 2 dust
-	quakeframe 2 7 10
+	jumpframe	0 1 0
+	landframe	2 dust
+	quakeframe	2 7 10
 	offset	205 155
 	bbox	0 0 0 0
 	frame	data/chars/2badgirl10/bed/bed00.gif
@@ -136,9 +193,7 @@ anim	follow1
 	frame	data/chars/2badgirl10/bed/bed00.gif
 	@cmd	anichange "ANI_follow2"
 	frame	data/chars/2badgirl10/bed/bed00.gif
-
-
-
+		
 anim	follow2
 	loop	1
 	delay	200
@@ -150,9 +205,7 @@ anim	follow2
 	frame	data/chars/2badgirl10/bed/bed00.gif
 	@cmd	anichange "ANI_follow4"
 	frame	data/chars/2badgirl10/bed/bed00.gif
-
-
-
+		
 anim	follow4
 @script
 	void self = getlocalvar("self");
@@ -160,7 +213,7 @@ anim	follow4
 	{
 	changeentityproperty(self, "setlayer", 400);
 	}
-@end_script
+	@end_script	
 	loop	1
 	delay	5
 	offset	205 155
@@ -183,9 +236,7 @@ anim	follow4
 	frame	data/chars/2badgirl10/bed/bed03.gif
 	@cmd	anichange "ANI_follow5"
 	frame	data/chars/2badgirl10/bed/bed01.gif
-
-
-
+		
 anim	follow5
 	loop	1
 	delay	5
@@ -199,11 +250,7 @@ anim	follow5
 	frame	data/chars/2badgirl10/bed/bed01.gif
 	@cmd	anichange "ANI_follow6"
 	frame	data/chars/2badgirl10/bed/bed01.gif
-
-
-
-
-
+		
 anim	follow6
 @script
     void self = getlocalvar("self");
@@ -212,7 +259,7 @@ anim	follow6
 	changeentityproperty(self, "setlayer", 0);
         damageentity(self, self, 2000, 0, openborconstant("ATK_NORMAL"));
 	}
-@end_script
+	@end_script	
 	loop	0
 	delay	5
 	offset	205 155
@@ -220,84 +267,6 @@ anim	follow6
 	frame	data/chars/2badgirl10/bed/bed02.gif
 	frame	data/chars/2badgirl10/bed/bed03.gif
 	frame	data/chars/2badgirl10/bed/bed01.gif
-
-
-
-#-----------------------//--------------//--------------
-#-----------------------//--------------//--------------
-#-----------------------//--------------//--------------
-#-----------------------//--------------//--------------
-#-----------------------//--------------//--------------
-
-#tosser(void Bomb, float dx, float dy, float dz, float Vx, float Vy, float Vz)
-
-
-anim	death
-	loop	0
-	delay	7
-	offset	205 155
-	sound   data/sounds/wood.wav
-	frame	data/chars/2badgirl10/bed/bed00.gif
-	@cmd    tosser "brkwood" -50 10 30 -0.5 5 0 0
-	@cmd    tosser "brkwood" -25 10 30 -0.2 5 0 0
-	@cmd    tosser "brkwood" 0 10 30 0 5 0 0
-	@cmd    tosser "brkwood" 25 10 30 0.2 5 0 0
-	@cmd    tosser "brkwood" 50 10 30 0.5 5 0 0
-	frame	data/chars/2badgirl10/bed/bed05.gif
-	@cmd	spawn01 "brkwood4" 0 70 35
-	sound   data/sounds/wood.wav
-	frame	data/chars/2badgirl10/bed/bed00.gif
-
-	@cmd	tosser "brkwood2" -40 15 30 -0.1 5 0
-	@cmd	tosser "brkwood3" -10 15 30 -0.1 5 0
-	@cmd	tosser "brkwood2" 10 15 30 0.1 5 0
-	@cmd	tosser "brkwood3" 40 15 30 0.1 5 0
-
-	frame	data/chars/2badgirl10/bed/bed05.gif
-	@cmd	spawn01 "brkwood4" -60 70 35
-	frame	data/chars/2badgirl10/bed/bed00.gif
-	frame	data/chars/2badgirl10/bed/bed05.gif
-	@cmd	spawn01 "brkwood4" 60 70 35
-	frame	data/chars/2badgirl10/bed/bed00.gif
-	frame	data/chars/2badgirl10/bed/bed05.gif
-	frame	data/chars/2badgirl10/bed/bed00.gif
-	frame	data/chars/2badgirl10/bed/bed05.gif
-	frame	data/chars/2badgirl10/bed/bed00.gif
-	frame	data/chars/2badgirl10/bed/bed05.gif
-	frame	data/chars/2badgirl10/bed/bed00.gif
-	frame	data/chars/2badgirl10/bed/bed05.gif
-	frame	data/chars/2badgirl10/bed/bed00.gif
-	frame	data/chars/2badgirl10/bed/bed05.gif
-	frame	data/chars/2badgirl10/bed/bed00.gif
-	frame	data/chars/2badgirl10/bed/bed05.gif
-	frame	data/chars/2badgirl10/bed/bed00.gif
-	frame	data/chars/2badgirl10/bed/bed05.gif
-
-	frame	data/chars/2badgirl10/bed/bed06.gif
-	frame	data/chars/2badgirl10/bed/bed05.gif
-	frame	data/chars/2badgirl10/bed/bed06.gif
-	frame	data/chars/2badgirl10/bed/bed05.gif
-	frame	data/chars/2badgirl10/bed/bed06.gif
-	frame	data/chars/2badgirl10/bed/bed05.gif
-	frame	data/chars/2badgirl10/bed/bed06.gif
-	frame	data/chars/2badgirl10/bed/bed05.gif
-	delay	100
-	frame	data/chars/2badgirl10/bed/bed06.gif
-	delay	5
-	frame	data/chars/2badgirl10/bed/bed06.gif
-
-
-
-anim	spawn
-	loop	0
-	delay	5
-	offset	205 155
-	bbox	0 0 0 0
-	frame	data/chars/2badgirl10/bed/bed00.gif
-	frame	data/chars/2badgirl10/bed/bed00.gif
-	frame	data/chars/2badgirl10/bed/bed00.gif
-
-
 		
 anim	idle
 	loop	1
@@ -307,7 +276,6 @@ anim	idle
 	frame	data/chars/2badgirl10/bed/bed00.gif
 	frame	data/chars/2badgirl10/bed/bed00.gif
 	frame	data/chars/2badgirl10/bed/bed00.gif
-
 		
 anim	pain
 	loop	0
@@ -317,10 +285,14 @@ anim	pain
 	frame	data/chars/2badgirl10/bed/bed00.gif
 	frame	data/chars/2badgirl10/bed/bed00.gif
 		
-
-
-
-
-
-
+anim	spawn
+	loop	0
+	delay	5
+	offset	205 155
+	bbox	0 0 0 0
+	frame	data/chars/2badgirl10/bed/bed00.gif
+	frame	data/chars/2badgirl10/bed/bed00.gif
+	frame	data/chars/2badgirl10/bed/bed00.gif
+		
+#|edited by openBor Stats v 0.53
 		

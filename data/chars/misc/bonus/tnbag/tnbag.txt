@@ -1,10 +1,10 @@
 name		tnbag
-type		npc
+type  npc
 score		0
 subtype		notgrab
-health		100
+health		1000
 jumpheight	0
-nolife          1
+nolife          0
 noquake		1
 falldie		1
 nodieblink	3
@@ -22,6 +22,7 @@ subject_to_platform	0
 subject_to_obstacle	0
 hostile				player npc
 candamage			player npc
+icon		data/chars/misc/icons/tnbagic.gif
 animationscript data/scripts/escript.c
 
 diesound        data/sounds/burnt.wav
@@ -29,7 +30,10 @@ diesound        data/sounds/burnt.wav
 alternatepal	data/chars/misc/bonus/tnbag/map1.gif
 
 
-		
+
+
+
+
 anim	death
 	loop	0
 	delay	16
@@ -48,7 +52,20 @@ anim	idle
 	loop	0
 	delay	15
 	offset	99 285
-	bbox	80 151 45 110
+	bbox	80 139 38 109
+	frame	data/chars/misc/bonus/tnbag/tnb01.gif
+	frame	data/chars/misc/bonus/tnbag/tnb02.gif
+	frame	data/chars/misc/bonus/tnbag/tnb03.gif
+	frame	data/chars/misc/bonus/tnbag/tnb04.gif
+	frame	data/chars/misc/bonus/tnbag/tnb05.gif
+	delay	30
+	frame	data/chars/misc/bonus/tnbag/tnb01.gif
+	frame	data/chars/misc/bonus/tnbag/tnb02.gif
+	frame	data/chars/misc/bonus/tnbag/tnb03.gif
+	frame	data/chars/misc/bonus/tnbag/tnb04.gif
+	frame	data/chars/misc/bonus/tnbag/tnb05.gif
+	@cmd	hpgain 1000
+	delay	60
 	frame	data/chars/misc/bonus/tnbag/tnb01.gif
 	frame	data/chars/misc/bonus/tnbag/tnb02.gif
 	frame	data/chars/misc/bonus/tnbag/tnb03.gif
@@ -57,18 +74,18 @@ anim	idle
 		
 anim	pain
 	loop	0
-	delay	7
+	delay	9
 	offset	99 285
-	bbox	80 151 45 110
+	bbox	55 139 70 109
 	@cmd	target 50 50 900 600 0
 	frame	data/chars/misc/bonus/tnbag/pain1.gif
 	frame	data/chars/misc/bonus/tnbag/pain2.gif
 	frame	data/chars/misc/bonus/tnbag/pain3.gif
-	delay	9
+	delay	11
 	frame	data/chars/misc/bonus/tnbag/pain4.gif
 	frame	data/chars/misc/bonus/tnbag/pain5.gif
 	frame	data/chars/misc/bonus/tnbag/pain6.gif
-	delay	11
+	delay	15
 	frame	data/chars/misc/bonus/tnbag/pain7.gif
 	frame	data/chars/misc/bonus/tnbag/pain8.gif
 	frame	data/chars/misc/bonus/tnbag/pain9.gif
@@ -90,7 +107,7 @@ if(frame==1)
 {
   changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_OBSTACLE"));
 }
-@end_script
+	@end_script	
 	loop	0
 	delay	11
 	offset	99 285
@@ -103,7 +120,7 @@ anim	walk
 	loop	0
 	delay	5
 	offset	99 285
-	bbox	80 151 45 100
+	bbox	80 139 38 109
 	frame	data/chars/misc/bonus/tnbag/tnb01.gif
 		
 #|edited by openBor Stats v 0.53

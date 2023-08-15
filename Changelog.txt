@@ -1,0 +1,48 @@
+
+///////////////////2.1///////////////////////////
+
+Tras resolver todos los bugs, arreglados los scripts, y comprobado el perfecto funcionamiento en su motor original, liberé la anterior actualización. Después me centré en un trabajo más rápido y sencillo (y divertido) pero que puede mejorar igualmente la experiencia de juego: las cajas de impacto y de ataque de los enemigos y los personajes extra y la actualización a las versiones modernas de Openbor.
+Como necesitas terminar el juego una vez para desbloquear estos personajes, decidí publicarla antes de hacer una última revisión, que aquí tienes de forma prácticamente definitiva. Ya no creo que saque nada nuevo salvo quizás algún error menor que pueda descubrir o me reporten, hasta que Jon Silva traiga una nueva hornada de personajes al juego.
+
+CAJAS DE IMPACTO Y DE ATAQUE:
+
+En versiones modernas de openbor podrás ver estas cajas durante el juego en cualquier momento pulsando Pause>Screenshot>Opciones de Sistema>Debug Settings> ACTIVAR COLLISION ATTACK/COLLISION BODY
+
+Las cajas azules son las zonas donde puedes ser golpeado o puedes golpear a tus enemigos con las cajas rojas del contrario. Se llaman respectivamente caja de impacto y caja de ataque. Con ciertos movimientos las cajas de impacto desaparecen o se reducen, haciendo imposible o más difícil golpear/ser golpeado. Lo mismo ocurre con las cajas de ataque, que además tienen una serie de propiedades de tamaño, daño, anchura, potencia, lanzamiento, y tipo (entre otros factores). El tamaño y el daño causado es obvio; la anchura es la zona en el eje Z (fondo-frente) que puede golpear, transformando la caja de ataque en un cubo tridimensional, en vez de un plano bidimensional; la potencia indica si el enemigo sufrirá aturdimiento o derribo y en qué grado; lanzamiento indica en qué dirección va a ser derribado; y tipo indica qué animación activará la víctima a causa del ataque.
+
+He tratado de uniformizar estas cajas de impacto y ataque para que representen fielmente la animación que se ve y la forma de su cuerpo, sus armas y sus extremidades. He tratado en lo posible de evitar que se vean los impactos "fuera del cuerpo", o que se pueda golpear a enemigos agachados, pequeños, saltando, etc., por encima de sus cabezas o debajo de sus pies, obligándote a usar diferentes tipos de ataques para acertarles. También he compensado potencialidades y debilidades de cada ataque ajustándolo a las necesidades de cada momento. Cuando están de pie parados, los personajes humanos tienen una caja de impacto que cubre de los pies o los tobillos al cuello o la cabeza. Otros movimientos como los ataques en salto y los bloqueos suelen tener una caja de impacto más pequeña que de pie en el suelo, recortando parte de las extremidades. Las cajas de impacto en todo caso siempre estarán en algún punto del torso del jugador y del enemigo, con muy pocas y muy breves excepciones para facilitar la jugabilidad.
+
+
+		******************************************
+		*		CAMBIOS      v2.1             	 *
+		******************************************
+
+Error remanente de la versión antigua del juego, en el que todos perdían 1 vida a los 99 segundos de la introducción.
+Errores minimos por código de desarrollo olvidado de borrar, cambio de la traducción por defecto de Openbor del español al inglés, quitado modo cheat.
+Ajustes en King. El más importante son sus cajas de impacto y el daño del supergolpe, incrementado de 100 a 125 cada uno. Consumo de supercombo incrementado, y arreglada definitivamente la caja de ataque del golpe final. En la versión antigua era muy pequeña y en la 2.0 era muy grande.
+Ajustes en Syuri. Ligeros retoques finales a las cajas de impacto. Ajustada la secuencia del combo básico y el daño de los finishers
+Corregido error de hadoken de MrBig, causado por mí, que rebotaba en las paredes. Además, ahora se completa la animación de desvanecimiento, error ya presente en la versión antigua. Lo mismo para el tornado de Remuinho, que también desaparecía de golpe en vez de desvanecerse.
+Arreglado followanim que se llamaba a sí mismo (follow12) en beloche que provocaba crash en versiones modernas de Openbor
+Movido unos píxeles el lugar de generación de algunos jefes que morían al aparecer tras una pared, y que sólo ocurría en versiones modernas de Openbor.
+Pequeños arreglos en el orden de los item de las etapas y la vida de algunos jefes y enemigos.
+Arreglos mínimos en Kasumi, quitados un par de flashes fuera de lugar en su combo básico, invertidos el jumpattack y jumpattack2, y reducido el daño del ahora jumpattack2
+Pequeños ajustes en Eve, lo más significativo pequeña reducción del daño de fda y quitada caja de impacto del golpe final de su combo en carrera, a semejanza del golpe final de su combo normal, ya no la pueden golpear, recompensando la consecución del combo, que no es fácil sobre todo contra enemigos más duros con muchos contraataques.
+Cajas de impacto de algunos enemigos ajustadas. Wolfen, remodelado y añadido un fall11 sin caja de impacto para evitar que se le pueda encadenar infinitos aplastamientos. Esto último también para bull y bear.
+Una de las palomas vuela demasiado vertical y aparece en mitad de la pantalla. Corregido para que vuele más horizontal y cruze la pantalla desde fuera.
+Añadido jumpland en MrBig y corregidas ligeramente todas sus cajas de impacto de pie, las más altas de los personajes. También arreglado daño de algunos movimientos, un par de cajas de ataque y eliminada la posibilidad de elevarse infinitamente con el combo dfj+j+j... ahora el límite son tres movimientos adicionales dfj+j+j. Animación jumpland añadida, y arregladas varias cajas de impacto, de ataque, y daño causado.
+Añadido jumpland a Vice, aumentada la altura de su salto normal y arregladas sus cajas de impacto y las de Mature
+Arreglado salto lateral de Pipas, animación más fluida y consistente. Lo mismo para runattack y runslide. Ajuste mínimo de consumo de MP.
+Pequeños arreglos en cajas de impacto, de ataque y consumo de MP de Jack, y aumentado tiempo de carga de su patada voladora.
+En Johnny se cambia la propiedad del ataque a enemigos caídos (ahora sólo daña a los que previamente estuvieran en el suelo en la misma zona, no aplasta a los que se te acercan también), cambia la animación de muerte, y reduce ligeramente el consumo inicial de su special de machinegun, se amplía el rango lateral de alcance del último golpe del combo básico en cuchillo, y otros pequeños cambios en las cajas.
+Borradas cajas de impacto en los movimientos de esquivar de algunos personajes.
+Ahora algunas etapas tienen un movimiento de cámara más rápido siguiendo al jugador.
+Arregladas todas las cajas de impacto del jefe Remuinho de la fase de caída.
+Remuinho en la fase de caída en la 1.6 daba unos 450.000 puntos, y en la 2.0, antes de descubrir la causa, (su gran cantidad de vida) lo bajé inadvertidamente a 25.000. Ahora da un poco menos que la primera vez, 375.000.
+Arregladas cajas de impacto de todos los personajes en las fases de caída, y uniformizado el daño causado.
+Arregladas cajas de impacto de los vehículos montados de Mr Big, Remuinho y Johnny.
+Ahora funciona el límite de 15 vidas para todos los personajes y jugadores.
+Ahora no se repite el final entero desde el encuentro con Overlord si llegas al final malo, sólo la lucha con el Overlord ya abajo, para evitar que tengas que repetir todo el final.
+Añadidos movimientos secretos de Ryo al final malo.
+Restaurados loops borrados en la versión 2.0 por error de Openbor stats, que hacía que algunos personajes se congelaran en la animación.
+Restaurada animación completa de los botones para liberarse del agarre (olvido por mi parte), aunque siguen desapareciendo a los pocos segundos para no molestar la vista.
+Mr K, Mr Big, Remuinho y Johnny ya no contraatacan con el botón de bloqueo. Así se facilita volver a bloquear en vez de contraatacar, que ahora se hace con el botón de ataque. Ten en cuenta que uno de los cambios de la 2.0 fue que estos personajes ahora sólo contraatacan a los golpes que quiten 15HP o más. Esto permite aprovechar el bloqueo normal de estos personajes, que antes se desactivaba con cualquier golpe, por mínimo que fuera, retrocediendo por el impacto de una forma poco realista, poco táctica y muy molesta.

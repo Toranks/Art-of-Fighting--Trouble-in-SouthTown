@@ -29,7 +29,6 @@ void blinking(int on)
 
 
 
-
 void attackgrd(int RxMin, int RxMax, int RaMin, int RaMax, int Rz, void Ani)
 {// Attack interruption with range check
     void self = getlocalvar("self");
@@ -129,7 +128,7 @@ void damage_all_enemies(int damage, int drop, void atk_type)
 
 
         vEntity = getentity(iEntity);
-		 if(getentityproperty(vEntity, "type")==openborconstant("TYPE_enemy"))
+		 if(getentityproperty(vEntity, "type")==openborconstant("TYPE_ENEMY"))
 		 {
 		
 		 damageentity(vEntity,self,damage,drop,openborconstant(atk_type));
@@ -179,7 +178,9 @@ void hurt2(int Damage)
 void hurt(int Damage)
 { // Damage opponent if health is higher than 20
 	void self = getlocalvar("self");
-	void target = getentityproperty(self, "opponent");
+	void target = getlocalvar("Target" + self);
+	void target1 = getentityproperty(self, "grabbing");
+	void target2 = getentityproperty(self, "opponent");
 
    if(target!=NULL())
    {
@@ -187,6 +188,22 @@ void hurt(int Damage)
      if(THealth > 20)
      {
        changeentityproperty(target, "health", THealth - Damage);
+     }
+   }
+   else if (target1 !=NULL())
+   {
+	  void THealth = getentityproperty(target1,"health");
+     if(THealth > 20)
+     {
+       changeentityproperty(target1, "health", THealth - Damage);
+     }
+   }
+   else if (target2 !=NULL())
+   {
+	  void THealth = getentityproperty(target2,"health");
+     if(THealth > 20)
+     {
+       changeentityproperty(target2, "health", THealth - Damage);
      }
    }
 }
@@ -204,7 +221,7 @@ void hpgain(int Give)
 {// gives health
     void self = getlocalvar("self");
     int HP = getentityproperty(self,"health");
-    changeentityproperty(self, "health", HP+Give); //Spend!
+	changeentityproperty(self, "health", HP+Give); //Spend!
 }
 
 void mpgain(int Give)
@@ -258,6 +275,17 @@ void grabcheck2()
 }
 
 
+void clearSlam()
+{
+	void self = getlocalvar("self");
+	int id = getentityproperty(self, "animationid");
+	changeentityproperty(self,"escapehits",id);
+	void target = getlocalvar("Target" + self);
+	if(target)
+	{
+		setlocalvar("Target"+self,NULL());
+	}
+}
 
 
 void slamstart()
@@ -265,11 +293,17 @@ void slamstart()
 // Use finish or throw after using this
    void self = getlocalvar("self");
    void target = getlocalvar("Target" + self);
+   clearSlam();
+
 
    if(target==NULL())
    {
      target = getentityproperty(self, "grabbing");
+     if(target == NULL() || getentityproperty(target, "dead") == 1){
+		setidle(self);
+	}else{
      setlocalvar("Target" + self, target);
+   	}
    }
    if(target!=NULL())
    {
@@ -285,9 +319,13 @@ void slamstart2()
 
    if(target==NULL())
    {
-     target = getentityproperty(self, "opponent");
-     setlocalvar("Target" + self, target);
+    target = getentityproperty(self, "opponent");
+	if(target == NULL() || getentityproperty(target, "dead") == 1){
+		setidle(self);
+	}else{
+    setlocalvar("Target" + self, target);
    }
+ }  
    if(target!=NULL())
    {
      damageentity(target, self, 0, 1, openborconstant("ATK_NORMAL7")); // Slam Starter
@@ -303,10 +341,13 @@ void slamstart3()
 
    if(target==NULL())
    {
-     target = getentityproperty(self, "opponent");
-     setlocalvar("Target" + self, target);
+    target = getentityproperty(self, "opponent");
+	if(target == NULL() || getentityproperty(target, "dead") == 1){
+		setidle(self);
+	}else{
+    setlocalvar("Target" + self, target);
    }
-
+ }
    if(target!=NULL())
    {
 
@@ -371,13 +412,13 @@ void depost(int Gr)
 
 
 
-void antiwall(int Dist, int Move, int Distz)
+
+void antiwall(int Dist, int Move, int Distz)
 {// Checks if there is wall at defined distance
 // If there is wall, entity will be moved away with defined movement
    void self = getlocalvar("self");
    int Direction = getentityproperty(self, "direction");
    int x = getentityproperty(self, "x");
-   int y = getentityproperty(self, "a");
    int z = getentityproperty(self, "z");
    float H;
    float Hz;
@@ -392,48 +433,39 @@ void depost(int Gr)
    Hz = checkwall(x+Dist,z+Distz);
    Hw = checkwall(x+Dist,z-Distz);
 
-   if(Hz > y && Hw <= y)
-   {
-     changeentityproperty(self, "position", x, z-Distz);
-   }
-
-   if(H > y)
-   {
-     changeentityproperty(self, "position", x+Move);
-   }
-}
-
-
-
-
-
-void antiwall(int Dist, int Move, int Distz)
-{// Checks if there is wall at defined distance
-// If there is wall, entity will be moved away with defined movement
-   void self = getlocalvar("self");
-   int Direction = getentityproperty(self, "direction");
-   int x = getentityproperty(self, "x");
-   int z = getentityproperty(self, "z");
-   float H;
-   float Hz;
-
-   if (Direction == 0){ //Is entity facing left?                  
-      Dist = -Dist; //Reverse Dist to match facing
-      Move = -Move; //Reverse Move to match facing
-   }
-
-   H = checkwall(x+Dist,z);
-   Hz = checkwall(x+Dist,z+Distz);
-
    if(Hz > 0)
    {
      changeentityproperty(self, "position", x, z-Distz);
+   }
+   if(Hw > 0)
+   {
+     changeentityproperty(self, "position", x, z+Distz);
    }
 
    if(H > 0)
    {
      changeentityproperty(self, "position", x+Move);
    }
+}
+
+
+void antiWallG()
+{//Checks distance from the walls, used for grab scripts only
+ //If inside of the walls, entity will be moved away with defined movement
+	void self 		= getlocalvar("self");
+	void target 	= getlocalvar("Target" + self);
+	int x 			= getentityproperty(self, "x");
+	int Tx 			= getentityproperty(target, "x");
+	int z 			= getentityproperty(self, "z");
+	int Tz 			= getentityproperty(target, "z");
+	float wall 		= checkwall(Tx, Tz);
+
+	if(target != NULL()){
+		if(wall){
+			changeentityproperty(target, "position", x, z);
+			changeentityproperty(target, "velocity", NULL(), 0, NULL());
+		}
+	}
 }
 
 
@@ -480,7 +512,7 @@ void finish(int Damage, int Type, int x, int y, int z, int Face)
 
      tossentity(target, y, x, z); // Toss opponent ;)
      changeentityproperty(target, "direction", MDir);
-
+	 antiWallG();
      setlocalvar("Target"+self, NULL()); //Clears variable
    }
 }
@@ -541,8 +573,14 @@ void throw(int Damage, int Type, int Vx, int Vy, int Vz, int Face)
      }
 
      tossentity(target, Vy, Vx, Vz); // Toss opponent ;)
+	 antiWallG();
    }
 }
+
+
+
+
+
 
 void move(int dx, int dz,int da)
 { // Moves entity freely or ignores obstacles
@@ -699,6 +737,18 @@ void spawnGun5(void Name, float dx, float dy, float dz, int Num, void Ani)
    performattack(Spawn, openborconstant(Ani));
 }
 
+void spawnChild(void Name, float dx, float dy, float dz, int Num, void Ani)
+{ // Spawn entity and set it as child with ani animation, store it and bind it
+   void self = getlocalvar("self");
+   void Spawn;
+
+   Spawn = spawn01(Name, dx, dy, dz);
+   changeentityproperty(Spawn, "parent", self);
+   setentityvar(self, Num, Spawn); // Stores spawned gun to be killed later
+   bindentity(Spawn, self, dx, dz, dy, 0, 0); // Bind spawned gun
+   performattack(Spawn, openborconstant(Ani));
+}
+
 
 void spawnGun6(void Name, float dx, float dy, float dz, int Num)
 { // Spawn gun, store it and doesnt bind it, spawn position relative to screen
@@ -735,8 +785,8 @@ void spawnGun9(void Name, float dx, float dy, float dz, float map, float hp, int
    void Spawn;
    Spawn = spawn01(Name, dx, dy, 0);
    setentityvar(self, Num, Spawn); // Stores spawned gun to be killed later
-   changeentityproperty(Spawn, "maxhealth", hp);
-   changeentityproperty(Spawn, "health", hp);
+//   changeentityproperty(Spawn, "maxhealth", hp);
+//   changeentityproperty(Spawn, "health", hp);
    changeentityproperty(Spawn, "map", map);
    bindentity(Spawn, self, dx, dz, dy, 0, 0); // Bind spawned gun
    performattack(Spawn, openborconstant(Ani));
@@ -1166,6 +1216,33 @@ void spawnAni2(void vName, float fX, float fY, float fZ, void Ani)
 	return vSpawn; //Return spawn.
 }
 
+void spawnChild3(void vName, float fX, float fY, float fZ, void Ani)
+{ 	//Spawns entity based on left screen edge
+	//
+	//vName: Model name of entity to be spawned in.
+	//fX: X distance relative to left edge
+	//fY: Y height from ground
+      //fZ: Z location adjustment
+
+	void self = getlocalvar("self"); //Get calling entity.
+	void vSpawn; //Spawn object.
+        int XPos = openborvariant("xpos"); //Get screen edge's x position
+        int YPos = openborvariant("ypos"); //Get screen edge's y position
+
+	clearspawnentry(); //Clear current spawn entry.
+      setspawnentry("name", vName); //Acquire spawn entity by name.
+
+
+
+	vSpawn = spawn(); //Spawn in entity.
+
+	changeentityproperty(vSpawn, "parent", self);
+	changeentityproperty(vSpawn, "position", fX + XPos, fZ + YPos, fY); //Set spawn location.
+	performattack(vSpawn, openborconstant(Ani));
+	return vSpawn; //Return spawn.
+
+
+}
 
 void spawnAni3(void vName, int Tx, int Ty, int Tz, void Ani)
 {
@@ -1184,6 +1261,28 @@ void spawnAni3(void vName, int Tx, int Ty, int Tz, void Ani)
 
 	vSpawn = spawn(); //Spawn in entity.
 	changeentityproperty(vSpawn, "position", Tx, Tz, Ty); //Set spawn location.
+    	performattack(vSpawn, openborconstant(Ani));
+	return vSpawn; //Return spawn.
+}
+
+void spawnChild2(void vName, int Tx, int Ty, int Tz, void Ani)
+{
+	//Spawns entity based on level panel coordinate
+
+    	void self = getlocalvar("self");
+    	float x = getentityproperty(self, "x"); // Get entity's x coordinate
+    	float z = getentityproperty(self, "z"); // Get entity's z coordinate
+	void vSpawn; //Spawn object.
+
+	clearspawnentry(); //Clear current spawn entry.
+        setspawnentry("name", vName); //Acquire spawn entity by name.
+
+        setlocalvar("x"+self, (Tx-x));
+        setlocalvar("z"+self, (Tz-z));
+
+	vSpawn = spawn(); //Spawn in entity.
+	changeentityproperty(vSpawn, "position", Tx, Tz, Ty); //Set spawn location.
+	changeentityproperty(vSpawn, "parent", self);
     	performattack(vSpawn, openborconstant(Ani));
 	return vSpawn; //Return spawn.
 }
@@ -1321,16 +1420,6 @@ void unbind ()
    bindentity(vSelf, NULL());
 }
 
-
-
-
-
-void hpgain(int Give)
-{// gives health
-    void self = getlocalvar("self");
-    int HP = getentityproperty(self,"health");
-    changeentityproperty(self, "health", HP+Give); //Spend!
-}
 
 void beidle()
 {// Go to IDLE animation!

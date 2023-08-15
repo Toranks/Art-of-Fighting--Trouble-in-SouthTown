@@ -1,5 +1,5 @@
 name          plant
-type          enemy
+type          npc
 subtype	      notgrab
 aimove	      chasez
 health        200
@@ -15,10 +15,10 @@ falldie	      1
 nodieblink    1
 gfxshadow     1
 offscreenkill 	20000
-candamage     player npc
-hostile       player npc
-risetime      1500
+candamage     enemy
+hostile       enemy
 projectilehit enemy obstacle
+risetime      1500
 diesound      data/sounds/Eagle2.wav
 
 animationscript data/scripts/escript.c
@@ -30,119 +30,7 @@ alternatepal	data/chars/beyond/1bug3/map3.gif
 
 
 
-anim	follow5
-@script
-if(frame==1)
-{
-  changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_OBSTACLE"));
-}
-@end_script
-	loop	1 4 9
-	delay	5
-	shadowcoords -999 -999
-	counterrange 2 10 1 1
-     	followanim 7
-	offset	125 230
-	bbox	100 135 50 40
-	frame	data/chars/beyond/1bug3/spawn01.gif
-	@cmd	layer -100
-	@cmd	subminz 0
-	@cmd	submaxz 0
-	@cmd	subwall 0
-	@cmd	subplat 0
-	frame	data/chars/beyond/1bug3/spawn01.gif
-	frame	data/chars/beyond/1bug3/spawn01.gif #2
-	frame	data/chars/beyond/1bug3/spawn01.gif
-	frame	data/chars/beyond/1bug3/spawn01.gif
-	frame	data/chars/beyond/1bug3/spawn01.gif
-	frame	data/chars/beyond/1bug3/spawn01.gif
-	frame	data/chars/beyond/1bug3/spawn01.gif
-	frame	data/chars/beyond/1bug3/spawn01.gif
-	frame	data/chars/beyond/1bug3/spawn01.gif
 
-
-
-
-anim	follow7
-@script
-if(frame==1)
-{
-  changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_ENEMY"));
-}
-@end_script
-	loop	0
-	shadowcoords -999 -999
-	delay	9
-	offset	125 230
-	bbox	0 0 0 0
-	frame	data/chars/beyond/1bug3/spawn01.gif
-	frame	data/chars/beyond/1bug3/spawn02.gif
-	frame	data/chars/beyond/1bug3/spawn03.gif
-	frame	data/chars/beyond/1bug3/spawn04.gif
-	frame	data/chars/beyond/1bug3/spawn01.gif
-	frame	data/chars/beyond/1bug3/spawn02.gif
-	frame	data/chars/beyond/1bug3/spawn03.gif
-	frame	data/chars/beyond/1bug3/spawn04.gif
-	frame	data/chars/beyond/1bug3/spawn01.gif
-	frame	data/chars/beyond/1bug3/spawn02.gif
-	frame	data/chars/beyond/1bug3/spawn03.gif
-	frame	data/chars/beyond/1bug3/spawn04.gif
-
-	frame	data/chars/beyond/1bug3/pain6.gif
-	frame	data/chars/beyond/1bug3/pain5.gif
-	frame	data/chars/beyond/1bug3/pain4.gif
-	frame	data/chars/beyond/1bug3/pain3.gif
-	frame	data/chars/beyond/1bug3/pain0.gif
-
-	frame	data/chars/beyond/1bug3/idle01.gif
-	frame	data/chars/beyond/1bug3/idle02.gif
-	frame	data/chars/beyond/1bug3/idle03.gif
-	frame	data/chars/beyond/1bug3/idle04.gif
-	delay	7
-	frame	data/chars/beyond/1bug3/wk01.gif
-	@cmd	dasher 0 0 0.5
-	frame	data/chars/beyond/1bug3/wk02.gif
-	frame	data/chars/beyond/1bug3/wk03.gif
-	frame	data/chars/beyond/1bug3/wk04.gif
-	@cmd	layer 0
-	frame	data/chars/beyond/1bug3/wk05.gif
-	frame	data/chars/beyond/1bug3/wk06.gif
-	frame	data/chars/beyond/1bug3/wk07.gif
-	frame	data/chars/beyond/1bug3/wk08.gif
-	frame	data/chars/beyond/1bug3/wk09.gif
-	frame	data/chars/beyond/1bug3/wk10.gif
-
-	frame	data/chars/beyond/1bug3/wk11.gif
-	@cmd	subscreen 1
-	frame	data/chars/beyond/1bug3/wk12.gif
-	@cmd	subplat 1
-	frame	data/chars/beyond/1bug3/wk01.gif
-	frame	data/chars/beyond/1bug3/wk02.gif
-	frame	data/chars/beyond/1bug3/wk03.gif
-	frame	data/chars/beyond/1bug3/wk04.gif
-	@cmd	stop
-	frame	data/chars/beyond/1bug3/idle01.gif
-	frame	data/chars/beyond/1bug3/idle02.gif
-	@cmd	subminz 1
-	@cmd	submaxz 1
-	@cmd	subwall 1
-	@cmd	subplat 1
-	frame	data/chars/beyond/1bug3/idle03.gif
-	frame	data/chars/beyond/1bug3/idle04.gif
-	frame	data/chars/beyond/1bug3/idle01.gif
-	frame	data/chars/beyond/1bug3/idle02.gif
-	frame	data/chars/beyond/1bug3/idle03.gif
-	frame	data/chars/beyond/1bug3/idle04.gif
-	frame	data/chars/beyond/1bug3/idle01.gif
-	frame	data/chars/beyond/1bug3/idle01.gif
-	frame	data/chars/beyond/1bug3/idle02.gif
-	frame	data/chars/beyond/1bug3/idle03.gif
-	frame	data/chars/beyond/1bug3/idle04.gif
-	frame	data/chars/beyond/1bug3/idle01.gif
-	@cmd	beidle
-	frame	data/chars/beyond/1bug3/idle01.gif
-
-		
 anim	burn
 	loop	0
 	delay	9
@@ -161,7 +49,7 @@ anim	burn
 	frame	data/chars/beyond/1bug3/pain6.gif
 	@cmd	stop
 	frame	data/chars/beyond/1bug3/pain5.gif
-	@cmd 	beidle
+	@cmd	beidle
 	frame	data/chars/beyond/1bug3/pain5.gif
 		
 anim	death
@@ -193,31 +81,7 @@ anim	fall
 	frame	data/chars/beyond/1bug3/pain3.gif
 	@cmd	anichange "ANI_RISE"
 	frame	data/chars/beyond/1bug3/pain3.gif
-
-
-
-anim	rise
-	loop	0
-	delay	5
-	offset	125 230
-	bbox	0 0 0 0
-	@cmd	dasher -3 0 0
-	frame	data/chars/beyond/1bug3/pain3.gif
-	@cmd	spawnbind "dust" 1 1 1
-	delay	12
-	@cmd	dasher -3 0 0
-	frame	data/chars/beyond/1bug3/pain4.gif
-	bbox	100 135 50 90
-	frame	data/chars/beyond/1bug3/pain5.gif
-	@cmd	dasher -1.5 0 0
-	frame	data/chars/beyond/1bug3/pain6.gif
-	frame	data/chars/beyond/1bug3/pain5.gif
-	@cmd	stop
-	frame	data/chars/beyond/1bug3/pain4.gif
-	@cmd	beidle
-	frame	data/chars/beyond/1bug3/idle03.gif
-
-
+		
 anim	fall7
 	loop	0
 	delay	1000
@@ -237,6 +101,114 @@ anim	fall7
 	frame	data/chars/beyond/1bug3/pain4.gif
 	frame	data/chars/beyond/1bug3/pain5.gif
 	frame	data/chars/beyond/1bug3/pain6.gif
+		
+anim	follow5
+@script
+if(frame==1)
+{
+  changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_OBSTACLE"));
+}
+	@end_script	
+	loop	1 4 9
+	delay	5
+	shadowcoords	-999 -999
+	counterrange	2 10 1 1
+	followanim	7
+	offset	125 230
+	bbox	100 135 50 40
+	frame	data/chars/beyond/1bug3/spawn01.gif
+	@cmd	layer -100
+	@cmd	subminz 0
+	@cmd	submaxz 0
+	@cmd	subwall 0
+	@cmd	subplat 0
+	frame	data/chars/beyond/1bug3/spawn01.gif
+	frame	data/chars/beyond/1bug3/spawn01.gif #2
+	frame	data/chars/beyond/1bug3/spawn01.gif
+	frame	data/chars/beyond/1bug3/spawn01.gif
+	frame	data/chars/beyond/1bug3/spawn01.gif
+	frame	data/chars/beyond/1bug3/spawn01.gif
+	frame	data/chars/beyond/1bug3/spawn01.gif
+	frame	data/chars/beyond/1bug3/spawn01.gif
+	frame	data/chars/beyond/1bug3/spawn01.gif
+		
+anim	follow7
+@script
+if(frame==1)
+{
+  changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_NPC"));
+  changeentityproperty(getlocalvar("self"), "candamage", openborconstant("TYPE_ENEMY"));
+  changeentityproperty(getlocalvar("self"), "hostile", openborconstant("TYPE_ENEMY"));
+}
+	@end_script	
+	loop	0
+	shadowcoords	-999 -999
+	delay	9
+	offset	125 230
+	bbox	0 0 0 0
+	frame	data/chars/beyond/1bug3/spawn01.gif
+	frame	data/chars/beyond/1bug3/spawn02.gif
+	frame	data/chars/beyond/1bug3/spawn03.gif
+	frame	data/chars/beyond/1bug3/spawn04.gif
+	frame	data/chars/beyond/1bug3/spawn01.gif
+	frame	data/chars/beyond/1bug3/spawn02.gif
+	frame	data/chars/beyond/1bug3/spawn03.gif
+	frame	data/chars/beyond/1bug3/spawn04.gif
+	frame	data/chars/beyond/1bug3/spawn01.gif
+	frame	data/chars/beyond/1bug3/spawn02.gif
+	frame	data/chars/beyond/1bug3/spawn03.gif
+	frame	data/chars/beyond/1bug3/spawn04.gif
+	frame	data/chars/beyond/1bug3/pain6.gif
+	frame	data/chars/beyond/1bug3/pain5.gif
+	frame	data/chars/beyond/1bug3/pain4.gif
+	frame	data/chars/beyond/1bug3/pain3.gif
+	frame	data/chars/beyond/1bug3/pain0.gif
+	frame	data/chars/beyond/1bug3/idle01.gif
+	frame	data/chars/beyond/1bug3/idle02.gif
+	frame	data/chars/beyond/1bug3/idle03.gif
+	frame	data/chars/beyond/1bug3/idle04.gif
+	delay	7
+	frame	data/chars/beyond/1bug3/wk01.gif
+	@cmd	dasher 0 0 0.5
+	frame	data/chars/beyond/1bug3/wk02.gif
+	frame	data/chars/beyond/1bug3/wk03.gif
+	frame	data/chars/beyond/1bug3/wk04.gif
+	@cmd	layer 0
+	frame	data/chars/beyond/1bug3/wk05.gif
+	frame	data/chars/beyond/1bug3/wk06.gif
+	frame	data/chars/beyond/1bug3/wk07.gif
+	frame	data/chars/beyond/1bug3/wk08.gif
+	frame	data/chars/beyond/1bug3/wk09.gif
+	frame	data/chars/beyond/1bug3/wk10.gif
+	frame	data/chars/beyond/1bug3/wk11.gif
+	@cmd	subscreen 1
+	frame	data/chars/beyond/1bug3/wk12.gif
+	@cmd	subplat 1
+	frame	data/chars/beyond/1bug3/wk01.gif
+	frame	data/chars/beyond/1bug3/wk02.gif
+	frame	data/chars/beyond/1bug3/wk03.gif
+	frame	data/chars/beyond/1bug3/wk04.gif
+	@cmd	stop
+	frame	data/chars/beyond/1bug3/idle01.gif
+	frame	data/chars/beyond/1bug3/idle02.gif
+	@cmd	subminz 1
+	@cmd	submaxz 1
+	@cmd	subwall 1
+	@cmd	subplat 1
+	frame	data/chars/beyond/1bug3/idle03.gif
+	frame	data/chars/beyond/1bug3/idle04.gif
+	frame	data/chars/beyond/1bug3/idle01.gif
+	frame	data/chars/beyond/1bug3/idle02.gif
+	frame	data/chars/beyond/1bug3/idle03.gif
+	frame	data/chars/beyond/1bug3/idle04.gif
+	frame	data/chars/beyond/1bug3/idle01.gif
+	frame	data/chars/beyond/1bug3/idle01.gif
+	frame	data/chars/beyond/1bug3/idle02.gif
+	frame	data/chars/beyond/1bug3/idle03.gif
+	frame	data/chars/beyond/1bug3/idle04.gif
+	frame	data/chars/beyond/1bug3/idle01.gif
+	@cmd	beidle
+	frame	data/chars/beyond/1bug3/idle01.gif
 		
 anim	grab
 	loop	0
@@ -302,8 +274,6 @@ anim	grab
 	frame	data/chars/beyond/1bug3/a03.gif
 	offset	125 230
 	frame	data/chars/beyond/1bug3/idle03.gif
-
-
 		
 anim	idle
 	loop	1
@@ -339,7 +309,26 @@ anim	pain2
 	delay	30
 	frame	data/chars/beyond/1bug3/pain0.gif
 		
-
+anim	rise
+	loop	0
+	delay	5
+	offset	125 230
+	bbox	0 0 0 0
+	@cmd	dasher -3 0 0
+	frame	data/chars/beyond/1bug3/pain3.gif
+	@cmd	spawnbind "dust" 1 1 1
+	delay	12
+	@cmd	dasher -3 0 0
+	frame	data/chars/beyond/1bug3/pain4.gif
+	bbox	100 135 50 90
+	frame	data/chars/beyond/1bug3/pain5.gif
+	@cmd	dasher -1.5 0 0
+	frame	data/chars/beyond/1bug3/pain6.gif
+	frame	data/chars/beyond/1bug3/pain5.gif
+	@cmd	stop
+	frame	data/chars/beyond/1bug3/pain4.gif
+	@cmd	beidle
+	frame	data/chars/beyond/1bug3/idle03.gif
 		
 anim	spawn
 	loop	0

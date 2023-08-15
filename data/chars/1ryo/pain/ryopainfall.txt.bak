@@ -1,0 +1,675 @@
+name		ryopainfall
+type		none
+health		100
+mp		100
+mprate		0
+nolife 		1
+speedf		1
+jumpheight      0
+modelflag	1
+noquake		1
+falldie		1
+nodieblink	2
+facing		1
+makeinv		3
+shadow		0
+dust            zero
+risetime        350
+candamage	enemy obstacle npc
+diesound        data/sounds/empty.wav
+icon		data/chars/1ryo/empty.gif
+animationscript data/scripts/grabscript.c
+
+palette		data/chars/1ryo/mapal.gif
+alternatepal	data/chars/1ryo/map1.gif
+alternatepal	data/chars/1ryo/map1.gif
+alternatepal	data/chars/1ryo/map2.gif
+alternatepal	data/chars/1ryo/map3.gif
+alternatepal	data/chars/1ryo/map4.gif
+alternatepal	data/chars/1ryo/map5.gif
+alternatepal	data/chars/1ryo/map6.gif
+alternatepal	data/chars/1ryo/map7.gif
+alternatepal	data/chars/1ryo/map8.gif
+
+
+
+
+
+com	b u f d f d s freespecial1
+com	s a2 freespecial1
+com	f d b u f b d f s freespecial2
+com	s a3 freespecial2
+com	d f d f d b d b f d f s freespecial3
+com	a2 a4 freespecial3
+
+load	ldrpwr3
+load	landsp
+load	aofint3
+
+anim	attack1
+	loop	0
+	delay	5
+	offset	121 201
+	bbox	97 105 45 72
+	frame	data/chars/1ryo/pain/idle01.gif
+	frame	data/chars/1ryo/pain/idle02.gif
+		
+anim	death
+	loop	0
+	delay	5
+	offset	1 1
+	bbox	0 0 0 0
+	frame	data/chars/1ryo/pain/empty.gif
+	frame	data/chars/1ryo/pain/empty.gif
+		
+anim	fall
+	loop	0
+	delay	7
+	offset	121 201
+	bbox	0 0 0 0
+	frame	data/chars/1ryo/pain/fall1.gif
+	frame	data/chars/1ryo/pain/fall2.gif
+	frame	data/chars/1ryo/pain/fall3.gif
+	frame	data/chars/1ryo/pain/fall4.gif
+	frame	data/chars/1ryo/pain/fall1.gif #4
+	frame	data/chars/1ryo/pain/fall2.gif
+	frame	data/chars/1ryo/pain/fall3.gif
+	frame	data/chars/1ryo/pain/fall4.gif
+	@cmd	looper 4 5
+	frame	data/chars/1ryo/pain/fall5.gif
+	frame	data/chars/1ryo/pain/fall6.gif
+	delay	5
+	frame	data/chars/1ryo/pain/fall7.gif #10
+	frame	data/chars/1ryo/pain/fall8.gif
+	frame	data/chars/1ryo/pain/fall7.gif
+	frame	data/chars/1ryo/pain/fall8.gif
+	@cmd	looper 10 20
+	frame	data/chars/1ryo/pain/fall7.gif
+	frame	data/chars/1ryo/pain/fall8.gif
+		
+anim	follow1
+	loop	0
+	delay	5
+	offset	121 201
+	bbox	97 105 45 72
+	frame	data/chars/1ryo/pain/idle01.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/idle02.gif
+	@cmd	spawnGun6 "landsp" 200 0 100 5 "ANI_FOLLOW1"
+	frame	data/chars/1ryo/pain/idle01.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/idle02.gif
+	@cmd	beidle
+	frame	data/chars/1ryo/pain/idle02.gif
+		
+anim	follow2
+@script
+    if(frame==48){
+	fademusic(1);
+    }
+    if(frame==50){
+	jumptobranch("sadend", 1);
+    }
+	@end_script	
+	loop	0
+	delay	8
+	offset	121 201
+	bbox	0 0 0 0
+	frame	data/chars/1ryo/pain/fall4.gif
+	frame	data/chars/1ryo/pain/fall3.gif
+	frame	data/chars/1ryo/pain/fall2.gif
+	frame	data/chars/1ryo/pain/fall1.gif
+	frame	data/chars/1ryo/pain/fall4.gif #4
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/fall3.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/fall2.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/fall1.gif
+	@cmd	looper 4 5
+	delay	9
+	frame	data/chars/1ryo/pain/fall4.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/fall3.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/fall2.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/fall1.gif
+	delay	10
+	frame	data/chars/1ryo/pain/fall4.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/fall3.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/fall2.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/fall1.gif
+	delay	12
+	frame	data/chars/1ryo/pain/fall4.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/fall3.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/fall2.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/fall1.gif
+	delay	13
+	frame	data/chars/1ryo/pain/fall4.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/fall3.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/fall2.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/fall1.gif
+	delay	14
+	frame	data/chars/1ryo/pain/fall4.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/fall3.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/fall2.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/fall1.gif
+	delay	15
+	frame	data/chars/1ryo/pain/fall4.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/fall3.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/fall2.gif
+	@cmd	stop
+	frame	data/chars/1ryo/pain/fall1.gif
+	delay	15
+	frame	data/chars/1ryo/pain/fall5.gif
+	@cmd	dasher 0 0 -0.2
+	frame	data/chars/1ryo/pain/fall6.gif
+	delay	8
+	frame	data/chars/1ryo/pain/fall7.gif #34
+	frame	data/chars/1ryo/pain/fall8.gif
+	frame	data/chars/1ryo/pain/fall7.gif
+	frame	data/chars/1ryo/pain/fall8.gif
+	@cmd	looper 34 10
+	frame	data/chars/1ryo/pain/fall7.gif
+	@cmd	subscreen 0
+	@cmd	subminz 0
+	@cmd	submaxz 0
+	@cmd	dasher 0 0 0.2
+	frame	data/chars/1ryo/pain/fall8.gif
+	frame	data/chars/1ryo/pain/fall7.gif #40
+	frame	data/chars/1ryo/pain/fall8.gif
+	frame	data/chars/1ryo/pain/fall7.gif
+	frame	data/chars/1ryo/pain/fall8.gif
+	@cmd	looper 40 43
+	frame	data/chars/1ryo/pain/fall7.gif #44
+	delay	100
+	frame	data/chars/1ryo/pain/fall8.gif
+	@cmd	stop
+	@cmd	spawnAni4 "aofint3" 50 0 50 "ANI_FOLLOW1"
+	frame	data/chars/1ryo/pain/fall8.gif
+	delay	500
+	frame	data/chars/1ryo/pain/fall8.gif
+	frame	data/chars/1ryo/pain/fall8.gif #48
+	frame	data/chars/1ryo/pain/fall8.gif
+	frame	data/chars/1ryo/pain/fall8.gif #50
+	frame	data/chars/1ryo/pain/fall8.gif
+	frame	data/chars/1ryo/pain/fall8.gif
+	delay	10000
+	frame	data/chars/1ryo/pain/fall8.gif
+	frame	data/chars/1ryo/pain/fall8.gif
+		
+anim	follow5
+	loop	0
+	delay	5
+	offset	121 201
+	bbox	0 0 0 0
+	frame	data/chars/1ryo/pain/idle01.gif
+	@cmd	mpgain -99
+	frame	data/chars/1ryo/pain/idle02.gif
+	frame	data/chars/1ryo/pain/idle01.gif
+	@cmd	mpgain 31
+	frame	data/chars/1ryo/pain/idle02.gif
+	@cmd	beidle
+	frame	data/chars/1ryo/pain/idle01.gif
+	frame	data/chars/1ryo/pain/idle02.gif
+		
+anim	freespecial1
+	energycost	30
+	mponly	1
+	loop	0
+	delay	5
+	offset	121 201
+	bbox	97 105 45 72
+	frame	data/chars/1ryo/pain/idle01.gif
+	@cmd	killgun 5 0
+	@cmd	clearL
+	frame	data/chars/1ryo/pain/idle02.gif
+	delay	9
+	frame	data/chars/1ryo/pain/sp01.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/sp02.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/sp03.gif
+	delay	6
+	frame	data/chars/1ryo/pain/sp04.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/sp05.gif
+	frame	data/chars/1ryo/pain/sp04.gif #7
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/sp05.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/sp04.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/sp05.gif
+	@cmd	looper 7 10
+	frame	data/chars/1ryo/pain/sp04.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/sp05.gif
+	delay	8
+	frame	data/chars/1ryo/pain/sp05.gif
+	movez	-2
+	frame	data/chars/1ryo/pain/sp06.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/sp07.gif
+	@cmd	spawnGun5 "ldrpwr3" 10 20 1 2 "ANI_FOLLOW15"
+	frame	data/chars/1ryo/pain/sp08.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/sp07.gif #17
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/sp08.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/sp07.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/sp08.gif
+	@cmd	looper 17 30
+	frame	data/chars/1ryo/pain/sp07.gif
+	@cmd	killgun 2 0
+	frame	data/chars/1ryo/pain/sp08.gif
+	movez	0
+	frame	data/chars/1ryo/pain/sp09.gif
+	@cmd	mpgain 51
+	frame	data/chars/1ryo/pain/sp10.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/sp11.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/sp12.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/sp13.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/sp14.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/sp15.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/sp16.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/idle01.gif
+	@cmd	spawnGun6 "landsp" 200 0 100 5 "ANI_FOLLOW2"
+	frame	data/chars/1ryo/pain/idle02.gif
+		
+anim	freespecial2
+	energycost	50
+	mponly	1
+	loop	0
+	delay	5
+	offset	121 201
+	bbox	97 105 45 72
+	frame	data/chars/1ryo/pain/idle01.gif
+	@cmd	killgun 5 0
+	@cmd	clearL
+	frame	data/chars/1ryo/pain/idle02.gif
+	delay	9
+	frame	data/chars/1ryo/pain/sp01.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/sp02.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/sp03.gif
+	delay	6
+	frame	data/chars/1ryo/pain/sp04.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/sp05.gif
+	frame	data/chars/1ryo/pain/sp04.gif #7
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/sp05.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/sp04.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/sp05.gif
+	@cmd	looper 7 10
+	frame	data/chars/1ryo/pain/sp04.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/sp05.gif
+	delay	8
+	frame	data/chars/1ryo/pain/sp05.gif
+	movez	-3
+	frame	data/chars/1ryo/pain/sp06.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/sp07.gif
+	@cmd	spawnGun5 "ldrpwr3" 1 1 1 2 "ANI_FOLLOW16"
+	frame	data/chars/1ryo/pain/sp08.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/sp07.gif #17
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/sp08.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/sp07.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/sp08.gif
+	@cmd	looper 17 50
+	frame	data/chars/1ryo/pain/sp07.gif
+	@cmd	killgun 2 0
+	frame	data/chars/1ryo/pain/sp08.gif
+	movez	0
+	frame	data/chars/1ryo/pain/sp09.gif
+	@cmd	mpgain 115
+	frame	data/chars/1ryo/pain/sp10.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/sp11.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/sp12.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/sp13.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/sp14.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/sp15.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/sp16.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/idle01.gif
+	@cmd	spawnGun6 "landsp" 200 0 100 5 "ANI_FOLLOW3"
+	frame	data/chars/1ryo/pain/idle02.gif
+		
+anim	freespecial3
+@script
+    if(frame==36){
+	jumptobranch("1on1", 1);
+    }
+	@end_script	
+	energycost	90
+	mponly	1
+	loop	0
+	delay	5
+	offset	121 201
+	bbox	97 105 45 72
+	frame	data/chars/1ryo/pain/idle01.gif
+	@cmd	killgun 5 0
+	@cmd	clearL
+	frame	data/chars/1ryo/pain/idle02.gif
+	delay	9
+	frame	data/chars/1ryo/pain/sp01.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/sp02.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/sp03.gif
+	delay	6
+	frame	data/chars/1ryo/pain/sp04.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/sp05.gif
+	frame	data/chars/1ryo/pain/sp04.gif #7
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/sp05.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/sp04.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/sp05.gif
+	@cmd	looper 7 10
+	frame	data/chars/1ryo/pain/sp04.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/sp05.gif
+	delay	8
+	frame	data/chars/1ryo/pain/sp05.gif
+	movez	-5
+	frame	data/chars/1ryo/pain/sp06.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/sp07.gif
+	@cmd	spawnGun5 "ldrpwr3" -10 1 30 2 "ANI_FOLLOW17"
+	frame	data/chars/1ryo/pain/sp08.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/sp07.gif #17
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/sp08.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/sp07.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/sp08.gif
+	@cmd	looper 17 40
+	frame	data/chars/1ryo/pain/sp07.gif
+	@cmd	stop
+	frame	data/chars/1ryo/pain/sp08.gif
+	movez	-5
+	frame	data/chars/1ryo/pain/sp07.gif #23
+	@cmd	subscreen 0
+	@cmd	subminz 0
+	@cmd	submaxz 0
+	frame	data/chars/1ryo/pain/sp08.gif
+	frame	data/chars/1ryo/pain/sp07.gif #25
+	frame	data/chars/1ryo/pain/sp08.gif
+	frame	data/chars/1ryo/pain/sp07.gif
+	frame	data/chars/1ryo/pain/sp08.gif
+	@cmd	looper 25 10
+	frame	data/chars/1ryo/pain/sp07.gif
+	movez	0
+	frame	data/chars/1ryo/pain/sp08.gif
+	@cmd	spawnAni4 "aofint3" 50 0 50 "ANI_FOLLOW1"
+	frame	data/chars/1ryo/pain/sp07.gif
+	delay	900
+	frame	data/chars/1ryo/pain/sp08.gif
+	delay	10
+	frame	data/chars/1ryo/pain/sp07.gif
+	@cmd	killgun 2 0
+	frame	data/chars/1ryo/pain/sp08.gif
+	delay	30
+	frame	data/chars/1ryo/pain/sp08.gif #35
+	frame	data/chars/1ryo/pain/sp08.gif
+	frame	data/chars/1ryo/pain/sp08.gif
+	delay	3000
+	frame	data/chars/1ryo/pain/sp08.gif
+	frame	data/chars/1ryo/pain/sp08.gif
+	frame	data/chars/1ryo/pain/sp08.gif
+		
+anim	idle
+	loop	1
+	delay	5
+	offset	121 201
+	bbox	97 105 45 72
+	frame	data/chars/1ryo/pain/idle01.gif
+	frame	data/chars/1ryo/pain/idle02.gif
+	frame	data/chars/1ryo/pain/idle01.gif
+	frame	data/chars/1ryo/pain/idle02.gif
+	@cmd	clearL
+	frame	data/chars/1ryo/pain/idle01.gif
+	frame	data/chars/1ryo/pain/idle02.gif
+	frame	data/chars/1ryo/pain/idle01.gif
+	frame	data/chars/1ryo/pain/idle02.gif
+		
+anim	pain
+	loop	0
+	delay	8
+	offset	121 201
+	bbox	0 0 0 0
+	frame	data/chars/1ryo/pain/fall4.gif
+	frame	data/chars/1ryo/pain/fall3.gif
+	frame	data/chars/1ryo/pain/fall2.gif
+	frame	data/chars/1ryo/pain/fall1.gif
+	frame	data/chars/1ryo/pain/fall4.gif #4
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/fall3.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/fall2.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/fall1.gif
+	@cmd	looper 4 5
+	delay	9
+	frame	data/chars/1ryo/pain/fall4.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/fall3.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/fall2.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/fall1.gif
+	delay	10
+	frame	data/chars/1ryo/pain/fall4.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/fall3.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/fall2.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/fall1.gif
+	delay	12
+	frame	data/chars/1ryo/pain/fall4.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/fall3.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/fall2.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/fall1.gif
+	delay	13
+	frame	data/chars/1ryo/pain/fall4.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/fall3.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/fall2.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/fall1.gif
+	delay	14
+	frame	data/chars/1ryo/pain/fall4.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/fall3.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/fall2.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/fall1.gif
+	delay	15
+	frame	data/chars/1ryo/pain/fall4.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/fall3.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/fall2.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/fall1.gif
+	delay	15
+	frame	data/chars/1ryo/pain/fall5.gif
+	frame	data/chars/1ryo/pain/fall6.gif
+	delay	8
+	frame	data/chars/1ryo/pain/fall7.gif #34
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/fall8.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/fall7.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/fall8.gif
+	@cmd	looper 34 30
+	frame	data/chars/1ryo/pain/fall7.gif
+	frame	data/chars/1ryo/pain/fall8.gif
+	delay	8
+	frame	data/chars/1ryo/pain/rise1.gif
+	frame	data/chars/1ryo/pain/rise2.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/rise3.gif
+	frame	data/chars/1ryo/pain/rise4.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/pain/rise5.gif
+	frame	data/chars/1ryo/pain/rise6.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/air/spawn07.gif
+	frame	data/chars/1ryo/air/spawn06.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/air/spawn05.gif
+	frame	data/chars/1ryo/air/spawn04.gif
+	@cmd	keymove 1.0
+	frame	data/chars/1ryo/air/spawn03.gif
+	delay	5
+	frame	data/chars/1ryo/pain/idle02.gif
+	frame	data/chars/1ryo/pain/idle01.gif
+		
+anim	rise
+	loop	0
+	delay	6
+	offset	121 201
+	bbox	0 0 0 0
+	frame	data/chars/1ryo/pain/rise1.gif
+	frame	data/chars/1ryo/pain/rise2.gif
+	frame	data/chars/1ryo/pain/rise3.gif
+	frame	data/chars/1ryo/pain/rise4.gif
+	frame	data/chars/1ryo/pain/rise5.gif
+	frame	data/chars/1ryo/pain/rise6.gif
+	frame	data/chars/1ryo/air/spawn07.gif
+	frame	data/chars/1ryo/air/spawn06.gif
+	frame	data/chars/1ryo/air/spawn05.gif
+	frame	data/chars/1ryo/air/spawn04.gif
+	frame	data/chars/1ryo/air/spawn03.gif
+	delay	5
+	frame	data/chars/1ryo/pain/idle02.gif
+	frame	data/chars/1ryo/pain/idle01.gif
+	frame	data/chars/1ryo/pain/fall7.gif
+	frame	data/chars/1ryo/pain/fall8.gif
+	frame	data/chars/1ryo/pain/fall7.gif
+	frame	data/chars/1ryo/pain/fall8.gif
+		
+anim	spawn
+	loop	0
+	delay	50
+	offset	121 201
+	bbox	0 0 0 0
+	landframe	9
+	frame	data/chars/1ryo/pain/empty.gif
+	delay	5
+	frame	data/chars/1ryo/pain/empty.gif
+	@cmd	degravity 1
+	frame	data/chars/1ryo/pain/empty.gif
+	movea	100
+	frame	data/chars/1ryo/pain/empty.gif
+	movea	0
+	frame	data/chars/1ryo/pain/empty.gif
+	@cmd	dasher 0 -0.3 0
+	frame	data/chars/1ryo/pain/fall8.gif #5
+	frame	data/chars/1ryo/pain/fall7.gif
+	frame	data/chars/1ryo/pain/fall8.gif
+	frame	data/chars/1ryo/pain/fall7.gif
+	@cmd	looper 5 20
+	frame	data/chars/1ryo/pain/fall8.gif
+	@cmd	dasher 0 0 0.3
+	frame	data/chars/1ryo/pain/fall7.gif #10
+	frame	data/chars/1ryo/pain/fall8.gif
+	frame	data/chars/1ryo/pain/fall7.gif
+	frame	data/chars/1ryo/pain/fall8.gif
+	@cmd	looper 10 25
+	frame	data/chars/1ryo/pain/fall7.gif
+	frame	data/chars/1ryo/pain/fall8.gif
+	@cmd	dasher 0 0 -0.3
+	frame	data/chars/1ryo/pain/fall7.gif #16
+	frame	data/chars/1ryo/pain/fall8.gif
+	frame	data/chars/1ryo/pain/fall7.gif
+	frame	data/chars/1ryo/pain/fall8.gif
+	frame	data/chars/1ryo/pain/fall7.gif
+	frame	data/chars/1ryo/pain/fall8.gif
+	@cmd	looper 16 5
+	frame	data/chars/1ryo/pain/fall7.gif
+	frame	data/chars/1ryo/pain/fall8.gif
+	frame	data/chars/1ryo/pain/fall7.gif
+	frame	data/chars/1ryo/pain/fall8.gif
+	@cmd	stop
+	frame	data/chars/1ryo/pain/fall7.gif
+	frame	data/chars/1ryo/pain/fall8.gif
+	frame	data/chars/1ryo/pain/fall7.gif
+	frame	data/chars/1ryo/pain/fall8.gif
+	frame	data/chars/1ryo/pain/fall7.gif
+	frame	data/chars/1ryo/pain/fall8.gif
+	frame	data/chars/1ryo/pain/fall7.gif
+	frame	data/chars/1ryo/pain/fall8.gif
+	@cmd	looper 30 15
+	delay	8
+	frame	data/chars/1ryo/pain/rise1.gif
+	frame	data/chars/1ryo/pain/rise2.gif
+	frame	data/chars/1ryo/pain/rise3.gif
+	frame	data/chars/1ryo/pain/rise4.gif
+	frame	data/chars/1ryo/pain/rise5.gif
+	frame	data/chars/1ryo/pain/rise6.gif
+	frame	data/chars/1ryo/air/spawn07.gif
+	frame	data/chars/1ryo/air/spawn06.gif
+	frame	data/chars/1ryo/air/spawn05.gif
+	frame	data/chars/1ryo/air/spawn04.gif
+	@cmd	degravity 0
+	frame	data/chars/1ryo/air/spawn03.gif
+	delay	5
+	frame	data/chars/1ryo/pain/idle02.gif
+	@cmd	anichange "ANI_FOLLOW5"
+	frame	data/chars/1ryo/pain/idle01.gif
+		
+#|edited by openBor Stats v 0.53
+		

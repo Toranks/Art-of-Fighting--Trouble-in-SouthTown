@@ -11,7 +11,6 @@ nolife		1
 falldie		1
 nodieblink	1
 makeinv		3
-lifespan  	150
 gfxshadow	1
 nodrop		1
 antigrab	10
@@ -38,12 +37,13 @@ load	jonyjam
 
 
 
+
 anim	death
 	loop	0
 	delay	6
 	offset	60 195
 	bbox	0 0 0 0
-	shadowcoords 50 225 
+	shadowcoords	50 225
 	quakeframe	7 70 8
 	seta	80
 	frame	data/chars/misc/traps/plane1/plane01.gif
@@ -492,22 +492,79 @@ anim	death
 	move	0
 	delay	10
 	frame	data/chars/misc/traps/plane1/empty.gif
-
-
-#---------------------------------------
-
-
-
-
-
-
+		
+anim	follow14
+	loop	0
+	delay	5
+	offset	60 195
+	bbox	0 0 0 0
+	shadowcoords	50 225
+	quakeframe	3 90 8
+	drawmethod	356 356
+	frame	data/chars/misc/traps/plane1/fplane01.gif
+	@cmd	layer 12000
+	frame	data/chars/misc/traps/plane1/fplane01.gif
+	delay	200
+	frame	data/chars/misc/traps/plane1/fplane01.gif
+	delay	7
+	sound	data/sounds/planefly1.wav
+	frame	data/chars/misc/traps/plane1/fplane01.gif
+	@cmd	dasher -3.5 0 0
+	frame	data/chars/misc/traps/plane1/fplane01.gif #4
+	frame	data/chars/misc/traps/plane1/fplane02.gif
+	frame	data/chars/misc/traps/plane1/fplane03.gif
+	frame	data/chars/misc/traps/plane1/fplane04.gif
+	frame	data/chars/misc/traps/plane1/fplane05.gif
+	frame	data/chars/misc/traps/plane1/fplane06.gif
+	frame	data/chars/misc/traps/plane1/fplane07.gif
+	frame	data/chars/misc/traps/plane1/fplane08.gif
+	frame	data/chars/misc/traps/plane1/fplane09.gif
+	frame	data/chars/misc/traps/plane1/fplane10.gif
+	@cmd	looper 4 6
+	frame	data/chars/misc/traps/plane1/fplane01.gif
+	frame	data/chars/misc/traps/plane1/fplane02.gif
+	sound	data/sounds/planefly2.wav
+	frame	data/chars/misc/traps/plane1/fplane03.gif
+	frame	data/chars/misc/traps/plane1/fplane04.gif
+	frame	data/chars/misc/traps/plane1/fplane05.gif
+	@cmd	spawnAni2 "jonyjam" 240 400 520 "ANI_FOLLOW1"
+	frame	data/chars/misc/traps/plane1/fplane06.gif
+	frame	data/chars/misc/traps/plane1/fplane07.gif
+	frame	data/chars/misc/traps/plane1/fplane08.gif
+	sound	data/sounds/planefly1.wav
+	frame	data/chars/misc/traps/plane1/fplane09.gif
+	frame	data/chars/misc/traps/plane1/fplane10.gif
+	frame	data/chars/misc/traps/plane1/fplane01.gif #24
+	frame	data/chars/misc/traps/plane1/fplane02.gif
+	frame	data/chars/misc/traps/plane1/fplane03.gif
+	frame	data/chars/misc/traps/plane1/fplane04.gif
+	frame	data/chars/misc/traps/plane1/fplane05.gif
+	frame	data/chars/misc/traps/plane1/fplane06.gif
+	frame	data/chars/misc/traps/plane1/fplane07.gif
+	frame	data/chars/misc/traps/plane1/fplane08.gif
+	frame	data/chars/misc/traps/plane1/fplane09.gif
+	frame	data/chars/misc/traps/plane1/fplane10.gif
+	@cmd	looper 24 5
+	frame	data/chars/misc/traps/plane1/fplane01.gif
+	frame	data/chars/misc/traps/plane1/fplane02.gif
+	sound	data/sounds/planefly2.wav
+	frame	data/chars/misc/traps/plane1/fplane03.gif
+	frame	data/chars/misc/traps/plane1/fplane04.gif
+	frame	data/chars/misc/traps/plane1/fplane05.gif
+	frame	data/chars/misc/traps/plane1/fplane06.gif
+	frame	data/chars/misc/traps/plane1/fplane07.gif
+	frame	data/chars/misc/traps/plane1/fplane08.gif
+	frame	data/chars/misc/traps/plane1/fplane09.gif
+	frame	data/chars/misc/traps/plane1/fplane10.gif
+	@cmd	suicide
+	frame	data/chars/misc/traps/plane1/fplane10.gif
 		
 anim	idle
 	loop	1
 	delay	5
 	offset	60 195
 	bbox	155 -5 20 20
-	shadowcoords 50 225 
+	shadowcoords	50 225
 	seta	80
 	frame	data/chars/misc/traps/plane1/mgunfire.gif
 	seta	78
@@ -549,10 +606,6 @@ anim	idle
 	frame	data/chars/misc/traps/plane1/mgunfire.gif
 	seta	78
 	frame	data/chars/misc/traps/plane1/mgunfire.gif
-
-
-
-
 		
 anim	pain
 		
@@ -561,7 +614,7 @@ anim	spawn
 	delay	6
 	offset	60 195
 	bbox	0 0 0 0
-	shadowcoords 50 225 
+	shadowcoords	50 225
 	quakeframe	15 90 8
 	move	-16
 	seta	80
@@ -1005,12 +1058,6 @@ anim	spawn
 	frame	data/chars/misc/traps/plane1/plane09.gif
 	seta	78
 	frame	data/chars/misc/traps/plane1/plane10.gif
-
-
-
-#---------------------------------------
-
-
 	move	0
 	delay	50
 	frame	data/chars/misc/traps/plane1/empty.gif
@@ -1021,7 +1068,7 @@ anim	spawn
 	@cmd	flip
 	delay	3
 	move	-16
-		seta	80
+	seta	80
 	frame	data/chars/misc/traps/plane1/plane01.gif
 	seta	78
 	frame	data/chars/misc/traps/plane1/plane02.gif
@@ -1055,7 +1102,7 @@ anim	spawn
 	frame	data/chars/misc/traps/plane1/plane07.gif
 	frame	data/chars/misc/traps/plane1/plane08.gif
 	frame	data/chars/misc/traps/plane1/plane09.gif
- 	@cmd	spawnbind "plnquk" 1 1 1
+	@cmd	spawnbind "plnquk" 1 1 1
 	frame	data/chars/misc/traps/plane1/plane10.gif
 	frame	data/chars/misc/traps/plane1/plane01.gif
 	frame	data/chars/misc/traps/plane1/plane02.gif
@@ -1280,8 +1327,6 @@ anim	spawn
 	frame	data/chars/misc/traps/plane1/plane08.gif
 	frame	data/chars/misc/traps/plane1/plane09.gif
 	frame	data/chars/misc/traps/plane1/plane10.gif
-
-
 	move	0
 	delay	50
 	frame	data/chars/misc/traps/plane1/empty.gif
@@ -1297,70 +1342,5 @@ anim	spawn
 	@cmd	spawnGun "plnsmk1" 290 60 1 2
 	frame	data/chars/misc/traps/plane1/empty.gif
 		
-anim	follow14
-	loop	0
-	delay	5
-	offset	60 195
-	bbox	0 0 0 0
-	shadowcoords 50 225 
-	quakeframe	3 90 8
-	drawmethod 356 356
-	frame	data/chars/misc/traps/plane1/fplane01.gif
-	@cmd	layer 12000
-	frame	data/chars/misc/traps/plane1/fplane01.gif
-	delay	200
-	frame	data/chars/misc/traps/plane1/fplane01.gif
-	delay	7
-	sound	data/sounds/planefly1.wav
-	frame	data/chars/misc/traps/plane1/fplane01.gif
-	@cmd	dasher -3.5 0 0
-	frame	data/chars/misc/traps/plane1/fplane01.gif #4
-	frame	data/chars/misc/traps/plane1/fplane02.gif
-	frame	data/chars/misc/traps/plane1/fplane03.gif
-	frame	data/chars/misc/traps/plane1/fplane04.gif
-	frame	data/chars/misc/traps/plane1/fplane05.gif
-	frame	data/chars/misc/traps/plane1/fplane06.gif
-	frame	data/chars/misc/traps/plane1/fplane07.gif
-	frame	data/chars/misc/traps/plane1/fplane08.gif
-	frame	data/chars/misc/traps/plane1/fplane09.gif
-	frame	data/chars/misc/traps/plane1/fplane10.gif
-	@cmd	looper 4 6
-	frame	data/chars/misc/traps/plane1/fplane01.gif
-	frame	data/chars/misc/traps/plane1/fplane02.gif
-	sound	data/sounds/planefly2.wav
-	frame	data/chars/misc/traps/plane1/fplane03.gif
-	frame	data/chars/misc/traps/plane1/fplane04.gif
-	frame	data/chars/misc/traps/plane1/fplane05.gif
-	@cmd	spawnAni2 "jonyjam" 240 400 520 "ANI_FOLLOW1"
-	frame	data/chars/misc/traps/plane1/fplane06.gif
-	frame	data/chars/misc/traps/plane1/fplane07.gif
-	frame	data/chars/misc/traps/plane1/fplane08.gif
-	sound	data/sounds/planefly1.wav
-	frame	data/chars/misc/traps/plane1/fplane09.gif
-	frame	data/chars/misc/traps/plane1/fplane10.gif
-
-	frame	data/chars/misc/traps/plane1/fplane01.gif #24
-	frame	data/chars/misc/traps/plane1/fplane02.gif
-	frame	data/chars/misc/traps/plane1/fplane03.gif
-	frame	data/chars/misc/traps/plane1/fplane04.gif
-	frame	data/chars/misc/traps/plane1/fplane05.gif
-	frame	data/chars/misc/traps/plane1/fplane06.gif
-	frame	data/chars/misc/traps/plane1/fplane07.gif
-	frame	data/chars/misc/traps/plane1/fplane08.gif
-	frame	data/chars/misc/traps/plane1/fplane09.gif
-	frame	data/chars/misc/traps/plane1/fplane10.gif
-	@cmd	looper 24 5
-	frame	data/chars/misc/traps/plane1/fplane01.gif
-	frame	data/chars/misc/traps/plane1/fplane02.gif
-	sound	data/sounds/planefly2.wav
-	frame	data/chars/misc/traps/plane1/fplane03.gif
-	frame	data/chars/misc/traps/plane1/fplane04.gif
-	frame	data/chars/misc/traps/plane1/fplane05.gif
-	frame	data/chars/misc/traps/plane1/fplane06.gif
-	frame	data/chars/misc/traps/plane1/fplane07.gif
-	frame	data/chars/misc/traps/plane1/fplane08.gif
-	frame	data/chars/misc/traps/plane1/fplane09.gif
-	frame	data/chars/misc/traps/plane1/fplane10.gif
-	@cmd	suicide
-	frame	data/chars/misc/traps/plane1/fplane10.gif
+#|edited by openBor Stats v 0.53
 		

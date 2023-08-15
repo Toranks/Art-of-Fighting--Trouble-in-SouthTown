@@ -1,5 +1,5 @@
 name		jackballs
-#type		enemy
+
 type		obstacle
 nomove		1 1
 facing		2
@@ -63,7 +63,7 @@ void main()
 	 changeentityproperty(target, "position", Tx-2);
          }
 
- 
+
  	 if( Disx >= 2 && Disx <= 105 && Disz >= 1 && Disz <= 20)
          {
 	  changeentityproperty(target, "position", Tx, Tz+1);
@@ -77,6 +77,7 @@ void main()
 @end_script
 
 
+
 anim	death
 @script
 	void self = getlocalvar("self");
@@ -85,7 +86,7 @@ anim	death
 	{
 	jumptobranch("jdeath", 1);
     	}
-@end_script
+	@end_script	
 	loop	0
 	delay	5
 	offset	225 480
@@ -124,13 +125,133 @@ anim	death
 	frame	data/chars/3jackballs/ballsdeath.gif
 	@cmd	changeopenborvariant "slowmotion" 0
 	frame	data/chars/3jackballs/ballsdeath.gif
-	
+		
+anim	follow20
+@script
+void self = getlocalvar("self");
+if(frame==1)
+{
+  changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_OBSTACLE"));
+}
+	@end_script	
+	loop	0
+	delay	5
+	offset	225 480
+	bbox	0 0 0 0
+	platform	1 1 1 1 1 1 1 1
+	frame	data/chars/3jackballs/balls01.gif
+	@cmd	spawnbind "Steam" 60 215 5
+	frame	data/chars/3jackballs/balls01.gif
+	move	3
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	sound	data/sounds/truck2.wav
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	attack	280 370 300 80 0 1 1 1 40 20
+	dropv	2 2
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	attack	0 0 0 0
+	frame	data/chars/3jackballs/walk04.gif
+	move	0
+	frame	data/chars/3jackballs/balls01.gif
+	frame	data/chars/3jackballs/balls02.gif
+	frame	data/chars/3jackballs/balls01.gif
+	frame	data/chars/3jackballs/balls02.gif
+	frame	data/chars/3jackballs/balls01.gif
+	frame	data/chars/3jackballs/balls02.gif
+	frame	data/chars/3jackballs/balls01.gif
+	frame	data/chars/3jackballs/balls02.gif
+	frame	data/chars/3jackballs/balls01.gif
+	frame	data/chars/3jackballs/balls02.gif
+	frame	data/chars/3jackballs/balls01.gif
+	frame	data/chars/3jackballs/balls02.gif
+	frame	data/chars/3jackballs/balls01.gif
+	frame	data/chars/3jackballs/balls02.gif
+		
 anim	idle
 	loop	1
 	delay	5
 	offset	225 480
 	bbox	260 290 105 85
-	#platform	10 497 100 100 290 290 25 220
 	platform	1 1 1 1 1 1 1 1
 	frame	data/chars/3jackballs/balls01.gif
 	sound	data/sounds/truck2.wav
@@ -195,7 +316,7 @@ anim	idle
 	frame	data/chars/3jackballs/walk03a.gif
 	frame	data/chars/3jackballs/walk04.gif
 	frame	data/chars/3jackballs/walk01a.gif
-	attack	280 370 90 80 15 1 1 1 40 20
+	attack	280 370 300 80 15 1 1 1 40 20
 	dropv	3 4
 	frame	data/chars/3jackballs/walk02.gif
 	frame	data/chars/3jackballs/walk03a.gif
@@ -256,7 +377,7 @@ anim	idle
 	frame	data/chars/3jackballs/walk01a.gif
 	frame	data/chars/3jackballs/walk02.gif
 	frame	data/chars/3jackballs/walk03a.gif
-	attack  0 0 0 0
+	attack	0 0 0 0
 	frame	data/chars/3jackballs/walk04.gif
 	move	0
 	frame	data/chars/3jackballs/balls01.gif
@@ -502,7 +623,6 @@ anim	idle
 	frame	data/chars/3jackballs/balls03.gif
 	frame	data/chars/3jackballs/balls02.gif
 	frame	data/chars/3jackballs/balls01.gif
-
 		
 anim	spawn
 @script
@@ -511,14 +631,13 @@ if(frame==1)
 {
   changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_OBSTACLE"));
 }
-@end_script
+	@end_script	
 	loop	0
 	delay	5
 	offset	225 480
 	bbox	0 0 0 0
 	custentity	jackfinalround
 	spawnframe	95 210 40 25 1
-	#platform	10 497 100 100 290 290 25 220
 	platform	1 1 1 1 1 1 1 1
 	frame	data/chars/3jackballs/balls01.gif
 	@cmd	spawnbind "Steam" 60 215 5
@@ -610,7 +729,7 @@ if(frame==1)
 	frame	data/chars/3jackballs/walk02.gif
 	frame	data/chars/3jackballs/walk03.gif
 	frame	data/chars/3jackballs/walk04.gif
-	attack  0 0 0 0
+	attack	0 0 0 0
 	frame	data/chars/3jackballs/walk04.gif
 	move	0
 	frame	data/chars/3jackballs/balls01.gif
@@ -627,127 +746,6 @@ if(frame==1)
 	frame	data/chars/3jackballs/balls02.gif
 	frame	data/chars/3jackballs/balls01.gif
 	frame	data/chars/3jackballs/balls02.gif
-
-
-anim	follow20
-@script
-void self = getlocalvar("self");
-if(frame==1)
-{
-  changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_OBSTACLE"));
-}
-@end_script
-	loop	0
-	delay	5
-	offset	225 480
-	bbox	0 0 0 0
-	#platform	10 497 100 100 290 290 25 220
-	platform	1 1 1 1 1 1 1 1
-	frame	data/chars/3jackballs/balls01.gif
-	@cmd	spawnbind "Steam" 60 215 5
-	frame	data/chars/3jackballs/balls01.gif
-	move	3
-	frame	data/chars/3jackballs/walk01.gif
-	frame	data/chars/3jackballs/walk02.gif
-	frame	data/chars/3jackballs/walk03.gif
-	frame	data/chars/3jackballs/walk04.gif
-	frame	data/chars/3jackballs/walk01.gif
-	frame	data/chars/3jackballs/walk02.gif
-	sound	data/sounds/truck2.wav
-	frame	data/chars/3jackballs/walk03.gif
-	frame	data/chars/3jackballs/walk04.gif
-	frame	data/chars/3jackballs/walk01.gif
-	attack	280 370 90 80 0 1 1 1 40 20
-	dropv	2 2
-	frame	data/chars/3jackballs/walk02.gif
-	frame	data/chars/3jackballs/walk03.gif
-	frame	data/chars/3jackballs/walk04.gif
-	frame	data/chars/3jackballs/walk01.gif
-	frame	data/chars/3jackballs/walk02.gif
-	frame	data/chars/3jackballs/walk03.gif
-	frame	data/chars/3jackballs/walk04.gif
-	frame	data/chars/3jackballs/walk01.gif
-	frame	data/chars/3jackballs/walk02.gif
-	frame	data/chars/3jackballs/walk03.gif
-	frame	data/chars/3jackballs/walk04.gif
-	frame	data/chars/3jackballs/walk01.gif
-	frame	data/chars/3jackballs/walk02.gif
-	frame	data/chars/3jackballs/walk03.gif
-	frame	data/chars/3jackballs/walk04.gif
-	frame	data/chars/3jackballs/walk01.gif
-	frame	data/chars/3jackballs/walk02.gif
-	frame	data/chars/3jackballs/walk03.gif
-	frame	data/chars/3jackballs/walk04.gif
-	frame	data/chars/3jackballs/walk01.gif
-	frame	data/chars/3jackballs/walk02.gif
-	frame	data/chars/3jackballs/walk03.gif
-	frame	data/chars/3jackballs/walk04.gif
-	frame	data/chars/3jackballs/walk01.gif
-	frame	data/chars/3jackballs/walk02.gif
-	frame	data/chars/3jackballs/walk03.gif
-	frame	data/chars/3jackballs/walk04.gif
-	frame	data/chars/3jackballs/walk01.gif
-	frame	data/chars/3jackballs/walk02.gif
-	frame	data/chars/3jackballs/walk03.gif
-	frame	data/chars/3jackballs/walk04.gif
-	frame	data/chars/3jackballs/walk01.gif
-	frame	data/chars/3jackballs/walk02.gif
-	frame	data/chars/3jackballs/walk03.gif
-	frame	data/chars/3jackballs/walk04.gif
-	frame	data/chars/3jackballs/walk01.gif
-	frame	data/chars/3jackballs/walk02.gif
-	frame	data/chars/3jackballs/walk03.gif
-	frame	data/chars/3jackballs/walk04.gif
-	frame	data/chars/3jackballs/walk01.gif
-	frame	data/chars/3jackballs/walk02.gif
-	frame	data/chars/3jackballs/walk03.gif
-	frame	data/chars/3jackballs/walk04.gif
-	frame	data/chars/3jackballs/walk01.gif
-	frame	data/chars/3jackballs/walk02.gif
-	frame	data/chars/3jackballs/walk03.gif
-	frame	data/chars/3jackballs/walk04.gif
-	frame	data/chars/3jackballs/walk01.gif
-	frame	data/chars/3jackballs/walk02.gif
-	frame	data/chars/3jackballs/walk03.gif
-	frame	data/chars/3jackballs/walk04.gif
-	frame	data/chars/3jackballs/walk01.gif
-	frame	data/chars/3jackballs/walk02.gif
-	frame	data/chars/3jackballs/walk03.gif
-	frame	data/chars/3jackballs/walk04.gif
-	frame	data/chars/3jackballs/walk01.gif
-	frame	data/chars/3jackballs/walk02.gif
-	frame	data/chars/3jackballs/walk03.gif
-	frame	data/chars/3jackballs/walk01.gif
-	frame	data/chars/3jackballs/walk02.gif
-	frame	data/chars/3jackballs/walk03.gif
-	frame	data/chars/3jackballs/walk04.gif
-	frame	data/chars/3jackballs/walk01.gif
-	frame	data/chars/3jackballs/walk02.gif
-	frame	data/chars/3jackballs/walk03.gif
-	frame	data/chars/3jackballs/walk04.gif
-	frame	data/chars/3jackballs/walk01.gif
-	frame	data/chars/3jackballs/walk02.gif
-	frame	data/chars/3jackballs/walk03.gif
-	frame	data/chars/3jackballs/walk04.gif
-	frame	data/chars/3jackballs/walk01.gif
-	frame	data/chars/3jackballs/walk02.gif
-	frame	data/chars/3jackballs/walk03.gif
-	frame	data/chars/3jackballs/walk04.gif
-	attack  0 0 0 0
-	frame	data/chars/3jackballs/walk04.gif
-	move	0
-	frame	data/chars/3jackballs/balls01.gif
-	frame	data/chars/3jackballs/balls02.gif
-	frame	data/chars/3jackballs/balls01.gif
-	frame	data/chars/3jackballs/balls02.gif
-	frame	data/chars/3jackballs/balls01.gif
-	frame	data/chars/3jackballs/balls02.gif
-	frame	data/chars/3jackballs/balls01.gif
-	frame	data/chars/3jackballs/balls02.gif
-	frame	data/chars/3jackballs/balls01.gif
-	frame	data/chars/3jackballs/balls02.gif
-	frame	data/chars/3jackballs/balls01.gif
-	frame	data/chars/3jackballs/balls02.gif
-	frame	data/chars/3jackballs/balls01.gif
-	frame	data/chars/3jackballs/balls02.gif
+		
+#|edited by openBor Stats v 0.53
 		

@@ -2,7 +2,7 @@ name	clguy
 type	none
 shadow	0
 hostile player
-#setlayer	-20
+
 offscreenkill	50000
 
 animationscript data/scripts/escript.c
@@ -13,8 +13,7 @@ load	allsmtlk2
 
 
 
-#-----------//-map1--//----
-
+		
 anim	spawn
 @script
 	void self = getlocalvar("self");
@@ -23,7 +22,7 @@ anim	spawn
 	if (frame == 0 && mapf == 20){
 	killentity(self);
 	}
-@end_script
+	@end_script	
 	loop	0
 	delay	5
 	offset	60 70
@@ -43,6 +42,9 @@ anim	idle
 	frame	data/bgs/99king/bck/cln05.gif
 	@cmd	attack1 -50 50 110 "ANI_FOLLOW1"
 	frame	data/bgs/99king/bck/cln06.gif
+
+		
+
 
 anim	follow1
 @script
@@ -79,10 +81,10 @@ anim	follow1
 	else if (frame == 0 && next == 10){
 	changeentityproperty(self, "name", "ANI_FOLLOW18");
 	}
-	else if (frame == 0 && next == 11){
+	else if (frame == 0 && next > 10){
 	changeentityproperty(self, "name", "ANI_FOLLOW20");
 	}
-@end_script
+	@end_script	
 	loop	1
 	delay	17
 	offset	60 70
@@ -116,7 +118,7 @@ anim	follow1
 	frame	data/bgs/99king/bck/cln06.gif
 	@cmd	anichange "ANI_FOLLOW2"
 	frame	data/bgs/99king/bck/cln06.gif
-
+		
 anim	follow2
 	loop	1
 	delay	15
@@ -130,7 +132,7 @@ anim	follow2
 	frame	data/bgs/99king/bck/cln05.gif
 	@cmd	attack1 -50 50 110 "ANI_FOLLOW3"
 	frame	data/bgs/99king/bck/cln06.gif
-
+		
 anim	follow3
 @script
 	void self = getlocalvar("self");
@@ -166,10 +168,10 @@ anim	follow3
 	else if (frame == 0 && next == 10){
 	changeentityproperty(self, "name", "ANI_FOLLOW19");
 	}
-	else if (frame == 0 && next == 11){
+	else if (frame == 0 && next > 10){
 	changeentityproperty(self, "name", "ANI_FOLLOW21");
 	}
-@end_script
+	@end_script	
 	loop	1
 	delay	17
 	offset	60 70
@@ -203,3 +205,7 @@ anim	follow3
 	frame	data/bgs/99king/bck/cln06.gif
 	@cmd	beidle
 	frame	data/bgs/99king/bck/cln06.gif
+		
+
+#|edited by openBor Stats v 0.53
+		

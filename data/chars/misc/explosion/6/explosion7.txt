@@ -5,12 +5,28 @@ subject_to_gravity	0
 lifespan 5
 
 
+
+anim	follow1
+@script
+       void self = getlocalvar("self");
+if(frame==0)
+{
+	changeentityproperty(self, "candamage",openborconstant("TYPE_ENEMY"));
+	performattack(self, openborconstant("ANI_IDLE"));
+}
+	@end_script	
+	delay	5
+	offset	73 179
+	Frame	data/chars/misc/explosion/6/empty
+	Frame	data/chars/misc/explosion/6/empty
+	Frame	data/chars/misc/explosion/6/empty
+		
 anim	idle
 	delay	8
 	quakeframe	1 10 5
 	offset	73 179
 	Frame	data/chars/misc/explosion/6/mexp01.gif
-	burn	20 30 105 145 20 1 0 1 10 25
+	burn	20 30 105 145 30 1 0 1 10 25
 	dropv	5 -2
 	Frame	data/chars/misc/explosion/6/mexp02.gif
 	Frame	data/chars/misc/explosion/6/mexp03.gif
@@ -46,23 +62,6 @@ anim	idle
 	Frame	data/chars/misc/explosion/6/empty
 	Frame	data/chars/misc/explosion/6/empty
 	Frame	data/chars/misc/explosion/6/empty
-
 		
-anim	follow1
-@script
-       void self = getlocalvar("self");
-if(frame==0)
-{
-	changeentityproperty(self, "candamage",openborconstant("TYPE_ENEMY"));
-	performattack(self, openborconstant("ANI_IDLE"));
-}
-@end_script
-	delay	5
-	offset	73 179
-	Frame	data/chars/misc/explosion/6/empty
-	Frame	data/chars/misc/explosion/6/empty
-	Frame	data/chars/misc/explosion/6/empty
-
-
-
-
+#|edited by openBor Stats v 0.53
+		

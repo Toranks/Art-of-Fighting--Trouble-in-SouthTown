@@ -1,6 +1,6 @@
 name          grunt3
 type          npc
-health        410
+health        500
 nolife	      1
 speed         15
 jumpheight    0
@@ -12,14 +12,14 @@ noquake       1
 nolife        1
 falldie	      2
 nodieblink    3
-#gfxshadow     1
+
 dust            dust
 offscreenkill 	40000
 subject_to_wall 0
 subject_to_hole 0
-#subject_to_platform 0
-#subject_to_minz 0
-#subject_to_maxz 0
+
+
+
 candamage     enemy
 hostile       enemy
 projectilehit enemy obstacle
@@ -37,30 +37,10 @@ alternatepal       data/chars/2soldierguy6/map5.gif
 
 
 
-anim	follow1
-@script
-       void self = getlocalvar("self");
-if(frame==1)
-{
-       changeentityproperty(self, "candamage",openborconstant("TYPE_TRAP"));
-}
-@end_script
-	loop	0
-	delay	5
-	offset	101 188
-	bbox	0 0 0 0
-	frame	data/chars/2soldierguy6/idle01.gif
-	frame	data/chars/2soldierguy6/idle01.gif
-	@cmd	subwall 1
-	frame	data/chars/2soldierguy6/idle01.gif
-	@cmd	subscreen 1
-	frame	data/chars/2soldierguy6/idle01.gif
-
-
-
 anim	attack1
 	range	30 220
 	rangea	0 20
+	rangeb	0 20
 	loop	0
 	delay	8
 	offset	101 188
@@ -113,6 +93,21 @@ anim	attack1
 	frame	data/chars/2soldierguy6/a02.gif
 	frame	data/chars/2soldierguy6/a01.gif
 	frame	data/chars/2soldierguy6/idle01.gif
+		
+anim	backwalk
+	loop	1
+	delay	7
+	offset	101 188
+	bbox	85 96 39 91
+	drawmethod	256 256 1 0 0 0 -1
+	frame	data/chars/2soldierguy6/wk04.gif
+	frame	data/chars/2soldierguy6/wk05.gif
+	frame	data/chars/2soldierguy6/wk06.gif
+	frame	data/chars/2soldierguy6/wk07.gif
+	frame	data/chars/2soldierguy6/wk08.gif
+	frame	data/chars/2soldierguy6/wk01.gif
+	frame	data/chars/2soldierguy6/wk02.gif
+	frame	data/chars/2soldierguy6/wk03.gif
 		
 anim	burn
 	loop	0
@@ -194,7 +189,7 @@ anim	fall11
 	loop	0
 	delay	20
 	offset	101 188
-	bbox	61 185 90 5	
+	bbox	61 185 90 5
 	frame	data/chars/2soldierguy6/pain12.gif
 	delay	35
 	frame	data/chars/2soldierguy6/fall4.gif
@@ -306,6 +301,122 @@ anim	fall9
 	bbox	58 175 100 15
 	frame	data/chars/2soldierguy6/fall4.gif
 		
+anim	follow1
+@script
+       void self = getlocalvar("self");
+if(frame==1)
+{
+       changeentityproperty(self, "candamage",openborconstant("TYPE_TRAP"));
+}
+	@end_script	
+	loop	0
+	delay	5
+	offset	101 188
+	bbox	0 0 0 0
+	frame	data/chars/2soldierguy6/idle01.gif
+	frame	data/chars/2soldierguy6/idle01.gif
+	@cmd	subwall 1
+	frame	data/chars/2soldierguy6/idle01.gif
+	@cmd	subscreen 1
+	frame	data/chars/2soldierguy6/idle01.gif
+		
+anim	follow12
+@script
+	void self = getlocalvar("self");
+	float x1 = getentityproperty(self, "x");
+        changeentityproperty(self, "hostile",openborconstant("TYPE_PLAYER"));
+	changeentityproperty(self, "direction", 1);
+        changeentityproperty(self, "velocity", 1.2);
+
+
+   if (x1 >= 5650 ){
+        performattack(self, openborconstant("ANI_FOLLOW13"));
+   }
+	@end_script	
+	loop	1 2 10
+	delay	3
+	offset	101 190
+	bbox	0 0 0 0
+	frame	data/chars/2soldierguy6/idle01.gif
+	@cmd	subwall 0
+	@cmd	subscreen 0
+	@cmd	subplat 0
+	frame	data/chars/2soldierguy6/idle01.gif
+	delay	9
+	frame	data/chars/2soldierguy6/wk01.gif
+	frame	data/chars/2soldierguy6/wk02.gif
+	frame	data/chars/2soldierguy6/wk03.gif
+	frame	data/chars/2soldierguy6/wk04.gif
+	frame	data/chars/2soldierguy6/wk05.gif
+	frame	data/chars/2soldierguy6/wk06.gif
+	frame	data/chars/2soldierguy6/wk07.gif
+	frame	data/chars/2soldierguy6/wk08.gif
+	frame	data/chars/2soldierguy6/idle01.gif
+	frame	data/chars/2soldierguy6/idle01.gif
+		
+anim	follow13
+	loop	1 2 5
+	delay	5
+	offset	101 190
+	bbox	0 0 0 0
+	@cmd	stop
+	frame	data/chars/2soldierguy6/idle01.gif
+	frame	data/chars/2soldierguy6/idle01.gif
+	frame	data/chars/2soldierguy6/idle01.gif #2
+	@cmd	attack1 -50 1500 800 "ANI_FOLLOW14"
+	frame	data/chars/2soldierguy6/idle01.gif
+	frame	data/chars/2soldierguy6/idle01.gif #5
+		
+anim	follow14
+@script
+    void self = getlocalvar("self");
+    changeentityproperty(self, "direction", 1);
+    float x1 = getentityproperty(self, "x");
+
+   if (x1 <=6520 ){
+       changeentityproperty(self, "velocity", 1);
+   }
+   if (x1 >=6520){
+        performattack(self, openborconstant("ANI_FOLLOW15"));
+   }
+	@end_script	
+	loop	1 2 10
+	delay	3
+	offset	101 190
+	bbox	0 0 0 0
+	frame	data/chars/2soldierguy6/idle01.gif
+	@cmd	clearL
+	@cmd	subscreen 0
+	frame	data/chars/2soldierguy6/idle01.gif
+	delay	9
+	frame	data/chars/2soldierguy6/wk01.gif
+	frame	data/chars/2soldierguy6/wk02.gif
+	frame	data/chars/2soldierguy6/wk03.gif
+	frame	data/chars/2soldierguy6/wk04.gif
+	frame	data/chars/2soldierguy6/wk05.gif
+	frame	data/chars/2soldierguy6/wk06.gif
+	frame	data/chars/2soldierguy6/wk07.gif
+	frame	data/chars/2soldierguy6/wk08.gif
+	frame	data/chars/2soldierguy6/idle01.gif
+		
+anim	follow15
+	loop	0
+	delay	35
+	offset	101 190
+	bbox	0 0 0 0
+	@cmd	stop
+	frame	data/chars/2soldierguy6/idle01.gif
+	frame	data/chars/2soldierguy6/idle01.gif
+	delay	2400
+	frame	data/chars/2soldierguy6/idle01.gif
+	delay	30000
+	frame	data/chars/2soldierguy6/fall4.gif
+	frame	data/chars/2soldierguy6/fall4.gif
+	frame	data/chars/2soldierguy6/fall4.gif
+	frame	data/chars/2soldierguy6/fall4.gif
+	frame	data/chars/2soldierguy6/fall4.gif
+	frame	data/chars/2soldierguy6/fall4.gif
+		
 anim	grabbed
 	loop	0
 	delay	10
@@ -338,7 +449,6 @@ anim	pain
 	delay	40
 	offset	101 188
 	frame	data/chars/2soldierguy6/pain1.gif
-
 		
 anim	pain2
 	loop	0
@@ -432,7 +542,7 @@ anim	rise
 		changeentityproperty(self, "invinctime", eTime + 200);
 		changeentityproperty(self, "blink", 1);
 	}
-@end_script
+	@end_script	
 	loop	0
 	delay	14
 	offset	101 165
@@ -452,8 +562,7 @@ anim	spawn
 	frame	data/chars/2soldierguy6/idle01.gif
 	@cmd	layer -1200
 	frame	data/chars/2soldierguy6/idle01.gif
-
-
+		
 anim	turn
 	loop	0
 	delay	7
@@ -462,8 +571,6 @@ anim	turn
 	frame	data/chars/2soldierguy6/idle01.gif
 	frame	data/chars/2soldierguy6/idle01.gif
 	frame	data/chars/2soldierguy6/idle01.gif
-
-
 		
 anim	walk
 	loop	1
@@ -478,141 +585,6 @@ anim	walk
 	frame	data/chars/2soldierguy6/wk06.gif
 	frame	data/chars/2soldierguy6/wk07.gif
 	frame	data/chars/2soldierguy6/wk08.gif
-
-
-
-anim	backwalk
-	loop	1
-	delay	7
-	offset	101 188
-	bbox	85 96 39 91
-	drawmethod	256 256 1 0 0 0 -1
-	frame	data/chars/2soldierguy6/wk04.gif
-	frame	data/chars/2soldierguy6/wk05.gif
-	frame	data/chars/2soldierguy6/wk06.gif
-	frame	data/chars/2soldierguy6/wk07.gif
-	frame	data/chars/2soldierguy6/wk08.gif
-	frame	data/chars/2soldierguy6/wk01.gif
-	frame	data/chars/2soldierguy6/wk02.gif
-	frame	data/chars/2soldierguy6/wk03.gif
 		
-#-------------------OVERLORD-FINAL-------------------------------------------
-
-
-
-anim	follow12
-@script
-	void self = getlocalvar("self");
-	float x1 = getentityproperty(self, "x");
-        changeentityproperty(self, "hostile",openborconstant("TYPE_PLAYER"));
-	changeentityproperty(self, "direction", 1);
-        changeentityproperty(self, "velocity", 1.2);
-
-
-   if (x1 >= 5650 ){
-        performattack(self, openborconstant("ANI_FOLLOW13"));
-   }
-@end_script
-	loop	1 2 10
-	delay	3
-	offset	101 190
-	bbox	0 0 0 0
-	frame	data/chars/2soldierguy6/idle01.gif
-	@cmd	subwall 0
-	@cmd	subscreen 0
-	@cmd	subplat 0
-	frame	data/chars/2soldierguy6/idle01.gif
-	delay	9
-	frame	data/chars/2soldierguy6/wk01.gif
-	frame	data/chars/2soldierguy6/wk02.gif
-	frame	data/chars/2soldierguy6/wk03.gif
-	frame	data/chars/2soldierguy6/wk04.gif
-	frame	data/chars/2soldierguy6/wk05.gif
-	frame	data/chars/2soldierguy6/wk06.gif
-	frame	data/chars/2soldierguy6/wk07.gif
-	frame	data/chars/2soldierguy6/wk08.gif
-	frame	data/chars/2soldierguy6/idle01.gif
-	frame	data/chars/2soldierguy6/idle01.gif
-
-
-
-anim	follow13
-	loop	1 2 5
-	delay	5
-	offset	101 190
-	bbox	0 0 0 0
-	@cmd	stop
-	frame	data/chars/2soldierguy6/idle01.gif
-	frame	data/chars/2soldierguy6/idle01.gif
-	frame	data/chars/2soldierguy6/idle01.gif #2
-	@cmd	attack1 -50 1500 800 "ANI_FOLLOW14"
-	frame	data/chars/2soldierguy6/idle01.gif
-	frame	data/chars/2soldierguy6/idle01.gif #5
-
-
-anim	follow14
-@script
-    void self = getlocalvar("self");
-    changeentityproperty(self, "direction", 1);
-    float x1 = getentityproperty(self, "x");
-
-   if (x1 <=6520 ){
-       changeentityproperty(self, "velocity", 1);
-   }
-   if (x1 >=6520){
-        performattack(self, openborconstant("ANI_FOLLOW15"));
-   }
-@end_script
-	loop	1 2 10
-	delay	3
-	offset	101 190
-	bbox	0 0 0 0
-	frame	data/chars/2soldierguy6/idle01.gif
-	@cmd	clearL
-	@cmd	subscreen 0
-	frame	data/chars/2soldierguy6/idle01.gif
-	delay	9
-	frame	data/chars/2soldierguy6/wk01.gif
-	frame	data/chars/2soldierguy6/wk02.gif
-	frame	data/chars/2soldierguy6/wk03.gif
-	frame	data/chars/2soldierguy6/wk04.gif
-	frame	data/chars/2soldierguy6/wk05.gif
-	frame	data/chars/2soldierguy6/wk06.gif
-	frame	data/chars/2soldierguy6/wk07.gif
-	frame	data/chars/2soldierguy6/wk08.gif
-	frame	data/chars/2soldierguy6/idle01.gif
-
-
-anim	follow15
-	loop	0
-	delay	35
-	offset	101 190
-	bbox	0 0 0 0
-	@cmd	stop
-	frame	data/chars/2soldierguy6/idle01.gif
-	frame	data/chars/2soldierguy6/idle01.gif
-	delay	2400
-	frame	data/chars/2soldierguy6/idle01.gif
-	delay	30000
-	frame	data/chars/2soldierguy6/fall4.gif
-	frame	data/chars/2soldierguy6/fall4.gif
-	frame	data/chars/2soldierguy6/fall4.gif
-	frame	data/chars/2soldierguy6/fall4.gif
-	frame	data/chars/2soldierguy6/fall4.gif
-	frame	data/chars/2soldierguy6/fall4.gif
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#|edited by openBor Stats v 0.53
 		

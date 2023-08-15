@@ -1,15 +1,15 @@
 name		jackpl
 type		player
-health		5000
-mp		200
+health		170
+mp		100
 mprate          1
-chargerate      12
+chargerate      2
 speed		10
-running		22 3 2.5 1 0
+running		22 3 2.5 1 1
 jumpheight	4.3
 jumpspeed	14
 nodieblink	2
-secret		1 1
+secret		0 1
 weaploss	3
 modelflag	1
 noquake         0
@@ -21,8 +21,8 @@ holdblock 	1
 dust            dust
 candamage	enemy obstacle
 projectilehit 	player npc enemy
-weapons		jackbckpl jackpl Robcar2 robfall Robwtr Robvent mapcurs mrzero Mrbigpl
-atchain         1 1 2 3 4 0
+weapons		jackbckpl jackpl Ryobike2 robfall Robwtr Robvent mapcurs mrzero
+atchain         1 2 1 3 4 0
 combostyle      0
 icon		data/chars/3jack/iconpl.gif
 parrow          data/chars/misc/flash/flash/player1.gif  -36 -145
@@ -31,23 +31,72 @@ parrow3         data/chars/misc/flash/flash/player3.gif  -36 -145
 diesound	data/sounds/jack6.wav
 
 
+
 animationscript		data/scripts/grabscript.c
 
 load	ballsplr
 
-com	a2	  freespecial15
-com	f d f a   freespecial1
+com	d f a   freespecial1
 com	d f j	  freespecial2
-com	d f d f a freespecial3
-com	d f d f s freespecial20
-com	d u d u s freespecial30
+com	f d a freespecial3
+com	d u s freespecial20
+com	a2	  freespecial15
+com     a3        freespecial29
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 
 anim	attack1
 	loop	0
-	delay	4
+	delay	6
 	offset	108 190
 	bbox	84 98 47 90
 	fastattack	1
@@ -56,7 +105,6 @@ anim	attack1
 	frame	data/chars/3jack/a01.gif
 	attack	118 90 75 40 15 0 0 0 9 0
 	frame	data/chars/3jack/a02.gif
-	delay	5
 	frame	data/chars/3jack/a03.gif
 	attack	0 0 0 0
 	delay	7
@@ -64,14 +112,14 @@ anim	attack1
 		
 anim	attack2
 	loop	0
-	delay	6
+	delay	7
 	offset	108 190
 	bbox	84 98 47 90
 	hitfx	data/sounds/beat2.wav
 	sound	data/sounds/jack1.wav
 	frame	data/chars/3jack/a101.gif
 	frame	data/chars/3jack/a102.gif
-	attack	115 92 95 39 20 0 0 0 13 0
+	attack	115 92 95 39 25 0 0 0 13 0
 	frame	data/chars/3jack/a103.gif
 	attack	0 0 0 0
 	delay	8
@@ -79,7 +127,7 @@ anim	attack2
 		
 anim	attack3
 	loop	0
-	delay	6
+	delay	7
 	offset	108 190
 	bbox	84 98 47 90
 	hitfx	data/sounds/beat5.wav
@@ -87,7 +135,7 @@ anim	attack3
 	move	7
 	frame	data/chars/3jack/b101.gif
 	frame	data/chars/3jack/b102.gif
-	attack2	110 110 75 55 20 0 0 0 15 0
+	attack2	110 110 75 55 40 0 0 0 15 0
 	frame	data/chars/3jack/b103.gif
 	attack2	0 0 0 0
 	move	0
@@ -106,7 +154,7 @@ anim	attack4
 	frame	data/chars/3jack/a104.gif
 	frame	data/chars/3jack/a105.gif
 	frame	data/chars/3jack/a106.gif
-	attack	108 85 90 60 30 1 0 0 17 0
+	attack	108 85 90 60 60 1 0 0 17 10
 	dropv	2 4
 	delay	9
 	frame	data/chars/3jack/a107.gif
@@ -206,6 +254,26 @@ anim	burn
 	frame	data/chars/3jack/fall4.gif
 	frame	data/chars/3jack/fall5.gif
 	frame	data/chars/3jack/fall4.gif
+		
+anim	charge
+	loop	0
+	delay	12
+	offset	108 190
+	bbox	84 98 50 90
+	frame	data/chars/3jack/block01.gif
+	delay	6
+	sound	data/sounds/bguye5.wav
+	frame	data/chars/3jack/ch01.gif
+	frame	data/chars/3jack/ch02.gif
+	frame	data/chars/3jack/ch03.gif
+	frame	data/chars/3jack/ch04.gif
+	frame	data/chars/3jack/ch01.gif
+	frame	data/chars/3jack/ch02.gif
+	frame	data/chars/3jack/ch03.gif
+	frame	data/chars/3jack/ch04.gif
+	@cmd	updateframe getlocalvar("self") 5
+	frame	data/chars/3jack/block01.gif
+	frame	data/chars/3jack/block01.gif
 		
 anim	death
 	range	181 270
@@ -378,7 +446,7 @@ anim	follow1
 	delay	12
 	offset	108 180
 	bbox	0 0 0 0
-	followanim	1
+	followanim	2
 	followcond	1
 	jumpframe	0 3 0
 	landframe	2 dust
@@ -410,7 +478,7 @@ anim	follow10
 	offset	108 160
 	frame	data/chars/3jack/ju02.gif
 	offset	108 190
-	attack11	80 165 65 25 50 1 0 0 30 10
+	attack11	80 165 65 25 80 1 0 0 30 10
 	dropv	2 3
 	frame	data/chars/3jack/grd05.gif
 	delay	30
@@ -516,6 +584,25 @@ anim	follow17
 	frame	data/chars/3jack/taunt3.gif
 	frame	data/chars/3jack/taunt1.gif
 		
+anim	follow2
+	loop	0
+	delay	12
+	offset	108 180
+	bbox	0 0 0 0
+	followanim	1
+	followcond	1
+	jumpframe	0 3 0
+	landframe	2 dust
+	frame	data/chars/3jack/grd05.gif
+	delay	300
+	frame	data/chars/3jack/grd05.gif
+	delay	5
+	frame	data/chars/3jack/grd05.gif
+	delay	12
+	frame	data/chars/3jack/get01.gif
+	frame	data/chars/3jack/get02.gif
+	frame	data/chars/3jack/taunt1.gif
+		
 anim	follow5
 	loop	0
 	delay	7
@@ -523,7 +610,7 @@ anim	follow5
 	bbox	0 0 0 0
 	frame	data/chars/3jack/empty.gif
 	delay	7
-	@cmd	spawn01 "ballsplr" 1 300 1
+	@cmd	spawnChild4 "ballsplr" 1 300 1
 	frame	data/chars/3jack/empty.gif
 	delay	50
 	frame	data/chars/3jack/empty.gif
@@ -546,7 +633,7 @@ anim	follow5
 	frame	data/chars/3jack/empty.gif
 	@cmd	keymove 1.6
 	frame	data/chars/3jack/empty.gif
-	@cmd	looper 6 60
+	@cmd	looper 6 40
 	delay	100
 	@cmd	stop
 	frame	data/chars/3jack/empty.gif
@@ -565,12 +652,12 @@ anim	follow5
 	frame	data/chars/3jack/ju01.gif
 		
 anim	freespecial1
-	energycost	20
+	energycost	12
 	mponly	1
 	loop	0
 	delay	2
 	offset	108 190
-	bbox	84 98 47 90
+	bbox	0 0 0 0
 	forcedirection	-1
 	move	5
 	hitfx	data/sounds/beat5.wav
@@ -583,7 +670,7 @@ anim	freespecial1
 	frame	data/chars/3jack/upper02.gif
 	frame	data/chars/3jack/upper02.gif
 	move	3
-	attack10	100 82 65 66 12 1 0 0 30 15
+	attack10	100 82 65 66 40 1 0 0 30 15
 	dropv	3 0
 	frame	data/chars/3jack/upper03.gif
 	frame	data/chars/3jack/upper03.gif
@@ -592,7 +679,7 @@ anim	freespecial1
 	frame	data/chars/3jack/upper03.gif
 	hitfx	data/sounds/beat4.wav
 	hitflash	flashscreen1
-	attack	95 30 60 120 30 1 0 0 45 15
+	attack	95 30 60 120 60 1 0 0 45 15
 	dropv	5 1
 	frame	data/chars/3jack/upper04.gif
 	move	2
@@ -613,8 +700,97 @@ anim	freespecial10
 	cancel	4 16 0 a freespecial11
 	loop	0
 	delay	12
+	offset	109 190
+	bbox	84 98 47 90
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 64 92 -1 1
+	frame	data/chars/3jack/hold02.gif
+	@cmd	position 10 58 78 -1 -1
+	frame	data/chars/3jack/hold03.gif
+	sound	data/sounds/beat2.wav
+	@cmd	hurt 15
+	@cmd	spawn01 "Flash" 45 110 1
+	@cmd	position 11 47 90 -1 -1
+	frame	data/chars/3jack/hold04.gif
+	delay	4
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	delay	2
+	
+	@cmd	position 10 58 78 -1 -1
+	frame	data/chars/3jack/hold03.gif
+	
+	@cmd	position 10 58 78 -1 -1
+	frame	data/chars/3jack/hold03.gif
+	
+	@cmd	position 10 58 78 -1 -1
+	frame	data/chars/3jack/hold03.gif
+	
+	@cmd	position 10 58 78 -1 -1
+	frame	data/chars/3jack/hold03.gif
+	
+	@cmd	position 10 58 78 -1 -1
+	frame	data/chars/3jack/hold03.gif
+	
+	@cmd	position 10 58 78 -1 -1
+	frame	data/chars/3jack/hold03.gif
+	sound	data/sounds/beat2.wav
+	@cmd	hurt 15
+	@cmd	spawn01 "flashscreen1" 45 110 1
+	
+	@cmd	position 11 40 90 1 -1
+	frame	data/chars/3jack/hold04.gif
+	
+	@cmd	position 11 40 90 1 -1
+	frame	data/chars/3jack/hold04.gif
+	
+	@cmd	position 11 40 90 1 -1
+	frame	data/chars/3jack/hold04.gif
+	@cmd	position 11 40 90 1 -1
+	frame	data/chars/3jack/hold04.gif
+	@cmd	position 11 40 90 1 -1
+	frame	data/chars/3jack/hold04.gif
+	@cmd	position 11 40 90 1 -1
+	frame	data/chars/3jack/hold04.gif
+	delay	12
+	@cmd	depost 0
+	@cmd	finish 50 1 -3 2 0 -1
+	frame	data/chars/3jack/hold04.gif
+	frame	data/chars/3jack/hold04.gif
+	@cmd	clearL
+	frame	data/chars/3jack/hold04.gif
+		
+anim	freespecial11
+	cancel	4 16 0 a freespecial12
+	loop	0
+	delay	12
 	offset	108 190
-	bbox	0 0 0 0
+	bbox	84 88 47 100
 	@cmd	position 13 63 90 -1 1
 	frame	data/chars/3jack/hold01.gif
 	@cmd	position 13 64 92 -1 1
@@ -654,34 +830,34 @@ anim	freespecial10
 	@cmd	position 13 63 90 -1 1
 	frame	data/chars/3jack/hold01.gif #16
 	delay	2
-	@cmd	antiwall -45 5 0
+	
 	@cmd	position 10 58 78 -1 -1
 	frame	data/chars/3jack/hold03.gif
-	@cmd	antiwall -45 5 0
+	
 	@cmd	position 10 58 78 -1 -1
 	frame	data/chars/3jack/hold03.gif
-	@cmd	antiwall -45 5 0
+	
 	@cmd	position 10 58 78 -1 -1
 	frame	data/chars/3jack/hold03.gif
-	@cmd	antiwall -45 5 0
+	
 	@cmd	position 10 58 78 -1 -1
 	frame	data/chars/3jack/hold03.gif
-	@cmd	antiwall -45 5 0
+	
 	@cmd	position 10 58 78 -1 -1
 	frame	data/chars/3jack/hold03.gif
-	@cmd	antiwall -45 5 0
+	
 	@cmd	position 10 58 78 -1 -1
 	frame	data/chars/3jack/hold03.gif
 	sound	data/sounds/beat2.wav
 	@cmd	hurt 15
 	@cmd	spawn01 "flashscreen1" 45 110 1
-	@cmd	antiwall -45 5 0
+	
 	@cmd	position 11 40 90 1 -1
 	frame	data/chars/3jack/hold04.gif
-	@cmd	antiwall -45 5 0
+	
 	@cmd	position 11 40 90 1 -1
 	frame	data/chars/3jack/hold04.gif
-	@cmd	antiwall -45 5 0
+	
 	@cmd	position 11 40 90 1 -1
 	frame	data/chars/3jack/hold04.gif
 	@cmd	position 11 40 90 1 -1
@@ -698,12 +874,12 @@ anim	freespecial10
 	@cmd	clearL
 	frame	data/chars/3jack/hold04.gif
 		
-anim	freespecial11
-	cancel	4 16 0 a freespecial12
+anim	freespecial12
+	cancel	4 16 0 a freespecial13
 	loop	0
 	delay	12
 	offset	108 190
-	bbox	0 0 0 0
+	bbox	84 88 47 100
 	@cmd	position 13 63 90 -1 1
 	frame	data/chars/3jack/hold01.gif
 	@cmd	position 13 64 92 -1 1
@@ -743,34 +919,34 @@ anim	freespecial11
 	@cmd	position 13 63 90 -1 1
 	frame	data/chars/3jack/hold01.gif #16
 	delay	2
-	@cmd	antiwall -45 5 0
+	
 	@cmd	position 10 58 78 -1 -1
 	frame	data/chars/3jack/hold03.gif
-	@cmd	antiwall -45 5 0
+	
 	@cmd	position 10 58 78 -1 -1
 	frame	data/chars/3jack/hold03.gif
-	@cmd	antiwall -45 5 0
+	
 	@cmd	position 10 58 78 -1 -1
 	frame	data/chars/3jack/hold03.gif
-	@cmd	antiwall -45 5 0
+	
 	@cmd	position 10 58 78 -1 -1
 	frame	data/chars/3jack/hold03.gif
-	@cmd	antiwall -45 5 0
+	
 	@cmd	position 10 58 78 -1 -1
 	frame	data/chars/3jack/hold03.gif
-	@cmd	antiwall -45 5 0
+	
 	@cmd	position 10 58 78 -1 -1
 	frame	data/chars/3jack/hold03.gif
 	sound	data/sounds/beat2.wav
 	@cmd	hurt 15
 	@cmd	spawn01 "flashscreen1" 45 110 1
-	@cmd	antiwall -45 5 0
+	
 	@cmd	position 11 40 90 1 -1
 	frame	data/chars/3jack/hold04.gif
-	@cmd	antiwall -45 5 0
+	
 	@cmd	position 11 40 90 1 -1
 	frame	data/chars/3jack/hold04.gif
-	@cmd	antiwall -45 5 0
+	
 	@cmd	position 11 40 90 1 -1
 	frame	data/chars/3jack/hold04.gif
 	@cmd	position 11 40 90 1 -1
@@ -787,12 +963,12 @@ anim	freespecial11
 	@cmd	clearL
 	frame	data/chars/3jack/hold04.gif
 		
-anim	freespecial12
-	cancel	4 16 0 a freespecial13
+anim	freespecial13
+	cancel	4 16 0 a freespecial14
 	loop	0
 	delay	12
 	offset	108 190
-	bbox	0 0 0 0
+	bbox	84 88 47 100
 	@cmd	position 13 63 90 -1 1
 	frame	data/chars/3jack/hold01.gif
 	@cmd	position 13 64 92 -1 1
@@ -832,34 +1008,34 @@ anim	freespecial12
 	@cmd	position 13 63 90 -1 1
 	frame	data/chars/3jack/hold01.gif #16
 	delay	2
-	@cmd	antiwall -45 5 0
+	
 	@cmd	position 10 58 78 -1 -1
 	frame	data/chars/3jack/hold03.gif
-	@cmd	antiwall -45 5 0
+	
 	@cmd	position 10 58 78 -1 -1
 	frame	data/chars/3jack/hold03.gif
-	@cmd	antiwall -45 5 0
+	
 	@cmd	position 10 58 78 -1 -1
 	frame	data/chars/3jack/hold03.gif
-	@cmd	antiwall -45 5 0
+	
 	@cmd	position 10 58 78 -1 -1
 	frame	data/chars/3jack/hold03.gif
-	@cmd	antiwall -45 5 0
+	
 	@cmd	position 10 58 78 -1 -1
 	frame	data/chars/3jack/hold03.gif
-	@cmd	antiwall -45 5 0
+	
 	@cmd	position 10 58 78 -1 -1
 	frame	data/chars/3jack/hold03.gif
 	sound	data/sounds/beat2.wav
 	@cmd	hurt 15
 	@cmd	spawn01 "flashscreen1" 45 110 1
-	@cmd	antiwall -45 5 0
+	
 	@cmd	position 11 40 90 1 -1
 	frame	data/chars/3jack/hold04.gif
-	@cmd	antiwall -45 5 0
+	
 	@cmd	position 11 40 90 1 -1
 	frame	data/chars/3jack/hold04.gif
-	@cmd	antiwall -45 5 0
+	
 	@cmd	position 11 40 90 1 -1
 	frame	data/chars/3jack/hold04.gif
 	@cmd	position 11 40 90 1 -1
@@ -876,100 +1052,11 @@ anim	freespecial12
 	@cmd	clearL
 	frame	data/chars/3jack/hold04.gif
 		
-anim	freespecial13
-	cancel	4 16 0 a freespecial14
-	loop	0
-	delay	12
-	offset	108 190
-	bbox	0 0 0 0
-	@cmd	position 13 63 90 -1 1
-	frame	data/chars/3jack/hold01.gif
-	@cmd	position 13 64 92 -1 1
-	frame	data/chars/3jack/hold02.gif
-	@cmd	position 10 58 78 -1 -1
-	frame	data/chars/3jack/hold03.gif
-	sound	data/sounds/beat2.wav
-	@cmd	hurt 15
-	@cmd	spawn01 "Flash" 45 110 1
-	@cmd	position 11 47 90 -1 -1
-	frame	data/chars/3jack/hold04.gif
-	delay	4
-	@cmd	position 13 63 90 -1 1
-	frame	data/chars/3jack/hold01.gif #4
-	@cmd	position 13 63 90 -1 1
-	frame	data/chars/3jack/hold01.gif
-	@cmd	position 13 63 90 -1 1
-	frame	data/chars/3jack/hold01.gif
-	@cmd	position 13 63 90 -1 1
-	frame	data/chars/3jack/hold01.gif
-	@cmd	position 13 63 90 -1 1
-	frame	data/chars/3jack/hold01.gif
-	@cmd	position 13 63 90 -1 1
-	frame	data/chars/3jack/hold01.gif
-	@cmd	position 13 63 90 -1 1
-	frame	data/chars/3jack/hold01.gif
-	@cmd	position 13 63 90 -1 1
-	frame	data/chars/3jack/hold01.gif
-	@cmd	position 13 63 90 -1 1
-	frame	data/chars/3jack/hold01.gif
-	@cmd	position 13 63 90 -1 1
-	frame	data/chars/3jack/hold01.gif
-	@cmd	position 13 63 90 -1 1
-	frame	data/chars/3jack/hold01.gif
-	@cmd	position 13 63 90 -1 1
-	frame	data/chars/3jack/hold01.gif
-	@cmd	position 13 63 90 -1 1
-	frame	data/chars/3jack/hold01.gif #16
-	delay	2
-	@cmd	antiwall -45 5 0
-	@cmd	position 10 58 78 -1 -1
-	frame	data/chars/3jack/hold03.gif
-	@cmd	antiwall -45 5 0
-	@cmd	position 10 58 78 -1 -1
-	frame	data/chars/3jack/hold03.gif
-	@cmd	antiwall -45 5 0
-	@cmd	position 10 58 78 -1 -1
-	frame	data/chars/3jack/hold03.gif
-	@cmd	antiwall -45 5 0
-	@cmd	position 10 58 78 -1 -1
-	frame	data/chars/3jack/hold03.gif
-	@cmd	antiwall -45 5 0
-	@cmd	position 10 58 78 -1 -1
-	frame	data/chars/3jack/hold03.gif
-	@cmd	antiwall -45 5 0
-	@cmd	position 10 58 78 -1 -1
-	frame	data/chars/3jack/hold03.gif
-	sound	data/sounds/beat2.wav
-	@cmd	hurt 15
-	@cmd	spawn01 "flashscreen1" 45 110 1
-	@cmd	antiwall -45 5 0
-	@cmd	position 11 40 90 1 -1
-	frame	data/chars/3jack/hold04.gif
-	@cmd	antiwall -45 5 0
-	@cmd	position 11 40 90 1 -1
-	frame	data/chars/3jack/hold04.gif
-	@cmd	antiwall -45 5 0
-	@cmd	position 11 40 90 1 -1
-	frame	data/chars/3jack/hold04.gif
-	@cmd	position 11 40 90 1 -1
-	frame	data/chars/3jack/hold04.gif
-	@cmd	position 11 40 90 1 -1
-	frame	data/chars/3jack/hold04.gif
-	@cmd	position 11 40 90 1 -1
-	frame	data/chars/3jack/hold04.gif
-	delay	12
-	@cmd	depost 0
-	@cmd	finish 100 1 -3 2 0 -1
-	frame	data/chars/3jack/hold04.gif
-	frame	data/chars/3jack/hold04.gif
-	@cmd	clearL
-	frame	data/chars/3jack/hold04.gif
-		
 anim	freespecial14
 	loop	0
 	delay	12
 	offset	108 190
-	bbox	0 0 0 0
+	bbox	84 88 47 100
 	@cmd	position 13 63 90 -1 1
 	frame	data/chars/3jack/hold01.gif
 	@cmd	position 13 64 92 -1 1
@@ -983,8 +1070,6 @@ anim	freespecial14
 	frame	data/chars/3jack/hold04.gif
 	delay	4
 	@cmd	position 13 63 90 -1 1
-	frame	data/chars/3jack/hold01.gif #4
-	@cmd	position 13 63 90 -1 1
 	frame	data/chars/3jack/hold01.gif
 	@cmd	position 13 63 90 -1 1
 	frame	data/chars/3jack/hold01.gif
@@ -1007,36 +1092,38 @@ anim	freespecial14
 	@cmd	position 13 63 90 -1 1
 	frame	data/chars/3jack/hold01.gif
 	@cmd	position 13 63 90 -1 1
-	frame	data/chars/3jack/hold01.gif #16
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
 	delay	2
-	@cmd	antiwall -45 5 0
+	
 	@cmd	position 10 58 78 -1 -1
 	frame	data/chars/3jack/hold03.gif
-	@cmd	antiwall -45 5 0
+	
 	@cmd	position 10 58 78 -1 -1
 	frame	data/chars/3jack/hold03.gif
-	@cmd	antiwall -45 5 0
+	
 	@cmd	position 10 58 78 -1 -1
 	frame	data/chars/3jack/hold03.gif
-	@cmd	antiwall -45 5 0
+	
 	@cmd	position 10 58 78 -1 -1
 	frame	data/chars/3jack/hold03.gif
-	@cmd	antiwall -45 5 0
+	
 	@cmd	position 10 58 78 -1 -1
 	frame	data/chars/3jack/hold03.gif
-	@cmd	antiwall -45 5 0
+	
 	@cmd	position 10 58 78 -1 -1
 	frame	data/chars/3jack/hold03.gif
 	sound	data/sounds/beat2.wav
 	@cmd	hurt 15
 	@cmd	spawn01 "flashscreen2" 45 110 1
-	@cmd	antiwall -45 5 0
+	
 	@cmd	position 11 40 90 1 -1
 	frame	data/chars/3jack/hold04.gif
-	@cmd	antiwall -45 5 0
+	
 	@cmd	position 11 40 90 1 -1
 	frame	data/chars/3jack/hold04.gif
-	@cmd	antiwall -45 5 0
+	
 	@cmd	position 11 40 90 1 -1
 	frame	data/chars/3jack/hold04.gif
 	@cmd	position 11 40 90 1 -1
@@ -1047,7 +1134,7 @@ anim	freespecial14
 	frame	data/chars/3jack/hold04.gif
 	delay	12
 	@cmd	depost 0
-	@cmd	finish 130 1 -3 2 0 -1
+	@cmd	finish 90 1 -3 2 0 -1
 	frame	data/chars/3jack/hold04.gif
 	frame	data/chars/3jack/hold04.gif
 	frame	data/chars/3jack/hold04.gif
@@ -1070,7 +1157,7 @@ anim	freespecial15
 	frame	data/chars/3jack/taunt2.gif
 	frame	data/chars/3jack/taunt3.gif
 	frame	data/chars/3jack/taunt2.gif
-	@cmd	spawnAni3 "movelist" 1 1 1 "ANI_FOLLOW14"
+	@cmd	spawnChild2 "toturi3" 1 1 1 "ANI_FOLLOW22"
 	frame	data/chars/3jack/taunt3.gif
 	frame	data/chars/3jack/taunt2.gif
 	frame	data/chars/3jack/taunt3.gif
@@ -1082,7 +1169,7 @@ anim	freespecial2
 	loop	0
 	delay	8
 	offset	108 190
-	bbox	84 98 47 90
+	bbox	84 98 50 90
 	jumpframe	9 3.1 5 0
 	landframe	18 dust
 	fastattack	1
@@ -1091,7 +1178,7 @@ anim	freespecial2
 	hitfx	data/sounds/beat4.wav
 	hitflash	flash3
 	frame	data/chars/3jack/land.gif
-	delay	4
+	delay	8
 	frame	data/chars/3jack/ch01.gif
 	frame	data/chars/3jack/ch02.gif
 	frame	data/chars/3jack/ch03.gif
@@ -1106,14 +1193,14 @@ anim	freespecial2
 	delay	7
 	sound	data/sounds/super3.wav
 	frame	data/chars/3jack/ju01.gif
-	attack10	105 115 53 65 20 1 1 0 35 25
+	attack10	105 115 53 65 50 1 1 0 35 25
 	dropv	2 3.5
 	frame	data/chars/3jack/ak1.gif
 	attack10	0 0 0 0
 	delay	3
 	frame	data/chars/3jack/ak5.gif
 	hitflash	flashscreen1
-	attack	106 80 100 70 40 1 1 0 40 55
+	attack	106 80 100 70 70 1 1 0 40 25
 	dropv	2 4.5
 	frame	data/chars/3jack/ak6.gif	#12
 	frame	data/chars/3jack/ak3.gif
@@ -1135,7 +1222,7 @@ anim	freespecial2
 	frame	data/chars/3jack/rise3.gif
 		
 anim	freespecial20
-	energycost	160
+	energycost	90
 	mponly	1
 	loop	0
 	delay	12
@@ -1178,6 +1265,36 @@ anim	freespecial20
 	@cmd	anichange "ANI_FOLLOW5"
 	frame	data/chars/3jack/empty.gif
 		
+anim	freespecial29
+@script
+	void self = getlocalvar("self");
+	int mp1 = getentityproperty(self,"mp");
+	void plyr = getentityproperty(self, "playerindex");
+
+	if(frame >= 9 && playerkeys(plyr, 0, "attack3"))
+	{
+	  updateframe(self, 2);
+	}
+	@end_script	
+	loop	0
+	delay	12
+	offset	108 190
+	bbox	84 98 50 90
+	frame	data/chars/3jack/block01.gif
+	delay	6
+	sound	data/sounds/bguye5.wav
+	frame	data/chars/3jack/ch01.gif
+	frame	data/chars/3jack/ch02.gif
+	frame	data/chars/3jack/ch03.gif
+	frame	data/chars/3jack/ch04.gif
+	@cmd	mpgain 2
+	frame	data/chars/3jack/ch01.gif
+	frame	data/chars/3jack/ch02.gif
+	frame	data/chars/3jack/ch03.gif
+	frame	data/chars/3jack/ch04.gif
+	frame	data/chars/3jack/block01.gif
+	frame	data/chars/3jack/block01.gif
+		
 anim	freespecial3
 @script
 	void self = getlocalvar("self");
@@ -1197,7 +1314,7 @@ anim	freespecial3
 	  }
 	}
 	@end_script	
-	energycost	40
+	energycost	30
 	mponly	1
 	loop	0
 	delay	8
@@ -1220,13 +1337,13 @@ anim	freespecial3
 	bbox	0 0 0 0
 	delay	12
 	@cmd	dasher 2 0 0
-	frame	data/chars/3jack/sp05.gif #8
+	frame	data/chars/3jack/sp05.gif
 	frame	data/chars/3jack/sp06.gif
-	attack8	75 85 70 85 15 0 1 0 12 20
+	attack8	75 85 70 85 50 0 1 0 12 20
 	frame	data/chars/3jack/sp07.gif
 	attack8	0 0 0 0
 	frame	data/chars/3jack/sp08.gif
-	attack8	75 85 70 85 15 0 1 0 12 20
+	attack8	75 85 70 85 50 0 1 0 12 20
 	frame	data/chars/3jack/sp09.gif
 	attack8	0 0 0 0
 	frame	data/chars/3jack/sp10.gif
@@ -1234,7 +1351,7 @@ anim	freespecial3
 	delay	15
 	hitflash	flashscreen2
 	hitfx	data/sounds/beat4.wav
-	blast	100 85 100 55 40 1 0 20 20
+	blast	100 85 100 55 100 1 0 0 20 20
 	dropv	2 5
 	frame	data/chars/3jack/sp12.gif
 	@cmd	dasher 1.5 0 0
@@ -1249,39 +1366,6 @@ anim	freespecial3
 	delay	25
 	frame	data/chars/3jack/sp11.gif
 		
-anim	freespecial30
-	energycost	55
-	mponly	1
-	weaponframe	18 9
-	loop	0
-	delay	12
-	offset	108 190
-	bbox	0 0 0 0
-	frame	data/chars/3jack/taunt1.gif
-	frame	data/chars/3jack/taunt2.gif
-	sound	data/sounds/mhmh.wav
-	frame	data/chars/3jack/taunt3.gif
-	frame	data/chars/3jack/taunt2.gif
-	frame	data/chars/3jack/taunt3.gif
-	frame	data/chars/3jack/taunt2.gif
-	frame	data/chars/3jack/taunt3.gif
-	frame	data/chars/3jack/taunt2.gif
-	frame	data/chars/3jack/taunt3.gif
-	frame	data/chars/3jack/taunt2.gif
-	delay	5
-	frame	data/chars/3jack/empty.gif
-	frame	data/chars/3jack/taunt2.gif
-	frame	data/chars/3jack/empty.gif
-	frame	data/chars/3jack/taunt2.gif
-	frame	data/chars/3jack/empty.gif
-	frame	data/chars/3jack/taunt2.gif
-	frame	data/chars/3jack/empty.gif
-	frame	data/chars/3jack/taunt2.gif
-	frame	data/chars/3jack/empty.gif #18
-	frame	data/chars/3jack/taunt2.gif
-	frame	data/chars/3jack/empty.gif
-	frame	data/chars/3jack/taunt2.gif
-		
 anim	freespecial5
 	loop	0
 	delay	15
@@ -1295,51 +1379,51 @@ anim	freespecial5
 	frame	data/chars/3jack/slam01.gif
 	delay	20
 	@cmd	position 0 35 70 -1 -1
-	frame	data/chars/3jack/slam02.gif #1
+	frame	data/chars/3jack/slam02.gif
 	sound	data/sounds/jack2.wav
 	@cmd	position 2 45 55 -1 -1
 	frame	data/chars/3jack/slam03.gif
 	delay	1000
-	attack	75 130 125 70 20 1 1 1 20 30
+	attack	75 130 125 70 30 1 1 1 20 30
 	dropv	3 3
 	@cmd	position 14 40 55 -1 1
 	frame	data/chars/3jack/slam04.gif
 	delay	18
 	@cmd	spawn01 "qfx" 50 1 1
 	@cmd	position 15 40 45 -1 1
-	frame	data/chars/3jack/slam05.gif #4
+	frame	data/chars/3jack/slam05.gif
 	delay	2
-	@cmd	antiwall 45 -5 0
+	
 	@cmd	position 14 40 45 -1 1
 	frame	data/chars/3jack/slam05.gif
-	@cmd	antiwall 45 -5 0
+	
 	@cmd	position 14 40 45 -1 1
 	frame	data/chars/3jack/slam05.gif
-	@cmd	antiwall 45 -5 0
+	
 	@cmd	position 14 40 45 -1 1
 	frame	data/chars/3jack/slam05.gif
-	@cmd	antiwall 45 -5 0
+	
 	@cmd	position 14 40 45 -1 1
 	frame	data/chars/3jack/slam05.gif
-	@cmd	antiwall 45 -5 0
+	
 	@cmd	position 14 40 45 -1 1
 	frame	data/chars/3jack/slam05.gif
-	@cmd	antiwall 45 -5 0
+	
 	@cmd	position 14 40 45 -1 1
 	frame	data/chars/3jack/slam05.gif
-	@cmd	antiwall 45 -5 0
+	
 	@cmd	position 14 40 45 -1 1
 	frame	data/chars/3jack/slam05.gif
-	@cmd	antiwall 45 -5 0
+	
 	@cmd	position 14 40 45 -1 1
 	frame	data/chars/3jack/slam05.gif
-	@cmd	antiwall 45 -5 0
+	
 	@cmd	position 14 40 45 -1 1
 	frame	data/chars/3jack/slam05.gif
 	attack	0 0 0 0
 	delay	18
 	@cmd	depost 0
-	@cmd	finish 45 1 1 5 0 -1
+	@cmd	finish 60 1 1 5 0 -1
 	frame	data/chars/3jack/slam05.gif
 	frame	data/chars/3jack/slam06.gif
 	@cmd	clearL
@@ -1358,7 +1442,7 @@ anim	freespecial6
 	frame	data/chars/3jack/slam01.gif
 	delay	20
 	@cmd	position 0 35 70 -1 -1
-	frame	data/chars/3jack/slam02.gif #1
+	frame	data/chars/3jack/slam02.gif
 	sound	data/sounds/jack2.wav
 	@cmd	position 2 45 55 -1 -1
 	frame	data/chars/3jack/slam03.gif
@@ -1370,39 +1454,39 @@ anim	freespecial6
 	delay	18
 	@cmd	spawn01 "qfx" 50 1 1
 	@cmd	position 15 40 45 -1 1
-	frame	data/chars/3jack/slam05.gif #4
+	frame	data/chars/3jack/slam05.gif
 	delay	2
-	@cmd	antiwall 45 -5 0
+	
 	@cmd	position 14 40 45 -1 1
 	frame	data/chars/3jack/slam05.gif
-	@cmd	antiwall 45 -5 0
+	
 	@cmd	position 14 40 45 -1 1
 	frame	data/chars/3jack/slam05.gif
-	@cmd	antiwall 45 -5 0
+	
 	@cmd	position 14 40 45 -1 1
 	frame	data/chars/3jack/slam05.gif
-	@cmd	antiwall 45 -5 0
+	
 	@cmd	position 14 40 45 -1 1
 	frame	data/chars/3jack/slam05.gif
-	@cmd	antiwall 45 -5 0
+	
 	@cmd	position 14 40 45 -1 1
 	frame	data/chars/3jack/slam05.gif
-	@cmd	antiwall 45 -5 0
+	
 	@cmd	position 14 40 45 -1 1
 	frame	data/chars/3jack/slam05.gif
-	@cmd	antiwall 45 -5 0
+	
 	@cmd	position 14 40 45 -1 1
 	frame	data/chars/3jack/slam05.gif
-	@cmd	antiwall 45 -5 0
+	
 	@cmd	position 14 40 45 -1 1
 	frame	data/chars/3jack/slam05.gif
-	@cmd	antiwall 45 -5 0
+	
 	@cmd	position 14 40 45 -1 1
 	frame	data/chars/3jack/slam05.gif
 	attack	0 0 0 0
 	delay	18
 	@cmd	depost 0
-	@cmd	finish 45 1 1 5 0 -1
+	@cmd	finish 60 1 1 5 0 -1
 	frame	data/chars/3jack/slam05.gif
 	frame	data/chars/3jack/slam06.gif
 	@cmd	clearL
@@ -1421,7 +1505,7 @@ anim	freespecial7
 	frame	data/chars/3jack/slam01.gif
 	delay	20
 	@cmd	position 0 35 70 -1 -1
-	frame	data/chars/3jack/slam02.gif #1
+	frame	data/chars/3jack/slam02.gif
 	sound	data/sounds/jack2.wav
 	@cmd	position 2 45 55 -1 -1
 	frame	data/chars/3jack/slam03.gif
@@ -1433,39 +1517,39 @@ anim	freespecial7
 	delay	18
 	@cmd	spawn01 "qfx" 50 1 1
 	@cmd	position 15 40 45 -1 1
-	frame	data/chars/3jack/slam05.gif #4
+	frame	data/chars/3jack/slam05.gif
 	delay	2
-	@cmd	antiwall 45 -5 0
+	
 	@cmd	position 14 40 45 -1 1
 	frame	data/chars/3jack/slam05.gif
-	@cmd	antiwall 45 -5 0
+	
 	@cmd	position 14 40 45 -1 1
 	frame	data/chars/3jack/slam05.gif
-	@cmd	antiwall 45 -5 0
+	
 	@cmd	position 14 40 45 -1 1
 	frame	data/chars/3jack/slam05.gif
-	@cmd	antiwall 45 -5 0
+	
 	@cmd	position 14 40 45 -1 1
 	frame	data/chars/3jack/slam05.gif
-	@cmd	antiwall 45 -5 0
+	
 	@cmd	position 14 40 45 -1 1
 	frame	data/chars/3jack/slam05.gif
-	@cmd	antiwall 45 -5 0
+	
 	@cmd	position 14 40 45 -1 1
 	frame	data/chars/3jack/slam05.gif
-	@cmd	antiwall 45 -5 0
+	
 	@cmd	position 14 40 45 -1 1
 	frame	data/chars/3jack/slam05.gif
-	@cmd	antiwall 45 -5 0
+	
 	@cmd	position 14 40 45 -1 1
 	frame	data/chars/3jack/slam05.gif
-	@cmd	antiwall 45 -5 0
+	
 	@cmd	position 14 40 45 -1 1
 	frame	data/chars/3jack/slam05.gif
 	attack	0 0 0 0
 	delay	18
 	@cmd	depost 0
-	@cmd	finish 45 1 1 5 0 -1
+	@cmd	finish 60 1 1 5 0 -1
 	frame	data/chars/3jack/slam05.gif
 	frame	data/chars/3jack/slam06.gif
 	@cmd	clearL
@@ -1498,42 +1582,90 @@ anim	grab
 	frame	data/chars/3jack/slam01.gif
 		
 anim	grabattack
-	cancel	8 20 0 a freespecial10
+	loop	0
+	delay	6
+	offset	108 190
+	bbox	84 88 47 100
+	sound	data/sounds/grab.wav
+	frame	data/chars/3jack/hold01.gif
+	delay	10
+	sound	data/sounds/jack1.wav
+	frame	data/chars/3jack/hold02.gif
+	sound	data/sounds/jack2.wav
+	delay	3
+	frame	data/chars/3jack/hold03.gif
+	sound	data/sounds/beat2.wav
+	attack5	126 64 45 50 15 0 1 0 16 0
+	@cmd	spawn01 "Flash" 45 110 1
+	frame	data/chars/3jack/hold04.gif
+	frame	data/chars/3jack/hold01.gif
+	frame	data/chars/3jack/hold02.gif
+	frame	data/chars/3jack/hold03.gif
+	sound	data/sounds/beat2.wav
+	attack5	126 64 45 50 15 0 1 0 16 0
+	@cmd	spawn01 "Flash" 45 110 1
+	frame	data/chars/3jack/hold04.gif
+	delay	2
+	frame	data/chars/3jack/hold01.gif
+	frame	data/chars/3jack/hold01.gif
+	frame	data/chars/3jack/hold01.gif
+	frame	data/chars/3jack/hold01.gif
+	frame	data/chars/3jack/hold01.gif
+	frame	data/chars/3jack/hold01.gif
+	frame	data/chars/3jack/hold01.gif
+	frame	data/chars/3jack/hold01.gif
+	frame	data/chars/3jack/hold01.gif
+	frame	data/chars/3jack/hold01.gif
+	frame	data/chars/3jack/hold01.gif
+	frame	data/chars/3jack/hold01.gif
+	frame	data/chars/3jack/hold01.gif
+	delay	3
+	frame	data/chars/3jack/hold02.gif
+	delay	2
+	frame	data/chars/3jack/hold03.gif
+	frame	data/chars/3jack/hold03.gif
+	frame	data/chars/3jack/hold03.gif
+	frame	data/chars/3jack/hold03.gif
+	frame	data/chars/3jack/hold03.gif
+	frame	data/chars/3jack/hold03.gif
+	sound	data/sounds/beat2.wav
+	attack5	126 64 45 50 15 0 1 0 16 0
+	@cmd	spawn01 "Flash" 45 110 1
+	frame	data/chars/3jack/hold04.gif
+	frame	data/chars/3jack/hold04.gif
+	frame	data/chars/3jack/hold04.gif
+	frame	data/chars/3jack/hold04.gif
+	frame	data/chars/3jack/hold04.gif
+	frame	data/chars/3jack/hold04.gif
+	delay	3
+	@cmd	depost 0
+	frame	data/chars/3jack/hold04.gif
+	frame	data/chars/3jack/hold04.gif
+	@cmd	clearL
+	frame	data/chars/3jack/hold04.gif
+		
+anim	grabattack2
+	attackone	0
 	loop	0
 	delay	12
 	offset	108 190
 	bbox	0 0 0 0
-	sound	data/sounds/grab.wav
 	@cmd	slamstart
 	@cmd	position 13 63 90 -1 1
 	frame	data/chars/3jack/hold01.gif
-	delay	30
-	sound	data/sounds/jack1.wav
-	@cmd	position 13 64 92 -1 1
-	frame	data/chars/3jack/hold02.gif
-	sound	data/sounds/jack2.wav
-	delay	12
-	@cmd	position 10 58 78 -1 -1
-	frame	data/chars/3jack/hold03.gif
-	sound	data/sounds/beat2.wav
-	@cmd	hurt 5
-	@cmd	spawn01 "Flash" 45 110 1
-	@cmd	position 11 47 90 -1 -1
-	frame	data/chars/3jack/hold04.gif
-	@cmd	position 13 63 90 -1 1
-	frame	data/chars/3jack/hold01.gif
 	@cmd	position 13 64 92 -1 1
 	frame	data/chars/3jack/hold02.gif
 	@cmd	position 10 58 78 -1 -1
 	frame	data/chars/3jack/hold03.gif
 	sound	data/sounds/beat2.wav
+	attack5	126 64 45 50 15 0 1 0 16 0
 	@cmd	hurt 15
 	@cmd	spawn01 "Flash" 45 110 1
 	@cmd	position 11 47 90 -1 -1
 	frame	data/chars/3jack/hold04.gif
 	delay	4
 	@cmd	position 13 63 90 -1 1
-	frame	data/chars/3jack/hold01.gif #8
+	frame	data/chars/3jack/hold01.gif #4
 	@cmd	position 13 63 90 -1 1
 	frame	data/chars/3jack/hold01.gif
 	@cmd	position 13 63 90 -1 1
@@ -1557,39 +1689,37 @@ anim	grabattack
 	@cmd	position 13 63 90 -1 1
 	frame	data/chars/3jack/hold01.gif
 	@cmd	position 13 63 90 -1 1
-	frame	data/chars/3jack/hold01.gif #20
-	delay	12
-	@cmd	position 13 64 92 -1 1
-	frame	data/chars/3jack/hold02.gif
+	frame	data/chars/3jack/hold01.gif #16
 	delay	2
-	@cmd	antiwall -45 5 0
+	
 	@cmd	position 10 58 78 -1 -1
 	frame	data/chars/3jack/hold03.gif
-	@cmd	antiwall -45 5 0
+	
 	@cmd	position 10 58 78 -1 -1
 	frame	data/chars/3jack/hold03.gif
-	@cmd	antiwall -45 5 0
+	
 	@cmd	position 10 58 78 -1 -1
 	frame	data/chars/3jack/hold03.gif
-	@cmd	antiwall -45 5 0
+	
 	@cmd	position 10 58 78 -1 -1
 	frame	data/chars/3jack/hold03.gif
-	@cmd	antiwall -45 5 0
+	
 	@cmd	position 10 58 78 -1 -1
 	frame	data/chars/3jack/hold03.gif
-	@cmd	antiwall -45 5 0
+	
 	@cmd	position 10 58 78 -1 -1
 	frame	data/chars/3jack/hold03.gif
 	sound	data/sounds/beat2.wav
+	attack5	126 64 45 50 15 0 1 0 16 0
 	@cmd	hurt 15
-	@cmd	spawn01 "flashscreen1" 45 110 1
-	@cmd	antiwall -45 5 0
+	@cmd	spawn01 "flashscreen2" 45 110 1
+	
 	@cmd	position 11 40 90 1 -1
 	frame	data/chars/3jack/hold04.gif
-	@cmd	antiwall -45 5 0
+	
 	@cmd	position 11 40 90 1 -1
 	frame	data/chars/3jack/hold04.gif
-	@cmd	antiwall -45 5 0
+	
 	@cmd	position 11 40 90 1 -1
 	frame	data/chars/3jack/hold04.gif
 	@cmd	position 11 40 90 1 -1
@@ -1600,7 +1730,8 @@ anim	grabattack
 	frame	data/chars/3jack/hold04.gif
 	delay	12
 	@cmd	depost 0
-	@cmd	finish 40 1 -3 2 0 -1
+	@cmd	finish 50 1 -3 2 0 -1
+	frame	data/chars/3jack/hold04.gif
 	frame	data/chars/3jack/hold04.gif
 	frame	data/chars/3jack/hold04.gif
 	@cmd	clearL
@@ -1630,38 +1761,38 @@ anim	grabbackward
 	frame	data/chars/3jack/grab07.gif
 	@cmd	position 1 -15 115 -1 1
 	frame	data/chars/3jack/grab07.gif
-	@cmd	antiwall -45 5 0
+	
 	@cmd	position 1 -15 115 -1 1
 	frame	data/chars/3jack/grab07.gif
-	@cmd	antiwall -45 5 0
+	
 	@cmd	position 1 -15 115 -1 1
 	frame	data/chars/3jack/grab07.gif
-	@cmd	antiwall -45 5 0
+	
 	@cmd	position 1 -15 115 -1 1
 	frame	data/chars/3jack/grab07.gif
-	@cmd	antiwall -45 5 0
+	
 	@cmd	position 1 -15 115 -1 1
 	frame	data/chars/3jack/grab07.gif
-	@cmd	antiwall -45 5 0
+	
 	@cmd	position 2 -45 100 -1 1
 	frame	data/chars/3jack/grab08.gif
-	@cmd	antiwall -45 5 0
+	
 	@cmd	position 2 -45 100 -1 1
 	frame	data/chars/3jack/grab08.gif
-	@cmd	antiwall -45 5 0
+	
 	@cmd	position 2 -45 100 -1 1
 	frame	data/chars/3jack/grab08.gif
-	@cmd	antiwall -45 5 0
+	
 	@cmd	position 2 -45 100 -1 1
 	frame	data/chars/3jack/grab08.gif
-	@cmd	antiwall -45 5 0
+	
 	@cmd	position 2 -45 100 -1 1
 	frame	data/chars/3jack/grab08.gif
 	@cmd	position 2 -45 100 -1 1
 	frame	data/chars/3jack/grab08.gif
 	delay	45
 	@cmd	depost 0
-	@cmd	finish 40 1 -3.5 1.5 0 -1
+	@cmd	finish 60 1 -3.5 1.5 0 -1
 	frame	data/chars/3jack/grab09.gif
 	delay	14
 	frame	data/chars/3jack/grab10.gif
@@ -1677,17 +1808,18 @@ anim	grabbed
 	frame	data/chars/3jack/grabbed.gif
 		
 anim	grabforward
+	attackone	0
 	loop	0
 	delay	9
 	offset	108 190
-	bbox	84 98 47 90
+	bbox	0 0 0 0
 	hitfx	data/sounds/beat3.wav
 	sound	data/sounds/jack2.wav
 	frame	data/chars/3jack/a104.gif
 	frame	data/chars/3jack/a105.gif
 	frame	data/chars/3jack/a106.gif
 	delay	12
-	blast	105 80 90 65 30 1 0 35 15
+	blast	105 80 90 65 50 1 0 0 15 0
 	dropv	2 4
 	frame	data/chars/3jack/a107.gif
 	frame	data/chars/3jack/a108.gif
@@ -1700,26 +1832,21 @@ anim	grabforward
 		
 anim	idle
 	loop	1
-	delay	10
+	delay	20
 	offset	108 190
-	bbox	84 98 47 90
+	bbox	84 88 47 100
 	frame	data/chars/3jack/idle01.gif
-	@cmd	clearL
 	frame	data/chars/3jack/idle02.gif
-	@cmd	mpgain 3
 	frame	data/chars/3jack/idle03.gif
-	@cmd	mpgain 3
 	frame	data/chars/3jack/idle04.gif
-	@cmd	mpgain 3
 	frame	data/chars/3jack/idle03.gif
-	@cmd	mpgain 3
 	frame	data/chars/3jack/idle02.gif
 		
 anim	jump
 	loop	0
 	delay	20
 	offset	108 190
-	bbox	84 80 47 55
+	bbox	91 80 47 55
 	frame	data/chars/3jack/ju01.gif
 	delay	25
 	frame	data/chars/3jack/ju02.gif
@@ -1729,13 +1856,14 @@ anim	jumpattack
 	loop	0
 	delay	9
 	offset	108 190
-	bbox	84 80 47 55
+	bbox	88 75 47 55
+	staydown	200 200
 	hitfx	data/sounds/beat5.wav
 	sound	data/sounds/jack1.wav
 	frame	data/chars/3jack/jua05.gif
 	frame	data/chars/3jack/jua06.gif
 	delay	35
-	attack2	95 96 78 84 16 0 0 0 15 20
+	attack2	95 96 78 84 30 0 0 0 15 20
 	frame	data/chars/3jack/jua07.gif
 	attack2	0 0 0 0
 	delay	12
@@ -1744,35 +1872,45 @@ anim	jumpattack
 		
 anim	jumpattack2
 	loop	0
-	delay	12
-	offset	108 190
-	bbox	84 80 47 55
+	delay	14
+	offset	107 190
+	bbox	90 84 47 55
+	staydown	500 500
 	landframe	3 dust
 	quakeframe	3 5 5
-	staydown	500 500
 	hitfx	data/sounds/beat2.wav
 	sound	data/sounds/jack2.wav
 	frame	data/chars/3jack/jua05.gif
 	frame	data/chars/3jack/jua01.gif
+	bbox	92 119 61 33
 	delay	500
-	attack	75 125 105 65 30 1 0 0 17 20
-	dropv	5 1
+	attack	83 152 90 25 40 1 0 0 17 20
+	dropv	0.1
 	frame	data/chars/3jack/jua02.gif
 	delay	5
+	frame	data/chars/3jack/jua02.gif
 	offset	108 180
-	frame	data/chars/3jack/jua02.gif #3
+	bbox	82 148 61 33
 	sound	data/sounds/bang2.wav
+	frame	data/chars/3jack/jua03.gif
 	frame	data/chars/3jack/jua03.gif
 	frame	data/chars/3jack/jua03.gif
 	frame	data/chars/3jack/jua03.gif
 	frame	data/chars/3jack/jua03.gif
 	attack	0 0 0 0
 	@cmd	flip
-	delay	9
 	offset	108 190
 	frame	data/chars/3jack/rise0.gif
+	frame	data/chars/3jack/rise0.gif
+	frame	data/chars/3jack/rise0.gif
+	frame	data/chars/3jack/rise0.gif
+	bbox	73 121 57 64
+	frame	data/chars/3jack/rise1.gif
 	frame	data/chars/3jack/rise1.gif
 	frame	data/chars/3jack/rise2.gif
+	frame	data/chars/3jack/rise2.gif
+	bbox	78 92 47 83
+	frame	data/chars/3jack/rise3.gif
 	frame	data/chars/3jack/rise3.gif
 		
 anim	jumpforward
@@ -1781,13 +1919,13 @@ anim	jumpforward
 	offset	108 190
 	bbox	84 80 47 55
 	forcedirection	-1
-	staydown	500 500
+	staydown	400 400
 	hitfx	data/sounds/beat5.wav
 	sound	data/sounds/jack1.wav
 	frame	data/chars/3jack/jua05.gif
 	frame	data/chars/3jack/jua10.gif
 	delay	45
-	attack	95 96 95 70 22 1 0 0 15 20
+	attack	95 96 95 70 35 1 0 0 15 20
 	frame	data/chars/3jack/jua11.gif
 	attack	0 0 0 0
 	delay	12
@@ -1917,7 +2055,7 @@ anim	run
 	loop	1
 	delay	7
 	offset	108 190
-	bbox	84 98 47 90
+	bbox	84 88 47 100
 	frame	data/chars/3jack/run01.gif
 	sound	data/sounds/run.wav
 	@cmd	spawn01 "dust" 1 0 1
@@ -1933,7 +2071,7 @@ anim	runattack
 	loop	0
 	delay	2
 	offset	108 190
-	bbox	84 98 47 90
+	bbox	84 88 47 100
 	staydown	300 300
 	hitfx	data/sounds/beat5.wav
 	forcedirection	-1
@@ -1950,7 +2088,7 @@ anim	runattack
 	move	4
 	frame	data/chars/3jack/ratk02.gif
 	frame	data/chars/3jack/ratk02.gif
-	attack	115 80 75 65 20 1 0 0 12 0
+	attack	115 80 75 65 40 1 0 0 12 0
 	dropv	3 4
 	frame	data/chars/3jack/ratk03.gif
 	frame	data/chars/3jack/ratk03.gif
@@ -1984,7 +2122,7 @@ anim	runjumpattack
 	frame	data/chars/3jack/jua10.gif
 	offset	108 180
 	frame	data/chars/3jack/ak1.gif
-	attack	95 75 110 65 30 1 0 0 17 20
+	attack	95 75 110 65 50 1 0 0 17 20
 	dropv	3 4
 	delay	500
 	offset	108 165
@@ -1993,16 +2131,19 @@ anim	runjumpattack
 	offset	108 155
 	frame	data/chars/3jack/ak2.gif
 	sound	data/sounds/bang2.wav
-	attack	0 0 0 0
+	attack	0 0 0 0 0 0 0 0 0 0
 	offset	108 190
+	bbox	79 145 59 45
 	frame	data/chars/3jack/rise0.gif
 	frame	data/chars/3jack/rise0.gif
 	frame	data/chars/3jack/rise0.gif
 	frame	data/chars/3jack/rise0.gif
+	bbox	73 121 57 64
 	frame	data/chars/3jack/rise1.gif
 	frame	data/chars/3jack/rise1.gif
 	frame	data/chars/3jack/rise2.gif
 	frame	data/chars/3jack/rise2.gif
+	bbox	78 92 47 83
 	frame	data/chars/3jack/rise3.gif
 	frame	data/chars/3jack/rise3.gif
 		
@@ -2011,7 +2152,6 @@ anim	spawn
 	delay	12
 	offset	108 190
 	bbox	0 0 0 0
-	frame	data/chars/3jack/block01.gif
 	frame	data/chars/3jack/idle06.gif
 	sound	data/sounds/mhmh.wav
 	frame	data/chars/3jack/idle05.gif
@@ -2021,6 +2161,7 @@ anim	spawn
 	frame	data/chars/3jack/idle05.gif
 	frame	data/chars/3jack/idle06.gif
 	frame	data/chars/3jack/idle05.gif
+	frame	data/chars/3jack/block01.gif
 	frame	data/chars/3jack/block01.gif
 		
 anim	special
@@ -2050,7 +2191,7 @@ anim	special
 	  }
 	}
 	@end_script	
-	energycost	50
+	energycost	60
 	mponly	1
 	loop	0
 	delay	12
@@ -2069,8 +2210,8 @@ anim	special
 	frame	data/chars/3jack/sp20.gif
 	frame	data/chars/3jack/sp21.gif
 	delay	8
-	frame	data/chars/3jack/sp22.gif #9
-	blast	60 100 105 80 30 1 0 12 20
+	frame	data/chars/3jack/sp22.gif
+	blast	60 100 105 80 20 1 0 0 20 0
 	frame	data/chars/3jack/sp23.gif
 	@cmd	spawn01 "dust" 1 1 1
 	sound	data/sounds/punch2.wav
@@ -2101,7 +2242,7 @@ anim	walk
 	loop	1
 	delay	12
 	offset	108 190
-	bbox	84 98 47 90
+	bbox	84 88 47 100
 	frame	data/chars/3jack/wk01.gif
 	frame	data/chars/3jack/wk02.gif
 	frame	data/chars/3jack/wk03.gif
@@ -2113,8 +2254,8 @@ anim	walkoff
 	loop	0
 	delay	20
 	offset	108 190
-	bbox	84 80 47 55
+	bbox	90 73 47 75
 	frame	data/chars/3jack/ju01.gif
 		
-#|edited by openBor Stats v 0.67
+#|edited by openBor Stats v 0.53
 		

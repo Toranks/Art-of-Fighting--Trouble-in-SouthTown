@@ -36,6 +36,8 @@ load	joesmtlk2
 
 
 
+
+
 anim	attack1
 	range	40 90
 	loop	0
@@ -166,7 +168,7 @@ anim	death
 	{
 	jumptobranch("dummy", 1);
 	}
-@end_script
+	@end_script	
 	loop	0
 	delay	50
 	offset	100 189
@@ -233,7 +235,7 @@ anim	fall11
 	loop	0
 	delay	20
 	offset	100 189
-	bbox	61 185 90 5	
+	bbox	61 185 90 5
 	frame	data/chars/3crazyjoe/pain12.gif
 	delay	35
 	frame	data/chars/3crazyjoe/fall4.gif
@@ -242,12 +244,13 @@ anim	fall2
 	loop	0
 	delay	30
 	offset	100 189
-	bbox	0 0 0 0
+	bbox	80 80 50 75
 	landframe	3
 	attack	85 90 35 45 5 1 0 0 13 0
 	frame	data/chars/3crazyjoe/pain7.gif
 	sound	data/sounds/crjoe02.wav
 	delay	10
+	bbox	71 125 63 30
 	attack	64 125 55 25 5 1 0 0 13 0
 	frame	data/chars/3crazyjoe/fall2.gif
 	attack	0 0 0 0
@@ -383,9 +386,6 @@ anim	follow1
 	delay	16
 	frame	data/chars/3crazyjoe/a10.gif
 	frame	data/chars/3crazyjoe/a09.gif
-
-#----------------//-------FISH-COME-1----//--------------
-
 		
 anim	follow12
 	loop	0
@@ -398,7 +398,7 @@ anim	follow12
 	{
 	changeentityproperty(self, "aggression", 40);
 	}
-@end_script	
+	@end_script	
 	frame	data/chars/3crazyjoe/rise3.gif
 	@cmd	targetPos 4 835 380
 	@cmd	leap 6
@@ -508,8 +508,6 @@ anim	follow12
 	frame	data/chars/3crazyjoe/rise2.gif
 	@cmd	hpgain 120
 	frame	data/chars/3crazyjoe/rise3.gif
-
-#----------------//-------FISH-COME-2----//--------------
 		
 anim	follow13
 	loop	0
@@ -522,7 +520,7 @@ anim	follow13
 	{
 	changeentityproperty(self, "aggression", 50);
 	}
-@end_script	
+	@end_script	
 	frame	data/chars/3crazyjoe/rise3.gif
 	@cmd	targetPos 4 835 380
 	@cmd	leap 6
@@ -632,8 +630,6 @@ anim	follow13
 	frame	data/chars/3crazyjoe/rise2.gif
 	@cmd	hpgain 120
 	frame	data/chars/3crazyjoe/rise3.gif
-
-#----------------//-------FISH-COME-3----//--------------
 		
 anim	follow14
 	loop	0
@@ -646,7 +642,7 @@ anim	follow14
 	{
 	changeentityproperty(self, "aggression", 60);
 	}
-@end_script	
+	@end_script	
 	frame	data/chars/3crazyjoe/rise3.gif
 	@cmd	targetPos 4 835 380
 	@cmd	leap 6
@@ -754,8 +750,6 @@ anim	follow14
 	frame	data/chars/3crazyjoe/rise2.gif
 	@cmd	hpgain 120
 	frame	data/chars/3crazyjoe/rise3.gif
-
-#----------------//-------FISH-COME-4----//--------------
 		
 anim	follow15
 	loop	0
@@ -768,7 +762,7 @@ anim	follow15
 	{
 	changeentityproperty(self, "aggression", 70);
 	}
-@end_script	
+	@end_script	
 	frame	data/chars/3crazyjoe/rise3.gif
 	@cmd	targetPos 4 835 380
 	@cmd	leap 6
@@ -879,8 +873,6 @@ anim	follow15
 	frame	data/chars/3crazyjoe/rise2.gif
 	@cmd	hpgain 120
 	frame	data/chars/3crazyjoe/rise3.gif
-
-#----------------//-------FISH-COME-5----//--------------
 		
 anim	follow16
 	loop	0
@@ -893,7 +885,7 @@ anim	follow16
 	{
 	changeentityproperty(self, "aggression", 80);
 	}
-@end_script	
+	@end_script	
 	frame	data/chars/3crazyjoe/rise3.gif
 	@cmd	targetPos 4 835 380
 	@cmd	leap 6
@@ -1003,8 +995,6 @@ anim	follow16
 	frame	data/chars/3crazyjoe/rise2.gif
 	@cmd	hpgain 120
 	frame	data/chars/3crazyjoe/rise3.gif
-
-#----------------//-------FISH-COME-6----//--------------
 		
 anim	follow17
 	loop	0
@@ -1017,7 +1007,7 @@ anim	follow17
 	{
 	changeentityproperty(self, "aggression", 90);
 	}
-@end_script	
+	@end_script	
 	frame	data/chars/3crazyjoe/rise3.gif
 	@cmd	targetPos 4 835 380
 	@cmd	leap 6
@@ -1155,6 +1145,87 @@ anim	follow2
 	delay	14
 	frame	data/chars/3crazyjoe/rise3.gif
 		
+anim	follow20
+@script
+	void self = getlocalvar("self");
+	if(frame==1){
+
+	changelevelproperty("scrollspeed", 0);
+    	changeopenborvariant("xpos", 450);
+    	changeopenborvariant("ypos", 270);
+	changeentityproperty(self, "aggression", 30);
+	}
+	if(frame==39){
+	changelevelproperty("scrollspeed", 1);
+	}
+	@end_script	
+	loop	0
+	delay	500
+	offset	100 197
+	bbox	0 0 0 0
+	platform	40 205 0 0 250 250 40 200
+	frame	data/chars/3crazyjoe/empty.gif
+	delay	15
+	frame	data/chars/3crazyjoe/span01.gif
+	@cmd	playmusic "data/music/crazyjoe.ogg" 1
+	frame	data/chars/3crazyjoe/span02.gif
+	frame	data/chars/3crazyjoe/span03.gif
+	frame	data/chars/3crazyjoe/span04.gif
+	delay	100
+	frame	data/chars/3crazyjoe/span05.gif
+	delay	14
+	frame	data/chars/3crazyjoe/span06.gif
+	frame	data/chars/3crazyjoe/span07.gif
+	frame	data/chars/3crazyjoe/span08.gif
+	frame	data/chars/3crazyjoe/span09.gif
+	delay	70
+	frame	data/chars/3crazyjoe/span10.gif
+	delay	14
+	frame	data/chars/3crazyjoe/span11.gif
+	frame	data/chars/3crazyjoe/span12.gif
+	frame	data/chars/3crazyjoe/span13.gif
+	frame	data/chars/3crazyjoe/span14.gif
+	frame	data/chars/3crazyjoe/span15.gif
+	frame	data/chars/3crazyjoe/span16.gif
+	delay	80
+	frame	data/chars/3crazyjoe/span17.gif
+	delay	14
+	frame	data/chars/3crazyjoe/span18.gif
+	frame	data/chars/3crazyjoe/span19.gif
+	frame	data/chars/3crazyjoe/span20.gif
+	frame	data/chars/3crazyjoe/span21.gif
+	frame	data/chars/3crazyjoe/span22.gif
+	delay	100
+	frame	data/chars/3crazyjoe/span22.gif
+	offset	95 189
+	delay	14
+	movez	1
+	frame	data/chars/3crazyjoe/xwk03.gif
+	frame	data/chars/3crazyjoe/xwk01.gif
+	frame	data/chars/3crazyjoe/xwk02.gif
+	frame	data/chars/3crazyjoe/xwk03.gif
+	frame	data/chars/3crazyjoe/xwk01.gif
+	frame	data/chars/3crazyjoe/xwk02.gif
+	frame	data/chars/3crazyjoe/xwk03.gif
+	frame	data/chars/3crazyjoe/xwk01.gif
+	frame	data/chars/3crazyjoe/xwk02.gif
+	frame	data/chars/3crazyjoe/xwk03.gif
+	movez	0
+	offset	100 189
+	@cmd	flip
+	frame	data/chars/3crazyjoe/wk02.gif
+	frame	data/chars/3crazyjoe/wk03.gif
+	delay	50
+	frame	data/chars/3crazyjoe/wk04.gif
+	frame	data/chars/3crazyjoe/wk04.gif
+	frame	data/chars/3crazyjoe/wk04.gif
+	frame	data/chars/3crazyjoe/wk04.gif
+	frame	data/chars/3crazyjoe/wk04.gif
+	sound	data/sounds/crjoe04.wav
+	frame	data/chars/3crazyjoe/wk04.gif
+	@cmd	clearL
+	frame	data/chars/3crazyjoe/wk04.gif
+		
 anim	follow3
 @script
 	void self = getlocalvar("self");
@@ -1165,7 +1236,7 @@ anim	follow3
 	changeentityproperty(self, "invinctime", eTime + 180);
 	changeentityproperty(self, "blink", 1);
 	}
-@end_script
+	@end_script	
 	loop	0
 	delay	7
 	offset	100 189
@@ -1204,22 +1275,22 @@ anim	follow4
 	@cmd	position 1 20 25 1 1
 	frame	data/chars/3crazyjoe/trow01.gif
 	delay	5
-	@cmd	antiwall -60 5 0
+	
 	@cmd	position 2 0 80 1 1
 	frame	data/chars/3crazyjoe/trow02.gif
-	@cmd	antiwall -60 5 0
+	
 	@cmd	position 2 0 80 1 1
 	frame	data/chars/3crazyjoe/trow02.gif
-	@cmd	antiwall -60 5 0
+	
 	@cmd	position 2 0 80 1 1
 	frame	data/chars/3crazyjoe/trow02.gif
-	@cmd	antiwall -60 5 0
+	
 	@cmd	position 18 -10 90 1 -1
 	frame	data/chars/3crazyjoe/trow03.gif
-	@cmd	antiwall -60 5 0
+	
 	@cmd	position 18 -10 90 1 -1
 	frame	data/chars/3crazyjoe/trow03.gif
-	@cmd	antiwall -60 5 0
+	
 	@cmd	position 18 -10 90 1 -1
 	frame	data/chars/3crazyjoe/trow03.gif
 	@cmd	depost 0
@@ -1283,7 +1354,6 @@ anim	pain
 	delay	40
 	offset	100 189
 	frame	data/chars/3crazyjoe/pain1.gif
-
 		
 anim	pain2
 	loop	0
@@ -1390,8 +1460,6 @@ anim	rise
 	frame	data/chars/3crazyjoe/rise3.gif
 	@cmd	riseattack 120 15 "ANI_FOLLOW3"
 	frame	data/chars/3crazyjoe/idle01.gif
-
-#-----------------------------//------------//----------
 		
 anim	spawn
 @script
@@ -1406,9 +1474,9 @@ anim	spawn
 	if(frame==39){
 	changelevelproperty("scrollspeed", 1);
 	}
-@end_script
+	@end_script	
 	loop	0
-	delay	3000
+	delay	2000
 	offset	100 197
 	bbox	0 0 0 0
 	custentity	joetlk
@@ -1474,95 +1542,6 @@ anim	spawn
 	frame	data/chars/3crazyjoe/wk04.gif
 	@cmd	clearL
 	frame	data/chars/3crazyjoe/wk04.gif
-
-
-anim	follow20
-@script
-	void self = getlocalvar("self");
-	if(frame==1){
-
-	changelevelproperty("scrollspeed", 0);
-    	changeopenborvariant("xpos", 450);
-    	changeopenborvariant("ypos", 270);
-	changeentityproperty(self, "aggression", 30);
-	}
-	if(frame==39){
-	changelevelproperty("scrollspeed", 1);
-	}
-@end_script
-	loop	0
-	delay	500
-	offset	100 197
-	bbox	0 0 0 0
-	platform	40 205 0 0 250 250 40 200
-	frame	data/chars/3crazyjoe/empty.gif
-	delay	15
-	frame	data/chars/3crazyjoe/span01.gif
-	@cmd	 playmusic "data/music/crazyjoe.ogg" 1
-	frame	data/chars/3crazyjoe/span02.gif
-	frame	data/chars/3crazyjoe/span03.gif
-	frame	data/chars/3crazyjoe/span04.gif
-	delay	100
-	frame	data/chars/3crazyjoe/span05.gif
-	delay	14
-	frame	data/chars/3crazyjoe/span06.gif
-	frame	data/chars/3crazyjoe/span07.gif
-	frame	data/chars/3crazyjoe/span08.gif
-	frame	data/chars/3crazyjoe/span09.gif
-	delay	70
-	frame	data/chars/3crazyjoe/span10.gif
-	delay	14
-	frame	data/chars/3crazyjoe/span11.gif
-	frame	data/chars/3crazyjoe/span12.gif
-	frame	data/chars/3crazyjoe/span13.gif
-	frame	data/chars/3crazyjoe/span14.gif
-	frame	data/chars/3crazyjoe/span15.gif
-	frame	data/chars/3crazyjoe/span16.gif
-	delay	80
-	frame	data/chars/3crazyjoe/span17.gif
-	delay	14
-	frame	data/chars/3crazyjoe/span18.gif
-	frame	data/chars/3crazyjoe/span19.gif
-	frame	data/chars/3crazyjoe/span20.gif
-	frame	data/chars/3crazyjoe/span21.gif
-	frame	data/chars/3crazyjoe/span22.gif
-	delay	100
-	frame	data/chars/3crazyjoe/span22.gif
-	offset	95 189
-	delay	14
-	movez	1
-	frame	data/chars/3crazyjoe/xwk03.gif
-	frame	data/chars/3crazyjoe/xwk01.gif
-	frame	data/chars/3crazyjoe/xwk02.gif
-	frame	data/chars/3crazyjoe/xwk03.gif
-	frame	data/chars/3crazyjoe/xwk01.gif
-	frame	data/chars/3crazyjoe/xwk02.gif
-	frame	data/chars/3crazyjoe/xwk03.gif
-	frame	data/chars/3crazyjoe/xwk01.gif
-	frame	data/chars/3crazyjoe/xwk02.gif
-	frame	data/chars/3crazyjoe/xwk03.gif
-	movez	0
-	offset	100 189
-	@cmd	flip
-	frame	data/chars/3crazyjoe/wk02.gif
-	frame	data/chars/3crazyjoe/wk03.gif
-	delay	50
-	frame	data/chars/3crazyjoe/wk04.gif
-	frame	data/chars/3crazyjoe/wk04.gif
-	frame	data/chars/3crazyjoe/wk04.gif
-	frame	data/chars/3crazyjoe/wk04.gif
-	frame	data/chars/3crazyjoe/wk04.gif
-	sound	data/sounds/crjoe04.wav
-	frame	data/chars/3crazyjoe/wk04.gif
-	@cmd	clearL
-	frame	data/chars/3crazyjoe/wk04.gif
-
-
-
-
-
-
-#----------------------------//------------------//---------------
 		
 anim	special
 @script
@@ -1574,7 +1553,7 @@ anim	special
 	changeentityproperty(self, "invinctime", eTime + 100);
 	changeentityproperty(self, "blink", 1);
 	}
-@end_script
+	@end_script	
 	loop	0
 	delay	8
 	offset	100 189

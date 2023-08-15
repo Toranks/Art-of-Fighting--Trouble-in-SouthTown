@@ -25,7 +25,7 @@ spawn3  	185 120
 
 bgspeed		1
 cameraoffset    0 -80
-#cameratype      1
+scrollspeed		2
 
 #--------------------
 
@@ -54,7 +54,7 @@ at      0
 spawn   ggrilstreet
 map     1
 flip    1
-coords  3500 160
+coords  3470 165
 at      0
 
 
@@ -234,6 +234,7 @@ at      0
 
 spawn   umbrella
 flip    1
+item    moneybag
 coords  1750 330
 at      0
 #-----------------------
@@ -245,6 +246,7 @@ at      0
 
 spawn   umbrella
 flip    1
+item    gold
 coords  1500 370
 at      0
 
@@ -269,7 +271,6 @@ coords  1650 420
 at      0
 #-----------------------
 
-
 #-------------------
 
 spawn   car
@@ -286,8 +287,6 @@ spawn   car2
 flip    1
 coords  610 400
 at      0
-
-
 
 #--------------------
 
@@ -320,10 +319,6 @@ spawn   bounty2
 } @end_script
 coords  85 230 85
 at      0
-
-#---------------------
-
-
 
 #---------------------
 
@@ -381,9 +376,6 @@ at      5
 
 
 #----------------------
-blockade 400
-at    400
-
 #----------------------
 group   3 3
 at      400
@@ -454,7 +446,7 @@ void main(){
 @end_script
 health	1
 flip    1
-coords  -135 430
+coords  -135 290
 at      400
 
 spawn   rodder2
@@ -465,15 +457,10 @@ void main(){
 @end_script
 health	1
 item    ruby
-coords  570 430
+coords  570 290
 at      400
 
-
 #----------------------
-
-blockade 600
-at    600
-
 #----------------------
 
 group   6 6
@@ -543,7 +530,6 @@ at      600
 spawn   bdrum
 coords  -130 400
 at      500
-
 
 
 spawn   bdrum
@@ -629,9 +615,7 @@ at      600
 
 #------------------------//--
 
-
 spawn   beloche
-health  400
 item    food6
 map     1
 aggression -20
@@ -639,29 +623,23 @@ coords  -80 270
 at      600
 
 spawn   meloke
-health  400
 map     3
 aggression -20
 coords  590 300
 at      600
 
 #------------------------
-blockade 1100
-at    1100
 #------------------------------
 scrollx  950  1560
 at  1100
 #------------------------------
-
-
-
+#----------------------
 
 group   4 4
 at      1100
 
 spawn   psycho
-health  90
-map     6
+map     1
 aggression -20
 coords  600 250
 at      1100
@@ -673,18 +651,22 @@ spawn   psycho
 	changeentityproperty(self, "speed", 0.9);
 } 
 @end_script
-health  90
 map     5
 aggression -20
 coords  750 410
 at      1100
 
-
-spawn   psycho
-health  90
-map     6
+spawn   vigo
+map     4
 aggression -20
-coords  -200 250
+coords  -110 260
+at      1100
+
+spawn   vigo
+item    food3
+map     2
+aggression -20
+coords  -100 260
 at      1100
 
 spawn   psycho
@@ -694,26 +676,31 @@ spawn   psycho
 	changeentityproperty(self, "speed", 0.9);
 } 
 @end_script
-health  90
 map     4
 aggression -20
 coords  -200 350
 at      1100
 
-
-spawn   ghost1
-coords  -200 350
+2pspawn   slay
+map     1
+aggression -20
+coords  590 260
 at      1100
 
+2pspawn   psycho
+map     1
+aggression -20
+coords  -190 290
+at      1100
+
+
 spawn   psycho
-health  90
 map     6
 aggression -20
 coords  -200 250
 at      1100
 
 spawn   psycho
-health  90
 map     4
 aggression -20
 coords  900 350
@@ -727,14 +714,12 @@ spawn   psycho
 	changeentityproperty(self, "speed", 0.9);
 } 
 @end_script
-health  120
 map     5
 aggression -20
 coords  620 410
 at      1100
 
 spawn   psycho
-health  90
 map     4
 aggression -20
 coords  -170 400
@@ -749,14 +734,12 @@ spawn   psycho
 	changeentityproperty(self, "speed", 0.9);
 } 
 @end_script
-health  90
 map     5
 aggression -20
 coords  -100 260
 at      1100
 
 spawn   psycho
-health  90
 map     4
 aggression -20
 coords  700 390
@@ -770,14 +753,12 @@ spawn   psycho
 	changeentityproperty(self, "speed", 0.8);
 } 
 @end_script
-health  90
 map     6
 aggression -20
 coords  -120 260
 at      1100
 
 spawn   psycho
-health  120
 map     6
 aggression -20
 coords  670 410
@@ -796,14 +777,12 @@ spawn   psycho
 	changeentityproperty(self, "speed", 0.9);
 } 
 @end_script
-health  90
 map     5
 aggression -20
 coords  600 290
 at      1100
 
 spawn   psycho
-health  120
 map     6
 aggression -20
 coords  900 350
@@ -817,14 +796,26 @@ spawn   psycho
 	changeentityproperty(self, "speed", 0.9);
 } 
 @end_script
-health  90
 map     4
 aggression -20
 coords  -190 260
 at      1100
 
 spawn   psycho
-health  120
+map     5
+aggression -20
+coords  -270 400
+at      1100
+
+
+spawn   psycho
+map     6
+aggression -20
+coords  -170 330
+at      1100
+
+
+spawn   psycho
 map     5
 aggression -20
 coords  -270 400
@@ -836,32 +827,15 @@ at      1100
 
 
 spawn   psycho
-health  90
 map     6
 aggression -20
 coords  -170 330
 at      1100
 
-
-
 #------------------------------
 scrollx  1560  2250
 at  1560
 #------------------------
-blockade 1560
-at    1560
-blockade 1600
-at    1600
-blockade 1700
-at    1700
-blockade 1800
-at    1800
-blockade 1900
-at    1900
-blockade 2000
-at    2000
-#------------------------------
-
 
 group   4 4
 at      2000
@@ -876,7 +850,6 @@ coords  -400 400
 at      2000
 
 spawn   vigo
-health  120
 map	4
 coords  590 250
 at      2000
@@ -959,7 +932,6 @@ coords  500 400
 at      2000
 
 spawn   vigo
-health  120
 map	4
 coords  -100 300
 at      2000
@@ -992,107 +964,180 @@ at      2000
 
 
 
-#------------------------------
-scrollx  2250  4000
-at  2000
 #------------------------
-blockade 2100
-at    2100
-blockade 2200
-at    2200
-blockade 2300
-at    2300
-blockade 2400
-at    2400
+scrollx  2200  3100
+at  2100
+
+#----------------------
+
+group   3 3
+at      2400
 
 spawn   marya
 flip    1
-coords  550 300
+coords  500 260
 at      2400
+
 spawn   tina
 flip    1
-coords  670 360
+coords  600 300
 at      2400
 
-blockade 2500
-at    2500
-blockade 2600
-at    2600
-blockade 2700
-at    2700
-blockade 2750
-at    2750
-#------------------------------
+spawn   kraven
+map     2
+aggression -20
+coords  -490 250
+at      2400
 
+spawn   malenko
+map     4
+aggression -20
+coords  -490 250
+at      2400
+
+spawn   malenko
+map     2
+aggression -20
+coords  510 250
+at      2400
+
+
+2pspawn   dan
+map     1
+aggression -20
+coords  510 250
+at      2400
+
+spawn   8ball
+map     1
+aggression -20
+coords  510 250
+at      2400
+
+spawn   jimcombo
+map     4
+flip	1
+aggression -20
+coords  -110 250
+at      2400
+
+#-------------------------------
+
+group   1 1
+at      2400
+
+
+spawn   ghosttime
+health 	10
+coords  600 270
+at      2400
+
+group   4 4
+at      2400
+
+spawn   rodder2
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+health	1
+flip    1
+coords  -90 260
+at      2400
+
+
+spawn   rodder2
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+health	1
+flip    1
+coords  -90 290
+at      2400
+
+
+spawn   rodder2
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+health	1
+coords  570 270
+at      2400
+
+spawn   rodder2
+@script
+void main(){
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+health	1
+coords  550 320
+at      2400
+
+#------------------------
+scrollx  2500  3500
+at  2700
+
+#----------------------
 
 group   3 3
 at      2750
 
-
-
-spawn   kraven
-health  160
+spawn   zen
+flip    1
 map     2
 aggression -20
-coords  -490 310
+coords  -310 250
 at      2750
 
-spawn   malenko
-health  230
-map     4
+
+2pspawn   vigo
+flip    1
+map     1
 aggression -20
-coords  -650 270
+coords  -310 260
 at      2750
-
-spawn   malenko
-@script void main() 
-{
-	void self = getlocalvar("self");
-	changeentityproperty(self, "speed", 1.4);
-} 
-@end_script
-health  230
-map     2
-aggression -20
-coords  -150 260
-at      2750
-
-
-
 
 spawn   beloche
-@script void main() 
-{
-	void self = getlocalvar("self");
-	changeentityproperty(self, "speed", 1.5);
-} 
-@end_script
-health  700
+health  1500
+2phealth	1750
+3phealth	2000
 flip    1
 map     4
 boss    1
 aggression -20
-coords  -310 310
+coords  -310 250
 at      2750
 
+spawn   malenko
+health  1000
+2phealth	1250
+3phealth	1500
+boss	1
+flip    1
+map     2
+aggression -20
+coords  -310 260
+at      2750
 
 spawn   slay
-health  270
-map     3
+map     2
 aggression -20
-coords  -310 290
+coords  -310 260
 at      2750
 
 
-spawn   slay
-health  210
+2pspawn   psycho
 map     3
 aggression -20
-coords  -510 400
+coords  -310 260
 at      2750
 
-
-
-
+#------------------
 
 

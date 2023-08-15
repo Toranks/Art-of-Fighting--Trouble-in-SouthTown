@@ -3,7 +3,7 @@ void main()
 {
 	void self = getlocalvar("self");
 	void vName = getentityproperty(self,"name");
-	void target = findtarget(self);
+	void target = getlocalvar("damagetaker"); // Get player who picks the item
 
 	float Tx = getentityproperty(self, "x");
 	float Tz = getentityproperty(self, "z");
@@ -22,4 +22,6 @@ void main()
 	performattack(vSpawn, openborconstant("ANI_FOLLOW1"));
 	performattack(target, openborconstant("ANI_FOLLOW17"));
 	changeentityproperty(target, "position", Tx, Tz1, 0);
+	
+    return vSpawn;
 }

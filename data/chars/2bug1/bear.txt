@@ -1,7 +1,7 @@
 name          bear
 type          enemy
 subtype	      chase
-health        200
+health        400
 speedf         1.7
 jumpheight    4
 throw         5 2
@@ -25,12 +25,16 @@ alternatepal       data/chars/2bug1/idle01.gif
 
 
 
+
+
+
+
 anim	attack1
 	range	10 78
 	loop	0
 	delay	12
 	offset	100 189
-	bbox	79 97 50 91
+	bbox	79 127 50 65
 	hitfx	data/sounds/beat2.wav
 	sound	data/sounds/tiger2.wav
 	frame	data/chars/2bug1/b01.gif
@@ -48,7 +52,7 @@ anim	attack2
 	loop	0
 	delay	6
 	offset	100 189
-	bbox	79 97 50 91
+	bbox	79 127 50 65
 	move	6
 	hitfx	data/sounds/beat3.wav
 	frame	data/chars/2bug1/a01.gif
@@ -71,25 +75,26 @@ anim	attack3
 	loop	0
 	delay	20
 	offset	100 189
-	bbox	79 97 50 91
+	bbox	79 127 50 65
 	jumpframe	1 5 2 0
 	landframe	6
 	hitfx	data/sounds/beat1.wav
 	frame	data/chars/2bug1/c06.gif
 	delay	12
+	bbox	79 101 60 50
 	frame	data/chars/2bug1/c01.gif
 	frame	data/chars/2bug1/c02.gif
 	frame	data/chars/2bug1/c03.gif
 	frame	data/chars/2bug1/c04.gif
 	delay	100
-	bbox	125 150 43 61
 	attack	85 125 55 60 20 1 1 0 40 0
 	dropv	4 2 0
 	frame	data/chars/2bug1/c05.gif
 	delay	4
 	sound	data/sounds/burnt.wav
 	frame	data/chars/2bug1/c06.gif
-	attack	0 0 0 0
+	attack	0 0 0 0 0 0 0 0 0 0
+	bbox	79 127 50 65
 	delay	14
 	frame	data/chars/2bug1/c06.gif
 	frame	data/chars/2bug1/c07.gif
@@ -102,7 +107,7 @@ anim	attack3
 	frame	data/chars/2bug1/c09.gif
 	frame	data/chars/2bug1/c08.gif
 	frame	data/chars/2bug1/c09.gif
-
+		
 anim	burn
 	loop	0
 	delay	30
@@ -121,8 +126,6 @@ anim	burn
 	attack	0 0 0 0
 	frame	data/chars/2bug1/fall3.gif
 	frame	data/chars/2bug1/fall4.gif
-
-
 		
 anim	fall
 	loop	0
@@ -141,27 +144,6 @@ anim	fall
 	attack	0 0 0 0
 	bbox	56 175 90 15
 	frame	data/chars/2bug1/fall4.gif
-
-
-anim	fall9
-	loop	0
-	delay	10
-	offset	100 189
-	bbox	78 97 50 68
-	attack	81 95 40 70 5 1 0 0 13 30
-	frame	data/chars/2bug1/fall1.gif
-	delay	37
-	bbox	62 131 85 40
-	attack	61 127 91 45 5 1 0 0 13 30
-	frame	data/chars/2bug1/fall3.gif
-	delay	8
-	frame	data/chars/2bug1/fall3.gif
-	attack	0 0 0 0
-	bbox	56 175 90 15
-	frame	data/chars/2bug1/fall4.gif
-
-
-
 		
 anim	fall10
 	loop	0
@@ -183,7 +165,31 @@ anim	fall10
 	bbox	56 175 90 15
 	frame	data/chars/2bug1/fall4.gif
 		
-
+anim	fall11
+	loop	0
+	offset	100 189
+	bbox	0 0 0 0
+	delay	37
+	frame	data/chars/2bug1/fall3.gif
+	delay	8
+	attack	0 0 0 0
+	frame	data/chars/2bug1/fall3.gif
+	frame	data/chars/2bug1/fall4.gif
+		
+anim	fall2
+	loop	0
+	delay	30
+	offset	102 189
+	bbox	69 83 59 91
+	attack	78 104 28 44 5 1 0 0 13
+	frame	data/chars/2bug1/pain3.gif
+	delay	10
+	attack	64 134 40 22 5 1 0 0 13
+	frame	data/chars/2bug1/fall2.gif
+	attack	0 0 0 0
+	frame	data/chars/2bug1/fall3.gif
+	bbox	53 164 94 24
+	frame	data/chars/2bug1/fall4.gif
 		
 anim	fall7
 	delay	1000
@@ -208,7 +214,22 @@ anim	fall7
 	offset	100 130
 	frame	data/chars/2bug1/fall2.gif
 		
-
+anim	fall9
+	loop	0
+	delay	10
+	offset	100 189
+	bbox	78 97 50 68
+	attack	81 95 40 70 5 1 0 0 13 30
+	frame	data/chars/2bug1/fall1.gif
+	delay	37
+	bbox	62 131 85 40
+	attack	61 127 91 45 5 1 0 0 13 30
+	frame	data/chars/2bug1/fall3.gif
+	delay	8
+	frame	data/chars/2bug1/fall3.gif
+	attack	0 0 0 0
+	bbox	56 175 90 15
+	frame	data/chars/2bug1/fall4.gif
 		
 anim	grabbed
 	loop	0
@@ -221,7 +242,7 @@ anim	idle
 	loop	1
 	delay	10
 	offset	100 189
-	bbox	79 97 50 91
+	bbox	79 127 50 65
 	frame	data/chars/2bug1/idle01.gif
 	frame	data/chars/2bug1/idle02.gif
 	frame	data/chars/2bug1/idle03.gif
@@ -413,15 +434,16 @@ anim	spawn
 	loop	0
 	delay	1
 	offset	100 189
-	bbox	79 97 50 91
+	bbox	79 127 50 65
 	frame	data/chars/2bug1/idle01.gif
 		
 anim	walk
 	loop	1
 	delay	10
 	offset	100 189
-	bbox	79 97 50 91
+	bbox	79 127 50 65
 	frame	data/chars/2bug1/wk01.gif
+	bbox	79 113 50 50
 	frame	data/chars/2bug1/wk02.gif
 	frame	data/chars/2bug1/wk03.gif
 	frame	data/chars/2bug1/wk04.gif

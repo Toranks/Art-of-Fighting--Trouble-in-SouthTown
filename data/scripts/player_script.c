@@ -20,8 +20,4 @@ void main()
 	{
         set_shad_trail_flag(player,0);
 	}
-	if ( lv > 15 )
-	{
-   	changeplayerproperty(player, "lives", 15);
-	}
 }

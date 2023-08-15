@@ -1,6 +1,6 @@
 name		syuribike
 type		none
-health		800
+health		170
 mp		100
 speedf		1.6
 running		16 0 0 0 0
@@ -18,27 +18,79 @@ grabforce       0
 candamage	enemy obstacle
 diesound        data/sounds/yurde.wav
 atchain         1 0 0 0 
-icon            data/chars/0yuri/icon.gif
+icon            data/chars/misc/icons/syuri.gif
 parrow          data/chars/misc/flash/flash/player1.gif  -36 -145
 parrow2         data/chars/misc/flash/flash/player2.gif  -36 -145
 parrow3         data/chars/misc/flash/flash/player3.gif  -36 -145
 animationscript data/scripts/grabscript.c
 
 
-palette    	data/chars/0yuri/syuri/map1.gif
+palette    	data/chars/0yuri/syuri/pal.gif
+alternatepal    data/chars/0yuri/syuri/map1.gif
+alternatepal    data/chars/0yuri/syuri/map2.gif
+alternatepal    data/chars/0yuri/syuri/map3.gif
+alternatepal    data/chars/0yuri/syuri/map4.gif
 
 
 
-com	a2	freespecial2
+com	s	freespecial2
+com     a4	freespecial2
 com	a3	freespecial3
 com	j	freespecial4
+com     a2      freespecial15
 
 load	ybikecrash
 load	explosion1
 
 
+script	@script
+void main()
+{
+   void self = getlocalvar("self");
+   void anim = getentityproperty(self,"animationID");
+   void hp = getentityproperty(self,"health");
+   int x = getentityproperty(self, "x");
+   int y = getentityproperty(self, "a");
+   int z = getentityproperty(self, "z");
 
+   float H = checkplatformbelow(x+1,z, 5000);
+   float Hz = checkplatformbelow(x+1,z-5, 5000);
+   float yH = checkplatformbelow(x-60,z, 5000);
+   float yHz = checkplatformbelow(x-60,z-5, 5000);
 
+   if(Hz >= 1)
+   {
+     changeentityproperty(self, "position", x, z+1);
+   }
+
+   if(H >= 1)
+   {
+     changeentityproperty(self, "position", x-1);
+   }
+   if(yHz >= 1)
+   {
+     changeentityproperty(self, "position", x, z+1);
+   }
+
+   if(yH >= 1)
+   {
+     changeentityproperty(self, "position", x+1);
+   }
+
+   if(anim == openborconstant("ANI_RESPAWN"))
+	{
+ 	changeentityproperty(self, "health", 170);
+	}
+}
+	@end_script	
+		
+		
+		
+		
+		
+		
+		
+		
 anim	attack1
 	loop	0
 	delay	4
@@ -54,15 +106,15 @@ anim	attack1
 	frame	data/chars/0yuri/syuri/bike/atk05.gif
 	frame	data/chars/0yuri/syuri/bike/atk06.gif
 	@cmd	keymove 0.7
-	attack	214 80 125 30 50 0 0 0 11 0
+	attack	214 80 125 30 50 0 0 0 11 10
 	frame	data/chars/0yuri/syuri/bike/atk07.gif
 	frame	data/chars/0yuri/syuri/bike/atk08.gif
 	@cmd	keymove 0.7
 	frame	data/chars/0yuri/syuri/bike/atk09.gif
-	attack  0 0 0 0
+	attack	0 0 0 0
 	frame	data/chars/0yuri/syuri/bike/atk10.gif
 	@cmd	keymove 0.7
-	attack	230 65 170 40 85 0 0 0 11 0
+	attack	230 65 170 40 50 0 0 0 11 10
 	frame	data/chars/0yuri/syuri/bike/atk11.gif
 	frame	data/chars/0yuri/syuri/bike/atk12.gif
 	@cmd	keymove 0.7
@@ -84,8 +136,11 @@ anim	attack1
 	@cmd	keymove 0.7
 	frame	data/chars/0yuri/syuri/bike/atk01.gif
 	frame	data/chars/0yuri/syuri/bike/atk02.gif
-
-
+		
+anim	attackdown
+		
+anim	attackup
+		
 anim	backwalk
 	loop	1
 	delay	5
@@ -93,6 +148,12 @@ anim	backwalk
 	bbox	170 70 100 75
 	frame	data/chars/0yuri/syuri/bike/bike03.gif
 	frame	data/chars/0yuri/syuri/bike/bike04.gif
+		
+anim	block
+		
+anim	charge
+		
+anim	chargeattack
 		
 anim	death
 	loop	0
@@ -257,7 +318,6 @@ anim	death
 	frame	data/chars/0yuri/syuri/empty.gif
 	frame	data/chars/0yuri/syuri/fall14.gif
 	frame	data/chars/0yuri/syuri/empty.gif
-
 		
 anim	fall
 	loop	0
@@ -267,6 +327,17 @@ anim	fall
 	frame	data/chars/0yuri/syuri/bike/pain01.gif
 	frame	data/chars/0yuri/syuri/bike/pain02.gif
 	frame	data/chars/0yuri/syuri/bike/pain01.gif
+		
+anim	forwardjump
+		
+anim	freespecial15
+	loop	0
+	delay	6
+	offset	215 149
+	bbox	0 0 0 0
+	frame	data/chars/0yuri/syuri/bike/bike01.gif
+	@cmd	spawnAni3 "freewaytot" 250 1 140 "ANI_FOLLOW5"
+	frame	data/chars/0yuri/syuri/bike/bike02.gif
 		
 anim	freespecial2
 @script
@@ -278,7 +349,7 @@ anim	freespecial2
 	changeentityproperty(self, "invinctime", eTime + 110);
 	changeentityproperty(self, "blink", 1);
 	}
-@end_script
+	@end_script	
 	loop	0
 	delay	2
 	offset	215 149
@@ -286,7 +357,7 @@ anim	freespecial2
 	move	10
 	sound	data/sounds/car1.wav
 	hitfx	data/sounds/beat3.wav
-	attack	230 75 60 72 30 1 1 0 5 0
+	attack	230 75 60 72 10 1 1 0 5 0
 	@cmd	keymove 1.0
 	frame	data/chars/0yuri/syuri/bike/bike01.gif
 	@cmd	spawnbind2 "dust4" -35 0 2 "ANI_FOLLOW5"
@@ -355,7 +426,7 @@ anim	freespecial3
 	changeentityproperty(self, "invinctime", eTime + 110);
 	changeentityproperty(self, "blink", 1);
 	}
-@end_script
+	@end_script	
 	loop	0
 	delay	2
 	offset	215 149
@@ -363,7 +434,7 @@ anim	freespecial3
 	move	-10
 	sound	data/sounds/car2.wav
 	hitfx	data/sounds/beat3.wav
-	attack2	145 75 60 72 30 1 1 0 5 0
+	attack2	145 75 60 72 10 1 1 0 5 0
 	@cmd	keymove 1.0
 	frame	data/chars/0yuri/syuri/bike/bike03.gif
 	@cmd	spawnbind2 "dust4" 55 0 2 "ANI_FOLLOW5"
@@ -421,7 +492,6 @@ anim	freespecial3
 	frame	data/chars/0yuri/syuri/bike/bike04.gif
 	frame	data/chars/0yuri/syuri/bike/bike03.gif
 	frame	data/chars/0yuri/syuri/bike/bike04.gif
-
 		
 anim	freespecial4
 	loop	0
@@ -441,16 +511,16 @@ anim	freespecial4
 	@cmd	keymove 0.7
 	frame	data/chars/0yuri/syuri/bike/atk36.gif
 	frame	data/chars/0yuri/syuri/bike/atk37.gif
-	attack2	80 80 150 35 50 0 0 0 11 0
+	attack2	80 80 150 35 50 0 0 0 11 10
 	@cmd	keymove 0.7
 	frame	data/chars/0yuri/syuri/bike/atk38.gif
 	frame	data/chars/0yuri/syuri/bike/atk39.gif
 	@cmd	keymove 0.7
 	frame	data/chars/0yuri/syuri/bike/atk40.gif
-	attack2 0 0 0 0
+	attack2	0 0 0 0
 	frame	data/chars/0yuri/syuri/bike/atk41.gif
 	@cmd	keymove 0.7
-	attack2	17 70 180 30 85 0 0 0 11 0
+	attack2	17 70 180 30 50 0 0 0 11 10
 	frame	data/chars/0yuri/syuri/bike/atk42.gif
 	frame	data/chars/0yuri/syuri/bike/atk43.gif
 	@cmd	keymove 0.7
@@ -475,7 +545,8 @@ anim	freespecial4
 	@cmd	keymove 0.7
 	frame	data/chars/0yuri/syuri/bike/atk01.gif
 	frame	data/chars/0yuri/syuri/bike/atk02.gif
-
+		
+anim	get
 		
 anim	idle
 	loop	1
@@ -484,7 +555,12 @@ anim	idle
 	bbox	170 70 100 75
 	frame	data/chars/0yuri/syuri/bike/bike01.gif
 	frame	data/chars/0yuri/syuri/bike/bike02.gif
-
+		
+anim	jump
+		
+anim	jumpdelay
+		
+anim	jumpland
 		
 anim	pain
 	loop	0
@@ -535,16 +611,6 @@ anim	pain5
 	frame	data/chars/0yuri/syuri/bike/pain01.gif
 	frame	data/chars/0yuri/syuri/bike/pain02.gif
 		
-anim	spawn
-	loop	0
-	delay	1
-	offset	215 149
-	bbox	0 0 0 0
-	frame	data/chars/0yuri/syuri/bike/bike01.gif
-	frame	data/chars/0yuri/syuri/bike/bike02.gif
-
-
-
 anim	respawn
 	loop	0
 	delay	5
@@ -553,6 +619,24 @@ anim	respawn
 	frame	data/chars/0yuri/syuri/bike/bike01.gif
 	frame	data/chars/0yuri/syuri/bike/bike02.gif
 		
+anim	rise
+		
+anim	run
+		
+anim	runattack
+		
+anim	runjump
+		
+anim	spawn
+	loop	0
+	delay	1
+	offset	215 149
+	bbox	0 0 0 0
+	frame	data/chars/0yuri/syuri/bike/bike01.gif
+	frame	data/chars/0yuri/syuri/bike/bike02.gif
+		
+anim	special
+		
 anim	walk
 	loop	1
 	delay	5
@@ -560,36 +644,6 @@ anim	walk
 	bbox	170 70 100 75
 	frame	data/chars/0yuri/syuri/bike/bike01.gif
 	frame	data/chars/0yuri/syuri/bike/bike02.gif
-
-
-#----------------------------//-----------------
-
-anim	rise
-
-anim	run
-
-anim	runjump
-
-anim	jump
-
-anim	jumpdelay
-
-anim	jumpland
-
-anim	get
-
-anim	forwardjump
-
-anim	block
-
-anim	charge
-
-anim	chargeattack
-
-anim	attackdown
-
-anim	attackup
-
-anim	runattack
-
-anim	special
+		
+#|edited by openBor Stats v 0.53
+		

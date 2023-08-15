@@ -1,7 +1,7 @@
 name          psycho
 type          enemy
 subtype       chase
-health        90
+health        100
 speed         19
 jumpheight    4
 throw         5 2
@@ -62,96 +62,11 @@ if(anim == openborconstant("ANI_WALK") || anim == openborconstant("ANI_RUN"))
 	performattack(self,openborconstant("ANI_JUMP"));
 	}
 }
-@end_script
-
-
-anim	jump
-	range	30 300
-	loop	0
-	delay	20
-	offset	102 189
-	bbox	83 92 43 97
-	frame	data/chars/2maskguy1/rise5.gif
-	delay	17
-	frame	data/chars/2maskguy1/jump01.gif
-	frame	data/chars/2maskguy1/jump01.gif
+	@end_script	
 		
-anim	jumpland
-	loop	0
-	delay	30
-	offset	102 189
-	bbox	83 92 43 97
-	frame	data/chars/2maskguy1/rise5.gif
-
-
-
-
-
-anim	follow20
-	loop	0
-	delay	5
-	offset	102 180
-	bbox	0 0 0 0
-	jumpframe 2 7 0 0.2
-	landframe 11 dust 
-	drawmethod 186 186 0 0 0 0 -1
-	shadowcoords 9999 9999
-	frame	data/chars/2maskguy1/rise4.gif
-	@cmd	layer -30
-	delay	745
-	frame	data/chars/2maskguy1/rise4.gif
-	delay	30
-	frame	data/chars/2maskguy1/rise5.gif
-	delay	8
-	drawmethod 196 196 0 0 0 0 -1
-	frame	data/chars/2maskguy1/jump01.gif
-	drawmethod 206 206 0 0 0 0 -1
-	frame	data/chars/2maskguy1/jump01.gif
-	drawmethod 216 216 0 0 0 0 -1
-	frame	data/chars/2maskguy1/jump01.gif
-	@cmd	layer 0
-	drawmethod 226 226 0 0 0 0 -1
-	frame	data/chars/2maskguy1/jump01.gif
-	drawmethod 236 236 0 0 0 0 -1
-	frame	data/chars/2maskguy1/jump01.gif
-	drawmethod 246 246 0 0 0 0 -1
-	frame	data/chars/2maskguy1/jump01.gif
-	nodrawmethod
-	frame	data/chars/2maskguy1/jump01.gif
-	delay	300
-	frame	data/chars/2maskguy1/jump01.gif 
-	delay	7
-	frame	data/chars/2maskguy1/rise5.gif #11
-	frame	data/chars/2maskguy1/rise5.gif
-	@cmd	subwall 1
-	frame	data/chars/2maskguy1/rise5.gif
-
-
-
-anim 	 follow15
-	 loop       0
-	 delay      470
-	 offset     102 180
- 	 bbox	    0 0 0 0
-	 frame	    data/chars/2maskguy1/rise4.gif
-	 @cmd	    subwall 1
-	 frame	    data/chars/2maskguy1/rise4.gif
-	 delay      12
-	 @cmd	target 50 50 900 600 0
-	 frame	    data/chars/2maskguy1/rise4.gif
-	 @cmd	    leaper 0 5 -3
-         frame      data/chars/2maskguy1/dodge01.gif
-         frame      data/chars/2maskguy1/dodge02.gif
-         frame      data/chars/2maskguy1/dodge03.gif
-         frame      data/chars/2maskguy1/dodge04.gif
-         frame      data/chars/2maskguy1/dodge05.gif
-         frame      data/chars/2maskguy1/dodge06.gif
-         frame      data/chars/2maskguy1/dodge07.gif
-         frame      data/chars/2maskguy1/dodge08.gif
-	 delay	    14
-	 frame	    data/chars/2maskguy1/rise4.gif
-	 frame	    data/chars/2maskguy1/rise5.gif
-
+		
+		
+		
 anim	attack1
 	range	5 65
 	loop	0
@@ -270,48 +185,6 @@ anim	fall
 	frame	data/chars/2maskguy1/fall5.gif
 	delay	250
 	frame	data/chars/2maskguy1/fall4.gif
-
-anim	fall9
-	loop	0
-	delay	10
-	offset	102 189
-	bbox	83 97 50 68
-	quakeframe	2 5 5
-	landframe	2 dust
-	attack	88 95 40 70 5 1 0 0 13 30
-	frame	data/chars/2maskguy1/fall1.gif
-	delay	350
-	bbox	64 111 86 50
-	attack	63 114 91 45 5 1 0 0 13 30
-	frame	data/chars/2maskguy1/fall2.gif
-	delay	2
-	move	-4
-	bbox	78 113 55 71
-	attack	74 113 62 66 5 1 0 0 13 30
-	frame	data/chars/2maskguy1/fall3.gif
-	frame	data/chars/2maskguy1/fall3.gif
-	frame	data/chars/2maskguy1/fall3.gif
-	@cmd	looper 3 5
-	move	-3
-	attack	0 0 0 0
-	bbox	0 0 0 0
-	frame	data/chars/2maskguy1/fall4.gif
-	frame	data/chars/2maskguy1/fall4.gif
-	frame	data/chars/2maskguy1/fall4.gif
-	@cmd	looper 6 4
-	move	-2
-	frame	data/chars/2maskguy1/fall5.gif
-	frame	data/chars/2maskguy1/fall5.gif
-	frame	data/chars/2maskguy1/fall5.gif
-	loop	0
-	delay	250
-	move	0
-	bbox	60 175 85 15
-	frame	data/chars/2maskguy1/fall4.gif
-
-
-
-
 		
 anim	fall10
 	loop	0
@@ -343,12 +216,31 @@ anim	fall11
 	loop	0
 	delay	20
 	offset	102 189
-	bbox	61 185 90 5	
+	bbox	61 185 90 5
 	frame	data/chars/2maskguy1/pain12.gif
 	delay	35
 	frame	data/chars/2maskguy1/fall4.gif
 		
-
+anim	fall2
+	loop	0
+	delay	30
+	offset	102 189
+	bbox	87 83 55 91
+	landframe	3
+	attack	85 90 35 45 5 1 0 0 13 30
+	frame	data/chars/2maskguy1/pain7.gif
+	delay	10
+	bbox	64 111 86 50
+	attack	64 125 55 25 5 1 0 0 13 30
+	frame	data/chars/2maskguy1/fall2.gif
+	attack	0 0 0 0
+	delay	300
+	frame	data/chars/2maskguy1/fall3.gif
+	delay	15
+	bbox	58 175 85 15
+	frame	data/chars/2maskguy1/fall4.gif
+	frame	data/chars/2maskguy1/fall5.gif
+	frame	data/chars/2maskguy1/fall4.gif
 		
 anim	fall4
 	loop	0
@@ -401,7 +293,43 @@ anim	fall7
 	offset	115 125
 	frame	data/chars/2maskguy1/slamck15.gif
 		
-
+anim	fall9
+	loop	0
+	delay	10
+	offset	102 189
+	bbox	83 97 50 68
+	quakeframe	2 5 5
+	landframe	2 dust
+	attack	88 95 40 70 5 1 0 0 13 30
+	frame	data/chars/2maskguy1/fall1.gif
+	delay	350
+	bbox	64 111 86 50
+	attack	63 114 91 45 5 1 0 0 13 30
+	frame	data/chars/2maskguy1/fall2.gif
+	delay	2
+	move	-4
+	bbox	78 113 55 71
+	attack	74 113 62 66 5 1 0 0 13 30
+	frame	data/chars/2maskguy1/fall3.gif
+	frame	data/chars/2maskguy1/fall3.gif
+	frame	data/chars/2maskguy1/fall3.gif
+	@cmd	looper 3 5
+	move	-3
+	attack	0 0 0 0
+	bbox	0 0 0 0
+	frame	data/chars/2maskguy1/fall4.gif
+	frame	data/chars/2maskguy1/fall4.gif
+	frame	data/chars/2maskguy1/fall4.gif
+	@cmd	looper 6 4
+	move	-2
+	frame	data/chars/2maskguy1/fall5.gif
+	frame	data/chars/2maskguy1/fall5.gif
+	frame	data/chars/2maskguy1/fall5.gif
+	loop	0
+	delay	250
+	move	0
+	bbox	60 175 85 15
+	frame	data/chars/2maskguy1/fall4.gif
 		
 anim	follow10
 	loop	0
@@ -434,6 +362,69 @@ anim	follow10
 	delay	30
 	frame	data/chars/2maskguy1/rise5.gif
 		
+anim	follow15
+	loop	0
+	delay	470
+	offset	102 180
+	bbox	0 0 0 0
+	frame	data/chars/2maskguy1/rise4.gif
+	@cmd	subwall 1
+	frame	data/chars/2maskguy1/rise4.gif
+	delay	12
+	@cmd	target 50 50 900 600 0
+	frame	data/chars/2maskguy1/rise4.gif
+	@cmd	leaper 0 5 -3
+	frame	data/chars/2maskguy1/dodge01.gif
+	frame	data/chars/2maskguy1/dodge02.gif
+	frame	data/chars/2maskguy1/dodge03.gif
+	frame	data/chars/2maskguy1/dodge04.gif
+	frame	data/chars/2maskguy1/dodge05.gif
+	frame	data/chars/2maskguy1/dodge06.gif
+	frame	data/chars/2maskguy1/dodge07.gif
+	frame	data/chars/2maskguy1/dodge08.gif
+	delay	14
+	frame	data/chars/2maskguy1/rise4.gif
+	frame	data/chars/2maskguy1/rise5.gif
+		
+anim	follow20
+	loop	0
+	delay	5
+	offset	102 180
+	bbox	0 0 0 0
+	jumpframe	2 7 0 0.2
+	landframe	11 dust
+	drawmethod	186 186 0 0 0 0 -1
+	shadowcoords	9999 9999
+	frame	data/chars/2maskguy1/rise4.gif
+	@cmd	layer -30
+	delay	745
+	frame	data/chars/2maskguy1/rise4.gif
+	delay	30
+	frame	data/chars/2maskguy1/rise5.gif
+	delay	8
+	drawmethod	196 196 0 0 0 0 -1
+	frame	data/chars/2maskguy1/jump01.gif
+	drawmethod	206 206 0 0 0 0 -1
+	frame	data/chars/2maskguy1/jump01.gif
+	drawmethod	216 216 0 0 0 0 -1
+	frame	data/chars/2maskguy1/jump01.gif
+	@cmd	layer 0
+	drawmethod	226 226 0 0 0 0 -1
+	frame	data/chars/2maskguy1/jump01.gif
+	drawmethod	236 236 0 0 0 0 -1
+	frame	data/chars/2maskguy1/jump01.gif
+	drawmethod	246 246 0 0 0 0 -1
+	frame	data/chars/2maskguy1/jump01.gif
+	nodrawmethod	
+	frame	data/chars/2maskguy1/jump01.gif
+	delay	300
+	frame	data/chars/2maskguy1/jump01.gif
+	delay	7
+	frame	data/chars/2maskguy1/rise5.gif #11
+	frame	data/chars/2maskguy1/rise5.gif
+	@cmd	subwall 1
+	frame	data/chars/2maskguy1/rise5.gif
+		
 anim	grabbed
 	loop	0
 	delay	10
@@ -450,6 +441,24 @@ anim	idle
 	frame	data/chars/2maskguy1/idle02.gif
 	frame	data/chars/2maskguy1/idle03.gif
 		
+anim	jump
+	range	30 300
+	loop	0
+	delay	20
+	offset	102 189
+	bbox	83 92 43 97
+	frame	data/chars/2maskguy1/rise5.gif
+	delay	17
+	frame	data/chars/2maskguy1/jump01.gif
+	frame	data/chars/2maskguy1/jump01.gif
+		
+anim	jumpland
+	loop	0
+	delay	30
+	offset	102 189
+	bbox	83 92 43 97
+	frame	data/chars/2maskguy1/rise5.gif
+		
 anim	pain
 	loop	0
 	delay	3
@@ -463,7 +472,6 @@ anim	pain
 	delay	40
 	offset	102 189
 	frame	data/chars/2maskguy1/pain1.gif
-
 		
 anim	pain2
 	loop	0

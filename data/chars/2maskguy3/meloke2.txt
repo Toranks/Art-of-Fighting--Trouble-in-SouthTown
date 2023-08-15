@@ -60,9 +60,10 @@ if(anim != openborconstant("ANI_DIE")){
    	}
   }
 }
-@end_script
-
-
+	@end_script	
+		
+		
+		
 anim	attack1
 	range	60 85
 	loop	0
@@ -244,48 +245,6 @@ anim	fall
 	frame	data/chars/2maskguy3/fall4.gif
 	frame	data/chars/2maskguy3/fall5.gif
 	frame	data/chars/2maskguy3/fall4.gif
-
-
-
-anim	fall9
-	loop	0
-	delay	10
-	offset	100 192
-	bbox	83 97 50 68
-	quakeframe	2 5 5
-	landframe	2 dust
-	attack	81 95 40 70 5 1 0 0 13 30
-	frame	data/chars/2maskguy3/fall1.gif
-	delay	350
-	bbox	57 118 86 50
-	attack	55 121 91 45 5 1 0 0 13 30
-	frame	data/chars/2maskguy3/fall2.gif
-	delay	2
-	move	-4
-	bbox	67 149 85 40
-	attack	65 147 91 45 5 1 0 0 13 30
-	frame	data/chars/2maskguy3/fall3.gif
-	frame	data/chars/2maskguy3/fall3.gif
-	frame	data/chars/2maskguy3/fall3.gif
-	@cmd	looper 3 5
-	move	-3
-	attack	0 0 0 0
-	bbox	0 0 0 0
-	frame	data/chars/2maskguy3/fall4.gif
-	frame	data/chars/2maskguy3/fall4.gif
-	frame	data/chars/2maskguy3/fall4.gif
-	@cmd	looper 6 4
-	move	-2
-	frame	data/chars/2maskguy3/fall5.gif
-	frame	data/chars/2maskguy3/fall5.gif
-	frame	data/chars/2maskguy3/fall5.gif
-	loop	0
-	delay	15
-	move	0
-	bbox	60 180 89 15
-	frame	data/chars/2maskguy3/fall4.gif
-
-
 		
 anim	fall10
 	loop	0
@@ -316,11 +275,31 @@ anim	fall11
 	loop	0
 	delay	20
 	offset	100 192
-	bbox	61 185 90 5	
+	bbox	61 185 90 5
 	frame	data/chars/2maskguy3/pain12.gif
 	delay	35
 	frame	data/chars/2maskguy3/fall4.gif
 		
+anim	fall2
+	loop	0
+	delay	30
+	offset	100 192
+	bbox	80 77 55 91
+	landframe	3
+	attack	85 90 35 45 5 1 0 0 13 30
+	frame	data/chars/2maskguy3/pain7.gif
+	delay	10
+	bbox	83 97 50 68
+	attack	64 125 55 25 5 1 0 0 13 30
+	frame	data/chars/2maskguy3/fall1.gif
+	attack	0 0 0 0
+	delay	300
+	frame	data/chars/2maskguy3/fall3.gif
+	delay	15
+	bbox	58 175 85 15
+	frame	data/chars/2maskguy3/fall4.gif
+	frame	data/chars/2maskguy3/fall5.gif
+	frame	data/chars/2maskguy3/fall4.gif
 		
 anim	fall4
 	loop	0
@@ -373,7 +352,77 @@ anim	fall7
 	offset	115 125
 	frame	data/chars/2maskguy3/slamck15.gif
 		
-
+anim	fall9
+	loop	0
+	delay	10
+	offset	100 192
+	bbox	83 97 50 68
+	quakeframe	2 5 5
+	landframe	2 dust
+	attack	81 95 40 70 5 1 0 0 13 30
+	frame	data/chars/2maskguy3/fall1.gif
+	delay	350
+	bbox	57 118 86 50
+	attack	55 121 91 45 5 1 0 0 13 30
+	frame	data/chars/2maskguy3/fall2.gif
+	delay	2
+	move	-4
+	bbox	67 149 85 40
+	attack	65 147 91 45 5 1 0 0 13 30
+	frame	data/chars/2maskguy3/fall3.gif
+	frame	data/chars/2maskguy3/fall3.gif
+	frame	data/chars/2maskguy3/fall3.gif
+	@cmd	looper 3 5
+	move	-3
+	attack	0 0 0 0
+	bbox	0 0 0 0
+	frame	data/chars/2maskguy3/fall4.gif
+	frame	data/chars/2maskguy3/fall4.gif
+	frame	data/chars/2maskguy3/fall4.gif
+	@cmd	looper 6 4
+	move	-2
+	frame	data/chars/2maskguy3/fall5.gif
+	frame	data/chars/2maskguy3/fall5.gif
+	frame	data/chars/2maskguy3/fall5.gif
+	loop	0
+	delay	15
+	move	0
+	bbox	60 180 89 15
+	frame	data/chars/2maskguy3/fall4.gif
+		
+anim	follow12
+@script
+	void self = getlocalvar("self");
+	int eTime = openborvariant("elapsed_time");
+	if (frame == 0)
+	{
+	changeentityproperty(self, "invincible", 1);
+	changeentityproperty(self, "invinctime", eTime + 150);
+	changeentityproperty(self, "blink", 1);
+	}
+	@end_script	
+	loop	0
+	delay	10
+	offset	106 192
+	bbox	0 0 0 0
+	hitfx	data/sounds/beat4.wav
+	hitflash	flashscreen1
+	frame	data/chars/2maskguy3/pain0.gif
+	frame	data/chars/2maskguy3/pain2.gif
+	frame	data/chars/2maskguy3/rise9.gif
+	frame	data/chars/2maskguy3/rise10.gif
+	frame	data/chars/2maskguy3/a101.gif
+	@cmd	target 1 1 1 1 0
+	@cmd	dash
+	frame	data/chars/2maskguy3/a102.gif
+	frame	data/chars/2maskguy3/a103.gif
+	frame	data/chars/2maskguy3/a104.gif
+	attack	105 110 80 70 15 1 0 0 45 0
+	dropv	3 3 0
+	frame	data/chars/2maskguy3/a105.gif
+	frame	data/chars/2maskguy3/a105.gif
+	@cmd	stop
+	frame	data/chars/2maskguy3/a104.gif
 		
 anim	follow2
 	range	15 83
@@ -397,6 +446,42 @@ anim	follow2
 	attack	0 0 0 0
 	frame	data/chars/2maskguy3/a105.gif
 	frame	data/chars/2maskguy3/a201.gif
+		
+anim	follow20
+	loop	0
+	delay	99
+	offset	106 192
+	bbox	0 0 0 0
+	hitfx	data/sounds/beat5.wav
+	jumpframe	0 3 3
+	landframe	1
+	attack	75 93 100 115 7 1 1 0 50 30
+	frame	data/chars/2maskguy3/spawn2.gif
+	attack	0 0 0 0
+	delay	14
+	frame	data/chars/2maskguy3/rise8.gif
+	frame	data/chars/2maskguy3/rise9.gif
+	frame	data/chars/2maskguy3/rise10.gif
+	delay	40
+	frame	data/chars/2maskguy3/spawn1.gif
+	delay	14
+	frame	data/chars/2maskguy3/idle02.gif
+	frame	data/chars/2maskguy3/idle03.gif
+	sound	data/sounds/bguyhehe.wav
+	frame	data/chars/2maskguy3/idle02.gif
+	frame	data/chars/2maskguy3/idle03.gif
+	frame	data/chars/2maskguy3/idle02.gif
+	frame	data/chars/2maskguy3/idle03.gif
+	frame	data/chars/2maskguy3/idle02.gif
+	frame	data/chars/2maskguy3/idle03.gif
+	frame	data/chars/2maskguy3/idle02.gif
+	frame	data/chars/2maskguy3/idle03.gif
+	frame	data/chars/2maskguy3/idle02.gif
+	frame	data/chars/2maskguy3/idle03.gif
+	frame	data/chars/2maskguy3/idle02.gif
+	@cmd	spawnAni2 "bigflame" -30 0 210 "ANI_FOLLOW1"
+	@cmd	spawnAni2 "bigflame" 370 0 210 "ANI_FOLLOW1"
+	frame	data/chars/2maskguy3/idle03.gif
 		
 anim	grab
 	delay	20
@@ -495,7 +580,6 @@ anim	pain
 	frame	data/chars/2maskguy3/rise9.gif
 	frame	data/chars/2maskguy3/rise10.gif
 	frame	data/chars/2maskguy3/idle02.gif
-
 		
 anim	pain2
 	loop	0
@@ -596,8 +680,8 @@ anim	rise
 	delay	14
 	offset	106 192
 	bbox	0 0 0 0
-	counterrange 4 24 1 1
-     	followanim 12
+	counterrange	4 24 1 1
+	followanim	12
 	frame	data/chars/2maskguy3/rise1.gif
 	delay	28
 	frame	data/chars/2maskguy3/fall4.gif
@@ -633,40 +717,6 @@ anim	rise
 	frame	data/chars/2maskguy3/rise8.gif
 	frame	data/chars/2maskguy3/rise9.gif
 	frame	data/chars/2maskguy3/rise10.gif
-
-anim	follow12
-@script
-	void self = getlocalvar("self");
-	int eTime = openborvariant("elapsed_time");
-	if (frame == 0)
-	{
-	changeentityproperty(self, "invincible", 1);
-	changeentityproperty(self, "invinctime", eTime + 150);
-	changeentityproperty(self, "blink", 1);
-	}
-@end_script
-	loop	0
-	delay	10
-	offset	106 192
-	bbox	0 0 0 0
-	hitfx	data/sounds/beat4.wav
-	hitflash	flashscreen1
-	frame	data/chars/2maskguy3/pain0.gif
-	frame	data/chars/2maskguy3/pain2.gif
-	frame	data/chars/2maskguy3/rise9.gif
-	frame	data/chars/2maskguy3/rise10.gif
-	frame	data/chars/2maskguy3/a101.gif
-	@cmd	target 1 1 1 1 0
-	@cmd	dash
-	frame	data/chars/2maskguy3/a102.gif
-	frame	data/chars/2maskguy3/a103.gif
-	frame	data/chars/2maskguy3/a104.gif
-	attack	105 110 80 70 15 1 0 0 45 0
-	dropv	3 3 0
-	frame	data/chars/2maskguy3/a105.gif
-	frame	data/chars/2maskguy3/a105.gif
-	@cmd	stop
-	frame	data/chars/2maskguy3/a104.gif
 		
 anim	spawn
 	loop	0
@@ -705,49 +755,6 @@ anim	spawn
 	@cmd	spawnAni2 "bigflame" -30 0 210 "ANI_FOLLOW1"
 	@cmd	spawnAni2 "bigflame" 370 0 210 "ANI_FOLLOW1"
 	frame	data/chars/2maskguy3/idle03.gif
-
-
-anim	follow20
-	loop	0
-	delay	99
-	offset	106 192
-	bbox	0 0 0 0
-	hitfx	data/sounds/beat5.wav
-	jumpframe	0 3 3
-	landframe	1
-	attack	75 93 100 115 7 1 1 0 50 30
-	frame	data/chars/2maskguy3/spawn2.gif
-	attack	0 0 0 0
-	delay	14
-	frame	data/chars/2maskguy3/rise8.gif
-	frame	data/chars/2maskguy3/rise9.gif
-	frame	data/chars/2maskguy3/rise10.gif
-	delay	40
-	frame	data/chars/2maskguy3/spawn1.gif
-	delay	14
-	frame	data/chars/2maskguy3/idle02.gif
-	frame	data/chars/2maskguy3/idle03.gif
-	sound	data/sounds/bguyhehe.wav
-	frame	data/chars/2maskguy3/idle02.gif
-	frame	data/chars/2maskguy3/idle03.gif
-	frame	data/chars/2maskguy3/idle02.gif
-	frame	data/chars/2maskguy3/idle03.gif
-	frame	data/chars/2maskguy3/idle02.gif
-	frame	data/chars/2maskguy3/idle03.gif
-	frame	data/chars/2maskguy3/idle02.gif
-	frame	data/chars/2maskguy3/idle03.gif
-	frame	data/chars/2maskguy3/idle02.gif
-	frame	data/chars/2maskguy3/idle03.gif
-	frame	data/chars/2maskguy3/idle02.gif
-	@cmd	spawnAni2 "bigflame" -30 0 210 "ANI_FOLLOW1"
-	@cmd	spawnAni2 "bigflame" 370 0 210 "ANI_FOLLOW1"
-	frame	data/chars/2maskguy3/idle03.gif
-
-
-
-
-
-
 		
 anim	special
 @script
@@ -759,7 +766,7 @@ anim	special
 	changeentityproperty(self, "invinctime", eTime + 180);
 	changeentityproperty(self, "blink", 1);
 	}
-@end_script
+	@end_script	
 	loop	0
 	delay	10
 	offset	106 192
@@ -796,7 +803,7 @@ anim	special2
 	changeentityproperty(self, "invinctime", eTime + 180);
 	changeentityproperty(self, "blink", 1);
 	}
-@end_script
+	@end_script	
 	energycost	10
 	mponly	1
 	loop	0

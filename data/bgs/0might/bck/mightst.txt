@@ -15,9 +15,9 @@ palette	none
 load	mightback
 load	mghplr
 
-load	apple2
-load	money1
 load	food4
+load	money1
+load	ruby
 load	moneybag
 load	1up
 load	lulcardx
@@ -70,29 +70,11 @@ void main()
 	updateframe(self, 6);
    	}
 }
-@end_script
-
-#------------//----WOOD-BOARD---//---------------------------
-
-anim	idle
-	loop	1
-	delay	14
-	offset	65 110
-	bbox	0 0 0 0
-	followanim	1
-	followcond	1
-	attackone	1
-	noreflect	1
-	hitfx	data/sounds/empty.wav
-	frame	data/bgs/0might/bck/board00.gif
-	#@cmd	attack1 -30 30 7 "ANI_FOLLOW1"
-	attack	45 50 40 60 0 0 1 1 0 0
-	frame	data/bgs/0might/bck/board01.gif
-	frame	data/bgs/0might/bck/board00.gif
-	attack	45 50 40 60 0 0 1 1 0 0
-	#@cmd	attack1 -30 30 7 "ANI_FOLLOW1"
-	frame	data/bgs/0might/bck/board01.gif
-
+	@end_script	
+		
+		
+		
+		
 anim	follow1
 @script
 	void self = getlocalvar("self");
@@ -156,7 +138,7 @@ anim	follow1
 	if (frame == 1){
 	setglobalvar ("healthmin", 68);
 	}
-@end_script
+	@end_script	
 	loop	1 2 6
 	delay	14
 	offset	65 110
@@ -172,8 +154,113 @@ anim	follow1
 	frame	data/bgs/0might/bck/board01.gif
 	frame	data/bgs/0might/bck/board01.gif
 	frame	data/bgs/0might/bck/board01.gif
+		
+anim	follow10
+@script
+	void self = getlocalvar("self");
+	int p1 = getplayerproperty(0, "entity");
+	int p2 = getplayerproperty(1, "entity");
+	int p3 = getplayerproperty(2, "entity");
 
+	int r = rand()%10+5;
+		if (r >= 5)
+		{
+		changeentityproperty(self, "name", "1up");
+		}
+		else if (r < 5)
+		{
+		changeentityproperty(self, "name", "lulcardx");
+		}
 
+	if (frame == 0 && p1 != NULL()){
+	changeentityproperty(p1,"noaicontrol",0);
+	}
+	if (frame == 0 && p2 != NULL()){
+	changeentityproperty(p2,"noaicontrol",0);
+	}
+	if (frame == 0 && p3 != NULL()){
+	changeentityproperty(p3,"noaicontrol",0);
+	}
+	if (frame == 1){
+	setglobalvar ("brkgo", 0);
+	}
+	if (frame == 2){
+	changelevelproperty("scrollspeed", 2);
+	changeopenborvariant("nojoin", 0);
+	}
+	if (frame == 3)
+	{
+	setglobalvar ("maphold3", 1);
+	}
+	@end_script	
+	loop	1 5 8
+	delay	3
+	offset	90 80
+	bbox	0 0 0 0
+	frame	data/bgs/0might/bck/rock02.gif
+	@cmd	spawnAniname3 5 40 15 "ANI_SPAWN"
+	frame	data/bgs/0might/bck/rock02.gif
+	frame	data/bgs/0might/bck/rock02.gif #2
+	frame	data/bgs/0might/bck/rock02.gif
+	frame	data/bgs/0might/bck/rock02.gif #4
+	frame	data/bgs/0might/bck/rock02.gif
+	frame	data/bgs/0might/bck/rock02.gif
+	frame	data/bgs/0might/bck/rock02.gif
+	frame	data/bgs/0might/bck/rock02.gif
+		
+anim	follow11
+@script
+	void self = getlocalvar("self");
+	int p1 = getplayerproperty(0, "entity");
+	int p2 = getplayerproperty(1, "entity");
+	int p3 = getplayerproperty(2, "entity");
+
+	if (frame == 0 && p1 != NULL()){
+	changeentityproperty(p1,"noaicontrol",0);
+	}
+	if (frame == 0 && p2 != NULL()){
+	changeentityproperty(p2,"noaicontrol",0);
+	}
+	if (frame == 0 && p3 != NULL()){
+	changeentityproperty(p3,"noaicontrol",0);
+	}
+	if (frame == 1){
+	setglobalvar ("brkgo", 0);
+	}
+	if (frame == 2){
+	changelevelproperty("scrollspeed", 2);
+	changeopenborvariant("nojoin", 0);
+	}
+	if (frame == 3)
+	{
+	setglobalvar ("maphold3", 2);
+	}
+	@end_script	
+	loop	1 5 8
+	delay	3
+	offset	90 80
+	bbox	0 0 0 0
+	frame	data/bgs/0might/bck/rock03.gif
+	frame	data/bgs/0might/bck/rock03.gif
+	frame	data/bgs/0might/bck/rock03.gif #2
+	frame	data/bgs/0might/bck/rock03.gif
+	frame	data/bgs/0might/bck/rock03.gif #4
+	frame	data/bgs/0might/bck/rock03.gif
+	frame	data/bgs/0might/bck/rock03.gif
+	frame	data/bgs/0might/bck/rock03.gif
+	frame	data/bgs/0might/bck/rock03.gif
+		
+anim	follow15
+	loop	1
+	delay	500
+	offset	90 80
+	bbox	0 0 0 0
+	frame	data/bgs/0might/bck/empty.gif
+	frame	data/bgs/0might/bck/empty.gif
+	frame	data/bgs/0might/bck/empty.gif
+	frame	data/bgs/0might/bck/empty.gif
+	frame	data/bgs/0might/bck/empty.gif
+		
 anim	follow2
 @script
 	void self = getlocalvar("self");
@@ -184,7 +271,7 @@ anim	follow2
 	int r = rand()%10+5;
 		if (r >= 5)
 		{
-		changeentityproperty(self, "name", "apple2");
+		changeentityproperty(self, "name", "food4");
 		}
 		else if (r < 5)
 		{
@@ -204,14 +291,14 @@ anim	follow2
 	setglobalvar ("brkgo", 0);
 	}
 	if (frame == 2){
-	changelevelproperty("scrollspeed", 1);
+	changelevelproperty("scrollspeed", 2);
 	changeopenborvariant("nojoin", 0);
 	}
 	if (frame == 3)
 	{
 	setglobalvar ("maphold1", 1);
 	}
-@end_script
+	@end_script	
 	loop	1 5 8
 	delay	3
 	offset	65 60
@@ -226,8 +313,7 @@ anim	follow2
 	frame	data/bgs/0might/bck/board02.gif
 	frame	data/bgs/0might/bck/board02.gif
 	frame	data/bgs/0might/bck/board02.gif
-
-
+		
 anim	follow3
 @script
 	void self = getlocalvar("self");
@@ -248,14 +334,14 @@ anim	follow3
 	setglobalvar ("brkgo", 0);
 	}
 	if (frame == 2){
-	changelevelproperty("scrollspeed", 1);
+	changelevelproperty("scrollspeed", 2);
 	changeopenborvariant("nojoin", 0);
 	}
 	if (frame == 3)
 	{
 	setglobalvar ("maphold1", 2);
 	}
-@end_script
+	@end_script	
 	loop	1 5 8
 	delay	3
 	offset	65 60
@@ -269,12 +355,7 @@ anim	follow3
 	frame	data/bgs/0might/bck/board03.gif
 	frame	data/bgs/0might/bck/board03.gif
 	frame	data/bgs/0might/bck/board03.gif
-
-#------------//----WOOD-BOARD-END--//------------------
-
-#------------//----BIG-LOG----//---------------------------
-
-
+		
 anim	follow4
 @script
 	void self = getlocalvar("self");
@@ -284,7 +365,7 @@ anim	follow4
 	{
 	performattack(self, openborconstant("ANI_FOLLOW15"));
 	}
-@end_script
+	@end_script	
 	loop	1
 	delay	11
 	offset	90 115
@@ -293,16 +374,13 @@ anim	follow4
 	followcond	1
 	attackone	1
 	noreflect	1
-	hitfx	data/sounds/empty.wav
 	frame	data/bgs/0might/bck/log00.gif
-	#@cmd	attack1 -30 30 7 "ANI_FOLLOW5"
 	attack	70 50 40 60 0 0 1 1 0 0
 	frame	data/bgs/0might/bck/log01.gif
 	frame	data/bgs/0might/bck/log00.gif
 	attack	70 50 40 60 0 0 1 1 0 0
-	#@cmd	attack1 -30 30 7 "ANI_FOLLOW5"
 	frame	data/bgs/0might/bck/log01.gif
-
+		
 anim	follow5
 @script
 	void self = getlocalvar("self");
@@ -364,7 +442,7 @@ anim	follow5
 	if (frame == 1){
 	setglobalvar ("healthmin", 98);
 	}
-@end_script
+	@end_script	
 	loop	1 2 6
 	delay	14
 	offset	90 115
@@ -380,8 +458,7 @@ anim	follow5
 	frame	data/bgs/0might/bck/log01.gif
 	frame	data/bgs/0might/bck/log01.gif
 	frame	data/bgs/0might/bck/log01.gif
-
-
+		
 anim	follow6
 @script
 	void self = getlocalvar("self");
@@ -396,7 +473,7 @@ anim	follow6
 		}
 		else if (r < 5)
 		{
-		changeentityproperty(self, "name", "food4");
+		changeentityproperty(self, "name", "ruby");
 		}
 
 	if (frame == 0 && p1 != NULL()){
@@ -412,14 +489,14 @@ anim	follow6
 	setglobalvar ("brkgo", 0);
 	}
 	if (frame == 2){
-	changelevelproperty("scrollspeed", 1);
+	changelevelproperty("scrollspeed", 2);
 	changeopenborvariant("nojoin", 0);
 	}
 	if (frame == 3)
 	{
 	setglobalvar ("maphold2", 1);
 	}
-@end_script
+	@end_script	
 	loop	1 5 8
 	delay	3
 	offset	90 65
@@ -434,8 +511,7 @@ anim	follow6
 	frame	data/bgs/0might/bck/log02.gif
 	frame	data/bgs/0might/bck/log02.gif
 	frame	data/bgs/0might/bck/log02.gif
-
-
+		
 anim	follow7
 @script
 	void self = getlocalvar("self");
@@ -456,14 +532,14 @@ anim	follow7
 	setglobalvar ("brkgo", 0);
 	}
 	if (frame == 2){
-	changelevelproperty("scrollspeed", 1);
+	changelevelproperty("scrollspeed", 2);
 	changeopenborvariant("nojoin", 0);
 	}
 	if (frame == 3)
 	{
 	setglobalvar ("maphold2", 2);
 	}
-@end_script
+	@end_script	
 	loop	1 5 8
 	delay	3
 	offset	90 65
@@ -477,14 +553,7 @@ anim	follow7
 	frame	data/bgs/0might/bck/log03.gif
 	frame	data/bgs/0might/bck/log03.gif
 	frame	data/bgs/0might/bck/log03.gif
-
-
-#------------//---BIG-LOG-END--//------------------
-
-
-#------------//----BIG-ROCK----//---------------------------
-
-
+		
 anim	follow8
 @script
 	void self = getlocalvar("self");
@@ -494,7 +563,7 @@ anim	follow8
 	{
 	performattack(self, openborconstant("ANI_FOLLOW15"));
 	}
-@end_script
+	@end_script	
 	loop	1
 	delay	9
 	offset	90 130
@@ -503,16 +572,13 @@ anim	follow8
 	followcond	1
 	attackone	1
 	noreflect	1
-	hitfx	data/sounds/empty.wav
 	frame	data/bgs/0might/bck/rock00.gif
-	#@cmd	attack1 -30 30 7 "ANI_FOLLOW9"
 	attack	70 65 40 65 0 0 1 1 0 0
 	frame	data/bgs/0might/bck/rock01.gif
 	frame	data/bgs/0might/bck/rock00.gif
-	#@cmd	attack1 -30 30 7 "ANI_FOLLOW9"
 	attack	70 65 40 65 0 0 1 1 0 0
 	frame	data/bgs/0might/bck/rock01.gif
-
+		
 anim	follow9
 @script
 	void self = getlocalvar("self");
@@ -574,14 +640,13 @@ anim	follow9
 	if (frame == 1){
 	setglobalvar ("healthmin", 138);
 	}
-@end_script
+	@end_script	
 	loop	1 2 6
 	delay	14
 	offset	90 130
 	bbox	0 0 0 0
 	frame	data/bgs/0might/bck/rock01.gif
 	@cmd	spawn02 "mightback" 220 20 190
-	#@cmd	spawn02 "mghplr" 400 20 180
 	@cmd	spawnAniname "mghplr" 200 20 65
 	@cmd	spawnAni2 "mightback" -50 40 280 "ANI_FOLLOW14"
 	@cmd	spawnAni2 "mightback" 415 270 405 "ANI_FOLLOW20"
@@ -591,117 +656,23 @@ anim	follow9
 	frame	data/bgs/0might/bck/rock01.gif
 	frame	data/bgs/0might/bck/rock01.gif
 	frame	data/bgs/0might/bck/rock01.gif
-
-
-anim	follow10
-@script
-	void self = getlocalvar("self");
-	int p1 = getplayerproperty(0, "entity");
-	int p2 = getplayerproperty(1, "entity");
-	int p3 = getplayerproperty(2, "entity");
-
-	int r = rand()%10+5;
-		if (r >= 5)
-		{
-		changeentityproperty(self, "name", "1up");
-		}
-		else if (r < 5)
-		{
-		changeentityproperty(self, "name", "lulcardx");
-		}
-
-	if (frame == 0 && p1 != NULL()){
-	changeentityproperty(p1,"noaicontrol",0);
-	}
-	if (frame == 0 && p2 != NULL()){
-	changeentityproperty(p2,"noaicontrol",0);
-	}
-	if (frame == 0 && p3 != NULL()){
-	changeentityproperty(p3,"noaicontrol",0);
-	}
-	if (frame == 1){
-	setglobalvar ("brkgo", 0);
-	}
-	if (frame == 2){
-	changelevelproperty("scrollspeed", 1);
-	changeopenborvariant("nojoin", 0);
-	}
-	if (frame == 3)
-	{
-	setglobalvar ("maphold3", 1);
-	}
-@end_script
-	loop	1 5 8
-	delay	3
-	offset	90 80
-	bbox	0 0 0 0
-	frame	data/bgs/0might/bck/rock02.gif
-	@cmd	spawnAniname3 5 40 15 "ANI_SPAWN"
-	frame	data/bgs/0might/bck/rock02.gif
-	frame	data/bgs/0might/bck/rock02.gif #2
-	frame	data/bgs/0might/bck/rock02.gif
-	frame	data/bgs/0might/bck/rock02.gif #4
-	frame	data/bgs/0might/bck/rock02.gif
-	frame	data/bgs/0might/bck/rock02.gif
-	frame	data/bgs/0might/bck/rock02.gif
-	frame	data/bgs/0might/bck/rock02.gif
-
-
-anim	follow11
-@script
-	void self = getlocalvar("self");
-	int p1 = getplayerproperty(0, "entity");
-	int p2 = getplayerproperty(1, "entity");
-	int p3 = getplayerproperty(2, "entity");
-
-	if (frame == 0 && p1 != NULL()){
-	changeentityproperty(p1,"noaicontrol",0);
-	}
-	if (frame == 0 && p2 != NULL()){
-	changeentityproperty(p2,"noaicontrol",0);
-	}
-	if (frame == 0 && p3 != NULL()){
-	changeentityproperty(p3,"noaicontrol",0);
-	}
-	if (frame == 1){
-	setglobalvar ("brkgo", 0);
-	}
-	if (frame == 2){
-	changelevelproperty("scrollspeed", 1);
-	changeopenborvariant("nojoin", 0);
-	}
-	if (frame == 3)
-	{
-	setglobalvar ("maphold3", 2);
-	}
-@end_script
-	loop	1 5 8
-	delay	3
-	offset	90 80
-	bbox	0 0 0 0
-	frame	data/bgs/0might/bck/rock03.gif
-	frame	data/bgs/0might/bck/rock03.gif
-	frame	data/bgs/0might/bck/rock03.gif #2
-	frame	data/bgs/0might/bck/rock03.gif
-	frame	data/bgs/0might/bck/rock03.gif #4
-	frame	data/bgs/0might/bck/rock03.gif
-	frame	data/bgs/0might/bck/rock03.gif
-	frame	data/bgs/0might/bck/rock03.gif
-	frame	data/bgs/0might/bck/rock03.gif
-
-
-#------------//---ROCK-END--//------------------
-
-
-#------------//---map-hide--//------------------
-
-anim	follow15
+		
+anim	idle
 	loop	1
-	delay	500
-	offset	90 80
+	delay	14
+	offset	65 110
 	bbox	0 0 0 0
-	frame	data/bgs/0might/bck/empty.gif
-	frame	data/bgs/0might/bck/empty.gif
-	frame	data/bgs/0might/bck/empty.gif
-	frame	data/bgs/0might/bck/empty.gif
-	frame	data/bgs/0might/bck/empty.gif
+	followanim	1
+	followcond	1
+	attackone	1
+	noreflect	1
+	hitfx	data/sounds/empty.wav
+	frame	data/bgs/0might/bck/board00.gif
+	attack	45 50 40 60 0 0 1 1 0 0
+	frame	data/bgs/0might/bck/board01.gif
+	frame	data/bgs/0might/bck/board00.gif
+	attack	45 50 40 60 0 0 1 1 0 0
+	frame	data/bgs/0might/bck/board01.gif
+		
+#|edited by openBor Stats v 0.53
+		

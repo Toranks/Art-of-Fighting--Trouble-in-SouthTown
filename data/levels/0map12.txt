@@ -1,0 +1,157 @@
+music		data/music/crasmap.ogg
+
+background	data/bgs/0map/back.gif
+bglayer         data/bgs/0map/wtr1.gif 0 0 -40 -55 0 0 1 1 1 0 1 2 3 1
+panel		data/bgs/0map/panel.gif
+fglayer		data/bgs/0map/sun.gif 1500 0 0 0 0 0 0 1 1 1 1 0 0 0 0 0
+layer		data/bgs/0map/cloud.gif 1000 0 0 0 0 0 0 -1 1 1 1 0 0 0 0 -0.5
+
+direction       both
+spawn1  	285 300
+spawn2  	295 310
+spawn3  	305 320
+order	        a
+settime         0
+notime          1
+#nopause		1
+#type 		2
+
+bgspeed  2
+setweap  7
+
+
+#---------------------------
+#clearglobalvar(); //Reset all cleared status
+#------///---levelscript----///-----
+
+spawn   ghost1
+@script
+void main()
+{
+    setglobalvar("map", 12);
+}
+@end_script
+coords  30 240
+at      0
+
+#--------------------------//---------------
+
+spawn   lvlmisc
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW5"));
+} @end_script
+alias   sel01
+coords  170 190
+at      0
+
+spawn   mapleg
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_ATTACK7"));
+} @end_script
+coords  645 190
+at      0
+
+spawn   lvlstar
+alias   byo
+map	1
+coords  645 190
+at      0
+
+spawn   lvlrus
+alias   rsh1
+coords  290 185
+at      0
+
+spawn   lvlrus
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+alias   rsh2
+coords  510 410
+at      0
+
+spawn   lvlmisc
+alias   home1
+coords  345 330
+at      0
+
+spawn   lvlmisc
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+} @end_script
+alias   king1
+coords  500 380
+at      0
+
+spawn   lvlbns
+alias   bonus1b
+coords  410 330
+at      0
+
+spawn   lvlbns
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+} @end_script
+alias   gbonusb
+coords  415 395
+at      0
+
+spawn   lvlbns
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW3"));
+} @end_script
+alias   bonus3b
+coords  520 465
+at      0
+
+spawn   lvlmisc
+@script void main() {
+   void self = getlocalvar("self");
+   performattack(self,openborconstant("ANI_FOLLOW1"));
+   setglobalvar("betty", 3);
+   setglobalvar("taospawn", NULL());
+} @end_script
+alias   tao1
+map     2
+coords  480 465
+at      0
+
+spawn   lvlbns
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW5"));
+} @end_script
+alias   bonus4b
+coords  355 260
+at      0
+
+spawn   lvlmisc
+@script void main() {
+   void self = getlocalvar("self");
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+   updateframe(self, 2);
+} @end_script
+alias   gclub1
+map     1
+coords  440 410
+at      0
+
+spawn   lvlmisc
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW3"));
+} @end_script
+alias   mgt1
+coords  360 155
+at      0
+
+#------------------------//---------------
+
+spawn   ghosttest
+@script
+void main()
+{
+    changeopenborvariant("xpos", 105);
+    changeopenborvariant("ypos", 225);
+}
+@end_script
+coords  30 240
+at      0

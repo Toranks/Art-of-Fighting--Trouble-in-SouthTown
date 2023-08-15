@@ -151,6 +151,30 @@ void finish(int Damage, int x, int y, int z, int faceOpposite)
 		changeentityproperty(target, "direction", MDir);
 	}
 }
+
+void antiWall2()
+{//Checks distance from the walls
+ //If inside of the walls, entity will be moved away with defined movement
+	void self 		= getlocalvar("self");
+	void target 	= getentityvar(self, "grabbed");
+	int direction 	= getentityproperty(self, "direction");
+	int x 			= getentityproperty(self, "x");
+	int Tx 			= getentityproperty(target, "x");
+	int z 			= getentityproperty(self, "z");
+	int Tz 			= getentityproperty(target, "z");
+	int subWall		= getentityproperty(self, "subject_to_wall");
+	float wall 		= checkwall(Tx, Tz);
+
+	if(target != NULL()){
+		if(wall){
+			if(subWall == 1){
+				changeentityproperty(target, "position", x);
+				changeentityproperty(target, "velocity", 0, 0, NULL());
+			}
+		}
+	}
+}
+
 void throw(int Damage, int x, int y, int z, int faceOpposite)
 {
 	void self = getlocalvar("self");

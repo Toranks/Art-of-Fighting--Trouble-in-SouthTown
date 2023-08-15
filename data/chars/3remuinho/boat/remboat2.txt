@@ -14,9 +14,6 @@ subject_to_gravity 0
 subject_to_wall	0
 offscreenkill	5000
 
-candamage player npc  obstacle
-hostile	  player npc
-
 animationscript data/scripts/escript.c
 
 
@@ -24,12 +21,100 @@ animationscript data/scripts/escript.c
 
 load	pw10
 
+
+
+
+
+
+anim	attack1
+	loop	0
+	delay	12
+	offset	110 190
+	bbox	0 0 0 0
+	platform	1 1 1 1 1 1 1 1
+	frame	data/chars/3remuinho/boat/spawn02.gif
+	frame	data/chars/3remuinho/boat/spawn04.gif
+	frame	data/chars/3remuinho/boat/a01.gif
+	frame	data/chars/3remuinho/boat/a02.gif
+	@cmd	spawnGun "pw10" 75 60 1 2
+	frame	data/chars/3remuinho/boat/a03.gif
+	frame	data/chars/3remuinho/boat/a04.gif
+	delay	7
+	frame	data/chars/3remuinho/boat/a02.gif
+	frame	data/chars/3remuinho/boat/a03.gif
+	frame	data/chars/3remuinho/boat/a04.gif
+	frame	data/chars/3remuinho/boat/a02.gif
+	frame	data/chars/3remuinho/boat/a03.gif
+	@cmd	attack1 -900 -80 400 "ANI_FOLLOW1"
+	frame	data/chars/3remuinho/boat/a04.gif #11
+	@cmd	looper 10 15
+	frame	data/chars/3remuinho/boat/a02.gif
+	@cmd	killgun 2 0
+	frame	data/chars/3remuinho/boat/a03.gif
+	frame	data/chars/3remuinho/boat/a04.gif
+	delay	12
+	frame	data/chars/3remuinho/boat/a05.gif
+	frame	data/chars/3remuinho/boat/a01.gif
+	frame	data/chars/3remuinho/boat/spawn02.gif
+	frame	data/chars/3remuinho/boat/spawn04.gif
+	frame	data/chars/3remuinho/boat/xidle01.gif
+	frame	data/chars/3remuinho/boat/xidle02.gif
+	frame	data/chars/3remuinho/boat/xidle03.gif
+	delay	5
+	frame	data/chars/3remuinho/boat/idle01.gif
+	frame	data/chars/3remuinho/boat/idle02.gif
+	frame	data/chars/3remuinho/boat/idle03.gif
+	@cmd	beidle
+	frame	data/chars/3remuinho/boat/idle03.gif
+		
+anim	attack2
+	loop	0
+	delay	12
+	offset	110 190
+	bbox	0 0 0 0
+	platform	1 1 1 1 1 1 1 1
+	flipframe	0
+	frame	data/chars/3remuinho/boat/spawn02.gif
+	frame	data/chars/3remuinho/boat/spawn04.gif
+	frame	data/chars/3remuinho/boat/a01.gif
+	frame	data/chars/3remuinho/boat/a02.gif
+	@cmd	spawnGun "pw10" 75 60 1 2
+	frame	data/chars/3remuinho/boat/a03.gif
+	frame	data/chars/3remuinho/boat/a04.gif
+	delay	7
+	frame	data/chars/3remuinho/boat/a02.gif
+	frame	data/chars/3remuinho/boat/a03.gif
+	frame	data/chars/3remuinho/boat/a04.gif
+	frame	data/chars/3remuinho/boat/a02.gif
+	frame	data/chars/3remuinho/boat/a03.gif
+	@cmd	attack1 -900 -80 400 "ANI_FOLLOW1"
+	frame	data/chars/3remuinho/boat/a04.gif #11
+	@cmd	looper 10 7
+	frame	data/chars/3remuinho/boat/a02.gif
+	@cmd	killgun 2 0
+	frame	data/chars/3remuinho/boat/a03.gif
+	frame	data/chars/3remuinho/boat/a04.gif
+	delay	12
+	frame	data/chars/3remuinho/boat/a05.gif
+	frame	data/chars/3remuinho/boat/a01.gif
+	frame	data/chars/3remuinho/boat/spawn02.gif
+	frame	data/chars/3remuinho/boat/spawn04.gif
+	frame	data/chars/3remuinho/boat/xidle01.gif
+	frame	data/chars/3remuinho/boat/xidle02.gif
+	frame	data/chars/3remuinho/boat/xidle03.gif
+	delay	5
+	frame	data/chars/3remuinho/boat/idle01.gif
+	frame	data/chars/3remuinho/boat/idle02.gif
+	frame	data/chars/3remuinho/boat/idle03.gif
+	@cmd	beidle
+	frame	data/chars/3remuinho/boat/idle03.gif
+		
 anim	death
 	loop	0
 	delay	5
 	offset	110 190
 	bbox	0 0 0 0
-	platform 1 1 1 1 1 1 1 1
+	platform	1 1 1 1 1 1 1 1
 	frame	data/chars/3remuinho/boat/spawn02.gif
 	frame	data/chars/3remuinho/boat/spawn03.gif
 	frame	data/chars/3remuinho/boat/death01.gif
@@ -42,112 +127,18 @@ anim	death
 	@cmd	looper 3 20
 	frame	data/chars/3remuinho/boat/empty.gif
 	frame	data/chars/3remuinho/boat/empty.gif
-	@cmd    suicide
+	@cmd	suicide
 	frame	data/chars/3remuinho/boat/empty.gif
 	frame	data/chars/3remuinho/boat/empty.gif
-
-
-
-anim	attack1
-	loop	0
-	delay	12
-	offset	110 190
-	bbox	0 0 0 0
-	platform 1 1 1 1 1 1 1 1
-	frame	data/chars/3remuinho/boat/spawn02.gif
-	frame	data/chars/3remuinho/boat/spawn04.gif
-	frame	data/chars/3remuinho/boat/a01.gif
-
-	frame	data/chars/3remuinho/boat/a02.gif
-	@cmd	spawnGun "pw10" 75 60 1 2
-	frame	data/chars/3remuinho/boat/a03.gif
-	frame	data/chars/3remuinho/boat/a04.gif
-	delay	7
-	frame	data/chars/3remuinho/boat/a02.gif
-	frame	data/chars/3remuinho/boat/a03.gif
-	frame	data/chars/3remuinho/boat/a04.gif
-
-	frame	data/chars/3remuinho/boat/a02.gif
-	frame	data/chars/3remuinho/boat/a03.gif
-	@cmd	attack1 -900 -80 400 "ANI_FOLLOW1"
-	frame	data/chars/3remuinho/boat/a04.gif #11
-	@cmd	looper 10 15
-	frame	data/chars/3remuinho/boat/a02.gif
-	@cmd	killgun 2 0
-	frame	data/chars/3remuinho/boat/a03.gif
-	frame	data/chars/3remuinho/boat/a04.gif
-
-	delay	12
-	frame	data/chars/3remuinho/boat/a05.gif
-	frame	data/chars/3remuinho/boat/a01.gif
-	frame	data/chars/3remuinho/boat/spawn02.gif
-	frame	data/chars/3remuinho/boat/spawn04.gif
-	frame	data/chars/3remuinho/boat/xidle01.gif
-	frame	data/chars/3remuinho/boat/xidle02.gif
-	frame	data/chars/3remuinho/boat/xidle03.gif
-	delay	5
-	frame	data/chars/3remuinho/boat/idle01.gif
-	frame	data/chars/3remuinho/boat/idle02.gif
-	frame	data/chars/3remuinho/boat/idle03.gif
-	@cmd	beidle
-	frame	data/chars/3remuinho/boat/idle03.gif
-
-
-
-
-anim	attack2
-	loop	0
-	delay	12
-	offset	110 190
-	bbox	0 0 0 0
-	platform 1 1 1 1 1 1 1 1
-	flipframe 0
-	frame	data/chars/3remuinho/boat/spawn02.gif
-	frame	data/chars/3remuinho/boat/spawn04.gif
-	frame	data/chars/3remuinho/boat/a01.gif
-
-	frame	data/chars/3remuinho/boat/a02.gif
-	@cmd	spawnGun "pw10" 75 60 1 2
-	frame	data/chars/3remuinho/boat/a03.gif
-	frame	data/chars/3remuinho/boat/a04.gif
-	delay	7
-	frame	data/chars/3remuinho/boat/a02.gif
-	frame	data/chars/3remuinho/boat/a03.gif
-	frame	data/chars/3remuinho/boat/a04.gif
-
-	frame	data/chars/3remuinho/boat/a02.gif
-	frame	data/chars/3remuinho/boat/a03.gif
-	@cmd	attack1 -900 -80 400 "ANI_FOLLOW1"
-	frame	data/chars/3remuinho/boat/a04.gif #11
-	@cmd	looper 10 7
-	frame	data/chars/3remuinho/boat/a02.gif
-	@cmd	killgun 2 0
-	frame	data/chars/3remuinho/boat/a03.gif
-	frame	data/chars/3remuinho/boat/a04.gif
-
-	delay	12
-	frame	data/chars/3remuinho/boat/a05.gif
-	frame	data/chars/3remuinho/boat/a01.gif
-	frame	data/chars/3remuinho/boat/spawn02.gif
-	frame	data/chars/3remuinho/boat/spawn04.gif
-	frame	data/chars/3remuinho/boat/xidle01.gif
-	frame	data/chars/3remuinho/boat/xidle02.gif
-	frame	data/chars/3remuinho/boat/xidle03.gif
-	delay	5
-	frame	data/chars/3remuinho/boat/idle01.gif
-	frame	data/chars/3remuinho/boat/idle02.gif
-	frame	data/chars/3remuinho/boat/idle03.gif
-	@cmd	beidle
-	frame	data/chars/3remuinho/boat/idle03.gif
-
-
-
+		
+anim	fall
+		
 anim	follow1
 	loop	0
 	delay	7
 	offset	110 190
 	bbox	0 0 0 0
-	platform 1 1 1 1 1 1 1 1
+	platform	1 1 1 1 1 1 1 1
 	frame	data/chars/3remuinho/boat/a03.gif
 	@cmd	killgun 2 0
 	frame	data/chars/3remuinho/boat/a04.gif
@@ -165,29 +156,142 @@ anim	follow1
 	frame	data/chars/3remuinho/boat/idle03.gif
 	@cmd	beidle
 	frame	data/chars/3remuinho/boat/idle03.gif
-
 		
-anim	fall
-
+anim	follow10
+	loop	0
+	delay	8
+	offset	110 190
+	bbox	0 0 0 0
+	platform	1 1 1 1 1 1 1 1
+	frame	data/chars/3remuinho/boat/spawn02.gif
+	frame	data/chars/3remuinho/boat/spawn04.gif
+	frame	data/chars/3remuinho/boat/a01.gif
+	frame	data/chars/3remuinho/boat/a02.gif
+	@cmd	spawnGun "pw10" 75 60 1 2
+	frame	data/chars/3remuinho/boat/a03.gif
+	frame	data/chars/3remuinho/boat/a04.gif
+	delay	5
+	frame	data/chars/3remuinho/boat/a02.gif #6
+	frame	data/chars/3remuinho/boat/a03.gif
+	frame	data/chars/3remuinho/boat/a04.gif
+	frame	data/chars/3remuinho/boat/a02.gif
+	frame	data/chars/3remuinho/boat/a03.gif
+	frame	data/chars/3remuinho/boat/a04.gif
+	@cmd	looper 6 5
+	frame	data/chars/3remuinho/boat/a02.gif
+	@cmd	killgun 2 0
+	frame	data/chars/3remuinho/boat/a03.gif
+	frame	data/chars/3remuinho/boat/a04.gif
+	delay	9
+	frame	data/chars/3remuinho/boat/a05.gif
+	frame	data/chars/3remuinho/boat/a01.gif
+	frame	data/chars/3remuinho/boat/spawn02.gif
+	frame	data/chars/3remuinho/boat/spawn04.gif
+	@cmd	anichange "ANI_FOLLOW9"
+	frame	data/chars/3remuinho/boat/spawn04.gif
+		
+anim	follow11
+	loop	0
+	delay	8
+	offset	110 190
+	bbox	0 0 0 0
+	platform	1 1 1 1 1 1 1 1
+	frame	data/chars/3remuinho/boat/spawn02.gif
+	frame	data/chars/3remuinho/boat/spawn04.gif
+	frame	data/chars/3remuinho/boat/a01.gif
+	frame	data/chars/3remuinho/boat/a02.gif
+	@cmd	spawnGun "pw10" 75 60 1 2
+	frame	data/chars/3remuinho/boat/a03.gif
+	frame	data/chars/3remuinho/boat/a04.gif
+	delay	5
+	frame	data/chars/3remuinho/boat/a02.gif #6
+	frame	data/chars/3remuinho/boat/a03.gif
+	frame	data/chars/3remuinho/boat/a04.gif
+	frame	data/chars/3remuinho/boat/a02.gif
+	frame	data/chars/3remuinho/boat/a03.gif
+	frame	data/chars/3remuinho/boat/a04.gif
+	@cmd	looper 6 5
+	frame	data/chars/3remuinho/boat/a02.gif
+	@cmd	killgun 2 0
+	frame	data/chars/3remuinho/boat/a03.gif
+	frame	data/chars/3remuinho/boat/a04.gif
+	delay	9
+	frame	data/chars/3remuinho/boat/a05.gif
+	frame	data/chars/3remuinho/boat/a01.gif
+	frame	data/chars/3remuinho/boat/spawn02.gif
+	frame	data/chars/3remuinho/boat/spawn04.gif
+	@cmd	anichange "ANI_FOLLOW9"
+	frame	data/chars/3remuinho/boat/spawn04.gif
+		
+anim	follow9
+	loop	1 3 9
+	delay	7
+	offset	110 190
+	bbox	0 0 0 0
+	platform	1 1 1 1 1 1 1 1
+	frame	data/chars/3remuinho/boat/idle01.gif
+	frame	data/chars/3remuinho/boat/idle02.gif
+	frame	data/chars/3remuinho/boat/idle03.gif
+	frame	data/chars/3remuinho/boat/idle01.gif #3
+	frame	data/chars/3remuinho/boat/idle02.gif
+	frame	data/chars/3remuinho/boat/idle03.gif
+	frame	data/chars/3remuinho/boat/idle01.gif
+	frame	data/chars/3remuinho/boat/idle02.gif
+	frame	data/chars/3remuinho/boat/idle03.gif
+	frame	data/chars/3remuinho/boat/idle01.gif
+	frame	data/chars/3remuinho/boat/idle02.gif
+	frame	data/chars/3remuinho/boat/idle03.gif
 		
 anim	idle
 	loop	1
 	delay	5
 	offset	110 190
 	bbox	0 0 0 0
-	platform 1 1 1 1 1 1 1 1
+	platform	1 1 1 1 1 1 1 1
 	frame	data/chars/3remuinho/boat/idle01.gif
 	@cmd	attack1 0 300 60 "ANI_ATTACK1"
 	frame	data/chars/3remuinho/boat/idle02.gif
 	@cmd	attack1 -350 -50 60 "ANI_ATTACK2"
 	frame	data/chars/3remuinho/boat/idle03.gif
+script	@script
+void main()
+{
+	void self = getlocalvar("self");
+   	void plr = getentityproperty(self, "parent");
+	void anim = getentityproperty(self,"animationID");
+	void frame = getentityproperty(self,"animpos");
+	void dir = getentityproperty(self,"direction");
+	void Par = getentityproperty(self,"parent");
+	void plyr = getentityproperty(Par,"playerindex");
+
+     	if ( anim == openborconstant("ANI_FOLLOW9") && frame > 1)
+	{
+	  if( playerkeys(plyr, 0, "attack") && dir == 1)
+	  {
+	  performattack(self, openborconstant("ANI_FOLLOW10"));
+	  }
+	  if( playerkeys(plyr, 0, "attack") && dir == 0)
+	  {
+	  performattack(self, openborconstant("ANI_FOLLOW11"));
+	  }
+	  if( playerkeys(plyr, 0, "moveleft"))
+	  {
+	  changeentityproperty(self, "direction", 0);
+	  }
+	  if( playerkeys(plyr, 0, "moveright"))
+	  {
+	  changeentityproperty(self, "direction", 1);
+	  }
+	}
+}
+	@end_script	
 		
 anim	pain
 	loop	0
 	delay	8
 	offset	110 190
 	bbox	0 0 0 0
-	platform 1 1 1 1 1 1 1 1
+	platform	1 1 1 1 1 1 1 1
 	frame	data/chars/3remuinho/boat/idle01.gif
 		
 anim	rise
@@ -195,7 +299,7 @@ anim	rise
 	delay	8
 	offset	110 190
 	bbox	0 0 0 0
-	platform 1 1 1 1 1 1 1 1
+	platform	1 1 1 1 1 1 1 1
 	frame	data/chars/3remuinho/boat/idle01.gif
 		
 anim	spawn
@@ -203,7 +307,7 @@ anim	spawn
 	delay	700
 	offset	110 190
 	bbox	0 0 0 0
-	platform 1 1 1 1 1 1 1 1
+	platform	1 1 1 1 1 1 1 1
 	frame	data/chars/3remuinho/boat/spawn01.gif
 	delay	14
 	frame	data/chars/3remuinho/boat/spawn01.gif
@@ -277,132 +381,5 @@ anim	spawn
 	frame	data/chars/3remuinho/boat/idle02.gif
 	frame	data/chars/3remuinho/boat/idle03.gif
 		
-		
-#------------------//------PLAYER------------//-----------------------
-
-
-script	@script
-void main()
-{
-	void self = getlocalvar("self");
-	void anim = getentityproperty(self,"animationID");
-	void frame = getentityproperty(self,"animpos");
-	void dir = getentityproperty(self,"direction");
-	void plyr = getentityproperty(self, "playerindex");
-
-     	if ( anim == openborconstant("ANI_FOLLOW9") && frame > 1)
-	{
-	  if( playerkeys(plyr, 0, "attack") && dir == 1)
-	  {
-	  performattack(self, openborconstant("ANI_FOLLOW10"));
-	  }
-	  if( playerkeys(plyr, 0, "attack") && dir == 0)
-	  {
-	  performattack(self, openborconstant("ANI_FOLLOW11"));
-	  }
-	  if( playerkeys(plyr, 0, "jump"))
-	  {
-	  performattack(self, openborconstant("ANI_FOLLOW12"));
-	  }
-	  if( playerkeys(plyr, 0, "moveleft"))
-	  {
-	  changeentityproperty(self, "direction", 0);
-	  }
-	  if( playerkeys(plyr, 0, "moveright"))
-	  {
-	  changeentityproperty(self, "direction", 1);
-	  }
-	}
-}
-@end_script
-
-
-
-
-anim	follow9
-	loop	1 3 9
-	delay	7
-	offset	110 190
-	bbox	0 0 0 0
-	platform 1 1 1 1 1 1 1 1
-	frame	data/chars/3remuinho/boat/idle01.gif
-	frame	data/chars/3remuinho/boat/idle02.gif
-	frame	data/chars/3remuinho/boat/idle03.gif
-	frame	data/chars/3remuinho/boat/idle01.gif #3
-	frame	data/chars/3remuinho/boat/idle02.gif
-	frame	data/chars/3remuinho/boat/idle03.gif
-	frame	data/chars/3remuinho/boat/idle01.gif
-	frame	data/chars/3remuinho/boat/idle02.gif
-	frame	data/chars/3remuinho/boat/idle03.gif
-	frame	data/chars/3remuinho/boat/idle01.gif
-	frame	data/chars/3remuinho/boat/idle02.gif
-	frame	data/chars/3remuinho/boat/idle03.gif
-
-
-anim	follow10
-	loop	0
-	delay	8
-	offset	110 190
-	bbox	0 0 0 0
-	platform 1 1 1 1 1 1 1 1
-	frame	data/chars/3remuinho/boat/spawn02.gif
-	frame	data/chars/3remuinho/boat/spawn04.gif
-	frame	data/chars/3remuinho/boat/a01.gif
-	frame	data/chars/3remuinho/boat/a02.gif
-	@cmd	spawnGun "pw10" 75 60 1 2
-	frame	data/chars/3remuinho/boat/a03.gif
-	frame	data/chars/3remuinho/boat/a04.gif
-	delay	5
-	frame	data/chars/3remuinho/boat/a02.gif #6
-	frame	data/chars/3remuinho/boat/a03.gif
-	frame	data/chars/3remuinho/boat/a04.gif
-	frame	data/chars/3remuinho/boat/a02.gif
-	frame	data/chars/3remuinho/boat/a03.gif
-	frame	data/chars/3remuinho/boat/a04.gif
-	@cmd	looper 6 5
-	frame	data/chars/3remuinho/boat/a02.gif
-	@cmd	killgun 2 0
-	frame	data/chars/3remuinho/boat/a03.gif
-	frame	data/chars/3remuinho/boat/a04.gif
-	delay	9
-	frame	data/chars/3remuinho/boat/a05.gif
-	frame	data/chars/3remuinho/boat/a01.gif
-	frame	data/chars/3remuinho/boat/spawn02.gif
-	frame	data/chars/3remuinho/boat/spawn04.gif
-	@cmd    anichange "ANI_FOLLOW9"
-	frame	data/chars/3remuinho/boat/spawn04.gif
-
-
-anim	follow11
-	loop	0
-	delay	8
-	offset	110 190
-	bbox	0 0 0 0
-	platform 1 1 1 1 1 1 1 1
-	frame	data/chars/3remuinho/boat/spawn02.gif
-	frame	data/chars/3remuinho/boat/spawn04.gif
-	frame	data/chars/3remuinho/boat/a01.gif
-	frame	data/chars/3remuinho/boat/a02.gif
-	@cmd	spawnGun "pw10" 75 60 1 2
-	frame	data/chars/3remuinho/boat/a03.gif
-	frame	data/chars/3remuinho/boat/a04.gif
-	delay	5
-	frame	data/chars/3remuinho/boat/a02.gif #6
-	frame	data/chars/3remuinho/boat/a03.gif
-	frame	data/chars/3remuinho/boat/a04.gif
-	frame	data/chars/3remuinho/boat/a02.gif
-	frame	data/chars/3remuinho/boat/a03.gif
-	frame	data/chars/3remuinho/boat/a04.gif
-	@cmd	looper 6 5
-	frame	data/chars/3remuinho/boat/a02.gif
-	@cmd	killgun 2 0
-	frame	data/chars/3remuinho/boat/a03.gif
-	frame	data/chars/3remuinho/boat/a04.gif
-	delay	9
-	frame	data/chars/3remuinho/boat/a05.gif
-	frame	data/chars/3remuinho/boat/a01.gif
-	frame	data/chars/3remuinho/boat/spawn02.gif
-	frame	data/chars/3remuinho/boat/spawn04.gif
-	@cmd    anichange "ANI_FOLLOW9"
-	frame	data/chars/3remuinho/boat/spawn04.gif
+#|edited by openBor Stats v 0.53
 		

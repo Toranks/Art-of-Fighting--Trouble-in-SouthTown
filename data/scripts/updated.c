@@ -1,4 +1,3 @@
-
 void zoom()
 {
    void vscreen = openborvariant("vscreen");
@@ -35,8 +34,50 @@ void zoom()
 
 
 void main(){
-   if(getglobalvar("zoomentity"))
-   {
+	void lv1 = getplayerproperty(0, "lives");
+	void lv2 = getplayerproperty(1, "lives");
+	void lv3 = getplayerproperty(2, "lives");	
+	resetMaxRush();
+	if(getglobalvar("zoomentity"))
+	{
       zoom();        
-   }
+	}
+	//CLEAR ALL GLOBAL VARIABLES AT TITLE SCREEN
+	if(openborvariant("in_titlescreen"))
+	{
+		clearglobalvar();
+	}
+	//MAX LIVES TO 15
+	if ( lv1 > 15 )
+	{
+   	changeplayerproperty(0, "lives", 15);
+	}
+	if ( lv2 > 15 )
+	{
+   	changeplayerproperty(1, "lives", 15);
+	}
+	if ( lv3 > 15 )
+	{
+   	changeplayerproperty(2, "lives", 15);
+	}
 }
+
+void resetMaxRush()
+{//Reset max rush counter in "Stage Complete" screen
+	if(openborvariant("in_showcomplete")){
+		void player1 = getplayerproperty(0, "entity"); //IDENTIFY PLAYER 1
+		void player2 = getplayerproperty(1, "entity"); //IDENTIFY PLAYER 2
+		void player3 = getplayerproperty(2, "entity"); //IDENTIFY PLAYER 3
+		
+		if(player1 != NULL()){ //IS PLAYER 1 PLAYING THE GAME??
+			setglobalvar("maxRush1", 0); //RESET PLAYER 1 MAX RUSH COUNT SAVED VALUE TO ZERO
+		}
+		if(player2 != NULL()){ //IS PLAYER 2 PLAYING THE GAME??
+			setglobalvar("maxRush2", 0); //RESET PLAYER 2 MAX RUSH COUNT SAVED VALUE TO ZERO
+		}
+		if(player3 != NULL()){ //IS PLAYER 3 PLAYING THE GAME??
+			setglobalvar("maxRush3", 0); //RESET PLAYER 3 MAX RUSH COUNT SAVED VALUE TO ZERO
+		}
+	}
+}
+

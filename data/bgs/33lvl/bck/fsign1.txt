@@ -1,7 +1,7 @@
 name	 fsign1
 health   700
 type	 obstacle
-nolife   1
+nolife   0
 facing   1
 nodrop	 2
 nopain	 1
@@ -20,34 +20,21 @@ load	brkwood4
 load	brkmetal2
 load	lookout
 
-anim	idle
-	loop	1 4 8
+anim	death
+	loop	0
 	delay	5
 	offset	300 600
-	counterrange 4 8 1 1
-     	followanim 1
-	forcedirection 2
-	hitfx	data/sounds/steel.wav
-	bbox	30 50 310 250 400
-	frame	data/bgs/33lvl/bck/sign01.gif
-	@cmd	spawn02 "lookout" 450 245 280
-	@cmd	spawnGun "fsign2" -283 116 -170 1
-	delay	80
-	frame	data/bgs/33lvl/bck/sign01.gif
-	delay	5
-	frame	data/bgs/33lvl/bck/sign01.gif
-	@cmd	dasher -4 0 0
-	frame	data/bgs/33lvl/bck/sign01.gif
-	frame	data/bgs/33lvl/bck/sign01.gif #4
-	attack	60 60 75 170 45 1 1 1 155 400
-	dropv	7 1.5
-	frame	data/bgs/33lvl/bck/sign01.gif
-	frame	data/bgs/33lvl/bck/sign01.gif
-	attack	0 0 0 0
-	frame	data/bgs/33lvl/bck/sign01.gif
-
-
-
+	bbox	0 0 0 0
+	frame	data/bgs/33lvl/bck/sign02.gif
+	@cmd	killgun 1 0
+	@cmd	killgun 2 0
+	@cmd	killgun 3 0
+	@cmd	killgun 4 0
+	frame	data/bgs/33lvl/bck/sign02.gif
+	frame	data/bgs/33lvl/bck/sign02.gif
+	@cmd	suicide
+	frame	data/bgs/33lvl/bck/sign02.gif
+		
 anim	follow1
 	loop	0
 	delay	5
@@ -55,7 +42,7 @@ anim	follow1
 	bbox	0 0 0 0
 	sound	data/sounds/wood.wav
 	frame	data/bgs/33lvl/bck/sign02.gif
-	@cmd	tosser "brkmetal2" -265 490 10 0.1 4 0  
+	@cmd	tosser "brkmetal2" -265 490 10 0.1 4 0
 	@cmd	tosser "brkmetal2" -235 450 10 -0.1 4 0
 	@cmd	spawnM2 "brkwood4" -200 480 10 1
 	@cmd	spawnM2 "brkwood4" -125 420 10 1
@@ -73,14 +60,14 @@ anim	follow1
 	frame	data/bgs/33lvl/bck/sign02.gif
 	@cmd	suicide
 	frame	data/bgs/33lvl/bck/sign02.gif
-
+		
 anim	follow2
 	loop	1 4 8
 	delay	5
 	offset	300 600
-	counterrange 4 8 1 1
-     	followanim 3
-	forcedirection 2
+	counterrange	4 8 1 1
+	followanim	3
+	forcedirection	2
 	hitfx	data/sounds/steel.wav
 	bbox	30 50 310 250 400
 	frame	data/bgs/33lvl/bck/sign03.gif
@@ -93,14 +80,13 @@ anim	follow2
 	@cmd	dasher -4 0 0
 	frame	data/bgs/33lvl/bck/sign03.gif
 	frame	data/bgs/33lvl/bck/sign03.gif #4
-	attack	60 60 75 170 45 1 1 1 155 400
+	attack	60 60 75 170 40 1 1 1 155 400
 	dropv	7 1.5
 	frame	data/bgs/33lvl/bck/sign03.gif
 	frame	data/bgs/33lvl/bck/sign03.gif
 	attack	0 0 0 0
 	frame	data/bgs/33lvl/bck/sign03.gif
-
-
+		
 anim	follow3
 	loop	0
 	delay	5
@@ -108,7 +94,7 @@ anim	follow3
 	bbox	0 0 0 0
 	sound	data/sounds/wood.wav
 	frame	data/bgs/33lvl/bck/sign04.gif
-	@cmd	tosser "brkmetal2" -265 490 10 0.1 4 0  
+	@cmd	tosser "brkmetal2" -265 490 10 0.1 4 0
 	@cmd	tosser "brkmetal2" -235 450 10 -0.1 4 0
 	@cmd	spawnM2 "brkwood4" -200 480 10 1
 	@cmd	spawnM2 "brkwood4" -125 420 10 1
@@ -126,21 +112,32 @@ anim	follow3
 	frame	data/bgs/33lvl/bck/sign04.gif
 	@cmd	suicide
 	frame	data/bgs/33lvl/bck/sign04.gif
-
-
-
-
-anim	death
-	loop	0
+		
+anim	idle
+	loop	1 4 8
 	delay	5
 	offset	300 600
-	bbox	0 0 0 0
-	frame	data/bgs/33lvl/bck/sign02.gif
-	@cmd	killgun 1 0
-	@cmd	killgun 2 0
-	@cmd	killgun 3 0
-	@cmd	killgun 4 0
-	frame	data/bgs/33lvl/bck/sign02.gif
-	frame	data/bgs/33lvl/bck/sign02.gif
-	@cmd	suicide
-	frame	data/bgs/33lvl/bck/sign02.gif	
+	counterrange	4 8 1 1
+	followanim	1
+	forcedirection	2
+	hitfx	data/sounds/steel.wav
+	bbox	30 50 310 250 400
+	frame	data/bgs/33lvl/bck/sign01.gif
+	@cmd	spawn02 "lookout" 450 245 280
+	@cmd	spawnGun "fsign2" -283 116 -170 1
+	delay	80
+	frame	data/bgs/33lvl/bck/sign01.gif
+	delay	5
+	frame	data/bgs/33lvl/bck/sign01.gif
+	@cmd	dasher -4 0 0
+	frame	data/bgs/33lvl/bck/sign01.gif
+	frame	data/bgs/33lvl/bck/sign01.gif #4
+	attack	60 60 75 170 40 1 1 1 155 400
+	dropv	7 1.5
+	frame	data/bgs/33lvl/bck/sign01.gif
+	frame	data/bgs/33lvl/bck/sign01.gif
+	attack	0 0 0 0
+	frame	data/bgs/33lvl/bck/sign01.gif
+		
+#|edited by openBor Stats v 0.53
+		

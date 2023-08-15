@@ -4,7 +4,7 @@ type	enemy
 speed	20
 noquake 1
 alpha	1
-remove	1
+remove  0
 nolife  1
 subject_to_platform 0
 subject_to_wall 0
@@ -14,6 +14,10 @@ lifespan 5
 load	pw1ex
 
 
+
+
+
+
 anim	attack1
 	loop	0
 	delay	6
@@ -21,13 +25,43 @@ anim	attack1
 	bbox	0 0 0 0
 	hitfx	data/sounds/burnt.wav
 	hitflash	pw1ex
-	attack	75 30 60 100 8 1 0 0 8 10
+	attack	75 30 60 100 25 1 0 0 8 20
 	frame	data/chars/misc/power/1/7.gif
 	frame	data/chars/misc/power/1/8.gif
+	offset	45 63
 	frame	data/chars/misc/power/1/9.gif
 	frame	data/chars/misc/power/1/10.gif
 	frame	data/chars/misc/power/1/11.gif
 	frame	data/chars/misc/power/1/empty.gif
+		
+anim	attack2
+@script
+void self = getlocalvar("self");
+	if(frame == 0 )
+	{
+        changeentityproperty(self, "candamage",openborconstant("TYPE_ENEMY")+openborconstant("TYPE_OBSTACLE"));
+	}
+	@end_script	
+	loop	1 2 10
+	delay	5
+	offset	80 90
+	bbox	0 0 0 0
+	followanim	1
+	followcond	1
+	hitfx	data/sounds/burnt.wav
+	hitflash	pw1ex
+	attack10	75 30 60 100 35 1 0 0 8 20
+	dropv	4 1
+	frame	data/chars/misc/power/1/empty.gif
+	frame	data/chars/misc/power/1/empty.gif
+	frame	data/chars/misc/power/1/1.gif
+	frame	data/chars/misc/power/1/2.gif
+	frame	data/chars/misc/power/1/3.gif
+	frame	data/chars/misc/power/1/4.gif
+	frame	data/chars/misc/power/1/5.gif
+	frame	data/chars/misc/power/1/6.gif
+	frame	data/chars/misc/power/1/7.gif
+	frame	data/chars/misc/power/1/8.gif
 		
 anim	death
 	loop	0
@@ -36,9 +70,33 @@ anim	death
 	bbox	0 0 0 0
 	frame	data/chars/misc/power/1/7.gif
 	frame	data/chars/misc/power/1/8.gif
+	offset	0 90
 	frame	data/chars/misc/power/1/9.gif
 	frame	data/chars/misc/power/1/10.gif
 	frame	data/chars/misc/power/1/11.gif
+	frame	data/chars/misc/power/1/empty.gif
+		
+anim	follow1
+@script
+void self = getlocalvar("self");
+	if(frame == 5 )
+	{
+	killentity(self);
+	}
+	@end_script	
+	loop	0
+	delay	6
+	offset	80 90
+	bbox	0 0 0 0
+	hitfx	data/sounds/burnt.wav
+	hitflash	pw1ex
+	frame	data/chars/misc/power/1/7.gif
+	frame	data/chars/misc/power/1/8.gif
+	offset	45 63
+	frame	data/chars/misc/power/1/9.gif
+	frame	data/chars/misc/power/1/10.gif
+	frame	data/chars/misc/power/1/11.gif
+	frame	data/chars/misc/power/1/empty.gif
 	frame	data/chars/misc/power/1/empty.gif
 		
 anim	idle
@@ -48,7 +106,7 @@ anim	idle
 	bbox	0 0 0 0
 	hitfx	data/sounds/burnt.wav
 	hitflash	pw1ex
-	attack	75 30 60 100 8 1 0 0 8 10
+	attack	75 30 60 100 20 1 0 0 8 20
 	frame	data/chars/misc/power/1/1.gif
 	frame	data/chars/misc/power/1/2.gif
 	frame	data/chars/misc/power/1/3.gif
@@ -57,60 +115,6 @@ anim	idle
 	frame	data/chars/misc/power/1/6.gif
 	frame	data/chars/misc/power/1/7.gif
 	frame	data/chars/misc/power/1/8.gif
-
-#-------------//---player---//---------------------------------
 		
-anim	attack2
-@script
-void self = getlocalvar("self");
-	if(frame == 0 )
-	{
-	changeentityproperty(self, "candamage",openborconstant("TYPE_ENEMY"));
-	}
-@end_script
-	loop	1 2 10
-	delay	5
-	offset	80 90
-	bbox	0 0 0 0
-	followanim	1
-	followcond	1
-	hitfx	data/sounds/burnt.wav
-	hitflash	pw1ex
-	attack10 75 30 60 100 35 1 0 0 8 10
-	dropv	4 1
-	frame	data/chars/misc/power/1/empty.gif
-	frame	data/chars/misc/power/1/empty.gif
-	frame	data/chars/misc/power/1/1.gif #2
-	frame	data/chars/misc/power/1/2.gif
-	frame	data/chars/misc/power/1/3.gif
-	frame	data/chars/misc/power/1/4.gif
-	frame	data/chars/misc/power/1/5.gif
-	frame	data/chars/misc/power/1/6.gif
-	frame	data/chars/misc/power/1/7.gif
-	frame	data/chars/misc/power/1/8.gif
-
-
-
-anim	follow1
-@script
-void self = getlocalvar("self");
-	if(frame == 5 )
-	{
-	killentity(self);
-	}
-@end_script
-	loop	0
-	delay	6
-	offset	80 90
-	bbox	0 0 0 0
-	hitfx	data/sounds/burnt.wav
-	hitflash	pw1ex
-	attack	75 30 60 100 8 1 0 0 8 10
-	frame	data/chars/misc/power/1/7.gif
-	frame	data/chars/misc/power/1/8.gif
-	frame	data/chars/misc/power/1/9.gif
-	frame	data/chars/misc/power/1/10.gif
-	frame	data/chars/misc/power/1/11.gif
-	frame	data/chars/misc/power/1/empty.gif
-	frame	data/chars/misc/power/1/empty.gif
+#|edited by openBor Stats v 0.53
 		

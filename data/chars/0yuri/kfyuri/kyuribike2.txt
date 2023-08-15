@@ -1,6 +1,6 @@
 name		kyuribike2
 type		none
-health		150
+health		170
 mp		100
 speedf		2.3
 running		23 3 1 0 0
@@ -18,17 +18,20 @@ weaploss	3
 candamage	enemy obstacle
 diesound        data/sounds/yurde.wav
 atchain         1 0 0 0 
-icon            data/chars/0yuri/icon.gif
+icon            data/chars/misc/icons/kyuri.gif
 parrow          data/chars/misc/flash/flash/player1.gif  -45 -130
 parrow2         data/chars/misc/flash/flash/player2.gif  -45 -130
 parrow3         data/chars/misc/flash/flash/player3.gif  -45 -130
 animationscript data/scripts/grabscript.c
 
-palette		data/chars/0yuri/kfyuri/bike2/mapal.gif
-alternatepal	data/chars/0yuri/kfyuri/bike2/map1.gif
+palette		data/chars/0yuri/kfyuri/bike2/map3.gif
 alternatepal	data/chars/0yuri/kfyuri/bike2/map2.gif
-alternatepal	data/chars/0yuri/kfyuri/bike2/map3.gif
+alternatepal	data/chars/0yuri/kfyuri/bike2/map1.gif
+alternatepal	data/chars/0yuri/kfyuri/bike2/mapal.gif
 alternatepal	data/chars/0yuri/kfyuri/bike2/map4.gif
+alternatepal	data/chars/0yuri/kfyuri/bike2/map4.gif
+alternatepal	data/chars/0yuri/kfyuri/bike2/map2.gif
+alternatepal	data/chars/0yuri/kfyuri/bike2/map1.gif
 
 
 load	explosion1
@@ -36,21 +39,21 @@ load	dust3
 
 com	a2 	freespecial15
 
+script	@script
+void main()
+{
+   void self = getlocalvar("self");
+   void anim = getentityproperty(self,"animationID");
+   void hp = getentityproperty(self,"health");
 
-anim	freespecial15
-	loop	0
-	delay	5
-	offset	75 85
-	bbox	60 20 30 65
-	sound	data/sounds/bike2.wav
-	frame	data/chars/0yuri/kfyuri/bike2/yurbck1.gif
-	frame	data/chars/0yuri/kfyuri/bike2/xyurbck1.gif
-	@cmd	spawn02 "freewaytot" 250 1 140
-	frame	data/chars/0yuri/kfyuri/bike2/yurbck1.gif
-	frame	data/chars/0yuri/kfyuri/bike2/xyurbck1.gif
-
-
-
+	if(anim == openborconstant("ANI_RESPAWN"))
+	{
+ 	changeentityproperty(self, "health", 170);
+	}
+}
+	@end_script	
+		
+		
 anim	attack1
 		
 anim	attackdown
@@ -144,6 +147,18 @@ anim	forwardjump
 	frame	data/chars/0yuri/kfyuri/bike2/yurbck5.gif
 	frame	data/chars/0yuri/kfyuri/bike2/xyurbck5.gif
 		
+anim	freespecial15
+	loop	0
+	delay	5
+	offset	75 85
+	bbox	60 20 30 65
+	sound	data/sounds/bike2.wav
+	frame	data/chars/0yuri/kfyuri/bike2/yurbck1.gif
+	frame	data/chars/0yuri/kfyuri/bike2/xyurbck1.gif
+	@cmd	spawn02 "freewaytot" 250 1 140
+	frame	data/chars/0yuri/kfyuri/bike2/yurbck1.gif
+	frame	data/chars/0yuri/kfyuri/bike2/xyurbck1.gif
+		
 anim	idle
 	loop	1
 	delay	5
@@ -164,6 +179,8 @@ anim	jumpdelay
 	bbox	60 20 30 65
 	frame	data/chars/0yuri/kfyuri/bike2/yurbck1.gif
 	frame	data/chars/0yuri/kfyuri/bike2/xyurbck1.gif
+		
+anim	jumpforward
 		
 anim	jumpland
 	loop	0
@@ -219,8 +236,7 @@ anim	pain2
 	delay	5
 	frame	data/chars/0yuri/kfyuri/bike2/yurbck4.gif
 	frame	data/chars/0yuri/kfyuri/bike2/xyurbck4.gif
-
-
+		
 anim	pain5
 	loop	0
 	delay	4
@@ -228,127 +244,129 @@ anim	pain5
 	bbox	0 0 0 0
 	@cmd	degravity 1
 	@cmd	dasher 0 0.6 0
-	drawmethod 245 245 0 0 0 0 -1
+	drawmethod	245 245 0 0 0 0 -1
 	frame	data/chars/0yuri/kfyuri/bike2/yurbck1.gif
-	drawmethod 240 240 0 0 0 0 -1
+	drawmethod	240 240 0 0 0 0 -1
 	frame	data/chars/0yuri/kfyuri/bike2/xyurbck1.gif
-	drawmethod 235 235 0 0 0 0 -1
+	drawmethod	235 235 0 0 0 0 -1
 	frame	data/chars/0yuri/kfyuri/bike2/yurbck1.gif
-	drawmethod 230 230 0 0 0 0 -1
+	drawmethod	230 230 0 0 0 0 -1
 	frame	data/chars/0yuri/kfyuri/bike2/xyurbck1.gif
-	drawmethod 225 225 0 0 0 0 -1
+	drawmethod	225 225 0 0 0 0 -1
 	frame	data/chars/0yuri/kfyuri/bike2/yurbck1.gif
-	drawmethod 220 220 0 0 0 0 -1
+	drawmethod	220 220 0 0 0 0 -1
 	frame	data/chars/0yuri/kfyuri/bike2/xyurbck1.gif
-	drawmethod 215 215 0 0 0 0 -1
+	drawmethod	215 215 0 0 0 0 -1
 	frame	data/chars/0yuri/kfyuri/bike2/yurbck1.gif
-	drawmethod 210 210 0 0 0 0 -1
+	drawmethod	210 210 0 0 0 0 -1
 	frame	data/chars/0yuri/kfyuri/bike2/xyurbck1.gif
-	drawmethod 205 205 0 0 0 0 -1
+	drawmethod	205 205 0 0 0 0 -1
 	frame	data/chars/0yuri/kfyuri/bike2/yurbck1.gif
-	drawmethod 200 200 0 0 0 0 -1
+	drawmethod	200 200 0 0 0 0 -1
 	frame	data/chars/0yuri/kfyuri/bike2/xyurbck1.gif
-	drawmethod 195 195 0 0 0 0 -1
+	drawmethod	195 195 0 0 0 0 -1
 	frame	data/chars/0yuri/kfyuri/bike2/yurbck1.gif
-	drawmethod 190 190 0 0 0 0 -1
+	drawmethod	190 190 0 0 0 0 -1
 	frame	data/chars/0yuri/kfyuri/bike2/xyurbck1.gif
-	drawmethod 185 185 0 0 0 0 -1
+	drawmethod	185 185 0 0 0 0 -1
 	frame	data/chars/0yuri/kfyuri/bike2/yurbck1.gif
-	drawmethod 180 180 0 0 0 0 -1
+	drawmethod	180 180 0 0 0 0 -1
 	frame	data/chars/0yuri/kfyuri/bike2/xyurbck1.gif
-	drawmethod 175 175 0 0 0 0 -1
+	drawmethod	175 175 0 0 0 0 -1
 	frame	data/chars/0yuri/kfyuri/bike2/yurbck1.gif
-	drawmethod 170 170 0 0 0 0 -1
+	drawmethod	170 170 0 0 0 0 -1
 	frame	data/chars/0yuri/kfyuri/bike2/xyurbck1.gif
-	drawmethod 165 165 0 0 0 0 -1
+	drawmethod	165 165 0 0 0 0 -1
 	frame	data/chars/0yuri/kfyuri/bike2/yurbck1.gif
-	drawmethod 160 160 0 0 0 0 -1
+	drawmethod	160 160 0 0 0 0 -1
 	frame	data/chars/0yuri/kfyuri/bike2/xyurbck1.gif
-	drawmethod 155 155 0 0 0 0 -1
+	drawmethod	155 155 0 0 0 0 -1
 	frame	data/chars/0yuri/kfyuri/bike2/yurbck1.gif
-	drawmethod 150 150 0 0 0 0 -1
+	drawmethod	150 150 0 0 0 0 -1
 	frame	data/chars/0yuri/kfyuri/bike2/xyurbck1.gif
-	drawmethod 145 145 0 0 0 0 -1
+	drawmethod	145 145 0 0 0 0 -1
 	frame	data/chars/0yuri/kfyuri/bike2/yurbck1.gif
-	drawmethod 140 140 0 0 0 0 -1
+	drawmethod	140 140 0 0 0 0 -1
 	frame	data/chars/0yuri/kfyuri/bike2/xyurbck1.gif
-	drawmethod 135 135 0 0 0 0 -1
+	drawmethod	135 135 0 0 0 0 -1
 	frame	data/chars/0yuri/kfyuri/bike2/yurbck1.gif
-	drawmethod 130 130 0 0 0 0 -1
+	drawmethod	130 130 0 0 0 0 -1
 	frame	data/chars/0yuri/kfyuri/bike2/xyurbck1.gif
-	drawmethod 125 125 0 0 0 0 -1
+	drawmethod	125 125 0 0 0 0 -1
 	frame	data/chars/0yuri/kfyuri/bike2/yurbck1.gif
-	drawmethod 120 120 0 0 0 0 -1
+	drawmethod	120 120 0 0 0 0 -1
 	frame	data/chars/0yuri/kfyuri/bike2/xyurbck1.gif
-	drawmethod 115 115 0 0 0 0 -1
+	drawmethod	115 115 0 0 0 0 -1
 	frame	data/chars/0yuri/kfyuri/bike2/yurbck1.gif
-	drawmethod 110 110 0 0 0 0 -1
+	drawmethod	110 110 0 0 0 0 -1
 	frame	data/chars/0yuri/kfyuri/bike2/xyurbck1.gif
-	drawmethod 105 105 0 0 0 0 -1
+	drawmethod	105 105 0 0 0 0 -1
 	frame	data/chars/0yuri/kfyuri/bike2/yurbck1.gif
-	drawmethod 100 100 0 0 0 0 -1
+	drawmethod	100 100 0 0 0 0 -1
 	frame	data/chars/0yuri/kfyuri/bike2/xyurbck1.gif
-	drawmethod 95 95 0 0 0 0 -1
+	drawmethod	95 95 0 0 0 0 -1
 	frame	data/chars/0yuri/kfyuri/bike2/yurbck1.gif
-	drawmethod 90 90 0 0 0 0 -1
+	drawmethod	90 90 0 0 0 0 -1
 	frame	data/chars/0yuri/kfyuri/bike2/xyurbck1.gif
-	drawmethod 85 85 0 0 0 0 -1
+	drawmethod	85 85 0 0 0 0 -1
 	frame	data/chars/0yuri/kfyuri/bike2/yurbck1.gif
-	drawmethod 80 80 0 0 0 0 -1
+	drawmethod	80 80 0 0 0 0 -1
 	frame	data/chars/0yuri/kfyuri/bike2/xyurbck1.gif
-	drawmethod 75 75 0 0 0 0 -1
+	drawmethod	75 75 0 0 0 0 -1
 	frame	data/chars/0yuri/kfyuri/bike2/yurbck1.gif
-	drawmethod 70 70 0 0 0 0 -1
+	drawmethod	70 70 0 0 0 0 -1
 	frame	data/chars/0yuri/kfyuri/bike2/xyurbck1.gif
-	drawmethod 65 65 0 0 0 0 -1
+	drawmethod	65 65 0 0 0 0 -1
 	frame	data/chars/0yuri/kfyuri/bike2/yurbck1.gif
-	drawmethod 60 60 0 0 0 0 -1
+	drawmethod	60 60 0 0 0 0 -1
 	frame	data/chars/0yuri/kfyuri/bike2/xyurbck1.gif
-	drawmethod 55 55 0 0 0 0 -1
+	drawmethod	55 55 0 0 0 0 -1
 	frame	data/chars/0yuri/kfyuri/bike2/yurbck1.gif
-	drawmethod 50 50 0 0 0 0 -1
+	drawmethod	50 50 0 0 0 0 -1
 	frame	data/chars/0yuri/kfyuri/bike2/xyurbck1.gif
-	drawmethod 45 45 0 0 0 0 -1
+	drawmethod	45 45 0 0 0 0 -1
 	frame	data/chars/0yuri/kfyuri/bike2/yurbck1.gif
-	drawmethod 40 40 0 0 0 0 -1
+	drawmethod	40 40 0 0 0 0 -1
 	frame	data/chars/0yuri/kfyuri/bike2/xyurbck1.gif
-	drawmethod 35 35 0 0 0 0 -1
+	drawmethod	35 35 0 0 0 0 -1
 	frame	data/chars/0yuri/kfyuri/bike2/yurbck1.gif
-	drawmethod 30 30 0 0 0 0 -1
+	drawmethod	30 30 0 0 0 0 -1
 	frame	data/chars/0yuri/kfyuri/bike2/xyurbck1.gif
-	drawmethod 25 25 0 0 0 0 -1
+	drawmethod	25 25 0 0 0 0 -1
 	frame	data/chars/0yuri/kfyuri/bike2/yurbck1.gif
-	drawmethod 20 20 0 0 0 0 -1
+	drawmethod	20 20 0 0 0 0 -1
 	frame	data/chars/0yuri/kfyuri/bike2/xyurbck1.gif
-	drawmethod 15 15 0 0 0 0 -1
+	drawmethod	15 15 0 0 0 0 -1
 	frame	data/chars/0yuri/kfyuri/bike2/yurbck1.gif
-	drawmethod 10 10 0 0 0 0 -1
+	drawmethod	10 10 0 0 0 0 -1
 	frame	data/chars/0yuri/kfyuri/bike2/xyurbck1.gif
-	drawmethod 9 9 0 0 0 0 -1
+	drawmethod	9 9 0 0 0 0 -1
 	frame	data/chars/0yuri/kfyuri/bike2/yurbck1.gif
-	drawmethod 8 8 0 0 0 0 -1
+	drawmethod	8 8 0 0 0 0 -1
 	frame	data/chars/0yuri/kfyuri/bike2/xyurbck1.gif
-	drawmethod 7 7 0 0 0 0 -1
+	drawmethod	7 7 0 0 0 0 -1
 	frame	data/chars/0yuri/kfyuri/bike2/yurbck1.gif
-	drawmethod 6 6 0 0 0 0 -1
+	drawmethod	6 6 0 0 0 0 -1
 	frame	data/chars/0yuri/kfyuri/bike2/xyurbck1.gif
-	drawmethod 5 5 0 0 0 0 -1
+	drawmethod	5 5 0 0 0 0 -1
 	frame	data/chars/0yuri/kfyuri/bike2/yurbck1.gif
-	drawmethod 4 4 0 0 0 0 -1
+	drawmethod	4 4 0 0 0 0 -1
 	frame	data/chars/0yuri/kfyuri/bike2/xyurbck1.gif
-	drawmethod 3 3 0 0 0 0 -1
+	drawmethod	3 3 0 0 0 0 -1
 	frame	data/chars/0yuri/kfyuri/bike2/yurbck1.gif
-	drawmethod 2 2 0 0 0 0 -1
+	drawmethod	2 2 0 0 0 0 -1
 	frame	data/chars/0yuri/kfyuri/bike2/xyurbck1.gif
-	drawmethod 1 1 0 0 0 0 -1
+	drawmethod	1 1 0 0 0 0 -1
 	frame	data/chars/0yuri/kfyuri/bike2/yurbck1.gif
 	delay	500
 	frame	data/chars/0yuri/kfyuri/bike2/yurbck1.gif
-
-
-
-
-
+		
+anim	respawn
+	loop	0
+	delay	1
+	offset	75 85
+	bbox	0 0 0 0
+	frame	data/chars/0yuri/kfyuri/bike2/yurbck1.gif
 		
 anim	rise
 	loop	0
@@ -381,6 +399,8 @@ anim	run
 	@cmd	updateframe getlocalvar("self") 5
 	frame	data/chars/0yuri/kfyuri/bike2/xyurbck5.gif
 		
+anim	runattack
+		
 anim	runjump
 	loop	0
 	delay	1
@@ -391,14 +411,9 @@ anim	runjump
 	frame	data/chars/0yuri/kfyuri/bike2/yurbck5.gif
 	frame	data/chars/0yuri/kfyuri/bike2/xyurbck5.gif
 		
+anim	runjumpattack
+		
 anim	spawn
-	loop	0
-	delay	1
-	offset	75 85
-	bbox	0 0 0 0
-	frame	data/chars/0yuri/kfyuri/bike2/yurbck1.gif
-
-anim	respawn
 	loop	0
 	delay	1
 	offset	75 85
@@ -452,9 +467,5 @@ anim	walk
 	frame	data/chars/0yuri/kfyuri/bike2/yurbck4.gif
 	frame	data/chars/0yuri/kfyuri/bike2/xyurbck4.gif
 		
-anim	jumpforward
-
-anim	runjumpattack
-
-anim	runattack
+#|edited by openBor Stats v 0.53
 		

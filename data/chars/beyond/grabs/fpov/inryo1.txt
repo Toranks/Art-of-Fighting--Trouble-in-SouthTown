@@ -2,11 +2,11 @@ name			inryo1
 type			none
 health			200
 shadow			0
-#nomove			1 1
+
 facing			1
 falldie			1
 nodieblink		3
-#nodrop			2
+
 noquake			1
 subject_to_wall		0
 subject_to_hole		0
@@ -14,7 +14,7 @@ subject_to_platform	0
 subject_to_minz		0
 subject_to_maxz		0
 subject_to_hole		0
-#subject_to_gravity	0
+
 aggression		1
 candamage       	npc
 hostile			player
@@ -67,13 +67,21 @@ void main()
 
 //----------------------RELEASE-BREAK----------------------
 
-      	else if	(anim == openborconstant("ANI_FOLLOW3") && frame > 3 && playerkeys(victim, 2, "moveleft"))
+      	else if	(anim == openborconstant("ANI_FOLLOW3") && frame > 3 && playerkeys(victim, 2, "moveup"))
 	{
-	changeentityproperty(self, "health", HP+5);
+	changeentityproperty(self, "health", HP+2);
+	}
+      	else if	(anim == openborconstant("ANI_FOLLOW3") && frame > 3 && playerkeys(victim, 2, "movedown"))
+	{
+	changeentityproperty(self, "health", HP+2);
+	}    
+		else if	(anim == openborconstant("ANI_FOLLOW3") && frame > 3 && playerkeys(victim, 2, "moveleft"))
+	{
+	changeentityproperty(self, "health", HP+2);
 	}
       	else if	(anim == openborconstant("ANI_FOLLOW3") && frame > 3 && playerkeys(victim, 2, "moveright"))
 	{
-	changeentityproperty(self, "health", HP+5);
+	changeentityproperty(self, "health", HP+2);
 	}
 	else if	(HP >= 198 && anim == openborconstant("ANI_FOLLOW3") && frame > 12)
 	{
@@ -104,32 +112,33 @@ void main()
 	performattack(self, openborconstant("ANI_FOLLOW9"));
 	}
 }
-@end_script
-
-
-#-------------------------//----FAST-------//-------------------
-#-------------------------//----PUNCH------//-------------------
-
-
-anim	follow4
-	loop	1
-	delay	5
+	@end_script	
+		
+		
+		
+		
+		
+		
+		
+		
+anim	death
+	loop	0
+	delay	15
 	offset	250 270
 	bbox	0 0 0 0
-	@cmd	hpgain -2
 	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
-        #@cmd    keyint "ANI_FOLLOW1" 1 "A" 0 0
+	@cmd	clearL
 	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
-
+		
 anim	follow1
 	loop	0
 	delay	4
 	offset	250 270
 	bbox	0 0 0 0
-	hitflash Flash0
+	hitflash	Flash0
 	hitfx	data/sounds/beat2.wav
-	fastattack 1
-	attackone  1
+	fastattack	1
+	attackone	1
 	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
 	@cmd	hpgain -1
 	sound	data/sounds/punch2.wav
@@ -158,20 +167,95 @@ anim	follow1
 	frame	data/chars/beyond/grabs/fpov/1ryop12.gif #14
 	@cmd	hpgain -1
 	frame	data/chars/beyond/grabs/fpov/1ryop13.gif #15
-	#@cmd    keyint "ANI_FOLLOW2" 1 "A" 0 0 
 	frame	data/chars/beyond/grabs/fpov/1ryop14.gif
-	#@cmd    keyint "ANI_FOLLOW2" 1 "A" 0 0 
 	frame	data/chars/beyond/grabs/fpov/1ryop15.gif
-	#@cmd    keyint "ANI_FOLLOW2" 1 "A" 0 0 
 	frame	data/chars/beyond/grabs/fpov/1ryop16.gif
-	#@cmd    keyint "ANI_FOLLOW2" 1 "A" 0 0 
- 	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
-	#@cmd    keyint "ANI_FOLLOW2" 1 "A" 0 0 
+	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
 	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
 	@cmd	anichange "ANI_FOLLOW4"
 	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
-
-
+		
+anim	follow10
+	loop	1 3 5
+	delay	1
+	offset	250 270
+	bbox	0 0 0 0
+	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
+	@cmd	killgun 2 0
+	@cmd	spawnGun5 "temper2" 140 0 -155 3 "ANI_FOLLOW5"
+	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
+	frame	data/chars/beyond/grabs/fpov/1ryop00.gif #2
+	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
+	@cmd	hpgain -1
+	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
+	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
+	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
+	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
+		
+anim	follow15
+@script
+    if(frame==30){
+	jumptobranch("sadend2", 1);
+    }
+	@end_script	
+	loop	0
+	delay	11
+	offset	250 270
+	bbox	0 0 0 0
+	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif
+	@cmd	clearL
+	frame	data/chars/beyond/grabs/fpov/6ryodet02.gif
+	@cmd	killgun 3 0
+	@cmd	killgun 2 0
+	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif
+	sound	data/sounds/ryode.wav
+	frame	data/chars/beyond/grabs/fpov/6ryodet02.gif
+	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif #4
+	frame	data/chars/beyond/grabs/fpov/6ryodet02.gif
+	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif
+	frame	data/chars/beyond/grabs/fpov/6ryodet02.gif
+	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif
+	frame	data/chars/beyond/grabs/fpov/6ryodet02.gif
+	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif
+	frame	data/chars/beyond/grabs/fpov/6ryodet02.gif
+	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif
+	frame	data/chars/beyond/grabs/fpov/6ryodet02.gif
+	@cmd	looper 4 4
+	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif
+	delay	30
+	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif
+	@cmd	dasher 0 0 0.3
+	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif
+	delay	270
+	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif
+	delay	5
+	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif
+	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif
+	@cmd	stop
+	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif #20
+	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif
+	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif
+	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif
+	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif
+	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif
+	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif
+	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif
+	delay	400
+	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif
+	delay	5
+	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif
+	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif #30
+	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif
+	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif
+	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif
+	delay	50000
+	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif
+	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif
+	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif
+	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif
+	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif
+	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif
+		
 anim	follow2
 @script
 	void self = getlocalvar("self");
@@ -181,15 +265,15 @@ anim	follow2
 	changeentityproperty(self, "aggression", x-1);
 	changeentityproperty(self, "edelay", 0, x, 1, 22, 1, 22);
 	}
-@end_script
+	@end_script	
 	loop	0
 	delay	4
 	offset	260 270
 	bbox	0 0 0 0
-	hitflash Flash0
+	hitflash	Flash0
 	hitfx	data/sounds/beat2.wav
-	fastattack 1
-	attackone  1
+	fastattack	1
+	attackone	1
 	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
 	@cmd	hpgain 1
 	sound	data/sounds/punch2.wav
@@ -217,38 +301,14 @@ anim	follow2
 	@cmd	hpgain 1
 	frame	data/chars/beyond/grabs/fpov/2ryop12.gif #14
 	frame	data/chars/beyond/grabs/fpov/2ryop13.gif #15
-	#@cmd    keyint "ANI_FOLLOW1" 1 "A" 0 0
 	frame	data/chars/beyond/grabs/fpov/2ryop14.gif
-	#@cmd    keyint "ANI_FOLLOW1" 1 "A" 0 0 
 	frame	data/chars/beyond/grabs/fpov/2ryop15.gif
-	#@cmd    keyint "ANI_FOLLOW1" 1 "A" 0 0 
 	frame	data/chars/beyond/grabs/fpov/2ryop16.gif
-	#@cmd    keyint "ANI_FOLLOW1" 1 "A" 0 0
- 	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
-	#@cmd    keyint "ANI_FOLLOW1" 1 "A" 0 0
+	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
 	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
 	@cmd	anichange "ANI_FOLLOW4"
 	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
-
-
-anim	spawn
-	loop	0
-	delay	300
-	offset	250 270
-	bbox	0 0 0 0
-	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
-	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
-	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
-	delay	5
-	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
-	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
-	@cmd	beidle
-	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
-
-#-------------------------------------------------------------
-#--------------------//----2nd-GO-UPPERCUT---//---------------
-#-------------------------------------------------------------
-
+		
 anim	follow3
 	loop	1 3 15
 	delay	1
@@ -278,35 +338,25 @@ anim	follow3
 	frame	data/chars/beyond/grabs/fpov/1ryop00.gif #15
 	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
 	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
-
-
-anim	follow10
-	loop	1 3 5
-	delay	1
+		
+anim	follow4
+	loop	1
+	delay	5
 	offset	250 270
 	bbox	0 0 0 0
-	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
-	@cmd	killgun 2 0
-	@cmd	spawnGun5 "temper2" 140 0 -155 3 "ANI_FOLLOW5"
-	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
-	frame	data/chars/beyond/grabs/fpov/1ryop00.gif #2
-	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
-	@cmd	hpgain -1
+	@cmd	hpgain -2
 	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
 	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
-	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
-	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
-
-
+		
 anim	follow5
 	loop	0
 	delay	3
 	offset	250 270
 	bbox	0 0 0 0
-	hitflash Flash0
+	hitflash	Flash0
 	hitfx	data/sounds/beat2.wav
-	fastattack 1
-	attackone  1
+	fastattack	1
+	attackone	1
 	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
 	sound	data/sounds/punch2.wav
 	frame	data/chars/beyond/grabs/fpov/1ryop01.gif
@@ -337,25 +387,23 @@ anim	follow5
 	frame	data/chars/beyond/grabs/fpov/1ryop15.gif
 	frame	data/chars/beyond/grabs/fpov/1ryop16.gif
 	@cmd	hpgain -2
- 	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
+	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
 	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
 	@cmd	hpgain -2
 	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
 	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
 	@cmd	anichange "ANI_FOLLOW3"
 	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
-
-
-
+		
 anim	follow6
 	loop	0
 	delay	3
 	offset	260 270
 	bbox	0 0 0 0
-	hitflash Flash0
+	hitflash	Flash0
 	hitfx	data/sounds/beat2.wav
-	fastattack 1
-	attackone  1
+	fastattack	1
+	attackone	1
 	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
 	sound	data/sounds/punch2.wav
 	frame	data/chars/beyond/grabs/fpov/2ryop01.gif
@@ -377,33 +425,32 @@ anim	follow6
 	@cmd	hpgain -2
 	frame	data/chars/beyond/grabs/fpov/2ryop09.gif
 	frame	data/chars/beyond/grabs/fpov/2ryop10.gif
+	@cmd	hpgain -2
 	frame	data/chars/beyond/grabs/fpov/2ryop11.gif
 	frame	data/chars/beyond/grabs/fpov/2ryop12.gif
-	@cmd	hpgain -2 
 	frame	data/chars/beyond/grabs/fpov/2ryop13.gif #15
 	frame	data/chars/beyond/grabs/fpov/2ryop14.gif
 	@cmd	hpgain -2
 	frame	data/chars/beyond/grabs/fpov/2ryop15.gif
 	frame	data/chars/beyond/grabs/fpov/2ryop16.gif
 	@cmd	hpgain -2
- 	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
+	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
 	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
 	@cmd	hpgain -2
 	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
 	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
 	@cmd	anichange "ANI_FOLLOW3"
 	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
-
-
+		
 anim	follow7
 	loop	0
 	delay	2
 	offset	250 270
 	bbox	0 0 0 0
-	hitflash Flash0
+	hitflash	Flash0
 	hitfx	data/sounds/beat5.wav
-	fastattack 1
-	attackone  1
+	fastattack	1
+	attackone	1
 	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
 	sound	data/sounds/punch3.wav
 	frame	data/chars/beyond/grabs/fpov/5ryop01.gif
@@ -455,18 +502,16 @@ anim	follow7
 	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
 	@cmd	anichange "ANI_FOLLOW3"
 	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
-
-
-
+		
 anim	follow8
 	loop	0
 	delay	2
 	offset	260 270
 	bbox	0 0 0 0
-	hitflash Flash0
+	hitflash	Flash0
 	hitfx	data/sounds/beat5.wav
-	fastattack 1
-	attackone  1
+	fastattack	1
+	attackone	1
 	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
 	sound	data/sounds/punch3.wav
 	frame	data/chars/beyond/grabs/fpov/4ryop01.gif
@@ -518,17 +563,16 @@ anim	follow8
 	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
 	@cmd	anichange "ANI_FOLLOW3"
 	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
-
-
+		
 anim	follow9
 	loop	0
 	delay	6
 	offset	250 280
 	bbox	0 0 0 0
-	hitflash Flash0
+	hitflash	Flash0
 	hitfx	data/sounds/beat4.wav
-	fastattack 1
-	attackone  1
+	fastattack	1
+	attackone	1
 	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
 	sound	data/sounds/punch3.wav
 	frame	data/chars/beyond/grabs/fpov/3ryop01.gif
@@ -582,88 +626,7 @@ anim	follow9
 	frame	data/chars/beyond/grabs/fpov/3ryop18.gif
 	frame	data/chars/beyond/grabs/fpov/3ryop18.gif
 	frame	data/chars/beyond/grabs/fpov/3ryop18.gif
-
-
-#-------------------------//-----------//-------------------
-#-------------------------//-----------//-------------------
-
-
-
-#-------------------------//--------DIE------------//-------
-
-
-anim	follow15
-@script
-    if(frame==30){
-	jumptobranch("sadend2", 1);
-    }
-	@end_script
-	loop	0
-	delay	11
-	offset	250 270
-	bbox	0 0 0 0
-	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif
-	@cmd	clearL
-	frame	data/chars/beyond/grabs/fpov/6ryodet02.gif
-	@cmd	killgun 3 0
-	@cmd	killgun 2 0
-	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif
-	sound   data/sounds/ryode.wav
-	frame	data/chars/beyond/grabs/fpov/6ryodet02.gif
-	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif #4
-	frame	data/chars/beyond/grabs/fpov/6ryodet02.gif
-	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif
-	frame	data/chars/beyond/grabs/fpov/6ryodet02.gif
-	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif
-	frame	data/chars/beyond/grabs/fpov/6ryodet02.gif
-	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif
-	frame	data/chars/beyond/grabs/fpov/6ryodet02.gif
-	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif
-	frame	data/chars/beyond/grabs/fpov/6ryodet02.gif
-	@cmd	looper 4 4 
-	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif
-	delay	30
-	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif
-	@cmd	dasher 0 0 0.3
-	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif
-	delay	270
-	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif
-	delay	5
-	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif
-	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif
-	@cmd	stop
-	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif #20
-	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif
-	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif
-	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif
-	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif
-	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif
-	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif
-	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif
-	delay	400
-	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif
-	delay	5
-	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif
-	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif #30
-	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif
-	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif
-	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif
-	delay	50000
-	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif
-	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif
-	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif
-	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif
-	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif
-	frame	data/chars/beyond/grabs/fpov/6ryodet01.gif
-
-
-
-
-
-
-#-------------------------//---unsed---//-------------------
-#-------------------------//-----------//-------------------
-
+		
 anim	idle
 	loop	1
 	delay	5
@@ -671,16 +634,20 @@ anim	idle
 	bbox	0 0 0 0
 	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
 	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
-
-
-anim	death
+		
+anim	spawn
 	loop	0
-	delay	15
+	delay	300
 	offset	250 270
 	bbox	0 0 0 0
 	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
-	@cmd	clearL
 	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
-
-
-
+	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
+	delay	5
+	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
+	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
+	@cmd	beidle
+	frame	data/chars/beyond/grabs/fpov/1ryop00.gif
+		
+#|edited by openBor Stats v 0.53
+		

@@ -1,7 +1,7 @@
 name          sethwp3
 type          enemy
 aimove        Avoid
-health        800
+health        600
 speed         18
 nolife		1
 jumpheight    6
@@ -27,24 +27,29 @@ load		sethwp4
 
 palette		data/chars/beyond/3seth/mpal.gif
 
-		
-anim	death
-	loop	0
-	delay	50
+
+
+anim	backwalk
+	loop	1
+	delay	9
 	offset	108 189
-	bbox	0 0 0 0
-	frame	data/chars/beyond/3seth/fall4.gif
-	delay	12
-	frame	data/chars/beyond/3seth/rise1.gif
-	frame	data/chars/beyond/3seth/rise2.gif
-	delay	6
-	frame	data/chars/beyond/3seth/rise3.gif
-	@cmd	spawn01 "sethwp4" 0 0 0
-	frame	data/chars/beyond/3seth/rise3.gif
-
-
-
-
+	bbox	85 90 50 91
+	drawmethod	256 256 1 0 0 0 -1
+	frame	data/chars/beyond/3seth/run01.gif
+	@cmd	spawncounttype "morph" "count_enemies" 0 400 0 5
+	frame	data/chars/beyond/3seth/run02.gif
+	frame	data/chars/beyond/3seth/run03.gif
+	frame	data/chars/beyond/3seth/run04.gif
+	frame	data/chars/beyond/3seth/run05.gif
+	frame	data/chars/beyond/3seth/run06.gif
+	frame	data/chars/beyond/3seth/run01.gif
+	frame	data/chars/beyond/3seth/run02.gif
+	frame	data/chars/beyond/3seth/run03.gif
+	sound	data/sounds/seth1.wav
+	frame	data/chars/beyond/3seth/run04.gif
+	frame	data/chars/beyond/3seth/run05.gif
+	frame	data/chars/beyond/3seth/run06.gif
+		
 anim	burn
 	loop	0
 	delay	25
@@ -68,7 +73,20 @@ anim	burn
 	delay	20
 	sound	data/sounds/fall.wav
 	frame	data/chars/beyond/3seth/fall4.gif
-
+		
+anim	death
+	loop	0
+	delay	50
+	offset	108 189
+	bbox	0 0 0 0
+	frame	data/chars/beyond/3seth/fall4.gif
+	delay	12
+	frame	data/chars/beyond/3seth/rise1.gif
+	frame	data/chars/beyond/3seth/rise2.gif
+	delay	6
+	frame	data/chars/beyond/3seth/rise3.gif
+	@cmd	spawn01 "sethwp4" 0 0 0
+	frame	data/chars/beyond/3seth/rise3.gif
 		
 anim	fall
 	loop	0
@@ -115,7 +133,7 @@ anim	fall11
 	loop	0
 	delay	20
 	offset	108 189
-	bbox	61 185 90 5	
+	bbox	61 185 90 5
 	frame	data/chars/beyond/3seth/pain12.gif
 	delay	35
 	frame	data/chars/beyond/3seth/fall4.gif
@@ -124,10 +142,11 @@ anim	fall2
 	loop	0
 	delay	30
 	offset	108 189
-	bbox	0 0 0 0
+	bbox	85 90 50 75
 	attack	85 90 35 45 5 1 0 0 13 40
 	frame	data/chars/beyond/3seth/pain6.gif
 	delay	10
+	bbox	71 118 63 30
 	attack	64 125 55 25 5 1 0 0 13 40
 	frame	data/chars/beyond/3seth/fall2.gif
 	attack	0 0 0 0
@@ -241,7 +260,6 @@ anim	idle
 	@cmd	spawncounttype "morph" "count_enemies" 0 400 0 5
 	frame	data/chars/beyond/3seth/idle03.gif
 	frame	data/chars/beyond/3seth/idle03.gif
-
 		
 anim	jump
 	range	50 600
@@ -275,7 +293,6 @@ anim	pain
 	delay	40
 	offset	108 189
 	frame	data/chars/beyond/3seth/pain1.gif
-
 		
 anim	pain2
 	loop	0
@@ -422,29 +439,7 @@ anim	spawn
 	frame	data/chars/beyond/3seth/pain1.gif
 	frame	data/chars/beyond/3seth/pain0.gif
 	frame	data/chars/beyond/3seth/b01.gif
-
-anim	backwalk
-	loop	1
-	delay	9
-	offset	108 189
-	bbox	85 90 50 91
-	drawmethod 256 256 1 0 0 0 -1
-	frame	data/chars/beyond/3seth/run01.gif
-	@cmd	spawncounttype "morph" "count_enemies" 0 400 0 5
-	frame	data/chars/beyond/3seth/run02.gif
-	frame	data/chars/beyond/3seth/run03.gif
-	frame	data/chars/beyond/3seth/run04.gif
-	frame	data/chars/beyond/3seth/run05.gif
-	frame	data/chars/beyond/3seth/run06.gif
-	frame	data/chars/beyond/3seth/run01.gif
-	frame	data/chars/beyond/3seth/run02.gif
-	frame	data/chars/beyond/3seth/run03.gif
-	sound	data/sounds/seth1.wav
-	frame	data/chars/beyond/3seth/run04.gif
-	frame	data/chars/beyond/3seth/run05.gif
-	frame	data/chars/beyond/3seth/run06.gif
-
-
+		
 anim	turn
 	loop	0
 	delay	9
@@ -452,8 +447,6 @@ anim	turn
 	bbox	85 90 50 91
 	frame	data/chars/beyond/3seth/turn01.gif
 	frame	data/chars/beyond/3seth/turn02.gif
-
-
 		
 anim	walk
 	loop	1
@@ -474,8 +467,6 @@ anim	walk
 	frame	data/chars/beyond/3seth/run04.gif
 	frame	data/chars/beyond/3seth/run05.gif
 	frame	data/chars/beyond/3seth/run06.gif
-
-
 		
 #|edited by openBor Stats v 0.53
 		

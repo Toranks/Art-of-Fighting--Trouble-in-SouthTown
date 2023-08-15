@@ -3,9 +3,9 @@ type		none
 health		100
 mp		100
 mprate          1
-#speed		0
-#running	0
-#jumpheight	0
+
+
+
 nomove		1
 nodrop		2
 facing		1
@@ -23,10 +23,10 @@ candamage	enemy obstacle
 subject_to_platform 	0
 subject_to_obstacle 	0
 subject_to_hole 	0
-weapons		Ryobike FastRyo Ryobike2 Ryofall Ryobed1 Ryobed2 ryowtr ryovent mapcurs mrzero ryoturt
+weapons		Ryobike FastRyo Ryobike2 Ryofall ryowtr ryovent mapcurs mrzero ryoturt
 candamage	enemy
 icon		data/chars/1ryo/icon.gif
-atchain         1 1 1 1 1 1 1 1 1 1 1 2 0
+atchain         1 1 1 1 1 1 1 1 1 1 1 2
 combostyle	2
 
 
@@ -48,41 +48,145 @@ load	1pryo
 
 com	a2 	freespecial15
 
-anim	freespecial15
+
+
+anim	attack1
 	loop	0
-	delay	4
+	delay	8
 	offset	151 204
 	bbox	110 125 90 55 30
 	platform	20 320 0 0 260 260 140 100
+	sound	data/sounds/empty.wav
+	frame	data/chars/1ryo/turt/idle00.gif
 	frame	data/chars/1ryo/turt/idle01.gif
-	frame	data/chars/1ryo/turt/idle01.gif
-	@cmd	spawnAni3 "freewaytot" 250 1 140 "ANI_FOLLOW1"
-	frame	data/chars/1ryo/turt/idle01.gif
-	frame	data/chars/1ryo/turt/idle01.gif
-
-
-anim	spawn
-	loop	1
-	delay	200
+	frame	data/chars/1ryo/turt/idle02.gif
+	frame	data/chars/1ryo/turt/idle03.gif
+	frame	data/chars/1ryo/turt/idle04.gif
+		
+anim	attack2
+@script
+	void self = getlocalvar("self");
+        int ener = getentityproperty(self,"mp");
+	if((ener<40)&&(frame == 1)){
+     	performattack(self, openborconstant("ANI_ATTACK1"));
+	}
+	@end_script	
+	loop	0
+	delay	8
 	offset	151 204
-	bbox	110 50 80 130
-	counterrange 0 8 1 1
-     	followanim 10
-	frame	data/chars/1ryo/turt/spawn01.gif
-	delay	20
-	frame	data/chars/1ryo/turt/spawn02.gif
-	frame	data/chars/1ryo/turt/spawn03.gif
-	frame	data/chars/1ryo/turt/spawn02.gif
-	delay	200
-	frame	data/chars/1ryo/turt/spawn01.gif
-	delay	20
-	frame	data/chars/1ryo/turt/spawn02.gif
-	frame	data/chars/1ryo/turt/spawn03.gif
-	#@cmd	anichange "ANI_FOLLOW10"
-	frame	data/chars/1ryo/turt/spawn02.gif
-
-
-
+	bbox	110 125 90 55 30
+	platform	20 320 0 0 260 260 140 100
+	sound	data/sounds/empty.wav
+	frame	data/chars/1ryo/turt/idle00.gif
+	frame	data/chars/1ryo/turt/idle01.gif
+	frame	data/chars/1ryo/turt/charg01.gif
+	@cmd	mpgain -9
+	frame	data/chars/1ryo/turt/charg02.gif
+	@cmd	spawnGun5 "pw12" 10 50 1 2 "ANI_FOLLOW5"
+	@cmd	mpgain -9
+	frame	data/chars/1ryo/turt/charg01.gif
+	@cmd	mpgain -9
+	frame	data/chars/1ryo/turt/charg02.gif
+	@cmd	mpgain -9
+	attack	30 110 255 70 10 0 0 0 0 30
+	frame	data/chars/1ryo/turt/charg01.gif
+	frame	data/chars/1ryo/turt/charg02.gif
+	frame	data/chars/1ryo/turt/charg01.gif #8
+	frame	data/chars/1ryo/turt/charg02.gif
+	frame	data/chars/1ryo/turt/charg01.gif
+	@cmd	hpgain 2
+	frame	data/chars/1ryo/turt/charg02.gif
+	frame	data/chars/1ryo/turt/charg01.gif
+	frame	data/chars/1ryo/turt/charg02.gif
+	@cmd	looper 8 7
+	frame	data/chars/1ryo/turt/charg01.gif
+	attack	0 0 0 0
+	frame	data/chars/1ryo/turt/charg02.gif
+	frame	data/chars/1ryo/turt/idle04.gif
+	frame	data/chars/1ryo/turt/idle00.gif
+	@cmd	killgun 2 0
+	frame	data/chars/1ryo/turt/idle01.gif
+		
+anim	attackdown
+		
+anim	attackup
+		
+anim	block
+		
+anim	cant
+		
+anim	charge
+		
+anim	chargeattack
+	loop	0
+	delay	8
+	offset	151 204
+	bbox	110 125 90 55 30
+	platform	20 320 0 0 260 260 140 100
+	sound	data/sounds/empty.wav
+	frame	data/chars/1ryo/turt/idle00.gif
+	frame	data/chars/1ryo/turt/idle01.gif
+	frame	data/chars/1ryo/turt/idle02.gif
+	frame	data/chars/1ryo/turt/idle03.gif
+	frame	data/chars/1ryo/turt/idle04.gif
+		
+anim	death
+@script
+    if(frame==20){
+	jumptobranch("painst", 1);
+    }
+	@end_script	
+	loop	0
+	delay	15
+	offset	151 204
+	bbox	0 0 0 0
+	platform	20 320 0 0 260 260 140 100
+	frame	data/chars/1ryo/turt/idle01.gif
+	@cmd	killgun 2 0
+	delay	12
+	frame	data/chars/1ryo/turt/death01.gif
+	frame	data/chars/1ryo/turt/death02.gif
+	frame	data/chars/1ryo/turt/death03.gif
+	frame	data/chars/1ryo/turt/death04.gif # 4
+	frame	data/chars/1ryo/turt/death05.gif
+	frame	data/chars/1ryo/turt/death06.gif
+	frame	data/chars/1ryo/turt/death07.gif
+	frame	data/chars/1ryo/turt/death08.gif
+	frame	data/chars/1ryo/turt/death09.gif
+	frame	data/chars/1ryo/turt/death10.gif
+	@cmd	looper 4 20
+	frame	data/chars/1ryo/turt/death04.gif
+	frame	data/chars/1ryo/turt/death05.gif
+	frame	data/chars/1ryo/turt/death06.gif
+	frame	data/chars/1ryo/turt/death07.gif
+	frame	data/chars/1ryo/turt/death08.gif
+	frame	data/chars/1ryo/turt/death09.gif
+	frame	data/chars/1ryo/turt/death10.gif
+	frame	data/chars/1ryo/turt/death04.gif
+	frame	data/chars/1ryo/turt/death05.gif
+	frame	data/chars/1ryo/turt/death06.gif #20
+	frame	data/chars/1ryo/turt/death07.gif
+	frame	data/chars/1ryo/turt/death08.gif
+	frame	data/chars/1ryo/turt/death09.gif
+	frame	data/chars/1ryo/turt/death10.gif
+	frame	data/chars/1ryo/turt/death04.gif
+	frame	data/chars/1ryo/turt/death05.gif
+	frame	data/chars/1ryo/turt/death06.gif
+	frame	data/chars/1ryo/turt/death07.gif
+	frame	data/chars/1ryo/turt/death08.gif
+	frame	data/chars/1ryo/turt/death09.gif
+	frame	data/chars/1ryo/turt/death10.gif
+	delay	5000
+	frame	data/chars/1ryo/turt/death04.gif
+		
+anim	fall
+	loop	0
+	delay	10
+	offset	151 204
+	bbox	0 0 0 0
+	sound	data/sounds/empty.wav
+	frame	data/chars/1ryo/turt/idle01.gif
+		
 anim	follow10
 	loop	0
 	delay	150
@@ -104,7 +208,7 @@ anim	follow10
 	frame	data/chars/1ryo/turt/spawn04.gif
 	frame	data/chars/1ryo/turt/spawn04.gif
 	frame	data/chars/1ryo/turt/spawn04.gif
-	@cmd	looper 4 8 
+	@cmd	looper 4 8
 	frame	data/chars/1ryo/turt/spawn04.gif
 	delay	60
 	movez	0
@@ -130,7 +234,7 @@ anim	follow10
 	frame	data/chars/1ryo/turt/idle01.gif
 	frame	data/chars/1ryo/turt/idle01.gif
 	frame	data/chars/1ryo/turt/idle01.gif
-	@cmd	looper 20 11 
+	@cmd	looper 20 11
 	frame	data/chars/1ryo/turt/idle01.gif
 	move	0
 	sound	data/sounds/robot3.wav
@@ -146,95 +250,32 @@ anim	follow10
 	frame	data/chars/1ryo/turt/idle01.gif
 	@cmd	beidle
 	frame	data/chars/1ryo/turt/idle01.gif
-
-
-anim	chargeattack
+		
+anim	forwardjump
+		
+anim	freespecial15
 	loop	0
-	delay	8
+	delay	4
 	offset	151 204
 	bbox	110 125 90 55 30
 	platform	20 320 0 0 260 260 140 100
-	sound	data/sounds/empty.wav
-	frame	data/chars/1ryo/turt/idle00.gif
 	frame	data/chars/1ryo/turt/idle01.gif
-	frame	data/chars/1ryo/turt/idle02.gif
-	frame	data/chars/1ryo/turt/idle03.gif
-	frame	data/chars/1ryo/turt/idle04.gif
-
-anim	attack1
-	loop	0
-	delay	8
-	offset	151 204
-	bbox	110 125 90 55 30
-	platform	20 320 0 0 260 260 140 100
-	sound	data/sounds/empty.wav
-	frame	data/chars/1ryo/turt/idle00.gif
 	frame	data/chars/1ryo/turt/idle01.gif
-	frame	data/chars/1ryo/turt/idle02.gif
-	frame	data/chars/1ryo/turt/idle03.gif
-	frame	data/chars/1ryo/turt/idle04.gif
-
-
-anim	attack2
-@script
-	void self = getlocalvar("self");
-        int ener = getentityproperty(self,"mp");
-	if((ener<40)&&(frame == 1)){
-     	performattack(self, openborconstant("ANI_ATTACK1"));
-	}
-@end_script
-	loop	0
-	delay	8
-	offset	151 204
-	bbox	110 125 90 55 30
-	platform	20 320 0 0 260 260 140 100
-	sound	data/sounds/empty.wav
-	frame	data/chars/1ryo/turt/idle00.gif
+	@cmd	spawnAni3 "freewaytot" 250 1 140 "ANI_FOLLOW1"
 	frame	data/chars/1ryo/turt/idle01.gif
-	frame	data/chars/1ryo/turt/charg01.gif
-	@cmd	mpgain -9
-	frame	data/chars/1ryo/turt/charg02.gif
-	@cmd	spawnGun5 "pw12" 10 50 1 2 "ANI_FOLLOW5" 
-	@cmd	mpgain -9
-	frame	data/chars/1ryo/turt/charg01.gif
-	@cmd	mpgain -9
-	frame	data/chars/1ryo/turt/charg02.gif
-	@cmd	mpgain -9
-	attack	30 110 255 70 10 0 0 0 0 30
-	frame	data/chars/1ryo/turt/charg01.gif
-	frame	data/chars/1ryo/turt/charg02.gif
-	frame	data/chars/1ryo/turt/charg01.gif #8
-	frame	data/chars/1ryo/turt/charg02.gif
-	frame	data/chars/1ryo/turt/charg01.gif
-	@cmd	hpgain 2
-	frame	data/chars/1ryo/turt/charg02.gif
-	frame	data/chars/1ryo/turt/charg01.gif
-	frame	data/chars/1ryo/turt/charg02.gif
-	@cmd	looper 8 7
-	frame	data/chars/1ryo/turt/charg01.gif
-	attack	0 0 0 0
-	frame	data/chars/1ryo/turt/charg02.gif
-	frame	data/chars/1ryo/turt/idle04.gif
-	frame	data/chars/1ryo/turt/idle00.gif
-	@cmd	killgun 2 0
 	frame	data/chars/1ryo/turt/idle01.gif
-
-
-anim	fall
-	loop	0
-	delay	10
-	offset	151 204
-	bbox	0 0 0 0
-	sound	data/sounds/empty.wav
-	frame	data/chars/1ryo/turt/idle01.gif
-	
+		
+anim	get
+		
+anim	grab
+		
 anim	grabbed
 	loop	0
 	delay	100
 	offset	151 204
 	bbox	0 0 0 0
 	frame	data/chars/1ryo/turt/idle01.gif
-			
+		
 anim	idle
 	loop	1
 	delay	4
@@ -244,9 +285,10 @@ anim	idle
 	frame	data/chars/1ryo/turt/idle01.gif
 	@cmd	mpgain 1
 	frame	data/chars/1ryo/turt/idle01.gif
-
-anim	pain
-
+		
+anim	jump
+		
+		
 anim	pain2
 @script
 void self = getlocalvar("self");
@@ -255,17 +297,20 @@ int index = getentityproperty(self, "playerindex");
 	{
 	setglobalvar("1pch", 1);
 	}
-	if (frame == 30)
+	if (frame == 31)
 	{
+	setglobalvar("1pch", 1);
 	changeopenborvariant("nojoin", 0);
+	changeentityproperty(self, "model", "ryo", 1);
+	changeentityproperty(self, "defaultname", "ryo");
 	}
-@end_script
+	@end_script	
 	loop	0
 	delay	8
 	offset	151 204
 	bbox	0 0 0 0
-	jumpframe 19 4 0.5 -0.1
-	landframe 26 dust
+	jumpframe	19 4 0.5 -0.1
+	landframe	26 dust
 	platform	20 320 0 0 260 260 140 100
 	sound	data/sounds/empty.wav
 	frame	data/chars/1ryo/turt/idle00.gif
@@ -273,7 +318,7 @@ int index = getentityproperty(self, "playerindex");
 	frame	data/chars/1ryo/turt/charg01.gif
 	@cmd	mpgain -10
 	frame	data/chars/1ryo/turt/charg02.gif
-	@cmd	spawnGun5 "pw12" 10 50 1 2 "ANI_FOLLOW5" 
+	@cmd	spawnGun5 "pw12" 10 50 1 2 "ANI_FOLLOW5"
 	@cmd	mpgain -10
 	frame	data/chars/1ryo/turt/charg01.gif
 	@cmd	mpgain -10
@@ -327,17 +372,12 @@ int index = getentityproperty(self, "playerindex");
 	frame	data/chars/1ryo/turt/brk12.gif
 	@cmd	changeopenborvariant "slowmotion" 0
 	frame	data/chars/1ryo/turt/brk13.gif
-	@cmd	spawn01 "1pryo" -20 0 -30
 	frame	data/chars/1ryo/turt/brk14.gif #31
 	frame	data/chars/1ryo/turt/brk14.gif
 	frame	data/chars/1ryo/turt/brk14.gif
 	frame	data/chars/1ryo/turt/brk14.gif
-	#delay	1000
 	frame	data/chars/1ryo/turt/brk14.gif
-
-
-
-			
+		
 anim	rise
 	loop	0
 	delay	15
@@ -345,80 +385,31 @@ anim	rise
 	bbox	0 0 0 0
 	platform	20 320 0 0 260 260 140 100
 	frame	data/chars/1ryo/turt/idle01.gif
-
-
-anim	death
-@script
-    if(frame==20){
-	jumptobranch("painst", 1);
-    }
-	@end_script	
-	loop	0
-	delay	15
-	offset	151 204
-	bbox	0 0 0 0
-	platform	20 320 0 0 260 260 140 100
-	frame	data/chars/1ryo/turt/idle01.gif
-	@cmd	killgun 2 0
-	delay	12
-	frame	data/chars/1ryo/turt/death01.gif
-	frame	data/chars/1ryo/turt/death02.gif
-	frame	data/chars/1ryo/turt/death03.gif
-	frame	data/chars/1ryo/turt/death04.gif # 4
-	frame	data/chars/1ryo/turt/death05.gif
-	frame	data/chars/1ryo/turt/death06.gif
-	frame	data/chars/1ryo/turt/death07.gif
-	frame	data/chars/1ryo/turt/death08.gif
-	frame	data/chars/1ryo/turt/death09.gif
-	frame	data/chars/1ryo/turt/death10.gif
-	@cmd	looper 4 20
-	frame	data/chars/1ryo/turt/death04.gif
-	frame	data/chars/1ryo/turt/death05.gif
-	frame	data/chars/1ryo/turt/death06.gif
-	frame	data/chars/1ryo/turt/death07.gif
-	frame	data/chars/1ryo/turt/death08.gif
-	frame	data/chars/1ryo/turt/death09.gif
-	frame	data/chars/1ryo/turt/death10.gif
-	frame	data/chars/1ryo/turt/death04.gif
-	frame	data/chars/1ryo/turt/death05.gif
-	frame	data/chars/1ryo/turt/death06.gif #20
-	frame	data/chars/1ryo/turt/death07.gif
-	frame	data/chars/1ryo/turt/death08.gif
-	frame	data/chars/1ryo/turt/death09.gif
-	frame	data/chars/1ryo/turt/death10.gif
-	frame	data/chars/1ryo/turt/death04.gif
-	frame	data/chars/1ryo/turt/death05.gif
-	frame	data/chars/1ryo/turt/death06.gif
-	frame	data/chars/1ryo/turt/death07.gif
-	frame	data/chars/1ryo/turt/death08.gif
-	frame	data/chars/1ryo/turt/death09.gif
-	frame	data/chars/1ryo/turt/death10.gif
-	delay	5000
-	frame	data/chars/1ryo/turt/death04.gif
 		
-#-------------------------------------//---------------
-
-anim	walk
-
-anim	attackdown
-
-anim	attackup
-
-anim	block
-
-anim	cant
-
-anim	charge
-
-anim	forwardjump
-
-anim	jump
-
-anim	get
-
-anim	grab
-
 anim	run
-
+		
+anim	spawn
+	loop	1
+	delay	200
+	offset	151 204
+	bbox	110 50 80 130
+	counterrange	0 8 1 1
+	followanim	10
+	frame	data/chars/1ryo/turt/spawn01.gif
+	delay	20
+	frame	data/chars/1ryo/turt/spawn02.gif
+	frame	data/chars/1ryo/turt/spawn03.gif
+	frame	data/chars/1ryo/turt/spawn02.gif
+	delay	200
+	frame	data/chars/1ryo/turt/spawn01.gif
+	delay	20
+	frame	data/chars/1ryo/turt/spawn02.gif
+	frame	data/chars/1ryo/turt/spawn03.gif
+	frame	data/chars/1ryo/turt/spawn02.gif
+		
 anim	special
-
+		
+anim	walk
+		
+#|edited by openBor Stats v 0.53
+		

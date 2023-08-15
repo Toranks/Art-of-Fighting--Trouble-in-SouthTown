@@ -1,6 +1,6 @@
 name		kgnrobfall
 type		none
-health		180
+health		150
 mp		100
 speedf		2
 jumpmove	1 0
@@ -25,20 +25,24 @@ parrow2         data/chars/misc/flash/flash/player2.gif  -45 -130
 parrow3         data/chars/misc/flash/flash/player3.gif  -45 -130
 animationscript data/scripts/grabscript.c
 
-palette		data/chars/1robert/kgnrob/map1.gif
+palette		data/chars/1robert/kgnrob/mapal.gif
+alternatepal	data/chars/1robert/kgnrob/map2.gif
+alternatepal	data/chars/1robert/kgnrob/map3.gif
+alternatepal	data/chars/1robert/kgnrob/map4.gif
+alternatepal	data/chars/1robert/kgnrob/map5.gif
+alternatepal	data/chars/1robert/kgnrob/map6.gif
+alternatepal	data/chars/1robert/kgnrob/map7.gif
+alternatepal	data/chars/1robert/kgnrob/map1.gif
 
-alternatepal       data/chars/1robert/kgnrob/map2.gif
-alternatepal       data/chars/1robert/kgnrob/map3.gif
-alternatepal       data/chars/1robert/kgnrob/map4.gif
-alternatepal       data/chars/1robert/kgnrob/map5.gif
-alternatepal       data/chars/1robert/kgnrob/map6.gif
+
+
 
 
 anim	attack1
 	loop	0
 	delay	3
 	offset	135 182
-	bbox	114 87 45 72
+	bbox	114 80 45 72
 	fastattack	1
 	frame	data/chars/1robert/kgnrob/air/a01.gif
 	frame	data/chars/1robert/kgnrob/air/a02.gif
@@ -54,7 +58,7 @@ anim	attack2
 	loop	0
 	delay	5
 	offset	135 189
-	bbox	114 105 45 72
+	bbox	114 95 45 72
 	hitfx	data/sounds/beat5.wav
 	frame	data/chars/1robert/kgnrob/air/a07.gif
 	frame	data/chars/1robert/kgnrob/air/a08.gif
@@ -71,7 +75,7 @@ anim	attack3
 	loop	0
 	delay	6
 	offset	135 182
-	bbox	114 105 45 72
+	bbox	114 85 45 72
 	hitfx	data/sounds/beat5.wav
 	frame	data/chars/1robert/kgnrob/air/b23.gif
 	frame	data/chars/1robert/kgnrob/air/b24.gif
@@ -142,13 +146,17 @@ anim	block
 	loop	1 2 4
 	delay	8
 	offset	135 188
-	bbox	114 105 45 72
+	bbox	114 79 45 50
 	frame	data/chars/1robert/kgnrob/air/blk00.gif
 	frame	data/chars/1robert/kgnrob/air/blk01.gif
 	frame	data/chars/1robert/kgnrob/air/blk02.gif
 	frame	data/chars/1robert/kgnrob/air/blk03.gif
 	frame	data/chars/1robert/kgnrob/air/blk02.gif
 	frame	data/chars/1robert/kgnrob/air/blk03.gif
+		
+anim	charge
+		
+anim	chargeattack
 		
 anim	death
 	loop	0
@@ -184,9 +192,7 @@ anim	death
 	frame	data/chars/1robert/kgnrob/air/fall6.gif
 	frame	data/chars/1robert/kgnrob/air/fall7.gif
 	frame	data/chars/1robert/kgnrob/air/fall8.gif
-
-
-
+		
 anim	fall
 	loop	0
 	delay	50
@@ -200,9 +206,7 @@ anim	fall
 	delay	12
 	frame	data/chars/1robert/kgnrob/air/fall3.gif
 	frame	data/chars/1robert/kgnrob/air/fall3.gif
-
-
-
+		
 anim	fall7
 	delay	1000
 	offset	45 95
@@ -259,15 +263,12 @@ anim	fall7
 	offset	45 95
 	bbox	25 10 60 80
 	frame	data/chars/1robert/kgnrob/slambbox1.gif
-	bbox	0 0 0 0
-
-
 		
 anim	forwardjump
 	loop	1
 	delay	5
 	offset	135 188
-	bbox	114 105 45 60
+	bbox	114 105 45 55
 	frame	data/chars/1robert/kgnrob/air/b35.gif
 	frame	data/chars/1robert/kgnrob/air/ju03.gif
 	frame	data/chars/1robert/kgnrob/air/ju04.gif
@@ -331,6 +332,7 @@ anim	grabattack
 	frame	data/chars/1robert/kgnrob/air/hold1.gif
 		
 anim	grabattack2
+	attackone	0
 	loop	0
 	delay	9
 	offset	117 212
@@ -364,6 +366,7 @@ anim	grabattack2
 	frame	data/chars/1robert/kgnrob/air/ju05.gif
 		
 anim	grabbackward
+	attackone	0
 	loop	0
 	delay	15
 	offset	137 207
@@ -397,7 +400,7 @@ anim	grabbackward
 	frame	data/chars/1robert/kgnrob/air/grab14.gif
 	attack	0 0 0 0
 	@cmd	depost 0
-	@cmd	throw 65 1 2 1 5 1
+	@cmd	throw 50 1 2 1 5 1
 	frame	data/chars/1robert/kgnrob/air/grab15.gif
 	frame	data/chars/1robert/kgnrob/air/grab16.gif
 	@cmd	clearL
@@ -413,6 +416,8 @@ anim	grabbackward
 	@cmd	flip
 	frame	data/chars/1robert/kgnrob/air/ju00.gif
 		
+anim	grabdown
+		
 anim	grabforward
 	loop	0
 	delay	5
@@ -425,6 +430,7 @@ anim	grabforward
 	frame	data/chars/1robert/kgnrob/air/hold2.gif
 		
 anim	grabforward2
+	attackone	0
 	loop	0
 	delay	9
 	offset	117 212
@@ -457,8 +463,10 @@ anim	grabforward2
 	@cmd	keymove 1
 	frame	data/chars/1robert/kgnrob/air/ju05.gif
 		
+anim	grabup
+		
 anim	idle
-	loop	1 1 5 
+	loop	1 1 5
 	delay	7
 	offset	135 188
 	bbox	114 87 45 72
@@ -539,6 +547,14 @@ anim	jumpattack
 	frame	data/chars/1robert/kgnrob/air/juatk10.gif
 	frame	data/chars/1robert/kgnrob/air/juatk11.gif
 		
+anim	jumpattack2
+		
+anim	jumpattack3
+		
+anim	jumpdelay
+		
+anim	jumpforward
+		
 anim	jumpland
 	loop	0
 	delay	5
@@ -570,7 +586,7 @@ anim	pain2
 	frame	data/chars/1robert/kgnrob/air/pain3.gif
 		
 anim	respawn
-	loop	0 
+	loop	0
 	delay	7
 	offset	135 188
 	bbox	0 0 0 0
@@ -579,8 +595,7 @@ anim	respawn
 	frame	data/chars/1robert/kgnrob/air/ju02.gif
 	frame	data/chars/1robert/kgnrob/air/ju01.gif
 	frame	data/chars/1robert/kgnrob/air/ju02.gif
-
-
+		
 anim	rise
 	loop	0
 	delay	6
@@ -622,7 +637,7 @@ anim	runattack
 	frame	data/chars/1robert/kgnrob/air/runatk06.gif
 	frame	data/chars/1robert/kgnrob/air/runatk06.gif
 	frame	data/chars/1robert/kgnrob/air/runatk06.gif
-	attack	130 100 87 65 35 1 1 0 50 0
+	attack	130 100 87 65 20 1 1 0 50 0
 	dropv	1 2 3
 	frame	data/chars/1robert/kgnrob/air/runatk07.gif
 	frame	data/chars/1robert/kgnrob/air/runatk07.gif
@@ -650,7 +665,7 @@ anim	runattack
 	move	6
 	frame	data/chars/1robert/kgnrob/air/runatk12.gif
 	frame	data/chars/1robert/kgnrob/air/runatk12.gif
-	attack	130 80 87 48 13 1 1 0 50 0
+	attack	130 80 87 48 20 1 1 0 50 0
 	dropv	1 2 -3
 	frame	data/chars/1robert/kgnrob/air/runatk13.gif
 	frame	data/chars/1robert/kgnrob/air/runatk13.gif
@@ -666,7 +681,7 @@ anim	runjump
 	loop	1
 	delay	5
 	offset	135 188
-	bbox	114 85 45 48
+	bbox	114 100 45 48
 	frame	data/chars/1robert/kgnrob/air/b35.gif
 	frame	data/chars/1robert/kgnrob/air/ju03.gif
 	frame	data/chars/1robert/kgnrob/air/ju04.gif
@@ -731,6 +746,8 @@ anim	runjumpattack
 	frame	data/chars/1robert/kgnrob/air/juatk21.gif
 	frame	data/chars/1robert/kgnrob/air/juatk22.gif
 		
+anim	runslide
+		
 anim	spawn
 	loop	0
 	delay	5
@@ -777,28 +794,10 @@ anim	spawn
 	frame	data/chars/1robert/kgnrob/air/ju04.gif
 	frame	data/chars/1robert/kgnrob/air/ju03.gif
 	frame	data/chars/1robert/kgnrob/air/ju10.gif
-
-#------------------------------------//-----------------------------
-
-anim	charge
-		
-anim	chargeattack
-		
-anim	grabdown
-		
-anim	grabup
-		
-anim	jumpattack2
-		
-anim	jumpattack3
-		
-anim	jumpdelay
-		
-anim	jumpforward
-		
-anim	runslide
 		
 anim	special
 		
 anim	walk
+		
+#|edited by openBor Stats v 0.53
 		

@@ -27,193 +27,6 @@ load	temper2
 
 
 
-anim	spawn
-@script
-	void self = getlocalvar("self");
-	if(frame==0){
-	changelevelproperty("scrollspeed", 0);
-	}
-@end_script
-	loop	0
-	delay	20
-	offset	330 180
-	bbox	0 0 0 0
-	frame	data/chars/beyond/grabs/fpov/ov00.gif
-	@cmd	spawnGun2 "ovhand1" 30 0 380 1
-	frame	data/chars/beyond/grabs/fpov/ov00.gif
-	frame	data/chars/beyond/grabs/fpov/ovsp05.gif
-	sound	data/sounds/blink.wav
-	frame	data/chars/beyond/grabs/fpov/ovsp05.gif
-	frame	data/chars/beyond/grabs/fpov/ovsp04.gif
-	frame	data/chars/beyond/grabs/fpov/ovsp03.gif
-	frame	data/chars/beyond/grabs/fpov/ovsp02.gif
-	frame	data/chars/beyond/grabs/fpov/ovsp01.gif
-	frame	data/chars/beyond/grabs/fpov/ov01.gif
-	@cmd	anichange "ANI_FOLLOW1"
-	frame	data/chars/beyond/grabs/fpov/ov01.gif
-
-
-anim	follow1
-	loop	0
-	delay	12
-	offset	330 180
-	bbox	0 0 0 0
-	frame	data/chars/beyond/grabs/fpov/ov01.gif
-	@cmd	dasher 0 0 0.5
-	frame	data/chars/beyond/grabs/fpov/ov02.gif
-	frame	data/chars/beyond/grabs/fpov/ov01.gif
-	frame	data/chars/beyond/grabs/fpov/ov02.gif
-	frame	data/chars/beyond/grabs/fpov/ov01.gif
-	frame	data/chars/beyond/grabs/fpov/ov02.gif
-	frame	data/chars/beyond/grabs/fpov/ov01.gif
-	frame	data/chars/beyond/grabs/fpov/ov02.gif
-	frame	data/chars/beyond/grabs/fpov/ov01.gif
-	frame	data/chars/beyond/grabs/fpov/ov02.gif
-	frame	data/chars/beyond/grabs/fpov/ov01.gif
-	frame	data/chars/beyond/grabs/fpov/ov02.gif
-	frame	data/chars/beyond/grabs/fpov/ov01.gif
-	frame	data/chars/beyond/grabs/fpov/ov02.gif
-	frame	data/chars/beyond/grabs/fpov/ov01.gif
-	frame	data/chars/beyond/grabs/fpov/ov02.gif
-	frame	data/chars/beyond/grabs/fpov/ov01.gif
-	frame	data/chars/beyond/grabs/fpov/ov02.gif
-	frame	data/chars/beyond/grabs/fpov/ov01.gif
-	frame	data/chars/beyond/grabs/fpov/ov02.gif
-	frame	data/chars/beyond/grabs/fpov/ov01.gif
-	frame	data/chars/beyond/grabs/fpov/ov02.gif
-	frame	data/chars/beyond/grabs/fpov/ov01.gif
-	frame	data/chars/beyond/grabs/fpov/ov02.gif
-	frame	data/chars/beyond/grabs/fpov/ov01.gif
-	frame	data/chars/beyond/grabs/fpov/ov02.gif
-	frame	data/chars/beyond/grabs/fpov/ov01.gif
-	frame	data/chars/beyond/grabs/fpov/ov02.gif
-	frame	data/chars/beyond/grabs/fpov/ov01.gif
-	frame	data/chars/beyond/grabs/fpov/ov02.gif
-	frame	data/chars/beyond/grabs/fpov/ov01.gif
-	@cmd	stop
-	frame	data/chars/beyond/grabs/fpov/ov02.gif
-	frame	data/chars/beyond/grabs/fpov/ov01.gif
-	frame	data/chars/beyond/grabs/fpov/ov02.gif
-	frame	data/chars/beyond/grabs/fpov/ov01.gif
-	frame	data/chars/beyond/grabs/fpov/ov02.gif
-	frame	data/chars/beyond/grabs/fpov/ov01.gif
-	frame	data/chars/beyond/grabs/fpov/ov02.gif
-	#@cmd	spawnGun8 "temper2" 140 0 -55 2 "ANI_FOLLOW5"
-	frame	data/chars/beyond/grabs/fpov/ov01.gif
-	@cmd	spawnGun8 "inryo1" 0 0 100 3 "ANI_FOLLOW3"
-	frame	data/chars/beyond/grabs/fpov/ov02.gif
-	@cmd	beidle
-	frame	data/chars/beyond/grabs/fpov/ov01.gif
-
-anim	idle
-	loop	1
-	delay	12
-	offset	330 180
-	bbox	265 405 120 110 800
-	frame	data/chars/beyond/grabs/fpov/ov01.gif
-	@cmd	clearL
-	frame	data/chars/beyond/grabs/fpov/ov02.gif
-	frame	data/chars/beyond/grabs/fpov/ov01.gif
-	frame	data/chars/beyond/grabs/fpov/ov02.gif
-
-anim	pain1
-	loop	0
-	delay	9
-	offset	330 180
-	bbox	280 405 100 100 500
-	frame	data/chars/beyond/grabs/fpov/pain1.gif
-	frame	data/chars/beyond/grabs/fpov/pain2.gif
-	frame	data/chars/beyond/grabs/fpov/pain1.gif
-	@cmd	beidle
-	frame	data/chars/beyond/grabs/fpov/pain1.gif
-
-anim	pain2
-	loop	0
-	delay	5
-	offset	330 180
-	bbox	280 405 100 100 500
-	frame	data/chars/beyond/grabs/fpov/pain3.gif
-	frame	data/chars/beyond/grabs/fpov/pain4.gif
-	frame	data/chars/beyond/grabs/fpov/pain3.gif
-	@cmd	beidle
-	frame	data/chars/beyond/grabs/fpov/pain3.gif
-
-
-
-anim	pain3
-@script
-	void self = getlocalvar("self");
-	void ov = getentityproperty(self,"parent");
-if (frame == 36){
-	playgif( "data/scenes/5final2/upper1.gif" , 0, 0, 1);
-	playgif( "data/scenes/5final2/upper2.gif" , 0, 0, 1);
-	playgif( "data/scenes/5final2/upper3.gif" , 0, 0, 1);
-	changelevelproperty("scrollspeed", 1);
-     	performattack(ov, openborconstant("ANI_FOLLOW17"));
-    	killentity(self);
-	}
-@end_script
-	loop	0
-	delay	6
-	offset	330 180
-	bbox	280 405 100 100 500
-	frame	data/chars/beyond/grabs/fpov/pain5.gif
-	@cmd	killgun 1 0
-	frame	data/chars/beyond/grabs/fpov/pain6.gif
-	frame	data/chars/beyond/grabs/fpov/pain5.gif
-	frame	data/chars/beyond/grabs/fpov/pain6.gif
-	frame	data/chars/beyond/grabs/fpov/pain5.gif
-	frame	data/chars/beyond/grabs/fpov/pain6.gif
-	frame	data/chars/beyond/grabs/fpov/pain5.gif
-	frame	data/chars/beyond/grabs/fpov/pain6.gif
-	frame	data/chars/beyond/grabs/fpov/pain5.gif
-	frame	data/chars/beyond/grabs/fpov/pain6.gif
-	frame	data/chars/beyond/grabs/fpov/pain5.gif
-	frame	data/chars/beyond/grabs/fpov/pain6.gif
-	sound	data/sounds/overlord04.wav
-	frame	data/chars/beyond/grabs/fpov/pain5.gif
-	frame	data/chars/beyond/grabs/fpov/pain6.gif
-	frame	data/chars/beyond/grabs/fpov/pain5.gif
-	frame	data/chars/beyond/grabs/fpov/pain6.gif
-	frame	data/chars/beyond/grabs/fpov/pain5.gif
-	frame	data/chars/beyond/grabs/fpov/pain6.gif
-	frame	data/chars/beyond/grabs/fpov/pain5.gif
-	frame	data/chars/beyond/grabs/fpov/pain6.gif
-	frame	data/chars/beyond/grabs/fpov/pain5.gif
-	@cmd	dasher 0 0 -1.5 
-	frame	data/chars/beyond/grabs/fpov/pain6.gif
-	frame	data/chars/beyond/grabs/fpov/pain5.gif
-	frame	data/chars/beyond/grabs/fpov/pain6.gif
-	frame	data/chars/beyond/grabs/fpov/pain5.gif
-	frame	data/chars/beyond/grabs/fpov/pain6.gif
-	frame	data/chars/beyond/grabs/fpov/pain5.gif
-	frame	data/chars/beyond/grabs/fpov/pain6.gif
-	frame	data/chars/beyond/grabs/fpov/pain5.gif
-	frame	data/chars/beyond/grabs/fpov/pain6.gif
-	frame	data/chars/beyond/grabs/fpov/pain5.gif
-	frame	data/chars/beyond/grabs/fpov/pain6.gif
-	frame	data/chars/beyond/grabs/fpov/pain5.gif
-	frame	data/chars/beyond/grabs/fpov/pain6.gif
-	delay	5
-	frame	data/chars/beyond/grabs/fpov/pain5.gif
-	@cmd	killgun 3 0
-	sound	data/sounds/ryoupper.wav
-	frame	data/chars/beyond/grabs/fpov/pain6.gif #35
-	@cmd	stop
-	frame	data/chars/beyond/grabs/fpov/pain5.gif
-	frame	data/chars/beyond/grabs/fpov/pain6.gif
-	frame	data/chars/beyond/grabs/fpov/pain5.gif
-	frame	data/chars/beyond/grabs/fpov/pain6.gif
-	frame	data/chars/beyond/grabs/fpov/pain5.gif
-	frame	data/chars/beyond/grabs/fpov/pain6.gif
-	delay	5000
-	frame	data/chars/beyond/grabs/fpov/pain5.gif
-	frame	data/chars/beyond/grabs/fpov/pain6.gif
-	frame	data/chars/beyond/grabs/fpov/pain5.gif
-	frame	data/chars/beyond/grabs/fpov/pain6.gif
-	frame	data/chars/beyond/grabs/fpov/pain5.gif
-	frame	data/chars/beyond/grabs/fpov/pain6.gif
-
 
 
 anim	death
@@ -278,22 +91,203 @@ anim	death
 	frame	data/chars/beyond/grabs/fpov/ov00.gif
 	frame	data/chars/beyond/grabs/fpov/ov00.gif
 	frame	data/chars/beyond/grabs/fpov/ov00.gif
-
-
-
+		
 anim	fall
 	loop	0
 	delay	5
 	offset	330 180
 	bbox	0 0 0 0
 	frame	data/bgs/beyond/lvl20/empty.gif
-
+		
+anim	follow1
+	loop	0
+	delay	12
+	offset	330 180
+	bbox	0 0 0 0
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	@cmd	dasher 0 0 0.5
+	frame	data/chars/beyond/grabs/fpov/ov02.gif
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	frame	data/chars/beyond/grabs/fpov/ov02.gif
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	frame	data/chars/beyond/grabs/fpov/ov02.gif
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	frame	data/chars/beyond/grabs/fpov/ov02.gif
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	frame	data/chars/beyond/grabs/fpov/ov02.gif
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	frame	data/chars/beyond/grabs/fpov/ov02.gif
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	frame	data/chars/beyond/grabs/fpov/ov02.gif
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	frame	data/chars/beyond/grabs/fpov/ov02.gif
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	frame	data/chars/beyond/grabs/fpov/ov02.gif
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	frame	data/chars/beyond/grabs/fpov/ov02.gif
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	frame	data/chars/beyond/grabs/fpov/ov02.gif
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	frame	data/chars/beyond/grabs/fpov/ov02.gif
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	frame	data/chars/beyond/grabs/fpov/ov02.gif
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	frame	data/chars/beyond/grabs/fpov/ov02.gif
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	frame	data/chars/beyond/grabs/fpov/ov02.gif
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	@cmd	stop
+	frame	data/chars/beyond/grabs/fpov/ov02.gif
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	frame	data/chars/beyond/grabs/fpov/ov02.gif
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	frame	data/chars/beyond/grabs/fpov/ov02.gif
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	frame	data/chars/beyond/grabs/fpov/ov02.gif
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	@cmd	spawnGun8 "inryo1" 0 0 100 3 "ANI_FOLLOW3"
+	frame	data/chars/beyond/grabs/fpov/ov02.gif
+	@cmd	beidle
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+		
+anim	idle
+	loop	1
+	delay	12
+	offset	330 180
+	bbox	265 405 120 110 800
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	@cmd	clearL
+	frame	data/chars/beyond/grabs/fpov/ov02.gif
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	frame	data/chars/beyond/grabs/fpov/ov02.gif
+		
+anim	pain1
+	loop	0
+	delay	9
+	offset	330 180
+	bbox	280 405 100 100 500
+	frame	data/chars/beyond/grabs/fpov/pain1.gif
+	frame	data/chars/beyond/grabs/fpov/pain2.gif
+	frame	data/chars/beyond/grabs/fpov/pain1.gif
+	@cmd	beidle
+	frame	data/chars/beyond/grabs/fpov/pain1.gif
+		
+anim	pain2
+	loop	0
+	delay	5
+	offset	330 180
+	bbox	280 405 100 100 500
+	frame	data/chars/beyond/grabs/fpov/pain3.gif
+	frame	data/chars/beyond/grabs/fpov/pain4.gif
+	frame	data/chars/beyond/grabs/fpov/pain3.gif
+	@cmd	beidle
+	frame	data/chars/beyond/grabs/fpov/pain3.gif
+		
+anim	pain3
+@script
+	void self = getlocalvar("self");
+	void ov = getentityproperty(self,"parent");
+if (frame == 36){
+	playgif( "data/scenes/5final2/upper1.gif" , 0, 0, 1);
+	playgif( "data/scenes/5final2/upper2.gif" , 0, 0, 1);
+	playgif( "data/scenes/5final2/upper3.gif" , 0, 0, 1);
+	changelevelproperty("scrollspeed", 1);
+     	performattack(ov, openborconstant("ANI_FOLLOW17"));
+    	killentity(self);
+	}
+	@end_script	
+	loop	0
+	delay	6
+	offset	330 180
+	bbox	280 405 100 100 500
+	frame	data/chars/beyond/grabs/fpov/pain5.gif
+	@cmd	killgun 1 0
+	frame	data/chars/beyond/grabs/fpov/pain6.gif
+	frame	data/chars/beyond/grabs/fpov/pain5.gif
+	frame	data/chars/beyond/grabs/fpov/pain6.gif
+	frame	data/chars/beyond/grabs/fpov/pain5.gif
+	frame	data/chars/beyond/grabs/fpov/pain6.gif
+	frame	data/chars/beyond/grabs/fpov/pain5.gif
+	frame	data/chars/beyond/grabs/fpov/pain6.gif
+	frame	data/chars/beyond/grabs/fpov/pain5.gif
+	frame	data/chars/beyond/grabs/fpov/pain6.gif
+	frame	data/chars/beyond/grabs/fpov/pain5.gif
+	frame	data/chars/beyond/grabs/fpov/pain6.gif
+	sound	data/sounds/overlord04.wav
+	frame	data/chars/beyond/grabs/fpov/pain5.gif
+	frame	data/chars/beyond/grabs/fpov/pain6.gif
+	frame	data/chars/beyond/grabs/fpov/pain5.gif
+	frame	data/chars/beyond/grabs/fpov/pain6.gif
+	frame	data/chars/beyond/grabs/fpov/pain5.gif
+	frame	data/chars/beyond/grabs/fpov/pain6.gif
+	frame	data/chars/beyond/grabs/fpov/pain5.gif
+	frame	data/chars/beyond/grabs/fpov/pain6.gif
+	frame	data/chars/beyond/grabs/fpov/pain5.gif
+	@cmd	dasher 0 0 -1.5
+	frame	data/chars/beyond/grabs/fpov/pain6.gif
+	frame	data/chars/beyond/grabs/fpov/pain5.gif
+	frame	data/chars/beyond/grabs/fpov/pain6.gif
+	frame	data/chars/beyond/grabs/fpov/pain5.gif
+	frame	data/chars/beyond/grabs/fpov/pain6.gif
+	frame	data/chars/beyond/grabs/fpov/pain5.gif
+	frame	data/chars/beyond/grabs/fpov/pain6.gif
+	frame	data/chars/beyond/grabs/fpov/pain5.gif
+	frame	data/chars/beyond/grabs/fpov/pain6.gif
+	frame	data/chars/beyond/grabs/fpov/pain5.gif
+	frame	data/chars/beyond/grabs/fpov/pain6.gif
+	frame	data/chars/beyond/grabs/fpov/pain5.gif
+	frame	data/chars/beyond/grabs/fpov/pain6.gif
+	delay	5
+	frame	data/chars/beyond/grabs/fpov/pain5.gif
+	@cmd	killgun 3 0
+	sound	data/sounds/ryoupper.wav
+	frame	data/chars/beyond/grabs/fpov/pain6.gif #35
+	@cmd	stop
+	frame	data/bgs/beyond/lvl20/empty.gif
+	frame	data/bgs/beyond/lvl20/empty.gif
+	frame	data/bgs/beyond/lvl20/empty.gif
+	frame	data/bgs/beyond/lvl20/empty.gif
+	frame	data/bgs/beyond/lvl20/empty.gif
+	frame	data/bgs/beyond/lvl20/empty.gif
+	delay	5000
+	frame	data/bgs/beyond/lvl20/empty.gif
+	frame	data/bgs/beyond/lvl20/empty.gif
+	frame	data/bgs/beyond/lvl20/empty.gif
+	frame	data/bgs/beyond/lvl20/empty.gif
+	frame	data/bgs/beyond/lvl20/empty.gif
+	frame	data/bgs/beyond/lvl20/empty.gif
+		
 anim	rise
 	loop	0
 	delay	5
 	offset	295 570
 	bbox	0 0 0 0
 	frame	data/bgs/beyond/lvl20/empty.gif
-
-
-
+		
+anim	spawn
+@script
+	void self = getlocalvar("self");
+	if(frame==0){
+	changelevelproperty("scrollspeed", 0);
+	}
+	@end_script	
+	loop	0
+	delay	20
+	offset	330 180
+	bbox	0 0 0 0
+	frame	data/chars/beyond/grabs/fpov/ov00.gif
+	@cmd	spawnGun2 "ovhand1" 30 0 380 1
+	frame	data/chars/beyond/grabs/fpov/ov00.gif
+	frame	data/chars/beyond/grabs/fpov/ovsp05.gif
+	sound	data/sounds/blink.wav
+	frame	data/chars/beyond/grabs/fpov/ovsp05.gif
+	frame	data/chars/beyond/grabs/fpov/ovsp04.gif
+	frame	data/chars/beyond/grabs/fpov/ovsp03.gif
+	frame	data/chars/beyond/grabs/fpov/ovsp02.gif
+	frame	data/chars/beyond/grabs/fpov/ovsp01.gif
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	@cmd	anichange "ANI_FOLLOW1"
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+		
+#|edited by openBor Stats v 0.53
+		

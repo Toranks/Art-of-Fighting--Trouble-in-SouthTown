@@ -1,0 +1,743 @@
+music		data/music/mrkbyo1.ogg
+
+background	data/bgs/beyond/lvl9/back.gif 1 1
+layer		data/bgs/beyond/lvl15/back2.gif -6000 0.5 0.5 0 40 0 0 -1 1 1 0 0 0 0 0 0
+layer		data/bgs/beyond/lvl15/filter.gif -3000 0 0 -10 -10 0 0 -1 2 1 1 0 0 0 0 2.5
+layer		data/bgs/beyond/lvl15/ship1.gif -4000 0 0 0 130 0 0 -1 2 1 0 0 0 0 0 -8
+layer		data/bgs/beyond/lvl15/ship2.gif -4000 0 0 0 230 0 0 -1 2 1 0 0 0 0 0 8
+layer		data/bgs/beyond/lvl15/back3.gif -1000 0.2 0 0 500 60 0 -1 1 1 0 0 0 0 0 0
+layer		data/bgs/beyond/lvl15/back4.gif -2000 0.3 0 0 0 0 0 -1 2 1 0 0 0 0 0 0
+layer		data/bgs/beyond/lvl15/lbit.gif -500 0 0 675 810 0 0 1 1 1 1 0 0 0 0 0
+panel		data/bgs/beyond/lvl15/panel.gif
+fglayer		data/bgs/beyond/lvl15/glass.gif 2000 0 0 0 -4 0 0 1 1 1 1 0 0 0 0 0
+fglayer		data/bgs/beyond/lvl15/front1.gif 3000 0 0 0 -4 0 0 1 1 1 0 0 0 0 0 0
+fglayer		data/bgs/beyond/lvl15/front2.gif 4000 -1.1 0 1800 800 200 0 9 1 1 0 0 0 0 0 0
+fglayer		data/bgs/beyond/lvl15/light1.gif 2000 0 0 -10 710 0 0 1 1 1 1 0 0 0 0 0
+fglayer		data/bgs/beyond/lvl15/smoke.gif 5000 0 0 970 0 0 0 5 1 1 1 1 25 55 0.8
+
+
+
+
+direction       leftright
+light  		-155   55
+at       	0
+settime         0
+notime          1
+noslow          1
+order		a
+spawn1  	105 20
+spawn2  	110 20
+spawn3  	115 20
+
+bgspeed			1
+cameraoffset            0 -90
+cameratype              1
+
+#----------------------
+wall    6530 1100  0 120 1100 1220 120 680
+wall    5120 1100  0 120 1420 1540 120 340
+#wall    950 1100  -230 -110 4400 4520 120 1
+#wall    -20 1290  0 0 900 900 320 1
+wall    870 1285  0 0 6950 6950 220 5000
+wall    -110 1040  0 0 320 160 80 5000
+wall    -60 1140  0 0 110 110 110 5000
+wall    -75 1235  0 0 0 300 220 5000
+
+
+#----------------------------------
+spawn   stgSET8
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW8"));
+} @end_script
+coords  -470 515 350
+at      0
+#----------------------------------
+
+#----------------------------------
+
+spawn   tubeplat
+coords  -506 1096 679
+at      0
+
+spawn   tubeplat
+coords  -1915 1096 339
+at      0
+#--------//--roof----------//----
+
+spawn   tubeplat
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW5"));
+} @end_script
+coords  -800 1096 860
+at      0
+
+spawn   tubeplat
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW5"));
+} @end_script
+coords  -5030 1096 520
+at      0
+
+spawn   tubeplat
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW6"));
+} @end_script
+coords  -6420 1096 176
+at      0
+
+#------------------//------------
+
+spawn   source
+item    orb
+coords  -30 1015 681
+at      0
+
+spawn   source
+item    herb
+coords  -1360 1015 341
+at      0
+
+spawn   source
+item    fluid
+coords  -2420 1015 2
+at      0
+
+spawn   source
+item    crystal
+coords  -3380 1015 2
+at      0
+
+spawn   source
+item    fluid
+coords  -4330 1015 2
+at      0
+
+spawn   source
+item    byogem
+coords  -5300 1015 2
+at      0
+
+spawn   byocont
+map     2
+item    testla
+coords  -6390 1000 2
+at      0
+
+spawn   byocont
+map     2
+item    cell
+coords  -6790 1000 2
+at      0
+
+spawn   byocont3
+map     1
+item    orb
+coords  -6740 1170 2
+at      0
+
+spawn   byocont3
+map     1
+item    orb
+coords  -6300 1170 2
+at      0
+
+#------------------//------------
+spawn   byodoor1
+coords  -6090 988 1
+at      0
+
+#---------------------------
+#------------------------------
+
+group   2 2
+at      250
+wait
+at      250
+
+spawn   morph
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW11"));
+} @end_script
+flip    1
+coords  60 1030 900
+at      250
+
+spawn   ghost1
+coords  15 2550
+coords  250 1030 682
+at      250
+
+spawn   sylo2
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+coords  550 1030 682
+at      250
+
+spawn   morph
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW11"));
+} @end_script
+map     2
+coords  435 1030 900
+at      250
+
+spawn   sylo2
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+flip    1
+coords  -70 1030 682
+at      250
+
+#------------------------------
+blockade 300
+at      1200
+
+#------------------------------
+
+group   2 2
+at      1200
+wait
+at      1200
+
+spawn   morph
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW11"));
+} @end_script
+map     3
+flip    1
+coords  205 1030 900
+at      1200
+
+spawn   ghost1
+coords  15 2550
+coords  250 1030 342
+at      1200
+
+spawn   morph
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW11"));
+} @end_script
+map     4
+coords  215 1030 700
+at      1200
+
+#------------------------------
+
+blockade 1300
+at      1700
+
+#------------------------------
+group   2 2
+at      1700
+wait
+at      1700
+
+spawn   sylo2
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+flip    1
+map     1
+coords  -70 1030 342
+at      1700
+
+spawn   sylo2
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+map     1
+coords  550 1030 342
+at      1700
+
+spawn   sylo2
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+flip    1
+map     2
+item	chargemp
+coords  -70 1030 342
+at      1700
+
+spawn   morph
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW11"));
+} @end_script
+map     1
+flip    1
+coords  215 1030 700
+at      1700
+
+spawn   morph
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW11"));
+} @end_script
+map     2
+coords  225 1030 700
+at      1700
+
+#------------------------------
+
+blockade 1800
+at      2300
+
+#------------------//------------
+
+
+blockade 2550
+at      2700
+
+#------------------------------
+scrollx  3900  4100
+at  2700
+#------------------------------
+
+group  2 2
+at     2750
+
+spawn   graynose
+@script void main() {
+    void self = getlocalvar("self"); //Get calling entity.
+    int x = getentityproperty(self,"x"); //Get character's x coordinate
+    int XPos = openborvariant("xpos");
+    changeentityproperty(self, "position", x - XPos);
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW11"));
+} @end_script
+map     6
+coords  4485 1035 380
+at      2750
+
+spawn   morph
+map     6
+flip    1
+item	chargemp
+coords  -20 1035 2
+at      2750
+
+spawn   morph
+map     5
+coords  300 1035 2
+at      2750
+
+spawn   graynose
+@script void main() {
+    void self = getlocalvar("self"); //Get calling entity.
+    int x = getentityproperty(self,"x"); //Get character's x coordinate
+    int XPos = openborvariant("xpos");
+    changeentityproperty(self, "position", x - XPos);
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW11"));
+} @end_script
+map     6
+flip    1
+coords  3970 1035 380
+at      2750
+
+#---------------------------------------
+
+group  4 4
+at     2750
+
+spawn   sylo
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+map     4
+coords  -150 1035 2
+at      2750
+
+spawn   sylo2
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+map     2
+coords  -100 1035 2
+at      2750
+
+spawn   sylo
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+map     5
+item	chargemp
+coords  600 1035 2
+at      2750
+
+spawn   sylo2
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+map     2
+coords  550 1035 2
+at      2750
+
+
+spawn   morph
+@script void main() {
+    void self = getlocalvar("self"); //Get calling entity.
+    int x = getentityproperty(self,"x"); //Get character's x coordinate
+    int XPos = openborvariant("xpos");
+    changeentityproperty(self, "position", x - XPos);
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW11"));
+} @end_script
+map     6
+coords  4485 1035 380
+at      2750
+
+
+
+spawn   morph
+@script void main() {
+    void self = getlocalvar("self"); //Get calling entity.
+    int x = getentityproperty(self,"x"); //Get character's x coordinate
+    int XPos = openborvariant("xpos");
+    changeentityproperty(self, "position", x - XPos);
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW11"));
+} @end_script
+map     6
+flip    1
+coords  3980 1035 380
+at      2750
+
+spawn   sylo
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+item	chargemp
+coords  -150 1035 2
+at      2750
+
+spawn   sylo2
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+coords  -100 1035 2
+at      2750
+
+spawn   sylo
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+coords  600 1035 2
+at      2750
+
+spawn   sylo2
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+coords  550 1035 2
+at      2750
+
+
+spawn   morph
+@script void main() {
+    void self = getlocalvar("self"); //Get calling entity.
+    int x = getentityproperty(self,"x"); //Get character's x coordinate
+    int XPos = openborvariant("xpos");
+    changeentityproperty(self, "position", x - XPos);
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW11"));
+} @end_script
+map     1
+item	chargemp
+coords  4485 1035 380
+at      2750
+
+
+
+spawn   morph
+@script void main() {
+    void self = getlocalvar("self"); //Get calling entity.
+    int x = getentityproperty(self,"x"); //Get character's x coordinate
+    int XPos = openborvariant("xpos");
+    changeentityproperty(self, "position", x - XPos);
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW11"));
+} @end_script
+map     2
+flip    1
+coords  3980 1035 380
+at      2750
+
+
+#------------------------------
+group  1 1
+at      2750
+
+spawn   ghosttime
+health  5
+coords  550 1035 2
+at      2750
+
+#------------------------------
+
+scrollx  3400  3600
+at  3120
+#------------------------------
+
+group  1 1
+at  3000
+
+
+spawn   sylo2
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+flip    1
+coords  750 1035 2
+at      3000
+
+spawn   ghosttime
+health  5
+coords  550 1035 2
+at      3000
+
+#------------------//------------
+
+group  3 3
+at  3000
+
+spawn   sylo2
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+coords  -100 1035 2
+at      3000
+
+spawn   sylo
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+map     1
+coords  600 1035 2
+at      3000
+
+spawn   sylo2
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+map     1
+coords  550 1035 2
+at      3000
+
+group  1 1
+at  3000
+
+spawn   ghosttime
+health  5
+coords  550 1035 2
+at      3000
+
+
+spawn   morph
+@script void main() {
+    void self = getlocalvar("self"); //Get calling entity.
+    int x = getentityproperty(self,"x"); //Get character's x coordinate
+    int XPos = openborvariant("xpos");
+    changeentityproperty(self, "position", x - XPos);
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW11"));
+} @end_script
+map     2
+item	chargemp
+flip    1
+coords  3500 1035 380
+at      3000
+
+spawn   ghosttime
+health  5
+coords  550 1035 2
+at      3000
+
+spawn   morph
+@script void main() {
+    void self = getlocalvar("self"); //Get calling entity.
+    int x = getentityproperty(self,"x"); //Get character's x coordinate
+    int XPos = openborvariant("xpos");
+    changeentityproperty(self, "position", x - XPos);
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW11"));
+} @end_script
+map     3
+flip    1
+coords  3500 1035 380
+at      3000
+
+#---------needs-check----------
+
+scrollx  0  3500
+at  3400
+#------------------------------
+
+blockade 3200
+at      5300
+
+
+
+#------------------------------
+scrollx  1400  2900
+at  5500
+
+#------------------------------
+
+group 1 1
+at    5200
+
+spawn   sentry1
+map     1
+coords  -150 1025 5
+at    	5200
+
+#-------
+spawn   ghosttime
+health  5
+coords  330 1045 2
+at    	5200
+#-------
+
+group 2 2
+at    5200
+
+spawn   sentry1
+map     2
+coords  550 1045 5
+at    	5200
+
+spawn   sentry3
+map     1
+coords  -150 1025 5
+at    	5200
+
+spawn   sentry3
+map     2
+coords  650 1045 5
+at    	5200
+
+#-------------------
+group 3 3
+at    5200
+
+spawn   smrb3
+coords  550 1025 5
+at    	5200
+
+spawn   sentry2
+map     2
+coords  -150 1045 5
+at    	5200
+
+spawn   smrb3
+coords  650 1025 5
+at    	5200
+
+spawn   sentry2
+map     2
+coords  -200 1045 5
+at    	5200
+
+#-------------------
+group 4 4
+at    5200
+
+spawn   sentry3
+map     2
+coords  550 1025 5
+at    	5200
+
+spawn   sentry3
+map     2
+item	charge
+coords  -150 1045 5
+at    	5200
+
+spawn   sentry1
+map     2
+item	chargemp
+coords  650 1025 5
+at    	5200
+
+spawn   sentry1
+map     2
+coords  -200 1045 5
+at    	5200
+
+
+spawn   sentry3
+map     2
+coords  550 1025 5
+at    	5200
+
+spawn   sentry3
+map     2
+coords  -150 1045 5
+at    	5200
+
+#------------------------------
+scrollx  0  2900
+at  5500
+#------------------------------
+
+blockade 5900
+at      6400
+blockade 6500
+at      6500
+
+#------------------//------------
+
+group   3 3
+at      6500
+
+spawn   reptile2
+spawnscript data/scripts/noscpos2.c
+health  2000
+3phealth	4000
+map     1
+flip    1
+item	1up
+coords  450 1045 5
+at      6500
+
+spawn   reptile2
+spawnscript data/scripts/noscpos2.c
+health  2000
+2phealth	4000
+map     2
+flip    1
+item	1up
+coords  420 1120 5
+at      6500
+
+spawn   nosedgrey
+spawnscript data/scripts/noscpos2.c
+health  500
+map     1
+flip    1
+item	chargemp
+coords  250 1090 5
+at      6500
+
+#------------------//------------
+#------------------//------------
+#------------------//------------
+#------------------//------------
+group   1 1
+at      6500
+
+spawn   ghost1
+coords  15 2550
+at      6500
+
+spawn   tubelev
+spawnscript data/scripts/noscpos.c
+coords  430 978
+at      6500
+
+#------------------//------------
+#------------------//------------
+
+
+
+
+group   1 1
+at      10000
+
+spawn   ghosttest
+coords  15 2550
+at      10000

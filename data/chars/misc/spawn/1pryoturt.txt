@@ -24,26 +24,55 @@ void main()
 
 	changeopenborvariant("nojoin", 1);
 
-	if (P1 != NULL())
+	if (P1 != NULL() && P2 != NULL() && P3 != NULL())
 	{
 	changeentityproperty(P1, "model", Name, 1);
 	changeentityproperty(P1, "defaultname", Name);
-	killentity(P2);
-	killentity(P3);
+	changeentityproperty(P2, "stealth", 8);
+	changeentityproperty(P2, "model", "mrzero", 1);
+	changeentityproperty(P3, "stealth", 8);
+	changeentityproperty(P3, "model", "mrzero", 1);
+    bindentity(P2, P1, 0, 0, 0, 0, 0);
+    bindentity(P3, P1, 0, 0, 0, 0, 0);
 	}
-	else if (P2 != NULL())
+	else if (P1 != NULL() && P2 != NULL() && P3 == NULL())
+	{
+	changeentityproperty(P1, "model", Name, 1);
+	changeentityproperty(P1, "defaultname", Name);
+	changeentityproperty(P2, "stealth", 8);
+	changeentityproperty(P2, "model", "mrzero", 1);
+    bindentity(P2, P1, 0, 0, 0, 0, 0);
+	}
+	else if (P1 != NULL() && P2 == NULL() && P3 == NULL())
+	{
+	changeentityproperty(P1, "model", Name, 1);
+	changeentityproperty(P1, "defaultname", Name);
+	}
+	else if (P1 != NULL() && P2 == NULL() && P3 != NULL())
+	{
+	changeentityproperty(P1, "model", Name, 1);
+	changeentityproperty(P1, "defaultname", Name);
+	changeentityproperty(P3, "stealth", 8);
+	changeentityproperty(P3, "model", "mrzero", 1);
+    bindentity(P3, P1, 0, 0, 0, 0, 0);
+	}
+	else if (P1 == NULL() && P2 != NULL() && P3 != NULL())
 	{
 	changeentityproperty(P2, "model", Name, 1);
 	changeentityproperty(P2, "defaultname", Name);
-	killentity(P1);
-	killentity(P3);
+	changeentityproperty(P3, "stealth", 8);
+	changeentityproperty(P3, "model", "mrzero", 1);
+    bindentity(P3, P2, 0, 0, 0, 0, 0);
 	}
-	else if (P3 != NULL())
+	else if (P1 == NULL() && P2 != NULL() && P3 == NULL())
+	{
+	changeentityproperty(P2, "model", Name, 1);
+	changeentityproperty(P2, "defaultname", Name);
+	}
+	else if (P1 == NULL() && P2 == NULL() && P3 != NULL())
 	{
 	changeentityproperty(P3, "model", Name, 1);
 	changeentityproperty(P3, "defaultname", Name);
-	killentity(P1);
-	killentity(P2);
 	}
 
 	if (anim1 == openborconstant("ANI_SPAWN"))
@@ -73,7 +102,6 @@ anim 	idle
 	if(frame >= 0 && x == 1)
 	{
 	killentity(self);
-	clearglobalvar();
 	}
 @end_script
 	loop	1
@@ -81,4 +109,3 @@ anim 	idle
 	offset	1 1
 	frame	data/chars/misc/empty.gif
 	frame	data/chars/misc/empty.gif
-

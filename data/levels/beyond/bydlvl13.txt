@@ -31,7 +31,7 @@ spawn3  	215 20
 bgspeed			1
 cameraoffset            0 -90
 cameratype              1
-
+scrollspeed             4
 #----------------------
 wall    -50 400  0 0 430 40 230 5000
 wall    250 230 0 0 360 360 100 5000
@@ -91,7 +91,19 @@ spawn   ghosttime
 @script
 void main()
 {
+	setlocalvar("maxRush1", getglobalvar("maxRush1"));
+	setlocalvar("maxRush2", getglobalvar("maxRush2"));
+	setlocalvar("maxRush3", getglobalvar("maxRush3"));
+	setlocalvar("next1up0", getglobalvar("next1up0"));
+	setlocalvar("next1up1", getglobalvar("next1up1"));
+	setlocalvar("next1up2", getglobalvar("next1up2"));
 	clearglobalvar();
+	setglobalvar("maxRush1", getlocalvar("maxRush1"));
+	setglobalvar("maxRush2", getlocalvar("maxRush2"));
+	setglobalvar("maxRush3", getlocalvar("maxRush3"));
+	setglobalvar("next1up0", getlocalvar("next1up0"));
+	setglobalvar("next1up1", getlocalvar("next1up1"));
+	setglobalvar("next1up2", getlocalvar("next1up2"));
 }
 @end_script
 health	5
@@ -155,7 +167,7 @@ coords  5640 410
 at      0
 
 spawn   byocont3
-item    ssoul
+item    testla
 map     2
 flip    1
 coords  4810 410
@@ -169,12 +181,12 @@ coords  5210 410
 at      0
 
 spawn   source
-item	fluid
+item	cell
 coords  6310 415
 at      0
 
 spawn   source
-item	herb
+item	fluid
 coords  6390 415
 at      0
 

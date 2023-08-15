@@ -1,14 +1,14 @@
 name		kimplr
 type		player
-health		200
+health		160
 mp		100
 mprate          1
-chargerate      6
+chargerate      2
 speed		11
-running		26 3.1 3 1 0
+running		26 3.1 3 1 1
 jumpheight	4
 nodieblink	2
-secret		1 1
+secret		0 1
 weaploss	3
 modelflag	1
 noquake         0
@@ -17,12 +17,11 @@ riseinv		1
 gfxshadow	1
 fmap		1
 holdblock 	1
-blockpain	1
 falldie		2
 dust            dust
 candamage	enemy obstacle
 projectilehit 	player npc enemy
-weapons		pltank changplr Robcar2 robfall Robwtr Robvent mapcurs mrzero choiplr
+weapons		Robcar kimplr Robcar2 robfall Robwtr Robvent mapcurs mrzero ryoturt
 atchain         1 1 2 3 4 0 5 6 7 0 8 1
 combostyle      1
 icon		data/chars/xkim/iconpl.png
@@ -37,8 +36,7 @@ script			data/scripts/player_script.c
 
 
 palette		data/chars/xkim/palAll.png
-alternatepal	data/chars/xkim/map1.png
-alternatepal	data/chars/xkim/map2.png
+
 
 load	terrpw
 
@@ -47,1061 +45,18 @@ load	terrpw
 com	a2	  freespecial15
 com	a3	  freespecial29
 
-com	f b b a   freespecial4
-com	f d f a	  freespecial9
+com	f d a   freespecial4
+com	d f a	  freespecial9
 com	d f j 	  freespecial6
 
-com     d f d f a freespecial26
-com     d f d f s freespecial27
+com     f d f a freespecial26
+com     f d f s freespecial27
 
-com	d u d u s freespecial30
-com	u d u d s freespecial31
 
 
 
 
 
-anim	freespecial30
-	energycost 55
-	mponly	1
-	weaponframe 20 2
-	loop	0
-	delay	20
-	offset	145 211
-	bbox	0 0 0 0
-	frame	data/chars/xkim/spw01.png
-	delay	8
-	sound		data/sounds/xkimTLK.wav
-	frame	data/chars/xkim/spw02.png
-	delay	8
-	frame	data/chars/xkim/spw03.png #2
-	frame	data/chars/xkim/spw04.png
-	delay	12
-	frame	data/chars/xkim/spw05.png
-	@cmd	looper 2 1
-	delay	8
-	frame	data/chars/xkim/spw06.png
-	frame	data/chars/xkim/spw07.png
-	delay	8
-	frame	data/chars/xkim/spw08.png #7
-	frame	data/chars/xkim/spw09.png
-	delay	12
-	frame	data/chars/xkim/spw10.png
-	@cmd	looper 7 1
-	frame	data/chars/xkim/spw02.png
-	delay	6
-	frame	data/chars/xkim/spw02.png
-	frame	data/chars/xkim/emp.png
-	frame	data/chars/xkim/spw02.png
-	frame	data/chars/xkim/emp.png
-	frame	data/chars/xkim/spw02.png
-	frame	data/chars/xkim/emp.png
-	frame	data/chars/xkim/spw02.png
-	frame	data/chars/xkim/emp.png
-	frame	data/chars/xkim/spw02.png
-	frame	data/chars/xkim/emp.png
-	frame	data/chars/xkim/spw02.png
-
-
-
-
-anim	freespecial31
-	energycost 55
-	mponly	1
-	weaponframe 20 9
-	loop	0
-	delay	20
-	offset	145 211
-	bbox	0 0 0 0
-	frame	data/chars/xkim/spw01.png
-	delay	8
-	sound		data/sounds/xkimTLK.wav
-	frame	data/chars/xkim/spw02.png
-	delay	8
-	frame	data/chars/xkim/spw03.png #2
-	frame	data/chars/xkim/spw04.png
-	delay	12
-	frame	data/chars/xkim/spw05.png
-	@cmd	looper 2 1
-	delay	8
-	frame	data/chars/xkim/spw06.png
-	frame	data/chars/xkim/spw07.png
-	delay	8
-	frame	data/chars/xkim/spw08.png #7
-	frame	data/chars/xkim/spw09.png
-	delay	12
-	frame	data/chars/xkim/spw10.png
-	@cmd	looper 7 1
-	frame	data/chars/xkim/spw02.png
-	delay	6
-	frame	data/chars/xkim/spw02.png
-	frame	data/chars/xkim/emp.png
-	frame	data/chars/xkim/spw02.png
-	frame	data/chars/xkim/emp.png
-	frame	data/chars/xkim/spw02.png
-	frame	data/chars/xkim/emp.png
-	frame	data/chars/xkim/spw02.png
-	frame	data/chars/xkim/emp.png
-	frame	data/chars/xkim/spw02.png
-	frame	data/chars/xkim/emp.png
-	frame	data/chars/xkim/spw02.png
-
-
-
-
-
-
-
-
-anim	freespecial27
-	energycost	75
-	mponly	1
-	loop	0
-	delay	9
-	offset	145 211
-	bbox	0 0 0 0
-	followanim	1
-	followcond	1
-	seal	7 4
-	fastattack 1
-	hitfx		data/sounds/empty.wav
-	sound		data/sounds/xkim04.wav
-
-	frame	data/chars/xkim/chrg01.png
-	delay	15
-	frame	data/chars/xkim/chrg02.png
-	delay	9
-	frame	data/chars/xkim/chrg03.png
-	frame	data/chars/xkim/chrg04.png
-	sound	data/sounds/super1.wav
-	@cmd	spawn04 "allsp" 1 1 1 2
-	delay	40
-	frame	data/chars/xkim/chrg04.png
-	delay	9
-	frame	data/chars/xkim/jump00.png
-	delay	12
-	frame	data/chars/xkim/a50.png
-
-	frame	data/chars/xkim/run02.png
-
-	delay	2
-	move	6
-	@cmd	keymove 1.2
-	attack	145 130 40 70 0 0 1 1 5 10
-	frame	data/chars/xkim/run03.png #8
-	frame	data/chars/xkim/run03.png
-	@cmd	keymove 1.2
-	frame	data/chars/xkim/run03.png
-	frame	data/chars/xkim/run03.png
-	attack	0 0 0 0
-	@cmd	looper 8 5
-	frame	data/chars/xkim/run03.png
-	delay	6
-	@cmd	stop
-	move	0
-	@cmd	dasher 1 0 0
-	frame	data/chars/xkim/run04.png
-	frame	data/chars/xkim/run05.png
-	frame	data/chars/xkim/run06.png
-	frame	data/chars/xkim/run01.png
-	frame	data/chars/xkim/run02.png
-	@cmd	stop
-	frame	data/chars/xkim/jump00.png
-	delay	12
-	frame	data/chars/xkim/a50.png
-	frame	data/chars/xkim/jump00.png
-
-
-
-
-anim	follow1
-	loop	0
-	delay	3
-	offset	145 211
-	bbox	0 0 0 0
-	jumpframe 32 4 0
-	landframe 47
-	fastattack 1
-	seal	7 4
-	move	0
-	@cmd	stop
-	@cmd	clearL
-	sound		data/sounds/xkimPW03.wav
-	hitfx		data/sounds/beat5.wav
-	frame	data/chars/xkim/jump00.png
-
-	frame	data/chars/xkim/pwa04a.png	#1
-	attack	145 110 70 50 0 0 1 0 5 15
-	frame	data/chars/xkim/pwa12.png
-	frame	data/chars/xkim/pwa13.png
-	attack	0 0 0 0
-	frame	data/chars/xkim/pwa04a.png
-
-	attack2	145 125 70 50 0 0 1 0 5 15
-	frame	data/chars/xkim/pwa06.png
-	frame	data/chars/xkim/pwa07.png
-	attack2	0 0 0 0
-	frame	data/chars/xkim/pwa04a.png
-
-	attack2	145 145 70 50 0 0 1 0 5 15
-	frame	data/chars/xkim/pwa09.png
-	frame	data/chars/xkim/pwa10.png
-	attack2	0 0 0 0
-	frame	data/chars/xkim/pwa04a.png
-
-	attack2	145 125 70 50 0 0 1 0 5 15
-	frame	data/chars/xkim/pwa06.png
-	frame	data/chars/xkim/pwa07.png
-	attack2	0 0 0 0
-	frame	data/chars/xkim/pwa04a.png
-	@cmd	looper 1 5
-
-	frame	data/chars/xkim/a04.png	
-	sound		data/sounds/xkimPW03.wav
-	frame	data/chars/xkim/pwa02.png	#15
-
-	frame	data/chars/xkim/a01.png		#16
-	attack	145 110 70 50 0 0 1 0 5 15
-	frame	data/chars/xkim/a06.png
-	frame	data/chars/xkim/a07.png
-	attack	0 0 0 0
-	frame	data/chars/xkim/a01.png
-
-	attack	145 125 70 50 0 0 1 0 5 15
-	frame	data/chars/xkim/a02.png
-	frame	data/chars/xkim/a03.png
-	attack	0 0 0 0
-	frame	data/chars/xkim/a01.png
-
-	attack2	145 145 70 50 0 0 1 0 5 15
-	frame	data/chars/xkim/a11.png
-	frame	data/chars/xkim/a12.png
-	attack2	0 0 0 0
-	frame	data/chars/xkim/a01.png
-
-	attack2	145 125 70 50 0 0 1 0 5 15
-	frame	data/chars/xkim/a02.png
-	frame	data/chars/xkim/a03.png
-	attack2	0 0 0 0
-	frame	data/chars/xkim/a01.png
-
-
-	@cmd	looper 16 5
-
-	frame	data/chars/xkim/a01.png #29
-
-	sound		data/sounds/xkim05.wav
-	frame	data/chars/xkim/a04.png
-
-	delay	6
-	@cmd	dasher 1 0 0
-	frame	data/chars/xkim/pwb01.png
-	frame	data/chars/xkim/pwb02.png	#32
-	#@cmd	stop
-	attack10 125 110 95 75 0 1 1 0 35 15
-	dropv	4 0
-	frame	data/chars/xkim/pwb03.png
-	frame	data/chars/xkim/pwb04.png
-	attack10 0 0 0 0
-	frame	data/chars/xkim/pwb05.png
-	delay	2
-	frame	data/chars/xkim/pwb05.png
-
-
-	drawmethod 255 255 1 1 0 0 -1
-	hitfx	data/sounds/beat4.wav
-	hitflash	flashscreen2
-	staydown	300 300
-	sound		data/sounds/xkim06.wav
-
-	delay	5
-	offset	145 70
-	frame	data/chars/xkim/pw22.png
-	@cmd	clearL
-	frame	data/chars/xkim/pw23.png
-	frame	data/chars/xkim/pw24.png
-	@cmd	leaper 0 1
-	frame	data/chars/xkim/pw25.png
-	delay	6
-	attack	85 15 130 110 250 1 1 0 45 15
-	dropv	1 4
-	frame	data/chars/xkim/pw26.png
-	@cmd	leaper 0 1
-	frame	data/chars/xkim/pw26.png
-	frame	data/chars/xkim/pw26.png
-	@cmd	leaper 0 1
-	attack	0 0 0 0
-	offset	145 211
-	nodrawmethod
-	frame	data/chars/xkim/jump03.png	#44
-	frame	data/chars/xkim/jump04.png
-	delay	500
-	frame	data/chars/xkim/jump05.png
-	delay	8
-	frame	data/chars/xkim/jump00.png	 #47
-	frame	data/chars/xkim/a50.png
-	frame	data/chars/xkim/jump00.png
-
-
-
-
-
-
-
-
-
-
-
-anim	freespecial26
-	energycost	35
-	mponly	1
-	loop	0
-	delay	9
-	offset	145 211
-	bbox	130 125 30 75
-	fastattack 1
-	hitflash	flashscreen2
-	hitfx		data/sounds/beat4.wav
-	staydown	500 500
-
-	frame	data/chars/xkim/pwc01.png
-	sound		data/sounds/xkimPW01.wav
-
-	frame	data/chars/xkim/pwc02.png
-	frame	data/chars/xkim/pwc03.png
-	frame	data/chars/xkim/pwc04.png
-	sound	data/sounds/super1.wav
-	@cmd	spawnAni2 "allsp" 1 1 1 2 "ANI_FOLLOW1"
-	frame	data/chars/xkim/pwc05.png
-	delay	70
-	frame	data/chars/xkim/pwc06.png
-
-	delay	9
-	frame	data/chars/xkim/pwc07.png
-	delay	2
-	bbox	0 0 0 0
-	sound		data/sounds/xkim02.wav
-
-	move	7
-	attack9	145 120 85 55 150 1 1 0 55 15
-	dropv	2 3
-	@cmd	keymove 1.2
-	frame	data/chars/xkim/pwc08.png
-	frame	data/chars/xkim/pwc08.png
-	@cmd	keymove 1.2
-	frame	data/chars/xkim/pwc08.png
-	frame	data/chars/xkim/pwc08.png
-	@cmd	keymove 1.2
-
-	frame	data/chars/xkim/pwc09.png
-	frame	data/chars/xkim/pwc09.png
-	@cmd	keymove 1.2
-	frame	data/chars/xkim/pwc09.png
-	frame	data/chars/xkim/pwc09.png
-	@cmd	keymove 1.2
-
-	frame	data/chars/xkim/pwc10.png
-	frame	data/chars/xkim/pwc10.png
-	@cmd	keymove 1.2
-	frame	data/chars/xkim/pwc10.png
-	frame	data/chars/xkim/pwc10.png
-	@cmd	keymove 1.2
-	frame	data/chars/xkim/pwc10.png
-	frame	data/chars/xkim/pwc10.png
-	@cmd	keymove 1.2
-
-	move	4
-	@cmd	keymove 1.2
-	frame	data/chars/xkim/pwc10.png
-	frame	data/chars/xkim/pwc10.png
-	@cmd	keymove 1.2
-	frame	data/chars/xkim/pwc10.png
-	frame	data/chars/xkim/pwc10.png
-	@cmd	keymove 1.2
-	delay	30
-	move	0
-	@cmd	stop
-	frame	data/chars/xkim/pwc10.png
-	attack9	0 0 0 0
-	delay	9
-	frame	data/chars/xkim/pwc11.png
-	frame	data/chars/xkim/pwc12.png
-	frame	data/chars/xkim/pwc13.png
-	frame	data/chars/xkim/pwc14.png
-	frame	data/chars/xkim/pwc15.png
-
-
-
-
-
-
-
-
-
-
-anim	freespecial6
-	cancel	6 10 0 A freespecial5
-	cancel	6 10 0 J freespecial5
-	loop	0
-	delay	6
-	offset	145 211
-	bbox	130 125 30 75
-	jumpframe 3 3.5 1.5	
-	landframe 12
-	fastattack 1
-	forcedirection -1
-	hitfx	data/sounds/beat5.wav
-	sound		data/sounds/xkim05.wav
-	frame	data/chars/xkim/pwb01.png
-	@cmd	dasher 3 0 0
-	frame	data/chars/xkim/pwb02.png
-	attack10 140 105 65 90 15 1 0 0 25 10
-	dropv	4 1
-	frame	data/chars/xkim/pwb03.png
-	frame	data/chars/xkim/pwb04.png #3
-	frame	data/chars/xkim/pwb05.png
-	attack10 0 0 0 0
-	frame	data/chars/xkim/pwb06.png
-
-
-	delay	2
-	frame	data/chars/xkim/pwb07a.png #6
-	frame	data/chars/xkim/pwb07a.png
-	frame	data/chars/xkim/pwb07a.png
-	frame	data/chars/xkim/pwb07a.png
-	frame	data/chars/xkim/pwb07a.png
-	@cmd	looper 6 20
-
-	delay	9
-	blast	0 0 0 0
-	frame	data/chars/xkim/jump00.png
-	blast	0 0 0 0
-	frame	data/chars/xkim/jump00.png #12
-
-
-
-
-
-
-anim	freespecial5
-	cancel	2 6 0 A freespecial2
-	cancel	2 6 0 J freespecial2
-	loop	0
-	delay	8
-	offset	145 211
-	bbox	130 125 30 75
-	jumpframe 0 2 2	
-	landframe 9
-	fastattack 1
-	forcedirection -1
-	hitfx	data/sounds/beat5.wav
-	sound		data/sounds/xkim06.wav
-	frame	data/chars/xkim/pwb08.png
-	delay	9
-	attack10	135 110 60 80 15 1 0 0 35 15
-	dropv	3 1.5
-	frame	data/chars/xkim/pwb09.png
-	frame	data/chars/xkim/pwb10.png
-	delay	5
-	frame	data/chars/xkim/pwb09.png #3
-	frame	data/chars/xkim/pwb10.png
-	frame	data/chars/xkim/pwb09.png
-	frame	data/chars/xkim/pwb10.png
-	@cmd	looper 2 30
-	delay	7
-	attack10	0 0 0 0
-	frame	data/chars/xkim/jump00.png
-	blast	0 0 0 0
-	frame	data/chars/xkim/pwc01.png
-	frame	data/chars/xkim/jump00.png #9
-
-
-
-anim	freespecial2
-	loop	0
-	delay	8
-	offset	145 211
-	bbox	130 125 30 75
-	jumpframe 1 3.5 0.5
-	landframe 12
-	fastattack 1
-	forcedirection -1
-	hitfx	data/sounds/beat5.wav
-	sound		data/sounds/xkim06.wav
-	frame	data/chars/xkim/pwb20.png
-	frame	data/chars/xkim/pwb21.png #1
-	attack	135 105 55 91 15 1 0 0 35 15
-	dropv	5 0.5
-	delay	12
-	frame	data/chars/xkim/pwb22.png
-	delay	6
-	frame	data/chars/xkim/pwb23.png
-	attack	0 0 0 0
-	delay	5
-	frame	data/chars/xkim/pwb24.png
-	frame	data/chars/xkim/pwb25.png
-	frame	data/chars/xkim/pwb26.png
-	frame	data/chars/xkim/pwb27.png
-	frame	data/chars/xkim/pwb28.png
-	delay	6
-	hitfx	data/sounds/beat0.wav
-	attack2	135 110 60 80 5 0 0 0 15 15
-	frame	data/chars/xkim/pwb29.png #9
-	frame	data/chars/xkim/pwb30.png
-	@cmd	looper 9 20
-	delay	9
-	attack2	0 0 0 0
-	frame	data/chars/xkim/pwb31.png
-	frame	data/chars/xkim/pwb31.png #12
-
-
-
-
-
-
-
-anim	freespecial4
-	energycost	15
-	mponly	1
-	loop	0
-	delay	5
-	offset	145 211
-	bbox	130 125 30 75
-	followanim	3
-	followcond	3
-	fastattack 1
-	seal	7 4
-
-	hitfx	data/sounds/beat5.wav
-	sound		data/sounds/xkim06.wav
-
-	frame	data/chars/xkim/pwa01.png
-	frame	data/chars/xkim/pwa02.png
-	frame	data/chars/xkim/pwa03.png
-
-	frame	data/chars/xkim/pwa04.png
-	delay	3
-	frame	data/chars/xkim/pwa05.png
-	attack2	145 125 75 40 0 0 1 0 3 10
-	frame	data/chars/xkim/pwa06.png
-	attack2	0 0 0 0
-	frame	data/chars/xkim/pwa07.png
-
-	delay	5
-	frame	data/chars/xkim/pwa04.png
-	delay	3
-	frame	data/chars/xkim/pwa11.png
-	attack	145 105 75 45 0 0 1 0 3 10
-	frame	data/chars/xkim/pwa12.png
-	attack	0 0 0 0
-	frame	data/chars/xkim/pwa13.png
-
-	delay	5
-	frame	data/chars/xkim/pwa04.png
-	delay	3
-	frame	data/chars/xkim/pwa08.png
-	attack2	145 150 75 50 0 0 1 0 3 10
-	frame	data/chars/xkim/pwa09.png
-	attack2	0 0 0 0
-	frame	data/chars/xkim/pwa10.png
-
-	delay	5
-	frame	data/chars/xkim/pwa04.png
-	frame	data/chars/xkim/pwa03.png
-	frame	data/chars/xkim/pwa02.png
-	frame	data/chars/xkim/pwa01.png
-
-
-
-
-
-anim	follow3
-	loop	0
-	delay	4
-	offset	145 211
-	bbox	130 125 30 75
-	fastattack 1
-	seal	7 4
-	staydown 500 500
-	hitfx	data/sounds/beat5.wav
-	sound		data/sounds/xkimPW03.wav
-	delay	4
-	attack	0 0 0 0
-	frame	data/chars/xkim/pwa04.png
-	delay	2
-	frame	data/chars/xkim/pwa11.png
-	attack	145 105 85 45 0 0 0 0 3 15
-	frame	data/chars/xkim/pwa12.png
-	attack	0 0 0 0
-	frame	data/chars/xkim/pwa13.png
-	delay	4
-	frame	data/chars/xkim/pwa04.png
-	delay	2
-	frame	data/chars/xkim/pwa11.png
-	attack	145 105 85 45 0 0 0 0 3 15
-	frame	data/chars/xkim/pwa12.png
-	attack	0 0 0 0
-	frame	data/chars/xkim/pwa13.png
-	delay	4
-	frame	data/chars/xkim/pwa04.png
-	delay	2
-	frame	data/chars/xkim/pwa11.png
-	attack	145 105 85 45 0 0 0 0 3 15
-	frame	data/chars/xkim/pwa12.png
-	attack	0 0 0 0
-	frame	data/chars/xkim/pwa13.png
-
-	delay	4
-	frame	data/chars/xkim/pwa04.png
-	delay	2
-	frame	data/chars/xkim/pwa05.png
-	attack2	145 125 85 40 0 0 0 0 3 15
-	frame	data/chars/xkim/pwa06.png
-	attack2	0 0 0 0
-	frame	data/chars/xkim/pwa07.png
-	delay	4
-	frame	data/chars/xkim/pwa04.png
-	delay	2
-	frame	data/chars/xkim/pwa05.png
-	attack2	145 125 85 40 0 0 0 0 3 15
-	frame	data/chars/xkim/pwa06.png
-	attack2	0 0 0 0
-	frame	data/chars/xkim/pwa07.png
-	delay	4
-	frame	data/chars/xkim/pwa04.png
-	delay	2
-	frame	data/chars/xkim/pwa05.png
-	attack2	145 125 85 40 0 0 0 0 3 15
-	frame	data/chars/xkim/pwa06.png
-	attack2	0 0 0 0
-	frame	data/chars/xkim/pwa07.png
-
-	delay	4
-	frame	data/chars/xkim/pwa04.png
-	delay	2
-	frame	data/chars/xkim/pwa08.png
-	attack2	145 150 75 50 0 0 0 0 3 15
-	frame	data/chars/xkim/pwa09.png
-	attack2	0 0 0 0
-	frame	data/chars/xkim/pwa10.png
-	delay	4
-	frame	data/chars/xkim/pwa04.png
-	delay	2
-	frame	data/chars/xkim/pwa08.png
-	attack2	145 150 75 50 0 0 0 0 3 15
-	frame	data/chars/xkim/pwa09.png
-	attack2	0 0 0 0
-	frame	data/chars/xkim/pwa10.png
-	delay	4
-	frame	data/chars/xkim/pwa04.png
-	delay	2
-	frame	data/chars/xkim/pwa08.png
-	attack2	145 150 75 50 0 0 0 0 3 15
-	frame	data/chars/xkim/pwa09.png
-	attack2	0 0 0 0
-	frame	data/chars/xkim/pwa10.png
-
-
-	delay	5
-	sound		data/sounds/xkim06.wav
-	frame	data/chars/xkim/pwa04.png
-	frame	data/chars/xkim/pwa14.png
-	frame	data/chars/xkim/pwa15.png
-	delay	25
-	@cmd	dasher 3 0 0
-	attack9	135 120 95 50 90 1 0 0 30 15
-	frame	data/chars/xkim/pwa16.png
-	@cmd	stop
-	delay	7
-	frame	data/chars/xkim/pwa17.png
-	attack9	0 0 0 0
-	frame	data/chars/xkim/pwa18.png
-	frame	data/chars/xkim/pwa19.png
-	frame	data/chars/xkim/pwa20.png
-	frame	data/chars/xkim/pwa21.png
-	frame	data/chars/xkim/pwa22.png
-
-
-
-
-
-
-
-
-
-anim	freespecial9
-	energycost	15
-	mponly	1
-	loop	0
-	delay	5
-	offset	145 211
-	bbox	0 0 0 0
-	jumpframe 3 4 2
-	landframe 13
-	hitfx	data/sounds/beat5.wav
-	hitflash	flashscreen1
-	sound		data/sounds/xkimPW02.wav
-	frame	data/chars/xkim/pw20.png
-	frame	data/chars/xkim/pw21.png
-	frame	data/chars/xkim/pw22.png	#3
-	frame	data/chars/xkim/pw23.png
-	frame	data/chars/xkim/pw24.png
-	delay	12
-	attack	110 75 130 120 30 1 1 0 45 15
-	dropv	5.5 2
-	frame	data/chars/xkim/pw25.png	#5
-	attack	0 0 0 0
-	delay	6
-	frame	data/chars/xkim/pw26.png
-	frame	data/chars/xkim/pw27.png
-	frame	data/chars/xkim/pw28.png
-	frame	data/chars/xkim/pw29.png
-	offset	145 211
-	frame	data/chars/xkim/jump03.png
-	frame	data/chars/xkim/jump04.png
-	delay	500
-	frame	data/chars/xkim/jump05.png
-	delay	9
-	offset	145 211
-	frame	data/chars/xkim/jump00.png	#13
-	frame	data/chars/xkim/idle01.png
-
-
-
-
-
-
-anim	idle
-	loop	1
-	delay	7
-	offset	145 211
-	bbox	130 125 30 75
-	frame	data/chars/xkim/idle01.png
-	@cmd	clearL
-	delay	8
-	offset	144 212
-	frame	data/chars/xkim/idle02.png
-	offset	143 214
-	frame	data/chars/xkim/idle03.png
-	offset	142 213
-	frame	data/chars/xkim/idle04.png
-	offset	141 212
-	frame	data/chars/xkim/idle05.png
-	offset	140 211
-	frame	data/chars/xkim/idle06.png
-	delay	9
-	offset	141 212
-	frame	data/chars/xkim/idle07.png
-	delay	8
-	offset	142 214
-	frame	data/chars/xkim/idle08.png
-	offset	143 213
-	frame	data/chars/xkim/idle09.png
-	offset	144 212
-	frame	data/chars/xkim/idle10.png
-	offset	145 211
-	delay	7
-	frame	data/chars/xkim/idle11.png
-
-
-
-
-
-anim	walk
-	loop	1
-	delay	8
-	offset	145 211
-	bbox	130 125 30 75
-	frame	data/chars/xkim/wk01.png
-	frame	data/chars/xkim/wk02.png
-	frame	data/chars/xkim/wk03.png
-	frame	data/chars/xkim/wk04.png
-	frame	data/chars/xkim/wk05.png
-
-
-
-anim	run
-	loop	1
-	delay	7
-	offset	145 211
-	bbox	130 125 30 75
-	sound	data/sounds/run.wav
-	frame	data/chars/xkim/run01.png
-	frame	data/chars/xkim/run02.png
-	frame	data/chars/xkim/run03.png
-	sound	data/sounds/run.wav
-	frame	data/chars/xkim/run04.png
-	frame	data/chars/xkim/run05.png
-	frame	data/chars/xkim/run06.png
-
-
-
-anim	block
-	loop	0
-	delay	12
-	offset	145 211
-	bbox	130 125 30 75
-	frame	data/chars/xkim/blk01.png
-	frame	data/chars/xkim/blk02.png
-	frame	data/chars/xkim/blk03.png
-
-
-
-#---------//----//-jump-//----------
-
-anim	jumpland
-	loop	0
-	delay	6
-	offset	145 211
-	bbox	130 125 30 75
-	frame	data/chars/xkim/jump00.png
-
-anim	jumpdelay
-	loop	0
-	delay	6
-	offset	145 211
-	bbox	130 125 30 75
-	frame	data/chars/xkim/jump00.png
-
-
-anim	walkoff
-	loop	0
-	delay	12
-	offset	145 211
-	bbox	130 110 30 60
-	frame	data/chars/xkim/jump06.png
-
-
-anim	jump
-	loop	0
-	delay	20
-	offset	145 211
-	bbox	130 110 30 60
-	frame	data/chars/xkim/jump01.png
-	delay	9
-	frame	data/chars/xkim/jump02.png
-	delay	15
-	frame	data/chars/xkim/jump03.png
-	delay	9
-	frame	data/chars/xkim/jump04.png
-	delay	6
-	frame	data/chars/xkim/jump05.png
-	frame	data/chars/xkim/jump06.png
-	frame	data/chars/xkim/jump05.png
-	frame	data/chars/xkim/jump06.png
-	frame	data/chars/xkim/jump05.png
-	frame	data/chars/xkim/jump06.png
-	frame	data/chars/xkim/jump05.png
-	frame	data/chars/xkim/jump06.png
-	frame	data/chars/xkim/jump05.png
-	frame	data/chars/xkim/jump06.png
-	frame	data/chars/xkim/jump05.png
-	frame	data/chars/xkim/jump06.png
-
-
-
-
-
-
-
-anim	forwardjump
-	loop	0
-	delay	15
-	offset	145 211
-	bbox	130 110 30 60
-	frame	data/chars/xkim/jump01.png
-	delay	6
-	frame	data/chars/xkim/jump15.png
-	frame	data/chars/xkim/jump14.png
-	frame	data/chars/xkim/jump13.png
-	frame	data/chars/xkim/jump12.png
-	frame	data/chars/xkim/jump11.png
-	delay	6
-	frame	data/chars/xkim/jump05.png
-	frame	data/chars/xkim/jump06.png
-	frame	data/chars/xkim/jump05.png
-	frame	data/chars/xkim/jump06.png
-	frame	data/chars/xkim/jump05.png
-	frame	data/chars/xkim/jump06.png
-	frame	data/chars/xkim/jump05.png
-	frame	data/chars/xkim/jump06.png
-	frame	data/chars/xkim/jump05.png
-	frame	data/chars/xkim/jump06.png
-
-
-
-
-
-
-
-anim	runjump
-	loop	0
-	delay	7
-	offset	145 211
-	bbox	130 110 30 60
-	frame	data/chars/xkim/jump02.png
-	frame	data/chars/xkim/jump07.png
-	frame	data/chars/xkim/jump08.png
-	frame	data/chars/xkim/jump09.png
-	frame	data/chars/xkim/jump10.png
-	frame	data/chars/xkim/jump04.png
-
-
-
-#--------------------//-grab-escape-beds-//-----------------------
-
-
-anim	freespecial15
-	loop	0
-	delay	6
-	offset	145 211
-	bbox	0 0 0 0
-	frame	data/chars/xkim/spw01.png
-	sound		data/sounds/xkimTLK.wav
-	frame	data/chars/xkim/spw02.png
-	delay	6
-	frame	data/chars/xkim/spw03.png #2
-	frame	data/chars/xkim/spw04.png
-	delay	9
-	frame	data/chars/xkim/spw05.png
-	@cmd	looper 2 1
-	delay	6
-	frame	data/chars/xkim/spw06.png
-	frame	data/chars/xkim/spw07.png
-	delay	6
-	frame	data/chars/xkim/spw08.png #7
-	frame	data/chars/xkim/spw09.png
-	delay	9
-	frame	data/chars/xkim/spw10.png
-	@cmd	looper 7 1
-	frame	data/chars/xkim/spw02.png
-	@cmd	clearL
-	frame	data/chars/xkim/spw01.png
-	@cmd	spawnAni3 "toturi3" 1 1 1 "ANI_FOLLOW8"
-	frame	data/chars/xkim/spw01.png
-	delay	30
-	frame	data/chars/xkim/spw01.png
-
-
-
-
-anim	follow17
-@script
-	void self = getlocalvar("self");
-	int eTime = openborvariant("elapsed_time");
-	if (frame == 12)
-	{
-	changeentityproperty(self, "invincible", 1);
-	changeentityproperty(self, "invinctime", eTime + 1000);
-	changeentityproperty(self, "blink", 1);
-	}
-@end_script
-	loop	0
-	delay	800
-	offset	145 211
-	bbox	0 0 0 0
-	frame	data/chars/xkim/emp.png
-	delay	20
-	frame	data/chars/xkim/spw01.png
-	delay	8
-	frame	data/chars/xkim/spw02.png
-	delay	8
-	frame	data/chars/xkim/spw03.png #3
-	frame	data/chars/xkim/spw04.png
-	delay	12
-	frame	data/chars/xkim/spw05.png
-	@cmd	looper 3 1
-	delay	8
-	frame	data/chars/xkim/spw06.png
-	frame	data/chars/xkim/spw07.png
-	delay	8
-	frame	data/chars/xkim/spw08.png #8
-	frame	data/chars/xkim/spw09.png
-	delay	12
-	frame	data/chars/xkim/spw10.png
-	@cmd	looper 8 1
-	frame	data/chars/xkim/spw02.png
-	@cmd	clearL
-	frame	data/chars/xkim/spw01.png #12
-
-
-
-
-
-
-
-anim	follow15
-@script
-	void self = getlocalvar("self");
-   	void opp = getentityproperty(self, "opponent");
-	int enedir = getentityproperty(opp,"direction");
-	if (frame == 0 && enedir == 0)
-	{
-	changeentityproperty(self, "direction", 1);
-	}
-	else if (frame == 0 && enedir == 1)
-	{
-	changeentityproperty(self, "direction", 0);
-	}
-@end_script
-	loop	0
-	delay	7
-	offset	145 211
-	bbox	0 0 0 0
-	jumpframe 0 3 -1
-	landframe 6
-	frame	data/chars/xkim/jump10.png
-	frame	data/chars/xkim/jump09.png
-	frame	data/chars/xkim/jump08.png
-	frame	data/chars/xkim/jump07.png
-	frame	data/chars/xkim/jump04.png
-	delay	500
-	frame	data/chars/xkim/jump05.png
-	delay	8
-	frame	data/chars/xkim/jump00.png #6
-
-
-
-
-
-
-anim	follow16
-@script
-	void self = getlocalvar("self");
-   	void opp = getentityproperty(self, "opponent");
-	int enedir = getentityproperty(opp,"direction");
-	if (frame == 0 && enedir == 0)
-	{
-	changeentityproperty(self, "direction", 1);
-	}
-	else if (frame == 0 && enedir == 1)
-	{
-	changeentityproperty(self, "direction", 0);
-	}
-@end_script
-	loop	0
-	delay	7
-	offset	145 211
-	bbox	0 0 0 0
-	frame	data/chars/xkim/a50.png
-	delay	5
-	@cmd	dasher -2.5 0 0
-	frame	data/chars/xkim/dgd08.png
-	frame	data/chars/xkim/dgd07.png
-	frame	data/chars/xkim/dgd06.png
-	frame	data/chars/xkim/dgd05.png
-	frame	data/chars/xkim/dgd04.png
-	frame	data/chars/xkim/dgd03.png
-	frame	data/chars/xkim/dgd02.png
-	@cmd	stop
-	delay	7
-	frame	data/chars/xkim/dgd01.png
-
-
-
-
-
-#--------------------------------//-----------------------
 
 
 
@@ -1123,44 +78,7 @@ anim	attack1
 	attack2	0 0 0 0
 	delay	4
 	frame	data/chars/xkim/a04.png
-
-
-
-
-anim	follow10
-	loop	0
-	delay	7
-	offset	160 211
-	bbox	0 0 0 0
-	forcedirection	-1
-	attackone	1
-	otg	2
-	hitfx	data/sounds/beat5.wav
-	hitflash	flashscreen1
-	sound		data/sounds/xkim04.wav
-	frame	data/chars/xkim/grd01.png
-	frame	data/chars/xkim/grd02.png
-	delay	12
-	frame	data/chars/xkim/grd03.png
-	delay	6
-	attack11 120 190 95 30 50 1 0 0 25 10
-	dropv	2 3
-	frame	data/chars/xkim/grd04.png
-	frame	data/chars/xkim/grd05.png
-	delay	25
-	frame	data/chars/xkim/grd06.png
-	attack11 0 0 0 0
-	delay	9
-	offset	155 211
-	frame	data/chars/xkim/grd07.png
-	offset	148 211
-	frame	data/chars/xkim/grd08.png
-
-
-
-
-
-
+		
 anim	attack2
 	range	0 60
 	rangez	-15 15
@@ -1179,11 +97,7 @@ anim	attack2
 	attack2	0 0 0 0
 	frame	data/chars/xkim/a10.png
 	frame	data/chars/xkim/a01.png
-
-
-
-
-
+		
 anim	attack3
 	range	0 60
 	rangez	-15 15
@@ -1193,7 +107,7 @@ anim	attack3
 	bbox	130 125 30 75
 	fastattack	1
 	hitfx	data/sounds/beat2.wav
-	sound		data/sounds/xkim01.wav
+	sound	data/sounds/xkim01.wav
 	frame	data/chars/xkim/a09.png
 	frame	data/chars/xkim/a10.png
 	delay	4
@@ -1206,11 +120,7 @@ anim	attack3
 	delay	5
 	frame	data/chars/xkim/a56.png
 	frame	data/chars/xkim/a57.png
-
-
-
-
-
+		
 anim	attack4
 	range	0 60
 	rangez	-15 15
@@ -1219,31 +129,25 @@ anim	attack4
 	offset	145 211
 	bbox	130 125 30 75
 	fastattack	1
-	staydown 200 200
+	staydown	200 200
 	hitfx	data/sounds/beat5.wav
-	sound		data/sounds/xkim02.wav
+	sound	data/sounds/xkim02.wav
 	frame	data/chars/xkim/a15.png
 	frame	data/chars/xkim/a16.png
 	frame	data/chars/xkim/a20.png
-	#attack10 135 73 45 75 20 1 0 0 35 15
-	attack10 135 86 80 65 40 1 0 0 35 15
+	attack10	135 86 80 65 40 1 0 0 35 15
 	dropv	5 1
 	frame	data/chars/xkim/a19.png
 	delay	12
 	frame	data/chars/xkim/a18.png
-	attack10 0 0 0 0
+	attack10	0 0 0 0
 	delay	7
 	frame	data/chars/xkim/a17.png
 	frame	data/chars/xkim/a17a.png
 	frame	data/chars/xkim/a17b.png
 	frame	data/chars/xkim/a17c.png
 	frame	data/chars/xkim/a17d.png
-
-
-
-
-
-
+		
 anim	attack5
 	range	60 85
 	rangez	-15 15
@@ -1262,10 +166,7 @@ anim	attack5
 	attack	0 0 0 0
 	frame	data/chars/xkim/a04.png
 	frame	data/chars/xkim/a05.png
-
-
-
-
+		
 anim	attack6
 	range	60 85
 	rangez	-15 15
@@ -1275,7 +176,7 @@ anim	attack6
 	bbox	130 125 30 75
 	fastattack	1
 	hitfx	data/sounds/beat3.wav
-	sound		data/sounds/xkim03.wav
+	sound	data/sounds/xkim03.wav
 	frame	data/chars/xkim/a30.png
 	frame	data/chars/xkim/a31.png
 	frame	data/chars/xkim/a32.png
@@ -1288,12 +189,7 @@ anim	attack6
 	frame	data/chars/xkim/a35.png
 	frame	data/chars/xkim/a36.png
 	frame	data/chars/xkim/a37.png
-
-
-
-
-
-
+		
 anim	attack7
 	range	60 85
 	rangez	-15 15
@@ -1303,7 +199,7 @@ anim	attack7
 	bbox	130 125 30 75
 	fastattack	1
 	hitfx	data/sounds/beat5.wav
-	sound		data/sounds/xkim02.wav
+	sound	data/sounds/xkim02.wav
 	frame	data/chars/xkim/a38.png
 	frame	data/chars/xkim/a39.png
 	frame	data/chars/xkim/a40.png
@@ -1317,13 +213,7 @@ anim	attack7
 	delay	8
 	frame	data/chars/xkim/a44.png
 	frame	data/chars/xkim/a45.png
-
-
-
-
-
-
-
+		
 anim	attack8
 	range	85 135
 	rangez	-15 15
@@ -1333,7 +223,7 @@ anim	attack8
 	bbox	130 125 30 75
 	fastattack	1
 	hitfx	data/sounds/beat5.wav
-	sound		data/sounds/xkim01.wav
+	sound	data/sounds/xkim01.wav
 	frame	data/chars/xkim/jump00.png
 	frame	data/chars/xkim/rise03.png
 	@cmd	dasher 1.5 0 0
@@ -1352,16 +242,7 @@ anim	attack8
 	frame	data/chars/xkim/a66.png
 	frame	data/chars/xkim/a67.png
 	frame	data/chars/xkim/a68.png
-
-
-
-
-
-
-
-
-
-	
+		
 anim	attackdown
 	loop	0
 	delay	7
@@ -1381,11 +262,7 @@ anim	attackdown
 	@cmd	stop
 	delay	7
 	frame	data/chars/xkim/a50.png
-
-
-
-
-
+		
 anim	attackup
 	loop	0
 	delay	7
@@ -1405,373 +282,41 @@ anim	attackup
 	@cmd	stop
 	delay	7
 	frame	data/chars/xkim/a50.png
-
-
-
-anim	jumpforward
-	loop	0
-	delay	7
-	offset	145 211
-	bbox	130 110 30 60
-	hitfx	data/sounds/beat5.wav
-	sound		data/sounds/xkim04.wav
-	forcedirection	-1
-	staydown	500 500
-	frame	data/chars/xkim/jua05.png
-	frame	data/chars/xkim/jua06.png
-	frame	data/chars/xkim/jua07.png
-	frame	data/chars/xkim/jua08.png
-	attack	135 115 92 65 30 1 0 0 35 15
-	frame	data/chars/xkim/jua09.png
-	frame	data/chars/xkim/jua10.png
-	delay	14
-	frame	data/chars/xkim/jua11.png
-	attack	0 0 0 0
-	frame	data/chars/xkim/jua12.png
-
-
-
-
-
-
-anim	jumpattack
-	loop	0
-	delay	7
-	offset	145 211
-	bbox	135 98 30 60
-	forcedirection	-1
-	staydown	500 500
-	hitfx	data/sounds/beat5.wav
-	sound		data/sounds/xkim01.wav
-	frame	data/chars/xkim/jua00.png
-	frame	data/chars/xkim/jua01.png
-	frame	data/chars/xkim/jua03.png
-	delay	25
-	attack	130 105 80 70 25 1 0 0 35 15
-	frame	data/chars/xkim/jua02.png
-	attack	0 0 0 0
-
-
-
-
-
-
-anim	jumpattack2
-	loop	0
-	delay	7
-	offset	145 211
-	bbox	135 98 30 60
-	frame	data/chars/xkim/jua30.png
-	delay	5
-	attack2	127 120 50 50 12 0 0 0 35 0
-	frame	data/chars/xkim/jua31.png
-
-
-
-anim	jumpattack3
-	loop	0
-	delay	6
-	offset	145 211
-	bbox	135 98 30 40
-	jumpframe 0 1.5 -1
-	landframe 10
-	forcedirection	-1
-	fastattack 1
-	staydown	500 500
-	hitfx	data/sounds/beat5.wav
-	sound		data/sounds/xkimPW01.wav
-	frame	data/chars/xkim/jump02.png
-	frame	data/chars/xkim/jump03.png
-	@cmd	leaper 2 0
-	frame	data/chars/xkim/jump03.png
-	delay	3
-	frame	data/chars/xkim/jua40.png #3
-	attack2	130 130 55 80 8 0 0 0 15 15
-	frame	data/chars/xkim/jua41.png
-	frame	data/chars/xkim/jua42.png
-	attack2 0 0 0 0
-	frame	data/chars/xkim/jua40.png
-	attack2	130 130 55 80 8 0 0 0 15 15
-	frame	data/chars/xkim/jua42.png
-	frame	data/chars/xkim/jua43.png
-	attack2 0 0 0 0
-	@cmd	looper 3 20
-	delay	500
-	frame	data/chars/xkim/jua40.png
-	delay	9
-	frame	data/chars/xkim/jump00.png #10
-
-
-
-
-
-anim	runjumpattack
-	loop	0
-	delay	5
-	offset	145 211
-	bbox	138 92 30 55
-	fastattack 1
-	forcedirection	-1
-	staydown	500 500
-	hitfx	data/sounds/beat5.wav
-	sound		data/sounds/xkim02.wav
-	frame	data/chars/xkim/jua20.png
-	frame	data/chars/xkim/jua21.png
-	sound	data/sounds/punch2.wav
-	attack10 130 95 92 70 15 1 0 0 30 14
-	dropv	3 2
-	frame	data/chars/xkim/jua22.png
-	frame	data/chars/xkim/jua23.png
-	attack	0 0 0 0
-	delay	4
-	frame	data/chars/xkim/jua24.png
-	sound		data/sounds/xkim03.wav
-	frame	data/chars/xkim/jua25.png
-	frame	data/chars/xkim/jua26.png
-	sound	data/sounds/punch2.wav
-	frame	data/chars/xkim/jua27.png
-	delay	6
-	attack	130 115 100 70 20 1 0 0 30 14
-	dropv	2 4
-	frame	data/chars/xkim/jua28.png
-	frame	data/chars/xkim/jua29.png
-
-
-
-
-
-
-anim	grab
+		
+anim	block
 	loop	0
 	delay	12
 	offset	145 211
 	bbox	130 125 30 75
-	frame	data/chars/xkim/grab00.png
-
-
-anim	grabattack
+	frame	data/chars/xkim/blk01.png
+	frame	data/chars/xkim/blk02.png
+	frame	data/chars/xkim/blk03.png
+		
+anim	burn
 	loop	0
-	delay	5
-	offset	145 211
-	bbox	130 125 30 75
-	attack	0 0 0 0
-	frame	data/chars/xkim/grab00.png
-	delay	23
-	attack6	139 139 40 44 15 0 0 0 16 0
-	frame	data/chars/xkim/grab11.png
-
-
-
-anim	grabattack2
-	loop	0
-	delay	8
-	offset	145 211
-	bbox	130 125 30 75
-	hitfx	data/sounds/beat5.wav
-	fastattack	1
-	sound		data/sounds/xkim01.wav
-	attack	0 0 0 0
-	frame	data/chars/xkim/grab15.png
-	frame	data/chars/xkim/grab16.png
-	attack2	139 80 45 85 15 0 0 0 20 15
-	frame	data/chars/xkim/grab17.png
-	attack2 0 0 0 0
-	frame	data/chars/xkim/grab18.png
-	delay	15
-	attack	139 100 67 75 15 1 0 0 40 15
-	frame	data/chars/xkim/grab19.png
-	attack	0 0 0 0
-	delay	9
-	frame	data/chars/xkim/grab20.png
-	frame	data/chars/xkim/grab21.png
-
-
-
-
-
-
-
-anim	grabforward
-	loop	0
-	delay	5
-	offset	145 211
-	bbox	130 125 30 75
-	attack	0 0 0 0
-	frame	data/chars/xkim/grab00.png
-	delay	23
-	attack6	139 139 40 44 15 0 0 0 16 0
-	frame	data/chars/xkim/grab10.png
-
-
-
-
-
-
-anim	grabforward2
-	loop	0
-	delay	6
-	offset	145 211
-	bbox	130 125 30 75
-	jumpframe 2 3 1
-	landframe 9
-	fastattack 1
-	forcedirection -1
-	hitfx	data/sounds/beat5.wav
-	sound		data/sounds/xkim03.wav
-	frame	data/chars/xkim/jua25.png
-	frame	data/chars/xkim/jua26.png
-	frame	data/chars/xkim/pwb13.png
-	frame	data/chars/xkim/pwb13a.png
-	delay	20
-	attack	135 110 60 80 15 1 0 0 35 15
-	dropv	1 4
-	frame	data/chars/xkim/pwb15.png
-	delay	7
-	attack	0 0 0 0
-	frame	data/chars/xkim/a31.png
-	frame	data/chars/xkim/jump00.png
-	frame	data/chars/xkim/jump04.png
-	delay	500
-	frame	data/chars/xkim/jump05.png
-	delay	7
-	frame	data/chars/xkim/jump00.png #9
-
-
-
-
-
-anim	grabbackward
-	otg	2
-	loop	0
-	delay	20
+	delay	30
 	offset	145 211
 	bbox	0 0 0 0
-	forcedirection	-1
-	staydown	500 500
-	@cmd	slamstart
-	sound	data/sounds/grab.wav
-	@cmd	position 10 35 49 -1 -1
-	frame	data/chars/xkim/grab00.png
+	landframe	3
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 200_50_0
+	@cmd	spawnbind "burn1" 1 1 1
+	@cmd	spawnbind "burn2" 1 1 1
+	@cmd	spawnbind "burn3" 1 1 1
+	sound	data/sounds/xkimPain.wav
+	attack	130 130 29 43 5 1 0 0 13 0
+	frame	data/chars/xkim/fall1.png
+	frame	data/chars/xkim/fall2.png
+	delay	500
+	frame	data/chars/xkim/fall3.png
+	attack	0 0 0 0
 	delay	10
-	@cmd	position 11 35 49 -1 -1
-	frame	data/chars/xkim/grab01.png
-	@cmd	position 0 20 70 -1 1
-	frame	data/chars/xkim/grab02.png
-
-	delay	5
-	@cmd	antiwall -20 5 0
-	@cmd	position 1 -5 100 -1 1
-	frame	data/chars/xkim/grab03.png
-	@cmd	antiwall -20 5 0
-	@cmd	position 1 -5 100 -1 1
-	frame	data/chars/xkim/grab03.png
-	@cmd	antiwall -20 5 0
-	@cmd	position 1 -5 100 -1 1
-	frame	data/chars/xkim/grab03.png
-	@cmd	antiwall -20 5 0
-	@cmd	position 1 -5 100 -1 1
-	frame	data/chars/xkim/grab03.png
-	@cmd	antiwall -20 5 0
-	@cmd	position 1 -5 100 -1 1
-	frame	data/chars/xkim/grab03.png
-	sound		data/sounds/xkim04.wav
-	delay	2
-	@cmd	position 6 -20 50 -1 1
-	frame	data/chars/xkim/grab04.png
-	@cmd	depost 0
-	@cmd	finish 70 1 -3 3 0 -1
-	frame	data/chars/xkim/grab04.png
-	delay	35
-	frame	data/chars/xkim/grab04.png
-	delay	9
-	frame	data/chars/xkim/grab05.png
-	@cmd	flip
-	@cmd	clearL
-	frame	data/chars/xkim/idle01.png
-
-
-
-		
-		
-		
-anim	rise
-	loop	0
-	delay	25
-	offset	145 211
-	bbox	0 0 0 0
+	offset	145 210
 	frame	data/chars/xkim/fall4.png
-	delay	8
-	frame	data/chars/xkim/rise01.png
-	frame	data/chars/xkim/rise02.png
-	frame	data/chars/xkim/rise03.png
-	frame	data/chars/xkim/jump00.png
-
-
-
-
-
-anim	respawn
-	loop	0
-	delay	20
+	delay	50
 	offset	145 211
-	bbox	0 0 0 0
-	frame	data/chars/xkim/spw01.png
-	delay	8
-	sound		data/sounds/xkimTLK.wav
-	frame	data/chars/xkim/spw02.png
-
-	delay	8
-	frame	data/chars/xkim/spw03.png #2
-	frame	data/chars/xkim/spw04.png
-	delay	12
-	frame	data/chars/xkim/spw05.png
-	@cmd	looper 2 1
-	delay	8
-	frame	data/chars/xkim/spw06.png
-	frame	data/chars/xkim/spw07.png
-	delay	8
-	frame	data/chars/xkim/spw08.png #7
-	frame	data/chars/xkim/spw09.png
-	delay	12
-	frame	data/chars/xkim/spw10.png
-	@cmd	looper 7 1
-	frame	data/chars/xkim/spw02.png
-
-
-
-
+	frame	data/chars/xkim/fall4.png
 		
-anim	spawn
-	loop	0
-	delay	20
-	offset	145 211
-	bbox	0 0 0 0
-	frame	data/chars/xkim/spw01.png
-	delay	8
-	sound		data/sounds/xkimTLK.wav
-	frame	data/chars/xkim/spw02.png
-
-	delay	8
-	frame	data/chars/xkim/spw03.png #2
-	frame	data/chars/xkim/spw04.png
-	delay	12
-	frame	data/chars/xkim/spw05.png
-	@cmd	looper 2 1
-	delay	8
-	frame	data/chars/xkim/spw06.png
-	frame	data/chars/xkim/spw07.png
-	delay	8
-	frame	data/chars/xkim/spw08.png #7
-	frame	data/chars/xkim/spw09.png
-	delay	12
-	frame	data/chars/xkim/spw10.png
-	@cmd	looper 7 1
-	frame	data/chars/xkim/spw02.png
-
-
-
-
-
 anim	charge
 	loop	0
 	delay	7
@@ -1787,310 +332,32 @@ anim	charge
 	frame	data/chars/xkim/chrg04.png
 	@cmd	updateframe getlocalvar("self") 2
 	frame	data/chars/xkim/chrg03.png
-
-
-
-
-
-anim	freespecial29
-@script
-	void self = getlocalvar("self");
-	int mp1 = getentityproperty(self,"mp");
-	void plyr = getentityproperty(self, "playerindex");
-
-	if(frame > 5 && playerkeys(plyr, 0, "attack3"))
-	{
-	  updateframe(self, 2);
-	}
-@end_script
-	delay	7
-	offset	145 211
-	bbox	130 125 30 75
-	sound	data/sounds/xclark05.wav
-	frame	data/chars/xkim/chrg01.png
-	frame	data/chars/xkim/chrg02.png
-	delay	5
-	frame	data/chars/xkim/chrg03.png #2
-	@cmd	mpgain 3
-	frame	data/chars/xkim/chrg04.png
-	frame	data/chars/xkim/chrg03.png
-	@cmd	mpgain 3
-	frame	data/chars/xkim/chrg04.png #5
-	frame	data/chars/xkim/chrg03.png
-
-
-
-
-
-
-
-anim	special
-	energycost	30
-	mponly	1
+		
+anim	death
 	loop	0
-	delay	5
+	delay	40
 	offset	145 211
 	bbox	0 0 0 0
-	staydown	500 500
-	hitfx	data/sounds/beat5.wav
-	frame	data/chars/xkim/jump00.png
-	sound		data/sounds/xkimPW03.wav
-	frame	data/chars/xkim/jump01.png
-
-	delay	4
-	frame	data/chars/xkim/pw01.png #2
-	sound	data/sounds/punch2.wav
-	frame	data/chars/xkim/pw02.png
-	attack	148 100 80 80 30 1 0 0 30 15
-	dropv	2 3
-	frame	data/chars/xkim/pw03.png
-	frame	data/chars/xkim/pw04.png
-	attack	0 0 0 0
-	frame	data/chars/xkim/pw05.png
-	frame	data/chars/xkim/pw06.png
-	@cmd	flip
-	frame	data/chars/xkim/pw07.png
-	sound	data/sounds/punch2.wav
-	frame	data/chars/xkim/pw08.png
-	attack	148 100 80 80 30 1 0 0 30 15
-	dropv	2 3
-	frame	data/chars/xkim/pw09.png
-	frame	data/chars/xkim/pw09.png
-	attack	0 0 0 0
-	frame	data/chars/xkim/pw10.png
-	@cmd	flip
-	@cmd	looper 2 2
-	delay	7
-	frame	data/chars/xkim/jump01.png
-	frame	data/chars/xkim/jump00.png
-	frame	data/chars/xkim/a50.png
-	@cmd	clearL
-	frame	data/chars/xkim/jump00.png
-
-
-
-
-
-
-
-
-anim	runattack
-	loop	0
-	delay	5
-	offset	145 211
-	bbox	130 125 30 75
-	fastattack	1
-	forcedirection	-1
-	hitfx	data/sounds/beat5.wav
-	@cmd	dasher 3.5 0 0
-	frame	data/chars/xkim/runatk01.png
-	sound		data/sounds/xkim03.wav
-	frame	data/chars/xkim/runatk02.png
-	frame	data/chars/xkim/runatk03.png
-	attack8	135 85 55 75 5 0 0 0 10 15
-	frame	data/chars/xkim/runatk04.png
-	frame	data/chars/xkim/runatk05.png
-	@cmd	dasher 3 0 0
-	frame	data/chars/xkim/runatk06.png
-	attack8	0 0 0 0
-	@cmd	dasher 2 0 0
-	frame	data/chars/xkim/runatk07.png
-	attack9	135 125 85 50 30 1 0 0 40 15
-	dropv	2 2
-	@cmd	dasher 1 0 0
-	frame	data/chars/xkim/runatk08.png
-	frame	data/chars/xkim/runatk08.png
-	attack9 0 0 0 0
-	delay	7
-	@cmd	stop
-	frame	data/chars/xkim/runatk09.png
-	frame	data/chars/xkim/runatk10.png
-
-
-
-
-
-
-
-anim	runslide
-	loop	0
-	delay	6
-	offset	145 211
-	bbox	130 175 30 25
-	forcedirection	-1
-	hitfx	data/sounds/beat5.wav
-	@cmd	dasher 3 0 0
-	sound		data/sounds/xkim04.wav
-	frame	data/chars/xkim/jump00.png
-	frame	data/chars/xkim/sld01.png
-	frame	data/chars/xkim/sld01a.png
-	attack	140 165 90 45 20 1 0 0 25 15
-	dropv	2 3
-	frame	data/chars/xkim/sld01b.png
-	delay	15
-	@cmd	dasher 3 0 0
-	frame	data/chars/xkim/sld01b.png
-	frame	data/chars/xkim/sld01b.png
-	@cmd	dasher 2 0 0
-	frame	data/chars/xkim/sld01b.png
-	attack	0 0 0 0
-	delay	9
-	@cmd	dasher 1 0 0
-	frame	data/chars/xkim/sld01a.png
-	frame	data/chars/xkim/sld01.png
-	@cmd	stop
-	frame	data/chars/xkim/jump00.png
-
-
-
-
-
-
-
-
-
-
-#--------------------------//-----------------------
-
-anim	waiting
-	loop	1
-	delay	12
-	offset	0 0
-	frame	data/chars/xkim/xwait1.png
-	frame	data/chars/xkim/xwait1.png
-
-anim	select
-	loop	0
-	delay	5
-	offset	0 0
-	sound	data/sounds/blink.wav
-	frame	data/chars/xkim/xwait2.png
-	sound	data/sounds/xkimTLK.wav
-	frame	data/chars/xkim/xwait3.png
-	frame	data/chars/xkim/xwait2.png #2
-	frame	data/chars/xkim/xwait3.png
-	@cmd	looper 2 10
-	delay	100
-	frame	data/chars/xkim/xwait2.png
-
-#--------------------------//-----------------------
-
-anim	grabbed
-	loop	0
-	delay	10
-	offset	145 211
-	bbox	130 125 30 75
-	frame	data/chars/xkim/pain2.png
-
-
-
-anim	pain
-	loop	0
-	delay	3
-	offset	145 211
-	bbox	130 125 30 75
-	frame	data/chars/xkim/pain1.png
-	offset	140 211
-	frame	data/chars/xkim/pain2.png
-	offset	146 211
-	frame	data/chars/xkim/pain2.png
-	offset	145 211
-	frame	data/chars/xkim/pain2.png
-
-		
-anim	pain2
-	loop	0
-	delay	3
-	offset	145 211
-	bbox	130 125 30 75
-	frame	data/chars/xkim/pain3.png
-	offset	140 211
-	frame	data/chars/xkim/pain4.png
-	offset	146 211
-	frame	data/chars/xkim/pain4.png
-	offset	145 211
-	frame	data/chars/xkim/pain4.png
-		
-anim	pain3
-	loop	0
-	delay	2
-	offset	145 211
-	bbox	130 125 30 75
-	move	-6
-	frame	data/chars/xkim/pain1.png
-	frame	data/chars/xkim/pain1.png
-	frame	data/chars/xkim/pain1.png
-	frame	data/chars/xkim/pain2.png
-	frame	data/chars/xkim/pain2.png
-	frame	data/chars/xkim/pain2.png
-	move	-4
-	frame	data/chars/xkim/pain1.png
-	frame	data/chars/xkim/pain1.png
-	frame	data/chars/xkim/pain1.png
-	frame	data/chars/xkim/pain3.png
-	frame	data/chars/xkim/pain3.png
-	move	-2
-	frame	data/chars/xkim/pain3.png
-	frame	data/chars/xkim/pain4.png
-	frame	data/chars/xkim/pain4.png
-	delay	50
-	frame	data/chars/xkim/pain4.png
-
-
-anim	pain5
-	loop	0
-	delay	12
-	offset	145 211
-	bbox	130 125 30 75
-	frame	data/chars/xkim/pain1.png
-	frame	data/chars/xkim/pain2.png
-	frame	data/chars/xkim/pain3.png
-	frame	data/chars/xkim/pain4.png
-	frame	data/chars/xkim/pain2.png
-	frame	data/chars/xkim/rise03.png
-	frame	data/chars/xkim/rise02.png
-	frame	data/chars/xkim/rise02.png
-	delay	30
-	frame	data/chars/xkim/rise02.png
-	delay	12
+	frame	data/chars/xkim/fall4.png
+	delay	8
 	frame	data/chars/xkim/rise01.png
-
-
+	frame	data/chars/xkim/rise02.png
+	frame	data/chars/xkim/rise03.png
+	sound	data/sounds/xkimDet.wav
+	delay	14
+	frame	data/chars/xkim/det01.png
+	frame	data/chars/xkim/det02.png
+	frame	data/chars/xkim/det03.png
+	frame	data/chars/xkim/det04.png
+	delay	110
+	frame	data/chars/xkim/det04.png
 		
-anim	burn
-	loop	0
-	delay	30
-	offset	145 211
-	bbox	0 0 0 0
-	landframe 3
-	drawmethod	tintmode 4
-	drawmethod	tintcolor 200_50_0
-	@cmd	spawnbind "burn1" 1 1 1
-	@cmd	spawnbind "burn2" 1 1 1
-	@cmd	spawnbind "burn3" 1 1 1
-
-	sound	data/sounds/xkimPain.wav
-
-	attack	130 130 29 43 5 1 0 0 13 0
-	frame	data/chars/xkim/fall1.png
-	frame	data/chars/xkim/fall2.png
-	delay	500
-	frame	data/chars/xkim/fall3.png
-	attack	0 0 0 0
-	delay	10
-	offset	145 210
-	frame	data/chars/xkim/fall4.png
-	delay	50
-	offset	145 211
-	frame	data/chars/xkim/fall4.png
-
-
 anim	fall
 	loop	0
 	delay	30
 	offset	145 211
 	bbox	0 0 0 0
-	landframe 3
+	landframe	3
 	sound	data/sounds/xkimPain.wav
 	attack	130 130 29 43 5 1 0 0 13 0
 	frame	data/chars/xkim/fall1.png
@@ -2104,14 +371,13 @@ anim	fall
 	delay	50
 	offset	145 211
 	frame	data/chars/xkim/fall4.png
-		
 		
 anim	fall2
 	loop	0
 	delay	30
 	offset	145 211
 	bbox	0 0 0 0
-	landframe 3 dust
+	landframe	3 dust
 	sound	data/sounds/xkimPain.wav
 	attack	130 130 29 43 5 1 0 0 13 0
 	frame	data/chars/xkim/pain4.png
@@ -2125,8 +391,7 @@ anim	fall2
 	delay	50
 	offset	145 211
 	frame	data/chars/xkim/fall4.png
-
-
+		
 anim	fall3
 	loop	0
 	delay	30
@@ -2150,9 +415,6 @@ anim	fall3
 	offset	145 211
 	bbox	0 0 0 0
 	frame	data/chars/xkim/fall4.png
-
-
-
 		
 anim	fall7
 	delay	1000
@@ -2211,9 +473,7 @@ anim	fall7
 	bbox	25 10 60 80
 	frame	data/chars/xkim/slambbox1.png
 	bbox	0 0 0 0
-
-
-
+		
 anim	fall9
 	loop	0
 	delay	9
@@ -2236,28 +496,824 @@ anim	fall9
 	delay	15
 	@cmd	clearL
 	frame	data/chars/xkim/fall4.png
-
-anim	death
+		
+anim	follow1
 	loop	0
-	delay	40
+	delay	3
 	offset	145 211
 	bbox	0 0 0 0
-	frame	data/chars/xkim/fall4.png
+	jumpframe	32 4 0
+	landframe	47
+	fastattack	1
+	seal	7 4
+	move	0
+	@cmd	stop
+	@cmd	clearL
+	sound	data/sounds/xkimPW03.wav
+	hitfx	data/sounds/beat5.wav
+	frame	data/chars/xkim/jump00.png
+	frame	data/chars/xkim/pwa04a.png	#1
+	attack	145 110 70 50 3 0 1 0 5 15
+	frame	data/chars/xkim/pwa12.png
+	frame	data/chars/xkim/pwa13.png
+	attack	0 0 0 0
+	frame	data/chars/xkim/pwa04a.png
+	attack2	145 125 70 50 3 0 1 0 5 15
+	frame	data/chars/xkim/pwa06.png
+	frame	data/chars/xkim/pwa07.png
+	attack2	0 0 0 0
+	frame	data/chars/xkim/pwa04a.png
+	attack2	145 145 70 50 3 0 1 0 5 15
+	frame	data/chars/xkim/pwa09.png
+	frame	data/chars/xkim/pwa10.png
+	attack2	0 0 0 0
+	frame	data/chars/xkim/pwa04a.png
+	attack2	145 125 70 50 3 0 1 0 5 15
+	frame	data/chars/xkim/pwa06.png
+	frame	data/chars/xkim/pwa07.png
+	attack2	0 0 0 0
+	frame	data/chars/xkim/pwa04a.png
+	@cmd	looper 1 5
+	frame	data/chars/xkim/a04.png
+	sound	data/sounds/xkimPW03.wav
+	frame	data/chars/xkim/pwa02.png	#15
+	frame	data/chars/xkim/a01.png		#16
+	attack	145 110 70 50 3 0 1 0 5 15
+	frame	data/chars/xkim/a06.png
+	frame	data/chars/xkim/a07.png
+	attack	0 0 0 0
+	frame	data/chars/xkim/a01.png
+	attack	145 125 70 50 3 0 1 0 5 15
+	frame	data/chars/xkim/a02.png
+	frame	data/chars/xkim/a03.png
+	attack	0 0 0 0
+	frame	data/chars/xkim/a01.png
+	attack2	145 145 70 50 3 0 1 0 5 15
+	frame	data/chars/xkim/a11.png
+	frame	data/chars/xkim/a12.png
+	attack2	0 0 0 0
+	frame	data/chars/xkim/a01.png
+	attack2	145 125 70 50 3 0 1 0 5 15
+	frame	data/chars/xkim/a02.png
+	frame	data/chars/xkim/a03.png
+	attack2	0 0 0 0
+	frame	data/chars/xkim/a01.png
+	@cmd	looper 16 5
+	frame	data/chars/xkim/a01.png #29
+	sound	data/sounds/xkim05.wav
+	frame	data/chars/xkim/a04.png
+	delay	6
+	@cmd	dasher 1 0 0
+	frame	data/chars/xkim/pwb01.png
+	frame	data/chars/xkim/pwb02.png	#32
+	attack10	125 110 95 75 3 1 1 0 35 15
+	dropv	4 0
+	frame	data/chars/xkim/pwb03.png
+	frame	data/chars/xkim/pwb04.png
+	attack10	0 0 0 0
+	frame	data/chars/xkim/pwb05.png
+	delay	2
+	frame	data/chars/xkim/pwb05.png
+	drawmethod	255 255 1 1 0 0 -1
+	hitfx	data/sounds/beat4.wav
+	hitflash	flashscreen2
+	staydown	300 300
+	sound	data/sounds/xkim06.wav
+	delay	5
+	offset	145 70
+	frame	data/chars/xkim/pw22.png
+	@cmd	clearL
+	frame	data/chars/xkim/pw23.png
+	frame	data/chars/xkim/pw24.png
+	@cmd	leaper 0 1
+	frame	data/chars/xkim/pw25.png
+	delay	6
+	attack	85 15 130 110 103 1 1 0 45 15
+	dropv	1 4
+	frame	data/chars/xkim/pw26.png
+	@cmd	leaper 0 1
+	frame	data/chars/xkim/pw26.png
+	frame	data/chars/xkim/pw26.png
+	@cmd	leaper 0 1
+	attack	0 0 0 0
+	offset	145 211
+	nodrawmethod	
+	frame	data/chars/xkim/jump03.png	#44
+	frame	data/chars/xkim/jump04.png
+	delay	500
+	frame	data/chars/xkim/jump05.png
 	delay	8
-	frame	data/chars/xkim/rise01.png
-	frame	data/chars/xkim/rise02.png
-	frame	data/chars/xkim/rise03.png
-	sound	data/sounds/xkimDet.wav
-	delay	14
-	frame	data/chars/xkim/det01.png
-	frame	data/chars/xkim/det02.png
-	frame	data/chars/xkim/det03.png
-	frame	data/chars/xkim/det04.png
-	delay	110
-	frame	data/chars/xkim/det04.png
+	frame	data/chars/xkim/jump00.png	 #47
+	frame	data/chars/xkim/a50.png
+	frame	data/chars/xkim/jump00.png
+		
+anim	follow10
+	loop	0
+	delay	7
+	offset	160 211
+	bbox	0 0 0 0
+	forcedirection	-1
+	attackone	1
+	otg	2
+	hitfx	data/sounds/beat5.wav
+	hitflash	flashscreen1
+	sound	data/sounds/xkim04.wav
+	frame	data/chars/xkim/grd01.png
+	frame	data/chars/xkim/grd02.png
+	delay	12
+	frame	data/chars/xkim/grd03.png
+	delay	6
+	attack11	120 190 95 30 50 1 0 0 25 10
+	dropv	2 3
+	frame	data/chars/xkim/grd04.png
+	frame	data/chars/xkim/grd05.png
+	delay	25
+	frame	data/chars/xkim/grd06.png
+	attack11	0 0 0 0
+	delay	9
+	offset	155 211
+	frame	data/chars/xkim/grd07.png
+	offset	148 211
+	frame	data/chars/xkim/grd08.png
+		
+anim	follow15
+@script
+	void self = getlocalvar("self");
+   	void opp = getentityproperty(self, "opponent");
+	int enedir = getentityproperty(opp,"direction");
+	if (frame == 0 && enedir == 0)
+	{
+	changeentityproperty(self, "direction", 1);
+	}
+	else if (frame == 0 && enedir == 1)
+	{
+	changeentityproperty(self, "direction", 0);
+	}
+	@end_script	
+	loop	0
+	delay	7
+	offset	145 211
+	bbox	0 0 0 0
+	jumpframe	0 3 -1
+	landframe	6
+	frame	data/chars/xkim/jump10.png
+	frame	data/chars/xkim/jump09.png
+	frame	data/chars/xkim/jump08.png
+	frame	data/chars/xkim/jump07.png
+	frame	data/chars/xkim/jump04.png
+	delay	500
+	frame	data/chars/xkim/jump05.png
+	delay	8
+	frame	data/chars/xkim/jump00.png #6
+		
+anim	follow16
+@script
+	void self = getlocalvar("self");
+   	void opp = getentityproperty(self, "opponent");
+	int enedir = getentityproperty(opp,"direction");
+	if (frame == 0 && enedir == 0)
+	{
+	changeentityproperty(self, "direction", 1);
+	}
+	else if (frame == 0 && enedir == 1)
+	{
+	changeentityproperty(self, "direction", 0);
+	}
+	@end_script	
+	loop	0
+	delay	7
+	offset	145 211
+	bbox	0 0 0 0
+	frame	data/chars/xkim/a50.png
+	delay	5
+	@cmd	dasher -2.5 0 0
+	frame	data/chars/xkim/dgd08.png
+	frame	data/chars/xkim/dgd07.png
+	frame	data/chars/xkim/dgd06.png
+	frame	data/chars/xkim/dgd05.png
+	frame	data/chars/xkim/dgd04.png
+	frame	data/chars/xkim/dgd03.png
+	frame	data/chars/xkim/dgd02.png
+	@cmd	stop
+	delay	7
+	frame	data/chars/xkim/dgd01.png
+		
+anim	follow17
+@script
+	void self = getlocalvar("self");
+	int eTime = openborvariant("elapsed_time");
+	if (frame == 12)
+	{
+	changeentityproperty(self, "invincible", 1);
+	changeentityproperty(self, "invinctime", eTime + 1000);
+	changeentityproperty(self, "blink", 1);
+	}
+	@end_script	
+	loop	0
+	delay	800
+	offset	145 211
+	bbox	0 0 0 0
+	frame	data/chars/xkim/emp.png
+	delay	20
+	frame	data/chars/xkim/spw01.png
+	delay	8
+	frame	data/chars/xkim/spw02.png
+	delay	8
+	frame	data/chars/xkim/spw03.png #3
+	frame	data/chars/xkim/spw04.png
+	delay	12
+	frame	data/chars/xkim/spw05.png
+	@cmd	looper 3 1
+	delay	8
+	frame	data/chars/xkim/spw06.png
+	frame	data/chars/xkim/spw07.png
+	delay	8
+	frame	data/chars/xkim/spw08.png #8
+	frame	data/chars/xkim/spw09.png
+	delay	12
+	frame	data/chars/xkim/spw10.png
+	@cmd	looper 8 1
+	frame	data/chars/xkim/spw02.png
+	@cmd	clearL
+	frame	data/chars/xkim/spw01.png #12
+		
+anim	follow3
+	loop	0
+	delay	4
+	offset	145 211
+	bbox	0 0 0 0
+	fastattack	1
+	seal	7 4
+	staydown	500 500
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/xkimPW03.wav
+	delay	4
+	attack	0 0 0 0
+	frame	data/chars/xkim/pwa04.png
+	delay	2
+	frame	data/chars/xkim/pwa11.png
+	attack	145 105 85 45 5 0 0 0 3 15
+	frame	data/chars/xkim/pwa12.png
+	attack	0 0 0 0
+	frame	data/chars/xkim/pwa13.png
+	delay	4
+	frame	data/chars/xkim/pwa04.png
+	delay	2
+	frame	data/chars/xkim/pwa11.png
+	attack	145 105 85 45 5 0 0 0 3 15
+	frame	data/chars/xkim/pwa12.png
+	attack	0 0 0 0
+	frame	data/chars/xkim/pwa13.png
+	delay	4
+	frame	data/chars/xkim/pwa04.png
+	delay	2
+	frame	data/chars/xkim/pwa11.png
+	attack	145 105 85 45 5 0 0 0 3 15
+	frame	data/chars/xkim/pwa12.png
+	attack	0 0 0 0
+	frame	data/chars/xkim/pwa13.png
+	delay	4
+	frame	data/chars/xkim/pwa04.png
+	delay	2
+	frame	data/chars/xkim/pwa05.png
+	attack2	145 125 85 40 5 0 0 0 3 15
+	frame	data/chars/xkim/pwa06.png
+	attack2	0 0 0 0
+	frame	data/chars/xkim/pwa07.png
+	delay	4
+	frame	data/chars/xkim/pwa04.png
+	delay	2
+	frame	data/chars/xkim/pwa05.png
+	attack2	145 125 85 40 5 0 0 0 3 15
+	frame	data/chars/xkim/pwa06.png
+	attack2	0 0 0 0
+	frame	data/chars/xkim/pwa07.png
+	delay	4
+	frame	data/chars/xkim/pwa04.png
+	delay	2
+	frame	data/chars/xkim/pwa05.png
+	attack2	145 125 85 40 5 0 0 0 3 15
+	frame	data/chars/xkim/pwa06.png
+	attack2	0 0 0 0
+	frame	data/chars/xkim/pwa07.png
+	delay	4
+	frame	data/chars/xkim/pwa04.png
+	delay	2
+	frame	data/chars/xkim/pwa08.png
+	attack2	145 150 75 50 5 0 0 0 3 15
+	frame	data/chars/xkim/pwa09.png
+	attack2	0 0 0 0
+	frame	data/chars/xkim/pwa10.png
+	delay	4
+	frame	data/chars/xkim/pwa04.png
+	delay	2
+	frame	data/chars/xkim/pwa08.png
+	attack2	145 150 75 50 5 0 0 0 3 15
+	frame	data/chars/xkim/pwa09.png
+	attack2	0 0 0 0
+	frame	data/chars/xkim/pwa10.png
+	delay	4
+	frame	data/chars/xkim/pwa04.png
+	delay	2
+	frame	data/chars/xkim/pwa08.png
+	attack2	145 150 75 50 5 0 0 0 3 15
+	frame	data/chars/xkim/pwa09.png
+	attack2	0 0 0 0
+	frame	data/chars/xkim/pwa10.png
+	delay	5
+	sound	data/sounds/xkim06.wav
+	frame	data/chars/xkim/pwa04.png
+	frame	data/chars/xkim/pwa14.png
+	frame	data/chars/xkim/pwa15.png
+	delay	25
+	@cmd	dasher 3 0 0
+	attack9	135 120 95 50 50 1 0 0 30 15
+	frame	data/chars/xkim/pwa16.png
+	@cmd	stop
+	delay	7
+	frame	data/chars/xkim/pwa17.png
+	attack9	0 0 0 0
+	frame	data/chars/xkim/pwa18.png
+	frame	data/chars/xkim/pwa19.png
+	frame	data/chars/xkim/pwa20.png
+	frame	data/chars/xkim/pwa21.png
+	frame	data/chars/xkim/pwa22.png
+		
+anim	forwardjump
+	loop	0
+	delay	15
+	offset	145 211
+	bbox	130 110 30 60
+	frame	data/chars/xkim/jump01.png
+	delay	6
+	frame	data/chars/xkim/jump15.png
+	frame	data/chars/xkim/jump14.png
+	frame	data/chars/xkim/jump13.png
+	frame	data/chars/xkim/jump12.png
+	frame	data/chars/xkim/jump11.png
+	delay	6
+	frame	data/chars/xkim/jump05.png
+	frame	data/chars/xkim/jump06.png
+	frame	data/chars/xkim/jump05.png
+	frame	data/chars/xkim/jump06.png
+	frame	data/chars/xkim/jump05.png
+	frame	data/chars/xkim/jump06.png
+	frame	data/chars/xkim/jump05.png
+	frame	data/chars/xkim/jump06.png
+	frame	data/chars/xkim/jump05.png
+	frame	data/chars/xkim/jump06.png
+		
+anim	freespecial15
+	loop	0
+	delay	6
+	offset	145 211
+	bbox	0 0 0 0
+	frame	data/chars/xkim/spw01.png
+	sound	data/sounds/xkimTLK.wav
+	frame	data/chars/xkim/spw02.png
+	delay	6
+	frame	data/chars/xkim/spw03.png #2
+	frame	data/chars/xkim/spw04.png
+	delay	9
+	frame	data/chars/xkim/spw05.png
+	@cmd	looper 2 1
+	delay	6
+	frame	data/chars/xkim/spw06.png
+	frame	data/chars/xkim/spw07.png
+	delay	6
+	frame	data/chars/xkim/spw08.png #7
+	frame	data/chars/xkim/spw09.png
+	delay	9
+	frame	data/chars/xkim/spw10.png
+	@cmd	looper 7 1
+	frame	data/chars/xkim/spw02.png
+	@cmd	clearL
+	frame	data/chars/xkim/spw01.png
+	@cmd	spawnChild2  "toturi3" 1 1 1 "ANI_FOLLOW8"
+	frame	data/chars/xkim/spw01.png
+	delay	30
+	frame	data/chars/xkim/spw01.png
+		
+anim	freespecial2
+	loop	0
+	delay	8
+	offset	145 211
+	bbox	130 125 30 30
+	jumpframe	1 3.5 0.5
+	landframe	12
+	fastattack	1
+	forcedirection	-1
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/xkim06.wav
+	frame	data/chars/xkim/pwb20.png
+	frame	data/chars/xkim/pwb21.png #1
+	attack	135 105 55 91 15 1 0 0 35 15
+	dropv	5 0.5
+	delay	12
+	frame	data/chars/xkim/pwb22.png
+	delay	6
+	frame	data/chars/xkim/pwb23.png
+	attack	0 0 0 0
+	delay	5
+	frame	data/chars/xkim/pwb24.png
+	frame	data/chars/xkim/pwb25.png
+	frame	data/chars/xkim/pwb26.png
+	frame	data/chars/xkim/pwb27.png
+	frame	data/chars/xkim/pwb28.png
+	delay	6
+	hitfx	data/sounds/beat0.wav
+	attack2	135 110 60 80 5 0 0 0 15 15
+	frame	data/chars/xkim/pwb29.png #9
+	frame	data/chars/xkim/pwb30.png
+	@cmd	looper 9 20
+	delay	9
+	attack2	0 0 0 0
+	frame	data/chars/xkim/pwb31.png
+	frame	data/chars/xkim/pwb31.png #12
+		
+anim	freespecial26
+	energycost	35
+	mponly	1
+	loop	0
+	delay	9
+	offset	145 211
+	bbox	130 125 30 75
+	fastattack	1
+	hitflash	flashscreen2
+	hitfx	data/sounds/beat4.wav
+	staydown	500 500
+	frame	data/chars/xkim/pwc01.png
+	sound	data/sounds/xkimPW01.wav
+	frame	data/chars/xkim/pwc02.png
+	frame	data/chars/xkim/pwc03.png
+	frame	data/chars/xkim/pwc04.png
+	sound	data/sounds/super1.wav
+	@cmd	spawnAni2 "allsp" 1 1 1 2 "ANI_FOLLOW1"
+	frame	data/chars/xkim/pwc05.png
+	delay	70
+	frame	data/chars/xkim/pwc06.png
+	delay	9
+	frame	data/chars/xkim/pwc07.png
+	delay	2
+	bbox	0 0 0 0
+	sound	data/sounds/xkim02.wav
+	move	7
+	attack9	145 120 85 55 150 1 1 0 55 15
+	dropv	2 3
+	@cmd	keymove 1.2
+	frame	data/chars/xkim/pwc08.png
+	frame	data/chars/xkim/pwc08.png
+	@cmd	keymove 1.2
+	frame	data/chars/xkim/pwc08.png
+	frame	data/chars/xkim/pwc08.png
+	@cmd	keymove 1.2
+	frame	data/chars/xkim/pwc09.png
+	frame	data/chars/xkim/pwc09.png
+	@cmd	keymove 1.2
+	frame	data/chars/xkim/pwc09.png
+	frame	data/chars/xkim/pwc09.png
+	@cmd	keymove 1.2
+	frame	data/chars/xkim/pwc10.png
+	frame	data/chars/xkim/pwc10.png
+	@cmd	keymove 1.2
+	frame	data/chars/xkim/pwc10.png
+	frame	data/chars/xkim/pwc10.png
+	@cmd	keymove 1.2
+	frame	data/chars/xkim/pwc10.png
+	frame	data/chars/xkim/pwc10.png
+	@cmd	keymove 1.2
+	move	4
+	@cmd	keymove 1.2
+	frame	data/chars/xkim/pwc10.png
+	frame	data/chars/xkim/pwc10.png
+	@cmd	keymove 1.2
+	frame	data/chars/xkim/pwc10.png
+	frame	data/chars/xkim/pwc10.png
+	@cmd	keymove 1.2
+	delay	30
+	move	0
+	@cmd	stop
+	frame	data/chars/xkim/pwc10.png
+	attack9	0 0 0 0
+	delay	9
+	frame	data/chars/xkim/pwc11.png
+	frame	data/chars/xkim/pwc12.png
+	frame	data/chars/xkim/pwc13.png
+	frame	data/chars/xkim/pwc14.png
+	frame	data/chars/xkim/pwc15.png
+		
+anim	freespecial27
+	energycost	75
+	mponly	1
+	loop	0
+	delay	9
+	offset	145 211
+	bbox	0 0 0 0
+	followanim	1
+	followcond	1
+	seal	7 4
+	fastattack	1
+	hitfx	data/sounds/empty.wav
+	sound	data/sounds/xkim04.wav
+	frame	data/chars/xkim/chrg01.png
+	delay	15
+	frame	data/chars/xkim/chrg02.png
+	delay	9
+	frame	data/chars/xkim/chrg03.png
+	frame	data/chars/xkim/chrg04.png
+	sound	data/sounds/super1.wav
+	@cmd	spawn04 "allsp" 1 1 1 2
+	delay	40
+	frame	data/chars/xkim/chrg04.png
+	delay	9
+	frame	data/chars/xkim/jump00.png
+	delay	12
+	frame	data/chars/xkim/a50.png
+	frame	data/chars/xkim/run02.png
+	delay	2
+	move	6
+	@cmd	keymove 1.2
+	attack	145 130 40 70 0 0 1 1 5 10
+	frame	data/chars/xkim/run03.png #8
+	frame	data/chars/xkim/run03.png
+	@cmd	keymove 1.2
+	frame	data/chars/xkim/run03.png
+	frame	data/chars/xkim/run03.png
+	attack	0 0 0 0
+	@cmd	looper 8 5
+	frame	data/chars/xkim/run03.png
+	delay	6
+	@cmd	stop
+	move	0
+	@cmd	dasher 1 0 0
+	frame	data/chars/xkim/run04.png
+	frame	data/chars/xkim/run05.png
+	frame	data/chars/xkim/run06.png
+	frame	data/chars/xkim/run01.png
+	frame	data/chars/xkim/run02.png
+	@cmd	stop
+	frame	data/chars/xkim/jump00.png
+	delay	12
+	frame	data/chars/xkim/a50.png
+	frame	data/chars/xkim/jump00.png
+		
+anim	freespecial29
+@script
+	void self = getlocalvar("self");
+	int mp1 = getentityproperty(self,"mp");
+	void plyr = getentityproperty(self, "playerindex");
 
-
-
+	if(frame > 5 && playerkeys(plyr, 0, "attack3"))
+	{
+	  updateframe(self, 2);
+	}
+	@end_script	
+	delay	7
+	offset	145 211
+	bbox	130 125 30 75
+	sound	data/sounds/xclark05.wav
+	frame	data/chars/xkim/chrg01.png
+	frame	data/chars/xkim/chrg02.png
+	delay	5
+	frame	data/chars/xkim/chrg03.png #2
+	frame	data/chars/xkim/chrg04.png
+	frame	data/chars/xkim/chrg03.png
+	@cmd	mpgain 1
+	frame	data/chars/xkim/chrg04.png #5
+	frame	data/chars/xkim/chrg03.png
+		
+anim	freespecial30
+	energycost	55
+	mponly	1
+	weaponframe	20 2
+	loop	0
+	delay	20
+	offset	145 211
+	bbox	0 0 0 0
+	frame	data/chars/xkim/spw01.png
+	delay	8
+	sound	data/sounds/xkimTLK.wav
+	frame	data/chars/xkim/spw02.png
+	delay	8
+	frame	data/chars/xkim/spw03.png #2
+	frame	data/chars/xkim/spw04.png
+	delay	12
+	frame	data/chars/xkim/spw05.png
+	@cmd	looper 2 1
+	delay	8
+	frame	data/chars/xkim/spw06.png
+	frame	data/chars/xkim/spw07.png
+	delay	8
+	frame	data/chars/xkim/spw08.png #7
+	frame	data/chars/xkim/spw09.png
+	delay	12
+	frame	data/chars/xkim/spw10.png
+	@cmd	looper 7 1
+	frame	data/chars/xkim/spw02.png
+	delay	6
+	frame	data/chars/xkim/spw02.png
+	frame	data/chars/xkim/emp.png
+	frame	data/chars/xkim/spw02.png
+	frame	data/chars/xkim/emp.png
+	frame	data/chars/xkim/spw02.png
+	frame	data/chars/xkim/emp.png
+	frame	data/chars/xkim/spw02.png
+	frame	data/chars/xkim/emp.png
+	frame	data/chars/xkim/spw02.png
+	frame	data/chars/xkim/emp.png
+	frame	data/chars/xkim/spw02.png
+		
+anim	freespecial31
+	energycost	55
+	mponly	1
+	weaponframe	20 9
+	loop	0
+	delay	20
+	offset	145 211
+	bbox	0 0 0 0
+	frame	data/chars/xkim/spw01.png
+	delay	8
+	sound	data/sounds/xkimTLK.wav
+	frame	data/chars/xkim/spw02.png
+	delay	8
+	frame	data/chars/xkim/spw03.png #2
+	frame	data/chars/xkim/spw04.png
+	delay	12
+	frame	data/chars/xkim/spw05.png
+	@cmd	looper 2 1
+	delay	8
+	frame	data/chars/xkim/spw06.png
+	frame	data/chars/xkim/spw07.png
+	delay	8
+	frame	data/chars/xkim/spw08.png #7
+	frame	data/chars/xkim/spw09.png
+	delay	12
+	frame	data/chars/xkim/spw10.png
+	@cmd	looper 7 1
+	frame	data/chars/xkim/spw02.png
+	delay	6
+	frame	data/chars/xkim/spw02.png
+	frame	data/chars/xkim/emp.png
+	frame	data/chars/xkim/spw02.png
+	frame	data/chars/xkim/emp.png
+	frame	data/chars/xkim/spw02.png
+	frame	data/chars/xkim/emp.png
+	frame	data/chars/xkim/spw02.png
+	frame	data/chars/xkim/emp.png
+	frame	data/chars/xkim/spw02.png
+	frame	data/chars/xkim/emp.png
+	frame	data/chars/xkim/spw02.png
+		
+anim	freespecial4
+	energycost	15
+	mponly	1
+	loop	0
+	delay	5
+	offset	145 211
+	bbox	130 125 30 75
+	followanim	3
+	followcond	1
+	fastattack	1
+	seal	7 4
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/xkim06.wav
+	frame	data/chars/xkim/pwa01.png
+	frame	data/chars/xkim/pwa02.png
+	frame	data/chars/xkim/pwa03.png
+	frame	data/chars/xkim/pwa04.png
+	delay	3
+	frame	data/chars/xkim/pwa05.png
+	attack2	145 125 75 40 0 0 1 0 3 10
+	frame	data/chars/xkim/pwa06.png
+	attack2	0 0 0 0
+	frame	data/chars/xkim/pwa07.png
+	delay	5
+	frame	data/chars/xkim/pwa04.png
+	delay	3
+	frame	data/chars/xkim/pwa11.png
+	attack	145 105 75 45 0 0 1 0 3 10
+	frame	data/chars/xkim/pwa12.png
+	attack	0 0 0 0
+	frame	data/chars/xkim/pwa13.png
+	delay	5
+	frame	data/chars/xkim/pwa04.png
+	delay	3
+	frame	data/chars/xkim/pwa08.png
+	attack2	145 150 75 50 0 0 1 0 3 10
+	frame	data/chars/xkim/pwa09.png
+	attack2	0 0 0 0
+	frame	data/chars/xkim/pwa10.png
+	delay	5
+	frame	data/chars/xkim/pwa04.png
+	frame	data/chars/xkim/pwa03.png
+	frame	data/chars/xkim/pwa02.png
+	frame	data/chars/xkim/pwa01.png
+		
+anim	freespecial5
+	cancel	3 6 0 A freespecial2
+	cancel	3 6 0 J freespecial2
+	loop	0
+	delay	8
+	offset	145 211
+	bbox	130 125 30 30
+	jumpframe	0 2 2
+	landframe	9
+	fastattack	1
+	forcedirection	-1
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/xkim06.wav
+	frame	data/chars/xkim/pwb08.png
+	delay	9
+	attack10	135 110 60 80 15 1 0 0 35 15
+	dropv	3 1.5
+	frame	data/chars/xkim/pwb09.png
+	frame	data/chars/xkim/pwb10.png
+	delay	5
+	frame	data/chars/xkim/pwb09.png #3
+	frame	data/chars/xkim/pwb10.png
+	frame	data/chars/xkim/pwb09.png
+	frame	data/chars/xkim/pwb10.png
+	@cmd	looper 2 30
+	delay	7
+	attack10	0 0 0 0
+	frame	data/chars/xkim/jump00.png
+	blast	0 0 0 0
+	frame	data/chars/xkim/pwc01.png
+	frame	data/chars/xkim/jump00.png #9
+		
+anim	freespecial6
+	cancel	6 10 0 A freespecial5
+	cancel	6 10 0 J freespecial5
+	loop	0
+	delay	6
+	offset	145 211
+	bbox	130 125 30 30
+	jumpframe	3 3.5 1.5
+	landframe	12
+	fastattack	1
+	forcedirection	-1
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/xkim05.wav
+	frame	data/chars/xkim/pwb01.png
+	@cmd	dasher 3 0 0
+	frame	data/chars/xkim/pwb02.png
+	attack10	140 105 65 90 15 1 0 0 25 10
+	dropv	4 1
+	frame	data/chars/xkim/pwb03.png
+	frame	data/chars/xkim/pwb04.png
+	frame	data/chars/xkim/pwb05.png
+	attack10	0 0 0 0
+	frame	data/chars/xkim/pwb06.png
+	delay	2
+	frame	data/chars/xkim/pwb07a.png
+	frame	data/chars/xkim/pwb07a.png
+	frame	data/chars/xkim/pwb07a.png
+	frame	data/chars/xkim/pwb07a.png
+	frame	data/chars/xkim/pwb07a.png
+	@cmd	looper 6 20
+	delay	9
+	blast	0 0 0 0
+	frame	data/chars/xkim/jump00.png
+	blast	0 0 0 0
+	frame	data/chars/xkim/jump00.png
+		
+anim	freespecial9
+	energycost	12
+	mponly	1
+	loop	0
+	delay	5
+	offset	145 211
+	bbox	0 0 0 0
+	jumpframe	3 4 2
+	landframe	13
+	hitfx	data/sounds/beat5.wav
+	hitflash	flashscreen1
+	sound	data/sounds/xkimPW02.wav
+	frame	data/chars/xkim/pw20.png
+	frame	data/chars/xkim/pw21.png
+	frame	data/chars/xkim/pw22.png	#3
+	frame	data/chars/xkim/pw23.png
+	frame	data/chars/xkim/pw24.png
+	delay	12
+	attack	110 75 130 120 30 1 1 0 45 15
+	dropv	5.5 2
+	frame	data/chars/xkim/pw25.png	#5
+	attack	0 0 0 0
+	delay	6
+	frame	data/chars/xkim/pw26.png
+	frame	data/chars/xkim/pw27.png
+	frame	data/chars/xkim/pw28.png
+	frame	data/chars/xkim/pw29.png
+	offset	145 211
+	frame	data/chars/xkim/jump03.png
+	frame	data/chars/xkim/jump04.png
+	delay	500
+	frame	data/chars/xkim/jump05.png
+	delay	9
+	offset	145 211
+	frame	data/chars/xkim/jump00.png	#13
+	frame	data/chars/xkim/idle01.png
+		
 anim	get
 	delay	9
 	offset	145 211
@@ -2267,6 +1323,630 @@ anim	get
 	frame	data/chars/xkim/get02.png
 	delay	9
 	frame	data/chars/xkim/get01.png
-
-
-
+		
+anim	grab
+	loop	0
+	delay	12
+	offset	145 211
+	bbox	130 125 30 75
+	frame	data/chars/xkim/grab00.png
+		
+anim	grabattack
+	loop	0
+	delay	5
+	offset	145 211
+	bbox	130 125 30 75
+	attack	0 0 0 0
+	frame	data/chars/xkim/grab00.png
+	delay	23
+	attack6	139 139 40 44 15 0 0 0 16 0
+	frame	data/chars/xkim/grab11.png
+		
+anim	grabattack2
+	loop	0
+	delay	8
+	attackone	0
+	offset	145 211
+	bbox	0 0 0 0
+	hitfx	data/sounds/beat5.wav
+	fastattack	1
+	sound	data/sounds/xkim01.wav
+	attack	0 0 0 0
+	frame	data/chars/xkim/grab15.png
+	frame	data/chars/xkim/grab16.png
+	attack2	139 80 45 85 15 0 0 0 20 15
+	frame	data/chars/xkim/grab17.png
+	attack2	0 0 0 0
+	frame	data/chars/xkim/grab18.png
+	delay	15
+	attack	139 100 67 75 15 1 0 0 40 15
+	frame	data/chars/xkim/grab19.png
+	attack	0 0 0 0
+	delay	9
+	frame	data/chars/xkim/grab20.png
+	frame	data/chars/xkim/grab21.png
+		
+anim	grabbackward
+	otg	2
+	loop	0
+	delay	20
+	offset	145 211
+	bbox	0 0 0 0
+	forcedirection	-1
+	staydown	500 500
+	@cmd	slamstart
+	sound	data/sounds/grab.wav
+	@cmd	position 10 35 49 -1 -1
+	frame	data/chars/xkim/grab00.png
+	delay	10
+	@cmd	position 11 35 49 -1 -1
+	frame	data/chars/xkim/grab01.png
+	@cmd	position 0 20 70 -1 1
+	frame	data/chars/xkim/grab02.png
+	delay	5
+	
+	@cmd	position 1 -5 100 -1 1
+	frame	data/chars/xkim/grab03.png
+	
+	@cmd	position 1 -5 100 -1 1
+	frame	data/chars/xkim/grab03.png
+	
+	@cmd	position 1 -5 100 -1 1
+	frame	data/chars/xkim/grab03.png
+	
+	@cmd	position 1 -5 100 -1 1
+	frame	data/chars/xkim/grab03.png
+	
+	@cmd	position 1 -5 100 -1 1
+	frame	data/chars/xkim/grab03.png
+	sound	data/sounds/xkim04.wav
+	delay	2
+	@cmd	position 6 -20 50 -1 1
+	frame	data/chars/xkim/grab04.png
+	@cmd	depost 0
+	@cmd	finish 70 1 -3 3 0 -1
+	frame	data/chars/xkim/grab04.png
+	delay	35
+	frame	data/chars/xkim/grab04.png
+	delay	9
+	frame	data/chars/xkim/grab05.png
+	@cmd	flip
+	@cmd	clearL
+	frame	data/chars/xkim/idle01.png
+		
+anim	grabbed
+	loop	0
+	delay	10
+	offset	145 211
+	bbox	130 125 30 75
+	frame	data/chars/xkim/pain2.png
+		
+anim	grabforward
+	loop	0
+	delay	5
+	offset	145 211
+	bbox	130 125 30 75
+	attack	0 0 0 0
+	frame	data/chars/xkim/grab00.png
+	delay	23
+	attack6	139 139 40 44 15 0 0 0 16 0
+	frame	data/chars/xkim/grab10.png
+		
+anim	grabforward2
+	loop	0
+	delay	6
+	offset	145 211
+	attackone	0
+	bbox	0 0 0 0
+	jumpframe	2 3 1
+	landframe	9
+	fastattack	1
+	forcedirection	-1
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/xkim03.wav
+	frame	data/chars/xkim/jua25.png
+	frame	data/chars/xkim/jua26.png
+	frame	data/chars/xkim/pwb13.png
+	frame	data/chars/xkim/pwb13a.png
+	delay	20
+	attack	135 110 60 80 15 1 0 0 35 15
+	dropv	1 4
+	frame	data/chars/xkim/pwb15.png
+	delay	7
+	attack	0 0 0 0
+	frame	data/chars/xkim/a31.png
+	frame	data/chars/xkim/jump00.png
+	frame	data/chars/xkim/jump04.png
+	delay	500
+	frame	data/chars/xkim/jump05.png
+	delay	7
+	frame	data/chars/xkim/jump00.png #9
+		
+anim	idle
+	loop	1
+	delay	7
+	offset	145 211
+	bbox	130 125 30 75
+	frame	data/chars/xkim/idle01.png
+	@cmd	clearL
+	delay	8
+	offset	144 212
+	frame	data/chars/xkim/idle02.png
+	offset	143 214
+	frame	data/chars/xkim/idle03.png
+	offset	142 213
+	frame	data/chars/xkim/idle04.png
+	offset	141 212
+	frame	data/chars/xkim/idle05.png
+	offset	140 211
+	frame	data/chars/xkim/idle06.png
+	delay	9
+	offset	141 212
+	frame	data/chars/xkim/idle07.png
+	delay	8
+	offset	142 214
+	frame	data/chars/xkim/idle08.png
+	offset	143 213
+	frame	data/chars/xkim/idle09.png
+	offset	144 212
+	frame	data/chars/xkim/idle10.png
+	offset	145 211
+	delay	7
+	frame	data/chars/xkim/idle11.png
+		
+anim	jump
+	loop	0
+	delay	20
+	offset	145 211
+	bbox	130 110 30 60
+	frame	data/chars/xkim/jump01.png
+	delay	9
+	frame	data/chars/xkim/jump02.png
+	delay	15
+	frame	data/chars/xkim/jump03.png
+	delay	9
+	frame	data/chars/xkim/jump04.png
+	delay	6
+	frame	data/chars/xkim/jump05.png
+	frame	data/chars/xkim/jump06.png
+	frame	data/chars/xkim/jump05.png
+	frame	data/chars/xkim/jump06.png
+	frame	data/chars/xkim/jump05.png
+	frame	data/chars/xkim/jump06.png
+	frame	data/chars/xkim/jump05.png
+	frame	data/chars/xkim/jump06.png
+	frame	data/chars/xkim/jump05.png
+	frame	data/chars/xkim/jump06.png
+	frame	data/chars/xkim/jump05.png
+	frame	data/chars/xkim/jump06.png
+		
+anim	jumpattack
+	loop	0
+	delay	7
+	offset	145 211
+	bbox	135 98 30 60
+	forcedirection	-1
+	staydown	500 500
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/xkim01.wav
+	frame	data/chars/xkim/jua00.png
+	frame	data/chars/xkim/jua01.png
+	frame	data/chars/xkim/jua03.png
+	delay	25
+	attack	130 105 80 70 25 1 0 0 35 15
+	frame	data/chars/xkim/jua02.png
+	attack	0 0 0 0
+		
+anim	jumpattack2
+	loop	0
+	delay	7
+	offset	145 211
+	bbox	130 98 30 50
+	frame	data/chars/xkim/jua30.png
+	delay	5
+	attack2	127 120 50 50 12 0 0 0 35 0
+	frame	data/chars/xkim/jua31.png
+		
+anim	jumpattack3
+	loop	0
+	delay	6
+	offset	145 211
+	bbox	135 98 30 40
+	jumpframe	0 1.5 -1
+	landframe	10
+	forcedirection	-1
+	fastattack	1
+	staydown	500 500
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/xkimPW01.wav
+	frame	data/chars/xkim/jump02.png
+	frame	data/chars/xkim/jump03.png
+	@cmd	leaper 2 0
+	frame	data/chars/xkim/jump03.png
+	delay	3
+	frame	data/chars/xkim/jua40.png #3
+	attack2	130 130 55 80 8 0 0 0 15 15
+	frame	data/chars/xkim/jua41.png
+	frame	data/chars/xkim/jua42.png
+	attack2	0 0 0 0
+	frame	data/chars/xkim/jua40.png
+	attack2	130 130 55 80 8 0 0 0 15 15
+	frame	data/chars/xkim/jua42.png
+	frame	data/chars/xkim/jua43.png
+	attack2	0 0 0 0
+	@cmd	looper 3 20
+	delay	500
+	frame	data/chars/xkim/jua40.png
+	delay	9
+	bbox	130 125 30 75
+	frame	data/chars/xkim/jump00.png #10
+		
+anim	jumpdelay
+	loop	0
+	delay	6
+	offset	145 211
+	bbox	130 125 30 75
+	frame	data/chars/xkim/jump00.png
+		
+anim	jumpforward
+	loop	0
+	delay	7
+	offset	145 211
+	bbox	130 110 30 60
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/xkim04.wav
+	forcedirection	-1
+	staydown	500 500
+	frame	data/chars/xkim/jua05.png
+	frame	data/chars/xkim/jua06.png
+	frame	data/chars/xkim/jua07.png
+	frame	data/chars/xkim/jua08.png
+	attack	135 115 92 65 30 1 0 0 35 15
+	frame	data/chars/xkim/jua09.png
+	frame	data/chars/xkim/jua10.png
+	delay	14
+	frame	data/chars/xkim/jua11.png
+	attack	0 0 0 0
+	frame	data/chars/xkim/jua12.png
+		
+anim	jumpland
+	loop	0
+	delay	6
+	offset	145 211
+	bbox	130 125 30 75
+	frame	data/chars/xkim/jump00.png
+		
+anim	pain
+	loop	0
+	delay	3
+	offset	145 211
+	bbox	130 125 30 75
+	frame	data/chars/xkim/pain1.png
+	offset	140 211
+	frame	data/chars/xkim/pain2.png
+	offset	146 211
+	frame	data/chars/xkim/pain2.png
+	offset	145 211
+	frame	data/chars/xkim/pain2.png
+		
+anim	pain2
+	loop	0
+	delay	3
+	offset	145 211
+	bbox	130 125 30 75
+	frame	data/chars/xkim/pain3.png
+	offset	140 211
+	frame	data/chars/xkim/pain4.png
+	offset	146 211
+	frame	data/chars/xkim/pain4.png
+	offset	145 211
+	frame	data/chars/xkim/pain4.png
+		
+anim	pain3
+	loop	0
+	delay	2
+	offset	145 211
+	bbox	130 125 30 75
+	move	-6
+	frame	data/chars/xkim/pain1.png
+	frame	data/chars/xkim/pain1.png
+	frame	data/chars/xkim/pain1.png
+	frame	data/chars/xkim/pain2.png
+	frame	data/chars/xkim/pain2.png
+	frame	data/chars/xkim/pain2.png
+	move	-4
+	frame	data/chars/xkim/pain1.png
+	frame	data/chars/xkim/pain1.png
+	frame	data/chars/xkim/pain1.png
+	frame	data/chars/xkim/pain3.png
+	frame	data/chars/xkim/pain3.png
+	move	-2
+	frame	data/chars/xkim/pain3.png
+	frame	data/chars/xkim/pain4.png
+	frame	data/chars/xkim/pain4.png
+	delay	50
+	frame	data/chars/xkim/pain4.png
+		
+anim	pain5
+	loop	0
+	delay	12
+	offset	145 211
+	bbox	130 125 30 75
+	frame	data/chars/xkim/pain1.png
+	frame	data/chars/xkim/pain2.png
+	frame	data/chars/xkim/pain3.png
+	frame	data/chars/xkim/pain4.png
+	frame	data/chars/xkim/pain2.png
+	frame	data/chars/xkim/rise03.png
+	frame	data/chars/xkim/rise02.png
+	frame	data/chars/xkim/rise02.png
+	delay	30
+	frame	data/chars/xkim/rise02.png
+	delay	12
+	frame	data/chars/xkim/rise01.png
+		
+anim	respawn
+	loop	0
+	delay	20
+	offset	145 211
+	bbox	0 0 0 0
+	frame	data/chars/xkim/spw01.png
+	delay	8
+	sound	data/sounds/xkimTLK.wav
+	frame	data/chars/xkim/spw02.png
+	delay	8
+	frame	data/chars/xkim/spw03.png #2
+	frame	data/chars/xkim/spw04.png
+	delay	12
+	frame	data/chars/xkim/spw05.png
+	@cmd	looper 2 1
+	delay	8
+	frame	data/chars/xkim/spw06.png
+	frame	data/chars/xkim/spw07.png
+	delay	8
+	frame	data/chars/xkim/spw08.png #7
+	frame	data/chars/xkim/spw09.png
+	delay	12
+	frame	data/chars/xkim/spw10.png
+	@cmd	looper 7 1
+	frame	data/chars/xkim/spw02.png
+		
+anim	rise
+	loop	0
+	delay	25
+	offset	145 211
+	bbox	0 0 0 0
+	frame	data/chars/xkim/fall4.png
+	delay	8
+	frame	data/chars/xkim/rise01.png
+	frame	data/chars/xkim/rise02.png
+	frame	data/chars/xkim/rise03.png
+	frame	data/chars/xkim/jump00.png
+		
+anim	run
+	loop	1
+	delay	7
+	offset	145 211
+	bbox	130 125 30 75
+	sound	data/sounds/run.wav
+	frame	data/chars/xkim/run01.png
+	frame	data/chars/xkim/run02.png
+	frame	data/chars/xkim/run03.png
+	sound	data/sounds/run.wav
+	frame	data/chars/xkim/run04.png
+	frame	data/chars/xkim/run05.png
+	frame	data/chars/xkim/run06.png
+		
+anim	runattack
+	loop	0
+	delay	5
+	offset	145 211
+	bbox	130 125 30 75
+	fastattack	1
+	forcedirection	-1
+	hitfx	data/sounds/beat5.wav
+	@cmd	dasher 3.5 0 0
+	frame	data/chars/xkim/runatk01.png
+	sound	data/sounds/xkim03.wav
+	frame	data/chars/xkim/runatk02.png
+	frame	data/chars/xkim/runatk03.png
+	attack8	135 85 55 75 5 0 0 0 10 15
+	frame	data/chars/xkim/runatk04.png
+	frame	data/chars/xkim/runatk05.png
+	@cmd	dasher 3 0 0
+	frame	data/chars/xkim/runatk06.png
+	attack8	0 0 0 0
+	@cmd	dasher 2 0 0
+	frame	data/chars/xkim/runatk07.png
+	attack9	135 125 85 50 30 1 0 0 40 15
+	dropv	2 2
+	@cmd	dasher 1 0 0
+	frame	data/chars/xkim/runatk08.png
+	frame	data/chars/xkim/runatk08.png
+	attack9	0 0 0 0
+	delay	7
+	@cmd	stop
+	frame	data/chars/xkim/runatk09.png
+	frame	data/chars/xkim/runatk10.png
+		
+anim	runjump
+	loop	0
+	delay	7
+	offset	145 211
+	bbox	130 110 30 50
+	frame	data/chars/xkim/jump02.png
+	frame	data/chars/xkim/jump07.png
+	frame	data/chars/xkim/jump08.png
+	frame	data/chars/xkim/jump09.png
+	frame	data/chars/xkim/jump10.png
+	frame	data/chars/xkim/jump04.png
+		
+anim	runjumpattack
+	loop	0
+	delay	5
+	offset	145 211
+	bbox	130 92 30 55
+	fastattack	1
+	forcedirection	-1
+	staydown	500 500
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/xkim02.wav
+	frame	data/chars/xkim/jua20.png
+	frame	data/chars/xkim/jua21.png
+	sound	data/sounds/punch2.wav
+	attack10	130 95 92 70 15 1 0 0 30 14
+	dropv	3 2
+	frame	data/chars/xkim/jua22.png
+	frame	data/chars/xkim/jua23.png
+	attack	0 0 0 0
+	delay	4
+	frame	data/chars/xkim/jua24.png
+	sound	data/sounds/xkim03.wav
+	frame	data/chars/xkim/jua25.png
+	frame	data/chars/xkim/jua26.png
+	sound	data/sounds/punch2.wav
+	frame	data/chars/xkim/jua27.png
+	delay	6
+	attack	130 115 100 70 20 1 0 0 30 14
+	dropv	2 4
+	frame	data/chars/xkim/jua28.png
+	frame	data/chars/xkim/jua29.png
+		
+anim	runslide
+	loop	0
+	delay	6
+	offset	145 211
+	bbox	130 175 30 25
+	forcedirection	-1
+	hitfx	data/sounds/beat5.wav
+	@cmd	dasher 3 0 0
+	sound	data/sounds/xkim04.wav
+	frame	data/chars/xkim/jump00.png
+	frame	data/chars/xkim/sld01.png
+	frame	data/chars/xkim/sld01a.png
+	attack	140 165 90 45 20 1 0 0 25 15
+	dropv	2 3
+	frame	data/chars/xkim/sld01b.png
+	delay	15
+	@cmd	dasher 3 0 0
+	frame	data/chars/xkim/sld01b.png
+	frame	data/chars/xkim/sld01b.png
+	@cmd	dasher 2 0 0
+	frame	data/chars/xkim/sld01b.png
+	attack	0 0 0 0
+	delay	9
+	@cmd	dasher 1 0 0
+	frame	data/chars/xkim/sld01a.png
+	frame	data/chars/xkim/sld01.png
+	@cmd	stop
+	frame	data/chars/xkim/jump00.png
+		
+anim	select
+	loop	0
+	delay	5
+	offset	0 0
+	sound	data/sounds/blink.wav
+	frame	data/chars/xkim/xwait2.png
+	sound	data/sounds/xkimTLK.wav
+	frame	data/chars/xkim/xwait3.png
+	frame	data/chars/xkim/xwait2.png #2
+	frame	data/chars/xkim/xwait3.png
+	@cmd	looper 2 10
+	delay	100
+	frame	data/chars/xkim/xwait2.png
+		
+anim	spawn
+	loop	0
+	delay	20
+	offset	145 211
+	bbox	0 0 0 0
+	frame	data/chars/xkim/spw01.png
+	delay	8
+	sound	data/sounds/xkimTLK.wav
+	frame	data/chars/xkim/spw02.png
+	delay	8
+	frame	data/chars/xkim/spw03.png #2
+	frame	data/chars/xkim/spw04.png
+	delay	12
+	frame	data/chars/xkim/spw05.png
+	@cmd	looper 2 1
+	delay	8
+	frame	data/chars/xkim/spw06.png
+	frame	data/chars/xkim/spw07.png
+	delay	8
+	frame	data/chars/xkim/spw08.png #7
+	frame	data/chars/xkim/spw09.png
+	delay	12
+	frame	data/chars/xkim/spw10.png
+	@cmd	looper 7 1
+	frame	data/chars/xkim/spw02.png
+		
+anim	special
+	energycost	30
+	mponly	1
+	loop	0
+	delay	5
+	offset	145 211
+	bbox	0 0 0 0
+	staydown	500 500
+	hitfx	data/sounds/beat5.wav
+	frame	data/chars/xkim/jump00.png
+	sound	data/sounds/xkimPW03.wav
+	frame	data/chars/xkim/jump01.png
+	delay	4
+	frame	data/chars/xkim/pw01.png #2
+	sound	data/sounds/punch2.wav
+	frame	data/chars/xkim/pw02.png
+	attack	148 100 80 80 20 1 0 0 30 15
+	dropv	2 3
+	frame	data/chars/xkim/pw03.png
+	frame	data/chars/xkim/pw04.png
+	attack	0 0 0 0
+	frame	data/chars/xkim/pw05.png
+	frame	data/chars/xkim/pw06.png
+	@cmd	flip
+	frame	data/chars/xkim/pw07.png
+	sound	data/sounds/punch2.wav
+	frame	data/chars/xkim/pw08.png
+	attack	148 100 80 80 20 1 0 0 30 15
+	dropv	2 3
+	frame	data/chars/xkim/pw09.png
+	frame	data/chars/xkim/pw09.png
+	attack	0 0 0 0
+	frame	data/chars/xkim/pw10.png
+	@cmd	flip
+	@cmd	looper 2 2
+	delay	7
+	frame	data/chars/xkim/jump01.png
+	frame	data/chars/xkim/jump00.png
+	frame	data/chars/xkim/a50.png
+	@cmd	clearL
+	frame	data/chars/xkim/jump00.png
+		
+anim	waiting
+	loop	1
+	delay	12
+	offset	0 0
+	frame	data/chars/xkim/xwait1.png
+	frame	data/chars/xkim/xwait1.png
+		
+anim	walk
+	loop	1
+	delay	8
+	offset	145 211
+	bbox	130 125 30 75
+	frame	data/chars/xkim/wk01.png
+	frame	data/chars/xkim/wk02.png
+	frame	data/chars/xkim/wk03.png
+	frame	data/chars/xkim/wk04.png
+	frame	data/chars/xkim/wk05.png
+		
+anim	walkoff
+	loop	0
+	delay	12
+	offset	145 211
+	bbox	130 110 30 60
+	frame	data/chars/xkim/jump06.png
+		
+#|edited by openBor Stats v 0.53
+		

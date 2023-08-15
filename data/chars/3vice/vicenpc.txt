@@ -7,7 +7,7 @@ speed		16
 running		28 3 2 1 0
 jumpheight	4
 jumpspeed	28
-#jumpmove	0  4
+
 nodieblink	2
 noquake         0
 falldie		2
@@ -75,7 +75,7 @@ void main()
     	void anim = getentityproperty(self,"animationID");
 
 
-	if(P1 != NULL())
+	if ( nm == "matureplr" || nm == "viceplr" )
 	{
 		int mp = getentityproperty(P1, "map");
 		changeentityproperty(self, "parent", P1);
@@ -94,38 +94,38 @@ void main()
 		changeentityproperty(self, "defaultname", "maturenpc");
 		}
 	}
-	else if (P2 != NULL())
+	else if ( nm2 == "matureplr" || nm2 == "viceplr" )
 	{
 		int mp = getentityproperty(P2, "map");
 		changeentityproperty(self, "parent", P2);
-		changeentityproperty(P1, "parent", self);
+		changeentityproperty(P2, "parent", self);
 
-		if (nm == "matureplr")
+		if (nm2 == "matureplr")
 		{
 		changeentityproperty(self, "map", mp);
 		changeentityproperty(self, "model", "vicenpc", 1);
 		changeentityproperty(self, "defaultname", "vicenpc");
 		}
-		else if (nm == "viceplr")
+		else if (nm2 == "viceplr")
 		{
 		changeentityproperty(self, "map", mp);
 		changeentityproperty(self, "model", "maturenpc", 1);
 		changeentityproperty(self, "defaultname", "maturenpc");
 		}
 	}
-	else if (P3 != NULL())
+	else if ( nm3 == "matureplr" || nm3 == "viceplr" )
 	{
 		int mp = getentityproperty(P3, "map");
 		changeentityproperty(self, "parent", P3);
-		changeentityproperty(P1, "parent", self);
+		changeentityproperty(P3, "parent", self);
 
-		if (nm == "matureplr")
+		if (nm3 == "matureplr")
 		{
 		changeentityproperty(self, "map", mp);
 		changeentityproperty(self, "model", "vicenpc", 1);
 		changeentityproperty(self, "defaultname", "vicenpc");
 		}
-		else if (nm == "viceplr")
+		else if (nm3 == "viceplr")
 		{
 		changeentityproperty(self, "map", mp);
 		changeentityproperty(self, "model", "maturenpc", 1);
@@ -149,176 +149,21 @@ void main()
   	}
 
 }
-@end_script
-
-
-
-#--------------------//-grab-escape-beds-//-----------------------
-
-anim	follow17
-@script
-	void self = getlocalvar("self");
-	int eTime = openborvariant("elapsed_time");
-	if (frame == 2)
-	{
-	changeentityproperty(self, "invincible", 1);
-	changeentityproperty(self, "invinctime", eTime + 1000);
-	changeentityproperty(self, "blink", 1);
-	}
-@end_script
-	loop	0
-	delay	800
-	offset	95 191
-	bbox	0 0 0 0
-	frame	data/chars/3vice/empty.gif
-	delay	11
-	frame	data/chars/3vice/d32.gif
-	frame	data/chars/3vice/d33.gif
-	frame	data/chars/3vice/d34.gif
-	delay	100
-	frame	data/chars/3vice/d35.gif
-	delay	11
-	frame	data/chars/3vice/d35.gif
-	frame	data/chars/3vice/d34.gif
-	frame	data/chars/3vice/d33.gif
-	frame	data/chars/3vice/d32.gif
-
-
-anim	follow15
-@script
-	void self = getlocalvar("self");
-   	void opp = getentityproperty(self, "opponent");
-	int enedir = getentityproperty(opp,"direction");
-	if (frame == 0 && enedir == 0)
-	{
-	changeentityproperty(self, "direction", 1);
-	}
-	else if (frame == 0 && enedir == 1)
-	{
-	changeentityproperty(self, "direction", 0);
-	}
-@end_script
-	loop	0
-	delay	7
-	offset	95 197
-	bbox	0 0 0 0
-	jumpframe 0 3 -1
-	landframe 7
-	frame	data/chars/3vice/c01.gif
-	frame	data/chars/3vice/c02.gif
-	frame	data/chars/3vice/c03.gif
-	frame	data/chars/3vice/c04.gif
-	frame	data/chars/3vice/c05.gif
-	frame	data/chars/3vice/c06.gif
-	delay	300
-	frame	data/chars/3vice/c07.gif
-	delay	9
-	frame	data/chars/3vice/blk08.gif
-
-anim	follow16
-@script
-	void self = getlocalvar("self");
-   	void opp = getentityproperty(self, "opponent");
-	int enedir = getentityproperty(opp,"direction");
-	if (frame == 0 && enedir == 0)
-	{
-	changeentityproperty(self, "direction", 1);
-	}
-	else if (frame == 0 && enedir == 1)
-	{
-	changeentityproperty(self, "direction", 0);
-	}
-@end_script
-	loop	0
-	delay	6
-	offset	95 196
-	bbox	0 0 0 0
-	frame	data/chars/3vice/blk08.gif
-	@cmd	dasher -3 0 0
-	frame	data/chars/3vice/blk07.gif
-	frame	data/chars/3vice/blk06.gif
-	@cmd	spawn01 "dust" 55 1 1
-	frame	data/chars/3vice/blk05.gif
-	frame	data/chars/3vice/blk04.gif
-	frame	data/chars/3vice/blk03.gif
-	frame	data/chars/3vice/blk02.gif
-	@cmd	stop
-	frame	data/chars/3vice/blk01.gif
-
-
-#--------------------------------//-----------------------
-#--------------------------------//-----------------------
-#--------------------------------//-----------------------
-#--------------------------------//-----------------------
-
-anim	freespecial26
-	energycost	45
-	mponly	1
-	loop	0
-	delay	8
-	offset	100 187
-	bbox	92 125 30 50
-	staydown	500 500
-	forcedirection	-1
-	hitfx	data/sounds/beat4.wav
-	hitflash	flashscreen2
-	frame	data/chars/3vice/e11.gif
-	frame	data/chars/3vice/e12.gif
-	frame	data/chars/3vice/e13.gif
-	frame	data/chars/3vice/e14.gif
-	frame	data/chars/3vice/e15.gif
-	sound	data/sounds/super1.wav
-	@cmd	spawnAni2 "allsp" 1 1 1 4 "ANI_FOLLOW1"
-	frame	data/chars/3vice/e15.gif
-	delay	20
-	frame	data/chars/3vice/e15.gif
-	delay	8
-	frame	data/chars/3vice/e13.gif
-	frame	data/chars/3vice/e12.gif
-	frame	data/chars/3vice/e11.gif
-	offset	109 195
-	bbox	0 0 0 0
-	frame	data/chars/3vice/e26.gif
-	frame	data/chars/3vice/runatk07.gif
-	offset	114 169
-	frame	data/chars/3vice/slamck13.gif
-	offset	100 190
-	sound	data/sounds/slowm.wav
-	frame	data/chars/3vice/f07.gif
-	frame	data/chars/3vice/f07a.gif
-	delay	2
-	move	6
-	frame	data/chars/3vice/f08.gif #15
-	attack	100 79 85 64 170 1 1 0 55 30
-	dropv	2 4
-	frame	data/chars/3vice/f09.gif
-	frame	data/chars/3vice/f08.gif
-	@cmd	keymove 1.2
-	frame	data/chars/3vice/f09.gif
-	frame	data/chars/3vice/f08.gif
-	@cmd	keymove 1.2
-	frame	data/chars/3vice/f09.gif
-	frame	data/chars/3vice/f08.gif
-	attack	0 0 0 0
-	@cmd	keymove 1.2
-	frame	data/chars/3vice/f09.gif
-	@cmd	looper 15 5
-	delay	9
-	frame	data/chars/3vice/f07a.gif
-	move	0
-	@cmd	stop
-	frame	data/chars/3vice/f02d.gif
-	frame	data/chars/3vice/f06.gif
-	delay	40
-	offset	97 192
-	frame	data/chars/3vice/upper01.gif
-
-
-
-#--------------------------------//-----------------------
-
-
-
+	@end_script	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 anim	attack1
 	range	0 130
 	loop	0
@@ -336,68 +181,7 @@ anim	attack1
 	attack2	0 0 0 0
 	delay	5
 	frame	data/chars/3vice/a12.gif
-
-
-
-anim	follow10
-	loop	0
-	delay	7
-	forcedirection	-1
-	attackone	1
-	otg	2
-	offset	105 187
-	bbox	0 0 0 0
-	hitfx	data/sounds/beat5.wav
-	frame	data/chars/3vice/d31.gif
-	frame	data/chars/3vice/d23.gif
-	frame	data/chars/3vice/d24.gif
-	frame	data/chars/3vice/d25.gif
-	frame	data/chars/3vice/d26.gif
-	attack11 87 165 65 25 50 1 0 0 25 35
-	dropv	3 3
-	frame	data/chars/3vice/d27.gif
-	frame	data/chars/3vice/d28.gif
-	frame	data/chars/3vice/d29.gif
-	delay	20
-	attack11 0 0 0 0
-	frame	data/chars/3vice/d30.gif
-	delay	9
-	frame	data/chars/3vice/d31.gif
-	offset	109 194
-	frame	data/chars/3vice/e26.gif
-
-
-anim	follow11
-	loop	0
-	delay	7
-	forcedirection	-1
-	attackone	1
-	otg	2
-	offset	105 187
-	bbox	0 0 0 0
-	hitflash	flashscreen1
-	hitfx	data/sounds/beat5.wav
-	frame	data/chars/3vice/d31.gif
-	frame	data/chars/3vice/d23.gif
-	frame	data/chars/3vice/d24.gif
-	@cmd	dasher 3 0 0
-	frame	data/chars/3vice/d25.gif
-	frame	data/chars/3vice/d26.gif
-	attack11 87 165 65 25 50 1 0 0 25 35
-	dropv	3 3
-	frame	data/chars/3vice/d27.gif
-	frame	data/chars/3vice/d28.gif
-	@cmd	stop
-	frame	data/chars/3vice/d29.gif
-	delay	20
-	attack11 0 0 0 0
-	frame	data/chars/3vice/d30.gif
-	delay	9
-	frame	data/chars/3vice/d31.gif
-	offset	109 194
-	frame	data/chars/3vice/e26.gif
-
-
+		
 anim	attack2
 	range	0 80
 	loop	0
@@ -415,9 +199,7 @@ anim	attack2
 	attack	0 0 0 0
 	frame	data/chars/3vice/a111.gif
 	frame	data/chars/3vice/a110.gif
-
-
-
+		
 anim	attack3
 	range	0 80
 	loop	0
@@ -425,7 +207,7 @@ anim	attack3
 	forcedirection	-1
 	fastattack	1
 	offset	95 196
-	staydown 300 300
+	staydown	300 300
 	bbox	85 97 30 80
 	hitfx	data/sounds/beat5.wav
 	frame	data/chars/3vice/a109.gif
@@ -441,9 +223,7 @@ anim	attack3
 	frame	data/chars/3vice/a103.gif
 	frame	data/chars/3vice/a102.gif
 	frame	data/chars/3vice/a101.gif
-
-
-
+		
 anim	attack4
 	range	0 130
 	loop	0
@@ -467,9 +247,9 @@ anim	attack4
 	frame	data/chars/3vice/a120.gif
 	frame	data/chars/3vice/a121.gif
 	delay	5
-	frame	data/chars/3vice/a116.gif 
+	frame	data/chars/3vice/a116.gif
 	frame	data/chars/3vice/a117.gif
-	attack	102 100 95 50 25 1 0 0 15 0
+	attack	102 100 95 50 20 1 0 0 15 0
 	dropv	3 3
 	frame	data/chars/3vice/a118.gif
 	frame	data/chars/3vice/a119.gif
@@ -482,8 +262,7 @@ anim	attack4
 	frame	data/chars/3vice/a115.gif
 	delay	12
 	frame	data/chars/3vice/a114.gif
-
-
+		
 anim	attack5
 	range	450 950
 	rangez	-155 155
@@ -494,123 +273,7 @@ anim	attack5
 	frame	data/chars/3vice/idle01.gif
 	@cmd	anichange "ANI_FOLLOW4"
 	frame	data/chars/3vice/idle01.gif
-
-
-anim	follow4
-	loop	0
-	delay	7
-	offset	95 196
-	bbox	0 0 0 0
-	frame	data/chars/3vice/idle01.gif
-	frame	data/chars/3vice/idle02.gif
-	frame	data/chars/3vice/idle03.gif
-	frame	data/chars/3vice/idle04.gif
-	frame	data/chars/3vice/idle05.gif
-	delay	9
-	offset	102 196
-	frame	data/chars/3vice/e26.gif
-	offset	112 192
-	frame	data/chars/3vice/e27.gif
-	frame	data/chars/3vice/e28.gif
-	frame	data/chars/3vice/e29.gif
-	frame	data/chars/3vice/e30.gif
-	frame	data/chars/3vice/e31.gif
-	frame	data/chars/3vice/e32.gif
-	frame	data/chars/3vice/e33.gif
-	@cmd	clearL
-	frame	data/chars/3vice/e33.gif
-
-
-anim	follow6
-	loop	0
-	delay	6
-	offset	95 197
-	bbox	0 0 0 0
-	landframe 7
-	frame	data/chars/3vice/c01.gif
-	@cmd	depost 0
-	@cmd	finish 0 1 0 0 0 0
-	frame	data/chars/3vice/c02.gif
-	frame	data/chars/3vice/c03.gif
-	frame	data/chars/3vice/c04.gif
-	frame	data/chars/3vice/c05.gif
-	frame	data/chars/3vice/c06.gif
-	delay	300
-	frame	data/chars/3vice/c07.gif
-	delay	9
-	frame	data/chars/3vice/e26.gif #7
-	@cmd	anichange "ANI_FOLLOW4"
-	frame	data/chars/3vice/e26.gif
-
-
-anim	runattack
-	loop	0
-	delay	6
-	fastattack	1
-	forcedirection -1
-	offset	100 196
-	bbox	85 97 30 80
-	hitfx	data/sounds/beat5.wav
-	@cmd	dasher 3 0 0
-	frame	data/chars/3vice/runatk01.gif
-	frame	data/chars/3vice/runatk02.gif
-	attack8	100 116 70 43 5 0 1 0 25 0
-	frame	data/chars/3vice/runatk03.gif
-	attack8	0 0 0 0
-	frame	data/chars/3vice/runatk04.gif
-	delay	10
-	attack	105 116 94 43 35 1 0 0 25 0
-	dropv	3 3.5
-	frame	data/chars/3vice/runatk05.gif
-	delay	10
-	@cmd	dasher 2 0 0
-	frame	data/chars/3vice/runatk06.gif
-	@cmd	stop
-	frame	data/chars/3vice/runatk06.gif
-	attack	0 0 0 0
-	delay	9
-	frame	data/chars/3vice/runatk04.gif
-	frame	data/chars/3vice/runatk03.gif
-	frame	data/chars/3vice/runatk07.gif
-
-
-
-anim	runslide
-	loop	0
-	delay	5
-	forcedirection	-1
-	fastattack	1
-	offset	100 196
-	bbox	91 140 30 40
-	staydown 300 300
-	hitfx	data/sounds/beat5.wav
-	@cmd	dasher 3 0 0
-	frame	data/chars/3vice/e25.gif
-	frame	data/chars/3vice/e24.gif
-	frame	data/chars/3vice/e23.gif
-	offset	104 189
-	frame	data/chars/3vice/e22.gif
-	frame	data/chars/3vice/e21.gif
-	frame	data/chars/3vice/e20.gif
-	delay	10
-	attack	78 134 89 43 35 1 0 0 30 25
-	dropv	4 0
-	frame	data/chars/3vice/e19.gif
-	delay	8
-	frame	data/chars/3vice/e19.gif
-	@cmd	dasher 2 0 0
-	frame	data/chars/3vice/e19.gif
-	delay	9
-	attack	0 0 0 0
-	frame	data/chars/3vice/e18.gif
-	@cmd	stop
-	frame	data/chars/3vice/e17.gif
-	frame	data/chars/3vice/e16.gif
-	offset	100 196
-	frame	data/chars/3vice/e25.gif
-	frame	data/chars/3vice/e26.gif
-
-
+		
 anim	attackdown
 	loop	0
 	delay	6
@@ -627,7 +290,7 @@ anim	attackdown
 	frame	data/chars/3vice/blk07.gif
 	@cmd	stop
 	frame	data/chars/3vice/blk08.gif
-
+		
 anim	attackup
 	loop	0
 	delay	6
@@ -644,142 +307,7 @@ anim	attackup
 	frame	data/chars/3vice/blk07.gif
 	@cmd	stop
 	frame	data/chars/3vice/blk08.gif
-
-
-
-anim	jump
-	range	30 300
-	loop	0
-	delay	7
-	offset	95 197
-	bbox	90 97 30 50
-	frame	data/chars/3vice/c01.gif
-	frame	data/chars/3vice/c02.gif
-	frame	data/chars/3vice/c03.gif
-	frame	data/chars/3vice/c04.gif
-	frame	data/chars/3vice/c05.gif
-	frame	data/chars/3vice/c06.gif
-	delay	6
-	frame	data/chars/3vice/c07.gif
-	offset	96 201
-	frame	data/chars/3vice/c08.gif
-	offset	95 197
-	frame	data/chars/3vice/c07.gif
-	offset	96 201
-	frame	data/chars/3vice/c08.gif
-	offset	95 197
-	frame	data/chars/3vice/c07.gif
-	offset	96 201
-	frame	data/chars/3vice/c08.gif
-	offset	95 197
-	frame	data/chars/3vice/c07.gif
-	offset	96 201
-	frame	data/chars/3vice/c08.gif
-	offset	95 197
-	frame	data/chars/3vice/c07.gif
-	offset	96 201
-	frame	data/chars/3vice/c08.gif
-	offset	95 197
-	frame	data/chars/3vice/c07.gif
-	offset	96 201
-	frame	data/chars/3vice/c08.gif
-	offset	95 197
-	frame	data/chars/3vice/c07.gif
-
-
-
-
-anim	runjumpattack
-	loop	1 2 7
-	delay	7
-	offset	95 197
-	bbox	90 97 30 50
-	fastattack 1
-	staydown 350 350
-	hitfx	data/sounds/beat5.wav
-	frame	data/chars/3vice/f02d.gif
-	frame	data/chars/3vice/f03.gif
-	delay	5
-	offset	20 160
-	bbox	28 60 28 45
-	frame	data/chars/3vice/f10.gif
-	attack10 35 50 125 114 14 1 0 0 9 0
-	dropv	2 3
-	frame	data/chars/3vice/f11.gif
-	attack10 0 0 0 0
-	frame	data/chars/3vice/f12.gif
-	attack10 35 50 125 114 14 1 0 0 9 0
-	dropv	2 3
-	frame	data/chars/3vice/f13.gif
-	attack10 0 0 0 0
-	frame	data/chars/3vice/f14.gif
-	attack10 35 50 125 114 14 1 0 0 9 0
-	dropv	2 3
-	frame	data/chars/3vice/f10.gif
-	attack10 0 0 0 0
-	frame	data/chars/3vice/f11.gif
-	attack10 35 50 125 114 14 1 0 0 9 0
-	dropv	2 3
-	frame	data/chars/3vice/f12.gif
-	attack10 0 0 0 0
-	frame	data/chars/3vice/f13.gif
-	attack10 35 50 125 114 14 1 0 0 9 0
-	dropv	2 3
-	frame	data/chars/3vice/f14.gif
-	attack10 0 0 0 0
-	frame	data/chars/3vice/f10.gif
-
-
-
-
-
-anim	jumpattack
-	loop	0
-	delay	9
-	offset	95 197
-	forcedirection	-1
-	bbox	90 97 30 50
-	staydown 350 350
-	frame	data/chars/3vice/f02d.gif
-	frame	data/chars/3vice/f03.gif
-	delay	5
-	attack	106 100 78 55 30 1 0 0 20 0
-	frame	data/chars/3vice/f04.gif
-	frame	data/chars/3vice/f05.gif
-	frame	data/chars/3vice/f04.gif
-	frame	data/chars/3vice/f05.gif
-	frame	data/chars/3vice/f04.gif
-	frame	data/chars/3vice/f05.gif
-	@cmd	looper 3 5
-	frame	data/chars/3vice/f04.gif
-	frame	data/chars/3vice/f05.gif
-
-
-
-anim	jumpattack2
-	loop	0
-	delay	9
-	offset	95 197
-	forcedirection	-1
-	bbox	90 97 30 50
-	staydown 350 350
-	frame	data/chars/3vice/f02d.gif
-	frame	data/chars/3vice/f03.gif
-	delay	5
-	attack2	106 100 78 55 15 0 0 0 20 0
-	frame	data/chars/3vice/f05a.gif
-	frame	data/chars/3vice/f05b.gif
-	frame	data/chars/3vice/f05a.gif
-	frame	data/chars/3vice/f05b.gif
-	frame	data/chars/3vice/f05a.gif
-	frame	data/chars/3vice/f05b.gif
-	@cmd	looper 3 5
-	frame	data/chars/3vice/f05a.gif
-	frame	data/chars/3vice/f05b.gif
-
-
-
-
+		
 anim	block
 @script
 void self = getlocalvar("self");
@@ -787,34 +315,15 @@ if(frame == 0)
 {
 	performattack(self, openborconstant("ANI_FOLLOW1"));
 }
-@end_script
+	@end_script	
 	loop	0
 	delay	1
 	offset	95 196
 	bbox	0 0 0 0
-	jumpframe 0 2 -4
+	jumpframe	0 2 -4
 	frame	data/chars/3vice/blk08.gif
 	frame	data/chars/3vice/blk08.gif
-
-anim	follow1
-	loop	0
-	delay	6
-	offset	105 192
-	bbox	0 0 0 0
-	@cmd	dasher -4 0 0
-	frame	data/chars/3vice/f02c.gif
-	frame	data/chars/3vice/f02b.gif
-	frame	data/chars/3vice/f02a.gif
-	frame	data/chars/3vice/f02.gif
-	@cmd	stop
-	frame	data/chars/3vice/f01.gif
-	delay	11
-	frame	data/chars/3vice/f00.gif
-	delay	9
-	frame	data/chars/3vice/blk08.gif
-
-
-
+		
 anim	burn
 	loop	0
 	delay	25
@@ -874,9 +383,7 @@ anim	fall
 	frame	data/chars/3vice/fall4.gif
 	frame	data/chars/3vice/fall5.gif
 	frame	data/chars/3vice/fall4.gif
-
-
-
+		
 anim	fall2
 	loop	0
 	delay	25
@@ -895,9 +402,7 @@ anim	fall2
 	frame	data/chars/3vice/fall4.gif
 	frame	data/chars/3vice/fall5.gif
 	frame	data/chars/3vice/fall4.gif
-
 		
-
 anim	fall3
 	loop	0
 	delay	12
@@ -919,8 +424,7 @@ anim	fall3
 	frame	data/chars/3vice/fall5.gif
 	bbox	0 0 0 0
 	frame	data/chars/3vice/fall4.gif
-
-
+		
 anim	fall7
 	delay	400
 	offset	100 165
@@ -977,18 +481,373 @@ anim	fall7
 	offset	95 175
 	bbox	80 85 60 80
 	frame	data/chars/3vice/slamck14.gif
+		
+anim	follow1
+	loop	0
+	delay	6
+	offset	105 192
 	bbox	0 0 0 0
-
-
-
+	@cmd	dasher -4 0 0
+	frame	data/chars/3vice/f02c.gif
+	frame	data/chars/3vice/f02b.gif
+	frame	data/chars/3vice/f02a.gif
+	frame	data/chars/3vice/f02.gif
+	@cmd	stop
+	frame	data/chars/3vice/f01.gif
+	delay	11
+	frame	data/chars/3vice/f00.gif
+	delay	9
+	frame	data/chars/3vice/blk08.gif
+		
+anim	follow10
+	loop	0
+	delay	7
+	forcedirection	-1
+	attackone	1
+	otg	2
+	offset	105 187
+	bbox	0 0 0 0
+	hitfx	data/sounds/beat5.wav
+	frame	data/chars/3vice/d31.gif
+	frame	data/chars/3vice/d23.gif
+	frame	data/chars/3vice/d24.gif
+	frame	data/chars/3vice/d25.gif
+	frame	data/chars/3vice/d26.gif
+	attack11	87 165 65 25 50 1 0 0 30 10
+	dropv	3 3
+	frame	data/chars/3vice/d27.gif
+	frame	data/chars/3vice/d28.gif
+	frame	data/chars/3vice/d29.gif
+	delay	20
+	attack11	0 0 0 0
+	frame	data/chars/3vice/d30.gif
+	delay	9
+	frame	data/chars/3vice/d31.gif
+	offset	109 194
+	frame	data/chars/3vice/e26.gif
+		
+anim	follow11
+	loop	0
+	delay	7
+	forcedirection	-1
+	attackone	1
+	otg	2
+	offset	105 187
+	bbox	0 0 0 0
+	hitflash	flashscreen1
+	hitfx	data/sounds/beat5.wav
+	frame	data/chars/3vice/d31.gif
+	frame	data/chars/3vice/d23.gif
+	frame	data/chars/3vice/d24.gif
+	@cmd	dasher 3 0 0
+	frame	data/chars/3vice/d25.gif
+	frame	data/chars/3vice/d26.gif
+	attack11	87 165 65 25 50 1 0 0 25 35
+	dropv	3 3
+	frame	data/chars/3vice/d27.gif
+	frame	data/chars/3vice/d28.gif
+	@cmd	stop
+	frame	data/chars/3vice/d29.gif
+	delay	20
+	attack11	0 0 0 0
+	frame	data/chars/3vice/d30.gif
+	delay	9
+	frame	data/chars/3vice/d31.gif
+	offset	109 194
+	frame	data/chars/3vice/e26.gif
+		
+anim	follow15
+@script
+	void self = getlocalvar("self");
+   	void opp = getentityproperty(self, "opponent");
+	int enedir = getentityproperty(opp,"direction");
+	if (frame == 0 && enedir == 0)
+	{
+	changeentityproperty(self, "direction", 1);
+	}
+	else if (frame == 0 && enedir == 1)
+	{
+	changeentityproperty(self, "direction", 0);
+	}
+	@end_script	
+	loop	0
+	delay	7
+	offset	95 197
+	bbox	0 0 0 0
+	jumpframe	0 3 -1
+	landframe	7
+	frame	data/chars/3vice/c01.gif
+	frame	data/chars/3vice/c02.gif
+	frame	data/chars/3vice/c03.gif
+	frame	data/chars/3vice/c04.gif
+	frame	data/chars/3vice/c05.gif
+	frame	data/chars/3vice/c06.gif
+	delay	300
+	frame	data/chars/3vice/c07.gif
+	delay	9
+	frame	data/chars/3vice/blk08.gif
+		
+anim	follow16
+@script
+	void self = getlocalvar("self");
+   	void opp = getentityproperty(self, "opponent");
+	int enedir = getentityproperty(opp,"direction");
+	if (frame == 0 && enedir == 0)
+	{
+	changeentityproperty(self, "direction", 1);
+	}
+	else if (frame == 0 && enedir == 1)
+	{
+	changeentityproperty(self, "direction", 0);
+	}
+	@end_script	
+	loop	0
+	delay	6
+	offset	95 196
+	bbox	0 0 0 0
+	frame	data/chars/3vice/blk08.gif
+	@cmd	dasher -3 0 0
+	frame	data/chars/3vice/blk07.gif
+	frame	data/chars/3vice/blk06.gif
+	@cmd	spawn01 "dust" 55 1 1
+	frame	data/chars/3vice/blk05.gif
+	frame	data/chars/3vice/blk04.gif
+	frame	data/chars/3vice/blk03.gif
+	frame	data/chars/3vice/blk02.gif
+	@cmd	stop
+	frame	data/chars/3vice/blk01.gif
+		
+anim	follow17
+@script
+	void self = getlocalvar("self");
+	int eTime = openborvariant("elapsed_time");
+	if (frame == 2)
+	{
+	changeentityproperty(self, "invincible", 1);
+	changeentityproperty(self, "invinctime", eTime + 1000);
+	changeentityproperty(self, "blink", 1);
+	}
+	@end_script	
+	loop	0
+	delay	800
+	offset	95 191
+	bbox	0 0 0 0
+	frame	data/chars/3vice/empty.gif
+	delay	11
+	frame	data/chars/3vice/d32.gif
+	frame	data/chars/3vice/d33.gif
+	frame	data/chars/3vice/d34.gif
+	delay	100
+	frame	data/chars/3vice/d35.gif
+	delay	11
+	frame	data/chars/3vice/d35.gif
+	frame	data/chars/3vice/d34.gif
+	frame	data/chars/3vice/d33.gif
+	frame	data/chars/3vice/d32.gif
+		
+anim	follow4
+	loop	0
+	delay	7
+	offset	95 196
+	bbox	0 0 0 0
+	frame	data/chars/3vice/idle01.gif
+	frame	data/chars/3vice/idle02.gif
+	frame	data/chars/3vice/idle03.gif
+	frame	data/chars/3vice/idle04.gif
+	frame	data/chars/3vice/idle05.gif
+	delay	9
+	offset	102 196
+	frame	data/chars/3vice/e26.gif
+	offset	112 192
+	frame	data/chars/3vice/e27.gif
+	frame	data/chars/3vice/e28.gif
+	frame	data/chars/3vice/e29.gif
+	frame	data/chars/3vice/e30.gif
+	frame	data/chars/3vice/e31.gif
+	frame	data/chars/3vice/e32.gif
+	frame	data/chars/3vice/e33.gif
+	@cmd	clearL
+	frame	data/chars/3vice/e33.gif
+		
+anim	follow6
+	loop	0
+	delay	6
+	offset	95 197
+	bbox	0 0 0 0
+	landframe	7
+	frame	data/chars/3vice/c01.gif
+	@cmd	depost 0
+	@cmd	finish 0 1 0 0 0 0
+	frame	data/chars/3vice/c02.gif
+	frame	data/chars/3vice/c03.gif
+	frame	data/chars/3vice/c04.gif
+	frame	data/chars/3vice/c05.gif
+	frame	data/chars/3vice/c06.gif
+	delay	300
+	frame	data/chars/3vice/c07.gif
+	delay	9
+	frame	data/chars/3vice/e26.gif #7
+	@cmd	anichange "ANI_FOLLOW4"
+	frame	data/chars/3vice/e26.gif
+		
+anim	follow8
+	loop	0
+	delay	6
+	offset	95 197
+	bbox	0 0 0 0
+	landframe	10
+	@cmd	stop
+	frame	data/chars/3vice/blk08.gif # 0---return
+	@cmd	leaper 0 -3
+	sound	data/sounds/super1.wav
+	frame	data/chars/3vice/c01.gif
+	frame	data/chars/3vice/c02.gif
+	frame	data/chars/3vice/c03.gif
+	frame	data/chars/3vice/c04.gif
+	frame	data/chars/3vice/c05.gif
+	frame	data/chars/3vice/c06.gif
+	frame	data/chars/3vice/c07.gif
+	frame	data/chars/3vice/c07.gif
+	delay	500
+	offset	105 201
+	frame	data/chars/3vice/c07.gif
+	delay	9
+	frame	data/chars/3vice/blk08.gif #10
+	@cmd	beidle
+	frame	data/chars/3vice/blk08.gif
+	frame	data/chars/3vice/blk08.gif
+	frame	data/chars/3vice/blk08.gif
+	delay	6
+	offset	105 197
+	bbox	0 0 0 0
+	@cmd	stop
+	frame	data/chars/3vice/c01.gif # 14---go away
+	@cmd	depost 0
+	@cmd	leaper 0 10
+	frame	data/chars/3vice/c02.gif
+	sound	data/sounds/super1.wav
+	frame	data/chars/3vice/c03.gif
+	frame	data/chars/3vice/c04.gif
+	frame	data/chars/3vice/c05.gif
+	frame	data/chars/3vice/c06.gif
+	frame	data/chars/3vice/c07.gif
+	frame	data/chars/3vice/c07.gif
+	frame	data/chars/3vice/empty.gif
+	@cmd	suicide
+	frame	data/chars/3vice/empty.gif
+		
+anim	freespecial1
+	energycost	20
+	mponly	1
+	loop	0
+	delay	9
+	offset	104 190
+	bbox	0 0 0 0
+	forcedirection	-1
+	fastattack	1
+	jumpframe	7 4.5 2
+	landframe	16
+	hitfx	data/sounds/beat4.wav
+	hitflash	flashscreen1
+	frame	data/chars/3vice/upper01.gif
+	delay	2
+	move	5
+	frame	data/chars/3vice/upper02.gif
+	sound	data/sounds/bgirl12.wav
+	frame	data/chars/3vice/upper02.gif
+	frame	data/chars/3vice/upper03.gif
+	frame	data/chars/3vice/upper03.gif
+	frame	data/chars/3vice/upper04.gif
+	frame	data/chars/3vice/upper04.gif
+	move	0
+	attack	80 60 85 85 50 1 1 0 40 15
+	dropv	5 2 0
+	delay	12
+	frame	data/chars/3vice/upper05.gif
+	delay	20
+	frame	data/chars/3vice/upper06.gif
+	attack	0 0 0 0
+	delay	8
+	frame	data/chars/3vice/upper07.gif
+	frame	data/chars/3vice/upper08.gif
+	frame	data/chars/3vice/upper09.gif
+	frame	data/chars/3vice/upper10.gif
+	frame	data/chars/3vice/upper11.gif
+	frame	data/chars/3vice/upper12.gif
+	delay	500
+	frame	data/chars/3vice/upper13.gif
+	delay	10
+	frame	data/chars/3vice/upper14.gif
+		
+anim	freespecial26
+	energycost	45
+	mponly	1
+	loop	0
+	delay	8
+	offset	100 187
+	bbox	92 125 30 50
+	staydown	500 500
+	forcedirection	-1
+	hitfx	data/sounds/beat4.wav
+	hitflash	flashscreen2
+	frame	data/chars/3vice/e11.gif
+	frame	data/chars/3vice/e12.gif
+	frame	data/chars/3vice/e13.gif
+	frame	data/chars/3vice/e14.gif
+	frame	data/chars/3vice/e15.gif
+	sound	data/sounds/super1.wav
+	@cmd	spawnAni2 "allsp" 1 1 1 4 "ANI_FOLLOW1"
+	frame	data/chars/3vice/e15.gif
+	delay	20
+	frame	data/chars/3vice/e15.gif
+	delay	8
+	frame	data/chars/3vice/e13.gif
+	frame	data/chars/3vice/e12.gif
+	frame	data/chars/3vice/e11.gif
+	offset	109 195
+	bbox	0 0 0 0
+	frame	data/chars/3vice/e26.gif
+	frame	data/chars/3vice/runatk07.gif
+	offset	114 169
+	frame	data/chars/3vice/slamck13.gif
+	offset	100 190
+	sound	data/sounds/slowm.wav
+	frame	data/chars/3vice/f07.gif
+	frame	data/chars/3vice/f07a.gif
+	delay	2
+	move	6
+	frame	data/chars/3vice/f08.gif #15
+	attack	100 79 85 64 50 1 1 0 55 30
+	dropv	2 4
+	frame	data/chars/3vice/f09.gif
+	frame	data/chars/3vice/f08.gif
+	@cmd	keymove 1.2
+	frame	data/chars/3vice/f09.gif
+	frame	data/chars/3vice/f08.gif
+	@cmd	keymove 1.2
+	frame	data/chars/3vice/f09.gif
+	frame	data/chars/3vice/f08.gif
+	@cmd	keymove 1.2
+	frame	data/chars/3vice/f09.gif
+	@cmd	looper 15 5
+	delay	9
+	frame	data/chars/3vice/f07a.gif
+	move	0
+	attack	0 0 0 0
+	@cmd	stop
+	frame	data/chars/3vice/f02d.gif
+	frame	data/chars/3vice/f06.gif
+	delay	40
+	offset	97 192
+	frame	data/chars/3vice/upper01.gif
+		
 anim	grab
 	loop	0
 	delay	10
 	offset	95 196
 	bbox	85 97 30 80
 	frame	data/chars/3vice/grab.gif
-
-
+		
 anim	grabattack
 	loop	0
 	delay	5
@@ -1000,9 +859,7 @@ anim	grabattack
 	delay	23
 	attack6	98 113 50 40 15 0 0 0 16 0
 	frame	data/chars/3vice/runatk02.gif
-
-
-
+		
 anim	grabattack2
 	loop	0
 	delay	25
@@ -1012,8 +869,8 @@ anim	grabattack2
 	otg	2
 	staydown	690 690
 	forcedirection	-1
-	jumpframe 5 4 1
-	landframe 15 dust
+	jumpframe	5 4 1
+	landframe	15 dust
 	hitfx	data/sounds/empty.wav
 	@cmd	slamstart
 	@cmd	position 10 35 48 -1 -1
@@ -1055,7 +912,7 @@ anim	grabattack2
 	@cmd	position 2 0 20 -1 -1
 	frame	data/chars/3vice/d11.gif #15
 	@cmd	depost 0
-	@cmd	finish 70 1 0 -5 0 0
+	@cmd	finish 60 1 0 -5 0 0
 	attack	75 140 80 70 0 1 1 1 0 30
 	dropv	-5 0
 	delay	8
@@ -1081,10 +938,7 @@ anim	grabattack2
 	@cmd	clearL
 	frame	data/chars/3vice/e25.gif
 	frame	data/chars/3vice/e26.gif
-
-
-
-
+		
 anim	grabbackward
 	loop	0
 	delay	25
@@ -1094,8 +948,8 @@ anim	grabbackward
 	otg	2
 	staydown	690 690
 	forcedirection	-1
-	jumpframe 4 4 0
-	landframe 9 dust
+	jumpframe	4 4 0
+	landframe	9 dust
 	hitfx	data/sounds/empty.wav
 	@cmd	slamstart
 	@cmd	position 10 35 48 -1 -1
@@ -1129,7 +983,7 @@ anim	grabbackward
 	frame	data/chars/3vice/e10.gif
 	delay	14
 	@cmd	depost 0
-	@cmd	finish 70 1 0 -5 0 1
+	@cmd	finish 60 1 0 -5 0 1
 	attack	60 145 90 66 0 1 1 1 0 30
 	dropv	-5 0
 	@cmd	leaper 0 1 0
@@ -1146,28 +1000,22 @@ anim	grabbackward
 	@cmd	clearL
 	frame	data/chars/3vice/e25.gif
 	frame	data/chars/3vice/e26.gif
-
-
-
-
-	
+		
 anim	grabbed
 	loop	0
 	delay	10
 	offset	100 196
-	bbox	79 97 50 91
+	bbox	85 97 50 91
 	frame	data/chars/3vice/grabbed.gif
-
 		
 anim	idle
 	range	140 500
-	rangez	-55 55
+	rangez	-100 100
 	loop	0
 	delay	7
 	offset	95 196
 	bbox	85 97 30 80
 	frame	data/chars/3vice/idle01.gif
-	@cmd	clearL
 	frame	data/chars/3vice/idle02.gif
 	frame	data/chars/3vice/idle03.gif
 	frame	data/chars/3vice/idle04.gif
@@ -1184,16 +1032,93 @@ anim	idle
 	frame	data/chars/3vice/e32.gif
 	frame	data/chars/3vice/e33.gif
 	frame	data/chars/3vice/e33.gif
-
-
-
-
+		
+anim	jump
+	range	30 300
+	loop	0
+	delay	7
+	offset	95 197
+	bbox	90 97 30 50
+	frame	data/chars/3vice/c01.gif
+	frame	data/chars/3vice/c02.gif
+	frame	data/chars/3vice/c03.gif
+	frame	data/chars/3vice/c04.gif
+	frame	data/chars/3vice/c05.gif
+	frame	data/chars/3vice/c06.gif
+	delay	6
+	frame	data/chars/3vice/c07.gif
+	offset	96 201
+	frame	data/chars/3vice/c08.gif
+	offset	95 197
+	frame	data/chars/3vice/c07.gif
+	offset	96 201
+	frame	data/chars/3vice/c08.gif
+	offset	95 197
+	frame	data/chars/3vice/c07.gif
+	offset	96 201
+	frame	data/chars/3vice/c08.gif
+	offset	95 197
+	frame	data/chars/3vice/c07.gif
+	offset	96 201
+	frame	data/chars/3vice/c08.gif
+	offset	95 197
+	frame	data/chars/3vice/c07.gif
+	offset	96 201
+	frame	data/chars/3vice/c08.gif
+	offset	95 197
+	frame	data/chars/3vice/c07.gif
+	offset	96 201
+	frame	data/chars/3vice/c08.gif
+	offset	95 197
+	frame	data/chars/3vice/c07.gif
+		
+anim	jumpattack
+	loop	0
+	delay	9
+	offset	95 197
+	forcedirection	-1
+	bbox	90 97 30 50
+	staydown	350 350
+	frame	data/chars/3vice/f02d.gif
+	frame	data/chars/3vice/f03.gif
+	delay	5
+	attack	106 100 78 55 30 1 0 0 20 0
+	frame	data/chars/3vice/f04.gif
+	frame	data/chars/3vice/f05.gif
+	frame	data/chars/3vice/f04.gif
+	frame	data/chars/3vice/f05.gif
+	frame	data/chars/3vice/f04.gif
+	frame	data/chars/3vice/f05.gif
+	@cmd	looper 3 5
+	frame	data/chars/3vice/f04.gif
+	frame	data/chars/3vice/f05.gif
+		
+anim	jumpattack2
+	loop	0
+	delay	9
+	offset	95 197
+	forcedirection	-1
+	bbox	90 97 30 50
+	staydown	350 350
+	frame	data/chars/3vice/f02d.gif
+	frame	data/chars/3vice/f03.gif
+	delay	5
+	attack2	106 100 78 55 25 0 0 0 20 0
+	frame	data/chars/3vice/f05a.gif
+	frame	data/chars/3vice/f05b.gif
+	frame	data/chars/3vice/f05a.gif
+	frame	data/chars/3vice/f05b.gif
+	frame	data/chars/3vice/f05a.gif
+	frame	data/chars/3vice/f05b.gif
+	@cmd	looper 3 5
+	frame	data/chars/3vice/f05a.gif
+	frame	data/chars/3vice/f05b.gif
 		
 anim	pain
 	loop	0
 	delay	3
 	offset	95 195
-	bbox	79 97 50 91
+	bbox	85 97 50 91
 	frame	data/chars/3vice/pain0.gif
 	offset	95 195
 	frame	data/chars/3vice/pain1.gif
@@ -1202,12 +1127,11 @@ anim	pain
 	offset	95 195
 	frame	data/chars/3vice/pain1.gif
 		
-	
 anim	pain2
 	loop	0
 	delay	3
 	offset	95 196
-	bbox	79 97 50 91
+	bbox	85 97 50 91
 	frame	data/chars/3vice/pain0.gif
 	offset	95 196
 	frame	data/chars/3vice/pain2.gif
@@ -1215,13 +1139,12 @@ anim	pain2
 	frame	data/chars/3vice/pain2.gif
 	offset	95 196
 	frame	data/chars/3vice/pain2.gif
-
-
+		
 anim	pain3
 	loop	0
 	delay	2
 	offset	103 196
-	bbox	79 97 50 91
+	bbox	85 97 50 91
 	move	-6
 	frame	data/chars/3vice/pain1.gif
 	frame	data/chars/3vice/pain1.gif
@@ -1237,12 +1160,11 @@ anim	pain3
 	delay	55
 	frame	data/chars/3vice/pain2.gif
 		
-
 anim	pain5
 	loop	0
 	delay	12
 	offset	103 195
-	bbox	79 97 50 91
+	bbox	85 97 50 91
 	frame	data/chars/3vice/pain1.gif
 	frame	data/chars/3vice/pain0.gif
 	frame	data/chars/3vice/pain2.gif
@@ -1252,8 +1174,7 @@ anim	pain5
 	delay	12
 	frame	data/chars/3vice/rise5.gif
 	frame	data/chars/3vice/rise6.gif
-
-
+		
 anim	pain6
 	loop	0
 	delay	14
@@ -1275,8 +1196,24 @@ anim	pain6
 	frame	data/chars/3vice/rise4.gif
 	frame	data/chars/3vice/rise5.gif
 	frame	data/chars/3vice/rise6.gif
-
-	
+		
+anim	respawn
+	loop	0
+	delay	15
+	offset	95 191
+	bbox	0 0 0 0
+	@cmd	stop
+	frame	data/chars/3vice/d35.gif
+	delay	11
+	@cmd	depost 0
+	@cmd	finish 0 1 0 0 0 0
+	frame	data/chars/3vice/d34.gif
+	frame	data/chars/3vice/d33.gif
+	frame	data/chars/3vice/d32.gif
+	frame	data/chars/3vice/d32.gif
+	@cmd	beidle
+	frame	data/chars/3vice/d32.gif
+		
 anim	rise
 	loop	0
 	delay	11
@@ -1288,8 +1225,136 @@ anim	rise
 	frame	data/chars/3vice/rise4.gif
 	frame	data/chars/3vice/rise5.gif
 	frame	data/chars/3vice/rise6.gif
-
 		
+anim	run
+	loop	1
+	delay	5
+	offset	100 196
+	bbox	85 97 50 91
+	frame	data/chars/3vice/wk01.gif
+	sound	data/sounds/run.wav
+	frame	data/chars/3vice/wk02.gif
+	frame	data/chars/3vice/wk03.gif
+	frame	data/chars/3vice/wk04.gif
+	sound	data/sounds/run.wav
+	frame	data/chars/3vice/wk05.gif
+	frame	data/chars/3vice/wk06.gif
+		
+anim	runattack
+	loop	0
+	delay	6
+	fastattack	1
+	forcedirection	-1
+	offset	100 196
+	bbox	85 97 30 80
+	hitfx	data/sounds/beat5.wav
+	@cmd	dasher 3 0 0
+	frame	data/chars/3vice/runatk01.gif
+	frame	data/chars/3vice/runatk02.gif
+	attack8	100 116 70 43 5 0 1 0 25 0
+	frame	data/chars/3vice/runatk03.gif
+	attack8	0 0 0 0
+	frame	data/chars/3vice/runatk04.gif
+	delay	10
+	attack	105 116 94 43 35 1 0 0 25 0
+	dropv	3 3.5
+	frame	data/chars/3vice/runatk05.gif
+	delay	10
+	@cmd	dasher 2 0 0
+	frame	data/chars/3vice/runatk06.gif
+	@cmd	stop
+	frame	data/chars/3vice/runatk06.gif
+	attack	0 0 0 0
+	delay	9
+	frame	data/chars/3vice/runatk04.gif
+	frame	data/chars/3vice/runatk03.gif
+	frame	data/chars/3vice/runatk07.gif
+		
+anim	runjumpattack
+	loop	1 2 7
+	delay	7
+	offset	95 197
+	bbox	90 97 30 50
+	fastattack	1
+	staydown	350 350
+	hitfx	data/sounds/beat5.wav
+	frame	data/chars/3vice/f02d.gif
+	frame	data/chars/3vice/f03.gif
+	delay	5
+	offset	20 160
+	bbox	28 60 28 45
+	frame	data/chars/3vice/f10.gif
+	attack10	35 50 125 114 10 1 0 0 9 0
+	dropv	2 3
+	frame	data/chars/3vice/f11.gif
+	attack10	0 0 0 0
+	frame	data/chars/3vice/f12.gif
+	attack10	35 50 125 114 10 1 0 0 9 0
+	dropv	2 3
+	frame	data/chars/3vice/f13.gif
+	attack10	0 0 0 0
+	frame	data/chars/3vice/f14.gif
+	attack10	35 50 125 114 10 1 0 0 9 0
+	dropv	2 3
+	frame	data/chars/3vice/f10.gif
+	attack10	0 0 0 0
+	frame	data/chars/3vice/f11.gif
+	attack10	35 50 125 114 10 1 0 0 9 0
+	dropv	2 3
+	frame	data/chars/3vice/f12.gif
+	attack10	0 0 0 0
+	frame	data/chars/3vice/f13.gif
+	attack10	35 50 125 114 10 1 0 0 9 0
+	dropv	2 3
+	frame	data/chars/3vice/f14.gif
+	attack10	0 0 0 0
+	frame	data/chars/3vice/f10.gif
+		
+anim	runslide
+	loop	0
+	delay	5
+	forcedirection	-1
+	fastattack	1
+	offset	100 196
+	bbox	91 140 30 40
+	staydown	300 300
+	hitfx	data/sounds/beat5.wav
+	@cmd	dasher 3 0 0
+	frame	data/chars/3vice/e25.gif
+	frame	data/chars/3vice/e24.gif
+	frame	data/chars/3vice/e23.gif
+	offset	104 189
+	frame	data/chars/3vice/e22.gif
+	frame	data/chars/3vice/e21.gif
+	frame	data/chars/3vice/e20.gif
+	delay	10
+	attack	78 134 89 43 35 1 0 0 30 25
+	dropv	4 0
+	frame	data/chars/3vice/e19.gif
+	delay	8
+	frame	data/chars/3vice/e19.gif
+	@cmd	dasher 2 0 0
+	frame	data/chars/3vice/e19.gif
+	delay	9
+	attack	0 0 0 0
+	frame	data/chars/3vice/e18.gif
+	@cmd	stop
+	frame	data/chars/3vice/e17.gif
+	frame	data/chars/3vice/e16.gif
+	offset	100 196
+	frame	data/chars/3vice/e25.gif
+	frame	data/chars/3vice/e26.gif
+		
+anim	spawn
+	loop	0
+	delay	40
+	offset	95 191
+	bbox	0 0 0 0
+	frame	data/chars/3vice/d35.gif
+	delay	11
+	frame	data/chars/3vice/d34.gif
+	frame	data/chars/3vice/d33.gif
+	frame	data/chars/3vice/d32.gif
 		
 anim	special
 	energycost	30
@@ -1339,162 +1404,18 @@ anim	special
 	frame	data/chars/3vice/a107.gif
 	frame	data/chars/3vice/a108.gif
 	frame	data/chars/3vice/a109.gif
-
-
 		
-anim	freespecial1
-	energycost	20
-	mponly	1
-	loop	0
-	delay	9
-	offset	104 190
-	bbox	0 0 0 0
-	forcedirection	-1
-	fastattack	1
-	jumpframe	7 4.5 2
-	landframe	16
-	hitfx	data/sounds/beat4.wav
-	hitflash	flashscreen1
-	frame	data/chars/3vice/upper01.gif
-	delay	2
-	move	5
-	frame	data/chars/3vice/upper02.gif
-	sound	data/sounds/bgirl12.wav
-	frame	data/chars/3vice/upper02.gif
-	frame	data/chars/3vice/upper03.gif
-	frame	data/chars/3vice/upper03.gif
-	frame	data/chars/3vice/upper04.gif
-	frame	data/chars/3vice/upper04.gif
-	move	0
-	attack	80 60 85 85 50 1 1 0 40 15
-	dropv	5 2 0
-	delay	12
-	frame	data/chars/3vice/upper05.gif
-	delay	20
-	frame	data/chars/3vice/upper06.gif
-	attack	0 0 0 0
-	delay	8
-	frame	data/chars/3vice/upper07.gif
-	frame	data/chars/3vice/upper08.gif
-	frame	data/chars/3vice/upper09.gif
-	frame	data/chars/3vice/upper10.gif
-	frame	data/chars/3vice/upper11.gif
-	frame	data/chars/3vice/upper12.gif
-	delay	500
-	frame	data/chars/3vice/upper13.gif
-	delay	10
-	frame	data/chars/3vice/upper14.gif
-
-
 anim	walk
 	loop	1
 	delay	8
 	offset	100 196
-	bbox	79 97 50 91
+	bbox	85 97 50 91
 	frame	data/chars/3vice/wk01.gif
 	frame	data/chars/3vice/wk02.gif
 	frame	data/chars/3vice/wk03.gif
 	frame	data/chars/3vice/wk04.gif
 	frame	data/chars/3vice/wk05.gif
 	frame	data/chars/3vice/wk06.gif
-
-
-anim	run
-	loop	1
-	delay	5
-	offset	100 196
-	bbox	79 97 50 91
-	frame	data/chars/3vice/wk01.gif
-	sound	data/sounds/run.wav
-	frame	data/chars/3vice/wk02.gif
-	frame	data/chars/3vice/wk03.gif
-	frame	data/chars/3vice/wk04.gif
-	sound	data/sounds/run.wav
-	frame	data/chars/3vice/wk05.gif
-	frame	data/chars/3vice/wk06.gif
-
-
-
-#---------------------------//---------------------
-#---------------------------//---------------------
-#---------------------------//---------------------
-
-anim	spawn
-	loop	0
-	delay	40
-	offset	95 191
-	bbox	0 0 0 0
-	frame	data/chars/3vice/d35.gif
-	delay	11
-	frame	data/chars/3vice/d34.gif
-	frame	data/chars/3vice/d33.gif
-	frame	data/chars/3vice/d32.gif
-
-
-anim	respawn
-	loop	0
-	delay	15
-	offset	95 191
-	bbox	0 0 0 0
-	@cmd	stop
-	frame	data/chars/3vice/d35.gif
-	delay	11
-	@cmd	depost 0
-	@cmd	finish 0 1 0 0 0 0
-	frame	data/chars/3vice/d34.gif
-	frame	data/chars/3vice/d33.gif
-	frame	data/chars/3vice/d32.gif
-	frame	data/chars/3vice/d32.gif
-	@cmd	beidle
-	frame	data/chars/3vice/d32.gif
-
-
-#------------------//---call-/send-partner----//---------------------
-
-anim	follow8
-	loop	0
-	delay	6
-	offset	95 197
-	bbox	0 0 0 0
-	landframe 10
-	@cmd	stop
-	frame	data/chars/3vice/blk08.gif # 0---return
-	@cmd	leaper 0 -3
-	sound	data/sounds/super1.wav
-	frame	data/chars/3vice/c01.gif
-	frame	data/chars/3vice/c02.gif
-	frame	data/chars/3vice/c03.gif
-	frame	data/chars/3vice/c04.gif
-	frame	data/chars/3vice/c05.gif
-	frame	data/chars/3vice/c06.gif
-	frame	data/chars/3vice/c07.gif
-	frame	data/chars/3vice/c07.gif
-	delay	500
-	offset	105 201
-	frame	data/chars/3vice/c07.gif
-	delay	9
-	frame	data/chars/3vice/blk08.gif #10
-	@cmd	beidle
-	frame	data/chars/3vice/blk08.gif
-	frame	data/chars/3vice/blk08.gif
-	frame	data/chars/3vice/blk08.gif
-
-	delay	6
-	offset	105 197
-	bbox	0 0 0 0
-	@cmd	stop
-	frame	data/chars/3vice/c01.gif # 14---go away
-	@cmd	depost 0
-	@cmd	leaper 0 10
-	frame	data/chars/3vice/c02.gif
-	sound	data/sounds/super1.wav
-	frame	data/chars/3vice/c03.gif
-	frame	data/chars/3vice/c04.gif
-	frame	data/chars/3vice/c05.gif
-	frame	data/chars/3vice/c06.gif
-	frame	data/chars/3vice/c07.gif
-	frame	data/chars/3vice/c07.gif
-	frame	data/chars/3vice/empty.gif
-	@cmd	suicide
-	frame	data/chars/3vice/empty.gif
-	
+		
+#|edited by openBor Stats v 0.53
+		

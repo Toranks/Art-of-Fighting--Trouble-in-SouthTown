@@ -1,6 +1,6 @@
 name		MBlimo2
 type		none
-health		600
+health		200
 mp		100
 speedf		1.5
 jumpheight	0
@@ -18,18 +18,20 @@ facing		1
 grabforce       0
 candamage	enemy obstacle
 diesound        data/sounds/ryode.wav
-atchain         0 0 0 0 
-icon		data/chars/3Mrbig/iconpl.gif
+icon            data/chars/misc/icons/mbig.gif
 parrow          data/chars/misc/flash/flash/player1.gif  -36 -145
 parrow2         data/chars/misc/flash/flash/player2.gif  -36 -145
 parrow3         data/chars/misc/flash/flash/player3.gif  -36 -145
 diesound        data/sounds/bang2.wav
 
 animationscript data/scripts/escript.c
+animationscript data/scripts/grabscript.c
 
 
-com     a2	freespecial1
+com     s	freespecial1
+com	a4	freespecial1
 com     a3	freespecial2
+com     a2	freespecial15
 
 load	biglimo
 load	Steam
@@ -42,7 +44,9 @@ load	explosion3
 script	@script
 void main()
 {
-    void self = getlocalvar("self");
+   void self = getlocalvar("self");
+   void anim = getentityproperty(self,"animationID");
+   void hp = getentityproperty(self,"health");
    int x = getentityproperty(self, "x");
    int y = getentityproperty(self, "a");
    int z = getentityproperty(self, "z");
@@ -70,20 +74,116 @@ void main()
    {
      changeentityproperty(self, "position", x+1);
    }
+
+   if(anim == openborconstant("ANI_RESPAWN"))
+	{
+ 	changeentityproperty(self, "health", 200);
+	}
 }
-@end_script
-
-
+	@end_script	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 anim	attack
 	loop	0
 	delay	3
 	offset	235 276
-	bbox	55 190 320 85
+	bbox	100 178 300 96
 	frame	data/chars/3mblimo/mblimo00.gif
 	frame	data/chars/3mblimo/mblimo01.gif
+		
+anim	block
+		
+anim	death
+@script
+	void self = getlocalvar("self");
+	void Gun = getentityvar(self, 1);
 
-
-
+	if(frame == 0 )
+	{
+        damageentity(Gun, self, 1000, 0, openborconstant("ATK_NORMAL"));
+	}
+	if(frame == 24 )
+	{
+	bindentity(Gun, NULL());
+	setentityvar(self, 1, NULL());
+	}
+	@end_script	
+	loop	0
+	delay	5
+	offset	235 276
+	bbox	0 0 0 0
+	quakeframe	14 1 5
+	frame	data/chars/3mblimo/death00.gif
+	@cmd	spawn01 "explosion1" 80 100 10
+	frame	data/chars/3mblimo/death01.gif
+	@cmd	spawnGun "burn2" 155 70 15 2
+	frame	data/chars/3mblimo/death00.gif
+	@cmd	spawnGun "Steam" 135 60 15 3
+	frame	data/chars/3mblimo/death01.gif
+	@cmd	spawn01 "explosion1" -70 90 10
+	frame	data/chars/3mblimo/death00.gif
+	@cmd	spawn01 "cardam2" 0 50 10
+	frame	data/chars/3mblimo/death01.gif
+	frame	data/chars/3mblimo/death00.gif #6
+	frame	data/chars/3mblimo/death01.gif
+	frame	data/chars/3mblimo/death00.gif
+	frame	data/chars/3mblimo/death01.gif
+	@cmd	looper 6 10
+	frame	data/chars/3mblimo/death00.gif
+	move	-6
+	frame	data/chars/3mblimo/death01.gif #11
+	frame	data/chars/3mblimo/empty.gif
+	frame	data/chars/3mblimo/death00.gif
+	@cmd	spawn01 "explosion3" 130 60 10
+	frame	data/chars/3mblimo/empty.gif
+	frame	data/chars/3mblimo/death01.gif
+	frame	data/chars/3mblimo/empty.gif
+	frame	data/chars/3mblimo/death00.gif
+	frame	data/chars/3mblimo/empty.gif
+	@cmd	spawn01 "explosion3" 130 60 10
+	frame	data/chars/3mblimo/death01.gif
+	frame	data/chars/3mblimo/empty.gif
+	frame	data/chars/3mblimo/death00.gif
+	frame	data/chars/3mblimo/empty.gif
+	@cmd	looper 11 7
+	frame	data/chars/3mblimo/death01.gif
+	@cmd	killgun 2 0
+	frame	data/chars/3mblimo/empty.gif #24
+	@cmd	killgun 3 0
+	frame	data/chars/3mblimo/death00.gif
+	frame	data/chars/3mblimo/empty.gif
+	frame	data/chars/3mblimo/death01.gif
+	frame	data/chars/3mblimo/empty.gif
+	frame	data/chars/3mblimo/death00.gif
+	frame	data/chars/3mblimo/empty.gif
+	frame	data/chars/3mblimo/empty.gif
+		
+anim	fall
+	loop	0
+	delay	5
+	offset	235 276
+	bbox	100 178 300 96
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+		
+anim	forwardjump
+	loop	0
+	delay	2
+	offset	235 276
+	bbox	0 0 0 0
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+		
 anim	freespecial1
 @script
 	void self = getlocalvar("self");
@@ -110,7 +210,7 @@ anim	freespecial1
 	  changeentityproperty(self, "velocity", 2, Vz);
 	  }
 	}
-@end_script
+	@end_script	
 	loop	0
 	delay	1
 	offset	235 276
@@ -127,7 +227,7 @@ anim	freespecial1
 	sound	data/sounds/bike5.wav
 	frame	data/chars/3mblimo/empty.gif
 	move	8
-	attack	155 200 265 70 15 1 1 0 10 0
+	attack	275 200 150 70 15 1 1 0 10 10
 	frame	data/chars/3mblimo/mblimo01.gif
 	frame	data/chars/3mblimo/empty.gif
 	frame	data/chars/3mblimo/mblimo01.gif
@@ -182,6 +282,17 @@ anim	freespecial1
 	@cmd	stop
 	frame	data/chars/3mblimo/mblimo01.gif
 		
+anim	freespecial15
+	loop	0
+	delay	5
+	offset	235 276
+	bbox	0 0 0 0
+	frame	data/chars/3mblimo/mblimo00.gif
+	@cmd	spawnAni3 "freewaytot" 250 1 140 "ANI_FOLLOW5"
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+		
 anim	freespecial2
 @script
 	void self = getlocalvar("self");
@@ -208,7 +319,7 @@ anim	freespecial2
 	  changeentityproperty(self, "velocity", 2, Vz);
 	  }
 	}
-@end_script
+	@end_script	
 	loop	0
 	delay	1
 	offset	235 276
@@ -225,7 +336,7 @@ anim	freespecial2
 	sound	data/sounds/bike5.wav
 	frame	data/chars/3mblimo/empty.gif
 	move	-8
-	attack	70 200 265 70 15 1 1 0 10 0
+	attack	70 200 150 70 15 1 1 0 10 10
 	frame	data/chars/3mblimo/mblimo01.gif
 	frame	data/chars/3mblimo/empty.gif
 	frame	data/chars/3mblimo/mblimo01.gif
@@ -280,88 +391,11 @@ anim	freespecial2
 	@cmd	stop
 	frame	data/chars/3mblimo/mblimo01.gif
 		
-anim	death
-@script
-	void self = getlocalvar("self");
-	void Gun = getentityvar(self, 1);
-
-	if(frame == 0 )
-	{
-        damageentity(Gun, self, 1000, 0, openborconstant("ATK_NORMAL"));
-	}
-	if(frame == 24 )
-	{
-	bindentity(Gun, NULL());
-	setentityvar(self, 1, NULL());
-	}
-@end_script
-	loop	0
-	delay	5
-	offset	235 276
-	bbox	0 0 0 0
-	quakeframe	14 1 5
-	frame	data/chars/3mblimo/death00.gif
-	#@cmd	killgun 1 1
-	@cmd	spawn01 "explosion1" 80 100 10
-	frame	data/chars/3mblimo/death01.gif
-	@cmd	spawnGun "burn2" 155 70 15 2
-	frame	data/chars/3mblimo/death00.gif
-	@cmd	spawnGun "Steam" 135 60 15 3
-	frame	data/chars/3mblimo/death01.gif
-	@cmd	spawn01 "explosion1" -70 90 10
-	frame	data/chars/3mblimo/death00.gif
-	@cmd	spawn01 "cardam2" 0 50 10
-	frame	data/chars/3mblimo/death01.gif
-	frame	data/chars/3mblimo/death00.gif #6
-	frame	data/chars/3mblimo/death01.gif
-	frame	data/chars/3mblimo/death00.gif
-	frame	data/chars/3mblimo/death01.gif
-	@cmd	looper 6 10
-	frame	data/chars/3mblimo/death00.gif
-	move	-6
-	frame	data/chars/3mblimo/death01.gif #11
-	frame	data/chars/3mblimo/empty.gif
-	frame	data/chars/3mblimo/death00.gif
-	@cmd	spawn01 "explosion3" 130 60 10
-	frame	data/chars/3mblimo/empty.gif
-	frame	data/chars/3mblimo/death01.gif
-	frame	data/chars/3mblimo/empty.gif
-	frame	data/chars/3mblimo/death00.gif
-	frame	data/chars/3mblimo/empty.gif
-	@cmd	spawn01 "explosion3" 130 60 10
-	frame	data/chars/3mblimo/death01.gif
-	frame	data/chars/3mblimo/empty.gif
-	frame	data/chars/3mblimo/death00.gif
-	frame	data/chars/3mblimo/empty.gif
- 	@cmd	looper 11 7
-	frame	data/chars/3mblimo/death01.gif
-	@cmd	killgun 2 0
-	frame	data/chars/3mblimo/empty.gif #24
-	@cmd	killgun 3 0
-	frame	data/chars/3mblimo/death00.gif
-	frame	data/chars/3mblimo/empty.gif
-	frame	data/chars/3mblimo/death01.gif
-	frame	data/chars/3mblimo/empty.gif
-	frame	data/chars/3mblimo/death00.gif
-	frame	data/chars/3mblimo/empty.gif
-	frame	data/chars/3mblimo/empty.gif
-
-
-
-		
-anim	fall
-	loop	0
-	delay	5
-	offset	235 276
-	bbox	55 190 320 85
-	frame	data/chars/3mblimo/mblimo00.gif
-	frame	data/chars/3mblimo/mblimo01.gif
-		
 anim	idle
 	loop	1
 	delay	5
 	offset	235 276
-	bbox	55 190 320 85
+	bbox	100 178 300 96
 	frame	data/chars/3mblimo/mblimo00.gif
 	frame	data/chars/3mblimo/mblimo01.gif
 	@cmd	clearL
@@ -372,51 +406,46 @@ anim	idle
 	frame	data/chars/3mblimo/mblimo01.gif
 	frame	data/chars/3mblimo/mblimo00.gif
 	frame	data/chars/3mblimo/mblimo01.gif
-
-
-
-anim	walk
-	loop	1
-	delay	5
-	offset	235 276
-	bbox	55 190 320 85
-	frame	data/chars/3mblimo/mblimo00.gif
-	frame	data/chars/3mblimo/mblimo01.gif
-	frame	data/chars/3mblimo/mblimo00.gif
-	bbox	0 0 0 0
-	frame	data/chars/3mblimo/mblimo01.gif
-
 		
 anim	pain
 	loop	0
 	delay	5
 	offset	235 276
-	bbox	55 190 320 85
+	bbox	100 178 300 96
 	move	6
 	frame	data/chars/3mblimo/mblimo00.gif
 	frame	data/chars/3mblimo/mblimo01.gif
 	frame	data/chars/3mblimo/mblimo00.gif
 	bbox	0 0 0 0
 	frame	data/chars/3mblimo/mblimo01.gif
-
 		
 anim	pain2
 	loop	0
 	delay	5
 	offset	235 276
-	bbox	55 190 320 85
+	bbox	100 178 300 96
 	move	-6
 	frame	data/chars/3mblimo/mblimo00.gif
 	frame	data/chars/3mblimo/mblimo01.gif
 	frame	data/chars/3mblimo/mblimo00.gif
 	frame	data/chars/3mblimo/mblimo01.gif
-
+		
+anim	respawn
+	loop	0
+	delay	5
+	offset	235 276
+	bbox	0 0 0 0
+	frame	data/chars/3mblimo/mblimo00.gif
+	@cmd	spawnChild "biglimo" 135 70 1 1 "ANI_FOLLOW1"
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
 		
 anim	rise
 	loop	0
 	delay	5
 	offset	235 276
-	bbox	55 190 320 85
+	bbox	100 178 300 96
 	frame	data/chars/3mblimo/mblimo00.gif
 	frame	data/chars/3mblimo/mblimo01.gif
 		
@@ -424,40 +453,23 @@ anim	spawn
 	loop	0
 	delay	5
 	offset	235 276
-	bbox	55 190 320 85
+	bbox	0 0 0 0
 	frame	data/chars/3mblimo/mblimo00.gif
-	@cmd	spawnGun5 "biglimo" 135 70 1 1 "ANI_FOLLOW1" 
+	@cmd	spawnChild "biglimo" 135 70 1 1 "ANI_FOLLOW1"
 	frame	data/chars/3mblimo/mblimo01.gif
 	frame	data/chars/3mblimo/mblimo00.gif
 	frame	data/chars/3mblimo/mblimo01.gif
-
-
-anim	respawn
-	loop	0
+		
+anim	walk
+	loop	1
 	delay	5
 	offset	235 276
-	bbox	55 190 320 85
-	frame	data/chars/3mblimo/mblimo00.gif
-	@cmd	spawnGun5 "biglimo" 135 70 1 1 "ANI_FOLLOW1" 
-	frame	data/chars/3mblimo/mblimo01.gif
+	bbox	100 178 300 96
 	frame	data/chars/3mblimo/mblimo00.gif
 	frame	data/chars/3mblimo/mblimo01.gif
-
-
-anim	fall
-	loop	0
-	delay	2
-	offset	235 276
+	frame	data/chars/3mblimo/mblimo00.gif
 	bbox	0 0 0 0
-	frame	data/chars/3mblimo/mblimo00.gif
 	frame	data/chars/3mblimo/mblimo01.gif
 		
-anim	forwardjump
-	loop	0
-	delay	2
-	offset	235 276
-	bbox	0 0 0 0
-	frame	data/chars/3mblimo/mblimo00.gif
-	frame	data/chars/3mblimo/mblimo01.gif
+#|edited by openBor Stats v 0.53
 		
-anim	block

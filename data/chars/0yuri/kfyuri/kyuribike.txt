@@ -1,6 +1,6 @@
 name		kyuribike
 type		none
-health		150
+health		170
 mp		100
 speedf		1.6
 running		16 0 0 0 0
@@ -20,23 +20,26 @@ weaploss	3
 candamage	enemy obstacle
 diesound        data/sounds/yurde.wav
 atchain         1 0 0 0 
-icon            data/chars/0yuri/kfyuri/icon.gif
+icon            data/chars/misc/icons/kyuri.gif
 parrow          data/chars/misc/flash/flash/player1.gif  -45 -130
 parrow2         data/chars/misc/flash/flash/player2.gif  -45 -130
 parrow3         data/chars/misc/flash/flash/player3.gif  -45 -130
 animationscript data/scripts/grabscript.c
 
 
-palette		data/chars/0yuri/kfyuri/bike/mapal.gif
-alternatepal	data/chars/0yuri/kfyuri/bike/map1.gif
+palette		data/chars/0yuri/kfyuri/bike/map3.gif
 alternatepal	data/chars/0yuri/kfyuri/bike/map2.gif
-alternatepal	data/chars/0yuri/kfyuri/bike/map3.gif
+alternatepal	data/chars/0yuri/kfyuri/bike/map1.gif
+alternatepal	data/chars/0yuri/kfyuri/bike/mapal.gif
 alternatepal	data/chars/0yuri/kfyuri/bike/map4.gif
+alternatepal	data/chars/0yuri/kfyuri/bike/map4.gif
+alternatepal	data/chars/0yuri/kfyuri/bike/map2.gif
+alternatepal	data/chars/0yuri/kfyuri/bike/map1.gif
 
 
-
-com	a4	freespecial15
-com	a2	freespecial2
+com	a4	freespecial2
+com     s       freespecial2
+com	a2	freespecial15
 com	a3	freespecial3
 com	j	freespecial4
 
@@ -47,7 +50,9 @@ load	explosion1
 script	@script
 void main()
 {
-    void self = getlocalvar("self");
+   void self = getlocalvar("self");
+   void anim = getentityproperty(self,"animationID");
+   void hp = getentityproperty(self,"health");
    int x = getentityproperty(self, "x");
    int y = getentityproperty(self, "a");
    int z = getentityproperty(self, "z");
@@ -75,25 +80,18 @@ void main()
    {
      changeentityproperty(self, "position", x+1);
    }
+
+   if(anim == openborconstant("ANI_RESPAWN"))
+	{
+ 	changeentityproperty(self, "health", 170);
+	}
 }
-@end_script
-
-
-
-anim	freespecial15
-	loop	0
-	delay	5
-	offset	215 149
-	bbox	0 0 0 0
-	frame	data/chars/0yuri/kfyuri/bike/bike01.gif
-	@cmd	spawnAni3 "freewaytot" 250 1 140 "ANI_FOLLOW5"
-	frame	data/chars/0yuri/kfyuri/bike/bike02.gif
-	frame	data/chars/0yuri/kfyuri/bike/bike01.gif
-	frame	data/chars/0yuri/kfyuri/bike/bike02.gif
-
-
-
-
+	@end_script	
+		
+		
+		
+		
+		
 anim	attack1
 	loop	0
 	delay	4
@@ -114,7 +112,7 @@ anim	attack1
 	frame	data/chars/0yuri/kfyuri/bike/atk08.gif
 	@cmd	keymove 0.7
 	frame	data/chars/0yuri/kfyuri/bike/atk09.gif
-	attack  0 0 0 0
+	attack	0 0 0 0
 	frame	data/chars/0yuri/kfyuri/bike/atk10.gif
 	@cmd	keymove 0.7
 	attack	230 65 170 40 45 0 0 0 11 0
@@ -139,71 +137,11 @@ anim	attack1
 	@cmd	keymove 0.7
 	frame	data/chars/0yuri/kfyuri/bike/atk01.gif
 	frame	data/chars/0yuri/kfyuri/bike/atk02.gif
-
-
-
-
-
-anim	freespecial4
-	loop	0
-	delay	4
-	offset	215 149
-	bbox	170 50 100 90
-	fastattack	1
-	sound	data/sounds/punch.wav
-	frame	data/chars/0yuri/kfyuri/bike/atk30.gif
-	frame	data/chars/0yuri/kfyuri/bike/atk31.gif
-	@cmd	keymove 0.7
-	frame	data/chars/0yuri/kfyuri/bike/atk32.gif
-	frame	data/chars/0yuri/kfyuri/bike/atk33.gif
-	@cmd	keymove 0.7
-	frame	data/chars/0yuri/kfyuri/bike/atk34.gif
-	frame	data/chars/0yuri/kfyuri/bike/atk35.gif
-	@cmd	keymove 0.7
-	frame	data/chars/0yuri/kfyuri/bike/atk36.gif
-	frame	data/chars/0yuri/kfyuri/bike/atk37.gif
-	attack2	80 80 150 35 40 0 0 0 11 0
-	@cmd	keymove 0.7
-	frame	data/chars/0yuri/kfyuri/bike/atk38.gif
-	frame	data/chars/0yuri/kfyuri/bike/atk39.gif
-	@cmd	keymove 0.7
-	frame	data/chars/0yuri/kfyuri/bike/atk40.gif
-	attack2 0 0 0 0
-	frame	data/chars/0yuri/kfyuri/bike/atk41.gif
-	@cmd	keymove 0.7
-	attack2	17 70 180 30 45 0 0 0 11 0
-	frame	data/chars/0yuri/kfyuri/bike/atk42.gif
-	frame	data/chars/0yuri/kfyuri/bike/atk43.gif
-	@cmd	keymove 0.7
-	frame	data/chars/0yuri/kfyuri/bike/atk44.gif
-	frame	data/chars/0yuri/kfyuri/bike/atk45.gif
-	@cmd	keymove 0.7
-	frame	data/chars/0yuri/kfyuri/bike/atk46.gif
-	frame	data/chars/0yuri/kfyuri/bike/atk47.gif
-	@cmd	keymove 0.7
-	attack2	0 0 0 0
-	frame	data/chars/0yuri/kfyuri/bike/atk48.gif
-	frame	data/chars/0yuri/kfyuri/bike/atk49.gif
-	@cmd	keymove 0.7
-	frame	data/chars/0yuri/kfyuri/bike/atk50.gif
-	frame	data/chars/0yuri/kfyuri/bike/atk51.gif
-	@cmd	keymove 0.7
-	frame	data/chars/0yuri/kfyuri/bike/atk30.gif
-	frame	data/chars/0yuri/kfyuri/bike/atk31.gif
-	@cmd	keymove 0.7
-	frame	data/chars/0yuri/kfyuri/bike/atk54.gif
-	frame	data/chars/0yuri/kfyuri/bike/atk55.gif
-
-
-
-
-
-
-
-
-
-
-
+		
+anim	attackdown
+		
+anim	attackup
+		
 anim	backwalk
 	loop	1
 	delay	5
@@ -211,6 +149,12 @@ anim	backwalk
 	bbox	170 50 100 90
 	frame	data/chars/0yuri/kfyuri/bike/bike03.gif
 	frame	data/chars/0yuri/kfyuri/bike/bike04.gif
+		
+anim	block
+		
+anim	charge
+		
+anim	chargeattack
 		
 anim	death
 	loop	0
@@ -375,7 +319,6 @@ anim	death
 	frame	data/chars/0yuri/kfyuri/bike/empty.gif
 	frame	data/chars/0yuri/kfyuri/bike/fall14.gif
 	frame	data/chars/0yuri/kfyuri/bike/empty.gif
-
 		
 anim	fall
 	loop	0
@@ -385,6 +328,19 @@ anim	fall
 	frame	data/chars/0yuri/kfyuri/bike/pain01.gif
 	frame	data/chars/0yuri/kfyuri/bike/pain02.gif
 	frame	data/chars/0yuri/kfyuri/bike/pain01.gif
+		
+anim	forwardjump
+		
+anim	freespecial15
+	loop	0
+	delay	5
+	offset	215 149
+	bbox	0 0 0 0
+	frame	data/chars/0yuri/kfyuri/bike/bike01.gif
+	@cmd	spawnAni3 "freewaytot" 250 1 140 "ANI_FOLLOW5"
+	frame	data/chars/0yuri/kfyuri/bike/bike02.gif
+	frame	data/chars/0yuri/kfyuri/bike/bike01.gif
+	frame	data/chars/0yuri/kfyuri/bike/bike02.gif
 		
 anim	freespecial2
 @script
@@ -396,7 +352,7 @@ anim	freespecial2
 	changeentityproperty(self, "invinctime", eTime + 85);
 	changeentityproperty(self, "blink", 1);
 	}
-@end_script
+	@end_script	
 	loop	0
 	delay	2
 	offset	215 149
@@ -473,7 +429,7 @@ anim	freespecial3
 	changeentityproperty(self, "invinctime", eTime + 85);
 	changeentityproperty(self, "blink", 1);
 	}
-@end_script
+	@end_script	
 	loop	0
 	delay	2
 	offset	215 149
@@ -539,9 +495,58 @@ anim	freespecial3
 	frame	data/chars/0yuri/kfyuri/bike/bike04.gif
 	frame	data/chars/0yuri/kfyuri/bike/bike03.gif
 	frame	data/chars/0yuri/kfyuri/bike/bike04.gif
-
-
-
+		
+anim	freespecial4
+	loop	0
+	delay	4
+	offset	215 149
+	bbox	170 50 100 90
+	fastattack	1
+	sound	data/sounds/punch.wav
+	frame	data/chars/0yuri/kfyuri/bike/atk30.gif
+	frame	data/chars/0yuri/kfyuri/bike/atk31.gif
+	@cmd	keymove 0.7
+	frame	data/chars/0yuri/kfyuri/bike/atk32.gif
+	frame	data/chars/0yuri/kfyuri/bike/atk33.gif
+	@cmd	keymove 0.7
+	frame	data/chars/0yuri/kfyuri/bike/atk34.gif
+	frame	data/chars/0yuri/kfyuri/bike/atk35.gif
+	@cmd	keymove 0.7
+	frame	data/chars/0yuri/kfyuri/bike/atk36.gif
+	frame	data/chars/0yuri/kfyuri/bike/atk37.gif
+	attack2	80 80 150 35 40 0 0 0 11 0
+	@cmd	keymove 0.7
+	frame	data/chars/0yuri/kfyuri/bike/atk38.gif
+	frame	data/chars/0yuri/kfyuri/bike/atk39.gif
+	@cmd	keymove 0.7
+	frame	data/chars/0yuri/kfyuri/bike/atk40.gif
+	attack2	0 0 0 0
+	frame	data/chars/0yuri/kfyuri/bike/atk41.gif
+	@cmd	keymove 0.7
+	attack2	17 70 180 30 45 0 0 0 11 0
+	frame	data/chars/0yuri/kfyuri/bike/atk42.gif
+	frame	data/chars/0yuri/kfyuri/bike/atk43.gif
+	@cmd	keymove 0.7
+	frame	data/chars/0yuri/kfyuri/bike/atk44.gif
+	frame	data/chars/0yuri/kfyuri/bike/atk45.gif
+	@cmd	keymove 0.7
+	frame	data/chars/0yuri/kfyuri/bike/atk46.gif
+	frame	data/chars/0yuri/kfyuri/bike/atk47.gif
+	@cmd	keymove 0.7
+	attack2	0 0 0 0
+	frame	data/chars/0yuri/kfyuri/bike/atk48.gif
+	frame	data/chars/0yuri/kfyuri/bike/atk49.gif
+	@cmd	keymove 0.7
+	frame	data/chars/0yuri/kfyuri/bike/atk50.gif
+	frame	data/chars/0yuri/kfyuri/bike/atk51.gif
+	@cmd	keymove 0.7
+	frame	data/chars/0yuri/kfyuri/bike/atk30.gif
+	frame	data/chars/0yuri/kfyuri/bike/atk31.gif
+	@cmd	keymove 0.7
+	frame	data/chars/0yuri/kfyuri/bike/atk54.gif
+	frame	data/chars/0yuri/kfyuri/bike/atk55.gif
+		
+anim	get
 		
 anim	idle
 	loop	1
@@ -550,7 +555,12 @@ anim	idle
 	bbox	170 50 100 90
 	frame	data/chars/0yuri/kfyuri/bike/bike01.gif
 	frame	data/chars/0yuri/kfyuri/bike/bike02.gif
-
+		
+anim	jump
+		
+anim	jumpdelay
+		
+anim	jumpland
 		
 anim	pain
 	loop	0
@@ -601,16 +611,6 @@ anim	pain5
 	frame	data/chars/0yuri/kfyuri/bike/pain01.gif
 	frame	data/chars/0yuri/kfyuri/bike/pain02.gif
 		
-anim	spawn
-	loop	0
-	delay	1
-	offset	215 149
-	bbox	0 0 0 0
-	frame	data/chars/0yuri/kfyuri/bike/bike01.gif
-	frame	data/chars/0yuri/kfyuri/bike/bike02.gif
-
-
-
 anim	respawn
 	loop	0
 	delay	5
@@ -619,6 +619,24 @@ anim	respawn
 	frame	data/chars/0yuri/kfyuri/bike/bike01.gif
 	frame	data/chars/0yuri/kfyuri/bike/bike02.gif
 		
+anim	rise
+		
+anim	run
+		
+anim	runattack
+		
+anim	runjump
+		
+anim	spawn
+	loop	0
+	delay	1
+	offset	215 149
+	bbox	0 0 0 0
+	frame	data/chars/0yuri/kfyuri/bike/bike01.gif
+	frame	data/chars/0yuri/kfyuri/bike/bike02.gif
+		
+anim	special
+		
 anim	walk
 	loop	1
 	delay	5
@@ -626,38 +644,8 @@ anim	walk
 	bbox	170 50 100 90
 	frame	data/chars/0yuri/kfyuri/bike/bike01.gif
 	frame	data/chars/0yuri/kfyuri/bike/bike02.gif
-
-
-#----------------------------//-----------------
-
+		
 anim	walkoff
-
-anim	rise
-
-anim	run
-
-anim	runjump
-
-anim	jump
-
-anim	jumpdelay
-
-anim	jumpland
-
-anim	get
-
-anim	forwardjump
-
-anim	block
-
-anim	charge
-
-anim	chargeattack
-
-anim	attackdown
-
-anim	attackup
-
-anim	runattack
-
-anim	special
+		
+#|edited by openBor Stats v 0.53
+		

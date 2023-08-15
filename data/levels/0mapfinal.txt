@@ -30,7 +30,13 @@ spawn   ghost1
 @script
 void main()
 {
+	setlocalvar("next1up0", getglobalvar("next1up0"));
+	setlocalvar("next1up1", getglobalvar("next1up1"));
+	setlocalvar("next1up2", getglobalvar("next1up2"));
 	clearglobalvar();
+	setglobalvar("next1up0", getlocalvar("next1up0"));
+	setglobalvar("next1up1", getlocalvar("next1up1"));
+	setglobalvar("next1up2", getlocalvar("next1up2"));
 }
 @end_script
 coords  30 240
@@ -52,7 +58,7 @@ spawn   lvlmisc
 @script void main() {
    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW5"));
 } @end_script
-alias   sel01
+alias   sel00
 coords  170 190
 at      0
 
@@ -83,7 +89,6 @@ map     5
 coords  600 395
 at      0
 
-
 spawn   lvlmisc
 @script void main() {
    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW10"));
@@ -91,10 +96,6 @@ spawn   lvlmisc
 alias   sel05
 coords  325 50
 at      0
-
-
-
-
 
 spawn   lvlrus
 alias   rsh1

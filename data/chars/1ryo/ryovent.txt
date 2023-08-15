@@ -1,6 +1,6 @@
 name		ryovent
 type		none
-health		180
+health		150
 mp		100
 speedf		1
 running		25 2 1.5 1 0
@@ -15,10 +15,9 @@ shadow		0
 modelflag	1
 weaploss	3
 dust            dust
-#risetime        350
+
 candamage	enemy obstacle npc
 diesound        data/sounds/ryode.wav
-atchain         0 0 0 0 
 icon		data/chars/1ryo/icon.gif
 offscreenkill 	6000
 parrow          data/chars/misc/flash/flash/player1.gif  -45 -130
@@ -35,6 +34,8 @@ alternatepal	data/chars/1ryo/map3.gif
 alternatepal	data/chars/1ryo/map4.gif
 alternatepal	data/chars/1ryo/map5.gif
 alternatepal	data/chars/1ryo/map6.gif
+alternatepal	data/chars/1ryo/map7.gif
+alternatepal	data/chars/1ryo/map8.gif
 
 anim	attack1
 	loop	0
@@ -42,7 +43,17 @@ anim	attack1
 	offset	155 201
 	bbox	130 155 60 45 30
 	frame	data/chars/1ryo/vent/idle.gif
-	
+		
+anim	attackdown
+		
+anim	attackup
+		
+anim	block
+		
+anim	charge
+		
+anim	chargeattack
+		
 anim	death
 	loop	0
 	delay	80
@@ -52,14 +63,14 @@ anim	death
 	frame	data/chars/1ryo/vent/fall4.gif
 	delay	9
 	frame	data/chars/1ryo/vent/fall4.gif
-
+		
 anim	fall
 	loop	0
 	delay	10
 	offset	155 201
 	bbox	0 0 0 0
-	jumpframe 0 2 -1 0 0
-	landframe 3 dust 
+	jumpframe	0 2 -1 0 0
+	landframe	3 dust
 	frame	data/chars/1ryo/vent/fall3.gif
 	frame	data/chars/1ryo/vent/fall2.gif
 	delay	1500
@@ -69,36 +80,20 @@ anim	fall
 	frame	data/chars/1ryo/vent/pain2.gif
 	delay	90
 	frame	data/chars/1ryo/vent/fall4.gif
-
-
-anim	walkoff
-	loop	0
-	delay	8
-	offset	142 191
-	bbox	0 0 0 0
-	landframe	6 dust
-	@cmd	stop
-	offset	142 191
-	move	4
-	frame	data/chars/1ryo/fall14.gif
-	offset	150 190
-	frame	data/chars/1ryo/jup12.gif
-	frame	data/chars/1ryo/jup13.gif
-	frame	data/chars/1ryo/jup14.gif
-	frame	data/chars/1ryo/jup15.gif
-	move	0
-	delay	1300
-	offset	155 201
-	frame	data/chars/1ryo/vent/jup06.gif
-	offset	154 197
-	bbox	130 155 60 45 30
-	delay	10
-	frame	data/chars/1ryo/gt01.gif
-	offset	155 201
-	frame	data/chars/1ryo/vent/turn03.gif
-	frame	data/chars/1ryo/vent/turn02.gif
-	frame	data/chars/1ryo/vent/turn01.gif
-
+		
+anim	forwardjump
+		
+anim	grab
+		
+anim	grabattack
+		
+anim	grabattack2
+		
+anim	grabbackward
+		
+anim	grabforward
+		
+anim	grabforward2
 		
 anim	idle
 	loop	1
@@ -115,41 +110,19 @@ anim	idle
 	frame	data/chars/1ryo/vent/idle.gif
 	frame	data/chars/1ryo/vent/idle.gif
 	frame	data/chars/1ryo/vent/idle.gif
-
-
-anim	walk
-	loop	1
-	delay	12
-	offset	155 201
-	bbox	130 155 60 45 30
-	frame	data/chars/1ryo/vent/vent01.gif
-	frame	data/chars/1ryo/vent/xvent01.gif
-	frame	data/chars/1ryo/vent/vent02.gif
-	frame	data/chars/1ryo/vent/vent03.gif
-	frame	data/chars/1ryo/vent/xvent03.gif
-	frame	data/chars/1ryo/vent/vent04.gif
-
-
-
-
-anim	turn
-	loop	0
-	delay	8
-	offset	155 201
-	bbox	130 155 60 45 30
-	frame	data/chars/1ryo/vent/turn01.gif
-	frame	data/chars/1ryo/vent/turn02.gif
-	frame	data/chars/1ryo/vent/turn03.gif
-	frame	data/chars/1ryo/vent/turn04.gif
-	frame	data/chars/1ryo/vent/turn05.gif
-	frame	data/chars/1ryo/vent/turn06.gif
-#	delay	3
-#	offset	109 201
-#	move	-86
-#	bbox	0 0 0 0
-#	frame	data/chars/1ryo/vent/turn07.gif
-
-	
+		
+anim	jump
+		
+anim	jumpattack
+		
+anim	jumpattack2
+		
+anim	jumpattack3
+		
+anim	jumpdelay
+		
+anim	jumpland
+		
 anim	pain
 	loop	0
 	delay	3
@@ -168,16 +141,7 @@ anim	pain
 	move	0
 	frame	data/chars/1ryo/vent/pain2.gif
 		
-
-anim	rise
-	loop	0
-	delay	6
-	offset	155 201
-	bbox	0 0 0 0
-	frame	data/chars/1ryo/vent/idle.gif
-
-
-anim 	respawn
+anim	respawn
 @script
     void self = getlocalvar("self");
     int x = getindexedvar(0); //Get respawn x coordinate
@@ -194,14 +158,29 @@ anim 	respawn
         changeentityproperty(self, "position", x, z, a);
       }
     }
-@end_script
-	delay   1
+	@end_script	
+	delay	1
 	offset	155 201
 	bbox	0 0 0 0
 	frame	data/chars/1ryo/vent/idle.gif
-	delay   40
+	delay	40
 	frame	data/chars/1ryo/vent/idle.gif
-
+		
+anim	rise
+	loop	0
+	delay	6
+	offset	155 201
+	bbox	0 0 0 0
+	frame	data/chars/1ryo/vent/idle.gif
+		
+anim	run
+		
+anim	runattack
+		
+anim	runjump
+		
+anim	runjumpattack
+		
 anim	spawn
 	loop	0
 	delay	85
@@ -240,56 +219,60 @@ anim	spawn
 	offset	140 185
 	delay	190
 	frame	data/chars/1ryo/fall16.gif
-
-#---------------------------//---------------------------------
-#---------------------------//---------------------------------
-#---------------------------//---------------------------------
-
-anim	jumpland
-
-anim	jump
-
-anim	attackdown
-
-anim	attackup
-
-anim	block
-
-anim	charge
-
-anim	chargeattack
-
+		
 anim	special
-
-anim	run
-
-anim	runattack
-
-anim	runjump
-
-anim	runjumpattack
-
-anim	jumpattack
-
-anim	jumpattack2
-
-anim	jumpattack3
-
-anim	jumpdelay
-
-anim	jumpland
-
-anim	forwardjump
-
-anim	grab
-
-anim	grabattack
-
-anim	grabattack2
-
-anim	grabbackward
-
-anim	grabforward
-
-anim	grabforward2
+		
+anim	turn
+	loop	0
+	delay	8
+	offset	155 201
+	bbox	130 155 60 45 30
+	frame	data/chars/1ryo/vent/turn01.gif
+	frame	data/chars/1ryo/vent/turn02.gif
+	frame	data/chars/1ryo/vent/turn03.gif
+	frame	data/chars/1ryo/vent/turn04.gif
+	frame	data/chars/1ryo/vent/turn05.gif
+	frame	data/chars/1ryo/vent/turn06.gif
+		
+anim	walk
+	loop	1
+	delay	12
+	offset	155 201
+	bbox	130 155 60 45 30
+	frame	data/chars/1ryo/vent/vent01.gif
+	frame	data/chars/1ryo/vent/xvent01.gif
+	frame	data/chars/1ryo/vent/vent02.gif
+	frame	data/chars/1ryo/vent/vent03.gif
+	frame	data/chars/1ryo/vent/xvent03.gif
+	frame	data/chars/1ryo/vent/vent04.gif
+		
+anim	walkoff
+	loop	0
+	delay	8
+	offset	142 191
+	bbox	0 0 0 0
+	landframe	6 dust
+	@cmd	stop
+	offset	142 191
+	move	4
+	frame	data/chars/1ryo/fall14.gif
+	offset	150 190
+	frame	data/chars/1ryo/jup12.gif
+	frame	data/chars/1ryo/jup13.gif
+	frame	data/chars/1ryo/jup14.gif
+	frame	data/chars/1ryo/jup15.gif
+	move	0
+	delay	1300
+	offset	155 201
+	frame	data/chars/1ryo/vent/jup06.gif
+	offset	154 197
+	bbox	130 155 60 45 30
+	delay	10
+	frame	data/chars/1ryo/gt01.gif
+	offset	155 201
+	frame	data/chars/1ryo/vent/turn03.gif
+	frame	data/chars/1ryo/vent/turn02.gif
+	frame	data/chars/1ryo/vent/turn01.gif
+		
+#|edited by openBor Stats v 0.53
 		

@@ -35,8 +35,9 @@ anim	attack
 	delay	9
 	offset	175 540
 	bbox	0 0 0 0
-	range	-100 100
-	rangea	-150
+	range	-90 90
+	rangea	-150 0
+	rangeb	-150 0
 	rangez	-15 15
 	quakeframe	9 3 15
 	@cmd	leaper 0 3 0
@@ -289,6 +290,7 @@ anim	follow1
 @script
 if(frame==1)
 {
+  changeentityproperty(getlocalvar("self"), "lifespancountdown", 4700);
   changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_OBSTACLE"));
 }
 @end_script
@@ -302,12 +304,5 @@ if(frame==1)
 	frame	data/chars/3jackballs/steelatk08.gif
 	@cmd	beidle
 	frame	data/chars/3jackballs/steelatk08.gif
-
-
-
-
-
-
-
 
 		

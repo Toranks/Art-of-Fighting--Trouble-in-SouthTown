@@ -1,14 +1,14 @@
 name		daimonplr
 type		player
-health		300
+health		160
 mp		100
 mprate          1
-chargerate      6
+chargerate      2
 speed		11
-running		24 3.1 3 1 0
+running		24 3.1 3 1 1
 jumpheight	4
 nodieblink	2
-secret		1 1
+secret		0 1
 weaploss	3
 modelflag	1
 noquake         0
@@ -17,12 +17,11 @@ riseinv		1
 gfxshadow	1
 fmap		1
 holdblock 	1
-blockpain	1
 falldie		2
 dust            dust
 candamage	enemy obstacle
 projectilehit 	player npc enemy
-weapons		pltank kyoplr syuribike2 yurifall syurwtr syurivent mapcurs mrzero Beniplr
+weapons		Robcar daimonplr Robcar2 robfall Robwtr Robvent mapcurs mrzero ryoturt
 atchain         1 1 2 3 0 4 5 0 6 1
 combostyle      1
 icon		data/chars/xdaimon/iconpl.png
@@ -37,99 +36,23 @@ script			data/scripts/player_script.c
 
 
 palette		data/chars/xdaimon/palAll.png
-alternatepal	data/chars/xdaimon/map1.png
-alternatepal	data/chars/xdaimon/map2.png
-alternatepal	data/chars/xdaimon/map3.png
+
 
 
 
 
 com	a2	  freespecial15
 com	a3	  freespecial29
-com     d f d f s freespecial27
+com     f d f s freespecial27
 
-com	d u d u s freespecial30
-com	u d u d s freespecial31
 
 
 
 
 
-anim	freespecial30
-	energycost 55
-	mponly	1
-	weaponframe 20 2
-	loop	0
-	delay	7
-	offset	145 211
-	bbox	0 0 0 0
-	frame	data/chars/xdaimon/spw06.png
-	sound	data/sounds/xdaimTLK.wav
-	frame	data/chars/xdaimon/spw06.png
-	delay	7
-	frame	data/chars/xdaimon/spw05.png
-	frame	data/chars/xdaimon/spw01.png
-	frame	data/chars/xdaimon/spw02.png
-	frame	data/chars/xdaimon/spw03.png
-	delay	30
-	frame	data/chars/xdaimon/spw04.png
-	delay	7
-	frame	data/chars/xdaimon/spw05.png
-	frame	data/chars/xdaimon/spw06.png
-	delay	5
-	frame	data/chars/xdaimon/emp.png
-	frame	data/chars/xdaimon/spw06.png
-	frame	data/chars/xdaimon/emp.png
-	frame	data/chars/xdaimon/spw06.png
-	frame	data/chars/xdaimon/emp.png
-	frame	data/chars/xdaimon/spw06.png
-	frame	data/chars/xdaimon/emp.png
-	frame	data/chars/xdaimon/spw06.png
-	frame	data/chars/xdaimon/emp.png
-	frame	data/chars/xdaimon/spw06.png
-	frame	data/chars/xdaimon/emp.png
-	frame	data/chars/xdaimon/spw06.png #20
-	frame	data/chars/xdaimon/emp.png
-	frame	data/chars/xdaimon/spw06.png
 
 
 
-anim	freespecial31
-	energycost 55
-	mponly	1
-	weaponframe 20 9
-	loop	0
-	delay	7
-	offset	145 211
-	bbox	0 0 0 0
-	frame	data/chars/xdaimon/spw06.png
-	sound	data/sounds/xdaimTLK.wav
-	frame	data/chars/xdaimon/spw06.png
-	delay	7
-	frame	data/chars/xdaimon/spw05.png
-	frame	data/chars/xdaimon/spw01.png
-	frame	data/chars/xdaimon/spw02.png
-	frame	data/chars/xdaimon/spw03.png
-	delay	30
-	frame	data/chars/xdaimon/spw04.png
-	delay	7
-	frame	data/chars/xdaimon/spw05.png
-	frame	data/chars/xdaimon/spw06.png
-	delay	5
-	frame	data/chars/xdaimon/emp.png
-	frame	data/chars/xdaimon/spw06.png
-	frame	data/chars/xdaimon/emp.png
-	frame	data/chars/xdaimon/spw06.png
-	frame	data/chars/xdaimon/emp.png
-	frame	data/chars/xdaimon/spw06.png
-	frame	data/chars/xdaimon/emp.png
-	frame	data/chars/xdaimon/spw06.png
-	frame	data/chars/xdaimon/emp.png
-	frame	data/chars/xdaimon/spw06.png
-	frame	data/chars/xdaimon/emp.png
-	frame	data/chars/xdaimon/spw06.png #20
-	frame	data/chars/xdaimon/emp.png
-	frame	data/chars/xdaimon/spw06.png
 
 
 
@@ -139,434 +62,7 @@ anim	freespecial31
 
 
 
-anim	freespecial27
-	energycost	75
-	mponly	1
-	loop	0
-	delay	9
-	offset	145 211
-	bbox	0 0 0 0
-	followanim	4
-	followcond	1
-	seal	7 4
-	hitfx	data/sounds/empty.wav
-	frame	data/chars/xdaimon/chg00.png
-	frame	data/chars/xdaimon/chg01.png
-	frame	data/chars/xdaimon/chg02.png
-	sound	data/sounds/super1.wav
-	@cmd	spawn04 "allsp" 1 1 1 2
-	frame	data/chars/xdaimon/chg03.png
-	delay	20
-	frame	data/chars/xdaimon/chg03.png
-	delay	8
-	frame	data/chars/xdaimon/a43.png
-	frame	data/chars/xdaimon/a41.png
-	delay	20
-	frame	data/chars/xdaimon/a40.png
-	delay	6
-	sound	data/sounds/xdaim03.wav
-	frame	data/chars/xdaimon/grab05.png
-	delay	3
-	move	6
-	attack	145 125 45 50 0 0 1 1 1 0
-	frame	data/chars/xdaimon/sp05.png #9
-	@cmd	keymove 1.2
-	frame	data/chars/xdaimon/sp05.png
-	frame	data/chars/xdaimon/sp05.png
-	@cmd	keymove 1.2
-	frame	data/chars/xdaimon/sp05.png
-	@cmd	looper 9 4
-	frame	data/chars/xdaimon/jump00.png
-	attack	0 0 0 0
-	move	0
-	@cmd	stop
-	delay	10
-	frame	data/chars/xdaimon/jump00.png
-	@cmd	clearL
-	frame	data/chars/xdaimon/jump00a.png
 
-
-
-anim	follow4
-	loop	0
-	delay	6
-	offset	145 211
-	bbox	0 0 0 0
-	otg	1
-	fastattack 1
-	forcedirection -1
-	staydown 500 500
-	attack	0 0 0 0
-	@cmd	stop
-	@cmd	clearL
-	seal	7 4
-	frame	data/chars/xdaimon/jump00a.png
-
-	frame	data/chars/xdaimon/a40.png #1
-	frame	data/chars/xdaimon/a41.png
-	attack2	145 115 65 65 0 0 1 0 18 10
-	frame	data/chars/xdaimon/a42.png
-	attack2	0 0 0 0
-	frame	data/chars/xdaimon/a43.png
-
-	frame	data/chars/xdaimon/a07.png
-	frame	data/chars/xdaimon/a08.png
-	attack2	145 115 65 65 0 0 1 0 18 10
-	frame	data/chars/xdaimon/a10.png
-	attack2	0 0 0 0
-	frame	data/chars/xdaimon/a07.png
-	@cmd	looper 1 5
-	frame	data/chars/xdaimon/a06.png
-
-	hitfx	data/sounds/beat3.wav
-	sound	data/sounds/xdaim04.wav
-	frame	data/chars/xdaimon/a30.png #10
-	frame	data/chars/xdaimon/a31.png
-	attack	145 115 80 65 0 1 1 0 25 10
-	dropv	2 0
-	frame	data/chars/xdaimon/a32.png
-	delay	35
-	frame	data/chars/xdaimon/a33.png
-	attack	0 0 0 0
-	delay	6
-	frame	data/chars/xdaimon/a34.png
-	frame	data/chars/xdaimon/a35.png
-
-	hitfx	data/sounds/beat5.wav
-	frame	data/chars/xdaimon/a15a.png #16
-	frame	data/chars/xdaimon/a16.png
-	frame	data/chars/xdaimon/a17.png
-	frame	data/chars/xdaimon/a18.png
-	attack11 145 150 80 65 0 1 1 0 12 20
-	dropv	0 0
-	frame	data/chars/xdaimon/a19.png
-	frame	data/chars/xdaimon/a20.png
-	attack11 0 0 0 0
-	frame	data/chars/xdaimon/a21.png
-	frame	data/chars/xdaimon/jump00.png
-	@cmd	looper 16 10
-	frame	data/chars/xdaimon/jump00a.png
-
-	delay	8
-	frame	data/chars/xdaimon/spw06.png
-	frame	data/chars/xdaimon/spw01.png
-	delay	15
-	frame	data/chars/xdaimon/spw02.png
-	delay	8
-	frame	data/chars/xdaimon/spw03.png
-	frame	data/chars/xdaimon/spw04.png
-	delay	12
-	frame	data/chars/xdaimon/spw05.png
-	delay	8
-	frame	data/chars/xdaimon/sp02.png
-	delay	45
-	sound	data/sounds/xdaim02.wav
-	frame	data/chars/xdaimon/sp02.png
-	delay	9
-	move	20
-	hitfx	data/sounds/beat6.wav
-	hitflash	flashscreen2
-	frame	data/chars/xdaimon/sp03.png
-	move	0
-	attack	115 150 105 65 250 1 1 0 30 20
-	dropv	10 0.5
-	frame	data/chars/xdaimon/sp04.png
-	delay	80
-	frame	data/chars/xdaimon/sp04.png
-	attack	0 0 0 0
-	delay	9
-	frame	data/chars/xdaimon/sld02.png
-	delay	40
-	frame	data/chars/xdaimon/sld05.png
-	delay	8
-	frame	data/chars/xdaimon/jump00.png
-	@cmd	clearL
-	frame	data/chars/xdaimon/jump00a.png
-
-
-
-
-
-anim	idle
-	loop	1
-	delay	15
-	offset	145 211
-	bbox	130 125 30 75
-	frame	data/chars/xdaimon/idle01.png
-	delay	9
-	@cmd	clearL
-	frame	data/chars/xdaimon/idle02.png
-	frame	data/chars/xdaimon/idle03.png
-	frame	data/chars/xdaimon/idle04.png
-	frame	data/chars/xdaimon/idle05.png
-	frame	data/chars/xdaimon/idle06.png
-	delay	15
-	frame	data/chars/xdaimon/idle07.png
-	delay	9
-	frame	data/chars/xdaimon/idle06.png
-	frame	data/chars/xdaimon/idle05.png
-	frame	data/chars/xdaimon/idle04.png
-	frame	data/chars/xdaimon/idle03.png
-	frame	data/chars/xdaimon/idle02.png
-
-
-
-
-anim	walk
-	loop	1
-	delay	11
-	offset	145 211
-	bbox	130 125 30 75
-	frame	data/chars/xdaimon/wk07.png
-	frame	data/chars/xdaimon/wk08.png
-	sound	data/sounds/run.wav
-	frame	data/chars/xdaimon/wk01.png
-	frame	data/chars/xdaimon/wk02.png
-	frame	data/chars/xdaimon/wk03.png
-	frame	data/chars/xdaimon/wk04.png
-	sound	data/sounds/run.wav
-	frame	data/chars/xdaimon/wk05.png
-	frame	data/chars/xdaimon/wk06.png
-
-
-
-anim	run
-	loop	1 1 9
-	delay	9
-	offset	145 211
-	bbox	130 125 30 75
-	frame	data/chars/xdaimon/run00.png
-	delay	2
-	sound	data/sounds/run.wav
-	frame	data/chars/xdaimon/run01.png
-	delay	7
-	sound	data/sounds/run.wav
-	frame	data/chars/xdaimon/run01.png
-	delay	9
-	frame	data/chars/xdaimon/run02.png
-	frame	data/chars/xdaimon/run03.png
-	delay	2
-	sound	data/sounds/run.wav
-	frame	data/chars/xdaimon/run04.png
-	delay	7
-	sound	data/sounds/run.wav
-	frame	data/chars/xdaimon/run04.png
-	delay	9
-	frame	data/chars/xdaimon/run05.png
-	frame	data/chars/xdaimon/run06.png
-
-
-anim	block
-	loop	0
-	delay	8
-	offset	145 211
-	bbox	130 125 30 75
-	frame	data/chars/xdaimon/blk01.png
-	frame	data/chars/xdaimon/blk02.png
-	frame	data/chars/xdaimon/blk03.png
-
-
-
-#---------//----//-jump-//----------
-
-anim	jumpland
-	loop	0
-	delay	8
-	offset	145 211
-	bbox	130 125 30 75
-	frame	data/chars/xdaimon/jump00.png
-
-anim	jumpdelay
-	loop	0
-	delay	8
-	offset	145 211
-	bbox	130 125 30 75
-	frame	data/chars/xdaimon/jump00a.png
-
-
-anim	walkoff
-	loop	0
-	delay	12
-	offset	145 211
-	bbox	130 110 30 60
-	frame	data/chars/xdaimon/jump01.png
-
-
-anim	jump
-	loop	0
-	delay	15
-	offset	145 211
-	bbox	130 110 30 60
-	frame	data/chars/xdaimon/jump01.png
-	delay	8
-	frame	data/chars/xdaimon/jump02.png
-	frame	data/chars/xdaimon/jump03.png
-	delay	20
-	frame	data/chars/xdaimon/jump04.png
-	delay	8
-	frame	data/chars/xdaimon/jump03.png
-	frame	data/chars/xdaimon/jump02.png
-	delay	20
-	frame	data/chars/xdaimon/jump01.png
-
-
-
-anim	forwardjump
-	loop	0
-	delay	15
-	offset	145 211
-	bbox	130 110 30 60
-	frame	data/chars/xdaimon/jump01.png
-	delay	8
-	frame	data/chars/xdaimon/jump02.png
-	frame	data/chars/xdaimon/jump03.png
-	delay	20
-	frame	data/chars/xdaimon/jump04.png
-	delay	8
-	frame	data/chars/xdaimon/jump03.png
-	frame	data/chars/xdaimon/jump02.png
-	delay	20
-	frame	data/chars/xdaimon/jump01.png
-
-
-
-anim	runjump
-	loop	0
-	delay	12
-	offset	145 211
-	bbox	130 110 30 60
-	frame	data/chars/xdaimon/jump01.png
-	delay	8
-	frame	data/chars/xdaimon/jump02.png
-	frame	data/chars/xdaimon/jump03.png
-	frame	data/chars/xdaimon/jump04.png
-
-
-#--------------------//-grab-escape-beds-//-----------------------
-
-
-anim	freespecial15
-	loop	0
-	delay	9
-	offset	145 211
-	bbox	0 0 0 0
-	frame	data/chars/xdaimon/spw06.png
-	frame	data/chars/xdaimon/spw05.png
-	frame	data/chars/xdaimon/spw01.png
-	frame	data/chars/xdaimon/spw02.png
-	frame	data/chars/xdaimon/spw03.png
-	delay	20
-	frame	data/chars/xdaimon/spw04.png
-	@cmd	spawnAni3 "toturi3" 1 1 1 "ANI_FOLLOW6"
-	frame	data/chars/xdaimon/spw04.png
-	delay	9
-	frame	data/chars/xdaimon/spw05.png
-	frame	data/chars/xdaimon/spw06.png
-
-
-
-
-anim	follow17
-@script
-	void self = getlocalvar("self");
-	int eTime = openborvariant("elapsed_time");
-	if (frame == 5)
-	{
-	changeentityproperty(self, "invincible", 1);
-	changeentityproperty(self, "invinctime", eTime + 1000);
-	changeentityproperty(self, "blink", 1);
-	}
-@end_script
-	loop	0
-	delay	800
-	offset	145 211
-	bbox	0 0 0 0
-	frame	data/chars/xdaimon/emp.png
-	delay	9
-	frame	data/chars/xdaimon/spw01.png
-	frame	data/chars/xdaimon/spw02.png
-	frame	data/chars/xdaimon/spw03.png
-	delay	40
-	frame	data/chars/xdaimon/spw04.png
-	delay	9
-	frame	data/chars/xdaimon/spw05.png
-	frame	data/chars/xdaimon/spw06.png
-
-
-
-
-anim	follow15
-@script
-	void self = getlocalvar("self");
-   	void opp = getentityproperty(self, "opponent");
-	int enedir = getentityproperty(opp,"direction");
-	if (frame == 0 && enedir == 0)
-	{
-	changeentityproperty(self, "direction", 1);
-	}
-	else if (frame == 0 && enedir == 1)
-	{
-	changeentityproperty(self, "direction", 0);
-	}
-@end_script
-	loop	0
-	delay	12
-	offset	145 211
-	bbox	0 0 0 0
-	jumpframe 0 3 -1
-	landframe 3
-	frame	data/chars/xdaimon/jump03.png
-	delay	8
-	frame	data/chars/xdaimon/jump02.png
-	delay	500
-	frame	data/chars/xdaimon/jump01.png
-	delay	8
-	frame	data/chars/xdaimon/jump00.png
-
-
-
-
-
-anim	follow16
-@script
-	void self = getlocalvar("self");
-   	void opp = getentityproperty(self, "opponent");
-	int enedir = getentityproperty(opp,"direction");
-	if (frame == 0 && enedir == 0)
-	{
-	changeentityproperty(self, "direction", 1);
-	}
-	else if (frame == 0 && enedir == 1)
-	{
-	changeentityproperty(self, "direction", 0);
-	}
-@end_script
-	loop	0
-	delay	7
-	offset	145 211
-	bbox	0 0 0 0
-	frame	data/chars/xdaimon/dgd08.png
-	@cmd	dasher -2.5 0 0
-	frame	data/chars/xdaimon/dgd07.png
-	@cmd	spawn01 "dust" -20 1 1
-	frame	data/chars/xdaimon/dgd06.png
-	frame	data/chars/xdaimon/dgd05.png
-	frame	data/chars/xdaimon/dgd04.png
-	frame	data/chars/xdaimon/dgd03.png
-	frame	data/chars/xdaimon/dgd02.png
-	frame	data/chars/xdaimon/dgd01.png
-	@cmd	stop
-	frame	data/chars/xdaimon/run00.png
-
-
-
-
-
-
-#--------------------------------//-----------------------
-
-
-      
 
 anim	attack1
 	range	0 135
@@ -586,37 +82,7 @@ anim	attack1
 	frame	data/chars/xdaimon/a03.png
 	attack	0 0 0 0
 	frame	data/chars/xdaimon/a04.png
-
-
-
-
-anim	follow10
-	followanim	11
-	followcond	1
-	loop	0
-	delay	10
-	offset	145 211
-	bbox	0 0 0 0
-	forcedirection	-1
-	attackone	1
-	otg	2
-	hitfx	data/sounds/grab.wav
-	frame	data/chars/xdaimon/grab05.png
-	frame	data/chars/xdaimon/grab06.png
-	delay	9
-	attack11 105 190 95 30 0 0 1 1 9 10
-	frame	data/chars/xdaimon/grab07.png
-	delay	20
-	frame	data/chars/xdaimon/grab08.png
-	attack11 0 0 0 0
-	delay	12
-	frame	data/chars/xdaimon/grab06.png
-	frame	data/chars/xdaimon/grab05.png
-
-
-
-
-
+		
 anim	attack2
 	range	0 65
 	rangez	-15 15
@@ -640,9 +106,7 @@ anim	attack2
 	attack2	0 0 0 0
 	frame	data/chars/xdaimon/a08.png
 	frame	data/chars/xdaimon/a06.png
-
-
-
+		
 anim	attack3
 	range	0 65
 	rangez	-15 15
@@ -662,14 +126,11 @@ anim	attack3
 	frame	data/chars/xdaimon/a18.png
 	delay	11
 	frame	data/chars/xdaimon/a19.png
-	attack9 0 0 0 0
+	attack9	0 0 0 0
 	frame	data/chars/xdaimon/a20.png
 	frame	data/chars/xdaimon/a21.png
 	frame	data/chars/xdaimon/jump00.png
-
-
-
-
+		
 anim	attack4
 	range	65 90
 	rangez	-15 15
@@ -678,7 +139,7 @@ anim	attack4
 	offset	145 211
 	bbox	130 125 30 75
 	fastattack	1
-	staydown 200 200
+	staydown	200 200
 	hitfx	data/sounds/beat5.wav
 	sound	data/sounds/xdaim01.wav
 	frame	data/chars/xdaimon/b01.png
@@ -689,11 +150,7 @@ anim	attack4
 	attack2	0 0 0 0
 	frame	data/chars/xdaimon/b02.png
 	frame	data/chars/xdaimon/b01.png
-
-
-
-
-
+		
 anim	attack5
 	range	65 90
 	rangez	-15 15
@@ -714,9 +171,7 @@ anim	attack5
 	delay	12
 	frame	data/chars/xdaimon/b08.png
 	frame	data/chars/xdaimon/b05.png
-
-
-
+		
 anim	attack6
 	range	90 145
 	rangez	-15 15
@@ -740,13 +195,9 @@ anim	attack6
 	attack	0 0 0 0
 	frame	data/chars/xdaimon/a34.png
 	frame	data/chars/xdaimon/a35.png
-
-
-
-
-	
+		
 anim	attackdown
-	quakeframe 1 4 2
+	quakeframe	1 4 2
 	loop	0
 	delay	7
 	offset	145 211
@@ -764,13 +215,9 @@ anim	attackdown
 	frame	data/chars/xdaimon/dgd07.png
 	@cmd	stop
 	frame	data/chars/xdaimon/dgd08.png
-
-
-
-
-
+		
 anim	attackup
-	quakeframe 1 4 2
+	quakeframe	1 4 2
 	loop	0
 	delay	7
 	offset	145 211
@@ -788,840 +235,22 @@ anim	attackup
 	frame	data/chars/xdaimon/dgd07.png
 	@cmd	stop
 	frame	data/chars/xdaimon/dgd08.png
-
-
-
-
-anim	jumpforward
-	loop	0
-	delay	12
-	offset	145 211
-	bbox	130 110 30 60
-	forcedirection	-1
-	staydown	500 500
-	hitfx	data/sounds/beat3.wav
-	sound	data/sounds/xdaim03.wav
-	frame	data/chars/xdaimon/jua05.png
-	delay	8
-	frame	data/chars/xdaimon/jua06.png
-	delay	30
-	attack	135 110 80 65 35 1 0 0 45 15
-	frame	data/chars/xdaimon/jua07.png
-
-
-
-anim	jumpattack
-	loop	0
-	delay	9
-	offset	145 211
-	bbox	135 98 30 60
-	forcedirection	-1
-	staydown	500 500
-	hitfx	data/sounds/beat5.wav
-	sound	data/sounds/xdaim01.wav
-	frame	data/chars/xdaimon/jua01.png
-	frame	data/chars/xdaimon/jua01.png
-	delay	30
-	attack	136 100 85 75 30 1 0 0 45 15
-	frame	data/chars/xdaimon/jua03.png
-
-
-
-anim	jumpattack2
-	loop	0
-	delay	9
-	offset	145 211
-	bbox	135 98 30 60
-	frame	data/chars/xdaimon/jua10.png
-	attack2	135 111 71 60 12 0 0 0 35 0
-	frame	data/chars/xdaimon/jua11.png
-
-
-
-
-anim	runjumpattack
-	loop	0
-	delay	12
-	offset	145 211
-	bbox	138 92 30 55
-	fastattack 1
-	forcedirection	-1
-	landframe 3
-	staydown	500 500
-	hitfx	data/sounds/beat5.wav
-	sound	data/sounds/xdaim03.wav
-	frame	data/chars/xdaimon/jua15.png
-	delay	8
-	frame	data/chars/xdaimon/jua16.png
-	delay	500
-	attack	130 100 87 75 30 1 0 0 40 15
-	dropv	2 4
-	frame	data/chars/xdaimon/jua17.png
-	delay	8
-	attack	0 0 0 0
-	frame	data/chars/xdaimon/jump00.png
-	frame	data/chars/xdaimon/jump00a.png
-
-
-
-
-anim	grab
-	cancel	0 3 0 d f d f A freespecial26
-	cancel	0 3 0 d f d f S freespecial26
-	loop	1
-	delay	3
-	offset	145 211
-	bbox	130 125 30 75
-	frame	data/chars/xdaimon/grab00.png
-	frame	data/chars/xdaimon/grab00.png
-	frame	data/chars/xdaimon/grab00.png
-	frame	data/chars/xdaimon/grab00.png
-
-
-
-
-
-anim	grabattack
-	loop	0
-	delay	7
-	offset	145 211
-	bbox	130 125 30 75
-	hitfx	data/sounds/beat3.wav
-	fastattack	1
-	attack	0 0 0 0
-	movez	1
-	frame	data/chars/xdaimon/grab00.png
-	movez	0
-	delay	12
-	frame	data/chars/xdaimon/grab80.png
-	delay	30
-	attack	139 135 53 45 30 1 0 0 35 10
-	dropv	4 2
-	frame	data/chars/xdaimon/grab81.png
-	attack	0 0 0 0
-	delay	12
-	frame	data/chars/xdaimon/run00.png
-	frame	data/chars/xdaimon/a43.png
-
-
-
-
-
-anim	grabdown
-	loop	0
-	delay	5
-	offset	145 211
-	bbox	130 125 30 75
-	staydown 300 300
-	hitfx	data/sounds/beat0.wav
-	fastattack	1
-	attack	0 0 0 0
-	movez	1
-	delay	8
-	frame	data/chars/xdaimon/grab00.png
-	movez	0
-	frame	data/chars/xdaimon/grab01.png
-	frame	data/chars/xdaimon/grab02.png
-	delay	20
-	attack	139 150 51 60 30 1 0 0 45 10
-	dropv	2 -4
-	frame	data/chars/xdaimon/grab03.png
-	attack	0 0 0 0
-	delay	8
-	frame	data/chars/xdaimon/grab02.png
-	frame	data/chars/xdaimon/grab03a.png
-	frame	data/chars/xdaimon/grab03b.png
-	@cmd	flip
-	frame	data/chars/xdaimon/idle01.png
-
-
-
-anim	grabattack2
-	loop	0
-	delay	20
-	offset	145 211
-	bbox	0 0 0 0
-	sound	data/sounds/grab.wav
-	@cmd	slamstart2
-	@cmd	position 10 35 49 -1 -1
-	frame	data/chars/xdaimon/grab00.png
-
-	delay	8
-	@cmd	position 11 30 60 -1 -1
-	frame	data/chars/xdaimon/grab50.png
-	@cmd	position 13 35 65 -1 1
-	frame	data/chars/xdaimon/grab51.png
-	delay	17
-	@cmd	position 13 35 70 -1 1
-	frame	data/chars/xdaimon/grab52.png
-	delay	8
-	sound	data/sounds/xdaim04.wav
-
-	@cmd	position 13 29 73 -1 1
-	frame	data/chars/xdaimon/grab53.png
-	delay	4
-	@cmd	position 5 45 80 -1 -1
-	frame	data/chars/xdaimon/grab54.png
-	@cmd	position 6 40 60 -1 -1
-	frame	data/chars/xdaimon/grab54.png
-
-	@cmd	position 3 40 75 -1 -1
-	frame	data/chars/xdaimon/grab55.png
-	@cmd	position 3 40 75 -1 -1
-	frame	data/chars/xdaimon/grab55.png
-
-	delay	2
-
-	@cmd	antiwall 55 -5 0
-	@cmd	position 14 65 70 -1 1
-	frame	data/chars/xdaimon/grab56.png
-
-	attack	150 130 80 75 15 1 0 0 5 20
-	dropv	3 0.5
-
-	@cmd	antiwall 55 -5 0
-	@cmd	position 14 65 70 -1 1
-	frame	data/chars/xdaimon/grab56.png
-	@cmd	antiwall 55 -5 0
-	@cmd	position 14 65 70 -1 1
-	frame	data/chars/xdaimon/grab56.png
-	@cmd	antiwall 55 -5 0
-	@cmd	position 14 65 70 -1 1
-	frame	data/chars/xdaimon/grab56.png
-
-	@cmd	antiwall 55 -5 0
-	@cmd	position 15 55 49 -1 1
-	frame	data/chars/xdaimon/grab57.png
-	@cmd	spawn01 "qfx" 35 1 1
-	@cmd	antiwall 55 -5 0
-	@cmd	position 15 55 49 -1 1
-	frame	data/chars/xdaimon/grab57.png
-	@cmd	antiwall 55 -5 0
-	@cmd	position 15 55 49 -1 1
-	frame	data/chars/xdaimon/grab57.png
-	@cmd	antiwall 55 -5 0
-	@cmd	position 15 55 49 -1 1
-	frame	data/chars/xdaimon/grab57.png
-
-	@cmd	antiwall 55 -5 0
-	@cmd	position 14 55 49 -1 1
-	frame	data/chars/xdaimon/grab57.png
-	@cmd	antiwall 55 -5 0
-	@cmd	position 14 55 49 -1 1
-	frame	data/chars/xdaimon/grab57.png
-	@cmd	antiwall 55 -5 0
-	@cmd	position 14 55 49 -1 1
-	frame	data/chars/xdaimon/grab57.png
-
-	attack	0 0 0 0
-
-	@cmd	antiwall 55 -5 0
-	@cmd	position 14 55 49 -1 1
-	frame	data/chars/xdaimon/grab57.png
-
-	delay	15
-	@cmd	position 14 55 49 -1 1
-	frame	data/chars/xdaimon/grab57.png
-	@cmd	depost 0
-	@cmd	finish 70 1 1 5 0 0
-	frame	data/chars/xdaimon/grab57.png
-	delay	9
-	frame	data/chars/xdaimon/grab58.png
-	@cmd	clearL
-	frame	data/chars/xdaimon/grab59.png
-	frame	data/chars/xdaimon/grab60.png
-
-
-
-
-
-
-anim	grabforward
-	loop	0
-	delay	20
-	offset	145 211
-	bbox	0 0 0 0
-	sound	data/sounds/grab.wav
-	@cmd	slamstart2
-	@cmd	position 10 35 49 -1 -1
-	frame	data/chars/xdaimon/grab00.png
-	delay	2
-	move	5
-	@cmd	position 10 30 51 -1 -1
-	frame	data/chars/xdaimon/grab30.png
-	@cmd	position 10 25 51 -1 -1
-	frame	data/chars/xdaimon/grab30.png
-	@cmd	position 10 20 51 -1 -1
-	frame	data/chars/xdaimon/grab30.png
-	@cmd	position 10 15 51 -1 -1
-	frame	data/chars/xdaimon/grab30.png
-
-	@cmd	position 10 10 51 -1 -1
-	frame	data/chars/xdaimon/grab31.png
-	@cmd	position 10 5 51 -1 -1
-	frame	data/chars/xdaimon/grab31.png
-	@cmd	position 10 0 51 -1 -1
-	frame	data/chars/xdaimon/grab31.png
-	@cmd	position 10 -5 51 -1 -1
-	frame	data/chars/xdaimon/grab31.png
-	move	0
-
-	delay	8
-	@cmd	position 10 -8 51 -1 -1
-	frame	data/chars/xdaimon/grab32.png
-	@cmd	position 11 -30 60 -1 -1
-	frame	data/chars/xdaimon/grab33.png
-	@cmd	position 11 -25 55 -1 -1
-	frame	data/chars/xdaimon/grab34.png
-	@cmd	position 11 -20 50 -1 -1
-	frame	data/chars/xdaimon/grab35.png
-	@cmd	position 11 -15 45 -1 -1
-	frame	data/chars/xdaimon/grab36.png
-	@cmd	position 11 -10 40 -1 -1
-	frame	data/chars/xdaimon/grab37.png
-
-	delay	2
-	sound	data/sounds/xdaim04.wav
-
-	@cmd	antiwall 75 -5 0
-	@cmd	position 0 -5 70 -1 -1
-	frame	data/chars/xdaimon/grab38.png
-	@cmd	antiwall 75 -5 0
-	@cmd	position 0 -5 70 -1 -1
-	frame	data/chars/xdaimon/grab38.png
-	@cmd	antiwall 75 -5 0
-	@cmd	position 0 -5 70 -1 -1
-	frame	data/chars/xdaimon/grab38.png
-	@cmd	antiwall 75 -5 0
-	@cmd	position 0 -5 70 -1 -1
-	frame	data/chars/xdaimon/grab38.png
-
-	@cmd	antiwall 75 -5 0
-	@cmd	position 0 -5 75 -1 -1
-	frame	data/chars/xdaimon/grab39.png
-	@cmd	antiwall 75 -5 0
-	@cmd	position 0 -5 75 -1 -1
-	frame	data/chars/xdaimon/grab39.png
-	@cmd	antiwall 75 -5 0
-	@cmd	position 0 -5 75 -1 -1
-	frame	data/chars/xdaimon/grab39.png
-	@cmd	antiwall 75 -5 0
-	@cmd	position 0 -5 75 -1 -1
-	frame	data/chars/xdaimon/grab39.png
-
-	@cmd	antiwall 75 -5 0
-	@cmd	position 0 10 100 -1 -1
-	frame	data/chars/xdaimon/grab40.png
-	@cmd	antiwall 75 -5 0
-	@cmd	position 0 10 100 -1 -1
-	frame	data/chars/xdaimon/grab40.png
-	@cmd	antiwall 75 -5 0
-	@cmd	position 0 10 100 -1 -1
-	frame	data/chars/xdaimon/grab40.png
-	@cmd	antiwall 75 -5 0
-	@cmd	position 0 10 100 -1 -1
-	frame	data/chars/xdaimon/grab40.png
-
-	attack	150 115 85 60 15 1 0 0 5 10
-	dropv	2 4
-	@cmd	antiwall 75 -5 0
-	@cmd	position 1 50 125 1 -1
-	frame	data/chars/xdaimon/grab41.png
-	@cmd	antiwall 75 -5 0
-	@cmd	position 1 50 125 1 -1
-	frame	data/chars/xdaimon/grab41.png
-	@cmd	antiwall 75 -5 0
-	@cmd	position 1 50 125 1 -1
-	frame	data/chars/xdaimon/grab41.png
-	@cmd	antiwall 75 -5 0
-	@cmd	position 1 50 125 1 -1
-	frame	data/chars/xdaimon/grab41.png
-
-	delay	8
-	@cmd	position 3 75 70 -1 -1
-	frame	data/chars/xdaimon/grab42.png
-	@cmd	depost 0
-	@cmd	finish 70 1 -4 0.5 0 0
-	frame	data/chars/xdaimon/grab43.png
-	frame	data/chars/xdaimon/grab44.png
-	attack	0 0 0 0
-	delay	30
-	frame	data/chars/xdaimon/grab45.png
-	delay	9
-	frame	data/chars/xdaimon/grab46.png
-	@cmd	flip
-	offset	170 211
-	frame	data/chars/xdaimon/dgd06.png
-	offset	155 211
-	frame	data/chars/xdaimon/dgd08.png
-	@cmd	clearL
-	offset	150 211
-	frame	data/chars/xdaimon/jump00.png
-	offset	148 211
-	frame	data/chars/xdaimon/jump00a.png
-
-
-
-anim	grabbackward
-	loop	0
-	delay	20
-	offset	145 211
-	bbox	0 0 0 0
-	sound	data/sounds/grab.wav
-	@cmd	slamstart2
-	@cmd	position 10 35 49 -1 -1
-	frame	data/chars/xdaimon/grab00.png
-	delay	8
-	@cmd	position 0 22 110 -1 1
-	frame	data/chars/xdaimon/grab20.png
-	@cmd	position 1 0 120 -1 1
-	frame	data/chars/xdaimon/grab21.png
-	delay	4
-	sound	data/sounds/xdaim01.wav
-	@cmd	antiwall -10 5 0
-	@cmd	position 1 -8 115 -1 1
-	frame	data/chars/xdaimon/grab22.png
-	@cmd	antiwall -10 5 0
-	@cmd	position 1 -8 115 -1 1
-	frame	data/chars/xdaimon/grab22.png
-	@cmd	antiwall -10 5 0
-	@cmd	position 1 -8 115 -1 1
-	frame	data/chars/xdaimon/grab22.png
-	@cmd	antiwall -10 5 0
-	@cmd	position 1 -8 115 -1 1
-	frame	data/chars/xdaimon/grab22.png
-	delay	1
-	@cmd	position 2 -15 45 -1 1
-	frame	data/chars/xdaimon/grab23.png
-	@cmd	depost 0
-	@cmd	finish 70 1 -4 2 0 0
-	delay	30
-	frame	data/chars/xdaimon/grab23.png
-	delay	8
-	frame	data/chars/xdaimon/grab24.png
-	@cmd	clearL
-	frame	data/chars/xdaimon/grab25.png
-	@cmd	flip
-	frame	data/chars/xdaimon/grab01.png
-	
 		
-
-anim	freespecial26
-	energycost	35
-	mponly	1
-	loop	0
-	delay	30
-	offset	145 211
-	bbox	0 0 0 0
-	sound	data/sounds/super1.wav
-	@cmd	spawnAni2 "allsp" 1 1 1 2 "ANI_FOLLOW1"
-	@cmd	slamstart2
-	@cmd	position 10 35 49 -1 -1
-	frame	data/chars/xdaimon/grab00.png
-	delay	10
-	sound	data/sounds/xdaim04.wav
-	@cmd	dasher -2 0 0
-	@cmd	position 11 22 95 -1 -1
-	frame	data/chars/xdaimon/grab68.png
-	delay	7
-	@cmd	position 8 5 100 -1 -1
-	frame	data/chars/xdaimon/grab69.png
-	@cmd	stop
-	attack	65 130 80 75 15 1 0 0 5 20
-	dropv	3 0.5
-	@cmd	spawn01 "qfx" -30 1 1
-	@cmd	position 14 -35 49 -1 -1
-	frame	data/chars/xdaimon/grab70.png
-	delay	20
-	@cmd	position 15 -35 49 -1 -1
-	frame	data/chars/xdaimon/grab70.png
-	attack	0 0 0 0
-#---------------------------//-----------------------
-	delay	8
-	@cmd	flip
-	@cmd	position 2 35 10 -1 -1
-	frame	data/chars/xdaimon/grab65.png #5
-	@cmd	position 6 35 27 -1 -1
-	frame	data/chars/xdaimon/grab66.png
-
-	@cmd	dasher -2 0 0
-
-	@cmd	position 5 40 65 -1 -1
-	frame	data/chars/xdaimon/grab67.png
-	delay	10
-	@cmd	position 11 22 95 -1 -1
-	frame	data/chars/xdaimon/grab68.png
-	delay	7
-	@cmd	stop
-	@cmd	position 8 5 100 -1 -1
-	frame	data/chars/xdaimon/grab69.png
-	attack	65 130 80 75 15 1 0 0 5 20
-	dropv	3 0.5
-	@cmd	spawn01 "flashscreen1" -30 1 1
-	@cmd	spawn01 "qfx" -30 1 1
-	@cmd	position 14 -35 49 -1 -1
-	frame	data/chars/xdaimon/grab70.png
-	attack	0 0 0 0
-	delay	20
-	@cmd	position 15 -35 49 -1 -1
-	frame	data/chars/xdaimon/grab70.png
-	@cmd	looper 5 7
-
-
-#---------------------------//-----------------------
-
-	delay	10
-	@cmd	flip
-	@cmd	position 2 35 10 -1 -1
-	frame	data/chars/xdaimon/grab65.png
-	@cmd	position 6 35 27 -1 -1
-	frame	data/chars/xdaimon/grab66.png
-	delay	25
-	@cmd	position 5 40 65 -1 -1
-	frame	data/chars/xdaimon/grab67.png
-
-	sound	data/sounds/xdaim02.wav
-
-	delay	10
-	@cmd	position 11 22 95 -1 -1
-	frame	data/chars/xdaimon/grab68.png
-	delay	2
-	@cmd	antiwall -16 5 0
-	@cmd	position 8 -15 120 -1 -1
-	frame	data/chars/xdaimon/grab71.png
-	@cmd	antiwall -16 5 0
-	@cmd	position 8 -15 120 -1 -1
-	frame	data/chars/xdaimon/grab71.png
-	@cmd	antiwall -16 5 0
-	@cmd	position 8 -15 120 -1 -1
-	frame	data/chars/xdaimon/grab71.png
-	@cmd	antiwall -16 5 0
-	@cmd	position 8 -15 120 -1 -1
-	frame	data/chars/xdaimon/grab71.png
-	@cmd	antiwall -16 5 0
-	@cmd	position 8 -15 120 -1 -1
-	frame	data/chars/xdaimon/grab71.png
-
-	@cmd	depost 0
-	@cmd	finish 130 1 0.5 10 0 0
-	frame	data/chars/xdaimon/grab72.png
-	delay	60
-	frame	data/chars/xdaimon/grab72.png
-	delay	9
-	frame	data/chars/xdaimon/grab73.png
-	@cmd	clearL
-	frame	data/chars/xdaimon/grab74.png
-	frame	data/chars/xdaimon/grab75.png
-	@cmd	flip
-	frame	data/chars/xdaimon/jump00a.png
-	frame	data/chars/xdaimon/jump00.png
-	frame	data/chars/xdaimon/spw10.png
-	delay	55
-	sound	data/sounds/xdaim03.wav
-	frame	data/chars/xdaimon/spw11.png
-	delay	9
-	frame	data/chars/xdaimon/spw10.png
-	frame	data/chars/xdaimon/idle01.png
-
-
-#----------------------//-----------//---------------------
-
-anim	follow11
-	loop	0
-	delay	20
-	offset	145 211
-	bbox	0 0 0 0
-	attack	0 0 0 0
-	@cmd	slamstart3
-	@cmd	grabcheck2
-	@cmd	position 2 35 5 -1 -1
-	frame	data/chars/xdaimon/grab08.png
-	delay	8
-	sound	data/sounds/xdaim04.wav
-	@cmd	position 2 35 10 -1 -1
-	frame	data/chars/xdaimon/grab65.png
-	@cmd	position 6 35 27 -1 -1
-	frame	data/chars/xdaimon/grab66.png
-	delay	15
-	@cmd	position 5 40 65 -1 -1
-	frame	data/chars/xdaimon/grab67.png
-	delay	8
-	@cmd	position 11 22 95 -1 -1
-	frame	data/chars/xdaimon/grab68.png
-	delay	2
-	@cmd	antiwall -16 5 0
-	@cmd	position 8 -15 120 -1 -1
-	frame	data/chars/xdaimon/grab71.png
-	@cmd	antiwall -16 5 0
-	@cmd	position 8 -15 120 -1 -1
-	frame	data/chars/xdaimon/grab71.png
-	@cmd	antiwall -16 5 0
-	@cmd	position 8 -15 120 -1 -1
-	frame	data/chars/xdaimon/grab71.png
-	@cmd	antiwall -16 5 0
-	@cmd	position 8 -15 120 -1 -1
-	frame	data/chars/xdaimon/grab71.png
-	delay	1
-	@cmd	position 8 -15 50 -1 -1
-	frame	data/chars/xdaimon/grab72.png
-	@cmd	depost 0
-	@cmd	finish 55 1 5 1 0 0
-	frame	data/chars/xdaimon/grab72.png
-	delay	60
-	frame	data/chars/xdaimon/grab72.png
-	delay	9
-	frame	data/chars/xdaimon/grab73.png
-	@cmd	clearL
-	frame	data/chars/xdaimon/grab74.png
-	frame	data/chars/xdaimon/grab75.png
-	@cmd	flip
-	frame	data/chars/xdaimon/jump00a.png
-
-
-
-
-
-anim	grabbed
-	loop	0
-	delay	10
-	offset	145 211
-	bbox	130 125 30 75
-	frame	data/chars/xdaimon/pain2.png
-
-
-
-
-anim	charge
-	loop	0
-	delay	12
-	offset	145 211
-	bbox	130 125 30 75
-	sound	data/sounds/xclark05.wav
-	frame	data/chars/xdaimon/chg00.png
-	frame	data/chars/xdaimon/chg01.png
-	delay	5
-	frame	data/chars/xdaimon/chg02.png
-	frame	data/chars/xdaimon/chg03.png
-	frame	data/chars/xdaimon/chg02.png
-	frame	data/chars/xdaimon/chg03.png
-	@cmd	updateframe getlocalvar("self") 2
-	frame	data/chars/xdaimon/chg02.png
-
-
-
-
-anim	freespecial29
-@script
-	void self = getlocalvar("self");
-	int mp1 = getentityproperty(self,"mp");
-	void plyr = getentityproperty(self, "playerindex");
-
-	if(frame > 5 && playerkeys(plyr, 0, "attack3"))
-	{
-	  updateframe(self, 2);
-	}
-@end_script
-	delay	12
-	offset	145 211
-	bbox	130 125 30 75
-	sound	data/sounds/xclark05.wav
-	frame	data/chars/xdaimon/chg00.png
-	frame	data/chars/xdaimon/chg01.png
-	delay	5
-	@cmd	mpgain 2
-	frame	data/chars/xdaimon/chg02.png #2
-	frame	data/chars/xdaimon/chg03.png
-	@cmd	mpgain 3
-	frame	data/chars/xdaimon/chg02.png
-	frame	data/chars/xdaimon/chg03.png #5
-	frame	data/chars/xdaimon/chg02.png
-
-
-
-
-
-anim	special
-	energycost	30
-	mponly	1
-	loop	0
-	delay	4
-	offset	145 211
-	bbox	0 0 0 0
-	otg	1
-	staydown 500 500
-	hitfx	data/sounds/empty.wav
-	sound	data/sounds/xdaim04.wav
-	frame	data/chars/xdaimon/jump00a.png
-	frame	data/chars/xdaimon/jump00a.png
-	delay	9
-	frame	data/chars/xdaimon/sp01.png
-	delay	15
-	frame	data/chars/xdaimon/sp02.png
-	delay	9
-	attack10 10 50 285 250 10 1 1 1 5 300
-	dropv	2.5 0
-	sound	data/sounds/bang2.wav
-	@cmd	spawn01 "qfx" -20 1 1
-	@cmd	spawn01 "qfx" 30 1 1
-	frame	data/chars/xdaimon/sp03.png
-	delay	20
-	frame	data/chars/xdaimon/sp04.png
-	attack10 0 0 0 0
-	delay	9
-	frame	data/chars/xdaimon/jump00.png
-	@cmd	looper 1 5
-	frame	data/chars/xdaimon/jump00a.png
-
-
-
-
-
-
-anim	runattack
+anim	block
 	loop	0
 	delay	8
 	offset	145 211
 	bbox	130 125 30 75
-	fastattack	1
-	hitfx	data/sounds/beat5.wav
-	sound	data/sounds/xdaim03.wav
-	@cmd	dasher 3 0 0
-	frame	data/chars/xdaimon/b01.png
-	frame	data/chars/xdaimon/b02.png
-	frame	data/chars/xdaimon/b10.png
-	delay	12
-	@cmd	dasher 2 0 0
-	attack	145 85 88 70 60 1 0 0 25 15
-	dropv	3 3
-	frame	data/chars/xdaimon/b11.png
-	delay	9
-	@cmd	stop
-	frame	data/chars/xdaimon/b12.png
-	attack	0 0 0 0
-	frame	data/chars/xdaimon/b13.png
-	frame	data/chars/xdaimon/b02.png
-	frame	data/chars/xdaimon/b01.png
-
-
-
-
-
-
-anim	runslide
-	loop	0
-	delay	12
-	offset	145 211
-	bbox	130 145 30 55
-	forcedirection	-1
-	otg	0
-	hitfx	data/sounds/beat5.wav
-	sound	data/sounds/xdaim03.wav
-	@cmd	dasher 3 0 0
-	frame	data/chars/xdaimon/sld01.png
-	frame	data/chars/xdaimon/sld02.png
-	delay	5
-	@cmd	dasher 2.5 0 0
-	attack	120 100 80 105 30 1 0 0 25 15
-	dropv	5 -0.5
-	frame	data/chars/xdaimon/sld03.png
-	frame	data/chars/xdaimon/sld03.png
-	@cmd	dasher 1.5 0 0
-	frame	data/chars/xdaimon/sld03.png
-	frame	data/chars/xdaimon/sld03.png
-	delay	9
-	attack	0 0 0 0
-	@cmd	stop
-	frame	data/chars/xdaimon/sld03.png
-	frame	data/chars/xdaimon/sld04.png
-	frame	data/chars/xdaimon/sld05.png
-	frame	data/chars/xdaimon/jump00.png
-	frame	data/chars/xdaimon/jump00a.png
-
-
-
-
-
-
-
-
-
-anim	pain
-	loop	0
-	delay	3
-	offset	145 211
-	bbox	130 125 30 75
-	frame	data/chars/xdaimon/pain1.png
-	offset	140 211
-	frame	data/chars/xdaimon/pain2.png
-	offset	146 211
-	frame	data/chars/xdaimon/pain2.png
-	offset	145 211
-	frame	data/chars/xdaimon/pain2.png
-
-		
-anim	pain2
-	loop	0
-	delay	3
-	offset	145 211
-	bbox	130 125 30 75
-	frame	data/chars/xdaimon/pain3.png
-	offset	140 211
-	frame	data/chars/xdaimon/pain4.png
-	offset	146 211
-	frame	data/chars/xdaimon/pain4.png
-	offset	145 211
-	frame	data/chars/xdaimon/pain4.png
-		
-anim	pain3
-	loop	0
-	delay	2
-	offset	145 211
-	bbox	130 125 30 75
-	move	-6
-	frame	data/chars/xdaimon/pain1.png
-	frame	data/chars/xdaimon/pain1.png
-	frame	data/chars/xdaimon/pain1.png
-	frame	data/chars/xdaimon/pain2.png
-	frame	data/chars/xdaimon/pain2.png
-	frame	data/chars/xdaimon/pain2.png
-	move	-4
-	frame	data/chars/xdaimon/pain1.png
-	frame	data/chars/xdaimon/pain1.png
-	frame	data/chars/xdaimon/pain1.png
-	frame	data/chars/xdaimon/pain3.png
-	frame	data/chars/xdaimon/pain3.png
-	move	-2
-	frame	data/chars/xdaimon/pain3.png
-	frame	data/chars/xdaimon/pain4.png
-	frame	data/chars/xdaimon/pain4.png
-	delay	50
-	frame	data/chars/xdaimon/pain4.png
-
-
-anim	pain5
-	loop	0
-	delay	12
-	offset	145 211
-	bbox	130 125 30 75
-	frame	data/chars/xdaimon/pain1.png
-	delay	9
-	frame	data/chars/xdaimon/pain2.png
-	frame	data/chars/xdaimon/pain3.png
-	frame	data/chars/xdaimon/pain4.png
-	frame	data/chars/xdaimon/jump00.png
-	delay	30
-	frame	data/chars/xdaimon/dgd08.png
-	delay	9
-	frame	data/chars/xdaimon/jump00.png
-
-
+	frame	data/chars/xdaimon/blk01.png
+	frame	data/chars/xdaimon/blk02.png
+	frame	data/chars/xdaimon/blk03.png
 		
 anim	burn
 	loop	0
 	delay	30
 	offset	145 211
 	bbox	0 0 0 0
-	landframe 3
+	landframe	3
 	drawmethod	tintmode 4
 	drawmethod	tintcolor 200_50_0
 	@cmd	spawnbind "burn1" 1 1 1
@@ -1640,14 +269,50 @@ anim	burn
 	delay	50
 	offset	145 211
 	frame	data/chars/xdaimon/fall4.png
-
-
+		
+anim	charge
+	loop	0
+	delay	12
+	offset	145 211
+	bbox	130 125 30 75
+	sound	data/sounds/xclark05.wav
+	frame	data/chars/xdaimon/chg00.png
+	frame	data/chars/xdaimon/chg01.png
+	delay	5
+	frame	data/chars/xdaimon/chg02.png
+	frame	data/chars/xdaimon/chg03.png
+	frame	data/chars/xdaimon/chg02.png
+	frame	data/chars/xdaimon/chg03.png
+	@cmd	updateframe getlocalvar("self") 2
+	frame	data/chars/xdaimon/chg02.png
+		
+anim	death
+	loop	0
+	delay	40
+	offset	145 211
+	bbox	0 0 0 0
+	frame	data/chars/xdaimon/fall4.png
+	delay	11
+	frame	data/chars/xdaimon/dgd06.png
+	frame	data/chars/xdaimon/dgd08.png
+	sound	data/sounds/xdaimDET.wav
+	frame	data/chars/xdaimon/jump00.png
+	frame	data/chars/xdaimon/det01.png
+	frame	data/chars/xdaimon/det02.png
+	frame	data/chars/xdaimon/det03.png
+	delay	10
+	frame	data/chars/xdaimon/det04.png
+	frame	data/chars/xdaimon/det05.png
+	frame	data/chars/xdaimon/det04.png
+	delay	100
+	frame	data/chars/xdaimon/det05.png
+		
 anim	fall
 	loop	0
 	delay	30
 	offset	145 211
 	bbox	0 0 0 0
-	landframe 3
+	landframe	3
 	sound	data/sounds/xdaimPAIN.wav
 	attack	130 130 29 43 5 1 0 0 13 0
 	frame	data/chars/xdaimon/fall1.png
@@ -1662,13 +327,12 @@ anim	fall
 	offset	145 211
 	frame	data/chars/xdaimon/fall4.png
 		
-		
 anim	fall2
 	loop	0
 	delay	30
 	offset	145 211
 	bbox	0 0 0 0
-	landframe 3 dust
+	landframe	3 dust
 	sound	data/sounds/xdaimPAIN.wav
 	attack	130 130 29 43 5 1 0 0 13 0
 	frame	data/chars/xdaimon/pain4.png
@@ -1682,14 +346,13 @@ anim	fall2
 	delay	50
 	offset	145 211
 	frame	data/chars/xdaimon/fall4.png
-
-
+		
 anim	fall3
 	loop	0
 	delay	30
 	offset	145 211
 	bbox	120 125 30 75
-	landframe 3 dust
+	landframe	3 dust
 	sound	data/sounds/xdaimPAIN.wav
 	attack	130 130 29 43 5 1 0 0 13 20
 	frame	data/chars/xdaimon/fall1.png
@@ -1707,9 +370,6 @@ anim	fall3
 	offset	145 211
 	bbox	0 0 0 0
 	frame	data/chars/xdaimon/fall4.png
-
-
-
 		
 anim	fall7
 	delay	1000
@@ -1768,9 +428,7 @@ anim	fall7
 	bbox	25 10 60 80
 	frame	data/chars/xdaimon/slambbox1.png
 	bbox	0 0 0 0
-
-
-
+		
 anim	fall9
 	loop	0
 	delay	9
@@ -1793,46 +451,544 @@ anim	fall9
 	delay	15
 	@cmd	clearL
 	frame	data/chars/xdaimon/fall4.png
-
-
-anim	rise
+		
+anim	follow10
+	followanim	11
+	followcond	1
 	loop	0
-	delay	25
-	offset	145 211
-	bbox	0 0 0 0
-	frame	data/chars/xdaimon/fall4.png
-	delay	11
-	frame	data/chars/xdaimon/dgd06.png
-	frame	data/chars/xdaimon/dgd08.png
-	frame	data/chars/xdaimon/jump00.png
-	frame	data/chars/xdaimon/jump00a.png
-
-
-
-anim	death
-	loop	0
-	delay	40
-	offset	145 211
-	bbox	0 0 0 0
-	frame	data/chars/xdaimon/fall4.png
-	delay	11
-	frame	data/chars/xdaimon/dgd06.png
-	frame	data/chars/xdaimon/dgd08.png
-	sound	data/sounds/xdaimDET.wav
-	frame	data/chars/xdaimon/jump00.png
-	frame	data/chars/xdaimon/det01.png
-	frame	data/chars/xdaimon/det02.png
-	frame	data/chars/xdaimon/det03.png
 	delay	10
-	frame	data/chars/xdaimon/det04.png
-	frame	data/chars/xdaimon/det05.png
-	frame	data/chars/xdaimon/det04.png
-	delay	100
-	frame	data/chars/xdaimon/det05.png
+	offset	145 211
+	bbox	0 0 0 0
+	forcedirection	-1
+	attackone	1
+	otg	2
+	hitfx	data/sounds/grab.wav
+	frame	data/chars/xdaimon/grab05.png
+	frame	data/chars/xdaimon/grab06.png
+	delay	9
+	attack11	105 190 95 30 0 0 1 1 9 10
+	frame	data/chars/xdaimon/grab07.png
+	delay	20
+	frame	data/chars/xdaimon/grab08.png
+	attack11	0 0 0 0
+	delay	12
+	frame	data/chars/xdaimon/grab06.png
+	frame	data/chars/xdaimon/grab05.png
+		
+anim	follow11
+	loop	0
+	delay	20
+	offset	145 211
+	bbox	0 0 0 0
+	attack	0 0 0 0
+	@cmd	slamstart3
+	@cmd	grabcheck2
+	@cmd	position 2 35 5 -1 -1
+	frame	data/chars/xdaimon/grab08.png
+	delay	8
+	sound	data/sounds/xdaim04.wav
+	@cmd	position 2 35 10 -1 -1
+	frame	data/chars/xdaimon/grab65.png
+	@cmd	position 6 35 27 -1 -1
+	frame	data/chars/xdaimon/grab66.png
+	delay	15
+	@cmd	position 5 40 65 -1 -1
+	frame	data/chars/xdaimon/grab67.png
+	delay	8
+	@cmd	position 11 22 95 -1 -1
+	frame	data/chars/xdaimon/grab68.png
+	delay	2
+	
+	@cmd	position 8 -15 120 -1 -1
+	frame	data/chars/xdaimon/grab71.png
+	
+	@cmd	position 8 -15 120 -1 -1
+	frame	data/chars/xdaimon/grab71.png
+	
+	@cmd	position 8 -15 120 -1 -1
+	frame	data/chars/xdaimon/grab71.png
+	
+	@cmd	position 8 -15 120 -1 -1
+	frame	data/chars/xdaimon/grab71.png
+	delay	1
+	@cmd	position 8 -15 50 -1 -1
+	frame	data/chars/xdaimon/grab72.png
+	@cmd	depost 0
+	@cmd	finish 55 1 5 1 0 0
+	frame	data/chars/xdaimon/grab72.png
+	delay	60
+	frame	data/chars/xdaimon/grab72.png
+	delay	9
+	frame	data/chars/xdaimon/grab73.png
+	@cmd	clearL
+	frame	data/chars/xdaimon/grab74.png
+	frame	data/chars/xdaimon/grab75.png
+	@cmd	flip
+	frame	data/chars/xdaimon/jump00a.png
+		
+anim	follow15
+@script
+	void self = getlocalvar("self");
+   	void opp = getentityproperty(self, "opponent");
+	int enedir = getentityproperty(opp,"direction");
+	if (frame == 0 && enedir == 0)
+	{
+	changeentityproperty(self, "direction", 1);
+	}
+	else if (frame == 0 && enedir == 1)
+	{
+	changeentityproperty(self, "direction", 0);
+	}
+	@end_script	
+	loop	0
+	delay	12
+	offset	145 211
+	bbox	0 0 0 0
+	jumpframe	0 3 -1
+	landframe	3
+	frame	data/chars/xdaimon/jump03.png
+	delay	8
+	frame	data/chars/xdaimon/jump02.png
+	delay	500
+	frame	data/chars/xdaimon/jump01.png
+	delay	8
+	frame	data/chars/xdaimon/jump00.png
+		
+anim	follow16
+@script
+	void self = getlocalvar("self");
+   	void opp = getentityproperty(self, "opponent");
+	int enedir = getentityproperty(opp,"direction");
+	if (frame == 0 && enedir == 0)
+	{
+	changeentityproperty(self, "direction", 1);
+	}
+	else if (frame == 0 && enedir == 1)
+	{
+	changeentityproperty(self, "direction", 0);
+	}
+	@end_script	
+	loop	0
+	delay	7
+	offset	145 211
+	bbox	0 0 0 0
+	frame	data/chars/xdaimon/dgd08.png
+	@cmd	dasher -2.5 0 0
+	frame	data/chars/xdaimon/dgd07.png
+	@cmd	spawn01 "dust" -20 1 1
+	frame	data/chars/xdaimon/dgd06.png
+	frame	data/chars/xdaimon/dgd05.png
+	frame	data/chars/xdaimon/dgd04.png
+	frame	data/chars/xdaimon/dgd03.png
+	frame	data/chars/xdaimon/dgd02.png
+	frame	data/chars/xdaimon/dgd01.png
+	@cmd	stop
+	frame	data/chars/xdaimon/run00.png
+		
+anim	follow17
+@script
+	void self = getlocalvar("self");
+	int eTime = openborvariant("elapsed_time");
+	if (frame == 5)
+	{
+	changeentityproperty(self, "invincible", 1);
+	changeentityproperty(self, "invinctime", eTime + 1000);
+	changeentityproperty(self, "blink", 1);
+	}
+	@end_script	
+	loop	0
+	delay	800
+	offset	145 211
+	bbox	0 0 0 0
+	frame	data/chars/xdaimon/emp.png
+	delay	9
+	frame	data/chars/xdaimon/spw01.png
+	frame	data/chars/xdaimon/spw02.png
+	frame	data/chars/xdaimon/spw03.png
+	delay	40
+	frame	data/chars/xdaimon/spw04.png
+	delay	9
+	frame	data/chars/xdaimon/spw05.png
+	frame	data/chars/xdaimon/spw06.png
+		
+anim	follow4
+	loop	0
+	delay	6
+	offset	145 211
+	bbox	0 0 0 0
+	otg	1
+	fastattack	1
+	forcedirection	-1
+	staydown	500 500
+	attack	0 0 0 0
+	@cmd	stop
+	@cmd	clearL
+	seal	7 4
+	frame	data/chars/xdaimon/jump00a.png
+	frame	data/chars/xdaimon/a40.png
+	frame	data/chars/xdaimon/a41.png
+	attack2	145 115 65 65 5 0 1 0 18 30
+	frame	data/chars/xdaimon/a42.png
+	attack2	0 0 0 0
+	frame	data/chars/xdaimon/a43.png
+	frame	data/chars/xdaimon/a07.png
+	frame	data/chars/xdaimon/a08.png
+	attack2	145 115 65 65 5 0 1 0 18 30
+	frame	data/chars/xdaimon/a10.png
+	attack2	0 0 0 0
+	frame	data/chars/xdaimon/a07.png
+	@cmd	looper 1 5
+	frame	data/chars/xdaimon/a06.png
+	hitfx	data/sounds/beat3.wav
+	sound	data/sounds/xdaim04.wav
+	frame	data/chars/xdaimon/a30.png
+	frame	data/chars/xdaimon/a31.png
+	attack	145 115 110 65 5 1 1 0 25 30
+	dropv	2 0
+	frame	data/chars/xdaimon/a32.png
+	delay	35
+	frame	data/chars/xdaimon/a33.png
+	attack	0 0 0 0
+	delay	6
+	frame	data/chars/xdaimon/a34.png
+	frame	data/chars/xdaimon/a35.png
+	hitfx	data/sounds/beat5.wav
+	frame	data/chars/xdaimon/a15a.png
+	frame	data/chars/xdaimon/a16.png
+	frame	data/chars/xdaimon/a17.png
+	frame	data/chars/xdaimon/a18.png
+	attack11	145 150 80 65 5 1 1 0 12 30
+	dropv	0 0
+	frame	data/chars/xdaimon/a19.png
+	frame	data/chars/xdaimon/a20.png
+	attack11	0 0 0 0
+	frame	data/chars/xdaimon/a21.png
+	frame	data/chars/xdaimon/jump00.png
+	@cmd	looper 16 10
+	frame	data/chars/xdaimon/jump00a.png
+	delay	8
+	frame	data/chars/xdaimon/spw06.png
+	frame	data/chars/xdaimon/spw01.png
+	delay	15
+	frame	data/chars/xdaimon/spw02.png
+	delay	8
+	frame	data/chars/xdaimon/spw03.png
+	frame	data/chars/xdaimon/spw04.png
+	delay	12
+	frame	data/chars/xdaimon/spw05.png
+	delay	8
+	frame	data/chars/xdaimon/sp02.png
+	delay	45
+	sound	data/sounds/xdaim02.wav
+	frame	data/chars/xdaimon/sp02.png
+	delay	9
+	move	20
+	hitfx	data/sounds/beat6.wav
+	hitflash	flashscreen2
+	frame	data/chars/xdaimon/sp03.png
+	move	0
+	attack	100 150 120 65 90 1 1 0 30 30
+	dropv	10 0.5
+	frame	data/chars/xdaimon/sp04.png
+	delay	80
+	frame	data/chars/xdaimon/sp04.png
+	attack	0 0 0 0
+	delay	9
+	frame	data/chars/xdaimon/sld02.png
+	delay	40
+	frame	data/chars/xdaimon/sld05.png
+	delay	8
+	frame	data/chars/xdaimon/jump00.png
+	@cmd	clearL
+	frame	data/chars/xdaimon/jump00a.png
+		
+anim	forwardjump
+	loop	0
+	delay	15
+	offset	145 211
+	bbox	130 110 30 60
+	frame	data/chars/xdaimon/jump01.png
+	delay	8
+	frame	data/chars/xdaimon/jump02.png
+	frame	data/chars/xdaimon/jump03.png
+	delay	20
+	frame	data/chars/xdaimon/jump04.png
+	delay	8
+	frame	data/chars/xdaimon/jump03.png
+	frame	data/chars/xdaimon/jump02.png
+	delay	20
+	frame	data/chars/xdaimon/jump01.png
+		
+anim	freespecial15
+	loop	0
+	delay	9
+	offset	145 211
+	bbox	0 0 0 0
+	frame	data/chars/xdaimon/spw06.png
+	frame	data/chars/xdaimon/spw05.png
+	frame	data/chars/xdaimon/spw01.png
+	frame	data/chars/xdaimon/spw02.png
+	frame	data/chars/xdaimon/spw03.png
+	delay	20
+	frame	data/chars/xdaimon/spw04.png
+	@cmd	spawnChild2  "toturi3" 1 1 1 "ANI_FOLLOW6"
+	frame	data/chars/xdaimon/spw04.png
+	delay	9
+	frame	data/chars/xdaimon/spw05.png
+	frame	data/chars/xdaimon/spw06.png
+		
+anim	freespecial26
+	energycost	60
+	mponly	1
+	loop	0
+	delay	30
+	offset	145 211
+	bbox	0 0 0 0
+	sound	data/sounds/super1.wav
+	@cmd	spawnAni2 "allsp" 1 1 1 2 "ANI_FOLLOW1"
+	@cmd	slamstart2
+	@cmd	position 10 35 49 -1 -1
+	frame	data/chars/xdaimon/grab00.png
+	delay	10
+	sound	data/sounds/xdaim04.wav
+	@cmd	dasher -2 0 0
+	@cmd	position 11 22 95 -1 -1
+	frame	data/chars/xdaimon/grab68.png
+	delay	7
+	@cmd	position 8 5 100 -1 -1
+	frame	data/chars/xdaimon/grab69.png
+	@cmd	stop
+	attack	65 130 80 75 15 1 0 0 5 20
+	dropv	3 0.5
+	@cmd	spawn01 "qfx" -30 1 1
+	@cmd	position 14 -35 49 -1 -1
+	frame	data/chars/xdaimon/grab70.png
+	delay	20
+	@cmd	position 15 -35 49 -1 -1
+	frame	data/chars/xdaimon/grab70.png
+	attack	0 0 0 0
+	delay	8
+	@cmd	flip
+	@cmd	position 2 35 10 -1 -1
+	frame	data/chars/xdaimon/grab65.png #5
+	@cmd	position 6 35 27 -1 -1
+	frame	data/chars/xdaimon/grab66.png
+	@cmd	dasher -2 0 0
+	@cmd	position 5 40 65 -1 -1
+	frame	data/chars/xdaimon/grab67.png
+	delay	10
+	@cmd	position 11 22 95 -1 -1
+	frame	data/chars/xdaimon/grab68.png
+	delay	7
+	@cmd	stop
+	@cmd	position 8 5 100 -1 -1
+	frame	data/chars/xdaimon/grab69.png
+	attack	65 130 80 75 15 1 0 0 5 20
+	dropv	3 0.5
+	@cmd	spawn01 "qfx" -30 1 1
+	@cmd	position 14 -35 49 -1 -1
+	frame	data/chars/xdaimon/grab70.png
+	attack	0 0 0 0
+	delay	20
+	@cmd	position 15 -35 49 -1 -1
+	frame	data/chars/xdaimon/grab70.png
+	@cmd	looper 5 7
+	delay	10
+	@cmd	flip
+	@cmd	position 2 35 10 -1 -1
+	frame	data/chars/xdaimon/grab65.png
+	@cmd	position 6 35 27 -1 -1
+	frame	data/chars/xdaimon/grab66.png
+	delay	25
+	@cmd	position 5 40 65 -1 -1
+	frame	data/chars/xdaimon/grab67.png
+	sound	data/sounds/xdaim02.wav
+	delay	10
+	@cmd	position 11 22 95 -1 -1
+	frame	data/chars/xdaimon/grab68.png
+	delay	2
+	
+	@cmd	position 8 -15 120 -1 -1
+	frame	data/chars/xdaimon/grab71.png
+	
+	@cmd	position 8 -15 120 -1 -1
+	frame	data/chars/xdaimon/grab71.png
+	
+	@cmd	position 8 -15 120 -1 -1
+	frame	data/chars/xdaimon/grab71.png
+	
+	@cmd	position 8 -15 120 -1 -1
+	frame	data/chars/xdaimon/grab71.png
+	
+	@cmd	position 8 -15 120 -1 -1
+	frame	data/chars/xdaimon/grab71.png
+	@cmd	depost 0
+	@cmd	finish 200 1 0.5 10 0 0
+	@cmd	spawn01 "flashscreen1" -30 1 1
+	frame	data/chars/xdaimon/grab72.png
+	delay	60
+	frame	data/chars/xdaimon/grab72.png
+	delay	9
+	frame	data/chars/xdaimon/grab73.png
+	@cmd	clearL
+	frame	data/chars/xdaimon/grab74.png
+	frame	data/chars/xdaimon/grab75.png
+	@cmd	flip
+	frame	data/chars/xdaimon/jump00a.png
+	frame	data/chars/xdaimon/jump00.png
+	frame	data/chars/xdaimon/spw10.png
+	delay	55
+	sound	data/sounds/xdaim03.wav
+	frame	data/chars/xdaimon/spw11.png
+	delay	9
+	frame	data/chars/xdaimon/spw10.png
+	frame	data/chars/xdaimon/idle01.png
+		
+anim	freespecial27
+	energycost	75
+	mponly	1
+	loop	0
+	delay	9
+	offset	145 211
+	bbox	0 0 0 0
+	followanim	4
+	followcond	1
+	seal	7 4
+	hitfx	data/sounds/empty.wav
+	frame	data/chars/xdaimon/chg00.png
+	frame	data/chars/xdaimon/chg01.png
+	frame	data/chars/xdaimon/chg02.png
+	sound	data/sounds/super1.wav
+	@cmd	spawn04 "allsp" 1 1 1 2
+	frame	data/chars/xdaimon/chg03.png
+	delay	20
+	frame	data/chars/xdaimon/chg03.png
+	delay	8
+	frame	data/chars/xdaimon/a43.png
+	frame	data/chars/xdaimon/a41.png
+	delay	20
+	frame	data/chars/xdaimon/a40.png
+	delay	6
+	sound	data/sounds/xdaim03.wav
+	frame	data/chars/xdaimon/grab05.png
+	delay	3
+	move	6
+	attack	145 125 45 50 0 0 1 1 1 20
+	frame	data/chars/xdaimon/sp05.png
+	@cmd	keymove 1.2
+	frame	data/chars/xdaimon/sp05.png
+	frame	data/chars/xdaimon/sp05.png
+	@cmd	keymove 1.2
+	frame	data/chars/xdaimon/sp05.png
+	@cmd	looper 9 4
+	frame	data/chars/xdaimon/jump00.png
+	attack	0 0 0 0
+	move	0
+	@cmd	stop
+	delay	10
+	frame	data/chars/xdaimon/jump00.png
+	@cmd	clearL
+	frame	data/chars/xdaimon/jump00a.png
+		
+anim	freespecial29
+@script
+	void self = getlocalvar("self");
+	int mp1 = getentityproperty(self,"mp");
+	void plyr = getentityproperty(self, "playerindex");
 
-
-#--------------------------//-----------------------
-
+	if(frame > 5 && playerkeys(plyr, 0, "attack3"))
+	{
+	  updateframe(self, 2);
+	}
+	@end_script	
+	delay	12
+	offset	145 211
+	bbox	130 125 30 75
+	sound	data/sounds/xclark05.wav
+	frame	data/chars/xdaimon/chg00.png
+	frame	data/chars/xdaimon/chg01.png
+	delay	5
+	frame	data/chars/xdaimon/chg02.png #2
+	frame	data/chars/xdaimon/chg03.png
+	@cmd	mpgain 1
+	frame	data/chars/xdaimon/chg02.png
+	frame	data/chars/xdaimon/chg03.png #5
+	frame	data/chars/xdaimon/chg02.png
+		
+anim	freespecial30
+	energycost	55
+	mponly	1
+	weaponframe	20 2
+	loop	0
+	delay	7
+	offset	145 211
+	bbox	0 0 0 0
+	frame	data/chars/xdaimon/spw06.png
+	sound	data/sounds/xdaimTLK.wav
+	frame	data/chars/xdaimon/spw06.png
+	delay	7
+	frame	data/chars/xdaimon/spw05.png
+	frame	data/chars/xdaimon/spw01.png
+	frame	data/chars/xdaimon/spw02.png
+	frame	data/chars/xdaimon/spw03.png
+	delay	30
+	frame	data/chars/xdaimon/spw04.png
+	delay	7
+	frame	data/chars/xdaimon/spw05.png
+	frame	data/chars/xdaimon/spw06.png
+	delay	5
+	frame	data/chars/xdaimon/emp.png
+	frame	data/chars/xdaimon/spw06.png
+	frame	data/chars/xdaimon/emp.png
+	frame	data/chars/xdaimon/spw06.png
+	frame	data/chars/xdaimon/emp.png
+	frame	data/chars/xdaimon/spw06.png
+	frame	data/chars/xdaimon/emp.png
+	frame	data/chars/xdaimon/spw06.png
+	frame	data/chars/xdaimon/emp.png
+	frame	data/chars/xdaimon/spw06.png
+	frame	data/chars/xdaimon/emp.png
+	frame	data/chars/xdaimon/spw06.png #20
+	frame	data/chars/xdaimon/emp.png
+	frame	data/chars/xdaimon/spw06.png
+		
+anim	freespecial31
+	energycost	55
+	mponly	1
+	weaponframe	20 9
+	loop	0
+	delay	7
+	offset	145 211
+	bbox	0 0 0 0
+	frame	data/chars/xdaimon/spw06.png
+	sound	data/sounds/xdaimTLK.wav
+	frame	data/chars/xdaimon/spw06.png
+	delay	7
+	frame	data/chars/xdaimon/spw05.png
+	frame	data/chars/xdaimon/spw01.png
+	frame	data/chars/xdaimon/spw02.png
+	frame	data/chars/xdaimon/spw03.png
+	delay	30
+	frame	data/chars/xdaimon/spw04.png
+	delay	7
+	frame	data/chars/xdaimon/spw05.png
+	frame	data/chars/xdaimon/spw06.png
+	delay	5
+	frame	data/chars/xdaimon/emp.png
+	frame	data/chars/xdaimon/spw06.png
+	frame	data/chars/xdaimon/emp.png
+	frame	data/chars/xdaimon/spw06.png
+	frame	data/chars/xdaimon/emp.png
+	frame	data/chars/xdaimon/spw06.png
+	frame	data/chars/xdaimon/emp.png
+	frame	data/chars/xdaimon/spw06.png
+	frame	data/chars/xdaimon/emp.png
+	frame	data/chars/xdaimon/spw06.png
+	frame	data/chars/xdaimon/emp.png
+	frame	data/chars/xdaimon/spw06.png #20
+	frame	data/chars/xdaimon/emp.png
+	frame	data/chars/xdaimon/spw06.png
+		
 anim	get
 	delay	6
 	offset	145 211
@@ -1843,29 +999,479 @@ anim	get
 	delay	9
 	frame	data/chars/xdaimon/jump00.png
 	frame	data/chars/xdaimon/jump00a.png
-
-
-anim	waiting
+		
+anim	grab
+	cancel	0 3 0 s freespecial26
 	loop	1
-	delay	12
-	offset	0 0
-	frame	data/chars/xdaimon/xwait1.png
-	frame	data/chars/xdaimon/xwait1.png
-
-anim	select
+	delay	3
+	offset	145 211
+	bbox	130 125 30 75
+	frame	data/chars/xdaimon/grab00.png
+	frame	data/chars/xdaimon/grab00.png
+	frame	data/chars/xdaimon/grab00.png
+	frame	data/chars/xdaimon/grab00.png
+		
+anim	grabattack
 	loop	0
+	attackone	0
+	delay	7
+	offset	145 211
+	bbox	130 125 30 75
+	hitfx	data/sounds/beat3.wav
+	fastattack	1
+	attack	0 0 0 0
+	movez	1
+	frame	data/chars/xdaimon/grab00.png
+	movez	0
+	delay	12
+	frame	data/chars/xdaimon/grab80.png
+	delay	30
+	attack	139 135 53 45 30 1 0 0 35 10
+	dropv	4 2
+	frame	data/chars/xdaimon/grab81.png
+	attack	0 0 0 0
+	delay	12
+	frame	data/chars/xdaimon/run00.png
+	frame	data/chars/xdaimon/a43.png
+		
+anim	grabattack2
+	loop	0
+	delay	20
+	attackone	0
+	offset	145 211
+	bbox	0 0 0 0
+	sound	data/sounds/grab.wav
+	@cmd	slamstart2
+	@cmd	position 10 35 49 -1 -1
+	frame	data/chars/xdaimon/grab00.png
+	delay	8
+	@cmd	position 11 30 60 -1 -1
+	frame	data/chars/xdaimon/grab50.png
+	@cmd	position 13 35 65 -1 1
+	frame	data/chars/xdaimon/grab51.png
+	delay	17
+	@cmd	position 13 35 70 -1 1
+	frame	data/chars/xdaimon/grab52.png
+	delay	8
+	sound	data/sounds/xdaim04.wav
+	@cmd	position 13 29 73 -1 1
+	frame	data/chars/xdaimon/grab53.png
+	delay	4
+	@cmd	position 5 45 80 -1 -1
+	frame	data/chars/xdaimon/grab54.png
+	@cmd	position 6 40 60 -1 -1
+	frame	data/chars/xdaimon/grab54.png
+	@cmd	position 3 40 75 -1 -1
+	frame	data/chars/xdaimon/grab55.png
+	@cmd	position 3 40 75 -1 -1
+	frame	data/chars/xdaimon/grab55.png
+	delay	2
+	
+	@cmd	position 14 65 70 -1 1
+	frame	data/chars/xdaimon/grab56.png
+	attack	150 130 80 75 15 1 0 0 5 20
+	dropv	3 0.5
+	
+	@cmd	position 14 65 70 -1 1
+	frame	data/chars/xdaimon/grab56.png
+	
+	@cmd	position 14 65 70 -1 1
+	frame	data/chars/xdaimon/grab56.png
+	
+	@cmd	position 14 65 70 -1 1
+	frame	data/chars/xdaimon/grab56.png
+	
+	@cmd	position 15 55 49 -1 1
+	frame	data/chars/xdaimon/grab57.png
+	@cmd	spawn01 "qfx" 35 1 1
+	
+	@cmd	position 15 55 49 -1 1
+	frame	data/chars/xdaimon/grab57.png
+	
+	@cmd	position 15 55 49 -1 1
+	frame	data/chars/xdaimon/grab57.png
+	
+	@cmd	position 15 55 49 -1 1
+	frame	data/chars/xdaimon/grab57.png
+	
+	@cmd	position 14 55 49 -1 1
+	frame	data/chars/xdaimon/grab57.png
+	
+	@cmd	position 14 55 49 -1 1
+	frame	data/chars/xdaimon/grab57.png
+	
+	@cmd	position 14 55 49 -1 1
+	frame	data/chars/xdaimon/grab57.png
+	attack	0 0 0 0
+	
+	@cmd	position 14 55 49 -1 1
+	frame	data/chars/xdaimon/grab57.png
+	delay	15
+	@cmd	position 14 55 49 -1 1
+	frame	data/chars/xdaimon/grab57.png
+	@cmd	depost 0
+	@cmd	finish 70 1 1 5 0 0
+	frame	data/chars/xdaimon/grab57.png
+	delay	9
+	frame	data/chars/xdaimon/grab58.png
+	@cmd	clearL
+	frame	data/chars/xdaimon/grab59.png
+	frame	data/chars/xdaimon/grab60.png
+		
+anim	grabbackward
+	loop	0
+	delay	20
+	offset	145 211
+	bbox	0 0 0 0
+	sound	data/sounds/grab.wav
+	@cmd	slamstart2
+	@cmd	position 10 35 49 -1 -1
+	frame	data/chars/xdaimon/grab00.png
+	delay	8
+	@cmd	position 0 22 110 -1 1
+	frame	data/chars/xdaimon/grab20.png
+	@cmd	position 1 0 120 -1 1
+	frame	data/chars/xdaimon/grab21.png
+	delay	4
+	sound	data/sounds/xdaim01.wav
+	
+	@cmd	position 1 -8 115 -1 1
+	frame	data/chars/xdaimon/grab22.png
+	
+	@cmd	position 1 -8 115 -1 1
+	frame	data/chars/xdaimon/grab22.png
+	
+	@cmd	position 1 -8 115 -1 1
+	frame	data/chars/xdaimon/grab22.png
+	
+	@cmd	position 1 -8 115 -1 1
+	frame	data/chars/xdaimon/grab22.png
+	delay	1
+	
+	@cmd	position 2 -15 45 -1 1
+	frame	data/chars/xdaimon/grab23.png
+	@cmd	depost 0
+	@cmd	finish 70 1 -4 2 0 0
+	delay	30
+	frame	data/chars/xdaimon/grab23.png
+	delay	8
+	frame	data/chars/xdaimon/grab24.png
+	@cmd	clearL
+	frame	data/chars/xdaimon/grab25.png
+	@cmd	flip
+	frame	data/chars/xdaimon/grab01.png
+		
+anim	grabbed
+	loop	0
+	delay	10
+	offset	145 211
+	bbox	130 125 30 75
+	frame	data/chars/xdaimon/pain2.png
+		
+anim	grabdown
+	loop	0
+	attackone	0
 	delay	5
-	offset	0 0
-	sound	data/sounds/blink.wav
-	frame	data/chars/xdaimon/xwait2.png
-	sound	data/sounds/xdaimTLK.wav
-	frame	data/chars/xdaimon/xwait3.png
-	frame	data/chars/xdaimon/xwait2.png #2
-	frame	data/chars/xdaimon/xwait3.png
-	@cmd	looper 2 10
-	delay	100
-	frame	data/chars/xdaimon/xwait2.png
-
+	offset	145 211
+	bbox	0 0 0 0
+	staydown	300 300
+	hitfx	data/sounds/beat0.wav
+	fastattack	1
+	attack	0 0 0 0
+	movez	1
+	delay	8
+	frame	data/chars/xdaimon/grab00.png
+	movez	0
+	frame	data/chars/xdaimon/grab01.png
+	frame	data/chars/xdaimon/grab02.png
+	delay	20
+	attack	139 150 51 60 30 1 0 0 45 10
+	dropv	2 -4
+	frame	data/chars/xdaimon/grab03.png
+	attack	0 0 0 0
+	delay	8
+	frame	data/chars/xdaimon/grab02.png
+	frame	data/chars/xdaimon/grab03a.png
+	frame	data/chars/xdaimon/grab03b.png
+	@cmd	flip
+	frame	data/chars/xdaimon/idle01.png
+		
+anim	grabforward
+	loop	0
+	delay	20
+	offset	145 211
+	bbox	0 0 0 0
+	sound	data/sounds/grab.wav
+	@cmd	slamstart2
+	@cmd	position 10 35 49 -1 -1
+	frame	data/chars/xdaimon/grab00.png
+	delay	2
+	move	5
+	@cmd	position 10 30 51 -1 -1
+	frame	data/chars/xdaimon/grab30.png
+	@cmd	position 10 25 51 -1 -1
+	frame	data/chars/xdaimon/grab30.png
+	@cmd	position 10 20 51 -1 -1
+	frame	data/chars/xdaimon/grab30.png
+	@cmd	position 10 15 51 -1 -1
+	frame	data/chars/xdaimon/grab30.png
+	@cmd	position 10 10 51 -1 -1
+	frame	data/chars/xdaimon/grab31.png
+	@cmd	position 10 5 51 -1 -1
+	frame	data/chars/xdaimon/grab31.png
+	@cmd	position 10 0 51 -1 -1
+	frame	data/chars/xdaimon/grab31.png
+	@cmd	position 10 -5 51 -1 -1
+	frame	data/chars/xdaimon/grab31.png
+	move	0
+	delay	8
+	@cmd	position 10 -8 51 -1 -1
+	frame	data/chars/xdaimon/grab32.png
+	@cmd	position 11 -30 60 -1 -1
+	frame	data/chars/xdaimon/grab33.png
+	@cmd	position 11 -25 55 -1 -1
+	frame	data/chars/xdaimon/grab34.png
+	@cmd	position 11 -20 50 -1 -1
+	frame	data/chars/xdaimon/grab35.png
+	@cmd	position 11 -15 45 -1 -1
+	frame	data/chars/xdaimon/grab36.png
+	@cmd	position 11 -10 40 -1 -1
+	frame	data/chars/xdaimon/grab37.png
+	delay	2
+	sound	data/sounds/xdaim04.wav
+	
+	@cmd	position 0 -5 70 -1 -1
+	frame	data/chars/xdaimon/grab38.png
+	
+	@cmd	position 0 -5 70 -1 -1
+	frame	data/chars/xdaimon/grab38.png
+	
+	@cmd	position 0 -5 70 -1 -1
+	frame	data/chars/xdaimon/grab38.png
+	
+	@cmd	position 0 -5 70 -1 -1
+	frame	data/chars/xdaimon/grab38.png
+	
+	@cmd	position 0 -5 75 -1 -1
+	frame	data/chars/xdaimon/grab39.png
+	
+	@cmd	position 0 -5 75 -1 -1
+	frame	data/chars/xdaimon/grab39.png
+	
+	@cmd	position 0 -5 75 -1 -1
+	frame	data/chars/xdaimon/grab39.png
+	
+	@cmd	position 0 -5 75 -1 -1
+	frame	data/chars/xdaimon/grab39.png
+	
+	@cmd	position 0 10 100 -1 -1
+	frame	data/chars/xdaimon/grab40.png
+	
+	@cmd	position 0 10 100 -1 -1
+	frame	data/chars/xdaimon/grab40.png
+	
+	@cmd	position 0 10 100 -1 -1
+	frame	data/chars/xdaimon/grab40.png
+	
+	@cmd	position 0 10 100 -1 -1
+	frame	data/chars/xdaimon/grab40.png
+	attack	150 115 85 60 15 1 0 0 5 10
+	dropv	2 4
+	
+	@cmd	position 1 50 125 1 -1
+	frame	data/chars/xdaimon/grab41.png
+	
+	@cmd	position 1 50 125 1 -1
+	frame	data/chars/xdaimon/grab41.png
+	
+	@cmd	position 1 50 125 1 -1
+	frame	data/chars/xdaimon/grab41.png
+	
+	@cmd	position 1 50 125 1 -1
+	frame	data/chars/xdaimon/grab41.png
+	delay	8
+	@cmd	position 3 75 70 -1 -1
+	frame	data/chars/xdaimon/grab42.png
+	@cmd	depost 0
+	@cmd	finish 70 1 -4 0.5 0 0
+	frame	data/chars/xdaimon/grab43.png
+	frame	data/chars/xdaimon/grab44.png
+	attack	0 0 0 0
+	delay	30
+	frame	data/chars/xdaimon/grab45.png
+	delay	9
+	frame	data/chars/xdaimon/grab46.png
+	@cmd	flip
+	offset	170 211
+	frame	data/chars/xdaimon/dgd06.png
+	offset	155 211
+	frame	data/chars/xdaimon/dgd08.png
+	@cmd	clearL
+	offset	150 211
+	frame	data/chars/xdaimon/jump00.png
+	offset	148 211
+	frame	data/chars/xdaimon/jump00a.png
+		
+anim	idle
+	loop	1
+	delay	15
+	offset	145 211
+	bbox	130 125 30 75
+	frame	data/chars/xdaimon/idle01.png
+	delay	9
+	@cmd	clearL
+	frame	data/chars/xdaimon/idle02.png
+	frame	data/chars/xdaimon/idle03.png
+	frame	data/chars/xdaimon/idle04.png
+	frame	data/chars/xdaimon/idle05.png
+	frame	data/chars/xdaimon/idle06.png
+	delay	15
+	frame	data/chars/xdaimon/idle07.png
+	delay	9
+	frame	data/chars/xdaimon/idle06.png
+	frame	data/chars/xdaimon/idle05.png
+	frame	data/chars/xdaimon/idle04.png
+	frame	data/chars/xdaimon/idle03.png
+	frame	data/chars/xdaimon/idle02.png
+		
+anim	jump
+	loop	0
+	delay	15
+	offset	145 211
+	bbox	130 110 30 60
+	frame	data/chars/xdaimon/jump01.png
+	delay	8
+	frame	data/chars/xdaimon/jump02.png
+	frame	data/chars/xdaimon/jump03.png
+	delay	20
+	frame	data/chars/xdaimon/jump04.png
+	delay	8
+	frame	data/chars/xdaimon/jump03.png
+	frame	data/chars/xdaimon/jump02.png
+	delay	20
+	frame	data/chars/xdaimon/jump01.png
+		
+anim	jumpattack
+	loop	0
+	delay	9
+	offset	145 211
+	bbox	135 98 30 60
+	forcedirection	-1
+	staydown	500 500
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/xdaim01.wav
+	frame	data/chars/xdaimon/jua01.png
+	frame	data/chars/xdaimon/jua01.png
+	delay	30
+	attack	136 100 85 75 30 1 0 0 45 15
+	frame	data/chars/xdaimon/jua03.png
+		
+anim	jumpattack2
+	loop	0
+	delay	9
+	offset	145 211
+	bbox	135 98 30 60
+	frame	data/chars/xdaimon/jua10.png
+	attack2	135 111 71 60 12 0 0 0 35 0
+	frame	data/chars/xdaimon/jua11.png
+		
+anim	jumpdelay
+	loop	0
+	delay	8
+	offset	145 211
+	bbox	130 125 30 75
+	frame	data/chars/xdaimon/jump00a.png
+		
+anim	jumpforward
+	loop	0
+	delay	12
+	offset	145 211
+	bbox	130 110 30 60
+	forcedirection	-1
+	staydown	500 500
+	hitfx	data/sounds/beat3.wav
+	sound	data/sounds/xdaim03.wav
+	frame	data/chars/xdaimon/jua05.png
+	delay	8
+	frame	data/chars/xdaimon/jua06.png
+	delay	30
+	attack	135 110 80 65 35 1 0 0 45 15
+	frame	data/chars/xdaimon/jua07.png
+		
+anim	jumpland
+	loop	0
+	delay	8
+	offset	145 211
+	bbox	130 125 30 75
+	frame	data/chars/xdaimon/jump00.png
+		
+anim	pain
+	loop	0
+	delay	3
+	offset	145 211
+	bbox	130 125 30 75
+	frame	data/chars/xdaimon/pain1.png
+	offset	140 211
+	frame	data/chars/xdaimon/pain2.png
+	offset	146 211
+	frame	data/chars/xdaimon/pain2.png
+	offset	145 211
+	frame	data/chars/xdaimon/pain2.png
+		
+anim	pain2
+	loop	0
+	delay	3
+	offset	145 211
+	bbox	130 125 30 75
+	frame	data/chars/xdaimon/pain3.png
+	offset	140 211
+	frame	data/chars/xdaimon/pain4.png
+	offset	146 211
+	frame	data/chars/xdaimon/pain4.png
+	offset	145 211
+	frame	data/chars/xdaimon/pain4.png
+		
+anim	pain3
+	loop	0
+	delay	2
+	offset	145 211
+	bbox	130 125 30 75
+	move	-6
+	frame	data/chars/xdaimon/pain1.png
+	frame	data/chars/xdaimon/pain1.png
+	frame	data/chars/xdaimon/pain1.png
+	frame	data/chars/xdaimon/pain2.png
+	frame	data/chars/xdaimon/pain2.png
+	frame	data/chars/xdaimon/pain2.png
+	move	-4
+	frame	data/chars/xdaimon/pain1.png
+	frame	data/chars/xdaimon/pain1.png
+	frame	data/chars/xdaimon/pain1.png
+	frame	data/chars/xdaimon/pain3.png
+	frame	data/chars/xdaimon/pain3.png
+	move	-2
+	frame	data/chars/xdaimon/pain3.png
+	frame	data/chars/xdaimon/pain4.png
+	frame	data/chars/xdaimon/pain4.png
+	delay	50
+	frame	data/chars/xdaimon/pain4.png
+		
+anim	pain5
+	loop	0
+	delay	12
+	offset	145 211
+	bbox	130 125 30 75
+	frame	data/chars/xdaimon/pain1.png
+	delay	9
+	frame	data/chars/xdaimon/pain2.png
+	frame	data/chars/xdaimon/pain3.png
+	frame	data/chars/xdaimon/pain4.png
+	frame	data/chars/xdaimon/jump00.png
+	delay	30
+	frame	data/chars/xdaimon/dgd08.png
+	delay	9
+	frame	data/chars/xdaimon/jump00.png
+		
 anim	respawn
 	loop	0
 	delay	7
@@ -1884,9 +1490,146 @@ anim	respawn
 	delay	9
 	frame	data/chars/xdaimon/spw05.png
 	frame	data/chars/xdaimon/spw06.png
-
-
-
+		
+anim	rise
+	loop	0
+	delay	25
+	offset	145 211
+	bbox	0 0 0 0
+	frame	data/chars/xdaimon/fall4.png
+	delay	11
+	frame	data/chars/xdaimon/dgd06.png
+	frame	data/chars/xdaimon/dgd08.png
+	frame	data/chars/xdaimon/jump00.png
+	frame	data/chars/xdaimon/jump00a.png
+		
+anim	run
+	loop	1 1 9
+	delay	9
+	offset	145 211
+	bbox	130 125 30 75
+	frame	data/chars/xdaimon/run00.png
+	delay	2
+	sound	data/sounds/run.wav
+	frame	data/chars/xdaimon/run01.png
+	delay	7
+	sound	data/sounds/run.wav
+	frame	data/chars/xdaimon/run01.png
+	delay	9
+	frame	data/chars/xdaimon/run02.png
+	frame	data/chars/xdaimon/run03.png
+	delay	2
+	sound	data/sounds/run.wav
+	frame	data/chars/xdaimon/run04.png
+	delay	7
+	sound	data/sounds/run.wav
+	frame	data/chars/xdaimon/run04.png
+	delay	9
+	frame	data/chars/xdaimon/run05.png
+	frame	data/chars/xdaimon/run06.png
+		
+anim	runattack
+	loop	0
+	delay	8
+	offset	145 211
+	bbox	130 125 30 75
+	fastattack	1
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/xdaim03.wav
+	@cmd	dasher 3 0 0
+	frame	data/chars/xdaimon/b01.png
+	frame	data/chars/xdaimon/b02.png
+	frame	data/chars/xdaimon/b10.png
+	delay	12
+	@cmd	dasher 2 0 0
+	attack	145 85 88 70 60 1 0 0 25 15
+	dropv	3 3
+	frame	data/chars/xdaimon/b11.png
+	delay	9
+	@cmd	stop
+	frame	data/chars/xdaimon/b12.png
+	attack	0 0 0 0
+	frame	data/chars/xdaimon/b13.png
+	frame	data/chars/xdaimon/b02.png
+	frame	data/chars/xdaimon/b01.png
+		
+anim	runjump
+	loop	0
+	delay	12
+	offset	145 211
+	bbox	130 110 30 60
+	frame	data/chars/xdaimon/jump01.png
+	delay	8
+	frame	data/chars/xdaimon/jump02.png
+	frame	data/chars/xdaimon/jump03.png
+	frame	data/chars/xdaimon/jump04.png
+		
+anim	runjumpattack
+	loop	0
+	delay	12
+	offset	145 211
+	bbox	138 92 30 55
+	fastattack	1
+	forcedirection	-1
+	landframe	3
+	staydown	500 500
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/xdaim03.wav
+	frame	data/chars/xdaimon/jua15.png
+	delay	8
+	frame	data/chars/xdaimon/jua16.png
+	delay	500
+	attack	130 100 87 75 35 1 0 0 40 15
+	dropv	2 4
+	frame	data/chars/xdaimon/jua17.png
+	delay	8
+	attack	0 0 0 0
+	frame	data/chars/xdaimon/jump00.png
+	frame	data/chars/xdaimon/jump00a.png
+		
+anim	runslide
+	loop	0
+	delay	12
+	offset	145 211
+	bbox	130 145 30 55
+	forcedirection	-1
+	otg	0
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/xdaim03.wav
+	@cmd	dasher 3 0 0
+	frame	data/chars/xdaimon/sld01.png
+	frame	data/chars/xdaimon/sld02.png
+	delay	5
+	@cmd	dasher 2.5 0 0
+	attack	120 100 80 105 30 1 0 0 25 15
+	dropv	5 -0.5
+	frame	data/chars/xdaimon/sld03.png
+	frame	data/chars/xdaimon/sld03.png
+	@cmd	dasher 1.5 0 0
+	frame	data/chars/xdaimon/sld03.png
+	frame	data/chars/xdaimon/sld03.png
+	delay	9
+	attack	0 0 0 0
+	@cmd	stop
+	frame	data/chars/xdaimon/sld03.png
+	frame	data/chars/xdaimon/sld04.png
+	frame	data/chars/xdaimon/sld05.png
+	frame	data/chars/xdaimon/jump00.png
+	frame	data/chars/xdaimon/jump00a.png
+		
+anim	select
+	loop	0
+	delay	5
+	offset	0 0
+	sound	data/sounds/blink.wav
+	frame	data/chars/xdaimon/xwait2.png
+	sound	data/sounds/xdaimTLK.wav
+	frame	data/chars/xdaimon/xwait3.png
+	frame	data/chars/xdaimon/xwait2.png #2
+	frame	data/chars/xdaimon/xwait3.png
+	@cmd	looper 2 10
+	delay	100
+	frame	data/chars/xdaimon/xwait2.png
 		
 anim	spawn
 	loop	0
@@ -1906,7 +1649,68 @@ anim	spawn
 	delay	9
 	frame	data/chars/xdaimon/spw05.png
 	frame	data/chars/xdaimon/spw06.png
-
-
-
-
+		
+anim	special
+	energycost	40
+	mponly	1
+	loop	0
+	delay	4
+	offset	145 211
+	bbox	0 0 0 0
+	otg	1
+	staydown	500 500
+	hitfx	data/sounds/empty.wav
+	sound	data/sounds/xdaim04.wav
+	frame	data/chars/xdaimon/jump00a.png
+	frame	data/chars/xdaimon/jump00a.png
+	delay	9
+	frame	data/chars/xdaimon/sp01.png
+	delay	15
+	frame	data/chars/xdaimon/sp02.png
+	delay	9
+	attack10	10 50 285 250 20 1 1 1 5 300
+	dropv	2.5 0
+	sound	data/sounds/bang2.wav
+	@cmd	spawn01 "qfx" -20 1 1
+	@cmd	spawn01 "qfx" 30 1 1
+	frame	data/chars/xdaimon/sp03.png
+	delay	20
+	frame	data/chars/xdaimon/sp04.png
+	attack10	0 0 0 0
+	delay	9
+	frame	data/chars/xdaimon/jump00.png
+	@cmd	looper 1 5
+	frame	data/chars/xdaimon/jump00a.png
+		
+anim	waiting
+	loop	1
+	delay	12
+	offset	0 0
+	frame	data/chars/xdaimon/xwait1.png
+	frame	data/chars/xdaimon/xwait1.png
+		
+anim	walk
+	loop	1
+	delay	11
+	offset	145 211
+	bbox	130 125 30 75
+	frame	data/chars/xdaimon/wk07.png
+	frame	data/chars/xdaimon/wk08.png
+	sound	data/sounds/run.wav
+	frame	data/chars/xdaimon/wk01.png
+	frame	data/chars/xdaimon/wk02.png
+	frame	data/chars/xdaimon/wk03.png
+	frame	data/chars/xdaimon/wk04.png
+	sound	data/sounds/run.wav
+	frame	data/chars/xdaimon/wk05.png
+	frame	data/chars/xdaimon/wk06.png
+		
+anim	walkoff
+	loop	0
+	delay	12
+	offset	145 211
+	bbox	130 110 30 60
+	frame	data/chars/xdaimon/jump01.png
+		
+#|edited by openBor Stats v 0.53
+		

@@ -1,6 +1,7 @@
 name          MrBigg
 type          enemy
-health        59000
+health        25000
+agression	1
 mp		3000
 speed         25
 jumpheight    4
@@ -12,12 +13,10 @@ blockodds     1
 nopassiveblock 1
 escapehits    2
 noquake       1
-nolife        1
 nodieblink    2
 falldie       2
 gfxshadow     1
 thold         80
-aggression    300
 dust            dust
 projectilehit enemy obstacle
 subject_to_obstacle 	0
@@ -30,6 +29,8 @@ animationscript data/scripts/escript.c
 load	pw1
 load	pw12
 load	rushold
+
+
 
 anim	attack1
 	range	60 110
@@ -363,7 +364,6 @@ anim	attack9
 	frame	data/chars/3Mrbig2/a03.gif
 	frame	data/chars/3Mrbig2/a04.gif
 	frame	data/chars/3Mrbig2/a01.gif
-
 		
 anim	backwalk
 	loop	1
@@ -461,7 +461,6 @@ anim	death
 	offset	104 190
 	bbox	0 0 0 0
 	frame	data/chars/3Mrbig2/fall4.gif
-
 		
 anim	fall
 	loop	0
@@ -483,47 +482,6 @@ anim	fall
 	frame	data/chars/3Mrbig2/fall4.gif
 	frame	data/chars/3Mrbig2/fall5.gif
 	frame	data/chars/3Mrbig2/fall4.gif
-
-anim	fall9
-	loop	0
-	delay	10
-	offset	104 190
-	bbox	0 0 0 0
-	quakeframe	2 5 5
-	landframe	2 dust
-	attack	75 82 40 70 5 1 0 0 13 30
-	frame	data/chars/3Mrbig2/fall1.gif
-	delay	350
-	offset	104 185
-	attack	57 114 91 45 5 1 0 0 13 30
-	frame	data/chars/3Mrbig2/fall2.gif
-	delay	2
-	offset	104 180
-	move	-4
-	attack	65 134 86 45 5 1 0 0 13 30
-	frame	data/chars/3Mrbig2/fall3.gif
-	frame	data/chars/3Mrbig2/fall3.gif
-	frame	data/chars/3Mrbig2/fall3.gif
-	@cmd	looper 3 5
-	offset	104 190
-	move	-3
-	attack	0 0 0 0
-	bbox	0 0 0 0
-	frame	data/chars/3Mrbig2/fall4.gif
-	frame	data/chars/3Mrbig2/fall4.gif
-	frame	data/chars/3Mrbig2/fall4.gif
-	@cmd	looper 6 4
-	move	-2
-	frame	data/chars/3Mrbig2/fall5.gif
-	frame	data/chars/3Mrbig2/fall5.gif
-	frame	data/chars/3Mrbig2/fall5.gif
-	loop	0
-	delay	15
-	move	0
-	bbox	60 178 85 15
-	frame	data/chars/3Mrbig2/fall4.gif
-
-
 		
 anim	fall10
 	loop	0
@@ -554,13 +512,31 @@ anim	fall11
 	loop	0
 	delay	20
 	offset	104 190
-	bbox	61 185 90 5	
+	bbox	61 185 90 5
 	frame	data/chars/3Mrbig2/pain12.gif
-	@cmd	hpgain 75
 	delay	35
 	frame	data/chars/3Mrbig2/fall4.gif
 		
-
+anim	fall2
+	loop	0
+	delay	30
+	offset	104 190
+	bbox	80 70 55 94
+	landframe	3
+	attack	85 90 35 45 5 1 0 0 13 0
+	frame	data/chars/3Mrbig2/pain7.gif
+	delay	10
+	bbox	59 110 86 50
+	attack	64 125 55 25 5 1 0 0 13 0
+	frame	data/chars/3Mrbig2/fall2.gif
+	attack	0 0 0 0
+	delay	300
+	frame	data/chars/3Mrbig2/fall3.gif
+	delay	15
+	bbox	58 175 85 15
+	frame	data/chars/3Mrbig2/fall4.gif
+	frame	data/chars/3Mrbig2/fall5.gif
+	frame	data/chars/3Mrbig2/fall4.gif
 		
 anim	fall4
 	loop	0
@@ -569,7 +545,6 @@ anim	fall4
 	bbox	0 0 0 0
 	jumpframe	0 1.2 1.5
 	frame	data/chars/3Mrbig2/pain8.gif
-	@cmd	hpgain 75
 	frame	data/chars/3Mrbig2/pain9.gif
 	frame	data/chars/3Mrbig2/pain10.gif
 	@cmd	leaper 0 0.2 0
@@ -614,7 +589,44 @@ anim	fall7
 	offset	115 125
 	frame	data/chars/3Mrbig2/slamck15.gif
 		
-
+anim	fall9
+	loop	0
+	delay	10
+	offset	104 190
+	bbox	0 0 0 0
+	quakeframe	2 5 5
+	landframe	2 dust
+	attack	75 82 40 70 5 1 0 0 13 30
+	frame	data/chars/3Mrbig2/fall1.gif
+	delay	350
+	offset	104 185
+	attack	57 114 91 45 5 1 0 0 13 30
+	frame	data/chars/3Mrbig2/fall2.gif
+	delay	2
+	offset	104 180
+	move	-4
+	attack	65 134 86 45 5 1 0 0 13 30
+	frame	data/chars/3Mrbig2/fall3.gif
+	frame	data/chars/3Mrbig2/fall3.gif
+	frame	data/chars/3Mrbig2/fall3.gif
+	@cmd	looper 3 5
+	offset	104 190
+	move	-3
+	attack	0 0 0 0
+	bbox	0 0 0 0
+	frame	data/chars/3Mrbig2/fall4.gif
+	frame	data/chars/3Mrbig2/fall4.gif
+	frame	data/chars/3Mrbig2/fall4.gif
+	@cmd	looper 6 4
+	move	-2
+	frame	data/chars/3Mrbig2/fall5.gif
+	frame	data/chars/3Mrbig2/fall5.gif
+	frame	data/chars/3Mrbig2/fall5.gif
+	loop	0
+	delay	15
+	move	0
+	bbox	60 178 85 15
+	frame	data/chars/3Mrbig2/fall4.gif
 		
 anim	follow1
 	loop	0
@@ -678,7 +690,6 @@ anim	follow1
 	delay	14
 	frame	data/chars/3Mrbig2/a15.gif
 	frame	data/chars/3Mrbig2/a14.gif
-
 		
 anim	follow10
 	loop	0
@@ -743,10 +754,6 @@ anim	follow11
 	@cmd	flip
 	frame	data/chars/3Mrbig2/a05.gif
 	frame	data/chars/3Mrbig2/rise03.gif
-
-
-
-
 		
 anim	follow12
 	loop	0
@@ -835,8 +842,37 @@ anim	follow12
 	frame	data/chars/3Mrbig2/spawn40.gif
 	delay	230
 	frame	data/chars/3Mrbig2/spawn39.gif
-	@cmd	 playmusic "data/music/mbdark2.ogg" 1
+	@cmd	playmusic "data/music/mbdark2.ogg" 1
 	frame	data/chars/3Mrbig2/spawn39.gif
+		
+anim	follow14
+	loop	0
+	delay	5
+	offset	104 190
+	bbox	0 0 0 0
+	landframe	1 dust
+	@cmd	degravity 0.5
+	delay	300
+	frame	data/chars/3Mrbig2/elev01.gif
+	delay	8
+	@cmd	degravity 0
+	frame	data/chars/3Mrbig2/elev02.gif
+	@cmd	subwall 1
+	frame	data/chars/3Mrbig2/elev03.gif
+	move	8
+	frame	data/chars/3Mrbig2/blk05.gif
+	frame	data/chars/3Mrbig2/blk06.gif
+	frame	data/chars/3Mrbig2/blk02.gif
+	frame	data/chars/3Mrbig2/blk03.gif
+	frame	data/chars/3Mrbig2/blk04.gif
+	frame	data/chars/3Mrbig2/blk05.gif
+	@cmd	spawn02	"rushold" -240 390 500
+	frame	data/chars/3Mrbig2/blk06.gif
+	delay	170
+	frame	data/chars/3Mrbig2/rise02.gif
+	delay	20
+	frame	data/chars/3Mrbig2/rise04.gif
+	frame	data/chars/3Mrbig2/rise03.gif
 		
 anim	follow2
 	loop	0
@@ -880,51 +916,51 @@ anim	follow4
 	@cmd	position 20 30 8 -1 -1
 	frame	data/chars/3Mrbig2/upper07.gif
 	delay	2
-	@cmd	antiwall 50 -5 -1
+	
 	@cmd	position 9 20 5 -1 1
 	frame	data/chars/3Mrbig2/upper09.gif
 	sound	data/sounds/fall.wav
 	@cmd	spawn02 "flashsc1" -10 200 190
-	@cmd	antiwall 50 -5 -1
+	
 	@cmd	position 9 20 5 -1 1
 	frame	data/chars/3Mrbig2/upper09.gif
-	@cmd	antiwall 50 -5 -1
+	
 	@cmd	position 9 20 5 -1 1
 	frame	data/chars/3Mrbig2/upper09.gif
-	@cmd	antiwall 50 -5 -1
+	
 	@cmd	position 9 20 5 -1 1
 	frame	data/chars/3Mrbig2/upper09.gif
-	@cmd	antiwall 50 -5 -1
+	
 	@cmd	position 9 20 5 -1 1
 	frame	data/chars/3Mrbig2/upper09.gif
-	@cmd	antiwall 50 -5 -1
+	
 	@cmd	position 9 20 5 -1 1
 	frame	data/chars/3Mrbig2/upper09.gif
-	@cmd	antiwall 50 -5 -1
+	
 	@cmd	position 9 20 5 -1 1
 	frame	data/chars/3Mrbig2/upper09.gif
-	@cmd	antiwall 50 -5 -1
+	
 	@cmd	position 18 40 8 -1 1
 	frame	data/chars/3Mrbig2/upper10.gif
-	@cmd	antiwall 50 -5 -1
+	
 	@cmd	position 18 40 8 -1 1
 	frame	data/chars/3Mrbig2/upper10.gif
-	@cmd	antiwall 50 -5 -1
+	
 	@cmd	position 18 40 8 -1 1
 	frame	data/chars/3Mrbig2/upper10.gif
-	@cmd	antiwall 50 -5 -1
+	
 	@cmd	position 18 40 8 -1 1
 	frame	data/chars/3Mrbig2/upper10.gif
-	@cmd	antiwall 50 -5 -1
+	
 	@cmd	position 18 40 8 -1 1
 	frame	data/chars/3Mrbig2/upper10.gif
-	@cmd	antiwall 50 -5 -1
+	
 	@cmd	position 18 40 8 -1 1
 	frame	data/chars/3Mrbig2/upper10.gif
-	@cmd	antiwall 50 -5 -1
+	
 	@cmd	position 18 40 8 -1 1
 	frame	data/chars/3Mrbig2/upper10.gif
-	@cmd	antiwall 50 -5 -1
+	
 	@cmd	position 18 40 8 -1 1
 	frame	data/chars/3Mrbig2/upper10.gif
 	@cmd	depost 0
@@ -948,68 +984,68 @@ anim	follow5
 	@cmd	position 11 47 77 -1 -1
 	frame	data/chars/3Mrbig2/ga03.gif
 	delay	2
-	@cmd	antiwall 50 -5 -1
+	
 	@cmd	position 14 10 100 -1 -1
 	frame	data/chars/3Mrbig2/ga04.gif
-	@cmd	antiwall 50 -5 -1
+	
 	@cmd	position 14 10 100 -1 -1
 	frame	data/chars/3Mrbig2/ga04.gif
-	@cmd	antiwall 50 -5 -1
+	
 	@cmd	position 14 10 100 -1 -1
 	frame	data/chars/3Mrbig2/ga04.gif
-	@cmd	antiwall 50 -5 -1
+	
 	@cmd	position 14 10 100 -1 -1
 	frame	data/chars/3Mrbig2/ga04.gif
-	@cmd	antiwall 50 -5 -1
+	
 	@cmd	position 14 10 100 -1 -1
 	frame	data/chars/3Mrbig2/ga04.gif
-	@cmd	antiwall 50 -5 -1
+	
 	@cmd	position 14 10 100 -1 -1
 	frame	data/chars/3Mrbig2/ga04.gif
-	@cmd	antiwall 50 -5 -1
+	
 	@cmd	position 20 45 5 -1 -1
 	frame	data/chars/3Mrbig2/ga05.gif
 	@cmd	spawn01 "dust" 30 1 1
 	sound	data/sounds/fall.wav
-	@cmd	antiwall 50 -5 -1
+	
 	@cmd	position 20 45 5 -1 -1
 	frame	data/chars/3Mrbig2/ga05.gif
-	@cmd	antiwall 50 -5 -1
+	
 	@cmd	position 20 45 5 -1 -1
 	frame	data/chars/3Mrbig2/ga05.gif
-	@cmd	antiwall 50 -5 -1
+	
 	@cmd	position 20 45 5 -1 -1
 	frame	data/chars/3Mrbig2/ga05.gif
-	@cmd	antiwall 50 -5 -1
+	
 	@cmd	position 20 45 5 -1 -1
 	frame	data/chars/3Mrbig2/ga05.gif
-	@cmd	antiwall 50 -5 -1
+	
 	@cmd	position 20 45 5 -1 -1
 	frame	data/chars/3Mrbig2/ga05.gif
-	@cmd	antiwall 50 -5 -1
+	
 	@cmd	position 20 45 5 -1 -1
 	frame	data/chars/3Mrbig2/ga05.gif
-	@cmd	antiwall 50 -5 -1
+	
 	@cmd	position 18 40 10 -1 1
 	frame	data/chars/3Mrbig2/ga06.gif
 	sound	data/sounds/fall.wav
 	@cmd	spawn01 "dust" 15 1 1
-	@cmd	antiwall 50 -5 -1
+	
 	@cmd	position 18 40 10 -1 1
 	frame	data/chars/3Mrbig2/ga06.gif
-	@cmd	antiwall 50 -5 -1
+	
 	@cmd	position 18 40 10 -1 1
 	frame	data/chars/3Mrbig2/ga06.gif
-	@cmd	antiwall 50 -5 -1
+	
 	@cmd	position 18 40 10 -1 1
 	frame	data/chars/3Mrbig2/ga06.gif
-	@cmd	antiwall 50 -5 -1
+	
 	@cmd	position 18 40 10 -1 1
 	frame	data/chars/3Mrbig2/ga06.gif
-	@cmd	antiwall 50 -5 -1
+	
 	@cmd	position 18 40 10 -1 1
 	frame	data/chars/3Mrbig2/ga06.gif
-	@cmd	antiwall 50 -5 -1
+	
 	@cmd	position 18 40 10 -1 1
 	frame	data/chars/3Mrbig2/ga06.gif
 	@cmd	depost 0
@@ -1029,81 +1065,81 @@ anim	follow6
 	@cmd	position 0 60 15 -1 -1
 	frame	data/chars/3Mrbig2/e03.gif
 	delay	2
-	@cmd	antiwall -50 5 -1
+	
 	@cmd	position 14 60 50 -1 -1
 	frame	data/chars/3Mrbig2/e04.gif
-	@cmd	antiwall -50 5 -1
+	
 	@cmd	position 14 60 50 -1 -1
 	frame	data/chars/3Mrbig2/e04.gif
-	@cmd	antiwall -50 5 -1
+	
 	@cmd	position 14 60 50 -1 -1
 	frame	data/chars/3Mrbig2/e04.gif
-	@cmd	antiwall -50 5 -1
+	
 	@cmd	position 14 60 50 -1 -1
 	frame	data/chars/3Mrbig2/e04.gif
-	@cmd	antiwall -50 5 -1
+	
 	@cmd	position 14 60 50 -1 -1
 	frame	data/chars/3Mrbig2/e04.gif
-	@cmd	antiwall -50 5 -1
+	
 	@cmd	position 14 60 50 -1 -1
 	frame	data/chars/3Mrbig2/e04.gif
-	@cmd	antiwall -50 5 -1
+	
 	@cmd	position 19 55 45 -1 1
 	frame	data/chars/3Mrbig2/e05.gif
-	@cmd	antiwall -50 5 -1
+	
 	@cmd	position 19 55 45 -1 1
 	frame	data/chars/3Mrbig2/e05.gif
-	@cmd	antiwall -50 5 -1
+	
 	@cmd	position 19 55 45 -1 1
 	frame	data/chars/3Mrbig2/e05.gif
-	@cmd	antiwall -50 5 -1
+	
 	@cmd	position 19 55 45 -1 1
 	frame	data/chars/3Mrbig2/e05.gif
-	@cmd	antiwall -50 5 -1
+	
 	@cmd	position 19 55 45 -1 1
 	frame	data/chars/3Mrbig2/e05.gif
-	@cmd	antiwall -50 5 -1
+	
 	@cmd	position 19 55 45 -1 1
 	frame	data/chars/3Mrbig2/e05.gif
-	@cmd	antiwall -50 5 -1
+	
 	@cmd	position 8 70 85 -1 1
 	frame	data/chars/3Mrbig2/e06.gif
-	@cmd	antiwall -50 5 -1
+	
 	@cmd	position 8 70 85 -1 1
 	frame	data/chars/3Mrbig2/e06.gif
-	@cmd	antiwall -50 5 -1
+	
 	@cmd	position 8 70 85 -1 1
 	frame	data/chars/3Mrbig2/e06.gif
-	@cmd	antiwall -50 5 -1
+	
 	@cmd	position 8 70 85 -1 1
 	frame	data/chars/3Mrbig2/e06.gif
-	@cmd	antiwall -50 5 -1
+	
 	@cmd	position 8 70 85 -1 1
 	frame	data/chars/3Mrbig2/e06.gif
-	@cmd	antiwall -50 5 -1
+	
 	@cmd	position 8 70 85 -1 1
 	frame	data/chars/3Mrbig2/e06.gif
-	@cmd	antiwall -50 5 -1
+	
 	@cmd	position 5 60 65 -1 -1
 	frame	data/chars/3Mrbig2/e07.gif
-	@cmd	antiwall -50 5 -1
+	
 	@cmd	position 5 60 65 -1 -1
 	frame	data/chars/3Mrbig2/e07.gif
-	@cmd	antiwall -50 5 -1
+	
 	@cmd	position 5 60 65 -1 -1
 	frame	data/chars/3Mrbig2/e07.gif
 	@cmd	spawn01 "flashscreen1" 30 75 3
 	sound	data/sounds/beat4.wav
-	@cmd	antiwall -50 5 -1
+	
 	@cmd	position 5 60 65 -1 -1
 	frame	data/chars/3Mrbig2/e07.gif
-	@cmd	antiwall -50 5 -1
+	
 	@cmd	position 5 60 65 -1 -1
 	frame	data/chars/3Mrbig2/e07.gif
-	@cmd	antiwall -50 5 -1
+	
 	@cmd	position 5 60 65 -1 -1
 	frame	data/chars/3Mrbig2/e07.gif
-	@cmd	antiwall -50 5 -1
+	
 	@cmd	position 5 60 65 -1 -1
 	frame	data/chars/3Mrbig2/e07.gif
 	@cmd	depost 0
@@ -1115,7 +1151,6 @@ anim	follow6
 	frame	data/chars/3Mrbig2/e10.gif
 	@cmd	clearL
 	frame	data/chars/3Mrbig2/ga08.gif
-
 		
 anim	follow7
 	loop	0
@@ -1167,8 +1202,6 @@ anim	follow7
 	@cmd	beidle
 	frame	data/chars/3Mrbig2/rise03.gif
 		
-
-
 anim	follow8
 	loop	0
 	delay	15
@@ -1177,7 +1210,7 @@ anim	follow8
 	@cmd	slamstart2
 	@cmd	position 24 60 10 -1 -1
 	frame	data/chars/3Mrbig2/c02.gif
-	@cmd	spawngrab "grab1" 200 200 450 70 2 8
+	@cmd	spawngrab "grab1" 200 200 450 90 2 8
 	@cmd	position 2 60 17 -1 -1
 	frame	data/chars/3Mrbig2/c03.gif
 	delay	8
@@ -1362,40 +1395,6 @@ anim	follow8
 	frame	data/chars/3Mrbig2/c17.gif
 	delay	30
 	frame	data/chars/3Mrbig2/c18.gif
-
-
-
-anim	follow14
-	loop	0
-	delay	5
-	offset	104 190
-	bbox	0 0 0 0
-	landframe	1 dust
-	@cmd	degravity 0.5
-	delay	300
-	frame	data/chars/3Mrbig2/elev01.gif
-	delay	8
-	@cmd	degravity 0
-	frame	data/chars/3Mrbig2/elev02.gif
-	@cmd	subwall 1
-	frame	data/chars/3Mrbig2/elev03.gif
-	move	8
-	frame	data/chars/3Mrbig2/blk05.gif
-	frame	data/chars/3Mrbig2/blk06.gif
-	frame	data/chars/3Mrbig2/blk02.gif
-	frame	data/chars/3Mrbig2/blk03.gif
-	frame	data/chars/3Mrbig2/blk04.gif
-	frame	data/chars/3Mrbig2/blk05.gif
-	@cmd	spawn02	"rushold" -240 390 500
-	frame	data/chars/3Mrbig2/blk06.gif
-	delay	170
-	frame	data/chars/3Mrbig2/rise02.gif
-	delay	20
-	frame	data/chars/3Mrbig2/rise04.gif
-	frame	data/chars/3Mrbig2/rise03.gif
-
-
-
 		
 anim	follow9
 	loop	0
@@ -1448,12 +1447,11 @@ anim	pain
         changeentityproperty(self, "animation", openborconstant("ANI_FOLLOW7"));
       }
     }
-@end_script	
+	@end_script	
 	loop	0
 	delay	3
 	offset	107 190
 	bbox	76 93 56 89
-	@cmd	hpgain 175
 	frame	data/chars/3Mrbig2/pain0.gif
 	offset	104 190
 	frame	data/chars/3Mrbig2/pain1.gif
@@ -1463,12 +1461,11 @@ anim	pain
 	offset	104 190
 	frame	data/chars/3Mrbig2/pain1.gif
 		
-anim	pain2	
+anim	pain2
 	loop	0
 	delay	3
 	offset	107 190
 	bbox	76 93 56 89
-	@cmd	hpgain 175
 	frame	data/chars/3Mrbig2/pain0.gif
 	offset	104 190
 	frame	data/chars/3Mrbig2/pain2.gif
@@ -1484,7 +1481,6 @@ anim	pain3
 	offset	104 190
 	bbox	0 0 0 0
 	jumpframe	1 2 -1 0
-	@cmd	hpgain 175
 	frame	data/chars/3Mrbig2/pain1.gif
 	delay	25
 	frame	data/chars/3Mrbig2/fall2.gif
@@ -1509,7 +1505,6 @@ anim	pain5
 	delay	23
 	offset	104 190
 	bbox	76 93 56 89
-	@cmd	hpgain 175
 	frame	data/chars/3Mrbig2/pain1.gif
 		
 anim	pain6
@@ -1517,7 +1512,6 @@ anim	pain6
 	delay	23
 	offset	104 190
 	bbox	76 93 56 89
-	@cmd	hpgain 175
 	frame	data/chars/3Mrbig2/pain2.gif
 		
 anim	pain8
@@ -1525,7 +1519,6 @@ anim	pain8
 	delay	2
 	offset	104 190
 	bbox	76 93 56 89
-	@cmd	hpgain 175
 	move	-6
 	frame	data/chars/3Mrbig2/pain1.gif
 	frame	data/chars/3Mrbig2/pain1.gif
@@ -1546,7 +1539,6 @@ anim	pain9
 	delay	15
 	offset	104 190
 	bbox	76 93 56 89
-	@cmd	hpgain 175
 	frame	data/chars/3Mrbig2/pain1.gif
 	delay	150
 	frame	data/chars/3Mrbig2/pain2.gif
@@ -1557,7 +1549,6 @@ anim	rise
 	offset	104 190
 	bbox	0 0 0 0
 	frame	data/chars/3Mrbig2/fall4.gif
-	@cmd	hpgain 175
 	frame	data/chars/3Mrbig2/fall4.gif
 	delay	14
 	frame	data/chars/3Mrbig2/rise01.gif
@@ -1567,8 +1558,7 @@ anim	rise
 	frame	data/chars/3Mrbig2/rise04.gif
 	@cmd	riseattack 120 20 "ANI_FOLLOW9"
 	frame	data/chars/3Mrbig2/rise03.gif
-
-
+		
 anim	spawn
 	loop	0
 	delay	5
@@ -1587,34 +1577,26 @@ anim	spawn
 	frame	data/chars/3Mrbig2/rise05.gif
 	frame	data/chars/3Mrbig2/rise06.gif
 	frame	data/chars/3Mrbig2/rise07.gif
-
 	frame	data/chars/3Mrbig2/rise05.gif
 	frame	data/chars/3Mrbig2/rise06.gif
 	frame	data/chars/3Mrbig2/rise07.gif
-
 	frame	data/chars/3Mrbig2/rise05.gif
 	frame	data/chars/3Mrbig2/rise06.gif
 	frame	data/chars/3Mrbig2/rise07.gif
-
 	frame	data/chars/3Mrbig2/rise05.gif
 	frame	data/chars/3Mrbig2/rise06.gif
 	frame	data/chars/3Mrbig2/rise07.gif
-
 	frame	data/chars/3Mrbig2/rise05.gif
 	frame	data/chars/3Mrbig2/rise06.gif
 	frame	data/chars/3Mrbig2/rise07.gif
-
 	frame	data/chars/3Mrbig2/rise05.gif
 	frame	data/chars/3Mrbig2/rise06.gif
 	frame	data/chars/3Mrbig2/rise07.gif
-
 	frame	data/chars/3Mrbig2/rise05.gif
 	frame	data/chars/3Mrbig2/rise06.gif
 	frame	data/chars/3Mrbig2/rise07.gif
-
 	frame	data/chars/3Mrbig2/rise04.gif
 	frame	data/chars/3Mrbig2/rise03.gif
-
 		
 anim	special
 	loop	0
@@ -1646,84 +1628,84 @@ anim	special
 	@cmd	position 2 40 55 -1 -1
 	frame	data/chars/3Mrbig2/gr02.gif
 	delay	2
-	@cmd	antiwall -100 5 -1
+	
 	@cmd	position 14 40 55 -1 -1
 	frame	data/chars/3Mrbig2/gr03.gif
-	@cmd	antiwall -100 5 -1
+	
 	@cmd	position 14 40 55 -1 -1
 	frame	data/chars/3Mrbig2/gr03.gif
-	@cmd	antiwall -100 5 -1
+	
 	@cmd	position 14 40 55 -1 -1
 	frame	data/chars/3Mrbig2/gr03.gif
-	@cmd	antiwall -100 5 -1
+	
 	@cmd	position 14 40 55 -1 -1
 	frame	data/chars/3Mrbig2/gr03.gif
-	@cmd	antiwall -100 5 -1
+	
 	@cmd	position 14 40 55 -1 -1
 	frame	data/chars/3Mrbig2/gr03.gif
-	@cmd	antiwall -100 5 -1
+	
 	@cmd	position 2 45 70 -1 -1
 	frame	data/chars/3Mrbig2/gr04.gif
-	@cmd	antiwall -100 5 -1
+	
 	@cmd	position 2 45 70 -1 -1
 	frame	data/chars/3Mrbig2/gr04.gif
-	@cmd	antiwall -100 5 -1
+	
 	@cmd	position 2 45 70 -1 -1
 	frame	data/chars/3Mrbig2/gr04.gif
-	@cmd	antiwall -100 5 -1
+	
 	@cmd	position 2 45 70 -1 -1
 	frame	data/chars/3Mrbig2/gr04.gif
-	@cmd	antiwall -100 5 -1
+	
 	@cmd	position 2 45 70 -1 -1
 	frame	data/chars/3Mrbig2/gr04.gif
-	@cmd	antiwall -100 5 -1
+	
 	@cmd	position 0 2 90 1 -1
 	frame	data/chars/3Mrbig2/gr05.gif
-	@cmd	antiwall -100 5 -1
+	
 	@cmd	position 0 2 90 1 -1
 	frame	data/chars/3Mrbig2/gr05.gif
-	@cmd	antiwall -100 5 -1
+	
 	@cmd	position 0 2 90 1 -1
 	frame	data/chars/3Mrbig2/gr05.gif
-	@cmd	antiwall -100 5 -1
+	
 	@cmd	position 0 2 90 1 -1
 	frame	data/chars/3Mrbig2/gr05.gif
-	@cmd	antiwall -100 5 -1
+	
 	@cmd	position 0 2 90 1 -1
 	frame	data/chars/3Mrbig2/gr05.gif
-	@cmd	antiwall -100 5 -1
+	
 	@cmd	position 2 -90 4 1 1
 	frame	data/chars/3Mrbig2/gr06.gif
-	@cmd	antiwall -100 5 -1
+	
 	@cmd	position 2 -90 4 1 1
 	frame	data/chars/3Mrbig2/gr06.gif
-	@cmd	antiwall -100 5 -1
+	
 	@cmd	position 2 -90 4 1 1
 	frame	data/chars/3Mrbig2/gr06.gif
 	@cmd	spawn01 "dust" -40 1 1
 	sound	data/sounds/fall.wav
-	@cmd	antiwall -100 5 -1
+	
 	@cmd	position 2 -90 4 1 1
 	frame	data/chars/3Mrbig2/gr06.gif
-	@cmd	antiwall -100 5 -1
+	
 	@cmd	position 2 -90 4 1 1
 	frame	data/chars/3Mrbig2/gr06.gif
-	@cmd	antiwall -100 5 -1
+	
 	@cmd	position 14 -90 9 1 1
 	frame	data/chars/3Mrbig2/gr07.gif
-	@cmd	antiwall -100 5 -1
+	
 	@cmd	position 14 -90 9 1 1
 	frame	data/chars/3Mrbig2/gr07.gif
-	@cmd	antiwall -100 5 -1
+	
 	@cmd	position 14 -90 9 1 1
 	frame	data/chars/3Mrbig2/gr07.gif
-	@cmd	antiwall -100 5 -1
+	
 	@cmd	position 14 -90 9 1 1
 	frame	data/chars/3Mrbig2/gr07.gif
-	@cmd	antiwall -100 5 -1
+	
 	@cmd	position 14 -90 9 1 1
 	frame	data/chars/3Mrbig2/gr07.gif
-	@cmd	antiwall -100 5 -1
+	
 	@cmd	position 14 -90 9 1 1
 	frame	data/chars/3Mrbig2/gr07.gif
 	@cmd	depost 0
@@ -1734,11 +1716,6 @@ anim	special
 	@cmd	clearL
 	frame	data/chars/3Mrbig2/ga08.gif
 		
-
-
-
-
-
 anim	special2
 	energycost	10
 	mponly	1
@@ -1754,7 +1731,7 @@ anim	special2
 	delay	15
 	@cmd	position 2 40 55 -1 -1
 	frame	data/chars/3Mrbig2/gr02.gif
-	@cmd	spawngrab "grab1" 200 200 450 180 1 8
+	@cmd	spawngrab "grab1" 200 200 450 200 1 8
 	@cmd	position 14 40 55 -1 -1
 	frame	data/chars/3Mrbig2/gr03.gif
 	@cmd	position 2 45 70 -1 -1
@@ -2198,14 +2175,6 @@ anim	special2
 	frame	data/chars/3Mrbig2/gb13.gif
 	delay	30
 	frame	data/chars/3Mrbig2/gb14.gif
-
-
-
-
-
-
-
-
 		
 anim	upper
 	range	5 250

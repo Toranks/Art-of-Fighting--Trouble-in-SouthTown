@@ -24,7 +24,7 @@ order		a
 spawn1  	175 20
 spawn2  	145 20
 spawn3  	185 20
-
+scrollspeed		2
 
 
 #-------------------
@@ -41,7 +41,10 @@ coords  -500 515 350
 at      0
 #----------------------------------
 
-
+spawn   of2
+flip    1
+coords  775 10
+at      0
 
 spawn   of3
 flip    1
@@ -81,17 +84,20 @@ at      0
 
 spawn   trash3
 flip    1
+item	7donut
 coords  170 235
 at      0
 
 
 spawn   trash3
 flip    1
+item	7donut
 coords  1070 235
 at      0
 
 spawn   trash3
 flip    1
+item	food1
 coords  2360 235
 at      0
 
@@ -127,9 +133,7 @@ at      0
 
 
 #---------------------------------
-
-
-
+#---------------------------------
 
 
 group 4 4
@@ -163,6 +167,21 @@ map     5
 coords  400 320
 at      0
 
+
+spawn   mrwolf
+#health  370
+item    food3
+map     4
+coords  630 270
+at      0
+
+
+spawn   mrwolf
+#health  370
+map     5
+coords  650 280
+at      0
+
 #-----------------------
 
 blockade 190
@@ -192,6 +211,25 @@ spawn   naomi
 map     2
 item    bannana
 coords  -230 320
+at      200
+
+spawn   xion
+health  330
+map     2
+coords  -250 330
+at      200
+
+spawn   elisa
+#health  190
+map     1
+coords  650 310
+at      200
+
+
+spawn   naomi
+#health  230
+map     1
+coords  650 300
 at      200
 
 #-----------------------
@@ -233,7 +271,38 @@ at	 790
 
 #-----------------------------------
 
+group 4 4
+at    800
+wait
+at    800
 
+
+spawn   mrpink
+#health  190
+map     4
+coords  650 300
+at      800
+
+
+spawn   mrred
+#health  190
+map     1
+coords  600 320
+at      800
+
+
+spawn   valarie
+#health  190
+map     5
+coords  -300 300
+at      800
+
+
+spawn   xion
+#health  210
+map     5
+coords  -250 320
+at      800
 
 #-----------------------
 
@@ -321,7 +390,7 @@ at      1400
 spawn   elisa
 #health  190
 map     3
-coords  650 310
+coords  650 260
 at      1400
 
 
@@ -339,7 +408,7 @@ at	 1690
 
 #---------------------------
 
-group 2 2
+group 4 4
 at    1700
 wait
 at    1700
@@ -356,6 +425,7 @@ map     3
 coords  650 310
 at      1700
 
+
 spawn   mrwhite
 #health  270
 item    lulcardx
@@ -363,6 +433,12 @@ map     3
 coords  -350 310
 at      1700
 
+
+spawn   xion
+#health  250
+map     3
+coords  650 300
+at      1700
 
 #-----------------------
 
@@ -385,29 +461,29 @@ coords  550 310
 at      2050
 
 
-2pspawn   mrtall
-#health  350
+spawn   mrtall
+#health  550
 map     4
 coords  500 310
 at      2050
 
 
-2pspawn   mrtall
-#health  400
+spawn   mrtall
+#health  550
 item    food4
 map     5
 coords  -400 310
 at      2050
 
-2pspawn   candy
+spawn   candy
 #health  300
 map     1
 coords  -450 310
 at      2050
 
-3pspawn   candy
+2pspawn   candy
 #health  300
-coords  -450 310
+coords  -450 260
 at      2050
 
 
@@ -429,15 +505,6 @@ at      2050
 
 #-----------------------
 
-
-
-
-
-
-
-
-#---------------------------------
-
 blockade 900
 at    	 2160
 
@@ -453,8 +520,9 @@ spawn   bronko
 @script void main() {
    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW8"));
 } @end_script
-health  1300
 map     1
+2phealth	2000
+3phealth	2500
 aggression 250
 coords  495 280
 at      2425
@@ -488,7 +556,7 @@ spawn   ghost1
 coords  600 240
 at      2425
 
-3pspawn   vigo
+2pspawn   vigo
 #health  90
 map     2
 coords  600 300
@@ -498,7 +566,7 @@ spawn   ghost1
 coords  600 290
 at      2425
 
-3pspawn   gemma
+2pspawn   gemma
 #health  900
 item    1up
 map     1
@@ -524,7 +592,6 @@ at      2425
 
 2pspawn   vigo
 #health  90
-item    1up
 map     3
 coords  600 290
 at      2425
@@ -551,6 +618,8 @@ at  2435
 #---------------------------
 
 group 1 1
+at    2440
+wait
 at    2440
 
 

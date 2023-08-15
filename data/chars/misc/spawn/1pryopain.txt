@@ -20,6 +20,9 @@ void main()
     char nm = getentityproperty(P1,"defaultmodel");
     char nm2 = getentityproperty(P2,"defaultmodel");
     char nm3 = getentityproperty(P3,"defaultmodel");
+	void anim1 = getentityproperty(P1,"animationID");
+	void anim2 = getentityproperty(P2,"animationID");
+	void anim3 = getentityproperty(P3,"animationID");
 
 
 	if (P1 != NULL() && nm != "ryopain" && nm != "ryopain2")
@@ -51,6 +54,18 @@ void main()
 	{
 	killentity(P1);
 	killentity(P2);
+	}
+	if (anim1 == openborconstant("ANI_SPAWN") || anim1 == openborconstant("ANI_RESPAWN"))
+	{
+	changeentityproperty(P1, "health", 150);
+	}
+	else if (anim2 == openborconstant("ANI_SPAWN") || anim2 == openborconstant("ANI_RESPAWN"))
+	{
+	changeentityproperty(P2, "health", 150);
+	}
+	else if (anim3 == openborconstant("ANI_SPAWN") || anim3 == openborconstant("ANI_RESPAWN"))
+	{
+	changeentityproperty(P3, "health", 150);
 	}
 }
 @end_script

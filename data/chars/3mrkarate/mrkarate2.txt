@@ -45,6 +45,7 @@ load	watsp
 load	fnmrk
 
 
+
 anim	attack1
 	range	60 100
 	loop	0
@@ -321,20 +322,13 @@ anim	burn
 	frame	data/chars/3mrkarate/fall3.gif
 	delay	2
 	frame	data/chars/3mrkarate/fall17.gif
-
-
-
-
-
-
-
-
+		
 anim	death
 @script
     if(frame==21){
 	jumptobranch("dummy", 1);
     }
-	@end_script
+	@end_script	
 	loop	0
 	delay	30
 	offset	100 189
@@ -377,9 +371,6 @@ anim	death
 	frame	data/chars/3mrkarate/spawn36.gif #21
 	frame	data/chars/3mrkarate/spawn36.gif
 	frame	data/chars/3mrkarate/spawn36.gif
-
-
-
 		
 anim	fall
 	loop	0
@@ -401,24 +392,6 @@ anim	fall
 	frame	data/chars/3mrkarate/fall3.gif
 	delay	2
 	frame	data/chars/3mrkarate/fall17.gif
-
-
-anim	fall4
-	loop	0
-	delay	6
-	offset	100 189
-	bbox	0 0 0 0
-	jumpframe	0 1.2 1.5
-	frame	data/chars/3mrkarate/pain8.gif
-	@cmd	degravity 0
-	frame	data/chars/3mrkarate/pain9.gif
-	frame	data/chars/3mrkarate/pain10.gif
-	@cmd	leaper 0 0.2 0
-	frame	data/chars/3mrkarate/pain11.gif
-	frame	data/chars/3mrkarate/fall4.gif
-	frame	data/chars/3mrkarate/fall5.gif
-	bbox	58 175 95 15
-	frame	data/chars/3mrkarate/fall4.gif
 		
 anim	fall10
 	loop	0
@@ -445,12 +418,12 @@ anim	fall10
 	frame	data/chars/3mrkarate/fall3.gif
 	delay	2
 	frame	data/chars/3mrkarate/fall17.gif
-
+		
 anim	fall11
 	loop	0
 	delay	20
 	offset	104 190
-	bbox	61 185 90 5	
+	bbox	61 185 90 5
 	frame	data/chars/3mrkarate/pain12.gif
 	delay	35
 	frame	data/chars/3mrkarate/fall4.gif
@@ -459,7 +432,7 @@ anim	fall2
 	loop	0
 	delay	30
 	offset	104 190
-	bbox	0 0 0 0
+	bbox	80 80 50 75
 	bouncefactor	0
 	@cmd	dethrown
 	landframe	3
@@ -467,13 +440,32 @@ anim	fall2
 	attack	87 110 25 61 5 1 0 0 13
 	frame	data/chars/3mrkarate/pain6.gif
 	delay	10
+	bbox	67 120 54 28
 	attack	61 124 61 26 5 1 0 0 13
 	frame	data/chars/3mrkarate/fall2.gif
 	attack	0 0 0 0
+	bbox	0 0 0 0
 	delay	1000
 	frame	data/chars/3mrkarate/fall3.gif
 	delay	2
 	frame	data/chars/3mrkarate/fall17.gif
+		
+anim	fall4
+	loop	0
+	delay	6
+	offset	100 189
+	bbox	0 0 0 0
+	jumpframe	0 1.2 1.5
+	frame	data/chars/3mrkarate/pain8.gif
+	@cmd	degravity 0
+	frame	data/chars/3mrkarate/pain9.gif
+	frame	data/chars/3mrkarate/pain10.gif
+	@cmd	leaper 0 0.2 0
+	frame	data/chars/3mrkarate/pain11.gif
+	frame	data/chars/3mrkarate/fall4.gif
+	frame	data/chars/3mrkarate/fall5.gif
+	bbox	58 175 95 15
+	frame	data/chars/3mrkarate/fall4.gif
 		
 anim	fall7
 	delay	1000
@@ -535,7 +527,6 @@ anim	follow1
 	offset	100 189
 	bbox	0 0 0 0
 	fastattack	1
-	#attackone	1
 	hitfx	data/sounds/beat2.wav
 	frame	data/chars/3mrkarate/a103.gif
 	delay	3
@@ -655,7 +646,6 @@ anim	follow12
 	delay	300
 	offset	100 189
 	bbox	79 97 70 91
-	#attackone	1
 	landframe	1 dust
 	attack	70 110 90 55 8 1 0 0 30 20
 	dropv	3 4
@@ -670,7 +660,6 @@ anim	follow13
 	delay	2
 	offset	100 189
 	bbox	0 0 0 0
-	#attackone	1
 	fastattack	1
 	hitfx	data/sounds/beat2.wav
 	@cmd	stop
@@ -753,7 +742,6 @@ anim	follow15
 	followanim	16
 	followcond	1
 	fastattack	1
-	#attackone	1
 	hitfx	data/sounds/grab.wav
 	frame	data/chars/3mrkarate/4grab06.gif
 	delay	20
@@ -816,13 +804,93 @@ anim	follow16
 	frame	data/chars/3mrkarate/rise3.gif
 	frame	data/chars/3mrkarate/rise4.gif
 		
+anim	follow17
+	loop	0
+	delay	2
+	offset	100 189
+	bbox	0 0 0 0
+	fastattack	1
+	@cmd	stop
+	hitfx	data/sounds/beat3.wav
+	frame	data/chars/3mrkarate/e02.gif
+	hitfx	data/sounds/beat2.wav
+	attack	100 100 100 20 2 0 0 0 8 15
+	frame	data/chars/3mrkarate/e03.gif
+	attack	0 0 0 0
+	frame	data/chars/3mrkarate/e04.gif
+	hitfx	data/sounds/beat3.wav
+	attack2	100 106 100 37 2 0 0 0 8 15
+	frame	data/chars/3mrkarate/e05.gif
+	attack2	0 0 0 0
+	frame	data/chars/3mrkarate/e06.gif
+	hitfx	data/sounds/beat2.wav
+	attack	100 100 100 35 2 0 0 0 8 15
+	frame	data/chars/3mrkarate/e07.gif
+	attack	0 0 0 0
+	frame	data/chars/3mrkarate/e08.gif
+	attack2	95 106 100 37 2 0 0 0 8 15
+	frame	data/chars/3mrkarate/e01.gif
+	attack2	0 0 0 0
+	frame	data/chars/3mrkarate/e02.gif
+	hitfx	data/sounds/beat2.wav
+	attack	100 100 100 20 2 0 0 0 8 15
+	frame	data/chars/3mrkarate/e03.gif
+	attack	0 0 0 0
+	frame	data/chars/3mrkarate/e04.gif
+	hitfx	data/sounds/beat3.wav
+	attack2	100 106 100 37 2 0 0 0 8 15
+	frame	data/chars/3mrkarate/e05.gif
+	attack2	0 0 0 0
+	frame	data/chars/3mrkarate/e06.gif
+	hitfx	data/sounds/beat2.wav
+	attack	100 100 100 35 2 0 0 0 8 15
+	frame	data/chars/3mrkarate/e07.gif
+	attack	0 0 0 0
+	frame	data/chars/3mrkarate/e08.gif
+	attack2	95 106 100 37 2 0 0 0 8 15
+	frame	data/chars/3mrkarate/e01.gif
+	attack2	0 0 0 0
+	frame	data/chars/3mrkarate/e02.gif
+	hitfx	data/sounds/beat2.wav
+	attack	100 100 100 20 2 0 0 0 8 15
+	frame	data/chars/3mrkarate/e03.gif
+	attack	0 0 0 0
+	frame	data/chars/3mrkarate/e04.gif
+	hitfx	data/sounds/beat3.wav
+	attack2	100 106 100 37 2 0 0 0 8 15
+	frame	data/chars/3mrkarate/e05.gif
+	attack2	0 0 0 0
+	frame	data/chars/3mrkarate/e06.gif
+	hitfx	data/sounds/beat2.wav
+	attack	100 100 100 35 2 0 0 0 8 15
+	frame	data/chars/3mrkarate/e07.gif
+	attack	0 0 0 0
+	frame	data/chars/3mrkarate/e08.gif
+	delay	4
+	hitfx	data/sounds/beat4.wav
+	@cmd	spawn02 "flashsc1" -10 200 190
+	frame	data/chars/3mrkarate/e09.gif
+	@cmd	dasher 3 0 0
+	frame	data/chars/3mrkarate/e09.gif
+	attack	100 80 100 50 12 1 0 0 30 15
+	dropv	5 2
+	frame	data/chars/3mrkarate/e10.gif
+	frame	data/chars/3mrkarate/e10.gif
+	delay	7
+	frame	data/chars/3mrkarate/e11.gif
+	frame	data/chars/3mrkarate/e11.gif
+	@cmd	stop
+	delay	15
+	frame	data/chars/3mrkarate/e10.gif
+	attack	0 0 0 0
+	frame	data/chars/3mrkarate/e09.gif
+		
 anim	follow2
 	loop	0
 	delay	4
 	offset	100 189
 	bbox	0 0 0 0
 	fastattack	1
-	#attackone	1
 	move	7
 	hitfx	data/sounds/beat3.wav
 	frame	data/chars/3mrkarate/b105.gif
@@ -894,7 +962,6 @@ anim	follow4
 	frame	data/chars/3mrkarate/wtr03.gif
 	@cmd	position 3 20 30 -1 -1
 	frame	data/chars/3mrkarate/wtr04.gif
-	#@cmd	degravity 1
 	@cmd	position 12 5 70 -1 -1
 	frame	data/chars/3mrkarate/wtr05.gif
 	@cmd	position 11 45 35 -1 -1
@@ -1059,12 +1126,7 @@ anim	follow4
 	delay	12
 	frame	data/chars/3mrkarate/rise3.gif
 	frame	data/chars/3mrkarate/rise4.gif
-
-
-
-
-
-
+		
 anim	follow5
 	loop	0
 	delay	7
@@ -1080,89 +1142,6 @@ anim	follow5
 	frame	data/chars/3mrkarate/e01.gif
 	attack2	0 0 0 0
 	frame	data/chars/3mrkarate/e02.gif
-
-
-
-anim	follow17
-	loop	0
-	delay	2
-	offset	100 189
-	bbox	0 0 0 0
-	fastattack	1
-	@cmd	stop
-	hitfx	data/sounds/beat3.wav
-	frame	data/chars/3mrkarate/e02.gif
-	hitfx	data/sounds/beat2.wav
-	attack	100 100 100 20 2 0 0 0 8 15
-	frame	data/chars/3mrkarate/e03.gif
-	attack	0 0 0 0
-	frame	data/chars/3mrkarate/e04.gif
-	hitfx	data/sounds/beat3.wav
-	attack2	100 106 100 37 2 0 0 0 8 15
-	frame	data/chars/3mrkarate/e05.gif
-	attack2	0 0 0 0
-	frame	data/chars/3mrkarate/e06.gif
-	hitfx	data/sounds/beat2.wav
-	attack	100 100 100 35 2 0 0 0 8 15
-	frame	data/chars/3mrkarate/e07.gif
-	attack	0 0 0 0
-	frame	data/chars/3mrkarate/e08.gif
-	attack2	95 106 100 37 2 0 0 0 8 15
-	frame	data/chars/3mrkarate/e01.gif
-	attack2	0 0 0 0
-	frame	data/chars/3mrkarate/e02.gif
-	hitfx	data/sounds/beat2.wav
-	attack	100 100 100 20 2 0 0 0 8 15
-	frame	data/chars/3mrkarate/e03.gif
-	attack	0 0 0 0
-	frame	data/chars/3mrkarate/e04.gif
-	hitfx	data/sounds/beat3.wav
-	attack2	100 106 100 37 2 0 0 0 8 15
-	frame	data/chars/3mrkarate/e05.gif
-	attack2	0 0 0 0
-	frame	data/chars/3mrkarate/e06.gif
-	hitfx	data/sounds/beat2.wav
-	attack	100 100 100 35 2 0 0 0 8 15
-	frame	data/chars/3mrkarate/e07.gif
-	attack	0 0 0 0
-	frame	data/chars/3mrkarate/e08.gif
-	attack2	95 106 100 37 2 0 0 0 8 15
-	frame	data/chars/3mrkarate/e01.gif
-	attack2	0 0 0 0
-	frame	data/chars/3mrkarate/e02.gif
-	hitfx	data/sounds/beat2.wav
-	attack	100 100 100 20 2 0 0 0 8 15
-	frame	data/chars/3mrkarate/e03.gif
-	attack	0 0 0 0
-	frame	data/chars/3mrkarate/e04.gif
-	hitfx	data/sounds/beat3.wav
-	attack2	100 106 100 37 2 0 0 0 8 15
-	frame	data/chars/3mrkarate/e05.gif
-	attack2	0 0 0 0
-	frame	data/chars/3mrkarate/e06.gif
-	hitfx	data/sounds/beat2.wav
-	attack	100 100 100 35 2 0 0 0 8 15
-	frame	data/chars/3mrkarate/e07.gif
-	attack	0 0 0 0
-	frame	data/chars/3mrkarate/e08.gif
-	delay	4
-	hitfx	data/sounds/beat4.wav
-	@cmd	spawn02 "flashsc1" -10 200 190
-	frame	data/chars/3mrkarate/e09.gif
-	@cmd	dasher 3 0 0
-	frame	data/chars/3mrkarate/e09.gif
-	attack	100 80 100 50 12 1 0 0 30 15
-	dropv	5 2
-	frame	data/chars/3mrkarate/e10.gif
-	frame	data/chars/3mrkarate/e10.gif
-	delay	7
-	frame	data/chars/3mrkarate/e11.gif
-	frame	data/chars/3mrkarate/e11.gif
-	@cmd	stop
-	delay	15
-	frame	data/chars/3mrkarate/e10.gif
-	attack	0 0 0 0
-	frame	data/chars/3mrkarate/e09.gif
 		
 anim	follow6
 	loop	0
@@ -1307,7 +1286,7 @@ anim	follow9
 	changeentityproperty(self, "invinctime", eTime + 75);
 	changeentityproperty(self, "blink", 1);
 	}
-@end_script
+	@end_script	
 	loop	0
 	delay	8
 	offset	100 189
@@ -1563,7 +1542,6 @@ anim	rise
 	frame	data/chars/3mrkarate/rise4.gif
 	@cmd	attack1 -140 140 15 "ANI_FOLLOW5"
 	frame	data/chars/3mrkarate/rise4.gif
-
 		
 anim	run
 	loop	1 2
@@ -1611,9 +1589,7 @@ anim	runattack
 	frame	data/chars/3mrkarate/xwtr16.gif
 	@cmd	anichange "ANI_FOLLOW12"
 	frame	data/chars/3mrkarate/xwtr16.gif
-
 		
-
 anim	spawn
 	loop	0
 	delay	200
@@ -1677,7 +1653,7 @@ anim	spawn
 	@cmd	leaper 3 4 0
 	frame	data/chars/3mrkarate/wtr07.gif
 	frame	data/chars/3mrkarate/wtr18.gif
-	@cmd	 playmusic "data/music/mrklvl2.ogg" 1
+	@cmd	playmusic "data/music/mrklvl2.ogg" 1
 	frame	data/chars/3mrkarate/wtr19.gif
 	frame	data/chars/3mrkarate/wtr19.gif
 	@cmd	subwall 1
@@ -1686,9 +1662,6 @@ anim	spawn
 	frame	data/chars/3mrkarate/wtr19.gif
 	@cmd	anichange "ANI_FOLLOW14"
 	frame	data/chars/3mrkarate/wtr19.gif
-
-
-
 		
 anim	special
 	loop	0
@@ -1701,7 +1674,7 @@ anim	special
 	@cmd	position 24 40 20 -1 -1
 	frame	data/chars/3mrkarate/2grab01.gif
 	delay	9
-	@cmd	spawngrab "grab1" 200 200 450 150 2 8
+	@cmd	spawngrab "grab1" 200 200 450 130 2 8
 	@cmd	dasher 0.5 0 0
 	@cmd	position 7 40 15 -1 -1
 	frame	data/chars/3mrkarate/2grab02.gif
@@ -1752,7 +1725,7 @@ anim	special
 	@cmd	hurt 4
 	@cmd	position 10 45 8 -1 1
 	frame	data/chars/3mrkarate/2grab21.gif
-	@cmd	looper 15 3 
+	@cmd	looper 15 3
 	delay	10
 	@cmd	position 9 40 8 -1 1
 	frame	data/chars/3mrkarate/2grab13.gif
@@ -1812,8 +1785,6 @@ anim	special
 	frame	data/chars/3mrkarate/rise2.gif
 	frame	data/chars/3mrkarate/rise3.gif
 	frame	data/chars/3mrkarate/rise4.gif
-
-
 		
 anim	special2
 	energycost	10
@@ -1829,7 +1800,7 @@ anim	special2
 	@cmd	position 24 55 20 -1 -1
 	frame	data/chars/3mrkarate/3grab13.gif
 	delay	12
-	@cmd	spawngrab "grab1" 200 200 450 170 1 8
+	@cmd	spawngrab "grab1" 200 200 450 150 1 8
 	@cmd	position 1 55 10 -1 -1
 	frame	data/chars/3mrkarate/3grab14.gif
 	@cmd	position 1 55 10 -1 -1
@@ -1972,7 +1943,6 @@ anim	upper
 	followanim	13
 	followcond	1
 	fastattack	1
-	#attackone	1
 	jumpframe	3 5 2
 	landframe	9 dust
 	frame	data/chars/3mrkarate/upper01.gif

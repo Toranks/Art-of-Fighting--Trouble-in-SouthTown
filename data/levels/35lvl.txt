@@ -7,7 +7,7 @@ fglayer		data/bgs/35lvl/rockfrt.gif 1300 0 6 0 0 0 0 -1 -1 1
 
 direction       up
 light  		10 -30
-at       	0
+at			0
 settime         0
 notime          1
 gravity         -6
@@ -19,6 +19,7 @@ spawn3  	160 15
 
 
 setweap  	4
+scrollspeed     2
 
 
 #----stage-------------
@@ -33,6 +34,13 @@ at      0
 
 #-----------------
 
+spawn	movelist
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW19"));
+} @end_script
+coords  235 129
+at	0
+
 spawn   rushold
 @script void main() {
    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
@@ -40,7 +48,7 @@ spawn   rushold
 coords  -220 110
 at      0
 
-spawn   timerfall2
+spawn   timerfall
 @script void main() 
 {
   changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_NONE"));
@@ -55,7 +63,6 @@ group   1 1
 at      0
 
 spawn   remuinho2
-health  90000
 coords  370 190
 at      0
 

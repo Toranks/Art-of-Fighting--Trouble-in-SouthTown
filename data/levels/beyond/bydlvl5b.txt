@@ -52,6 +52,27 @@ coords  -500 515 350
 at      0
 #----------------------------------
 spawn   byoevl1
+@script
+void main()
+{
+	void player1 = getplayerproperty(0, "entity"); //IDENTIFY PLAYER 1
+	void player2 = getplayerproperty(1, "entity"); //IDENTIFY PLAYER 2
+	void player3 = getplayerproperty(2, "entity"); //IDENTIFY PLAYER 3
+	if(player1 != NULL() && player2 != NULL() && player3 != NULL()){
+		setglobalvar("maxRush2", getglobalvar("maxRush1"));
+		setglobalvar("maxRush3", getglobalvar("maxRush1"));
+	}
+	if(player1 != NULL() && player2 != NULL() && player3 = NULL()){
+		setglobalvar("maxRush2", getglobalvar("maxRush1"));
+	}
+	if(player1 = NULL() && player2 != NULL() && player3 != NULL()){
+		setglobalvar("maxRush3", getglobalvar("maxRush2"));
+	}
+	if(player1 != NULL() && player2 = NULL() && player3 != NULL()){
+		setglobalvar("maxRush3", getglobalvar("maxRush1"));
+	}
+}
+@end_script
 coords  3320 210
 at      0
 
@@ -73,7 +94,6 @@ at      480
 spawn   sylo2
 flip    1
 map     5
-item    herb
 health  150
 coords  90 260 315
 at      480
@@ -85,7 +105,7 @@ health  230
 coords  -630 315 315
 at      480
 
-3pspawn   sylo2
+2pspawn   sylo2
 map     5
 health  150
 coords  -550 270 315
@@ -107,8 +127,6 @@ at      480
 
 #-----------------------
 blockade 550
-at      550
-blockade 750
 at      750
 #-----------------------
 group 2 2
@@ -125,7 +143,7 @@ health  160
 coords  630 320 70
 at      750
 
-3pspawn   sylo2
+2pspawn   sylo2
 @script void main() {
    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
 } @end_script
@@ -173,8 +191,6 @@ at      750
 
 #-----------------------
 blockade 870
-at      870
-blockade 1000
 at      1000
 #-----------------------
 group 3 3
@@ -213,8 +229,6 @@ at      1000
 
 #-----------------------
 blockade 1250
-at      1250
-blockade 1450
 at      1450
 #-----------------------
 group 2 2
@@ -259,7 +273,7 @@ health  240
 coords  -80 260 315
 at      1450
 
-3pspawn   sylo
+2pspawn   sylo
 map     5
 flip    1
 health  230
