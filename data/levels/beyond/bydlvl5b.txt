@@ -1,0 +1,312 @@
+music		data/music/cave1.ogg
+
+background	data/bgs/beyond/lvl6/back3.gif  0 0
+panel		data/bgs/beyond/lvl5b/panel.gif
+layer		data/bgs/beyond/lvl5b/middle.gif 254 0 0 1960 175 0 0 1 1 1 0 0 0 0 0 0
+layer		data/bgs/beyond/lvl5b/tank.gif 220 0 0 -200 70 0 0 1 1 1 0 0 0 0 0 0
+layer		data/bgs/1lvl/dust.gif 280 0 0 -250 180 0 0 1 1 1 1 1 2 22 1
+layer		data/bgs/1lvl/dust.gif 390 0 0 -150 250 0 0 1 1 1 1 1 2 22 1
+layer		data/bgs/1lvl/dust.gif 315 0 0 550 220 0 0 1 1 1 1 1 2 22 1
+layer		data/bgs/1lvl/dust.gif 400 0 0 2150 245 0 0 1 1 1 1 1 2 22 1
+layer		data/bgs/1lvl/dust.gif 200 0 0 2300 130 0 0 1 1 1 1 1 2 22 1
+layer		data/bgs/1lvl/dust.gif 800 0 0 2850 250 0 0 1 1 1 1 1 2 22 1
+layer		data/bgs/1lvl/dust.gif 900 0 0 2500 370 0 0 1 1 1 1 1 2 22 1
+fglayer		data/bgs/beyond/lvl5b/front.gif 1500 0 0 0 0 0 0 1 1 1 0 0 0 0 0 0
+fglayer         data/bgs/beyond/lvl5b/light.gif 2000 0 0 0 -5 1 1 1 1 1 1
+fglayer	        data/bgs/beyond/lvl5b/dark.gif 8000 1 1 -5 -5 0 0 1 1 1 2 0 0 0 0 0
+
+direction       both
+light  		10   60
+at       	0
+settime         0
+notime          1
+noslow          0
+order		a
+spawn1  	100 40
+spawn2  	105 45
+spawn3  	110 50
+
+
+cameratype      1
+cameraoffset    0 -90
+
+#--------------------------------------
+wall    -100 270  0 0 445 445 60 5000
+wall    1320 380  0 280 820 820 180 60
+wall    2120 315  0 0 1023 1023 60 60
+wall    3005 270  10 10 310 90 40 5000
+wall    3325 270  0 210 310 310 40 5000
+wall    3005 325  90 90 100 310 40 5000
+wall    3325 325  210 0 310 310 40 5000
+wall    -150 655  0 0 3300 3300 300 5000
+wall    3130 580  0 0 500 500 260 5000
+wall    3500 580  0 0 600 600 360 5000
+hole    2135 620  0 0 1900 1900 520
+
+#-----------------------
+spawn   stgSET7
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW9"));
+} @end_script
+coords  -500 515 350
+at      0
+#----------------------------------
+spawn   byoevl1
+coords  3320 210
+at      0
+
+spawn   rune
+alias   ANI_FOLLOW12
+coords  2400 290 100
+at      0
+
+
+#-----------------------
+blockade 480
+at      480
+#-----------------------
+group 3 3
+at      480
+wait
+at      480
+
+spawn   sylo2
+flip    1
+map     5
+item    herb
+health  150
+coords  90 260 315
+at      480
+
+2pspawn   sylo
+map     6
+flip    1
+health  230
+coords  -630 315 315
+at      480
+
+3pspawn   sylo2
+map     5
+health  150
+coords  -550 270 315
+at      480
+
+spawn   sylo
+map     6
+flip    1
+item    herb
+health  230
+coords  280 315 315
+at      480
+
+spawn   sylo2
+map     5
+health  150
+coords  430 270 315
+at      480
+
+#-----------------------
+blockade 550
+at      550
+blockade 750
+at      750
+#-----------------------
+group 2 2
+at      750
+wait
+at      750
+
+2pspawn   sylo2
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+map     1
+health  160
+coords  630 320 70
+at      750
+
+3pspawn   sylo2
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+flip    1
+map     2
+health  150
+coords  -210 320 70
+at      750
+
+spawn   sylo2
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+flip    1
+map     1
+health  170
+coords  -240 290 70
+at      750
+
+spawn   sylo2
+map     4
+health  150
+coords  320 265 315
+at      750
+
+spawn   sylo2
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+map     3
+item    fluid
+health  160
+coords  630 320 70
+at      750
+
+spawn   sylo2
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+flip    1
+map     5
+health  150
+coords  -210 320 70
+at      750
+
+#-----------------------
+blockade 870
+at      870
+blockade 1000
+at      1000
+#-----------------------
+group 3 3
+at      1000
+wait
+at      1000
+
+spawn   sylo
+flip    1
+map     5
+health  240
+coords  80 260 315
+at      1000
+
+spawn   sylo
+map     6
+flip    1
+item    herb
+health  230
+coords  250 315 315
+at      1000
+
+spawn   sylo2
+map     5
+health  150
+coords  410 270 315
+at      1000
+
+2pspawn   sylo
+map     6
+flip    1
+item    herb
+health  230
+coords  -150 315 315
+at      1000
+
+#-----------------------
+blockade 1250
+at      1250
+blockade 1450
+at      1450
+#-----------------------
+group 2 2
+at      1450
+wait
+at      1450
+
+spawn   sylo
+flip    1
+map     5
+health  240
+coords  80 260 315
+at      1450
+
+spawn   sylo
+map     6
+flip    1
+health  230
+coords  220 315 315
+at      1450
+
+spawn   sylo2
+map     5
+health  150
+coords  410 270 315
+at      1450
+
+spawn   sylo2
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+flip    1
+map     1
+health  170
+coords  -240 290 70
+at      1450
+
+2pspawn   sylo
+flip    1
+map     4
+health  240
+coords  -80 260 315
+at      1450
+
+3pspawn   sylo
+map     5
+flip    1
+health  230
+coords  -220 315 315
+at      1450
+
+spawn   sylo2
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+flip    1
+map     5
+health  150
+coords  -210 320 70
+at      1450
+
+#-----------------------
+#-----------------------
+blockade 1750
+at       1750
+#-----------------------
+group   1 1
+at      1750
+wait
+at      1750
+
+spawn   cvtlk
+coords  -10 450 390
+at      1750
+
+spawn   ghost4
+coords  -1500 300 100
+at      1750
+
+spawn   ghost4
+coords  -1500 300 100
+at      1750
+
+spawn   ghost3
+coords  -1500 300 100
+at      1750
+
+#-----------------------
+blockade 1850
+at       1850
+#-----------------------
+
+spawn   ghosttest
+coords  400 330
+at      3000

@@ -1,0 +1,152 @@
+name	byocont3
+type	obstacle
+health	90
+gfxshadow 1
+nolife	1
+falldie	1
+noatflash 1
+flash    flash5	
+nodieblink    3
+offscreenkill 	30000
+subject_to_wall 0
+diesound      data/sounds/bang.wav
+animationscript data/scripts/escript.c
+
+load	cardam2
+load	explosion3
+load	brkmetal2
+load	goIN
+
+alternatepal       data/chars/beyond/stuff/object/ccmap1.gif
+alternatepal       data/chars/beyond/stuff/object/ccmap2.gif
+
+
+anim	death
+	loop	0
+	delay	8
+	offset	120 150
+	bbox	0 0 0 0
+	@cmd	tosser "brkmetal2" 40 55 1 0.3 4 0
+	@cmd	tosser "brkmetal2" 1 55 1 0 4 0
+	@cmd	tosser "brkmetal2" -40 55 1 -0.3 4 0
+	frame	data/chars/beyond/stuff/object/ccont20.gif
+	@cmd	spawn01 "explosion3" -35 45 1
+	frame	data/chars/beyond/stuff/object/ccont03.gif
+	@cmd	spawn01 "cardam2" 1 60 1
+	frame	data/chars/beyond/stuff/object/ccont20.gif
+	@cmd	spawn01 "explosion3" 55 45 1
+	frame	data/chars/beyond/stuff/object/ccont04.gif
+	frame	data/chars/beyond/stuff/object/ccont20.gif
+	frame	data/chars/beyond/stuff/object/ccont05.gif
+	frame	data/chars/beyond/stuff/object/ccont20.gif
+	@cmd	spawn01 "explosion3" -35 35 1
+	frame	data/chars/beyond/stuff/object/ccont06.gif
+	frame	data/chars/beyond/stuff/object/ccont20.gif
+	@cmd	spawn01 "explosion3" 55 35 1
+	frame	data/chars/beyond/stuff/object/ccont07.gif
+	frame	data/chars/beyond/stuff/object/ccont20.gif
+	offset	170 200
+	frame	data/chars/beyond/stuff/object/ccont08.gif
+	frame	data/chars/beyond/stuff/object/ccont21.gif
+	frame	data/chars/beyond/stuff/object/ccont09.gif
+	frame	data/chars/beyond/stuff/object/ccont21.gif
+	frame	data/chars/beyond/stuff/object/ccont10.gif
+	frame	data/chars/beyond/stuff/object/ccont21.gif
+	frame	data/chars/beyond/stuff/object/ccont11.gif
+	frame	data/chars/beyond/stuff/object/ccont21.gif
+	frame	data/chars/beyond/stuff/object/ccont12.gif
+	frame	data/chars/beyond/stuff/object/ccont21.gif
+	@cmd	anichange "ANI_FOLLOW2"
+	frame	data/chars/beyond/stuff/object/ccont20.gif
+		
+anim	fall
+	loop	0
+	delay	8
+	offset	95 145
+	bbox	0 0 0 0
+	frame	data/chars/beyond/stuff/object/ccont20.gif
+		
+anim	follow1
+	loop	1 1 3
+	delay	5
+	offset	120 155
+	bbox	50 60 130 95
+	platform	15 170 25 25 175 175 25 100
+	@cmd	spawn01 "cardam2" 1 70 1
+	@cmd	spawn01 "explosion3" -30 40 1
+	@cmd	spawn01 "explosion3" 50 60 1
+	frame	data/chars/beyond/stuff/object/ccont02.gif
+	frame	data/chars/beyond/stuff/object/ccont02.gif
+	frame	data/chars/beyond/stuff/object/ccont02.gif
+	frame	data/chars/beyond/stuff/object/ccont02.gif
+		
+anim	follow2
+	loop	1
+	delay	1000
+	offset	120 150
+	bbox	0 0 0 0
+	frame	data/chars/beyond/stuff/object/ccont20.gif
+	frame	data/chars/beyond/stuff/object/ccont20.gif
+
+
+	
+anim	idle
+	loop	1
+	delay	5
+	offset	120 155
+	bbox	50 60 130 95
+	platform	15 170 25 25 175 175 25 120
+	frame	data/chars/beyond/stuff/object/ccont01.gif
+	@cmd	damage 50 "ANI_FOLLOW1"
+	frame	data/chars/beyond/stuff/object/ccont01.gif
+
+
+anim	spawn
+	loop	0
+	delay	5
+	offset	120 155
+	bbox	0 0 0 0
+	platform	15 170 25 25 175 175 25 120
+	frame	data/chars/beyond/stuff/object/ccont01.gif
+	@cmd	subwall 1
+	frame	data/chars/beyond/stuff/object/ccont01.gif
+
+
+		
+anim	follow10
+	loop	1
+	delay	3
+	offset	120 175
+	bbox	50 60 130 95
+	platform	1 1 1 1 1 1 1 1
+	@cmd	damage 50 "ANI_FOLLOW6"
+	frame	data/chars/beyond/stuff/object/ccont25.gif
+	@cmd	damage 50 "ANI_FOLLOW6"
+	frame	data/chars/beyond/stuff/object/ccont25.gif
+
+
+
+
+anim	follow6
+	loop	0
+	delay	9
+	offset	120 175
+	bbox	0 0 0 0
+	platform	1 1 1 1 1 1 1 1
+	@cmd	spawn01 "cardam2" 1 70 1
+	@cmd	spawn01 "explosion3" -30 40 1
+	@cmd	spawn01 "explosion3" 50 60 1
+	frame	data/chars/beyond/stuff/object/ccont26.gif
+	frame	data/chars/beyond/stuff/object/ccont27.gif
+	frame	data/chars/beyond/stuff/object/ccont28.gif
+	frame	data/chars/beyond/stuff/object/ccont29.gif
+	frame	data/chars/beyond/stuff/object/ccont30.gif
+	frame	data/chars/beyond/stuff/object/ccont31.gif
+	@cmd	spawn01 "goIN" 1 1 7
+	frame	data/chars/beyond/stuff/object/ccont32.gif
+	@cmd	suicide
+	frame	data/chars/beyond/stuff/object/ccont32.gif
+
+
+
+

@@ -1,0 +1,112 @@
+name	   cellbtn
+health	   130
+nolife	   1
+noatflash  1
+flash      flash5
+type	   obstacle
+falldie	   1
+nodieblink 3
+subject_to_gravity 0
+subject_to_wall 0
+subject_to_platform 0
+subject_to_minz 1
+subject_to_maxz 1
+candamage     obstacle
+offscreenkill 30000
+diesound   data/sounds/bang.wav
+
+load	mbrain
+load	jbyo3
+
+animationscript data/scripts/escript.c
+
+anim	fall
+	loop	0
+	delay	85
+	offset	80 50
+	frame	data/bgs/beyond/lvl17/bck/celltrg01.gif
+
+anim	spawn
+	loop	0
+	delay	9
+	offset	50 90
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl17/bck/celltrg01.gif
+	frame	data/bgs/beyond/lvl17/bck/celltrg02.gif
+	@cmd	spawnGun5 "mbrain" 155 0 15 1 "ANI_FOLLOW10"
+	frame	data/bgs/beyond/lvl17/bck/celltrg03.gif
+	frame	data/bgs/beyond/lvl17/bck/celltrg04.gif
+	frame	data/bgs/beyond/lvl17/bck/celltrg03.gif
+	frame	data/bgs/beyond/lvl17/bck/celltrg02.gif
+
+anim	idle
+	loop	1
+	delay	9
+	offset	50 90
+	bbox	30 35 35 40 5
+	platform 1 1 1 1 1 1 1 1
+	frame	data/bgs/beyond/lvl17/bck/celltrg01.gif
+	frame	data/bgs/beyond/lvl17/bck/celltrg02.gif
+	frame	data/bgs/beyond/lvl17/bck/celltrg03.gif
+	frame	data/bgs/beyond/lvl17/bck/celltrg04.gif
+	frame	data/bgs/beyond/lvl17/bck/celltrg03.gif
+	frame	data/bgs/beyond/lvl17/bck/celltrg02.gif
+
+anim	death
+	loop	0
+	delay	12
+	offset	50 90
+	bbox	0 0 0 0
+	hitfx	data/sounds/empty.wav
+	noreflect 1
+	@cmd	stop
+	frame	data/bgs/beyond/lvl17/bck/celltrg05.gif
+	frame	data/bgs/beyond/lvl17/bck/celltrg06.gif
+	frame	data/bgs/beyond/lvl17/bck/celltrg07.gif
+	frame	data/bgs/beyond/lvl17/bck/celltrg08.gif
+	frame	data/bgs/beyond/lvl17/bck/celltrg09.gif
+	frame	data/bgs/beyond/lvl17/bck/celltrg10.gif
+	@cmd	killgun 1 0
+	frame	data/bgs/beyond/lvl17/bck/celltrg11.gif
+	frame	data/bgs/beyond/lvl17/bck/celltrg12.gif
+	frame	data/bgs/beyond/lvl17/bck/celltrg13.gif
+	frame	data/bgs/beyond/lvl17/bck/celltrg14.gif
+	frame	data/bgs/beyond/lvl17/bck/celltrg15.gif
+	frame	data/bgs/beyond/lvl17/bck/celltrg16.gif
+	delay	80
+	frame	data/bgs/beyond/lvl17/bck/celltrg17.gif
+	delay	20
+	attack	80 -50 280 120 0 0 1 1 0 90
+	frame	data/bgs/beyond/lvl17/bck/celltrg17.gif
+	frame	data/bgs/beyond/lvl17/bck/celltrg17.gif
+	frame	data/bgs/beyond/lvl17/bck/celltrg17.gif
+	frame	data/bgs/beyond/lvl17/bck/celltrg17.gif
+	frame	data/bgs/beyond/lvl17/bck/celltrg17.gif
+	frame	data/bgs/beyond/lvl17/bck/celltrg17.gif
+	frame	data/bgs/beyond/lvl17/bck/celltrg17.gif
+	attack	0 0 0 0
+	frame	data/bgs/beyond/lvl17/bck/celltrg17.gif
+
+
+
+anim	follow5
+	loop	0
+	delay	10
+	offset	50 90
+	bbox	0 0 0 0
+	platform 1 1 1 1 1 1 1 1
+	frame	data/bgs/beyond/lvl17/bck/empty.gif
+	frame	data/bgs/beyond/lvl17/bck/empty.gif
+	frame	data/bgs/beyond/lvl17/bck/empty.gif
+	@cmd	spawn04 "jbyo3" 30 50 50 "ANI_FOLLOW1"
+	frame	data/bgs/beyond/lvl17/bck/empty.gif
+	frame	data/bgs/beyond/lvl17/bck/empty.gif
+	frame	data/bgs/beyond/lvl17/bck/empty.gif
+	delay	1000
+	frame	data/bgs/beyond/lvl17/bck/empty.gif
+	delay	10
+	frame	data/bgs/beyond/lvl17/bck/empty.gif
+	@cmd	suicide
+	frame	data/bgs/beyond/lvl17/bck/empty.gif
+
+		

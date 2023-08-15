@@ -1,0 +1,457 @@
+name		yuribike2
+type		none
+health		150
+mp		100
+speedf		2.3
+running		23 3 1 0 0
+jumpheight	3
+cantgrab	1
+notgrab		1
+noquake		1
+falldie		1
+nodieblink	1
+makeinv		3
+nodrop		1
+grabforce       0
+candamage	enemy obstacle
+diesound        data/sounds/yurde.wav
+atchain         1 0 0 0 
+icon            data/chars/0yuri/icon.gif
+parrow          data/chars/misc/flash/flash/player1.gif  -45 -130
+parrow2         data/chars/misc/flash/flash/player2.gif  -45 -130
+parrow3         data/chars/misc/flash/flash/player3.gif  -45 -130
+animationscript data/scripts/grabscript.c
+
+palette		data/chars/0yuri/bike2/mapal.gif
+alternatepal	data/chars/0yuri/bike2/map1.gif
+alternatepal	data/chars/0yuri/bike2/map1.gif
+alternatepal	data/chars/0yuri/bike2/map2.gif
+alternatepal	data/chars/0yuri/bike2/map3.gif
+
+load	explosion1
+load	dust3
+
+com	a2 	freespecial15
+
+
+anim	freespecial15
+	loop	0
+	delay	5
+	offset	75 85
+	bbox	60 20 30 65
+	sound	data/sounds/bike2.wav
+	frame	data/chars/0yuri/bike2/yurbck1.gif
+	frame	data/chars/0yuri/bike2/xyurbck1.gif
+	@cmd	spawn02 "freewaytot" 250 1 140
+	frame	data/chars/0yuri/bike2/yurbck1.gif
+	frame	data/chars/0yuri/bike2/xyurbck1.gif
+
+
+
+anim	attack1
+		
+anim	attackdown
+	loop	0
+	delay	5
+	offset	75 85
+	bbox	60 20 30 65
+	frame	data/chars/0yuri/bike2/yurbck1.gif
+	frame	data/chars/0yuri/bike2/xyurbck1.gif
+		
+anim	attackup
+	loop	0
+	delay	5
+	offset	75 85
+	bbox	60 20 30 65
+	frame	data/chars/0yuri/bike2/yurbck1.gif
+	frame	data/chars/0yuri/bike2/xyurbck1.gif
+		
+anim	backwalk
+	loop	1
+	delay	5
+	offset	75 85
+	bbox	60 20 30 65
+	sound	data/sounds/bike4.wav
+	@cmd	spawn01 "dust3" 0 -20 1
+	frame	data/chars/0yuri/bike2/xyurbck1.gif
+	frame	data/chars/0yuri/bike2/yurbck2.gif
+	@cmd	spawn01 "dust3" 0 -20 1
+	frame	data/chars/0yuri/bike2/xyurbck2.gif
+	frame	data/chars/0yuri/bike2/yurbck2.gif
+	@cmd	spawn01 "dust3" 0 -20 1
+	frame	data/chars/0yuri/bike2/xyurbck2.gif
+	frame	data/chars/0yuri/bike2/yurbck3.gif
+	frame	data/chars/0yuri/bike2/xyurbck3.gif
+	frame	data/chars/0yuri/bike2/yurbck3.gif
+	frame	data/chars/0yuri/bike2/xyurbck3.gif
+	frame	data/chars/0yuri/bike2/yurbck3.gif
+	sound	data/sounds/bike2.wav
+	frame	data/chars/0yuri/bike2/xyurbck3.gif
+	frame	data/chars/0yuri/bike2/yurbck3.gif
+	frame	data/chars/0yuri/bike2/xyurbck3.gif
+	frame	data/chars/0yuri/bike2/yurbck3.gif
+	@cmd	updateframe getlocalvar("self") 5
+	frame	data/chars/0yuri/bike2/xyurbck3.gif
+	frame	data/chars/0yuri/bike2/yurbck2.gif
+	frame	data/chars/0yuri/bike2/xyurbck2.gif
+		
+anim	block
+		
+anim	charge
+	loop	0
+	delay	1
+	offset	75 85
+	bbox	60 20 30 65
+	frame	data/chars/0yuri/bike2/yurbck1.gif
+	frame	data/chars/0yuri/bike2/yurbck1.gif
+		
+anim	death
+	loop	0
+	delay	9
+	offset	75 85
+	jumpframe	1 6 -1
+	landframe	12
+	@cmd	spawn01 "explosion1" -10 50 5
+	frame	data/chars/0yuri/bike2/yurbck1.gif
+		
+anim	down
+	loop	1
+	delay	5
+	offset	75 85
+	bbox	60 20 30 65
+	frame	data/chars/0yuri/bike2/yurbck1.gif
+	frame	data/chars/0yuri/bike2/xyurbck1.gif
+		
+anim	fall
+	loop	0
+	delay	1
+	offset	75 85
+	bbox	60 20 30 65
+	frame	data/chars/0yuri/bike2/yurbck3.gif
+	frame	data/chars/0yuri/bike2/yurbck2.gif
+	frame	data/chars/0yuri/bike2/yurbck3.gif
+		
+anim	forwardjump
+	loop	0
+	delay	5
+	offset	75 85
+	bbox	60 20 30 20
+	frame	data/chars/0yuri/bike2/yurbck4.gif
+	frame	data/chars/0yuri/bike2/xyurbck4.gif
+	frame	data/chars/0yuri/bike2/yurbck5.gif
+	frame	data/chars/0yuri/bike2/xyurbck5.gif
+		
+anim	idle
+	loop	1
+	delay	5
+	offset	75 85
+	bbox	60 20 30 65
+	sound	data/sounds/bike2.wav
+	frame	data/chars/0yuri/bike2/yurbck1.gif
+	frame	data/chars/0yuri/bike2/xyurbck1.gif
+		
+anim	jump
+		
+anim	jumpattack
+		
+anim	jumpdelay
+	loop	0
+	delay	5
+	offset	75 85
+	bbox	60 20 30 65
+	frame	data/chars/0yuri/bike2/yurbck1.gif
+	frame	data/chars/0yuri/bike2/xyurbck1.gif
+		
+anim	jumpland
+	loop	0
+	delay	5
+	offset	75 85
+	bbox	60 20 30 45
+	sound	data/sounds/bike4.wav
+	frame	data/chars/0yuri/bike2/yurbck4.gif
+	frame	data/chars/0yuri/bike2/xyurbck4.gif
+	@cmd	spawn01 "dust3" 0 -20 1
+	frame	data/chars/0yuri/bike2/yurbck5.gif
+	frame	data/chars/0yuri/bike2/xyurbck4.gif
+	frame	data/chars/0yuri/bike2/yurbck2.gif
+		
+anim	pain
+	loop	0
+	delay	2
+	offset	75 85
+	bbox	60 20 30 65
+	move	4
+	@cmd	keymove 0.7
+	frame	data/chars/0yuri/bike2/yurbck1.gif
+	bbox	0 0 0 0
+	frame	data/chars/0yuri/bike2/yurbck2.gif
+	frame	data/chars/0yuri/bike2/xyurbck2.gif
+	frame	data/chars/0yuri/bike2/yurbck3.gif
+	frame	data/chars/0yuri/bike2/xyurbck3.gif
+	frame	data/chars/0yuri/bike2/yurbck4.gif
+	frame	data/chars/0yuri/bike2/xyurbck4.gif
+	frame	data/chars/0yuri/bike2/yurbck5.gif
+	frame	data/chars/0yuri/bike2/xyurbck5.gif
+	delay	5
+	frame	data/chars/0yuri/bike2/yurbck4.gif
+	frame	data/chars/0yuri/bike2/xyurbck4.gif
+		
+anim	pain2
+	loop	0
+	delay	5
+	offset	75 85
+	bbox	60 20 30 65
+	move	-4
+	@cmd	keymove 0.7
+	frame	data/chars/0yuri/bike2/yurbck1.gif
+	bbox	0 0 0 0
+	frame	data/chars/0yuri/bike2/yurbck2.gif
+	frame	data/chars/0yuri/bike2/xyurbck2.gif
+	frame	data/chars/0yuri/bike2/yurbck3.gif
+	frame	data/chars/0yuri/bike2/xyurbck3.gif
+	frame	data/chars/0yuri/bike2/yurbck4.gif
+	frame	data/chars/0yuri/bike2/xyurbck4.gif
+	frame	data/chars/0yuri/bike2/yurbck5.gif
+	frame	data/chars/0yuri/bike2/xyurbck5.gif
+	delay	5
+	frame	data/chars/0yuri/bike2/yurbck4.gif
+	frame	data/chars/0yuri/bike2/xyurbck4.gif
+
+
+anim	pain5
+	loop	0
+	delay	4
+	offset	75 85
+	bbox	0 0 0 0
+	@cmd	degravity 1
+	@cmd	dasher 0 0.6 0
+	drawmethod 245 245 0 0 0 0 -1
+	frame	data/chars/0yuri/bike2/yurbck1.gif
+	drawmethod 240 240 0 0 0 0 -1
+	frame	data/chars/0yuri/bike2/xyurbck1.gif
+	drawmethod 235 235 0 0 0 0 -1
+	frame	data/chars/0yuri/bike2/yurbck1.gif
+	drawmethod 230 230 0 0 0 0 -1
+	frame	data/chars/0yuri/bike2/xyurbck1.gif
+	drawmethod 225 225 0 0 0 0 -1
+	frame	data/chars/0yuri/bike2/yurbck1.gif
+	drawmethod 220 220 0 0 0 0 -1
+	frame	data/chars/0yuri/bike2/xyurbck1.gif
+	drawmethod 215 215 0 0 0 0 -1
+	frame	data/chars/0yuri/bike2/yurbck1.gif
+	drawmethod 210 210 0 0 0 0 -1
+	frame	data/chars/0yuri/bike2/xyurbck1.gif
+	drawmethod 205 205 0 0 0 0 -1
+	frame	data/chars/0yuri/bike2/yurbck1.gif
+	drawmethod 200 200 0 0 0 0 -1
+	frame	data/chars/0yuri/bike2/xyurbck1.gif
+	drawmethod 195 195 0 0 0 0 -1
+	frame	data/chars/0yuri/bike2/yurbck1.gif
+	drawmethod 190 190 0 0 0 0 -1
+	frame	data/chars/0yuri/bike2/xyurbck1.gif
+	drawmethod 185 185 0 0 0 0 -1
+	frame	data/chars/0yuri/bike2/yurbck1.gif
+	drawmethod 180 180 0 0 0 0 -1
+	frame	data/chars/0yuri/bike2/xyurbck1.gif
+	drawmethod 175 175 0 0 0 0 -1
+	frame	data/chars/0yuri/bike2/yurbck1.gif
+	drawmethod 170 170 0 0 0 0 -1
+	frame	data/chars/0yuri/bike2/xyurbck1.gif
+	drawmethod 165 165 0 0 0 0 -1
+	frame	data/chars/0yuri/bike2/yurbck1.gif
+	drawmethod 160 160 0 0 0 0 -1
+	frame	data/chars/0yuri/bike2/xyurbck1.gif
+	drawmethod 155 155 0 0 0 0 -1
+	frame	data/chars/0yuri/bike2/yurbck1.gif
+	drawmethod 150 150 0 0 0 0 -1
+	frame	data/chars/0yuri/bike2/xyurbck1.gif
+	drawmethod 145 145 0 0 0 0 -1
+	frame	data/chars/0yuri/bike2/yurbck1.gif
+	drawmethod 140 140 0 0 0 0 -1
+	frame	data/chars/0yuri/bike2/xyurbck1.gif
+	drawmethod 135 135 0 0 0 0 -1
+	frame	data/chars/0yuri/bike2/yurbck1.gif
+	drawmethod 130 130 0 0 0 0 -1
+	frame	data/chars/0yuri/bike2/xyurbck1.gif
+	drawmethod 125 125 0 0 0 0 -1
+	frame	data/chars/0yuri/bike2/yurbck1.gif
+	drawmethod 120 120 0 0 0 0 -1
+	frame	data/chars/0yuri/bike2/xyurbck1.gif
+	drawmethod 115 115 0 0 0 0 -1
+	frame	data/chars/0yuri/bike2/yurbck1.gif
+	drawmethod 110 110 0 0 0 0 -1
+	frame	data/chars/0yuri/bike2/xyurbck1.gif
+	drawmethod 105 105 0 0 0 0 -1
+	frame	data/chars/0yuri/bike2/yurbck1.gif
+	drawmethod 100 100 0 0 0 0 -1
+	frame	data/chars/0yuri/bike2/xyurbck1.gif
+	drawmethod 95 95 0 0 0 0 -1
+	frame	data/chars/0yuri/bike2/yurbck1.gif
+	drawmethod 90 90 0 0 0 0 -1
+	frame	data/chars/0yuri/bike2/xyurbck1.gif
+	drawmethod 85 85 0 0 0 0 -1
+	frame	data/chars/0yuri/bike2/yurbck1.gif
+	drawmethod 80 80 0 0 0 0 -1
+	frame	data/chars/0yuri/bike2/xyurbck1.gif
+	drawmethod 75 75 0 0 0 0 -1
+	frame	data/chars/0yuri/bike2/yurbck1.gif
+	drawmethod 70 70 0 0 0 0 -1
+	frame	data/chars/0yuri/bike2/xyurbck1.gif
+	drawmethod 65 65 0 0 0 0 -1
+	frame	data/chars/0yuri/bike2/yurbck1.gif
+	drawmethod 60 60 0 0 0 0 -1
+	frame	data/chars/0yuri/bike2/xyurbck1.gif
+	drawmethod 55 55 0 0 0 0 -1
+	frame	data/chars/0yuri/bike2/yurbck1.gif
+	drawmethod 50 50 0 0 0 0 -1
+	frame	data/chars/0yuri/bike2/xyurbck1.gif
+	drawmethod 45 45 0 0 0 0 -1
+	frame	data/chars/0yuri/bike2/yurbck1.gif
+	drawmethod 40 40 0 0 0 0 -1
+	frame	data/chars/0yuri/bike2/xyurbck1.gif
+	drawmethod 35 35 0 0 0 0 -1
+	frame	data/chars/0yuri/bike2/yurbck1.gif
+	drawmethod 30 30 0 0 0 0 -1
+	frame	data/chars/0yuri/bike2/xyurbck1.gif
+	drawmethod 25 25 0 0 0 0 -1
+	frame	data/chars/0yuri/bike2/yurbck1.gif
+	drawmethod 20 20 0 0 0 0 -1
+	frame	data/chars/0yuri/bike2/xyurbck1.gif
+	drawmethod 15 15 0 0 0 0 -1
+	frame	data/chars/0yuri/bike2/yurbck1.gif
+	drawmethod 10 10 0 0 0 0 -1
+	frame	data/chars/0yuri/bike2/xyurbck1.gif
+	drawmethod 9 9 0 0 0 0 -1
+	frame	data/chars/0yuri/bike2/yurbck1.gif
+	drawmethod 8 8 0 0 0 0 -1
+	frame	data/chars/0yuri/bike2/xyurbck1.gif
+	drawmethod 7 7 0 0 0 0 -1
+	frame	data/chars/0yuri/bike2/yurbck1.gif
+	drawmethod 6 6 0 0 0 0 -1
+	frame	data/chars/0yuri/bike2/xyurbck1.gif
+	drawmethod 5 5 0 0 0 0 -1
+	frame	data/chars/0yuri/bike2/yurbck1.gif
+	drawmethod 4 4 0 0 0 0 -1
+	frame	data/chars/0yuri/bike2/xyurbck1.gif
+	drawmethod 3 3 0 0 0 0 -1
+	frame	data/chars/0yuri/bike2/yurbck1.gif
+	drawmethod 2 2 0 0 0 0 -1
+	frame	data/chars/0yuri/bike2/xyurbck1.gif
+	drawmethod 1 1 0 0 0 0 -1
+	frame	data/chars/0yuri/bike2/yurbck1.gif
+	delay	500
+	frame	data/chars/0yuri/bike2/yurbck1.gif
+
+
+
+
+
+		
+anim	rise
+	loop	0
+	delay	1
+	offset	75 85
+	bbox	60 20 30 65
+	frame	data/chars/0yuri/bike2/yurbck1.gif
+	frame	data/chars/0yuri/bike2/xyurbck1.gif
+	frame	data/chars/0yuri/bike2/yurbck1.gif
+		
+anim	run
+	loop	1
+	delay	5
+	offset	75 85
+	bbox	60 20 30 65
+	frame	data/chars/0yuri/bike2/yurbck1.gif
+	frame	data/chars/0yuri/bike2/yurbck4.gif
+	frame	data/chars/0yuri/bike2/xyurbck4.gif
+	frame	data/chars/0yuri/bike2/yurbck4.gif
+	frame	data/chars/0yuri/bike2/xyurbck4.gif
+	frame	data/chars/0yuri/bike2/yurbck5.gif
+	frame	data/chars/0yuri/bike2/xyurbck5.gif
+	frame	data/chars/0yuri/bike2/yurbck5.gif
+	frame	data/chars/0yuri/bike2/xyurbck5.gif
+	frame	data/chars/0yuri/bike2/yurbck5.gif
+	frame	data/chars/0yuri/bike2/xyurbck5.gif
+	frame	data/chars/0yuri/bike2/yurbck5.gif
+	frame	data/chars/0yuri/bike2/xyurbck5.gif
+	frame	data/chars/0yuri/bike2/yurbck5.gif
+	@cmd	updateframe getlocalvar("self") 5
+	frame	data/chars/0yuri/bike2/xyurbck5.gif
+		
+anim	runattack
+		
+anim	runjump
+	loop	0
+	delay	1
+	offset	75 85
+	bbox	60 20 30 20
+	frame	data/chars/0yuri/bike2/yurbck4.gif
+	frame	data/chars/0yuri/bike2/xyurbck4.gif
+	frame	data/chars/0yuri/bike2/yurbck5.gif
+	frame	data/chars/0yuri/bike2/xyurbck5.gif
+		
+anim	runjumpattack
+		
+anim	spawn
+	loop	0
+	delay	1
+	offset	75 85
+	bbox	0 0 0 0
+	frame	data/chars/0yuri/bike2/yurbck1.gif
+
+anim	respawn
+	loop	0
+	delay	1
+	offset	75 85
+	bbox	0 0 0 0
+	frame	data/chars/0yuri/bike2/yurbck1.gif
+		
+anim	special
+		
+anim	turn
+	loop	0
+	delay	2
+	offset	75 85
+	bbox	60 20 30 65
+	sound	data/sounds/bike2.wav
+	frame	data/chars/0yuri/bike2/yurbck1.gif
+		
+anim	up
+	loop	1
+	delay	5
+	offset	75 85
+	bbox	60 20 30 65
+	frame	data/chars/0yuri/bike2/yurbck1.gif
+	frame	data/chars/0yuri/bike2/xyurbck1.gif
+		
+anim	walk
+	loop	1
+	delay	5
+	offset	75 85
+	bbox	60 20 30 65
+	sound	data/sounds/bike4.wav
+	@cmd	spawn01 "dust3" 0 -20 1
+	frame	data/chars/0yuri/bike2/xyurbck1.gif
+	frame	data/chars/0yuri/bike2/yurbck4.gif
+	@cmd	spawn01 "dust3" 0 -20 1
+	frame	data/chars/0yuri/bike2/xyurbck4.gif
+	frame	data/chars/0yuri/bike2/yurbck4.gif
+	@cmd	spawn01 "dust3" 0 -20 1
+	frame	data/chars/0yuri/bike2/xyurbck4.gif
+	frame	data/chars/0yuri/bike2/yurbck5.gif
+	frame	data/chars/0yuri/bike2/xyurbck5.gif
+	frame	data/chars/0yuri/bike2/yurbck5.gif
+	frame	data/chars/0yuri/bike2/xyurbck5.gif
+	frame	data/chars/0yuri/bike2/yurbck5.gif
+	sound	data/sounds/bike2.wav
+	frame	data/chars/0yuri/bike2/xyurbck5.gif
+	frame	data/chars/0yuri/bike2/yurbck5.gif
+	frame	data/chars/0yuri/bike2/xyurbck5.gif
+	frame	data/chars/0yuri/bike2/yurbck5.gif
+	@cmd	updateframe getlocalvar("self") 5
+	frame	data/chars/0yuri/bike2/xyurbck5.gif
+	frame	data/chars/0yuri/bike2/yurbck4.gif
+	frame	data/chars/0yuri/bike2/xyurbck4.gif
+		
+#|edited by openBor Stats v 0.53
+		

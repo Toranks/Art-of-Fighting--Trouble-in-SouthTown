@@ -1,0 +1,548 @@
+name		openball
+type		obstacle
+health		500
+noquake		1
+falldie		1
+nodieblink	2
+makeinv		3
+shadow		0
+facing		1
+offscreenkill 	10000
+candamage	npc
+subject_to_wall 1
+diesound        data/sounds/glass.wav
+animationscript data/scripts/escript.c
+
+load	pedest
+
+load	lgmist
+load	lgmist2
+load	lgmist3
+load	tlsdoor
+
+
+
+		
+anim	fall
+	loop	0
+	delay	5
+	offset	77 138
+	bbox	0 0 0 0
+	platform	1 1 1 1 1 1 1 1
+	frame	data/chars/beyond/stuff/pedestal/pedball10.gif
+
+
+#-----------//-1st-spawn--------------
+		
+anim	follow1
+	loop	1
+	delay	6
+	offset	77 138
+	bbox	55 20 45 55
+	platform	1 1 1 1 1 1 1 1
+	@cmd	damage 90 "ANI_FOLLOW2"
+	frame	data/chars/beyond/stuff/pedestal/pedball01.gif
+	@cmd	subwall 1
+	frame	data/chars/beyond/stuff/pedestal/pedball02.gif
+	@cmd	damage 90 "ANI_FOLLOW2"
+	frame	data/chars/beyond/stuff/pedestal/pedball03.gif
+	@cmd	damage 90 "ANI_FOLLOW2"
+	frame	data/chars/beyond/stuff/pedestal/pedball04.gif
+	@cmd	damage 90 "ANI_FOLLOW2"
+	frame	data/chars/beyond/stuff/pedestal/pedball05.gif
+
+#-------------kill--------spawn--pedest---middle--------------
+		
+anim	follow2
+	loop	1
+	delay	15
+	offset	77 138
+	bbox	0 0 0 0
+	platform	1 1 1 1 1 1 1 1
+	sound	data/sounds/glass.wav
+	frame	data/chars/beyond/stuff/pedestal/pedball06.gif
+	@cmd	spawn06 "pedest" 1765 490 705 "ANI_FOLLOW3"
+	frame	data/chars/beyond/stuff/pedestal/pedball07.gif
+	frame	data/chars/beyond/stuff/pedestal/pedball08.gif
+
+
+	@cmd	spawnAni "tlsdoor" -780 10 40 "ANI_FOLLOW1" 
+	frame	data/chars/beyond/stuff/pedestal/pedball09.gif
+	frame	data/chars/beyond/stuff/pedestal/pedball10.gif
+	@cmd	suicide
+	frame	data/chars/beyond/stuff/pedestal/pedball10.gif
+
+
+#-----------//----end-------//--------------
+
+
+#-----------//-2st-spawn-middle--------------
+
+
+		
+anim	follow3
+	loop	1
+	delay	6
+	offset	77 138
+	bbox	55 20 45 55
+	platform	1 1 1 1 1 1 1 1
+	@cmd	damage 90 "ANI_FOLLOW4"
+	frame	data/chars/beyond/stuff/pedestal/pedball01.gif
+	@cmd	subwall 1
+	frame	data/chars/beyond/stuff/pedestal/pedball02.gif
+	@cmd	damage 90 "ANI_FOLLOW4"
+	frame	data/chars/beyond/stuff/pedestal/pedball03.gif
+	@cmd	damage 90 "ANI_FOLLOW4"
+	frame	data/chars/beyond/stuff/pedestal/pedball04.gif
+	@cmd	damage 90 "ANI_FOLLOW4"
+	frame	data/chars/beyond/stuff/pedestal/pedball05.gif
+
+#-------------kill--------spawn--pedest---far--------------
+		
+anim	follow4
+	loop	1
+	delay	7
+	offset	77 138
+	bbox	0 0 0 0
+	platform	1 1 1 1 1 1 1 1
+	sound	data/sounds/glass.wav
+	frame	data/chars/beyond/stuff/pedestal/pedball06.gif
+	@cmd	spawn06 "pedest" 4240 490 705 "ANI_FOLLOW4"
+	frame	data/chars/beyond/stuff/pedestal/pedball07.gif
+	frame	data/chars/beyond/stuff/pedestal/pedball08.gif
+	frame	data/chars/beyond/stuff/pedestal/pedball09.gif
+	frame	data/chars/beyond/stuff/pedestal/pedball10.gif
+	@cmd	suicide
+	frame	data/chars/beyond/stuff/pedestal/pedball10.gif
+
+
+
+#-----------//----end-------//--------------
+
+
+#-----------//-3st-spawn-far--------------
+
+
+anim	follow5
+	loop	1
+	delay	6
+	offset	77 138
+	bbox	55 20 45 55
+	platform	1 1 1 1 1 1 1 1
+	@cmd	damage 90 "ANI_FOLLOW6"
+	frame	data/chars/beyond/stuff/pedestal/pedball01.gif
+	@cmd	subwall 1
+	frame	data/chars/beyond/stuff/pedestal/pedball02.gif
+	@cmd	damage 90 "ANI_FOLLOW6"
+	frame	data/chars/beyond/stuff/pedestal/pedball03.gif
+	@cmd	damage 90 "ANI_FOLLOW6"
+	frame	data/chars/beyond/stuff/pedestal/pedball04.gif
+	@cmd	damage 90 "ANI_FOLLOW6"
+	frame	data/chars/beyond/stuff/pedestal/pedball05.gif
+
+#-------------kill---spawn--pedest--close-spawn-lgmist------------
+
+anim	follow6
+	loop	1
+	delay	7
+	offset	77 138
+	bbox	0 0 0 0
+	platform	1 1 1 1 1 1 1 1
+	sound	data/sounds/glass.wav
+	frame	data/chars/beyond/stuff/pedestal/pedball06.gif
+	@cmd	spawn06 "pedest" 390 10 705 "ANI_FOLLOW5"
+	frame	data/chars/beyond/stuff/pedestal/pedball07.gif
+	frame	data/chars/beyond/stuff/pedestal/pedball08.gif
+	frame	data/chars/beyond/stuff/pedestal/pedball09.gif
+	frame	data/chars/beyond/stuff/pedestal/pedball10.gif
+	frame	data/chars/beyond/stuff/pedestal/pedball10.gif
+	@cmd	spawn06 "lgmist" 550 10 725 "ANI_FOLLOW6"
+	frame	data/chars/beyond/stuff/pedestal/pedball10.gif
+	@cmd	spawn06 "lgmist3" 750 10 725 "ANI_FOLLOW6"
+	frame	data/chars/beyond/stuff/pedestal/pedball10.gif
+	@cmd	spawn06 "lgmist2" 950 10 725 "ANI_FOLLOW6"
+	frame	data/chars/beyond/stuff/pedestal/pedball10.gif
+	@cmd	spawn06 "lgmist2" 600 10 775 "ANI_FOLLOW6"
+	frame	data/chars/beyond/stuff/pedestal/pedball10.gif
+	@cmd	spawn06 "lgmist" 800 10 775 "ANI_FOLLOW6"
+	frame	data/chars/beyond/stuff/pedestal/pedball10.gif
+	@cmd	spawn06 "lgmist3" 1000 10 775 "ANI_FOLLOW6"
+	frame	data/chars/beyond/stuff/pedestal/pedball10.gif
+	@cmd	spawn06 "lgmist3" 500 10 810 "ANI_FOLLOW6"
+	frame	data/chars/beyond/stuff/pedestal/pedball10.gif
+	@cmd	spawn06 "lgmist2" 700 10 810 "ANI_FOLLOW6"
+	frame	data/chars/beyond/stuff/pedestal/pedball10.gif
+	@cmd	spawn06 "lgmist" 900 10 810 "ANI_FOLLOW6"
+	frame	data/chars/beyond/stuff/pedestal/pedball10.gif
+	frame	data/chars/beyond/stuff/pedestal/pedball10.gif
+	@cmd	suicide
+	frame	data/chars/beyond/stuff/pedestal/pedball10.gif
+
+
+#-----------//----end-------//--------------
+
+
+#-----------//-4st-spawn-close--------------
+
+anim	follow7
+	loop	1
+	delay	6
+	offset	77 138
+	bbox	55 20 45 55
+	platform	1 1 1 1 1 1 1 1
+	@cmd	damage 90 "ANI_FOLLOW8"
+	frame	data/chars/beyond/stuff/pedestal/pedball01.gif
+	@cmd	subwall 1
+	frame	data/chars/beyond/stuff/pedestal/pedball02.gif
+	@cmd	damage 90 "ANI_FOLLOW8"
+	frame	data/chars/beyond/stuff/pedestal/pedball03.gif
+	@cmd	damage 90 "ANI_FOLLOW8"
+	frame	data/chars/beyond/stuff/pedestal/pedball04.gif
+	@cmd	damage 90 "ANI_FOLLOW8"
+	frame	data/chars/beyond/stuff/pedestal/pedball05.gif
+
+
+#-------------kill--spawn--pedest--far--------------
+
+anim	follow8
+	loop	1
+	delay	7
+	offset	77 138
+	bbox	0 0 0 0
+	platform	1 1 1 1 1 1 1 1
+	sound	data/sounds/glass.wav
+	frame	data/chars/beyond/stuff/pedestal/pedball06.gif
+	@cmd	spawn06 "pedest" 4240 490 705 "ANI_FOLLOW6"
+	frame	data/chars/beyond/stuff/pedestal/pedball07.gif
+	frame	data/chars/beyond/stuff/pedestal/pedball08.gif
+	frame	data/chars/beyond/stuff/pedestal/pedball09.gif
+	frame	data/chars/beyond/stuff/pedestal/pedball10.gif
+	@cmd	suicide
+	frame	data/chars/beyond/stuff/pedestal/pedball10.gif
+
+
+
+
+
+#-----------//-5st-spawn-far--open-door----//------------
+
+anim	follow9
+	loop	1
+	delay	6
+	offset	77 138
+	bbox	55 20 45 55
+	platform	1 1 1 1 1 1 1 1
+	@cmd	damage 90 "ANI_FOLLOW10"
+	frame	data/chars/beyond/stuff/pedestal/pedball01.gif
+	@cmd	subwall 1
+	frame	data/chars/beyond/stuff/pedestal/pedball02.gif
+	@cmd	damage 90 "ANI_FOLLOW10"
+	frame	data/chars/beyond/stuff/pedestal/pedball03.gif
+	@cmd	damage 90 "ANI_FOLLOW10"
+	frame	data/chars/beyond/stuff/pedestal/pedball04.gif
+	@cmd	damage 90 "ANI_FOLLOW10"
+	frame	data/chars/beyond/stuff/pedestal/pedball05.gif
+
+
+#------------attack--npc--door--open--------------
+
+anim	follow10
+	loop	1
+	delay	7
+	offset	77 138
+	bbox	0 0 0 0
+	platform	1 1 1 1 1 1 1 1
+	hitfx	data/sounds/empty.wav
+	sound	data/sounds/glass.wav
+	frame	data/chars/beyond/stuff/pedestal/pedball06.gif
+	frame	data/chars/beyond/stuff/pedestal/pedball07.gif
+	frame	data/chars/beyond/stuff/pedestal/pedball08.gif
+	frame	data/chars/beyond/stuff/pedestal/pedball09.gif
+	delay	20
+	frame	data/chars/beyond/stuff/pedestal/pedball10.gif
+	attack	55 10 185 280 85 0 1 1 0 500
+	frame	data/chars/beyond/stuff/pedestal/pedball10.gif
+	frame	data/chars/beyond/stuff/pedestal/pedball10.gif
+	frame	data/chars/beyond/stuff/pedestal/pedball10.gif
+	frame	data/chars/beyond/stuff/pedestal/pedball10.gif
+	attack	0 0 0 0
+	frame	data/chars/beyond/stuff/pedestal/pedball10.gif
+	@cmd	suicide
+	frame	data/chars/beyond/stuff/pedestal/pedball10.gif
+
+
+
+
+
+#----------------------------------------------
+#----------------------------------------------
+#------------other-level-----------------------
+#----------------------------------------------
+#----------------------------------------------
+
+#-----------//-1st-spawn--------------
+		
+anim	attack1
+	loop	1
+	delay	6
+	offset	77 138
+	bbox	55 20 45 55
+	platform	1 1 1 1 1 1 1 1
+	@cmd	damage 90 "ANI_ATTACK2"
+	frame	data/chars/beyond/stuff/pedestal/pedball01.gif
+	@cmd	subwall 1
+	frame	data/chars/beyond/stuff/pedestal/pedball02.gif
+	@cmd	damage 90 "ANI_ATTACK2"
+	frame	data/chars/beyond/stuff/pedestal/pedball03.gif
+	@cmd	damage 90 "ANI_ATTACK2"
+	frame	data/chars/beyond/stuff/pedestal/pedball04.gif
+	@cmd	damage 90 "ANI_ATTACK2"
+	frame	data/chars/beyond/stuff/pedestal/pedball05.gif
+
+#-------------kill--------spawn--pedest---far--------------
+		
+anim	attack2
+	loop	1
+	delay	15
+	offset	77 138
+	bbox	0 0 0 0
+	platform	1 1 1 1 1 1 1 1
+	sound	data/sounds/glass.wav
+	frame	data/chars/beyond/stuff/pedestal/pedball06.gif
+	@cmd	spawn06 "pedest" 1060 1 290 "ANI_ATTACK3"
+	frame	data/chars/beyond/stuff/pedestal/pedball07.gif
+	frame	data/chars/beyond/stuff/pedestal/pedball08.gif
+	frame	data/chars/beyond/stuff/pedestal/pedball09.gif
+	frame	data/chars/beyond/stuff/pedestal/pedball10.gif
+	@cmd	suicide
+	frame	data/chars/beyond/stuff/pedestal/pedball10.gif
+
+
+#-----------//----end-------//--------------------------
+
+#-----------//----FAR-------//--------------------------
+
+anim	attack3
+	loop	1
+	delay	6
+	offset	77 138
+	bbox	55 20 45 55
+	platform	1 1 1 1 1 1 1 1
+	@cmd	damage 90 "ANI_ATTACK4"
+	frame	data/chars/beyond/stuff/pedestal/pedball01.gif
+	@cmd	subwall 1
+	frame	data/chars/beyond/stuff/pedestal/pedball02.gif
+	@cmd	damage 90 "ANI_ATTACK4"
+	frame	data/chars/beyond/stuff/pedestal/pedball03.gif
+	@cmd	damage 90 "ANI_ATTACK4"
+	frame	data/chars/beyond/stuff/pedestal/pedball04.gif
+	@cmd	damage 90 "ANI_ATTACK4"
+	frame	data/chars/beyond/stuff/pedestal/pedball05.gif
+
+#-------------kill--------spawn--pedest---middle--------------
+		
+anim	attack4
+	loop	1
+	delay	7
+	offset	77 138
+	bbox	0 0 0 0
+	platform	1 1 1 1 1 1 1 1
+	sound	data/sounds/glass.wav
+	frame	data/chars/beyond/stuff/pedestal/pedball06.gif
+	@cmd	spawn06 "pedest" 3990 1 290 "ANI_ATTACK4"
+	frame	data/chars/beyond/stuff/pedestal/pedball07.gif
+	frame	data/chars/beyond/stuff/pedestal/pedball08.gif
+	frame	data/chars/beyond/stuff/pedestal/pedball09.gif
+	frame	data/chars/beyond/stuff/pedestal/pedball10.gif
+	@cmd	suicide
+	frame	data/chars/beyond/stuff/pedestal/pedball10.gif
+
+
+#-----------//----end-------//--------------
+
+
+#-----------//-MIDDLE--------//--------------
+
+
+anim	attack5
+	loop	1
+	delay	6
+	offset	77 138
+	bbox	55 20 45 55
+	platform	1 1 1 1 1 1 1 1
+	@cmd	damage 90 "ANI_ATTACK6"
+	frame	data/chars/beyond/stuff/pedestal/pedball01.gif
+	@cmd	subwall 1
+	frame	data/chars/beyond/stuff/pedestal/pedball02.gif
+	@cmd	damage 90 "ANI_ATTACK6"
+	frame	data/chars/beyond/stuff/pedestal/pedball03.gif
+	@cmd	damage 90 "ANI_ATTACK6"
+	frame	data/chars/beyond/stuff/pedestal/pedball04.gif
+	@cmd	damage 90 "ANI_ATTACK6"
+	frame	data/chars/beyond/stuff/pedestal/pedball05.gif
+
+#-------------kill---spawn--pedest--far-------------
+
+anim	attack6
+	loop	1
+	delay	7
+	offset	77 138
+	bbox	0 0 0 0
+	platform	1 1 1 1 1 1 1 1
+	sound	data/sounds/glass.wav
+	frame	data/chars/beyond/stuff/pedestal/pedball06.gif
+	@cmd	spawn06 "pedest" 1060 1 290 "ANI_ATTACK5"
+	frame	data/chars/beyond/stuff/pedestal/pedball07.gif
+	frame	data/chars/beyond/stuff/pedestal/pedball08.gif
+	frame	data/chars/beyond/stuff/pedestal/pedball09.gif
+	frame	data/chars/beyond/stuff/pedestal/pedball10.gif
+	frame	data/chars/beyond/stuff/pedestal/pedball10.gif
+	@cmd	suicide
+	frame	data/chars/beyond/stuff/pedestal/pedball10.gif
+
+
+#-----------//----end-------//--------------
+
+
+#-----------//---FAR---//--------------
+
+anim	attack7
+	loop	1
+	delay	6
+	offset	77 138
+	bbox	55 20 45 55
+	platform	1 1 1 1 1 1 1 1
+	@cmd	damage 90 "ANI_ATTACK8"
+	frame	data/chars/beyond/stuff/pedestal/pedball01.gif
+	@cmd	subwall 1
+	frame	data/chars/beyond/stuff/pedestal/pedball02.gif
+	@cmd	damage 90 "ANI_ATTACK8"
+	frame	data/chars/beyond/stuff/pedestal/pedball03.gif
+	@cmd	damage 90 "ANI_ATTACK8"
+	frame	data/chars/beyond/stuff/pedestal/pedball04.gif
+	@cmd	damage 90 "ANI_ATTACK8"
+	frame	data/chars/beyond/stuff/pedestal/pedball05.gif
+
+
+#-------------kill--spawn--pedest--close--------------
+
+anim	attack8
+	loop	1
+	delay	7
+	offset	77 138
+	bbox	0 0 0 0
+	platform	1 1 1 1 1 1 1 1
+	sound	data/sounds/glass.wav
+	frame	data/chars/beyond/stuff/pedestal/pedball06.gif
+	@cmd	spawn06 "pedest" 5890 1 290 "ANI_ATTACK6"
+	frame	data/chars/beyond/stuff/pedestal/pedball07.gif
+	frame	data/chars/beyond/stuff/pedestal/pedball08.gif
+	frame	data/chars/beyond/stuff/pedestal/pedball09.gif
+	frame	data/chars/beyond/stuff/pedestal/pedball10.gif
+	@cmd	suicide
+	frame	data/chars/beyond/stuff/pedestal/pedball10.gif
+
+
+#-----------//-CLOSE----//------------
+
+anim	attack9
+	loop	1
+	delay	6
+	offset	77 138
+	bbox	55 20 45 55
+	platform	1 1 1 1 1 1 1 1
+	@cmd	damage 90 "ANI_ATTACK10"
+	frame	data/chars/beyond/stuff/pedestal/pedball01.gif
+	@cmd	subwall 1
+	frame	data/chars/beyond/stuff/pedestal/pedball02.gif
+	@cmd	damage 90 "ANI_ATTACK10"
+	frame	data/chars/beyond/stuff/pedestal/pedball03.gif
+	@cmd	damage 90 "ANI_ATTACK10"
+	frame	data/chars/beyond/stuff/pedestal/pedball04.gif
+	@cmd	damage 90 "ANI_ATTACK10"
+	frame	data/chars/beyond/stuff/pedestal/pedball05.gif
+
+
+#------------attack--npc--door--open--------------
+
+anim	attack10
+	loop	1
+	delay	7
+	offset	77 138
+	bbox	0 0 0 0
+	platform	1 1 1 1 1 1 1 1
+	hitfx	data/sounds/empty.wav
+	sound	data/sounds/glass.wav
+	frame	data/chars/beyond/stuff/pedestal/pedball06.gif
+	frame	data/chars/beyond/stuff/pedestal/pedball07.gif
+	frame	data/chars/beyond/stuff/pedestal/pedball08.gif
+	frame	data/chars/beyond/stuff/pedestal/pedball09.gif
+	delay	20
+	frame	data/chars/beyond/stuff/pedestal/pedball10.gif
+	attack	55 10 185 280 85 0 1 1 0 500
+	frame	data/chars/beyond/stuff/pedestal/pedball10.gif
+	frame	data/chars/beyond/stuff/pedestal/pedball10.gif
+	frame	data/chars/beyond/stuff/pedestal/pedball10.gif
+	frame	data/chars/beyond/stuff/pedestal/pedball10.gif
+	attack	0 0 0 0
+	frame	data/chars/beyond/stuff/pedestal/pedball10.gif
+	@cmd	suicide
+	frame	data/chars/beyond/stuff/pedestal/pedball10.gif
+
+
+#----------------------------------------------
+
+#---------------idle-death-open---------------------------
+		
+anim	idle
+	loop	1
+	delay	6
+	offset	77 138
+	bbox	55 20 45 55
+	platform	1 1 1 1 1 1 1 1
+	frame	data/chars/beyond/stuff/pedestal/pedball01.gif
+	frame	data/chars/beyond/stuff/pedestal/pedball02.gif
+	frame	data/chars/beyond/stuff/pedestal/pedball03.gif
+	frame	data/chars/beyond/stuff/pedestal/pedball04.gif
+	frame	data/chars/beyond/stuff/pedestal/pedball05.gif
+
+
+anim	death
+	loop	0
+	delay	7
+	offset	77 138
+	bbox	0 0 0 0
+	platform	1 1 1 1 1 1 1 1
+	hitfx	data/sounds/empty.wav
+	sound	data/sounds/glass.wav
+	frame	data/chars/beyond/stuff/pedestal/pedball06.gif
+	frame	data/chars/beyond/stuff/pedestal/pedball07.gif
+	frame	data/chars/beyond/stuff/pedestal/pedball08.gif
+	frame	data/chars/beyond/stuff/pedestal/pedball09.gif
+	delay	20
+	frame	data/chars/beyond/stuff/pedestal/pedball10.gif
+	attack	55 10 185 280 85 0 1 1 0 500
+	frame	data/chars/beyond/stuff/pedestal/pedball10.gif
+	frame	data/chars/beyond/stuff/pedestal/pedball10.gif
+	frame	data/chars/beyond/stuff/pedestal/pedball10.gif
+	frame	data/chars/beyond/stuff/pedestal/pedball10.gif
+	attack	0 0 0 0
+	frame	data/chars/beyond/stuff/pedestal/pedball10.gif
+	@cmd	suicide
+	frame	data/chars/beyond/stuff/pedestal/pedball10.gif
+
+		
+anim	spawn
+	loop	0
+	delay	9
+	offset	77 138
+	bbox	0 0 0 0
+	platform	1 1 1 1 1 1 1 1
+	frame	data/chars/beyond/stuff/pedestal/pedball15.gif
+	frame	data/chars/beyond/stuff/pedestal/pedball14.gif
+	frame	data/chars/beyond/stuff/pedestal/pedball13.gif
+	frame	data/chars/beyond/stuff/pedestal/pedball12.gif
+	frame	data/chars/beyond/stuff/pedestal/pedball11.gif
+		
+#|edited by openBor Stats v 0.53
+		

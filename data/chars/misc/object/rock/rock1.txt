@@ -1,0 +1,42 @@
+name	 rock1
+health	 90
+nolife  1
+noatflash 1
+flash     flash7
+type	 obstacle
+shadow   6
+animationscript data/scripts/escript.c
+
+load 	rock2
+load 	rock3
+
+
+
+
+
+alternatepal	data/chars/misc/object/rock/map1.gif
+alternatepal	data/chars/misc/object/rock/map2.gif
+
+
+anim	fall
+	loop	0
+	delay	15
+	offset	42 95
+	sound	data/sounds/fall02.wav
+	@cmd	spawn01 "rock2" -70 450 1
+	frame	data/chars/misc/object/rock/freze3.gif
+	@cmd	spawn01 "rock3" 0 390 1
+	frame	data/chars/misc/object/rock/freze2.gif
+	@cmd	spawn01 "rock2" 70 400 1
+	frame	data/chars/misc/object/rock/freze1.gif
+		
+anim	idle
+	loop	0
+	delay	5
+	offset	42 95
+	bbox	5 0 75 98
+	platform	5 105 0 0 80 80 30 90
+	frame	data/chars/misc/object/rock/freze4.gif
+		
+#|edited by openBor Stats v 0.53
+		

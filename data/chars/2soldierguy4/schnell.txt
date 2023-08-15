@@ -1,0 +1,691 @@
+name          schnell
+type          enemy
+health        350
+speed         11
+jumpheight    4
+jumpspeed     28
+throw         5 2
+throwdamage   18
+shadow        0
+noquake       1
+nolife        1
+falldie	      2
+nodieblink    1
+gfxshadow     1
+dust            dust
+projectilehit enemy obstacle
+diesound      data/sounds/die2.wav
+animationscript data/scripts/escript.c
+
+
+load	      bullet1
+load	      bullet2
+
+alternatepal       data/chars/2soldierguy4/map1.gif
+alternatepal       data/chars/2soldierguy4/map2.gif
+alternatepal       data/chars/2soldierguy4/map3.gif
+alternatepal       data/chars/2soldierguy4/map4.gif
+
+
+
+
+@script
+   void self = getlocalvar("self");
+   void anim = getentityproperty(self,"animationID");
+   void hp = getentityproperty(self,"health");
+   int x = getentityproperty(self, "x");
+   int a = getentityproperty(self, "a");
+   int z = getentityproperty(self, "z");
+   int Dir = getentityproperty(self, "direction");
+   int Sx = 10;  //----distance from platform
+   int jp = 1;   //----jump velocity
+
+
+if(anim != openborconstant("ANI_DIE") || anim != openborconstant("ANI_FALL") || anim != openborconstant("ANI_RISE") || anim != openborconstant("ANI_JUMP"))
+{
+	float Hy;
+	if(Dir==0)
+	{
+	Sx = -10;
+	jp = -1;
+	}
+
+	Hy = checkplatformbelow(x+Sx,z, 70);
+
+	if(Hy > 1 && a <= 7 && hp > 0)
+	{
+	performattack(self,openborconstant("ANI_JUMP"));
+	changeentityproperty(self, "velocity", 0, 0, 0);
+	tossentity(self, 4, jp, 0);
+	}
+}
+@end_script
+
+
+
+
+
+
+anim	attack1
+	range	100 175
+	loop	0
+	delay	12
+	offset	101 190
+	bbox	85 96 39 91
+	followanim	1
+	followcond	1
+	hitfx	data/sounds/beat3.wav
+	frame	data/chars/2soldierguy4/a100.gif
+	delay	3
+	move	6
+	frame	data/chars/2soldierguy4/a101.gif
+	frame	data/chars/2soldierguy4/a101.gif
+	frame	data/chars/2soldierguy4/a101.gif
+	frame	data/chars/2soldierguy4/a102.gif
+	frame	data/chars/2soldierguy4/a102.gif
+	frame	data/chars/2soldierguy4/a102.gif
+	attack3	95 40 100 95 8 0 0 0 20 0
+	frame	data/chars/2soldierguy4/a103.gif
+	frame	data/chars/2soldierguy4/a103.gif
+	frame	data/chars/2soldierguy4/a103.gif
+	frame	data/chars/2soldierguy4/a104.gif
+	frame	data/chars/2soldierguy4/a104.gif
+	frame	data/chars/2soldierguy4/a104.gif
+	attack3	0 0 0 0
+	move	3
+	frame	data/chars/2soldierguy4/a105.gif
+	frame	data/chars/2soldierguy4/a105.gif
+	frame	data/chars/2soldierguy4/a105.gif
+	move	0
+	delay	15
+	frame	data/chars/2soldierguy4/a106.gif
+		
+anim	attack2
+	range	200 400
+	loop	0
+	delay	12
+	offset	101 190
+	bbox	85 96 39 91
+	sound	data/sounds/grab.wav
+	frame	data/chars/2soldierguy4/b01.gif
+	frame	data/chars/2soldierguy4/b02.gif
+	frame	data/chars/2soldierguy4/b03.gif
+	frame	data/chars/2soldierguy4/b04.gif
+	frame	data/chars/2soldierguy4/b05.gif
+	frame	data/chars/2soldierguy4/b06.gif
+	delay	5
+	@cmd	projectile 1 "bullet1" 75 1 95
+	sound	data/sounds/gun6.wav
+	frame	data/chars/2soldierguy4/b08.gif
+	frame	data/chars/2soldierguy4/b09.gif
+	frame	data/chars/2soldierguy4/b10.gif
+	frame	data/chars/2soldierguy4/b07.gif
+	@cmd	projectile 1 "bullet2" 75 1 95
+	frame	data/chars/2soldierguy4/b08.gif
+	frame	data/chars/2soldierguy4/b09.gif
+	frame	data/chars/2soldierguy4/b10.gif
+	frame	data/chars/2soldierguy4/b07.gif
+	@cmd	projectile 1 "bullet1" 75 1 95
+	sound	data/sounds/gun6.wav
+	frame	data/chars/2soldierguy4/b08.gif
+	frame	data/chars/2soldierguy4/b09.gif
+	frame	data/chars/2soldierguy4/b10.gif
+	frame	data/chars/2soldierguy4/b07.gif
+	@cmd	projectile 1 "bullet2" 75 1 95
+	frame	data/chars/2soldierguy4/b08.gif
+	frame	data/chars/2soldierguy4/b09.gif
+	frame	data/chars/2soldierguy4/b10.gif
+	frame	data/chars/2soldierguy4/b07.gif
+	@cmd	projectile 1 "bullet1" 75 1 95
+	sound	data/sounds/gun6.wav
+	frame	data/chars/2soldierguy4/b08.gif
+	frame	data/chars/2soldierguy4/b09.gif
+	frame	data/chars/2soldierguy4/b10.gif
+	frame	data/chars/2soldierguy4/b07.gif
+	@cmd	projectile 1 "bullet2" 75 1 95
+	frame	data/chars/2soldierguy4/b08.gif
+	frame	data/chars/2soldierguy4/b09.gif
+	frame	data/chars/2soldierguy4/b10.gif
+	frame	data/chars/2soldierguy4/b07.gif
+	@cmd	projectile 1 "bullet1" 75 1 95
+	sound	data/sounds/gun6.wav
+	frame	data/chars/2soldierguy4/b08.gif
+	frame	data/chars/2soldierguy4/b09.gif
+	frame	data/chars/2soldierguy4/b10.gif
+	frame	data/chars/2soldierguy4/b07.gif
+	@cmd	projectile 1 "bullet2" 75 1 95
+	frame	data/chars/2soldierguy4/b08.gif
+	frame	data/chars/2soldierguy4/b09.gif
+	frame	data/chars/2soldierguy4/b10.gif
+	frame	data/chars/2soldierguy4/b07.gif
+	@cmd	projectile 1 "bullet1" 75 1 95
+	sound	data/sounds/gun6.wav
+	frame	data/chars/2soldierguy4/b08.gif
+	frame	data/chars/2soldierguy4/b09.gif
+	frame	data/chars/2soldierguy4/b10.gif
+	frame	data/chars/2soldierguy4/b07.gif
+	@cmd	projectile 1 "bullet2" 75 1 95
+	frame	data/chars/2soldierguy4/b08.gif
+	frame	data/chars/2soldierguy4/b09.gif
+	frame	data/chars/2soldierguy4/b10.gif
+	frame	data/chars/2soldierguy4/b07.gif
+	@cmd	projectile 1 "bullet1" 75 1 95
+	sound	data/sounds/gun6.wav
+	frame	data/chars/2soldierguy4/b08.gif
+	frame	data/chars/2soldierguy4/b09.gif
+	frame	data/chars/2soldierguy4/b10.gif
+	frame	data/chars/2soldierguy4/b07.gif
+	delay	15
+	frame	data/chars/2soldierguy4/b07.gif
+	frame	data/chars/2soldierguy4/b06.gif
+	frame	data/chars/2soldierguy4/b05.gif
+	frame	data/chars/2soldierguy4/b04.gif
+	frame	data/chars/2soldierguy4/b03.gif
+		
+anim	attack4
+	range	0 80
+	loop	0
+	delay	14
+	offset	101 190
+	bbox	85 96 39 91
+	followanim	2
+	followcond	1
+	hitfx	data/sounds/grab.wav
+	attack	95 95 75 35 0 0 1 1 20 0
+	frame	data/chars/2soldierguy4/a100.gif
+	frame	data/chars/2soldierguy4/grab01.gif
+	attack	0 0 0 0
+	frame	data/chars/2soldierguy4/grab01.gif
+		
+anim	burn
+	loop	0
+	delay	25
+	offset	101 190
+	bbox	0 0 0 0
+	landframe	3
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 200_50_0
+	@cmd	spawnbind "burn1" 1 1 1
+	@cmd	spawnbind "burn2" 1 1 1
+	@cmd	spawnbind "burn3" 1 1 1
+	attack	78 98 30 45 5 1 0 0 13 0
+	frame	data/chars/2soldierguy4/fall1.gif
+	delay	15
+	attack	64 130 50 25 5 1 0 0 13 0
+	frame	data/chars/2soldierguy4/fall2.gif
+	delay	500
+	frame	data/chars/2soldierguy4/fall3.gif
+	attack	0 0 0 0
+	bbox	58 175 85 15
+	delay	15
+	frame	data/chars/2soldierguy4/fall4.gif
+	frame	data/chars/2soldierguy4/fall5.gif
+	frame	data/chars/2soldierguy4/fall4.gif
+		
+anim	death
+	loop	0
+	delay	30
+	offset	101 190
+	bbox	0 0 0 0
+	frame	data/chars/2soldierguy4/fall4.gif
+		
+anim	fall
+	loop	0
+	delay	25
+	offset	101 190
+	bbox	0 0 0 0
+	landframe	3
+	attack	78 98 30 45 5 1 0 0 13 0
+	frame	data/chars/2soldierguy4/fall1.gif
+	delay	15
+	attack	64 130 50 25 5 1 0 0 13 0
+	frame	data/chars/2soldierguy4/fall2.gif
+	delay	500
+	frame	data/chars/2soldierguy4/fall3.gif
+	attack	0 0 0 0
+	bbox	58 175 85 15
+	delay	15
+	frame	data/chars/2soldierguy4/fall4.gif
+	frame	data/chars/2soldierguy4/fall5.gif
+	frame	data/chars/2soldierguy4/fall4.gif
+		
+anim	fall10
+	loop	0
+	delay	10
+	offset	101 190
+	bbox	80 80 50 75
+	landframe	4
+	attack	85 88 30 50 5 1 0 0 13 0
+	frame	data/chars/2soldierguy4/pain6.gif
+	delay	40
+	frame	data/chars/2soldierguy4/pain7.gif
+	delay	30
+	bbox	71 125 63 30
+	attack	64 125 45 25 5 1 0 0 13 0
+	frame	data/chars/2soldierguy4/fall2.gif
+	delay	300
+	bbox	77 130 67 35
+	attack	0 0 0 0
+	frame	data/chars/2soldierguy4/fall3.gif
+	bbox	58 167 85 15
+	delay	15
+	frame	data/chars/2soldierguy4/fall4.gif
+	frame	data/chars/2soldierguy4/fall5.gif
+	frame	data/chars/2soldierguy4/fall4.gif
+		
+anim	fall11
+	loop	0
+	delay	20
+	offset	101 190
+	bbox	61 185 90 5	
+	frame	data/chars/2soldierguy4/pain12.gif
+	delay	35
+	frame	data/chars/2soldierguy4/fall4.gif
+		
+anim	fall2
+	loop	0
+	delay	30
+	offset	101 190
+	bbox	0 0 0 0
+	landframe	3
+	attack	85 90 35 45 5 1 0 0 13 0
+	frame	data/chars/2soldierguy4/pain7.gif
+	delay	10
+	attack	64 125 55 25 5 1 0 0 13 0
+	frame	data/chars/2soldierguy4/fall2.gif
+	attack	0 0 0 0
+	delay	300
+	frame	data/chars/2soldierguy4/fall3.gif
+	delay	15
+	frame	data/chars/2soldierguy4/fall4.gif
+	frame	data/chars/2soldierguy4/fall5.gif
+	frame	data/chars/2soldierguy4/fall4.gif
+		
+anim	fall4
+	loop	0
+	delay	6
+	offset	101 190
+	bbox	0 0 0 0
+	jumpframe	0 1.2 1.5
+	frame	data/chars/2soldierguy4/pain8.gif
+	frame	data/chars/2soldierguy4/pain9.gif
+	frame	data/chars/2soldierguy4/pain10.gif
+	@cmd	leaper 0 0.2 0
+	frame	data/chars/2soldierguy4/pain11.gif
+	frame	data/chars/2soldierguy4/fall4.gif
+	frame	data/chars/2soldierguy4/fall5.gif
+	bbox	58 175 95 15
+	frame	data/chars/2soldierguy4/fall4.gif
+		
+anim	fall7
+	delay	1000
+	offset	105 130
+	frame	data/chars/2soldierguy4/slamck0.gif
+	offset	100 110
+	frame	data/chars/2soldierguy4/slamck1.gif
+	offset	106 130
+	frame	data/chars/2soldierguy4/slamck2.gif
+	offset	115 125
+	frame	data/chars/2soldierguy4/slamck3.gif
+	offset	125 125
+	frame	data/chars/2soldierguy4/slamck4.gif
+	offset	108 122
+	frame	data/chars/2soldierguy4/slamck5.gif
+	offset	106 155
+	frame	data/chars/2soldierguy4/slamck6.gif
+	offset	125 140
+	frame	data/chars/2soldierguy4/slamck7.gif
+	offset	120 105
+	frame	data/chars/2soldierguy4/slamck8.gif
+	offset	100 130
+	frame	data/chars/2soldierguy4/slamck9.gif
+	offset	105 130
+	frame	data/chars/2soldierguy4/slamck10.gif
+	offset	105 130
+	frame	data/chars/2soldierguy4/slamck11.gif
+	offset	115 125
+	frame	data/chars/2soldierguy4/slamck12.gif
+	offset	115 125
+	frame	data/chars/2soldierguy4/slamck13.gif
+	offset	115 125
+	frame	data/chars/2soldierguy4/slamck14.gif
+	offset	115 125
+	frame	data/chars/2soldierguy4/slamck15.gif
+		
+anim	fall9
+	loop	0
+	delay	10
+	offset	101 185
+	bbox	0 0 0 0
+	quakeframe	2 5 5
+	landframe	2 dust
+	attack	75 105 35 45 5 1 0 0 13 0
+	frame	data/chars/2soldierguy4/fall1.gif
+	delay	350
+	offset	100 180
+	attack	75 125 45 35 5 1 0 0 13 0
+	frame	data/chars/2soldierguy4/fall2.gif
+	delay	2
+	offset	101 175
+	move	-4
+	frame	data/chars/2soldierguy4/fall3.gif
+	frame	data/chars/2soldierguy4/fall3.gif
+	attack	0 0 0 0
+	frame	data/chars/2soldierguy4/fall3.gif
+	loop	0
+	offset	101 190
+	move	-3
+	frame	data/chars/2soldierguy4/fall4.gif
+	frame	data/chars/2soldierguy4/fall4.gif
+	frame	data/chars/2soldierguy4/fall4.gif
+	@cmd	looper 6 4
+	move	-2
+	frame	data/chars/2soldierguy4/fall5.gif
+	frame	data/chars/2soldierguy4/fall5.gif
+	frame	data/chars/2soldierguy4/fall5.gif
+	loop	0
+	delay	15
+	move	0
+	bbox	58 175 100 15
+	frame	data/chars/2soldierguy4/fall4.gif
+		
+anim	follow1
+	loop	0
+	delay	3
+	offset	101 190
+	bbox	85 96 39 91
+	hitfx	data/sounds/beat5.wav
+	move	6
+	frame	data/chars/2soldierguy4/a103.gif
+	frame	data/chars/2soldierguy4/a103.gif
+	frame	data/chars/2soldierguy4/a103.gif
+	frame	data/chars/2soldierguy4/a104.gif
+	frame	data/chars/2soldierguy4/a104.gif
+	frame	data/chars/2soldierguy4/a104.gif
+	move	0
+	delay	12
+	frame	data/chars/2soldierguy4/a105.gif
+	frame	data/chars/2soldierguy4/a107.gif
+	frame	data/chars/2soldierguy4/a108.gif
+	delay	3
+	move	6
+	frame	data/chars/2soldierguy4/a109.gif
+	frame	data/chars/2soldierguy4/a109.gif
+	frame	data/chars/2soldierguy4/a109.gif
+	attack5	95 55 105 75 10 1 0 0 25 0
+	dropv	5 1
+	frame	data/chars/2soldierguy4/a110.gif
+	frame	data/chars/2soldierguy4/a110.gif
+	frame	data/chars/2soldierguy4/a110.gif
+	frame	data/chars/2soldierguy4/a111.gif
+	frame	data/chars/2soldierguy4/a111.gif
+	frame	data/chars/2soldierguy4/a111.gif
+	attack5	0 0 0 0
+	move	0
+	delay	45
+	frame	data/chars/2soldierguy4/a112.gif
+		
+anim	follow2
+	loop	0
+	delay	30
+	offset	101 190
+	bbox	0 0 0 0
+	jumpframe	2 2 0
+	landframe	4
+	quakeframe	5 3 3
+	@cmd	slamstart2
+	@cmd	position 7 40 15 -1 -1
+	frame	data/chars/2soldierguy4/grab01.gif
+	delay	17
+	@cmd	spawngrab "grab1" 200 200 450 30 2 8
+	@cmd	position 1 15 50 -1 1
+	frame	data/chars/2soldierguy4/grab02.gif
+	@cmd	position 14 -20 70 -1 1
+	frame	data/chars/2soldierguy4/grab03.gif
+	delay	300
+	@cmd	position 19 -15 20 -1 -1
+	frame	data/chars/2soldierguy4/grab04.gif
+	delay	16
+	@cmd	position 20 0 8 1 -1
+	frame	data/chars/2soldierguy4/grab05.gif
+	@cmd	spawn01 "dust" 1 1 2
+	@cmd	hurt 15
+	sound	data/sounds/fall.wav
+	delay	15
+	@cmd	position 18 -10 5 1 1
+	frame	data/chars/2soldierguy4/grab06.gif
+	@cmd	position 10 -10 8 1 1
+	frame	data/chars/2soldierguy4/grab06.gif
+	delay	17
+	@cmd	position 10 -10 8 1 1
+	frame	data/chars/2soldierguy4/grab07.gif
+	@cmd	position 9 -10 8 1 1
+	frame	data/chars/2soldierguy4/grab08.gif
+	delay	45
+	@cmd	position 9 -10 8 1 1
+	frame	data/chars/2soldierguy4/grab09.gif
+	delay	17
+	@cmd	position 10 -10 8 1 1
+	frame	data/chars/2soldierguy4/grab10.gif
+	@cmd	killgun 8 0
+	@cmd	position 9 -10 8 1 1
+	frame	data/chars/2soldierguy4/grab11.gif
+	@cmd	spawn01 "flashscreen1" 0 10 1
+	sound	data/sounds/beat1.wav
+	@cmd	position 9 -10 8 1 1
+	frame	data/chars/2soldierguy4/grab12.gif
+	attack	70 115 75 70 5 1 1 1 35 15
+	dropv	3 3 1
+	@cmd	depost 0
+	@cmd	finish 30 1 0 5 0.3 1
+	delay	65
+	frame	data/chars/2soldierguy4/grab12.gif
+	delay	15
+	frame	data/chars/2soldierguy4/rise6.gif
+	frame	data/chars/2soldierguy4/rise7.gif
+		
+anim	grabbed
+	loop	0
+	delay	10
+	offset	101 190
+	bbox	85 96 39 91
+	frame	data/chars/2soldierguy4/grabbed.gif
+		
+anim	idle
+	loop	1
+	delay	9
+	offset	101 190
+	bbox	85 96 39 91
+	@cmd	clearL
+	frame	data/chars/2soldierguy4/idle01.gif
+	frame	data/chars/2soldierguy4/idle02.gif
+	frame	data/chars/2soldierguy4/idle03.gif
+	frame	data/chars/2soldierguy4/idle04.gif
+		
+anim	jump
+	range	30 300
+	loop	0
+	delay	20
+	offset	101 190
+	bbox	85 96 39 91
+	frame	data/chars/2soldierguy4/rise6.gif
+	delay	15
+	frame	data/chars/2soldierguy4/rise5.gif
+	frame	data/chars/2soldierguy4/rise5.gif
+	frame	data/chars/2soldierguy4/rise5.gif
+		
+anim	jumpland
+	loop	0
+	delay	15
+	offset	101 190
+	bbox	85 96 39 91
+	frame	data/chars/2soldierguy4/rise7.gif
+	delay	40
+	frame	data/chars/2soldierguy4/rise6.gif
+	delay	12
+	frame	data/chars/2soldierguy4/rise7.gif
+
+
+anim	follow15
+	loop	0
+	delay	12
+	offset	101 190
+	bbox	85 96 39 91
+	jumpframe 0 0.2 0
+	landframe 2 dust
+	frame	data/chars/2soldierguy4/rise5.gif
+	delay	500
+	frame	data/chars/2soldierguy4/rise5.gif
+	delay	14
+	frame	data/chars/2soldierguy4/rise7.gif
+	delay	40
+	frame	data/chars/2soldierguy4/rise6.gif
+	delay	12
+	frame	data/chars/2soldierguy4/rise7.gif
+
+
+		
+anim	pain
+	loop	0
+	delay	3
+	offset	104 190
+	bbox	85 96 39 91
+	frame	data/chars/2soldierguy4/pain0.gif
+	offset	101 190
+	frame	data/chars/2soldierguy4/pain1.gif
+	offset	106 190
+	frame	data/chars/2soldierguy4/pain1.gif
+	delay	40
+	offset	101 190
+	frame	data/chars/2soldierguy4/pain1.gif
+	
+		
+anim	pain2
+	loop	0
+	delay	3
+	offset	104 190
+	bbox	85 96 39 91
+	frame	data/chars/2soldierguy4/pain0.gif
+	offset	101 190
+	frame	data/chars/2soldierguy4/pain2.gif
+	offset	106 190
+	frame	data/chars/2soldierguy4/pain2.gif
+	delay	40
+	offset	101 190
+	frame	data/chars/2soldierguy4/pain2.gif
+		
+anim	pain3
+	loop	0
+	delay	1
+	offset	101 190
+	bbox	0 0 0 0
+	jumpframe	1 2 -1 0
+	frame	data/chars/2soldierguy4/pain1.gif
+	delay	25
+	frame	data/chars/2soldierguy4/fall2.gif
+	delay	12
+	frame	data/chars/2soldierguy4/fall3.gif
+	delay	4
+	bbox	71 165 67 30
+	frame	data/chars/2soldierguy4/fall4.gif
+	frame	data/chars/2soldierguy4/fall5.gif
+	frame	data/chars/2soldierguy4/fall4.gif
+	frame	data/chars/2soldierguy4/fall5.gif
+	delay	15
+	bbox	0 0 0 0
+	frame	data/chars/2soldierguy4/fall4.gif
+	delay	10
+	frame	data/chars/2soldierguy4/rise1.gif
+	frame	data/chars/2soldierguy4/rise2.gif
+	frame	data/chars/2soldierguy4/rise3.gif
+		
+anim	pain5
+	loop	0
+	delay	23
+	offset	101 190
+	bbox	85 96 39 91
+	frame	data/chars/2soldierguy4/pain1.gif
+		
+anim	pain6
+	loop	0
+	delay	23
+	offset	101 190
+	bbox	85 96 39 91
+	frame	data/chars/2soldierguy4/pain2.gif
+		
+anim	pain8
+	loop	0
+	delay	2
+	offset	101 190
+	bbox	85 96 39 91
+	move	-6
+	frame	data/chars/2soldierguy4/pain1.gif
+	frame	data/chars/2soldierguy4/pain1.gif
+	frame	data/chars/2soldierguy4/pain1.gif
+	frame	data/chars/2soldierguy4/pain2.gif
+	frame	data/chars/2soldierguy4/pain2.gif
+	frame	data/chars/2soldierguy4/pain2.gif
+	move	-3
+	frame	data/chars/2soldierguy4/pain2.gif
+	frame	data/chars/2soldierguy4/pain2.gif
+	move	-1
+	frame	data/chars/2soldierguy4/pain2.gif
+	delay	35
+	frame	data/chars/2soldierguy4/pain2.gif
+		
+anim	pain9
+	loop	0
+	delay	15
+	offset	101 190
+	bbox	85 96 39 91
+	frame	data/chars/2soldierguy4/pain1.gif
+	delay	150
+	frame	data/chars/2soldierguy4/pain2.gif
+		
+anim	rise
+	loop	0
+	delay	12
+	offset	101 190
+	bbox	0 0 0 0
+	frame	data/chars/2soldierguy4/rise1.gif
+	attack	95 110 80 40 8 1 0 0 20 0
+	frame	data/chars/2soldierguy4/rise2.gif
+	frame	data/chars/2soldierguy4/rise3.gif
+	attack	0 0 0 0
+	frame	data/chars/2soldierguy4/rise4.gif
+	frame	data/chars/2soldierguy4/rise5.gif
+	frame	data/chars/2soldierguy4/rise6.gif
+	frame	data/chars/2soldierguy4/rise7.gif
+		
+anim	spawn
+	loop	0
+	delay	11
+	offset	101 190
+	bbox	85 96 39 91
+	frame	data/chars/2soldierguy4/idle01.gif
+	frame	data/chars/2soldierguy4/idle02.gif
+	frame	data/chars/2soldierguy4/idle03.gif
+	frame	data/chars/2soldierguy4/idle04.gif
+	frame	data/chars/2soldierguy4/idle01.gif
+	frame	data/chars/2soldierguy4/idle02.gif
+	frame	data/chars/2soldierguy4/idle03.gif
+	frame	data/chars/2soldierguy4/idle04.gif
+	frame	data/chars/2soldierguy4/idle01.gif
+	frame	data/chars/2soldierguy4/idle02.gif
+	frame	data/chars/2soldierguy4/idle03.gif
+	frame	data/chars/2soldierguy4/idle04.gif
+		
+anim	walk
+	loop	1
+	delay	8
+	offset	101 190
+	bbox	85 96 39 91
+	frame	data/chars/2soldierguy4/wk01.gif
+	frame	data/chars/2soldierguy4/wk02.gif
+	frame	data/chars/2soldierguy4/wk03.gif
+	frame	data/chars/2soldierguy4/wk04.gif
+	frame	data/chars/2soldierguy4/wk05.gif
+	frame	data/chars/2soldierguy4/wk06.gif
+		
+#|edited by openBor Stats v 0.53
+		

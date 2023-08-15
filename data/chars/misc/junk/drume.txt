@@ -1,0 +1,86 @@
+name	 Drume
+health	 20
+type	 obstacle
+nodrop   1
+falldie	 1
+nodieblink 2
+nolife  1
+noatflash 1
+flash     Flash
+candamage player enemy obstacle
+
+
+animationscript data/scripts/escript.c
+
+alternatepal       data/chars/misc/junk/bdrumap1.gif
+alternatepal       data/chars/misc/junk/bdrumap2.gif
+alternatepal       data/chars/misc/junk/bdrumap3.gif
+
+
+load	explosion1
+load	explosion2
+
+
+anim	death
+	loop	0
+	delay	1
+	offset	36 103
+	jumpframe	1 1 0 0
+	quakeframe	13 5 5
+	frame	data/chars/misc/junk/drum01.gif
+	delay	15
+	sound	data/sounds/klunk.wav
+	frame	data/chars/misc/junk/drum03.gif
+	frame	data/chars/misc/junk/drum01.gif
+	frame	data/chars/misc/junk/drum03.gif
+	frame	data/chars/misc/junk/drum01.gif
+	frame	data/chars/misc/junk/drum03.gif
+	frame	data/chars/misc/junk/drum01.gif
+	delay	8
+	frame	data/chars/misc/junk/drum03.gif
+	frame	data/chars/misc/junk/drum01.gif
+	frame	data/chars/misc/junk/drum03.gif
+	frame	data/chars/misc/junk/drum01.gif
+	frame	data/chars/misc/junk/drum03.gif
+	frame	data/chars/misc/junk/drum01.gif
+	delay	5
+	@cmd	spawn01 "explosion1" 1 50 1
+	frame	data/chars/misc/junk/drum03.gif
+	attack	-20 0 110 110 15 1 1 1 10 30
+	frame	data/chars/misc/junk/drum02.gif
+	frame	data/chars/misc/junk/drum02.gif
+	@cmd	spawn01 "explosion2" -20 50 1
+	frame	data/chars/misc/explosion/empty.gif
+	@cmd	leaper 0 5.5 0
+	frame	data/chars/misc/junk/drum02.gif
+	frame	data/chars/misc/explosion/empty.gif
+	@cmd	spawn01 "explosion2" 20 40 1
+	frame	data/chars/misc/junk/drum02.gif
+	frame	data/chars/misc/explosion/empty.gif
+	attack	0 0 0 0
+	frame	data/chars/misc/junk/drum02.gif		#21
+	frame	data/chars/misc/explosion/empty.gif
+	@cmd	spawn01 "explosion2" 1 50 1
+	frame	data/chars/misc/junk/drum02.gif
+	frame	data/chars/misc/explosion/empty.gif
+	frame	data/chars/misc/junk/drum02.gif
+	frame	data/chars/misc/explosion/empty.gif
+	frame	data/chars/misc/junk/drum02.gif
+	frame	data/chars/misc/explosion/empty.gif
+	@cmd	looper 21 3
+	frame	data/chars/misc/junk/drum02.gif
+	frame	data/chars/misc/explosion/empty.gif
+	frame	data/chars/misc/junk/drum02.gif
+	frame	data/chars/misc/explosion/empty.gif
+	frame	data/chars/misc/junk/drum02.gif
+	frame	data/chars/misc/explosion/empty.gif
+	frame	data/chars/misc/junk/drum02.gif
+	frame	data/chars/misc/explosion/empty.gif
+		
+anim	idle
+	delay	1000
+	offset	36 103
+	bbox	4 25 63 79
+	platform	-10 105 10 10 85 85 20 70
+	frame	data/chars/misc/junk/drum01.gif
+		

@@ -1,0 +1,661 @@
+music		data/music/gclub2.ogg
+
+background	data/bgs/14lvl/roomsback.gif
+panel		data/bgs/14lvl/rooms2.gif
+layer           data/bgs/14lvl/light2.gif 120 0 0 2659 -5 0 0 1 1 1
+layer           data/bgs/14lvl/light3.gif 120 0 0 695 -5 0 0 1 1 1
+layer           data/bgs/14lvl/front1.gif 115 0 0 2550 45 0 0 1 1 1
+fglayer         data/bgs/14lvl/light1.gif 5 0 0 0 0 1 1 1 1 1 1
+fglayer         data/bgs/14lvl/roomsFront.gif 10 0 0 0 0 0 0 1 1 1
+fglayer         data/bgs/14lvl/front2.gif  2500 0 0 2195 210 0 0 1 1 1
+
+
+
+direction       both
+light  		10   -30
+at       	0
+settime         0
+notime          1
+blocked         1
+noslow          0
+order		a
+spawn1  	130 250 a
+spawn2  	145 20
+spawn3  	185 20
+
+
+
+
+#--------------------------------
+
+wall    1180 190  -85 -85 750 600 70 5000
+wall    1810 180  -20 -20 590 590 70 5000
+wall    2410 200  -20 -20 145 20 70 5000
+wall    2490 175  -20 -20 800 800 70 5000
+wall    210 300  -45 -45 700 700 80 5000
+wall    -10 295  0 0 80 30 80 5000
+wall    -10 215  0 0 360 90 120 5000
+wall    830 295  75 75 240 300 75 5000
+wall    1480 295  125 0 240 280 75 5000
+wall    1730 295  0 0 500 500 35 5000
+wall    2140 295  115 15 460 460 75 5000
+wall    3285 295  -110 200 240 240 150 5000
+wall    3115 255  50 195 380 380 70 60
+
+
+#----stage-------------
+spawn   stgSET2
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW9"));
+} @end_script
+coords  -500 515 350
+at      0
+#-------------------
+
+#-------------------
+
+spawn rune
+alias ANI_FOLLOW2
+coords  3290 225 120
+at      0
+
+spawn door3
+map   1
+flip  1
+coords  1715 218
+at      0
+
+spawn door3
+map   2
+flip  1
+coords  1103 218
+at      0
+
+spawn door3
+map   3
+flip  1
+coords  2390 220
+at      0
+
+
+spawn ggirl4
+flip  1
+coords  1783 185
+at      0
+
+
+spawn ggirl1
+flip  1
+coords  1173 185
+at      0
+
+spawn bed1
+coords  1410 200
+at      0
+
+spawn ggirl2
+flip  1
+coords  1090 272
+at      0
+
+spawn ggirl3
+flip  1
+coords  1560 286
+at      0
+
+spawn bed3
+flip  1
+coords  2070 190
+at      0
+
+spawn bed4
+flip  1
+coords  1900 185
+at      0
+
+spawn ggirl5
+flip  1
+map   1
+coords  1910 270
+at      0
+
+spawn ggirl6
+flip  1
+coords  2237 280
+at      0
+
+spawn ggirl7
+flip  1
+coords  2476 170
+at      0
+
+spawn ggirl8
+map   1
+coords  2490 270
+at      0
+
+spawn vicemat
+flip  1
+coords  3328 145
+at      0
+
+
+
+
+#---------------------------
+
+spawn   1statue
+map     2
+item    1up
+coords  455 160
+at      0
+
+spawn   1statue
+map     2
+flip    1
+item    ruby
+coords  210 160
+at      0
+
+spawn   1statue
+map     1
+flip    1
+item    ring
+map     4
+coords  3100 175
+at      0
+
+spawn   3statue
+flip    1
+map     4
+item    apple2
+coords  3175 180
+at      0
+
+spawn   3statue
+flip    1
+map     2
+item    moneybag
+coords  855 160
+at      0
+
+spawn   3statue
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW3"));
+} @end_script
+flip    1
+map     2
+coords  725 160
+at      0
+
+spawn   2statue
+flip    1
+item    lulcardx
+coords  2650 285
+at      0
+
+spawn   3statue
+flip    1
+map	4
+item    food6
+coords  3420 290
+at      0
+
+spawn   3statue
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+flip    1
+map	4
+item    money2
+coords  2750 180
+at      0
+
+spawn   3statue
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW3"));
+} @end_script
+flip    1
+map	4
+coords  2940 290
+at      0
+
+spawn   gdesk
+flip    1
+coords  3240 195
+at      0
+
+#-----------------------------
+
+#------------------
+spawn	karou
+flip    1
+coords  1360 215
+at      0
+
+spawn	karou
+flip    1
+map     2
+coords  1480 230
+at      0
+
+spawn	karou
+flip    1
+map     1
+coords  2060 205
+at      0
+
+#------------------
+group	2 2
+at 	10
+wait
+at      10
+
+spawn   ghosttime
+@script
+void main()
+{
+	setglobalvar("Kgnextday", NULL());
+	setglobalvar("challenge", NULL());
+	setglobalvar("killelle", NULL());
+	setglobalvar("cupkill", NULL());
+	setglobalvar("bn1", NULL());
+	setglobalvar("bn2", NULL());
+	setglobalvar("bn3", NULL());
+	setglobalvar("bn4", NULL());
+	setglobalvar("rsh1", NULL());
+	setglobalvar("rsh2", NULL());
+	setglobalvar("maphold1", NULL());
+	setglobalvar("maphold2", NULL());
+	setglobalvar("maphold3", NULL());
+}
+@end_script
+health	5
+coords  0 235
+at      10
+
+spawn   shikky
+#health  180
+aggression 100
+coords  530 160
+at      10
+
+
+spawn   elisa
+#health  220
+aggression 100
+coords  550 190
+at      10
+
+spawn   lucy
+#health  320
+map 	3
+item    bannana
+aggression 100
+coords  540 160
+at      10
+
+2pspawn   shion
+map     2
+#health  180
+aggression 100
+coords  540 160
+at      10
+
+
+3pspawn   eve
+#health  320
+aggression 100
+coords  540 160
+at      10
+
+#------------------
+blockade 250
+at       250
+#------------------
+group	2 2
+at 	250
+wait
+at      250
+
+
+spawn   wendy
+#health  220
+aggression 100
+coords  540 160
+at      250
+
+spawn   shion
+map     2
+#health  220
+aggression 100
+coords  -100 210
+at      250
+
+spawn   eve
+#health  320
+aggression 100
+coords  540 160
+at      250
+
+2pspawn   elisa
+#health  220
+aggression 100
+coords  520 190
+at      250
+
+3pspawn   lucy
+#health  320
+map 	3
+item    bannana
+aggression 100
+coords  520 160
+at      250
+
+#------------------
+blockade 510
+at       510
+#------------------
+group	2 2
+at 	510
+wait
+at      510
+
+spawn   elisa
+#health  320
+map     1
+aggression 100
+coords  -230 210
+at      510
+
+
+spawn   sheila
+#health  250
+map     3
+item    bannana
+aggression 100
+coords  -280 200
+at      510
+
+2pspawn   kimberry
+#health  200
+map     1
+aggression 100
+coords  -260 200
+at      510
+
+
+#------------------
+scrollx  960  1055
+at  960
+
+#------------------
+group	3 3
+at      960
+
+spawn   sheila
+#health  220
+map     2
+item    bannana
+aggression 100
+coords  -100 200
+at      960
+
+spawn   eve
+#health  320
+map     2
+item    bannana
+aggression 100
+coords  505 220
+at      960
+
+2pspawn   shikky
+#health  170
+map     2
+aggression 100
+coords  530 250
+at      960
+
+
+spawn   eve
+#health  320
+map     1
+item    bannana
+aggression 100
+coords  -110 210
+at      960
+
+
+spawn   elisa
+#health  320
+map     1
+aggression 100
+coords  -90 210
+at      960
+
+
+spawn   sheila
+#health  250
+map     3
+item    bannana
+aggression 100
+coords  505 210
+at      960
+
+
+3pspawn   kimberry
+#health  200
+map     1
+aggression 100
+coords  -90 200
+at      960
+
+
+#------------------
+group	1 1
+at     960
+
+spawn   ghosttime
+health  5
+coords  100 200
+at      960
+
+#------------------
+scrollx  1200  1550
+at  1055
+
+scrollx  1550  1720
+at  1550
+
+#------------------
+group	3 3
+at     1550
+
+spawn   lucy
+#health  250
+map     3
+aggression 100
+coords  -90 200
+at      1550
+
+spawn   shikky
+#health  190
+map     4
+aggression 100
+coords  505 200
+at      1550
+
+
+spawn   eve
+#health  350
+map     3
+item    bannana
+aggression 100
+coords  540 240
+at      1550
+
+
+3pspawn   sheila
+#health  300
+map     4
+aggression 100
+coords  -90 200
+at      1550
+
+spawn   sheila
+#health  300
+map     3
+item    bannana
+aggression 100
+coords  505 205
+at      1550
+
+spawn   eve
+#health  350
+map     4
+item    bannana
+aggression 100
+coords  -90 210
+at      1550
+
+spawn   elisa
+#health  250
+item    bannana
+map     3
+aggression 100
+coords  505 205
+at      1550
+
+2pspawn   sheila
+#health  300
+aggression 100
+coords  -90 210
+at      1550
+
+spawn   eve
+#health  350
+map     1
+item    bannana
+aggression 100
+coords  505 205
+at      1550
+
+3pspawn   lucy
+#health  250
+aggression 100
+coords  -70 210
+at      1550
+
+spawn   kimberry
+#health  200
+map     2
+aggression 100
+coords  505 205
+at      1550
+
+
+spawn   shikky
+#health  190
+aggression 100
+coords  -70 200
+at      1550
+
+2pspawn   eve
+#health  350
+map     2
+item    bannana
+aggression 100
+coords  505 205
+at      1550
+
+
+#------------------
+group	1 1
+at     1550
+
+spawn   ghosttime
+health  5
+coords  100 200
+at      1550
+
+#------------------
+scrollx  1830  2180
+at  1720
+
+scrollx  0  3300
+at  2180
+
+blockade 1
+at       2180
+
+#---------------880----
+
+spawn   food1
+coords  -1880 155
+at      2180
+
+spawn   food2
+coords  -1830 155
+at      2180
+
+spawn   food3
+coords  -1780 155
+at      2180
+
+spawn   1up
+coords  -2060 245
+at      2180
+
+spawn   ggirl2
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+} @end_script
+flip    1
+coords  -1520 140
+at      2180
+
+spawn   goINb1
+alias   gbonus
+coords  -1530 150
+at      2180
+
+
+
+spawn   dust4
+coords  165 210
+at      2180
+
+spawn   dust4
+coords  165 210 40
+at      2180
+
+spawn   dust4
+coords  165 210 80
+at      2180
+
+#--------------------
+
+blockade 2500
+at       2500
+
+#--------------------
+
+
+group	2 2
+at	2700
+
+spawn   vice
+health  1750
+boss    1
+aggression 180
+coords  535 220
+at      2700
+
+spawn   mature
+health  2000
+boss    1
+aggression 180
+coords  575 240
+at      2700
+
+

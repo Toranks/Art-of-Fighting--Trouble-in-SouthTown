@@ -1,0 +1,1021 @@
+name          wyler
+type          enemy
+subtype	      chase
+health        100
+speedf        1.9
+jumpheight    4
+jumpmove      0 4
+throw         5 2
+throwdamage   18
+shadow        0
+paingrab      1
+nolife        1
+falldie       2
+nodieblink    3
+gfxshadow     1
+blockodds     1
+escapehits    2
+dust            dust
+projectilehit enemy obstacle
+candamage     player obstacle npc
+diesound      data/sounds/die11.wav
+animationscript data/scripts/escript.c
+
+
+icon	data/chars/3wyler/icon.gif
+lifebarstatus 300 10 0 1 0 2 5 
+lifeposition 115  240
+nameposition -200 -200
+iconposition 50 227
+nolife 1
+
+
+
+
+load	wylertlk2
+
+
+@script
+{
+   	void self = getlocalvar("self");
+	int x = getentityproperty(self, "x");
+	int XPos = openborvariant("xpos");
+	int Screen = openborvariant("hResolution");
+	int hp = getentityproperty(self, "health");
+    	void anim = getentityproperty(self,"animationID");
+	int a = getentityproperty(self, "a");
+   	int z = getentityproperty(self, "z");
+   	int Dir = getentityproperty(self, "direction");
+  	 int Sx = 10;  //----distance from platform
+  	 int jp = 1;   //----jump velocity
+
+	if(anim != openborconstant("ANI_DIE"))
+	{
+
+   		if( hp <=0 && x >= XPos+Screen-60) // right
+   		{
+		tossentity(self, 1, -2, 0);
+   		}
+   		else if( hp <=0 && x <= XPos+60) // left
+   		{
+		tossentity(self, 1, 2, 0);
+   		}
+  	}
+
+
+	if(anim != openborconstant("ANI_DIE") || anim != openborconstant("ANI_FALL") || anim != openborconstant("ANI_RISE") || anim != openborconstant("ANI_JUMP"))
+	{
+		float Hy;
+		if(Dir==0)
+		{
+		Sx = -10;
+		jp = -1;
+		}
+
+		Hy = checkplatformbelow(x+Sx,z, 70);
+		if(Hy > 1 && a <= 7 && hp > 0)
+		{
+		performattack(self,openborconstant("ANI_JUMP"));
+		changeentityproperty(self, "velocity", 0, 0, 0);
+		tossentity(self, 4, jp, 0);
+		}
+	}
+}
+@end_script
+
+
+
+
+anim	jump
+	range	30 150
+	loop	0
+	delay	14
+	offset	100 189
+	bbox	79 80 50 109
+	quakeframe	6 3 15
+	hitfx	data/sounds/beat2.wav
+	sound	data/sounds/bguy13.wav
+	frame	data/chars/3wyler/d01.gif
+	delay	15
+	frame	data/chars/3wyler/d02.gif
+	frame	data/chars/3wyler/d03.gif
+	frame	data/chars/3wyler/d04.gif
+	attack	65 100 95 100 30 1 1 0 35 30
+	dropv	3 3
+	frame	data/chars/3wyler/d06.gif
+
+
+anim	jumpland
+	loop	0
+	delay	11
+	offset	100 189
+	bbox	79 80 50 109
+	frame	data/chars/3wyler/d05.gif
+	bbox	79 80 50 109
+	sound	data/sounds/burnt.wav
+	frame	data/chars/3wyler/spawn15.gif
+	attack	0 0 0 0
+	frame	data/chars/3wyler/spawn14.gif
+	frame	data/chars/3wyler/pain0.gif
+
+
+anim	attack1
+	range	100 160
+	loop	0
+	delay	3
+	offset	100 189
+	bbox	0 0 0 0
+	hitfx	data/sounds/beat4.wav
+	hitflash	flashscreen1
+	move	5
+	frame	data/chars/3wyler/a096.gif
+	frame	data/chars/3wyler/a096.gif
+	sound	data/sounds/bguy12.wav
+	frame	data/chars/3wyler/a096.gif
+	frame	data/chars/3wyler/a097.gif
+	frame	data/chars/3wyler/a097.gif
+	frame	data/chars/3wyler/a097.gif
+	move	0
+	delay	8
+	frame	data/chars/3wyler/a098.gif
+	frame	data/chars/3wyler/a099.gif
+	bbox	79 80 50 109
+	frame	data/chars/3wyler/a100.gif
+	attack	100 90 120 65 40 1 1 0 45 15
+	dropv	3 4
+	frame	data/chars/3wyler/a101.gif
+	frame	data/chars/3wyler/a102.gif
+	delay	12
+	frame	data/chars/3wyler/a101.gif
+	attack	0 0 0 0
+	frame	data/chars/3wyler/a100.gif
+		
+anim	attack2
+	range	200 320
+	rangez	-15 15
+	loop	0
+	delay	8
+	offset	100 189
+	bbox	79 80 50 109
+	hitfx	data/sounds/beat5.wav
+	hitflash	flashscreen1
+	frame	data/chars/3wyler/b01.gif
+	sound	data/sounds/bguy11.wav
+	frame	data/chars/3wyler/b02.gif
+	delay	2
+	move	9
+	attack	100 90 95 65 35 1 1 0 45 20
+	dropv	3 3
+	frame	data/chars/3wyler/b03.gif
+	frame	data/chars/3wyler/b03.gif
+	frame	data/chars/3wyler/b03.gif
+	frame	data/chars/3wyler/b03.gif
+	frame	data/chars/3wyler/b03.gif
+	frame	data/chars/3wyler/b03.gif
+	frame	data/chars/3wyler/b03.gif
+	frame	data/chars/3wyler/b03.gif
+	frame	data/chars/3wyler/b03.gif
+	frame	data/chars/3wyler/b03.gif
+	frame	data/chars/3wyler/b03.gif
+	frame	data/chars/3wyler/b03.gif
+	frame	data/chars/3wyler/b03.gif
+	frame	data/chars/3wyler/b03.gif
+	frame	data/chars/3wyler/b03.gif
+	frame	data/chars/3wyler/b03.gif
+	move	7
+	frame	data/chars/3wyler/b04.gif
+	frame	data/chars/3wyler/b04.gif
+	frame	data/chars/3wyler/b04.gif
+	frame	data/chars/3wyler/b04.gif
+	frame	data/chars/3wyler/b04.gif
+	frame	data/chars/3wyler/b05.gif
+	frame	data/chars/3wyler/b05.gif
+	frame	data/chars/3wyler/b05.gif
+	frame	data/chars/3wyler/b05.gif
+	frame	data/chars/3wyler/b05.gif
+	move	5
+	frame	data/chars/3wyler/b06.gif
+	frame	data/chars/3wyler/b06.gif
+	frame	data/chars/3wyler/b06.gif
+	frame	data/chars/3wyler/b06.gif
+	frame	data/chars/3wyler/b06.gif
+	frame	data/chars/3wyler/b06.gif
+	attack	0 0 0 0
+	delay	12
+	move	0
+	frame	data/chars/3wyler/blk00.gif
+		
+anim	attack4
+	range	0 100
+	rangez	-100 -20
+	loop	0
+	delay	14
+	offset	100 189
+	bbox	0 0 0 0
+	jumpframe	1 4.5 1 -0.5 1
+	landframe	5
+	quakeframe	6 3 15
+	hitfx	data/sounds/beat2.wav
+	hitflash	flashscreen1
+	frame	data/chars/3wyler/d01.gif
+	delay	15
+	sound	data/sounds/bguy13.wav
+	frame	data/chars/3wyler/d02.gif
+	frame	data/chars/3wyler/d03.gif
+	frame	data/chars/3wyler/d04.gif
+	delay	300
+	attack	65 100 95 100 35 1 1 0 35 30
+	dropv	3 3
+	frame	data/chars/3wyler/d06.gif
+	attack	0 0 0 0
+	delay	11
+	frame	data/chars/3wyler/d05.gif
+	bbox	79 80 50 109
+	sound	data/sounds/burnt.wav
+	frame	data/chars/3wyler/spawn15.gif
+	frame	data/chars/3wyler/spawn14.gif
+	frame	data/chars/3wyler/pain0.gif
+		
+anim	attack5
+	range	0 100
+	rangez	20 100
+	loop	0
+	delay	14
+	offset	100 189
+	bbox	0 0 0 0
+	jumpframe	1 4.5 1 0.5 1
+	landframe	5
+	quakeframe	6 3 15
+	hitfx	data/sounds/beat2.wav
+	hitflash	flashscreen1
+	frame	data/chars/3wyler/d01.gif
+	delay	15
+	sound	data/sounds/bguy13.wav
+	frame	data/chars/3wyler/d02.gif
+	frame	data/chars/3wyler/d03.gif
+	frame	data/chars/3wyler/d04.gif
+	delay	300
+	attack	65 100 95 100 35 1 1 0 35 30
+	dropv	3 3
+	frame	data/chars/3wyler/d06.gif
+	attack	0 0 0 0
+	delay	11
+	frame	data/chars/3wyler/d05.gif
+	bbox	79 80 50 109
+	sound	data/sounds/burnt.wav
+	frame	data/chars/3wyler/spawn15.gif
+	frame	data/chars/3wyler/spawn14.gif
+	frame	data/chars/3wyler/pain0.gif
+		
+anim	attack6
+	range	0 95
+	loop	0
+	delay	12
+	offset	100 189
+	bbox	79 80 50 109
+	followanim	1
+	followcond	1
+	hitfx	data/sounds/grab.wav
+	frame	data/chars/3wyler/1grab01.gif
+	bbox	0 0 0 0
+	attack	100 75 75 40 0 1 1 1 30 0
+	frame	data/chars/3wyler/1grab02.gif
+	attack	0 0 0 0
+	bbox	79 80 50 109
+	frame	data/chars/3wyler/1grab01.gif
+		
+anim	block
+	loop	0
+	delay	2
+	offset	100 185
+	bbox	79 80 50 109
+	hitflash	flashscreen1
+	move	-6
+	frame	data/chars/3wyler/blk00.gif
+	frame	data/chars/3wyler/blk00.gif
+	frame	data/chars/3wyler/blk00.gif
+	frame	data/chars/3wyler/blk00.gif
+	frame	data/chars/3wyler/blk00.gif
+	delay	20
+	bbox	0 0 0 0
+	frame	data/chars/3wyler/blk01.gif
+	delay	14
+	frame	data/chars/3wyler/blk02.gif
+	delay	3
+	move	5
+	attack5	90 80 120 45 55 1 1 0 45 0
+	dropv	3 4
+	frame	data/chars/3wyler/blk03.gif
+	frame	data/chars/3wyler/blk03.gif
+	frame	data/chars/3wyler/blk04.gif
+	frame	data/chars/3wyler/blk04.gif
+	frame	data/chars/3wyler/blk04.gif
+	frame	data/chars/3wyler/blk05.gif
+	frame	data/chars/3wyler/blk05.gif
+	frame	data/chars/3wyler/blk06.gif
+	frame	data/chars/3wyler/blk06.gif
+	move	3
+	attack5	0 0 0 0
+	frame	data/chars/3wyler/blk07.gif
+	frame	data/chars/3wyler/blk07.gif
+	move	0
+	delay	11
+	bbox	79 80 50 109
+	frame	data/chars/3wyler/blk07.gif
+	frame	data/chars/3wyler/blk08.gif
+	frame	data/chars/3wyler/blk07.gif
+		
+anim	burn
+	loop	0
+	delay	25
+	offset	100 189
+	bbox	0 0 0 0
+	landframe	3
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 200_50_0
+	@cmd	spawnbind "burn1" 1 1 1
+	@cmd	spawnbind "burn2" 1 1 1
+	@cmd	spawnbind "burn3" 1 1 1
+	attack	78 98 30 45 5 1 1 0 13 0
+	frame	data/chars/3wyler/fall1.gif
+	delay	15
+	attack	64 130 50 25 5 1 1 0 13 0
+	frame	data/chars/3wyler/fall2.gif
+	delay	500
+	frame	data/chars/3wyler/fall3.gif
+	attack	0 0 0 0
+	bbox	58 175 85 15
+	delay	15
+	frame	data/chars/3wyler/fall4.gif
+	frame	data/chars/3wyler/fall5.gif
+	frame	data/chars/3wyler/fall4.gif
+		
+anim	death
+	loop	0
+	delay	40
+	offset	100 189
+	bbox	0 0 0 0
+	quakeframe	11 5 5
+	frame	data/chars/3wyler/fall4.gif
+	delay	15
+	frame	data/chars/3wyler/rise1.gif
+	frame	data/chars/3wyler/rise2.gif
+	frame	data/chars/3wyler/rise3.gif
+	frame	data/chars/3wyler/rise4.gif
+	delay	35
+	frame	data/chars/3wyler/pain1.gif
+	delay	14
+	frame	data/chars/3wyler/death01.gif
+	frame	data/chars/3wyler/death02.gif
+	frame	data/chars/3wyler/death03.gif
+	frame	data/chars/3wyler/death04.gif
+	frame	data/chars/3wyler/death05.gif
+	sound	data/sounds/fall3.wav
+	@cmd    spawn01 "dust" -30 0 1
+	@cmd    spawn01 "dust" 30 0 1
+	frame	data/chars/3wyler/death06.gif
+	delay	200
+	frame	data/chars/3wyler/death06.gif
+		
+anim	fall
+	loop	0
+	delay	25
+	offset	100 189
+	bbox	0 0 0 0
+	landframe	3
+	attack	78 98 30 45 5 1 1 0 13 0
+	frame	data/chars/3wyler/fall1.gif
+	delay	15
+	attack	64 130 50 25 5 1 1 0 13 0
+	frame	data/chars/3wyler/fall2.gif
+	delay	500
+	frame	data/chars/3wyler/fall3.gif
+	attack	0 0 0 0
+	bbox	58 175 85 15
+	delay	15
+	frame	data/chars/3wyler/fall4.gif
+	frame	data/chars/3wyler/fall5.gif
+	frame	data/chars/3wyler/fall4.gif
+		
+anim	fall10
+	loop	0
+	delay	10
+	offset	100 189
+	bbox	80 80 50 75
+	landframe	4
+	attack	85 88 30 50 5 1 1 0 13 0
+	frame	data/chars/3wyler/pain6.gif
+	delay	40
+	frame	data/chars/3wyler/pain7.gif
+	delay	30
+	bbox	71 125 63 30
+	attack	64 125 45 25 5 1 0 0 13 0
+	frame	data/chars/3wyler/fall2.gif
+	delay	300
+	bbox	77 130 67 35
+	attack	0 0 0 0
+	frame	data/chars/3wyler/fall3.gif
+	bbox	58 167 85 15
+	delay	15
+	frame	data/chars/3wyler/fall4.gif
+	frame	data/chars/3wyler/fall5.gif
+	frame	data/chars/3wyler/fall4.gif
+		
+anim	fall11
+	loop	0
+	delay	20
+	offset	100 189
+	bbox	61 185 90 5	
+	frame	data/chars/3wyler/pain12.gif
+	delay	35
+	frame	data/chars/3wyler/fall4.gif
+		
+anim	fall2
+	loop	0
+	delay	30
+	offset	100 189
+	bbox	0 0 0 0
+	landframe	3
+	attack	85 90 35 45 5 1 0 0 13 0
+	frame	data/chars/3wyler/pain7.gif
+	delay	10
+	attack	64 125 55 25 5 1 0 0 13 0
+	frame	data/chars/3wyler/fall2.gif
+	attack	0 0 0 0
+	delay	300
+	frame	data/chars/3wyler/fall3.gif
+	delay	15
+	frame	data/chars/3wyler/fall4.gif
+	frame	data/chars/3wyler/fall5.gif
+	frame	data/chars/3wyler/fall4.gif
+		
+anim	fall4
+	loop	0
+	delay	6
+	offset	100 189
+	bbox	0 0 0 0
+	jumpframe	0 1.2 1.5
+	frame	data/chars/3wyler/pain8.gif
+	frame	data/chars/3wyler/pain9.gif
+	frame	data/chars/3wyler/pain10.gif
+	@cmd	leaper 0 0.2 0
+	frame	data/chars/3wyler/pain11.gif
+	frame	data/chars/3wyler/fall4.gif
+	frame	data/chars/3wyler/fall5.gif
+	bbox	58 175 95 15
+	frame	data/chars/3wyler/fall4.gif
+		
+anim	fall7
+	delay	1000
+	offset	105 130
+	frame	data/chars/3wyler/slamck0.gif
+	offset	100 110
+	frame	data/chars/3wyler/slamck1.gif
+	offset	106 130
+	frame	data/chars/3wyler/slamck2.gif
+	offset	115 125
+	frame	data/chars/3wyler/slamck3.gif
+	offset	125 125
+	frame	data/chars/3wyler/slamck4.gif
+	offset	108 122
+	frame	data/chars/3wyler/slamck5.gif
+	offset	106 155
+	frame	data/chars/3wyler/slamck6.gif
+	offset	125 140
+	frame	data/chars/3wyler/slamck7.gif
+	offset	120 105
+	frame	data/chars/3wyler/slamck8.gif
+	offset	100 130
+	frame	data/chars/3wyler/slamck9.gif
+	offset	105 130
+	frame	data/chars/3wyler/slamck10.gif
+	offset	105 130
+	frame	data/chars/3wyler/slamck11.gif
+	offset	115 125
+	frame	data/chars/3wyler/slamck12.gif
+	offset	115 125
+	frame	data/chars/3wyler/slamck13.gif
+	offset	115 125
+	frame	data/chars/3wyler/slamck14.gif
+	offset	115 125
+	frame	data/chars/3wyler/slamck15.gif
+		
+anim	fall9
+	loop	0
+	delay	10
+	offset	100 185
+	bbox	0 0 0 0
+	quakeframe	2 5 5
+	landframe	2 dust
+	attack	75 105 35 45 5 1 0 0 13 0
+	frame	data/chars/3wyler/fall1.gif
+	delay	350
+	offset	100 175
+	attack	75 125 45 35 5 1 0 0 13 0
+	frame	data/chars/3wyler/fall2.gif
+	delay	2
+	offset	100 170
+	move	-4
+	frame	data/chars/3wyler/fall3.gif
+	frame	data/chars/3wyler/fall3.gif
+	attack	0 0 0 0
+	frame	data/chars/3wyler/fall3.gif
+	@cmd	looper 3 5
+	offset	100 189
+	move	-3
+	frame	data/chars/3wyler/fall4.gif
+	frame	data/chars/3wyler/fall4.gif
+	frame	data/chars/3wyler/fall4.gif
+	@cmd	looper 6 4
+	move	-2
+	frame	data/chars/3wyler/fall5.gif
+	frame	data/chars/3wyler/fall5.gif
+	frame	data/chars/3wyler/fall5.gif
+	loop	0
+	delay	15
+	move	0
+	bbox	58 175 100 15
+	frame	data/chars/3wyler/fall4.gif
+		
+anim	follow1
+	loop	0
+	delay	30
+	offset	100 189
+	bbox	0 0 0 0
+	@cmd	slamstart2
+	@cmd	position 24 55 35 -1 -1
+	frame	data/chars/3wyler/1grab02.gif
+	delay	12
+	@cmd	position 7 90 20 -1 -1
+	frame	data/chars/3wyler/1grab03.gif
+	@cmd	position 11 90 25 -1 -1
+	frame	data/chars/3wyler/1grab04.gif
+	@cmd	position 1 60 25 1 1
+	frame	data/chars/3wyler/1grab05.gif
+	@cmd	position 2 40 90 1 1
+	frame	data/chars/3wyler/1grab06.gif
+	@cmd	position 4 -95 90 1 1
+	frame	data/chars/3wyler/1grab07.gif
+	delay	2
+	@cmd	antiwall 70 -5 -1
+	@cmd	position 20 -30 50 1 -1
+	frame	data/chars/3wyler/1grab08.gif
+	@cmd	antiwall 70 -5 -1
+	@cmd	position 20 -30 50 1 -1
+	frame	data/chars/3wyler/1grab08.gif
+	@cmd	antiwall 70 -5 -1
+	@cmd	position 20 -30 50 1 -1
+	frame	data/chars/3wyler/1grab08.gif
+	@cmd	antiwall 70 -5 -1
+	@cmd	position 20 -30 50 1 -1
+	frame	data/chars/3wyler/1grab08.gif
+	@cmd	antiwall 70 -5 -1
+	@cmd	position 20 -30 50 1 -1
+	frame	data/chars/3wyler/1grab08.gif
+	@cmd	antiwall 70 -5 -1
+	@cmd	position 20 -30 50 1 -1
+	frame	data/chars/3wyler/1grab08.gif
+	@cmd	antiwall 70 -5 -1
+	@cmd	position 17 20 45 1 1
+	frame	data/chars/3wyler/1grab09.gif
+	@cmd	antiwall 70 -5 -1
+	@cmd	position 17 20 45 1 1
+	frame	data/chars/3wyler/1grab09.gif
+	@cmd	antiwall 70 -5 -1
+	@cmd	position 17 20 45 1 1
+	frame	data/chars/3wyler/1grab09.gif
+	@cmd	antiwall 70 -5 -1
+	@cmd	position 17 20 45 1 1
+	frame	data/chars/3wyler/1grab09.gif
+	@cmd	antiwall 70 -5 -1
+	@cmd	position 17 20 45 1 1
+	frame	data/chars/3wyler/1grab09.gif
+	@cmd	antiwall 70 -5 -1
+	@cmd	position 17 20 45 1 1
+	frame	data/chars/3wyler/1grab09.gif
+	attack	100 90 95 65 5 1 0 0 45 15
+	@cmd	antiwall 70 -5 -1
+	@cmd	position 0 90 20 -1 -1
+	frame	data/chars/3wyler/1grab10.gif
+	@cmd	antiwall 70 -5 -1
+	@cmd	position 0 90 20 -1 -1
+	frame	data/chars/3wyler/1grab10.gif
+	@cmd	antiwall 70 -5 -1
+	@cmd	position 0 90 20 -1 -1
+	frame	data/chars/3wyler/1grab10.gif
+	sound	data/sounds/bguy13.wav
+	@cmd	antiwall 70 -5 -1
+	@cmd	position 0 90 20 -1 -1
+	frame	data/chars/3wyler/1grab10.gif
+	@cmd	antiwall 70 -5 -1
+	@cmd	position 0 90 20 -1 -1
+	frame	data/chars/3wyler/1grab10.gif
+	@cmd	antiwall 70 -5 -1
+	@cmd	position 0 90 20 -1 -1
+	frame	data/chars/3wyler/1grab10.gif
+	@cmd	spawn01	"flashscreen2" 30 40 1
+	@cmd	antiwall 70 -5 -1
+	@cmd	position 0 50 20 -1 -1
+	frame	data/chars/3wyler/1grab10.gif
+	@cmd	depost 0
+	@cmd	finish 60 1 -4 3 0 0
+	delay	15
+	frame	data/chars/3wyler/1grab11.gif
+	frame	data/chars/3wyler/1grab12.gif
+	frame	data/chars/3wyler/1grab13.gif
+	attack	0 0 0 0
+	@cmd	clearL
+	frame	data/chars/3wyler/1grab14.gif
+	frame	data/chars/3wyler/1grab15.gif
+		
+anim	follow2
+	loop	0
+	delay	9
+	offset	100 189
+	bbox	0 0 0 0
+	hitflash	flashscreen1
+	frame	data/chars/3wyler/rise1.gif
+	sound	data/sounds/bguy12.wav
+	frame	data/chars/3wyler/rise2.gif
+	frame	data/chars/3wyler/upper01.gif
+	attack	80 75 120 80 40 1 1 0 45 15
+	dropv	3 3
+	frame	data/chars/3wyler/upper02.gif
+	frame	data/chars/3wyler/upper03.gif
+	frame	data/chars/3wyler/upper04.gif
+	frame	data/chars/3wyler/upper05.gif
+	attack	0 0 0 0
+	frame	data/chars/3wyler/upper06.gif
+		
+anim	grab
+	loop	0
+	delay	50
+	range	0 30
+	offset	100 189
+	bbox	0 0 0 0
+	attackone	0
+	jumpframe	2 4 -1
+	landframe	7
+	quakeframe	7 3 15
+	sound	data/sounds/grab.wav
+	frame	data/chars/3wyler/grab.gif
+	@cmd	slamstart
+	delay	14
+	@cmd	position 24 50 25 1 -1
+	frame	data/chars/3wyler/1grab01.gif
+	sound	data/sounds/bguy12.wav
+	@cmd	position 23 55 30 -1 -1
+	frame	data/chars/3wyler/1grab02.gif
+	@cmd	position 14 45 60 1 -1
+	frame	data/chars/3wyler/2grab01.gif
+	@cmd	position 19 25 35 1 1
+	frame	data/chars/3wyler/2grab02.gif
+	@cmd	position 6 40 45 -1 -1
+	frame	data/chars/3wyler/2grab03.gif
+	delay	300
+	attack	75 110 70 130 5 1 1 0 45 15
+	@cmd	position 6 40 25 -1 -1
+	frame	data/chars/3wyler/2grab04.gif
+	offset	100 184
+	delay	12
+	@cmd	position 3 65 5 -1 -1
+	frame	data/chars/3wyler/2grab05.gif #7
+	@cmd	spawn01 "dust" 30 1 1
+	sound	data/sounds/fall.wav
+	@cmd	position 6 40 25 -1 -1
+	frame	data/chars/3wyler/2grab06.gif
+	delay	2
+	@cmd	spawn01	"flashscreen2" 1 1 1
+	@cmd	position 6 0 25 -1 -1
+	frame	data/chars/3wyler/2grab06.gif
+	attack	0 0 0 0
+	@cmd	depost 0
+	@cmd	finish 60 2 -3 4 0 0
+	delay	60
+	frame	data/chars/3wyler/2grab06.gif
+	delay	14
+	offset	100 189
+	frame	data/chars/3wyler/rise1.gif
+	@cmd	clearL
+	frame	data/chars/3wyler/rise2.gif
+	frame	data/chars/3wyler/rise3.gif
+	frame	data/chars/3wyler/rise4.gif
+		
+anim	grabbed
+	loop	0
+	delay	10
+	offset	100 189
+	bbox	79 97 50 91
+	frame	data/chars/3wyler/grabbed.gif
+		
+anim	idle
+	loop	1
+	delay	8
+	offset	100 189
+	bbox	79 80 50 109
+	frame	data/chars/3wyler/idle01.gif
+	frame	data/chars/3wyler/idle02.gif
+	frame	data/chars/3wyler/idle03.gif
+	frame	data/chars/3wyler/idle04.gif
+	frame	data/chars/3wyler/idle03.gif
+	frame	data/chars/3wyler/idle02.gif
+		
+anim	pain
+	loop	0
+	delay	3
+	offset	103 189
+	bbox	79 80 50 109
+	frame	data/chars/3wyler/pain0.gif
+	offset	100 189
+	frame	data/chars/3wyler/pain1.gif
+	offset	107 189
+	frame	data/chars/3wyler/pain1.gif
+	delay	40
+	offset	100 189
+	frame	data/chars/3wyler/pain1.gif
+		
+anim	pain2
+	loop	0
+	delay	3
+	offset	103 189
+	bbox	79 80 50 109
+	frame	data/chars/3wyler/pain0.gif
+	offset	100 189
+	frame	data/chars/3wyler/pain1.gif
+	offset	107 189
+	frame	data/chars/3wyler/pain1.gif
+	delay	40
+	offset	100 189
+	frame	data/chars/3wyler/pain1.gif
+		
+anim	pain3
+	loop	0
+	delay	1
+	offset	103 189
+	bbox	0 0 0 0
+	jumpframe	1 2 -1 0
+	frame	data/chars/3wyler/pain1.gif
+	delay	25
+	frame	data/chars/3wyler/fall2.gif
+	delay	12
+	frame	data/chars/3wyler/fall3.gif
+	delay	4
+	bbox	71 165 67 30
+	frame	data/chars/3wyler/fall4.gif
+	frame	data/chars/3wyler/fall5.gif
+	frame	data/chars/3wyler/fall4.gif
+	frame	data/chars/3wyler/fall5.gif
+	delay	15
+	bbox	0 0 0 0
+	frame	data/chars/3wyler/fall4.gif
+	delay	10
+	frame	data/chars/3wyler/rise1.gif
+	frame	data/chars/3wyler/rise2.gif
+	frame	data/chars/3wyler/rise3.gif
+		
+anim	pain5
+	loop	0
+	delay	23
+	offset	100 189
+	bbox	79 80 50 109
+	frame	data/chars/3wyler/pain1.gif
+		
+anim	pain6
+	loop	0
+	delay	23
+	offset	100 189
+	bbox	79 80 50 109
+	frame	data/chars/3wyler/pain1.gif
+		
+anim	pain8
+	loop	0
+	delay	2
+	offset	100 189
+	bbox	79 80 50 109
+	move	-6
+	frame	data/chars/3wyler/pain0.gif
+	frame	data/chars/3wyler/pain0.gif
+	frame	data/chars/3wyler/pain0.gif
+	frame	data/chars/3wyler/pain1.gif
+	frame	data/chars/3wyler/pain1.gif
+	frame	data/chars/3wyler/pain1.gif
+	move	-3
+	frame	data/chars/3wyler/pain1.gif
+	frame	data/chars/3wyler/pain1.gif
+	move	-1
+	frame	data/chars/3wyler/pain1.gif
+	delay	35
+	frame	data/chars/3wyler/pain1.gif
+		
+anim	pain9
+	loop	0
+	delay	15
+	offset	100 189
+	bbox	79 80 50 109
+	frame	data/chars/3wyler/pain0.gif
+	delay	150
+	frame	data/chars/3wyler/pain1.gif
+		
+anim	rise
+	loop	0
+	delay	12
+	offset	100 189
+	bbox	0 0 0 0
+	frame	data/chars/3wyler/rise0.gif
+	@cmd	riseattack 80 10 "ANI_FOLLOW2"
+	frame	data/chars/3wyler/rise1.gif
+	@cmd	riseattack 80 10 "ANI_FOLLOW2"
+	frame	data/chars/3wyler/rise2.gif
+	frame	data/chars/3wyler/rise3.gif
+	frame	data/chars/3wyler/rise4.gif
+
+		
+anim	spawn
+	loop	0
+	delay	30
+	offset	100 189
+	bbox	0 0 0 0
+	fastattack	1
+	custentity	wylertlk2
+	spawnframe	30 210 40 25 1
+	jumpframe	0 3 2.5
+	landframe	2
+	frame	data/chars/3wyler/empty.gif
+	delay	500
+	attack	75 90 100 70 1 1 1 0 45 30
+	dropv	4 2
+	frame	data/chars/3wyler/sp05.gif
+	attack	0 0 0 0
+	delay	12
+	frame	data/chars/3wyler/sp02.gif
+	frame	data/chars/3wyler/sp03.gif
+	frame	data/chars/3wyler/sp02.gif
+	delay	50
+	frame	data/chars/3wyler/sp01.gif
+	delay	14
+	frame	data/chars/3wyler/sp11.gif
+	frame	data/chars/3wyler/sp12.gif
+	delay	50
+	frame	data/chars/3wyler/sp13.gif
+	delay	14
+	frame	data/chars/3wyler/sp14.gif
+	frame	data/chars/3wyler/sp15.gif
+	frame	data/chars/3wyler/sp12.gif
+	frame	data/chars/3wyler/sp11.gif
+	delay	12
+	attack	75 90 100 70 1 1 1 0 45 30
+	dropv	4 2
+	frame	data/chars/3wyler/spawn01.gif
+	frame	data/chars/3wyler/spawn02.gif
+	frame	data/chars/3wyler/spawn03.gif
+	frame	data/chars/3wyler/spawn04.gif
+	frame	data/chars/3wyler/spawn05.gif
+	frame	data/chars/3wyler/spawn06.gif
+	frame	data/chars/3wyler/spawn07.gif
+	frame	data/chars/3wyler/spawn08.gif
+	frame	data/chars/3wyler/spawn09.gif
+	frame	data/chars/3wyler/spawn10.gif
+	frame	data/chars/3wyler/spawn11.gif
+	frame	data/chars/3wyler/spawn12.gif
+	frame	data/chars/3wyler/spawn13.gif
+	frame	data/chars/3wyler/spawn14.gif
+	frame	data/chars/3wyler/spawn15.gif
+	frame	data/chars/3wyler/spawn16.gif
+	attack	70 90 100 70 1 1 1 0 45 30
+	delay	30
+	attack	70 90 100 70 1 1 1 0 45 30
+	dropv	4 2
+	frame	data/chars/3wyler/spawn17.gif
+	frame	data/chars/3wyler/spawn18.gif
+	attack	0 0 0 0
+	frame	data/chars/3wyler/spawn19.gif
+	frame	data/chars/3wyler/spawn20.gif
+	frame	data/chars/3wyler/spawn21.gif
+		
+anim	special
+	delay	14
+	offset	100 189
+	bbox	0 0 0 0
+	jumpframe	2 4 -1
+	landframe	6
+	quakeframe	6 3 15
+	sound	data/sounds/grab.wav
+	@cmd	slamstart2
+	@cmd	position 24 50 25 1 -1
+	frame	data/chars/3wyler/1grab01.gif
+	@cmd	position 23 55 30 -1 -1
+	frame	data/chars/3wyler/1grab02.gif
+	@cmd	position 14 45 60 1 -1
+	frame	data/chars/3wyler/2grab01.gif
+	@cmd	position 19 25 35 1 1
+	frame	data/chars/3wyler/2grab02.gif
+	@cmd	position 6 40 45 -1 -1
+	frame	data/chars/3wyler/2grab03.gif
+	delay	300
+	attack	75 110 70 130 5 1 1 0 45 15
+	@cmd	position 6 40 25 -1 -1
+	frame	data/chars/3wyler/2grab04.gif
+	offset	100 184
+	delay	12
+	@cmd	position 3 65 5 -1 -1
+	frame	data/chars/3wyler/2grab05.gif #6
+	@cmd	spawn02 "flashsc2" -100 500 300
+	@cmd	spawn01 "dust" 30 1 1
+	sound	data/sounds/fall.wav	
+	@cmd	position 6 40 25 -1 -1
+	frame	data/chars/3wyler/2grab06.gif
+	delay	2
+	@cmd	spawn01	"flashscreen2" 1 1 1
+	@cmd	position 6 0 25 -1 -1
+	frame	data/chars/3wyler/2grab06.gif
+	attack	0 0 0 0
+	@cmd	depost 0
+	@cmd	finish 20 2 -3 4 0 0
+	delay	60
+	frame	data/chars/3wyler/2grab06.gif
+	delay	14
+	offset	100 189
+	frame	data/chars/3wyler/rise1.gif
+	@cmd	clearL
+	frame	data/chars/3wyler/rise2.gif
+	frame	data/chars/3wyler/rise3.gif
+	frame	data/chars/3wyler/rise4.gif
+
+
+
+
+		
+anim	special2
+	delay	10
+	offset	100 189
+	bbox	0 0 0 0
+	hitflash	flashscreen2
+	hitfx	data/sounds/beat5.wav
+	frame	data/chars/3wyler/pain0.gif
+	frame	data/chars/3wyler/grab.gif
+	frame	data/chars/3wyler/spawn15.gif
+	frame	data/chars/3wyler/spawn14.gif
+	frame	data/chars/3wyler/c01.gif
+	frame	data/chars/3wyler/c02.gif
+	delay	8
+	attack	65 55 110 90 15 1 1 0 45 25
+	dropv	4 2
+	frame	data/chars/3wyler/c03.gif
+	frame	data/chars/3wyler/c04.gif
+	frame	data/chars/3wyler/c03.gif
+	frame	data/chars/3wyler/c04.gif
+	attack	0 0 0 0
+	delay	12
+	frame	data/chars/3wyler/c02.gif
+	frame	data/chars/3wyler/c01.gif
+		
+anim	upper
+	range	5 180
+	loop	0
+	delay	8
+	offset	100 189
+	bbox	0 0 0 0
+	hitfx	data/sounds/beat4.wav
+	hitflash	flashscreen1
+	frame	data/chars/3wyler/upper01.gif
+	delay	3
+	move	5
+	sound	data/sounds/bguy11.wav
+	frame	data/chars/3wyler/upper02.gif
+	frame	data/chars/3wyler/upper02.gif
+	attack	100 55 100 95 10 1 1 0 35 0
+	dropv	4 2
+	frame	data/chars/3wyler/upper03.gif
+	frame	data/chars/3wyler/upper03.gif
+	frame	data/chars/3wyler/upper03.gif
+	frame	data/chars/3wyler/upper04.gif
+	frame	data/chars/3wyler/upper04.gif
+	frame	data/chars/3wyler/upper04.gif
+	move	3
+	frame	data/chars/3wyler/upper05.gif
+	frame	data/chars/3wyler/upper05.gif
+	frame	data/chars/3wyler/upper05.gif
+	attack	0 0 0 0
+	delay	14
+	frame	data/chars/3wyler/upper06.gif
+		
+anim	walk
+	loop	1
+	delay	6
+	offset	100 189
+	bbox	79 80 50 109
+	frame	data/chars/3wyler/wk01.gif
+	frame	data/chars/3wyler/wk02.gif
+	frame	data/chars/3wyler/wk03.gif
+	frame	data/chars/3wyler/wk04.gif
+	frame	data/chars/3wyler/wk05.gif
+	frame	data/chars/3wyler/wk06.gif
+	frame	data/chars/3wyler/wk07.gif
+	frame	data/chars/3wyler/wk08.gif
+	frame	data/chars/3wyler/wk09.gif
+	frame	data/chars/3wyler/wk10.gif
+	frame	data/chars/3wyler/wk11.gif
+	frame	data/chars/3wyler/wk12.gif
+		
+#|edited by openBor Stats v 0.53
+		

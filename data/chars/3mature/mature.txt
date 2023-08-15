@@ -1,0 +1,1036 @@
+name          Mature
+type          enemy
+health        100
+speed         14
+jumpheight    4
+throw         5 2
+throwdamage   18
+blockodds     1
+nopassiveblock 1
+escapehits    2
+shadow        0
+noquake       1
+nolife        1
+falldie	      2
+nodieblink    3
+gfxshadow     1
+dust            dust
+projectilehit enemy obstacle
+diesound      data/sounds/bgdie4.wav
+animationscript data/scripts/escript.c
+
+
+load	maturearm
+
+icon	data/chars/3mature/icon.gif
+lifebarstatus 160 10 0 1 0 2 5 
+lifeposition 85  240
+iconposition 20 227
+nameposition -200 -200
+nolife 1
+
+
+script	@script
+void main()
+{
+   	void self = getlocalvar("self");
+	int x = getentityproperty(self, "x");
+	int XPos = openborvariant("xpos");
+	int Screen = openborvariant("hResolution");
+	int hp = getentityproperty(self, "health");
+    	void anim = getentityproperty(self,"animationID");
+
+if(anim != openborconstant("ANI_DIE")){
+
+   if( hp <=0 && x >= XPos+Screen-60) // right
+   	{
+	tossentity(self, 1, -2, 0);
+   	}
+   else if( hp <=0 && x <= XPos+60) // left
+   	{
+	tossentity(self, 1, 2, 0);
+   	}
+  }
+}
+@end_script
+
+
+
+anim	attack1
+	range	70 100
+	loop	0
+	delay	8
+	offset	100 189
+	followanim	1
+	followcond	1
+	bbox	79 97 50 91
+	hitfx	data/sounds/beat2.wav
+	frame	data/chars/3mature/a101.gif
+	attack	110 100 65 25 8 0 0 0 25 0
+	frame	data/chars/3mature/a102.gif
+	frame	data/chars/3mature/a103.gif
+	attack	0 0 0 0
+	frame	data/chars/3mature/a104.gif
+	frame	data/chars/3mature/a105.gif
+		
+anim	attack2
+	range	170 180
+	loop	0
+	delay	3
+	offset	100 189
+	followanim	1
+	followcond	1
+	bbox	79 97 20 91
+	hitfx	data/sounds/beat2.wav
+	move	8
+	frame	data/chars/3mature/a118.gif
+	frame	data/chars/3mature/a118.gif
+	frame	data/chars/3mature/a119.gif
+	frame	data/chars/3mature/a119.gif
+	attack	95 100 60 40 8 0 0 0 25 0
+	frame	data/chars/3mature/a120.gif
+	frame	data/chars/3mature/a120.gif
+	frame	data/chars/3mature/a121.gif
+	frame	data/chars/3mature/a121.gif
+	frame	data/chars/3mature/a122.gif
+	frame	data/chars/3mature/a122.gif
+	frame	data/chars/3mature/a122.gif
+	frame	data/chars/3mature/a122.gif
+	frame	data/chars/3mature/a122.gif
+	frame	data/chars/3mature/a123.gif
+	frame	data/chars/3mature/a123.gif
+	frame	data/chars/3mature/a123.gif
+	frame	data/chars/3mature/a123.gif
+	attack	0 0 0 0
+	frame	data/chars/3mature/a123.gif
+	move	0
+	delay	15
+	frame	data/chars/3mature/a124.gif
+		
+anim	attack4
+	range	0 100
+	rangez	18 100
+	loop	0
+	delay	10
+	offset	100 189
+	bbox	0 0 0 0
+	followanim	4
+	followcond	1
+	jumpframe	1 3.5 1 1.5
+	landframe	10
+	hitfx	data/sounds/grab.wav
+	frame	data/chars/3mature/rise6.gif
+	delay	8
+	frame	data/chars/3mature/e01.gif
+	attack	70 100 70 75 0 0 0 0 30 0
+	frame	data/chars/3mature/e02.gif
+	frame	data/chars/3mature/e03.gif
+	frame	data/chars/3mature/e04.gif
+	frame	data/chars/3mature/e05.gif
+	frame	data/chars/3mature/e06.gif
+	frame	data/chars/3mature/e07.gif
+	frame	data/chars/3mature/e08.gif
+	delay	300
+	frame	data/chars/3mature/e09.gif
+	attack	0 0 0 0
+	delay	20
+	frame	data/chars/3mature/rise6.gif
+		
+anim	attack5
+	range	0 100
+	rangez	-100 -18
+	loop	0
+	delay	10
+	offset	100 189
+	bbox	0 0 0 0
+	followanim	4
+	followcond	1
+	jumpframe	1 3.5 1 -1.5
+	landframe	10
+	hitfx	data/sounds/grab.wav
+	frame	data/chars/3mature/rise6.gif
+	delay	8
+	frame	data/chars/3mature/e01.gif
+	attack	70 100 70 75 0 0 0 0 30 0
+	frame	data/chars/3mature/e02.gif
+	frame	data/chars/3mature/e03.gif
+	frame	data/chars/3mature/e04.gif
+	frame	data/chars/3mature/e05.gif
+	frame	data/chars/3mature/e06.gif
+	frame	data/chars/3mature/e07.gif
+	frame	data/chars/3mature/e08.gif
+	delay	300
+	frame	data/chars/3mature/e09.gif
+	attack	0 0 0 0
+	delay	20
+	frame	data/chars/3mature/rise6.gif
+		
+anim	block
+	loop	0
+	delay	3
+	offset	105 189
+	bbox	0 0 0 0
+	move	-9
+	frame	data/chars/3mature/blk01.gif
+	frame	data/chars/3mature/blk01.gif
+	frame	data/chars/3mature/blk01.gif
+	frame	data/chars/3mature/blk01.gif
+	frame	data/chars/3mature/blk01.gif
+	frame	data/chars/3mature/blk02.gif
+	frame	data/chars/3mature/blk02.gif
+	frame	data/chars/3mature/blk02.gif
+	frame	data/chars/3mature/blk02.gif
+	frame	data/chars/3mature/blk03.gif
+	frame	data/chars/3mature/blk03.gif
+	frame	data/chars/3mature/blk03.gif
+	frame	data/chars/3mature/blk03.gif
+	frame	data/chars/3mature/blk04.gif
+	frame	data/chars/3mature/blk04.gif
+	frame	data/chars/3mature/blk04.gif
+	move	-4
+	frame	data/chars/3mature/blk05.gif
+	frame	data/chars/3mature/blk05.gif
+	frame	data/chars/3mature/blk05.gif
+	move	0
+	delay	20
+	frame	data/chars/3mature/blk06.gif
+		
+anim	burn
+	loop	0
+	delay	25
+	offset	100 189
+	bbox	0 0 0 0
+	landframe	3
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 200_50_0
+	@cmd	spawnbind "burn1" 1 1 1
+	@cmd	spawnbind "burn2" 1 1 1
+	@cmd	spawnbind "burn3" 1 1 1
+	attack	78 98 30 45 5 1 0 0 13 0
+	frame	data/chars/3mature/fall1.gif
+	delay	15
+	attack	64 130 50 25 5 1 0 0 13 0
+	frame	data/chars/3mature/fall2.gif
+	delay	500
+	frame	data/chars/3mature/fall3.gif
+	attack	0 0 0 0
+	bbox	58 175 85 15
+	delay	15
+	frame	data/chars/3mature/fall4.gif
+	frame	data/chars/3mature/fall5.gif
+	frame	data/chars/3mature/fall4.gif
+		
+anim	death
+	loop	0
+	delay	14
+	offset	100 189
+	bbox	0 0 0 0
+	frame	data/chars/3mature/rise1.gif
+	frame	data/chars/3mature/rise2.gif
+	frame	data/chars/3mature/rise3.gif
+	frame	data/chars/3mature/rise4.gif
+	delay	60
+	frame	data/chars/3mature/rise5.gif
+	delay	14
+	frame	data/chars/3mature/rise4.gif
+	frame	data/chars/3mature/rise3.gif
+	delay	16
+	frame	data/chars/3mature/death01.gif
+	frame	data/chars/3mature/death02.gif
+	frame	data/chars/3mature/death03.gif
+	delay	190
+	frame	data/chars/3mature/death03.gif
+		
+anim	fall
+	loop	0
+	delay	25
+	offset	100 189
+	bbox	0 0 0 0
+	landframe	3
+	attack	78 98 30 45 5 1 0 0 13 0
+	frame	data/chars/3mature/fall1.gif
+	delay	15
+	attack	64 130 50 25 5 1 0 0 13 0
+	frame	data/chars/3mature/fall2.gif
+	delay	500
+	frame	data/chars/3mature/fall3.gif
+	attack	0 0 0 0
+	bbox	58 175 85 15
+	delay	15
+	frame	data/chars/3mature/fall4.gif
+	frame	data/chars/3mature/fall5.gif
+	frame	data/chars/3mature/fall4.gif
+		
+anim	fall10
+	loop	0
+	delay	10
+	offset	100 189
+	bbox	80 80 50 75
+	landframe	4
+	attack	85 88 30 50 5 1 0 0 13 0
+	frame	data/chars/3mature/pain6.gif
+	delay	40
+	frame	data/chars/3mature/pain7.gif
+	delay	30
+	bbox	71 125 63 30
+	attack	64 125 45 25 5 1 0 0 13 0
+	frame	data/chars/3mature/fall2.gif
+	delay	300
+	bbox	77 130 67 35
+	attack	0 0 0 0
+	frame	data/chars/3mature/fall3.gif
+	bbox	58 167 85 15
+	delay	15
+	frame	data/chars/3mature/fall4.gif
+	frame	data/chars/3mature/fall5.gif
+	frame	data/chars/3mature/fall4.gif
+		
+anim	fall11
+	loop	0
+	delay	20
+	offset	100 189
+	bbox	61 185 90 5	
+	frame	data/chars/3mature/pain12.gif
+	delay	35
+	frame	data/chars/3mature/fall4.gif
+		
+anim	fall2
+	loop	0
+	delay	30
+	offset	100 189
+	bbox	0 0 0 0
+	landframe	3
+	attack	85 90 35 45 5 1 0 0 13 0
+	frame	data/chars/3mature/pain7.gif
+	delay	10
+	attack	64 125 55 25 5 1 0 0 13 0
+	frame	data/chars/3mature/fall2.gif
+	attack	0 0 0 0
+	delay	300
+	frame	data/chars/3mature/fall3.gif
+	delay	15
+	frame	data/chars/3mature/fall4.gif
+	frame	data/chars/3mature/fall5.gif
+	frame	data/chars/3mature/fall4.gif
+		
+anim	fall4
+	loop	0
+	delay	6
+	offset	100 189
+	bbox	0 0 0 0
+	jumpframe	0 1.2 1.5
+	frame	data/chars/3mature/pain8.gif
+	frame	data/chars/3mature/pain9.gif
+	frame	data/chars/3mature/pain10.gif
+	@cmd	leaper 0 0.2 0
+	frame	data/chars/3mature/pain11.gif
+	frame	data/chars/3mature/fall4.gif
+	frame	data/chars/3mature/fall5.gif
+	bbox	58 175 95 15
+	frame	data/chars/3mature/fall4.gif
+		
+anim	fall7
+	delay	1000
+	offset	105 130
+	frame	data/chars/3mature/slamck0.gif
+	offset	100 110
+	frame	data/chars/3mature/slamck1.gif
+	offset	106 130
+	frame	data/chars/3mature/slamck2.gif
+	offset	115 125
+	frame	data/chars/3mature/slamck3.gif
+	offset	125 125
+	frame	data/chars/3mature/slamck4.gif
+	offset	108 122
+	frame	data/chars/3mature/slamck5.gif
+	offset	106 155
+	frame	data/chars/3mature/slamck6.gif
+	offset	125 140
+	frame	data/chars/3mature/slamck7.gif
+	offset	120 105
+	frame	data/chars/3mature/slamck8.gif
+	offset	100 130
+	frame	data/chars/3mature/slamck9.gif
+	offset	105 130
+	frame	data/chars/3mature/slamck10.gif
+	offset	105 130
+	frame	data/chars/3mature/slamck11.gif
+	offset	115 125
+	frame	data/chars/3mature/slamck12.gif
+	offset	115 125
+	frame	data/chars/3mature/slamck13.gif
+	offset	115 125
+	frame	data/chars/3mature/slamck14.gif
+	offset	115 125
+	frame	data/chars/3mature/slamck15.gif
+		
+anim	fall9
+	loop	0
+	delay	10
+	offset	100 185
+	bbox	0 0 0 0
+	quakeframe	2 5 5
+	landframe	2 dust
+	attack	75 105 35 45 5 1 0 0 13 0
+	frame	data/chars/3mature/fall1.gif
+	delay	350
+	offset	100 180
+	attack	75 125 45 35 5 1 0 0 13 0
+	frame	data/chars/3mature/fall2.gif
+	delay	2
+	offset	100 175
+	move	-4
+	frame	data/chars/3mature/fall3.gif
+	frame	data/chars/3mature/fall3.gif
+	attack	0 0 0 0
+	frame	data/chars/3mature/fall3.gif
+	@cmd	looper 3 5
+	offset	100 189
+	move	-3
+	frame	data/chars/3mature/fall4.gif
+	frame	data/chars/3mature/fall4.gif
+	frame	data/chars/3mature/fall4.gif
+	@cmd	looper 6 4
+	move	-2
+	frame	data/chars/3mature/fall5.gif
+	frame	data/chars/3mature/fall5.gif
+	frame	data/chars/3mature/fall5.gif
+	loop	0
+	delay	15
+	move	0
+	bbox	58 175 100 15
+	frame	data/chars/3mature/fall4.gif
+		
+anim	follow1
+	loop	0
+	delay	8
+	offset	100 189
+	bbox	0 0 0 0
+	fastattack	1
+	hitfx	data/sounds/beat3.wav
+	frame	data/chars/3mature/a104.gif
+	frame	data/chars/3mature/a105.gif
+	frame	data/chars/3mature/a114.gif
+	attack	95 105 75 50 10 0 0 0 30 0
+	dropv	5 1 0
+	frame	data/chars/3mature/a115.gif
+	frame	data/chars/3mature/a116.gif
+	attack	0 0 0 0
+	frame	data/chars/3mature/a117.gif
+	frame	data/chars/3mature/a106.gif
+	frame	data/chars/3mature/a107.gif
+	sound	data/sounds/bgirl08.wav
+	frame	data/chars/3mature/a108.gif
+	attack	95 115 85 50 14 1 1 0 40 0
+	dropv	5 2 0
+	frame	data/chars/3mature/a109.gif
+	frame	data/chars/3mature/a110.gif
+	frame	data/chars/3mature/a111.gif
+	attack	0 0 0 0
+	frame	data/chars/3mature/a112.gif
+	frame	data/chars/3mature/a113.gif
+		
+anim	follow2
+	loop	0
+	delay	9
+	offset	100 189
+	bbox	0 0 0 0
+	followanim	5
+	followcond	1
+	frame	data/chars/3mature/d01.gif
+	frame	data/chars/3mature/d02.gif
+	delay	15
+	attack	95 105 70 50 14 0 0 0 40 0
+	frame	data/chars/3mature/d03.gif
+	frame	data/chars/3mature/d04.gif
+	attack	0 0 0 0
+	delay	9
+	frame	data/chars/3mature/d02.gif
+	frame	data/chars/3mature/d01.gif
+		
+anim	follow4
+	loop	0
+	delay	30
+	offset	100 189
+	bbox	0 0 0 0
+	jumpframe	1 4 -0.5
+	@cmd	stop
+	@cmd	slamstart2
+	@cmd	spawnbind4 "maturearm" 0 0 3 1 4
+	@cmd	position 24 5 20 1 -1
+	frame	data/chars/3mature/e10.gif
+	delay	14
+	@cmd	spawngrab "grab1" 200 200 450 195 2 8
+	@cmd	antiwall -50 5 -1
+	@cmd	position 23 20 30 1 -1
+	frame	data/chars/3mature/e11.gif
+	@cmd	antiwall -50 5 -1
+	@cmd	position 1 35 25 1 1
+	frame	data/chars/3mature/e12.gif
+	@cmd	antiwall -50 5 -1
+	@cmd	position 5 35 70 1 -1
+	frame	data/chars/3mature/e13.gif
+	attack	15 110 130 50 6 1 0 0 15 15
+	dropv	3 5 0
+	@cmd	antiwall -50 5 -1
+	@cmd	position 5 30 55 1 -1
+	frame	data/chars/3mature/e14.gif
+	@cmd	antiwall -50 5 -1
+	@cmd	position 20 -10 20 1 -1
+	frame	data/chars/3mature/e15.gif
+	@cmd	antiwall -50 5 -1
+	@cmd	position 2 -10 20 1 -1
+	frame	data/chars/3mature/e16.gif
+	attack	0 0 0 0
+	@cmd	antiwall -50 5 -1
+	@cmd	position 2 0 15 1 -1
+	frame	data/chars/3mature/e17.gif
+	delay	15
+	@cmd	antiwall -60 5 0
+	@cmd	position 10 17 5 1 1
+	frame	data/chars/3mature/e18.gif
+	@cmd	antiwall -60 5 0
+	@cmd	position 10 17 7 1 1
+	frame	data/chars/3mature/e19.gif
+	@cmd	antiwall -60 5 0
+	delay	22
+	@cmd	antiwall -60 5 -1
+	@cmd	position 9 -7 7 1 1
+	frame	data/chars/3mature/e20.gif
+	delay	150
+	@cmd	antiwall -60 5 -1
+	@cmd	position 9 -7 7 1 1
+	frame	data/chars/3mature/e21.gif
+	delay	20
+	@cmd	antiwall -60 5 -1
+	@cmd	position 9 -7 7 1 1
+	frame	data/chars/3mature/e22.gif
+	delay	85
+	@cmd	antiwall -60 5 -1
+	@cmd	position 9 -7 7 1 1
+	frame	data/chars/3mature/e23.gif
+	delay	18
+	@cmd	antiwall -60 5 -1
+	@cmd	position 9 -7 7 1 1
+	frame	data/chars/3mature/e42.gif
+	sound	data/sounds/bgirl06.wav
+	@cmd	antiwall -60 5 -1
+	@cmd	position 9 -7 7 1 1
+	frame	data/chars/3mature/e23.gif
+	@cmd	antiwall -60 5 -1
+	@cmd	position 9 -7 7 1 1
+	frame	data/chars/3mature/e42.gif
+	@cmd	antiwall -60 5 -1
+	@cmd	position 9 -7 7 1 1
+	frame	data/chars/3mature/e23.gif
+	@cmd	antiwall -60 5 -1
+	@cmd	position 9 -7 7 1 1
+	frame	data/chars/3mature/e42.gif
+	delay	120
+	@cmd	antiwall -60 5 -1
+	@cmd	position 9 -7 7 1 1
+	frame	data/chars/3mature/e23.gif
+	delay	14
+	@cmd	killgun 8 0
+	sound	data/sounds/bgirl08.wav
+	attack	85 105 90 50 6 1 0 0 15 15
+	dropv	3 5 0
+	@cmd	position 10 17 7 1 1
+	frame	data/chars/3mature/e24.gif
+	@cmd	spawn01 "flashsc1" 20 10 1
+	@cmd	depost 0
+	@cmd	finish 30 2 2 5 0 1
+	frame	data/chars/3mature/e25.gif
+	@cmd	clearL
+	frame	data/chars/3mature/e26.gif
+	frame	data/chars/3mature/e27.gif
+	frame	data/chars/3mature/e28.gif
+	attack	0 0 0 0
+	frame	data/chars/3mature/e29.gif
+	sound	data/sounds/matvice.wav
+	frame	data/chars/3mature/e30.gif
+	delay	14
+	frame	data/chars/3mature/e31.gif
+	@cmd	attack1 -40 70 10 "ANI_FOLLOW6"
+	frame	data/chars/3mature/e32.gif
+	frame	data/chars/3mature/e33.gif
+	@cmd	attack1 -40 70 10 "ANI_FOLLOW6"
+	frame	data/chars/3mature/e34.gif
+	frame	data/chars/3mature/e35.gif
+	@cmd	attack1 -40 70 10 "ANI_FOLLOW6"
+	frame	data/chars/3mature/e33.gif
+	frame	data/chars/3mature/e34.gif
+	@cmd	attack1 -40 70 10 "ANI_FOLLOW6"
+	frame	data/chars/3mature/e35.gif
+	delay	18
+	frame	data/chars/3mature/e36.gif
+	frame	data/chars/3mature/e37.gif
+	delay	70
+	@cmd	attack1 -60 60 10 "ANI_FOLLOW6"
+	frame	data/chars/3mature/e38.gif
+	delay	14
+	frame	data/chars/3mature/e39.gif
+	frame	data/chars/3mature/e40.gif
+	delay	40
+	frame	data/chars/3mature/e41.gif
+		
+anim	follow5
+	loop	0
+	delay	9
+	offset	100 189
+	bbox	0 0 0 0
+	fastattack	1
+	hitfx	data/sounds/beat5.wav
+	hitflash	flashscreen1
+	frame	data/chars/3mature/d04.gif
+	frame	data/chars/3mature/d05.gif
+	attack	95 110 100 50 14 1 0 0 55 0
+	dropv	2 4 0
+	frame	data/chars/3mature/d06.gif
+	delay	3
+	move	-9
+	frame	data/chars/3mature/d07.gif
+	frame	data/chars/3mature/d07.gif
+	frame	data/chars/3mature/d07.gif
+	frame	data/chars/3mature/d08.gif
+	frame	data/chars/3mature/d08.gif
+	frame	data/chars/3mature/d08.gif
+	frame	data/chars/3mature/d08.gif
+	frame	data/chars/3mature/d08.gif
+	attack	0 0 0 0
+	move	0
+	delay	16
+	frame	data/chars/3mature/d09.gif
+	frame	data/chars/3mature/d10.gif
+		
+anim	follow6
+	loop	0
+	delay	3
+	offset	105 189
+	bbox	0 0 0 0
+	move	-9
+	frame	data/chars/3mature/blk01.gif
+	frame	data/chars/3mature/blk01.gif
+	frame	data/chars/3mature/blk01.gif
+	frame	data/chars/3mature/blk01.gif
+	frame	data/chars/3mature/blk01.gif
+	frame	data/chars/3mature/blk02.gif
+	frame	data/chars/3mature/blk02.gif
+	frame	data/chars/3mature/blk02.gif
+	frame	data/chars/3mature/blk02.gif
+	frame	data/chars/3mature/blk03.gif
+	frame	data/chars/3mature/blk03.gif
+	frame	data/chars/3mature/blk03.gif
+	frame	data/chars/3mature/blk03.gif
+	frame	data/chars/3mature/blk04.gif
+	frame	data/chars/3mature/blk04.gif
+	frame	data/chars/3mature/blk04.gif
+	move	-4
+	frame	data/chars/3mature/blk05.gif
+	frame	data/chars/3mature/blk05.gif
+	frame	data/chars/3mature/blk05.gif
+	move	0
+	delay	20
+	frame	data/chars/3mature/blk06.gif
+		
+anim	grabbed
+	loop	0
+	delay	10
+	offset	100 189
+	bbox	79 97 50 91
+	frame	data/chars/3mature/grabbed.gif
+		
+anim	idle
+	loop	1
+	delay	9
+	offset	100 189
+	bbox	79 97 50 91
+	frame	data/chars/3mature/idle01.gif
+	frame	data/chars/3mature/idle02.gif
+	frame	data/chars/3mature/idle03.gif
+	frame	data/chars/3mature/idle04.gif
+	frame	data/chars/3mature/idle05.gif
+	frame	data/chars/3mature/idle06.gif
+		
+anim	pain
+	loop	0
+	delay	3
+	offset	103 189
+	bbox	79 97 50 91
+	frame	data/chars/3mature/pain0.gif
+	offset	100 189
+	frame	data/chars/3mature/pain1.gif
+	offset	107 189
+	frame	data/chars/3mature/pain1.gif
+	delay	40
+	offset	100 189
+	frame	data/chars/3mature/pain1.gif
+		
+anim	pain2
+	loop	0
+	delay	3
+	offset	103 189
+	bbox	79 97 50 91
+	frame	data/chars/3mature/pain0.gif
+	offset	100 189
+	frame	data/chars/3mature/pain2.gif
+	offset	107 189
+	frame	data/chars/3mature/pain2.gif
+	delay	40
+	offset	100 189
+	frame	data/chars/3mature/pain2.gif
+		
+anim	pain3
+	loop	0
+	delay	1
+	offset	103 189
+	bbox	0 0 0 0
+	jumpframe	1 2 -1 0
+	frame	data/chars/3mature/pain1.gif
+	delay	25
+	frame	data/chars/3mature/fall2.gif
+	delay	12
+	frame	data/chars/3mature/fall3.gif
+	delay	4
+	bbox	71 165 67 30
+	frame	data/chars/3mature/fall4.gif
+	frame	data/chars/3mature/fall5.gif
+	frame	data/chars/3mature/fall4.gif
+	frame	data/chars/3mature/fall5.gif
+	delay	15
+	bbox	0 0 0 0
+	frame	data/chars/3mature/fall4.gif
+	delay	10
+	frame	data/chars/3mature/rise1.gif
+	frame	data/chars/3mature/rise2.gif
+	frame	data/chars/3mature/rise3.gif
+		
+anim	pain5
+	loop	0
+	delay	23
+	offset	100 189
+	bbox	79 97 50 91
+	frame	data/chars/3mature/pain1.gif
+		
+anim	pain6
+	loop	0
+	delay	23
+	offset	100 189
+	bbox	79 97 50 91
+	frame	data/chars/3mature/pain2.gif
+		
+anim	pain8
+	loop	0
+	delay	2
+	offset	100 189
+	bbox	79 97 50 91
+	move	-6
+	frame	data/chars/3mature/pain1.gif
+	frame	data/chars/3mature/pain1.gif
+	frame	data/chars/3mature/pain1.gif
+	frame	data/chars/3mature/pain2.gif
+	frame	data/chars/3mature/pain2.gif
+	frame	data/chars/3mature/pain2.gif
+	move	-3
+	frame	data/chars/3mature/pain2.gif
+	frame	data/chars/3mature/pain2.gif
+	move	-1
+	frame	data/chars/3mature/pain2.gif
+	delay	35
+	frame	data/chars/3mature/pain2.gif
+		
+anim	pain9
+	loop	0
+	delay	15
+	offset	100 189
+	bbox	79 97 50 91
+	frame	data/chars/3mature/pain1.gif
+	delay	150
+	frame	data/chars/3mature/pain2.gif
+		
+anim	rise
+	loop	0
+	delay	14
+	offset	100 189
+	bbox	0 0 0 0
+	frame	data/chars/3mature/rise1.gif
+	frame	data/chars/3mature/rise2.gif
+	@cmd	riseattack 80 10 "ANI_FOLLOW2"
+	frame	data/chars/3mature/rise3.gif
+	@cmd	riseattack 80 10 "ANI_FOLLOW2"
+	frame	data/chars/3mature/rise4.gif
+	@cmd	riseattack 80 10 "ANI_FOLLOW2"
+	frame	data/chars/3mature/rise5.gif
+	frame	data/chars/3mature/rise6.gif
+
+		
+anim	spawn
+	loop	0
+	delay	30
+	offset	100 189
+	bbox	0 0 0 0
+	frame	data/chars/3mature/spawn01.gif
+	frame	data/chars/3mature/spawn01.gif
+
+	frame	data/chars/3mature/spawn01.gif #2
+	@cmd	attack1 -250 140 450 "ANI_FOLLOW8"
+	frame	data/chars/3mature/spawn01.gif
+	@cmd	attack1 -250 140 450 "ANI_FOLLOW8"
+	frame	data/chars/3mature/spawn01.gif
+	@cmd	attack1 -250 140 450 "ANI_FOLLOW8"
+	frame	data/chars/3mature/spawn01.gif
+	@cmd	looper 2 60
+	frame	data/chars/3mature/spawn01.gif
+	@cmd	anichange "ANI_FOLLOW8"
+	frame	data/chars/3mature/spawn01.gif 
+
+
+anim	follow8
+	loop	0
+	delay	200
+	offset	100 189
+	bbox	0 0 0 0
+	frame	data/chars/3mature/spawn01.gif
+	delay	90
+	frame	data/chars/3mature/spawn01.gif
+	frame	data/chars/3mature/spawn01.gif
+	delay	14
+	frame	data/chars/3mature/spawn02.gif
+	frame	data/chars/3mature/spawn03.gif
+	delay	90
+	frame	data/chars/3mature/spawn04.gif
+	delay	14
+	frame	data/chars/3mature/spawn03.gif
+	frame	data/chars/3mature/spawn02.gif
+	@cmd	beidle
+	frame	data/chars/3mature/spawn02.gif
+		
+anim	special
+	loop	0
+	delay	50
+	offset	105 189
+	bbox	0 0 0 0
+	sound	data/sounds/grab.wav
+	@cmd	slamstart2
+	@cmd	position 24 30 20 1 -1
+	frame	data/chars/3mature/c01.gif
+	delay	24
+	@cmd	spawngrab "grab1" 200 200 450 55 1 8
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 24 35 25 1 -1
+	frame	data/chars/3mature/c02.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 23 35 25 1 -1
+	frame	data/chars/3mature/c03.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 23 30 35 1 -1
+	frame	data/chars/3mature/c04.gif
+	delay	12
+	@cmd	antiwall 60 -5 0
+	@cmd	position 14 30 15 1 1
+	frame	data/chars/3mature/c05.gif
+	delay	15
+	attack	75 130 80 50 6 1 0 0 15 15
+	dropv	3 5 0
+	@cmd	hurt 10
+	@cmd	spawn01 "dust" 5 1 1
+	sound	data/sounds/fall.wav
+	@cmd	antiwall 60 -5 0
+	@cmd	position 10 10 5 1 -1
+	frame	data/chars/3mature/c06.gif
+	@cmd	antiwall 60 -5 0
+	@cmd	position 9 20 5 1 -1
+	frame	data/chars/3mature/c07.gif
+	attack	0 0 0 0
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 17 35 10 1 -1
+	frame	data/chars/3mature/c08.gif
+	delay	18
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 23 35 25 1 -1
+	frame	data/chars/3mature/c03.gif
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 23 30 35 1 -1
+	frame	data/chars/3mature/c04.gif
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 14 30 15 1 1
+	delay	10
+	frame	data/chars/3mature/c05.gif
+	attack	75 130 80 50 6 1 0 0 15 15
+	dropv	3 5 0
+	@cmd	hurt 10
+	@cmd	spawn01 "dust" 5 1 1
+	sound	data/sounds/fall.wav
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 10 10 5 1 -1
+	frame	data/chars/3mature/c06.gif
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 9 20 5 1 -1
+	frame	data/chars/3mature/c07.gif
+	attack	0 0 0 0
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 17 35 10 1 -1
+	frame	data/chars/3mature/c08.gif
+	delay	18
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 23 35 25 1 -1
+	frame	data/chars/3mature/c03.gif
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 23 30 35 1 -1
+	frame	data/chars/3mature/c04.gif
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 14 30 15 1 1
+	delay	10
+	frame	data/chars/3mature/c05.gif
+	attack	75 130 80 50 6 1 0 0 15 15
+	dropv	3 5 0
+	@cmd	hurt 10
+	@cmd	spawn01 "dust" 5 1 1
+	sound	data/sounds/fall.wav
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 10 10 5 1 -1
+	frame	data/chars/3mature/c06.gif
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 9 20 5 1 -1
+	frame	data/chars/3mature/c07.gif
+	attack	0 0 0 0
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 17 35 10 1 -1
+	frame	data/chars/3mature/c08.gif
+	delay	18
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 23 35 25 1 -1
+	frame	data/chars/3mature/c03.gif
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 23 30 35 1 -1
+	frame	data/chars/3mature/c04.gif
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 14 30 15 1 1
+	delay	10
+	frame	data/chars/3mature/c05.gif
+	attack	75 130 80 50 6 1 0 0 15 15
+	dropv	3 5 0
+	@cmd	hurt 10
+	@cmd	spawn01 "dust" 5 1 1
+	@cmd	spawn02 "flashsc1" -100 500 300
+	sound	data/sounds/fall.wav
+	@cmd	killgun 8 0
+	@cmd	position 10 10 5 1 -1
+	frame	data/chars/3mature/c06.gif
+	@cmd	position 9 20 5 1 -1
+	frame	data/chars/3mature/c07.gif
+	attack	0 0 0 0
+	@cmd	depost 0
+	@cmd	finish 30 1 2 5 0 1
+	delay	14
+	frame	data/chars/3mature/c07.gif
+	@cmd	clearL
+	frame	data/chars/3mature/c09.gif
+	frame	data/chars/3mature/c10.gif
+	delay	16
+	frame	data/chars/3mature/c11.gif
+	frame	data/chars/3mature/c12.gif
+	@cmd	attack1 -40 60 10 "ANI_FOLLOW6"
+	frame	data/chars/3mature/c13.gif
+	frame	data/chars/3mature/c14.gif
+	delay	65
+	@cmd	attack1 -40 60 10 "ANI_FOLLOW6"
+	frame	data/chars/3mature/c15.gif
+	delay	16
+	frame	data/chars/3mature/c14.gif
+	@cmd	attack1 -60 60 10 "ANI_FOLLOW6"
+	frame	data/chars/3mature/c13.gif
+	frame	data/chars/3mature/c12.gif
+		
+anim	special2
+	loop	0
+	delay	3
+	offset	105 189
+	bbox	0 0 0 0
+	move	-9
+	frame	data/chars/3mature/blk01.gif
+	frame	data/chars/3mature/blk01.gif
+	frame	data/chars/3mature/blk01.gif
+	frame	data/chars/3mature/blk01.gif
+	frame	data/chars/3mature/blk01.gif
+	frame	data/chars/3mature/blk02.gif
+	frame	data/chars/3mature/blk02.gif
+	frame	data/chars/3mature/blk02.gif
+	frame	data/chars/3mature/blk02.gif
+	frame	data/chars/3mature/blk03.gif
+	frame	data/chars/3mature/blk03.gif
+	frame	data/chars/3mature/blk03.gif
+	frame	data/chars/3mature/blk03.gif
+	frame	data/chars/3mature/blk04.gif
+	frame	data/chars/3mature/blk04.gif
+	frame	data/chars/3mature/blk04.gif
+	move	-4
+	frame	data/chars/3mature/blk05.gif
+	frame	data/chars/3mature/blk05.gif
+	frame	data/chars/3mature/blk05.gif
+	move	0
+	delay	20
+	frame	data/chars/3mature/blk06.gif
+		
+anim	upper
+	range	30 160
+	loop	0
+	delay	3
+	offset	100 189
+	bbox	0 0 0 0
+	fastattack	1
+	jumpframe	8 5 2
+	landframe	16
+	hitfx	data/sounds/beat4.wav
+	hitflash	flashscreen1
+	move	7
+	sound	data/sounds/bgirl08.wav
+	frame	data/chars/3mature/upper01.gif
+	attack	80 60 85 85 20 1 0 0 40 15
+	dropv	5 2 0
+	frame	data/chars/3mature/upper01.gif
+	frame	data/chars/3mature/upper01.gif
+	frame	data/chars/3mature/upper02.gif
+	frame	data/chars/3mature/upper02.gif
+	frame	data/chars/3mature/upper02.gif
+	frame	data/chars/3mature/upper03.gif
+	frame	data/chars/3mature/upper03.gif
+	attack	0 0 0 0
+	frame	data/chars/3mature/upper03.gif
+	move	0
+	attack	80 60 85 85 20 1 0 0 40 15
+	dropv	5 2 0
+	delay	16
+	frame	data/chars/3mature/upper04.gif
+	delay	12
+	frame	data/chars/3mature/upper05.gif
+	frame	data/chars/3mature/upper06.gif
+	frame	data/chars/3mature/upper07.gif
+	attack	0 0 0 0
+	frame	data/chars/3mature/upper08.gif
+	frame	data/chars/3mature/upper09.gif
+	delay	500
+	frame	data/chars/3mature/upper10.gif
+	delay	15
+	frame	data/chars/3mature/a106.gif
+		
+anim	walk
+	loop	1
+	delay	8
+	offset	100 189
+	bbox	79 97 50 91
+	frame	data/chars/3mature/wk12.gif
+	frame	data/chars/3mature/wk11.gif
+	frame	data/chars/3mature/wk10.gif
+	frame	data/chars/3mature/wk09.gif
+	frame	data/chars/3mature/wk08.gif
+	frame	data/chars/3mature/wk07.gif
+	frame	data/chars/3mature/wk06.gif
+	frame	data/chars/3mature/wk05.gif
+	frame	data/chars/3mature/wk04.gif
+	frame	data/chars/3mature/wk03.gif
+	frame	data/chars/3mature/wk02.gif
+	frame	data/chars/3mature/wk01.gif
+		
+#|edited by openBor Stats v 0.53
+		

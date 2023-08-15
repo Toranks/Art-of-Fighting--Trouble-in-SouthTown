@@ -1,0 +1,239 @@
+name	byopris
+type	npc
+speed   14
+falldie	1
+#lifespan  	14
+gfxshadow	1
+nodieblink	3
+hostile		player
+offscreenkill 	20000
+#subject_to_wall 1
+diesound      data/sounds/empty.wav
+animationscript data/scripts/escript.c
+
+palette		data/chars/misc/runpeople/prisoner/p1pal.gif
+alternatepal	data/chars/misc/runpeople/prisoner/p1map1.gif
+alternatepal	data/chars/misc/runpeople/prisoner/p1map2.gif
+
+anim	follow5
+@script
+if(frame==1)
+{
+  changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_OBSTACLE"));
+}
+@end_script
+	loop	1 4 9
+	delay	5
+	counterrange 2 10 1 1
+     	followanim 7
+	offset	85 132
+	bbox	70 40 40 40
+	frame	data/chars/misc/runpeople/prisoner/rise2.gif
+	@cmd	layer -100
+	@cmd	subminz 0
+	@cmd	submaxz 0
+	@cmd	subwall 0
+	@cmd	subplat 0
+	frame	data/chars/misc/runpeople/prisoner/rise2.gif
+	frame	data/chars/misc/runpeople/prisoner/rise2.gif #2
+	frame	data/chars/misc/runpeople/prisoner/rise2.gif
+	frame	data/chars/misc/runpeople/prisoner/rise2.gif
+
+	frame	data/chars/misc/runpeople/prisoner/rise2.gif
+	frame	data/chars/misc/runpeople/prisoner/rise2.gif
+	frame	data/chars/misc/runpeople/prisoner/rise2.gif
+	frame	data/chars/misc/runpeople/prisoner/rise2.gif
+	frame	data/chars/misc/runpeople/prisoner/rise2.gif
+
+
+anim	follow7
+@script
+if(frame==1)
+{
+  changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_NPC"));
+}
+@end_script
+	loop	0
+	delay	14
+	offset	85 132
+	bbox	0 0 0 0
+	frame	data/chars/misc/runpeople/prisoner/rise1.gif
+	frame	data/chars/misc/runpeople/prisoner/rise2.gif
+	frame	data/chars/misc/runpeople/prisoner/rise3.gif
+	frame	data/chars/misc/runpeople/prisoner/rise4.gif
+	delay	40
+	frame	data/chars/misc/runpeople/prisoner/rise4.gif
+	delay	7
+	frame	data/chars/misc/runpeople/prisoner/pris01.gif
+	@cmd	dasher 0 0 0.5
+	frame	data/chars/misc/runpeople/prisoner/pris02.gif
+	frame	data/chars/misc/runpeople/prisoner/pris03.gif
+	frame	data/chars/misc/runpeople/prisoner/pris04.gif
+	@cmd	layer 0
+	frame	data/chars/misc/runpeople/prisoner/pris05.gif
+	frame	data/chars/misc/runpeople/prisoner/pris06.gif
+	frame	data/chars/misc/runpeople/prisoner/pris07.gif
+	frame	data/chars/misc/runpeople/prisoner/pris01.gif
+	frame	data/chars/misc/runpeople/prisoner/pris02.gif
+	frame	data/chars/misc/runpeople/prisoner/pris03.gif
+	movez	0
+	frame	data/chars/misc/runpeople/prisoner/pris04.gif
+	@cmd	subscreen 1
+	frame	data/chars/misc/runpeople/prisoner/pris05.gif
+	@cmd	subplat 1
+	frame	data/chars/misc/runpeople/prisoner/pris06.gif
+	frame	data/chars/misc/runpeople/prisoner/pris07.gif
+	frame	data/chars/misc/runpeople/prisoner/pris01.gif
+	frame	data/chars/misc/runpeople/prisoner/pris02.gif
+	@cmd	stop
+	frame	data/chars/misc/runpeople/prisoner/rise4.gif
+	@cmd	subminz 1
+	@cmd	submaxz 1
+	@cmd	subwall 1
+	@cmd	subplat 1
+	@cmd	subscreen 1	
+	frame	data/chars/misc/runpeople/prisoner/rise4.gif
+	delay	20
+	@cmd	lifesp 4000
+	frame	data/chars/misc/runpeople/prisoner/rise4.gif
+	@cmd	beidle
+	frame	data/chars/misc/runpeople/prisoner/rise4.gif
+
+
+
+
+anim	death
+	loop	0
+	delay	8
+	offset	93 132
+	bbox	0 0 0 0
+	@cmd	dasher 1.2 0 0.1
+	frame	data/chars/misc/runpeople/prisoner/xpris03.gif
+	frame	data/chars/misc/runpeople/prisoner/xpris04.gif
+	frame	data/chars/misc/runpeople/prisoner/xpris05.gif
+	frame	data/chars/misc/runpeople/prisoner/xpris06.gif
+	frame	data/chars/misc/runpeople/prisoner/xpris07.gif
+	frame	data/chars/misc/runpeople/prisoner/xpris01.gif
+	frame	data/chars/misc/runpeople/prisoner/xpris02.gif
+	sound	data/sounds/eek5.wav
+	frame	data/chars/misc/runpeople/prisoner/xpris03.gif
+	frame	data/chars/misc/runpeople/prisoner/xpris04.gif
+	frame	data/chars/misc/runpeople/prisoner/xpris05.gif
+	frame	data/chars/misc/runpeople/prisoner/xpris06.gif
+	frame	data/chars/misc/runpeople/prisoner/xpris07.gif
+	frame	data/chars/misc/runpeople/prisoner/xpris01.gif
+	frame	data/chars/misc/runpeople/prisoner/xpris02.gif
+	@cmd	looper 7 4
+	delay	4
+	frame	data/chars/misc/runpeople/prisoner/xpris03.gif
+	frame	data/chars/misc/runpeople/prisoner/empty.gif
+	frame	data/chars/misc/runpeople/prisoner/xpris04.gif
+	frame	data/chars/misc/runpeople/prisoner/empty.gif
+	frame	data/chars/misc/runpeople/prisoner/xpris05.gif
+	frame	data/chars/misc/runpeople/prisoner/empty.gif
+	frame	data/chars/misc/runpeople/prisoner/xpris06.gif
+	frame	data/chars/misc/runpeople/prisoner/empty.gif
+	frame	data/chars/misc/runpeople/prisoner/xpris07.gif
+	frame	data/chars/misc/runpeople/prisoner/empty.gif
+	frame	data/chars/misc/runpeople/prisoner/xpris01.gif
+	frame	data/chars/misc/runpeople/prisoner/empty.gif
+	frame	data/chars/misc/runpeople/prisoner/xpris02.gif
+	frame	data/chars/misc/runpeople/prisoner/empty.gif
+	sound	data/sounds/eek5.wav
+	frame	data/chars/misc/runpeople/prisoner/xpris03.gif
+	frame	data/chars/misc/runpeople/prisoner/empty.gif
+	frame	data/chars/misc/runpeople/prisoner/xpris04.gif
+	frame	data/chars/misc/runpeople/prisoner/empty.gif
+	frame	data/chars/misc/runpeople/prisoner/xpris05.gif
+	frame	data/chars/misc/runpeople/prisoner/empty.gif
+	frame	data/chars/misc/runpeople/prisoner/xpris06.gif
+	frame	data/chars/misc/runpeople/prisoner/empty.gif
+	frame	data/chars/misc/runpeople/prisoner/xpris07.gif
+	frame	data/chars/misc/runpeople/prisoner/empty.gif
+	frame	data/chars/misc/runpeople/prisoner/xpris01.gif
+	frame	data/chars/misc/runpeople/prisoner/empty.gif
+	frame	data/chars/misc/runpeople/prisoner/xpris02.gif
+	frame	data/chars/misc/runpeople/prisoner/empty.gif
+
+
+
+
+
+anim	backwalk
+	loop	1
+	delay	4
+	offset	85 132
+	bbox	0 0 0 0
+	frame	data/chars/misc/runpeople/prisoner/pris03.gif
+	frame	data/chars/misc/runpeople/prisoner/pris04.gif
+	frame	data/chars/misc/runpeople/prisoner/pris05.gif
+	frame	data/chars/misc/runpeople/prisoner/pris06.gif
+	frame	data/chars/misc/runpeople/prisoner/pris07.gif
+	frame	data/chars/misc/runpeople/prisoner/pris01.gif
+	frame	data/chars/misc/runpeople/prisoner/pris02.gif
+	sound	data/sounds/eek5.wav
+	frame	data/chars/misc/runpeople/prisoner/pris03.gif
+	frame	data/chars/misc/runpeople/prisoner/pris04.gif
+	frame	data/chars/misc/runpeople/prisoner/pris05.gif
+	frame	data/chars/misc/runpeople/prisoner/pris06.gif
+	frame	data/chars/misc/runpeople/prisoner/pris07.gif
+	frame	data/chars/misc/runpeople/prisoner/pris01.gif
+	frame	data/chars/misc/runpeople/prisoner/pris02.gif
+		
+anim	idle
+	loop	1
+	delay	11
+	offset	85 132
+	bbox	0 0 0 0
+	frame	data/chars/misc/runpeople/prisoner/rise4.gif
+		
+anim	spawn
+	loop	0
+	delay	5
+	offset	85 132
+	bbox	0 0 0 0
+	jumpframe	1 3.5 0
+	landframe	4 dust
+	frame	data/chars/misc/runpeople/prisoner/spawn01.gif
+	delay	12
+	frame	data/chars/misc/runpeople/prisoner/spawn01.gif
+	@cmd	subwall 1
+	frame	data/chars/misc/runpeople/prisoner/spawn02.gif
+	delay	300
+	frame	data/chars/misc/runpeople/prisoner/spawn03.gif
+	delay	12
+	sound	data/sounds/fall.wav
+	frame	data/chars/misc/runpeople/prisoner/spawn04.gif
+	frame	data/chars/misc/runpeople/prisoner/spawn05.gif
+	delay	100
+	frame	data/chars/misc/runpeople/prisoner/spawn04.gif
+	delay	14
+	frame	data/chars/misc/runpeople/prisoner/rise1.gif
+	frame	data/chars/misc/runpeople/prisoner/rise2.gif
+	@cmd	lifesp 3000
+	frame	data/chars/misc/runpeople/prisoner/rise3.gif
+	frame	data/chars/misc/runpeople/prisoner/rise4.gif
+		
+anim	walk
+	loop	1
+	delay	8
+	offset	93 132
+	bbox	0 0 0 0
+	frame	data/chars/misc/runpeople/prisoner/xpris03.gif
+	frame	data/chars/misc/runpeople/prisoner/xpris04.gif
+	frame	data/chars/misc/runpeople/prisoner/xpris05.gif
+	frame	data/chars/misc/runpeople/prisoner/xpris06.gif
+	frame	data/chars/misc/runpeople/prisoner/xpris07.gif
+	frame	data/chars/misc/runpeople/prisoner/xpris01.gif
+	frame	data/chars/misc/runpeople/prisoner/xpris02.gif
+	sound	data/sounds/eek5.wav
+	frame	data/chars/misc/runpeople/prisoner/xpris03.gif
+	frame	data/chars/misc/runpeople/prisoner/xpris04.gif
+	frame	data/chars/misc/runpeople/prisoner/xpris05.gif
+	frame	data/chars/misc/runpeople/prisoner/xpris06.gif
+	frame	data/chars/misc/runpeople/prisoner/xpris07.gif
+	frame	data/chars/misc/runpeople/prisoner/xpris01.gif
+	frame	data/chars/misc/runpeople/prisoner/xpris02.gif
+		
+#|edited by openBor Stats v 0.53
+		

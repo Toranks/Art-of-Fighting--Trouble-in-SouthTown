@@ -1,0 +1,103 @@
+name	 gridoor
+health	 90
+nolife  1
+noatflash 1
+flash     flash5
+type	 obstacle
+offscreenkill 	55000 
+subject_to_wall 0
+subject_to_platform 0
+subject_to_obstacle 0
+setlayer 80
+
+
+animationscript data/scripts/escript.c
+
+palette	none
+
+load	brkwood4
+load	brkmetal2
+load	doorIN
+
+
+anim	fall
+	delay	18
+	offset	85 175
+	sound	data/sounds/wood.wav
+	frame	data/chars/misc/object/door/gridoor02.gif
+	frame	data/chars/misc/object/door/gridoor03.gif
+		
+anim	idle
+	delay	1000
+	offset	85 175
+	bbox	45 5 75 210
+	platform	50 230 -20 -20 85 85 90 250
+	frame	data/chars/misc/object/door/gridoor01.gif
+
+		
+anim	follow10
+	loop	1 2 8
+	delay	8
+	offset	65 270
+	bbox	0 0 0 0
+	@cmd	layer 1
+	frame	data/chars/misc/object/door/gridoor04.gif
+	frame	data/chars/misc/object/door/gridoor05.gif
+	bbox	30 5 75 250 25
+	frame	data/chars/misc/object/door/gridoor04.gif #2
+	@cmd	damage 60 "ANI_FOLLOW2"
+	frame	data/chars/misc/object/door/gridoor05.gif
+	@cmd	damage 60 "ANI_FOLLOW2"
+	frame	data/chars/misc/object/door/gridoor04.gif
+	@cmd	damage 60 "ANI_FOLLOW2"
+	frame	data/chars/misc/object/door/gridoor05.gif
+	@cmd	damage 60 "ANI_FOLLOW2"
+	frame	data/chars/misc/object/door/gridoor04.gif
+	frame	data/chars/misc/object/door/gridoor05.gif #8
+	frame	data/chars/misc/object/door/gridoor04.gif
+	frame	data/chars/misc/object/door/gridoor05.gif
+
+
+
+anim	follow2
+	loop	1 11 14
+	delay	8
+	offset	65 270
+	bbox	0 0 0 0
+	sound	data/sounds/wood.wav
+	frame	data/chars/misc/object/door/gridoor06.gif
+	@cmd	tosser "brkmetal2" 1 40 1 0.1 4 0  
+	@cmd	tosser "brkmetal2" 10 60 1 -0.1 4 0
+	@cmd	spawnM2 "brkwood4" 1 140 1 1
+	@cmd	spawnM2 "brkwood4" 10 200 1 1
+	@cmd	spawnM2 "brkwood4" -20 150 1 1
+	@cmd	spawnM2 "brkwood4" -40 170 1 1
+	frame	data/chars/misc/object/door/gridoor04.gif
+	@cmd	spawnM2 "brkwood4" 1 80 1 1
+	@cmd	spawnM2 "brkwood4" 10 100 1 1
+	@cmd	spawnM2 "brkwood4" -20 50 1 1
+	@cmd	spawnM2 "brkwood4" -40 70 1 1
+	frame	data/chars/misc/object/door/gridoor06.gif
+	frame	data/chars/misc/object/door/gridoor04.gif
+	frame	data/chars/misc/object/door/gridoor06.gif
+	frame	data/chars/misc/object/door/gridoor04.gif
+	frame	data/chars/misc/object/door/gridoor06.gif
+	frame	data/chars/misc/object/door/gridoor04.gif
+	frame	data/chars/misc/object/door/gridoor06.gif
+	delay	200
+	frame	data/chars/misc/object/door/gridoor06.gif
+	@cmd	spawn01 "doorIN" -10 1 1
+	frame	data/chars/misc/object/door/gridoor06.gif
+	frame	data/chars/misc/object/door/gridoor06.gif #11
+	frame	data/chars/misc/object/door/gridoor06.gif
+	frame	data/chars/misc/object/door/gridoor06.gif
+	frame	data/chars/misc/object/door/gridoor06.gif
+	frame	data/chars/misc/object/door/gridoor06.gif
+	frame	data/chars/misc/object/door/gridoor06.gif
+	frame	data/chars/misc/object/door/gridoor06.gif
+
+
+
+
+
+

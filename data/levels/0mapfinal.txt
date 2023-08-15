@@ -1,0 +1,355 @@
+music		data/music/mapfinal.ogg
+
+background	data/bgs/0map/back.gif
+bglayer         data/bgs/0map/wtr1a.gif 0 0 -40 -55 0 0 1 1 1 0 1 2 3 1
+panel		data/bgs/0map/panela.gif
+fglayer		data/bgs/0map/suna.gif 1500 0 0 0 0 0 0 1 1 1 1 1 1 7 1
+layer		data/bgs/0map/clouda.gif 1000 0 0 0 0 0 0 -1 1 1 1 0 0 0 0 -0.5
+
+direction       both
+spawn1  	285 300
+spawn2  	295 310
+spawn3  	305 320
+order	        a
+settime         0
+notime          1
+#nopause		1
+#type 		2
+
+bgspeed  2
+setweap  7
+
+
+#---------------------------
+spawn   barrel
+coords  -10 1
+at      0
+#------///---levelscript----///-----
+
+spawn   ghost1
+@script
+void main()
+{
+	clearglobalvar();
+}
+@end_script
+coords  30 240
+at      0
+
+spawn   ghost1
+@script
+void main()
+{
+    setglobalvar("map", 20);
+}
+@end_script
+coords  30 240
+at      0
+
+#-------------//--misc-stuff--//---------------
+
+spawn   lvlmisc
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW5"));
+} @end_script
+alias   sel01
+coords  170 190
+at      0
+
+spawn   lvlmisc
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW5"));
+} @end_script
+alias   sel02
+map     3
+coords  210 415
+at      0
+
+spawn   lvlmisc
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW5"));
+} @end_script
+alias   sel03
+map     4
+coords  535 265
+at      0
+
+spawn   lvlmisc
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW5"));
+} @end_script
+alias   sel04
+map     5
+coords  600 395
+at      0
+
+spawn   lvlrus
+alias   rsh1
+coords  290 185
+at      0
+
+spawn   lvlrus
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+alias   rsh2
+coords  510 410
+at      0
+
+spawn   lvlmisc
+alias   home1
+coords  345 330
+at      0
+
+spawn   lvlmisc
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+} @end_script
+alias   king1
+coords  500 380
+at      0
+
+spawn   lvlbns
+alias   bonus1b
+coords  405 330
+at      0
+
+spawn   lvlbns
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+} @end_script
+alias   gbonusb
+coords  415 395
+at      0
+
+spawn   lvlbns
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW3"));
+} @end_script
+alias   bonus3b
+coords  520 465
+at      0
+
+spawn   lvlmisc
+@script void main() {
+   void self = getlocalvar("self");
+   performattack(self,openborconstant("ANI_FOLLOW1"));
+   setglobalvar("betty", 3);
+   setglobalvar("taospawn", NULL());
+} @end_script
+alias   tao1
+map     2
+coords  480 465
+at      0
+
+spawn   lvlbns
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW5"));
+} @end_script
+alias   bonus4b
+coords  355 260
+at      0
+
+spawn   lvlmisc
+@script void main() {
+   void self = getlocalvar("self");
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+   updateframe(self, 2);
+} @end_script
+alias   gclub1
+map     1
+coords  440 410
+at      0
+
+spawn   lvlmisc
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW3"));
+} @end_script
+alias   mgt1
+coords  360 155
+at      0
+
+spawn   lvlmisc
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW7"));
+} @end_script
+alias   museum
+coords  385 90
+at      0
+
+#---------------//--level--stuff--//-----------
+
+#------------lvl-1-----------//----griff-the-biff--
+
+spawn   mapleg
+coords  435 350
+at      0
+spawn   lvlstar
+alias   thepitt
+coords  435 350
+at      0
+
+#------------lvl-2-----------//----remuinho--
+
+spawn   mapleg
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_ATTACK4"));
+} @end_script
+coords  250 120
+at      0
+spawn   lvlstar
+alias   mountain
+coords  250 120
+at      0
+
+#------------lvl-3-----------//----club-kat--
+spawn   mapleg
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW6"));
+} @end_script
+coords  380 385
+at      0
+spawn   lvlstar
+alias   gstr
+coords  380 385
+at      0
+
+#------------lvl-4-----------//----todo-dojo--
+spawn   mapleg
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW9"));
+} @end_script
+coords  540 410
+at      0
+spawn   lvlstar
+alias   tdstr
+coords  540 410
+at      0
+
+#------------lvl-5-----------//----tao-tao-cafe--
+spawn   mapleg
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW12"));
+} @end_script
+coords  450 465
+at      0
+spawn   lvlstar
+alias   taost
+coords  450 465
+at      0
+
+#------------lvl-6-----------//----yuri-apartment--
+spawn   mapleg
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW15"));
+} @end_script
+coords  575 470
+at      0
+spawn   lvlstar
+alias   yaptr
+coords  575 470
+at      0
+
+#------------lvl-7-----------//----kagashin--
+spawn   mapleg
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW18"));
+} @end_script
+coords  292 255
+at      0
+spawn   lvlstar
+alias   temstd
+coords  292 255
+at      0
+
+#------------lvl-8-----------//----johnny--
+spawn   mapleg
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW21"));
+} @end_script
+coords  455 170
+at      0
+spawn   lvlstar
+alias   milird
+coords  455 170
+at      0
+
+#------------lvl-9-----------//----crazy-joe--
+spawn   mapleg
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW24"));
+} @end_script
+coords  240 300
+at      0
+spawn   lvlstar
+alias   docks
+coords  240 300
+at      0
+
+#------------lvl-10-----------//----mr-big--
+spawn   mapleg
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_ATTACK1"));
+} @end_script
+coords  380 260
+at      0
+spawn   lvlstar
+alias   mbig
+coords  380 260
+at      0
+
+#------------lvl-11-----------//----mr-karate--
+
+spawn   mapleg
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW3"));
+} @end_script
+coords  590 225
+at      0
+spawn   lvlstar
+alias   mkarate
+coords  590 225
+at      0
+
+
+#------------lvl-12-----------//----beyond--
+
+spawn   mapleg
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_ATTACK7"));
+} @end_script
+coords  645 190
+at      0
+spawn   lvlstar
+map	1
+alias   beyond
+coords  645 190
+at      0
+
+#------------lvl-0-----------//----arrive--
+
+spawn   mapleg
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_ATTACK10"));
+} @end_script
+coords  100 135
+at      0
+spawn   lvlstar
+map	1
+alias   arrive
+coords  100 135
+at      0
+
+
+#------------------------//---------------
+
+spawn   ghosttest
+@script
+void main()
+{
+    changeopenborvariant("xpos", 105);
+    changeopenborvariant("ypos", 225);
+}
+@end_script
+coords  30 240
+at      0

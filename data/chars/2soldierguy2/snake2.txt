@@ -1,0 +1,553 @@
+name          snake2
+type          enemy
+subtype	      chase
+health        160
+speed         14
+jumpheight    5
+jumpspeed     22
+throw         5 2
+throwdamage   18
+shadow        0
+noquake       1
+nolife        1
+falldie	      2
+nodieblink    1
+gfxshadow     1
+dust            dust
+projectilehit enemy obstacle
+diesound      data/sounds/die1.wav
+animationscript data/scripts/escript.c
+
+
+load	      bullet1
+load	      bullet2
+
+
+
+alternatepal       data/chars/2soldierguy2/map1.gif
+alternatepal       data/chars/2soldierguy2/map2.gif
+alternatepal       data/chars/2soldierguy2/map3.gif
+alternatepal       data/chars/2soldierguy2/map4.gif
+
+
+
+
+anim	follow14
+	loop	0
+	delay	5
+	offset	101 190
+	bbox	0 0 0 0
+	jumpframe 1 2 4
+	landframe 3 
+	 @cmd	    degravity 0
+	frame	data/chars/2soldierguy2/rise5.gif
+	delay	15
+	frame	data/chars/2soldierguy2/rise6.gif
+	delay	300
+	frame	data/chars/2soldierguy2/spawn2.gif
+	delay	12
+	frame	data/chars/2soldierguy2/rise5.gif
+	frame	data/chars/2soldierguy2/rise6.gif
+
+
+anim	jump
+	range	30 300
+	loop	0
+	delay	20
+	offset	101 190
+	bbox	85 96 39 91
+	frame	data/chars/2soldierguy2/rise5.gif
+	delay	15
+	frame	data/chars/2soldierguy2/rise6.gif
+	frame	data/chars/2soldierguy2/spawn2.gif
+		
+anim	jumpland
+	loop	0
+	delay	12
+	offset	101 190
+	bbox	85 96 39 91
+	frame	data/chars/2soldierguy2/rise5.gif
+	frame	data/chars/2soldierguy2/rise6.gif
+
+
+anim	attack1
+	range	5 83
+	loop	0
+	delay	9
+	offset	101 190
+	bbox	85 96 39 91
+	followanim	1
+	followcond	3
+	move	4
+	hitfx	data/sounds/beat3.wav
+	frame	data/chars/2soldierguy2/a101.gif
+	frame	data/chars/2soldierguy2/a102.gif
+	frame	data/chars/2soldierguy2/a103.gif
+	attack	110 125 40 18 6 0 0 0 14 0
+	frame	data/chars/2soldierguy2/a104.gif
+	attack	0 0 0 0
+	frame	data/chars/2soldierguy2/a105.gif
+	move	0
+	frame	data/chars/2soldierguy2/a101.gif
+		
+anim	attack2
+	range	120 170
+	loop	0
+	delay	12
+	offset	101 190
+	bbox	85 96 39 91
+	hitfx	data/sounds/sl1.wav
+	hitflash	Flash4
+	frame	data/chars/2soldierguy2/b101.gif
+	frame	data/chars/2soldierguy2/b102.gif
+	frame	data/chars/2soldierguy2/b103.gif
+	delay	35
+	frame	data/chars/2soldierguy2/b104.gif
+	delay	1
+	move	6
+	frame	data/chars/2soldierguy2/b105.gif
+	frame	data/chars/2soldierguy2/b105.gif
+	frame	data/chars/2soldierguy2/b106.gif
+	frame	data/chars/2soldierguy2/b106.gif
+	attack	102 125 83 41 10 1 0 0 16 0
+	frame	data/chars/2soldierguy2/b107.gif
+	frame	data/chars/2soldierguy2/b107.gif
+	frame	data/chars/2soldierguy2/b107.gif
+	frame	data/chars/2soldierguy2/b107.gif
+	frame	data/chars/2soldierguy2/b107.gif
+	frame	data/chars/2soldierguy2/b107.gif
+	frame	data/chars/2soldierguy2/b107.gif
+	frame	data/chars/2soldierguy2/b107.gif
+	frame	data/chars/2soldierguy2/b107.gif
+	frame	data/chars/2soldierguy2/b107.gif
+	frame	data/chars/2soldierguy2/b107.gif
+	frame	data/chars/2soldierguy2/b107.gif
+	frame	data/chars/2soldierguy2/b108.gif
+	frame	data/chars/2soldierguy2/b108.gif
+	frame	data/chars/2soldierguy2/b108.gif
+	frame	data/chars/2soldierguy2/b108.gif
+	frame	data/chars/2soldierguy2/b108.gif
+	attack	0 0 0 0
+	move	0
+	delay	15
+	frame	data/chars/2soldierguy2/b108.gif
+	frame	data/chars/2soldierguy2/b109.gif
+	delay	25
+	frame	data/chars/2soldierguy2/b110.gif
+		
+anim	attack3
+	range	210 260
+	loop	0
+	delay	16
+	offset	101 190
+	bbox	85 96 39 91
+	frame	data/chars/2soldierguy2/a111.gif
+	sound	data/sounds/grab.wav
+	frame	data/chars/2soldierguy2/a112.gif
+	frame	data/chars/2soldierguy2/a113.gif
+	delay	20
+	frame	data/chars/2soldierguy2/a113.gif
+	delay	10
+	frame	data/chars/2soldierguy2/a114.gif
+	frame	data/chars/2soldierguy2/a115.gif
+	frame	data/chars/2soldierguy2/a116.gif
+	@cmd	projectile 1 "bullet2" 50 1 70
+	sound	data/sounds/gun2.wav
+	frame	data/chars/2soldierguy2/a117.gif
+	frame	data/chars/2soldierguy2/a118.gif
+	frame	data/chars/2soldierguy2/a119.gif
+	frame	data/chars/2soldierguy2/a116.gif
+	@cmd	projectile 1 "bullet2" 50 1 70
+	sound	data/sounds/gun2.wav
+	frame	data/chars/2soldierguy2/a117.gif
+	frame	data/chars/2soldierguy2/a118.gif
+	frame	data/chars/2soldierguy2/a119.gif
+	frame	data/chars/2soldierguy2/a116.gif
+	@cmd	projectile 1 "bullet2" 50 1 70
+	sound	data/sounds/gun2.wav
+	frame	data/chars/2soldierguy2/a117.gif
+	frame	data/chars/2soldierguy2/a118.gif
+	frame	data/chars/2soldierguy2/a119.gif
+	frame	data/chars/2soldierguy2/a116.gif
+	delay	15
+	frame	data/chars/2soldierguy2/a120.gif
+	frame	data/chars/2soldierguy2/a121.gif
+	delay	30
+	frame	data/chars/2soldierguy2/a122.gif
+		
+anim	burn
+	loop	0
+	delay	25
+	offset	101 190
+	bbox	0 0 0 0
+	landframe	3
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 200_50_0
+	@cmd	spawnbind "burn1" 1 1 1
+	@cmd	spawnbind "burn2" 1 1 1
+	@cmd	spawnbind "burn3" 1 1 1
+	attack	78 98 30 45 5 1 0 0 13 0
+	frame	data/chars/2soldierguy2/fall1.gif
+	delay	15
+	attack	64 130 50 25 5 1 0 0 13 0
+	frame	data/chars/2soldierguy2/fall2.gif
+	delay	500
+	frame	data/chars/2soldierguy2/fall3.gif
+	attack	0 0 0 0
+	bbox	58 175 85 15
+	delay	15
+	frame	data/chars/2soldierguy2/fall4.gif
+	frame	data/chars/2soldierguy2/fall5.gif
+	delay	180
+	frame	data/chars/2soldierguy2/fall4.gif
+		
+anim	death
+	loop	0
+	delay	30
+	offset	101 190
+	bbox	0 0 0 0
+	frame	data/chars/2soldierguy2/fall4.gif
+		
+anim	fall
+	loop	0
+	delay	25
+	offset	101 190
+	bbox	0 0 0 0
+	landframe	3
+	attack	78 98 30 45 5 1 0 0 13 0
+	frame	data/chars/2soldierguy2/fall1.gif
+	delay	15
+	attack	64 130 50 25 5 1 0 0 13 0
+	frame	data/chars/2soldierguy2/fall2.gif
+	delay	500
+	frame	data/chars/2soldierguy2/fall3.gif
+	attack	0 0 0 0
+	bbox	58 175 85 15
+	delay	15
+	frame	data/chars/2soldierguy2/fall4.gif
+	frame	data/chars/2soldierguy2/fall5.gif
+	delay	180
+	frame	data/chars/2soldierguy2/fall4.gif
+		
+anim	fall10
+	loop	0
+	delay	10
+	offset	101 190
+	bbox	80 80 50 75
+	landframe	4
+	attack	85 88 30 50 5 1 0 0 13 0
+	frame	data/chars/2soldierguy2/pain6.gif
+	delay	40
+	frame	data/chars/2soldierguy2/pain7.gif
+	delay	30
+	bbox	71 125 63 30
+	attack	64 125 45 25 5 1 0 0 13 0
+	frame	data/chars/2soldierguy2/fall2.gif
+	delay	300
+	bbox	77 130 67 35
+	attack	0 0 0 0
+	frame	data/chars/2soldierguy2/fall3.gif
+	bbox	58 167 85 15
+	delay	15
+	frame	data/chars/2soldierguy2/fall4.gif
+	frame	data/chars/2soldierguy2/fall5.gif
+	delay	180
+	frame	data/chars/2soldierguy2/fall4.gif
+		
+anim	fall11
+	loop	0
+	delay	20
+	offset	101 190
+	bbox	61 185 90 5	
+	frame	data/chars/2soldierguy2/pain12.gif
+	delay	35
+	frame	data/chars/2soldierguy2/fall4.gif
+		
+anim	fall2
+	loop	0
+	delay	30
+	offset	101 190
+	bbox	0 0 0 0
+	landframe	3
+	attack	85 90 35 45 5 1 0 0 13 0
+	frame	data/chars/2soldierguy2/pain7.gif
+	delay	10
+	attack	64 125 55 25 5 1 0 0 13 0
+	frame	data/chars/2soldierguy2/fall2.gif
+	attack	0 0 0 0
+	delay	300
+	frame	data/chars/2soldierguy2/fall3.gif
+	delay	15
+	frame	data/chars/2soldierguy2/fall4.gif
+	frame	data/chars/2soldierguy2/fall5.gif
+	frame	data/chars/2soldierguy2/fall4.gif
+		
+anim	fall4
+	loop	0
+	delay	6
+	offset	101 190
+	bbox	0 0 0 0
+	jumpframe	0 1.2 1.5
+	frame	data/chars/2soldierguy2/pain8.gif
+	frame	data/chars/2soldierguy2/pain9.gif
+	frame	data/chars/2soldierguy2/pain10.gif
+	@cmd	leaper 0 0.2 0
+	frame	data/chars/2soldierguy2/pain11.gif
+	frame	data/chars/2soldierguy2/fall4.gif
+	frame	data/chars/2soldierguy2/fall5.gif
+	bbox	58 175 95 15
+	frame	data/chars/2soldierguy2/fall4.gif
+		
+anim	fall7
+	delay	1000
+	offset	105 130
+	frame	data/chars/2soldierguy2/slamck0.gif
+	offset	100 110
+	frame	data/chars/2soldierguy2/slamck1.gif
+	offset	106 130
+	frame	data/chars/2soldierguy2/slamck2.gif
+	offset	115 125
+	frame	data/chars/2soldierguy2/slamck3.gif
+	offset	125 125
+	frame	data/chars/2soldierguy2/slamck4.gif
+	offset	108 122
+	frame	data/chars/2soldierguy2/slamck5.gif
+	offset	106 155
+	frame	data/chars/2soldierguy2/slamck6.gif
+	offset	125 140
+	frame	data/chars/2soldierguy2/slamck7.gif
+	offset	120 105
+	frame	data/chars/2soldierguy2/slamck8.gif
+	offset	100 130
+	frame	data/chars/2soldierguy2/slamck9.gif
+	offset	105 130
+	frame	data/chars/2soldierguy2/slamck10.gif
+	offset	105 130
+	frame	data/chars/2soldierguy2/slamck11.gif
+	offset	115 125
+	frame	data/chars/2soldierguy2/slamck12.gif
+	offset	115 125
+	frame	data/chars/2soldierguy2/slamck13.gif
+	offset	115 125
+	frame	data/chars/2soldierguy2/slamck14.gif
+	offset	115 125
+	frame	data/chars/2soldierguy2/slamck15.gif
+		
+anim	fall9
+	loop	0
+	delay	10
+	offset	101 187
+	bbox	0 0 0 0
+	quakeframe	2 5 5
+	landframe	2 dust
+	attack	75 105 35 45 5 1 0 0 13 0
+	frame	data/chars/2soldierguy2/fall1.gif
+	delay	350
+	offset	101 185
+	attack	75 125 45 35 5 1 0 0 13 0
+	frame	data/chars/2soldierguy2/fall2.gif
+	delay	2
+	offset	101 180
+	move	-4
+	frame	data/chars/2soldierguy2/fall3.gif
+	frame	data/chars/2soldierguy2/fall3.gif
+	attack	0 0 0 0
+	frame	data/chars/2soldierguy2/fall3.gif
+	@cmd	looper 3 5
+	offset	101 190
+	move	-3
+	frame	data/chars/2soldierguy2/fall4.gif
+	frame	data/chars/2soldierguy2/fall4.gif
+	frame	data/chars/2soldierguy2/fall4.gif
+	@cmd	looper 6 4
+	move	-2
+	frame	data/chars/2soldierguy2/fall5.gif
+	frame	data/chars/2soldierguy2/fall5.gif
+	frame	data/chars/2soldierguy2/fall5.gif
+	loop	0
+	delay	180
+	move	0
+	bbox	58 175 100 15
+	frame	data/chars/2soldierguy2/fall4.gif
+		
+anim	follow1
+	loop	0
+	delay	8
+	offset	101 190
+	bbox	85 96 39 91
+	hitfx	data/sounds/beat5.wav
+	frame	data/chars/2soldierguy2/a104.gif
+	frame	data/chars/2soldierguy2/a105.gif
+	frame	data/chars/2soldierguy2/a106.gif
+	attack2	100 105 55 51 12 0 0 0 17 0
+	frame	data/chars/2soldierguy2/a107.gif
+	attack2	0 0 0 0
+	delay	12
+	frame	data/chars/2soldierguy2/a108.gif
+	frame	data/chars/2soldierguy2/a109.gif
+	frame	data/chars/2soldierguy2/a110.gif
+		
+anim	grabbed
+	loop	0
+	delay	10
+	offset	101 190
+	bbox	85 96 39 91
+	frame	data/chars/2soldierguy2/grabbed.gif
+		
+anim	idle
+	loop	1
+	delay	11
+	offset	101 190
+	bbox	85 96 39 91
+	frame	data/chars/2soldierguy2/idle01.gif
+	frame	data/chars/2soldierguy2/idle02.gif
+	frame	data/chars/2soldierguy2/idle03.gif
+	frame	data/chars/2soldierguy2/idle04.gif
+		
+
+		
+anim	pain
+	loop	0
+	delay	3
+	offset	104 190
+	bbox	85 96 39 91
+	frame	data/chars/2soldierguy2/pain0.gif
+	offset	101 190
+	frame	data/chars/2soldierguy2/pain1.gif
+	offset	106 190
+	frame	data/chars/2soldierguy2/pain1.gif
+	delay	40
+	offset	101 190
+	frame	data/chars/2soldierguy2/pain1.gif
+
+		
+anim	pain2
+	loop	0
+	delay	3
+	offset	104 190
+	bbox	85 96 39 91
+	frame	data/chars/2soldierguy2/pain0.gif
+	offset	101 190
+	frame	data/chars/2soldierguy2/pain2.gif
+	offset	106 190
+	frame	data/chars/2soldierguy2/pain2.gif
+	delay	40
+	offset	101 190
+	frame	data/chars/2soldierguy2/pain2.gif
+		
+anim	pain3
+	loop	0
+	delay	1
+	offset	101 190
+	bbox	0 0 0 0
+	jumpframe	1 2 -1 0
+	frame	data/chars/2soldierguy2/pain1.gif
+	delay	25
+	frame	data/chars/2soldierguy2/fall2.gif
+	delay	12
+	frame	data/chars/2soldierguy2/fall3.gif
+	delay	4
+	bbox	71 165 67 30
+	frame	data/chars/2soldierguy2/fall4.gif
+	frame	data/chars/2soldierguy2/fall5.gif
+	frame	data/chars/2soldierguy2/fall4.gif
+	frame	data/chars/2soldierguy2/fall5.gif
+	delay	15
+	bbox	0 0 0 0
+	frame	data/chars/2soldierguy2/fall4.gif
+	delay	10
+	frame	data/chars/2soldierguy2/rise1.gif
+	frame	data/chars/2soldierguy2/rise2.gif
+	frame	data/chars/2soldierguy2/rise3.gif
+		
+anim	pain5
+	loop	0
+	delay	23
+	offset	101 190
+	bbox	85 96 39 91
+	frame	data/chars/2soldierguy2/pain1.gif
+		
+anim	pain6
+	loop	0
+	delay	23
+	offset	101 190
+	bbox	85 96 39 91
+	frame	data/chars/2soldierguy2/pain2.gif
+		
+anim	pain8
+	loop	0
+	delay	2
+	offset	101 190
+	bbox	85 96 39 91
+	move	-6
+	frame	data/chars/2soldierguy2/pain1.gif
+	frame	data/chars/2soldierguy2/pain1.gif
+	frame	data/chars/2soldierguy2/pain1.gif
+	frame	data/chars/2soldierguy2/pain2.gif
+	frame	data/chars/2soldierguy2/pain2.gif
+	frame	data/chars/2soldierguy2/pain2.gif
+	move	-3
+	frame	data/chars/2soldierguy2/pain2.gif
+	frame	data/chars/2soldierguy2/pain2.gif
+	move	-1
+	frame	data/chars/2soldierguy2/pain2.gif
+	delay	35
+	frame	data/chars/2soldierguy2/pain2.gif
+		
+anim	pain9
+	loop	0
+	delay	15
+	offset	101 190
+	bbox	85 96 39 91
+	frame	data/chars/2soldierguy2/pain1.gif
+	delay	150
+	frame	data/chars/2soldierguy2/pain2.gif
+		
+anim	rise
+	loop	0
+	delay	15
+	offset	101 190
+	bbox	0 0 0 0
+	frame	data/chars/2soldierguy2/rise1.gif
+	frame	data/chars/2soldierguy2/rise2.gif
+	frame	data/chars/2soldierguy2/rise3.gif
+	frame	data/chars/2soldierguy2/rise4.gif
+	frame	data/chars/2soldierguy2/rise5.gif
+	frame	data/chars/2soldierguy2/rise6.gif
+	frame	data/chars/2soldierguy2/idle01.gif
+		
+anim spawn
+	 loop       0
+	 delay      5
+	 offset     101 190
+	 bbox       0 0 0 0
+	 landframe  2
+	 @cmd	    degravity 0.8
+         frame      data/chars/2soldierguy2/spawn2.gif
+	 @cmd	    spawnbind "parach" 0 80 -1
+	 delay      500
+         frame      data/chars/2soldierguy2/spawn2.gif
+	 delay	    12
+	 @cmd	    degravity 0
+         frame      data/chars/2soldierguy2/rise4.gif
+	 bbox       85 96 39 91
+         frame      data/chars/2soldierguy2/rise3.gif
+         frame      data/chars/2soldierguy2/rise4.gif
+         frame      data/chars/2soldierguy2/rise5.gif
+         frame      data/chars/2soldierguy2/rise6.gif
+         frame      data/chars/2soldierguy2/idle01.gif
+		
+anim	walk
+	loop	1
+	delay	8
+	offset	101 190
+	bbox	85 96 39 91
+	frame	data/chars/2soldierguy2/wk01.gif
+	frame	data/chars/2soldierguy2/wk02.gif
+	frame	data/chars/2soldierguy2/wk03.gif
+	frame	data/chars/2soldierguy2/wk04.gif
+	frame	data/chars/2soldierguy2/wk05.gif
+	frame	data/chars/2soldierguy2/wk06.gif
+		
+#|edited by openBor Stats v 0.53
+		

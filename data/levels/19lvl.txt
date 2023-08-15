@@ -1,0 +1,397 @@
+music		data/music/taocafe.ogg
+
+background	data/bgs/19lvl/taotaobck.gif
+panel		data/bgs/19lvl/taotaocafe.gif
+fglayer      	data/bgs/19lvl/taotaofrt.gif 1 0 0 0 0 0 1 1 1 1
+fglayer         data/bgs/19lvl/light.gif 1000 0 0 0 -5 1 1 1 1 1 1
+layer		data/bgs/19lvl/smoke.gif 180 0 0 590 0 0 0 1 1 1 1 1 2 22 1
+
+
+direction       both
+light  		-40   -30
+at       	0
+settime         0
+notime          1
+noslow          1
+order		a
+spawn1  	200 50
+spawn2  	205 60
+spawn3  	210 70
+
+
+#----------------------
+
+wall    -10 300  0 0 220 70 150 5000
+wall    1500 300  -80 15 100 100 150 5000
+wall    1180 300  -30 -30 240 300 55 5000
+
+#----------------------------------
+spawn   stgSET3
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW3"));
+} @end_script
+coords  -500 515 350
+at      0
+#----------------------------------
+
+#-------1
+
+
+
+spawn   taotable
+flip    1
+map     1
+item    money1
+coords  910 170
+at      0
+
+spawn   taotable
+flip    1
+map     1
+coords  1025 170
+at      0
+
+spawn   taotable
+flip    1
+map     1
+item    money2
+coords  1175 170
+at      0
+
+spawn   taotable
+flip    1
+map     1
+item    food3
+coords  1345 170
+at      0
+
+spawn   taotaoppl
+flip    1
+coords  658 158
+at      0
+
+#spawn   bar04
+#map     2
+#flip    1
+#coords  505 200
+#at      0
+
+spawn   taobrk
+flip    1
+coords  490 190 190
+at      0
+
+spawn   taobrk
+flip    1
+coords  1200 190 190
+at      0
+
+spawn   taobrk
+flip    1
+coords  1400 190 190
+at      0
+
+spawn   barrel
+item    diamond
+map     3
+coords  1120 285
+at      0
+
+spawn   barrel
+map     3
+coords  1055 285
+at      0
+
+spawn   barrel
+map     3
+coords  990 285
+at      0
+
+spawn   barrel
+item    cheese
+map     3
+coords  1090 270
+at      0
+
+spawn   barrel
+map     3
+coords  1025 270
+at      0
+
+#-----------------------
+
+group   2 2
+at      20
+wait
+at      20
+
+
+spawn   ghosttime
+@script
+void main()
+{
+	setglobalvar("Kgnextday", NULL());
+	setglobalvar("challenge", NULL());
+	setglobalvar("killelle", NULL());
+	setglobalvar("cupkill", NULL());
+	setglobalvar("bn1", NULL());
+	setglobalvar("bn2", NULL());
+	setglobalvar("bn3", NULL());
+	setglobalvar("bn4", NULL());
+	setglobalvar("rsh1", NULL());
+	setglobalvar("rsh2", NULL());
+	setglobalvar("maphold1", NULL());
+	setglobalvar("maphold2", NULL());
+	setglobalvar("maphold3", NULL());
+}
+@end_script
+health	5
+coords  0 295
+at      20
+
+
+
+spawn   rashad
+map     2
+aggression 100
+#health  140
+coords  550 310
+at      20
+
+spawn   brock
+map     4
+item    lulcardx
+aggression 100
+#health  140
+coords  600 230
+at      20
+
+
+
+#-----------------------
+blockade 240
+at 	 100
+#-----------------------
+
+group      1 1
+at         150
+
+spawn   wylerout
+coords  485 200
+at      150
+
+
+
+#-----------------------
+blockade 470
+at 	 470
+#-----------------------
+
+group   3 3
+at      500
+wait
+at      500
+
+2pspawn   vigo
+map     1
+aggression 100
+#health  150
+coords  630 200
+at      500
+
+spawn   vigo
+map     2
+aggression 100
+#health  150
+coords  830 190
+at      500
+
+
+spawn   slay
+map     2
+aggression 100
+item       food4
+#health  230
+coords  -230 240
+at      500
+
+spawn   vigo
+map     3
+item    ring
+aggression 100
+#health  150
+coords  -230 240
+at      500
+
+
+spawn   psycho
+map     1
+aggression 100
+#health  140
+coords  630 200
+at      500
+
+2pspawn   slay
+map     3
+aggression 100
+#health  240
+coords  -230 190
+at      500
+
+3pspawn   vigo
+map     4
+item    ruby
+aggression 100
+#health  150
+coords  730 200
+at      500
+
+#--------------------------
+
+
+group      4 4
+at         700
+wait
+at         700
+
+
+
+spawn   kraven
+map     2
+item    apple
+aggression 100
+#health  220
+coords  -490 240
+at      700
+
+
+spawn   ron
+map     2
+aggression 100
+#health  120
+coords  -500 240
+at      700
+
+spawn   ron
+aggression 100
+#health  120
+coords  530 200
+at      700
+
+2pspawn   dash
+map     3
+item    moneybag
+aggression 100
+#health  210
+coords  530 190
+at      700
+
+spawn   malenko
+map     4
+item    food2
+aggression 100
+#health  220
+coords  -500 200
+at      700
+
+
+2pspawn   shion
+map     3
+aggression 100
+#health  150
+coords  530 190
+at      700
+
+3pspawn   kimberry
+map     3
+item    bannana
+aggression 100
+#health  150
+coords  -500 200
+at      700
+
+spawn   kimberry
+aggression 100
+map     4
+item    bannana
+#health  150
+coords  -490 260
+at      700
+
+
+#-----------------------
+blockade 800
+at 	 800
+#-----------------------
+
+
+
+group      4 4
+at         900
+
+spawn   meloke
+map     3
+aggression 100
+item    apple2
+#health  650
+coords  500 190
+at      900
+
+spawn   beloche
+aggression 100
+item    diamond
+#health  550
+coords  490 230
+at      900
+
+spawn   fox
+map     4
+aggression 100
+#health  350
+coords  510 210
+at      900
+
+spawn   bash
+map     3
+aggression 100
+item       food3
+#health  650
+coords  -670 220
+at      900
+
+
+spawn   dan
+map     3
+#health  120
+coords  -670 220
+at      900
+
+2pspawn   rashad
+map     1
+item    food4
+#health  120
+coords  -670 220
+at      900
+
+spawn   thong
+map     1
+#health  120
+coords  -670 220
+at      900
+
+
+spawn   ren
+map     1
+item    ruby
+#health  120
+coords  -670 220
+at      900
+
+3pspawn   jay
+#health  120
+coords  -670 220
+at      900
+
+
+
+

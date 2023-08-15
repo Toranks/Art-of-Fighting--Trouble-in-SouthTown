@@ -1,0 +1,98 @@
+name	 kstatue
+type	 obstacle
+health	 290
+nolife    1
+noatflash 1
+flash     flash7
+shadow	  6
+offscreenkill 	10000 
+subject_to_hole 0
+subject_to_wall 0
+subject_to_platform 0
+hostile		player
+candamage	player
+animationscript data/scripts/escript.c
+
+alternatepal       data/chars/misc/traps/statue/map1.gif
+
+
+load	bfire
+
+
+
+anim	fall
+	loop	0
+	delay	12
+	offset	89 175
+	bbox	0 0 0 0
+	frame	data/chars/misc/traps/statue/ktrap04.gif
+	sound	data/sounds/wood.wav
+	frame	data/chars/misc/traps/statue/ktrap05.gif
+	frame	data/chars/misc/traps/statue/ktrap06.gif
+	frame	data/chars/misc/traps/statue/ktrap07.gif
+		
+anim	follow1
+	loop	1
+	delay	3
+	offset	89 175
+	bbox	65 55 55 100
+	platform	30 185 30 30 100 100 20 120
+	@cmd	damage 50 "ANI_FOLLOW2"
+	frame	data/chars/misc/traps/statue/ktrap02.gif
+	frame	data/chars/misc/traps/statue/ktrap02.gif
+		
+anim	follow10
+	loop	1
+	delay	3
+	offset	89 175
+	bbox	0 0 0 0
+	platform	30 185 30 30 100 100 20 120
+	frame	data/chars/misc/traps/statue/ktrap03.gif
+	@cmd	attack1 -295 30 55 "ANI_FOLLOW11"
+	frame	data/chars/misc/traps/statue/ktrap03.gif
+		
+anim	follow11
+	loop	0
+	delay	7
+	offset	89 175
+	bbox	0 0 0 0
+	platform	30 185 30 30 100 100 20 120
+	frame	data/chars/misc/traps/statue/ktrap03.gif
+	@cmd	spawnGun4 "bfire" -90 105 1 1 2
+	frame	data/chars/misc/traps/statue/ktrap03.gif
+	sound	data/sounds/exel.wav
+	delay	450
+	frame	data/chars/misc/traps/statue/ktrap03.gif
+	delay	7
+	frame	data/chars/misc/traps/statue/ktrap03.gif
+	@cmd	killgun 2 0
+	frame	data/chars/misc/traps/statue/ktrap03.gif
+	sound	data/sounds/burnt.wav
+	delay	180
+	frame	data/chars/misc/traps/statue/ktrap03.gif
+	delay	7
+	frame	data/chars/misc/traps/statue/ktrap03.gif
+	@cmd	anichange "ANI_FOLLOW10"
+	frame	data/chars/misc/traps/statue/ktrap03.gif
+		
+anim	follow2
+	loop	1
+	delay	3
+	offset	89 175
+	bbox	65 55 55 100
+	platform	30 185 30 30 100 100 20 120
+	frame	data/chars/misc/traps/statue/ktrap03.gif
+	frame	data/chars/misc/traps/statue/ktrap03.gif
+		
+anim	idle
+	loop	1
+	delay	3
+	offset	89 175
+	bbox	65 55 55 100
+	platform	30 185 30 30 100 100 20 120
+	@cmd	damage 80 "ANI_FOLLOW1"
+	frame	data/chars/misc/traps/statue/ktrap01.gif
+	frame	data/chars/misc/traps/statue/ktrap01.gif
+		
+#|edited by openBor Stats v 0.53
+		

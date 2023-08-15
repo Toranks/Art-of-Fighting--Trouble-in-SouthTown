@@ -1,0 +1,345 @@
+name          mky1
+type          enemy
+health        1
+aimove        avoid
+speedf        2.2
+jumpheight    4
+shadow        0
+cantgrab      1
+nodieblink    2
+knockdowncount -1
+falldie	      1
+notgrab	      1
+nolife        1
+gfxshadow     1
+subject_to_wall 0
+offscreenkill 	40000
+aggression	50
+dust            dust
+diesound      data/sounds/chimp1.wav
+animationscript data/scripts/escript.c
+
+palette	 data/chars/2bug11/map1.png
+
+load	cht1
+
+anim	follow5
+@script
+if(frame==1)
+{
+  changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_OBSTACLE"));
+}
+@end_script
+	loop	1 4 9
+	delay	5
+	counterrange 2 10 1 1
+     	followanim 6
+	offset	88 170
+	bbox	85 96 39 50
+	frame	data/chars/2bug11/rise02.png
+	@cmd	layer -100
+	@cmd	subminz 0
+	@cmd	submaxz 0
+	@cmd	subwall 0
+	@cmd	subplat 0
+	frame	data/chars/2bug11/rise02.png
+	frame	data/chars/2bug11/rise02.png #2
+	frame	data/chars/2bug11/rise02.png
+	frame	data/chars/2bug11/rise02.png 
+
+	frame	data/chars/2bug11/rise02.png
+	frame	data/chars/2bug11/rise02.png
+	frame	data/chars/2bug11/rise02.png
+	frame	data/chars/2bug11/rise02.png
+	frame	data/chars/2bug11/rise02.png
+
+
+anim	follow6
+@script
+if(frame==1)
+{
+  changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_NPC"));
+  changeentityproperty(getlocalvar("self"), "candamage", openborconstant("TYPE_ENEMY"));
+  changeentityproperty(getlocalvar("self"), "hostile", openborconstant("TYPE_ENEMY"));
+}
+@end_script
+	loop	0
+	delay	9
+	offset	88 170
+	bbox	0 0 0 0
+	frame	data/chars/2bug11/jump01.png
+	frame	data/chars/2bug11/jump02.png
+	frame	data/chars/2bug11/jump03.png
+	frame	data/chars/2bug11/jump01.png
+	frame	data/chars/2bug11/jump02.png
+	frame	data/chars/2bug11/jump03.png
+	frame	data/chars/2bug11/jump01.png
+	delay	7
+	@cmd	flip 1
+	frame	data/chars/2bug11/wk01.png
+	@cmd	dasher 0 0 0.5
+	frame	data/chars/2bug11/wk02.png
+	frame	data/chars/2bug11/wk03.png
+	frame	data/chars/2bug11/wk04.png
+	@cmd	layer 0
+	frame	data/chars/2bug11/wk05.png
+	frame	data/chars/2bug11/wk06.png
+	frame	data/chars/2bug11/wk07.png
+	frame	data/chars/2bug11/wk08.png
+	frame	data/chars/2bug11/wk01.png
+	frame	data/chars/2bug11/wk02.png
+	movez	0
+	frame	data/chars/2bug11/wk03.png
+	@cmd	subscreen 1
+	frame	data/chars/2bug11/wk04.png
+	@cmd	subplat 1
+	frame	data/chars/2bug11/wk05.png
+	frame	data/chars/2bug11/wk06.png
+	frame	data/chars/2bug11/wk07.png
+	frame	data/chars/2bug11/wk08.png
+	@cmd	stop
+	frame	data/chars/2bug11/jump01.png
+	frame	data/chars/2bug11/jump02.png
+	@cmd	subminz 1
+	@cmd	submaxz 1
+	@cmd	subwall 1
+	@cmd	subplat 1
+	@cmd	subscreen 1	
+	frame	data/chars/2bug11/jump03.png
+	@cmd	lifesp 3500
+	frame	data/chars/2bug11/jump01.png
+	frame	data/chars/2bug11/jump02.png
+	frame	data/chars/2bug11/jump03.png
+	@cmd	beidle
+	frame	data/chars/2bug11/idle01.png
+
+
+
+
+
+
+
+
+
+anim	attack1
+	range	180 300
+	rangez	-25 25
+	loop	0
+	delay	12
+	offset	88 170
+	bbox	65 100 55 70
+	frame	data/chars/2bug11/b01.png
+	frame	data/chars/2bug11/b02.png
+	delay	6
+	frame	data/chars/2bug11/b10.png
+	frame	data/chars/2bug11/b11.png
+	frame	data/chars/2bug11/b12.png
+	frame	data/chars/2bug11/b13.png
+	frame	data/chars/2bug11/b14.png
+	delay	12
+	frame	data/chars/2bug11/b04.png
+	frame	data/chars/2bug11/b05.png
+	frame	data/chars/2bug11/b06.png
+	@cmd    tosser "cht1" 50 25 0 0.8 3 0
+	frame	data/chars/2bug11/b07.png
+	frame	data/chars/2bug11/b08.png
+		
+anim	burn
+	landframe	3
+	loop	0
+	drawmethod	256 256 0 0 0 -1 0 0 0
+	delay	4
+	offset	88 170
+	bbox	0 0 0 0
+	frame	data/chars/2bug11/fall1.png
+	delay	10
+	attack	64 134 40 22 5 1 0 0 13
+	frame	data/chars/2bug11/fall2.png
+	attack	0 0 0 0
+	frame	data/chars/2bug11/fall3.png
+	frame	data/chars/2bug11/fall4.png
+		
+anim	death
+	loop	0
+	delay	12
+	offset	88 170
+	bbox	0 0 0 0
+	jumpframe 12 6 3
+	landframe 17 
+	frame	data/chars/2bug11/rise01.png
+	@cmd	subscreen 0
+	frame	data/chars/2bug11/rise02.png
+	frame	data/chars/2bug11/jump03.png
+	frame	data/chars/2bug11/jump02.png
+	@cmd	flip
+	delay	7
+	@cmd	dasher 3 0 0
+	frame	data/chars/2bug11/wk01.png
+	frame	data/chars/2bug11/wk02.png
+	frame	data/chars/2bug11/wk03.png
+	frame	data/chars/2bug11/wk04.png
+	frame	data/chars/2bug11/wk01.png
+	frame	data/chars/2bug11/wk02.png
+	frame	data/chars/2bug11/wk03.png
+	frame	data/chars/2bug11/wk04.png
+	@cmd	subwall 0
+	frame	data/chars/2bug11/jump01.png #12
+	frame	data/chars/2bug11/jump02.png
+	frame	data/chars/2bug11/jump03.png
+	frame	data/chars/2bug11/jump04.png
+	delay	500
+	frame	data/chars/2bug11/jump05.png
+	delay	12
+	frame	data/chars/2bug11/jump04.png
+	@cmd	leaper 3 6 0
+	frame	data/chars/2bug11/jump03.png
+	frame	data/chars/2bug11/jump02.png
+	frame	data/chars/2bug11/jump01.png
+	frame	data/chars/2bug11/jump02.png
+		
+anim	fall
+	loop	0
+	delay	30
+	offset	88 170
+	bbox	0 0 0 0
+	frame	data/chars/2bug11/fall1.png
+	delay	10
+	frame	data/chars/2bug11/fall2.png
+	frame	data/chars/2bug11/fall3.png
+	frame	data/chars/2bug11/fall4.png
+		
+anim	fall7
+	delay	1000
+	offset	160 275
+	frame	data/chars/2bug11/fall1.png
+	offset	160 275
+	frame	data/chars/2bug11/fall2.png
+	offset	160 275
+	frame	data/chars/2bug11/fall3.png
+	offset	160 275
+	frame	data/chars/2bug11/fall4.png
+	offset	160 275
+	frame	data/chars/2bug11/fall1.png
+	offset	160 275
+	frame	data/chars/2bug11/fall2.png
+	offset	160 275
+	frame	data/chars/2bug11/fall3.png
+	offset	160 275
+	frame	data/chars/2bug11/fall4.png
+	offset	160 275
+	frame	data/chars/2bug11/fall1.png
+	offset	160 275
+	frame	data/chars/2bug11/fall2.png
+		
+anim	grabbed
+	loop	0
+	delay	10
+	offset	88 170
+	bbox	65 100 55 70
+	frame	data/chars/2bug11/t04.png
+		
+anim	idle
+	loop	1
+	delay	8
+	offset	88 170
+	bbox	65 100 55 70
+	frame	data/chars/2bug11/idle01.png
+	frame	data/chars/2bug11/idle02.png
+	sound      data/sounds/chimp1.wav
+	frame	data/chars/2bug11/idle03.png
+	frame	data/chars/2bug11/idle04.png
+	frame	data/chars/2bug11/idle01.png
+	frame	data/chars/2bug11/idle02.png
+	frame	data/chars/2bug11/idle03.png
+	frame	data/chars/2bug11/idle04.png
+		
+anim	pain
+	loop	0
+	delay	7
+	offset	88 170
+	bbox	65 100 55 70
+	frame	data/chars/2bug11/t05.png
+	frame	data/chars/2bug11/t04.png
+	frame	data/chars/2bug11/t03.png
+	frame	data/chars/2bug11/t02.png
+	frame	data/chars/2bug11/t03.png
+	frame	data/chars/2bug11/t02.png
+	frame	data/chars/2bug11/t03.png
+	frame	data/chars/2bug11/t04.png
+	frame	data/chars/2bug11/t05.png
+		
+anim	rise
+	loop	0
+	delay	12
+	offset	88 170
+	bbox	0 0 0 0
+	frame	data/chars/2bug11/rise01.png
+	frame	data/chars/2bug11/rise02.png
+	frame	data/chars/2bug11/jump03.png
+	@cmd	subwall 1
+	frame	data/chars/2bug11/jump02.png
+		
+anim	spawn
+	loop	0
+	delay	12
+	offset	88 170
+	bbox	0 0 0 0
+	jumpframe 1 4 3
+	landframe 6 dust
+	frame	data/chars/2bug11/jump01.png 
+	frame	data/chars/2bug11/jump01.png
+	frame	data/chars/2bug11/jump02.png
+	frame	data/chars/2bug11/jump03.png
+	frame	data/chars/2bug11/jump04.png
+	delay	500
+	frame	data/chars/2bug11/jump05.png
+	delay	7
+	frame	data/chars/2bug11/jump01.png
+	frame	data/chars/2bug11/jump02.png
+	@cmd	subwall 1
+	frame	data/chars/2bug11/jump03.png
+		
+anim	walk
+	loop	1
+	delay	8
+	offset	88 170
+	bbox	65 100 55 70
+	frame	data/chars/2bug11/jump04.png
+	frame	data/chars/2bug11/run01.png
+	frame	data/chars/2bug11/run01.png
+	frame	data/chars/2bug11/run02.png
+	frame	data/chars/2bug11/run03.png
+	frame	data/chars/2bug11/run04.png
+	frame	data/chars/2bug11/jump02.png
+
+anim	turn
+	loop	0
+	delay	8
+	offset	88 170
+	bbox	65 100 55 70
+	frame	data/chars/2bug11/a01.png
+
+
+
+anim	backwalk
+	loop	1
+	delay	8
+	offset	88 170
+	bbox	65 100 55 70
+	drawmethod 256 256 1
+	frame	data/chars/2bug11/jump04.png
+	frame	data/chars/2bug11/run01.png
+	frame	data/chars/2bug11/run01.png
+	frame	data/chars/2bug11/run02.png
+	frame	data/chars/2bug11/run03.png
+	frame	data/chars/2bug11/run04.png
+	frame	data/chars/2bug11/jump02.png
+
+
+
+
+
+
+		
+#|edited by openBor Stats v 0.53
+		

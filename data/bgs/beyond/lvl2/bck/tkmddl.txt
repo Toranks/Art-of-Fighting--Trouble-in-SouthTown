@@ -1,0 +1,106 @@
+name		tkmddl
+type		npc
+health		10
+falldie		1
+nodieblink	2
+nodrop		2
+setlayer	-1200
+shadow		0
+facing		1
+nomove		1 1
+lifespan 	36
+offscreenkill 	5000
+subject_to_obstacle 0
+subject_to_hole 0
+subject_to_wall 0
+subject_to_minz 0
+subject_to_maxz 0
+candamage	obstacle
+animationscript data/scripts/escript.c
+
+palette		data/bgs/beyond/lvl2/bck/map2.gif
+
+
+
+
+
+
+
+anim	death
+	loop	0
+	delay	11
+	offset	100 130
+	bbox	0 0 0 0
+	quakeframe	1 10 5
+	@cmd	dasher -0.7 0 0
+	frame	data/bgs/beyond/lvl2/bck/tkmddl13.gif
+	frame	data/bgs/beyond/lvl2/bck/tkmddl14.gif
+	frame	data/bgs/beyond/lvl2/bck/tkmddl15.gif
+	frame	data/bgs/beyond/lvl2/bck/tkmddl16.gif
+	frame	data/bgs/beyond/lvl2/bck/tkmddl17.gif
+	frame	data/bgs/beyond/lvl2/bck/tkmddl18.gif
+	frame	data/bgs/beyond/lvl2/bck/tkmddl19.gif
+	frame	data/bgs/beyond/lvl2/bck/tkmddl20.gif
+	frame	data/bgs/beyond/lvl2/bck/tkmddl21.gif
+	frame	data/bgs/beyond/lvl2/bck/tkmddl22.gif
+	frame	data/bgs/beyond/lvl2/bck/tkmddl23.gif
+	frame	data/bgs/beyond/lvl2/bck/tkmddl24.gif
+	frame	data/bgs/beyond/lvl2/bck/tkmddl25.gif
+	frame	data/bgs/beyond/lvl2/bck/tkmddl26.gif
+	frame	data/bgs/beyond/lvl2/bck/empty.gif
+		
+anim	follow1
+	loop	1
+	delay	5
+	offset	100 130
+	bbox	45 95 100 15
+	hitfx	data/sounds/expl2.wav
+	@cmd	dasher -0.6 0 0
+	frame	data/bgs/beyond/lvl2/bck/tkmddl01.gif
+	frame	data/bgs/beyond/lvl2/bck/tkmddl02.gif
+	frame	data/bgs/beyond/lvl2/bck/tkmddl03.gif
+	frame	data/bgs/beyond/lvl2/bck/tkmddl04.gif
+	frame	data/bgs/beyond/lvl2/bck/tkmddl05.gif
+	frame	data/bgs/beyond/lvl2/bck/tkmddl06.gif
+	frame	data/bgs/beyond/lvl2/bck/tkmddl01.gif
+	frame	data/bgs/beyond/lvl2/bck/tkmddl02.gif
+	frame	data/bgs/beyond/lvl2/bck/tkmddl03.gif
+	frame	data/bgs/beyond/lvl2/bck/tkmddl04.gif
+	frame	data/bgs/beyond/lvl2/bck/tkmddl05.gif
+	frame	data/bgs/beyond/lvl2/bck/tkmddl06.gif
+	@cmd	looper 6 8
+	frame	data/bgs/beyond/lvl2/bck/tkmddl07.gif
+	attack	225 63 100 30 40 0 1 1 0 0
+	sound	data/sounds/carrierg1.wav
+	frame	data/bgs/beyond/lvl2/bck/tkmddl08.gif
+	frame	data/bgs/beyond/lvl2/bck/tkmddl09.gif
+	attack	0 0 0 0
+	frame	data/bgs/beyond/lvl2/bck/tkmddl10.gif
+	frame	data/bgs/beyond/lvl2/bck/tkmddl11.gif
+	frame	data/bgs/beyond/lvl2/bck/tkmddl12.gif
+		
+anim	idle
+	loop	0
+	delay	5
+	offset	100 130
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl2/bck/tkmddl01.gif
+		
+anim	spawn
+@script
+if(frame==1)
+{
+  changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_OBSTACLE"));
+}
+	@end_script	
+	loop	0
+	delay	5
+	offset	100 130
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl2/bck/tkmddl01.gif
+	frame	data/bgs/beyond/lvl2/bck/tkmddl01.gif
+	@cmd	anichange "ANI_FOLLOW1"
+	frame	data/bgs/beyond/lvl2/bck/tkmddl01.gif
+		
+#|edited by openBor Stats v 0.53
+		

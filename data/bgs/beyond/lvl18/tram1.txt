@@ -1,0 +1,209 @@
+name			tram1
+type			npc
+health			1700
+shadow			0
+facing			1
+#nomove			1
+nopain			1
+falldie			1
+nodieblink		3
+#nodrop			2
+noquake			1
+subject_to_wall		0
+subject_to_hole		0
+subject_to_platform	0
+#subject_to_gravity	0
+subject_to_minz		0
+subject_to_maxz		0
+setlayer		-500
+risetime        	550
+offscreenkill 	        20000
+icon		data/bgs/beyond/lvl18/ticon.gif
+
+lifebarstatus 300 10 0 1 0 2 5 
+lifeposition 90  225
+nameposition 90 215
+iconposition 50 201
+nolife 1
+
+#lifebarstatus {w} {h} {noborder} {type} {orientation} 
+#{border} {shadow} {graph} {backfill}
+
+
+animationscript data/scripts/escript.c
+
+load	tram2
+load	grunt3
+load	jontram
+load	jackpc2
+load	explosion8
+
+
+
+
+anim	spawn
+@script
+if(frame==1)
+{
+  changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_OBSTACLE"));
+}
+@end_script
+	loop	0
+	delay	5
+	offset	50 210
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl18/tram.gif
+	@cmd	spawnbind6 "tram2" 0 0 0 "ANI_FOLLOW1"
+	frame	data/bgs/beyond/lvl18/tram.gif
+	@cmd	spawnbind "tram2" 0 0 0
+	frame	data/bgs/beyond/lvl18/tram.gif
+	@cmd	spawnbind "jontram" 1130 0 45
+	@cmd	spawnAni "jackpc2" 730 0 0 "ANI_FOLLOW4"
+	@cmd	spawnM2 "grunt3" 430 0 0 1
+	@cmd	spawnM2 "grunt3" 460 0 0 2
+	@cmd	spawnM2 "grunt3" 510 0 0 3
+	@cmd	spawnM2 "grunt3" 550 0 0 4
+	@cmd	spawnM2 "grunt3" 600 0 0 1
+	@cmd	spawnM2 "grunt3" 620 0 0 2
+	frame	data/bgs/beyond/lvl18/tram.gif
+	@cmd	anichange "ANI_FOLLOW1"
+	frame	data/bgs/beyond/lvl18/tram.gif
+
+
+anim	follow1
+	loop	1
+	delay	3
+	offset	50 210
+	bbox	1120 190 50 50 300
+	movea	1
+	frame	data/bgs/beyond/lvl18/tram1.gif
+	frame	data/bgs/beyond/lvl18/tram.gif
+	frame	data/bgs/beyond/lvl18/tram2.gif
+	frame	data/bgs/beyond/lvl18/tram.gif
+	movea	-1
+	frame	data/bgs/beyond/lvl18/tram3.gif
+	frame	data/bgs/beyond/lvl18/tram.gif
+	frame	data/bgs/beyond/lvl18/tram4.gif
+	frame	data/bgs/beyond/lvl18/tram.gif
+
+
+
+anim	idle
+	loop	1
+	delay	5
+	offset	50 210
+	bbox	1120 190 50 50 300
+	frame	data/bgs/beyond/lvl18/front1.gif
+	frame	data/bgs/beyond/lvl18/front1.gif
+
+
+
+anim	fall7
+	loop	0
+	delay	1000
+	offset	50 210
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl18/tramsl01.gif
+	frame	data/bgs/beyond/lvl18/tramsl02.gif
+	frame	data/bgs/beyond/lvl18/tramsl03.gif
+	frame	data/bgs/beyond/lvl18/tramsl04.gif
+	frame	data/bgs/beyond/lvl18/tramsl01.gif
+	frame	data/bgs/beyond/lvl18/tramsl02.gif
+	frame	data/bgs/beyond/lvl18/tramsl03.gif
+	frame	data/bgs/beyond/lvl18/tramsl04.gif
+	frame	data/bgs/beyond/lvl18/tramsl01.gif
+	frame	data/bgs/beyond/lvl18/tramsl02.gif
+	frame	data/bgs/beyond/lvl18/tramsl03.gif
+	frame	data/bgs/beyond/lvl18/tramsl04.gif
+	frame	data/bgs/beyond/lvl18/tramsl01.gif
+	frame	data/bgs/beyond/lvl18/tramsl02.gif
+	frame	data/bgs/beyond/lvl18/tramsl03.gif
+	frame	data/bgs/beyond/lvl18/tramsl04.gif
+
+
+anim	fall
+	loop	0
+	delay	5
+	offset	50 210
+	bbox	0 0 0 0
+	jumpframe 0 0 0 0
+	@cmd	stop
+	frame	data/bgs/beyond/lvl18/tram.gif
+	@cmd	clearL
+	frame	data/bgs/beyond/lvl18/tram.gif
+	@cmd	anichange "ANI_RISE"
+	frame	data/bgs/beyond/lvl18/tram.gif
+
+anim	rise
+	loop	0
+	delay	5
+	offset	50 210
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl18/tram.gif
+	@cmd	anichange "ANI_FOLLOW1"
+	frame	data/bgs/beyond/lvl18/tram.gif
+
+
+anim	death
+@script
+    if(frame==25){
+	jumptobranch("tramdye", 1);
+    }
+	@end_script
+	loop	0
+	delay	15
+	offset	50 210
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl18/death01.gif
+	frame	data/bgs/beyond/lvl18/death02.gif
+	delay	14
+	frame	data/bgs/beyond/lvl18/death02.gif
+	@cmd	spawnbind "explosion8" 950 130 30
+	frame	data/bgs/beyond/lvl18/death02.gif
+	frame	data/bgs/beyond/lvl18/death02.gif
+	@cmd	spawnbind "explosion8" 750 130 30
+	frame	data/bgs/beyond/lvl18/death02.gif
+	frame	data/bgs/beyond/lvl18/death02.gif
+	@cmd	spawnbind "explosion8" 550 130 30
+	frame	data/bgs/beyond/lvl18/death02.gif
+	frame	data/bgs/beyond/lvl18/death02.gif
+	@cmd	spawnbind "explosion8" 350 130 30
+	frame	data/bgs/beyond/lvl18/death02.gif
+	frame	data/bgs/beyond/lvl18/death02.gif
+	@cmd	spawnbind "explosion8" 250 80 30
+	frame	data/bgs/beyond/lvl18/death02.gif
+	frame	data/bgs/beyond/lvl18/death02.gif
+	@cmd	spawnbind "explosion8" 450 80 30
+	frame	data/bgs/beyond/lvl18/death02.gif
+	frame	data/bgs/beyond/lvl18/death02.gif
+	@cmd	spawnbind "explosion8" 650 80 30
+	frame	data/bgs/beyond/lvl18/death02.gif
+	frame	data/bgs/beyond/lvl18/death02.gif
+	@cmd	spawnbind "explosion8" 850 80 30
+	frame	data/bgs/beyond/lvl18/death02.gif
+	frame	data/bgs/beyond/lvl18/death02.gif
+	@cmd	spawnbind "explosion8" 1050 80 30
+	frame	data/bgs/beyond/lvl18/death02.gif
+	@cmd	looper 2 5
+	frame	data/bgs/beyond/lvl18/death02.gif
+	delay	750
+	frame	data/bgs/beyond/lvl18/death02.gif
+	delay	10
+	frame	data/bgs/beyond/lvl18/death02.gif
+	frame	data/bgs/beyond/lvl18/death02.gif
+	frame	data/bgs/beyond/lvl18/death02.gif
+	frame	data/bgs/beyond/lvl18/death02.gif #25
+	frame	data/bgs/beyond/lvl18/death02.gif
+	frame	data/bgs/beyond/lvl18/death02.gif
+	frame	data/bgs/beyond/lvl18/death02.gif
+	frame	data/bgs/beyond/lvl18/death02.gif
+	frame	data/bgs/beyond/lvl18/death02.gif
+	frame	data/bgs/beyond/lvl18/death02.gif
+	frame	data/bgs/beyond/lvl18/death02.gif
+	frame	data/bgs/beyond/lvl18/death02.gif
+
+
+
+
+
+

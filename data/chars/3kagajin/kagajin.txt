@@ -1,0 +1,1738 @@
+name          kagajin
+type          enemy
+health        2400
+speed         15
+jumpheight    6
+jumpmove      0  4
+throw         5 2
+throwdamage   18
+shadow        0
+blockodds     1
+escapehits    2
+paingrab      1
+falldie	      2
+nodieblink    3
+gfxshadow     1
+offscreenkill 	10000
+dust            dust
+projectilehit enemy obstacle
+diesound      data/sounds/bikedie1.wav
+animationscript data/scripts/escript.c
+
+icon		data/chars/3kagajin/icon.gif
+lifebarstatus 300 10 0 1 0 2 5 
+lifeposition 115  240
+nameposition -200 -200
+iconposition 50 227
+nolife 1
+
+
+
+load	kagashintlk
+load	kagajin2
+load	ringsmoke
+
+palette       data/chars/3kagajin/map1.gif
+
+script	@script
+void main()
+{
+   	void self = getlocalvar("self");
+	int x = getentityproperty(self, "x");
+	int XPos = openborvariant("xpos");
+	int Screen = openborvariant("hResolution");
+	int hp = getentityproperty(self, "health");
+    	void anim = getentityproperty(self,"animationID");
+
+if(anim != openborconstant("ANI_DIE")){
+
+   if( hp <=0 && x >= XPos+Screen-60) // right
+   	{
+	tossentity(self, 1, -2, 0);
+   	}
+   else if( hp <=0 && x <= XPos+60) // left
+   	{
+	tossentity(self, 1, 2, 0);
+   	}
+  }
+}
+@end_script
+
+
+
+anim	attack
+	range	20 100
+	loop	0
+	delay	12
+	offset	100 189
+	bbox	79 80 50 109
+	followanim	1
+	followcond	1
+	fastattack	1
+	hitfx	data/sounds/beat2.wav
+	frame	data/chars/3kagajin/a096.gif
+	attack2	110 110 110 35 20 0 0 0 35 0
+	frame	data/chars/3kagajin/a097.gif
+	frame	data/chars/3kagajin/a098.gif
+	attack2	0 0 0 0
+	frame	data/chars/3kagajin/a099.gif
+		
+anim	attack2
+	range	80 200
+	rangez	-150 -20
+	loop	0
+	delay	14
+	offset	100 189
+	bbox	79 80 50 109
+	followanim	5
+	followcond	1
+	jumpframe	1 5 0.5 -1
+	landframe	6
+	hitfx	data/sounds/grab.wav
+	frame	data/chars/3kagajin/rise4.gif
+	frame	data/chars/3kagajin/jump01.gif
+	sound	data/sounds/bguye2.wav
+	frame	data/chars/3kagajin/jump02.gif
+	frame	data/chars/3kagajin/jump03.gif
+	frame	data/chars/3kagajin/jump04.gif
+	delay	500
+	attack	80 100 95 80 0 0 1 1 10 20
+	frame	data/chars/3kagajin/jump05.gif
+	attack	0 0 0 0
+	delay	15
+	frame	data/chars/3kagajin/rise4.gif
+		
+anim	attack4
+	range	80 200
+	rangez	20 150
+	loop	0
+	delay	9
+	offset	100 189
+	bbox	79 80 50 109
+	followanim	5
+	followcond	1
+	jumpframe	1 5 0.5 1
+	landframe	6
+	hitfx	data/sounds/grab.wav
+	frame	data/chars/3kagajin/rise4.gif
+	frame	data/chars/3kagajin/jump01.gif
+	sound	data/sounds/bguye3.wav
+	frame	data/chars/3kagajin/jump02.gif
+	frame	data/chars/3kagajin/jump03.gif
+	frame	data/chars/3kagajin/jump04.gif
+	delay	500
+	attack	80 100 95 80 0 0 1 1 10 20
+	frame	data/chars/3kagajin/jump05.gif
+	attack	0 0 0 0
+	delay	15
+	frame	data/chars/3kagajin/rise4.gif
+		
+anim	attack5
+	range	180 320
+	loop	0
+	delay	12
+	offset	100 189
+	bbox	79 80 50 109
+	jumpframe	1 3 3
+	landframe	3
+	followanim	4
+	followcond	1
+	hitfx	data/sounds/grab.wav
+	frame	data/chars/3kagajin/rise4.gif
+	sound	data/sounds/bguye3.wav
+	frame	data/chars/3kagajin/a099.gif
+	delay	80
+	attack	80 100 95 80 0 0 1 1 10 20
+	frame	data/chars/3kagajin/1grab01.gif
+	delay	5
+	move	14
+	frame	data/chars/3kagajin/1grab01.gif
+	frame	data/chars/3kagajin/1grab01.gif
+	frame	data/chars/3kagajin/1grab01.gif
+	frame	data/chars/3kagajin/1grab01.gif
+	frame	data/chars/3kagajin/1grab01.gif
+	frame	data/chars/3kagajin/1grab01.gif
+	move	8
+	frame	data/chars/3kagajin/1grab01.gif
+	frame	data/chars/3kagajin/1grab01.gif
+	frame	data/chars/3kagajin/1grab01.gif
+	frame	data/chars/3kagajin/rise4.gif
+	move	4
+	frame	data/chars/3kagajin/rise4.gif
+	frame	data/chars/3kagajin/rise4.gif
+	attack	0 0 0 0
+	move	0
+	frame	data/chars/3kagajin/rise4.gif
+	delay	14
+	frame	data/chars/3kagajin/rise3.gif
+	frame	data/chars/3kagajin/rise4.gif
+	frame	data/chars/3kagajin/a099.gif
+		
+anim	block
+	loop	0
+	delay	2
+	offset	100 189
+	bbox	79 80 50 109
+	move	-8
+	frame	data/chars/3kagajin/blk01.gif
+	frame	data/chars/3kagajin/blk01.gif
+	frame	data/chars/3kagajin/blk01.gif
+	frame	data/chars/3kagajin/blk02.gif
+	frame	data/chars/3kagajin/blk02.gif
+	delay	20
+	frame	data/chars/3kagajin/blk02.gif
+		
+anim	burn
+	loop	0
+	delay	25
+	offset	100 189
+	bbox	0 0 0 0
+	landframe	3
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 200_50_0
+	@cmd	spawnbind "burn1" 1 1 1
+	@cmd	spawnbind "burn2" 1 1 1
+	@cmd	spawnbind "burn3" 1 1 1
+	attack	78 80 30 45 5 1 0 0 13 0
+	frame	data/chars/3kagajin/fall1.gif
+	delay	15
+	attack	64 100 50 25 5 1 0 0 13 0
+	frame	data/chars/3kagajin/fall2.gif
+	delay	500
+	frame	data/chars/3kagajin/fall3.gif
+	attack	0 0 0 0
+	bbox	58 175 85 15
+	delay	15
+	frame	data/chars/3kagajin/fall4.gif
+	frame	data/chars/3kagajin/fall5.gif
+	frame	data/chars/3kagajin/fall4.gif
+		
+anim	death
+	loop	0
+	delay	50
+	offset	100 189
+	bbox	0 0 0 0
+	quakeframe	11 5 5
+	frame	data/chars/3kagajin/fall4.gif
+	delay	15
+	frame	data/chars/3kagajin/rise1.gif
+	frame	data/chars/3kagajin/rise2.gif
+	frame	data/chars/3kagajin/rise3.gif
+	frame	data/chars/3kagajin/rise4.gif
+	delay	45
+	frame	data/chars/3kagajin/pain0.gif
+	delay	15
+	frame	data/chars/3kagajin/death01.gif
+	frame	data/chars/3kagajin/death02.gif
+	frame	data/chars/3kagajin/death03.gif
+	frame	data/chars/3kagajin/death04.gif
+	frame	data/chars/3kagajin/death05.gif
+	frame	data/chars/3kagajin/death06.gif
+	@cmd	spawn01 "dust" -30 0 1
+	@cmd	spawn01 "dust" 30 0 1
+	sound	data/sounds/fall3.wav
+	frame	data/chars/3kagajin/death07.gif
+	frame	data/chars/3kagajin/death08.gif
+	delay	200
+	frame	data/chars/3kagajin/death08.gif
+		
+anim	fall
+	loop	0
+	delay	25
+	offset	100 189
+	bbox	0 0 0 0
+	landframe	3
+	attack	78 80 30 45 5 1 0 0 13 0
+	frame	data/chars/3kagajin/fall1.gif
+	delay	15
+	attack	64 100 50 25 5 1 0 0 13 0
+	frame	data/chars/3kagajin/fall2.gif
+	delay	500
+	frame	data/chars/3kagajin/fall3.gif
+	attack	0 0 0 0
+	bbox	58 175 85 15
+	delay	15
+	frame	data/chars/3kagajin/fall4.gif
+	frame	data/chars/3kagajin/fall5.gif
+	frame	data/chars/3kagajin/fall4.gif
+		
+anim	fall10
+	loop	0
+	delay	10
+	offset	100 189
+	bbox	80 80 50 75
+	landframe	4
+	attack	85 88 30 50 5 1 0 0 13 0
+	frame	data/chars/3kagajin/pain6.gif
+	delay	40
+	frame	data/chars/3kagajin/pain7.gif
+	delay	30
+	bbox	71 105 63 30
+	attack	75 107 45 25 5 1 0 0 13 0
+	frame	data/chars/3kagajin/fall2.gif
+	delay	300
+	bbox	77 130 67 35
+	attack	0 0 0 0
+	frame	data/chars/3kagajin/fall3.gif
+	bbox	58 167 85 15
+	delay	15
+	frame	data/chars/3kagajin/fall4.gif
+	frame	data/chars/3kagajin/fall5.gif
+	frame	data/chars/3kagajin/fall4.gif
+		
+anim	fall11
+	loop	0
+	delay	20
+	offset	100 189
+	bbox	61 185 90 5	
+	frame	data/chars/3kagajin/pain12.gif
+	delay	35
+	frame	data/chars/3kagajin/fall4.gif
+		
+anim	fall2
+	loop	0
+	delay	30
+	offset	100 189
+	bbox	0 0 0 0
+	landframe	3
+	attack	85 90 35 45 5 1 0 0 13 0
+	frame	data/chars/3kagajin/pain7.gif
+	delay	10
+	attack	70 100 55 25 5 1 0 0 13 0
+	frame	data/chars/3kagajin/fall2.gif
+	attack	0 0 0 0
+	delay	300
+	frame	data/chars/3kagajin/fall3.gif
+	delay	15
+	frame	data/chars/3kagajin/fall4.gif
+	frame	data/chars/3kagajin/fall5.gif
+	frame	data/chars/3kagajin/fall4.gif
+		
+anim	fall4
+	loop	0
+	delay	6
+	offset	100 189
+	bbox	0 0 0 0
+	jumpframe	0 1.2 1.5
+	frame	data/chars/3kagajin/pain8.gif
+	frame	data/chars/3kagajin/pain9.gif
+	frame	data/chars/3kagajin/pain10.gif
+	@cmd	leaper 0 0.2 0
+	frame	data/chars/3kagajin/pain11.gif
+	frame	data/chars/3kagajin/fall4.gif
+	frame	data/chars/3kagajin/fall5.gif
+	bbox	58 175 95 15
+	frame	data/chars/3kagajin/fall4.gif
+		
+anim	fall7
+	delay	1000
+	offset	105 130
+	frame	data/chars/3kagajin/slamck0.gif
+	offset	100 110
+	frame	data/chars/3kagajin/slamck1.gif
+	offset	106 130
+	frame	data/chars/3kagajin/slamck2.gif
+	offset	115 125
+	frame	data/chars/3kagajin/slamck3.gif
+	offset	125 125
+	frame	data/chars/3kagajin/slamck4.gif
+	offset	108 122
+	frame	data/chars/3kagajin/slamck5.gif
+	offset	106 155
+	frame	data/chars/3kagajin/slamck6.gif
+	offset	125 140
+	frame	data/chars/3kagajin/slamck7.gif
+	offset	120 105
+	frame	data/chars/3kagajin/slamck8.gif
+	offset	100 130
+	frame	data/chars/3kagajin/slamck9.gif
+	offset	105 130
+	frame	data/chars/3kagajin/slamck10.gif
+	offset	105 130
+	frame	data/chars/3kagajin/slamck11.gif
+	offset	115 125
+	frame	data/chars/3kagajin/slamck12.gif
+	offset	115 125
+	frame	data/chars/3kagajin/slamck13.gif
+	offset	115 125
+	frame	data/chars/3kagajin/slamck14.gif
+	offset	115 125
+	frame	data/chars/3kagajin/slamck15.gif
+		
+anim	fall9
+	loop	0
+	delay	10
+	offset	100 189
+	bbox	0 0 0 0
+	quakeframe	2 5 5
+	landframe	2 dust
+	attack	75 80 35 45 5 1 0 0 13 0
+	frame	data/chars/3kagajin/fall1.gif
+	delay	350
+	offset	100 185
+	attack	75 100 45 35 5 1 0 0 13 0
+	frame	data/chars/3kagajin/fall2.gif
+	delay	2
+	offset	100 180
+	move	-4
+	frame	data/chars/3kagajin/fall3.gif
+	frame	data/chars/3kagajin/fall3.gif
+	attack	0 0 0 0
+	frame	data/chars/3kagajin/fall3.gif
+	@cmd	looper 3 5
+	offset	100 189
+	move	-3
+	frame	data/chars/3kagajin/fall4.gif
+	frame	data/chars/3kagajin/fall4.gif
+	frame	data/chars/3kagajin/fall4.gif
+	@cmd	looper 6 4
+	move	-2
+	frame	data/chars/3kagajin/fall5.gif
+	frame	data/chars/3kagajin/fall5.gif
+	frame	data/chars/3kagajin/fall5.gif
+	loop	0
+	delay	15
+	move	0
+	bbox	58 175 100 15
+	frame	data/chars/3kagajin/fall4.gif
+		
+anim	follow1
+	loop	0
+	delay	12
+	offset	100 189
+	bbox	0 0 0 0
+	fastattack	1
+	hitflash	flash3
+	frame	data/chars/3kagajin/a098.gif
+	sound	data/sounds/bguye1.wav
+	frame	data/chars/3kagajin/a099.gif
+	delay	8
+	frame	data/chars/3kagajin/a100.gif
+	frame	data/chars/3kagajin/a101.gif
+	attack3	110 90 110 40 22 0 0 0 35 0
+	frame	data/chars/3kagajin/a102.gif
+	frame	data/chars/3kagajin/a103.gif
+	frame	data/chars/3kagajin/a104.gif
+	frame	data/chars/3kagajin/a105.gif
+	frame	data/chars/3kagajin/a106.gif
+	attack3	0 0 0 0
+	frame	data/chars/3kagajin/a107.gif
+	frame	data/chars/3kagajin/a108.gif
+	delay	4
+	move	6
+	sound	data/sounds/bguye1.wav
+	bbox	79 130 50 60
+	frame	data/chars/3kagajin/a080.gif
+	hitflash	flashscreen1
+	hitfx	data/sounds/beat4.wav
+	frame	data/chars/3kagajin/a080.gif
+	frame	data/chars/3kagajin/a080.gif
+	attack	110 90 120 50 35 1 1 0 40 0
+	dropv	3 4
+	frame	data/chars/3kagajin/a081.gif
+	frame	data/chars/3kagajin/a081.gif
+	frame	data/chars/3kagajin/a081.gif
+	delay	14
+	frame	data/chars/3kagajin/a082.gif
+	frame	data/chars/3kagajin/a083.gif
+	attack	0 0 0 0
+	frame	data/chars/3kagajin/a108.gif
+		
+anim	follow10
+@script
+    void self = getlocalvar("self");
+    if(frame==15){ // set local variable at 1st frame
+      setlocalvar("Flag" + self,2);
+    }
+@end_script
+	loop	0
+	delay	8
+	offset	100 189
+	bbox	0 0 0 0
+	jumpframe 1 10 0
+	landframe 3
+	frame	data/chars/3kagajin/rise4.gif
+	delay	150
+	frame	data/chars/3kagajin/jump01.gif
+	delay	400
+	frame	data/chars/3kagajin/empty.gif
+	delay	15
+	frame	data/chars/3kagajin/empty.gif
+	@cmd	move2 1700 330
+	frame	data/chars/3kagajin/empty.gif
+	@cmd	leaper 0 10 0
+	frame	data/chars/3kagajin/empty.gif
+	delay	100
+	frame	data/chars/3kagajin/empty.gif
+	delay	110
+	frame	data/chars/3kagajin/jump01.gif
+	delay	14
+	frame	data/chars/3kagajin/rise4.gif
+	@cmd	clearL
+	frame	data/chars/3kagajin/b01.gif
+	delay	80
+	frame	data/chars/3kagajin/b02.gif
+	delay	8
+	attack	39 110 125 35 5 1 0 0 35 0
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	@cmd	spawn01 "kagajin2" -40 60 1
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	@cmd	spawn01 "kagajin2" 0 60 1
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	@cmd	spawn01 "kagajin2" 30 60 1
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	@cmd	spawn01 "kagajin2" 60 60 1
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	attack	0 0 0 0
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	delay	14
+	frame	data/chars/3kagajin/b02.gif
+	frame	data/chars/3kagajin/b01.gif
+		
+anim	follow11
+@script
+    void self = getlocalvar("self");
+    if(frame==15){ // set local variable at 1st frame
+      setlocalvar("Flag" + self,3);
+    }
+@end_script
+	loop	0
+	delay	8
+	offset	100 189
+	bbox	0 0 0 0
+	jumpframe 1 10 0
+	landframe 3
+	frame	data/chars/3kagajin/rise4.gif
+	delay	150
+	frame	data/chars/3kagajin/jump01.gif
+	delay	400
+	frame	data/chars/3kagajin/empty.gif
+	delay	15
+	frame	data/chars/3kagajin/empty.gif
+	@cmd	move2 1700 330
+	frame	data/chars/3kagajin/empty.gif
+	@cmd	leaper 0 10 0
+	frame	data/chars/3kagajin/empty.gif
+	delay	100
+	frame	data/chars/3kagajin/empty.gif
+	delay	110
+	frame	data/chars/3kagajin/jump01.gif
+	delay	14
+	frame	data/chars/3kagajin/rise4.gif
+	@cmd	clearL
+	frame	data/chars/3kagajin/b01.gif
+	delay	80
+	frame	data/chars/3kagajin/b02.gif
+	delay	8
+	attack	39 110 125 35 5 1 0 0 35 0
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	@cmd	spawn01 "kagajin2" -60 60 1
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	@cmd	spawn01 "kagajin2" -30 60 1
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	@cmd	spawn01 "kagajin2" 0 60 1
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	@cmd	spawn01 "kagajin2" 30 60 1
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	@cmd	spawn01 "kagajin2" 60 60 1
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	attack	0 0 0 0
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	delay	14
+	frame	data/chars/3kagajin/b02.gif
+	frame	data/chars/3kagajin/b01.gif
+
+
+
+anim	follow9
+@script
+    void self = getlocalvar("self");
+    if(frame==15){ // set local variable at 1st frame
+      setlocalvar("Flag" + self,1);
+    }
+@end_script
+	loop	0
+	delay	14
+	offset	100 189
+	bbox	0 0 0 0
+	jumpframe 1 10 0
+	landframe 3
+	frame	data/chars/3kagajin/rise4.gif
+	delay	150
+	frame	data/chars/3kagajin/jump01.gif
+	delay	400
+	frame	data/chars/3kagajin/empty.gif
+	delay	15
+	frame	data/chars/3kagajin/empty.gif
+	@cmd	move2 1700 330
+	frame	data/chars/3kagajin/empty.gif
+	@cmd	leaper 0 10 0
+	frame	data/chars/3kagajin/empty.gif
+	delay	100
+	frame	data/chars/3kagajin/empty.gif
+	delay	110
+	frame	data/chars/3kagajin/jump01.gif
+	delay	14
+	frame	data/chars/3kagajin/rise4.gif
+	@cmd	clearL
+	frame	data/chars/3kagajin/b01.gif
+	delay	80
+	frame	data/chars/3kagajin/b02.gif
+	delay	8
+	attack	39 110 125 35 5 1 0 0 35 0
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	@cmd	spawn01 "kagajin2" -30 60 1
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	@cmd	spawn01 "kagajin2" 30 60 1
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	@cmd	spawn01 "kagajin2" 0 60 1
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	attack	0 0 0 0
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	delay	14
+	frame	data/chars/3kagajin/b02.gif
+	frame	data/chars/3kagajin/b01.gif
+
+
+
+		
+anim	follow2
+	loop	0
+	delay	11
+	offset	100 198
+	bbox	0 0 0 0
+	hitfx	data/sounds/beat4.wav
+	frame	data/chars/3kagajin/upper05.gif
+	offset	100 189
+	frame	data/chars/3kagajin/upper01.gif
+	delay	5
+	move	5
+	offset	90 200
+	attack	100 15 90 110 12 1 0 0 35 15
+	dropv	5 2
+	frame	data/chars/3kagajin/upper13.gif
+	frame	data/chars/3kagajin/upper13.gif
+	frame	data/chars/3kagajin/upper13.gif
+	frame	data/chars/3kagajin/upper14.gif
+	frame	data/chars/3kagajin/upper14.gif
+	frame	data/chars/3kagajin/upper14.gif
+	attack	0 0 0 0
+	move	0
+	delay	15
+	offset	100 198
+	frame	data/chars/3kagajin/upper05.gif
+	offset	115 189
+	frame	data/chars/3kagajin/a108.gif
+		
+anim	follow4
+	loop	0
+	delay	50
+	offset	100 189
+	bbox	0 0 0 0
+	jumpframe	3 5 -1
+	@cmd	slamstart2
+	@cmd	position 7 90 10 -1 1
+	frame	data/chars/3kagajin/1grab02.gif
+	delay	14
+	@cmd	antiwall -50 5 -1
+	@cmd	position 24 80 40 -1 1
+	frame	data/chars/3kagajin/1grab03.gif
+	@cmd	antiwall -50 5 -1
+	@cmd	position 23 70 30 -1 1
+	frame	data/chars/3kagajin/1grab04.gif
+	@cmd	antiwall -50 5 -1
+	@cmd	position 23 55 35 -1 1
+	frame	data/chars/3kagajin/1grab05.gif
+	@cmd	antiwall -50 5 -1
+	@cmd	position 2 45 130 -1 1
+	frame	data/chars/3kagajin/1grab06.gif
+	delay	15
+	@cmd	antiwall -50 5 -1
+	@cmd	position 2 10 150 -1 1
+	frame	data/chars/3kagajin/1grab07.gif
+	@cmd	antiwall -50 5 -1
+	@cmd	position 2 35 130 -1 1
+	frame	data/chars/3kagajin/1grab08.gif
+	delay	25
+	@cmd	antiwall -50 5 -1
+	@cmd	position 20 100 50 -1 -1
+	frame	data/chars/3kagajin/1grab09.gif
+	delay	14
+	@cmd	antiwall -50 5 -1
+	@cmd	position 19 100 7 -1 1
+	frame	data/chars/3kagajin/1grab10.gif #8
+	@cmd	spawn01 "dust" 85 1 1
+	sound	data/sounds/fall.wav
+	@cmd	spawn02 "flashsc1" -100 500 300
+	attack	95 90 115 70 5 1 0 0 35 15
+	dropv	3 3
+	@cmd	antiwall -50 5 -1
+	@cmd	position 3 140 5 -1 -1
+	frame	data/chars/3kagajin/1grab11.gif
+	@cmd	antiwall -50 5 -1
+	@cmd	position 6 110 10 -1 -1
+	frame	data/chars/3kagajin/1grab10.gif
+	attack	0 0 0 0
+	@cmd	depost 0
+	@cmd	finish 40 1 -1 6 0 0
+	delay	14
+	bbox	79 80 50 109
+	frame	data/chars/3kagajin/1grab11.gif
+	frame	data/chars/3kagajin/1grab01.gif
+	frame	data/chars/3kagajin/rise3.gif
+	frame	data/chars/3kagajin/rise4.gif
+	frame	data/chars/3kagajin/pain0.gif
+	frame	data/chars/3kagajin/idle01.gif
+		
+anim	follow5
+	loop	0
+	delay	30
+	offset	100 189
+	bbox	0 0 0 0
+	@cmd	stop
+	jumpframe	0 5 1
+	@cmd	slamstart2
+	@cmd	position 13 40 10 -1 1
+	frame	data/chars/3kagajin/2grab01.gif
+	delay	12
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 6 -20 30 -1 1
+	frame	data/chars/3kagajin/2grab02.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 18 0 90 -1 -1
+	frame	data/chars/3kagajin/2grab03.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 14 0 120 -1 1
+	frame	data/chars/3kagajin/2grab04.gif
+	delay	20
+	attack	95 90 115 70 5 1 0 0 35 15
+	dropv	3 3
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 2 60 130 -1 1
+	frame	data/chars/3kagajin/2grab05.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 20 100 40 -1 -1
+	frame	data/chars/3kagajin/2grab06.gif
+	attack	0 0 0 0
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 6 100 7 -1 -1
+	frame	data/chars/3kagajin/2grab07.gif
+	@cmd	spawn01 "dust" 40 1 1
+	sound	data/sounds/fall.wav
+	@cmd	spawn02 "flashsc2" -100 500 300
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 3 130 5 -1 -1
+	frame	data/chars/3kagajin/2grab08.gif
+	delay	2
+	@cmd	position 3 0 5 -1 -1
+	frame	data/chars/3kagajin/2grab08.gif
+	@cmd	depost 0
+	@cmd	finish 40 1 -1 4 0 0
+	delay	15
+	frame	data/chars/3kagajin/2grab09.gif
+	frame	data/chars/3kagajin/2grab10.gif
+	delay	30
+	frame	data/chars/3kagajin/2grab11.gif
+	delay	15
+	bbox	79 80 50 109
+	frame	data/chars/3kagajin/rise3.gif
+	frame	data/chars/3kagajin/rise4.gif
+	frame	data/chars/3kagajin/pain0.gif
+		
+anim	follow6
+	loop	0
+	delay	70
+	offset	100 189
+	fastattack	1
+	bbox	0 0 0 0
+	@cmd	slamstart2
+	@cmd	position 15 55 95 -1 -1
+	frame	data/chars/3kagajin/upper04.gif
+	delay	14
+	@cmd	spawngrab "grab1" 200 200 450 75 1 8
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 7 60 60 -1 -1
+	frame	data/chars/3kagajin/upper05.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 20 20 115 -1 -1
+	frame	data/chars/3kagajin/upper06.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 2 20 110 -1 -1
+	frame	data/chars/3kagajin/upper07.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 14 80 65 -1 -1
+	frame	data/chars/3kagajin/upper08.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 19 95 7 -1 1
+	frame	data/chars/3kagajin/upper09.gif
+	attack	95 90 115 70 5 1 0 0 35 15
+	dropv	3 3
+	@cmd	hurt 10
+	@cmd	spawn01 "dust" 50 1 1
+	sound	data/sounds/fall.wav
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 6 90 7 -1 -1
+	frame	data/chars/3kagajin/upper10.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 3 120 5 -1 -1
+	frame	data/chars/3kagajin/upper11.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 7 60 60 -1 -1
+	frame	data/chars/3kagajin/upper05.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 20 20 115 -1 -1
+	frame	data/chars/3kagajin/upper06.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 2 20 110 -1 -1
+	frame	data/chars/3kagajin/upper07.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 14 80 65 -1 -1
+	frame	data/chars/3kagajin/upper08.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 19 95 7 -1 1
+	frame	data/chars/3kagajin/upper09.gif
+	attack	95 90 115 70 5 1 0 0 35 15
+	dropv	3 3
+	@cmd	hurt 10
+	@cmd	spawn01 "dust" 50 1 1
+	sound	data/sounds/fall.wav
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 6 90 7 -1 -1
+	frame	data/chars/3kagajin/upper10.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 3 120 5 -1 -1
+	frame	data/chars/3kagajin/upper11.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 7 60 60 -1 -1
+	frame	data/chars/3kagajin/upper05.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 20 20 115 -1 -1
+	frame	data/chars/3kagajin/upper06.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 2 20 110 -1 -1
+	frame	data/chars/3kagajin/upper07.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 14 80 65 -1 -1
+	frame	data/chars/3kagajin/upper08.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 19 95 7 -1 1
+	frame	data/chars/3kagajin/upper09.gif
+	attack	95 90 115 70 5 1 0 0 35 15
+	dropv	3 3
+	@cmd	hurt 10
+	@cmd	spawn01 "dust" 50 1 1
+	sound	data/sounds/fall.wav
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 6 90 7 -1 -1
+	frame	data/chars/3kagajin/upper10.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 3 120 5 -1 -1
+	frame	data/chars/3kagajin/upper11.gif
+	@cmd	leaper 0 4 0
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 7 60 60 -1 -1
+	frame	data/chars/3kagajin/upper05.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 20 20 115 -1 -1
+	frame	data/chars/3kagajin/upper06.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 2 20 110 -1 -1
+	frame	data/chars/3kagajin/upper07.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 14 80 65 -1 -1
+	frame	data/chars/3kagajin/upper08.gif
+	delay	15
+	@cmd	spawn01 "dust" 50 1 1
+	sound	data/sounds/fall.wav
+	@cmd	spawn02 "flashsc1" -100 500 300
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 19 95 7 -1 1
+	frame	data/chars/3kagajin/upper09.gif
+	attack	95 90 115 70 5 1 0 0 35 15
+	dropv	3 3
+	@cmd	killgun 8 0
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 6 90 7 -1 -1
+	frame	data/chars/3kagajin/upper10.gif
+	@cmd	position 3 120 5 -1 -1
+	frame	data/chars/3kagajin/upper11.gif
+	delay	5
+	@cmd	position 3 120 5 -1 -1
+	frame	data/chars/3kagajin/upper11.gif
+	@cmd	depost 0
+	@cmd	finish 40 1 -1 6 0 0
+	delay	30
+	frame	data/chars/3kagajin/upper12.gif
+		
+
+		
+anim	grab
+	delay	35
+	attackone	0
+	offset	100 189
+	bbox	0 0 0 0
+	fastattack	1
+	sound	data/sounds/grab.wav
+	frame	data/chars/3kagajin/1grab04.gif
+	@cmd	slamstart
+	delay	30
+	@cmd	position 7 60 60 -1 -1
+	frame	data/chars/3kagajin/upper05.gif
+	delay	14
+	@cmd	spawngrab "grab1" 200 200 450 85 1 8
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 20 20 115 -1 -1
+	frame	data/chars/3kagajin/upper06.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 2 20 110 -1 -1
+	frame	data/chars/3kagajin/upper07.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 14 80 65 -1 -1
+	frame	data/chars/3kagajin/upper08.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 19 95 7 -1 1
+	frame	data/chars/3kagajin/upper09.gif
+	attack	95 90 115 70 5 1 0 0 35 15
+	dropv	3 3
+	sound	data/sounds/fall.wav
+	@cmd	hurt 10
+	@cmd	spawn01 "dust" 40 1 1
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 6 90 7 -1 -1
+	frame	data/chars/3kagajin/upper10.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 3 120 5 -1 -1
+	frame	data/chars/3kagajin/upper11.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 7 60 60 -1 -1
+	frame	data/chars/3kagajin/upper05.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 20 20 115 -1 -1
+	frame	data/chars/3kagajin/upper06.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 2 20 110 -1 -1
+	frame	data/chars/3kagajin/upper07.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 14 80 65 -1 -1
+	frame	data/chars/3kagajin/upper08.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 19 95 7 -1 1
+	frame	data/chars/3kagajin/upper09.gif
+	attack	95 90 115 70 5 1 0 0 35 15
+	dropv	3 3
+	sound	data/sounds/fall.wav
+	@cmd	hurt 10
+	@cmd	spawn01 "dust" 40 1 1
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 6 90 7 -1 -1
+	frame	data/chars/3kagajin/upper10.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 3 120 5 -1 -1
+	frame	data/chars/3kagajin/upper11.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 7 90 10 -1 1
+	frame	data/chars/3kagajin/1grab02.gif
+	delay	14
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 24 80 40 -1 1
+	frame	data/chars/3kagajin/1grab03.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 20 100 50 -1 -1
+	frame	data/chars/3kagajin/1grab09.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 2 100 35 -1 -1
+	frame	data/chars/3kagajin/2grab06.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 10 70 5 -1 1
+	frame	data/chars/3kagajin/2grab07.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 70 7 -1 1
+	frame	data/chars/3kagajin/2grab08.gif
+	sound	data/sounds/fall.wav
+	@cmd	hurt 10
+	@cmd	spawn01 "dust" 40 1 1
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 70 7 -1 1
+	frame	data/chars/3kagajin/2grab09.gif
+	delay	12
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 70 7 -1 1
+	frame	data/chars/3kagajin/3grab01.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 10 70 7 -1 1
+	frame	data/chars/3kagajin/3grab02.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 10 70 7 -1 1
+	frame	data/chars/3kagajin/3grab03.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 10 70 7 -1 1
+	frame	data/chars/3kagajin/3grab04.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 70 5 -1 1
+	frame	data/chars/3kagajin/3grab05.gif
+	attack	95 90 115 70 5 1 0 0 35 15
+	dropv	3 3
+	sound	data/sounds/fall.wav
+	@cmd	hurt 10
+	@cmd	spawn01 "dust" 40 1 1
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 70 7 -1 1
+	frame	data/chars/3kagajin/3grab06.gif
+	delay	15
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 70 7 -1 1
+	frame	data/chars/3kagajin/3grab01.gif
+	delay	25
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 10 70 7 -1 1
+	frame	data/chars/3kagajin/3grab02.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 10 70 7 -1 1
+	frame	data/chars/3kagajin/3grab03.gif
+	delay	12
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 10 70 7 -1 1
+	frame	data/chars/3kagajin/3grab04.gif
+	@cmd	killgun 8 0
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 70 5 -1 1
+	frame	data/chars/3kagajin/3grab05.gif
+	attack	95 90 115 70 5 1 0 0 35 15
+	dropv	3 3
+	sound	data/sounds/fall.wav
+	@cmd	killgun 8 0
+	@cmd	spawn01 "flashscreen2" 60 1 1
+	@cmd	position 9 70 7 -1 1
+	frame	data/chars/3kagajin/3grab06.gif
+	@cmd	depost 0
+	@cmd	finish 40 1 2 5 0 1
+	delay	15
+	frame	data/chars/3kagajin/3grab06.gif
+	frame	data/chars/3kagajin/2grab09.gif
+	frame	data/chars/3kagajin/2grab10.gif
+	delay	30
+	frame	data/chars/3kagajin/2grab11.gif
+	delay	15
+	frame	data/chars/3kagajin/rise3.gif
+	frame	data/chars/3kagajin/rise4.gif
+	frame	data/chars/3kagajin/pain0.gif
+		
+anim	grabbed
+	loop	0
+	delay	10
+	offset	100 189
+	bbox	79 97 50 91
+	frame	data/chars/3kagajin/grabbed.gif
+		
+anim	idle
+	loop	0
+	delay	10
+	offset	100 189
+	bbox	79 80 50 109
+	@cmd	damage2
+	frame	data/chars/3kagajin/idle01.gif
+	frame	data/chars/3kagajin/idle01.gif
+		
+anim	jump
+	loop	0
+	delay	20
+	offset	100 189
+	range	30 90
+	bbox	0 0 0 0
+	frame	data/chars/3kagajin/rise4.gif
+	delay	15
+	frame	data/chars/3kagajin/jump01.gif
+	frame	data/chars/3kagajin/jump02.gif
+	frame	data/chars/3kagajin/jump01.gif
+		
+anim	jumpland
+	loop	0
+	delay	12
+	offset	100 189
+	bbox	79 80 50 109
+	frame	data/chars/3kagajin/rise4.gif
+		
+anim	pain
+	loop	0
+	delay	3
+	offset	103 189
+	bbox	79 80 50 109
+	frame	data/chars/3kagajin/pain0.gif
+	offset	100 189
+	frame	data/chars/3kagajin/pain1.gif
+	offset	107 189
+	frame	data/chars/3kagajin/pain1.gif
+	delay	55
+	offset	100 189
+	frame	data/chars/3kagajin/pain1.gif
+		
+anim	pain2
+	loop	0
+	delay	3
+	offset	103 189
+	bbox	79 80 50 109
+	frame	data/chars/3kagajin/pain0.gif
+	offset	100 189
+	frame	data/chars/3kagajin/pain2.gif
+	offset	107 189
+	frame	data/chars/3kagajin/pain2.gif
+	delay	55
+	offset	100 189
+	frame	data/chars/3kagajin/pain2.gif
+		
+anim	pain3
+	loop	0
+	delay	1
+	offset	103 189
+	bbox	0 0 0 0
+	jumpframe	1 2 -1 0
+	frame	data/chars/3kagajin/pain1.gif
+	delay	25
+	frame	data/chars/3kagajin/fall2.gif
+	delay	12
+	frame	data/chars/3kagajin/fall3.gif
+	delay	4
+	bbox	71 165 67 30
+	frame	data/chars/3kagajin/fall4.gif
+	frame	data/chars/3kagajin/fall5.gif
+	frame	data/chars/3kagajin/fall4.gif
+	frame	data/chars/3kagajin/fall5.gif
+	delay	15
+	bbox	0 0 0 0
+	frame	data/chars/3kagajin/fall4.gif
+	delay	10
+	frame	data/chars/3kagajin/rise1.gif
+	frame	data/chars/3kagajin/rise2.gif
+	frame	data/chars/3kagajin/rise3.gif
+		
+anim	pain5
+	loop	0
+	delay	23
+	offset	100 189
+	bbox	79 80 50 109
+	frame	data/chars/3kagajin/pain1.gif
+		
+anim	pain6
+	loop	0
+	delay	23
+	offset	100 189
+	bbox	79 80 50 109
+	frame	data/chars/3kagajin/pain2.gif
+		
+anim	pain8
+	loop	0
+	delay	2
+	offset	100 189
+	bbox	79 80 50 109
+	move	-6
+	frame	data/chars/3kagajin/pain1.gif
+	frame	data/chars/3kagajin/pain1.gif
+	frame	data/chars/3kagajin/pain1.gif
+	frame	data/chars/3kagajin/pain2.gif
+	frame	data/chars/3kagajin/pain2.gif
+	frame	data/chars/3kagajin/pain2.gif
+	move	-3
+	frame	data/chars/3kagajin/pain2.gif
+	frame	data/chars/3kagajin/pain2.gif
+	move	-1
+	frame	data/chars/3kagajin/pain2.gif
+	delay	35
+	frame	data/chars/3kagajin/pain2.gif
+		
+anim	pain9
+	loop	0
+	delay	15
+	offset	100 189
+	bbox	79 80 50 109
+	frame	data/chars/3kagajin/pain1.gif
+	delay	150
+	frame	data/chars/3kagajin/pain2.gif
+		
+anim	rise
+	loop	0
+	delay	12
+	offset	100 189
+	bbox	0 0 0 0
+	frame	data/chars/3kagajin/rise1.gif
+	frame	data/chars/3kagajin/rise2.gif
+	@cmd	riseattack 80 10 "ANI_FOLLOW2"
+	frame	data/chars/3kagajin/rise3.gif
+	@cmd	riseattack 80 10 "ANI_FOLLOW2"
+	frame	data/chars/3kagajin/rise4.gif
+	@cmd	riseattack 80 10 "ANI_FOLLOW2"
+	frame	data/chars/3kagajin/pain0.gif
+	frame	data/chars/3kagajin/idle01.gif
+
+
+anim	spawn
+	loop	0
+	delay	5
+	offset	150 189
+	bbox	0 0 0 0
+	custentity	kagashintlk
+	spawnframe	95 10 40 25 1
+	jumpframe	0 5 0
+	landframe	3
+	frame	data/chars/3kagajin/empty.gif
+	frame	data/chars/3kagajin/empty.gif
+	delay	500
+	frame	data/chars/3kagajin/empty.gif
+	delay	9
+	frame	data/chars/3kagajin/empty.gif
+	frame	data/chars/3kagajin/showb01.gif
+	frame	data/chars/3kagajin/showb02.gif
+	sound	data/sounds/slowm.wav
+	frame	data/chars/3kagajin/showb03.gif
+	frame	data/chars/3kagajin/showb04.gif
+	frame	data/chars/3kagajin/showb05.gif
+	frame	data/chars/3kagajin/showb06.gif
+	frame	data/chars/3kagajin/showb07.gif
+	frame	data/chars/3kagajin/showb08.gif
+	frame	data/chars/3kagajin/showb09.gif
+	frame	data/chars/3kagajin/showb10.gif
+	frame	data/chars/3kagajin/showb11.gif
+	frame	data/chars/3kagajin/showb12.gif
+	frame	data/chars/3kagajin/showb13.gif
+	frame	data/chars/3kagajin/showb14.gif
+	frame	data/chars/3kagajin/showb15.gif
+	frame	data/chars/3kagajin/showb16.gif
+	frame	data/chars/3kagajin/showb17.gif
+	frame	data/chars/3kagajin/showb18.gif
+	sound	data/sounds/super8.wav
+	frame	data/chars/3kagajin/showb19.gif
+	delay	200
+	frame	data/chars/3kagajin/showb20.gif
+	delay	9
+	@cmd	spawnGun "ringsmoke" -150 1 7 1
+	@cmd	spawnGun "ringsmoke" -100 1 7 2	
+	@cmd	spawnGun "ringsmoke" -50 1 7 3
+	@cmd	spawnGun "ringsmoke" 0 1 7 4
+	@cmd	spawnGun "ringsmoke" 50 1 7 5
+	@cmd	spawnGun "ringsmoke" 100 1 7 6
+	@cmd	spawnGun "ringsmoke" 150 1 7 7
+	@cmd	spawnGun "ringsmoke" -110 2 -20 8 
+	@cmd	spawnGun "ringsmoke" -50 2 -20 9
+	@cmd	spawnGun "ringsmoke" 0 2 -20 10
+	@cmd	spawnGun "ringsmoke" 50 2 -20 11
+	@cmd	spawnGun "ringsmoke" 110 2 -20 12
+	frame	data/chars/3kagajin/show02.gif
+	frame	data/chars/3kagajin/show03.gif
+	frame	data/chars/3kagajin/show04.gif
+	sound	data/sounds/burnt.wav
+	frame	data/chars/3kagajin/show05.gif
+	frame	data/chars/3kagajin/show06.gif
+	frame	data/chars/3kagajin/show07.gif
+	frame	data/chars/3kagajin/show08.gif #30
+	frame	data/chars/3kagajin/show09.gif
+	sound	data/sounds/burnt.wav
+	frame	data/chars/3kagajin/show10.gif
+	frame	data/chars/3kagajin/show11.gif
+	frame	data/chars/3kagajin/show12.gif
+	frame	data/chars/3kagajin/show13.gif
+	frame	data/chars/3kagajin/show14.gif
+	sound	data/sounds/burnt.wav
+	frame	data/chars/3kagajin/show15.gif
+	frame	data/chars/3kagajin/show16.gif
+	frame	data/chars/3kagajin/show17.gif
+	frame	data/chars/3kagajin/show18.gif
+	frame	data/chars/3kagajin/show19.gif
+	sound	data/sounds/burnt.wav
+	frame	data/chars/3kagajin/show20.gif
+	frame	data/chars/3kagajin/show21.gif
+	frame	data/chars/3kagajin/show22.gif
+	frame	data/chars/3kagajin/show23.gif
+	frame	data/chars/3kagajin/show24.gif
+	sound	data/sounds/burnt.wav
+	frame	data/chars/3kagajin/show25.gif
+	frame	data/chars/3kagajin/show26.gif
+	frame	data/chars/3kagajin/show27.gif
+	frame	data/chars/3kagajin/show28.gif
+	frame	data/chars/3kagajin/show29.gif
+	sound	data/sounds/burnt.wav
+	frame	data/chars/3kagajin/show30.gif #52
+	offset	100 189
+	frame	data/chars/3kagajin/b03.gif
+	offset	150 189
+	frame	data/chars/3kagajin/show30.gif
+	offset	100 189
+	frame	data/chars/3kagajin/b03.gif
+	offset	150 189
+	frame	data/chars/3kagajin/show30.gif
+	offset	100 189
+	frame	data/chars/3kagajin/b03.gif
+	sound	data/sounds/burnt.wav
+	offset	150 189
+	frame	data/chars/3kagajin/show30.gif
+	offset	100 189
+	frame	data/chars/3kagajin/b03.gif
+	sound	data/sounds/Ringsound2.wav
+	offset	150 189
+	frame	data/chars/3kagajin/show30.gif
+	offset	100 189
+	frame	data/chars/3kagajin/b03.gif
+	offset	150 189
+	frame	data/chars/3kagajin/show30.gif
+	offset	100 189
+	frame	data/chars/3kagajin/b03.gif
+	sound	data/sounds/burnt.wav
+	offset	150 189
+	frame	data/chars/3kagajin/show30.gif
+	offset	100 189
+	frame	data/chars/3kagajin/b04.gif #65
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	sound	data/sounds/burnt.wav
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	sound	data/sounds/burnt.wav
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif #80
+	frame	data/chars/3kagajin/b04.gif
+	sound	data/sounds/burnt.wav
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	@cmd	looper 80 5
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	@cmd	killgun 1 0
+	@cmd	killgun 2 0
+	@cmd	killgun 3 0
+	@cmd	killgun 4 0
+	@cmd	killgun 5 0
+	@cmd	killgun 6 0
+	@cmd	killgun 7 0
+	@cmd	killgun 8 0
+	@cmd	killgun 9 0
+	@cmd	killgun 10 0
+	@cmd	killgun 11 0
+	@cmd	killgun 12 0
+	frame	data/chars/3kagajin/b02.gif
+	frame	data/chars/3kagajin/b01.gif
+	delay	80
+	frame	data/chars/3kagajin/idle01.gif
+	delay	20
+	frame	data/chars/3kagajin/idle01.gif #91
+	frame	data/chars/3kagajin/idle01.gif
+	frame	data/chars/3kagajin/idle01.gif
+	frame	data/chars/3kagajin/idle01.gif
+	frame	data/chars/3kagajin/idle01.gif
+	frame	data/chars/3kagajin/idle01.gif
+	frame	data/chars/3kagajin/idle01.gif
+		
+anim	special
+	loop	0
+	delay	50
+	offset	100 189
+	bbox	0 0 0 0
+	fastattack	1
+	@cmd	slamstart2
+	sound	data/sounds/grab.wav
+	@cmd	position 7 90 10 -1 1
+	frame	data/chars/3kagajin/1grab02.gif
+	delay	14
+	@cmd	spawngrab "grab1" 200 200 450 85 2 8
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 24 80 40 -1 1
+	frame	data/chars/3kagajin/1grab03.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 20 100 50 -1 -1
+	frame	data/chars/3kagajin/1grab09.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 2 100 35 -1 -1
+	frame	data/chars/3kagajin/2grab06.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 10 70 5 -1 1
+	frame	data/chars/3kagajin/2grab07.gif
+	attack	95 90 115 70 5 1 0 0 35 15
+	dropv	3 3
+	@cmd	hurt 8
+	@cmd	spawn01 "dust" 50 1 1
+	sound	data/sounds/fall.wav
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 70 7 -1 1
+	frame	data/chars/3kagajin/2grab08.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 70 7 -1 1
+	frame	data/chars/3kagajin/2grab09.gif
+	delay	12
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 70 7 -1 1
+	frame	data/chars/3kagajin/3grab01.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 10 70 7 -1 1
+	frame	data/chars/3kagajin/3grab02.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 10 70 7 -1 1
+	frame	data/chars/3kagajin/3grab03.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 10 70 7 -1 1
+	frame	data/chars/3kagajin/3grab04.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 70 5 -1 1
+	frame	data/chars/3kagajin/3grab05.gif
+	attack	95 90 115 70 5 1 0 0 35 15
+	dropv	3 3
+	@cmd	antiwall 50 -5 -1
+	@cmd	hurt 8
+	@cmd	spawn01 "dust" 50 1 1
+	sound	data/sounds/fall.wav
+
+	@cmd	position 9 70 7 -1 1
+	frame	data/chars/3kagajin/3grab06.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 70 7 -1 1
+	frame	data/chars/3kagajin/3grab01.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 10 70 7 -1 1
+	frame	data/chars/3kagajin/3grab02.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 10 70 7 -1 1
+	frame	data/chars/3kagajin/3grab03.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 10 70 7 -1 1
+	frame	data/chars/3kagajin/3grab04.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 70 5 -1 1
+	frame	data/chars/3kagajin/3grab05.gif
+	attack	95 90 115 70 5 1 0 0 35 15
+	dropv	3 3
+	@cmd	hurt 8
+	@cmd	spawn01 "dust" 50 1 1
+	sound	data/sounds/fall.wav
+
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 70 7 -1 1
+	frame	data/chars/3kagajin/3grab06.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 70 7 -1 1
+	frame	data/chars/3kagajin/3grab01.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 10 70 7 -1 1
+	frame	data/chars/3kagajin/3grab02.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 10 70 7 -1 1
+	frame	data/chars/3kagajin/3grab03.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 10 70 7 -1 1
+	frame	data/chars/3kagajin/3grab04.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 70 5 -1 1
+	frame	data/chars/3kagajin/3grab05.gif
+	attack	95 90 115 70 5 1 0 0 35 15
+	dropv	3 3
+	@cmd	hurt 8
+	@cmd	spawn01 "dust" 50 1 1
+	sound	data/sounds/fall.wav
+
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 70 7 -1 1
+	frame	data/chars/3kagajin/3grab06.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 70 7 -1 1
+	frame	data/chars/3kagajin/3grab01.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 10 70 7 -1 1
+	frame	data/chars/3kagajin/3grab02.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 10 70 7 -1 1
+	frame	data/chars/3kagajin/3grab03.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 10 70 7 -1 1
+	frame	data/chars/3kagajin/3grab04.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 70 5 -1 1
+	frame	data/chars/3kagajin/3grab05.gif
+	attack	95 90 115 70 5 1 0 0 35 15
+	dropv	3 3
+	@cmd	hurt 8
+	@cmd	spawn01 "dust" 50 1 1
+	sound	data/sounds/fall.wav
+
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 70 7 -1 1
+	frame	data/chars/3kagajin/3grab06.gif
+	delay	15
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 70 7 -1 1
+	frame	data/chars/3kagajin/3grab01.gif
+	delay	25
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 10 70 7 -1 1
+	frame	data/chars/3kagajin/3grab02.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 10 70 7 -1 1
+	frame	data/chars/3kagajin/3grab03.gif
+	delay	12
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 10 70 7 -1 1
+	frame	data/chars/3kagajin/3grab04.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 70 5 -1 1
+	frame	data/chars/3kagajin/3grab05.gif
+	attack	95 90 115 70 5 1 0 0 35 15
+	dropv	3 3
+	@cmd	hurt 8
+	@cmd	spawn01 "dust" 50 1 1
+	sound	data/sounds/fall.wav
+
+	@cmd	killgun 8 0
+	@cmd	position 9 70 7 -1 1
+	frame	data/chars/3kagajin/3grab06.gif
+	delay	2
+	@cmd	position 9 30 7 -1 1
+	frame	data/chars/3kagajin/3grab06.gif
+	@cmd	depost 0
+	@cmd	finish 40 2 2 5 0 1
+	delay	15
+	frame	data/chars/3kagajin/3grab06.gif
+	frame	data/chars/3kagajin/2grab09.gif
+	frame	data/chars/3kagajin/2grab10.gif
+	delay	30
+	frame	data/chars/3kagajin/2grab11.gif
+	delay	15
+	bbox	79 80 50 109
+	frame	data/chars/3kagajin/rise3.gif
+	frame	data/chars/3kagajin/rise4.gif
+	frame	data/chars/3kagajin/pain0.gif
+		
+anim	special2
+	loop	0
+	delay	12
+	offset	100 189
+	bbox	0 0 0 0
+	frame	data/chars/3kagajin/b01.gif
+	frame	data/chars/3kagajin/b02.gif
+	delay	4
+	attack	110 110 110 35 10 1 0 0 35 0
+	dropv	3 3
+	frame	data/chars/3kagajin/b02.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b02.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b02.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b02.gif
+	frame	data/chars/3kagajin/b03.gif
+	frame	data/chars/3kagajin/b04.gif
+	attack	0 0 0 0
+	delay	12
+	frame	data/chars/3kagajin/b02.gif
+	frame	data/chars/3kagajin/b01.gif
+	frame	data/chars/3kagajin/idle01.gif
+		
+anim	upper
+	range	5 210
+	loop	0
+	delay	8
+	offset	100 189
+	bbox	0 0 0 0
+	followanim	6
+	followcond	1
+	hitfx	data/sounds/grab.wav
+	frame	data/chars/3kagajin/upper01.gif
+	sound	data/sounds/bguye2.wav
+	frame	data/chars/3kagajin/upper02.gif
+	frame	data/chars/3kagajin/upper03.gif
+	delay	25
+	offset	100 199
+	attack	100 5 80 110 0 0 1 1 25 20
+	frame	data/chars/3kagajin/upper04.gif
+	attack	0 0 0 0
+	delay	14
+	offset	100 189
+	frame	data/chars/3kagajin/upper03.gif
+	frame	data/chars/3kagajin/upper12.gif
+		
+anim	walk
+	loop	1
+	delay	12
+	offset	100 189
+	bbox	79 80 50 109
+	@cmd	depost 0
+	frame	data/chars/3kagajin/wk01.gif
+	frame	data/chars/3kagajin/wk02.gif
+	frame	data/chars/3kagajin/wk03.gif
+	frame	data/chars/3kagajin/wk04.gif
+	frame	data/chars/3kagajin/wk05.gif
+	frame	data/chars/3kagajin/wk06.gif
+	frame	data/chars/3kagajin/wk07.gif
+	frame	data/chars/3kagajin/wk08.gif
+		
+#|edited by openBor Stats v 0.53
+		

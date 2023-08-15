@@ -1,0 +1,218 @@
+name		bigalisp
+type		enemy
+health		100
+setlayer	-20000
+speed		5
+noquake		1
+falldie		1
+makeinv		3
+shadow		0
+nodrop		1
+facing          1
+nomove          1 1
+nopain		1
+subject_to_obstacle 0
+subject_to_hole 0
+subject_to_wall 0
+subject_to_minz 0
+subject_to_maxz 0
+hostile				player
+candamage			player
+diesound        data/sounds/empty.wav
+animationscript data/scripts/escript.c
+
+
+
+
+
+anim	attack1
+	loop	0
+	delay	4
+	offset	550 650
+	bbox	385 435 90 210
+	frame	data/bgs/beyond/lvl2/mali/sp01.gif
+		
+anim	death
+	loop	0
+	delay	5
+	offset	550 650
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl2/mali/sp01.gif
+	frame	data/bgs/beyond/lvl2/mali/sp01.gif
+	frame	data/bgs/beyond/lvl2/mali/sp01.gif
+		
+anim	fall
+	loop	0
+	delay	5
+	offset	550 650
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl2/mali/sp01.gif
+		
+anim	spawn
+@script
+  if(frame==2){ 
+    changelevelproperty("scrollspeed", 0);
+  }
+  if(frame==75){
+    changelevelproperty("scrollspeed", 1);
+  }
+@end_script
+	loop	0
+	delay	6
+	offset	280 300
+	bbox	0 0 0 0
+	drawmethod 70 70
+	frame	data/bgs/beyond/lvl2/mali/sp11.gif
+	frame	data/bgs/beyond/lvl2/mali/sp12.gif
+	@cmd	dasher 0.3 0 0
+	sound	data/sounds/alimon1.wav
+	frame	data/bgs/beyond/lvl2/mali/sp13.gif
+	frame	data/bgs/beyond/lvl2/mali/sp11.gif
+	frame	data/bgs/beyond/lvl2/mali/sp12.gif
+	frame	data/bgs/beyond/lvl2/mali/sp13.gif
+	frame	data/bgs/beyond/lvl2/mali/sp11.gif
+	frame	data/bgs/beyond/lvl2/mali/sp12.gif
+	frame	data/bgs/beyond/lvl2/mali/sp13.gif
+	@cmd	looper 3 70
+
+
+	frame	data/bgs/beyond/lvl2/mali/sp13.gif
+	@cmd	dasher -0.3 0 0
+	frame	data/bgs/beyond/lvl2/mali/sp11.gif
+	sound	data/sounds/alimon1.wav
+	frame	data/bgs/beyond/lvl2/mali/sp12.gif
+	frame	data/bgs/beyond/lvl2/mali/sp13.gif
+	frame	data/bgs/beyond/lvl2/mali/sp11.gif #13
+	frame	data/bgs/beyond/lvl2/mali/sp12.gif
+	frame	data/bgs/beyond/lvl2/mali/sp13.gif
+	frame	data/bgs/beyond/lvl2/mali/sp11.gif
+	frame	data/bgs/beyond/lvl2/mali/sp12.gif
+	frame	data/bgs/beyond/lvl2/mali/sp13.gif
+	@cmd	looper 13 25
+
+	frame	data/bgs/beyond/lvl2/mali/sp11.gif
+	@cmd	stop
+	frame	data/bgs/beyond/lvl2/mali/sp12.gif
+	frame	data/bgs/beyond/lvl2/mali/sp13.gif
+	frame	data/bgs/beyond/lvl2/mali/sp11.gif
+	frame	data/bgs/beyond/lvl2/mali/sp12.gif
+	sound	data/sounds/alimon1.wav
+	frame	data/bgs/beyond/lvl2/mali/sp13.gif
+	frame	data/bgs/beyond/lvl2/mali/sp11.gif
+	frame	data/bgs/beyond/lvl2/mali/sp12.gif
+	frame	data/bgs/beyond/lvl2/mali/sp13.gif #27
+
+
+
+	delay	12
+	offset	240 330
+	frame	data/bgs/beyond/lvl2/mali/sp06.gif
+	@cmd	leaper 0 5 0.5
+	frame	data/bgs/beyond/lvl2/mali/sp07.gif
+	frame	data/bgs/beyond/lvl2/mali/sp08.gif
+	frame	data/bgs/beyond/lvl2/mali/sp09.gif
+	offset	245 390
+	frame	data/bgs/beyond/lvl2/mali/sp10.gif
+	delay	20
+	@cmd	layer -1400
+	frame	data/bgs/beyond/lvl2/mali/sp10.gif
+	nodrawmethod
+	frame	data/bgs/beyond/lvl2/mali/sp10.gif
+	delay	6
+	offset	270 300
+	frame	data/bgs/beyond/lvl2/mali/sp01.gif #35
+	frame	data/bgs/beyond/lvl2/mali/sp02.gif
+	frame	data/bgs/beyond/lvl2/mali/sp03.gif
+	frame	data/bgs/beyond/lvl2/mali/sp04.gif
+	frame	data/bgs/beyond/lvl2/mali/sp01.gif
+	frame	data/bgs/beyond/lvl2/mali/sp02.gif
+	frame	data/bgs/beyond/lvl2/mali/sp03.gif
+	frame	data/bgs/beyond/lvl2/mali/sp04.gif
+	@cmd	looper 39 25
+	frame	data/bgs/beyond/lvl2/mali/sp01.gif #43
+	@cmd	dasher -0.5 0 0
+	frame	data/bgs/beyond/lvl2/mali/sp02.gif
+	frame	data/bgs/beyond/lvl2/mali/sp03.gif
+	frame	data/bgs/beyond/lvl2/mali/sp04.gif
+	frame	data/bgs/beyond/lvl2/mali/sp01.gif
+	frame	data/bgs/beyond/lvl2/mali/sp02.gif
+	frame	data/bgs/beyond/lvl2/mali/sp03.gif
+	frame	data/bgs/beyond/lvl2/mali/sp04.gif
+	@cmd	looper 47 30
+
+	frame	data/bgs/beyond/lvl2/mali/sp01.gif
+	@cmd	stop
+	frame	data/bgs/beyond/lvl2/mali/sp02.gif
+	@cmd	dasher 0.5 0 0
+	frame	data/bgs/beyond/lvl2/mali/sp03.gif
+	sound	data/sounds/alimon1.wav
+	frame	data/bgs/beyond/lvl2/mali/sp04.gif
+	frame	data/bgs/beyond/lvl2/mali/sp01.gif
+	frame	data/bgs/beyond/lvl2/mali/sp02.gif
+	frame	data/bgs/beyond/lvl2/mali/sp03.gif
+	frame	data/bgs/beyond/lvl2/mali/sp04.gif
+	@cmd	looper 55 30
+
+
+	frame	data/bgs/beyond/lvl2/mali/sp01.gif #59
+	@cmd	stop
+	frame	data/bgs/beyond/lvl2/mali/sp02.gif
+	frame	data/bgs/beyond/lvl2/mali/sp03.gif
+	frame	data/bgs/beyond/lvl2/mali/sp04.gif
+
+	frame	data/bgs/beyond/lvl2/mali/sp01.gif
+	frame	data/bgs/beyond/lvl2/mali/sp02.gif
+	frame	data/bgs/beyond/lvl2/mali/sp03.gif
+	frame	data/bgs/beyond/lvl2/mali/sp04.gif
+	@cmd	looper 63 15
+
+	delay	12
+	offset	240 330
+	@cmd	degravity 0.3
+	frame	data/bgs/beyond/lvl2/mali/sp06.gif
+	frame	data/bgs/beyond/lvl2/mali/sp07.gif
+	frame	data/bgs/beyond/lvl2/mali/sp08.gif
+	sound	data/sounds/alimon1.wav
+	frame	data/bgs/beyond/lvl2/mali/sp09.gif
+	@cmd	leaper 0 10 0
+	frame	data/bgs/beyond/lvl2/mali/sp10.gif
+	delay	35
+	frame	data/bgs/beyond/lvl2/mali/sp10.gif
+	delay	12
+	frame	data/bgs/beyond/lvl2/mali/sp10.gif
+	frame	data/bgs/beyond/lvl2/mali/sp14.gif
+	@cmd	suicide
+	frame	data/bgs/beyond/lvl2/mali/sp14.gif
+		
+anim	idle
+	loop	1
+	delay	4
+	offset	280 300
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl2/mali/sp01.gif
+	frame	data/bgs/beyond/lvl2/mali/sp01.gif
+		
+anim	pain
+	loop	0
+	delay	5
+	offset	280 300
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl2/mali/sp01.gif
+		
+anim	pain2
+	loop	0
+	delay	5
+	offset	280 300
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl2/mali/sp01.gif
+		
+anim	rise
+	loop	0
+	delay	5
+	offset	280 300
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl2/mali/sp01.gif
+		
+		
+#|edited by openBor Stats v 0.53
+		

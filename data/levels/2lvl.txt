@@ -1,0 +1,712 @@
+music		data/music/pitt1.ogg
+
+background	data/bgs/2lvl/in1back.gif
+panel		data/bgs/2lvl/inside1.gif
+fglayer    	data/bgs/2lvl/frontin1.gif 10 0 0 0 0 0 0 1 1 1
+fglayer		data/bgs/2lvl/light.gif 3000 0 0 0 0 0 0 1 1 1 1 0 0 0 0 0
+layer		data/bgs/2lvl/smoke.gif 200 0 0 915 -10 0 0 1 1 1 1 1 2 22 1
+
+mirror          1
+
+shadowcolor     -2
+at              0
+
+
+wall            0 180 -40 -40 620 620 50 5000
+wall            690 215 -110 -40 20 20 70 5000
+
+
+
+direction       right
+light		0 -100
+at		0
+shadowalpha     6
+at              0
+settime         0
+notime          1
+noslow          0
+order		a
+spawn1  	105 20
+spawn2  	145 20
+spawn3  	185 20
+
+
+
+#----stage-------------
+spawn   stgSET1
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW8"));
+} @end_script
+coords  -500 515 350
+at      0
+#-------------------
+
+#-------1
+
+
+
+spawn  smoke1
+flip	1
+coords	1055 95
+at      0
+
+
+spawn 	smoke2
+flip	1
+coords	1165 55
+at      0
+
+spawn  barrel
+flip	1
+item    gold
+coords	265 190
+at      0
+
+spawn  barrel
+flip	1
+item    food1
+map     1
+coords	335 190
+at      0
+
+
+spawn  box2
+flip	1
+item    food3
+coords	570 195
+at      0
+
+spawn  box2
+flip	1
+coords	490 195
+at      0
+
+
+spawn  box2
+flip	1
+item    apple
+coords	530 195 200
+at      0
+
+spawn   table
+flip	1
+item    food3
+coords	1135 260
+at      0
+
+spawn   table
+flip	1
+item    money1
+coords	1270 250
+at      0
+
+spawn   table
+flip	1
+item    money1
+coords	1415 260
+at      0
+
+spawn  door5
+flip	1
+coords	690 240
+at      0
+
+#spawn   stage01
+#flip    1
+#coords  0 270
+#at      0
+
+
+#-------------enemy-----------------
+
+group   3 3
+at      10
+wait
+at      10
+
+
+spawn   ghosttime
+@script
+void main()
+{
+	setglobalvar("Kgnextday", NULL());
+	setglobalvar("challenge", NULL());
+	setglobalvar("killelle", NULL());
+	setglobalvar("cupkill", NULL());
+	setglobalvar("bn1", NULL());
+	setglobalvar("bn2", NULL());
+	setglobalvar("bn3", NULL());
+	setglobalvar("bn4", NULL());
+	setglobalvar("rsh1", NULL());
+	setglobalvar("rsh2", NULL());
+	setglobalvar("maphold1", NULL());
+	setglobalvar("maphold2", NULL());
+	setglobalvar("maphold3", NULL());
+}
+@end_script
+health	5
+coords  30 245
+at      10
+
+
+spawn   valarie
+health  310
+map     1
+aggression 100
+coords  530 240
+at      10
+
+
+spawn   mrred
+health  190
+map     1
+aggression 100
+coords  530 220
+at      10
+
+spawn   mrpink
+health  190
+aggression 100
+coords  530 250
+at      10
+
+2pspawn   mrpink
+health  190
+map     3
+aggression 100
+coords  530 250
+at      10
+
+spawn   mrgreen
+map     2
+health  190
+aggression 100
+coords  530 250
+at      10
+
+2pspawn   valarie
+health  290
+map     2
+item    money1
+aggression 100
+coords  530 240
+at      10
+
+
+3pspawn   mrred
+health  190
+map     2
+aggression 100
+coords  530 220
+at      10
+
+
+#-----------------
+
+
+group   4 4
+at      260
+wait
+at      260
+
+2pspawn   psycho
+health  150
+item    money2
+map     3
+aggression 100
+coords  -470 200
+at      260
+
+3pspawn   slay
+health  210
+map     3
+aggression 100
+coords  -330 220
+at      260
+
+
+spawn   vigo
+health  100
+map     2
+item    diamond
+aggression 100
+coords  -400 290
+at      260
+
+spawn   ghost1
+coords  -400 290
+at      260
+
+spawn   vigo
+health  100
+map     3
+aggression 100
+coords  -390 270
+at      260
+
+3pspawn   meloke
+health  710
+item    food2
+map     1
+aggression 100
+coords  -470 200
+at      260
+
+2pspawn   slay
+health  210
+map     4
+aggression 100
+coords  -330 220
+at      260
+
+2pspawn   vigo
+health  100
+item    food4
+aggression 100
+coords  -390 270
+at      260
+
+spawn   ghosttime
+health  20
+coords  -400 290
+at      260
+
+spawn   vigo
+health  100
+map     4
+aggression 100
+coords  -390 270
+at      260
+
+2pspawn   psycho
+health  150
+map     4
+aggression 100
+coords  -390 270
+at      260
+
+spawn   ghosttime
+health  10
+coords  -400 290
+at      260
+
+spawn   slay
+health  210
+map     1
+item    money2
+aggression 100
+coords  -390 270
+at      260
+
+spawn   ghosttime
+health  20
+coords  -400 290
+at      260
+
+spawn   vigo
+health  100
+map     3
+aggression 100
+coords  -390 270
+at      260
+
+3pspawn   psycho
+health  140
+map     1
+item    food1
+aggression 100
+coords  -390 270
+at      260
+
+spawn   vigo
+health  100
+map     1
+item    food3
+aggression 100
+coords  -390 270
+at      260
+
+3pspawn   slay
+health  210
+map     3
+aggression 100
+coords  -390 270
+at      260
+
+
+
+
+#----------------------
+
+
+group   3 3
+at      750
+wait
+at      750
+
+
+spawn   malenko
+health  310
+map     3
+aggression 100
+coords  700 210
+at      750
+
+
+spawn   jimcombo
+health  290
+map     3
+aggression 100
+coords  750 180
+at      750
+
+spawn   kraven
+health  240
+item    apple
+map     3
+aggression 100
+coords  750 200
+at      750
+
+spawn   zen
+health  180
+map     3
+aggression 100
+coords  740 230
+at      750
+
+2pspawn   malenko
+health  310
+item    moneybag
+map     4
+aggression 100
+coords  700 210
+at      750
+
+
+3pspawn   jimcombo
+health  290
+item    food3
+map     4
+aggression 100
+coords  750 180
+at      750
+
+3pspawn   kraven
+health  240
+map     4
+aggression 100
+coords  750 200
+at      750
+
+2pspawn   zen
+health  170
+map     1
+aggression 100
+coords  740 230
+at      750
+
+
+#------BONUS-1----------
+group   1 1
+at      750
+wait
+at      750
+
+spawn   bnsdd1
+spawnscript data/scripts/noscpos.c
+item    goINb1
+itemalias bonus1
+coords	938 160
+at      750
+
+#-----------------------
+
+group   3 3
+at      1100
+wait
+at      1100
+
+
+spawn   kimberry
+health  210
+map     1
+aggression 100
+coords  740 230
+at      1100
+
+spawn   kimberry
+health  190
+map     4
+aggression 100
+coords  740 230
+at      1100
+
+2pspawn   shion
+health  110
+item    food1
+map     1
+aggression 100
+coords  740 230
+at      1100
+
+spawn   lucy
+health  150
+map     4
+aggression 100
+coords  740 230
+at      1100
+
+
+spawn   valarie
+health  200
+map     4
+aggression 100
+coords  740 230
+at      1100
+
+
+
+#-----------------------
+
+
+
+group   3 3
+at      1600
+wait
+at      1600
+
+spawn   fatguy
+health  310
+aggression 100
+coords  740 230
+at      1600
+
+2pspawn  biff
+health  290
+aggression 100
+coords  -740 230
+at      1600
+
+2pspawn   dash
+health  210
+item    apple
+map     1
+aggression 100
+coords  740 230
+at      1600
+
+spawn   kmi
+health  150
+map     1
+aggression 100
+coords  -740 230
+at      1600
+
+spawn   rashad
+health  150
+item    diamond
+map     1
+aggression 100
+coords  740 230
+at      1600
+
+spawn   fatguy
+health  300
+map     2
+aggression 100
+coords  -740 230
+at      1600
+
+3pspawn   biff
+health  290
+item    food4
+map     2
+aggression 100
+coords  740 230
+at      1600
+
+spawn   dan
+health  110
+map     2
+aggression 100
+coords  740 230
+at      1600
+
+2pspawn   dan
+health  100
+map     1
+aggression 100
+coords  -740 230
+at      1600
+
+spawn   jimcombo
+health  260
+item    money1
+map     4
+aggression 100
+coords  640 230
+at      1600
+
+2pspawn   kraven
+health  220
+map     2
+aggression 100
+coords  -740 230
+at      1600
+
+
+#-----------------------
+
+group   1 1
+at      1450
+
+spawn   kmi
+health  210
+item    1up
+map     2
+aggression 100
+coords  -740 230
+at      1450
+
+
+spawn   dan
+health  130
+item    food6
+aggression 100
+coords  -350 210
+at      1450
+
+
+
+#-----------------------
+group   3 3
+at      1450
+
+
+spawn   steroid2
+health  1700
+map     1
+flip    1
+boss    1
+aggression 100
+coords  -310 220
+at      1450
+
+
+spawn   vigo
+health  90
+map     1
+aggression 100
+coords  2550 230
+at      1450
+
+
+spawn   vigo
+health  90
+map     2
+aggression 100
+coords  2340 200
+at      1450
+
+
+spawn   vigo
+health  90
+map     3
+item    food2
+aggression 100
+coords  -740 200
+at      1450
+
+spawn   vigo
+health  90
+map     4
+item    money2
+aggression 100
+coords  -600 180
+at      1450
+
+spawn   vigo
+health  90
+map     1
+aggression 100
+coords  750 230
+at      1450
+
+
+2pspawn   vigo
+health  90
+map     2
+aggression 100
+coords  540 180
+at      1450
+
+
+3pspawn   vigo
+health  90
+map     3
+aggression 100
+coords  -740 200
+at      1450
+
+spawn   vigo
+health  90
+map     4
+aggression 100
+coords  -600 190
+at      1450
+
+
+2pspawn   vigo
+health  90
+map     1
+aggression 100
+coords  750 230
+at      1450
+
+
+3pspawn   vigo
+health  90
+map     2
+aggression 100
+coords  540 180
+at      1450
+
+
+spawn   vigo
+health  90
+item    food4
+map     3
+aggression 100
+coords  -740 200
+at      1450
+
+spawn   vigo
+health  90
+item    money1
+map     4
+aggression 100
+coords  -600 190
+at      1450
+
+#------------------------------
+
+group   1 1
+at      1450
+
+
+spawn   ghost1
+@script
+void main()
+{
+    jumptobranch("thepitt2", 0);
+}
+@end_script
+boss    1
+coords	100 260
+at      0
+
+
+
+
+

@@ -1,0 +1,161 @@
+name		1pryopain
+type	        panel
+speed		10
+shadow	        0
+alpha		2
+facing		1
+setlayer 	999999999
+hostile         player
+candamage       player
+offscreenkill	50000
+
+
+script @script
+void main()
+{
+    void self = getlocalvar("self");
+    int P1 = getplayerproperty(0, "entity");
+    int P2 = getplayerproperty(1, "entity");
+    int P3 = getplayerproperty(2, "entity");
+    char nm = getentityproperty(P1,"defaultmodel");
+    char nm2 = getentityproperty(P2,"defaultmodel");
+    char nm3 = getentityproperty(P3,"defaultmodel");
+
+
+	if (P1 != NULL() && nm != "ryopain" && nm != "ryopain2")
+	{
+	changeentityproperty(P1, "model", "ryopain", 1);
+	changeentityproperty(P1, "defaultname", "ryopain");
+	}
+	else if (P2 != NULL() && nm2 != "ryopain" && nm != "ryopain2")
+	{
+	changeentityproperty(P2, "model", "ryopain", 1);
+	changeentityproperty(P2, "defaultname", "ryopain");
+	}
+	else if (P3 != NULL() && nm3 != "ryopain" && nm != "ryopain2")
+	{
+	changeentityproperty(P3, "model", "ryopain", 1);
+	changeentityproperty(P3, "defaultname", "ryopain");
+	}
+	if (P1 != NULL())
+	{
+	killentity(P2);
+	killentity(P3);
+	}
+	else if (P2 != NULL())
+	{
+	killentity(P1);
+	killentity(P3);
+	}
+	else if (P3 != NULL())
+	{
+	killentity(P1);
+	killentity(P2);
+	}
+}
+@end_script
+
+
+
+
+
+anim 	idle
+@script
+   void self = getlocalvar("self");
+   void target = findtarget(self);
+   int hp2 = getentityproperty(target,"health");
+
+
+   if ( hp2 <= 70 ){
+	performattack(self, openborconstant("ANI_FOLLOW1"));
+	}
+@end_script
+	loop	1
+	delay	250
+	offset	1 1
+	frame	data/chars/misc/spawn/pain07.gif
+	delay	8
+	frame	data/chars/misc/spawn/pain01.gif
+	sound	data/sounds/heartbeat1.wav
+	frame	data/chars/misc/spawn/pain02.gif
+	frame	data/chars/misc/spawn/pain03.gif
+	frame	data/chars/misc/spawn/pain04.gif
+	frame	data/chars/misc/spawn/pain05.gif
+	frame	data/chars/misc/spawn/pain06.gif
+	frame	data/chars/misc/spawn/pain05.gif
+	frame	data/chars/misc/spawn/pain04.gif
+	frame	data/chars/misc/spawn/pain03.gif
+	frame	data/chars/misc/spawn/pain02.gif
+	frame	data/chars/misc/spawn/pain01.gif
+
+
+
+
+
+
+#------------------------//----------------------
+
+anim 	follow1
+@script
+   void self = getlocalvar("self");
+   void target = findtarget(self);
+   int hp2 = getentityproperty(target,"health");
+
+   if ( hp2 <= 40 ){
+	performattack(self, openborconstant("ANI_FOLLOW2"));
+	}
+   else if ( hp2 > 70 ){
+	performattack(self, openborconstant("ANI_IDLE"));
+	}
+@end_script
+	loop	1
+	delay	120
+	offset	1 1
+	frame	data/chars/misc/spawn/pain07.gif
+	delay	7
+	frame	data/chars/misc/spawn/pain01.gif
+	sound	data/sounds/heartbeat1.wav
+	frame	data/chars/misc/spawn/pain02.gif
+	frame	data/chars/misc/spawn/pain03.gif
+	frame	data/chars/misc/spawn/pain04.gif
+	frame	data/chars/misc/spawn/pain05.gif
+	frame	data/chars/misc/spawn/pain06.gif
+	frame	data/chars/misc/spawn/pain05.gif
+	frame	data/chars/misc/spawn/pain04.gif
+	frame	data/chars/misc/spawn/pain03.gif
+	frame	data/chars/misc/spawn/pain02.gif
+	frame	data/chars/misc/spawn/pain01.gif
+
+
+
+anim 	follow2
+@script
+   void self = getlocalvar("self");
+   void target = findtarget(self);
+   int hp2 = getentityproperty(target,"health");
+
+   if ( hp2 > 40 ){
+	performattack(self, openborconstant("ANI_FOLLOW1"));
+	}
+@end_script
+	loop	1
+	delay	30
+	offset	1 1
+	frame	data/chars/misc/spawn/pain07.gif
+	delay	6
+	frame	data/chars/misc/spawn/pain01.gif
+	sound	data/sounds/heartbeat1.wav
+	frame	data/chars/misc/spawn/pain02.gif
+	frame	data/chars/misc/spawn/pain03.gif
+	frame	data/chars/misc/spawn/pain04.gif
+	frame	data/chars/misc/spawn/pain05.gif
+	frame	data/chars/misc/spawn/pain06.gif
+	frame	data/chars/misc/spawn/pain05.gif
+	frame	data/chars/misc/spawn/pain04.gif
+	frame	data/chars/misc/spawn/pain03.gif
+	frame	data/chars/misc/spawn/pain02.gif
+	frame	data/chars/misc/spawn/pain01.gif
+
+
+
+

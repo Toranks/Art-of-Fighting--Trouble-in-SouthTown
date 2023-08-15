@@ -1,0 +1,498 @@
+name			comp1
+type			enemy
+subtype			notgrab
+cantgrab		1
+antigrab 		900
+nomove			1 1
+falldie			1
+nopain			1
+nodrop			2
+nodieblink    		3
+health			450
+shadow			0
+nolife			1
+noatflash		1
+flash			flash8
+hostile			player
+subject_to_wall		0
+subject_to_platform	0
+subject_to_obstacle	0
+animationscript data/scripts/escript.c
+
+
+
+load	glassbrk2
+load	bigcomp
+load	bonus5
+load	Steam
+load	flash8
+load	cardam2
+load	explosion3
+
+
+
+ 
+
+
+palette		data/bgs/0bonus4/bck/1dam03.gif
+
+
+
+anim	death
+	platform	-55 180 60 60 355 355 75 300
+	loop	0
+	delay	5
+	offset	170 175
+	bbox	0 0 0 0
+	sound	data/sounds/wood.wav
+	frame	data/bgs/0bonus4/bck/1dam07.gif
+	@cmd	spawn01 "glassbrk2" -20 155 1
+	@cmd	spawn01 "explosion3" -120 45 1
+	frame	data/bgs/0bonus4/bck/1dam05.gif
+	frame	data/bgs/0bonus4/bck/1dam07.gif
+	@cmd	spawn01 "glassbrk2" -30 95 1
+	frame	data/bgs/0bonus4/bck/1dam05.gif
+	@cmd	spawn01 "explosion3" -20 35 1
+	frame	data/bgs/0bonus4/bck/1dam07.gif
+	frame	data/bgs/0bonus4/bck/1dam05.gif
+	frame	data/bgs/0bonus4/bck/1dam07.gif
+	frame	data/bgs/0bonus4/bck/1dam05.gif
+	frame	data/bgs/0bonus4/bck/1dam07.gif
+	frame	data/bgs/0bonus4/bck/1dam05.gif
+	@cmd	spawn01 "explosion3" 100 25 1
+	frame	data/bgs/0bonus4/bck/1dam07.gif
+	frame	data/bgs/0bonus4/bck/1dam05.gif
+	frame	data/bgs/0bonus4/bck/1dam07.gif
+	@cmd	spawn01 "explosion3" 0 45 1
+	frame	data/bgs/0bonus4/bck/1dam05.gif
+	frame	data/bgs/0bonus4/bck/1dam07.gif
+	@cmd	spawn01 "Steam" -80 55 1
+	@cmd	spawn01 "Steam" -20 65 1
+	@cmd	spawn01 "Steam" 50 55 1
+	delay	20
+	frame	data/bgs/0bonus4/bck/1dam07.gif
+	@cmd	spawn01 "explosion3" -20 55 1
+	frame	data/bgs/0bonus4/bck/1dam07.gif
+	@cmd	spawn01 "explosion3" -80 35 1
+	frame	data/bgs/0bonus4/bck/1dam07.gif
+	@cmd	spawn01 "explosion3" 40 55 1
+	frame	data/bgs/0bonus4/bck/1dam07.gif
+	@cmd	spawn01 "explosion3" 70 35 1
+	frame	data/bgs/0bonus4/bck/1dam07.gif
+	@cmd	spawn01 "explosion3" -10 25 1
+	frame	data/bgs/0bonus4/bck/1dam07.gif
+	@cmd	spawn01 "explosion3" 60 15 1
+	frame	data/bgs/0bonus4/bck/1dam07.gif
+	@cmd	spawn01 "explosion3" 0 45 1
+	frame	data/bgs/0bonus4/bck/1dam07.gif
+	delay	200
+	frame	data/bgs/0bonus4/bck/1dam07.gif
+	frame	data/bgs/0bonus4/bck/1dam07.gif
+
+		
+anim	fall
+	platform	-55 180 60 60 355 355 75 300
+	offset	170 175
+	bbox	0 0 0 0
+	frame	data/bgs/0bonus4/bck/1comp01.gif
+		
+anim	follow1
+	platform	-55 180 60 60 355 355 75 300
+	loop	1 1 3
+	delay	7
+	offset	170 175
+	bbox	85 25 180 145 5
+	@cmd	spawn01 "cardam2" -20 115 1
+	frame	data/bgs/0bonus4/bck/1dam01.gif
+	frame	data/bgs/0bonus4/bck/1dam02.gif
+	@cmd	damage 60 "ANI_FOLLOW2"
+	frame	data/bgs/0bonus4/bck/1dam01.gif
+	frame	data/bgs/0bonus4/bck/1dam02.gif
+		
+anim	follow2
+	platform	-55 180 60 60 355 355 75 300
+	loop	1 1 3
+	delay	7
+	offset	170 175
+	bbox	85 25 180 145 5
+	@cmd	spawn01 "cardam2" -20 115 1
+	frame	data/bgs/0bonus4/bck/1dam03.gif
+	frame	data/bgs/0bonus4/bck/1dam04.gif
+	@cmd	damage 30 "ANI_FOLLOW3"
+	frame	data/bgs/0bonus4/bck/1dam03.gif
+	frame	data/bgs/0bonus4/bck/1dam04.gif
+
+
+
+anim	follow3
+	platform	-55 180 60 60 355 355 75 300
+	loop	1 1 3
+	delay	7
+	offset	170 175
+	bbox	85 25 180 145 5
+	@cmd	spawn01 "glassbrk2" -20 115 1
+	frame	data/bgs/0bonus4/bck/1dam05.gif
+	frame	data/bgs/0bonus4/bck/1dam06.gif
+	frame	data/bgs/0bonus4/bck/1dam05.gif
+	frame	data/bgs/0bonus4/bck/1dam06.gif
+
+
+		
+anim	idle
+	platform	-55 180 60 60 355 355 75 300
+	loop	1
+	delay	10
+	@cmd	damage 75 "ANI_FOLLOW1"
+	offset	170 175
+	bbox	85 25 180 145 5
+	frame	data/bgs/0bonus4/bck/1comp01.gif
+
+
+
+
+
+
+
+anim	follow10
+	platform	-55 180 60 60 355 355 75 300
+	loop	0
+	delay	5
+	offset	170 175
+	bbox	0 0 0 0
+	custentity	bigcomp
+	spawnframe	14 30 205 100 1
+	frame	data/bgs/0bonus4/bck/1comp01.gif
+	delay	7
+	frame	data/bgs/0bonus4/bck/1comp02.gif
+	frame	data/bgs/0bonus4/bck/1comp03.gif
+	frame	data/bgs/0bonus4/bck/1comp02.gif
+	frame	data/bgs/0bonus4/bck/1comp03.gif
+	@cmd	looper 1 10
+	delay	7 
+	frame	data/bgs/0bonus4/bck/1comp04.gif
+	frame	data/bgs/0bonus4/bck/1comp05.gif
+	frame	data/bgs/0bonus4/bck/1comp04.gif
+	frame	data/bgs/0bonus4/bck/1comp05.gif
+	frame	data/bgs/0bonus4/bck/1comp04.gif
+	frame	data/bgs/0bonus4/bck/1comp05.gif
+	frame	data/bgs/0bonus4/bck/1comp04.gif
+	frame	data/bgs/0bonus4/bck/1comp05.gif
+	frame	data/bgs/0bonus4/bck/1comp04.gif
+
+	delay	50
+	frame	data/bgs/0bonus4/bck/1comp06.gif
+	frame	data/bgs/0bonus4/bck/1comp06.gif
+	delay	20
+	frame	data/bgs/0bonus4/bck/1comp06.gif
+	frame	data/bgs/0bonus4/bck/1comp05.gif
+	frame	data/bgs/0bonus4/bck/1comp06.gif
+	frame	data/bgs/0bonus4/bck/1comp05.gif
+	frame	data/bgs/0bonus4/bck/1comp06.gif
+	frame	data/bgs/0bonus4/bck/1comp05.gif
+	@cmd	looper 16 16
+	delay	1100
+	frame	data/bgs/0bonus4/bck/1comp06.gif
+
+	delay	20
+	frame	data/bgs/0bonus4/bck/1comp06.gif
+	frame	data/bgs/0bonus4/bck/1comp05.gif
+	frame	data/bgs/0bonus4/bck/1comp06.gif
+	frame	data/bgs/0bonus4/bck/1comp05.gif
+	frame	data/bgs/0bonus4/bck/1comp06.gif
+	frame	data/bgs/0bonus4/bck/1comp05.gif
+	@cmd	looper 23 9
+	delay	1000
+	frame	data/bgs/0bonus4/bck/1comp06.gif
+
+	delay	20
+	frame	data/bgs/0bonus4/bck/1comp06.gif
+	frame	data/bgs/0bonus4/bck/1comp05.gif
+	frame	data/bgs/0bonus4/bck/1comp06.gif
+	frame	data/bgs/0bonus4/bck/1comp05.gif
+	frame	data/bgs/0bonus4/bck/1comp06.gif
+	frame	data/bgs/0bonus4/bck/1comp05.gif
+	@cmd	looper 30 9
+	delay	1050
+	frame	data/bgs/0bonus4/bck/1comp06.gif
+
+	delay	20
+	frame	data/bgs/0bonus4/bck/1comp06.gif
+	frame	data/bgs/0bonus4/bck/1comp05.gif
+	frame	data/bgs/0bonus4/bck/1comp06.gif
+	frame	data/bgs/0bonus4/bck/1comp05.gif
+	frame	data/bgs/0bonus4/bck/1comp06.gif
+	frame	data/bgs/0bonus4/bck/1comp05.gif
+	@cmd	looper 37 8
+	delay	20
+	frame	data/bgs/0bonus4/bck/1comp06.gif
+
+	delay	12
+	frame	data/bgs/0bonus4/bck/1comp07.gif
+	frame	data/bgs/0bonus4/bck/1comp08.gif
+	frame	data/bgs/0bonus4/bck/1comp09.gif
+	frame	data/bgs/0bonus4/bck/1comp10.gif
+	frame	data/bgs/0bonus4/bck/1comp11.gif
+	frame	data/bgs/0bonus4/bck/1comp12.gif
+	frame	data/bgs/0bonus4/bck/1comp13.gif
+	frame	data/bgs/0bonus4/bck/1comp14.gif
+	frame	data/bgs/0bonus4/bck/1comp15.gif
+	frame	data/bgs/0bonus4/bck/1comp16.gif
+	frame	data/bgs/0bonus4/bck/1comp17.gif
+	frame	data/bgs/0bonus4/bck/1comp18.gif
+	frame	data/bgs/0bonus4/bck/1comp19.gif
+	frame	data/bgs/0bonus4/bck/1comp20.gif
+	frame	data/bgs/0bonus4/bck/1comp21.gif
+	frame	data/bgs/0bonus4/bck/1comp22.gif
+	frame	data/bgs/0bonus4/bck/1comp23.gif
+	frame	data/bgs/0bonus4/bck/1comp24.gif
+	frame	data/bgs/0bonus4/bck/1comp25.gif
+	frame	data/bgs/0bonus4/bck/1comp26.gif
+
+	delay	4400
+	frame	data/bgs/0bonus4/bck/1comp27.gif
+
+
+	delay	12
+	frame	data/bgs/0bonus4/bck/1comp28.gif
+	frame	data/bgs/0bonus4/bck/1comp29.gif
+	frame	data/bgs/0bonus4/bck/1comp28.gif
+	frame	data/bgs/0bonus4/bck/1comp29.gif
+	frame	data/bgs/0bonus4/bck/1comp28.gif
+	frame	data/bgs/0bonus4/bck/1comp29.gif
+	@cmd	looper 65 45
+	delay	1000
+	frame	data/bgs/0bonus4/bck/1comp28.gif
+	delay	1500
+	frame	data/bgs/0bonus4/bck/1comp27.gif
+	delay	14
+	frame	data/bgs/0bonus4/bck/1comp26.gif
+	frame	data/bgs/0bonus4/bck/1comp25.gif
+	frame	data/bgs/0bonus4/bck/1comp24.gif
+	frame	data/bgs/0bonus4/bck/1comp23.gif
+	frame	data/bgs/0bonus4/bck/1comp22.gif
+	frame	data/bgs/0bonus4/bck/1comp21.gif
+	frame	data/bgs/0bonus4/bck/1comp20.gif
+	frame	data/bgs/0bonus4/bck/1comp19.gif
+	frame	data/bgs/0bonus4/bck/1comp18.gif
+	frame	data/bgs/0bonus4/bck/1comp17.gif
+	frame	data/bgs/0bonus4/bck/1comp16.gif
+	frame	data/bgs/0bonus4/bck/1comp15.gif
+	frame	data/bgs/0bonus4/bck/1comp14.gif
+	frame	data/bgs/0bonus4/bck/1comp13.gif
+	frame	data/bgs/0bonus4/bck/1comp12.gif
+	frame	data/bgs/0bonus4/bck/1comp11.gif
+	frame	data/bgs/0bonus4/bck/1comp10.gif
+	frame	data/bgs/0bonus4/bck/1comp09.gif
+	frame	data/bgs/0bonus4/bck/1comp08.gif
+	frame	data/bgs/0bonus4/bck/1comp07.gif
+
+	delay	2400
+	frame	data/bgs/0bonus4/bck/1comp06.gif
+
+	delay	20
+	frame	data/bgs/0bonus4/bck/1comp06.gif
+	frame	data/bgs/0bonus4/bck/1comp05.gif
+	frame	data/bgs/0bonus4/bck/1comp06.gif
+	frame	data/bgs/0bonus4/bck/1comp05.gif
+	frame	data/bgs/0bonus4/bck/1comp06.gif
+	frame	data/bgs/0bonus4/bck/1comp05.gif
+	frame	data/bgs/0bonus4/bck/1comp06.gif
+	frame	data/bgs/0bonus4/bck/1comp05.gif
+	frame	data/bgs/0bonus4/bck/1comp06.gif
+	frame	data/bgs/0bonus4/bck/1comp05.gif
+	frame	data/bgs/0bonus4/bck/1comp06.gif
+	frame	data/bgs/0bonus4/bck/1comp05.gif
+	frame	data/bgs/0bonus4/bck/1comp06.gif
+	frame	data/bgs/0bonus4/bck/1comp05.gif
+	frame	data/bgs/0bonus4/bck/1comp06.gif
+	frame	data/bgs/0bonus4/bck/1comp05.gif
+	frame	data/bgs/0bonus4/bck/1comp06.gif
+	frame	data/bgs/0bonus4/bck/1comp05.gif
+	frame	data/bgs/0bonus4/bck/1comp06.gif
+	frame	data/bgs/0bonus4/bck/1comp05.gif
+	frame	data/bgs/0bonus4/bck/1comp06.gif
+	frame	data/bgs/0bonus4/bck/1comp05.gif
+	frame	data/bgs/0bonus4/bck/1comp06.gif
+	frame	data/bgs/0bonus4/bck/1comp05.gif
+	frame	data/bgs/0bonus4/bck/1comp06.gif
+	frame	data/bgs/0bonus4/bck/1comp05.gif
+	frame	data/bgs/0bonus4/bck/1comp06.gif
+	frame	data/bgs/0bonus4/bck/1comp05.gif
+	frame	data/bgs/0bonus4/bck/1comp06.gif
+	frame	data/bgs/0bonus4/bck/1comp05.gif
+	frame	data/bgs/0bonus4/bck/1comp06.gif
+	frame	data/bgs/0bonus4/bck/1comp05.gif
+	frame	data/bgs/0bonus4/bck/1comp06.gif
+	frame	data/bgs/0bonus4/bck/1comp05.gif
+	frame	data/bgs/0bonus4/bck/1comp06.gif
+	frame	data/bgs/0bonus4/bck/1comp05.gif
+	frame	data/bgs/0bonus4/bck/1comp06.gif
+	frame	data/bgs/0bonus4/bck/1comp05.gif
+	frame	data/bgs/0bonus4/bck/1comp06.gif
+	frame	data/bgs/0bonus4/bck/1comp05.gif
+	frame	data/bgs/0bonus4/bck/1comp06.gif
+	frame	data/bgs/0bonus4/bck/1comp05.gif
+	frame	data/bgs/0bonus4/bck/1comp06.gif
+	frame	data/bgs/0bonus4/bck/1comp05.gif
+	frame	data/bgs/0bonus4/bck/1comp06.gif
+	frame	data/bgs/0bonus4/bck/1comp05.gif
+	delay	500
+	frame	data/bgs/0bonus4/bck/1comp06.gif
+	delay	7
+	frame	data/bgs/0bonus4/bck/1comp06.gif
+	frame	data/bgs/0bonus4/bck/1comp04.gif
+	frame	data/bgs/0bonus4/bck/1comp06.gif
+	frame	data/bgs/0bonus4/bck/1comp04.gif
+	frame	data/bgs/0bonus4/bck/1comp06.gif
+	frame	data/bgs/0bonus4/bck/1comp04.gif
+	frame	data/bgs/0bonus4/bck/1comp06.gif
+	frame	data/bgs/0bonus4/bck/1comp04.gif
+	frame	data/bgs/0bonus4/bck/1comp06.gif
+	frame	data/bgs/0bonus4/bck/1comp04.gif
+	frame	data/bgs/0bonus4/bck/1comp06.gif
+	frame	data/bgs/0bonus4/bck/1comp04.gif
+	frame	data/bgs/0bonus4/bck/1comp06.gif
+	frame	data/bgs/0bonus4/bck/1comp04.gif
+	frame	data/bgs/0bonus4/bck/1comp06.gif
+	frame	data/bgs/0bonus4/bck/1comp04.gif
+	frame	data/bgs/0bonus4/bck/1comp06.gif
+	frame	data/bgs/0bonus4/bck/1comp04.gif
+	frame	data/bgs/0bonus4/bck/1comp06.gif
+	frame	data/bgs/0bonus4/bck/1comp04.gif
+	frame	data/bgs/0bonus4/bck/1comp06.gif
+	frame	data/bgs/0bonus4/bck/1comp04.gif
+	frame	data/bgs/0bonus4/bck/1comp06.gif
+	frame	data/bgs/0bonus4/bck/1comp04.gif
+	frame	data/bgs/0bonus4/bck/1comp06.gif
+	frame	data/bgs/0bonus4/bck/1comp04.gif
+
+
+	delay	7
+	frame	data/bgs/0bonus4/bck/1comp03.gif
+	frame	data/bgs/0bonus4/bck/1comp02.gif
+	frame	data/bgs/0bonus4/bck/1comp03.gif
+	frame	data/bgs/0bonus4/bck/1comp02.gif
+	frame	data/bgs/0bonus4/bck/1comp03.gif
+	frame	data/bgs/0bonus4/bck/1comp02.gif
+	frame	data/bgs/0bonus4/bck/1comp03.gif
+	frame	data/bgs/0bonus4/bck/1comp02.gif
+	frame	data/bgs/0bonus4/bck/1comp03.gif
+	frame	data/bgs/0bonus4/bck/1comp02.gif
+	frame	data/bgs/0bonus4/bck/1comp03.gif
+	frame	data/bgs/0bonus4/bck/1comp02.gif
+	frame	data/bgs/0bonus4/bck/1comp03.gif
+	frame	data/bgs/0bonus4/bck/1comp02.gif
+	frame	data/bgs/0bonus4/bck/1comp03.gif
+	frame	data/bgs/0bonus4/bck/1comp02.gif
+	frame	data/bgs/0bonus4/bck/1comp03.gif
+	frame	data/bgs/0bonus4/bck/1comp02.gif
+	frame	data/bgs/0bonus4/bck/1comp03.gif
+	frame	data/bgs/0bonus4/bck/1comp02.gif
+	frame	data/bgs/0bonus4/bck/1comp03.gif
+	frame	data/bgs/0bonus4/bck/1comp02.gif
+	frame	data/bgs/0bonus4/bck/1comp03.gif
+	frame	data/bgs/0bonus4/bck/1comp02.gif
+	frame	data/bgs/0bonus4/bck/1comp03.gif
+	frame	data/bgs/0bonus4/bck/1comp02.gif
+	frame	data/bgs/0bonus4/bck/1comp03.gif
+	frame	data/bgs/0bonus4/bck/1comp02.gif
+	frame	data/bgs/0bonus4/bck/1comp03.gif
+	frame	data/bgs/0bonus4/bck/1comp02.gif
+	frame	data/bgs/0bonus4/bck/1comp03.gif
+	frame	data/bgs/0bonus4/bck/1comp02.gif
+	frame	data/bgs/0bonus4/bck/1comp03.gif
+	frame	data/bgs/0bonus4/bck/1comp02.gif
+	frame	data/bgs/0bonus4/bck/1comp03.gif
+	frame	data/bgs/0bonus4/bck/1comp02.gif
+	frame	data/bgs/0bonus4/bck/1comp03.gif
+	frame	data/bgs/0bonus4/bck/1comp02.gif
+	frame	data/bgs/0bonus4/bck/1comp03.gif
+	frame	data/bgs/0bonus4/bck/1comp02.gif
+	frame	data/bgs/0bonus4/bck/1comp03.gif
+	frame	data/bgs/0bonus4/bck/1comp02.gif
+	frame	data/bgs/0bonus4/bck/1comp03.gif
+	frame	data/bgs/0bonus4/bck/1comp02.gif
+	frame	data/bgs/0bonus4/bck/1comp01.gif
+	delay	30
+	frame	data/bgs/0bonus4/bck/1comp01.gif
+	frame	data/bgs/0bonus4/bck/1comp01.gif
+	delay	3
+	frame	data/bgs/0bonus4/bck/1comp01.gif
+	@cmd	 playmusic "data/music/1bonus.ogg" 1
+	frame	data/bgs/0bonus4/bck/1comp01.gif
+	@cmd	spawn02 "bonus5" 80 180 200
+	frame	data/bgs/0bonus4/bck/1comp01.gif
+	delay	30
+	frame	data/bgs/0bonus4/bck/1comp01.gif
+	@cmd	beidle
+	frame	data/bgs/0bonus4/bck/1comp01.gif
+
+
+
+
+
+		
+anim	spawn
+@script
+if(frame==1)
+{
+  changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_OBSTACLE"));
+}
+@end_script
+	platform	-55 180 60 60 355 355 75 300
+	loop	1 1 3
+	delay	5
+	offset	170 175
+	bbox	0 0 0 0
+	frame	data/bgs/0bonus4/bck/1comp01.gif
+	frame	data/bgs/0bonus4/bck/1comp01.gif
+	@cmd	attack1 50 250 350 "ANI_FOLLOW10"
+	frame	data/bgs/0bonus4/bck/1comp01.gif
+	frame	data/bgs/0bonus4/bck/1comp01.gif
+
+
+
+
+anim	follow5
+@script
+if(frame==1)
+{
+  changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_OBSTACLE"));
+}
+@end_script
+	platform	-55 180 60 60 355 355 75 300
+	loop	1 1 3
+	delay	5
+	offset	170 175
+	bbox	0 0 0 0
+	frame	data/bgs/0bonus4/bck/1comp01.gif
+	frame	data/bgs/0bonus4/bck/1comp01.gif
+	@cmd	beidle
+	frame	data/bgs/0bonus4/bck/1comp01.gif
+	frame	data/bgs/0bonus4/bck/1comp01.gif
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+#|edited by openBor Stats v 0.53
+		

@@ -1,0 +1,122 @@
+name			lbwin
+type			obstacle
+health			150
+shadow			0
+nolife			1
+noatflash		1
+falldie			1
+flash			flash5
+setlayer 		-40
+subject_to_wall		0
+subject_to_platform	0
+subject_to_gravity	0
+animationscript data/scripts/escript.c
+
+
+
+load	glassbrk2
+load	brkwood4
+
+
+
+
+alternatepal       data/bgs/58lvl/bck/map1.gif
+
+
+
+
+
+anim	death
+	loop	0
+	delay	5
+	offset	40 200
+	bbox	0 0 0 0
+	sound	data/sounds/wood.wav
+	@cmd	stop
+	frame	data/bgs/58lvl/bck/win02.gif
+	@cmd	spawn01 "glassbrk2" -20 65 1
+	frame	data/bgs/58lvl/bck/win03.gif
+	@cmd	spawn01 "brkwood4" -50 65 1
+	frame	data/bgs/58lvl/bck/win02.gif
+	frame	data/bgs/58lvl/bck/win03.gif
+	frame	data/bgs/58lvl/bck/win02.gif
+	frame	data/bgs/58lvl/bck/win03.gif
+	frame	data/bgs/58lvl/bck/win02.gif
+	@cmd	spawn01 "brkwood4" -30 65 1
+	frame	data/bgs/58lvl/bck/win03.gif
+	frame	data/bgs/58lvl/bck/win02.gif
+	frame	data/bgs/58lvl/bck/win03.gif
+	frame	data/bgs/58lvl/bck/win02.gif
+	frame	data/bgs/58lvl/bck/win03.gif
+	frame	data/bgs/58lvl/bck/win02.gif
+	frame	data/bgs/58lvl/bck/win03.gif
+	@cmd	spawn01 "brkwood4" -60 65 1
+	frame	data/bgs/58lvl/bck/win02.gif
+	frame	data/bgs/58lvl/bck/win03.gif
+	frame	data/bgs/58lvl/bck/win02.gif
+	frame	data/bgs/58lvl/bck/win03.gif
+	frame	data/bgs/58lvl/bck/win02.gif
+	@cmd	spawn01 "brkwood4" -30 65 1
+	frame	data/bgs/58lvl/bck/win03.gif
+	frame	data/bgs/58lvl/bck/win02.gif
+	frame	data/bgs/58lvl/bck/win03.gif
+	frame	data/bgs/58lvl/bck/win02.gif
+	frame	data/bgs/58lvl/bck/win03.gif
+		
+anim	fall
+	offset	40 200
+	bbox	0 0 0 0
+	frame	data/bgs/58lvl/bck/win03.gif
+		
+anim	idle
+	platform	0 275 0 30 180 180 140 5000
+	loop	1
+	delay	5
+	offset	40 200
+	bbox	10 20 100 220 55
+	frame	data/bgs/58lvl/bck/win01.gif
+	@cmd	damage 50 "ANI_FOLLOW1"
+	frame	data/bgs/58lvl/bck/win01.gif
+
+
+
+
+
+
+
+anim	follow1
+	platform	0 275 0 30 180 180 140 5000
+	loop	1 1 3
+	delay	10
+	offset	40 200
+	bbox	10 20 100 220 55
+	@cmd	spawn01 "glassbrk2" -20 65 1
+	frame	data/bgs/58lvl/bck/win00.gif
+	frame	data/bgs/58lvl/bck/win00.gif
+	frame	data/bgs/58lvl/bck/win00.gif
+	frame	data/bgs/58lvl/bck/win00.gif
+	frame	data/bgs/58lvl/bck/win00.gif
+	frame	data/bgs/58lvl/bck/win00.gif
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+anim	spawn
+	loop	0
+	delay	10
+	offset	40 200
+	bbox	0 0 0 0
+	frame	data/bgs/58lvl/bck/win01.gif
+		
+#|edited by openBor Stats v 0.53
+		

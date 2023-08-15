@@ -1,0 +1,866 @@
+name          swat
+type          enemy
+health        240
+speed         14
+jumpheight    4
+throw         5 2
+throwdamage   18
+blockodds     1
+nopassiveblock 1
+noquake       1
+nolife        1
+falldie	      2
+nodieblink    1
+gfxshadow     1
+dust          dust
+projectilehit enemy obstacle
+diesound      data/sounds/die12.wav
+animationscript data/scripts/escript.c
+
+
+
+
+load	bullet2
+
+
+palette		data/chars/2swat1/map4.gif
+alternatepal       data/chars/2swat1/map1.gif
+alternatepal       data/chars/2swat1/map2.gif
+alternatepal       data/chars/2swat1/map3.gif
+
+
+
+anim	attack1
+	range	80 110
+	loop	0
+	delay	8
+	offset	100 189
+	bbox	79 97 50 91
+	followanim	1
+	followcond	1
+	hitfx	data/sounds/beat2.wav
+	frame	data/chars/2swat1/a101.gif
+	frame	data/chars/2swat1/a102.gif
+	attack	100 95 90 30 7 0 0 0 30 0
+	frame	data/chars/2swat1/a103.gif
+	frame	data/chars/2swat1/a104.gif
+	attack	0 0 0 0
+	delay	14
+	frame	data/chars/2swat1/a105.gif
+		
+anim	attack2
+	range	0 150
+	rangez	25 45
+	loop	0
+	delay	6
+	offset	100 189
+	bbox	79 97 50 91
+	jumpframe	1 3 1 0.7
+	landframe	8 dust
+	hitfx	data/sounds/beat2.wav
+	frame	data/chars/2swat1/rise6.gif
+	frame	data/chars/2swat1/d01.gif
+	frame	data/chars/2swat1/d02.gif
+	frame	data/chars/2swat1/d03.gif
+	frame	data/chars/2swat1/d04.gif
+	frame	data/chars/2swat1/d05.gif
+	delay	14
+	attack	100 95 85 50 10 1 0 0 30 15
+	dropv	2 4
+	frame	data/chars/2swat1/d06.gif
+	delay	100
+	frame	data/chars/2swat1/d07.gif
+	attack	0 0 0 0
+	delay	14
+	frame	data/chars/2swat1/d08.gif
+	frame	data/chars/2swat1/rise6.gif
+	frame	data/chars/2swat1/rise5.gif
+		
+anim	attack4
+	range	0 150
+	rangez	-45 -25
+	loop	0
+	delay	6
+	offset	100 189
+	bbox	79 97 50 91
+	jumpframe	1 3 1 -0.7
+	landframe	8 dust
+	hitfx	data/sounds/beat2.wav
+	frame	data/chars/2swat1/rise6.gif
+	frame	data/chars/2swat1/d01.gif
+	frame	data/chars/2swat1/d02.gif
+	frame	data/chars/2swat1/d03.gif
+	frame	data/chars/2swat1/d04.gif
+	frame	data/chars/2swat1/d05.gif
+	delay	14
+	attack	100 95 85 50 10 1 0 0 30 15
+	dropv	2 4
+	frame	data/chars/2swat1/d06.gif
+	delay	100
+	frame	data/chars/2swat1/d07.gif
+	attack	0 0 0 0
+	delay	14
+	frame	data/chars/2swat1/d08.gif
+	frame	data/chars/2swat1/rise6.gif
+	frame	data/chars/2swat1/rise5.gif
+		
+anim	attack5
+	range	200 400
+	rangez	-15 15
+	loop	0
+	delay	11
+	offset	100 189
+	bbox	79 97 50 91
+	sound	data/sounds/grab2.wav
+	frame	data/chars/2swat1/c01.gif
+	frame	data/chars/2swat1/c02.gif
+	frame	data/chars/2swat1/c03.gif
+	frame	data/chars/2swat1/c04.gif
+	delay	20
+	frame	data/chars/2swat1/c05.gif
+	delay	9
+	frame	data/chars/2swat1/c05.gif
+	sound	data/sounds/gun2.wav
+	frame	data/chars/2swat1/c06.gif
+	@cmd	projectile 1 "bullet2" 60 1 85
+	frame	data/chars/2swat1/c07.gif
+	frame	data/chars/2swat1/c08.gif
+	delay	12
+	frame	data/chars/2swat1/c05.gif
+	delay	9
+	frame	data/chars/2swat1/c05.gif
+	sound	data/sounds/gun2.wav
+	frame	data/chars/2swat1/c06.gif
+	@cmd	projectile 1 "bullet2" 60 1 85
+	frame	data/chars/2swat1/c07.gif
+	frame	data/chars/2swat1/c08.gif
+	delay	20
+	frame	data/chars/2swat1/c05.gif
+	delay	14
+	frame	data/chars/2swat1/c02.gif
+	frame	data/chars/2swat1/c01.gif
+		
+anim	block
+	loop	0
+	delay	2
+	offset	103 190
+	bbox	79 74 54 114
+	move	-8
+	frame	data/chars/2swat1/block01.gif
+	frame	data/chars/2swat1/block01.gif
+	frame	data/chars/2swat1/block01.gif
+	frame	data/chars/2swat1/block02.gif
+	frame	data/chars/2swat1/block02.gif
+	frame	data/chars/2swat1/block02.gif
+	frame	data/chars/2swat1/block02.gif
+	frame	data/chars/2swat1/block02.gif
+	move	0
+	delay	45
+	frame	data/chars/2swat1/block02.gif
+	delay	7
+	bbox	0 0 0 0
+	frame	data/chars/2swat1/block03.gif
+	frame	data/chars/2swat1/block04.gif
+	frame	data/chars/2swat1/block05.gif
+	delay	9
+	attack	100 95 90 30 9 1 0 0 30 0
+	frame	data/chars/2swat1/block06.gif
+	frame	data/chars/2swat1/block07.gif
+	attack	0 0 0 0
+	frame	data/chars/2swat1/block08.gif
+	frame	data/chars/2swat1/block09.gif
+	frame	data/chars/2swat1/block10.gif
+		
+anim	burn
+	loop	0
+	delay	25
+	offset	100 189
+	bbox	0 0 0 0
+	landframe	3
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 200_50_0
+	@cmd	spawnbind "burn1" 1 1 1
+	@cmd	spawnbind "burn2" 1 1 1
+	@cmd	spawnbind "burn3" 1 1 1
+	attack	78 98 30 45 5 1 0 0 13 0
+	frame	data/chars/2swat1/fall1.gif
+	delay	15
+	attack	64 115 50 25 5 1 0 0 13 0
+	frame	data/chars/2swat1/fall2.gif
+	delay	500
+	frame	data/chars/2swat1/fall3.gif
+	attack	0 0 0 0
+	bbox	58 175 85 15
+	delay	15
+	frame	data/chars/2swat1/fall4.gif
+	frame	data/chars/2swat1/fall5.gif
+	delay	230
+	frame	data/chars/2swat1/fall4.gif
+		
+anim	fall
+	loop	0
+	delay	25
+	offset	100 189
+	bbox	0 0 0 0
+	landframe	3
+	attack	78 98 30 45 5 1 0 0 13 0
+	frame	data/chars/2swat1/fall1.gif
+	delay	15
+	attack	64 115 50 25 5 1 0 0 13 0
+	frame	data/chars/2swat1/fall2.gif
+	delay	500
+	frame	data/chars/2swat1/fall3.gif
+	attack	0 0 0 0
+	bbox	58 175 85 15
+	delay	15
+	frame	data/chars/2swat1/fall4.gif
+	frame	data/chars/2swat1/fall5.gif
+	delay	230
+	frame	data/chars/2swat1/fall4.gif
+		
+anim	fall10
+	loop	0
+	delay	10
+	offset	100 189
+	bbox	80 80 50 75
+	landframe	4
+	attack	85 88 30 50 5 1 0 0 13 0
+	frame	data/chars/2swat1/pain6.gif
+	delay	40
+	frame	data/chars/2swat1/pain7.gif
+	delay	30
+	bbox	71 125 63 30
+	attack	64 125 45 25 5 1 0 0 13 0
+	frame	data/chars/2swat1/fall2.gif
+	delay	300
+	bbox	77 130 67 35
+	attack	0 0 0 0
+	frame	data/chars/2swat1/fall3.gif
+	bbox	58 167 85 15
+	delay	15
+	frame	data/chars/2swat1/fall4.gif
+	frame	data/chars/2swat1/fall5.gif
+	delay	230
+	frame	data/chars/2swat1/fall4.gif
+		
+anim	fall11
+	loop	0
+	delay	20
+	offset	100 189
+	bbox	61 185 90 5	
+	frame	data/chars/2swat1/pain12.gif
+	delay	35
+	frame	data/chars/2swat1/fall4.gif
+		
+anim	fall2
+	loop	0
+	delay	30
+	offset	100 189
+	bbox	0 0 0 0
+	landframe	3
+	attack	85 90 35 45 5 1 0 0 13 0
+	frame	data/chars/2swat1/pain7.gif
+	delay	10
+	attack	64 118 55 25 5 1 0 0 13 0
+	frame	data/chars/2swat1/fall2.gif
+	attack	0 0 0 0
+	delay	300
+	frame	data/chars/2swat1/fall3.gif
+	delay	15
+	frame	data/chars/2swat1/fall4.gif
+	frame	data/chars/2swat1/fall5.gif
+	frame	data/chars/2swat1/fall4.gif
+		
+anim	fall4
+	loop	0
+	delay	6
+	offset	100 189
+	bbox	0 0 0 0
+	jumpframe	0 1.2 1.5
+	frame	data/chars/2swat1/pain8.gif
+	frame	data/chars/2swat1/pain9.gif
+	frame	data/chars/2swat1/pain10.gif
+	@cmd	leaper 0 0.2 0
+	frame	data/chars/2swat1/pain11.gif
+	frame	data/chars/2swat1/fall4.gif
+	frame	data/chars/2swat1/fall5.gif
+	bbox	58 175 95 15
+	frame	data/chars/2swat1/fall4.gif
+		
+anim	fall7
+	delay	1000
+	offset	105 130
+	frame	data/chars/2swat1/slamck0.gif
+	offset	100 110
+	frame	data/chars/2swat1/slamck1.gif
+	offset	106 130
+	frame	data/chars/2swat1/slamck2.gif
+	offset	115 125
+	frame	data/chars/2swat1/slamck3.gif
+	offset	125 125
+	frame	data/chars/2swat1/slamck4.gif
+	offset	108 122
+	frame	data/chars/2swat1/slamck5.gif
+	offset	106 155
+	frame	data/chars/2swat1/slamck6.gif
+	offset	125 140
+	frame	data/chars/2swat1/slamck7.gif
+	offset	120 105
+	frame	data/chars/2swat1/slamck8.gif
+	offset	100 130
+	frame	data/chars/2swat1/slamck9.gif
+	offset	105 130
+	frame	data/chars/2swat1/slamck10.gif
+	offset	105 130
+	frame	data/chars/2swat1/slamck11.gif
+	offset	115 125
+	frame	data/chars/2swat1/slamck12.gif
+	offset	115 125
+	frame	data/chars/2swat1/slamck13.gif
+	offset	115 125
+	frame	data/chars/2swat1/slamck14.gif
+	offset	115 125
+	frame	data/chars/2swat1/slamck15.gif
+		
+anim	fall9
+	loop	0
+	delay	10
+	offset	100 180
+	bbox	0 0 0 0
+	quakeframe	2 5 5
+	landframe	2 dust
+	attack	75 105 35 45 5 1 0 0 13 0
+	frame	data/chars/2swat1/fall1.gif
+	delay	350
+	offset	100 180
+	attack	75 125 45 35 5 1 0 0 13 0
+	frame	data/chars/2swat1/fall2.gif
+	delay	2
+	offset	100 169
+	move	-4
+	frame	data/chars/2swat1/fall3.gif
+	frame	data/chars/2swat1/fall3.gif
+	attack	0 0 0 0
+	frame	data/chars/2swat1/fall3.gif
+	@cmd	looper 3 5
+	offset	100 189
+	move	-3
+	frame	data/chars/2swat1/fall4.gif
+	frame	data/chars/2swat1/fall4.gif
+	frame	data/chars/2swat1/fall4.gif
+	@cmd	looper 6 4
+	move	-2
+	frame	data/chars/2swat1/fall5.gif
+	frame	data/chars/2swat1/fall5.gif
+	frame	data/chars/2swat1/fall5.gif
+	loop	0
+	delay	230
+	move	0
+	bbox	58 175 100 15
+	frame	data/chars/2swat1/fall4.gif
+		
+anim	follow1
+	loop	0
+	delay	7
+	offset	103 190
+	bbox	79 97 50 91
+	move	4
+	frame	data/chars/2swat1/a104.gif
+	frame	data/chars/2swat1/a105.gif
+	frame	data/chars/2swat1/a106.gif
+	frame	data/chars/2swat1/a107.gif
+	attack	100 95 105 30 8 0 0 0 15 0
+	frame	data/chars/2swat1/a108.gif
+	frame	data/chars/2swat1/a109.gif
+	attack	0 0 0 0
+	frame	data/chars/2swat1/a110.gif
+	frame	data/chars/2swat1/a111.gif
+	frame	data/chars/2swat1/a112.gif
+	frame	data/chars/2swat1/a113.gif
+	delay	12
+	attack	100 85 90 45 10 1 0 0 35 0
+	dropv	2 3
+	frame	data/chars/2swat1/a114.gif
+	frame	data/chars/2swat1/a115.gif
+	attack	0 0 0 0
+	frame	data/chars/2swat1/a116.gif
+	frame	data/chars/2swat1/a117.gif
+		
+anim	grabbed
+	loop	0
+	delay	10
+	offset	100 189
+	bbox	79 97 50 91
+	frame	data/chars/2swat1/grabbed.gif
+		
+anim	idle
+	loop	0
+	delay	12
+	offset	100 189
+	bbox	79 97 50 91
+	frame	data/chars/2swat1/idle01.gif
+	@cmd	clearL
+	frame	data/chars/2swat1/idle01.gif
+		
+anim	pain
+	loop	0
+	delay	3
+	offset	103 189
+	bbox	79 97 50 91
+	frame	data/chars/2swat1/pain0.gif
+	offset	100 189
+	frame	data/chars/2swat1/pain1.gif
+	offset	107 189
+	frame	data/chars/2swat1/pain1.gif
+	delay	40
+	offset	100 189
+	frame	data/chars/2swat1/pain1.gif
+
+		
+anim	pain2
+	loop	0
+	delay	3
+	offset	103 189
+	bbox	79 97 50 91
+	frame	data/chars/2swat1/pain0.gif
+	offset	100 189
+	frame	data/chars/2swat1/pain2.gif
+	offset	107 189
+	frame	data/chars/2swat1/pain2.gif
+	delay	40
+	offset	100 189
+	frame	data/chars/2swat1/pain2.gif
+		
+anim	pain3
+	loop	0
+	delay	1
+	offset	103 189
+	bbox	0 0 0 0
+	jumpframe	1 2 -1 0
+	frame	data/chars/2swat1/pain1.gif
+	delay	25
+	frame	data/chars/2swat1/fall2.gif
+	delay	12
+	frame	data/chars/2swat1/fall3.gif
+	delay	4
+	bbox	71 165 67 30
+	frame	data/chars/2swat1/fall4.gif
+	frame	data/chars/2swat1/fall5.gif
+	frame	data/chars/2swat1/fall4.gif
+	frame	data/chars/2swat1/fall5.gif
+	delay	15
+	bbox	0 0 0 0
+	frame	data/chars/2swat1/fall4.gif
+	delay	10
+	frame	data/chars/2swat1/rise1.gif
+	frame	data/chars/2swat1/rise2.gif
+	frame	data/chars/2swat1/rise3.gif
+		
+anim	pain5
+	loop	0
+	delay	23
+	offset	100 189
+	bbox	79 97 50 91
+	frame	data/chars/2swat1/pain1.gif
+		
+anim	pain6
+	loop	0
+	delay	23
+	offset	100 189
+	bbox	79 97 50 91
+	frame	data/chars/2swat1/pain2.gif
+		
+anim	pain8
+	loop	0
+	delay	2
+	offset	100 189
+	bbox	79 97 50 91
+	move	-6
+	frame	data/chars/2swat1/pain1.gif
+	frame	data/chars/2swat1/pain1.gif
+	frame	data/chars/2swat1/pain1.gif
+	frame	data/chars/2swat1/pain2.gif
+	frame	data/chars/2swat1/pain2.gif
+	frame	data/chars/2swat1/pain2.gif
+	move	-3
+	frame	data/chars/2swat1/pain2.gif
+	frame	data/chars/2swat1/pain2.gif
+	move	-1
+	frame	data/chars/2swat1/pain2.gif
+	delay	35
+	frame	data/chars/2swat1/pain2.gif
+		
+anim	pain9
+	loop	0
+	delay	15
+	offset	100 189
+	bbox	79 97 50 91
+	frame	data/chars/2swat1/pain1.gif
+	delay	150
+	frame	data/chars/2swat1/pain2.gif
+		
+anim	rise
+	loop	0
+	delay	15
+	offset	100 189
+	bbox	0 0 0 0
+	frame	data/chars/2swat1/rise1.gif
+	frame	data/chars/2swat1/rise2.gif
+	frame	data/chars/2swat1/rise3.gif
+	frame	data/chars/2swat1/rise4.gif
+	frame	data/chars/2swat1/rise5.gif
+	frame	data/chars/2swat1/rise6.gif
+		
+anim	spawn
+	loop	0
+	delay	500
+	offset	100 305
+	bbox	0 0 0 0
+	seta	200
+	frame	data/chars/2swat1/empty.gif
+	delay	6
+	seta	195
+	frame	data/chars/2swat1/spawn02.gif
+	seta	190
+	frame	data/chars/2swat1/spawn02.gif
+	seta	185
+	frame	data/chars/2swat1/spawn02.gif
+	seta	180
+	frame	data/chars/2swat1/spawn02.gif
+	seta	175
+	frame	data/chars/2swat1/spawn02.gif
+	seta	170
+	frame	data/chars/2swat1/spawn02.gif
+	seta	165
+	frame	data/chars/2swat1/spawn02.gif
+	seta	160
+	frame	data/chars/2swat1/spawn02.gif
+	seta	155
+	frame	data/chars/2swat1/spawn02.gif
+	seta	150
+	frame	data/chars/2swat1/spawn02.gif
+	seta	145
+	frame	data/chars/2swat1/spawn02.gif
+	seta	140
+	frame	data/chars/2swat1/spawn02.gif
+	seta	135
+	frame	data/chars/2swat1/spawn02.gif
+	seta	130
+	frame	data/chars/2swat1/spawn02.gif
+	seta	125
+	frame	data/chars/2swat1/spawn02.gif
+	seta	120
+	frame	data/chars/2swat1/spawn02.gif
+	seta	115
+	frame	data/chars/2swat1/spawn02.gif
+	seta	110
+	frame	data/chars/2swat1/spawn02.gif
+	seta	105
+	frame	data/chars/2swat1/spawn02.gif
+	seta	100
+	frame	data/chars/2swat1/spawn02.gif
+	seta	95
+	frame	data/chars/2swat1/spawn02.gif
+	seta	90
+	frame	data/chars/2swat1/spawn02.gif
+	seta	85
+	frame	data/chars/2swat1/spawn02.gif
+	seta	80
+	frame	data/chars/2swat1/spawn02.gif
+	seta	75
+	frame	data/chars/2swat1/spawn02.gif
+	seta	70
+	frame	data/chars/2swat1/spawn02.gif
+	seta	65
+	frame	data/chars/2swat1/spawn02.gif
+	seta	60
+	frame	data/chars/2swat1/spawn02.gif
+	seta	55
+	frame	data/chars/2swat1/spawn02.gif
+	seta	50
+	frame	data/chars/2swat1/spawn02.gif
+	seta	45
+	frame	data/chars/2swat1/spawn02.gif
+	seta	40
+	frame	data/chars/2swat1/spawn02.gif
+	seta	35
+	frame	data/chars/2swat1/spawn02.gif
+	seta	30
+	frame	data/chars/2swat1/spawn02.gif
+	seta	35
+	frame	data/chars/2swat1/spawn02.gif
+	seta	40
+	frame	data/chars/2swat1/spawn02.gif
+	seta	45
+	frame	data/chars/2swat1/spawn02.gif
+	seta	50
+	frame	data/chars/2swat1/spawn02.gif
+	seta	55
+	frame	data/chars/2swat1/spawn02.gif
+	seta	60
+	frame	data/chars/2swat1/spawn02.gif
+	seta	65
+	frame	data/chars/2swat1/spawn02.gif
+	seta	70
+	frame	data/chars/2swat1/spawn02.gif
+	seta	75
+	frame	data/chars/2swat1/spawn02.gif
+	seta	80
+	frame	data/chars/2swat1/spawn02.gif
+	seta	85
+	frame	data/chars/2swat1/spawn02.gif
+	seta	80
+	frame	data/chars/2swat1/spawn02.gif
+	seta	75
+	frame	data/chars/2swat1/spawn02.gif
+	seta	70
+	frame	data/chars/2swat1/spawn02.gif
+	seta	65
+	frame	data/chars/2swat1/spawn02.gif
+	seta	60
+	frame	data/chars/2swat1/spawn02.gif
+	seta	55
+	frame	data/chars/2swat1/spawn02.gif
+	seta	50
+	frame	data/chars/2swat1/spawn02.gif
+	seta	45
+	frame	data/chars/2swat1/spawn02.gif
+	seta	40
+	frame	data/chars/2swat1/spawn02.gif
+	seta	35
+	frame	data/chars/2swat1/spawn02.gif
+	seta	40
+	frame	data/chars/2swat1/spawn02.gif
+	seta	45
+	frame	data/chars/2swat1/spawn02.gif
+	seta	50
+	frame	data/chars/2swat1/spawn02.gif
+	seta	55
+	frame	data/chars/2swat1/spawn02.gif
+	seta	60
+	frame	data/chars/2swat1/spawn02.gif
+	seta	65
+	frame	data/chars/2swat1/spawn02.gif
+	seta	70
+	frame	data/chars/2swat1/spawn02.gif
+	seta	75
+	frame	data/chars/2swat1/spawn02.gif
+	seta	80
+	frame	data/chars/2swat1/spawn02.gif
+	seta	85
+	frame	data/chars/2swat1/spawn02.gif
+	seta	80
+	frame	data/chars/2swat1/spawn02.gif
+	seta	75
+	frame	data/chars/2swat1/spawn02.gif
+	seta	70
+	frame	data/chars/2swat1/spawn02.gif
+	seta	65
+	frame	data/chars/2swat1/spawn02.gif
+	seta	60
+	frame	data/chars/2swat1/spawn02.gif
+	seta	55
+	frame	data/chars/2swat1/spawn02.gif
+	seta	50
+	frame	data/chars/2swat1/spawn02.gif
+	seta	45
+	frame	data/chars/2swat1/spawn02.gif
+	seta	40
+	frame	data/chars/2swat1/spawn02.gif
+	seta	35
+	frame	data/chars/2swat1/spawn02.gif
+	seta	40
+	frame	data/chars/2swat1/spawn02.gif
+	seta	45
+	frame	data/chars/2swat1/spawn02.gif
+	seta	50
+	frame	data/chars/2swat1/spawn02.gif
+	seta	55
+	frame	data/chars/2swat1/spawn02.gif
+	seta	60
+	frame	data/chars/2swat1/spawn02.gif
+	seta	65
+	frame	data/chars/2swat1/spawn02.gif
+	seta	70
+	frame	data/chars/2swat1/spawn02.gif
+	seta	75
+	frame	data/chars/2swat1/spawn02.gif
+	seta	80
+	frame	data/chars/2swat1/spawn02.gif
+	seta	85
+	frame	data/chars/2swat1/spawn02.gif
+	seta	90
+	frame	data/chars/2swat1/spawn02.gif
+	seta	95
+	frame	data/chars/2swat1/spawn02.gif
+	seta	110
+	frame	data/chars/2swat1/spawn02.gif
+	seta	115
+	frame	data/chars/2swat1/spawn02.gif
+	seta	120
+	frame	data/chars/2swat1/spawn02.gif
+	seta	125
+	frame	data/chars/2swat1/spawn02.gif
+	seta	130
+	frame	data/chars/2swat1/spawn02.gif
+	seta	135
+	frame	data/chars/2swat1/spawn02.gif
+	seta	140
+	frame	data/chars/2swat1/spawn02.gif
+	seta	0
+	delay	70
+	offset	100 189
+	frame	data/chars/2swat1/spawn01.gif
+	delay	14
+	frame	data/chars/2swat1/rise6.gif
+	@cmd	spawn01 "dust" 1 1 1
+	frame	data/chars/2swat1/rise5.gif
+	frame	data/chars/2swat1/rise6.gif
+	frame	data/chars/2swat1/idle01.gif
+		
+anim	special
+	loop	0
+	delay	30
+	offset	103 190
+	bbox	0 0 0 0
+	sound	data/sounds/grab.wav
+	@cmd	slamstart2
+	@cmd	position 15 55 9 -1 -1
+	frame	data/chars/2swat1/grab00.gif
+	delay	14
+	@cmd	spawngrab "grab1" 200 200 450 30 1 8
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 15 55 9 -1 -1
+	frame	data/chars/2swat1/grab01.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 24 40 20 -1 -1
+	frame	data/chars/2swat1/grab02.gif
+	@cmd	hurt 2
+	@cmd	spawn01 "flash" 45 65 1
+	sound	data/sounds/beat2.wav
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 7 50 20 -1 -1
+	frame	data/chars/2swat1/grab03.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 11 50 20 -1 -1
+	frame	data/chars/2swat1/grab04.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 15 55 9 -1 -1
+	frame	data/chars/2swat1/grab01.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 24 40 20 -1 -1
+	frame	data/chars/2swat1/grab02.gif
+	@cmd	hurt 2
+	@cmd	spawn01 "flash" 45 65 1
+	sound	data/sounds/beat2.wav
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 7 50 20 -1 -1
+	frame	data/chars/2swat1/grab03.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 11 50 20 -1 -1
+	frame	data/chars/2swat1/grab04.gif
+	delay	9
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 15 55 9 -1 -1
+	frame	data/chars/2swat1/grab01.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 24 40 20 -1 -1
+	frame	data/chars/2swat1/grab02.gif
+	@cmd	hurt 2
+	@cmd	spawn01 "flash" 45 65 1
+	sound	data/sounds/beat2.wav
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 7 50 20 -1 -1
+	frame	data/chars/2swat1/grab03.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 11 50 20 -1 -1
+	frame	data/chars/2swat1/grab04.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 15 55 9 -1 -1
+	frame	data/chars/2swat1/grab01.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 24 40 20 -1 -1
+	frame	data/chars/2swat1/grab02.gif
+	@cmd	hurt 2
+	@cmd	spawn01 "flash" 45 65 1
+	sound	data/sounds/beat2.wav
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 7 50 20 -1 -1
+	frame	data/chars/2swat1/grab03.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 11 50 20 -1 -1
+	frame	data/chars/2swat1/grab04.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 15 55 9 -1 -1
+	frame	data/chars/2swat1/grab01.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 24 40 20 -1 -1
+	frame	data/chars/2swat1/grab02.gif
+	@cmd	hurt 2
+	@cmd	spawn01 "flash" 45 65 1
+	sound	data/sounds/beat2.wav
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 7 50 20 -1 -1
+	frame	data/chars/2swat1/grab03.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 11 50 20 -1 -1
+	frame	data/chars/2swat1/grab04.gif
+	delay	14
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 15 55 9 -1 -1
+	frame	data/chars/2swat1/grab01.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 24 40 20 -1 -1
+	frame	data/chars/2swat1/grab02.gif
+	@cmd	hurt 2
+	@cmd	spawn01 "flash" 45 65 1
+	sound	data/sounds/beat2.wav
+	@cmd	position 7 50 20 -1 -1
+	frame	data/chars/2swat1/grab03.gif
+	@cmd	killgun 8 0
+	@cmd	position 11 50 20 -1 -1
+	frame	data/chars/2swat1/grab04.gif
+	@cmd	depost 0
+	@cmd	finish 20 1 -2 3 0 0
+	frame	data/chars/2swat1/grab05.gif
+	frame	data/chars/2swat1/grab06.gif
+		
+anim	upper
+	range	0 150
+	rangez	-15 15
+	loop	0
+	delay	8
+	offset	100 189
+	bbox	0 0 0 0
+	frame	data/chars/2swat1/rise5.gif
+	frame	data/chars/2swat1/upper01.gif
+	frame	data/chars/2swat1/upper02.gif
+	delay	12
+	attack	100 95 80 65 12 1 0 0 40 17
+	dropv	4 1
+	frame	data/chars/2swat1/upper03.gif
+	delay	25
+	frame	data/chars/2swat1/upper04.gif
+	attack	0 0 0 0
+	delay	12
+	frame	data/chars/2swat1/upper05.gif
+	frame	data/chars/2swat1/upper06.gif
+	frame	data/chars/2swat1/rise5.gif
+	frame	data/chars/2swat1/rise6.gif
+		
+anim	walk
+	loop	1
+	delay	12
+	offset	100 189
+	bbox	79 97 50 91
+	frame	data/chars/2swat1/wk01.gif
+	frame	data/chars/2swat1/wk02.gif
+	frame	data/chars/2swat1/wk03.gif
+	frame	data/chars/2swat1/wk04.gif
+	frame	data/chars/2swat1/wk05.gif
+	frame	data/chars/2swat1/wk06.gif
+	frame	data/chars/2swat1/wk07.gif
+	frame	data/chars/2swat1/wk08.gif
+		
+#|edited by openBor Stats v 0.53
+		

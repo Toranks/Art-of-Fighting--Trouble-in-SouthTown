@@ -1,0 +1,55 @@
+name	rider2b
+type	enemy
+subtype	biker
+speed   20
+health	120
+gfxshadow     1
+nolife	1
+candamage player obstacle npc
+animationscript data/scripts/escript.c
+
+load	bike2crash
+load	explosion1
+load	cardam2
+load	ron
+rider	ron
+
+
+
+
+
+
+
+
+anim	idle
+	loop	1
+	delay	5
+	offset	135 190
+	bbox	86 96 65 90
+	attack	160 135 58 59 10 1 0 1 8 0
+	frame	data/chars/2rider2/biker01.gif
+	frame	data/chars/2rider2/biker02.gif
+		
+anim	pain
+	loop	0
+	delay	5
+	offset	135 190
+	@cmd	spawn01 "explosion1" -10 50 10
+	frame	data/chars/2rider2/biker03.gif
+	frame	data/chars/2rider2/biker04.gif
+	frame	data/chars/2rider1/empty.gif
+	@cmd	spawn01 "cardam2" -20 30 7
+	frame	data/chars/2rider1/empty.gif
+	@cmd	spawn01 "bike2crash" -20 0 5
+	frame	data/chars/2rider1/empty.gif
+		
+anim	spawn
+	loop	0
+	delay	3
+	offset	135 190
+	frame	data/chars/2rider2/biker01.gif
+	sound	data/sounds/bike12.wav
+	frame	data/chars/2rider2/biker02.gif
+		
+#|edited by openBor Stats v 0.53
+		

@@ -1,0 +1,90 @@
+name	 grdfire3
+health   0
+type     trap
+nolife   1
+alpha	 1
+subject_to_wall    0
+candamage	player npc enemy obstacle
+animationscript data/scripts/escript.c
+
+
+
+
+anim	follow7
+	loop	0
+	delay	7
+	offset	35 130
+	bbox	0 0 0 0
+	frame	data/chars/misc/traps/fire/grdfire01.gif
+	frame	data/chars/misc/traps/fire/empty.gif
+	frame	data/chars/misc/traps/fire/grdfire02.gif
+	frame	data/chars/misc/traps/fire/empty.gif
+	frame	data/chars/misc/traps/fire/grdfire03.gif
+	hitfx	data/sounds/burn.wav
+	burn	15 90 40 40 10 1 1 0 10 7
+	frame	data/chars/misc/traps/fire/grdfire04.gif
+	frame	data/chars/misc/traps/fire/grdfire05.gif
+	frame	data/chars/misc/traps/fire/grdfire06.gif
+	hitfx	data/sounds/burn.wav
+	burn	15 70 40 40 10 1 1 0 10 7
+	frame	data/chars/misc/traps/fire/grdfire07.gif
+	frame	data/chars/misc/traps/fire/empty.gif
+	frame	data/chars/misc/traps/fire/grdfire08.gif
+	frame	data/chars/misc/traps/fire/empty.gif
+	frame	data/chars/misc/traps/fire/grdfire09.gif
+	frame	data/chars/misc/traps/fire/empty.gif
+	hitfx	data/sounds/burn.wav
+	burn	15 70 40 40 10 1 1 0 10 7
+	frame	data/chars/misc/traps/fire/grdfire10.gif
+	frame	data/chars/misc/traps/fire/empty.gif
+	frame	data/chars/misc/traps/fire/grdfire11.gif
+	frame	data/chars/misc/traps/fire/empty.gif
+	frame	data/chars/misc/traps/fire/grdfire05.gif
+	frame	data/chars/misc/traps/fire/grdfire06.gif
+	hitfx	data/sounds/burn.wav
+	burn	15 70 40 40 10 1 1 0 10 7
+	frame	data/chars/misc/traps/fire/grdfire07.gif
+	frame	data/chars/misc/traps/fire/empty.gif
+	frame	data/chars/misc/traps/fire/grdfire08.gif
+	frame	data/chars/misc/traps/fire/empty.gif
+	frame	data/chars/misc/traps/fire/grdfire09.gif
+	frame	data/chars/misc/traps/fire/empty.gif
+	hitfx	data/sounds/burn.wav
+	burn	15 70 40 40 10 1 1 0 10 7
+	frame	data/chars/misc/traps/fire/grdfire10.gif
+	frame	data/chars/misc/traps/fire/empty.gif
+	frame	data/chars/misc/traps/fire/grdfire11.gif
+	frame	data/chars/misc/traps/fire/empty.gif
+	frame	data/chars/misc/traps/fire/grdfire05.gif
+	frame	data/chars/misc/traps/fire/grdfire04.gif
+	frame	data/chars/misc/traps/fire/empty.gif
+	frame	data/chars/misc/traps/fire/grdfire03.gif
+	frame	data/chars/misc/traps/fire/empty.gif
+	frame	data/chars/misc/traps/fire/grdfire02.gif
+	frame	data/chars/misc/traps/fire/empty.gif
+	frame	data/chars/misc/traps/fire/empty.gif
+	@cmd	beidle
+	frame	data/chars/misc/traps/fire/empty.gif
+		
+anim	idle
+	loop	1
+	delay	50
+	offset	35 130
+	bbox	0 0 0 0
+    @script
+    void self = getlocalvar("self");
+
+    if( frame == 0){
+      int r = rand()%50;
+
+      if( r > 0){
+        changeentityproperty(self, "animation", openborconstant("ANI_FOLLOW7"));
+      }
+    }
+	@end_script	
+	frame	data/chars/misc/traps/fire/empty.gif
+	frame	data/chars/misc/traps/fire/empty.gif
+	frame	data/chars/misc/traps/fire/empty.gif
+		
+#|edited by openBor Stats v 0.53
+		

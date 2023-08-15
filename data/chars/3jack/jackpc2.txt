@@ -1,0 +1,410 @@
+name          jackpc2
+type          npc
+aimove	      Avoid	
+health        400
+speed         19
+jumpheight    5
+falldie	      2
+nodieblink    3
+cantgrab      1
+nolife        1
+shadow	      0
+aggression    50
+subject_to_wall		0
+subject_to_hole		0
+offscreenkill 	40000
+candamage     enemy
+hostile       enemy
+dust            dust
+projectilehit enemy obstacle
+diesound      data/sounds/jack6.wav
+animationscript data/scripts/escript.c
+
+
+
+
+anim	attack1
+	range	0 220
+	rangez	-35 35
+	loop	0
+	delay	9
+	offset	108 190
+	bbox	0 0 0 0
+	frame	data/chars/3jack/xpnc02.gif
+	frame	data/chars/3jack/xpnc03.gif
+	frame	data/chars/3jack/xpnc04.gif
+	delay	7
+	offset	108 205
+	bbox	84 98 47 90
+	frame	data/chars/3jack/xpnc05.gif
+	frame	data/chars/3jack/xpnc06.gif
+	frame	data/chars/3jack/xpnc05.gif
+	frame	data/chars/3jack/xpnc06.gif
+	frame	data/chars/3jack/xpnc05.gif #7
+	frame	data/chars/3jack/xpnc06.gif
+	frame	data/chars/3jack/xpnc05.gif
+	frame	data/chars/3jack/xpnc06.gif
+	frame	data/chars/3jack/xpnc05.gif
+	frame	data/chars/3jack/xpnc06.gif
+	frame	data/chars/3jack/xpnc05.gif
+	frame	data/chars/3jack/xpnc06.gif
+	@cmd	looper 7 5
+	frame	data/chars/3jack/xpnc05.gif
+	bbox	84 98 47 90
+	frame	data/chars/3jack/xpnc06.gif
+	frame	data/chars/3jack/xpnc05.gif
+	frame	data/chars/3jack/xpnc06.gif
+	delay	9
+	frame	data/chars/3jack/xpnc04.gif
+	frame	data/chars/3jack/xpnc03.gif
+	frame	data/chars/3jack/xpnc02.gif
+
+		
+anim	burn
+	loop	0
+	delay	25
+	offset	108 190
+	bbox	0 0 0 0
+	landframe	3
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 200_50_0
+	@cmd	spawnbind "burn1" 1 1 1
+	@cmd	spawnbind "burn2" 1 1 1
+	@cmd	spawnbind "burn3" 1 1 1
+	attack	78 98 30 45 5 1 0 0 13 0
+	frame	data/chars/3jack/fall1.gif
+	delay	15
+	attack	64 130 50 25 5 1 0 0 13 0
+	frame	data/chars/3jack/fall2.gif
+	delay	500
+	frame	data/chars/3jack/fall3.gif
+	attack	0 0 0 0
+	bbox	58 175 85 15
+	delay	15
+	frame	data/chars/3jack/fall4.gif
+	frame	data/chars/3jack/fall5.gif
+	frame	data/chars/3jack/fall4.gif
+		
+anim	fall
+	loop	0
+	delay	25
+	offset	108 190
+	bbox	0 0 0 0
+	landframe	3
+	frame	data/chars/3jack/fall1.gif
+	delay	15
+	frame	data/chars/3jack/fall2.gif
+	delay	500
+	frame	data/chars/3jack/fall3.gif
+	attack	0 0 0 0
+	frame	data/chars/3jack/fall4.gif
+	frame	data/chars/3jack/fall5.gif
+	frame	data/chars/3jack/fall4.gif
+
+
+anim	death
+	loop	0
+	delay	25
+	offset	108 190
+	bbox	0 0 0 0
+	frame	data/chars/3jack/fall4.gif
+	frame	data/chars/3jack/fall4.gif
+	frame	data/chars/3jack/fall4.gif
+	frame	data/chars/3jack/fall4.gif
+
+		
+		
+anim	fall7
+	delay	1000
+	offset	105 130
+	frame	data/chars/3jack/slamck0.gif
+	offset	100 110
+	frame	data/chars/3jack/slamck1.gif
+	offset	106 130
+	frame	data/chars/3jack/slamck2.gif
+	offset	115 125
+	frame	data/chars/3jack/slamck3.gif
+	offset	125 125
+	frame	data/chars/3jack/slamck4.gif
+	offset	108 122
+	frame	data/chars/3jack/slamck5.gif
+	offset	106 155
+	frame	data/chars/3jack/slamck6.gif
+	offset	125 140
+	frame	data/chars/3jack/slamck7.gif
+	offset	120 105
+	frame	data/chars/3jack/slamck8.gif
+	offset	100 130
+	frame	data/chars/3jack/slamck9.gif
+	offset	105 130
+	frame	data/chars/3jack/slamck10.gif
+	offset	105 130
+	frame	data/chars/3jack/slamck11.gif
+	offset	115 125
+	frame	data/chars/3jack/slamck12.gif
+	offset	115 125
+	frame	data/chars/3jack/slamck13.gif
+	offset	115 125
+	frame	data/chars/3jack/slamck14.gif
+	offset	115 125
+	frame	data/chars/3jack/slamck15.gif
+		
+
+	
+anim	grabbed
+	loop	0
+	delay	10
+	offset	108 190
+	bbox	84 98 47 90
+	frame	data/chars/3jack/grabbed.gif
+
+		
+anim	idle
+	loop	1
+	delay	8
+	offset	108 190
+	bbox	84 98 47 90
+	frame	data/chars/3jack/xidl01.gif
+	@cmd	clearL
+	frame	data/chars/3jack/xidl02.gif
+	frame	data/chars/3jack/xidl01.gif
+	frame	data/chars/3jack/xidl02.gif
+	frame	data/chars/3jack/xidl01.gif
+	frame	data/chars/3jack/xidl02.gif
+
+	
+anim	pain
+	loop	0
+	delay	3
+	offset	111 190
+	bbox	84 98 47 90
+	frame	data/chars/3jack/pain0.gif
+	offset	108 190
+	frame	data/chars/3jack/pain1.gif
+	offset	114 190
+	frame	data/chars/3jack/pain1.gif
+	delay	40
+	offset	108 190
+	frame	data/chars/3jack/pain1.gif
+
+		
+anim	pain2
+	loop	0
+	delay	3
+	offset	111 190
+	bbox	84 98 47 90
+	frame	data/chars/3jack/pain0.gif
+	offset	108 190
+	frame	data/chars/3jack/pain2.gif
+	offset	114 190
+	frame	data/chars/3jack/pain2.gif
+	delay	40
+	offset	108 190
+	frame	data/chars/3jack/pain2.gif
+		
+
+anim	rise
+	loop	0
+	delay	55
+	offset	108 190
+	bbox	0 0 0 0
+	frame	data/chars/3jack/fall4.gif
+	delay	18
+	frame	data/chars/3jack/rise0.gif
+	frame	data/chars/3jack/rise1.gif
+	frame	data/chars/3jack/rise2.gif
+	frame	data/chars/3jack/rise3.gif
+	frame	data/chars/3jack/xidl01.gif
+
+anim	spawn
+	loop	0
+	delay	5
+	offset	108 190
+	bbox	0 0 0 0
+	frame	data/chars/3jack/xidl01.gif
+	@cmd	subwall 1
+	frame	data/chars/3jack/xidl01.gif
+	@cmd	subscreen 1
+	frame	data/chars/3jack/xidl01.gif
+	frame	data/chars/3jack/xidl01.gif
+	frame	data/chars/3jack/xidl01.gif
+
+
+anim	follow4
+@script
+if(frame==1)
+{
+  void self = getlocalvar("self");
+  changeentityproperty(self, "gfxshadow", 0);
+}
+@end_script
+	loop	0
+	delay	5
+	offset	108 190
+	bbox	0 0 0 0
+	frame	data/chars/3jack/xidl01.gif
+	@cmd	layer -1200
+	frame	data/chars/3jack/xidl01.gif
+	@cmd	beidle
+	frame	data/chars/3jack/xidl01.gif
+
+
+
+anim	respawn
+	loop	0
+	delay	5
+	offset	108 190
+	bbox	0 0 0 0
+	jumpframe 1 10 0 
+	landframe 4 dust
+	@cmd	stop
+	frame	data/chars/misc/empty.gif
+	delay	45
+	frame	data/chars/misc/empty.gif
+	delay	100
+	frame	data/chars/3jack/ju01.gif
+	frame	data/chars/3jack/ju01.gif
+	delay	12
+	frame	data/chars/3jack/land.gif
+
+
+anim	walk
+	loop	1
+	delay	6
+	offset	108 190
+	bbox	84 98 47 90
+	frame	data/chars/3jack/xrun01.gif
+	frame	data/chars/3jack/xrun02.gif
+	frame	data/chars/3jack/xrun03.gif
+	frame	data/chars/3jack/xrun04.gif
+	frame	data/chars/3jack/xrun05.gif
+	frame	data/chars/3jack/xrun06.gif
+		
+anim	backwalk
+	loop	1
+	delay	6
+	offset	108 190
+	bbox	84 98 47 90
+	drawmethod 256 256 1
+	frame	data/chars/3jack/xrun03.gif
+	frame	data/chars/3jack/xrun04.gif
+	frame	data/chars/3jack/xrun05.gif
+	frame	data/chars/3jack/xrun06.gif
+	frame	data/chars/3jack/xrun02.gif
+	frame	data/chars/3jack/xrun01.gif
+
+
+
+
+
+
+#-------------------OVERLORD-FINAL-------------------------------------------
+
+
+
+anim	follow12
+@script
+	void self = getlocalvar("self");
+	float x1 = getentityproperty(self, "x");
+        changeentityproperty(self, "hostile",openborconstant("TYPE_PLAYER"));
+	changeentityproperty(self, "direction", 1);
+        changeentityproperty(self, "velocity", 1.2);
+
+
+   if (x1 >= 5650 ){
+        performattack(self, openborconstant("ANI_FOLLOW13"));
+   }
+@end_script
+	loop	1 2 8
+	delay	3
+	offset	108 190
+	bbox	0 0 0 0
+	frame	data/chars/3jack/idle01.gif
+	@cmd	subwall 0
+	@cmd	subscreen 0
+	@cmd	subplat 0
+	frame	data/chars/3jack/idle01.gif
+	delay	9
+	frame	data/chars/3jack/wk01.gif
+	frame	data/chars/3jack/wk02.gif
+	frame	data/chars/3jack/wk03.gif
+	frame	data/chars/3jack/wk04.gif
+	frame	data/chars/3jack/wk05.gif
+	frame	data/chars/3jack/wk06.gif
+	frame	data/chars/3jack/idle01.gif
+	frame	data/chars/3jack/idle01.gif
+
+
+
+anim	follow13
+	loop	1 2 5
+	delay	5
+	offset	108 190
+	bbox	0 0 0 0
+	@cmd	stop
+	frame	data/chars/3jack/idle01.gif
+	frame	data/chars/3jack/idle01.gif
+	frame	data/chars/3jack/idle01.gif #2
+	@cmd	attack1 -50 1500 800 "ANI_FOLLOW14"
+	frame	data/chars/3jack/idle01.gif
+	frame	data/chars/3jack/idle01.gif #5
+	frame	data/chars/3jack/idle01.gif
+
+
+anim	follow14
+@script
+    void self = getlocalvar("self");
+    changeentityproperty(self, "direction", 1);
+    float x1 = getentityproperty(self, "x");
+
+   if (x1 <=6550 ){
+       changeentityproperty(self, "velocity", 1);
+   }
+   if (x1 >=6550){
+        performattack(self, openborconstant("ANI_FOLLOW15"));
+   }
+@end_script
+	loop	1 2 8
+	delay	3
+	offset	108 190
+	bbox	0 0 0 0
+	frame	data/chars/3jack/idle01.gif
+	@cmd	clearL
+	@cmd	subscreen 0
+	frame	data/chars/3jack/idle01.gif
+	delay	9
+	frame	data/chars/3jack/wk01.gif
+	frame	data/chars/3jack/wk02.gif
+	frame	data/chars/3jack/wk03.gif
+	frame	data/chars/3jack/wk04.gif
+	frame	data/chars/3jack/wk05.gif
+	frame	data/chars/3jack/wk06.gif
+	frame	data/chars/3jack/idle01.gif
+
+
+anim	follow15
+	loop	0
+	delay	35
+	offset	108 190
+	bbox	0 0 0 0
+	@cmd	stop
+	frame	data/chars/3jack/idle01.gif
+	frame	data/chars/3jack/idle01.gif
+	delay	2400
+	frame	data/chars/3jack/idle01.gif
+	delay	30000
+	frame	data/chars/3jack/fall4.gif
+	frame	data/chars/3jack/fall4.gif
+	frame	data/chars/3jack/fall4.gif
+	frame	data/chars/3jack/fall4.gif
+	frame	data/chars/3jack/fall4.gif
+	frame	data/chars/3jack/fall4.gif
+
+
+
+
+
+
+
+
+		

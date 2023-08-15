@@ -1,0 +1,308 @@
+name      plcannon
+type      none
+nolife    1
+nomove	  1 0
+health    10
+nodrop	  2
+nodieblink	1
+gfxshadow	1
+subject_to_hole 0
+subject_to_platform 0
+subject_to_gravity 0
+subject_to_wall 0
+
+animationscript data/scripts/escript.c
+
+load	plrocket1
+load	explosion2
+load	plpw7
+
+script @script
+void main()
+{
+    	void self = getlocalvar("self");
+	void daddy = getentityproperty(self,"parent");
+	int HP = getentityproperty(daddy,"maxhealth");
+
+
+	if (HP <= 0 || daddy == NULL())
+	{
+    	killentity(self);
+	}
+}
+@end_script
+
+
+#-----------------//--------CANNON-FRONT---//----------------
+
+anim	idle
+@script
+	void self = getlocalvar("self");
+	void daddy2 = getentityproperty(self,"parent");
+	void plyr = getentityproperty(daddy2, "playerindex");
+
+	if(frame >= 0 && frame <= 5 )
+	{
+	  if( playerkeys(plyr, 0, "attack2"))
+	  {
+	  performattack(self, openborconstant("ANI_FOLLOW2"));
+	  }
+	  if( playerkeys(plyr, 0, "attack3"))
+	  {
+	  performattack(self, openborconstant("ANI_FOLLOW1"));
+	  }
+	}
+@end_script
+	delay	5
+	loop	1
+	offset	240 215
+	frame	data/chars/beyond/4stank/cannon/1.gif
+	frame	data/chars/beyond/4stank/cannon/1.gif
+	frame	data/chars/beyond/4stank/cannon/1.gif
+	frame	data/chars/beyond/4stank/cannon/1.gif
+	frame	data/chars/beyond/4stank/cannon/1.gif
+
+
+#------------//---------SHOOT-FRONT---//----------------
+
+anim	follow1
+	loop	0
+	delay	3
+	offset	240 215
+	frame	data/chars/beyond/4stank/cannon/fire01.gif
+	frame	data/chars/beyond/4stank/cannon/fire02.gif
+	frame	data/chars/beyond/4stank/cannon/fire03.gif
+	frame	data/chars/beyond/4stank/cannon/fire04.gif
+	sound	data/sounds/bang2.wav
+	@cmd	spawnbind "explosion2" 185 -10 1
+	frame	data/chars/beyond/4stank/cannon/fire05.gif
+	@cmd	tosser "plpw7" 170 20 0 1.7 -0.1 0
+	frame	data/chars/beyond/4stank/cannon/fire06.gif
+	frame	data/chars/beyond/4stank/cannon/fire07.gif
+	frame	data/chars/beyond/4stank/cannon/fire08.gif
+	delay	3
+	frame	data/chars/beyond/4stank/cannon/fire09.gif
+	frame	data/chars/beyond/4stank/cannon/fire10.gif
+	frame	data/chars/beyond/4stank/cannon/fire11.gif
+	frame	data/chars/beyond/4stank/cannon/fire12.gif
+	frame	data/chars/beyond/4stank/cannon/fire13.gif
+	frame	data/chars/beyond/4stank/cannon/fire12.gif
+	frame	data/chars/beyond/4stank/cannon/fire11.gif
+	frame	data/chars/beyond/4stank/cannon/fire10.gif
+	delay	20
+	frame	data/chars/beyond/4stank/cannon/fire09.gif
+	delay	10
+	frame	data/chars/beyond/4stank/cannon/fire08.gif
+	frame	data/chars/beyond/4stank/cannon/fire07.gif
+	frame	data/chars/beyond/4stank/cannon/fire06.gif
+	frame	data/chars/beyond/4stank/cannon/fire05.gif
+	frame	data/chars/beyond/4stank/cannon/fire04.gif
+	frame	data/chars/beyond/4stank/cannon/fire03.gif
+	frame	data/chars/beyond/4stank/cannon/fire02.gif
+	frame	data/chars/beyond/4stank/cannon/fire01.gif
+	@cmd	anichange "ANI_IDLE"
+	frame	data/chars/beyond/4stank/cannon/fire01.gif
+
+
+
+#-----------------//--------TURN-BACK---//----------------
+
+
+anim	follow2
+	loop	0
+	delay	9
+	offset	240 215
+	frame	data/chars/beyond/4stank/cannon/1.gif
+	sound	data/sounds/tcannon.wav
+	frame	data/chars/beyond/4stank/cannon/1.gif
+	frame	data/chars/beyond/4stank/cannon/2.gif
+	frame	data/chars/beyond/4stank/cannon/3.gif
+	frame	data/chars/beyond/4stank/cannon/4.gif
+	frame	data/chars/beyond/4stank/cannon/5.gif
+	@cmd	flip
+	frame	data/chars/beyond/4stank/cannon/4.gif
+	frame	data/chars/beyond/4stank/cannon/3.gif
+	frame	data/chars/beyond/4stank/cannon/2.gif
+	frame	data/chars/beyond/4stank/cannon/1.gif
+	@cmd	anichange "ANI_FOLLOW3"
+	frame	data/chars/beyond/4stank/cannon/1.gif
+
+#-----------------//--------CANNON-BACK---//----------------
+
+
+anim	follow3
+@script
+	void self = getlocalvar("self");
+	void daddy2 = getentityproperty(self,"parent");
+	void plyr = getentityproperty(daddy2, "playerindex");
+
+	if(frame >= 0 && frame <= 5 )
+	{
+	  if( playerkeys(plyr, 0, "attack2"))
+	  {
+	  performattack(self, openborconstant("ANI_FOLLOW4"));
+	  }
+	  if( playerkeys(plyr, 0, "attack3"))
+	  {
+	  performattack(self, openborconstant("ANI_FOLLOW5"));
+	  }
+	}
+@end_script
+	delay	5
+	loop	1
+	offset	240 215
+	frame	data/chars/beyond/4stank/cannon/1.gif
+	frame	data/chars/beyond/4stank/cannon/1.gif
+	frame	data/chars/beyond/4stank/cannon/1.gif
+	frame	data/chars/beyond/4stank/cannon/1.gif
+	frame	data/chars/beyond/4stank/cannon/1.gif
+
+#------------//---------SHOOT-BACK---//----------------
+
+anim	follow4
+	loop	0
+	delay	3
+	offset	240 215
+	frame	data/chars/beyond/4stank/cannon/fire01.gif
+	frame	data/chars/beyond/4stank/cannon/fire02.gif
+	frame	data/chars/beyond/4stank/cannon/fire03.gif
+	frame	data/chars/beyond/4stank/cannon/fire04.gif
+	sound	data/sounds/bang2.wav
+	@cmd	spawnbind "explosion2" 185 -10 1
+	frame	data/chars/beyond/4stank/cannon/fire05.gif
+	@cmd	tosser "plpw7" 170 20 0 1.7 -0.1 0
+	frame	data/chars/beyond/4stank/cannon/fire06.gif
+	frame	data/chars/beyond/4stank/cannon/fire07.gif
+	frame	data/chars/beyond/4stank/cannon/fire08.gif
+	delay	3
+	frame	data/chars/beyond/4stank/cannon/fire09.gif
+	frame	data/chars/beyond/4stank/cannon/fire10.gif
+	frame	data/chars/beyond/4stank/cannon/fire11.gif
+	frame	data/chars/beyond/4stank/cannon/fire12.gif
+	frame	data/chars/beyond/4stank/cannon/fire13.gif
+	frame	data/chars/beyond/4stank/cannon/fire12.gif
+	frame	data/chars/beyond/4stank/cannon/fire11.gif
+	frame	data/chars/beyond/4stank/cannon/fire10.gif
+	delay	20
+	frame	data/chars/beyond/4stank/cannon/fire09.gif
+	delay	10
+	frame	data/chars/beyond/4stank/cannon/fire08.gif
+	frame	data/chars/beyond/4stank/cannon/fire07.gif
+	frame	data/chars/beyond/4stank/cannon/fire06.gif
+	frame	data/chars/beyond/4stank/cannon/fire05.gif
+	frame	data/chars/beyond/4stank/cannon/fire04.gif
+	frame	data/chars/beyond/4stank/cannon/fire03.gif
+	frame	data/chars/beyond/4stank/cannon/fire02.gif
+	frame	data/chars/beyond/4stank/cannon/fire01.gif
+	@cmd	anichange "ANI_FOLLOW3"
+	frame	data/chars/beyond/4stank/cannon/fire01.gif
+
+
+
+#-----------------//--------TURN-FRONT---//----------------
+
+
+anim	follow5
+	loop	0
+	delay	9
+	offset	240 215
+	frame	data/chars/beyond/4stank/cannon/1.gif
+	sound	data/sounds/tcannon.wav
+	frame	data/chars/beyond/4stank/cannon/1.gif
+	frame	data/chars/beyond/4stank/cannon/2.gif
+	frame	data/chars/beyond/4stank/cannon/3.gif
+	frame	data/chars/beyond/4stank/cannon/4.gif
+	frame	data/chars/beyond/4stank/cannon/5.gif
+	@cmd	flip
+	frame	data/chars/beyond/4stank/cannon/4.gif
+	frame	data/chars/beyond/4stank/cannon/3.gif
+	frame	data/chars/beyond/4stank/cannon/2.gif
+	frame	data/chars/beyond/4stank/cannon/1.gif
+	@cmd	anichange "ANI_IDLE"
+	frame	data/chars/beyond/4stank/cannon/1.gif
+
+#-----------------//--------CANNON-END---//----------------
+
+
+#-----------------//--------MISSILES-GOOO--//----------------
+
+anim	follow6
+@script
+	void self = getlocalvar("self");
+	void daddy2 = getentityproperty(self,"parent");
+	void plyr = getentityproperty(daddy2, "playerindex");
+
+	if(frame >= 0 && frame <= 5 )
+	{
+	  if( playerkeys(plyr, 0, "attack4"))
+	  {
+	  performattack(self, openborconstant("ANI_FOLLOW7"));
+	  }
+	}
+@end_script
+	loop	1
+	delay	5
+	offset	75 73
+	frame	data/chars/beyond/4stank/cannon/empty.gif
+	frame	data/chars/beyond/4stank/cannon/empty.gif
+	frame	data/chars/beyond/4stank/cannon/empty.gif
+	frame	data/chars/beyond/4stank/cannon/empty.gif
+	frame	data/chars/beyond/4stank/cannon/empty.gif
+	frame	data/chars/beyond/4stank/cannon/empty.gif
+
+
+
+anim	follow7
+	loop	0
+	delay	12
+	offset	75 73
+	frame	data/chars/beyond/4stank/cannon/missile01.gif
+	frame	data/chars/beyond/4stank/cannon/missile02.gif
+	sound	data/sounds/tcannon.wav
+	frame	data/chars/beyond/4stank/cannon/missile03.gif
+	frame	data/chars/beyond/4stank/cannon/missile04.gif
+	frame	data/chars/beyond/4stank/cannon/missile05.gif
+	frame	data/chars/beyond/4stank/cannon/missile06.gif
+	frame	data/chars/beyond/4stank/cannon/missile07.gif
+	delay	150
+	frame	data/chars/beyond/4stank/cannon/missile07.gif
+	delay	100
+	@cmd	spawn01 "plrocket1" 28 35 15
+	frame	data/chars/beyond/4stank/cannon/missile08.gif
+	@cmd	spawn01 "plrocket1" 14 35 15
+	frame	data/chars/beyond/4stank/cannon/missile09.gif
+	@cmd	spawn01 "plrocket1" 0 35 15
+	frame	data/chars/beyond/4stank/cannon/missile10.gif
+	@cmd	spawn01 "plrocket1" -14 35 15
+	frame	data/chars/beyond/4stank/cannon/missile11.gif
+	@cmd	spawn01 "plrocket1" -28 35 15
+	frame	data/chars/beyond/4stank/cannon/missile12.gif
+	delay	200
+	frame	data/chars/beyond/4stank/cannon/missile12.gif
+	delay	12
+	frame	data/chars/beyond/4stank/cannon/missile13.gif
+	sound	data/sounds/tcannon.wav
+	frame	data/chars/beyond/4stank/cannon/missile14.gif
+	frame	data/chars/beyond/4stank/cannon/missile15.gif
+	frame	data/chars/beyond/4stank/cannon/missile16.gif
+	frame	data/chars/beyond/4stank/cannon/missile17.gif
+	frame	data/chars/beyond/4stank/cannon/missile17.gif
+	frame	data/chars/beyond/4stank/cannon/missile17.gif
+	@cmd	anichange "ANI_FOLLOW6"
+	frame	data/chars/beyond/4stank/cannon/missile17.gif
+
+#-----------------//--------MISSILES-GOOO--END--//----------------
+
+		
+anim	fall
+	delay	5
+	offset	240 215
+	frame	data/chars/beyond/4stank/cannon/5.gif
+		
+anim	spawn
+	delay	10
+	loop	0
+	offset	240 215
+	frame	data/chars/beyond/4stank/cannon/1.gif
+
+		

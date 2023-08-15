@@ -1,0 +1,97 @@
+name		tkfar
+type		npc
+health		10
+falldie		1
+nodieblink	2
+nodrop		2
+setlayer	-1500
+shadow		0
+facing		1
+nomove		1 1
+lifespan 	35
+offscreenkill 	5000
+subject_to_obstacle 0
+subject_to_hole 0
+subject_to_wall 0
+subject_to_minz 0
+subject_to_maxz 0
+candamage	obstacle
+animationscript data/scripts/escript.c
+
+palette		data/bgs/beyond/lvl2/bck/map3.gif
+
+
+
+
+
+
+
+anim	death
+	loop	0
+	delay	11
+	offset	60 85
+	bbox	0 0 0 0
+	quakeframe	1 10 5
+	frame	data/bgs/beyond/lvl2/bck/tkfar09.gif
+	frame	data/bgs/beyond/lvl2/bck/tkfar10.gif
+	frame	data/bgs/beyond/lvl2/bck/tkfar11.gif
+	frame	data/bgs/beyond/lvl2/bck/tkfar12.gif
+	frame	data/bgs/beyond/lvl2/bck/tkfar13.gif
+	frame	data/bgs/beyond/lvl2/bck/tkfar14.gif
+	frame	data/bgs/beyond/lvl2/bck/tkfar15.gif
+	frame	data/bgs/beyond/lvl2/bck/tkfar16.gif
+	frame	data/bgs/beyond/lvl2/bck/tkfar17.gif
+	frame	data/bgs/beyond/lvl2/bck/tkfar18.gif
+	frame	data/bgs/beyond/lvl2/bck/empty.gif
+		
+anim	follow1
+	loop	1
+	delay	5
+	offset	60 85
+	bbox	40 40 40 25
+	drawmethod	210 210
+	hitfx	data/sounds/expl2.wav
+	@cmd	dasher -0.6 0 0
+	frame	data/bgs/beyond/lvl2/bck/tkfar01.gif
+	frame	data/bgs/beyond/lvl2/bck/tkfar02.gif
+	frame	data/bgs/beyond/lvl2/bck/tkfar03.gif
+	frame	data/bgs/beyond/lvl2/bck/tkfar04.gif
+	frame	data/bgs/beyond/lvl2/bck/tkfar01.gif
+	frame	data/bgs/beyond/lvl2/bck/tkfar02.gif
+	frame	data/bgs/beyond/lvl2/bck/tkfar03.gif
+	frame	data/bgs/beyond/lvl2/bck/tkfar04.gif
+	@cmd	looper 4 10
+	frame	data/bgs/beyond/lvl2/bck/tkfar05.gif
+	attack	135 45 95 25 40 0 1 1 0 0
+	sound	data/sounds/carrierg1.wav
+	frame	data/bgs/beyond/lvl2/bck/tkfar06.gif
+	frame	data/bgs/beyond/lvl2/bck/tkfar07.gif
+	attack	0 0 0 0
+	frame	data/bgs/beyond/lvl2/bck/tkfar08.gif
+		
+anim	idle
+	loop	0
+	delay	5
+	offset	60 85
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl2/bck/tkfar01.gif
+		
+anim	spawn
+@script
+if(frame==1)
+{
+  changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_OBSTACLE"));
+}
+	@end_script	
+	frame	data/bgs/beyond/lvl2/bck/mship01.gif
+	loop	0
+	delay	5
+	offset	60 85
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl2/bck/tkfar01.gif
+	frame	data/bgs/beyond/lvl2/bck/tkfar01.gif
+	@cmd	anichange "ANI_FOLLOW1"
+	frame	data/bgs/beyond/lvl2/bck/tkfar01.gif
+		
+#|edited by openBor Stats v 0.53
+		

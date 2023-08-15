@@ -1,0 +1,155 @@
+name	 	ftuf1
+type		enemy
+subtype		chase
+health		1000
+offscreenkill 	10000
+speed		11
+noquake		1
+nolife  	1
+falldie		1
+makeinv		3
+nodieblink	2
+shadow		0
+nodrop		1
+facing          1
+nopain		1
+cantgrab	1
+antigrab	50
+subject_to_obstacle 0
+subject_to_hole 0
+subject_to_wall 0
+subject_to_minz 0
+subject_to_maxz 0
+lifespan  	45
+hostile				player
+candamage			enemy player
+diesound        data/sounds/empty.wav
+animationscript 	data/scripts/escript.c
+
+
+
+load	pw17
+
+
+
+anim	death
+	delay	8
+	offset	265 480
+	@cmd	killgun 2 0 
+	frame	data/bgs/beyond/lvl3/bck/uv05.gif
+	sound	data/sounds/Electricity3.wav
+	frame	data/bgs/beyond/lvl3/bck/uv06.gif
+	@cmd	killgun 2 0
+	frame	data/bgs/beyond/lvl3/bck/uv07.gif
+	sound	data/sounds/Electricity3.wav
+	frame	data/bgs/beyond/lvl3/bck/uv08.gif
+	@cmd	killgun 2 0
+	frame	data/bgs/beyond/lvl3/bck/uv09.gif
+	frame	data/bgs/beyond/lvl3/bck/uv10.gif
+	sound	data/sounds/Electricity3.wav
+	frame	data/bgs/beyond/lvl3/bck/uv11.gif
+	frame	data/bgs/beyond/lvl3/bck/uv12.gif
+	@cmd	suicide
+	frame	data/bgs/beyond/lvl3/bck/uv12.gif
+
+
+		
+anim	follow1
+	loop	0
+	delay	6
+	offset	265 480
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl3/bck/uv14.gif
+	sound	data/sounds/alimon6.wav
+	frame	data/bgs/beyond/lvl3/bck/uv15.gif
+	frame	data/bgs/beyond/lvl3/bck/uv16.gif
+	frame	data/bgs/beyond/lvl3/bck/uv17.gif
+
+	frame	data/bgs/beyond/lvl3/bck/uv18.gif
+	frame	data/bgs/beyond/lvl3/bck/uv19.gif
+	@cmd	spawnGun5 "pw17" -5 0 -1 2 "ANI_FOLLOW1"
+	frame	data/bgs/beyond/lvl3/bck/uv20.gif
+	frame	data/bgs/beyond/lvl3/bck/uv21.gif
+
+	frame	data/bgs/beyond/lvl3/bck/uv18.gif
+	frame	data/bgs/beyond/lvl3/bck/uv19.gif
+	@cmd	targetrgt 1 0.5 1 1 0
+	@cmd	dash
+	sound	data/sounds/laser2.wav
+	frame	data/bgs/beyond/lvl3/bck/uv20.gif
+	frame	data/bgs/beyond/lvl3/bck/uv21.gif
+	@cmd	looper 8 10
+	frame	data/bgs/beyond/lvl3/bck/uv18.gif
+	@cmd	stop
+	frame	data/bgs/beyond/lvl3/bck/uv19.gif
+	@cmd	killgun 2 0 
+	frame	data/bgs/beyond/lvl3/bck/uv20.gif
+	frame	data/bgs/beyond/lvl3/bck/uv21.gif
+
+	frame	data/bgs/beyond/lvl3/bck/uv17.gif
+	sound	data/sounds/alimon6.wav
+	frame	data/bgs/beyond/lvl3/bck/uv16.gif
+	frame	data/bgs/beyond/lvl3/bck/uv15.gif
+	frame	data/bgs/beyond/lvl3/bck/uv14.gif
+	@cmd	beidle
+	frame	data/bgs/beyond/lvl3/bck/uv14.gif
+
+
+
+
+		
+anim	idle
+	loop	1
+	delay	6
+	offset	265 480
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl3/bck/uv01.gif
+	@cmd	attack1 -50 50 10 "ANI_FOLLOW1"
+	sound	data/sounds/mship.wav
+	frame	data/bgs/beyond/lvl3/bck/uv02.gif
+	@cmd	attack1 -50 50 10 "ANI_FOLLOW1"
+	frame	data/bgs/beyond/lvl3/bck/uv03.gif
+	@cmd	attack1 -50 50 10 "ANI_FOLLOW1"
+	frame	data/bgs/beyond/lvl3/bck/uv04.gif
+		
+anim	spawn
+	loop	0
+	delay	6
+	offset	265 480
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl3/bck/uv12.gif
+	sound	data/sounds/Electricity3.wav
+	frame	data/bgs/beyond/lvl3/bck/uv11.gif
+	frame	data/bgs/beyond/lvl3/bck/uv10.gif
+	frame	data/bgs/beyond/lvl3/bck/uv09.gif
+	sound	data/sounds/Electricity3.wav
+	frame	data/bgs/beyond/lvl3/bck/uv08.gif
+	frame	data/bgs/beyond/lvl3/bck/uv07.gif
+	frame	data/bgs/beyond/lvl3/bck/uv06.gif
+	sound	data/sounds/Electricity3.wav
+	frame	data/bgs/beyond/lvl3/bck/uv05.gif
+	frame	data/bgs/beyond/lvl3/bck/uv04.gif
+	frame	data/bgs/beyond/lvl3/bck/uv03.gif
+	sound	data/sounds/Electricity3.wav
+	frame	data/bgs/beyond/lvl3/bck/uv02.gif
+	frame	data/bgs/beyond/lvl3/bck/uv01.gif
+	frame	data/bgs/beyond/lvl3/bck/uv04.gif
+	sound	data/sounds/Electricity3.wav
+	frame	data/bgs/beyond/lvl3/bck/uv03.gif
+	frame	data/bgs/beyond/lvl3/bck/uv02.gif
+	frame	data/bgs/beyond/lvl3/bck/uv01.gif
+
+	frame	data/bgs/beyond/lvl3/bck/uv04.gif
+	frame	data/bgs/beyond/lvl3/bck/uv03.gif
+	frame	data/bgs/beyond/lvl3/bck/uv02.gif
+	frame	data/bgs/beyond/lvl3/bck/uv01.gif
+
+	frame	data/bgs/beyond/lvl3/bck/uv04.gif
+	frame	data/bgs/beyond/lvl3/bck/uv03.gif
+	frame	data/bgs/beyond/lvl3/bck/uv02.gif
+	frame	data/bgs/beyond/lvl3/bck/uv01.gif
+
+
+		
+#|edited by openBor Stats v 0.53
+		

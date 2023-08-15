@@ -1,0 +1,368 @@
+name		jonyrod
+type		enemy
+health		100
+mp		100
+speedf		1.6
+jumpheight	0
+noquake		1
+falldie		1
+nodieblink	1
+makeinv		3
+gfxshadow	1
+nodrop		1
+facing          1
+antigrab	10
+aggression      25
+nopain		1
+hostile				player npc
+candamage			player npc
+subject_to_platform 1
+subject_to_wall 1
+diesound        data/sounds/bang2.wav
+
+animationscript data/scripts/escript.c
+
+icon		data/chars/3johnny/jicon2.gif
+lifebarstatus 300 10 0 1 0 2 5 
+lifeposition 115  240
+nameposition -200 -200
+iconposition 50 227
+nolife 1
+
+load	jonythemachinegun
+load	rodlight
+load	rodlight2
+load	explosion1
+load	burn2
+load	cardam2
+load	steam
+
+palette	none
+
+
+
+
+anim	attack1
+	range	50 260
+	loop	0
+	delay	5
+	offset	170 130
+	bbox	30 35 290 85
+	platform	30 135 0 0 300 300 20 70
+	sound	data/sounds/bike5.wav
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/jhrod02.gif
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/jhrod02.gif
+		
+anim	attack2
+	range	-268 -50
+	loop	0
+	delay	5
+	offset	170 130
+	bbox	30 35 290 85
+	platform	30 135 0 0 300 300 20 70
+	sound	data/sounds/bike5.wav
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/jhrod02.gif
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/jhrod02.gif
+
+
+
+
+		
+anim	death
+@script
+	void self = getlocalvar("self");
+	void Gun1 = getentityvar(self, 1);
+
+	if(frame == 1 )
+	{
+        damageentity(Gun1, self, 10000, 0, openborconstant("ATK_NORMAL"));
+	}
+@end_script
+	loop	0
+	delay	5
+	offset	170 130
+	bbox	0 0 0 0
+	platform	30 135 0 0 300 300 20 70
+	quakeframe	14 1 5
+	frame	data/chars/3jhonnyRod/death00.gif
+	@cmd	spawn01 "explosion1" 80 100 10
+	frame	data/chars/3jhonnyRod/death01.gif
+	@cmd	spawnbind "burn2" 155 70 15
+	frame	data/chars/3jhonnyRod/death00.gif
+	@cmd	spawnbind "Steam" 135 60 15
+	frame	data/chars/3jhonnyRod/death01.gif
+	@cmd	spawn01 "explosion1" -70 90 10
+	frame	data/chars/3jhonnyRod/death00.gif
+	@cmd	spawn01 "cardam2" 0 50 10
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	move	-4
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	move	-8
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+		
+anim	fall
+	loop	0
+	delay	5
+	offset	170 130
+	bbox	0 0 0 0
+	platform	30 135 0 0 300 300 20 70
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/jhrod02.gif
+		
+anim	idle
+	loop	1
+	delay	5
+	offset	170 130
+	bbox	30 35 290 85
+	platform	30 135 0 0 300 300 20 70
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/jhrod02.gif
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	sound	data/sounds/bike5.wav
+	frame	data/chars/3jhonnyRod/jhrod02.gif
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/jhrod02.gif
+		
+anim	pain
+	loop	0
+	delay	5
+	offset	170 130
+	bbox	30 35 290 85
+	platform	30 135 0 0 300 300 20 70
+	move	9
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/jhrod02.gif
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/jhrod02.gif
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/jhrod02.gif
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/jhrod02.gif
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/jhrod02.gif
+		
+anim	pain2
+	loop	0
+	delay	5
+	offset	170 130
+	bbox	30 35 290 85
+	platform	30 135 0 0 300 300 20 70
+	move	-9
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/jhrod02.gif
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/jhrod02.gif
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/jhrod02.gif
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/jhrod02.gif
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/jhrod02.gif
+		
+anim	rise
+	loop	0
+	delay	5
+	offset	170 130
+	bbox	30 35 290 85
+	platform	30 135 0 0 300 300 20 70
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/jhrod02.gif
+		
+anim	spawn
+	loop	0
+	delay	12
+	offset	170 130
+	bbox	0 0 0 0
+	platform	30 135 0 0 300 300 20 70
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	@cmd	spawnbind "rodlight" 140 30 5
+	@cmd	spawnbind "rodlight2" -140 60 5
+	frame	data/chars/3jhonnyRod/jhrod02.gif
+	@cmd	spawnGun "jonythemachinegun" 95 65 5 1
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/jhrod02.gif
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/jhrod02.gif
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/jhrod02.gif
+		
+anim	walk
+	loop	1
+	delay	5
+	offset	170 130
+	bbox	30 35 290 85
+	platform	30 135 0 0 300 300 20 70
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/jhrod02.gif
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	sound	data/sounds/bike5.wav
+	frame	data/chars/3jhonnyRod/jhrod02.gif
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/jhrod02.gif
+		
+#|edited by openBor Stats v 0.53
+		

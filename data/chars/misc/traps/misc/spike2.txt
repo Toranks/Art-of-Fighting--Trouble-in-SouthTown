@@ -1,0 +1,75 @@
+name	 spike2
+health   0
+type     trap
+nolife   1
+subject_to_wall    0
+subject_to_hole 0
+subject_to_platform 0
+offscreenkill 	15000
+candamage	player
+animationscript data/scripts/escript.c
+
+
+
+palette		data/chars/misc/traps/misc/0map1.gif
+
+
+
+
+
+anim	follow7
+	loop	0
+	delay	6
+	offset	9 68
+	hitflash	Flash4
+	hitfx	data/sounds/beat2.wav
+	frame	data/chars/misc/traps/misc/00.gif
+	frame	data/chars/misc/traps/misc/01.gif
+	frame	data/chars/misc/traps/misc/02.gif
+	frame	data/chars/misc/traps/misc/03.gif
+	frame	data/chars/misc/traps/misc/04.gif
+	frame	data/chars/misc/traps/misc/05.gif
+	attack	-1 0 20 75 15 1 0 0 10 8
+	frame	data/chars/misc/traps/misc/06.gif
+	frame	data/chars/misc/traps/misc/07.gif
+	frame	data/chars/misc/traps/misc/08.gif
+	frame	data/chars/misc/traps/misc/09.gif
+	frame	data/chars/misc/traps/misc/10.gif
+	frame	data/chars/misc/traps/misc/09.gif
+	frame	data/chars/misc/traps/misc/10.gif
+	frame	data/chars/misc/traps/misc/09.gif
+	frame	data/chars/misc/traps/misc/10.gif
+	frame	data/chars/misc/traps/misc/08.gif
+	attack	0 0 0 0
+	frame	data/chars/misc/traps/misc/07.gif
+	frame	data/chars/misc/traps/misc/06.gif
+	frame	data/chars/misc/traps/misc/05.gif
+	frame	data/chars/misc/traps/misc/04.gif
+	frame	data/chars/misc/traps/misc/03.gif
+	frame	data/chars/misc/traps/misc/02.gif
+	frame	data/chars/misc/traps/misc/01.gif
+	frame	data/chars/misc/traps/misc/00.gif
+	@cmd	beidle
+	frame	data/chars/misc/traps/misc/00.gif
+		
+anim	idle
+	loop	1
+	delay	60
+	offset	9 68
+	bbox	0 0 0 0
+    @script
+    void self = getlocalvar("self");
+    if( frame == 0){
+      int r = rand()%50;
+
+      if( r > 0){
+        changeentityproperty(self, "animation", openborconstant("ANI_FOLLOW7"));
+      }
+    }
+	@end_script	
+	frame	data/chars/misc/traps/misc/00.gif
+	frame	data/chars/misc/traps/misc/00.gif
+	frame	data/chars/misc/traps/misc/00.gif
+		
+#|edited by openBor Stats v 0.53
+		

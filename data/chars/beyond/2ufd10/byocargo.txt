@@ -1,0 +1,113 @@
+name			byocargo
+type			obstacle
+health			3
+shadow			6
+nolife			1
+falldie			1
+subject_to_wall		0
+subject_to_hole		0
+subject_to_platform	0
+subject_to_gravity	0
+lifespan		20
+offscreenkill 	        20000
+diesound      data/sounds/bang.wav
+
+animationscript data/scripts/escript.c
+
+palette		data/chars/beyond/2ufd10/xidle01.gif	
+
+load	crystal
+load	glassbrk2
+load    explosion2
+
+
+anim	spawn
+	loop	0
+	delay	5
+	offset	120 230
+	bbox	0 0 0 0
+	platform	1 1 1 1 1 1 1 1
+	frame	data/chars/beyond/2ufd10/idle01.gif
+	frame	data/chars/beyond/2ufd10/idle01.gif
+	@cmd	dasher 1 0 0
+	frame	data/chars/beyond/2ufd10/idle01.gif
+
+anim	idle
+	loop	1
+	delay	7
+	offset	120 230
+	bbox	80 55 90 60 30
+	platform	1 1 1 1 1 1 1 1
+	frame	data/chars/beyond/2ufd10/xidle01.gif
+	@cmd	dasher 1.2 0 0
+	frame	data/chars/beyond/2ufd10/xidle01.gif
+	frame	data/chars/beyond/2ufd10/xidle02.gif
+	frame	data/chars/beyond/2ufd10/xidle03.gif
+	frame	data/chars/beyond/2ufd10/xidle04.gif
+	frame	data/chars/beyond/2ufd10/xidle01.gif
+	frame	data/chars/beyond/2ufd10/xidle02.gif
+	frame	data/chars/beyond/2ufd10/xidle03.gif
+	frame	data/chars/beyond/2ufd10/xidle04.gif
+	@cmd	looper 1 15
+	frame	data/chars/beyond/2ufd10/xidle01.gif
+	frame	data/chars/beyond/2ufd10/xidle02.gif
+	frame	data/chars/beyond/2ufd10/xidle03.gif
+	frame	data/chars/beyond/2ufd10/xidle04.gif
+	frame	data/chars/beyond/2ufd10/xidle01.gif
+	frame	data/chars/beyond/2ufd10/xidle02.gif
+	@cmd	stop
+	frame	data/chars/beyond/2ufd10/xidle03.gif
+	@cmd	suicide
+	frame	data/chars/beyond/2ufd10/xidle04.gif
+
+
+
+anim	death
+	loop	0
+	delay	9
+	offset	120 230
+	bbox	0 0 0 0
+	platform	1 1 1 1 1 1 1 1
+	jumpframe 0 -0.3 1
+	frame	data/chars/beyond/2ufd10/xdet01.gif
+	@cmd	spawn01 "glassbrk2" 0 150 5
+	@cmd	spawn01 "crystal" -20 150 5
+	@cmd	spawn01 "crystal" -10 150 -5
+	@cmd	spawn01 "crystal" 0 150 10
+	@cmd	spawn01 "crystal" 10 150 -5
+	@cmd	spawn01 "crystal" 20 150 5
+	frame	data/chars/beyond/2ufd10/xdet02.gif
+	@cmd	spawn01 "explosion2" 0 150 5
+	frame	data/chars/beyond/2ufd10/xdet03.gif
+	frame	data/chars/beyond/2ufd10/xdet04.gif
+	@cmd	spawn01 "explosion2" 0 150 5
+	frame	data/chars/beyond/2ufd10/xdet05.gif
+	frame	data/chars/beyond/2ufd10/xdet06.gif
+	@cmd	spawn01 "explosion2" 0 150 5
+	frame	data/chars/beyond/2ufd10/xdet07.gif
+	frame	data/chars/beyond/2ufd10/xdet08.gif
+	@cmd	spawn01 "explosion2" 0 150 5
+	frame	data/chars/beyond/2ufd10/xdet09.gif
+	frame	data/chars/beyond/2ufd10/xdet10.gif
+	@cmd	spawn01 "explosion2" 0 150 5
+	frame	data/chars/beyond/2ufd10/xdet07.gif
+	frame	data/chars/beyond/2ufd10/xdet08.gif
+	@cmd	spawn01 "explosion2" 0 150 5
+	frame	data/chars/beyond/2ufd10/xdet09.gif
+	frame	data/chars/beyond/2ufd10/xdet10.gif
+	@cmd	suicide
+	frame	data/chars/beyond/2ufd10/xdet10.gif
+
+
+
+
+
+
+
+
+
+
+
+
+
+

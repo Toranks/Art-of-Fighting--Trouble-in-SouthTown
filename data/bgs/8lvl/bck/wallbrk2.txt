@@ -1,0 +1,103 @@
+name	 	wallbrk2
+type		npc
+subtype		notgrab
+health		8
+jumpheight	0
+nolife          1
+noquake		1
+falldie		1
+nodieblink	3
+makeinv		3
+shadow		0
+noatflash 	1
+nodrop		2
+nomove          1 1
+facing		1
+subject_to_wall 0
+subject_to_platform 0
+hostile				player
+candamage			player
+sound   data/sounds/wood.wav
+animationscript data/scripts/escript.c
+
+
+load	earth
+
+palette		data/bgs/8lvl/Bck/wallmap.gif
+
+
+
+anim	death
+	loop	0
+	delay	2
+	offset	80 190
+	bbox	0 0 0 0
+	sound	data/sounds/wood.wav
+	@cmd	spawn01 "earth" 10 60 1
+	frame	data/bgs/8lvl/bck/wall02.gif
+	attack3	-50 15 175 285 0 1 1 1 45 120
+	dropv	7 2
+	@cmd	playmusic "data/music/gemma.ogg" 1
+	frame	data/bgs/8lvl/bck/wall02.gif
+	@cmd	changeopenborvariant "slowmotion" 1
+	frame	data/bgs/8lvl/bck/wall02.gif
+	delay	20
+	frame	data/bgs/8lvl/bck/wall02.gif
+	sound	data/sounds/fatal.wav
+	frame	data/bgs/8lvl/bck/wall02.gif
+	attack3	0 0 0 0
+	delay	195
+	frame	data/bgs/8lvl/bck/wall02.gif
+	frame	data/bgs/8lvl/bck/wall02.gif
+	@cmd	changeopenborvariant "slowmotion" 0
+	frame	data/bgs/8lvl/bck/wall02.gif
+		
+anim	fall
+	loop	0
+	delay	5
+	offset	80 190
+	bbox	0 0 0 0
+	platform	-10 310 0 100 100 220 130 400
+	sound	data/sounds/wood.wav
+	frame	data/bgs/8lvl/bck/wall01.gif
+		
+anim	fall7
+	loop	0
+	delay	300
+	offset	80 190
+	bbox	0 0 0 0
+	frame	data/bgs/8lvl/bck/wall01.gif
+		
+anim	idle
+	loop	0
+	delay	100
+	offset	80 190
+	bbox	30 5 260 280
+	platform	-10 310 0 90 100 220 130 400
+	frame	data/bgs/8lvl/bck/wall01.gif
+		
+anim	pain
+	loop	0
+	delay	5
+	offset	80 190
+	bbox	30 5 260 280
+	platform	-10 310 0 100 100 220 130 400
+	frame	data/bgs/8lvl/bck/wall01.gif
+		
+anim	rise
+	loop	0
+	delay	5
+	offset	80 190
+	bbox	0 0 0 0
+	platform	-10 310 0 100 100 220 130 400
+	frame	data/bgs/8lvl/bck/wall01.gif
+		
+anim	spawn
+	loop	0
+	delay	5
+	offset	80 190
+	bbox	0 0 0 0
+	frame	data/bgs/8lvl/bck/wall01.gif
+		
+#|edited by openBor Stats v 0.53
+		

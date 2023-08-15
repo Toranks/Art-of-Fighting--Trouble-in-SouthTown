@@ -1,0 +1,71 @@
+name	 spike1
+health   0
+type     trap
+nolife   1
+subject_to_wall    0
+subject_to_hole 0
+subject_to_platform 0
+offscreenkill 	15000 
+candamage	player
+animationscript data/scripts/escript.c
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+anim	follow7
+	loop	0
+	delay	10
+	offset	17 45
+	hitflash	Flash4
+	hitfx	data/sounds/beat2.wav
+	sound	data/sounds/cut3.wav
+	frame	data/chars/misc/traps/misc/t1.gif
+	attack	10 65 20 100 15 1 0 0 0 50
+	frame	data/chars/misc/traps/misc/t2.gif
+	attack	8 50 23 115 15 1 0 0 0 50
+	offset	17 47
+	frame	data/chars/misc/traps/misc/t3.gif
+	offset	17 45
+	frame	data/chars/misc/traps/misc/t3.gif
+	offset	17 47
+	frame	data/chars/misc/traps/misc/t3.gif
+	offset	17 45
+	attack	9 75 21 90 15 1 0 0 0 50
+	frame	data/chars/misc/traps/misc/t4.gif
+	frame	data/chars/misc/traps/misc/t5.gif
+	@cmd	beidle
+	frame	data/chars/misc/traps/misc/t1.gif
+		
+anim	idle
+	loop	1
+	delay	55
+	offset	17 45
+	bbox	0 0 0 0
+    @script
+    void self = getlocalvar("self");
+    if( frame == 0){
+      int r = rand()%50;
+
+      if( r > 0){
+        changeentityproperty(self, "animation", openborconstant("ANI_FOLLOW7"));
+      }
+    }
+	@end_script	
+	frame	data/chars/misc/traps/misc/t1.gif
+	frame	data/chars/misc/traps/misc/t1.gif
+	frame	data/chars/misc/traps/misc/t1.gif
+		
+#|edited by openBor Stats v 0.53
+		

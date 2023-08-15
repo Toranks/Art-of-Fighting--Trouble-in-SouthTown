@@ -1,0 +1,227 @@
+music		data/music/mrklvl1.ogg
+
+background	data/bgs/68lvl/back.gif 0 0.2
+panel		data/bgs/68lvl/panel.gif
+layer		data/bgs/68lvl/panel1.gif -3000 0 0 0 0 0 0 -1 1 1
+layer      	data/bgs/68lvl/front1.gif -2000 0 0 0 0 0 0 -1 1 1
+layer      	data/bgs/68lvl/water1.gif -2500 0 0 -348 726 0 0 -1 1 1 1 1 5 5 1
+layer      	data/bgs/68lvl/water2.gif -1500 0 0 -348 726 0 0 -1 1 1 1 1 5 5 1
+layer	        data/bgs/68lvl/light.gif 1500 0 0 -10 360 0 0 1 1 1 1 0 0 0 0 0
+layer	        data/bgs/68lvl/light2.gif 1500 0 0 450 260 0 0 1 1 1 1 0 0 0 0 0
+fglayer    	data/bgs/68lvl/front3.gif 2500 0 0 0 0 0 0 1 1 1
+
+
+direction       both
+light  		0   -25
+at       	0
+settime         0
+notime          1
+noslow          1
+order		a
+spawn1  	400 30
+spawn2   	390 30
+spawn3   	410 30
+
+
+cameraoffset            0 -90
+cameratype              1
+scrollspeed             2
+
+#------entrance
+
+wall    -210 935  0 0 510 510 220 5000
+wall    -110 1080  0 0 200 200 150 5000
+wall    1250 1050  110 500 810 810 260 5000
+
+#----------------------
+#----------------------------------
+spawn   stgSET7
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+coords  -500 1000 630
+at      0
+#----------------------------------
+
+spawn water_puddle_test
+@script
+void main() {
+	 void self = getlocalvar("self");
+
+	 setentityvar(self, 0, "water_puddle"); // name/type
+	 setentityvar(self, 1, 2000); // width
+	 setentityvar(self, 2, 50);    // height
+	 setentityvar(self, 3, 380);  // depth
+	 setentityvar(self, "map", 0);  // ripple/splash map
+	 setentityvar(self, "transp", 60);  // alpha transp value
+}
+@end_script
+coords 0 910 0
+at 0
+
+spawn   rvfall
+coords  130 940 600
+at      0
+
+spawn   rvfall
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+} @end_script
+flip    1
+coords  140 740 350
+at      0
+
+spawn   afterfall2
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+map     2
+coords  1590 470
+at      0
+
+spawn   river
+flip    1
+coords  1340 680
+at      0
+
+spawn   pool
+flip    1
+map     1
+coords  1400 900
+at      0
+
+spawn   pool
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+flip    1
+map     1
+coords  1500 950
+at      0
+
+
+#----------------------
+spawn   splash
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW4"));
+} @end_script
+coords  350 900 50
+at      0
+
+spawn   splash
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW4"));
+} @end_script
+coords  480 900 50
+at      0
+
+spawn   splash
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW4"));
+} @end_script
+coords  425 910 50
+at      0
+#----------------------
+
+group 4 4
+at    0
+
+spawn   mrkarate2
+health  4000
+flip    1
+coords  200 900 560
+at      0
+
+spawn   ghost3
+coords  400 890
+at      0
+
+spawn   ghost4
+coords  400 890
+at      0
+
+spawn   ghost3
+@script
+void main()
+{
+    changeopenborvariant("xpos", 0);
+    changeopenborvariant("ypos", 220);
+}
+@end_script
+coords  400 890
+at      0
+
+#----------------------------
+
+#----------------------------
+spawn   pirax
+health  40
+coords  550 890
+at      0
+
+spawn   pirax
+health  40
+map     2
+coords  550 870
+at      0
+
+spawn   pirax
+health  40
+map     1
+coords  600 900
+at      0
+
+spawn   pirax
+health  40
+coords  400 950
+at      0
+#----------------------------
+
+spawn   pirax
+health  40
+map     1
+coords  550 890
+at      0
+
+spawn   pirax
+health  40
+coords  550 870
+at      0
+
+spawn   pirax
+health  50
+map     1
+coords  600 900
+at      0
+
+spawn   pirax
+health  40
+map     2
+coords  400 950
+at      0
+#----------------------------
+
+spawn   pirax
+health  40
+coords  550 890
+at      0
+
+spawn   pirax
+health  40
+map     2
+coords  550 870
+at      0
+
+spawn   pirax
+health  40
+map     1
+coords  600 900
+at      0
+
+spawn   pirax
+health  40
+map     2
+coords  400 950
+at      0
+
+

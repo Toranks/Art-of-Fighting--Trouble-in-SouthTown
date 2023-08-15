@@ -1,0 +1,1360 @@
+name	 imgpw
+type	 text
+subtype  noskip
+health	 500
+nolife	1
+facing	1
+hostile player
+setlayer	9999999990
+offscreenkill	50000
+#subject_to_minz 0
+#subject_to_maxz 0
+subject_to_wall 0
+subject_to_obstacle 0
+subject_to_platform 0
+subject_to_gravity 0
+subject_to_screen 1
+animationscript data/scripts/grabscript.c
+
+palette	none
+
+
+script	@script
+void main()
+{
+    void self = getlocalvar("self");
+	void anim = getentityproperty(self,"animationID");
+	int x = getentityproperty(self,"x");
+	int z = getentityproperty(self,"z");
+
+	int XPos = openborvariant("xpos");
+	int YPos = openborvariant("ypos");
+	int Screen = openborvariant("hResolution");
+	int Screen2 = openborvariant("vResolution");
+
+
+
+	if(anim == openborconstant("ANI_IDLE") || anim == openborconstant("ANI_FOLLOW1") || anim == openborconstant("ANI_FOLLOW2") || anim == openborconstant("ANI_FOLLOW3") || anim == openborconstant("ANI_FOLLOW4") || anim == openborconstant("ANI_FOLLOW5") || anim == openborconstant("ANI_FOLLOW6") || anim == openborconstant("ANI_FOLLOW7") || anim == openborconstant("ANI_FOLLOW9") || anim == openborconstant("ANI_FOLLOW10"))
+	{
+
+   		if( x >= XPos+Screen-200) // right
+   		{
+        	changeentityproperty(self, "velocity", -2);
+   		}
+   		else if(x <= XPos+200) // left
+   		{
+        	changeentityproperty(self, "velocity", 2);
+   		}
+   		else if( z >= YPos+Screen2+10) // down
+   		{
+		changeentityproperty(self, "velocity", 0, -1);
+   		}
+   		else if( z <= YPos+10) // up
+   		{
+		changeentityproperty(self, "velocity", 0, 1);
+   		}
+  	}
+
+	if(anim == openborconstant("ANI_FOLLOW11"))
+	{
+
+   		if( x >= XPos+Screen-140) // right
+   		{
+        	changeentityproperty(self, "velocity", -2);
+   		}
+   		else if(x <= XPos+200) // left
+   		{
+        	changeentityproperty(self, "velocity", 2);
+   		}
+   		else if( z >= YPos+Screen2+60) // down
+   		{
+		changeentityproperty(self, "velocity", 0, -1);
+   		}
+   		else if( z <= YPos-90) // up
+   		{
+		changeentityproperty(self, "velocity", 0, 1);
+   		}
+  	}
+
+}
+@end_script
+
+anim	spawn
+	loop	0
+	delay	5
+	offset	10 10
+	frame	data/bgs/99museum/bck/empty.gif
+	frame	data/bgs/99museum/bck/empty.gif
+	@cmd	anichange "ANI_IDLE"
+	frame	data/bgs/99museum/bck/empty.gif
+
+anim	idle
+	loop	1 13 17
+	delay	5
+	offset	240 250
+	drawmethod 6 6
+	frame	data/bgs/99museum/bck/pw01.gif
+	drawmethod 26 26
+	frame	data/bgs/99museum/bck/pw01.gif
+	drawmethod 46 46
+	frame	data/bgs/99museum/bck/pw01.gif
+	drawmethod 66 66
+	frame	data/bgs/99museum/bck/pw01.gif
+	drawmethod 86 86
+	frame	data/bgs/99museum/bck/pw01.gif
+	drawmethod 106 106
+	frame	data/bgs/99museum/bck/pw01.gif
+	drawmethod 126 126
+	frame	data/bgs/99museum/bck/pw01.gif
+	drawmethod 146 146
+	frame	data/bgs/99museum/bck/pw01.gif
+	drawmethod 166 166
+	frame	data/bgs/99museum/bck/pw01.gif
+	drawmethod 186 186
+	frame	data/bgs/99museum/bck/pw01.gif
+	drawmethod 206 206
+	frame	data/bgs/99museum/bck/pw01.gif
+	drawmethod 226 226
+	frame	data/bgs/99museum/bck/pw01.gif
+	drawmethod 246 246
+	frame	data/bgs/99museum/bck/pw01.gif
+	nodrawmethod
+	frame	data/bgs/99museum/bck/pw01.gif #13
+	@cmd	keymove 2
+	@cmd    keyint "ANI_IDLE" 17 "A" 0 0
+	frame	data/bgs/99museum/bck/pw01.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_IDLE" 17 "A" 0 0
+	frame	data/bgs/99museum/bck/pw01.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_IDLE" 17 "A" 0 0
+	frame	data/bgs/99museum/bck/pw01.gif #16
+	@cmd	stop
+	drawmethod 246 246
+	frame	data/bgs/99museum/bck/pw01.gif #17
+	drawmethod 226 226
+	frame	data/bgs/99museum/bck/pw01.gif
+	drawmethod 206 206
+	frame	data/bgs/99museum/bck/pw01.gif
+	drawmethod 186 186
+	frame	data/bgs/99museum/bck/pw01.gif
+	drawmethod 166 166
+	frame	data/bgs/99museum/bck/pw01.gif
+	drawmethod 146 146
+	frame	data/bgs/99museum/bck/pw01.gif
+	drawmethod 126 126
+	frame	data/bgs/99museum/bck/pw01.gif
+	drawmethod 106 106
+	frame	data/bgs/99museum/bck/pw01.gif
+	drawmethod 86 86
+	frame	data/bgs/99museum/bck/pw01.gif
+	drawmethod 66 66
+	frame	data/bgs/99museum/bck/pw01.gif
+	drawmethod 46 46
+	frame	data/bgs/99museum/bck/pw01.gif
+	drawmethod 26 26
+	frame	data/bgs/99museum/bck/pw01.gif
+	drawmethod 6 6
+	frame	data/bgs/99museum/bck/pw01.gif
+	nodrawmethod
+	frame	data/bgs/99museum/bck/empty.gif
+	@cmd	anichange "ANI_FOLLOW1"
+	frame	data/bgs/99museum/bck/empty.gif
+
+
+anim	follow1
+	loop	1 13 17
+	delay	5
+	offset	240 250
+	drawmethod 6 6
+	frame	data/bgs/99museum/bck/pw02.gif
+	drawmethod 26 26
+	frame	data/bgs/99museum/bck/pw02.gif
+	drawmethod 46 46
+	frame	data/bgs/99museum/bck/pw02.gif
+	drawmethod 66 66
+	frame	data/bgs/99museum/bck/pw02.gif
+	drawmethod 86 86
+	frame	data/bgs/99museum/bck/pw02.gif
+	drawmethod 106 106
+	frame	data/bgs/99museum/bck/pw02.gif
+	drawmethod 126 126
+	frame	data/bgs/99museum/bck/pw02.gif
+	drawmethod 146 146
+	frame	data/bgs/99museum/bck/pw02.gif
+	drawmethod 166 166
+	frame	data/bgs/99museum/bck/pw02.gif
+	drawmethod 186 186
+	frame	data/bgs/99museum/bck/pw02.gif
+	drawmethod 206 206
+	frame	data/bgs/99museum/bck/pw02.gif
+	drawmethod 226 226
+	frame	data/bgs/99museum/bck/pw02.gif
+	drawmethod 246 246
+	frame	data/bgs/99museum/bck/pw02.gif
+	nodrawmethod
+	frame	data/bgs/99museum/bck/pw02.gif #13
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW1" 17 "A" 0 0
+	frame	data/bgs/99museum/bck/pw02.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW1" 17 "A" 0 0
+	frame	data/bgs/99museum/bck/pw02.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW1" 17 "A" 0 0
+	frame	data/bgs/99museum/bck/pw02.gif #16
+	@cmd	stop
+	drawmethod 246 246
+	frame	data/bgs/99museum/bck/pw02.gif #17
+	drawmethod 226 226
+	frame	data/bgs/99museum/bck/pw02.gif
+	drawmethod 206 206
+	frame	data/bgs/99museum/bck/pw02.gif
+	drawmethod 186 186
+	frame	data/bgs/99museum/bck/pw02.gif
+	drawmethod 166 166
+	frame	data/bgs/99museum/bck/pw02.gif
+	drawmethod 146 146
+	frame	data/bgs/99museum/bck/pw02.gif
+	drawmethod 126 126
+	frame	data/bgs/99museum/bck/pw02.gif
+	drawmethod 106 106
+	frame	data/bgs/99museum/bck/pw02.gif
+	drawmethod 86 86
+	frame	data/bgs/99museum/bck/pw02.gif
+	drawmethod 66 66
+	frame	data/bgs/99museum/bck/pw02.gif
+	drawmethod 46 46
+	frame	data/bgs/99museum/bck/pw02.gif
+	drawmethod 26 26
+	frame	data/bgs/99museum/bck/pw02.gif
+	drawmethod 6 6
+	frame	data/bgs/99museum/bck/pw02.gif
+	nodrawmethod
+	frame	data/bgs/99museum/bck/empty.gif
+	@cmd	anichange "ANI_FOLLOW2"
+	frame	data/bgs/99museum/bck/empty.gif
+
+
+anim	follow2
+	loop	1 13 17
+	delay	5
+	offset	240 250
+	drawmethod 6 6
+	frame	data/bgs/99museum/bck/pw03.gif
+	drawmethod 26 26
+	frame	data/bgs/99museum/bck/pw03.gif
+	drawmethod 46 46
+	frame	data/bgs/99museum/bck/pw03.gif
+	drawmethod 66 66
+	frame	data/bgs/99museum/bck/pw03.gif
+	drawmethod 86 86
+	frame	data/bgs/99museum/bck/pw03.gif
+	drawmethod 106 106
+	frame	data/bgs/99museum/bck/pw03.gif
+	drawmethod 126 126
+	frame	data/bgs/99museum/bck/pw03.gif
+	drawmethod 146 146
+	frame	data/bgs/99museum/bck/pw03.gif
+	drawmethod 166 166
+	frame	data/bgs/99museum/bck/pw03.gif
+	drawmethod 186 186
+	frame	data/bgs/99museum/bck/pw03.gif
+	drawmethod 206 206
+	frame	data/bgs/99museum/bck/pw03.gif
+	drawmethod 226 226
+	frame	data/bgs/99museum/bck/pw03.gif
+	drawmethod 246 246
+	frame	data/bgs/99museum/bck/pw03.gif
+	nodrawmethod
+	frame	data/bgs/99museum/bck/pw03.gif #13
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW2" 17 "A" 0 0
+	frame	data/bgs/99museum/bck/pw03.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW2" 17 "A" 0 0
+	frame	data/bgs/99museum/bck/pw03.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW2" 17 "A" 0 0
+	frame	data/bgs/99museum/bck/pw03.gif #16
+	@cmd	stop
+	drawmethod 246 246
+	frame	data/bgs/99museum/bck/pw03.gif #17
+	drawmethod 226 226
+	frame	data/bgs/99museum/bck/pw03.gif
+	drawmethod 206 206
+	frame	data/bgs/99museum/bck/pw03.gif
+	drawmethod 186 186
+	frame	data/bgs/99museum/bck/pw03.gif
+	drawmethod 166 166
+	frame	data/bgs/99museum/bck/pw03.gif
+	drawmethod 146 146
+	frame	data/bgs/99museum/bck/pw03.gif
+	drawmethod 126 126
+	frame	data/bgs/99museum/bck/pw03.gif
+	drawmethod 106 106
+	frame	data/bgs/99museum/bck/pw03.gif
+	drawmethod 86 86
+	frame	data/bgs/99museum/bck/pw03.gif
+	drawmethod 66 66
+	frame	data/bgs/99museum/bck/pw03.gif
+	drawmethod 46 46
+	frame	data/bgs/99museum/bck/pw03.gif
+	drawmethod 26 26
+	frame	data/bgs/99museum/bck/pw03.gif
+	drawmethod 6 6
+	frame	data/bgs/99museum/bck/pw03.gif
+	nodrawmethod
+	frame	data/bgs/99museum/bck/empty.gif
+	@cmd	anichange "ANI_FOLLOW3"
+	frame	data/bgs/99museum/bck/empty.gif
+
+
+
+anim	follow3
+	loop	1 13 17
+	delay	5
+	offset	240 250
+	drawmethod 6 6
+	frame	data/bgs/99museum/bck/pw04.gif
+	drawmethod 26 26
+	frame	data/bgs/99museum/bck/pw04.gif
+	drawmethod 46 46
+	frame	data/bgs/99museum/bck/pw04.gif
+	drawmethod 66 66
+	frame	data/bgs/99museum/bck/pw04.gif
+	drawmethod 86 86
+	frame	data/bgs/99museum/bck/pw04.gif
+	drawmethod 106 106
+	frame	data/bgs/99museum/bck/pw04.gif
+	drawmethod 126 126
+	frame	data/bgs/99museum/bck/pw04.gif
+	drawmethod 146 146
+	frame	data/bgs/99museum/bck/pw04.gif
+	drawmethod 166 166
+	frame	data/bgs/99museum/bck/pw04.gif
+	drawmethod 186 186
+	frame	data/bgs/99museum/bck/pw04.gif
+	drawmethod 206 206
+	frame	data/bgs/99museum/bck/pw04.gif
+	drawmethod 226 226
+	frame	data/bgs/99museum/bck/pw04.gif
+	drawmethod 246 246
+	frame	data/bgs/99museum/bck/pw04.gif
+	nodrawmethod
+	frame	data/bgs/99museum/bck/pw04.gif #13
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW3" 17 "A" 0 0
+	frame	data/bgs/99museum/bck/pw04.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW3" 17 "A" 0 0
+	frame	data/bgs/99museum/bck/pw04.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW3" 17 "A" 0 0
+	frame	data/bgs/99museum/bck/pw04.gif #16
+	@cmd	stop
+	drawmethod 246 246
+	frame	data/bgs/99museum/bck/pw04.gif #17
+	drawmethod 226 226
+	frame	data/bgs/99museum/bck/pw04.gif
+	drawmethod 206 206
+	frame	data/bgs/99museum/bck/pw04.gif
+	drawmethod 186 186
+	frame	data/bgs/99museum/bck/pw04.gif
+	drawmethod 166 166
+	frame	data/bgs/99museum/bck/pw04.gif
+	drawmethod 146 146
+	frame	data/bgs/99museum/bck/pw04.gif
+	drawmethod 126 126
+	frame	data/bgs/99museum/bck/pw04.gif
+	drawmethod 106 106
+	frame	data/bgs/99museum/bck/pw04.gif
+	drawmethod 86 86
+	frame	data/bgs/99museum/bck/pw04.gif
+	drawmethod 66 66
+	frame	data/bgs/99museum/bck/pw04.gif
+	drawmethod 46 46
+	frame	data/bgs/99museum/bck/pw04.gif
+	drawmethod 26 26
+	frame	data/bgs/99museum/bck/pw04.gif
+	drawmethod 6 6
+	frame	data/bgs/99museum/bck/pw04.gif
+	nodrawmethod
+	frame	data/bgs/99museum/bck/empty.gif
+	@cmd	anichange "ANI_FOLLOW4"
+	frame	data/bgs/99museum/bck/empty.gif
+
+
+anim	follow4
+	loop	1 13 17
+	delay	5
+	offset	240 250
+	drawmethod 6 6
+	frame	data/bgs/99museum/bck/pw05.gif
+	drawmethod 26 26
+	frame	data/bgs/99museum/bck/pw05.gif
+	drawmethod 46 46
+	frame	data/bgs/99museum/bck/pw05.gif
+	drawmethod 66 66
+	frame	data/bgs/99museum/bck/pw05.gif
+	drawmethod 86 86
+	frame	data/bgs/99museum/bck/pw05.gif
+	drawmethod 106 106
+	frame	data/bgs/99museum/bck/pw05.gif
+	drawmethod 126 126
+	frame	data/bgs/99museum/bck/pw05.gif
+	drawmethod 146 146
+	frame	data/bgs/99museum/bck/pw05.gif
+	drawmethod 166 166
+	frame	data/bgs/99museum/bck/pw05.gif
+	drawmethod 186 186
+	frame	data/bgs/99museum/bck/pw05.gif
+	drawmethod 206 206
+	frame	data/bgs/99museum/bck/pw05.gif
+	drawmethod 226 226
+	frame	data/bgs/99museum/bck/pw05.gif
+	drawmethod 246 246
+	frame	data/bgs/99museum/bck/pw05.gif
+	nodrawmethod
+	frame	data/bgs/99museum/bck/pw05.gif #13
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW4" 17 "A" 0 0
+	frame	data/bgs/99museum/bck/pw05.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW4" 17 "A" 0 0
+	frame	data/bgs/99museum/bck/pw05.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW4" 17 "A" 0 0
+	frame	data/bgs/99museum/bck/pw05.gif #16
+	@cmd	stop
+	drawmethod 246 246
+	frame	data/bgs/99museum/bck/pw05.gif
+	drawmethod 226 226
+	frame	data/bgs/99museum/bck/pw05.gif
+	drawmethod 206 206
+	frame	data/bgs/99museum/bck/pw05.gif
+	drawmethod 186 186
+	frame	data/bgs/99museum/bck/pw05.gif
+	drawmethod 166 166
+	frame	data/bgs/99museum/bck/pw05.gif
+	drawmethod 146 146
+	frame	data/bgs/99museum/bck/pw05.gif
+	drawmethod 126 126
+	frame	data/bgs/99museum/bck/pw05.gif
+	drawmethod 106 106
+	frame	data/bgs/99museum/bck/pw05.gif
+	drawmethod 86 86
+	frame	data/bgs/99museum/bck/pw05.gif
+	drawmethod 66 66
+	frame	data/bgs/99museum/bck/pw05.gif
+	drawmethod 46 46
+	frame	data/bgs/99museum/bck/pw05.gif
+	drawmethod 26 26
+	frame	data/bgs/99museum/bck/pw05.gif
+	drawmethod 6 6
+	frame	data/bgs/99museum/bck/pw05.gif
+	nodrawmethod
+	frame	data/bgs/99museum/bck/empty.gif
+	@cmd	anichange "ANI_FOLLOW5"
+	frame	data/bgs/99museum/bck/empty.gif
+
+
+anim	follow5
+	loop	1 13 17
+	delay	5
+	offset	240 250
+	drawmethod 6 6
+	frame	data/bgs/99museum/bck/pw06.gif
+	drawmethod 26 26
+	frame	data/bgs/99museum/bck/pw06.gif
+	drawmethod 46 46
+	frame	data/bgs/99museum/bck/pw06.gif
+	drawmethod 66 66
+	frame	data/bgs/99museum/bck/pw06.gif
+	drawmethod 86 86
+	frame	data/bgs/99museum/bck/pw06.gif
+	drawmethod 106 106
+	frame	data/bgs/99museum/bck/pw06.gif
+	drawmethod 126 126
+	frame	data/bgs/99museum/bck/pw06.gif
+	drawmethod 146 146
+	frame	data/bgs/99museum/bck/pw06.gif
+	drawmethod 166 166
+	frame	data/bgs/99museum/bck/pw06.gif
+	drawmethod 186 186
+	frame	data/bgs/99museum/bck/pw06.gif
+	drawmethod 206 206
+	frame	data/bgs/99museum/bck/pw06.gif
+	drawmethod 226 226
+	frame	data/bgs/99museum/bck/pw06.gif
+	drawmethod 246 246
+	frame	data/bgs/99museum/bck/pw06.gif
+	nodrawmethod
+	frame	data/bgs/99museum/bck/pw06.gif #13
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW5" 17 "A" 0 0
+	frame	data/bgs/99museum/bck/pw06.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW5" 17 "A" 0 0
+	frame	data/bgs/99museum/bck/pw06.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW5" 17 "A" 0 0
+	frame	data/bgs/99museum/bck/pw06.gif #16
+	@cmd	stop
+	drawmethod 246 246
+	frame	data/bgs/99museum/bck/pw06.gif
+	drawmethod 226 226
+	frame	data/bgs/99museum/bck/pw06.gif
+	drawmethod 206 206
+	frame	data/bgs/99museum/bck/pw06.gif
+	drawmethod 186 186
+	frame	data/bgs/99museum/bck/pw06.gif
+	drawmethod 166 166
+	frame	data/bgs/99museum/bck/pw06.gif
+	drawmethod 146 146
+	frame	data/bgs/99museum/bck/pw06.gif
+	drawmethod 126 126
+	frame	data/bgs/99museum/bck/pw06.gif
+	drawmethod 106 106
+	frame	data/bgs/99museum/bck/pw06.gif
+	drawmethod 86 86
+	frame	data/bgs/99museum/bck/pw06.gif
+	drawmethod 66 66
+	frame	data/bgs/99museum/bck/pw06.gif
+	drawmethod 46 46
+	frame	data/bgs/99museum/bck/pw06.gif
+	drawmethod 26 26
+	frame	data/bgs/99museum/bck/pw06.gif
+	drawmethod 6 6
+	frame	data/bgs/99museum/bck/pw06.gif
+	nodrawmethod
+	frame	data/bgs/99museum/bck/empty.gif
+	@cmd	anichange "ANI_FOLLOW6"
+	frame	data/bgs/99museum/bck/empty.gif
+
+
+anim	follow6
+	loop	1 13 17
+	delay	5
+	offset	240 250
+	drawmethod 6 6
+	frame	data/bgs/99museum/bck/pw07.gif
+	drawmethod 26 26
+	frame	data/bgs/99museum/bck/pw07.gif
+	drawmethod 46 46
+	frame	data/bgs/99museum/bck/pw07.gif
+	drawmethod 66 66
+	frame	data/bgs/99museum/bck/pw07.gif
+	drawmethod 86 86
+	frame	data/bgs/99museum/bck/pw07.gif
+	drawmethod 106 106
+	frame	data/bgs/99museum/bck/pw07.gif
+	drawmethod 126 126
+	frame	data/bgs/99museum/bck/pw07.gif
+	drawmethod 146 146
+	frame	data/bgs/99museum/bck/pw07.gif
+	drawmethod 166 166
+	frame	data/bgs/99museum/bck/pw07.gif
+	drawmethod 186 186
+	frame	data/bgs/99museum/bck/pw07.gif
+	drawmethod 206 206
+	frame	data/bgs/99museum/bck/pw07.gif
+	drawmethod 226 226
+	frame	data/bgs/99museum/bck/pw07.gif
+	drawmethod 246 246
+	frame	data/bgs/99museum/bck/pw07.gif
+	nodrawmethod
+	frame	data/bgs/99museum/bck/pw07.gif #13
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW6" 17 "A" 0 0
+	frame	data/bgs/99museum/bck/pw07.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW6" 17 "A" 0 0
+	frame	data/bgs/99museum/bck/pw07.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW6" 17 "A" 0 0
+	frame	data/bgs/99museum/bck/pw07.gif #16
+	@cmd	stop
+	drawmethod 246 246
+	frame	data/bgs/99museum/bck/pw07.gif
+	drawmethod 226 226
+	frame	data/bgs/99museum/bck/pw07.gif
+	drawmethod 206 206
+	frame	data/bgs/99museum/bck/pw07.gif
+	drawmethod 186 186
+	frame	data/bgs/99museum/bck/pw07.gif
+	drawmethod 166 166
+	frame	data/bgs/99museum/bck/pw07.gif
+	drawmethod 146 146
+	frame	data/bgs/99museum/bck/pw07.gif
+	drawmethod 126 126
+	frame	data/bgs/99museum/bck/pw07.gif
+	drawmethod 106 106
+	frame	data/bgs/99museum/bck/pw07.gif
+	drawmethod 86 86
+	frame	data/bgs/99museum/bck/pw07.gif
+	drawmethod 66 66
+	frame	data/bgs/99museum/bck/pw07.gif
+	drawmethod 46 46
+	frame	data/bgs/99museum/bck/pw07.gif
+	drawmethod 26 26
+	frame	data/bgs/99museum/bck/pw07.gif
+	drawmethod 6 6
+	frame	data/bgs/99museum/bck/pw07.gif
+	nodrawmethod
+	frame	data/bgs/99museum/bck/empty.gif
+	@cmd	anichange "ANI_FOLLOW7"
+	frame	data/bgs/99museum/bck/empty.gif
+
+
+anim	follow7
+	loop	1 13 17
+	delay	5
+	offset	240 250
+	drawmethod 6 6
+	frame	data/bgs/99museum/bck/pw08.gif
+	drawmethod 26 26
+	frame	data/bgs/99museum/bck/pw08.gif
+	drawmethod 46 46
+	frame	data/bgs/99museum/bck/pw08.gif
+	drawmethod 66 66
+	frame	data/bgs/99museum/bck/pw08.gif
+	drawmethod 86 86
+	frame	data/bgs/99museum/bck/pw08.gif
+	drawmethod 106 106
+	frame	data/bgs/99museum/bck/pw08.gif
+	drawmethod 126 126
+	frame	data/bgs/99museum/bck/pw08.gif
+	drawmethod 146 146
+	frame	data/bgs/99museum/bck/pw08.gif
+	drawmethod 166 166
+	frame	data/bgs/99museum/bck/pw08.gif
+	drawmethod 186 186
+	frame	data/bgs/99museum/bck/pw08.gif
+	drawmethod 206 206
+	frame	data/bgs/99museum/bck/pw08.gif
+	drawmethod 226 226
+	frame	data/bgs/99museum/bck/pw08.gif
+	drawmethod 246 246
+	frame	data/bgs/99museum/bck/pw08.gif
+	nodrawmethod
+	frame	data/bgs/99museum/bck/pw08.gif #13
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW7" 17 "A" 0 0
+	frame	data/bgs/99museum/bck/pw08.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW7" 17 "A" 0 0
+	frame	data/bgs/99museum/bck/pw08.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW7" 17 "A" 0 0
+	frame	data/bgs/99museum/bck/pw08.gif #16
+	@cmd	stop
+	drawmethod 246 246
+	frame	data/bgs/99museum/bck/pw08.gif
+	drawmethod 226 226
+	frame	data/bgs/99museum/bck/pw08.gif
+	drawmethod 206 206
+	frame	data/bgs/99museum/bck/pw08.gif
+	drawmethod 186 186
+	frame	data/bgs/99museum/bck/pw08.gif
+	drawmethod 166 166
+	frame	data/bgs/99museum/bck/pw08.gif
+	drawmethod 146 146
+	frame	data/bgs/99museum/bck/pw08.gif
+	drawmethod 126 126
+	frame	data/bgs/99museum/bck/pw08.gif
+	drawmethod 106 106
+	frame	data/bgs/99museum/bck/pw08.gif
+	drawmethod 86 86
+	frame	data/bgs/99museum/bck/pw08.gif
+	drawmethod 66 66
+	frame	data/bgs/99museum/bck/pw08.gif
+	drawmethod 46 46
+	frame	data/bgs/99museum/bck/pw08.gif
+	drawmethod 26 26
+	frame	data/bgs/99museum/bck/pw08.gif
+	drawmethod 6 6
+	frame	data/bgs/99museum/bck/pw08.gif #225
+	nodrawmethod
+	frame	data/bgs/99museum/bck/empty.gif
+	@cmd	suicide
+	frame	data/bgs/99museum/bck/empty.gif
+
+
+
+anim	follow8
+@script
+	void self = getlocalvar("self");
+	if (frame == 0)
+	{
+	changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_NONE"));
+	changeentityproperty(self, "setlayer", 999999999);
+	}
+@end_script
+	loop	1
+	delay	5
+	offset	250 250
+	frame	data/bgs/99museum/bck/black.gif
+	delay	30000
+	frame	data/bgs/99museum/bck/black.gif
+	frame	data/bgs/99museum/bck/black.gif
+
+#---------------//---------chars---------//------------
+
+anim	follow9
+	loop	1
+	delay	8
+	offset	240 250
+	drawmethod 6 6
+	frame	data/bgs/99museum/bck/char01.gif
+	drawmethod 26 26
+	frame	data/bgs/99museum/bck/char01.gif
+	drawmethod 46 46
+	frame	data/bgs/99museum/bck/char01.gif
+	drawmethod 66 66
+	frame	data/bgs/99museum/bck/char01.gif
+	drawmethod 86 86
+	frame	data/bgs/99museum/bck/char01.gif
+	drawmethod 106 106
+	frame	data/bgs/99museum/bck/char01.gif
+	drawmethod 126 126
+	frame	data/bgs/99museum/bck/char01.gif
+	drawmethod 146 146
+	frame	data/bgs/99museum/bck/char01.gif
+	drawmethod 166 166
+	frame	data/bgs/99museum/bck/char01.gif
+	drawmethod 186 186
+	frame	data/bgs/99museum/bck/char01.gif
+	drawmethod 206 206
+	frame	data/bgs/99museum/bck/char01.gif
+	drawmethod 226 226
+	frame	data/bgs/99museum/bck/char01.gif
+	drawmethod 246 246
+	frame	data/bgs/99museum/bck/char01.gif
+	nodrawmethod
+	frame	data/bgs/99museum/bck/char01.gif #13
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW9" 17 "A" 0 0
+	frame	data/bgs/99museum/bck/char01.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW9" 17 "A" 0 0
+	frame	data/bgs/99museum/bck/char01.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW9" 17 "A" 0 0
+	frame	data/bgs/99museum/bck/char01.gif
+	@cmd	looper 13 999
+	delay	50
+	frame	data/bgs/99museum/bck/char01.gif
+	delay	5
+	frame	data/bgs/99museum/bck/char02.gif #18
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW9" 22 "A" 0 0
+	frame	data/bgs/99museum/bck/char02.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW9" 22 "A" 0 0
+	frame	data/bgs/99museum/bck/char02.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW9" 22 "A" 0 0
+	frame	data/bgs/99museum/bck/char02.gif
+	@cmd	looper 18 999
+	delay	50
+	frame	data/bgs/99museum/bck/char02.gif
+	delay	5
+	frame	data/bgs/99museum/bck/char03.gif #23
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW9" 27 "A" 0 0
+	frame	data/bgs/99museum/bck/char03.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW9" 27 "A" 0 0
+	frame	data/bgs/99museum/bck/char03.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW9" 27 "A" 0 0
+	frame	data/bgs/99museum/bck/char03.gif
+	@cmd	looper 23 999
+	delay	50
+	frame	data/bgs/99museum/bck/char03.gif
+	delay	5
+	frame	data/bgs/99museum/bck/char04.gif #28
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW9" 32 "A" 0 0
+	frame	data/bgs/99museum/bck/char04.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW9" 32 "A" 0 0
+	frame	data/bgs/99museum/bck/char04.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW9" 32 "A" 0 0
+	frame	data/bgs/99museum/bck/char04.gif
+	@cmd	looper 28 999
+	delay	50
+	frame	data/bgs/99museum/bck/char04.gif
+	delay	5
+	frame	data/bgs/99museum/bck/char05.gif #33
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW9" 37 "A" 0 0
+	frame	data/bgs/99museum/bck/char05.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW9" 37 "A" 0 0
+	frame	data/bgs/99museum/bck/char05.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW9" 37 "A" 0 0
+	frame	data/bgs/99museum/bck/char05.gif
+	@cmd	looper 33 999
+	delay	50
+	frame	data/bgs/99museum/bck/char05.gif
+	delay	5
+	frame	data/bgs/99museum/bck/char06.gif #38
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW9" 42 "A" 0 0
+	frame	data/bgs/99museum/bck/char06.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW9" 42 "A" 0 0
+	frame	data/bgs/99museum/bck/char06.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW9" 42 "A" 0 0
+	frame	data/bgs/99museum/bck/char06.gif
+	@cmd	looper 38 999
+	delay	50
+	frame	data/bgs/99museum/bck/char06.gif
+	delay	5
+	frame	data/bgs/99museum/bck/char07.gif #43
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW9" 47 "A" 0 0
+	frame	data/bgs/99museum/bck/char07.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW9" 47 "A" 0 0
+	frame	data/bgs/99museum/bck/char07.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW9" 47 "A" 0 0
+	frame	data/bgs/99museum/bck/char07.gif
+	@cmd	looper 43 999
+	delay	50
+	frame	data/bgs/99museum/bck/char07.gif
+	delay	5
+	frame	data/bgs/99museum/bck/char08.gif #48
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW9" 52 "A" 0 0
+	frame	data/bgs/99museum/bck/char08.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW9" 52 "A" 0 0
+	frame	data/bgs/99museum/bck/char08.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW9" 52 "A" 0 0
+	frame	data/bgs/99museum/bck/char08.gif
+	@cmd	looper 48 999
+	delay	50
+	frame	data/bgs/99museum/bck/char08.gif
+	delay	5
+	frame	data/bgs/99museum/bck/char09.gif #53
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW9" 57 "A" 0 0
+	frame	data/bgs/99museum/bck/char09.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW9" 57 "A" 0 0
+	frame	data/bgs/99museum/bck/char09.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW9" 57 "A" 0 0
+	frame	data/bgs/99museum/bck/char09.gif
+	@cmd	looper 53 999
+	delay	50
+	frame	data/bgs/99museum/bck/char09.gif
+	delay	5
+	frame	data/bgs/99museum/bck/char10.gif #58
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW9" 62 "A" 0 0
+	frame	data/bgs/99museum/bck/char10.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW9" 62 "A" 0 0
+	frame	data/bgs/99museum/bck/char10.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW9" 62 "A" 0 0
+	frame	data/bgs/99museum/bck/char10.gif
+	@cmd	looper 58 999
+	delay	50
+	frame	data/bgs/99museum/bck/char10.gif
+	delay	5
+	frame	data/bgs/99museum/bck/char10.gif #63
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW9" 67 "A" 0 0
+	frame	data/bgs/99museum/bck/char10.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW9" 67 "A" 0 0
+	frame	data/bgs/99museum/bck/char10.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW9" 67 "A" 0 0
+	frame	data/bgs/99museum/bck/char10.gif
+	@cmd	looper 63 999
+	delay	50
+	frame	data/bgs/99museum/bck/char10.gif
+	delay	5
+	frame	data/bgs/99museum/bck/char11.gif #68
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW9" 72 "A" 0 0
+	frame	data/bgs/99museum/bck/char11.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW9" 72 "A" 0 0
+	frame	data/bgs/99museum/bck/char11.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW9" 72 "A" 0 0
+	frame	data/bgs/99museum/bck/char11.gif
+	@cmd	looper 68 999
+	delay	50
+	frame	data/bgs/99museum/bck/char11.gif
+	delay	5
+	frame	data/bgs/99museum/bck/char11.gif #73
+	@cmd	stop
+	drawmethod 246 246
+	frame	data/bgs/99museum/bck/char11.gif
+	drawmethod 226 226
+	frame	data/bgs/99museum/bck/char11.gif
+	drawmethod 206 206
+	frame	data/bgs/99museum/bck/char11.gif
+	drawmethod 186 186
+	frame	data/bgs/99museum/bck/char11.gif
+	drawmethod 166 166
+	frame	data/bgs/99museum/bck/char11.gif
+	drawmethod 146 146
+	frame	data/bgs/99museum/bck/char11.gif
+	drawmethod 126 126
+	frame	data/bgs/99museum/bck/char11.gif
+	drawmethod 106 106
+	frame	data/bgs/99museum/bck/char11.gif
+	drawmethod 86 86
+	frame	data/bgs/99museum/bck/char11.gif
+	drawmethod 66 66
+	frame	data/bgs/99museum/bck/char11.gif
+	drawmethod 46 46
+	frame	data/bgs/99museum/bck/char11.gif
+	drawmethod 26 26
+	frame	data/bgs/99museum/bck/char11.gif
+	drawmethod 6 6
+	frame	data/bgs/99museum/bck/char11.gif
+	nodrawmethod
+	frame	data/bgs/99museum/bck/empty.gif
+	@cmd	suicide
+	frame	data/bgs/99museum/bck/empty.gif
+
+
+
+
+#------------//-------making----//------------------
+
+
+anim	follow10
+	loop	1
+	delay	8
+	offset	240 250
+	drawmethod 6 6
+	frame	data/bgs/99museum/bck/scrap13.gif
+	drawmethod 26 26
+	frame	data/bgs/99museum/bck/scrap13.gif
+	drawmethod 46 46
+	frame	data/bgs/99museum/bck/scrap13.gif
+	drawmethod 66 66
+	frame	data/bgs/99museum/bck/scrap13.gif
+	drawmethod 86 86
+	frame	data/bgs/99museum/bck/scrap13.gif
+	drawmethod 106 106
+	frame	data/bgs/99museum/bck/scrap13.gif
+	drawmethod 126 126
+	frame	data/bgs/99museum/bck/scrap13.gif
+	drawmethod 146 146
+	frame	data/bgs/99museum/bck/scrap13.gif
+	drawmethod 166 166
+	frame	data/bgs/99museum/bck/scrap13.gif
+	drawmethod 186 186
+	frame	data/bgs/99museum/bck/scrap13.gif
+	drawmethod 206 206
+	frame	data/bgs/99museum/bck/scrap13.gif
+	drawmethod 226 226
+	frame	data/bgs/99museum/bck/scrap13.gif
+	drawmethod 246 246
+	frame	data/bgs/99museum/bck/scrap13.gif
+	nodrawmethod
+	frame	data/bgs/99museum/bck/scrap13.gif #13
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW10" 17 "A" 0 0
+	frame	data/bgs/99museum/bck/scrap13.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW10" 17 "A" 0 0
+	frame	data/bgs/99museum/bck/scrap13.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW10" 17 "A" 0 0
+	frame	data/bgs/99museum/bck/scrap13.gif
+	@cmd	looper 13 999
+	delay	50
+	frame	data/bgs/99museum/bck/scrap13.gif
+	delay	5
+	frame	data/bgs/99museum/bck/scrap14.gif #18
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW10" 22 "A" 0 0
+	frame	data/bgs/99museum/bck/scrap14.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW10" 22 "A" 0 0
+	frame	data/bgs/99museum/bck/scrap14.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW10" 22 "A" 0 0
+	frame	data/bgs/99museum/bck/scrap14.gif
+	@cmd	looper 18 999
+	delay	50
+	frame	data/bgs/99museum/bck/scrap15.gif
+	delay	5
+	frame	data/bgs/99museum/bck/scrap15.gif #23
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW10" 27 "A" 0 0
+	frame	data/bgs/99museum/bck/scrap15.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW10" 27 "A" 0 0
+	frame	data/bgs/99museum/bck/scrap15.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW10" 27 "A" 0 0
+	frame	data/bgs/99museum/bck/scrap15.gif
+	@cmd	looper 23 999
+	delay	50
+	frame	data/bgs/99museum/bck/scrap16.gif
+	delay	5
+	frame	data/bgs/99museum/bck/scrap16.gif #28
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW10" 32 "A" 0 0
+	frame	data/bgs/99museum/bck/scrap16.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW10" 32 "A" 0 0
+	frame	data/bgs/99museum/bck/scrap16.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW10" 32 "A" 0 0
+	frame	data/bgs/99museum/bck/scrap16.gif
+	@cmd	looper 28 999
+	delay	50
+	frame	data/bgs/99museum/bck/scrap16.gif
+	delay	5
+	frame	data/bgs/99museum/bck/scrap17.gif #33
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW10" 37 "A" 0 0
+	frame	data/bgs/99museum/bck/scrap17.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW10" 37 "A" 0 0
+	frame	data/bgs/99museum/bck/scrap17.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW10" 37 "A" 0 0
+	frame	data/bgs/99museum/bck/scrap17.gif
+	@cmd	looper 33 999
+	delay	50
+	frame	data/bgs/99museum/bck/scrap17.gif
+	delay	5
+	frame	data/bgs/99museum/bck/scrap18.gif #38
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW10" 42 "A" 0 0
+	frame	data/bgs/99museum/bck/scrap18.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW10" 42 "A" 0 0
+	frame	data/bgs/99museum/bck/scrap18.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW10" 42 "A" 0 0
+	frame	data/bgs/99museum/bck/scrap18.gif
+	@cmd	looper 38 999
+	delay	50
+	frame	data/bgs/99museum/bck/scrap18.gif
+	delay	5
+	frame	data/bgs/99museum/bck/scrap19.gif #43
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW10" 47 "A" 0 0
+	frame	data/bgs/99museum/bck/scrap19.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW10" 47 "A" 0 0
+	frame	data/bgs/99museum/bck/scrap19.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW10" 47 "A" 0 0
+	frame	data/bgs/99museum/bck/scrap19.gif
+	@cmd	looper 43 999
+	delay	50
+	frame	data/bgs/99museum/bck/scrap19.gif
+	delay	5
+	frame	data/bgs/99museum/bck/scrap19.gif #48
+	@cmd	stop
+	drawmethod 246 246
+	frame	data/bgs/99museum/bck/scrap19.gif
+	drawmethod 226 226
+	frame	data/bgs/99museum/bck/scrap19.gif
+	drawmethod 206 206
+	frame	data/bgs/99museum/bck/scrap19.gif
+	drawmethod 186 186
+	frame	data/bgs/99museum/bck/scrap19.gif
+	drawmethod 166 166
+	frame	data/bgs/99museum/bck/scrap19.gif
+	drawmethod 146 146
+	frame	data/bgs/99museum/bck/scrap19.gif
+	drawmethod 126 126
+	frame	data/bgs/99museum/bck/scrap19.gif
+	drawmethod 106 106
+	frame	data/bgs/99museum/bck/scrap19.gif
+	drawmethod 86 86
+	frame	data/bgs/99museum/bck/scrap19.gif
+	drawmethod 66 66
+	frame	data/bgs/99museum/bck/scrap19.gif
+	drawmethod 46 46
+	frame	data/bgs/99museum/bck/scrap19.gif
+	drawmethod 26 26
+	frame	data/bgs/99museum/bck/scrap19.gif
+	drawmethod 6 6
+	frame	data/bgs/99museum/bck/scrap19.gif
+	nodrawmethod
+	frame	data/bgs/99museum/bck/empty.gif
+	@cmd	anichange "ANI_FOLLOW11"
+	frame	data/bgs/99museum/bck/empty.gif
+
+
+anim	follow11
+	loop	1
+	delay	8
+	offset	240 250
+	drawmethod 6 6
+	frame	data/bgs/99museum/bck/scrap01.gif
+	drawmethod 26 26
+	frame	data/bgs/99museum/bck/scrap01.gif
+	drawmethod 46 46
+	frame	data/bgs/99museum/bck/scrap01.gif
+	drawmethod 66 66
+	frame	data/bgs/99museum/bck/scrap01.gif
+	drawmethod 86 86
+	frame	data/bgs/99museum/bck/scrap01.gif
+	drawmethod 106 106
+	frame	data/bgs/99museum/bck/scrap01.gif
+	drawmethod 126 126
+	frame	data/bgs/99museum/bck/scrap01.gif
+	drawmethod 146 146
+	frame	data/bgs/99museum/bck/scrap01.gif
+	drawmethod 166 166
+	frame	data/bgs/99museum/bck/scrap01.gif
+	drawmethod 186 186
+	frame	data/bgs/99museum/bck/scrap01.gif
+	drawmethod 206 206
+	frame	data/bgs/99museum/bck/scrap01.gif
+	drawmethod 226 226
+	frame	data/bgs/99museum/bck/scrap01.gif
+	drawmethod 246 246
+	frame	data/bgs/99museum/bck/scrap01.gif
+	nodrawmethod
+	frame	data/bgs/99museum/bck/scrap01.gif #13
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW11" 17 "A" 0 0
+	frame	data/bgs/99museum/bck/scrap01.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW11" 17 "A" 0 0
+	frame	data/bgs/99museum/bck/scrap01.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW11" 17 "A" 0 0
+	frame	data/bgs/99museum/bck/scrap01.gif
+	@cmd	looper 13 999
+	delay	50
+	frame	data/bgs/99museum/bck/scrap01.gif
+	delay	5
+	frame	data/bgs/99museum/bck/scrap02.gif #18
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW11" 22 "A" 0 0
+	frame	data/bgs/99museum/bck/scrap02.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW11" 22 "A" 0 0
+	frame	data/bgs/99museum/bck/scrap02.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW11" 22 "A" 0 0
+	frame	data/bgs/99museum/bck/scrap02.gif
+	@cmd	looper 18 999
+	delay	50
+	frame	data/bgs/99museum/bck/scrap03.gif
+	delay	5
+	frame	data/bgs/99museum/bck/scrap03.gif #23
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW11" 27 "A" 0 0
+	frame	data/bgs/99museum/bck/scrap03.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW11" 27 "A" 0 0
+	frame	data/bgs/99museum/bck/scrap03.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW11" 27 "A" 0 0
+	frame	data/bgs/99museum/bck/scrap03.gif
+	@cmd	looper 23 999
+	delay	50
+	frame	data/bgs/99museum/bck/scrap04.gif
+	delay	5
+	frame	data/bgs/99museum/bck/scrap04.gif #28
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW11" 32 "A" 0 0
+	frame	data/bgs/99museum/bck/scrap04.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW11" 32 "A" 0 0
+	frame	data/bgs/99museum/bck/scrap04.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW11" 32 "A" 0 0
+	frame	data/bgs/99museum/bck/scrap04.gif
+	@cmd	looper 28 999
+	delay	50
+	frame	data/bgs/99museum/bck/scrap04.gif
+	delay	5
+	frame	data/bgs/99museum/bck/scrap05.gif #33
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW11" 37 "A" 0 0
+	frame	data/bgs/99museum/bck/scrap05.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW11" 37 "A" 0 0
+	frame	data/bgs/99museum/bck/scrap05.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW11" 37 "A" 0 0
+	frame	data/bgs/99museum/bck/scrap05.gif
+	@cmd	looper 33 999
+	delay	50
+	frame	data/bgs/99museum/bck/scrap05.gif
+	delay	5
+	frame	data/bgs/99museum/bck/scrap06.gif #38
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW11" 42 "A" 0 0
+	frame	data/bgs/99museum/bck/scrap06.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW11" 42 "A" 0 0
+	frame	data/bgs/99museum/bck/scrap06.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW11" 42 "A" 0 0
+	frame	data/bgs/99museum/bck/scrap06.gif
+	@cmd	looper 38 999
+	delay	50
+	frame	data/bgs/99museum/bck/scrap06.gif
+	delay	5
+	frame	data/bgs/99museum/bck/scrap07.gif #43
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW11" 47 "A" 0 0
+	frame	data/bgs/99museum/bck/scrap07.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW11" 47 "A" 0 0
+	frame	data/bgs/99museum/bck/scrap07.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW11" 47 "A" 0 0
+	frame	data/bgs/99museum/bck/scrap07.gif
+	@cmd	looper 43 999
+	delay	50
+	frame	data/bgs/99museum/bck/scrap08.gif
+	delay	5
+	frame	data/bgs/99museum/bck/scrap08.gif #48
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW11" 52 "A" 0 0
+	frame	data/bgs/99museum/bck/scrap08.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW11" 52 "A" 0 0
+	frame	data/bgs/99museum/bck/scrap08.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW11" 52 "A" 0 0
+	frame	data/bgs/99museum/bck/scrap08.gif
+	@cmd	looper 48 999
+	delay	50
+	frame	data/bgs/99museum/bck/scrap08.gif
+	delay	5
+	frame	data/bgs/99museum/bck/scrap09.gif #53
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW11" 57 "A" 0 0
+	frame	data/bgs/99museum/bck/scrap09.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW11" 57 "A" 0 0
+	frame	data/bgs/99museum/bck/scrap09.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW11" 57 "A" 0 0
+	frame	data/bgs/99museum/bck/scrap09.gif
+	@cmd	looper 53 999
+	delay	50
+	frame	data/bgs/99museum/bck/scrap09.gif
+	delay	5
+	frame	data/bgs/99museum/bck/scrap10.gif #58
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW11" 62 "A" 0 0
+	frame	data/bgs/99museum/bck/scrap10.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW11" 62 "A" 0 0
+	frame	data/bgs/99museum/bck/scrap10.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW11" 62 "A" 0 0
+	frame	data/bgs/99museum/bck/scrap10.gif
+	@cmd	looper 58 999
+	delay	50
+	frame	data/bgs/99museum/bck/scrap10.gif
+	delay	5
+	frame	data/bgs/99museum/bck/scrap11.gif #63
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW11" 67 "A" 0 0
+	frame	data/bgs/99museum/bck/scrap11.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW11" 67 "A" 0 0
+	frame	data/bgs/99museum/bck/scrap11.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW11" 67 "A" 0 0
+	frame	data/bgs/99museum/bck/scrap11.gif
+	@cmd	looper 63 999
+	delay	50
+	frame	data/bgs/99museum/bck/scrap11.gif
+	delay	5
+	frame	data/bgs/99museum/bck/scrap12.gif #68
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW11" 72 "A" 0 0
+	frame	data/bgs/99museum/bck/scrap12.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW11" 72 "A" 0 0
+	frame	data/bgs/99museum/bck/scrap12.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW11" 72 "A" 0 0
+	frame	data/bgs/99museum/bck/scrap12.gif
+	@cmd	looper 68 999
+	delay	50
+	frame	data/bgs/99museum/bck/scrap12.gif
+	delay	5
+	frame	data/bgs/99museum/bck/scrap12.gif #73
+	@cmd	stop
+	drawmethod 246 246
+	frame	data/bgs/99museum/bck/scrap12.gif
+	drawmethod 226 226
+	frame	data/bgs/99museum/bck/scrap12.gif
+	drawmethod 206 206
+	frame	data/bgs/99museum/bck/scrap12.gif
+	drawmethod 186 186
+	frame	data/bgs/99museum/bck/scrap12.gif
+	drawmethod 166 166
+	frame	data/bgs/99museum/bck/scrap12.gif
+	drawmethod 146 146
+	frame	data/bgs/99museum/bck/scrap12.gif
+	drawmethod 126 126
+	frame	data/bgs/99museum/bck/scrap12.gif
+	drawmethod 106 106
+	frame	data/bgs/99museum/bck/scrap12.gif
+	drawmethod 86 86
+	frame	data/bgs/99museum/bck/scrap12.gif
+	drawmethod 66 66
+	frame	data/bgs/99museum/bck/scrap12.gif
+	drawmethod 46 46
+	frame	data/bgs/99museum/bck/scrap12.gif
+	drawmethod 26 26
+	frame	data/bgs/99museum/bck/scrap12.gif
+	drawmethod 6 6
+	frame	data/bgs/99museum/bck/scrap12.gif
+	nodrawmethod
+	frame	data/bgs/99museum/bck/empty.gif
+	@cmd	suicide
+	frame	data/bgs/99museum/bck/empty.gif
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

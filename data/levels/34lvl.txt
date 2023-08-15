@@ -1,0 +1,73 @@
+music		data/music/stgmbig1.ogg
+
+
+background	data/bgs/34lvl/bridgebck4.gif 0 0 0 0 0 0 -1 1 1 0 0 0 0 0 1
+layer         data/bgs/34lvl/bridgebck4b.gif -4000 0 0 0 -10 0 0 -1 1 1 0 0 0 0 0 1.2
+layer         data/bgs/34lvl/back3.gif -3000 0 0 0 -100 0 0 -1 1 1 0 0 0 0 0 1.4
+layer         data/bgs/34lvl/bridgebck3.gif -2000 0 0 0 0 0 0 -1 1 1 0 0 0 0 0 2
+panel		data/bgs/34lvl/panel.gif
+layer		data/bgs/34lvl/bridge.gif -1000 0 0 0 0 0 0 -1 1 1 0 0 0 0 0 3
+fglayer         data/bgs/34lvl/bridgefrt2.gif 1000 0 0 0 0 0 0 -1 1 1 0 0 0 0 0 4
+fglayer		data/bgs/34lvl/sun.gif 1500 0 0 150 0 0 0 1 1 1 1 0 0 0 0 0
+
+
+cameraoffset    0 -50
+cameratype      1
+
+direction       both
+light  		10   -30
+at       	0
+settime         0
+notime          1
+noslow          1
+#blocked         1
+order		a
+spawn1  	900 350 120
+spawn2  	145 20
+spawn3  	185 20
+
+bgspeed		10 0
+
+#----road-----
+
+
+wall 80 460 130 130 690 690 163 130
+wall 730 387 10 10 150 150 90 5000
+wall 759 435 10 10 110 110 50 130
+#wall -130 460 340 340 360 360 100 130
+#wall 620 460 130 130 150 150 100 130
+hole -700 650 -600 -600 2800 2800 350
+
+#----stage-------------
+spawn   stgSET1
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW6"));
+} @end_script
+coords  -500 515 350
+at      0
+#-------------------
+
+
+#-------level----
+
+spawn   Mtruck3
+flip    1
+coords  949 470
+at      0
+#--------enemy----
+
+spawn   atkcar3
+flip    1
+coords  -200 480
+at      0
+
+spawn   MrBig
+flip    1
+health  2000
+aggression 100
+coords  -195 475 95
+at      0
+
+spawn   ghosttest
+coords  -200 480
+at      10000

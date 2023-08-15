@@ -1,0 +1,90 @@
+name      mine3
+type      enemy
+subtype	  chase
+speed	  15
+nolife    1
+facing	  1
+nomove	  0 1
+falldie	  1
+nodieblink 2
+lifespan  4
+offscreenkill 	2000
+hostile   player
+subject_to_hole 0
+subject_to_wall 0
+candamage player
+
+animationscript data/scripts/escript.c
+
+load	explosion5
+load	brkmetal2
+
+
+
+anim	idle
+	loop	1
+	delay	7
+	offset	50 45
+	bbox	0 0 0 0
+	frame	data/chars/misc/traps/mine/rbmine01.gif
+	@cmd	attack1 -80 80 20 "ANI_ATTACK1"
+	sound	data/sounds/bip1.wav
+	frame	data/chars/misc/traps/mine/rbmine02.gif
+	@cmd	attack1 -80 80 20 "ANI_ATTACK1"
+	frame	data/chars/misc/traps/mine/rbmine03.gif
+	@cmd	attack1 -80 80 20 "ANI_ATTACK1"
+	frame	data/chars/misc/traps/mine/rbmine04.gif
+	@cmd	attack1 -80 80 20 "ANI_ATTACK1"
+	frame	data/chars/misc/traps/mine/rbmine05.gif
+
+
+
+anim	attack1
+	loop	0
+	delay	6
+	offset	50 45
+	bbox	0 0 0 0
+	sound	data/sounds/mineclk.wav
+	frame	data/chars/misc/traps/mine/empty.gif
+	@cmd	spawn01 "explosion5" 1 1 1
+	frame	data/chars/misc/traps/mine/empty.gif
+	@cmd	tosser "brkmetal2" 1 1 1 0.3 4.5 0
+	@cmd	tosser "brkmetal2" 1 5 1 0 5 0
+	@cmd	tosser "brkmetal2" 1 1 1 -0.3 4.5 0
+	frame	data/chars/misc/traps/mine/empty.gif
+	@cmd	suicide
+	frame	data/chars/misc/traps/mine/empty.gif
+		
+anim	death
+	loop	0
+	delay	6
+	offset	50 45
+	bbox	0 0 0 0
+	sound	data/sounds/mineclk.wav
+	frame	data/chars/misc/traps/mine/empty.gif
+	@cmd	spawn01 "explosion2" 1 1 1
+	frame	data/chars/misc/traps/mine/empty.gif
+	@cmd	tosser "brkmetal2" 1 1 1 0.3 4.5 0
+	@cmd	tosser "brkmetal2" 1 5 1 0 5 0
+	@cmd	tosser "brkmetal2" 1 1 1 -0.3 4.5 0
+	frame	data/chars/misc/traps/mine/empty.gif
+		
+
+		
+anim	spawn
+@script
+if(frame==1)
+{
+  changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_OBSTACLE"));
+}
+@end_script
+	loop	0
+	delay	25
+	offset	50 45
+	bbox	0 0 0 0
+	frame	data/chars/misc/traps/mine/rbmine01.gif
+	frame	data/chars/misc/traps/mine/rbmine01.gif
+	frame	data/chars/misc/traps/mine/rbmine01.gif
+		
+#|edited by openBor Stats v 0.53
+		

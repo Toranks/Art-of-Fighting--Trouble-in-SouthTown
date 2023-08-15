@@ -1,0 +1,178 @@
+name	  cardspn
+nolife    1
+type      npc
+nomove	  1 1
+hostile   player
+subject_to_hole 0
+subject_to_wall 0
+offscreenkill 	10000
+candamage player
+animationscript data/scripts/escript.c
+
+
+load	card1
+load	card2
+load	bprint
+
+
+
+
+
+
+
+
+
+
+
+
+
+anim	follow1
+	loop	1
+	delay	10
+	offset	1 1
+    @script
+    void self = getlocalvar("self");
+
+    if( frame == 10){
+      int r = rand()%50;
+
+      if( r > 0){
+        changeentityproperty(self, "animation", openborconstant("ANI_FOLLOW2"));
+      }
+    }
+	@end_script
+	frame	data/chars/misc/points/empty.gif
+	@cmd	spawn01 "card1" -100 1 -70
+	frame	data/chars/misc/points/empty.gif
+	delay	100
+	frame	data/chars/misc/points/empty.gif
+	delay	15
+	frame	data/chars/misc/points/empty.gif
+	@cmd	spawn01 "bprint" -200 1 1
+	frame	data/chars/misc/points/empty.gif
+	delay	100
+	frame	data/chars/misc/points/empty.gif
+	delay	15
+	frame	data/chars/misc/points/empty.gif
+	@cmd	spawn01 "card2" 1 1 70
+	frame	data/chars/misc/points/empty.gif
+	delay	50
+	frame	data/chars/misc/points/empty.gif
+	delay	15
+	frame	data/chars/misc/points/empty.gif
+	frame	data/chars/misc/points/empty.gif
+	frame	data/chars/misc/points/empty.gif
+	frame	data/chars/misc/points/empty.gif
+	@cmd	beidle
+	frame	data/chars/misc/points/empty.gif
+
+
+
+
+
+
+
+anim	follow2
+	loop	1
+	delay	130
+	offset	1 1
+    @script
+    void self = getlocalvar("self");
+
+    if( frame == 11){
+      int r = rand()%50;
+
+      if( r > 0){
+        changeentityproperty(self, "animation", openborconstant("ANI_FOLLOW3"));
+      }
+    }
+	@end_script
+	frame	data/chars/misc/points/empty.gif
+	delay	10
+	frame	data/chars/misc/points/empty.gif
+	@cmd	spawn01 "bprint" -200 1 -50
+	frame	data/chars/misc/points/empty.gif
+	delay	150
+	frame	data/chars/misc/points/empty.gif
+	delay	15
+	frame	data/chars/misc/points/empty.gif
+	@cmd	spawn01 "card2" 1 1 20
+	frame	data/chars/misc/points/empty.gif
+	delay	150
+	frame	data/chars/misc/points/empty.gif
+	delay	15
+	frame	data/chars/misc/points/empty.gif
+	@cmd	spawn01 "card1" -150 1 50
+	frame	data/chars/misc/points/empty.gif
+	delay	70
+	frame	data/chars/misc/points/empty.gif
+	delay	15
+	frame	data/chars/misc/points/empty.gif
+	frame	data/chars/misc/points/empty.gif
+	frame	data/chars/misc/points/empty.gif
+	frame	data/chars/misc/points/empty.gif
+	@cmd	beidle
+	frame	data/chars/misc/points/empty.gif
+
+
+
+
+anim	follow3
+	loop	1
+	delay	100
+	offset	1 1
+	frame	data/chars/misc/points/empty.gif
+	delay	10
+	frame	data/chars/misc/points/empty.gif
+	@cmd	spawn01 "card2" -200 1 -30
+	frame	data/chars/misc/points/empty.gif
+	delay	200
+	frame	data/chars/misc/points/empty.gif
+	delay	15
+	frame	data/chars/misc/points/empty.gif
+	@cmd	spawn01 "card1" 280 1 -15
+	frame	data/chars/misc/points/empty.gif
+	delay	200
+	frame	data/chars/misc/points/empty.gif
+	delay	15
+	frame	data/chars/misc/points/empty.gif
+	@cmd	spawn01 "bprint" -50 1 30
+	frame	data/chars/misc/points/empty.gif
+	delay	100
+	frame	data/chars/misc/points/empty.gif
+	delay	25
+	frame	data/chars/misc/points/empty.gif
+	frame	data/chars/misc/points/empty.gif
+	frame	data/chars/misc/points/empty.gif
+	frame	data/chars/misc/points/empty.gif
+	@cmd	beidle
+	frame	data/chars/misc/points/empty.gif
+
+
+		
+anim	idle
+	loop	1
+	delay	10
+	offset	1 1
+    @script
+    void self = getlocalvar("self");
+
+    if( frame == 1){
+      int r = rand()%50;
+
+      if( r > 0){
+        changeentityproperty(self, "animation", openborconstant("ANI_FOLLOW1"));
+      }
+    }
+	@end_script
+	frame	data/chars/misc/points/empty.gif
+	delay	100
+	frame	data/chars/misc/points/empty.gif
+		
+
+
+
+
+
+
+		

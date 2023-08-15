@@ -1,0 +1,479 @@
+name          sethwp1
+type          enemy
+aimove        Avoid
+health        300
+speed         18
+nolife		1
+jumpheight    6
+jumpmove      0  4
+throw         5 2
+throwdamage   18
+shadow        0
+noquake       1
+blockodds     1
+falldie	      2
+nodieblink    2
+gfxshadow     1
+escapehits    3
+offscreenkill 	10000
+dust            dust
+projectilehit enemy obstacle
+diesound      data/sounds/die1.wav
+animationscript data/scripts/escript.c
+
+
+load		sethwp2
+load		morph
+
+palette		data/chars/beyond/3seth/mpal.gif
+
+		
+anim	death
+	loop	0
+	delay	50
+	offset	108 189
+	bbox	0 0 0 0
+	frame	data/chars/beyond/3seth/fall4.gif
+	delay	12
+	frame	data/chars/beyond/3seth/rise1.gif
+	frame	data/chars/beyond/3seth/rise2.gif
+	delay	6
+	frame	data/chars/beyond/3seth/rise3.gif
+	@cmd	spawn01 "sethwp2" 0 0 0
+	frame	data/chars/beyond/3seth/rise3.gif
+
+
+anim	burn
+	loop	0
+	delay	25
+	offset	108 189
+	bbox	0 0 0 0
+	landframe	3
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 200_50_0
+	@cmd	spawnbind "burn1" 1 1 1
+	@cmd	spawnbind "burn2" 1 1 1
+	@cmd	spawnbind "burn3" 1 1 1
+	attack	90 90 30 45 5 1 0 0 13 0
+	frame	data/chars/beyond/3seth/fall1.gif
+	delay	15
+	attack	64 130 50 25 5 1 0 0 13 0
+	frame	data/chars/beyond/3seth/fall2.gif
+	delay	500
+	frame	data/chars/beyond/3seth/fall3.gif
+	attack	0 0 0 0
+	bbox	58 175 85 15
+	delay	20
+	sound	data/sounds/fall.wav
+	frame	data/chars/beyond/3seth/fall4.gif
+
+		
+anim	fall
+	loop	0
+	delay	25
+	offset	108 189
+	bbox	0 0 0 0
+	landframe	3
+	attack	90 90 30 45 5 1 0 0 13 0
+	frame	data/chars/beyond/3seth/fall1.gif
+	delay	15
+	attack	64 130 50 25 5 1 0 0 13 0
+	frame	data/chars/beyond/3seth/fall2.gif
+	delay	500
+	frame	data/chars/beyond/3seth/fall3.gif
+	attack	0 0 0 0
+	bbox	58 175 85 15
+	delay	20
+	sound	data/sounds/fall.wav
+	frame	data/chars/beyond/3seth/fall4.gif
+		
+anim	fall10
+	loop	0
+	delay	10
+	offset	108 189
+	bbox	85 90 50 75
+	landframe	4
+	attack	85 90 30 50 5 1 0 0 13 0
+	frame	data/chars/beyond/3seth/pain6.gif
+	delay	40
+	frame	data/chars/beyond/3seth/pain7.gif
+	delay	30
+	bbox	71 118 63 30
+	attack	64 125 45 25 5 1 0 0 13 0
+	frame	data/chars/beyond/3seth/fall2.gif
+	delay	1000
+	bbox	77 130 67 35
+	attack	0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/beyond/3seth/fall3.gif
+	bbox	58 167 85 15
+	sound	data/sounds/fall.wav
+	frame	data/chars/beyond/3seth/fall4.gif
+		
+anim	fall11
+	loop	0
+	delay	20
+	offset	108 189
+	bbox	61 185 90 5	
+	frame	data/chars/beyond/3seth/pain12.gif
+	delay	35
+	frame	data/chars/beyond/3seth/fall4.gif
+		
+anim	fall2
+	loop	0
+	delay	30
+	offset	108 189
+	bbox	0 0 0 0
+	attack	85 90 35 45 5 1 0 0 13 0
+	frame	data/chars/beyond/3seth/pain6.gif
+	delay	10
+	attack	64 125 55 25 5 1 0 0 13 0
+	frame	data/chars/beyond/3seth/fall2.gif
+	attack	0 0 0 0
+	frame	data/chars/beyond/3seth/fall3.gif
+	sound	data/sounds/fall.wav
+	frame	data/chars/beyond/3seth/fall4.gif
+		
+anim	fall4
+	loop	0
+	delay	6
+	offset	108 189
+	bbox	0 0 0 0
+	jumpframe	0 1.2 1.5
+	frame	data/chars/beyond/3seth/pain8.gif
+	frame	data/chars/beyond/3seth/pain9.gif
+	frame	data/chars/beyond/3seth/pain10.gif
+	@cmd	leaper 0 0.2 0
+	frame	data/chars/beyond/3seth/pain11.gif
+	frame	data/chars/beyond/3seth/fall4.gif
+	frame	data/chars/beyond/3seth/fall5.gif
+	bbox	58 175 95 15
+	sound	data/sounds/fall.wav
+	frame	data/chars/beyond/3seth/fall4.gif
+		
+anim	fall7
+	delay	1000
+	offset	105 130
+	frame	data/chars/beyond/3seth/slamck0.gif
+	offset	100 110
+	frame	data/chars/beyond/3seth/slamck1.gif
+	offset	106 130
+	frame	data/chars/beyond/3seth/slamck2.gif
+	offset	115 125
+	frame	data/chars/beyond/3seth/slamck3.gif
+	offset	125 125
+	frame	data/chars/beyond/3seth/slamck4.gif
+	offset	108 122
+	frame	data/chars/beyond/3seth/slamck5.gif
+	offset	106 155
+	frame	data/chars/beyond/3seth/slamck6.gif
+	offset	125 140
+	frame	data/chars/beyond/3seth/slamck7.gif
+	offset	120 105
+	frame	data/chars/beyond/3seth/slamck8.gif
+	offset	100 130
+	frame	data/chars/beyond/3seth/slamck9.gif
+	offset	105 130
+	frame	data/chars/beyond/3seth/slamck10.gif
+	offset	105 130
+	frame	data/chars/beyond/3seth/slamck11.gif
+	offset	115 125
+	frame	data/chars/beyond/3seth/slamck12.gif
+	offset	115 125
+	frame	data/chars/beyond/3seth/slamck13.gif
+	offset	115 125
+	frame	data/chars/beyond/3seth/slamck14.gif
+	offset	115 125
+	frame	data/chars/beyond/3seth/slamck15.gif
+		
+anim	fall9
+	loop	0
+	delay	10
+	offset	108 189
+	bbox	0 0 0 0
+	quakeframe	2 5 5
+	landframe	2 dust
+	attack	75 90 35 45 5 1 0 0 13 0
+	frame	data/chars/beyond/3seth/fall1.gif
+	delay	350
+	attack	75 120 45 35 5 1 0 0 13 0
+	frame	data/chars/beyond/3seth/fall2.gif
+	delay	2
+	move	-4
+	frame	data/chars/beyond/3seth/fall3.gif
+	frame	data/chars/beyond/3seth/fall3.gif
+	attack	0 0 0 0
+	frame	data/chars/beyond/3seth/fall3.gif
+	@cmd	looper 3 5
+	move	-3
+	sound	data/sounds/fall.wav
+	frame	data/chars/beyond/3seth/fall4.gif
+	frame	data/chars/beyond/3seth/fall4.gif
+	frame	data/chars/beyond/3seth/fall4.gif
+	@cmd	looper 6 4
+	move	-2
+	frame	data/chars/beyond/3seth/fall5.gif
+	frame	data/chars/beyond/3seth/fall5.gif
+	frame	data/chars/beyond/3seth/fall5.gif
+	loop	0
+	delay	15
+	move	0
+	bbox	58 175 100 15
+	frame	data/chars/beyond/3seth/fall4.gif
+		
+anim	grabbed
+	loop	0
+	delay	10
+	offset	108 189
+	bbox	85 90 50 91
+	frame	data/chars/beyond/3seth/grabbed.gif
+		
+anim	idle
+	loop	0
+	delay	7
+	offset	108 189
+	bbox	85 90 50 91
+	@cmd	clearL
+	frame	data/chars/beyond/3seth/idle02.gif
+	@cmd	spawncounttype "morph" "count_enemies" 0 400 0 5
+	frame	data/chars/beyond/3seth/idle03.gif
+	frame	data/chars/beyond/3seth/idle03.gif
+
+		
+anim	jump
+	range	50 600
+	loop	0
+	delay	20
+	offset	108 189
+	bbox	85 90 50 91
+	frame	data/chars/beyond/3seth/c01.gif
+	frame	data/chars/beyond/3seth/c02.gif
+	frame	data/chars/beyond/3seth/c03.gif
+		
+anim	jumpland
+	loop	0
+	delay	12
+	offset	108 189
+	bbox	85 90 50 91
+	frame	data/chars/beyond/3seth/rise3.gif
+	frame	data/chars/beyond/3seth/rise4.gif
+	frame	data/chars/beyond/3seth/b01.gif
+		
+anim	pain
+	loop	0
+	delay	3
+	offset	108 189
+	bbox	85 90 50 91
+	frame	data/chars/beyond/3seth/pain0.gif
+	offset	108 189
+	frame	data/chars/beyond/3seth/pain1.gif
+	offset	112 189
+	frame	data/chars/beyond/3seth/pain1.gif
+	delay	40
+	offset	108 189
+	frame	data/chars/beyond/3seth/pain1.gif
+
+		
+anim	pain2
+	loop	0
+	delay	3
+	offset	108 189
+	bbox	85 90 50 91
+	frame	data/chars/beyond/3seth/pain0.gif
+	offset	108 189
+	frame	data/chars/beyond/3seth/pain2.gif
+	offset	112 189
+	frame	data/chars/beyond/3seth/pain2.gif
+	delay	40
+	offset	108 189
+	frame	data/chars/beyond/3seth/pain2.gif
+		
+anim	pain3
+	loop	0
+	delay	1
+	offset	108 189
+	bbox	0 0 0 0
+	jumpframe	1 2 -1 0
+	frame	data/chars/beyond/3seth/pain1.gif
+	delay	25
+	frame	data/chars/beyond/3seth/fall2.gif
+	delay	12
+	frame	data/chars/beyond/3seth/fall3.gif
+	delay	4
+	bbox	71 165 67 30
+	frame	data/chars/beyond/3seth/fall4.gif
+	frame	data/chars/beyond/3seth/fall5.gif
+	frame	data/chars/beyond/3seth/fall4.gif
+	frame	data/chars/beyond/3seth/fall5.gif
+	delay	15
+	bbox	0 0 0 0
+	frame	data/chars/beyond/3seth/fall4.gif
+	delay	10
+	frame	data/chars/beyond/3seth/rise1.gif
+	frame	data/chars/beyond/3seth/rise2.gif
+	frame	data/chars/beyond/3seth/rise3.gif
+		
+anim	pain5
+	loop	0
+	delay	23
+	offset	108 189
+	bbox	85 90 50 91
+	frame	data/chars/beyond/3seth/pain1.gif
+		
+anim	pain6
+	loop	0
+	delay	23
+	offset	108 189
+	bbox	85 90 50 91
+	frame	data/chars/beyond/3seth/pain2.gif
+		
+anim	pain8
+	loop	0
+	delay	2
+	offset	108 189
+	bbox	85 90 50 91
+	move	-6
+	frame	data/chars/beyond/3seth/pain1.gif
+	frame	data/chars/beyond/3seth/pain1.gif
+	frame	data/chars/beyond/3seth/pain1.gif
+	frame	data/chars/beyond/3seth/pain2.gif
+	frame	data/chars/beyond/3seth/pain2.gif
+	frame	data/chars/beyond/3seth/pain2.gif
+	move	-3
+	frame	data/chars/beyond/3seth/pain2.gif
+	frame	data/chars/beyond/3seth/pain2.gif
+	move	-1
+	frame	data/chars/beyond/3seth/pain2.gif
+	delay	35
+	frame	data/chars/beyond/3seth/pain2.gif
+		
+anim	pain9
+	loop	0
+	delay	15
+	offset	108 189
+	bbox	85 90 50 91
+	frame	data/chars/beyond/3seth/pain1.gif
+	delay	150
+	frame	data/chars/beyond/3seth/pain2.gif
+		
+anim	rise
+	loop	0
+	delay	50
+	offset	108 189
+	bbox	0 0 0 0
+	frame	data/chars/beyond/3seth/fall4.gif
+	delay	12
+	frame	data/chars/beyond/3seth/rise1.gif
+	frame	data/chars/beyond/3seth/rise2.gif
+	frame	data/chars/beyond/3seth/rise1.gif
+	delay	9
+	frame	data/chars/beyond/3seth/rise11.gif
+	frame	data/chars/beyond/3seth/rise12.gif
+	@cmd	target -0.2 0.1 0 0 0
+	@cmd	dash
+	frame	data/chars/beyond/3seth/rise13.gif
+	frame	data/chars/beyond/3seth/rise14.gif
+	@cmd	target -0.2 0.1 0 0 0
+	@cmd	dash
+	frame	data/chars/beyond/3seth/rise11.gif
+	frame	data/chars/beyond/3seth/rise12.gif
+	@cmd	target -0.2 0.1 0 0 0
+	@cmd	dash
+	frame	data/chars/beyond/3seth/rise13.gif
+	frame	data/chars/beyond/3seth/rise14.gif
+	frame	data/chars/beyond/3seth/rise11.gif
+	frame	data/chars/beyond/3seth/rise12.gif
+	@cmd	target -0.2 0.1 0 0 0
+	@cmd	dash
+	frame	data/chars/beyond/3seth/rise13.gif
+	frame	data/chars/beyond/3seth/rise14.gif
+	@cmd	target -0.2 0.1 0 0 0
+	@cmd	dash
+	sound	data/sounds/seth1.wav
+	frame	data/chars/beyond/3seth/rise11.gif
+	frame	data/chars/beyond/3seth/rise12.gif
+	@cmd	target -0.2 0.1 0 0 0
+	@cmd	dash
+	frame	data/chars/beyond/3seth/rise13.gif
+	frame	data/chars/beyond/3seth/rise14.gif
+	@cmd	looper 4 3
+	frame	data/chars/beyond/3seth/rise11.gif
+	delay	12
+	frame	data/chars/beyond/3seth/rise1.gif
+	@cmd	stop
+	frame	data/chars/beyond/3seth/rise2.gif
+	frame	data/chars/beyond/3seth/rise3.gif
+	frame	data/chars/beyond/3seth/rise4.gif
+	@cmd	beidle
+	frame	data/chars/beyond/3seth/rise4.gif
+		
+anim	spawn
+	loop	0
+	delay	12
+	offset	108 189
+	bbox	0 0 0 0
+	frame	data/chars/beyond/3seth/rise3.gif
+	@cmd	 playmusic "data/music/seth2.ogg" 1
+	frame	data/chars/beyond/3seth/rise4.gif
+	frame	data/chars/beyond/3seth/b01.gif
+	frame	data/chars/beyond/3seth/pain0.gif
+	frame	data/chars/beyond/3seth/pain1.gif
+	frame	data/chars/beyond/3seth/pain0.gif
+	frame	data/chars/beyond/3seth/b01.gif
+
+
+anim	backwalk
+	loop	1
+	delay	9
+	offset	108 189
+	bbox	85 90 50 91
+	drawmethod 256 256 1 0 0 0 -1
+	frame	data/chars/beyond/3seth/run01.gif
+	frame	data/chars/beyond/3seth/run02.gif
+	@cmd	spawncounttype "morph" "count_enemies" 0 400 0 5
+	frame	data/chars/beyond/3seth/run03.gif
+	frame	data/chars/beyond/3seth/run04.gif
+	frame	data/chars/beyond/3seth/run05.gif
+	frame	data/chars/beyond/3seth/run06.gif
+	frame	data/chars/beyond/3seth/run01.gif
+	frame	data/chars/beyond/3seth/run02.gif
+	frame	data/chars/beyond/3seth/run03.gif
+	sound	data/sounds/seth1.wav
+	frame	data/chars/beyond/3seth/run04.gif
+	frame	data/chars/beyond/3seth/run05.gif
+	frame	data/chars/beyond/3seth/run06.gif
+
+
+anim	turn
+	loop	0
+	delay	9
+	offset	108 189
+	bbox	85 90 50 91
+	frame	data/chars/beyond/3seth/turn01.gif
+	frame	data/chars/beyond/3seth/turn02.gif
+
+
+		
+anim	walk
+	loop	1
+	delay	9
+	offset	108 189
+	bbox	85 90 50 91
+	frame	data/chars/beyond/3seth/run01.gif
+	frame	data/chars/beyond/3seth/run02.gif
+	@cmd	spawncounttype "morph" "count_enemies" 0 400 0 5
+	frame	data/chars/beyond/3seth/run03.gif
+	frame	data/chars/beyond/3seth/run04.gif
+	frame	data/chars/beyond/3seth/run05.gif
+	frame	data/chars/beyond/3seth/run06.gif
+	frame	data/chars/beyond/3seth/run01.gif
+	frame	data/chars/beyond/3seth/run02.gif
+	frame	data/chars/beyond/3seth/run03.gif
+	sound	data/sounds/seth1.wav
+	frame	data/chars/beyond/3seth/run04.gif
+	frame	data/chars/beyond/3seth/run05.gif
+	frame	data/chars/beyond/3seth/run06.gif
+
+
+		
+#|edited by openBor Stats v 0.53
+		

@@ -1,0 +1,263 @@
+name	tankfall
+type	obstacle
+health	11000
+facing	1
+nolife	1
+shadow	0
+setlayer	-730
+offscreenkill 15000
+subject_to_gravity 0
+subject_to_gravity 0
+subject_to_screen 0
+subject_to_obstacle 0
+subject_to_hole 0
+subject_to_platform 0
+subject_to_wall 0
+subject_to_wall 0
+subject_to_minz 0
+subject_to_maxz 0
+
+hostile	  npc
+candamage npc
+
+
+animationscript data/scripts/escript.c
+
+load	explosion8
+load	roofbrk
+load	explosion1
+
+
+anim	spawn
+	loop	0
+	delay	100
+	offset	75 120
+	quakeframe	1 10 5
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif
+	delay	10
+	sound	data/sounds/big07.wav			#-----------------------
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif
+	sound	data/sounds/bang.wav			#-----------------------
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif
+	sound	data/sounds/trainrol.wav		#-----------------------
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif
+	@cmd	spawnbind "roofbrk" 0 1 -1
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif
+	sound	data/sounds/big01.wav			#-----------------------
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif
+
+
+anim	idle
+	loop	0
+	delay	5
+	offset	75 120
+	quakeframe	1 10 5
+	followanim	1
+	followcond	1
+	hitfx	data/sounds/robot2.wav
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif
+	@cmd	dasher 0 -0.4 0
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif
+	attack	40 50 80 70 1 0 1 1 0 30
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif
+	sound	data/sounds/trainrol.wav		#-----------------------
+	delay	1000
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif
+	sound	data/sounds/robot2.wav			#-----------------------
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif
+	attack	0 0 0 0
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif
+
+
+anim	follow1
+	loop	0
+	delay	30
+	offset	75 120
+	quakeframe	1 10 5
+	@cmd	slamstart2
+	@cmd	position 0 30 -170 -1 1
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif
+	sound	data/sounds/alien7.wav			#-----------------------
+	@cmd	spawnbind "explosion1" -30 -40 1	#-----------------------
+	@cmd	spawnbind "explosion1" 80 -40 1		#-----------------------
+	delay	15
+	offset	77 120
+	@cmd	position 0 30 -165 -1 1
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif
+	sound	data/sounds/alien7.wav			#-----------------------
+	offset	75 120
+	@cmd	position 1 30 -160 -1 1
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif
+	sound	data/sounds/bear1.wav			#-----------------------
+	offset	77 120
+	@cmd	position 2 30 -150 -1 1
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif
+	sound	data/sounds/bear1.wav			#-----------------------
+	offset	75 120
+	@cmd	position 1 30 -140 -1 1
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif
+	offset	75 120
+	@cmd	position 2 30 -130 -1 1
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif
+	sound	data/sounds/alien7.wav			#-----------------------
+	offset	77 120
+	@cmd	position 3 30 -120 -1 1
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif
+	offset	75 120
+	@cmd	position 2 30 -110 -1 1
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif
+	sound	data/sounds/trainrol.wav		#-----------------------
+	offset	77 120
+	@cmd	position 3 30 -110 -1 1
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif
+	offset	75 120
+	@cmd	position 2 30 -110 -1 1
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif
+	offset	77 120
+	@cmd	dasher 0 -0.1 0
+	@cmd	position 3 30 -110 -1 1
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif
+	offset	75 120
+	@cmd	position 3 30 -110 -1 1
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif
+
+
+	delay	7
+	offset	75 120
+	@cmd	position 3 30 -110 -1 1
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif #12
+	offset	77 120
+	@cmd	position 3 28 -110 -1 1
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif
+	@cmd	spawnbind "explosion8" 0 -560 -530	#-----------------------
+	offset	75 120
+	@cmd	position 3 30 -110 -1 1
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif
+	offset	77 120
+	@cmd	position 3 28 -110 -1 1
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif
+	sound	data/sounds/alien7.wav			#-----------------------
+	offset	75 120
+	@cmd	position 3 30 -110 -1 1
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif
+	sound	data/sounds/trainrol.wav		#-----------------------
+	offset	77 120
+	@cmd	position 3 28 -110 -1 1
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif
+	offset	75 120
+	@cmd	position 3 30 -110 -1 1
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif
+	sound	data/sounds/bear1.wav			#-----------------------
+	offset	77 120
+	@cmd	position 3 28 -110 -1 1
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif
+	offset	75 120
+	@cmd	position 3 30 -110 -1 1
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif
+	sound	data/sounds/crash.wav			#-----------------------
+	offset	77 120
+	@cmd	position 3 28 -110 -1 1
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif
+	@cmd	spawnbind "explosion8" -70 -500 -510	#-----------------------
+	offset	75 120
+	@cmd	position 3 30 -110 -1 1
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif
+	offset	77 120
+	@cmd	position 3 28 -110 -1 1
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif
+	offset	75 120
+	@cmd	position 3 30 -110 -1 1
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif
+	sound	data/sounds/trainrol.wav		#-----------------------
+	offset	77 120
+	@cmd	position 3 28 -110 -1 1
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif
+	offset	75 120
+	@cmd	position 3 30 -110 -1 1
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif
+	sound	data/sounds/crash.wav			#-----------------------
+	offset	77 120
+	@cmd	position 3 28 -110 -1 1
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif
+	offset	75 120
+	@cmd	position 3 30 -110 -1 1
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif
+	sound	data/sounds/bear1.wav			#-----------------------
+	offset	77 120
+	@cmd	position 3 28 -110 -1 1
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif
+	@cmd	spawnbind "explosion8" 80 -500 -510	#-----------------------
+	offset	75 120
+	@cmd	position 3 30 -110 -1 1
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif
+	offset	77 120
+	@cmd	position 3 28 -110 -1 1
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif
+	offset	75 120
+	@cmd	position 3 30 -110 -1 1
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif
+	sound	data/sounds/bear1.wav			#-----------------------
+	offset	77 120
+	@cmd	position 3 28 -110 -1 1
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif
+	offset	75 120
+	@cmd	position 3 30 -110 -1 1
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif
+	offset	77 120
+	@cmd	position 3 28 -110 -1 1
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif
+	@cmd	looper 12 7
+
+
+
+	offset	75 120
+	@cmd	position 3 30 -110 -1 1
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif #36
+	@cmd	dasher 0 -0.4 0.1
+	offset	77 120
+	@cmd	position 3 28 -110 -1 1
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif #37
+
+
+	offset	75 120
+	@cmd	position 3 30 -110 -1 1
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif #38
+	offset	77 120
+	@cmd	position 3 28 -110 -1 1
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif
+	sound	data/sounds/crash.wav			#-----------------------
+	offset	75 120
+	@cmd	position 3 30 -110 -1 1
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif
+	offset	77 120
+	@cmd	position 3 28 -110 -1 1
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif
+	sound	data/sounds/alien7.wav			#-----------------------
+	offset	75 120
+	@cmd	position 3 30 -110 -1 1
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif
+	offset	77 120
+	@cmd	position 3 28 -110 -1 1
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif
+	@cmd	looper 38 10
+	offset	75 120
+	@cmd	position 3 30 -110 -1 1
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif
+	delay	4000
+	offset	77 120
+	@cmd	position 3 28 -110 -1 1
+	frame	data/bgs/beyond/lvl13/tnkfll/tank01.gif 
+
+
+
+
+
+
+

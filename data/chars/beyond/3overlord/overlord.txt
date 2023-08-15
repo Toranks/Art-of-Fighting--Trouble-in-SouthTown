@@ -1,0 +1,1068 @@
+name          overlord
+type          enemy
+health        5000
+speed         11
+jumpheight    5
+jumpspeed     25
+throw         5 2
+throwdamage   18
+shadow        0
+nopain	      1
+knockdowncount 800
+antigravity	70
+cantgrab      1
+aggression    -135
+grabdistance  50
+nolife        1
+falldie	      1
+nodieblink    3
+blockodds     1
+nopassiveblock 1
+gfxshadow     1
+subject_to_wall 0
+dust            dust
+projectilehit enemy obstacle
+diesound      data/sounds/alien5.wav
+animationscript data/scripts/escript.c
+
+palette	data/chars/beyond/3overlord/map1.gif
+
+load	ldrpwr
+load	ldrpwr2
+load	ldrpwr3
+load	ovtlk
+load	ovtlk2
+load	endlevel_anim
+load	electov1
+load	greycll
+load	screenmover
+
+
+anim	attack1
+	range	70 95
+	rangez	-14 14
+	loop	0
+	delay	12
+	offset	100 189
+	bbox	79 97 50 91
+	hitfx	data/sounds/hard1.wav
+	hitflash	flashscreen1
+	frame	data/chars/beyond/3overlord/a01.gif
+	frame	data/chars/beyond/3overlord/a02.gif
+	attack	95 125 95 55 17 1 0 0 40 15
+	dropv	2 5
+	frame	data/chars/beyond/3overlord/a03.gif
+	frame	data/chars/beyond/3overlord/a04.gif
+	frame	data/chars/beyond/3overlord/a05.gif
+	attack	0 0 0 0
+	frame	data/chars/beyond/3overlord/a06.gif
+		
+anim	attack10
+	range	-20 55
+	rangez	-100 -25
+	loop	0
+	delay	15
+	offset	100 189
+	bbox	79 97 50 91
+	frame	data/chars/beyond/3overlord/pain1.gif
+	frame	data/chars/beyond/3overlord/pain2.gif
+	@cmd	spawnbind4 "ldrpwr" 1 1 1 1 4
+	@cmd	spawnGun2 "ldrpwr2" 1 1 1 1
+	frame	data/chars/beyond/3overlord/e01.gif
+	delay	600
+	frame	data/chars/beyond/3overlord/e02.gif
+	delay	15
+	frame	data/chars/beyond/3overlord/e01.gif
+	frame	data/chars/beyond/3overlord/pain2.gif
+	@cmd	killgun 1 0
+	frame	data/chars/beyond/3overlord/pain1.gif
+		
+anim	attack11
+	range	220 380
+	rangez	-50 50
+	loop	0
+	delay	15
+	offset	100 189
+	bbox	79 97 50 91
+	frame	data/chars/beyond/3overlord/k01.gif
+	frame	data/chars/beyond/3overlord/k02.gif
+	frame	data/chars/beyond/3overlord/k03.gif
+	frame	data/chars/beyond/3overlord/k04.gif
+	@cmd	spawnbind4 "ldrpwr3" 1 1 1 1 4
+	frame	data/chars/beyond/3overlord/k05.gif
+	delay	7
+	frame	data/chars/beyond/3overlord/k04.gif
+	frame	data/chars/beyond/3overlord/k05.gif
+	@cmd	attack1 -150 0 15 "ANI_FOLLOW11"
+	frame	data/chars/beyond/3overlord/k04.gif
+	frame	data/chars/beyond/3overlord/k05.gif
+	@cmd	looper 6 25
+	delay	15
+	frame	data/chars/beyond/3overlord/k04.gif
+	frame	data/chars/beyond/3overlord/k03.gif
+	frame	data/chars/beyond/3overlord/k02.gif
+	frame	data/chars/beyond/3overlord/k01.gif
+
+	frame	data/chars/beyond/3overlord/idle39.gif
+	frame	data/chars/beyond/3overlord/pain1.gif
+	frame	data/chars/beyond/3overlord/pain2.gif
+	frame	data/chars/beyond/3overlord/pain3.gif
+	delay	100
+	frame	data/chars/beyond/3overlord/pain4.gif
+	delay	10
+	frame	data/chars/beyond/3overlord/pain4.gif
+	@cmd	attack1 -120 120 25 "ANI_FOLLOW2"
+	frame	data/chars/beyond/3overlord/pain4.gif
+	@cmd	attack1 -120 120 25 "ANI_FOLLOW2"
+	frame	data/chars/beyond/3overlord/pain4.gif
+	@cmd	attack1 -120 120 25 "ANI_FOLLOW2"
+	frame	data/chars/beyond/3overlord/pain4.gif
+	@cmd	attack1 -120 120 25 "ANI_FOLLOW2"
+	frame	data/chars/beyond/3overlord/pain4.gif
+	@cmd	attack1 -120 120 25 "ANI_FOLLOW2"
+	frame	data/chars/beyond/3overlord/pain4.gif
+	delay	11
+	frame	data/chars/beyond/3overlord/pain2.gif
+	@cmd	attack1 0 120 25 "ANI_FOLLOW2"
+	frame	data/chars/beyond/3overlord/pain1.gif
+	frame	data/chars/beyond/3overlord/idle39.gif
+
+
+anim	attack12
+	range	-10 50
+	rangez	-23 23
+	loop	0
+	delay	12
+	offset	100 189
+	bbox	79 97 50 91
+	followanim	4
+	followcond	1
+	hitfx	data/sounds/grab.wav
+	frame	data/chars/beyond/3overlord/pain1.gif
+	frame	data/chars/beyond/3overlord/pain2.gif
+	delay	22
+	attack	90 80 70 55 0 0 1 1 15 35
+	frame	data/chars/beyond/3overlord/d01.gif
+	attack	0 0 0 0
+	delay	14
+	frame	data/chars/beyond/3overlord/pain2.gif
+	frame	data/chars/beyond/3overlord/pain1.gif
+
+
+
+anim	attack14
+	range	180 280
+	rangez	-140 -25
+	loop	0
+	delay	12
+	offset	100 189
+	bbox	79 97 50 91
+	followanim	1
+	followcond	1
+	quakeframe	2 4 8
+	hitfx	data/sounds/beat5.wav
+	@cmd	target 2 1 1 1 0
+	@cmd	dash
+	frame	data/chars/beyond/3overlord/run01.gif
+	attack3	95 100 60 55 5 0 1 1 25 15
+	frame	data/chars/beyond/3overlord/run02.gif
+	frame	data/chars/beyond/3overlord/run03.gif
+	frame	data/chars/beyond/3overlord/run04.gif
+	sound	data/sounds/fall2.wav
+	frame	data/chars/beyond/3overlord/run05.gif
+	frame	data/chars/beyond/3overlord/run06.gif
+	frame	data/chars/beyond/3overlord/run01.gif
+	@cmd	target 2 1 1 1 0
+	@cmd	dash
+	frame	data/chars/beyond/3overlord/run02.gif
+	frame	data/chars/beyond/3overlord/run03.gif
+	frame	data/chars/beyond/3overlord/run04.gif
+	sound	data/sounds/fall2.wav
+	frame	data/chars/beyond/3overlord/run05.gif
+	frame	data/chars/beyond/3overlord/run06.gif
+	@cmd	looper 6 3
+	@cmd	target 1 1 1 1 0
+	@cmd	dash
+	frame	data/chars/beyond/3overlord/run01.gif
+	frame	data/chars/beyond/3overlord/run02.gif
+	frame	data/chars/beyond/3overlord/run03.gif
+	sound	data/sounds/fall2.wav
+	frame	data/chars/beyond/3overlord/run04.gif
+	frame	data/chars/beyond/3overlord/run05.gif
+	attack3	0 0 0 0
+	frame	data/chars/beyond/3overlord/run06.gif
+	@cmd	stop
+	delay	14
+	frame	data/chars/beyond/3overlord/pain2.gif
+	frame	data/chars/beyond/3overlord/pain1.gif
+
+
+
+		
+anim	attack2
+	range	110 135
+	rangez	-14 14
+	loop	0
+	delay	12
+	offset	100 189
+	bbox	79 97 50 91
+	hitfx	data/sounds/hard2.wav
+	hitflash	flashscreen1
+	frame	data/chars/beyond/3overlord/c01.gif
+	frame	data/chars/beyond/3overlord/c02.gif
+	attack3	115 95 90 45 20 1 0 0 45 15
+	dropv	2 6
+	frame	data/chars/beyond/3overlord/c03.gif
+	delay	50
+	frame	data/chars/beyond/3overlord/c04.gif
+	attack3	0 0 0 0
+	delay	14
+	frame	data/chars/beyond/3overlord/c02.gif
+	frame	data/chars/beyond/3overlord/c01.gif
+		
+anim	attack4
+	range	90 150
+	rangez	30 200
+	loop	0
+	delay	12
+	offset	100 189
+	bbox	79 97 50 91
+	hitfx	data/sounds/beat1.wav
+	frame	data/chars/beyond/3overlord/ab01.gif
+	frame	data/chars/beyond/3overlord/ab02.gif
+	frame	data/chars/beyond/3overlord/ab03.gif
+	frame	data/chars/beyond/3overlord/ab04.gif
+	frame	data/chars/beyond/3overlord/ab05.gif
+	frame	data/chars/beyond/3overlord/ab06.gif
+	#@cmd	spawnbind4 "ldrpwr" 1 1 1 1 4
+	@cmd	spawnGun5  "ldrpwr" 1 1 1 4 "ANI_ATTACK4"
+	delay	130
+	frame	data/chars/beyond/3overlord/ab07.gif
+	@cmd	spawn02 "ldrpwr3" 1 500 500
+	delay	500
+	frame	data/chars/beyond/3overlord/ab07.gif
+	delay	12
+	frame	data/chars/beyond/3overlord/ab06.gif
+	@cmd	killgun 4 0
+	frame	data/chars/beyond/3overlord/ab05.gif
+	frame	data/chars/beyond/3overlord/ab04.gif
+	frame	data/chars/beyond/3overlord/ab03.gif
+	frame	data/chars/beyond/3overlord/ab02.gif
+	frame	data/chars/beyond/3overlord/ab01.gif
+	frame	data/chars/beyond/3overlord/pain3.gif
+	delay	100
+	frame	data/chars/beyond/3overlord/pain3.gif
+	delay	10
+	frame	data/chars/beyond/3overlord/pain4.gif
+	@cmd	attack1 -120 120 25 "ANI_FOLLOW2"
+	frame	data/chars/beyond/3overlord/pain4.gif
+	@cmd	attack1 -120 120 25 "ANI_FOLLOW2"
+	frame	data/chars/beyond/3overlord/pain4.gif
+	@cmd	attack1 -120 120 25 "ANI_FOLLOW2"
+	frame	data/chars/beyond/3overlord/pain4.gif
+	@cmd	attack1 -120 120 25 "ANI_FOLLOW2"
+	frame	data/chars/beyond/3overlord/pain4.gif
+	@cmd	attack1 -120 120 25 "ANI_FOLLOW2"
+	frame	data/chars/beyond/3overlord/pain4.gif
+	delay	11
+	frame	data/chars/beyond/3overlord/pain2.gif
+	@cmd	attack1 0 120 25 "ANI_FOLLOW2"
+	frame	data/chars/beyond/3overlord/pain1.gif
+	frame	data/chars/beyond/3overlord/idle39.gif
+		
+anim	attack5
+	range	90 150
+	rangez	-200 -30
+	loop	0
+	delay	12
+	offset	100 189
+	bbox	79 97 50 91
+	hitfx	data/sounds/beat1.wav
+	@cmd	spawnAni "ldrpwr" 180 1 -35 "ANI_FOLLOW5"
+	@cmd	spawnAni "ldrpwr" 90 1 60 "ANI_FOLLOW5"
+	frame	data/chars/beyond/3overlord/b01.gif
+	@cmd	spawnAni "ldrpwr" 1 1 -35 "ANI_FOLLOW5"
+	frame	data/chars/beyond/3overlord/b02.gif
+	@cmd	spawnAni "ldrpwr" -180 1 -55 "ANI_FOLLOW5"
+	@cmd	spawnAni "ldrpwr" -90 1 60 "ANI_FOLLOW5"
+	frame	data/chars/beyond/3overlord/b03.gif
+	delay	6
+	frame	data/chars/beyond/3overlord/b04.gif
+	frame	data/chars/beyond/3overlord/b05.gif
+	frame	data/chars/beyond/3overlord/b06.gif
+	frame	data/chars/beyond/3overlord/b07.gif
+	frame	data/chars/beyond/3overlord/b08.gif
+	frame	data/chars/beyond/3overlord/b09.gif
+	frame	data/chars/beyond/3overlord/b10.gif
+	@cmd	looper 4 8
+	delay	12
+	frame	data/chars/beyond/3overlord/b03.gif
+	frame	data/chars/beyond/3overlord/b02.gif
+	frame	data/chars/beyond/3overlord/b01.gif
+		
+anim	attack6
+	range	170 195
+	rangez	-25 25
+	loop	0
+	delay	12
+	offset	100 189
+	bbox	79 97 50 91
+	hitfx	data/sounds/beat1.wav
+	frame	data/chars/beyond/3overlord/b01.gif
+	@cmd	spawnbind4 "ldrpwr" 1 1 1 1 4
+	frame	data/chars/beyond/3overlord/b02.gif
+	delay	8
+	frame	data/chars/beyond/3overlord/bpw01.gif
+	frame	data/chars/beyond/3overlord/bpw02.gif
+	frame	data/chars/beyond/3overlord/bpw01.gif
+	frame	data/chars/beyond/3overlord/bpw02.gif
+	@cmd	spawn01 "ldrpwr" 110 1 -1
+	frame	data/chars/beyond/3overlord/bpw01.gif
+	frame	data/chars/beyond/3overlord/bpw02.gif
+	frame	data/chars/beyond/3overlord/bpw01.gif
+	frame	data/chars/beyond/3overlord/bpw02.gif
+	frame	data/chars/beyond/3overlord/bpw01.gif
+	frame	data/chars/beyond/3overlord/bpw02.gif
+	frame	data/chars/beyond/3overlord/bpw01.gif
+	frame	data/chars/beyond/3overlord/bpw02.gif
+	frame	data/chars/beyond/3overlord/bpw01.gif
+	frame	data/chars/beyond/3overlord/bpw02.gif
+	frame	data/chars/beyond/3overlord/bpw01.gif
+	frame	data/chars/beyond/3overlord/bpw02.gif
+	@cmd	looper 3 4
+	delay	12
+	frame	data/chars/beyond/3overlord/b02.gif
+	frame	data/chars/beyond/3overlord/b01.gif
+		
+anim	attack8
+	range	180 280
+	rangez	25 140
+	loop	0
+	delay	12
+	offset	100 189
+	bbox	79 97 50 91
+	followanim	1
+	followcond	1
+	quakeframe	2 4 8
+	hitfx	data/sounds/beat5.wav
+	@cmd	target 2 1 1 1 0
+	@cmd	dash
+	frame	data/chars/beyond/3overlord/run01.gif
+	attack3	95 100 60 55 5 0 1 1 25 15
+	frame	data/chars/beyond/3overlord/run02.gif
+	frame	data/chars/beyond/3overlord/run03.gif
+	frame	data/chars/beyond/3overlord/run04.gif
+	sound	data/sounds/fall2.wav
+	frame	data/chars/beyond/3overlord/run05.gif
+	frame	data/chars/beyond/3overlord/run06.gif
+	frame	data/chars/beyond/3overlord/run01.gif
+	@cmd	target 2 1 1 1 0
+	@cmd	dash
+	frame	data/chars/beyond/3overlord/run02.gif
+	frame	data/chars/beyond/3overlord/run03.gif
+	frame	data/chars/beyond/3overlord/run04.gif
+	sound	data/sounds/fall2.wav
+	frame	data/chars/beyond/3overlord/run05.gif
+	frame	data/chars/beyond/3overlord/run06.gif
+	@cmd	looper 6 3
+	@cmd	target 1 1 1 1 0
+	@cmd	dash
+	frame	data/chars/beyond/3overlord/run01.gif
+	frame	data/chars/beyond/3overlord/run02.gif
+	frame	data/chars/beyond/3overlord/run03.gif
+	sound	data/sounds/fall2.wav
+	frame	data/chars/beyond/3overlord/run04.gif
+	frame	data/chars/beyond/3overlord/run05.gif
+	attack3	0 0 0 0
+	frame	data/chars/beyond/3overlord/run06.gif
+	@cmd	stop
+	delay	14
+	frame	data/chars/beyond/3overlord/pain2.gif
+	frame	data/chars/beyond/3overlord/pain1.gif
+		
+anim	attack9
+	range	-20 55
+	rangez	25 100
+	loop	0
+	delay	15
+	offset	100 189
+	bbox	79 97 50 91
+	frame	data/chars/beyond/3overlord/pain1.gif
+	frame	data/chars/beyond/3overlord/pain2.gif
+	@cmd	spawnbind4 "ldrpwr" 1 1 1 1 4
+	@cmd	spawnGun2 "ldrpwr2" 1 1 1 2
+	frame	data/chars/beyond/3overlord/e01.gif
+	delay	600
+	frame	data/chars/beyond/3overlord/e02.gif
+	delay	15
+	frame	data/chars/beyond/3overlord/e01.gif
+	frame	data/chars/beyond/3overlord/pain2.gif
+	@cmd	killgun 2 0
+	frame	data/chars/beyond/3overlord/pain1.gif
+		
+anim	backwalk
+	loop	1 4
+	delay	9
+	offset	100 189
+	bbox	79 97 50 91
+	frame	data/chars/beyond/3overlord/pain2.gif
+	frame	data/chars/beyond/3overlord/ab01.gif
+	frame	data/chars/beyond/3overlord/ab02.gif
+	frame	data/chars/beyond/3overlord/wk00.gif
+	frame	data/chars/beyond/3overlord/wk01.gif
+	frame	data/chars/beyond/3overlord/wk02.gif
+	frame	data/chars/beyond/3overlord/wk03.gif
+	frame	data/chars/beyond/3overlord/wk04.gif
+	frame	data/chars/beyond/3overlord/wk03.gif
+	frame	data/chars/beyond/3overlord/wk02.gif
+		
+anim	block
+	loop	0
+	delay	11
+	offset	103 189
+	bbox	79 97 50 91
+	frame	data/chars/beyond/3overlord/pain1.gif
+	@cmd	killgun 1 0
+	@cmd	killgun 2 0
+	@cmd	killgun 4 0
+	frame	data/chars/beyond/3overlord/pain2.gif
+	frame	data/chars/beyond/3overlord/pain3.gif
+	delay	100
+	frame	data/chars/beyond/3overlord/pain4.gif
+	delay	10
+	frame	data/chars/beyond/3overlord/pain4.gif
+	@cmd	attack1 -120 120 25 "ANI_FOLLOW2"
+	frame	data/chars/beyond/3overlord/pain4.gif
+	@cmd	attack1 -120 120 25 "ANI_FOLLOW2"
+	frame	data/chars/beyond/3overlord/pain4.gif
+	@cmd	attack1 -120 120 25 "ANI_FOLLOW2"
+	frame	data/chars/beyond/3overlord/pain4.gif
+	@cmd	attack1 -120 120 25 "ANI_FOLLOW2"
+	frame	data/chars/beyond/3overlord/pain4.gif
+	@cmd	attack1 -120 120 25 "ANI_FOLLOW2"
+	frame	data/chars/beyond/3overlord/pain4.gif
+	delay	11
+	frame	data/chars/beyond/3overlord/pain2.gif
+	@cmd	attack1 0 120 25 "ANI_FOLLOW2"
+	frame	data/chars/beyond/3overlord/pain1.gif
+	frame	data/chars/beyond/3overlord/idle39.gif
+		
+anim	burn
+	loop	0
+	delay	11
+	offset	103 189
+	bbox	0 0 0 0
+	frame	data/chars/beyond/3overlord/pain1.gif
+	frame	data/chars/beyond/3overlord/pain2.gif
+	frame	data/chars/beyond/3overlord/pain3.gif
+	delay	100
+	frame	data/chars/beyond/3overlord/pain4.gif
+	delay	11
+	frame	data/chars/beyond/3overlord/pain2.gif
+	frame	data/chars/beyond/3overlord/pain1.gif
+		
+anim	fall
+	loop	0
+	delay	11
+	offset	103 189
+	bbox	0 0 0 0
+	frame	data/chars/beyond/3overlord/pain1.gif
+	frame	data/chars/beyond/3overlord/pain2.gif
+	frame	data/chars/beyond/3overlord/pain3.gif
+	delay	100
+	frame	data/chars/beyond/3overlord/pain4.gif
+	delay	11
+	frame	data/chars/beyond/3overlord/pain2.gif
+	frame	data/chars/beyond/3overlord/pain1.gif
+
+anim	fall7
+@script
+	void self = getlocalvar("self");
+ 	void opp = getentityproperty(self, "opponent");
+
+	if(frame >= 0)
+	{
+     	bindentity(opp, NULL());
+     	bindentity(self, NULL());
+     	performattack(opp, openborconstant("ANI_PAIN"));
+     	performattack(self, openborconstant("ANI_FOLLOW2"));
+	}
+@end_script
+	loop	0
+	delay	5
+	offset	103 189
+	bbox	0 0 0 0
+	frame	data/chars/beyond/3overlord/idle43.gif
+	frame	data/chars/beyond/3overlord/idle43.gif
+	frame	data/chars/beyond/3overlord/idle43.gif
+	frame	data/chars/beyond/3overlord/idle43.gif
+	frame	data/chars/beyond/3overlord/idle43.gif
+	frame	data/chars/beyond/3overlord/idle43.gif
+	frame	data/chars/beyond/3overlord/idle43.gif
+	frame	data/chars/beyond/3overlord/idle43.gif
+	frame	data/chars/beyond/3overlord/idle43.gif
+	frame	data/chars/beyond/3overlord/idle43.gif
+	frame	data/chars/beyond/3overlord/idle43.gif
+	frame	data/chars/beyond/3overlord/idle43.gif
+	frame	data/chars/beyond/3overlord/idle43.gif
+	frame	data/chars/beyond/3overlord/idle43.gif
+	frame	data/chars/beyond/3overlord/idle43.gif
+	frame	data/chars/beyond/3overlord/idle43.gif
+	frame	data/chars/beyond/3overlord/idle43.gif
+	frame	data/chars/beyond/3overlord/idle43.gif
+	frame	data/chars/beyond/3overlord/idle43.gif
+	frame	data/chars/beyond/3overlord/idle43.gif
+
+
+		
+anim	follow1
+	loop	0
+	delay	12
+	offset	100 189
+	bbox	79 97 50 91
+	hitfx	data/sounds/beat4.wav
+	hitflash	flashscreen1
+	fastattack	1
+	@cmd	target 2 1 1 1 0
+	@cmd	dash
+	frame	data/chars/beyond/3overlord/run03.gif
+	frame	data/chars/beyond/3overlord/run04.gif
+	@cmd	spawnbind6 "ldrpwr" 1 1 -1 "ANI_FOLLOW9"
+	frame	data/chars/beyond/3overlord/run05.gif
+	@cmd	target 1 1 1 1 0
+	@cmd	dash
+	frame	data/chars/beyond/3overlord/c05.gif
+	attack5	90 45 85 100 22 1 0 0 40 20
+	dropv	9 1
+	frame	data/chars/beyond/3overlord/c06.gif
+	frame	data/chars/beyond/3overlord/c07.gif
+	@cmd	stop
+	delay	75
+	frame	data/chars/beyond/3overlord/c08.gif
+	delay	15
+	frame	data/chars/beyond/3overlord/c09.gif
+	attack5	0 0 0 0
+	frame	data/chars/beyond/3overlord/c10.gif
+	frame	data/chars/beyond/3overlord/pain1.gif
+	frame	data/chars/beyond/3overlord/pain2.gif
+	frame	data/chars/beyond/3overlord/pain3.gif
+	delay	100
+	frame	data/chars/beyond/3overlord/pain4.gif
+	delay	10
+	frame	data/chars/beyond/3overlord/pain4.gif
+	@cmd	attack1 -120 120 25 "ANI_FOLLOW2"
+	frame	data/chars/beyond/3overlord/pain4.gif
+	@cmd	attack1 -120 120 25 "ANI_FOLLOW2"
+	frame	data/chars/beyond/3overlord/pain4.gif
+	@cmd	attack1 -120 120 25 "ANI_FOLLOW2"
+	frame	data/chars/beyond/3overlord/pain4.gif
+	@cmd	attack1 -120 120 25 "ANI_FOLLOW2"
+	frame	data/chars/beyond/3overlord/pain4.gif
+	@cmd	attack1 -120 120 25 "ANI_FOLLOW2"
+	frame	data/chars/beyond/3overlord/pain4.gif
+	delay	11
+	frame	data/chars/beyond/3overlord/pain2.gif
+	@cmd	attack1 0 120 25 "ANI_FOLLOW2"
+	frame	data/chars/beyond/3overlord/pain1.gif
+	frame	data/chars/beyond/3overlord/idle39.gif
+
+
+anim	follow11
+	loop	0
+	delay	7
+	offset	100 189
+	bbox	79 97 50 91
+	frame	data/chars/beyond/3overlord/k04.gif
+	frame	data/chars/beyond/3overlord/k05.gif
+	frame	data/chars/beyond/3overlord/k04.gif
+	frame	data/chars/beyond/3overlord/k05.gif
+	delay	15
+	frame	data/chars/beyond/3overlord/k04.gif
+	frame	data/chars/beyond/3overlord/k03.gif
+	frame	data/chars/beyond/3overlord/k02.gif
+	frame	data/chars/beyond/3overlord/k01.gif
+	frame	data/chars/beyond/3overlord/idle39.gif
+	@cmd	beidle
+	frame	data/chars/beyond/3overlord/idle39.gif
+
+
+
+
+		
+anim	follow2
+	loop	0
+	delay	14
+	offset	100 189
+	bbox	79 97 50 91
+	hitfx	data/sounds/beat4.wav
+	hitflash	flashscreen2
+	fastattack	1
+	@cmd	target 0.5 0.5 0.5 0.5 0
+	frame	data/chars/beyond/3overlord/pain2.gif
+	frame	data/chars/beyond/3overlord/h01.gif
+	frame	data/chars/beyond/3overlord/h02.gif
+	delay	5
+	@cmd	dash
+	frame	data/chars/beyond/3overlord/h03.gif
+	frame	data/chars/beyond/3overlord/h03.gif
+	frame	data/chars/beyond/3overlord/h03.gif
+	attack5	90 45 85 100 35 1 0 0 35 20
+	dropv	10 1
+	frame	data/chars/beyond/3overlord/h04.gif
+	frame	data/chars/beyond/3overlord/h04.gif
+	frame	data/chars/beyond/3overlord/h04.gif
+	frame	data/chars/beyond/3overlord/h05.gif
+	frame	data/chars/beyond/3overlord/h05.gif
+	frame	data/chars/beyond/3overlord/h05.gif
+	@cmd	stop
+	delay	14
+	frame	data/chars/beyond/3overlord/h06.gif
+	attack5	0 0 0 0
+	delay	50
+	frame	data/chars/beyond/3overlord/h07.gif
+	delay	12
+	frame	data/chars/beyond/3overlord/pain1.gif
+	delay	90
+	frame	data/chars/beyond/3overlord/idle39.gif
+		
+anim	follow4
+	delay	30
+	attackone	0
+	offset	100 189
+	bbox	0 0 0 0
+	@cmd	slamstart2
+	@cmd	position 7 60 30 -1 -1
+	frame	data/chars/beyond/3overlord/d01.gif
+	delay	15
+	@cmd	spawngrab "grab1" 200 200 450 325 1 8
+	@cmd	position 11 55 55 -1 -1
+	frame	data/chars/beyond/3overlord/d02.gif
+	delay	220
+	@cmd	position 23 50 75 -1 -1
+	frame	data/chars/beyond/3overlord/d03.gif
+	delay	15
+	@cmd	position 23 40 55 -1 -1
+	frame	data/chars/beyond/3overlord/d12.gif
+	@cmd	position 7 30 55 -1 -1
+	frame	data/chars/beyond/3overlord/d13.gif
+	@cmd	position 11 32 62 -1 -1
+	frame	data/chars/beyond/3overlord/d14.gif
+	@cmd	spawn01 "flash" 30 95 1
+	@cmd	hurt 10
+	sound	data/sounds/hard1.wav
+	@cmd	position 11 30 60 -1 -1
+	frame	data/chars/beyond/3overlord/d15.gif
+	@cmd	position 7 30 55 -1 -1
+	frame	data/chars/beyond/3overlord/d16.gif
+	@cmd	position 23 40 55 -1 -1
+	frame	data/chars/beyond/3overlord/d12.gif
+	delay	40
+	@cmd	position 23 50 75 -1 -1
+	frame	data/chars/beyond/3overlord/d03.gif
+	@cmd	looper 3 5
+	delay	100
+	@cmd	position 23 50 75 -1 -1
+	frame	data/chars/beyond/3overlord/d03.gif
+	delay	14
+	@cmd	position 1 50 65 1 1
+	frame	data/chars/beyond/3overlord/d04.gif
+	@cmd	position 0 40 60 1 1
+	frame	data/chars/beyond/3overlord/d05.gif
+	@cmd	position 2 -30 35 1 1
+	frame	data/chars/beyond/3overlord/d06.gif
+	delay	2
+	@cmd	killgun 8 0
+	@cmd	position 2 0 35 1 1
+	frame	data/chars/beyond/3overlord/d06.gif
+	delay	14
+	@cmd	depost 0
+	@cmd	finish 120 1 -4 3 0 0
+	frame	data/chars/beyond/3overlord/d07.gif
+	frame	data/chars/beyond/3overlord/d08.gif
+	frame	data/chars/beyond/3overlord/d09.gif
+	@cmd	clearL
+	frame	data/chars/beyond/3overlord/d10.gif
+	frame	data/chars/beyond/3overlord/d11.gif
+	delay	16
+	@cmd	flip
+	frame	data/chars/beyond/3overlord/pain1.gif
+	bbox	79 97 50 91
+	frame	data/chars/beyond/3overlord/pain2.gif
+	frame	data/chars/beyond/3overlord/pain3.gif
+	delay	100
+	frame	data/chars/beyond/3overlord/pain4.gif
+	delay	10
+	frame	data/chars/beyond/3overlord/pain4.gif
+	@cmd	attack1 -120 120 25 "ANI_FOLLOW2"
+	frame	data/chars/beyond/3overlord/pain4.gif
+	@cmd	attack1 -120 120 25 "ANI_FOLLOW2"
+	frame	data/chars/beyond/3overlord/pain4.gif
+	@cmd	attack1 -120 120 25 "ANI_FOLLOW2"
+	frame	data/chars/beyond/3overlord/pain4.gif
+	@cmd	attack1 -120 120 25 "ANI_FOLLOW2"
+	frame	data/chars/beyond/3overlord/pain4.gif
+	@cmd	attack1 -120 120 25 "ANI_FOLLOW2"
+	frame	data/chars/beyond/3overlord/pain4.gif
+	delay	11
+	frame	data/chars/beyond/3overlord/pain2.gif
+	@cmd	attack1 0 120 25 "ANI_FOLLOW2"
+	frame	data/chars/beyond/3overlord/pain1.gif
+	frame	data/chars/beyond/3overlord/idle39.gif
+
+		
+anim	idle
+	loop	1
+	delay	1
+	offset	100 189
+	bbox	79 97 50 91
+	@cmd	clearL
+	frame	data/chars/beyond/3overlord/idle01.gif
+	frame	data/chars/beyond/3overlord/idle02.gif
+	frame	data/chars/beyond/3overlord/idle03.gif
+	frame	data/chars/beyond/3overlord/idle04.gif
+	frame	data/chars/beyond/3overlord/idle05.gif
+	frame	data/chars/beyond/3overlord/idle06.gif
+	frame	data/chars/beyond/3overlord/idle07.gif
+	frame	data/chars/beyond/3overlord/idle08.gif
+	frame	data/chars/beyond/3overlord/idle09.gif
+	frame	data/chars/beyond/3overlord/idle10.gif
+	frame	data/chars/beyond/3overlord/idle11.gif
+	frame	data/chars/beyond/3overlord/idle12.gif
+	frame	data/chars/beyond/3overlord/idle13.gif
+	frame	data/chars/beyond/3overlord/idle14.gif
+	frame	data/chars/beyond/3overlord/idle15.gif
+	frame	data/chars/beyond/3overlord/idle16.gif
+	frame	data/chars/beyond/3overlord/idle17.gif
+	frame	data/chars/beyond/3overlord/idle18.gif
+	frame	data/chars/beyond/3overlord/idle19.gif
+	frame	data/chars/beyond/3overlord/idle20.gif
+	frame	data/chars/beyond/3overlord/idle21.gif
+	frame	data/chars/beyond/3overlord/idle22.gif
+	frame	data/chars/beyond/3overlord/idle23.gif
+	frame	data/chars/beyond/3overlord/idle24.gif
+	frame	data/chars/beyond/3overlord/idle25.gif
+	frame	data/chars/beyond/3overlord/idle26.gif
+	frame	data/chars/beyond/3overlord/idle27.gif
+	frame	data/chars/beyond/3overlord/idle28.gif
+	frame	data/chars/beyond/3overlord/idle29.gif
+	frame	data/chars/beyond/3overlord/idle30.gif
+	frame	data/chars/beyond/3overlord/idle31.gif
+	frame	data/chars/beyond/3overlord/idle32.gif
+	frame	data/chars/beyond/3overlord/idle33.gif
+	frame	data/chars/beyond/3overlord/idle34.gif
+	frame	data/chars/beyond/3overlord/idle35.gif
+	frame	data/chars/beyond/3overlord/idle36.gif
+	frame	data/chars/beyond/3overlord/idle37.gif
+	frame	data/chars/beyond/3overlord/idle38.gif
+	frame	data/chars/beyond/3overlord/idle39.gif
+		
+anim	jumpland
+	loop	0
+	delay	12
+	offset	100 189
+	bbox	79 97 50 91
+	frame	data/chars/beyond/3overlord/pain2.gif
+	frame	data/chars/beyond/3overlord/ab01.gif
+	frame	data/chars/beyond/3overlord/ab02.gif
+		
+anim	pain
+	loop	0
+	delay	11
+	offset	103 189
+	bbox	0 0 0 0
+	frame	data/chars/beyond/3overlord/pain1.gif
+	frame	data/chars/beyond/3overlord/pain2.gif
+	frame	data/chars/beyond/3overlord/pain3.gif
+	delay	100
+	frame	data/chars/beyond/3overlord/pain4.gif
+	delay	11
+	frame	data/chars/beyond/3overlord/pain2.gif
+	frame	data/chars/beyond/3overlord/pain1.gif
+		
+anim	pain2
+	loop	0
+	delay	11
+	offset	103 189
+	bbox	0 0 0 0
+	frame	data/chars/beyond/3overlord/pain1.gif
+	frame	data/chars/beyond/3overlord/pain2.gif
+	frame	data/chars/beyond/3overlord/pain3.gif
+	delay	100
+	frame	data/chars/beyond/3overlord/pain4.gif
+	delay	11
+	frame	data/chars/beyond/3overlord/pain2.gif
+	frame	data/chars/beyond/3overlord/pain1.gif
+
+anim	pain8
+	loop	0
+	delay	25
+	offset	103 189
+	bbox	0 0 0 0
+	frame	data/chars/beyond/3overlord/idle39.gif
+	frame	data/chars/beyond/3overlord/idle39.gif
+	frame	data/chars/beyond/3overlord/idle39.gif
+
+
+anim	rise
+	loop	0
+	delay	12
+	offset	100 189
+	bbox	0 0 0 0
+	frame	data/chars/beyond/3overlord/idle01.gif
+	@cmd	beidle
+	frame	data/chars/beyond/3overlord/idle01.gif
+
+
+anim	spawn
+	loop	0
+	delay	9
+	offset	100 189
+	bbox	0 0 0 0
+	custentity   ovtlk
+	spawnframe   50 0 20 25 1
+	@cmd	degravity 1
+	@cmd	dasher 0.2 0.3 0
+	frame	data/chars/beyond/3overlord/wk01.gif
+	frame	data/chars/beyond/3overlord/wk02.gif
+	frame	data/chars/beyond/3overlord/wk03.gif
+	frame	data/chars/beyond/3overlord/wk04.gif
+	frame	data/chars/beyond/3overlord/wk03.gif
+	frame	data/chars/beyond/3overlord/wk02.gif
+	frame	data/chars/beyond/3overlord/wk01.gif
+	frame	data/chars/beyond/3overlord/wk02.gif
+	frame	data/chars/beyond/3overlord/wk03.gif
+	frame	data/chars/beyond/3overlord/wk04.gif
+
+	@cmd	dasher 0.2 0 0
+
+	frame	data/chars/beyond/3overlord/wk03.gif #10
+	frame	data/chars/beyond/3overlord/wk02.gif
+	frame	data/chars/beyond/3overlord/wk01.gif
+	frame	data/chars/beyond/3overlord/wk02.gif
+	frame	data/chars/beyond/3overlord/wk03.gif
+	frame	data/chars/beyond/3overlord/wk04.gif
+	frame	data/chars/beyond/3overlord/wk03.gif
+	frame	data/chars/beyond/3overlord/wk02.gif
+	@cmd	looper 12 5 
+	frame	data/chars/beyond/3overlord/wk01.gif
+	frame	data/chars/beyond/3overlord/wk02.gif
+	frame	data/chars/beyond/3overlord/wk03.gif
+	frame	data/chars/beyond/3overlord/wk04.gif
+
+	@cmd	dasher 0.2 -0.3 0
+
+	frame	data/chars/beyond/3overlord/wk01.gif
+	frame	data/chars/beyond/3overlord/wk02.gif
+	frame	data/chars/beyond/3overlord/wk03.gif
+	frame	data/chars/beyond/3overlord/wk04.gif
+	frame	data/chars/beyond/3overlord/wk03.gif
+	frame	data/chars/beyond/3overlord/wk02.gif
+	frame	data/chars/beyond/3overlord/wk01.gif
+	frame	data/chars/beyond/3overlord/wk02.gif
+	frame	data/chars/beyond/3overlord/wk03.gif
+	frame	data/chars/beyond/3overlord/wk04.gif
+	frame	data/chars/beyond/3overlord/wk03.gif
+	frame	data/chars/beyond/3overlord/wk02.gif
+	frame	data/chars/beyond/3overlord/wk01.gif
+	frame	data/chars/beyond/3overlord/wk02.gif
+	frame	data/chars/beyond/3overlord/wk03.gif
+	frame	data/chars/beyond/3overlord/wk04.gif
+	frame	data/chars/beyond/3overlord/wk03.gif
+	frame	data/chars/beyond/3overlord/wk02.gif
+	frame	data/chars/beyond/3overlord/wk01.gif
+	frame	data/chars/beyond/3overlord/wk02.gif
+	frame	data/chars/beyond/3overlord/wk03.gif
+	frame	data/chars/beyond/3overlord/wk04.gif
+	@cmd	stop
+	@cmd	degravity 0
+	delay	12
+	frame	data/chars/beyond/3overlord/wk00.gif #44
+	frame	data/chars/beyond/3overlord/pain2.gif
+	frame	data/chars/beyond/3overlord/pain1.gif
+	@cmd	subwall 1
+	frame	data/chars/beyond/3overlord/idle39.gif
+	delay	200
+	frame	data/chars/beyond/3overlord/idle39.gif
+	frame	data/chars/beyond/3overlord/idle39.gif
+	frame	data/chars/beyond/3overlord/idle39.gif
+	frame	data/chars/beyond/3overlord/idle39.gif
+		
+anim	walk
+	loop	1 4
+	delay	9
+	offset	100 189
+	bbox	79 97 50 91
+	frame	data/chars/beyond/3overlord/pain2.gif
+	frame	data/chars/beyond/3overlord/ab01.gif
+	frame	data/chars/beyond/3overlord/ab02.gif
+	frame	data/chars/beyond/3overlord/wk00.gif
+	frame	data/chars/beyond/3overlord/wk01.gif
+	frame	data/chars/beyond/3overlord/wk02.gif
+	frame	data/chars/beyond/3overlord/wk03.gif
+	frame	data/chars/beyond/3overlord/wk04.gif
+	frame	data/chars/beyond/3overlord/wk03.gif
+	frame	data/chars/beyond/3overlord/wk02.gif
+		
+anim	walkoff
+	loop	0
+	delay	10
+	offset	100 189
+	bbox	79 97 50 91
+	frame	data/chars/beyond/3overlord/wk01.gif
+	frame	data/chars/beyond/3overlord/wk02.gif
+	frame	data/chars/beyond/3overlord/wk03.gif
+	frame	data/chars/beyond/3overlord/wk04.gif
+		
+#--------------end-----//----------------
+
+anim	death
+@script
+	void self = getlocalvar("self");
+	if(frame==18){
+
+	changelevelproperty("scrollspeed", 0);
+    	changeopenborvariant("xpos", 6560);
+    	changeopenborvariant("ypos", 70);
+	changeopenborvariant("nojoin",1);
+	}
+	if(frame==40){
+	changeplayerproperty(0, "weapon", 8);
+	changeplayerproperty(1, "weapon", 8);
+	changeplayerproperty(2, "weapon", 8);
+	changeopenborvariant("nojoin",1);
+	}
+	if(frame==67){
+	jumptobranch("dummy", 1);
+	}
+@end_script
+	loop	0
+	delay	5
+	offset	100 189
+	bbox	79 97 50 91
+	@cmd	damage_all_enemies 900 1 1
+	frame	data/chars/beyond/3overlord/idle39.gif
+	@cmd	killgun 1 0
+	@cmd	killgun 2 0
+	@cmd	killgun 4 0
+	frame	data/chars/beyond/3overlord/idle39.gif
+	@cmd	spawnAni "endlevel_anim" 1 -35 1 "ANI_FOLLOW1"
+	@cmd	spawnAni "endlevel_anim" 1 -35 1 "ANI_FOLLOW2"
+	@cmd	spawnAni "endlevel_anim" 1 -35 1 "ANI_FOLLOW3"
+	frame	data/chars/beyond/3overlord/idle39.gif
+	delay	50
+	frame	data/chars/beyond/3overlord/idle39.gif
+	delay	12
+	@cmd	subwall 0
+	frame	data/chars/beyond/3overlord/idle39.gif
+	frame	data/chars/beyond/3overlord/pain1.gif
+	frame	data/chars/beyond/3overlord/pain2.gif
+	delay	7
+	frame	data/chars/beyond/3overlord/go01.gif
+	frame	data/chars/beyond/3overlord/go02.gif
+	frame	data/chars/beyond/3overlord/go03.gif
+	sound	data/sounds/super3.wav
+	frame	data/chars/beyond/3overlord/go04.gif
+	frame	data/chars/beyond/3overlord/go05.gif
+	frame	data/chars/beyond/3overlord/go06.gif
+	frame	data/chars/beyond/3overlord/go07.gif
+	frame	data/chars/beyond/3overlord/go08.gif #14
+	@cmd	move2 6950 310
+	frame	data/chars/beyond/3overlord/empty.gif
+	delay	150
+	frame	data/chars/beyond/3overlord/empty.gif
+	delay	50
+	frame	data/chars/beyond/3overlord/empty.gif
+	frame	data/chars/beyond/3overlord/empty.gif #18
+	frame	data/chars/beyond/3overlord/empty.gif
+	delay	12
+	frame	data/chars/beyond/3overlord/empty.gif
+	frame	data/chars/beyond/3overlord/empty.gif
+
+	frame	data/chars/beyond/3overlord/go07.gif
+	frame	data/chars/beyond/3overlord/go06.gif
+	frame	data/chars/beyond/3overlord/go05.gif
+	frame	data/chars/beyond/3overlord/go04.gif
+	sound	data/sounds/super3.wav
+	frame	data/chars/beyond/3overlord/go03.gif
+	frame	data/chars/beyond/3overlord/go02.gif
+	frame	data/chars/beyond/3overlord/go01.gif
+	delay	15
+	frame	data/chars/beyond/3overlord/pain2.gif
+	delay	12
+	frame	data/chars/beyond/3overlord/pain1.gif
+	frame	data/chars/beyond/3overlord/idle39.gif #31
+	@cmd	target 1 1 1 1 0 
+	frame	data/chars/beyond/3overlord/idle39.gif
+	delay	600
+	@cmd	target 1 1 1 1 0
+	frame	data/chars/beyond/3overlord/idle39.gif #33
+	delay	12
+	@cmd	target 1 1 1 1 0
+	frame	data/chars/beyond/3overlord/idle39.gif #34
+	frame	data/chars/beyond/3overlord/death02.gif
+	frame	data/chars/beyond/3overlord/death03.gif
+	frame	data/chars/beyond/3overlord/death04.gif
+	delay	200
+	@cmd	spawnGun5 "ldrpwr3" 39 74 10 3 "ANI_FOLLOW2"
+	frame	data/chars/beyond/3overlord/death05.gif #38
+	@cmd	spawn02 "electov1" 1 50 1
+	delay	500
+	frame	data/chars/beyond/3overlord/death05.gif
+	delay	15
+	frame	data/chars/beyond/3overlord/death05.gif#40
+	frame	data/chars/beyond/3overlord/death05.gif
+	frame	data/chars/beyond/3overlord/death05.gif
+	frame	data/chars/beyond/3overlord/death05.gif
+	frame	data/chars/beyond/3overlord/death05.gif
+	delay	650
+	frame	data/chars/beyond/3overlord/death05.gif
+	delay	12
+	@cmd	killgun 3 0
+	frame	data/chars/beyond/3overlord/death04.gif
+	frame	data/chars/beyond/3overlord/death03.gif
+	frame	data/chars/beyond/3overlord/death02.gif
+	frame	data/chars/beyond/3overlord/idle39.gif
+	delay	700
+	frame	data/chars/beyond/3overlord/idle39.gif
+	delay	12
+	frame	data/chars/beyond/3overlord/idle39.gif
+	frame	data/chars/beyond/3overlord/idle39.gif
+	frame	data/chars/beyond/3overlord/idle39.gif
+	@cmd	spawn02 "ovtlk2" 20 1 1
+	frame	data/chars/beyond/3overlord/idle39.gif #54
+	delay	100
+	frame	data/chars/beyond/3overlord/idle39.gif
+	delay	60
+	frame	data/chars/beyond/3overlord/idle39.gif
+	@cmd	spawnAni2 "greycll" 160 1 195 "ANI_FOLLOW5"  #robert
+	frame	data/chars/beyond/3overlord/idle39.gif
+	@cmd	spawnAni2 "greycll" 250 1 220 "ANI_FOLLOW5"  #ryo
+	frame	data/chars/beyond/3overlord/idle39.gif
+	@cmd	spawnAni2 "greycll" 130 1 250 "ANI_FOLLOW5"  #yuri
+	frame	data/chars/beyond/3overlord/idle39.gif
+	delay	14
+	frame	data/chars/beyond/3overlord/pain1.gif
+	frame	data/chars/beyond/3overlord/pain2.gif
+	frame	data/chars/beyond/3overlord/pain3.gif
+	delay	2000
+	frame	data/chars/beyond/3overlord/pain4.gif
+	delay	12
+	frame	data/chars/beyond/3overlord/pain4.gif
+	frame	data/chars/beyond/3overlord/pain4.gif
+	frame	data/chars/beyond/3overlord/pain4.gif #66
+	frame	data/chars/beyond/3overlord/pain4.gif
+	frame	data/chars/beyond/3overlord/pain4.gif
+	frame	data/chars/beyond/3overlord/pain4.gif
+	frame	data/chars/beyond/3overlord/pain4.gif
+	frame	data/chars/beyond/3overlord/pain4.gif
+	frame	data/chars/beyond/3overlord/pain4.gif
+	frame	data/chars/beyond/3overlord/pain4.gif
+	frame	data/chars/beyond/3overlord/pain4.gif
+	frame	data/chars/beyond/3overlord/pain4.gif
+	frame	data/chars/beyond/3overlord/pain4.gif
+	frame	data/chars/beyond/3overlord/pain4.gif
+	frame	data/chars/beyond/3overlord/pain4.gif
+	frame	data/chars/beyond/3overlord/pain4.gif
+
+
+		

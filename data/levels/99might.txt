@@ -1,0 +1,110 @@
+music		data/music/might.ogg
+
+background	data/bgs/0might/panel.gif 0 0
+panel		data/bgs/0might/panel.gif
+fglayer         data/bgs/0might/front.gif 200 0 0 0 0 0 0 1 1 1
+fglayer         data/bgs/0might/front2.gif 500 -0.3 0 270 0 0 0 1 1 1
+fglayer         data/bgs/0might/front3.gif 500 -0.3 0 1480 230 0 0 1 1 1
+fglayer         data/bgs/0might/light.gif 2500 0 0 -1 -1 0 0 1 1 1 1
+
+
+direction       both
+light  		10   -30
+at       	0
+settime         0
+notime          1
+noslow          0
+order           a
+spawn1  	100 110
+spawn2  	145 115
+spawn3  	185 120
+
+cameraoffset            0 -90
+cameratype              1
+
+#-------------------------------------------
+wall    0 320 0 0 750 750 170 5000
+wall    745 295 0 0 100 100 140 5000
+wall    840 280 0 0 100 100 120 5000
+wall    1250 340 0 160 300 300 180 5000
+#-------------------------------------------
+
+spawn bird4
+flip    1
+coords  345 430
+at      0
+
+spawn bird4
+flip    1
+coords  365 460
+at      0
+
+spawn bird4
+flip    1
+coords  295 515
+at      0
+
+spawn bird4
+flip    1
+coords  385 410
+at      0
+
+spawn bird4
+flip    1
+coords  320 405
+at      0
+
+#------//--todo-kasumi--//-----
+spawn   might1
+@script void main() {
+	void self = getlocalvar("self");
+	performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+	updateframe(self, 3);
+} @end_script
+coords  1100 240
+at      0
+
+
+
+spawn   might1
+@script void main() {
+        void self = getlocalvar("self");
+	performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW3"));
+	updateframe(self, 6);
+} @end_script
+flip    1
+coords  1270 260
+at      0
+
+
+#------//--BREAKS--//-----
+
+spawn   mightst
+coords  1270 350
+at      0
+
+spawn   mightst
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW4"));
+} @end_script
+coords  1145 350
+at      0
+
+spawn   mightst
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW8"));
+} @end_script
+coords  980 350
+at      0
+
+#------//--to-map--//---------
+spawn   homexit
+flip	1
+coords  20 350
+at      0
+
+#---------------------
+spawn   ghosttest
+coords  170 340
+at      0
+#---------------------

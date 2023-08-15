@@ -1,0 +1,652 @@
+name		jackbckpl
+type		none
+health		300
+mp		100
+speedf		1.5
+jumpheight	0
+cantgrab	1
+notgrab		1
+noquake		1
+falldie		1
+nodieblink	1
+makeinv		3
+gfxshadow	1
+modelflag 	1
+weaploss	3
+nodrop		1
+facing		1
+grabforce       0
+candamage	enemy obstacle
+diesound        data/sounds/ryode.wav
+atchain         1 0 0 0 
+icon		data/chars/3jack/iconpl.gif
+parrow          data/chars/misc/flash/flash/player1.gif  -36 -145
+parrow2         data/chars/misc/flash/flash/player2.gif  -36 -145
+parrow3         data/chars/misc/flash/flash/player3.gif  -36 -145
+diesound        data/sounds/bang2.wav
+
+animationscript data/scripts/escript.c
+
+
+load	bfire
+load	cardam2
+load	Steam
+load	grenade3
+load	smk1
+
+com     j	freespecial1
+com     a2	freespecial2
+com     a3	freespecial3
+
+
+
+anim	attack
+@script
+	void self = getlocalvar("self");
+	void plyr = getentityproperty(self, "playerindex");
+	float Vx = getlocalvar("x"+self);
+	float Vz = getlocalvar("z"+self);
+
+	if(frame >= 0 && frame <= 9 )
+	{
+	  if( playerkeys(plyr, 0, "moveup"))
+	  {
+	  changeentityproperty(self, "velocity", Vx, -0.5);
+	  }
+	  if( playerkeys(plyr, 0, "movedown"))
+	  {
+	  changeentityproperty(self, "velocity", Vx, 0.5);
+	  }
+	  if( playerkeys(plyr, 0, "moveleft"))
+	  {
+	  changeentityproperty(self, "velocity", -1.5, Vz);
+	  }
+	  if( playerkeys(plyr, 0, "moveright"))
+	  {
+	  changeentityproperty(self, "velocity", 1.5, Vz);
+	  }
+	}
+@end_script
+	loop	0
+	delay	5
+	offset	100 150
+	bbox	60 40 40 80
+	sound	data/sounds/jack1.wav
+	frame	data/chars/3jackbck/Jack13.gif
+	frame	data/chars/3jackbck/Jack14.gif
+	frame	data/chars/3jackbck/Jack15.gif
+	frame	data/chars/3jackbck/Jack16.gif
+	attack	90 45 70 35 18 0 0 0 35 20
+	frame	data/chars/3jackbck/Jack17.gif
+	frame	data/chars/3jackbck/Jack18.gif
+	frame	data/chars/3jackbck/Jack17.gif
+	frame	data/chars/3jackbck/Jack18.gif
+	attack	0 0 0 0
+	frame	data/chars/3jackbck/Jack15.gif
+	frame	data/chars/3jackbck/Jack16.gif
+	frame	data/chars/3jackbck/Jack13.gif
+	@cmd	stop
+	frame	data/chars/3jackbck/Jack14.gif
+
+
+
+
+		
+anim	freespecial1
+@script
+	void self = getlocalvar("self");
+	void plyr = getentityproperty(self, "playerindex");
+	float Vx = getlocalvar("x"+self);
+	float Vz = getlocalvar("z"+self);
+
+	if(frame >= 0 && frame <= 8 )
+	{
+	  if( playerkeys(plyr, 0, "moveup"))
+	  {
+	  changeentityproperty(self, "velocity", Vx, -0.5);
+	  }
+	  if( playerkeys(plyr, 0, "movedown"))
+	  {
+	  changeentityproperty(self, "velocity", Vx, 0.5);
+	  }
+	  if( playerkeys(plyr, 0, "moveleft"))
+	  {
+	  changeentityproperty(self, "velocity", -1.5, Vz);
+	  }
+	  if( playerkeys(plyr, 0, "moveright"))
+	  {
+	  changeentityproperty(self, "velocity", 1.5, Vz);
+	  }
+	}
+@end_script
+	loop	0
+	delay	5
+	offset	100 150
+	bbox	60 40 40 80
+	sound	data/sounds/jack1.wav
+	frame	data/chars/3jackbck/Jack07.gif
+	frame	data/chars/3jackbck/Jack08.gif
+	attack	-5 35 110 59 18 0 0 0 35 20
+	offset	110 150
+	frame	data/chars/3jackbck/Jack09.gif
+	frame	data/chars/3jackbck/Jack10.gif
+	frame	data/chars/3jackbck/Jack11.gif
+	frame	data/chars/3jackbck/Jack12.gif
+	frame	data/chars/3jackbck/Jack11.gif
+	frame	data/chars/3jackbck/Jack12.gif
+	offset	100 150
+	frame	data/chars/3jackbck/Jack07.gif
+	@cmd	stop
+	frame	data/chars/3jackbck/Jack08.gif
+
+
+
+
+#void tosser3(void Bomb, float dx, float dy, float dz, float Vx, float Vy, float Vz, void Ani)
+		
+anim	freespecial2
+@script
+	void self = getlocalvar("self");
+	void plyr = getentityproperty(self, "playerindex");
+	float Vx = getlocalvar("x"+self);
+	float Vz = getlocalvar("z"+self);
+
+	if(frame >= 0 && frame <= 8 )
+	{
+	  if( playerkeys(plyr, 0, "moveup"))
+	  {
+	  changeentityproperty(self, "velocity", Vx, -0.5);
+	  }
+	  if( playerkeys(plyr, 0, "movedown"))
+	  {
+	  changeentityproperty(self, "velocity", Vx, 0.5);
+	  }
+	  if( playerkeys(plyr, 0, "moveleft"))
+	  {
+	  changeentityproperty(self, "velocity", -1.5, Vz);
+	  }
+	  if( playerkeys(plyr, 0, "moveright"))
+	  {
+	  changeentityproperty(self, "velocity", 1.5, Vz);
+	  }
+	}
+@end_script
+	loop	0
+	delay	5
+	offset	100 150
+	bbox	60 40 40 80
+	sound	data/sounds/jack2.wav
+	frame	data/chars/3jackbck/Jack01.gif
+	frame	data/chars/3jackbck/Jack02.gif
+	frame	data/chars/3jackbck/Jack03.gif
+	@cmd	tosser3 "grenade3" 15 100 0 1.5 1.5 0 "ANI_ATTACK2" 
+	frame	data/chars/3jackbck/Jack04.gif
+	frame	data/chars/3jackbck/Jack03.gif
+	frame	data/chars/3jackbck/Jack04.gif
+	frame	data/chars/3jackbck/Jack03.gif
+	frame	data/chars/3jackbck/Jack04.gif
+	frame	data/chars/3jackbck/Jack01.gif
+	@cmd	stop
+	frame	data/chars/3jackbck/Jack02.gif
+		
+anim	freespecial3
+@script
+	void self = getlocalvar("self");
+	void plyr = getentityproperty(self, "playerindex");
+	float Vx = getlocalvar("x"+self);
+	float Vz = getlocalvar("z"+self);
+
+	if(frame >= 0 && frame <= 8 )
+	{
+	  if( playerkeys(plyr, 0, "moveup"))
+	  {
+	  changeentityproperty(self, "velocity", Vx, -0.5);
+	  }
+	  if( playerkeys(plyr, 0, "movedown"))
+	  {
+	  changeentityproperty(self, "velocity", Vx, 0.5);
+	  }
+	  if( playerkeys(plyr, 0, "moveleft"))
+	  {
+	  changeentityproperty(self, "velocity", -1.5, Vz);
+	  }
+	  if( playerkeys(plyr, 0, "moveright"))
+	  {
+	  changeentityproperty(self, "velocity", 1.5, Vz);
+	  }
+	}
+@end_script
+	loop	0
+	delay	5
+	offset	100 150
+	bbox	60 40 40 80
+	sound	data/sounds/jack2.wav
+	frame	data/chars/3jackbck/Jack01.gif
+	frame	data/chars/3jackbck/Jack02.gif
+	frame	data/chars/3jackbck/Jack05.gif
+	@cmd	tosser3 "grenade3" -45 100 0 -1.5 1.5 0 "ANI_ATTACK2" 
+	frame	data/chars/3jackbck/Jack06.gif
+	frame	data/chars/3jackbck/Jack05.gif
+	frame	data/chars/3jackbck/Jack06.gif
+	frame	data/chars/3jackbck/Jack05.gif
+	frame	data/chars/3jackbck/Jack06.gif
+	frame	data/chars/3jackbck/Jack01.gif
+	@cmd	stop
+	frame	data/chars/3jackbck/Jack02.gif
+
+
+anim	death
+@script
+	void self = getlocalvar("self");
+	void plyr = getentityproperty(self, "playerindex");
+	float Vx = getlocalvar("x"+self);
+	float Vz = getlocalvar("z"+self);
+
+	if(frame >= 0 )
+	{
+	  if( playerkeys(plyr, 0, "moveup"))
+	  {
+	  changeentityproperty(self, "velocity", Vx, -1);
+	  }
+	  if( playerkeys(plyr, 0, "movedown"))
+	  {
+	  changeentityproperty(self, "velocity", Vx, 1);
+	  }
+	  if( playerkeys(plyr, 0, "moveleft"))
+	  {
+	  changeentityproperty(self, "velocity", -2, Vz);
+	  }
+	  if( playerkeys(plyr, 0, "moveright"))
+	  {
+	  changeentityproperty(self, "velocity", 2, Vz);
+	  }
+	}
+@end_script
+	loop	0
+	delay	12
+	offset	230 245
+	bbox	0 0 0 0
+	hitfx	data/sounds/burnt.wav
+	jumpframe 0 6 0
+	landframe 11
+	@cmd	changeopenborvariant "slowmotion" 1
+	frame	data/chars/3jackbck/deth01.gif
+	frame	data/chars/3jackbck/deth01.gif
+	@cmd	spawn01 "cardam2" -20 50 7
+	frame	data/chars/3jackbck/deth02.gif
+	sound	data/sounds/crash.wav
+	frame	data/chars/3jackbck/deth03.gif
+	frame	data/chars/3jackbck/deth04.gif
+	frame	data/chars/3jackbck/deth05.gif
+	frame	data/chars/3jackbck/deth06.gif
+	frame	data/chars/3jackbck/deth07.gif
+	frame	data/chars/3jackbck/deth08.gif
+	sound   data/sounds/grab.wav
+	frame	data/chars/3jackbck/deth09.gif
+	delay	500
+	frame	data/chars/3jackbck/deth10.gif
+	sound	data/sounds/crash.wav
+	delay	8
+	attack	100 170 180 90 60 0 1 1 0 30
+	frame	data/chars/3jackbck/deth11.gif
+	sound   data/sounds/jack5.wav
+	frame	data/chars/3jackbck/deth12.gif
+	attack	0 0 0 0
+	frame	data/chars/3jackbck/deth11.gif
+	frame	data/chars/3jackbck/deth12.gif
+	attack	100 170 180 90 60 0 1 1 0 30
+	frame	data/chars/3jackbck/deth11.gif
+	sound   data/sounds/jack5.wav
+	frame	data/chars/3jackbck/deth12.gif
+	attack	0 0 0 0
+	frame	data/chars/3jackbck/deth11.gif
+	attack	100 170 180 90 60 0 1 1 0 30
+	frame	data/chars/3jackbck/deth12.gif
+	frame	data/chars/3jackbck/deth11.gif
+	sound   data/sounds/jack5.wav
+	attack	0 0 0 0
+	frame	data/chars/3jackbck/deth12.gif
+	frame	data/chars/3jackbck/deth11.gif
+	sound	data/sounds/crash.wav
+	attack	100 170 180 90 60 0 1 1 0 30
+	frame	data/chars/3jackbck/deth12.gif
+	frame	data/chars/3jackbck/deth11.gif
+	sound   data/sounds/jack5.wav
+	frame	data/chars/3jackbck/deth12.gif
+	attack	0 0 0 0
+	frame	data/chars/3jackbck/deth11.gif
+	attack	100 170 180 90 60 0 1 1 0 30
+	frame	data/chars/3jackbck/deth12.gif
+	frame	data/chars/3jackbck/deth11.gif
+	attack	0 0 0 0
+	sound   data/sounds/jack5.wav
+	frame	data/chars/3jackbck/deth12.gif
+	frame	data/chars/3jackbck/deth11.gif
+	attack	100 170 180 90 60 0 1 1 0 30
+	sound	data/sounds/crash.wav
+	frame	data/chars/3jackbck/deth12.gif
+	attack	0 0 0 0
+	frame	data/chars/3jackbck/deth11.gif
+	sound   data/sounds/jack5.wav
+	attack	100 170 180 90 60 0 1 1 0 30
+	frame	data/chars/3jackbck/deth12.gif
+	sound	data/sounds/crash.wav
+	frame	data/chars/3jackbck/deth13.gif
+	attack	0 0 0 0
+	frame	data/chars/3jackbck/deth14.gif
+	@cmd	spawnGun "smk1" -130 -5 7 3
+	frame	data/chars/3jackbck/deth13.gif
+	attack	100 170 180 90 60 0 1 1 0 30
+	frame	data/chars/3jackbck/deth14.gif
+	sound   data/sounds/die2.wav
+	frame	data/chars/3jackbck/deth13.gif
+	attack	0 0 0 0
+	frame	data/chars/3jackbck/deth14.gif
+	sound	data/sounds/crash.wav
+	frame	data/chars/3jackbck/deth13.gif
+	attack	100 170 180 90 60 0 1 1 0 30
+	frame	data/chars/3jackbck/deth14.gif
+	sound   data/sounds/die2.wav
+	frame	data/chars/3jackbck/deth13.gif
+	attack	0 0 0 0
+	frame	data/chars/3jackbck/deth14.gif
+	frame	data/chars/3jackbck/deth13.gif
+	attack	100 170 180 90 60 0 1 1 0 30
+	frame	data/chars/3jackbck/deth14.gif
+	sound   data/sounds/die2.wav
+	frame	data/chars/3jackbck/deth13.gif
+	frame	data/chars/3jackbck/deth14.gif
+	attack	0 0 0 0
+	frame	data/chars/3jackbck/deth13.gif
+	attack	100 170 180 90 60 0 1 1 0 30
+	frame	data/chars/3jackbck/deth14.gif
+	sound   data/sounds/die2.wav
+	frame	data/chars/3jackbck/deth13.gif
+	attack	0 0 0 0
+	frame	data/chars/3jackbck/deth14.gif
+	attack	100 170 180 90 60 0 1 1 0 30
+	frame	data/chars/3jackbck/deth13.gif
+	frame	data/chars/3jackbck/deth14.gif
+	sound   data/sounds/die2.wav
+	attack	0 0 0 0
+	frame	data/chars/3jackbck/deth13.gif
+	frame	data/chars/3jackbck/deth14.gif
+	sound	data/sounds/crash.wav
+	attack	100 170 180 90 60 0 1 1 0 30
+	frame	data/chars/3jackbck/deth13.gif
+	frame	data/chars/3jackbck/deth14.gif
+	sound   data/sounds/die2.wav
+	frame	data/chars/3jackbck/deth13.gif
+	attack	0 0 0 0
+	frame	data/chars/3jackbck/deth14.gif
+	attack	100 170 180 90 60 0 1 1 0 30
+	frame	data/chars/3jackbck/deth13.gif
+	frame	data/chars/3jackbck/deth14.gif
+	sound   data/sounds/die2.wav
+	attack	0 0 0 0
+	frame	data/chars/3jackbck/deth13.gif
+	frame	data/chars/3jackbck/deth14.gif
+	attack	100 170 180 90 60 0 1 1 0 30
+	frame	data/chars/3jackbck/deth13.gif
+	frame	data/chars/3jackbck/deth14.gif
+	sound   data/sounds/die2.wav
+	attack	0 0 0 0
+	frame	data/chars/3jackbck/deth13.gif
+	frame	data/chars/3jackbck/deth14.gif
+	sound	data/sounds/crash.wav
+	attack	100 170 180 90 60 0 1 1 0 30
+	frame	data/chars/3jackbck/deth13.gif
+	frame	data/chars/3jackbck/deth14.gif
+	sound   data/sounds/die2.wav
+	frame	data/chars/3jackbck/deth13.gif
+	attack	0 0 0 0
+	frame	data/chars/3jackbck/deth14.gif
+	attack	100 170 180 90 60 0 1 1 0 30
+	frame	data/chars/3jackbck/deth13.gif
+	frame	data/chars/3jackbck/deth14.gif
+	sound   data/sounds/die2.wav
+	attack	0 0 0 0
+	frame	data/chars/3jackbck/deth13.gif
+	frame	data/chars/3jackbck/deth14.gif
+	attack	100 170 180 90 60 0 1 1 0 30
+	frame	data/chars/3jackbck/deth13.gif
+	frame	data/chars/3jackbck/deth14.gif
+	sound   data/sounds/die2.wav
+	attack	0 0 0 0
+	frame	data/chars/3jackbck/deth13.gif
+	attack	100 170 180 90 60 0 1 1 0 30
+	@cmd	killgun 3 0
+	frame	data/chars/3jackbck/deth15.gif
+	sound   data/sounds/burnt.wav
+	@cmd	spawnGun "bfire" -180 -6 7 1
+	frame	data/chars/3jackbck/deth13.gif
+	attack	0 0 0 0
+	frame	data/chars/3jackbck/deth15.gif
+	frame	data/chars/3jackbck/deth13.gif
+	sound   data/sounds/die10.wav
+	attack	100 170 180 90 60 0 1 1 0 30
+	frame	data/chars/3jackbck/deth15.gif
+	frame	data/chars/3jackbck/deth13.gif
+	sound	data/sounds/crash.wav
+	attack	0 0 0 0
+	frame	data/chars/3jackbck/deth15.gif
+	attack	100 170 180 90 60 0 1 1 0 30
+	frame	data/chars/3jackbck/deth13.gif
+	frame	data/chars/3jackbck/deth15.gif
+	sound   data/sounds/die10.wav
+	frame	data/chars/3jackbck/deth13.gif
+	attack	0 0 0 0
+	frame	data/chars/3jackbck/deth15.gif
+	frame	data/chars/3jackbck/deth13.gif
+	attack	100 170 180 90 60 0 1 1 0 30
+	frame	data/chars/3jackbck/deth15.gif
+	frame	data/chars/3jackbck/deth13.gif
+	sound   data/sounds/die10.wav
+	frame	data/chars/3jackbck/deth15.gif
+	attack	0 0 0 0
+	frame	data/chars/3jackbck/deth13.gif
+	@cmd	spawnGun "Steam" -150 40 5 2
+	frame	data/chars/3jackbck/deth15.gif
+	attack	100 170 180 90 60 0 1 1 0 30
+	frame	data/chars/3jackbck/deth13.gif
+	frame	data/chars/3jackbck/deth15.gif
+	attack	0 0 0 0
+	sound   data/sounds/die10.wav
+	frame	data/chars/3jackbck/deth13.gif
+	attack	100 170 180 90 60 0 1 1 0 30
+	frame	data/chars/3jackbck/deth15.gif
+	frame	data/chars/3jackbck/deth13.gif
+	frame	data/chars/3jackbck/deth15.gif
+	attack	0 0 0 0
+	frame	data/chars/3jackbck/deth13.gif
+	sound   data/sounds/die10.wav
+	frame	data/chars/3jackbck/deth15.gif
+	attack	100 170 180 90 60 0 1 1 0 30
+	frame	data/chars/3jackbck/deth13.gif
+	frame	data/chars/3jackbck/deth15.gif
+	attack	0 0 0 0
+	sound	data/sounds/crash.wav
+	frame	data/chars/3jackbck/deth13.gif
+	frame	data/chars/3jackbck/deth15.gif
+	sound   data/sounds/die10.wav
+	attack	100 170 180 90 60 0 1 1 0 30
+	frame	data/chars/3jackbck/deth13.gif
+	frame	data/chars/3jackbck/deth15.gif
+	attack	0 0 0 0
+	frame	data/chars/3jackbck/deth13.gif
+	attack	100 170 180 90 60 0 1 1 0 30
+	frame	data/chars/3jackbck/deth15.gif
+	frame	data/chars/3jackbck/deth13.gif
+	sound   data/sounds/die10.wav
+	frame	data/chars/3jackbck/deth15.gif
+	attack	0 0 0 0
+	frame	data/chars/3jackbck/deth13.gif
+	attack	100 170 180 90 60 0 1 1 0 30
+	frame	data/chars/3jackbck/deth15.gif
+	frame	data/chars/3jackbck/deth13.gif
+	attack	0 0 0 0
+	frame	data/chars/3jackbck/deth15.gif
+	sound   data/sounds/die10.wav
+	frame	data/chars/3jackbck/deth13.gif
+	attack	100 170 180 90 60 0 1 1 0 30
+	frame	data/chars/3jackbck/deth15.gif
+	frame	data/chars/3jackbck/deth13.gif
+	attack	0 0 0 0
+	sound	data/sounds/crash.wav
+	frame	data/chars/3jackbck/deth15.gif
+	attack	100 170 180 90 60 0 1 1 0 30
+	frame	data/chars/3jackbck/deth13.gif
+	sound   data/sounds/die10.wav
+	frame	data/chars/3jackbck/deth15.gif
+	attack	0 0 0 0
+	frame	data/chars/3jackbck/deth13.gif
+	attack	100 170 180 90 60 0 1 1 0 30
+	frame	data/chars/3jackbck/deth15.gif
+	frame	data/chars/3jackbck/deth13.gif
+	attack	0 0 0 0
+	frame	data/chars/3jackbck/deth15.gif
+	sound   data/sounds/die10.wav
+	frame	data/chars/3jackbck/deth13.gif
+	attack	100 170 180 90 60 0 1 1 0 30
+	frame	data/chars/3jackbck/deth15.gif
+	frame	data/chars/3jackbck/deth13.gif
+	frame	data/chars/3jackbck/deth15.gif
+	attack	0 0 0 0
+	frame	data/chars/3jackbck/deth13.gif
+	sound   data/sounds/die10.wav
+	frame	data/chars/3jackbck/deth15.gif
+	attack	100 170 180 90 60 0 1 1 0 30
+	frame	data/chars/3jackbck/deth13.gif
+	attack	0 0 0 0
+	frame	data/chars/3jackbck/deth15.gif
+	sound	data/sounds/crash.wav
+	frame	data/chars/3jackbck/deth13.gif
+	attack	100 170 180 90 60 0 1 1 0 30
+	frame	data/chars/3jackbck/deth15.gif
+	sound   data/sounds/die10.wav
+	frame	data/chars/3jackbck/deth13.gif
+	attack	0 0 0 0
+	frame	data/chars/3jackbck/deth15.gif
+	attack	100 170 180 90 60 0 1 1 0 30
+	frame	data/chars/3jackbck/deth13.gif
+	frame	data/chars/3jackbck/deth15.gif
+	attack	0 0 0 0
+	frame	data/chars/3jackbck/deth13.gif
+	sound   data/sounds/die10.wav
+	frame	data/chars/3jackbck/deth15.gif
+	attack	100 170 180 90 60 0 1 1 0 30
+	frame	data/chars/3jackbck/deth13.gif
+	frame	data/chars/3jackbck/deth15.gif
+	attack	0 0 0 0
+	frame	data/chars/3jackbck/deth13.gif
+	frame	data/chars/3jackbck/deth15.gif
+	attack	100 170 180 90 60 0 1 1 0 30
+	sound   data/sounds/die10.wav
+	frame	data/chars/3jackbck/deth13.gif
+	frame	data/chars/3jackbck/deth15.gif
+	attack	0 0 0 0
+	frame	data/chars/3jackbck/deth13.gif
+	attack	100 170 180 90 60 0 1 1 0 30
+	frame	data/chars/3jackbck/deth15.gif
+	frame	data/chars/3jackbck/deth13.gif
+	sound   data/sounds/die10.wav
+	attack	0 0 0 0
+	frame	data/chars/3jackbck/deth15.gif
+	frame	data/chars/3jackbck/deth13.gif
+	attack	100 170 180 90 60 0 1 1 0 30
+	frame	data/chars/3jackbck/deth15.gif
+	sound	data/sounds/crash.wav
+	frame	data/chars/3jackbck/deth13.gif
+	attack	0 0 0 0
+	frame	data/chars/3jackbck/deth15.gif
+	sound   data/sounds/die10.wav
+	frame	data/chars/3jackbck/deth13.gif
+	sound   data/sounds/tod5.wav
+	frame	data/chars/3jackbck/deth15.gif
+	@cmd	leaper -3 7 0
+	frame	data/chars/3jackbck/deth15.gif
+	@cmd	killgun 1 0
+	frame	data/chars/3jackbck/deth02.gif
+	@cmd	killgun 2 0
+	frame	data/chars/3jackbck/deth03.gif
+	frame	data/chars/3jackbck/deth04.gif
+	frame	data/chars/3jackbck/deth05.gif
+	frame	data/chars/3jackbck/deth06.gif
+	@cmd	leaper -2 3 0
+	frame	data/chars/3jackbck/deth07.gif
+	sound	data/sounds/crash.wav
+	frame	data/chars/3jackbck/deth08.gif
+	frame	data/chars/3jackbck/deth09.gif
+	delay	30
+	frame	data/chars/3jackbck/deth05.gif
+	@cmd	leaper -1 3 0
+	frame	data/chars/3jackbck/deth06.gif
+	delay	8
+	frame	data/chars/3jackbck/deth07.gif
+	@cmd	leaper -1 3 0
+	frame	data/chars/3jackbck/deth08.gif
+	frame	data/chars/3jackbck/empty.gif
+	@cmd	changeopenborvariant "slowmotion" 0
+	frame	data/chars/3jackbck/empty.gif
+		
+anim	idle
+	loop	1
+	delay	5
+	offset	100 150
+	bbox	60 40 40 80
+	frame	data/chars/3jackbck/Jack01.gif
+	frame	data/chars/3jackbck/Jack02.gif
+	sound	data/sounds/bike7.wav
+	frame	data/chars/3jackbck/Jack01.gif
+	frame	data/chars/3jackbck/Jack02.gif
+	frame	data/chars/3jackbck/Jack01.gif
+	frame	data/chars/3jackbck/Jack02.gif
+	frame	data/chars/3jackbck/Jack01.gif
+	frame	data/chars/3jackbck/Jack02.gif
+		
+anim	pain
+	loop	0
+	delay	5
+	offset	100 150
+	bbox	60 40 40 80
+	move	6
+	frame	data/chars/3jackbck/pain01.gif
+	frame	data/chars/3jackbck/pain02.gif
+	frame	data/chars/3jackbck/pain01.gif
+	frame	data/chars/3jackbck/pain02.gif
+	frame	data/chars/3jackbck/pain01.gif
+	bbox	0 0 0 0
+	frame	data/chars/3jackbck/pain02.gif
+	frame	data/chars/3jackbck/pain01.gif
+	frame	data/chars/3jackbck/pain02.gif
+		
+anim	pain2
+	loop	0
+	delay	5
+	offset	100 150
+	bbox	60 40 40 80
+	move	-6
+	frame	data/chars/3jackbck/pain01.gif
+	frame	data/chars/3jackbck/pain02.gif
+	frame	data/chars/3jackbck/pain01.gif
+	frame	data/chars/3jackbck/pain02.gif
+	frame	data/chars/3jackbck/pain01.gif
+	bbox	0 0 0 0
+	frame	data/chars/3jackbck/pain02.gif
+	frame	data/chars/3jackbck/pain01.gif
+	frame	data/chars/3jackbck/pain02.gif
+		
+anim	spawn
+	loop	0
+	delay	5
+	offset	100 150
+	bbox	0 0 0 0
+	frame	data/chars/3jackbck/Jack08.gif
+	frame	data/chars/3jackbck/Jack07.gif
+	frame	data/chars/3jackbck/Jack08.gif
+	frame	data/chars/3jackbck/Jack07.gif
+	frame	data/chars/3jackbck/Jack08.gif
+	frame	data/chars/3jackbck/Jack07.gif
+
+
+		

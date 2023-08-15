@@ -1,0 +1,213 @@
+music		data/music/apartin.ogg
+bossmusic	data/music/wyler.ogg
+
+background	data/bgs/23lvl/back.gif 0 0
+panel		data/bgs/23lvl/apartmentIN.gif
+fglayer         data/bgs/23lvl/apartmentfront.gif 10 0 0 0 0 0 0 1 1 1
+fglayer		data/bgs/23lvl/light.gif 3000 0 0 0 0 0 0 1 1 1 1 0 0 0 0 0
+
+
+
+direction       both
+light  		10   -30
+at       	0
+settime         0
+notime          1
+blocked         1
+noslow          0
+order		a
+spawn1  	220 10
+spawn2  	145 20
+spawn3  	185 20
+
+#-----------------
+
+wall    -200 290  0 0 360 260 130 5000
+wall    400 180  40 40 230 230 50 65
+wall    550 220  100 155 240 240 60 5000
+wall    760 185  0 0 500 500 40 5000
+wall    970 225  70 90 260 260 50 30
+wall    1070 290  55 145 260 260 130 5000
+
+
+#------------------
+#----------------------------------
+spawn   stgSET3
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW8"));
+} @end_script
+coords  -500 515 350
+at      0
+#----------------------------------
+#---------yuri-change--------------
+
+spawn   1pyuri
+coords  300 250
+at      0
+
+#----------------------------------
+
+spawn   1up
+coords  1150 240
+at      0
+
+spawn   money1
+coords  510 172 66
+at      0
+
+spawn   money2
+coords  555 170 66
+at      0
+
+spawn   food1
+coords  400 250 60
+at      0
+
+spawn   food4
+coords  460 250 60
+at      0
+
+spawn   food6
+coords  520 255 60
+at      0
+
+#----------------
+
+spawn   rphone
+coords  413 169
+at      0
+
+
+spawn   bar04
+flip    1
+coords  330 230 20
+at      0
+
+spawn   tchair
+flip    1
+coords  385 230
+at      0
+
+spawn   tchair
+flip    1
+coords  455 230
+at      0
+
+spawn   tchair
+coords  530 230
+at      0
+
+
+spawn   apartmenttable
+flip    1
+coords  460 260
+at      0
+
+spawn   tchair
+flip    1
+coords  375 275
+at      0
+
+spawn   tchair
+flip    1
+coords  460 275
+at      0
+
+spawn   tchair
+coords  545 275
+at      0
+
+spawn   mapple
+flip    1
+coords  165 225
+at      0
+
+
+spawn   bigsofa
+flip    1
+map     1
+coords  160 250
+at      0
+
+
+spawn   bar07
+flip    1
+coords  970 0
+at      0
+
+
+
+#----------------------
+
+group   1 1
+at      0
+wait
+at      0
+
+spawn   ghosttime
+@script
+void main()
+{
+	setglobalvar("Kgnextday", NULL());
+	setglobalvar("challenge", NULL());
+	setglobalvar("killelle", NULL());
+	setglobalvar("cupkill", NULL());
+	setglobalvar("bn1", NULL());
+	setglobalvar("bn2", NULL());
+	setglobalvar("bn3", NULL());
+	setglobalvar("bn4", NULL());
+	setglobalvar("rsh1", NULL());
+	setglobalvar("rsh2", NULL());
+	setglobalvar("maphold1", NULL());
+	setglobalvar("maphold2", NULL());
+	setglobalvar("maphold3", NULL());
+}
+@end_script
+health	5
+coords  0 245
+at      0
+
+
+spawn   ghost1
+coords  170 0
+at      0
+
+spawn   ghost1
+coords  170 0
+at      0
+
+spawn   ghost1
+coords  170 0
+at      0
+
+#----------------------
+
+
+group   1 1
+at      230
+wait
+at      230
+
+spawn   yurwlrspawn
+coords  170 0
+at      230
+
+#----------------------
+
+
+spawn   rphone2
+coords  -328 169
+at      800
+
+group   1 1
+at      800
+
+spawn   wyler
+flip    1
+aggression 250
+health  2800
+boss    1
+coords  90 240 100
+at      800
+
+

@@ -1,0 +1,57 @@
+name	 bomb1
+health   0
+speed    2
+type     enemy
+jumpheight 1
+shadow	   0
+nolife     1
+hostile				player 
+candamage			player npc
+lifespan  10
+subject_to_platform 0
+subject_to_wall 0
+subject_to_obstacle 0
+animationscript data/scripts/escript.c
+
+
+load	explosion5
+
+anim	idle
+	loop	1
+	delay	4
+	offset	50 50
+	bbox	0 0 0 0
+	@cmd	degravity 0.8
+	frame	data/chars/misc/traps/missle/bomb01.gif
+	frame	data/chars/misc/traps/missle/bomb02.gif
+	frame	data/chars/misc/traps/missle/bomb03.gif
+	frame	data/chars/misc/traps/missle/bomb02.gif
+	frame	data/chars/misc/traps/missle/bomb01.gif
+	frame	data/chars/misc/traps/missle/bomb04.gif
+	frame	data/chars/misc/traps/missle/bomb05.gif
+	frame	data/chars/misc/traps/missle/bomb04.gif
+
+
+anim	attack1
+	loop	0
+	delay	4
+	offset	121 217
+	sound	data/sounds/bang.wav
+	hitfx	data/sounds/fire.wav
+	@cmd	spawn01 "explosion5" 0 0 1
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+		
+anim	death
+	loop	0
+	delay	4
+	offset	121 217
+	sound	data/sounds/expl2.wav
+	@cmd	spawn01 "explosion5" 0 0 1
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+		
+
+		
+#|edited by openBor Stats v 0.53
+		

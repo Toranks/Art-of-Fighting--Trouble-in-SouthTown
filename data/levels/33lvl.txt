@@ -1,0 +1,872 @@
+music		data/music/matrix2part1.ogg
+
+background	data/bgs/33lvl/bridgebck3.gif 0 0 0 0 0 0 -1 1 1 0 0 0 0 0 0.5
+layer         	data/bgs/33lvl/bridgebck2.gif -5000 0 0 0 0 0 0 -1 1 1 0 0 0 0 0 0.6
+layer		data/bgs/33lvl/bridgebck5.gif -4500 0 0 0 115 0 0 -1 1 1 0 0 0 0 0 0.7
+layer		data/bgs/33lvl/bridgebck4.gif -4000 0 0 0 150 0 0 -1 1 1 0 0 0 0 0 0.7
+layer         	data/bgs/33lvl/bridgebck1.gif -3500 0 0 0 0 0 0 -1 1 1 0 0 0 0 0 1.5
+panel		data/bgs/33lvl/panel.gif
+layer		data/bgs/33lvl/bridge.gif -2000 0 0 0 0 0 0 -1 1 1 0 0 0 0 0 2
+fglayer         data/bgs/33lvl/bridgefrt2.gif 3000 0 0 0 0 0 0 -1 1 1 0 0 0 0 0 3
+layer		data/bgs/33lvl/sunshine.gif 2000 0 0 10 0 0 0 1 1 1 1 0 0 0 0 0
+
+
+cameraoffset    0 -50
+cameratype      1
+
+direction       both
+light  		10   -30
+at       	0
+settime         0
+notime          1
+noslow          0
+order		a
+spawn1  	1100 350 120
+spawn2  	1115 350 120
+spawn3  	1125 350 120
+
+bgspeed		10 0
+
+#----road-----
+
+
+wall 400 460 0 0 550 570 100 130
+wall 950 445 0 0 120 120 55 130
+wall 880 390 0 20 900 900 40 5000
+hole -700 650 -600 -600 2800 2800 350
+
+
+#----stage-------------
+spawn   stgSET1
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW5"));
+} @end_script
+coords  -70 515 350
+at      0
+#-------------------
+
+#-------level----
+
+
+spawn   bdfloor
+coords  0 460
+at      0
+
+spawn   bdfloor
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+} @end_script
+coords  -130 400
+at      0
+
+spawn   bdfloor
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+} @end_script
+coords  1140 380
+at      0
+
+spawn   Mtruck2
+health  60
+coords  700 470
+at      0
+
+#--------enemy----
+
+
+group 1 1
+at    0
+
+spawn   ghost1
+@script
+void main()
+{
+    changeopenborvariant("xpos", 430);
+}
+@end_script
+coords  650 400 150
+at    0
+
+
+spawn   atkvan1
+spawnscript data/scripts/noscpos.c
+map     1
+coords  -190 495
+at    0
+
+spawn   ghosttime
+spawnscript data/scripts/noscpos.c
+health	5
+coords  550 370 280
+at    0
+
+spawn   atkvan2
+spawnscript data/scripts/noscpos2.c
+map     2
+coords  1710 510
+at    0
+
+
+#-------van--banzai----------
+
+group 1 1
+at    0
+
+spawn   ghosttime
+spawnscript data/scripts/noscpos.c
+health	5
+coords  550 370 280
+at    0
+
+
+group 3 3
+at    0
+
+spawn   atkvan3
+spawnscript data/scripts/noscpos.c
+map     1
+coords  -350 495
+at    0
+
+spawn   atkvan1
+spawnscript data/scripts/noscpos2.c
+map     1
+coords  1830 530
+at    0
+
+spawn   ghosttime
+spawnscript data/scripts/noscpos.c
+health	5
+coords  550 370 280
+at    0
+
+spawn   ghosttime
+spawnscript data/scripts/noscpos.c
+health	5
+item	food3
+coords  650 400 155
+at    0
+
+
+spawn   atkvan4
+spawnscript data/scripts/noscpos.c
+map     2
+coords  -190 540
+at    0
+
+
+group 1 1
+at    0
+
+spawn   ghosttime
+spawnscript data/scripts/noscpos.c
+item	5bill
+health	5
+coords  550 370 280
+at    0
+
+
+#------------------//--sign-brk--//----------------
+
+group 1 1
+at    0
+
+spawn   ghosttime
+health  5
+coords  650 0 300
+at    0
+
+spawn   fsign1
+coords  2100 650
+at      0
+
+spawn   ghosttime
+health  20
+coords  650 0 300
+at    0
+
+spawn   fsign1
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+coords  2100 650
+at      0
+
+spawn   ghosttime
+health  20
+coords  650 0 300
+at    0
+
+spawn   fsign1
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+coords  2100 650
+at      0
+
+
+spawn   ghosttime
+health  15
+coords  650 0 300
+at    0
+
+spawn   fsign1
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+coords  2100 650
+at      0
+
+spawn   ghosttime
+health  15
+coords  650 0 300
+at    0
+
+#------------------//--sign-brk--//----------------
+
+
+
+#-----car--1st--show----------------
+
+group 1 1
+at    0
+
+spawn   ghost1
+spawnscript data/scripts/noscpos.c
+coords  650 400 155
+at    0
+
+group 2 2
+at    0
+
+spawn   atkcar1
+spawnscript data/scripts/noscpos.c
+map     1
+coords  -190 495
+at    0
+
+spawn   ghosttime
+spawnscript data/scripts/noscpos.c
+health	5
+coords  550 370 280
+at    0
+
+spawn   atkcar2
+spawnscript data/scripts/noscpos2.c
+coords  1710 510
+at    0
+
+spawn   atkcar1
+spawnscript data/scripts/noscpos.c
+map     1
+coords  -250 495
+at    0
+
+spawn   atkcar2
+spawnscript data/scripts/noscpos2.c
+map     2
+coords  1780 510
+at    0
+
+
+
+#------car-banzai-----------
+
+group 1 1
+at    0
+
+spawn   ghost1
+spawnscript data/scripts/noscpos.c
+item	food5
+coords  650 400 155
+at    0
+
+group 4 4
+at    0
+
+spawn   atkcar1
+spawnscript data/scripts/noscpos.c
+map     1
+coords  -350 495
+at    0
+
+spawn   atkcar2
+spawnscript data/scripts/noscpos2.c
+coords  1830 530
+at    0
+
+spawn   ghosttime
+spawnscript data/scripts/noscpos.c
+health	5
+coords  550 370 280
+at    0
+
+spawn   ghosttime
+spawnscript data/scripts/noscpos.c
+item	7putin
+health	5
+coords  550 370 280
+at    0
+
+
+spawn   atkcar1
+spawnscript data/scripts/noscpos.c
+map     2
+coords  -190 540
+at    0
+
+spawn   ghosttime
+spawnscript data/scripts/noscpos.c
+health	5
+item	1up
+coords  550 420 155
+at    0
+
+spawn   atkcar2
+spawnscript data/scripts/noscpos2.c
+map     1
+coords  1890 530
+at    0
+
+spawn   ghosttime
+spawnscript data/scripts/noscpos.c
+item	money1
+health	5
+coords  650 400 155
+at    0
+
+
+#------------------//--sign-brk--//----------------
+
+group 1 1
+at    0
+
+spawn   ghosttime
+health  5
+coords  650 0 300
+at    0
+
+spawn   fsign1
+coords  2100 650
+at      0
+
+spawn   ghosttime
+health  25
+coords  650 0 300
+at    0
+
+spawn   fsign1
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+coords  2100 650
+at      0
+
+
+spawn   ghosttime
+health  15
+coords  650 0 300
+at    0
+
+spawn   fsign1
+coords  2100 650
+at      0
+
+
+spawn   ghosttime
+health  15
+coords  650 0 300
+at    0
+
+spawn   fsign1
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+coords  2100 650
+at      0
+
+spawn   ghosttime
+health  5
+coords  650 0 300
+at    0
+
+
+#------------------//--sign-brk--//----------------
+
+
+#------car-banzai-----------
+
+group 1 1
+at    0
+
+spawn   ghost1
+spawnscript data/scripts/noscpos.c
+item	7donut
+coords  570 400 155
+at    0
+
+
+#--------car--van--banzai-----
+
+group 3 3
+at    0
+
+spawn   atkvan1
+spawnscript data/scripts/noscpos.c
+map     1
+coords  -350 495
+at    0
+
+spawn   atkcar2
+spawnscript data/scripts/noscpos2.c
+coords  1830 530
+at    0
+
+spawn   ghost1
+spawnscript data/scripts/noscpos.c
+coords  650 400 155
+at    0
+
+spawn   ghosttime
+spawnscript data/scripts/noscpos.c
+health	5
+item	1up
+coords  650 400 155
+at    0
+
+
+spawn   atkvan3
+spawnscript data/scripts/noscpos.c
+map     2
+coords  -380 495
+at    0
+
+spawn   ghosttime
+spawnscript data/scripts/noscpos.c
+health	5
+coords  650 400 155
+at    0
+
+spawn   atkvan4
+spawnscript data/scripts/noscpos.c
+coords  -210 540
+at    0
+
+
+#------------------//--sign-brk--//----------------
+
+group 1 1
+at    0
+
+spawn   ghosttime
+health  5
+coords  650 0 300
+at    0
+
+spawn   fsign1
+coords  2100 650
+at      0
+
+spawn   ghosttime
+health  15
+coords  650 0 300
+at    0
+
+spawn   fsign1
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+coords  2100 650
+at      0
+
+spawn   ghosttime
+health  15
+coords  650 0 300
+at    0
+
+spawn   fsign1
+coords  2100 650
+at      0
+
+spawn   ghosttime
+health  12
+coords  650 0 300
+at    0
+
+spawn   fsign1
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+coords  2100 650
+at      0
+
+spawn   ghosttime
+health  12
+coords  650 0 300
+at    0
+
+spawn   fsign1
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+coords  2100 650
+at      0
+
+spawn   ghosttime
+health  12
+coords  650 0 300
+at    0
+
+spawn   fsign1
+coords  2100 650
+at      0
+
+spawn   ghosttime
+health  12
+coords  650 0 300
+at    0
+
+spawn   fsign1
+coords  2100 650
+at      0
+
+spawn   ghosttime
+health  12
+coords  650 0 300
+at    0
+
+spawn   fsign1
+coords  2100 650
+at      0
+
+#------------------//--sign-brk--//----------------
+
+
+group 2 2
+at    0
+
+spawn   ghost1
+spawnscript data/scripts/noscpos.c
+coords  650 400 155
+at    0
+
+
+spawn   atkcar2
+spawnscript data/scripts/noscpos2.c
+coords  1830 530
+at    0
+
+
+spawn   atkvan4
+spawnscript data/scripts/noscpos.c
+map         1
+coords  -210 540
+at    0
+
+
+#---------------///------------------
+
+group 1 1
+at    0
+
+spawn   ghosttime
+spawnscript data/scripts/noscpos.c
+item	5dime
+health	5
+coords  550 415 150
+at    0
+
+
+#------------------//--sign-brk--//----------------
+
+group 1 1
+at    0
+
+spawn   ghosttime
+health  15
+coords  650 0 300
+at    0
+
+spawn   fsign1
+coords  2100 650
+at      0
+
+spawn   ghosttime
+health  15
+coords  650 0 300
+at    0
+
+spawn   fsign1
+coords  2100 650
+at      0
+
+spawn   ghosttime
+health  5
+coords  650 0 300
+at    0
+
+
+#------------------//--sign-brk--//----------------
+
+
+group 2 2
+at    0
+
+
+spawn   atkvan3
+spawnscript data/scripts/noscpos.c
+map     2
+coords  -350 495
+at    0
+
+spawn   ghost1
+spawnscript data/scripts/noscpos.c
+coords  550 400 150
+at    0
+
+spawn   atkvan4
+spawnscript data/scripts/noscpos2.c
+map     1
+coords  1830 530
+at    0
+
+spawn   ghosttime
+spawnscript data/scripts/noscpos.c
+health	5
+coords  550 400 150
+at    0
+
+
+
+group 1 1
+at    0
+
+spawn   ghosttime
+spawnscript data/scripts/noscpos.c
+health	5
+coords  550 400 150
+at    0
+
+
+spawn   atkcar2
+spawnscript data/scripts/noscpos.c
+map     1
+coords  -250 495
+at    0
+
+spawn   atkcar1
+spawnscript data/scripts/noscpos2.c
+map     2
+coords  1780 510
+at    0
+
+
+spawn   ghosttime
+health  15
+coords  650 0 300
+at    0
+
+spawn   fsign1
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+coords  2100 650
+at      0
+
+
+spawn   ghosttime
+health  12
+coords  650 0 300
+at    0
+
+spawn   fsign1
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+coords  2100 650
+at      0
+
+
+spawn   ghosttime
+health  12
+coords  650 0 300
+at    0
+
+spawn   atkvan3
+spawnscript data/scripts/noscpos.c
+map     1
+coords  -190 495
+at    0
+
+
+spawn   ghosttime
+health  5
+coords  650 0 300
+at    0
+
+spawn   fsign1
+coords  2100 650
+at      0
+
+spawn   ghosttime
+health  5
+coords  650 0 300
+at    0
+
+
+spawn   atkvan4
+spawnscript data/scripts/noscpos2.c
+map     1
+coords  1780 495
+at    0
+
+
+#------------------//--sign-brk--//----------------
+
+group 1 1
+at    0
+
+spawn   ghosttime
+health  20
+coords  650 0 300
+at    0
+
+spawn   fsign1
+coords  2100 650
+at      0
+
+spawn   ghosttime
+health  20
+coords  650 0 300
+at    	0
+
+spawn   ghosttime
+health  20
+coords  650 0 300
+at    0
+
+spawn   fsign1
+coords  2100 650
+at      0
+
+spawn   ghosttime
+health  15
+coords  650 0 300
+at    	0
+
+spawn   fsign1
+coords  2100 650
+at      0
+
+spawn   ghosttime
+health  15
+coords  650 0 300
+at    	0
+
+spawn   fsign1
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+coords  2100 650
+at      0
+
+spawn   ghosttime
+health  12
+coords  650 0 300
+at    	0
+
+spawn   fsign1
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+coords  2100 650
+at      0
+
+spawn   ghosttime
+health  12
+coords  650 0 300
+at    	0
+
+spawn   fsign1
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+coords  2100 650
+at      0
+
+spawn   ghosttime
+health  12
+coords  650 0 300
+at    	0
+
+spawn   fsign1
+coords  2100 650
+at      0
+
+spawn   ghosttime
+health  5
+coords  650 0 300
+at    	0
+
+spawn   ghosttime
+health  12
+coords  650 0 300
+at    	0
+
+spawn   fsign1
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+coords  2100 650
+at      0
+
+spawn   ghosttime
+health  12
+coords  650 0 300
+at    	0
+
+spawn   fsign1
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+coords  2100 650
+at      0
+
+spawn   ghosttime
+health  15
+coords  650 0 300
+at    	0
+
+
+#------------------//--sign-brk--//----------------
+
+#---------------end------------------
+
+group 3 3
+at    0
+
+spawn   ghost1
+spawnscript data/scripts/noscpos.c
+item	food1
+coords  600 400 150
+at    0
+
+spawn   ghost1
+spawnscript data/scripts/noscpos.c
+coords  690 370 150
+at    0
+
+spawn   ghost1
+spawnscript data/scripts/noscpos.c
+item	diamond
+coords  750 400 150
+at    0
+
+spawn   ghost2
+spawnscript data/scripts/noscpos.c
+boss	1
+coords  550 400 150
+at    0
+
+#-----------------------------------------------
+

@@ -1,0 +1,556 @@
+music		data/music/miliroad3.ogg
+
+background	data/bgs/44lvl/roadback.gif 0 0 0 0 0 0 -1 1 1 0 0 0 0 0 0.5
+panel		data/bgs/44lvl/panel.gif
+layer		data/bgs/44lvl/roadback2.gif -2000 0 0 0 -125 0 0 -1 1 1 0 0 0 0 0 1
+layer		data/bgs/44lvl/roadback1.gif -1600 0 0 0 -90 0 0 -1 1 1 0 0 0 0 0 1.5
+layer		data/bgs/44lvl/roadmiddle.gif -300 0 0 0 40 0 0 -1 1 1 0 0 0 0 0 3
+fglayer      	data/bgs/44lvl/roadfront.gif 1 0 0 0 270 0 0 -1 1 1 0 0 0 0 0 3.5
+layer		data/bgs/44lvl/speed.gif 1200 0 0 0 5 0 0 -1 1 1 1 0 0 0 0 5.5
+
+
+direction       both
+light  		10   60
+at       	0
+settime         0
+notime          1
+noslow          0
+order		a
+spawn1  	125 60
+spawn2  	145 70
+spawn3  	185 80
+
+
+bgspeed		10 0
+setweap		1
+
+
+cameraoffset            0 -120
+cameratype              1
+
+
+#------------------------
+#----------------------------------
+spawn   stgSET4
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+coords  -500 515 350
+at      0
+#----------------------------------
+
+group   1 1
+at      0
+
+
+spawn   ghosttime
+@script
+void main()
+{
+	setglobalvar("Kgnextday", NULL());
+	setglobalvar("challenge", NULL());
+	setglobalvar("killelle", NULL());
+	setglobalvar("cupkill", NULL());
+	setglobalvar("bn1", NULL());
+	setglobalvar("bn2", NULL());
+	setglobalvar("bn3", NULL());
+	setglobalvar("bn4", NULL());
+	setglobalvar("rsh1", NULL());
+	setglobalvar("rsh2", NULL());
+}
+@end_script
+health	5
+coords  30 240
+at      0
+
+
+
+spawn   ghost1
+coords  50 300
+at      0
+
+spawn   plane2
+map     1
+flip    1
+coords  -120 215
+at      0
+
+spawn   ghost1
+coords  50 300
+at      0
+
+
+spawn   aim2
+item    1up
+coords  50 300
+at      0
+
+spawn   ghost1
+coords  50 300
+at      0
+
+
+spawn   plane2
+map     1
+coords  650 215
+at      0
+
+spawn   ghost1
+coords  50 300
+at      0
+
+
+spawn   plane1
+spawnscript data/scripts/noscpos.c
+coords  -150 350
+at      0
+
+spawn   ghost1
+coords  50 300
+at      0
+
+spawn   plane2
+map     1
+coords  650 215
+at      0
+
+spawn   ghost1
+coords  50 300
+at      0
+
+
+spawn   plane1ext
+item    gas
+spawnscript data/scripts/noscpos.c
+coords  -150 350
+at      0
+
+spawn   ghost2
+coords  50 300
+at      0
+
+
+#----------------
+group   2 2
+at      0
+
+spawn   tank1
+map     1
+item    gas
+health  850
+coords  1300 320
+at      0
+
+spawn   tank1
+map     2
+health  1050
+coords  1300 350
+at      0
+
+#----------------
+group   1 1
+at      0
+
+spawn   ghost1
+aggression 100
+coords  1500 330
+at      0
+
+#----------------
+group   3 3
+at      0
+
+spawn   crocker
+map     1
+health  350
+aggression 100
+coords  1300 350
+at      0
+
+spawn   crocker2
+map     1
+health  280
+item    fuel
+aggression 100
+coords  -300 350
+at      0
+
+spawn   crocker3
+map     1
+health  350
+aggression 100
+coords  1500 330
+at      0
+
+
+spawn   jeep
+health  700
+item    gas
+aggression 100
+coords  1500 330
+at      0
+
+
+#-----train------------------------
+
+group 1 1
+at    0
+
+spawn   trainspwn
+spawnscript data/scripts/noscpos.c
+coords  1300 265
+at      0
+
+spawn   ghost4
+coords  1500 330
+at      0
+
+#-------------------
+
+group 3 3
+at    0
+
+spawn   crocker
+map     2
+health  280
+coords  1300 350
+at      0
+
+
+spawn   crocker2
+map     2
+health  350
+coords  -300 350
+at      0
+
+spawn   crocker3
+map     2
+health  280
+item    fuel
+coords  1500 330
+at      0
+
+spawn   ghost1
+item    1up
+coords  500 360
+at      0
+
+
+#---------------------
+
+group   1 1
+at      0
+
+
+spawn   crocker2
+map     3
+health  350
+aggression 100
+coords  -300 350
+at      0
+
+spawn   ghost2
+aggression 100
+coords  1500 330
+at      0
+
+spawn   tank1
+item    gas
+health  900
+aggression 100
+coords  -300 350
+at      0
+
+#----------------
+
+group   2 2
+at      0
+
+spawn   crocker
+map     4
+health  280
+item    gas
+aggression 100
+coords  1500 350
+at      0
+
+
+spawn   crocker3
+map     4
+health  350
+aggression 100
+coords  -300 350
+at      0
+
+#-----------------
+
+
+group   1 1
+at      0
+
+spawn   ghost2
+aggression 100
+coords  500 330
+at      0
+
+#-----------------
+
+
+group   3 3
+at      0
+
+
+spawn   crocker
+health  280
+item    fuel
+coords  1300 350
+at      0
+
+
+spawn   crocker2
+health  350
+coords  -300 350
+at      0
+
+spawn   ghost1
+item    gas
+coords  500 350
+at      0
+
+
+spawn   crocker3
+health  280
+coords  1500 330
+at      0
+
+#-----------------
+
+group   1 1
+at      0
+
+spawn   ghost1
+coords  1500 330
+at      0
+
+
+spawn   jeep
+health  700
+map     1
+item    gas
+aggression 100
+coords  1500 330
+at      0
+
+spawn   ghost1
+coords  1500 330
+at      0
+
+spawn   tank1
+health  950
+map     1
+item    gas
+aggression 100
+coords  1500 330
+at      0
+
+
+#-----------------
+
+group   3 3
+at      0
+
+
+spawn   crocker
+map     4
+health  280
+coords  1500 320
+at      0
+
+
+spawn   crocker2
+map     4
+health  350
+coords  -300 360
+at      0
+
+spawn   ghost1
+item    fuel
+coords  500 350
+at      0
+
+
+spawn   crocker3
+map     4
+item    fuel
+health  280
+coords  1500 330
+at      0
+
+
+spawn   crocker
+map     1
+health  350
+coords  1500 320
+at      0
+
+
+spawn   crocker2
+map     1
+health  280
+coords  -300 360
+at      0
+
+spawn   ghost1
+item    gas
+coords  500 350
+at      0
+
+
+spawn   crocker3
+map     1
+health  350
+coords  1500 330
+at      0
+
+#----------------------
+
+group   1 1
+at      0
+
+spawn   ghost1
+item    1up
+coords  300 330
+at      0
+
+#-------------------
+
+
+group   2 2
+at      0
+
+
+spawn   tank1
+health  970
+map     2
+item    gas
+aggression 100
+coords  1500 330
+at      0
+
+spawn   crocker2
+health  280
+coords  -300 360
+at      0
+
+
+spawn   crocker2
+map     2
+item    fuel
+health  280
+coords  1200 360
+at      0
+
+
+spawn   crocker3
+health  350
+coords  -300 360
+at      0
+
+
+spawn   crocker2
+map     3
+item    gas
+health  280
+coords  1300 360
+at      0
+
+#-----------------------
+
+group   1 1
+at      0
+
+spawn   ghost1
+coords  300 330
+at      0
+
+#----------------------
+group   3 3
+at      0
+
+spawn   crocker
+item    gas
+health  350
+coords  -350 360
+at      0
+
+spawn   ghost3
+coords  300 330
+at      0
+
+spawn   crocker3
+map     2
+health  280
+coords  1300 360
+at      0
+
+
+spawn   crocker2
+map     2
+item    fuel
+health  350
+coords  -350 360
+at      0
+
+spawn   crocker3
+map     2
+health  280
+coords  1300 360
+at      0
+
+#------end---------
+
+group   1 1
+at      0
+
+spawn   ghost2
+item    1up
+coords  500 360
+at      0
+
+spawn   plane2
+map     1
+flip    1
+coords  -120 215
+at      0
+
+spawn   ghost1
+coords  50 300
+at      0
+
+spawn   plane2
+map     1
+coords  650 225
+at      0
+
+spawn   ghost1
+coords  50 300
+at      0
+
+spawn   plane3tex
+map     1
+flip    1
+coords  -120 225
+at      0
+
+spawn   ghost2
+item    gas
+coords  50 380
+at      0
+
+spawn   deterrent
+health  900000
+coords  1300 360
+at      0
+
+
+

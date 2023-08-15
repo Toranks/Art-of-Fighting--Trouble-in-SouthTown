@@ -1,0 +1,90 @@
+music		data/music/1bonus.ogg
+
+background	data/bgs/54lvl/altback.gif 0 0
+panel		data/bgs/54lvl/panel.gif
+layer		data/bgs/54lvl/back2.gif -1000 0 0 0 230 0 0 -1 1 1 0 0 0 0 0 -3
+layer		data/bgs/54lvl/altback2.gif -500 0 0 0 -20 0 0 -1 1 1 0 0 0 0 0 -1.8
+layer		data/bgs/54lvl/altback.gif -300 0 0 0 -20 0 0 -1 1 1 0 0 0 0 0 -2
+layer		data/bgs/54lvl/seamiddle.gif -700 0 0 0 80 0 0 -1 1 1 1 0 0 0 0 -2
+layer		data/bgs/54lvl/front1.gif 700 0 0 0 50 0 0 -1 1 1 0 0 0 0 0 -2
+layer		data/bgs/54lvl/sunshine.gif 1500 0 0 0 0 0 0 1 1 1 1 0 0 0 0 0
+
+
+
+
+direction       leftright
+light  		-90   100
+at       	0
+settime         0
+notime          1
+noslow          0
+order		a
+spawn1  	480 110 a
+spawn2  	480 115
+spawn3  	485 120
+
+
+bgspeed		10 0
+setweap		5
+
+cameraoffset            0 -100
+cameratype              1
+
+
+
+#---------------------
+
+spawn   ghosttime
+@script
+void main()
+{
+	setglobalvar("Kgnextday", NULL());
+	setglobalvar("challenge", NULL());
+	setglobalvar("killelle", NULL());
+	setglobalvar("cupkill", NULL());
+	setglobalvar("bn1", NULL());
+	setglobalvar("bn2", NULL());
+	setglobalvar("bn3", NULL());
+	setglobalvar("bn4", NULL());
+	setglobalvar("rsh1", NULL());
+	setglobalvar("rsh2", NULL());
+	setglobalvar("maphold1", NULL());
+	setglobalvar("maphold2", NULL());
+	setglobalvar("maphold3", NULL());
+}
+@end_script
+health	5
+coords  0 395
+at      0
+
+
+
+spawn   bonus1
+alias	ANI_FOLLOW5
+coords  100 60
+at      0
+
+
+
+spawn 	runtime2
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+} @end_script
+coords	195 700 600
+at	0
+
+
+spawn   cardspn
+spawnscript data/scripts/noscpos.c
+flip    1
+coords  -100 380
+at      0
+
+#---------------------
+
+spawn   shark4
+health  350
+aggression 200
+boss    1
+coords  2000 440
+at      0

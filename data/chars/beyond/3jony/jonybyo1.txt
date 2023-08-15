@@ -1,0 +1,604 @@
+name		jonybyo1
+type		enemy
+nolife          1
+noquake		1
+makeinv		3
+falldie		1
+nodieblink	1
+facing		1
+nomove		1 1
+shadow		0
+nodrop		2
+antigrab	10
+setlayer	-800
+hostile		player
+lifespan  	130
+subject_to_platform 0
+subject_to_wall 1
+subject_to_obstacle 0
+subject_to_hole 0
+subject_to_minz 0
+subject_to_maxz 0
+
+animationscript data/scripts/escript.c
+
+load	jbyoatk
+load	jbyo1
+load	jbyo2
+load	ufd62
+		
+
+#---//---detect-move--back/foward---------
+#---//---detect--middle--attack-----------
+
+anim	idle
+	loop	1
+	delay	5
+	offset	145 235
+	bbox	0 0 0 0
+	@cmd	clearL
+	movea	1
+	frame	data/chars/beyond/3jony/a01.gif
+	@cmd	attack1 -2500 -190 350 "ANI_FOLLOW1"
+	@cmd	attack1 190 2500 350 "ANI_FOLLOW2"
+	@cmd	attack1 -160 160 350 "ANI_FOLLOW5"
+	frame	data/chars/beyond/3jony/a02.gif
+	sound	data/sounds/heli2.wav
+	frame	data/chars/beyond/3jony/a03.gif
+	@cmd	clearL
+	frame	data/chars/beyond/3jony/a04.gif
+	movea	-1
+	frame	data/chars/beyond/3jony/a01.gif
+	frame	data/chars/beyond/3jony/a02.gif
+	sound	data/sounds/heli2.wav
+	frame	data/chars/beyond/3jony/a03.gif
+	frame	data/chars/beyond/3jony/a04.gif
+
+
+
+#---//---moving--back--!!!------
+#---//---back--attack-----------
+
+anim	follow1
+	loop	0
+	delay	5
+	offset	145 245
+	bbox	0 0 0 0
+	frame	data/chars/beyond/3jony/b01.gif
+	@cmd	clearL
+	frame	data/chars/beyond/3jony/b02.gif
+	sound	data/sounds/heli2.wav
+	frame	data/chars/beyond/3jony/b03.gif
+	@cmd	dasher -1.4 0 0
+	frame	data/chars/beyond/3jony/b04.gif
+	frame	data/chars/beyond/3jony/b05.gif
+	frame	data/chars/beyond/3jony/b06.gif
+	sound	data/sounds/heli2.wav
+	frame	data/chars/beyond/3jony/b07.gif
+	frame	data/chars/beyond/3jony/b08.gif
+	frame	data/chars/beyond/3jony/b09.gif
+	frame	data/chars/beyond/3jony/b10.gif
+	@cmd	attack1 -55 2500 350 "ANI_FOLLOW3"
+	@cmd	attack1 -390 -60 350 "ANI_FOLLOW6"
+	sound	data/sounds/heli2.wav
+	frame	data/chars/beyond/3jony/b11.gif
+	frame	data/chars/beyond/3jony/b12.gif
+	@cmd	looper 8 80
+	@cmd	stop
+	frame	data/chars/beyond/3jony/b08.gif
+	frame	data/chars/beyond/3jony/b07.gif
+	sound	data/sounds/heli2.wav
+	frame	data/chars/beyond/3jony/b06.gif
+	frame	data/chars/beyond/3jony/b05.gif
+	frame	data/chars/beyond/3jony/b04.gif
+	frame	data/chars/beyond/3jony/b03.gif
+	sound	data/sounds/heli2.wav
+	frame	data/chars/beyond/3jony/b02.gif
+	frame	data/chars/beyond/3jony/b01.gif
+	@cmd	beidle
+	frame	data/chars/beyond/3jony/b01.gif
+
+
+
+#---//---moving--foward--!!!------
+#---//---foward--attack-----------
+
+anim	follow2
+	loop	0
+	delay	5
+	offset	145 245
+	bbox	0 0 0 0
+	frame	data/chars/beyond/3jony/tn01.gif
+	@cmd	clearL
+	frame	data/chars/beyond/3jony/tn02.gif
+	sound	data/sounds/heli2.wav
+	frame	data/chars/beyond/3jony/tn03.gif
+	@cmd	dasher 1.4 0 0
+	frame	data/chars/beyond/3jony/tn04.gif
+	frame	data/chars/beyond/3jony/tn05.gif
+	frame	data/chars/beyond/3jony/tn06.gif
+	@cmd	attack1 -2500 55 350 "ANI_FOLLOW4"
+	@cmd	attack1 60 390 350 "ANI_FOLLOW7"
+	sound	data/sounds/heli2.wav
+	frame	data/chars/beyond/3jony/tn07.gif
+	frame	data/chars/beyond/3jony/tn08.gif
+	@cmd	looper 4 80
+	@cmd	stop 
+	frame	data/chars/beyond/3jony/tn04.gif
+	frame	data/chars/beyond/3jony/tn03.gif
+	sound	data/sounds/heli2.wav
+	frame	data/chars/beyond/3jony/tn02.gif
+	frame	data/chars/beyond/3jony/tn01.gif
+	@cmd	beidle
+	frame	data/chars/beyond/3jony/tn01.gif
+
+
+#---/////////---------movement---stop--!!!---/////--------
+
+
+
+#-------stop--move-back----------
+
+anim	follow3
+	loop	0
+	delay	5
+	offset	145 245
+	bbox	0 0 0 0
+	@cmd	dasher -0.6 0 0
+	frame	data/chars/beyond/3jony/b08.gif
+	@cmd	clearL
+	frame	data/chars/beyond/3jony/b07.gif
+	sound	data/sounds/heli2.wav
+	frame	data/chars/beyond/3jony/b06.gif
+	frame	data/chars/beyond/3jony/b05.gif
+	frame	data/chars/beyond/3jony/b04.gif
+	frame	data/chars/beyond/3jony/b03.gif
+	sound	data/sounds/heli2.wav
+	frame	data/chars/beyond/3jony/b02.gif
+	frame	data/chars/beyond/3jony/b01.gif
+	@cmd	beidle
+	frame	data/chars/beyond/3jony/b01.gif
+
+#-------stop--move-foward----------
+
+
+anim	follow4
+	loop	0
+	delay	5
+	offset	145 245
+	bbox	0 0 0 0
+	@cmd	dasher 0.6 0 0
+	frame	data/chars/beyond/3jony/tn04.gif
+	@cmd	clearL
+	frame	data/chars/beyond/3jony/tn03.gif
+	sound	data/sounds/heli2.wav
+	frame	data/chars/beyond/3jony/tn02.gif
+	frame	data/chars/beyond/3jony/tn01.gif
+	@cmd	beidle
+	frame	data/chars/beyond/3jony/tn01.gif
+
+
+
+
+
+#------///////--------ATTACKS---!!!----///////-------
+
+#-------attack---middle---!!!---goes-to--middle-attack2-start--!!!-
+
+anim	follow5
+	loop	0
+	delay	5
+	offset	145 245
+	bbox	0 0 0 0
+	frame	data/chars/beyond/3jony/a05.gif
+	@cmd	clearL
+	frame	data/chars/beyond/3jony/a06.gif
+	sound	data/sounds/heli2.wav
+	frame	data/chars/beyond/3jony/a07.gif
+	@cmd	spawnbind4 "jbyoatk" 1 1 65 1 4
+	@cmd	spawnbind4 "jbyoatk" 1 1 185 1 4
+	frame	data/chars/beyond/3jony/a08.gif
+	frame	data/chars/beyond/3jony/a09.gif
+	@cmd	attack1 -2500 -190 350 "ANI_FOLLOW1"
+	@cmd	attack1 190 2500 350 "ANI_FOLLOW2"
+	frame	data/chars/beyond/3jony/a10.gif
+	sound	data/sounds/heli2.wav
+	@cmd	target 0.5 0 1 1 0
+	@cmd	dash4
+	frame	data/chars/beyond/3jony/a11.gif
+	frame	data/chars/beyond/3jony/a12.gif
+	@cmd	looper 4 18
+	frame	data/chars/beyond/3jony/a05.gif
+	@cmd	attack1 -160 160 350 "ANI_FOLLOW8"
+	frame	data/chars/beyond/3jony/a06.gif
+	sound	data/sounds/heli2.wav
+	frame	data/chars/beyond/3jony/a07.gif
+	@cmd	attack1 -160 160 350 "ANI_FOLLOW8"
+	frame	data/chars/beyond/3jony/a08.gif
+	@cmd	attack1 -160 160 350 "ANI_FOLLOW8"
+	frame	data/chars/beyond/3jony/a05.gif
+	@cmd	beidle
+	frame	data/chars/beyond/3jony/a05.gif
+
+
+
+
+
+
+#-------attack---back---!!!-----------
+
+anim	follow6
+	loop	0
+	delay	5
+	offset	145 245
+	bbox	0 0 0 0
+	frame	data/chars/beyond/3jony/b13.gif
+	@cmd	clearL
+	frame	data/chars/beyond/3jony/b14.gif
+	sound	data/sounds/heli2.wav
+	frame	data/chars/beyond/3jony/b15.gif
+	@cmd	spawnbind4 "jbyoatk" -100 1 120 1 4
+	@cmd	spawnbind4 "jbyoatk" -100 1 180 1 4
+	frame	data/chars/beyond/3jony/b16.gif
+
+	frame	data/chars/beyond/3jony/b17.gif
+	frame	data/chars/beyond/3jony/b18.gif
+	sound	data/sounds/heli2.wav
+	@cmd	dasher -1.4 0 0
+	frame	data/chars/beyond/3jony/b19.gif
+	@cmd	attack1 100 2500 350 "ANI_FOLLOW3"
+	frame	data/chars/beyond/3jony/b20.gif
+	@cmd	looper 4 22
+	frame	data/chars/beyond/3jony/b13.gif
+	frame	data/chars/beyond/3jony/b14.gif
+	sound	data/sounds/heli2.wav
+	frame	data/chars/beyond/3jony/b15.gif
+	frame	data/chars/beyond/3jony/b16.gif
+        @cmd    beidle
+	frame	data/chars/beyond/3jony/b16.gif
+
+
+#-------attack---foward---!!!-----------
+
+anim	follow7
+	loop	0
+	delay	5
+	offset	145 245
+	bbox	0 0 0 0
+	frame	data/chars/beyond/3jony/tn05.gif
+	@cmd	clearL
+	frame	data/chars/beyond/3jony/tn06.gif
+	sound	data/sounds/heli2.wav
+	frame	data/chars/beyond/3jony/tn07.gif
+	@cmd	spawnbind4 "jbyoatk" 140 1 60 1 4
+	@cmd	spawnbind4 "jbyoatk" 140 1 120 1 4
+	frame	data/chars/beyond/3jony/tn08.gif
+
+	frame	data/chars/beyond/3jony/tn09.gif
+	frame	data/chars/beyond/3jony/tn10.gif
+	sound	data/sounds/heli2.wav
+	@cmd	dasher 1.4 0 0
+	frame	data/chars/beyond/3jony/tn11.gif
+	@cmd	attack1 -2500 55 350 "ANI_FOLLOW4"
+	frame	data/chars/beyond/3jony/tn12.gif
+	@cmd	looper 4 22
+	frame	data/chars/beyond/3jony/tn05.gif
+	frame	data/chars/beyond/3jony/tn06.gif
+	sound	data/sounds/heli2.wav
+	frame	data/chars/beyond/3jony/tn07.gif
+	frame	data/chars/beyond/3jony/tn08.gif
+        @cmd    beidle
+	frame	data/chars/beyond/3jony/tn08.gif
+
+
+
+
+#----------middle-attack2-start------------
+
+
+anim	follow8
+	loop	0
+	delay	5
+	offset	145 245
+	bbox	0 0 0 0
+	frame	data/chars/beyond/3jony/a05.gif
+	@cmd	clearL
+	frame	data/chars/beyond/3jony/a06.gif
+	sound	data/sounds/heli2.wav
+	frame	data/chars/beyond/3jony/a07.gif
+	frame	data/chars/beyond/3jony/a08.gif
+	sound	data/sounds/heli2.wav
+	frame	data/chars/beyond/3jony/a05.gif
+	@cmd	attack1 -160 160 350 "ANI_FOLLOW9"
+	frame	data/chars/beyond/3jony/a06.gif
+	@cmd	attack1 -160 160 350 "ANI_FOLLOW9"
+	sound	data/sounds/heli2.wav
+	frame	data/chars/beyond/3jony/a07.gif
+	@cmd	attack1 -160 160 350 "ANI_FOLLOW9"
+	frame	data/chars/beyond/3jony/a08.gif
+	@cmd	beidle
+	frame	data/chars/beyond/3jony/a08.gif
+
+
+
+
+
+#----------middle-attack2-go------------
+
+
+anim	follow9
+	loop	0
+	delay	5
+	offset	145 245
+	bbox	0 0 0 0
+	frame	data/chars/beyond/3jony/a05.gif
+	@cmd	clearL
+	frame	data/chars/beyond/3jony/a06.gif
+	sound	data/sounds/heli2.wav
+	frame	data/chars/beyond/3jony/a07.gif
+	@cmd	spawnbind4 "jbyoatk" 1 1 90 1 4
+	@cmd	spawnbind4 "jbyoatk" 1 1 145 1 4
+	frame	data/chars/beyond/3jony/a08.gif
+	frame	data/chars/beyond/3jony/a09.gif
+	@cmd	attack1 -2500 -190 350 "ANI_FOLLOW1"
+	@cmd	attack1 190 2500 350 "ANI_FOLLOW2"
+	frame	data/chars/beyond/3jony/a10.gif
+	sound	data/sounds/heli2.wav
+	@cmd	target 0.5 0 1 1 0
+	@cmd	dash4
+	frame	data/chars/beyond/3jony/a11.gif
+	frame	data/chars/beyond/3jony/a12.gif
+	@cmd	looper 4 18
+	frame	data/chars/beyond/3jony/a05.gif
+	frame	data/chars/beyond/3jony/a06.gif
+	sound	data/sounds/heli2.wav
+	frame	data/chars/beyond/3jony/a07.gif
+	frame	data/chars/beyond/3jony/a08.gif
+	@cmd	beidle
+	frame	data/chars/beyond/3jony/a08.gif
+
+
+
+#----------//------begin------//-----------
+
+
+
+anim	spawn
+@script
+    if(frame==1){
+      changelevelproperty("scrollspeed", 0);
+    }
+@end_script
+	loop	0
+	delay	5
+	offset	145 245
+	bbox	0 0 0 0
+	frame	data/chars/beyond/3jony/empty.gif
+	@cmd	clearL
+	frame	data/chars/beyond/3jony/empty.gif
+	sound	data/sounds/heli2.wav
+	frame	data/chars/beyond/3jony/empty.gif
+	frame	data/chars/beyond/3jony/empty.gif
+	frame	data/chars/beyond/3jony/empty.gif
+	frame	data/chars/beyond/3jony/empty.gif
+	sound	data/sounds/heli2.wav
+	frame	data/chars/beyond/3jony/empty.gif
+	frame	data/chars/beyond/3jony/empty.gif
+	@cmd	anichange "ANI_FOLLOW10"
+	frame	data/chars/beyond/3jony/empty.gif
+
+
+
+
+
+anim	follow10
+@script
+    void self = getlocalvar("self");
+    int YPos = openborvariant("ypos");
+	{
+        changeopenborvariant("ypos", YPos-2);
+	}
+    if(frame==35){
+      changelevelproperty("scrollspeed", 1);
+    }
+@end_script
+	loop	0
+	delay	5
+	offset	145 245
+	bbox	0 0 0 0
+	custentity	jbyo1
+	spawnframe	26 20 40 40 1
+	frame	data/chars/beyond/3jony/empty.gif
+	frame	data/chars/beyond/3jony/empty.gif
+	delay	5
+	@cmd	dasher 2 0 0
+	frame	data/chars/beyond/3jony/tn05.gif
+	frame	data/chars/beyond/3jony/tn06.gif
+	sound	data/sounds/heli2.wav
+	frame	data/chars/beyond/3jony/tn07.gif
+	frame	data/chars/beyond/3jony/tn08.gif
+	frame	data/chars/beyond/3jony/tn05.gif
+	frame	data/chars/beyond/3jony/tn06.gif
+	sound	data/sounds/heli2.wav
+	frame	data/chars/beyond/3jony/tn07.gif
+	frame	data/chars/beyond/3jony/tn08.gif
+	@cmd	looper 6 12
+	frame	data/chars/beyond/3jony/tn05.gif
+	frame	data/chars/beyond/3jony/tn06.gif
+	sound	data/sounds/heli2.wav
+	@cmd	stop
+	frame	data/chars/beyond/3jony/tn07.gif
+	frame	data/chars/beyond/3jony/tn08.gif
+	sound	data/sounds/heli2.wav
+	frame	data/chars/beyond/3jony/tn04.gif
+	frame	data/chars/beyond/3jony/tn03.gif #-15
+	sound	data/sounds/heli2.wav
+	frame	data/chars/beyond/3jony/tn02.gif
+	frame	data/chars/beyond/3jony/tn01.gif
+	sound	data/sounds/heli2.wav
+	frame	data/chars/beyond/3jony/a01.gif
+	frame	data/chars/beyond/3jony/a02.gif
+	sound	data/sounds/heli2.wav 
+	frame	data/chars/beyond/3jony/a03.gif
+	frame	data/chars/beyond/3jony/a04.gif
+	sound	data/sounds/heli2.wav
+	@cmd	looper 18 20 
+	frame	data/chars/beyond/3jony/a01.gif
+	frame	data/chars/beyond/3jony/a02.gif
+	sound	data/sounds/heli2.wav 
+	frame	data/chars/beyond/3jony/a03.gif
+	frame	data/chars/beyond/3jony/a04.gif
+	sound	data/sounds/heli2.wav
+	frame	data/chars/beyond/3jony/a01.gif #-26
+	frame	data/chars/beyond/3jony/a02.gif
+	sound	data/sounds/heli2.wav 
+	frame	data/chars/beyond/3jony/a03.gif
+	frame	data/chars/beyond/3jony/a04.gif
+	sound	data/sounds/heli2.wav
+	frame	data/chars/beyond/3jony/a01.gif
+	frame	data/chars/beyond/3jony/a02.gif
+	sound	data/sounds/heli2.wav 
+	frame	data/chars/beyond/3jony/a03.gif
+	frame	data/chars/beyond/3jony/a04.gif
+	sound	data/sounds/heli2.wav
+	@cmd	looper 30 6 
+	frame	data/chars/beyond/3jony/a03.gif
+	frame	data/chars/beyond/3jony/a04.gif
+	sound	data/sounds/heli2.wav
+	frame	data/chars/beyond/3jony/a01.gif 
+	frame	data/chars/beyond/3jony/a02.gif
+	sound	data/sounds/heli2.wav 
+	frame	data/chars/beyond/3jony/a03.gif
+	frame	data/chars/beyond/3jony/a04.gif #-39
+	sound	data/sounds/heli2.wav
+	frame	data/chars/beyond/3jony/a01.gif
+	frame	data/chars/beyond/3jony/a02.gif
+	sound	data/sounds/heli2.wav 
+	frame	data/chars/beyond/3jony/a03.gif
+	frame	data/chars/beyond/3jony/a04.gif
+	sound	data/sounds/heli2.wav 
+	frame	data/chars/beyond/3jony/a03.gif 
+	frame	data/chars/beyond/3jony/a04.gif
+	sound	data/sounds/heli2.wav 
+	frame	data/chars/beyond/3jony/a03.gif 
+	frame	data/chars/beyond/3jony/a04.gif
+	sound	data/sounds/heli2.wav 
+	frame	data/chars/beyond/3jony/a03.gif 
+	frame	data/chars/beyond/3jony/a04.gif
+	sound	data/sounds/heli2.wav 
+	frame	data/chars/beyond/3jony/a03.gif
+	@cmd	beidle
+	frame	data/chars/beyond/3jony/a04.gif
+
+
+#-----------------//------end------//-------------------
+
+
+anim	death
+	loop	0
+	delay	5
+	offset	145 245
+	bbox	0 0 0 0
+	custentity	jbyo2
+	spawnframe	37 20 40 40 1
+	frame	data/chars/beyond/3jony/b01.gif
+	@cmd	subscreen 1
+	frame	data/chars/beyond/3jony/b02.gif
+	sound	data/sounds/heli2.wav
+	frame	data/chars/beyond/3jony/b03.gif
+	@cmd	targetrgt 1 0 1 0 0
+	@cmd	dash4
+	frame	data/chars/beyond/3jony/b04.gif
+	frame	data/chars/beyond/3jony/b05.gif
+	frame	data/chars/beyond/3jony/b06.gif
+	sound	data/sounds/heli2.wav
+	frame	data/chars/beyond/3jony/b07.gif
+	@cmd	spawn02 "ufd62" 350 0 230 
+	frame	data/chars/beyond/3jony/b08.gif
+
+	frame	data/chars/beyond/3jony/b09.gif
+	frame	data/chars/beyond/3jony/b10.gif
+	sound	data/sounds/heli2.wav
+	@cmd	targetrgt 1 0 1 0 0
+	@cmd	dash4
+	frame	data/chars/beyond/3jony/b11.gif
+	frame	data/chars/beyond/3jony/b12.gif
+	@cmd	looper 8 100
+	sound	data/sounds/heli2.wav
+	frame	data/chars/beyond/3jony/b13.gif
+	frame	data/chars/beyond/3jony/b14.gif
+	sound	data/sounds/heli2.wav
+	frame	data/chars/beyond/3jony/b15.gif
+	frame	data/chars/beyond/3jony/b16.gif
+
+	frame	data/chars/beyond/3jony/b13.gif #-16
+	frame	data/chars/beyond/3jony/b14.gif
+	sound	data/sounds/heli2.wav
+	@cmd	targetrgt 1 0 1 1 0
+	@cmd	dash4
+	frame	data/chars/beyond/3jony/b15.gif
+	frame	data/chars/beyond/3jony/b16.gif
+	@cmd	looper 16 21
+
+	frame	data/chars/beyond/3jony/b17.gif
+	frame	data/chars/beyond/3jony/b18.gif
+	sound	data/sounds/heli2.wav
+	frame	data/chars/beyond/3jony/b19.gif
+	frame	data/chars/beyond/3jony/b20.gif
+
+	frame	data/chars/beyond/3jony/b17.gif #-24
+	frame	data/chars/beyond/3jony/b18.gif
+	sound	data/sounds/heli2.wav
+	@cmd	targetrgt 1 0 1 1 0
+	@cmd	dash4
+	sound	data/sounds/gun1.wav
+	frame	data/chars/beyond/3jony/b19.gif
+	frame	data/chars/beyond/3jony/b20.gif
+	@cmd	looper 24 32
+
+	frame	data/chars/beyond/3jony/b17.gif
+	frame	data/chars/beyond/3jony/b18.gif
+	sound	data/sounds/heli2.wav
+	@cmd	targetrgt 1 0 1 1 0
+	@cmd	dash4
+	frame	data/chars/beyond/3jony/b19.gif
+	frame	data/chars/beyond/3jony/b20.gif
+
+	frame	data/chars/beyond/3jony/b13.gif #-32
+	frame	data/chars/beyond/3jony/b14.gif
+	@cmd	targetrgt 1 0 1 1 0
+	@cmd	dash4
+	sound	data/sounds/heli2.wav
+	frame	data/chars/beyond/3jony/b15.gif
+	frame	data/chars/beyond/3jony/b16.gif
+	@cmd	looper 32 50
+
+	frame	data/chars/beyond/3jony/b13.gif #-36
+	frame	data/chars/beyond/3jony/b14.gif
+	sound	data/sounds/heli2.wav
+	@cmd	subscreen 0
+	frame	data/chars/beyond/3jony/b15.gif
+	frame	data/chars/beyond/3jony/b16.gif
+
+	frame	data/chars/beyond/3jony/b13.gif #-40
+	frame	data/chars/beyond/3jony/b14.gif
+	sound	data/sounds/heli2.wav
+	@cmd	dasher -2 0 0
+	frame	data/chars/beyond/3jony/b15.gif
+	frame	data/chars/beyond/3jony/b16.gif
+	@cmd	looper 40 40
+	@cmd	dasher -2 0 0
+	frame	data/chars/beyond/3jony/b13.gif
+	frame	data/chars/beyond/3jony/b14.gif
+	sound	data/sounds/heli2.wav
+	frame	data/chars/beyond/3jony/b15.gif
+	frame	data/chars/beyond/3jony/b16.gif
+	frame	data/chars/beyond/3jony/empty.gif  
+
+
+
+		
+
+		
+#|edited by openBor Stats v 0.53
+		

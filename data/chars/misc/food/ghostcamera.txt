@@ -1,0 +1,104 @@
+name		ghostcamera
+type		enemy
+health		100
+nomove		1 1
+nolife          1
+noquake		1
+makeinv		3
+gfxshadow	1
+nodrop		2
+antigrab	10
+subject_to_wall 0
+diesound        data/sounds/empty.wav
+animationscript data/scripts/escript.c
+
+
+
+anim	spawn
+@script
+    if(frame==1){
+      changelevelproperty("scrollspeed", 0);
+    }
+@end_script
+	loop	0
+	delay	5
+	offset	1 1
+	bbox	0 0 0 0
+	frame	data/chars/misc/food/empty.gif
+	frame	data/chars/misc/food/empty.gif
+
+	
+anim	idle
+@script
+    void self = getlocalvar("self");
+    int Dir = getentityproperty(self, "direction");
+    int XPos = openborvariant("xpos");
+    int Width = openborvariant("levelwidth");
+    int Screen = openborvariant("hResolution");
+
+    if(Dir==1){
+      if(XPos < Width-Screen && Dir==1){
+        changeopenborvariant("xpos", XPos+2);
+      } else {
+        changelevelproperty("scrollspeed", 2);
+        killentity(self);
+      }
+    } else if(Dir==0){
+      if(XPos > 0){
+        changeopenborvariant("xpos", XPos-2);
+      } else {
+        changelevelproperty("scrollspeed", 2);
+        killentity(self);
+      }
+    }
+@end_script
+   	loop    1
+   	delay   5
+   	offset  1 1
+	frame	data/chars/misc/food/empty.gif
+	frame	data/chars/misc/food/empty.gif
+
+
+#-------------------------------------------
+#-------------camera--up--------------------
+#-------------------------------------------
+#-------------------------------------------
+
+
+anim	follow1
+@script
+    if(frame==1){
+      changelevelproperty("scrollspeed", 0);
+    }
+@end_script
+	loop	0
+	delay	5
+	offset	1 1
+	bbox	0 0 0 0
+	frame	data/chars/misc/food/empty.gif
+	frame	data/chars/misc/food/empty.gif
+	@cmd	anichange "ANI_FOLLOW2"
+	frame	data/chars/misc/food/empty.gif
+	
+anim	follow2
+@script
+    void self = getlocalvar("self");
+    int Dir = getentityproperty(self, "direction");
+    int YPos = openborvariant("ypos");
+
+    if(Dir==1){
+        changeopenborvariant("ypos", YPos+2);
+
+        }
+ 	else if(Dir==0){
+        changeopenborvariant("ypos", YPos-2);
+
+        }
+@end_script
+   	loop    1
+   	delay   5
+   	offset  1 1
+	frame	data/chars/misc/food/empty.gif
+	frame	data/chars/misc/food/empty.gif
+
+		

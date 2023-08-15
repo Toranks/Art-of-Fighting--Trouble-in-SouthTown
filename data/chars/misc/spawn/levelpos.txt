@@ -1,0 +1,108 @@
+name	levelpos
+type	none
+antigravity 100
+hostile player
+
+animationscript data/scripts/escript.c
+
+
+
+@script
+   	void self = getlocalvar("self");
+	int  taosp = getglobalvar("taospawn");
+   	void anim = getentityproperty(self,"animationID");
+
+	if(taosp == 1 && anim != openborconstant("ANI_FOLLOW2"))
+	{
+	performattack(self,openborconstant("ANI_FOLLOW2"));
+	}
+@end_script
+
+
+
+anim	idle
+	loop	1
+	delay	5
+	offset	1 1
+	frame	data/chars/misc/empty.gif
+	@cmd	attack1 -100 100 150 "ANI_FOLLOW1"
+	frame	data/chars/misc/empty.gif
+
+
+
+anim	follow1
+@script
+if(frame==1)
+{
+  setglobalvar("taospawn", 1);
+}
+@end_script
+	loop	0
+	delay	5
+	offset	1 1
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+
+
+   
+anim	follow2
+@script
+    void self = getlocalvar("self");
+    int x = getentityproperty(self,"x");
+    int z = getentityproperty(self,"z");
+    int dir = getentityproperty(self,"direction");
+
+	int p1 = getplayerproperty(0, "entity");
+	int p2 = getplayerproperty(1, "entity");
+	int p3 = getplayerproperty(2, "entity");
+
+
+	if (p1 != NULL())
+	{
+	   void anim1 = getentityproperty(p1,"animationID");
+
+		if (anim1 == openborconstant("ANI_SPAWN"))
+		{
+		changeentityproperty(p1, "position", x, z);
+		changeentityproperty(p1, "direction", dir);
+		changeopenborvariant("xpos", x-230);
+		killentity(self);
+		}
+	}
+	if (p2 != NULL())
+	{
+	   void anim2 = getentityproperty(p2,"animationID");
+
+		if (anim2 == openborconstant("ANI_SPAWN"))
+		{
+		changeentityproperty(p2, "position", x, z);
+		changeentityproperty(p2, "direction", dir);
+		}
+	}
+	if (p3 != NULL())
+	{
+	   void anim3 = getentityproperty(p3,"animationID");
+
+		if (anim3 == openborconstant("ANI_SPAWN"))
+		{ 
+		changeentityproperty(p3, "position", x, z);
+		changeentityproperty(p3, "direction", dir);
+		}
+	}
+@end_script
+	loop	1
+	delay	5
+	offset	1 1
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	@cmd	suicide
+	frame	data/chars/misc/empty.gif
+
+
+

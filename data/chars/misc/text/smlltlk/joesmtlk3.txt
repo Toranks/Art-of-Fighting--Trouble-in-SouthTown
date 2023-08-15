@@ -1,0 +1,61 @@
+name	joesmtlk3
+type	none
+shadow	0
+facing	1
+setlayer	1500
+animationscript data/scripts/escript.c
+
+	
+anim	follow1
+	loop	1
+	delay	5
+	offset	50 70
+	frame	data/chars/misc/text/smlltlk/joesmtk06.gif
+	frame	data/chars/misc/text/smlltlk/empty.gif
+	frame	data/chars/misc/text/smlltlk/joesmtk06.gif
+	frame	data/chars/misc/text/smlltlk/empty.gif
+
+
+
+anim	follow2
+	loop	1
+	delay	5
+	offset	50 70
+	frame	data/chars/misc/text/smlltlk/joesmtk07.gif
+	frame	data/chars/misc/text/smlltlk/empty.gif
+	frame	data/chars/misc/text/smlltlk/joesmtk07.gif
+	frame	data/chars/misc/text/smlltlk/empty.gif
+
+
+
+anim	idle
+	loop	1
+	delay	5
+	offset	50 70
+	frame	data/chars/misc/text/smlltlk/empty.gif
+	frame	data/chars/misc/text/smlltlk/empty.gif
+
+		
+anim	spawn
+	loop	0
+	delay	5
+	offset	140 70
+    @script
+    void self = getlocalvar("self");
+
+    if( frame == 1){
+      int r = rand()%50;
+
+      if( r > 0){
+        changeentityproperty(self, "animation", openborconstant("ANI_FOLLOW2"));
+      }
+    }
+	@end_script
+	frame	data/chars/misc/text/smlltlk/empty.gif
+	frame	data/chars/misc/text/smlltlk/empty.gif
+	frame	data/chars/misc/text/smlltlk/empty.gif
+	@cmd    anichange "ANI_FOLLOW1"
+	frame	data/chars/misc/text/smlltlk/empty.gif
+		
+#|edited by openBor Stats v 0.53
+		

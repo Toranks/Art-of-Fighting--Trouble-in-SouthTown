@@ -1,0 +1,372 @@
+name		ufd4
+type		enemy
+health		100
+mp		100
+speedf		1.6
+jumpheight	0
+noquake		1
+falldie		1
+nodieblink	2
+makeinv		3
+gfxshadow	1
+nodrop		1
+facing          1
+nomove          0 1
+nodrop		2
+antigrab	10
+hostile				player
+candamage			player npc
+KOMap		3 0
+diesound        data/sounds/empty.wav
+animationscript data/scripts/escript.c
+
+palette	     	 data/chars/beyond/2ufd4/map0.gif
+alternatepal     data/chars/beyond/2ufd4/map1.gif
+alternatepal     data/chars/beyond/2ufd4/map2.gif
+alternatepal     data/chars/beyond/2ufd4/map3.gif
+
+load	ufdlg1
+load    lashot1
+load	ufd4brk
+load	explosion1
+load	cardam2
+load	glassbrk2
+
+
+
+
+anim	attack1
+	range	30 180
+	rangez	-15 15
+	rangea	-10 15
+	loop	0
+	delay	7
+	offset	180 210
+	bbox	125 90 110 95
+	fastattack	1
+	hitflash	Flash6
+	hitfx	data/sounds/sl2.wav
+	seta	0
+	frame	data/chars/beyond/2ufd4/hvbk01.gif
+	sound	data/sounds/laser.wav
+	seta	1
+	frame	data/chars/beyond/2ufd4/hvbk02.gif
+	seta	2
+	frame	data/chars/beyond/2ufd4/hvbk03.gif
+	seta	1
+	frame	data/chars/beyond/2ufd4/hvbk04.gif
+	seta	0
+	frame	data/chars/beyond/2ufd4/a01.gif
+	seta	1
+	frame	data/chars/beyond/2ufd4/a02.gif
+	seta	2
+	frame	data/chars/beyond/2ufd4/a03.gif
+	seta	1
+	frame	data/chars/beyond/2ufd4/a04.gif
+	offset	152 210
+	seta	0
+	frame	data/chars/beyond/2ufd4/a05.gif
+	attack	275 135 120 80 5 0 0 0 15 0
+	seta	1
+	frame	data/chars/beyond/2ufd4/a06.gif
+	@cmd	targetrgt 1.5 1 1 1 0
+	@cmd	dash
+	sound	data/sounds/laser5.wav
+	seta	2
+	frame	data/chars/beyond/2ufd4/a07.gif
+	attack	0 0 0 0
+	seta	1
+	frame	data/chars/beyond/2ufd4/a08.gif
+	@cmd	looper 9 7
+	offset	180 210
+	seta	0
+	frame	data/chars/beyond/2ufd4/a01.gif
+	sound	data/sounds/alien10.wav
+	seta	1
+	frame	data/chars/beyond/2ufd4/a02.gif
+	seta	0
+	frame	data/chars/beyond/2ufd4/a03.gif
+	frame	data/chars/beyond/2ufd4/a04.gif
+	@cmd	beidle
+	frame	data/chars/beyond/2ufd4/a04.gif
+		
+anim	attack2
+	range	190 360
+	rangez	-15 15
+	rangea	-10 15
+	loop	0
+	delay	7
+	offset	180 210
+	bbox	125 90 110 95
+	seta	0
+	frame	data/chars/beyond/2ufd4/b01.gif
+	sound	data/sounds/laser4.wav
+	seta	1
+	frame	data/chars/beyond/2ufd4/b02.gif
+	seta	2
+	frame	data/chars/beyond/2ufd4/b04.gif
+	seta	1
+	frame	data/chars/beyond/2ufd4/b05.gif
+	seta	0
+	frame	data/chars/beyond/2ufd4/b06.gif
+	seta	1
+	frame	data/chars/beyond/2ufd4/b07.gif
+	seta	2
+	frame	data/chars/beyond/2ufd4/b08.gif
+	seta	1
+	frame	data/chars/beyond/2ufd4/b05.gif
+	seta	0
+	frame	data/chars/beyond/2ufd4/b06.gif
+	seta	1
+	frame	data/chars/beyond/2ufd4/b07.gif
+	seta	2
+	frame	data/chars/beyond/2ufd4/b08.gif
+	seta	1
+	frame	data/chars/beyond/2ufd4/b10.gif
+	sound	data/sounds/laser3.wav
+	seta	0
+	frame	data/chars/beyond/2ufd4/b11.gif
+	@cmd	spawnAni "lashot1" 75 30 1 "ANI_FOLLOW1"
+	seta	1
+	frame	data/chars/beyond/2ufd4/b12.gif
+	@cmd	targetrgt 1.5 1 1 1 0
+	@cmd	dash
+	seta	2
+	frame	data/chars/beyond/2ufd4/b13.gif
+	seta	1
+	frame	data/chars/beyond/2ufd4/b10.gif
+	@cmd	targetrgt 1.5 1 1 1 0
+	@cmd	dash
+	sound	data/sounds/laser3.wav
+	seta	0
+	frame	data/chars/beyond/2ufd4/b11.gif
+	@cmd	spawnAni "lashot1" 85 40 1 "ANI_FOLLOW1"
+	seta	1
+	frame	data/chars/beyond/2ufd4/b12.gif
+	@cmd	targetrgt 1.5 1 1 1 0
+	@cmd	dash
+	seta	2
+	frame	data/chars/beyond/2ufd4/b13.gif
+	@cmd	looper 12 2
+	seta	1
+	frame	data/chars/beyond/2ufd4/b05.gif
+	sound	data/sounds/alien10.wav
+	seta	0
+	frame	data/chars/beyond/2ufd4/b06.gif
+	seta	1
+	frame	data/chars/beyond/2ufd4/b07.gif
+	seta	2
+	frame	data/chars/beyond/2ufd4/b08.gif
+	seta	1
+	frame	data/chars/beyond/2ufd4/b04.gif
+	seta	0
+	frame	data/chars/beyond/2ufd4/b02.gif
+	frame	data/chars/beyond/2ufd4/b01.gif
+	@cmd	beidle
+	frame	data/chars/beyond/2ufd4/b01.gif
+		
+anim	attack4
+	range	-380 -50
+	rangez	-15 15
+	rangea	-10 15
+	loop	0
+	delay	7
+	offset	180 210
+	bbox	125 90 110 95
+	seta	0
+	frame	data/chars/beyond/2ufd4/c01.gif
+	sound	data/sounds/laser4.wav
+	seta	1
+	frame	data/chars/beyond/2ufd4/c02.gif
+	seta	2
+	frame	data/chars/beyond/2ufd4/c03.gif
+	seta	1
+	frame	data/chars/beyond/2ufd4/c04.gif
+	seta	0
+	frame	data/chars/beyond/2ufd4/c05.gif
+	seta	1
+	frame	data/chars/beyond/2ufd4/c06.gif
+	seta	2
+	frame	data/chars/beyond/2ufd4/c07.gif
+	seta	1
+	frame	data/chars/beyond/2ufd4/c08.gif
+	seta	0
+	frame	data/chars/beyond/2ufd4/c05.gif
+	seta	1
+	frame	data/chars/beyond/2ufd4/c06.gif
+	seta	2
+	frame	data/chars/beyond/2ufd4/c07.gif
+	seta	1
+	frame	data/chars/beyond/2ufd4/c08.gif
+	seta	0
+	frame	data/chars/beyond/2ufd4/c10.gif
+	@cmd	targetrgt 1.5 1 1 1 0
+	@cmd	dash
+	sound	data/sounds/laser3.wav
+	seta	1
+	frame	data/chars/beyond/2ufd4/c11.gif
+	@cmd	spawnAni "lashot1" -65 40 1 "ANI_FOLLOW2"
+	seta	2
+	frame	data/chars/beyond/2ufd4/c12.gif
+	@cmd	targetrgt 1.5 1 1 1 0
+	@cmd	dash
+	seta	1
+	frame	data/chars/beyond/2ufd4/c13.gif
+	seta	0
+	frame	data/chars/beyond/2ufd4/c10.gif
+	@cmd	targetrgt 1.5 1 1 1 0
+	@cmd	dash
+	sound	data/sounds/laser3.wav
+	seta	1
+	frame	data/chars/beyond/2ufd4/c11.gif
+	@cmd	spawnAni "lashot1" -65 50 1 "ANI_FOLLOW2"
+	seta	2
+	frame	data/chars/beyond/2ufd4/c12.gif
+	@cmd	targetrgt 1.5 1 1 1 0
+	@cmd	dash
+	seta	1
+	frame	data/chars/beyond/2ufd4/c13.gif
+	@cmd	looper 13 2
+	seta	0
+	frame	data/chars/beyond/2ufd4/c05.gif
+	sound	data/sounds/alien10.wav
+	seta	1
+	frame	data/chars/beyond/2ufd4/c06.gif
+	seta	2
+	frame	data/chars/beyond/2ufd4/c07.gif
+	seta	1
+	frame	data/chars/beyond/2ufd4/c08.gif
+	seta	0
+	frame	data/chars/beyond/2ufd4/c04.gif
+	frame	data/chars/beyond/2ufd4/c03.gif
+	frame	data/chars/beyond/2ufd4/c02.gif
+	frame	data/chars/beyond/2ufd4/c01.gif
+	@cmd	beidle
+	frame	data/chars/beyond/2ufd4/c01.gif
+		
+anim	death
+	loop	0
+	delay	3
+	offset	180 210
+	bbox	125 90 110 95
+	@cmd	degravity 0
+	jumpframe	1 0.4 -0.2
+	@cmd	degravity 1
+	@cmd	killgun 1 0
+	frame	data/chars/beyond/2ufd4/brk01.gif
+	@cmd	spawn01 "glassbrk2" 1 40 5
+	@cmd	spawnM "ufd4brk" 1 1 1
+	frame	data/chars/beyond/2ufd4/brk02.gif
+	@cmd	spawn01 "cardam2" 1 70 4
+	@cmd	spawn01 "explosion1" -30 59 1
+	frame	data/chars/beyond/2ufd4/brk03.gif
+	@cmd	spawn01 "glassbrk2" 50 110 6
+	frame	data/chars/beyond/2ufd4/brk04.gif
+	@cmd	spawn01 "explosion1" 30 130 5
+	frame	data/chars/beyond/2ufd4/brk01.gif
+	frame	data/chars/beyond/2ufd4/brk05.gif
+	frame	data/chars/beyond/2ufd4/brk01.gif
+	frame	data/chars/beyond/2ufd4/brk02.gif
+	frame	data/chars/beyond/2ufd4/brk05.gif
+	@cmd	leaper	-0.2 0.4 0
+	frame	data/chars/beyond/2ufd4/brk03.gif
+	frame	data/chars/beyond/2ufd4/brk05.gif
+	frame	data/chars/beyond/2ufd4/brk04.gif
+	frame	data/chars/beyond/2ufd4/brk05.gif
+	@cmd	looper 5 14
+	frame	data/chars/beyond/2ufd4/brk01.gif
+	frame	data/chars/beyond/2ufd4/brk05.gif
+	frame	data/chars/beyond/2ufd4/brk02.gif
+	frame	data/chars/beyond/2ufd4/brk05.gif
+	frame	data/chars/beyond/2ufd4/brk03.gif
+	frame	data/chars/beyond/2ufd4/brk05.gif
+	frame	data/chars/beyond/2ufd4/brk04.gif
+	frame	data/chars/beyond/2ufd4/brk05.gif
+	@cmd	suicide
+	frame	data/chars/beyond/2ufd4/brk05.gif
+		
+anim	fall
+	loop	0
+	delay	3
+	offset	180 210
+	bbox	0 0 0 0
+	frame	data/chars/beyond/2ufd4/hvbk01.gif
+		
+anim	idle
+	loop	1
+	delay	7
+	offset	180 210
+	bbox	125 90 110 95
+	@cmd	clearL
+	seta	0
+	frame	data/chars/beyond/2ufd4/hvbk01.gif
+	seta	1
+	frame	data/chars/beyond/2ufd4/hvbk02.gif
+	seta	2
+	frame	data/chars/beyond/2ufd4/hvbk03.gif
+	seta	1
+	frame	data/chars/beyond/2ufd4/hvbk04.gif
+		
+anim	pain
+	loop	0
+	delay	7
+	offset	180 210
+	bbox	125 90 110 95
+	@cmd	dasher 3 0 0
+	seta	0
+	frame	data/chars/beyond/2ufd4/hvbk05.gif
+	seta	1
+	frame	data/chars/beyond/2ufd4/pain2.gif
+	seta	2
+	frame	data/chars/beyond/2ufd4/pain3.gif
+	@cmd	dasher 1.5 0 0
+	seta	1
+	frame	data/chars/beyond/2ufd4/pain4.gif
+	seta	0
+	frame	data/chars/beyond/2ufd4/pain1.gif
+	seta	1
+	frame	data/chars/beyond/2ufd4/pain2.gif
+	@cmd	stop
+	frame	data/chars/beyond/2ufd4/pain3.gif
+		
+anim	pain2
+	loop	0
+	delay	7
+	offset	180 210
+	bbox	125 90 110 95
+	@cmd	dasher -3 0 0
+	seta	0
+	frame	data/chars/beyond/2ufd4/hvbk05.gif
+	seta	1
+	frame	data/chars/beyond/2ufd4/pain2.gif
+	seta	2
+	frame	data/chars/beyond/2ufd4/pain3.gif
+	@cmd	dasher -1.5 0 0
+	seta	1
+	frame	data/chars/beyond/2ufd4/pain4.gif
+	seta	0
+	frame	data/chars/beyond/2ufd4/pain1.gif
+	seta	1
+	frame	data/chars/beyond/2ufd4/pain2.gif
+	@cmd	stop
+	frame	data/chars/beyond/2ufd4/pain3.gif
+		
+anim	rise
+	loop	0
+	delay	7
+	offset	180 210
+	bbox	125 90 110 95
+	frame	data/chars/beyond/2ufd4/hvbk01.gif
+		
+anim	spawn
+	loop	0
+	delay	7
+	offset	180 210
+	bbox	0 0 0 0
+	@cmd	degravity 0.7
+	frame	data/chars/beyond/2ufd4/hvbk01.gif
+	@cmd	spawnGun5 "ufdlg1" 1 1 1 1 "ANI_FOLLOW2"
+	frame	data/chars/beyond/2ufd4/hvbk01.gif
+		
+#|edited by openBor Stats v 0.53
+		

@@ -1,0 +1,1068 @@
+name          cyberai
+type          enemy
+health        6000
+speedf        1
+jumpheight    0
+cantgrab      1
+falldie	      1
+nodieblink    3
+shadow	      0
+nomove		1 1
+facing		1
+nopain          1
+noatflash 	1
+flash    	flash8	
+hostile		player
+candamage	player
+subject_to_wall 0
+subject_to_gravity 0
+subject_to_platform 0
+subject_to_minz    0
+subject_to_maxz    0
+offscreenkill 	10000
+setlayer	-20
+projectilehit enemy obstacle
+diesound      data/sounds/xplosion.wav
+icon		data/chars/beyond/3ai/icon.gif
+animationscript data/scripts/escript.c
+
+lifebarstatus 300 10 0 1 0 2 5 
+lifeposition 115  240
+nameposition -200 -200
+iconposition 50 227
+nolife 1
+
+
+load	flash8
+load	aiarm
+load	aipw
+load	explosion8
+load	aitlk
+load	byodoor1
+
+
+anim	attack1
+	range	-90 90
+	rangez	-40 60
+	loop	0
+	delay	4
+	offset	342 265
+	bbox	285 70 120 195
+	frame	data/chars/beyond/3ai/ai15.gif
+	frame	data/chars/beyond/3ai/ai14.gif
+	frame	data/chars/beyond/3ai/ai13.gif
+	frame	data/chars/beyond/3ai/ai12.gif
+	frame	data/chars/beyond/3ai/ai11.gif
+	frame	data/chars/beyond/3ai/ai12.gif
+	frame	data/chars/beyond/3ai/ai13.gif
+	frame	data/chars/beyond/3ai/ai14.gif
+	frame	data/chars/beyond/3ai/ai15.gif
+	sound	data/sounds/ai4.wav
+	frame	data/chars/beyond/3ai/b01.gif
+	frame	data/chars/beyond/3ai/b02.gif
+	frame	data/chars/beyond/3ai/b03.gif
+	frame	data/chars/beyond/3ai/b04.gif
+	@cmd	spawnGun5 "aipw" -5 0 45 3 "ANI_FOLLOW2"
+	frame	data/chars/beyond/3ai/b05.gif
+
+	frame	data/chars/beyond/3ai/bat01.gif
+	frame	data/chars/beyond/3ai/bat02.gif
+	frame	data/chars/beyond/3ai/bat03.gif
+	frame	data/chars/beyond/3ai/bat04.gif
+	frame	data/chars/beyond/3ai/bat05.gif
+	@cmd	looper 15 20
+	frame	data/chars/beyond/3ai/bat01.gif
+	@cmd	killgun 3 0
+	frame	data/chars/beyond/3ai/b05.gif
+	frame	data/chars/beyond/3ai/b04.gif
+	frame	data/chars/beyond/3ai/b03.gif
+	frame	data/chars/beyond/3ai/b02.gif
+	frame	data/chars/beyond/3ai/b01.gif
+
+	frame	data/chars/beyond/3ai/ai15.gif
+	frame	data/chars/beyond/3ai/ai14.gif
+	frame	data/chars/beyond/3ai/ai13.gif
+	frame	data/chars/beyond/3ai/ai12.gif
+	frame	data/chars/beyond/3ai/ai11.gif
+	frame	data/chars/beyond/3ai/ai12.gif
+	frame	data/chars/beyond/3ai/ai13.gif
+	frame	data/chars/beyond/3ai/ai14.gif
+	frame	data/chars/beyond/3ai/ai15.gif
+
+
+
+anim	attack2
+	range	-430 -90
+	rangez	-40 50
+	loop	0
+	delay	4
+	offset	342 265
+	bbox	285 70 120 195
+	frame	data/chars/beyond/3ai/ai15.gif
+	frame	data/chars/beyond/3ai/ai14.gif
+	frame	data/chars/beyond/3ai/ai13.gif
+	frame	data/chars/beyond/3ai/ai12.gif
+	frame	data/chars/beyond/3ai/ai11.gif
+	frame	data/chars/beyond/3ai/ai12.gif
+	frame	data/chars/beyond/3ai/ai13.gif
+	frame	data/chars/beyond/3ai/ai14.gif
+	frame	data/chars/beyond/3ai/ai15.gif
+	sound	data/sounds/ai4.wav
+	frame	data/chars/beyond/3ai/c01.gif
+	frame	data/chars/beyond/3ai/c02.gif
+	frame	data/chars/beyond/3ai/c03.gif
+	frame	data/chars/beyond/3ai/c04.gif
+	@cmd	spawnGun5 "aipw" -40 0 30 3 "ANI_FOLLOW1"
+	frame	data/chars/beyond/3ai/c05.gif
+
+	frame	data/chars/beyond/3ai/cat01.gif
+	frame	data/chars/beyond/3ai/cat02.gif
+	frame	data/chars/beyond/3ai/cat03.gif
+	frame	data/chars/beyond/3ai/cat04.gif
+	frame	data/chars/beyond/3ai/cat05.gif
+	@cmd	looper 15 20
+	frame	data/chars/beyond/3ai/cat01.gif
+	@cmd	killgun 3 0
+	frame	data/chars/beyond/3ai/c05.gif
+	frame	data/chars/beyond/3ai/c04.gif
+	frame	data/chars/beyond/3ai/c03.gif
+	frame	data/chars/beyond/3ai/c02.gif
+	frame	data/chars/beyond/3ai/c01.gif
+
+	frame	data/chars/beyond/3ai/ai15.gif
+	frame	data/chars/beyond/3ai/ai14.gif
+	frame	data/chars/beyond/3ai/ai13.gif
+	frame	data/chars/beyond/3ai/ai12.gif
+	frame	data/chars/beyond/3ai/ai11.gif
+	frame	data/chars/beyond/3ai/ai12.gif
+	frame	data/chars/beyond/3ai/ai13.gif
+	frame	data/chars/beyond/3ai/ai14.gif
+	frame	data/chars/beyond/3ai/ai15.gif
+
+
+anim	attack3
+	range	90 430
+	rangez	-40 50
+	loop	0
+	delay	4
+	offset	342 265
+	bbox	285 70 120 195
+	frame	data/chars/beyond/3ai/ai15.gif
+	frame	data/chars/beyond/3ai/ai14.gif
+	frame	data/chars/beyond/3ai/ai13.gif
+	frame	data/chars/beyond/3ai/ai12.gif
+	frame	data/chars/beyond/3ai/ai11.gif
+	frame	data/chars/beyond/3ai/ai12.gif
+	frame	data/chars/beyond/3ai/ai13.gif
+	frame	data/chars/beyond/3ai/ai14.gif
+	frame	data/chars/beyond/3ai/ai15.gif
+	sound	data/sounds/ai4.wav
+	frame	data/chars/beyond/3ai/d01.gif
+	frame	data/chars/beyond/3ai/d02.gif
+	frame	data/chars/beyond/3ai/d03.gif
+	frame	data/chars/beyond/3ai/d04.gif
+	@cmd	spawnGun5 "aipw" 40 0 30 3 "ANI_FOLLOW3"
+	frame	data/chars/beyond/3ai/d05.gif
+
+	frame	data/chars/beyond/3ai/dat01.gif
+	frame	data/chars/beyond/3ai/dat02.gif
+	frame	data/chars/beyond/3ai/dat03.gif
+	frame	data/chars/beyond/3ai/dat04.gif
+	frame	data/chars/beyond/3ai/dat05.gif
+	@cmd	looper 15 20
+	frame	data/chars/beyond/3ai/dat01.gif
+	@cmd	killgun 3 0
+	frame	data/chars/beyond/3ai/d05.gif
+	frame	data/chars/beyond/3ai/d04.gif
+	frame	data/chars/beyond/3ai/d03.gif
+	frame	data/chars/beyond/3ai/d02.gif
+	frame	data/chars/beyond/3ai/d01.gif
+
+	frame	data/chars/beyond/3ai/ai15.gif
+	frame	data/chars/beyond/3ai/ai14.gif
+	frame	data/chars/beyond/3ai/ai13.gif
+	frame	data/chars/beyond/3ai/ai12.gif
+	frame	data/chars/beyond/3ai/ai11.gif
+	frame	data/chars/beyond/3ai/ai12.gif
+	frame	data/chars/beyond/3ai/ai13.gif
+	frame	data/chars/beyond/3ai/ai14.gif
+	frame	data/chars/beyond/3ai/ai15.gif
+
+
+#------------//-------------//----------------------------
+#------------//-----aggro---//----------------------------
+#------------//-------------//----------------------------
+		
+anim	spawn
+@script
+	void self = getlocalvar("self");
+	if(frame==1){
+	changeentityproperty(self, "aggression", 30);
+	}
+@end_script
+	loop	0
+	delay	5
+	offset	342 265
+	bbox	0 0 0 0
+	@cmd	 playmusic "data/music/aitlk.ogg" 1 
+	frame	data/chars/beyond/3ai/x01.gif
+	frame	data/chars/beyond/3ai/x01.gif
+	frame	data/chars/beyond/3ai/x01.gif
+	delay	60	
+	frame	data/chars/beyond/3ai/x01.gif
+	@cmd	spawn01 "aipw" -400 0 5
+	frame	data/chars/beyond/3ai/x01.gif
+	@cmd	spawn01 "aipw" -230 0 65
+	frame	data/chars/beyond/3ai/x01.gif
+	@cmd	spawn01 "aipw" -70 0 5
+	frame	data/chars/beyond/3ai/x01.gif
+	@cmd	spawn01 "aipw" 70 0 65
+	frame	data/chars/beyond/3ai/x01.gif
+	@cmd	spawn01 "aipw" 230 0 5
+	frame	data/chars/beyond/3ai/x01.gif
+	@cmd	spawn01 "aipw" 400 0 65
+	frame	data/chars/beyond/3ai/x01.gif
+	@cmd	anichange "ANI_FOLLOW1"
+	frame	data/chars/beyond/3ai/x01.gif
+
+
+#------------//------------------//------
+#------------//----HHUUuaaaa-----//------
+#------------//------------------//------
+
+#------------//----HHUUuaaaa--n1---//------
+		
+anim	follow12
+	loop	0
+	delay	6
+	offset	342 265
+	bbox	0 0 0 0
+@script
+    void self = getlocalvar("self");
+    if(frame==50)
+	{
+	changeentityproperty(self, "aggression", 40);
+	}
+@end_script	
+	frame	data/chars/beyond/3ai/ai01.gif
+	frame	data/chars/beyond/3ai/ai21.gif
+	@cmd	clearL
+	frame	data/chars/beyond/3ai/ai22.gif
+	frame	data/chars/beyond/3ai/ai23.gif
+	frame	data/chars/beyond/3ai/ai24.gif
+	sound	data/sounds/ai3.wav
+	frame	data/chars/beyond/3ai/ai25.gif
+	frame	data/chars/beyond/3ai/ai24.gif
+	frame	data/chars/beyond/3ai/ai23.gif
+	frame	data/chars/beyond/3ai/ai22.gif
+	frame	data/chars/beyond/3ai/ai21.gif
+	frame	data/chars/beyond/3ai/ai01.gif
+
+	frame	data/chars/beyond/3ai/ai31.gif
+	frame	data/chars/beyond/3ai/ai32.gif
+	frame	data/chars/beyond/3ai/ai33.gif
+	frame	data/chars/beyond/3ai/ai34.gif
+	frame	data/chars/beyond/3ai/ai35.gif
+	delay	3
+
+	frame	data/chars/beyond/3ai/ai36.gif
+	@cmd	spawnAni "aipw" -380 0 5 "ANI_FOLLOW4" 
+	frame	data/chars/beyond/3ai/ai37.gif
+	@cmd	spawnAni "aipw" -280 0 40 "ANI_FOLLOW5"
+	frame	data/chars/beyond/3ai/ai38.gif
+	@cmd	spawnAni "aipw" -180 0 80 "ANI_FOLLOW4" 
+	frame	data/chars/beyond/3ai/ai39.gif
+	@cmd	spawnAni "aipw" -80 0 5 "ANI_FOLLOW5"
+	frame	data/chars/beyond/3ai/ai38.gif
+	@cmd	spawnAni "aipw" 80 0 40 "ANI_FOLLOW4"
+	frame	data/chars/beyond/3ai/ai37.gif
+	@cmd	spawnAni "aipw" 180 0 5 "ANI_FOLLOW5" 
+	frame	data/chars/beyond/3ai/ai36.gif
+	@cmd	spawnAni "aipw" 280 0 80 "ANI_FOLLOW4" 
+	frame	data/chars/beyond/3ai/ai40.gif
+	@cmd	spawnAni "aipw" 380 0 5 "ANI_FOLLOW5"
+	frame	data/chars/beyond/3ai/ai41.gif
+	frame	data/chars/beyond/3ai/ai42.gif
+	frame	data/chars/beyond/3ai/ai41.gif
+	frame	data/chars/beyond/3ai/ai40.gif
+	frame	data/chars/beyond/3ai/ai36.gif
+
+	frame	data/chars/beyond/3ai/ai36.gif
+	frame	data/chars/beyond/3ai/ai37.gif
+	frame	data/chars/beyond/3ai/ai38.gif
+	frame	data/chars/beyond/3ai/ai39.gif
+	frame	data/chars/beyond/3ai/ai38.gif
+	frame	data/chars/beyond/3ai/ai37.gif
+	sound	data/sounds/ai6.wav
+	frame	data/chars/beyond/3ai/ai36.gif
+	frame	data/chars/beyond/3ai/ai40.gif
+	frame	data/chars/beyond/3ai/ai41.gif
+	frame	data/chars/beyond/3ai/ai42.gif
+	frame	data/chars/beyond/3ai/ai41.gif
+	frame	data/chars/beyond/3ai/ai40.gif
+	@cmd	looper 29 50
+	delay	12
+	frame	data/chars/beyond/3ai/ai35.gif
+	sound	data/sounds/ai7.wav
+	frame	data/chars/beyond/3ai/ai34.gif
+	frame	data/chars/beyond/3ai/ai33.gif
+	frame	data/chars/beyond/3ai/ai32.gif
+	frame	data/chars/beyond/3ai/ai31.gif
+	frame	data/chars/beyond/3ai/ai01.gif
+	frame	data/chars/beyond/3ai/ai21.gif
+	frame	data/chars/beyond/3ai/ai22.gif
+	frame	data/chars/beyond/3ai/ai23.gif
+	frame	data/chars/beyond/3ai/ai24.gif
+	frame	data/chars/beyond/3ai/ai25.gif
+	frame	data/chars/beyond/3ai/ai24.gif
+	frame	data/chars/beyond/3ai/ai23.gif
+	frame	data/chars/beyond/3ai/ai22.gif
+	frame	data/chars/beyond/3ai/ai21.gif
+	frame	data/chars/beyond/3ai/ai01.gif
+
+#------------//----HHUUuaaaa--n2---//------
+
+anim	follow13
+	loop	0
+	delay	6
+	offset	342 265
+	bbox	0 0 0 0
+@script
+    void self = getlocalvar("self");
+    if(frame==50)
+	{
+	changeentityproperty(self, "aggression", 50);
+	}
+@end_script	
+	frame	data/chars/beyond/3ai/ai01.gif
+	frame	data/chars/beyond/3ai/ai21.gif
+	@cmd	clearL
+	frame	data/chars/beyond/3ai/ai22.gif
+	@cmd	 playmusic "data/music/ai3.ogg" 1
+	frame	data/chars/beyond/3ai/ai23.gif
+	frame	data/chars/beyond/3ai/ai24.gif
+	sound	data/sounds/ai3.wav
+	frame	data/chars/beyond/3ai/ai25.gif
+	frame	data/chars/beyond/3ai/ai24.gif
+	frame	data/chars/beyond/3ai/ai23.gif
+	frame	data/chars/beyond/3ai/ai22.gif
+	frame	data/chars/beyond/3ai/ai21.gif
+	frame	data/chars/beyond/3ai/ai01.gif
+
+	frame	data/chars/beyond/3ai/ai31.gif
+	frame	data/chars/beyond/3ai/ai32.gif
+	frame	data/chars/beyond/3ai/ai33.gif
+	frame	data/chars/beyond/3ai/ai34.gif
+	frame	data/chars/beyond/3ai/ai35.gif
+	delay	3
+
+	frame	data/chars/beyond/3ai/ai36.gif
+	@cmd	spawnAni "aipw" -380 0 5 "ANI_FOLLOW4" 
+	frame	data/chars/beyond/3ai/ai37.gif
+	@cmd	spawnAni "aipw" -280 0 40 "ANI_FOLLOW5"
+	frame	data/chars/beyond/3ai/ai38.gif
+	@cmd	spawnAni "aipw" -180 0 80 "ANI_FOLLOW4" 
+	frame	data/chars/beyond/3ai/ai39.gif
+	@cmd	spawnAni "aipw" -80 0 5 "ANI_FOLLOW5"
+	frame	data/chars/beyond/3ai/ai38.gif
+	@cmd	spawnAni "aipw" 80 0 40 "ANI_FOLLOW4"
+	frame	data/chars/beyond/3ai/ai37.gif
+	@cmd	spawnAni "aipw" 180 0 5 "ANI_FOLLOW5" 
+	frame	data/chars/beyond/3ai/ai36.gif
+	@cmd	spawnAni "aipw" 280 0 80 "ANI_FOLLOW4" 
+	frame	data/chars/beyond/3ai/ai40.gif
+	@cmd	spawnAni "aipw" 380 0 5 "ANI_FOLLOW5"
+	frame	data/chars/beyond/3ai/ai41.gif
+	frame	data/chars/beyond/3ai/ai42.gif
+	frame	data/chars/beyond/3ai/ai41.gif
+	frame	data/chars/beyond/3ai/ai40.gif
+	frame	data/chars/beyond/3ai/ai36.gif
+
+	frame	data/chars/beyond/3ai/ai36.gif
+	frame	data/chars/beyond/3ai/ai37.gif
+	frame	data/chars/beyond/3ai/ai38.gif
+	frame	data/chars/beyond/3ai/ai39.gif
+	frame	data/chars/beyond/3ai/ai38.gif
+	frame	data/chars/beyond/3ai/ai37.gif
+	sound	data/sounds/ai6.wav
+	frame	data/chars/beyond/3ai/ai36.gif
+	frame	data/chars/beyond/3ai/ai40.gif
+	frame	data/chars/beyond/3ai/ai41.gif
+	frame	data/chars/beyond/3ai/ai42.gif
+	frame	data/chars/beyond/3ai/ai41.gif
+	frame	data/chars/beyond/3ai/ai40.gif
+	@cmd	looper 29 50
+	delay	12
+	frame	data/chars/beyond/3ai/ai35.gif
+	sound	data/sounds/ai7.wav
+	frame	data/chars/beyond/3ai/ai34.gif
+	frame	data/chars/beyond/3ai/ai33.gif
+	frame	data/chars/beyond/3ai/ai32.gif
+	frame	data/chars/beyond/3ai/ai31.gif
+	frame	data/chars/beyond/3ai/ai01.gif
+	frame	data/chars/beyond/3ai/ai21.gif
+	frame	data/chars/beyond/3ai/ai22.gif
+	frame	data/chars/beyond/3ai/ai23.gif
+	frame	data/chars/beyond/3ai/ai24.gif
+	frame	data/chars/beyond/3ai/ai25.gif
+	frame	data/chars/beyond/3ai/ai24.gif
+	frame	data/chars/beyond/3ai/ai23.gif
+	frame	data/chars/beyond/3ai/ai22.gif
+	frame	data/chars/beyond/3ai/ai21.gif
+	frame	data/chars/beyond/3ai/ai01.gif
+
+#------------//----HHUUuaaaa--n3---//------
+
+anim	follow14
+	loop	0
+	delay	6
+	offset	342 265
+	bbox	0 0 0 0
+@script
+    void self = getlocalvar("self");
+    if(frame==50)
+	{
+	changeentityproperty(self, "aggression", 60);
+	}
+@end_script	
+	frame	data/chars/beyond/3ai/ai01.gif
+	frame	data/chars/beyond/3ai/ai21.gif
+	@cmd	clearL
+	frame	data/chars/beyond/3ai/ai22.gif
+	frame	data/chars/beyond/3ai/ai23.gif
+	frame	data/chars/beyond/3ai/ai24.gif
+	sound	data/sounds/ai3.wav
+	frame	data/chars/beyond/3ai/ai25.gif
+	frame	data/chars/beyond/3ai/ai24.gif
+	frame	data/chars/beyond/3ai/ai23.gif
+	frame	data/chars/beyond/3ai/ai22.gif
+	frame	data/chars/beyond/3ai/ai21.gif
+	frame	data/chars/beyond/3ai/ai01.gif
+
+	frame	data/chars/beyond/3ai/ai31.gif
+	frame	data/chars/beyond/3ai/ai32.gif
+	frame	data/chars/beyond/3ai/ai33.gif
+	frame	data/chars/beyond/3ai/ai34.gif
+	frame	data/chars/beyond/3ai/ai35.gif
+	delay	3
+
+	frame	data/chars/beyond/3ai/ai36.gif
+	@cmd	spawnAni "aipw" -380 0 5 "ANI_FOLLOW4"
+	frame	data/chars/beyond/3ai/ai37.gif
+	@cmd	spawnAni "aipw" 380 0 5 "ANI_FOLLOW5"
+	frame	data/chars/beyond/3ai/ai38.gif
+	@cmd	spawnAni "aipw" -280 0 40 "ANI_FOLLOW5"
+	frame	data/chars/beyond/3ai/ai39.gif
+	@cmd	spawnAni "aipw" 280 0 80 "ANI_FOLLOW4"
+	frame	data/chars/beyond/3ai/ai38.gif
+	@cmd	spawnAni "aipw" -180 0 80 "ANI_FOLLOW4" 
+	frame	data/chars/beyond/3ai/ai37.gif
+	@cmd	spawnAni "aipw" 180 0 5 "ANI_FOLLOW5" 
+	frame	data/chars/beyond/3ai/ai36.gif
+	@cmd	spawnAni "aipw" -80 0 5 "ANI_FOLLOW5"
+	frame	data/chars/beyond/3ai/ai40.gif
+	@cmd	spawnAni "aipw" 80 0 40 "ANI_FOLLOW4"
+	frame	data/chars/beyond/3ai/ai41.gif
+	@cmd	spawnAni "aipw" -350 0 100 "ANI_FOLLOW4"
+	@cmd	spawnAni "aipw" -230 0 100 "ANI_FOLLOW5"
+	frame	data/chars/beyond/3ai/ai42.gif
+	@cmd	spawnAni "aipw" 0 0 100 "ANI_FOLLOW4"
+	@cmd	spawnAni "aipw" 230 0 100 "ANI_FOLLOW5" 
+	frame	data/chars/beyond/3ai/ai41.gif
+	@cmd	spawnAni "aipw" 350 0 100 "ANI_FOLLOW4"
+	frame	data/chars/beyond/3ai/ai40.gif
+	frame	data/chars/beyond/3ai/ai36.gif
+
+	frame	data/chars/beyond/3ai/ai36.gif
+	frame	data/chars/beyond/3ai/ai37.gif
+	frame	data/chars/beyond/3ai/ai38.gif
+	frame	data/chars/beyond/3ai/ai39.gif
+	frame	data/chars/beyond/3ai/ai38.gif
+	frame	data/chars/beyond/3ai/ai37.gif
+	sound	data/sounds/ai6.wav
+	frame	data/chars/beyond/3ai/ai36.gif
+	frame	data/chars/beyond/3ai/ai40.gif
+	frame	data/chars/beyond/3ai/ai41.gif
+	frame	data/chars/beyond/3ai/ai42.gif
+	frame	data/chars/beyond/3ai/ai41.gif
+	frame	data/chars/beyond/3ai/ai40.gif
+	@cmd	looper 29 50
+	delay	12
+	frame	data/chars/beyond/3ai/ai35.gif
+	sound	data/sounds/ai7.wav
+	frame	data/chars/beyond/3ai/ai34.gif
+	frame	data/chars/beyond/3ai/ai33.gif
+	frame	data/chars/beyond/3ai/ai32.gif
+	frame	data/chars/beyond/3ai/ai31.gif
+	frame	data/chars/beyond/3ai/ai01.gif
+	frame	data/chars/beyond/3ai/ai21.gif
+	frame	data/chars/beyond/3ai/ai22.gif
+	frame	data/chars/beyond/3ai/ai23.gif
+	frame	data/chars/beyond/3ai/ai24.gif
+	frame	data/chars/beyond/3ai/ai25.gif
+	frame	data/chars/beyond/3ai/ai24.gif
+	frame	data/chars/beyond/3ai/ai23.gif
+	frame	data/chars/beyond/3ai/ai22.gif
+	frame	data/chars/beyond/3ai/ai21.gif
+	frame	data/chars/beyond/3ai/ai01.gif
+
+
+#------------//----HHUUuaaaa--n4---//------
+
+anim	follow15
+	loop	0
+	delay	6
+	offset	342 265
+	bbox	0 0 0 0
+@script
+    void self = getlocalvar("self");
+    if(frame==50)
+	{
+	changeentityproperty(self, "aggression", 70);
+	}
+@end_script	
+	frame	data/chars/beyond/3ai/ai01.gif
+	frame	data/chars/beyond/3ai/ai21.gif
+	@cmd	clearL
+	frame	data/chars/beyond/3ai/ai22.gif
+	@cmd	 playmusic "data/music/ai4.ogg" 1
+	frame	data/chars/beyond/3ai/ai23.gif
+	frame	data/chars/beyond/3ai/ai24.gif
+	sound	data/sounds/ai3.wav
+	frame	data/chars/beyond/3ai/ai25.gif
+	frame	data/chars/beyond/3ai/ai24.gif
+	frame	data/chars/beyond/3ai/ai23.gif
+	frame	data/chars/beyond/3ai/ai22.gif
+	frame	data/chars/beyond/3ai/ai21.gif
+	frame	data/chars/beyond/3ai/ai01.gif
+
+	frame	data/chars/beyond/3ai/ai31.gif
+	frame	data/chars/beyond/3ai/ai32.gif
+	frame	data/chars/beyond/3ai/ai33.gif
+	frame	data/chars/beyond/3ai/ai34.gif
+	frame	data/chars/beyond/3ai/ai35.gif
+	delay	3
+
+	frame	data/chars/beyond/3ai/ai36.gif
+	@cmd	spawnAni "aipw" -380 0 5 "ANI_FOLLOW4"
+	frame	data/chars/beyond/3ai/ai37.gif
+	@cmd	spawnAni "aipw" 380 0 5 "ANI_FOLLOW5"
+	frame	data/chars/beyond/3ai/ai38.gif
+	@cmd	spawnAni "aipw" -280 0 40 "ANI_FOLLOW5"
+	frame	data/chars/beyond/3ai/ai39.gif
+	@cmd	spawnAni "aipw" 280 0 80 "ANI_FOLLOW4"
+	frame	data/chars/beyond/3ai/ai38.gif
+	@cmd	spawnAni "aipw" -180 0 80 "ANI_FOLLOW4" 
+	frame	data/chars/beyond/3ai/ai37.gif
+	@cmd	spawnAni "aipw" 180 0 5 "ANI_FOLLOW5" 
+	frame	data/chars/beyond/3ai/ai36.gif
+	@cmd	spawnAni "aipw" -80 0 5 "ANI_FOLLOW5"
+	frame	data/chars/beyond/3ai/ai40.gif
+	@cmd	spawnAni "aipw" 80 0 40 "ANI_FOLLOW4"
+	frame	data/chars/beyond/3ai/ai41.gif
+	@cmd	spawnAni "aipw" -350 0 100 "ANI_FOLLOW4"
+	@cmd	spawnAni "aipw" -230 0 100 "ANI_FOLLOW5"
+	frame	data/chars/beyond/3ai/ai42.gif
+	@cmd	spawnAni "aipw" 0 0 100 "ANI_FOLLOW4"
+	@cmd	spawnAni "aipw" 230 0 100 "ANI_FOLLOW5" 
+	frame	data/chars/beyond/3ai/ai41.gif
+	@cmd	spawnAni "aipw" 350 0 100 "ANI_FOLLOW4"
+	frame	data/chars/beyond/3ai/ai40.gif
+	frame	data/chars/beyond/3ai/ai36.gif
+
+	frame	data/chars/beyond/3ai/ai36.gif
+	frame	data/chars/beyond/3ai/ai37.gif
+	frame	data/chars/beyond/3ai/ai38.gif
+	frame	data/chars/beyond/3ai/ai39.gif
+	frame	data/chars/beyond/3ai/ai38.gif
+	frame	data/chars/beyond/3ai/ai37.gif
+	sound	data/sounds/ai6.wav
+	frame	data/chars/beyond/3ai/ai36.gif
+	frame	data/chars/beyond/3ai/ai40.gif
+	frame	data/chars/beyond/3ai/ai41.gif
+	frame	data/chars/beyond/3ai/ai42.gif
+	frame	data/chars/beyond/3ai/ai41.gif
+	frame	data/chars/beyond/3ai/ai40.gif
+	@cmd	looper 29 50
+	delay	12
+	frame	data/chars/beyond/3ai/ai35.gif
+	sound	data/sounds/ai7.wav
+	frame	data/chars/beyond/3ai/ai34.gif
+	frame	data/chars/beyond/3ai/ai33.gif
+	frame	data/chars/beyond/3ai/ai32.gif
+	frame	data/chars/beyond/3ai/ai31.gif
+	frame	data/chars/beyond/3ai/ai01.gif
+	frame	data/chars/beyond/3ai/ai21.gif
+	frame	data/chars/beyond/3ai/ai22.gif
+	frame	data/chars/beyond/3ai/ai23.gif
+	frame	data/chars/beyond/3ai/ai24.gif
+	frame	data/chars/beyond/3ai/ai25.gif
+	frame	data/chars/beyond/3ai/ai24.gif
+	frame	data/chars/beyond/3ai/ai23.gif
+	frame	data/chars/beyond/3ai/ai22.gif
+	frame	data/chars/beyond/3ai/ai21.gif
+	frame	data/chars/beyond/3ai/ai01.gif
+
+#------------//----HHUUuaaaa--n5---//------
+
+anim	follow16
+	loop	0
+	delay	6
+	offset	342 265
+	bbox	0 0 0 0
+@script
+    void self = getlocalvar("self");
+    if(frame==50)
+	{
+	changeentityproperty(self, "aggression", 80);
+	}
+@end_script	
+	frame	data/chars/beyond/3ai/ai01.gif
+	frame	data/chars/beyond/3ai/ai21.gif
+	@cmd	clearL
+	frame	data/chars/beyond/3ai/ai22.gif
+	frame	data/chars/beyond/3ai/ai23.gif
+	frame	data/chars/beyond/3ai/ai24.gif
+	sound	data/sounds/ai3.wav
+	frame	data/chars/beyond/3ai/ai25.gif
+	frame	data/chars/beyond/3ai/ai24.gif
+	frame	data/chars/beyond/3ai/ai23.gif
+	frame	data/chars/beyond/3ai/ai22.gif
+	frame	data/chars/beyond/3ai/ai21.gif
+	frame	data/chars/beyond/3ai/ai01.gif
+
+	frame	data/chars/beyond/3ai/ai31.gif
+	frame	data/chars/beyond/3ai/ai32.gif
+	frame	data/chars/beyond/3ai/ai33.gif
+	frame	data/chars/beyond/3ai/ai34.gif
+	frame	data/chars/beyond/3ai/ai35.gif
+	delay	3
+
+	frame	data/chars/beyond/3ai/ai36.gif
+	@cmd	spawnAni "aipw" -380 0 80 "ANI_FOLLOW4"
+	frame	data/chars/beyond/3ai/ai37.gif
+	@cmd	spawnAni "aipw" 380 0 80 "ANI_FOLLOW5"
+	frame	data/chars/beyond/3ai/ai38.gif
+	@cmd	spawnAni "aipw" -300 0 5 "ANI_FOLLOW5"
+	frame	data/chars/beyond/3ai/ai39.gif
+	@cmd	spawnAni "aipw" 300 0 5 "ANI_FOLLOW4" 
+	@cmd	spawnAni "aipw" -220 0 40 "ANI_FOLLOW4" 
+	frame	data/chars/beyond/3ai/ai38.gif
+	@cmd	spawnAni "aipw" 220 0 40 "ANI_FOLLOW5" 
+	@cmd	spawnAni "aipw" -140 0 80 "ANI_FOLLOW5"
+	frame	data/chars/beyond/3ai/ai37.gif
+	@cmd	spawnAni "aipw" 140 0 80 "ANI_FOLLOW4"
+	@cmd	spawnAni "aipw" -60 0 20 "ANI_FOLLOW5"
+	frame	data/chars/beyond/3ai/ai36.gif
+	@cmd	spawnAni "aipw" 60 0 20 "ANI_FOLLOW4"
+	@cmd	spawnAni "aipw" -430 0 100 "ANI_FOLLOW5"
+	frame	data/chars/beyond/3ai/ai40.gif
+	@cmd	spawnAni "aipw" -350 0 100 "ANI_FOLLOW4"
+	@cmd	spawnAni "aipw" -270 0 100 "ANI_FOLLOW5"
+	frame	data/chars/beyond/3ai/ai41.gif
+	@cmd	spawnAni "aipw" -170 0 100 "ANI_FOLLOW4"
+	@cmd	spawnAni "aipw" 0 0 100 "ANI_FOLLOW5"
+	frame	data/chars/beyond/3ai/ai42.gif
+	@cmd	spawnAni "aipw" 170 0 100 "ANI_FOLLOW4"
+	@cmd	spawnAni "aipw" 270 0 100 "ANI_FOLLOW5"
+	frame	data/chars/beyond/3ai/ai41.gif
+	@cmd	spawnAni "aipw" 350 0 100 "ANI_FOLLOW4"
+	@cmd	spawnAni "aipw" 430 0 100 "ANI_FOLLOW5"
+	frame	data/chars/beyond/3ai/ai40.gif
+	frame	data/chars/beyond/3ai/ai36.gif
+
+	frame	data/chars/beyond/3ai/ai36.gif
+	frame	data/chars/beyond/3ai/ai37.gif
+	frame	data/chars/beyond/3ai/ai38.gif
+	frame	data/chars/beyond/3ai/ai39.gif
+	frame	data/chars/beyond/3ai/ai38.gif
+	frame	data/chars/beyond/3ai/ai37.gif
+	sound	data/sounds/ai6.wav
+	frame	data/chars/beyond/3ai/ai36.gif
+	frame	data/chars/beyond/3ai/ai40.gif
+	frame	data/chars/beyond/3ai/ai41.gif
+	frame	data/chars/beyond/3ai/ai42.gif
+	frame	data/chars/beyond/3ai/ai41.gif
+	frame	data/chars/beyond/3ai/ai40.gif
+	@cmd	looper 29 50
+	delay	12
+	frame	data/chars/beyond/3ai/ai35.gif
+	sound	data/sounds/ai7.wav
+	frame	data/chars/beyond/3ai/ai34.gif
+	frame	data/chars/beyond/3ai/ai33.gif
+	frame	data/chars/beyond/3ai/ai32.gif
+	frame	data/chars/beyond/3ai/ai31.gif
+	frame	data/chars/beyond/3ai/ai01.gif
+	frame	data/chars/beyond/3ai/ai21.gif
+	frame	data/chars/beyond/3ai/ai22.gif
+	frame	data/chars/beyond/3ai/ai23.gif
+	frame	data/chars/beyond/3ai/ai24.gif
+	frame	data/chars/beyond/3ai/ai25.gif
+	frame	data/chars/beyond/3ai/ai24.gif
+	frame	data/chars/beyond/3ai/ai23.gif
+	frame	data/chars/beyond/3ai/ai22.gif
+	frame	data/chars/beyond/3ai/ai21.gif
+	frame	data/chars/beyond/3ai/ai01.gif
+
+#------------//----HHUUuaaaa--n6---//------
+
+anim	follow17
+	loop	0
+	delay	6
+	offset	342 265
+	bbox	0 0 0 0
+@script
+    void self = getlocalvar("self");
+    if(frame==50)
+	{
+	changeentityproperty(self, "aggression", 90);
+	}
+@end_script		
+	frame	data/chars/beyond/3ai/ai01.gif
+	frame	data/chars/beyond/3ai/ai21.gif
+	@cmd	clearL
+	frame	data/chars/beyond/3ai/ai22.gif
+	frame	data/chars/beyond/3ai/ai23.gif
+	frame	data/chars/beyond/3ai/ai24.gif
+	sound	data/sounds/ai3.wav
+	frame	data/chars/beyond/3ai/ai25.gif
+	frame	data/chars/beyond/3ai/ai24.gif
+	frame	data/chars/beyond/3ai/ai23.gif
+	frame	data/chars/beyond/3ai/ai22.gif
+	frame	data/chars/beyond/3ai/ai21.gif
+	frame	data/chars/beyond/3ai/ai01.gif
+
+	frame	data/chars/beyond/3ai/ai31.gif
+	frame	data/chars/beyond/3ai/ai32.gif
+	frame	data/chars/beyond/3ai/ai33.gif
+	frame	data/chars/beyond/3ai/ai34.gif
+	frame	data/chars/beyond/3ai/ai35.gif
+	delay	3
+
+	frame	data/chars/beyond/3ai/ai36.gif
+	@cmd	spawnAni "aipw" -380 0 80 "ANI_FOLLOW4"
+	frame	data/chars/beyond/3ai/ai37.gif
+	@cmd	spawnAni "aipw" 380 0 80 "ANI_FOLLOW5"
+	frame	data/chars/beyond/3ai/ai38.gif
+	@cmd	spawnAni "aipw" -300 0 5 "ANI_FOLLOW5"
+	frame	data/chars/beyond/3ai/ai39.gif
+	@cmd	spawnAni "aipw" 300 0 5 "ANI_FOLLOW4" 
+	@cmd	spawnAni "aipw" -220 0 40 "ANI_FOLLOW4" 
+	frame	data/chars/beyond/3ai/ai38.gif
+	@cmd	spawnAni "aipw" 220 0 40 "ANI_FOLLOW5" 
+	@cmd	spawnAni "aipw" -140 0 80 "ANI_FOLLOW5"
+	frame	data/chars/beyond/3ai/ai37.gif
+	@cmd	spawnAni "aipw" 140 0 80 "ANI_FOLLOW4"
+	@cmd	spawnAni "aipw" -60 0 20 "ANI_FOLLOW5"
+	frame	data/chars/beyond/3ai/ai36.gif
+	@cmd	spawnAni "aipw" 60 0 20 "ANI_FOLLOW4"
+	@cmd	spawnAni "aipw" -430 0 100 "ANI_FOLLOW5"
+	frame	data/chars/beyond/3ai/ai40.gif
+	@cmd	spawnAni "aipw" -350 0 100 "ANI_FOLLOW4"
+	@cmd	spawnAni "aipw" -270 0 100 "ANI_FOLLOW5"
+	frame	data/chars/beyond/3ai/ai41.gif
+	@cmd	spawnAni "aipw" -170 0 100 "ANI_FOLLOW4"
+	@cmd	spawnAni "aipw" 0 0 100 "ANI_FOLLOW5"
+	frame	data/chars/beyond/3ai/ai42.gif
+	@cmd	spawnAni "aipw" 170 0 100 "ANI_FOLLOW4"
+	@cmd	spawnAni "aipw" 270 0 100 "ANI_FOLLOW5"
+	frame	data/chars/beyond/3ai/ai41.gif
+	@cmd	spawnAni "aipw" 350 0 100 "ANI_FOLLOW4"
+	@cmd	spawnAni "aipw" 430 0 100 "ANI_FOLLOW5"
+	frame	data/chars/beyond/3ai/ai40.gif
+	frame	data/chars/beyond/3ai/ai36.gif
+
+	frame	data/chars/beyond/3ai/ai36.gif
+	frame	data/chars/beyond/3ai/ai37.gif
+	frame	data/chars/beyond/3ai/ai38.gif
+	frame	data/chars/beyond/3ai/ai39.gif
+	frame	data/chars/beyond/3ai/ai38.gif
+	frame	data/chars/beyond/3ai/ai37.gif
+	sound	data/sounds/ai6.wav
+	frame	data/chars/beyond/3ai/ai36.gif
+	frame	data/chars/beyond/3ai/ai40.gif
+	frame	data/chars/beyond/3ai/ai41.gif
+	frame	data/chars/beyond/3ai/ai42.gif
+	frame	data/chars/beyond/3ai/ai41.gif
+	frame	data/chars/beyond/3ai/ai40.gif
+	@cmd	looper 29 50
+	delay	12
+	frame	data/chars/beyond/3ai/ai35.gif
+	sound	data/sounds/ai7.wav
+	frame	data/chars/beyond/3ai/ai34.gif
+	frame	data/chars/beyond/3ai/ai33.gif
+	frame	data/chars/beyond/3ai/ai32.gif
+	frame	data/chars/beyond/3ai/ai31.gif
+	frame	data/chars/beyond/3ai/ai01.gif
+	frame	data/chars/beyond/3ai/ai21.gif
+	frame	data/chars/beyond/3ai/ai22.gif
+	frame	data/chars/beyond/3ai/ai23.gif
+	frame	data/chars/beyond/3ai/ai24.gif
+	frame	data/chars/beyond/3ai/ai25.gif
+	frame	data/chars/beyond/3ai/ai24.gif
+	frame	data/chars/beyond/3ai/ai23.gif
+	frame	data/chars/beyond/3ai/ai22.gif
+	frame	data/chars/beyond/3ai/ai21.gif
+	frame	data/chars/beyond/3ai/ai01.gif
+
+#------------//----HHUUuaaaa--end---//------
+
+
+anim	death
+	loop	0
+	delay	7
+	offset	342 265
+	bbox	0 0 0 0
+	@cmd	killgun 3 0
+	frame	data/chars/beyond/3ai/ai01.gif
+	@cmd	killgun 1 1
+	frame	data/chars/beyond/3ai/ai01.gif
+	@cmd	killgun 2 1
+	frame	data/chars/beyond/3ai/ai01.gif
+	delay	25
+	@cmd	clearL
+	@cmd	damage_all_enemies 600 1 1
+	frame	data/chars/beyond/3ai/det01.gif
+	@cmd	changeopenborvariant "slowmotion" 1
+	frame	data/chars/beyond/3ai/det01.gif
+	delay	12
+	frame	data/chars/beyond/3ai/det01.gif #5
+	frame	data/chars/beyond/3ai/det02.gif
+	@cmd	spawn01 "explosion8" -100 100 10
+	frame	data/chars/beyond/3ai/det03.gif
+	frame	data/chars/beyond/3ai/det02.gif
+	sound	data/sounds/ai2.wav
+	frame	data/chars/beyond/3ai/det01.gif
+	frame	data/chars/beyond/3ai/det04.gif
+	@cmd	spawn01 "explosion8" 160 180 10
+	frame	data/chars/beyond/3ai/det05.gif
+	frame	data/chars/beyond/3ai/det04.gif
+	frame	data/chars/beyond/3ai/det01.gif
+	frame	data/chars/beyond/3ai/det02.gif
+	@cmd	spawn01 "explosion8" 50 60 10
+	frame	data/chars/beyond/3ai/det03.gif
+	frame	data/chars/beyond/3ai/det02.gif
+	frame	data/chars/beyond/3ai/det01.gif
+	frame	data/chars/beyond/3ai/det04.gif
+	@cmd	spawn01 "explosion8" -50 150 10
+	frame	data/chars/beyond/3ai/det05.gif
+	sound	data/sounds/ai2.wav
+	frame	data/chars/beyond/3ai/det04.gif
+	frame	data/chars/beyond/3ai/det01.gif
+	frame	data/chars/beyond/3ai/det02.gif
+	@cmd	spawn01 "explosion8" 100 100 10
+	frame	data/chars/beyond/3ai/det03.gif
+	frame	data/chars/beyond/3ai/det02.gif
+	frame	data/chars/beyond/3ai/det01.gif
+	frame	data/chars/beyond/3ai/det04.gif
+	@cmd	spawn01 "explosion8" -160 180 10
+	frame	data/chars/beyond/3ai/det05.gif
+	frame	data/chars/beyond/3ai/det04.gif
+	@cmd	looper 5 4  
+	frame	data/chars/beyond/3ai/det01.gif
+	@cmd	changeopenborvariant "slowmotion" 0
+	frame	data/chars/beyond/3ai/det01.gif
+	delay	250
+	frame	data/chars/beyond/3ai/det01.gif
+	delay	15
+	sound	data/sounds/ai1.wav
+	frame	data/chars/beyond/3ai/det01.gif
+	frame	data/chars/beyond/3ai/det06.gif
+	frame	data/chars/beyond/3ai/det07.gif
+	frame	data/chars/beyond/3ai/det08.gif
+	frame	data/chars/beyond/3ai/det09.gif
+	frame	data/chars/beyond/3ai/det10.gif
+	frame	data/chars/beyond/3ai/det11.gif
+	delay	100
+	frame	data/chars/beyond/3ai/det11.gif
+	frame	data/chars/beyond/3ai/det11.gif
+	frame	data/chars/beyond/3ai/det11.gif
+
+		
+anim	fall
+	loop	0
+	delay	3
+	offset	342 265
+	bbox	0 0 0 0
+	frame	data/chars/beyond/3ai/det01.gif
+
+		
+anim	fall7
+	delay	200
+	offset	342 265
+	frame	data/chars/beyond/3ai/ai01.gif
+	offset	342 265
+	frame	data/chars/beyond/3ai/ai01.gif
+	offset	342 265
+	frame	data/chars/beyond/3ai/ai01.gif
+	offset	342 265
+	frame	data/chars/beyond/3ai/ai01.gif
+	offset	342 265
+	frame	data/chars/beyond/3ai/ai01.gif
+	offset	342 265
+	frame	data/chars/beyond/3ai/ai01.gif
+	offset	342 265
+	frame	data/chars/beyond/3ai/ai01.gif
+	offset	342 265
+	frame	data/chars/beyond/3ai/ai01.gif
+	offset	342 265
+	frame	data/chars/beyond/3ai/ai01.gif
+	offset	342 265
+	frame	data/chars/beyond/3ai/ai01.gif
+		
+anim	idle
+	loop	1
+	delay	5
+	offset	342 265
+	bbox	285 70 120 195
+	@cmd	jonydam
+	frame	data/chars/beyond/3ai/ai01.gif
+	@cmd	jonydam
+	frame	data/chars/beyond/3ai/ai02.gif
+	@cmd	jonydam
+	frame	data/chars/beyond/3ai/ai03.gif
+	@cmd	jonydam
+	frame	data/chars/beyond/3ai/ai04.gif
+	@cmd	jonydam
+	frame	data/chars/beyond/3ai/ai05.gif
+	@cmd	jonydam
+	frame	data/chars/beyond/3ai/ai04.gif
+	@cmd	jonydam
+	frame	data/chars/beyond/3ai/ai03.gif
+	frame	data/chars/beyond/3ai/ai02.gif
+	frame	data/chars/beyond/3ai/ai01.gif
+	@cmd	jonydam
+	frame	data/chars/beyond/3ai/ai15.gif
+	frame	data/chars/beyond/3ai/ai14.gif
+	frame	data/chars/beyond/3ai/ai13.gif
+	@cmd	jonydam
+	frame	data/chars/beyond/3ai/ai12.gif
+	frame	data/chars/beyond/3ai/ai11.gif
+	frame	data/chars/beyond/3ai/ai12.gif
+	@cmd	jonydam
+	frame	data/chars/beyond/3ai/ai13.gif
+	frame	data/chars/beyond/3ai/ai14.gif
+	frame	data/chars/beyond/3ai/ai01.gif
+	@cmd	jonydam
+	frame	data/chars/beyond/3ai/ai02.gif
+	frame	data/chars/beyond/3ai/ai03.gif
+	frame	data/chars/beyond/3ai/ai04.gif
+	@cmd	jonydam
+	frame	data/chars/beyond/3ai/ai05.gif
+	frame	data/chars/beyond/3ai/ai04.gif
+	frame	data/chars/beyond/3ai/ai03.gif
+	@cmd	jonydam
+	frame	data/chars/beyond/3ai/ai02.gif
+	frame	data/chars/beyond/3ai/ai01.gif
+	frame	data/chars/beyond/3ai/ai21.gif
+	@cmd	jonydam
+	frame	data/chars/beyond/3ai/ai22.gif
+	frame	data/chars/beyond/3ai/ai23.gif
+	frame	data/chars/beyond/3ai/ai24.gif
+	@cmd	jonydam
+	frame	data/chars/beyond/3ai/ai23.gif
+	frame	data/chars/beyond/3ai/ai22.gif
+	frame	data/chars/beyond/3ai/ai21.gif
+
+
+
+anim	pain
+	loop	0
+	delay	10
+	offset	342 265
+	bbox	0 0 0 0
+	frame	data/chars/beyond/3ai/ai01.gif
+		
+anim	rise
+	loop	0
+	delay	14
+	offset	342 265
+	bbox	0 0 0 0
+	frame	data/chars/beyond/3ai/ai01.gif
+
+
+anim	follow2
+	loop	1
+	delay	9
+	offset	342 265
+	bbox	0 0 0 0
+	custentity   aitlk
+	spawnframe   20 0 20 25 1
+	@cmd	spawn06 "byodoor1" 4335 90 860 "ANI_FOLLOW10"
+	frame	data/chars/beyond/3ai/ai11.gif
+	sound	data/sounds/ai1.wav
+	frame	data/chars/beyond/3ai/ai12.gif
+	frame	data/chars/beyond/3ai/ai13.gif
+	frame	data/chars/beyond/3ai/ai14.gif
+	frame	data/chars/beyond/3ai/ai15.gif
+	frame	data/chars/beyond/3ai/ai01.gif
+	delay	5
+	frame	data/chars/beyond/3ai/ai01.gif
+	frame	data/chars/beyond/3ai/ai02.gif
+	frame	data/chars/beyond/3ai/ai03.gif
+	frame	data/chars/beyond/3ai/ai04.gif
+	frame	data/chars/beyond/3ai/ai05.gif
+	frame	data/chars/beyond/3ai/ai04.gif
+	frame	data/chars/beyond/3ai/ai03.gif
+	frame	data/chars/beyond/3ai/ai02.gif
+	@cmd	looper 6 7
+	frame	data/chars/beyond/3ai/ai01.gif
+	delay	12
+	frame	data/chars/beyond/3ai/ai01.gif
+	frame	data/chars/beyond/3ai/ai02.gif
+	frame	data/chars/beyond/3ai/ai03.gif
+	frame	data/chars/beyond/3ai/ai04.gif
+	frame	data/chars/beyond/3ai/ai05.gif
+	frame	data/chars/beyond/3ai/ai04.gif #20
+	frame	data/chars/beyond/3ai/ai03.gif
+	frame	data/chars/beyond/3ai/ai02.gif
+	frame	data/chars/beyond/3ai/ai01.gif
+
+	frame	data/chars/beyond/3ai/ai01.gif
+	frame	data/chars/beyond/3ai/ai02.gif
+	frame	data/chars/beyond/3ai/ai03.gif
+	frame	data/chars/beyond/3ai/ai04.gif
+	frame	data/chars/beyond/3ai/ai05.gif
+	@cmd	looper 24 5
+	frame	data/chars/beyond/3ai/ai04.gif
+	frame	data/chars/beyond/3ai/ai03.gif
+	frame	data/chars/beyond/3ai/ai02.gif
+	frame	data/chars/beyond/3ai/ai01.gif
+	@cmd	spawnGun "aiarm" -190 0 -8 1
+	frame	data/chars/beyond/3ai/ai02.gif
+	frame	data/chars/beyond/3ai/ai03.gif
+	frame	data/chars/beyond/3ai/ai04.gif
+	frame	data/chars/beyond/3ai/ai05.gif
+	frame	data/chars/beyond/3ai/ai04.gif
+	frame	data/chars/beyond/3ai/ai03.gif
+	frame	data/chars/beyond/3ai/ai02.gif
+	frame	data/chars/beyond/3ai/ai01.gif
+	@cmd	 playmusic "data/music/ai1.ogg" 1
+	@cmd	spawnGun5 "aiarm" 200 0 -8 2 "ANI_FOLLOW7"
+	frame	data/chars/beyond/3ai/ai01.gif
+	@cmd	beidle
+	frame	data/chars/beyond/3ai/ai01.gif
+
+
+
+
+anim	follow1
+	loop	1
+	delay	5
+	offset	342 265
+	bbox	0 0 0 0
+	frame	data/chars/beyond/3ai/x01.gif
+	frame	data/chars/beyond/3ai/x02.gif
+	@cmd	attack1 -100 100 150 "ANI_FOLLOW2"
+	frame	data/chars/beyond/3ai/x03.gif
+	frame	data/chars/beyond/3ai/x04.gif
+	@cmd	attack1 -100 100 150 "ANI_FOLLOW2"
+	frame	data/chars/beyond/3ai/x05.gif
+	frame	data/chars/beyond/3ai/x04.gif
+	@cmd	attack1 -100 100 150 "ANI_FOLLOW2"
+	frame	data/chars/beyond/3ai/x03.gif
+	frame	data/chars/beyond/3ai/x02.gif
+
+		
+#|edited by openBor Stats v 0.53
+		

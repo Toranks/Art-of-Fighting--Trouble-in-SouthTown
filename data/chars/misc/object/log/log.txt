@@ -1,0 +1,66 @@
+name	 log
+health	 55
+nolife  1
+noatflash 1
+flash     Flash
+type	 obstacle
+
+animationscript data/scripts/escript.c
+
+alternatepal	data/chars/misc/object/log/map1.gif
+
+
+load	brkwood2
+load	brkwood3
+
+
+
+anim	fall
+	delay	10
+	offset	35 140
+	sound	data/sounds/wood.wav
+	frame	data/chars/misc/object/log/log02.gif
+	@cmd	tosser "brkwood2" -5 60 0 0.7 1.5 0
+	frame	data/chars/misc/object/log/log03.gif
+	@cmd	tosser "brkwood3" 5 65 0 0.5 2 0
+	frame	data/chars/misc/object/log/log04.gif
+		
+anim	follow1
+	loop	1 1 3
+	delay	5
+	offset	40 135
+	bbox	9 0 70 140
+	platform	-25 140 30 30 110 110 20 70
+	@cmd	tosser "brkwood2" -5 60 0 0.7 1.5 0
+	@cmd	tosser "brkwood3" 5 65 0 0.5 2 0
+	frame	data/chars/misc/object/log/log02.gif
+	frame	data/chars/misc/object/log/log02.gif
+	@cmd	damage 40 "ANI_FOLLOW2"
+	frame	data/chars/misc/object/log/log02.gif
+	frame	data/chars/misc/object/log/log02.gif
+		
+anim	follow2
+	loop	1 1 3
+	delay	5
+	offset	40 135
+	bbox	9 0 70 140
+	platform	-25 140 30 30 110 110 20 70
+	@cmd	tosser "brkwood2" -5 60 0 0.7 1.5 0
+	@cmd	tosser "brkwood3" 5 65 0 0.5 2 0
+	frame	data/chars/misc/object/log/log03.gif
+	frame	data/chars/misc/object/log/log03.gif
+	frame	data/chars/misc/object/log/log03.gif
+	frame	data/chars/misc/object/log/log03.gif
+		
+anim	idle
+	loop	1
+	delay	5
+	offset	40 135
+	bbox	9 0 70 140
+	platform	-25 140 30 30 110 110 20 70
+	frame	data/chars/misc/object/log/log01.gif
+	@cmd	damage 80 "ANI_FOLLOW1"
+	frame	data/chars/misc/object/log/log01.gif
+		
+#|edited by openBor Stats v 0.53
+		

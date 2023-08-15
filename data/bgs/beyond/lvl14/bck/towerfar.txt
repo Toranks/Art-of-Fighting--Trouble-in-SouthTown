@@ -1,0 +1,75 @@
+name		towerfar
+type		enemy
+health		100
+speed		1
+nomove		1 1
+jumpheight	0
+nolife          1
+noquake		1
+makeinv		3
+shadow		0
+falldie		1
+nodrop		1
+antigrab	10
+lifespan        25
+subject_to_wall 0
+diesound        data/sounds/empty.wav
+animationscript data/scripts/grabscript.c
+
+ 
+load	electov1
+load	fnmrk
+
+
+anim spawn
+	loop	0
+	delay	50
+	offset	1 1
+	bbox	0 0 0 0
+	frame	data/chars/misc/food/empty.gif
+	frame	data/chars/misc/food/empty.gif
+	frame	data/chars/misc/food/empty.gif
+	@cmd	spawnAni "electov1" 190 117 1 "ANI_FOLLOW1"
+	frame	data/chars/misc/food/empty.gif
+	frame	data/chars/misc/food/empty.gif
+	frame	data/chars/misc/food/empty.gif
+
+
+anim idle
+	loop    0
+	delay   5
+	offset	1 1
+	bbox    0 0 0 0
+	frame	data/chars/misc/food/empty.gif
+	frame	data/chars/misc/food/empty.gif
+	delay   1000
+	frame	data/chars/misc/food/empty.gif
+	frame	data/chars/misc/food/empty.gif
+	frame	data/chars/misc/food/empty.gif
+
+anim fall
+	loop    0
+	delay   10
+	offset	1 1
+	bbox    0 0 0 0
+	frame	data/chars/misc/food/empty.gif
+	frame	data/chars/misc/food/empty.gif
+	frame	data/chars/misc/food/empty.gif
+
+
+anim death
+	loop    0
+	delay   30
+	offset	1 1
+	bbox    0 0 0 0
+	frame	data/chars/misc/food/empty.gif
+	@cmd	spawnAni3 "fnmrk" 30 10 50 "ANI_FOLLOW1"
+	frame	data/chars/misc/food/empty.gif
+	frame	data/chars/misc/food/empty.gif
+	@cmd	 playmusic "data/music/mrkbyo1.ogg" 1
+	frame	data/chars/misc/food/empty.gif
+	frame	data/chars/misc/food/empty.gif
+
+
+
+

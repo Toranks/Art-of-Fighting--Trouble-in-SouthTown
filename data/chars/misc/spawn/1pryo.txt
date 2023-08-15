@@ -1,0 +1,72 @@
+name	1pryo
+type	none
+shadow  0
+offscreenkill	50000
+
+
+script @script
+void main()
+{
+    void self = getlocalvar("self");
+    int P1 = getplayerproperty(0, "entity");
+    int P2 = getplayerproperty(1, "entity");
+    int P3 = getplayerproperty(2, "entity");
+    char nm = getentityproperty(P1,"defaultmodel");
+    char nm2 = getentityproperty(P2,"defaultmodel");
+    char nm3 = getentityproperty(P3,"defaultmodel");
+
+
+	if (P1 != NULL() && nm != "ryo" && nm != "fastryo")
+	{
+	changeentityproperty(P1, "model", "ryo", 1);
+	changeentityproperty(P1, "defaultname", "ryo");
+	//killentity(P2);
+	//killentity(P3);
+	}
+	else if (P2 != NULL() && nm2 != "ryo" && nm2 != "fastryo")
+	{
+	changeentityproperty(P2, "model", "ryo", 1);
+	changeentityproperty(P2, "defaultname", "ryo");
+	//killentity(P1);
+	//killentity(P3);
+	}
+	else if (P3 != NULL() && nm3 != "ryo" && nm3 != "fastryo")
+	{
+	changeentityproperty(P3, "model", "ryo", 1);
+	changeentityproperty(P3, "defaultname", "ryo");
+	//killentity(P1);
+	//killentity(P2);
+	}
+	if (P1 != NULL())
+	{
+	killentity(P2);
+	killentity(P3);
+	}
+	else if (P2 != NULL())
+	{
+	killentity(P1);
+	killentity(P3);
+	}
+	else if (P3 != NULL())
+	{
+	killentity(P1);
+	killentity(P2);
+	}
+}
+@end_script
+
+
+anim 	idle
+	loop	0
+	delay	5
+	offset	1 1
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+
+#------------------------//----------------------
+#changeopenborvariant("nojoin",1);
+#ryoturt
+
+
+

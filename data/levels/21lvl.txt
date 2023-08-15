@@ -1,0 +1,104 @@
+music		data/music/matrixpart2.ogg
+
+background	data/bgs/21lvl/totback.gif 1 1
+panel		data/bgs/21lvl/roadtot.gif
+layer      	data/bgs/21lvl/cloud.gif -100 0.8 0 -60 -10 0 0 1 1 1 1 0 0 0 0
+
+
+direction       both
+light  		10   -30
+at       	0
+settime         0
+notime          1
+noslow          1
+order		a
+spawn1  	270 0
+spawn2  	250 0
+spawn3  	285 0
+
+
+
+setweap  3
+
+
+cameraoffset            0 -120
+#cameratype              1
+
+
+#----stage-------------
+spawn   stgSET1
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW3"));
+} @end_script
+coords  -500 530 350
+at      0
+#-------------------
+
+#-------1
+
+spawn   roadtotal
+flip    1
+coords  300 285
+at      0
+
+spawn   frtspeed2
+coords  -20 -80
+at      0
+
+
+spawn   sun
+flip    1
+coords  0 0
+at      0
+
+
+spawn   freewaytot
+flip    1
+coords  240 140
+at      0
+
+#2--------------------------
+
+
+#-----left
+spawn   carspawner2
+flip    1
+health  100
+coords  295 165
+at      0
+
+#-----middle
+
+spawn   carspawner
+flip    1
+health  100
+coords  300 165
+at      0
+
+#-------right
+
+spawn   carspawner3
+health  100
+coords  315 165
+at      0
+
+#--------------
+group   1 1
+at      0
+
+
+spawn   trafficsign
+flip    1
+coords  110 90
+at      0
+
+spawn   choppa
+spawnscript data/scripts/noscpos.c
+coords  -90 90
+at      0
+
+#----------------
+
+
+
+

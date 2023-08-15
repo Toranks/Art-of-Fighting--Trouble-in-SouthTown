@@ -1,0 +1,290 @@
+name	might1
+type	none
+nolife	1
+gfxshadow 1
+hostile	player
+offscreenkill	50000
+
+animationscript data/scripts/escript.c
+
+palette	none
+
+load	allsmtlk3
+
+#------------//----todo--//-----------------
+
+anim	idle
+@script
+	void self = getlocalvar("self");
+	float tlk = getglobalvar ("brkgo");
+
+	if (frame >= 0 && tlk == 1)
+	{
+	changeentityproperty(self, "name", "ANI_FOLLOW12");
+	}
+	if ( frame >= 0 && tlk == 2)
+	{
+	changeentityproperty(self, "name", "ANI_FOLLOW11");
+	}
+@end_script
+	loop	1
+	delay	14
+	offset	109 189
+	frame	data/chars/3todo/might01.gif
+	@cmd	spawnAni "allsmtlk3" 1 100 1 "ANI_FOLLOW9"
+	@cmd	clearL
+	frame	data/chars/3todo/might02.gif
+	frame	data/chars/3todo/might03.gif
+	frame	data/chars/3todo/might04.gif
+	frame	data/chars/3todo/might01.gif #4
+	frame	data/chars/3todo/might02.gif
+	frame	data/chars/3todo/might03.gif
+	frame	data/chars/3todo/might04.gif
+	@cmd	looper 4 10
+	frame	data/chars/3todo/might01.gif
+
+	frame	data/chars/3todo/might05.gif
+	frame	data/chars/3todo/might06.gif #10
+	frame	data/chars/3todo/might07.gif
+	frame	data/chars/3todo/might06.gif
+	frame	data/chars/3todo/might07.gif
+	frame	data/chars/3todo/might06.gif
+	frame	data/chars/3todo/might07.gif
+	@cmd	looper 10 4
+	frame	data/chars/3todo/might06.gif
+	frame	data/chars/3todo/might07.gif
+	frame	data/chars/3todo/might05.gif
+	@cmd	flip
+	frame	data/chars/3todo/might01.gif
+	frame	data/chars/3todo/might05.gif
+	frame	data/chars/3todo/might06.gif #21
+	frame	data/chars/3todo/might07.gif
+	frame	data/chars/3todo/might06.gif
+	frame	data/chars/3todo/might07.gif
+	frame	data/chars/3todo/might06.gif
+	frame	data/chars/3todo/might07.gif
+	@cmd	looper 21 4
+	frame	data/chars/3todo/might06.gif
+	frame	data/chars/3todo/might07.gif
+	frame	data/chars/3todo/might05.gif
+	frame	data/chars/3todo/might01.gif
+	frame	data/chars/3todo/might08.gif
+	frame	data/chars/3todo/might09.gif
+	frame	data/chars/3todo/might09.gif #33
+	@cmd	attack1 -10 50 15 "ANI_FOLLOW1"
+	frame	data/chars/3todo/might09.gif
+	@cmd	attack1 -10 50 15 "ANI_FOLLOW1"
+	frame	data/chars/3todo/might09.gif
+	@cmd	attack1 -10 50 15 "ANI_FOLLOW1"
+	frame	data/chars/3todo/might09.gif
+	@cmd	looper 33 15
+	frame	data/chars/3todo/might09.gif
+	frame	data/chars/3todo/might08.gif
+
+
+anim	follow1
+@script
+	void self = getlocalvar("self");
+
+	if (frame == 3)
+	{
+	changeentityproperty(self, "name", "ANI_FOLLOW10");
+	}
+@end_script
+	loop	1
+	delay	14
+	offset	109 189
+	frame	data/chars/3todo/might09.gif
+	#@cmd	spawnAni "allsmtlk3" 0 110 1 "ANI_FOLLOW10"
+	@cmd	spawnAniname "allsmtlk3" 0 110 1
+	frame	data/chars/3todo/might09.gif
+	delay	1500
+	frame	data/chars/3todo/might09.gif
+	delay	14
+	frame	data/chars/3todo/might09.gif #3
+	frame	data/chars/3todo/might08.gif
+	@cmd	beidle
+	frame	data/chars/3todo/might08.gif
+
+
+
+#------------//----kasumi--//-----------------
+
+anim	follow2
+@script
+	void self = getlocalvar("self");
+	float tlk2 = getglobalvar ("brkgo");
+
+	if (frame >= 0 && tlk2 == 1)
+	{
+	changeentityproperty(self, "name", "ANI_FOLLOW15");
+	}
+	if (frame >= 0 && tlk2 == 2)
+	{
+	changeentityproperty(self, "name", "ANI_FOLLOW14");
+	}
+@end_script
+	loop	1
+	delay	12
+	offset	116 190
+	frame	data/chars/3kasumi/might01.gif
+	sound	data/sounds/kasu1.wav
+	frame	data/chars/3kasumi/might02.gif
+	@cmd	clearL
+	frame	data/chars/3kasumi/might03.gif
+	frame	data/chars/3kasumi/might04.gif
+	delay	35
+	sound	data/sounds/kasu2.wav
+	frame	data/chars/3kasumi/might05.gif
+	delay	12
+	frame	data/chars/3kasumi/might06.gif
+	frame	data/chars/3kasumi/might07.gif
+	frame	data/chars/3kasumi/might01.gif #7
+	sound	data/sounds/kasu1.wav
+	frame	data/chars/3kasumi/might02.gif
+	frame	data/chars/3kasumi/might03.gif
+	frame	data/chars/3kasumi/might04.gif
+	delay	35
+	sound	data/sounds/kasu2.wav
+	frame	data/chars/3kasumi/might05.gif
+	delay	12
+	frame	data/chars/3kasumi/might06.gif
+	frame	data/chars/3kasumi/might07.gif
+	@cmd	looper 7 3
+	frame	data/chars/3kasumi/might08.gif
+	@cmd	flip
+	frame	data/chars/3kasumi/might01.gif
+	sound	data/sounds/kasu1.wav
+	frame	data/chars/3kasumi/might02.gif
+	@cmd	clearL
+	frame	data/chars/3kasumi/might03.gif
+	frame	data/chars/3kasumi/might04.gif
+	delay	35
+	sound	data/sounds/kasu2.wav
+	frame	data/chars/3kasumi/might05.gif
+	delay	12
+	frame	data/chars/3kasumi/might06.gif
+	frame	data/chars/3kasumi/might07.gif
+	frame	data/chars/3kasumi/might01.gif #22
+	sound	data/sounds/kasu1.wav
+	frame	data/chars/3kasumi/might02.gif
+	frame	data/chars/3kasumi/might03.gif
+	frame	data/chars/3kasumi/might04.gif
+	delay	35
+	sound	data/sounds/kasu2.wav
+	frame	data/chars/3kasumi/might05.gif
+	delay	12
+	frame	data/chars/3kasumi/might06.gif
+	frame	data/chars/3kasumi/might07.gif
+	@cmd	looper 22 2
+	frame	data/chars/3kasumi/might08.gif
+	@cmd	flip
+	frame	data/chars/3kasumi/might01.gif
+	sound	data/sounds/kasu1.wav
+	frame	data/chars/3kasumi/might02.gif
+	frame	data/chars/3kasumi/might03.gif
+	frame	data/chars/3kasumi/might04.gif
+	delay	35
+	sound	data/sounds/kasu2.wav
+	frame	data/chars/3kasumi/might05.gif
+	delay	12
+	frame	data/chars/3kasumi/might06.gif
+	frame	data/chars/3kasumi/might07.gif
+	frame	data/chars/3kasumi/might01.gif
+	sound	data/sounds/kasu1.wav
+	frame	data/chars/3kasumi/might02.gif
+	@cmd	clearL
+	frame	data/chars/3kasumi/might03.gif
+	frame	data/chars/3kasumi/might04.gif
+	delay	35
+	sound	data/sounds/kasu2.wav
+	frame	data/chars/3kasumi/might05.gif
+	delay	12
+	frame	data/chars/3kasumi/might06.gif
+	frame	data/chars/3kasumi/might07.gif
+	delay	14
+	frame	data/chars/3kasumi/might09.gif #44
+	frame	data/chars/3kasumi/might10.gif
+	frame	data/chars/3kasumi/might11.gif
+	frame	data/chars/3kasumi/might12.gif
+
+	frame	data/chars/3kasumi/might13.gif #48
+	@cmd	attack1 -60 10 15 "ANI_FOLLOW3"
+	frame	data/chars/3kasumi/might13.gif
+	@cmd	attack1 -60 10 15 "ANI_FOLLOW3"
+	frame	data/chars/3kasumi/might13.gif
+	@cmd	attack1 -60 10 15 "ANI_FOLLOW3"
+	frame	data/chars/3kasumi/might13.gif
+	@cmd	looper 48 20
+	frame	data/chars/3kasumi/might13.gif
+	frame	data/chars/3kasumi/might12.gif
+	frame	data/chars/3kasumi/might11a.gif
+	frame	data/chars/3kasumi/might10.gif
+	frame	data/chars/3kasumi/might09.gif
+	frame	data/chars/3kasumi/might07.gif
+
+
+anim	follow3
+@script
+	void self = getlocalvar("self");
+	float nm = getentityproperty(self,"name");
+
+	if (frame == 0 && nm == "ANI_FOLLOW14")
+	{
+	performattack(self, openborconstant("ANI_FOLLOW4"));
+	}
+	if (frame == 7)
+	{
+	changeentityproperty(self, "name", "ANI_FOLLOW13");
+	}
+@end_script
+	loop	0
+	delay	12
+	offset	116 190
+	frame	data/chars/3kasumi/might14.gif
+	@cmd	spawnAniname "allsmtlk3" 7 105 1 
+	frame	data/chars/3kasumi/might14.gif
+	delay	1350
+	frame	data/chars/3kasumi/might14.gif
+	delay	14
+	frame	data/chars/3kasumi/might14.gif
+	frame	data/chars/3kasumi/might12.gif
+	@cmd	clearL
+	frame	data/chars/3kasumi/might11a.gif
+	frame	data/chars/3kasumi/might10.gif
+	frame	data/chars/3kasumi/might09.gif #7
+	frame	data/chars/3kasumi/might07.gif
+	@cmd	anichange "ANI_FOLLOW2"
+	frame	data/chars/3kasumi/might07.gif
+
+
+anim	follow4
+@script
+	void self = getlocalvar("self");
+
+	if (frame == 7)
+	{
+	changeentityproperty(self, "name", "ANI_FOLLOW13");
+	}
+@end_script
+	loop	0
+	delay	12
+	offset	116 190
+	frame	data/chars/3kasumi/might15.gif
+	@cmd	spawnAniname "allsmtlk3" 7 105 1 
+	frame	data/chars/3kasumi/might15.gif
+	delay	1350
+	frame	data/chars/3kasumi/might15.gif
+	delay	14
+	frame	data/chars/3kasumi/might15.gif
+	frame	data/chars/3kasumi/might12.gif
+	@cmd	clearL
+	frame	data/chars/3kasumi/might11a.gif
+	frame	data/chars/3kasumi/might10.gif
+	frame	data/chars/3kasumi/might09.gif
+	frame	data/chars/3kasumi/might07.gif
+	@cmd	anichange "ANI_FOLLOW2"
+	frame	data/chars/3kasumi/might07.gif
+
+
+

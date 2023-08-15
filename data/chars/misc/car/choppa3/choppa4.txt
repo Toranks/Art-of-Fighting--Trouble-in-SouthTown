@@ -1,0 +1,434 @@
+name		choppa4
+type		npc
+subtype		chase
+health		100
+speed		12
+jumpheight	0
+nolife          1
+noquake		1
+makeinv		3
+falldie		1
+nodieblink	1
+facing		3
+shadow		0
+nodrop		1
+antigrab	10
+setlayer	10000
+hostile		player
+lifespan  	160
+offscreenkill 	2500
+subject_to_screen 1
+subject_to_platform 0
+subject_to_wall 0
+subject_to_obstacle 0
+subject_to_hole 0
+subject_to_minz 0
+subject_to_maxz 0
+
+animationscript data/scripts/escript.c
+
+load	cursor
+load	choppatlk
+
+
+
+
+anim	death
+	loop	0
+	delay	5
+	offset	95 155
+	bbox	0 0 0 0
+	movea	4
+	frame	data/chars/misc/car/choppa3/chop01.gif
+	sound	data/sounds/heli1.wav
+	@cmd	subscreen 0
+	frame	data/chars/misc/car/choppa3/chop02.gif
+	@cmd	killgun 1 1
+	frame	data/chars/misc/car/choppa3/chop03.gif
+	frame	data/chars/misc/car/choppa3/chop04.gif
+	frame	data/chars/misc/car/choppa3/chop05.gif
+	frame	data/chars/misc/car/choppa3/chop06.gif
+	frame	data/chars/misc/car/choppa3/chop01.gif #6
+	frame	data/chars/misc/car/choppa3/chop02.gif
+	frame	data/chars/misc/car/choppa3/chop03.gif
+	frame	data/chars/misc/car/choppa3/chop04.gif
+	frame	data/chars/misc/car/choppa3/chop05.gif
+	frame	data/chars/misc/car/choppa3/chop06.gif 
+	sound	data/sounds/heli1.wav
+	frame	data/chars/misc/car/choppa3/chop01.gif
+	frame	data/chars/misc/car/choppa3/chop02.gif
+	frame	data/chars/misc/car/choppa3/chop03.gif
+	frame	data/chars/misc/car/choppa3/chop04.gif
+	frame	data/chars/misc/car/choppa3/chop05.gif
+	frame	data/chars/misc/car/choppa3/chop06.gif
+	@cmd	looper 6 10
+	frame	data/chars/misc/car/choppa3/chop01.gif
+	frame	data/chars/misc/car/choppa3/chop02.gif
+	frame	data/chars/misc/car/choppa3/chop03.gif
+	frame	data/chars/misc/car/choppa3/chop04.gif
+	frame	data/chars/misc/car/choppa3/chop05.gif
+	frame	data/chars/misc/car/choppa3/chop06.gif
+		
+anim	idle
+	loop	1
+	delay	3
+	offset	95 155
+	bbox	0 0 0 0
+	sound	data/sounds/heli2.wav
+	frame	data/chars/misc/car/choppa3/chop01.gif
+	frame	data/chars/misc/car/choppa3/chop02.gif
+	offset	95 156
+	frame	data/chars/misc/car/choppa3/chop03.gif
+	frame	data/chars/misc/car/choppa3/chop04.gif
+	offset	95 157
+	sound	data/sounds/heli2.wav
+	frame	data/chars/misc/car/choppa3/chop05.gif
+	frame	data/chars/misc/car/choppa3/chop06.gif
+	offset	95 158
+	frame	data/chars/misc/car/choppa3/chop01.gif
+	frame	data/chars/misc/car/choppa3/chop02.gif
+	offset	95 157
+	sound	data/sounds/heli2.wav
+	frame	data/chars/misc/car/choppa3/chop03.gif
+	frame	data/chars/misc/car/choppa3/chop04.gif
+	offset	95 156
+	frame	data/chars/misc/car/choppa3/chop05.gif
+	frame	data/chars/misc/car/choppa3/chop06.gif
+
+
+#spawnframe {frame} {x} {z} {a} {relative}
+		
+anim	spawn
+	loop	0
+	delay	4
+	offset	165 115
+	bbox	0 0 0 0
+	drawmethod	200 200 
+	custentity	choppatlk
+	spawnframe	162 1 300 300 1
+@script
+if(frame==1)
+{
+  changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_TRAP"));
+}
+@end_script
+	drawmethod	190 190
+	move	3
+	movez	3
+	@cmd	degravity 0.9
+	frame	data/chars/misc/car/choppa3/heli01.gif
+	frame	data/chars/misc/car/choppa3/heli02.gif
+	frame	data/chars/misc/car/choppa3/heli03.gif
+	sound	data/sounds/heli1.wav
+	frame	data/chars/misc/car/choppa3/heli01.gif
+	frame	data/chars/misc/car/choppa3/heli02.gif
+	frame	data/chars/misc/car/choppa3/heli03.gif
+	frame	data/chars/misc/car/choppa3/heli01.gif
+	frame	data/chars/misc/car/choppa3/heli02.gif
+	frame	data/chars/misc/car/choppa3/heli03.gif
+	frame	data/chars/misc/car/choppa3/heli01.gif
+	frame	data/chars/misc/car/choppa3/heli02.gif
+	frame	data/chars/misc/car/choppa3/heli03.gif
+
+	drawmethod	205 205 
+	frame	data/chars/misc/car/choppa3/heli01.gif
+	frame	data/chars/misc/car/choppa3/heli02.gif
+	frame	data/chars/misc/car/choppa3/heli03.gif
+	sound	data/sounds/heli1.wav
+	frame	data/chars/misc/car/choppa3/heli01.gif
+	frame	data/chars/misc/car/choppa3/heli02.gif
+	frame	data/chars/misc/car/choppa3/heli03.gif
+	frame	data/chars/misc/car/choppa3/heli01.gif
+	frame	data/chars/misc/car/choppa3/heli02.gif
+	frame	data/chars/misc/car/choppa3/heli03.gif
+	frame	data/chars/misc/car/choppa3/heli01.gif
+	frame	data/chars/misc/car/choppa3/heli02.gif
+	frame	data/chars/misc/car/choppa3/heli03.gif
+
+	drawmethod	210 210 
+	frame	data/chars/misc/car/choppa3/heli01.gif
+	frame	data/chars/misc/car/choppa3/heli02.gif
+	frame	data/chars/misc/car/choppa3/heli03.gif
+	sound	data/sounds/heli1.wav
+	frame	data/chars/misc/car/choppa3/heli01.gif
+	frame	data/chars/misc/car/choppa3/heli02.gif
+	frame	data/chars/misc/car/choppa3/heli03.gif
+	frame	data/chars/misc/car/choppa3/heli01.gif
+	frame	data/chars/misc/car/choppa3/heli02.gif
+	frame	data/chars/misc/car/choppa3/heli03.gif
+	frame	data/chars/misc/car/choppa3/heli01.gif
+	frame	data/chars/misc/car/choppa3/heli02.gif
+	frame	data/chars/misc/car/choppa3/heli03.gif
+
+	drawmethod	215 215 
+	frame	data/chars/misc/car/choppa3/heli01.gif
+	frame	data/chars/misc/car/choppa3/heli02.gif
+	frame	data/chars/misc/car/choppa3/heli03.gif
+	sound	data/sounds/heli1.wav
+	frame	data/chars/misc/car/choppa3/heli01.gif
+	frame	data/chars/misc/car/choppa3/heli02.gif
+	frame	data/chars/misc/car/choppa3/heli03.gif
+	frame	data/chars/misc/car/choppa3/heli01.gif
+	frame	data/chars/misc/car/choppa3/heli02.gif
+	frame	data/chars/misc/car/choppa3/heli03.gif
+	frame	data/chars/misc/car/choppa3/heli01.gif
+	frame	data/chars/misc/car/choppa3/heli02.gif
+	frame	data/chars/misc/car/choppa3/heli03.gif
+
+	drawmethod	220 220 
+	frame	data/chars/misc/car/choppa3/heli01.gif
+	frame	data/chars/misc/car/choppa3/heli02.gif
+	frame	data/chars/misc/car/choppa3/heli03.gif
+	sound	data/sounds/heli1.wav
+	frame	data/chars/misc/car/choppa3/heli01.gif
+	frame	data/chars/misc/car/choppa3/heli02.gif
+	frame	data/chars/misc/car/choppa3/heli03.gif
+	frame	data/chars/misc/car/choppa3/heli01.gif
+	frame	data/chars/misc/car/choppa3/heli02.gif
+	frame	data/chars/misc/car/choppa3/heli03.gif
+	frame	data/chars/misc/car/choppa3/heli01.gif
+	frame	data/chars/misc/car/choppa3/heli02.gif
+	frame	data/chars/misc/car/choppa3/heli03.gif
+
+	drawmethod	225 225 
+	frame	data/chars/misc/car/choppa3/heli01.gif
+	frame	data/chars/misc/car/choppa3/heli02.gif
+	frame	data/chars/misc/car/choppa3/heli03.gif
+	sound	data/sounds/heli1.wav
+	frame	data/chars/misc/car/choppa3/heli01.gif
+	frame	data/chars/misc/car/choppa3/heli02.gif
+	frame	data/chars/misc/car/choppa3/heli03.gif
+	frame	data/chars/misc/car/choppa3/heli01.gif
+	frame	data/chars/misc/car/choppa3/heli02.gif
+	frame	data/chars/misc/car/choppa3/heli03.gif
+	frame	data/chars/misc/car/choppa3/heli01.gif
+	frame	data/chars/misc/car/choppa3/heli02.gif
+	frame	data/chars/misc/car/choppa3/heli03.gif
+
+	drawmethod	230 230 
+	frame	data/chars/misc/car/choppa3/heli01.gif
+	frame	data/chars/misc/car/choppa3/heli02.gif
+	frame	data/chars/misc/car/choppa3/heli03.gif
+	sound	data/sounds/heli1.wav
+	frame	data/chars/misc/car/choppa3/heli01.gif
+	frame	data/chars/misc/car/choppa3/heli02.gif
+	frame	data/chars/misc/car/choppa3/heli03.gif
+	frame	data/chars/misc/car/choppa3/heli01.gif
+	frame	data/chars/misc/car/choppa3/heli02.gif
+	frame	data/chars/misc/car/choppa3/heli03.gif
+	frame	data/chars/misc/car/choppa3/heli01.gif
+	frame	data/chars/misc/car/choppa3/heli02.gif
+	frame	data/chars/misc/car/choppa3/heli03.gif
+
+	drawmethod	235 235 
+	frame	data/chars/misc/car/choppa3/heli01.gif
+	frame	data/chars/misc/car/choppa3/heli02.gif
+	frame	data/chars/misc/car/choppa3/heli03.gif
+	sound	data/sounds/heli1.wav
+	frame	data/chars/misc/car/choppa3/heli01.gif
+	frame	data/chars/misc/car/choppa3/heli02.gif
+	frame	data/chars/misc/car/choppa3/heli03.gif
+	frame	data/chars/misc/car/choppa3/heli01.gif
+	frame	data/chars/misc/car/choppa3/heli02.gif
+	frame	data/chars/misc/car/choppa3/heli03.gif
+	frame	data/chars/misc/car/choppa3/heli01.gif
+	frame	data/chars/misc/car/choppa3/heli02.gif
+	frame	data/chars/misc/car/choppa3/heli03.gif
+
+	drawmethod	240 240 
+	frame	data/chars/misc/car/choppa3/heli01.gif
+	frame	data/chars/misc/car/choppa3/heli02.gif
+	frame	data/chars/misc/car/choppa3/heli03.gif
+	sound	data/sounds/heli1.wav
+	frame	data/chars/misc/car/choppa3/heli01.gif
+	frame	data/chars/misc/car/choppa3/heli02.gif #100
+	frame	data/chars/misc/car/choppa3/heli03.gif
+	frame	data/chars/misc/car/choppa3/heli01.gif
+	frame	data/chars/misc/car/choppa3/heli02.gif
+	frame	data/chars/misc/car/choppa3/heli03.gif
+	frame	data/chars/misc/car/choppa3/heli01.gif
+	frame	data/chars/misc/car/choppa3/heli02.gif
+	frame	data/chars/misc/car/choppa3/heli03.gif
+
+	drawmethod	245 245 
+	frame	data/chars/misc/car/choppa3/heli01.gif
+	frame	data/chars/misc/car/choppa3/heli02.gif
+	frame	data/chars/misc/car/choppa3/heli03.gif
+	sound	data/sounds/heli1.wav
+	frame	data/chars/misc/car/choppa3/heli01.gif
+	frame	data/chars/misc/car/choppa3/heli02.gif
+	frame	data/chars/misc/car/choppa3/heli03.gif
+	frame	data/chars/misc/car/choppa3/heli01.gif
+	frame	data/chars/misc/car/choppa3/heli02.gif
+	frame	data/chars/misc/car/choppa3/heli03.gif
+	frame	data/chars/misc/car/choppa3/heli01.gif
+	frame	data/chars/misc/car/choppa3/heli02.gif
+	frame	data/chars/misc/car/choppa3/heli03.gif
+
+	drawmethod	250 250 
+	frame	data/chars/misc/car/choppa3/heli01.gif
+	frame	data/chars/misc/car/choppa3/heli02.gif
+	frame	data/chars/misc/car/choppa3/heli03.gif
+	sound	data/sounds/heli1.wav
+	frame	data/chars/misc/car/choppa3/heli01.gif
+	frame	data/chars/misc/car/choppa3/heli02.gif
+	frame	data/chars/misc/car/choppa3/heli03.gif
+	frame	data/chars/misc/car/choppa3/heli01.gif
+	frame	data/chars/misc/car/choppa3/heli02.gif
+	frame	data/chars/misc/car/choppa3/heli03.gif
+	frame	data/chars/misc/car/choppa3/heli01.gif
+	frame	data/chars/misc/car/choppa3/heli02.gif
+	frame	data/chars/misc/car/choppa3/heli03.gif
+
+	drawmethod	255 255 
+	frame	data/chars/misc/car/choppa3/heli01.gif
+	frame	data/chars/misc/car/choppa3/heli02.gif
+	frame	data/chars/misc/car/choppa3/heli03.gif
+	sound	data/sounds/heli1.wav
+	frame	data/chars/misc/car/choppa3/heli01.gif
+	frame	data/chars/misc/car/choppa3/heli02.gif
+	frame	data/chars/misc/car/choppa3/heli03.gif
+	frame	data/chars/misc/car/choppa3/heli01.gif
+	frame	data/chars/misc/car/choppa3/heli02.gif
+	frame	data/chars/misc/car/choppa3/heli03.gif
+	frame	data/chars/misc/car/choppa3/heli01.gif
+	frame	data/chars/misc/car/choppa3/heli02.gif
+	frame	data/chars/misc/car/choppa3/heli03.gif
+
+	nodrawmethod 
+	frame	data/chars/misc/car/choppa3/heli01.gif
+	frame	data/chars/misc/car/choppa3/heli02.gif
+	frame	data/chars/misc/car/choppa3/heli03.gif
+	sound	data/sounds/heli1.wav
+	frame	data/chars/misc/car/choppa3/heli01.gif
+	frame	data/chars/misc/car/choppa3/heli02.gif
+	frame	data/chars/misc/car/choppa3/heli03.gif
+	frame	data/chars/misc/car/choppa3/heli01.gif
+	frame	data/chars/misc/car/choppa3/heli02.gif
+	frame	data/chars/misc/car/choppa3/heli03.gif
+	frame	data/chars/misc/car/choppa3/heli01.gif
+	frame	data/chars/misc/car/choppa3/heli02.gif
+	frame	data/chars/misc/car/choppa3/heli03.gif #155
+	frame	data/chars/misc/car/choppa3/heli01.gif
+	frame	data/chars/misc/car/choppa3/heli02.gif
+	frame	data/chars/misc/car/choppa3/heli03.gif
+	frame	data/chars/misc/car/choppa3/heli01.gif
+	frame	data/chars/misc/car/choppa3/heli02.gif 
+	frame	data/chars/misc/car/choppa3/heli03.gif #161
+	frame	data/chars/misc/car/choppa3/empty.gif
+	frame	data/chars/misc/car/choppa3/empty.gif
+	frame	data/chars/misc/car/choppa3/empty.gif
+	movez	0
+	move	0
+	delay	3100
+	@cmd	degravity 0
+	frame	data/chars/misc/car/choppa3/empty.gif
+	delay	20
+	frame	data/chars/misc/car/choppa3/empty.gif
+	movez	20
+	move	-280
+	frame	data/chars/misc/car/choppa3/empty.gif
+	movez	0
+	move	0
+	frame	data/chars/misc/car/choppa3/empty.gif
+	delay	6
+	movez	-3
+	offset	95 155
+	drawmethod 432 432
+	frame	data/chars/misc/car/choppa3/chop01.gif
+	frame	data/chars/misc/car/choppa3/chop02.gif
+	frame	data/chars/misc/car/choppa3/chop03.gif
+	frame	data/chars/misc/car/choppa3/chop04.gif
+	sound	data/sounds/heli1.wav
+	frame	data/chars/misc/car/choppa3/chop05.gif
+	frame	data/chars/misc/car/choppa3/chop06.gif
+	drawmethod 422 422
+	frame	data/chars/misc/car/choppa3/chop01.gif
+	frame	data/chars/misc/car/choppa3/chop02.gif
+	frame	data/chars/misc/car/choppa3/chop03.gif
+	drawmethod 412 412
+	frame	data/chars/misc/car/choppa3/chop04.gif
+	frame	data/chars/misc/car/choppa3/chop05.gif
+	frame	data/chars/misc/car/choppa3/chop06.gif
+	drawmethod 402 402
+	frame	data/chars/misc/car/choppa3/chop01.gif
+	frame	data/chars/misc/car/choppa3/chop02.gif
+	frame	data/chars/misc/car/choppa3/chop03.gif
+	drawmethod 392 392
+	frame	data/chars/misc/car/choppa3/chop04.gif
+	frame	data/chars/misc/car/choppa3/chop05.gif
+	frame	data/chars/misc/car/choppa3/chop06.gif
+	drawmethod 382 382
+	frame	data/chars/misc/car/choppa3/chop01.gif
+	frame	data/chars/misc/car/choppa3/chop02.gif
+	frame	data/chars/misc/car/choppa3/chop03.gif
+	drawmethod 362 362
+	frame	data/chars/misc/car/choppa3/chop04.gif
+	frame	data/chars/misc/car/choppa3/chop05.gif
+	frame	data/chars/misc/car/choppa3/chop06.gif
+	drawmethod 352 352
+	frame	data/chars/misc/car/choppa3/chop01.gif
+	frame	data/chars/misc/car/choppa3/chop02.gif
+	frame	data/chars/misc/car/choppa3/chop03.gif
+	drawmethod 342 342
+	frame	data/chars/misc/car/choppa3/chop04.gif
+	sound	data/sounds/heli1.wav
+	frame	data/chars/misc/car/choppa3/chop05.gif
+	frame	data/chars/misc/car/choppa3/chop06.gif
+	drawmethod 332 332
+	frame	data/chars/misc/car/choppa3/chop01.gif
+	frame	data/chars/misc/car/choppa3/chop02.gif
+	frame	data/chars/misc/car/choppa3/chop03.gif
+	drawmethod 322 322
+	frame	data/chars/misc/car/choppa3/chop04.gif
+	frame	data/chars/misc/car/choppa3/chop05.gif
+	frame	data/chars/misc/car/choppa3/chop06.gif
+	drawmethod 312 312
+	frame	data/chars/misc/car/choppa3/chop01.gif
+	frame	data/chars/misc/car/choppa3/chop02.gif
+	frame	data/chars/misc/car/choppa3/chop03.gif
+	drawmethod 302 302
+	frame	data/chars/misc/car/choppa3/chop04.gif
+	frame	data/chars/misc/car/choppa3/chop05.gif
+	frame	data/chars/misc/car/choppa3/chop06.gif
+	drawmethod 292 292
+	frame	data/chars/misc/car/choppa3/chop01.gif
+	frame	data/chars/misc/car/choppa3/chop02.gif
+	frame	data/chars/misc/car/choppa3/chop03.gif
+	drawmethod 282 282
+	sound	data/sounds/heli1.wav
+	frame	data/chars/misc/car/choppa3/chop04.gif
+	frame	data/chars/misc/car/choppa3/chop05.gif
+	frame	data/chars/misc/car/choppa3/chop06.gif
+	drawmethod 272 272
+	frame	data/chars/misc/car/choppa3/chop01.gif
+	frame	data/chars/misc/car/choppa3/chop02.gif
+	frame	data/chars/misc/car/choppa3/chop03.gif
+	drawmethod 262 262
+	frame	data/chars/misc/car/choppa3/chop04.gif
+	frame	data/chars/misc/car/choppa3/chop05.gif
+	frame	data/chars/misc/car/choppa3/chop06.gif
+
+	nodrawmethod
+	frame	data/chars/misc/car/choppa3/chop01.gif
+	frame	data/chars/misc/car/choppa3/chop02.gif
+	sound	data/sounds/heli1.wav
+	frame	data/chars/misc/car/choppa3/chop03.gif
+	frame	data/chars/misc/car/choppa3/chop04.gif
+	frame	data/chars/misc/car/choppa3/chop05.gif
+	@cmd	spawnGun2 "cursor" 1 1 1 1
+	frame	data/chars/misc/car/choppa3/chop06.gif
+
+
+
+
+
+
+
+
+
+
+
+		
+#|edited by openBor Stats v 0.53
+		

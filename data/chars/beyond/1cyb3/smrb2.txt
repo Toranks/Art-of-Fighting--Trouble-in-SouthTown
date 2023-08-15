@@ -1,0 +1,254 @@
+name          smrb2
+type          enemy
+health        18
+speedf        1.2
+jumpheight    4
+cantgrab      1
+falldie	      2
+nodieblink    1
+shadow	      4
+height		0
+knockdowncount -1
+candamage     player
+hostile       player
+projectilehit enemy obstacle
+diesound      data/sounds/empty.wav
+
+animationscript data/scripts/escript.c
+
+palette		data/chars/beyond/1cyb3/xpal.gif
+
+anim	jump
+	range	50 200
+	loop	0
+	delay	20
+	offset	93 128
+	bbox	70 75 50 55
+	platform   1 1 1 1 1 1 1 1
+	frame	data/chars/beyond/1cyb3/xpain01.gif
+	frame	data/chars/beyond/1cyb3/xpain02.gif
+	frame	data/chars/beyond/1cyb3/xpain03.gif
+
+anim	jumpland
+	loop	0
+	delay	12
+	offset	93 128
+	bbox	70 75 50 55
+	platform   1 1 1 1 1 1 1 1
+	frame	data/chars/beyond/1cyb3/xpain02.gif
+	frame	data/chars/beyond/1cyb3/xpain01.gif
+
+anim	attack1
+	range	50 150
+	rangez	-15 15
+	loop	0
+	delay	7
+	offset	93 128
+	bbox	70 75 50 55
+	platform   1 1 1 1 1 1 1 1
+	sound	data/sounds/alien9.wav
+	frame	data/chars/beyond/1cyb3/xidle03.gif
+	seta	5
+	frame	data/chars/beyond/1cyb3/xidle02.gif
+	seta	10
+	frame	data/chars/beyond/1cyb3/xidle01.gif
+	seta	15
+	frame	data/chars/beyond/1cyb3/x01.gif
+	seta	20
+	frame	data/chars/beyond/1cyb3/x02.gif
+	seta	25
+	frame	data/chars/beyond/1cyb3/x03.gif
+	seta	30
+	frame	data/chars/beyond/1cyb3/x04.gif
+	seta	35
+	frame	data/chars/beyond/1cyb3/x01.gif
+	seta	40
+	frame	data/chars/beyond/1cyb3/x02.gif
+	seta	45
+	frame	data/chars/beyond/1cyb3/x03.gif
+	seta	50
+	sound	data/sounds/Electricity2.wav
+	frame	data/chars/beyond/1cyb3/x04.gif
+	drawmethod 256 256 0 0 0 1 -1
+	frame	data/chars/beyond/1cyb3/x05.gif
+	attack2	65 75 60 50 7 1 0 0 45 0
+	frame	data/chars/beyond/1cyb3/x06.gif
+	@cmd	target 1.5 1 1 1 0
+	@cmd	dash
+	frame	data/chars/beyond/1cyb3/x07.gif
+	attack2	0 0 0 0
+	frame	data/chars/beyond/1cyb3/x08.gif
+	@cmd	looper 11 12
+	nodrawmethod
+	frame	data/chars/beyond/1cyb3/x01.gif
+	@cmd	stop
+	frame	data/chars/beyond/1cyb3/x02.gif
+	frame	data/chars/beyond/1cyb3/x03.gif
+	seta	0
+	frame	data/chars/beyond/1cyb3/x04.gif
+	delay	12
+	frame	data/chars/beyond/1cyb3/xidle01.gif
+	frame	data/chars/beyond/1cyb3/xidle02.gif
+	frame	data/chars/beyond/1cyb3/xidle03.gif
+		
+		
+anim	death
+	loop	0
+	delay	30
+	offset	93 128
+	bbox	0 0 0 0
+	platform   1 1 1 1 1 1 1 1
+	frame	data/chars/beyond/1cyb3/xpain08.gif
+	delay	12
+	frame	data/chars/beyond/1cyb3/xpain09.gif
+	sound	data/sounds/xplosion.wav
+	frame	data/chars/beyond/1cyb3/xpain10.gif
+	frame	data/chars/beyond/1cyb3/xpain11.gif
+	frame	data/chars/beyond/1cyb3/xpain12.gif
+	frame	data/chars/beyond/1cyb3/xpain13.gif
+	frame	data/chars/beyond/1cyb3/xpain14.gif
+	frame	data/chars/beyond/1cyb3/xpain15.gif
+	frame	data/chars/beyond/1cyb3/xpain16.gif
+	frame	data/chars/beyond/1cyb3/xpain08.gif
+		
+anim	fall
+	loop	0
+	delay	12
+	offset	93 128
+	bbox	0 0 0 0
+	platform   1 1 1 1 1 1 1 1
+	landframe	3
+	frame	data/chars/beyond/1cyb3/xpain01.gif
+	frame	data/chars/beyond/1cyb3/xpain02.gif
+	delay	200
+	frame	data/chars/beyond/1cyb3/xpain03.gif
+	delay	12
+	frame	data/chars/beyond/1cyb3/xpain04.gif
+	frame	data/chars/beyond/1cyb3/xpain05.gif
+	frame	data/chars/beyond/1cyb3/xpain06.gif
+	frame	data/chars/beyond/1cyb3/xpain07.gif
+		
+anim	fall7
+	delay	200
+	offset	93 128
+	frame	data/chars/beyond/1cyb3/xidle01.gif
+	offset	93 128
+	frame	data/chars/beyond/1cyb3/xidle01.gif
+	offset	93 128
+	frame	data/chars/beyond/1cyb3/xidle01.gif
+	offset	93 128
+	frame	data/chars/beyond/1cyb3/xidle01.gif
+	offset	93 128
+	frame	data/chars/beyond/1cyb3/xidle01.gif
+	offset	93 128
+	frame	data/chars/beyond/1cyb3/xidle01.gif
+	offset	93 128
+	frame	data/chars/beyond/1cyb3/xidle01.gif
+	offset	93 128
+	frame	data/chars/beyond/1cyb3/xidle01.gif
+	offset	93 128
+	frame	data/chars/beyond/1cyb3/xidle01.gif
+	offset	93 128
+	frame	data/chars/beyond/1cyb3/xidle01.gif
+		
+anim	follow1
+	loop	0
+	delay	7
+	offset	93 128
+	bbox	70 75 50 55
+	platform   1 1 1 1 1 1 1 1
+	sound	data/sounds/alien9.wav
+	frame	data/chars/beyond/1cyb3/x01.gif
+	frame	data/chars/beyond/1cyb3/x02.gif
+	frame	data/chars/beyond/1cyb3/x03.gif
+	frame	data/chars/beyond/1cyb3/x04.gif
+	frame	data/chars/beyond/1cyb3/x05.gif
+	frame	data/chars/beyond/1cyb3/x06.gif
+	frame	data/chars/beyond/1cyb3/x07.gif
+	frame	data/chars/beyond/1cyb3/x08.gif
+	@cmd	looper 4 5
+	frame	data/chars/beyond/1cyb3/x01.gif
+	frame	data/chars/beyond/1cyb3/x02.gif
+	frame	data/chars/beyond/1cyb3/x03.gif
+	frame	data/chars/beyond/1cyb3/x04.gif
+	delay	12
+	frame	data/chars/beyond/1cyb3/xidle01.gif
+	frame	data/chars/beyond/1cyb3/xidle02.gif
+	frame	data/chars/beyond/1cyb3/xidle03.gif
+		
+anim	idle
+	loop	1
+	delay	6
+	offset	93 128
+	bbox	70 75 50 55
+	platform   1 1 1 1 1 1 1 1
+	frame	data/chars/beyond/1cyb3/xidle03.gif
+		
+anim	pain
+	loop	0
+	delay	10
+	offset	93 128
+	bbox	0 0 0 0
+	platform   1 1 1 1 1 1 1 1
+	frame	data/chars/beyond/1cyb3/xidle03.gif
+		
+anim	pain2
+	loop	0
+	delay	10
+	offset	93 128
+	bbox	0 0 0 0
+	platform   1 1 1 1 1 1 1 1
+	frame	data/chars/beyond/1cyb3/xidle03.gif
+		
+anim	rise
+	loop	0
+	delay	14
+	offset	93 128
+	bbox	0 0 0 0
+	platform   1 1 1 1 1 1 1 1
+	frame	data/chars/beyond/1cyb3/xpain05.gif
+	frame	data/chars/beyond/1cyb3/xpain01.gif
+	frame	data/chars/beyond/1cyb3/xidle03.gif
+		
+anim	spawn
+@script
+if(frame==3)
+{
+  changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_OBSTACLE"));
+}
+	@end_script	
+	loop	0
+	delay	7
+	offset	93 128
+	bbox	0 0 0 0
+	platform   1 1 1 1 1 1 1 1
+	jumpframe 0 2 0 0
+	frame	data/chars/beyond/1cyb3/xidle01.gif
+	frame	data/chars/beyond/1cyb3/xidle02.gif
+	frame	data/chars/beyond/1cyb3/xpain03.gif
+	frame	data/chars/beyond/1cyb3/xpain04.gif
+	frame	data/chars/beyond/1cyb3/xpain06.gif
+	frame	data/chars/beyond/1cyb3/xpain07.gif
+	delay	40
+	frame	data/chars/beyond/1cyb3/xidle03.gif
+
+
+		
+anim	walk
+	loop	1
+	delay	6
+	offset	93 128
+	bbox	70 75 50 55
+	platform   1 1 1 1 1 1 1 1
+	frame	data/chars/beyond/1cyb3/xwk01.gif
+	frame	data/chars/beyond/1cyb3/xwk02.gif
+	frame	data/chars/beyond/1cyb3/xwk03.gif
+	frame	data/chars/beyond/1cyb3/xwk04.gif
+	sound	data/sounds/grenpin.wav
+	frame	data/chars/beyond/1cyb3/xwk05.gif
+	frame	data/chars/beyond/1cyb3/xwk06.gif
+	frame	data/chars/beyond/1cyb3/xwk07.gif
+	frame	data/chars/beyond/1cyb3/xwk08.gif
+		
+#|edited by openBor Stats v 0.53
+		

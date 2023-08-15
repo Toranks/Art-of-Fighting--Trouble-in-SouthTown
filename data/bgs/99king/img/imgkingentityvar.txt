@@ -1,0 +1,1367 @@
+name	 imgking
+type	 text
+subtype  noskip
+health	 500
+facing   1
+hostile player
+setlayer	9999999990
+#subject_to_minz 0
+#subject_to_maxz 0
+subject_to_wall 0
+subject_to_obstacle 0
+subject_to_platform 0
+subject_to_gravity 0
+subject_to_screen 1
+animationscript data/scripts/grabscript.c
+
+palette	none
+
+
+load	textking
+
+
+script	@script
+void main()
+{
+    void self = getlocalvar("self");
+	void anim = getentityproperty(self,"animationID");
+	int x = getentityproperty(self,"x");
+	int z = getentityproperty(self,"z");
+
+	int XPos = openborvariant("xpos");
+	int YPos = openborvariant("ypos");
+	int Screen = openborvariant("hResolution");
+	int Screen2 = openborvariant("vResolution");
+
+
+
+	if(anim != openborconstant("ANI_SPAWN"))
+	{
+
+   		if( x >= XPos+Screen-40) // right
+   		{
+        	changeentityproperty(self, "velocity", -2);
+   		}
+   		else if(x <= XPos+40) // left
+   		{
+        	changeentityproperty(self, "velocity", 2);
+   		}
+   		else if( z >= YPos+Screen2+230) // down
+   		{
+		changeentityproperty(self, "velocity", 0, -1);
+   		}
+   		else if( z <= YPos-20) // up
+   		{
+		changeentityproperty(self, "velocity", 0, 1);
+   		}
+  	}
+}
+@end_script
+
+
+
+
+anim	spawn
+@script
+	void self = getlocalvar("self");
+	//setglobalvar("Kgnextday", 2);
+	setglobalvar("aout1", 1);
+
+
+	float Kday2 = getentityvar(self, "kday");
+
+	if (frame == 6 && Kday2 == NULL())
+	{
+     	performattack(self, openborconstant("ANI_IDLE"));
+	}
+	if (frame == 6 && Kday2 == 2)
+	{
+     	performattack(self, openborconstant("ANI_FOLLOW1"));
+	}
+	if (frame == 6 && Kday2 == 3)
+	{
+     	performattack(self, openborconstant("ANI_FOLLOW2"));
+	}
+	if (frame == 6 && Kday2 == 4)
+	{
+     	performattack(self, openborconstant("ANI_FOLLOW3"));
+	}
+	if (frame == 6 && Kday2 == 5)
+	{
+     	performattack(self, openborconstant("ANI_FOLLOW4"));
+	}
+	if (frame == 6 && Kday2 == 06)
+	{
+     	performattack(self, openborconstant("ANI_FOLLOW5"));
+	}
+	if (frame == 6 && Kday2 == 07)
+	{
+     	performattack(self, openborconstant("ANI_FOLLOW6"));
+	}
+	if (frame == 6 && Kday2 == 08)
+	{
+     	performattack(self, openborconstant("ANI_FOLLOW7"));
+	}
+	if (frame == 6 && Kday2 == 09)
+	{
+     	performattack(self, openborconstant("ANI_FOLLOW8"));
+	}
+	if (frame == 6 && Kday2 == 10)
+	{
+     	performattack(self, openborconstant("ANI_FOLLOW9"));
+	}
+@end_script
+	loop	0
+	delay	15
+	offset	5 5
+	frame	data/bgs/99king/img/empty.gif
+	frame	data/bgs/99king/img/empty.gif
+	@cmd	spawnGun2 "textking" -10 10 -5 1 "ANI_FOLLOW30"
+	frame	data/bgs/99king/img/empty.gif
+	frame	data/bgs/99king/img/empty.gif
+	frame	data/bgs/99king/img/empty.gif
+	frame	data/bgs/99king/img/empty.gif
+	frame	data/bgs/99king/img/empty.gif
+	frame	data/bgs/99king/img/empty.gif
+
+
+
+#----//--map1---//--
+anim	idle
+@script
+	void self = getlocalvar("self");
+	if (frame == 1)
+	{
+	setentityvar(self, "kday", 2);  //next talk
+	}
+@end_script
+	loop	1 27 31
+	delay	7
+	offset	265 300
+	drawmethod 6 6 0 0 0 0 0 0 40
+	frame	data/bgs/99king/img/img1.gif
+	drawmethod 16 16 0 0 0 0 0 0 80
+	frame	data/bgs/99king/img/img1.gif
+	drawmethod 26 26 0 0 0 0 0 0 120
+	frame	data/bgs/99king/img/img1.gif
+	drawmethod 36 36 0 0 0 0 0 0 160
+	frame	data/bgs/99king/img/img1.gif
+	drawmethod 46 46 0 0 0 0 0 0 200
+	frame	data/bgs/99king/img/img1.gif
+	drawmethod 56 56 0 0 0 0 0 0 240
+	frame	data/bgs/99king/img/img1.gif
+	drawmethod 66 66 0 0 0 0 0 0 280
+	frame	data/bgs/99king/img/img1.gif
+	drawmethod 76 76 0 0 0 0 0 0 320
+	frame	data/bgs/99king/img/img1.gif
+	drawmethod 86 86 0 0 0 0 0 0 360
+	frame	data/bgs/99king/img/img1.gif
+	drawmethod 96 96 0 0 0 0 0 0 400
+	frame	data/bgs/99king/img/img1.gif
+	drawmethod 106 106 0 0 0 0 0 0 440
+	frame	data/bgs/99king/img/img1.gif
+	drawmethod 116 116 0 0 0 0 0 0 480
+	frame	data/bgs/99king/img/img1.gif
+	drawmethod 126 126 0 0 0 0 0 0 520
+	frame	data/bgs/99king/img/img1.gif
+	drawmethod 136 136 0 0 0 0 0 0 560
+	frame	data/bgs/99king/img/img1.gif
+	drawmethod 146 146 0 0 0 0 0 0 600
+	frame	data/bgs/99king/img/img1.gif
+	drawmethod 156 156 0 0 0 0 0 0 640
+	frame	data/bgs/99king/img/img1.gif
+	drawmethod 166 166 0 0 0 0 0 0 680
+	frame	data/bgs/99king/img/img1.gif
+	drawmethod 176 176 0 0 0 0 0 0 720
+	frame	data/bgs/99king/img/img1.gif
+	drawmethod 186 186 0 0 0 0 0 0 760
+	frame	data/bgs/99king/img/img1.gif
+	drawmethod 196 196 0 0 0 0 0 0 800
+	frame	data/bgs/99king/img/img1.gif
+	drawmethod 206 206 0 0 0 0 0 0 840
+	frame	data/bgs/99king/img/img1.gif #20
+	drawmethod 216 216 0 0 0 0 0 0 880
+	frame	data/bgs/99king/img/img1.gif
+	drawmethod 226 226 0 0 0 0 0 0 920
+	frame	data/bgs/99king/img/img1.gif
+	drawmethod 236 236 0 0 0 0 0 0 960
+	frame	data/bgs/99king/img/img1.gif
+	drawmethod 246 246 0 0 0 0 0 0 1000
+	frame	data/bgs/99king/img/img1.gif
+	drawmethod 256 256 0 0 0 0 0 0 1040
+	frame	data/bgs/99king/img/img1.gif
+	nodrawmethod
+	frame	data/bgs/99king/img/img1.gif
+	delay	3
+	frame	data/bgs/99king/img/img1.gif #27
+	@cmd	keymove 2
+	@cmd    keyint "ANI_IDLE" 32 "A" 0 0
+	frame	data/bgs/99king/img/img1.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_IDLE" 32 "A" 0 0
+	frame	data/bgs/99king/img/img1.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_IDLE" 32 "A" 0 0
+	frame	data/bgs/99king/img/img1.gif #30
+	@cmd	keymove 2
+	@cmd    keyint "ANI_IDLE" 32 "A" 0 0
+	frame	data/bgs/99king/img/img1.gif
+	frame	data/bgs/99king/img/img1.gif #32
+	delay	7
+	frame	data/bgs/99king/img/img1.gif
+	drawmethod 236 236
+	frame	data/bgs/99king/img/img1.gif
+	drawmethod 216 216
+	frame	data/bgs/99king/img/img1.gif
+	drawmethod 196 196
+	frame	data/bgs/99king/img/img1.gif
+	drawmethod 176 176
+	frame	data/bgs/99king/img/img1.gif
+	drawmethod 156 156
+	frame	data/bgs/99king/img/img1.gif
+	drawmethod 136 136
+	frame	data/bgs/99king/img/img1.gif
+	drawmethod 116 116
+	frame	data/bgs/99king/img/img1.gif
+	drawmethod 96 96
+	frame	data/bgs/99king/img/img1.gif
+	drawmethod 76 76
+	frame	data/bgs/99king/img/img1.gif
+	drawmethod 66 66
+	frame	data/bgs/99king/img/img1.gif
+	drawmethod 56 56
+	frame	data/bgs/99king/img/img1.gif
+	drawmethod 46 46
+	frame	data/bgs/99king/img/img1.gif
+	drawmethod 36 36
+	frame	data/bgs/99king/img/img1.gif
+	drawmethod 26 26
+	frame	data/bgs/99king/img/img1.gif
+	drawmethod 16 16
+	frame	data/bgs/99king/img/img1.gif
+	drawmethod 6 6
+	frame	data/bgs/99king/img/img1.gif
+	frame	data/bgs/99king/img/empty.gif
+	frame	data/bgs/99king/img/empty.gif
+	frame	data/bgs/99king/img/empty.gif
+	@cmd	killgun 1 0
+	frame	data/bgs/99king/img/empty.gif
+	@cmd	anichange "ANI_SPAWN"
+	#@cmd	suicide
+	frame	data/bgs/99king/img/empty.gif
+#-----------------
+
+#----//--map2---//--
+anim	follow1
+@script
+	void self = getlocalvar("self");
+	if (frame == 1)
+	{
+	setentityvar(self, "kday", 3);  //next talk
+	}
+@end_script
+	loop	1 27 31
+	delay	7
+	offset	260 215
+	drawmethod 6 6 0 0 0 0 0 0 40
+	frame	data/bgs/99king/img/img2.gif
+	drawmethod 16 16 0 0 0 0 0 0 80
+	frame	data/bgs/99king/img/img2.gif
+	drawmethod 26 26 0 0 0 0 0 0 120
+	frame	data/bgs/99king/img/img2.gif
+	drawmethod 36 36 0 0 0 0 0 0 160
+	frame	data/bgs/99king/img/img2.gif
+	drawmethod 46 46 0 0 0 0 0 0 200
+	frame	data/bgs/99king/img/img2.gif
+	drawmethod 56 56 0 0 0 0 0 0 240
+	frame	data/bgs/99king/img/img2.gif
+	drawmethod 66 66 0 0 0 0 0 0 280
+	frame	data/bgs/99king/img/img2.gif
+	drawmethod 76 76 0 0 0 0 0 0 320
+	frame	data/bgs/99king/img/img2.gif
+	drawmethod 86 86 0 0 0 0 0 0 360
+	frame	data/bgs/99king/img/img2.gif
+	drawmethod 96 96 0 0 0 0 0 0 400
+	frame	data/bgs/99king/img/img2.gif
+	drawmethod 106 106 0 0 0 0 0 0 440
+	frame	data/bgs/99king/img/img2.gif
+	drawmethod 116 116 0 0 0 0 0 0 480
+	frame	data/bgs/99king/img/img2.gif
+	drawmethod 126 126 0 0 0 0 0 0 520
+	frame	data/bgs/99king/img/img2.gif
+	drawmethod 136 136 0 0 0 0 0 0 560
+	frame	data/bgs/99king/img/img2.gif
+	drawmethod 146 146 0 0 0 0 0 0 600
+	frame	data/bgs/99king/img/img2.gif
+	drawmethod 156 156 0 0 0 0 0 0 640
+	frame	data/bgs/99king/img/img2.gif
+	drawmethod 166 166 0 0 0 0 0 0 680
+	frame	data/bgs/99king/img/img2.gif
+	drawmethod 176 176 0 0 0 0 0 0 720
+	frame	data/bgs/99king/img/img2.gif
+	drawmethod 186 186 0 0 0 0 0 0 760
+	frame	data/bgs/99king/img/img2.gif
+	drawmethod 196 196 0 0 0 0 0 0 800
+	frame	data/bgs/99king/img/img2.gif
+	drawmethod 206 206 0 0 0 0 0 0 840
+	frame	data/bgs/99king/img/img2.gif #20
+	drawmethod 216 216 0 0 0 0 0 0 880
+	frame	data/bgs/99king/img/img2.gif
+	drawmethod 226 226 0 0 0 0 0 0 920
+	frame	data/bgs/99king/img/img2.gif
+	drawmethod 236 236 0 0 0 0 0 0 960
+	frame	data/bgs/99king/img/img2.gif
+	drawmethod 246 246 0 0 0 0 0 0 1000
+	frame	data/bgs/99king/img/img2.gif
+	drawmethod 256 256 0 0 0 0 0 0 1040
+	frame	data/bgs/99king/img/img2.gif
+	nodrawmethod
+	frame	data/bgs/99king/img/img2.gif
+	delay	3
+	frame	data/bgs/99king/img/img2.gif #27
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW1" 32 "A" 0 0
+	frame	data/bgs/99king/img/img2.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW1" 32 "A" 0 0
+	frame	data/bgs/99king/img/img2.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW1" 32 "A" 0 0
+	frame	data/bgs/99king/img/img2.gif #30
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW1" 32 "A" 0 0
+	frame	data/bgs/99king/img/img2.gif
+	frame	data/bgs/99king/img/img2.gif #32
+	delay	7
+	frame	data/bgs/99king/img/img2.gif
+	drawmethod 236 236
+	frame	data/bgs/99king/img/img2.gif
+	drawmethod 216 216
+	frame	data/bgs/99king/img/img2.gif
+	drawmethod 196 196
+	frame	data/bgs/99king/img/img2.gif
+	drawmethod 176 176
+	frame	data/bgs/99king/img/img2.gif
+	drawmethod 156 156
+	frame	data/bgs/99king/img/img2.gif
+	drawmethod 136 136
+	frame	data/bgs/99king/img/img2.gif
+	drawmethod 116 116
+	frame	data/bgs/99king/img/img2.gif
+	drawmethod 96 96
+	frame	data/bgs/99king/img/img2.gif
+	drawmethod 76 76
+	frame	data/bgs/99king/img/img2.gif
+	drawmethod 66 66
+	frame	data/bgs/99king/img/img2.gif
+	drawmethod 56 56
+	frame	data/bgs/99king/img/img2.gif
+	drawmethod 46 46
+	frame	data/bgs/99king/img/img2.gif
+	drawmethod 36 36
+	frame	data/bgs/99king/img/img2.gif
+	drawmethod 26 26
+	frame	data/bgs/99king/img/img2.gif
+	drawmethod 16 16
+	frame	data/bgs/99king/img/img2.gif
+	drawmethod 6 6
+	frame	data/bgs/99king/img/img2.gif
+	frame	data/bgs/99king/img/empty.gif
+	frame	data/bgs/99king/img/empty.gif
+	frame	data/bgs/99king/img/empty.gif
+	@cmd	killgun 1 0
+	frame	data/bgs/99king/img/empty.gif
+	@cmd	anichange "ANI_SPAWN"
+	frame	data/bgs/99king/img/empty.gif
+#-----------------
+
+
+#----//--map3---//--
+anim	follow2
+@script
+	void self = getlocalvar("self");
+	if (frame == 1)
+	{
+	setentityvar(self, "kday", 4);  //next talk
+	}
+@end_script
+	loop	1 27 31
+	delay	7
+	offset	422 280
+	drawmethod 6 6 0 0 0 0 0 0 40
+	frame	data/bgs/99king/img/img3.gif
+	drawmethod 16 16 0 0 0 0 0 0 80
+	frame	data/bgs/99king/img/img3.gif
+	drawmethod 26 26 0 0 0 0 0 0 120
+	frame	data/bgs/99king/img/img3.gif
+	drawmethod 36 36 0 0 0 0 0 0 160
+	frame	data/bgs/99king/img/img3.gif
+	drawmethod 46 46 0 0 0 0 0 0 200
+	frame	data/bgs/99king/img/img3.gif
+	drawmethod 56 56 0 0 0 0 0 0 240
+	frame	data/bgs/99king/img/img3.gif
+	drawmethod 66 66 0 0 0 0 0 0 280
+	frame	data/bgs/99king/img/img3.gif
+	drawmethod 76 76 0 0 0 0 0 0 320
+	frame	data/bgs/99king/img/img3.gif
+	drawmethod 86 86 0 0 0 0 0 0 360
+	frame	data/bgs/99king/img/img3.gif
+	drawmethod 96 96 0 0 0 0 0 0 400
+	frame	data/bgs/99king/img/img3.gif
+	drawmethod 106 106 0 0 0 0 0 0 440
+	frame	data/bgs/99king/img/img3.gif
+	drawmethod 116 116 0 0 0 0 0 0 480
+	frame	data/bgs/99king/img/img3.gif
+	drawmethod 126 126 0 0 0 0 0 0 520
+	frame	data/bgs/99king/img/img3.gif
+	drawmethod 136 136 0 0 0 0 0 0 560
+	frame	data/bgs/99king/img/img3.gif
+	drawmethod 146 146 0 0 0 0 0 0 600
+	frame	data/bgs/99king/img/img3.gif
+	drawmethod 156 156 0 0 0 0 0 0 640
+	frame	data/bgs/99king/img/img3.gif
+	drawmethod 166 166 0 0 0 0 0 0 680
+	frame	data/bgs/99king/img/img3.gif
+	drawmethod 176 176 0 0 0 0 0 0 720
+	frame	data/bgs/99king/img/img3.gif
+	drawmethod 186 186 0 0 0 0 0 0 760
+	frame	data/bgs/99king/img/img3.gif
+	drawmethod 196 196 0 0 0 0 0 0 800
+	frame	data/bgs/99king/img/img3.gif
+	drawmethod 206 206 0 0 0 0 0 0 840
+	frame	data/bgs/99king/img/img3.gif #20
+	drawmethod 216 216 0 0 0 0 0 0 880
+	frame	data/bgs/99king/img/img3.gif
+	drawmethod 226 226 0 0 0 0 0 0 920
+	frame	data/bgs/99king/img/img3.gif
+	drawmethod 236 236 0 0 0 0 0 0 960
+	frame	data/bgs/99king/img/img3.gif
+	drawmethod 246 246 0 0 0 0 0 0 1000
+	frame	data/bgs/99king/img/img3.gif
+	drawmethod 256 256 0 0 0 0 0 0 1040
+	frame	data/bgs/99king/img/img3.gif
+	nodrawmethod
+	frame	data/bgs/99king/img/img3.gif
+	delay	3
+	frame	data/bgs/99king/img/img3.gif #27
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW2" 32 "A" 0 0
+	frame	data/bgs/99king/img/img3.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW2" 32 "A" 0 0
+	frame	data/bgs/99king/img/img3.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW2" 32 "A" 0 0
+	frame	data/bgs/99king/img/img3.gif #30
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW2" 32 "A" 0 0
+	frame	data/bgs/99king/img/img3.gif
+	frame	data/bgs/99king/img/img3.gif #32
+	delay	7
+	frame	data/bgs/99king/img/img3.gif
+	drawmethod 236 236
+	frame	data/bgs/99king/img/img3.gif
+	drawmethod 216 216
+	frame	data/bgs/99king/img/img3.gif
+	drawmethod 196 196
+	frame	data/bgs/99king/img/img3.gif
+	drawmethod 176 176
+	frame	data/bgs/99king/img/img3.gif
+	drawmethod 156 156
+	frame	data/bgs/99king/img/img3.gif
+	drawmethod 136 136
+	frame	data/bgs/99king/img/img3.gif
+	drawmethod 116 116
+	frame	data/bgs/99king/img/img3.gif
+	drawmethod 96 96
+	frame	data/bgs/99king/img/img3.gif
+	drawmethod 76 76
+	frame	data/bgs/99king/img/img3.gif
+	drawmethod 66 66
+	frame	data/bgs/99king/img/img3.gif
+	drawmethod 56 56
+	frame	data/bgs/99king/img/img3.gif
+	drawmethod 46 46
+	frame	data/bgs/99king/img/img3.gif
+	drawmethod 36 36
+	frame	data/bgs/99king/img/img3.gif
+	drawmethod 26 26
+	frame	data/bgs/99king/img/img3.gif
+	drawmethod 16 16
+	frame	data/bgs/99king/img/img3.gif
+	drawmethod 6 6
+	frame	data/bgs/99king/img/img3.gif
+	frame	data/bgs/99king/img/empty.gif
+	frame	data/bgs/99king/img/empty.gif
+	frame	data/bgs/99king/img/empty.gif
+	@cmd	killgun 1 0
+	frame	data/bgs/99king/img/empty.gif
+	@cmd	anichange "ANI_SPAWN"
+	frame	data/bgs/99king/img/empty.gif
+#-----------------
+
+#----//--map4---//--
+anim	follow3
+@script
+	void self = getlocalvar("self");
+	if (frame == 1)
+	{
+	setentityvar(self, "kday", 5);  //next talk
+	}
+@end_script
+	loop	1 27 31
+	delay	7
+	offset	165 320
+	drawmethod 6 6 0 0 0 0 0 0 40
+	frame	data/bgs/99king/img/img4.gif
+	drawmethod 16 16 0 0 0 0 0 0 80
+	frame	data/bgs/99king/img/img4.gif
+	drawmethod 26 26 0 0 0 0 0 0 120
+	frame	data/bgs/99king/img/img4.gif
+	drawmethod 36 36 0 0 0 0 0 0 160
+	frame	data/bgs/99king/img/img4.gif
+	drawmethod 46 46 0 0 0 0 0 0 200
+	frame	data/bgs/99king/img/img4.gif
+	drawmethod 56 56 0 0 0 0 0 0 240
+	frame	data/bgs/99king/img/img4.gif
+	drawmethod 66 66 0 0 0 0 0 0 280
+	frame	data/bgs/99king/img/img4.gif
+	drawmethod 76 76 0 0 0 0 0 0 320
+	frame	data/bgs/99king/img/img4.gif
+	drawmethod 86 86 0 0 0 0 0 0 360
+	frame	data/bgs/99king/img/img4.gif
+	drawmethod 96 96 0 0 0 0 0 0 400
+	frame	data/bgs/99king/img/img4.gif
+	drawmethod 106 106 0 0 0 0 0 0 440
+	frame	data/bgs/99king/img/img4.gif
+	drawmethod 116 116 0 0 0 0 0 0 480
+	frame	data/bgs/99king/img/img4.gif
+	drawmethod 126 126 0 0 0 0 0 0 520
+	frame	data/bgs/99king/img/img4.gif
+	drawmethod 136 136 0 0 0 0 0 0 560
+	frame	data/bgs/99king/img/img4.gif
+	drawmethod 146 146 0 0 0 0 0 0 600
+	frame	data/bgs/99king/img/img4.gif
+	drawmethod 156 156 0 0 0 0 0 0 640
+	frame	data/bgs/99king/img/img4.gif
+	drawmethod 166 166 0 0 0 0 0 0 680
+	frame	data/bgs/99king/img/img4.gif
+	drawmethod 176 176 0 0 0 0 0 0 720
+	frame	data/bgs/99king/img/img4.gif
+	drawmethod 186 186 0 0 0 0 0 0 760
+	frame	data/bgs/99king/img/img4.gif
+	drawmethod 196 196 0 0 0 0 0 0 800
+	frame	data/bgs/99king/img/img4.gif
+	drawmethod 206 206 0 0 0 0 0 0 840
+	frame	data/bgs/99king/img/img4.gif #20
+	drawmethod 216 216 0 0 0 0 0 0 880
+	frame	data/bgs/99king/img/img4.gif
+	drawmethod 226 226 0 0 0 0 0 0 920
+	frame	data/bgs/99king/img/img4.gif
+	drawmethod 236 236 0 0 0 0 0 0 960
+	frame	data/bgs/99king/img/img4.gif
+	drawmethod 246 246 0 0 0 0 0 0 1000
+	frame	data/bgs/99king/img/img4.gif
+	drawmethod 256 256 0 0 0 0 0 0 1040
+	frame	data/bgs/99king/img/img4.gif
+	nodrawmethod
+	frame	data/bgs/99king/img/img4.gif
+	delay	3
+	frame	data/bgs/99king/img/img4.gif #27
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW3" 32 "A" 0 0
+	frame	data/bgs/99king/img/img4.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW3" 32 "A" 0 0
+	frame	data/bgs/99king/img/img4.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW3" 32 "A" 0 0
+	frame	data/bgs/99king/img/img4.gif #30
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW3" 32 "A" 0 0
+	frame	data/bgs/99king/img/img4.gif
+	frame	data/bgs/99king/img/img4.gif #32
+	delay	7
+	frame	data/bgs/99king/img/img4.gif
+	drawmethod 236 236
+	frame	data/bgs/99king/img/img4.gif
+	drawmethod 216 216
+	frame	data/bgs/99king/img/img4.gif
+	drawmethod 196 196
+	frame	data/bgs/99king/img/img4.gif
+	drawmethod 176 176
+	frame	data/bgs/99king/img/img4.gif
+	drawmethod 156 156
+	frame	data/bgs/99king/img/img4.gif
+	drawmethod 136 136
+	frame	data/bgs/99king/img/img4.gif
+	drawmethod 116 116
+	frame	data/bgs/99king/img/img4.gif
+	drawmethod 96 96
+	frame	data/bgs/99king/img/img4.gif
+	drawmethod 76 76
+	frame	data/bgs/99king/img/img4.gif
+	drawmethod 66 66
+	frame	data/bgs/99king/img/img4.gif
+	drawmethod 56 56
+	frame	data/bgs/99king/img/img4.gif
+	drawmethod 46 46
+	frame	data/bgs/99king/img/img4.gif
+	drawmethod 36 36
+	frame	data/bgs/99king/img/img4.gif
+	drawmethod 26 26
+	frame	data/bgs/99king/img/img4.gif
+	drawmethod 16 16
+	frame	data/bgs/99king/img/img4.gif
+	drawmethod 6 6
+	frame	data/bgs/99king/img/img4.gif
+	frame	data/bgs/99king/img/empty.gif
+	frame	data/bgs/99king/img/empty.gif
+	frame	data/bgs/99king/img/empty.gif
+	@cmd	killgun 1 0
+	frame	data/bgs/99king/img/empty.gif
+	@cmd	anichange "ANI_SPAWN"
+	frame	data/bgs/99king/img/empty.gif
+#-----------------
+
+#----//--map5---//--
+anim	follow4
+@script
+	void self = getlocalvar("self");
+	if (frame == 1)
+	{
+	setentityvar(self, "kday", 6);  //next talk
+	}
+@end_script
+	loop	1 27 31
+	delay	7
+	offset	217 190
+	drawmethod 6 6 0 0 0 0 0 0 40
+	frame	data/bgs/99king/img/img5.gif
+	drawmethod 16 16 0 0 0 0 0 0 80
+	frame	data/bgs/99king/img/img5.gif
+	drawmethod 26 26 0 0 0 0 0 0 120
+	frame	data/bgs/99king/img/img5.gif
+	drawmethod 36 36 0 0 0 0 0 0 160
+	frame	data/bgs/99king/img/img5.gif
+	drawmethod 46 46 0 0 0 0 0 0 200
+	frame	data/bgs/99king/img/img5.gif
+	drawmethod 56 56 0 0 0 0 0 0 240
+	frame	data/bgs/99king/img/img5.gif
+	drawmethod 66 66 0 0 0 0 0 0 280
+	frame	data/bgs/99king/img/img5.gif
+	drawmethod 76 76 0 0 0 0 0 0 320
+	frame	data/bgs/99king/img/img5.gif
+	drawmethod 86 86 0 0 0 0 0 0 360
+	frame	data/bgs/99king/img/img5.gif
+	drawmethod 96 96 0 0 0 0 0 0 400
+	frame	data/bgs/99king/img/img5.gif
+	drawmethod 106 106 0 0 0 0 0 0 440
+	frame	data/bgs/99king/img/img5.gif
+	drawmethod 116 116 0 0 0 0 0 0 480
+	frame	data/bgs/99king/img/img5.gif
+	drawmethod 126 126 0 0 0 0 0 0 520
+	frame	data/bgs/99king/img/img5.gif
+	drawmethod 136 136 0 0 0 0 0 0 560
+	frame	data/bgs/99king/img/img5.gif
+	drawmethod 146 146 0 0 0 0 0 0 600
+	frame	data/bgs/99king/img/img5.gif
+	drawmethod 156 156 0 0 0 0 0 0 640
+	frame	data/bgs/99king/img/img5.gif
+	drawmethod 166 166 0 0 0 0 0 0 680
+	frame	data/bgs/99king/img/img5.gif
+	drawmethod 176 176 0 0 0 0 0 0 720
+	frame	data/bgs/99king/img/img5.gif
+	drawmethod 186 186 0 0 0 0 0 0 760
+	frame	data/bgs/99king/img/img5.gif
+	drawmethod 196 196 0 0 0 0 0 0 800
+	frame	data/bgs/99king/img/img5.gif
+	drawmethod 206 206 0 0 0 0 0 0 840
+	frame	data/bgs/99king/img/img5.gif #20
+	drawmethod 216 216 0 0 0 0 0 0 880
+	frame	data/bgs/99king/img/img5.gif
+	drawmethod 226 226 0 0 0 0 0 0 920
+	frame	data/bgs/99king/img/img5.gif
+	drawmethod 236 236 0 0 0 0 0 0 960
+	frame	data/bgs/99king/img/img5.gif
+	drawmethod 246 246 0 0 0 0 0 0 1000
+	frame	data/bgs/99king/img/img5.gif
+	drawmethod 256 256 0 0 0 0 0 0 1040
+	frame	data/bgs/99king/img/img5.gif
+	nodrawmethod
+	frame	data/bgs/99king/img/img5.gif
+	delay	3
+	frame	data/bgs/99king/img/img5.gif #27
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW4" 32 "A" 0 0
+	frame	data/bgs/99king/img/img5.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW4" 32 "A" 0 0
+	frame	data/bgs/99king/img/img5.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW4" 32 "A" 0 0
+	frame	data/bgs/99king/img/img5.gif #30
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW4" 32 "A" 0 0
+	frame	data/bgs/99king/img/img5.gif
+	frame	data/bgs/99king/img/img5.gif #32
+	delay	7
+	frame	data/bgs/99king/img/img5.gif
+	drawmethod 236 236
+	frame	data/bgs/99king/img/img5.gif
+	drawmethod 216 216
+	frame	data/bgs/99king/img/img5.gif
+	drawmethod 196 196
+	frame	data/bgs/99king/img/img5.gif
+	drawmethod 176 176
+	frame	data/bgs/99king/img/img5.gif
+	drawmethod 156 156
+	frame	data/bgs/99king/img/img5.gif
+	drawmethod 136 136
+	frame	data/bgs/99king/img/img5.gif
+	drawmethod 116 116
+	frame	data/bgs/99king/img/img5.gif
+	drawmethod 96 96
+	frame	data/bgs/99king/img/img5.gif
+	drawmethod 76 76
+	frame	data/bgs/99king/img/img5.gif
+	drawmethod 66 66
+	frame	data/bgs/99king/img/img5.gif
+	drawmethod 56 56
+	frame	data/bgs/99king/img/img5.gif
+	drawmethod 46 46
+	frame	data/bgs/99king/img/img5.gif
+	drawmethod 36 36
+	frame	data/bgs/99king/img/img5.gif
+	drawmethod 26 26
+	frame	data/bgs/99king/img/img5.gif
+	drawmethod 16 16
+	frame	data/bgs/99king/img/img5.gif
+	drawmethod 6 6
+	frame	data/bgs/99king/img/img5.gif
+	frame	data/bgs/99king/img/empty.gif
+	frame	data/bgs/99king/img/empty.gif
+	frame	data/bgs/99king/img/empty.gif
+	@cmd	killgun 1 0
+	frame	data/bgs/99king/img/empty.gif
+	@cmd	anichange "ANI_SPAWN"
+	frame	data/bgs/99king/img/empty.gif
+#-----------------
+
+#----//--map6---//--
+anim	follow5
+@script
+	void self = getlocalvar("self");
+	if (frame == 1)
+	{
+	setentityvar(self, "kday", 7);  //next talk
+	}
+@end_script
+	loop	1 27 31
+	delay	7
+	offset	370 370
+	drawmethod 6 6 0 0 0 0 0 0 40
+	frame	data/bgs/99king/img/img6.gif
+	drawmethod 16 16 0 0 0 0 0 0 80
+	frame	data/bgs/99king/img/img6.gif
+	drawmethod 26 26 0 0 0 0 0 0 120
+	frame	data/bgs/99king/img/img6.gif
+	drawmethod 36 36 0 0 0 0 0 0 160
+	frame	data/bgs/99king/img/img6.gif
+	drawmethod 46 46 0 0 0 0 0 0 200
+	frame	data/bgs/99king/img/img6.gif
+	drawmethod 56 56 0 0 0 0 0 0 240
+	frame	data/bgs/99king/img/img6.gif
+	drawmethod 66 66 0 0 0 0 0 0 280
+	frame	data/bgs/99king/img/img6.gif
+	drawmethod 76 76 0 0 0 0 0 0 320
+	frame	data/bgs/99king/img/img6.gif
+	drawmethod 86 86 0 0 0 0 0 0 360
+	frame	data/bgs/99king/img/img6.gif
+	drawmethod 96 96 0 0 0 0 0 0 400
+	frame	data/bgs/99king/img/img6.gif
+	drawmethod 106 106 0 0 0 0 0 0 440
+	frame	data/bgs/99king/img/img6.gif
+	drawmethod 116 116 0 0 0 0 0 0 480
+	frame	data/bgs/99king/img/img6.gif
+	drawmethod 126 126 0 0 0 0 0 0 520
+	frame	data/bgs/99king/img/img6.gif
+	drawmethod 136 136 0 0 0 0 0 0 560
+	frame	data/bgs/99king/img/img6.gif
+	drawmethod 146 146 0 0 0 0 0 0 600
+	frame	data/bgs/99king/img/img6.gif
+	drawmethod 156 156 0 0 0 0 0 0 640
+	frame	data/bgs/99king/img/img6.gif
+	drawmethod 166 166 0 0 0 0 0 0 680
+	frame	data/bgs/99king/img/img6.gif
+	drawmethod 176 176 0 0 0 0 0 0 720
+	frame	data/bgs/99king/img/img6.gif
+	drawmethod 186 186 0 0 0 0 0 0 760
+	frame	data/bgs/99king/img/img6.gif
+	drawmethod 196 196 0 0 0 0 0 0 800
+	frame	data/bgs/99king/img/img6.gif
+	drawmethod 206 206 0 0 0 0 0 0 840
+	frame	data/bgs/99king/img/img6.gif #20
+	drawmethod 216 216 0 0 0 0 0 0 880
+	frame	data/bgs/99king/img/img6.gif
+	drawmethod 226 226 0 0 0 0 0 0 920
+	frame	data/bgs/99king/img/img6.gif
+	drawmethod 236 236 0 0 0 0 0 0 960
+	frame	data/bgs/99king/img/img6.gif
+	drawmethod 246 246 0 0 0 0 0 0 1000
+	frame	data/bgs/99king/img/img6.gif
+	drawmethod 256 256 0 0 0 0 0 0 1040
+	frame	data/bgs/99king/img/img6.gif
+	nodrawmethod
+	frame	data/bgs/99king/img/img6.gif
+	delay	3
+	frame	data/bgs/99king/img/img6.gif #27
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW5" 32 "A" 0 0
+	frame	data/bgs/99king/img/img6.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW5" 32 "A" 0 0
+	frame	data/bgs/99king/img/img6.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW5" 32 "A" 0 0
+	frame	data/bgs/99king/img/img6.gif #30
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW5" 32 "A" 0 0
+	frame	data/bgs/99king/img/img6.gif
+	frame	data/bgs/99king/img/img6.gif #32
+	delay	7
+	frame	data/bgs/99king/img/img6.gif
+	drawmethod 236 236
+	frame	data/bgs/99king/img/img6.gif
+	drawmethod 216 216
+	frame	data/bgs/99king/img/img6.gif
+	drawmethod 196 196
+	frame	data/bgs/99king/img/img6.gif
+	drawmethod 176 176
+	frame	data/bgs/99king/img/img6.gif
+	drawmethod 156 156
+	frame	data/bgs/99king/img/img6.gif
+	drawmethod 136 136
+	frame	data/bgs/99king/img/img6.gif
+	drawmethod 116 116
+	frame	data/bgs/99king/img/img6.gif
+	drawmethod 96 96
+	frame	data/bgs/99king/img/img6.gif
+	drawmethod 76 76
+	frame	data/bgs/99king/img/img6.gif
+	drawmethod 66 66
+	frame	data/bgs/99king/img/img6.gif
+	drawmethod 56 56
+	frame	data/bgs/99king/img/img6.gif
+	drawmethod 46 46
+	frame	data/bgs/99king/img/img6.gif
+	drawmethod 36 36
+	frame	data/bgs/99king/img/img6.gif
+	drawmethod 26 26
+	frame	data/bgs/99king/img/img6.gif
+	drawmethod 16 16
+	frame	data/bgs/99king/img/img6.gif
+	drawmethod 6 6
+	frame	data/bgs/99king/img/img6.gif
+	frame	data/bgs/99king/img/empty.gif
+	frame	data/bgs/99king/img/empty.gif
+	frame	data/bgs/99king/img/empty.gif
+	@cmd	killgun 1 0
+	frame	data/bgs/99king/img/empty.gif
+	@cmd	anichange "ANI_SPAWN"
+	frame	data/bgs/99king/img/empty.gif
+#-----------------
+
+#----//--map7---//--
+anim	follow6
+@script
+	void self = getlocalvar("self");
+	if (frame == 1)
+	{
+	setentityvar(self, "kday", 8);  //next talk
+	}
+@end_script
+	loop	1 27 31
+	delay	7
+	offset	215 315
+	drawmethod 6 6 0 0 0 0 0 0 40
+	frame	data/bgs/99king/img/img7.gif
+	drawmethod 16 16 0 0 0 0 0 0 80
+	frame	data/bgs/99king/img/img7.gif
+	drawmethod 26 26 0 0 0 0 0 0 120
+	frame	data/bgs/99king/img/img7.gif
+	drawmethod 36 36 0 0 0 0 0 0 160
+	frame	data/bgs/99king/img/img7.gif
+	drawmethod 46 46 0 0 0 0 0 0 200
+	frame	data/bgs/99king/img/img7.gif
+	drawmethod 56 56 0 0 0 0 0 0 240
+	frame	data/bgs/99king/img/img7.gif
+	drawmethod 66 66 0 0 0 0 0 0 280
+	frame	data/bgs/99king/img/img7.gif
+	drawmethod 76 76 0 0 0 0 0 0 320
+	frame	data/bgs/99king/img/img7.gif
+	drawmethod 86 86 0 0 0 0 0 0 360
+	frame	data/bgs/99king/img/img7.gif
+	drawmethod 96 96 0 0 0 0 0 0 400
+	frame	data/bgs/99king/img/img7.gif
+	drawmethod 106 106 0 0 0 0 0 0 440
+	frame	data/bgs/99king/img/img7.gif
+	drawmethod 116 116 0 0 0 0 0 0 480
+	frame	data/bgs/99king/img/img7.gif
+	drawmethod 126 126 0 0 0 0 0 0 520
+	frame	data/bgs/99king/img/img7.gif
+	drawmethod 136 136 0 0 0 0 0 0 560
+	frame	data/bgs/99king/img/img7.gif
+	drawmethod 146 146 0 0 0 0 0 0 600
+	frame	data/bgs/99king/img/img7.gif
+	drawmethod 156 156 0 0 0 0 0 0 640
+	frame	data/bgs/99king/img/img7.gif
+	drawmethod 166 166 0 0 0 0 0 0 680
+	frame	data/bgs/99king/img/img7.gif
+	drawmethod 176 176 0 0 0 0 0 0 720
+	frame	data/bgs/99king/img/img7.gif
+	drawmethod 186 186 0 0 0 0 0 0 760
+	frame	data/bgs/99king/img/img7.gif
+	drawmethod 196 196 0 0 0 0 0 0 800
+	frame	data/bgs/99king/img/img7.gif
+	drawmethod 206 206 0 0 0 0 0 0 840
+	frame	data/bgs/99king/img/img7.gif #20
+	drawmethod 216 216 0 0 0 0 0 0 880
+	frame	data/bgs/99king/img/img7.gif
+	drawmethod 226 226 0 0 0 0 0 0 920
+	frame	data/bgs/99king/img/img7.gif
+	drawmethod 236 236 0 0 0 0 0 0 960
+	frame	data/bgs/99king/img/img7.gif
+	drawmethod 246 246 0 0 0 0 0 0 1000
+	frame	data/bgs/99king/img/img7.gif
+	drawmethod 256 256 0 0 0 0 0 0 1040
+	frame	data/bgs/99king/img/img7.gif
+	nodrawmethod
+	frame	data/bgs/99king/img/img7.gif
+	delay	3
+	frame	data/bgs/99king/img/img7.gif #27
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW6" 32 "A" 0 0
+	frame	data/bgs/99king/img/img7.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW6" 32 "A" 0 0
+	frame	data/bgs/99king/img/img7.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW6" 32 "A" 0 0
+	frame	data/bgs/99king/img/img7.gif #30
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW6" 32 "A" 0 0
+	frame	data/bgs/99king/img/img7.gif
+	frame	data/bgs/99king/img/img7.gif #32
+	delay	7
+	frame	data/bgs/99king/img/img7.gif
+	drawmethod 236 236
+	frame	data/bgs/99king/img/img7.gif
+	drawmethod 216 216
+	frame	data/bgs/99king/img/img7.gif
+	drawmethod 196 196
+	frame	data/bgs/99king/img/img7.gif
+	drawmethod 176 176
+	frame	data/bgs/99king/img/img7.gif
+	drawmethod 156 156
+	frame	data/bgs/99king/img/img7.gif
+	drawmethod 136 136
+	frame	data/bgs/99king/img/img7.gif
+	drawmethod 116 116
+	frame	data/bgs/99king/img/img7.gif
+	drawmethod 96 96
+	frame	data/bgs/99king/img/img7.gif
+	drawmethod 76 76
+	frame	data/bgs/99king/img/img7.gif
+	drawmethod 66 66
+	frame	data/bgs/99king/img/img7.gif
+	drawmethod 56 56
+	frame	data/bgs/99king/img/img7.gif
+	drawmethod 46 46
+	frame	data/bgs/99king/img/img7.gif
+	drawmethod 36 36
+	frame	data/bgs/99king/img/img7.gif
+	drawmethod 26 26
+	frame	data/bgs/99king/img/img7.gif
+	drawmethod 16 16
+	frame	data/bgs/99king/img/img7.gif
+	drawmethod 6 6
+	frame	data/bgs/99king/img/img7.gif
+	frame	data/bgs/99king/img/empty.gif
+	frame	data/bgs/99king/img/empty.gif
+	frame	data/bgs/99king/img/empty.gif
+	@cmd	killgun 1 0
+	frame	data/bgs/99king/img/empty.gif
+	@cmd	anichange "ANI_SPAWN"
+	frame	data/bgs/99king/img/empty.gif
+#-----------------
+
+
+#----//--map8---//--
+anim	follow7
+@script
+	void self = getlocalvar("self");
+	if (frame == 1)
+	{
+	setentityvar(self, "kday", 9);  //next talk
+	}
+@end_script
+	loop	1 27 31
+	delay	7
+	offset	235 300
+	drawmethod 6 6 0 0 0 0 0 0 40
+	frame	data/bgs/99king/img/img8.gif
+	drawmethod 16 16 0 0 0 0 0 0 80
+	frame	data/bgs/99king/img/img8.gif
+	drawmethod 26 26 0 0 0 0 0 0 120
+	frame	data/bgs/99king/img/img8.gif
+	drawmethod 36 36 0 0 0 0 0 0 160
+	frame	data/bgs/99king/img/img8.gif
+	drawmethod 46 46 0 0 0 0 0 0 200
+	frame	data/bgs/99king/img/img8.gif
+	drawmethod 56 56 0 0 0 0 0 0 240
+	frame	data/bgs/99king/img/img8.gif
+	drawmethod 66 66 0 0 0 0 0 0 280
+	frame	data/bgs/99king/img/img8.gif
+	drawmethod 76 76 0 0 0 0 0 0 320
+	frame	data/bgs/99king/img/img8.gif
+	drawmethod 86 86 0 0 0 0 0 0 360
+	frame	data/bgs/99king/img/img8.gif
+	drawmethod 96 96 0 0 0 0 0 0 400
+	frame	data/bgs/99king/img/img8.gif
+	drawmethod 106 106 0 0 0 0 0 0 440
+	frame	data/bgs/99king/img/img8.gif
+	drawmethod 116 116 0 0 0 0 0 0 480
+	frame	data/bgs/99king/img/img8.gif
+	drawmethod 126 126 0 0 0 0 0 0 520
+	frame	data/bgs/99king/img/img8.gif
+	drawmethod 136 136 0 0 0 0 0 0 560
+	frame	data/bgs/99king/img/img8.gif
+	drawmethod 146 146 0 0 0 0 0 0 600
+	frame	data/bgs/99king/img/img8.gif
+	drawmethod 156 156 0 0 0 0 0 0 640
+	frame	data/bgs/99king/img/img8.gif
+	drawmethod 166 166 0 0 0 0 0 0 680
+	frame	data/bgs/99king/img/img8.gif
+	drawmethod 176 176 0 0 0 0 0 0 720
+	frame	data/bgs/99king/img/img8.gif
+	drawmethod 186 186 0 0 0 0 0 0 760
+	frame	data/bgs/99king/img/img8.gif
+	drawmethod 196 196 0 0 0 0 0 0 800
+	frame	data/bgs/99king/img/img8.gif
+	drawmethod 206 206 0 0 0 0 0 0 840
+	frame	data/bgs/99king/img/img8.gif #20
+	drawmethod 216 216 0 0 0 0 0 0 880
+	frame	data/bgs/99king/img/img8.gif
+	drawmethod 226 226 0 0 0 0 0 0 920
+	frame	data/bgs/99king/img/img8.gif
+	drawmethod 236 236 0 0 0 0 0 0 960
+	frame	data/bgs/99king/img/img8.gif
+	drawmethod 246 246 0 0 0 0 0 0 1000
+	frame	data/bgs/99king/img/img8.gif
+	drawmethod 256 256 0 0 0 0 0 0 1040
+	frame	data/bgs/99king/img/img8.gif
+	nodrawmethod
+	frame	data/bgs/99king/img/img8.gif
+	delay	3
+	frame	data/bgs/99king/img/img8.gif #27
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW7" 32 "A" 0 0
+	frame	data/bgs/99king/img/img8.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW7" 32 "A" 0 0
+	frame	data/bgs/99king/img/img8.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW7" 32 "A" 0 0
+	frame	data/bgs/99king/img/img8.gif #30
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW7" 32 "A" 0 0
+	frame	data/bgs/99king/img/img8.gif
+	frame	data/bgs/99king/img/img8.gif #32
+	delay	7
+	frame	data/bgs/99king/img/img8.gif
+	drawmethod 236 236
+	frame	data/bgs/99king/img/img8.gif
+	drawmethod 216 216
+	frame	data/bgs/99king/img/img8.gif
+	drawmethod 196 196
+	frame	data/bgs/99king/img/img8.gif
+	drawmethod 176 176
+	frame	data/bgs/99king/img/img8.gif
+	drawmethod 156 156
+	frame	data/bgs/99king/img/img8.gif
+	drawmethod 136 136
+	frame	data/bgs/99king/img/img8.gif
+	drawmethod 116 116
+	frame	data/bgs/99king/img/img8.gif
+	drawmethod 96 96
+	frame	data/bgs/99king/img/img8.gif
+	drawmethod 76 76
+	frame	data/bgs/99king/img/img8.gif
+	drawmethod 66 66
+	frame	data/bgs/99king/img/img8.gif
+	drawmethod 56 56
+	frame	data/bgs/99king/img/img8.gif
+	drawmethod 46 46
+	frame	data/bgs/99king/img/img8.gif
+	drawmethod 36 36
+	frame	data/bgs/99king/img/img8.gif
+	drawmethod 26 26
+	frame	data/bgs/99king/img/img8.gif
+	drawmethod 16 16
+	frame	data/bgs/99king/img/img8.gif
+	drawmethod 6 6
+	frame	data/bgs/99king/img/img8.gif
+	frame	data/bgs/99king/img/empty.gif
+	frame	data/bgs/99king/img/empty.gif
+	frame	data/bgs/99king/img/empty.gif
+	@cmd	killgun 1 0
+	frame	data/bgs/99king/img/empty.gif
+	@cmd	anichange "ANI_SPAWN"
+	frame	data/bgs/99king/img/empty.gif
+#-----------------
+
+#----//--map9---//--
+anim	follow8
+@script
+	void self = getlocalvar("self");
+	if (frame == 1)
+	{
+	setentityvar(self, "kday", 10);  //next talk
+	}
+@end_script
+	loop	1 27 31
+	delay	7
+	offset	315 315
+	drawmethod 6 6 0 0 0 0 0 0 40
+	frame	data/bgs/99king/img/img9.gif
+	drawmethod 16 16 0 0 0 0 0 0 80
+	frame	data/bgs/99king/img/img9.gif
+	drawmethod 26 26 0 0 0 0 0 0 120
+	frame	data/bgs/99king/img/img9.gif
+	drawmethod 36 36 0 0 0 0 0 0 160
+	frame	data/bgs/99king/img/img9.gif
+	drawmethod 46 46 0 0 0 0 0 0 200
+	frame	data/bgs/99king/img/img9.gif
+	drawmethod 56 56 0 0 0 0 0 0 240
+	frame	data/bgs/99king/img/img9.gif
+	drawmethod 66 66 0 0 0 0 0 0 280
+	frame	data/bgs/99king/img/img9.gif
+	drawmethod 76 76 0 0 0 0 0 0 320
+	frame	data/bgs/99king/img/img9.gif
+	drawmethod 86 86 0 0 0 0 0 0 360
+	frame	data/bgs/99king/img/img9.gif
+	drawmethod 96 96 0 0 0 0 0 0 400
+	frame	data/bgs/99king/img/img9.gif
+	drawmethod 106 106 0 0 0 0 0 0 440
+	frame	data/bgs/99king/img/img9.gif
+	drawmethod 116 116 0 0 0 0 0 0 480
+	frame	data/bgs/99king/img/img9.gif
+	drawmethod 126 126 0 0 0 0 0 0 520
+	frame	data/bgs/99king/img/img9.gif
+	drawmethod 136 136 0 0 0 0 0 0 560
+	frame	data/bgs/99king/img/img9.gif
+	drawmethod 146 146 0 0 0 0 0 0 600
+	frame	data/bgs/99king/img/img9.gif
+	drawmethod 156 156 0 0 0 0 0 0 640
+	frame	data/bgs/99king/img/img9.gif
+	drawmethod 166 166 0 0 0 0 0 0 680
+	frame	data/bgs/99king/img/img9.gif
+	drawmethod 176 176 0 0 0 0 0 0 720
+	frame	data/bgs/99king/img/img9.gif
+	drawmethod 186 186 0 0 0 0 0 0 760
+	frame	data/bgs/99king/img/img9.gif
+	drawmethod 196 196 0 0 0 0 0 0 800
+	frame	data/bgs/99king/img/img9.gif
+	drawmethod 206 206 0 0 0 0 0 0 840
+	frame	data/bgs/99king/img/img9.gif #20
+	drawmethod 216 216 0 0 0 0 0 0 880
+	frame	data/bgs/99king/img/img9.gif
+	drawmethod 226 226 0 0 0 0 0 0 920
+	frame	data/bgs/99king/img/img9.gif
+	drawmethod 236 236 0 0 0 0 0 0 960
+	frame	data/bgs/99king/img/img9.gif
+	drawmethod 246 246 0 0 0 0 0 0 1000
+	frame	data/bgs/99king/img/img9.gif
+	drawmethod 256 256 0 0 0 0 0 0 1040
+	frame	data/bgs/99king/img/img9.gif
+	nodrawmethod
+	frame	data/bgs/99king/img/img9.gif
+	delay	3
+	frame	data/bgs/99king/img/img9.gif #27
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW8" 32 "A" 0 0
+	frame	data/bgs/99king/img/img9.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW8" 32 "A" 0 0
+	frame	data/bgs/99king/img/img9.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW8" 32 "A" 0 0
+	frame	data/bgs/99king/img/img9.gif #30
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW8" 32 "A" 0 0
+	frame	data/bgs/99king/img/img9.gif
+	frame	data/bgs/99king/img/img9.gif #32
+	delay	7
+	frame	data/bgs/99king/img/img9.gif
+	drawmethod 236 236
+	frame	data/bgs/99king/img/img9.gif
+	drawmethod 216 216
+	frame	data/bgs/99king/img/img9.gif
+	drawmethod 196 196
+	frame	data/bgs/99king/img/img9.gif
+	drawmethod 176 176
+	frame	data/bgs/99king/img/img9.gif
+	drawmethod 156 156
+	frame	data/bgs/99king/img/img9.gif
+	drawmethod 136 136
+	frame	data/bgs/99king/img/img9.gif
+	drawmethod 116 116
+	frame	data/bgs/99king/img/img9.gif
+	drawmethod 96 96
+	frame	data/bgs/99king/img/img9.gif
+	drawmethod 76 76
+	frame	data/bgs/99king/img/img9.gif
+	drawmethod 66 66
+	frame	data/bgs/99king/img/img9.gif
+	drawmethod 56 56
+	frame	data/bgs/99king/img/img9.gif
+	drawmethod 46 46
+	frame	data/bgs/99king/img/img9.gif
+	drawmethod 36 36
+	frame	data/bgs/99king/img/img9.gif
+	drawmethod 26 26
+	frame	data/bgs/99king/img/img9.gif
+	drawmethod 16 16
+	frame	data/bgs/99king/img/img9.gif
+	drawmethod 6 6
+	frame	data/bgs/99king/img/img9.gif
+	frame	data/bgs/99king/img/empty.gif
+	frame	data/bgs/99king/img/empty.gif
+	frame	data/bgs/99king/img/empty.gif
+	@cmd	killgun 1 0
+	frame	data/bgs/99king/img/empty.gif
+	@cmd	anichange "ANI_SPAWN"
+	frame	data/bgs/99king/img/empty.gif
+#-----------------
+
+#----//--map10---//--
+anim	follow9
+	loop	1 27 32
+	delay	7
+	offset	315 315
+	drawmethod 6 6 0 0 0 0 0 0 40
+	frame	data/bgs/99king/img/img10a.gif
+	drawmethod 16 16 0 0 0 0 0 0 80
+	frame	data/bgs/99king/img/img10a.gif
+	drawmethod 26 26 0 0 0 0 0 0 120
+	frame	data/bgs/99king/img/img10a.gif
+	drawmethod 36 36 0 0 0 0 0 0 160
+	frame	data/bgs/99king/img/img10a.gif
+	drawmethod 46 46 0 0 0 0 0 0 200
+	frame	data/bgs/99king/img/img10a.gif
+	drawmethod 56 56 0 0 0 0 0 0 240
+	frame	data/bgs/99king/img/img10a.gif
+	drawmethod 66 66 0 0 0 0 0 0 280
+	frame	data/bgs/99king/img/img10a.gif
+	drawmethod 76 76 0 0 0 0 0 0 320
+	frame	data/bgs/99king/img/img10a.gif
+	drawmethod 86 86 0 0 0 0 0 0 360
+	frame	data/bgs/99king/img/img10a.gif
+	drawmethod 96 96 0 0 0 0 0 0 400
+	frame	data/bgs/99king/img/img10a.gif
+	drawmethod 106 106 0 0 0 0 0 0 440
+	frame	data/bgs/99king/img/img10a.gif
+	drawmethod 116 116 0 0 0 0 0 0 480
+	frame	data/bgs/99king/img/img10a.gif
+	drawmethod 126 126 0 0 0 0 0 0 520
+	frame	data/bgs/99king/img/img10a.gif
+	drawmethod 136 136 0 0 0 0 0 0 560
+	frame	data/bgs/99king/img/img10a.gif
+	drawmethod 146 146 0 0 0 0 0 0 600
+	frame	data/bgs/99king/img/img10a.gif
+	drawmethod 156 156 0 0 0 0 0 0 640
+	frame	data/bgs/99king/img/img10a.gif
+	drawmethod 166 166 0 0 0 0 0 0 680
+	frame	data/bgs/99king/img/img10a.gif
+	drawmethod 176 176 0 0 0 0 0 0 720
+	frame	data/bgs/99king/img/img10a.gif
+	drawmethod 186 186 0 0 0 0 0 0 760
+	frame	data/bgs/99king/img/img10a.gif
+	drawmethod 196 196 0 0 0 0 0 0 800
+	frame	data/bgs/99king/img/img10a.gif
+	drawmethod 206 206 0 0 0 0 0 0 840
+	frame	data/bgs/99king/img/img10a.gif #20
+	drawmethod 216 216 0 0 0 0 0 0 880
+	frame	data/bgs/99king/img/img10a.gif
+	drawmethod 226 226 0 0 0 0 0 0 920
+	frame	data/bgs/99king/img/img10a.gif
+	drawmethod 236 236 0 0 0 0 0 0 960
+	frame	data/bgs/99king/img/img10a.gif
+	drawmethod 246 246 0 0 0 0 0 0 1000
+	frame	data/bgs/99king/img/img10a.gif
+	drawmethod 256 256 0 0 0 0 0 0 1040
+	frame	data/bgs/99king/img/img10a.gif
+	nodrawmethod
+	frame	data/bgs/99king/img/img10a.gif
+	delay	3
+	frame	data/bgs/99king/img/img10b.gif #27
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW9" 33 "A" 0 0
+	frame	data/bgs/99king/img/img10a.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW9" 33 "A" 0 0
+	frame	data/bgs/99king/img/img10b.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW9" 33 "A" 0 0
+	frame	data/bgs/99king/img/img10a.gif #30
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW9" 33 "A" 0 0
+	frame	data/bgs/99king/img/img10b.gif
+	@cmd	keymove 2
+	@cmd    keyint "ANI_FOLLOW9" 33 "A" 0 0
+	frame	data/bgs/99king/img/img10a.gif #32
+	frame	data/bgs/99king/img/img10a.gif
+	delay	7
+	frame	data/bgs/99king/img/img10a.gif
+	drawmethod 236 236
+	frame	data/bgs/99king/img/img10a.gif
+	drawmethod 216 216
+	frame	data/bgs/99king/img/img10a.gif
+	drawmethod 196 196
+	frame	data/bgs/99king/img/img10a.gif
+	drawmethod 176 176
+	frame	data/bgs/99king/img/img10a.gif
+	drawmethod 156 156
+	frame	data/bgs/99king/img/img10a.gif
+	drawmethod 136 136
+	frame	data/bgs/99king/img/img10a.gif
+	drawmethod 116 116
+	frame	data/bgs/99king/img/img10a.gif
+	drawmethod 96 96
+	frame	data/bgs/99king/img/img10a.gif
+	drawmethod 76 76
+	frame	data/bgs/99king/img/img10a.gif
+	drawmethod 66 66
+	frame	data/bgs/99king/img/img10a.gif
+	drawmethod 56 56
+	frame	data/bgs/99king/img/img10a.gif
+	drawmethod 46 46
+	frame	data/bgs/99king/img/img10a.gif
+	drawmethod 36 36
+	frame	data/bgs/99king/img/img10a.gif
+	drawmethod 26 26
+	frame	data/bgs/99king/img/img10a.gif
+	drawmethod 16 16
+	frame	data/bgs/99king/img/img10a.gif
+	drawmethod 6 6
+	frame	data/bgs/99king/img/img10a.gif
+	frame	data/bgs/99king/img/empty.gif
+	frame	data/bgs/99king/img/empty.gif
+	frame	data/bgs/99king/img/empty.gif
+	@cmd	killgun 1 0
+	frame	data/bgs/99king/img/empty.gif
+	@cmd	anichange "ANI_SPAWN"
+	#@cmd	suicide
+	frame	data/bgs/99king/img/empty.gif
+#-----------------

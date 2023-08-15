@@ -1,0 +1,167 @@
+name	 	mistout
+type    	enemy
+speedf		1
+health		5
+cantgrab	1
+gfxshadow  	1
+lifespan  	10
+offscreenkill 	100
+falldie	 	1
+alpha		1
+nodieblink	1
+nolife          1
+nopain		1
+nodrop		2
+subject_to_hole 0
+subject_to_wall 0
+hostile		player
+candamage       player
+animationscript data/scripts/escript.c
+
+
+
+alternatepal	data/chars/beyond/1ecto1/lgmap1.gif
+alternatepal	data/chars/beyond/1ecto1/lgmap2.gif
+alternatepal	data/chars/beyond/1ecto1/lgmap3.gif
+alternatepal	data/chars/beyond/1ecto1/lgmap4.gif
+
+
+
+anim	attack1
+	range	0 100
+	loop	0
+	delay	6
+	offset	117 183
+	bbox	0 0 0 0
+	fastattack	1
+	frame	data/chars/beyond/1ecto1/a07.gif
+	frame	data/chars/beyond/1ecto1/a08.gif
+	frame	data/chars/beyond/1ecto1/a09.gif
+	attack	90 90 140 50 7 0 0 0 11 10
+	frame	data/chars/beyond/1ecto1/a10.gif
+	frame	data/chars/beyond/1ecto1/a11.gif
+	frame	data/chars/beyond/1ecto1/a12.gif
+	attack	0 0 0 0
+	frame	data/chars/beyond/1ecto1/a13.gif
+	frame	data/chars/beyond/1ecto1/a14.gif
+	attack2	90 95 140 85 7 0 0 0 11 10
+	frame	data/chars/beyond/1ecto1/a15.gif
+	frame	data/chars/beyond/1ecto1/a16.gif
+	attack2	0 0 0 0
+	frame	data/chars/beyond/1ecto1/a17.gif
+	frame	data/chars/beyond/1ecto1/a18.gif
+	frame	data/chars/beyond/1ecto1/a19.gif
+	attack	90 30 140 90 7 1 0 0 11 10
+	dropv	4 1
+	frame	data/chars/beyond/1ecto1/a20.gif
+	frame	data/chars/beyond/1ecto1/a21.gif
+	attack	0 0 0 0
+	frame	data/chars/beyond/1ecto1/a22.gif
+	frame	data/chars/beyond/1ecto1/a23.gif
+	frame	data/chars/beyond/1ecto1/a24.gif
+	frame	data/chars/beyond/1ecto1/a25.gif
+	frame	data/chars/beyond/1ecto1/b01.gif
+	frame	data/chars/beyond/1ecto1/b02.gif
+	frame	data/chars/beyond/1ecto1/b03.gif
+	frame	data/chars/beyond/1ecto1/b04.gif
+	frame	data/chars/beyond/1ecto1/b05.gif
+	@cmd	clearL
+	frame	data/chars/beyond/1ecto1/b06.gif
+	frame	data/chars/beyond/1ecto1/b07.gif
+	frame	data/chars/beyond/1ecto1/b08.gif
+	frame	data/chars/beyond/1ecto1/b09.gif
+	frame	data/chars/beyond/1ecto1/empty.gif
+	@cmd	suicide
+	frame	data/chars/beyond/1ecto1/empty.gif
+		
+anim	death
+	loop	0
+	delay	10
+	offset	117 183
+	bbox	0 0 0 0
+	frame	data/chars/beyond/1ecto1/b01.gif
+	frame	data/chars/beyond/1ecto1/b02.gif
+	frame	data/chars/beyond/1ecto1/b03.gif
+	frame	data/chars/beyond/1ecto1/b04.gif
+	frame	data/chars/beyond/1ecto1/b05.gif
+	frame	data/chars/beyond/1ecto1/b06.gif
+	frame	data/chars/beyond/1ecto1/b07.gif
+	frame	data/chars/beyond/1ecto1/b08.gif
+	frame	data/chars/beyond/1ecto1/b09.gif
+	frame	data/chars/beyond/1ecto1/empty.gif
+		
+anim	follow2
+	loop	0
+	delay	8
+	offset	15 95
+	bbox	0 0 0 0
+	@cmd	target 1 2 1 1 0
+	@cmd	dash
+	frame	data/chars/beyond/1ecto1/01.gif
+	frame	data/chars/beyond/1ecto1/02.gif
+	offset	20 120
+	burn	0 15 60 80 15 1 0 0 0 35
+	frame	data/chars/beyond/1ecto1/03.gif
+	burn	0 0 0 0
+	frame	data/chars/beyond/1ecto1/04.gif
+	burn	0 15 160 110 6 1 0 0 0 45
+	frame	data/chars/beyond/1ecto1/05.gif
+	frame	data/chars/beyond/1ecto1/06.gif
+	frame	data/chars/beyond/1ecto1/07.gif
+	frame	data/chars/beyond/1ecto1/08.gif
+	frame	data/chars/beyond/1ecto1/09.gif
+	@cmd	stop
+	frame	data/chars/beyond/1ecto1/10.gif
+	burn	0 0 0 0
+	frame	data/chars/beyond/1ecto1/11.gif
+	@cmd	clearL
+	frame	data/chars/beyond/1ecto1/empty.gif
+	@cmd	suicide
+	frame	data/chars/beyond/1ecto1/empty.gif
+		
+anim	idle
+	loop	1
+	delay	8
+	offset	117 183
+	bbox	93 90 50 50
+	frame	data/chars/beyond/1ecto1/a01.gif
+	@cmd	clearL
+	frame	data/chars/beyond/1ecto1/a02.gif
+	frame	data/chars/beyond/1ecto1/a03.gif
+	frame	data/chars/beyond/1ecto1/a04.gif
+	frame	data/chars/beyond/1ecto1/a05.gif
+		
+anim	spawn
+	loop	0
+	delay	3
+	offset	117 183
+	bbox	0 0 0 0
+	jumpframe	0 2 1
+	@cmd	degravity 0.6
+	drawmethod 10 10
+	frame	data/chars/beyond/1ecto1/a01.gif
+	@cmd	subwall 1
+	delay	8
+	drawmethod 40 40
+	frame	data/chars/beyond/1ecto1/a01.gif
+	drawmethod 70 70
+	frame	data/chars/beyond/1ecto1/a02.gif
+	drawmethod 100 100
+	frame	data/chars/beyond/1ecto1/a03.gif
+	drawmethod 130 130
+	frame	data/chars/beyond/1ecto1/a04.gif
+	drawmethod 160 160
+	frame	data/chars/beyond/1ecto1/a05.gif
+	drawmethod 190 190
+	frame	data/chars/beyond/1ecto1/a01.gif
+	drawmethod 220 220
+	frame	data/chars/beyond/1ecto1/a02.gif
+	nodrawmethod
+	frame	data/chars/beyond/1ecto1/a03.gif
+	frame	data/chars/beyond/1ecto1/a04.gif
+	frame	data/chars/beyond/1ecto1/a05.gif
+	@cmd	beidle
+	frame	data/chars/beyond/1ecto1/a05.gif
+		
+#|edited by openBor Stats v 0.53
+		

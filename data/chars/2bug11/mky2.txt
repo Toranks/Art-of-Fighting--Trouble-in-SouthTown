@@ -1,0 +1,257 @@
+name          mky2
+type          enemy
+health        1
+aimove        avoid
+speedf        2.3
+jumpheight    4
+shadow        0
+cantgrab      1
+nodieblink    2
+knockdowncount -1
+falldie	      2
+notgrab	      1
+nolife        1
+gfxshadow     1
+subject_to_wall 0
+dust            dust
+diesound      data/sounds/chimp1.wav
+animationscript data/scripts/escript.c
+
+palette	 data/chars/2bug11/map1.png
+
+load	mky1
+load	bannana
+load	moneybag
+load	1up
+
+
+		
+anim	burn
+	landframe	3
+	loop	0
+	drawmethod	256 256 0 0 0 -1 0 0 0
+	delay	4
+	offset	88 170
+	bbox	0 0 0 0
+	frame	data/chars/2bug11/fall1.png
+	delay	10
+	attack	64 134 40 22 5 1 0 0 13
+	frame	data/chars/2bug11/fall2.png
+	attack	0 0 0 0
+	frame	data/chars/2bug11/fall3.png
+	frame	data/chars/2bug11/fall4.png
+		
+anim	death
+	loop	0
+	delay	30
+	offset	88 170
+	bbox	0 0 0 0 
+	frame	data/chars/2bug11/fall4.png
+	@cmd	spawnAni "mky1" 0 0 1 "ANI_RISE"
+	delay	10
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+
+		
+anim	fall
+	loop	0
+	delay	30
+	offset	88 170
+	bbox	0 0 0 0
+	@cmd	killgun 1 0
+	frame	data/chars/2bug11/fall1.png
+	delay	10
+	frame	data/chars/2bug11/fall2.png
+	frame	data/chars/2bug11/fall3.png
+	frame	data/chars/2bug11/fall4.png
+		
+anim	fall7
+	delay	1000
+	offset	160 275
+	frame	data/chars/2bug11/fall1.png
+	offset	160 275
+	frame	data/chars/2bug11/fall2.png
+	offset	160 275
+	frame	data/chars/2bug11/fall3.png
+	offset	160 275
+	frame	data/chars/2bug11/fall4.png
+	offset	160 275
+	frame	data/chars/2bug11/fall1.png
+	offset	160 275
+	frame	data/chars/2bug11/fall2.png
+	offset	160 275
+	frame	data/chars/2bug11/fall3.png
+	offset	160 275
+	frame	data/chars/2bug11/fall4.png
+	offset	160 275
+	frame	data/chars/2bug11/fall1.png
+	offset	160 275
+	frame	data/chars/2bug11/fall2.png
+		
+anim	grabbed
+	loop	0
+	delay	10
+	offset	88 170
+	bbox	65 100 55 70
+	frame	data/chars/2bug11/t04.png
+		
+anim	idle
+	loop	1
+	delay	8
+	offset	88 170
+	bbox	65 100 55 70
+	frame	data/chars/2bug11/wk12.png
+	sound      data/sounds/chimp2.wav
+	frame	data/chars/2bug11/wk12.png
+	frame	data/chars/2bug11/wk12.png
+	frame	data/chars/2bug11/wk12.png
+	frame	data/chars/2bug11/wk12.png
+	frame	data/chars/2bug11/wk12.png
+	frame	data/chars/2bug11/wk12.png
+	frame	data/chars/2bug11/wk12.png
+	frame	data/chars/2bug11/wk12.png
+	frame	data/chars/2bug11/wk12.png
+	frame	data/chars/2bug11/wk12.png
+	frame	data/chars/2bug11/wk12.png
+	frame	data/chars/2bug11/wk12.png
+	frame	data/chars/2bug11/wk12.png
+		
+anim	pain
+	loop	0
+	delay	7
+	offset	88 170
+	bbox	65 100 55 70
+	frame	data/chars/2bug11/t05.png
+
+		
+anim	rise
+	loop	0
+	delay	12
+	offset	88 170
+	bbox	0 0 0 0
+	frame	data/chars/2bug11/rise01.png
+	frame	data/chars/2bug11/rise02.png
+	frame	data/chars/2bug11/jump03.png
+	frame	data/chars/2bug11/jump02.png
+		
+anim	spawn
+	loop	0
+	delay	12
+	offset	88 170
+	bbox	0 0 0 0
+	jumpframe 0 4 3
+	landframe 11 dust 
+	frame	data/chars/2bug11/wk10.png
+	@cmd	spawnGun "bannana" 0 25 1 1
+	frame	data/chars/2bug11/wk11.png
+	frame	data/chars/2bug11/wk12.png
+	frame	data/chars/2bug11/wk13.png
+	frame	data/chars/2bug11/wk14.png
+	frame	data/chars/2bug11/wk15.png
+	frame	data/chars/2bug11/wk16.png
+	frame	data/chars/2bug11/wk17.png
+	frame	data/chars/2bug11/wk10.png
+	frame	data/chars/2bug11/wk11.png
+	frame	data/chars/2bug11/wk12.png
+	frame	data/chars/2bug11/wk13.png #11
+	delay	7
+	frame	data/chars/2bug11/wk14.png
+	frame	data/chars/2bug11/wk15.png
+	@cmd	subwall 1
+	frame	data/chars/2bug11/wk14.png
+
+anim	follow10
+	loop	0
+	delay	12
+	offset	88 170
+	bbox	0 0 0 0
+	jumpframe 0 4 3
+	landframe 11 dust 
+	frame	data/chars/2bug11/wk10.png
+	@cmd	spawnGun "moneybag" 0 25 1 1
+	frame	data/chars/2bug11/wk11.png
+	frame	data/chars/2bug11/wk12.png
+	frame	data/chars/2bug11/wk13.png
+	frame	data/chars/2bug11/wk14.png
+	frame	data/chars/2bug11/wk15.png
+	frame	data/chars/2bug11/wk16.png
+	frame	data/chars/2bug11/wk17.png
+	frame	data/chars/2bug11/wk10.png
+	frame	data/chars/2bug11/wk11.png
+	frame	data/chars/2bug11/wk12.png
+	frame	data/chars/2bug11/wk13.png #11
+	delay	7
+	frame	data/chars/2bug11/wk14.png
+	frame	data/chars/2bug11/wk15.png
+	@cmd	subwall 1
+	frame	data/chars/2bug11/wk14.png
+
+
+anim	follow14
+	loop	0
+	delay	12
+	offset	88 170
+	bbox	0 0 0 0
+	jumpframe 0 4 3
+	landframe 11 dust 
+	frame	data/chars/2bug11/wk10.png
+	@cmd	spawnGun5 "1up" 0 25 1 1 "ANI_FOLLOW1"
+	frame	data/chars/2bug11/wk11.png
+	frame	data/chars/2bug11/wk12.png
+	frame	data/chars/2bug11/wk13.png
+	frame	data/chars/2bug11/wk14.png
+	frame	data/chars/2bug11/wk15.png
+	frame	data/chars/2bug11/wk16.png
+	frame	data/chars/2bug11/wk17.png
+	frame	data/chars/2bug11/wk10.png
+	frame	data/chars/2bug11/wk11.png
+	frame	data/chars/2bug11/wk12.png
+	frame	data/chars/2bug11/wk13.png #11
+	delay	7
+	frame	data/chars/2bug11/wk14.png
+	frame	data/chars/2bug11/wk15.png
+	@cmd	subwall 1
+	frame	data/chars/2bug11/wk14.png
+
+
+
+		
+anim	walk
+	loop	1
+	delay	8
+	offset	88 170
+	bbox	65 100 55 70
+	frame	data/chars/2bug11/wk10.png
+	frame	data/chars/2bug11/wk11.png
+	frame	data/chars/2bug11/wk12.png
+	frame	data/chars/2bug11/wk13.png
+	frame	data/chars/2bug11/wk14.png
+	frame	data/chars/2bug11/wk15.png
+	frame	data/chars/2bug11/wk16.png
+	frame	data/chars/2bug11/wk17.png
+
+
+
+anim	backwalk
+	loop	1
+	delay	8
+	offset	88 170
+	bbox	65 100 55 70
+	drawmethod 256 256 1
+	frame	data/chars/2bug11/wk10.png
+	frame	data/chars/2bug11/wk11.png
+	frame	data/chars/2bug11/wk12.png
+	frame	data/chars/2bug11/wk13.png
+	frame	data/chars/2bug11/wk14.png
+	frame	data/chars/2bug11/wk15.png
+	frame	data/chars/2bug11/wk16.png
+	frame	data/chars/2bug11/wk17.png
+
+
+
+
+
+
+		
+#|edited by openBor Stats v 0.53
+		

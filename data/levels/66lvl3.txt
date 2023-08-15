@@ -1,0 +1,124 @@
+music		data/music/ryoSTG.ogg
+
+background	data/bgs/65lvl/back.gif
+bglayer         data/bgs/66lvl/water.gif 0 0 190 200 0 0 1 1 1 0 1 5 5 1
+panel		data/bgs/66lvl/panel.gif
+fglayer    	data/bgs/66lvl/front.gif 1 0 0 0 0 0 0 1 1 1
+layer	        data/bgs/66lvl/front2.gif 15000 0 0 0 -5 0 0 1 1 1 1 0 0 0 0 0
+fglayer	        data/bgs/66lvl/dark.gif 8000 0 0 0 -10 0 0 1 1 1 2 0 0 0 0 0
+
+
+direction       both
+light  		-155   -55
+at       	0
+settime         0
+notime          1
+noslow          1
+order		a
+spawn1  	280 90
+spawn2  	330 90
+spawn3  	330 90
+
+
+cameraoffset            0 -90
+#cameratype              1
+
+
+#------entrance
+wall    -100 370  0 0 370 70 170 5000
+wall    680 370  0 360 400 400 170 5000
+
+wall    545 265  0 0 65 65 60 35
+wall    450 265  0 0 100 100 60 80
+wall    390 265  0 0 65 65 60 35
+#-----------------------------
+
+spawn   smllping
+flip    1
+coords  349 236
+at      0
+
+spawn   smllping
+coords  655 236
+at      0
+
+spawn   smllfont
+coords  500 255
+at      0
+
+spawn   wallfire
+flip    1
+coords  260 225 75
+at      0
+
+spawn   wallfire
+flip    1
+coords  740 225 75
+at      0
+
+spawn  torch
+flip    1
+coords  120 310
+at      0
+
+spawn  torch
+coords  880 310
+at      0
+
+#----------------------
+
+spawn   ghosttest
+@script
+void main()
+{
+    changeopenborvariant("xpos", 200);
+    changeopenborvariant("ypos", 120);
+    changelevelproperty("scrollspeed", 0);
+}
+@end_script
+coords  190 270
+at      0
+
+spawn   1pryo
+coords  200 380
+at      0
+
+
+spawn   Robertene
+health  500
+coords  330 310
+at      0
+
+group 3 3
+at	0
+
+spawn   ghosttime
+health	3
+coords  50 110
+at      0
+
+spawn   fightstrt
+coords  50 110
+at      0
+
+spawn   ghosttime
+health	2
+coords  50 110
+at      0
+
+spawn   ghosttime
+@script
+void main()
+{
+    changelevelproperty("scrollspeed", 1);
+}
+@end_script
+health	2
+coords  50 110
+at      0
+
+#----------------------------------
+spawn   stgSET7
+coords  -500 605 350
+at      0
+#----------------------------------

@@ -1,0 +1,1232 @@
+name	elle1
+type	npc
+health	500
+nolife	1
+facing	1
+nomove		1 1
+nopain		1
+nodrop		2
+setlayer 	-50
+offscreenkill	90000
+subject_to_minz    	0
+subject_to_maxz    	0
+subject_to_wall    	0
+subject_to_platform     0
+subject_to_obstacle     0
+subject_to_hole     	0
+subject_to_gravity     	0
+aggression		0
+hostile	player
+
+animationscript data/scripts/escript.c
+
+#alternatepal	data/bgs/99gclub/bck/ellemap1.gif
+
+palette	none
+
+load	allsmtlk3
+load	slcurtin1
+
+load	cheese
+load 	bannana
+load 	ring
+load 	1up
+load 	lulcardx
+
+
+script	@script
+void main()
+{
+    void self = getlocalvar("self");
+	void Ani = getentityproperty(self,"animationID");
+
+
+	int ellego2 = getglobalvar ("killelle");
+	if (ellego2 == 1 && Ani != openborconstant("ANI_FOLLOW25") && Ani != openborconstant("ANI_SPAWN") && Ani != openborconstant("ANI_IDLE") && Ani != openborconstant("ANI_FOLLOW16") && Ani != openborconstant("ANI_FOLLOW17") && Ani != openborconstant("ANI_FOLLOW18"))
+	{
+		performattack(self, openborconstant("ANI_FOLLOW25"));
+	}
+
+}
+@end_script
+
+
+
+anim	follow25
+	loop	0
+	delay	5
+	offset	10 10
+	bbox	0 0 0 0
+	frame	data/bgs/99gclub/bck/empty.gif
+	frame	data/bgs/99gclub/bck/empty.gif
+	frame	data/bgs/99gclub/bck/empty.gif
+	frame	data/bgs/99gclub/bck/empty.gif
+	@cmd	suicide
+	frame	data/bgs/99gclub/bck/empty.gif
+	frame	data/bgs/99gclub/bck/empty.gif
+
+
+
+#--------------------//---MADMOISELLE--ELLE--START--//-------------
+
+
+anim	spawn
+@script
+void self = getlocalvar("self");
+if (frame == 1)
+	{
+	changeentityproperty(self, "setlayer", 0);
+	}
+@end_script
+	loop	1 2 18
+	delay	12
+	offset	30 120
+	bbox	0 0 0 0
+	frame	data/bgs/99gclub/bck/elle01.gif
+	frame	data/bgs/99gclub/bck/elle01.gif
+	frame	data/bgs/99gclub/bck/elle01.gif
+	frame	data/bgs/99gclub/bck/elle02.gif
+	@cmd	clearL
+	frame	data/bgs/99gclub/bck/elle03.gif
+	delay	30
+	frame	data/bgs/99gclub/bck/elle04.gif
+	delay	12
+	frame	data/bgs/99gclub/bck/elle05a.gif
+	frame	data/bgs/99gclub/bck/elle06.gif
+	frame	data/bgs/99gclub/bck/elle02.gif
+	frame	data/bgs/99gclub/bck/elle06.gif
+	frame	data/bgs/99gclub/bck/elle05.gif
+	frame	data/bgs/99gclub/bck/elle06.gif
+	frame	data/bgs/99gclub/bck/elle05.gif
+	delay	5
+	frame	data/bgs/99gclub/bck/elle01.gif #13
+	@cmd	attack1 -5 30 10 "ANI_IDLE"
+	frame	data/bgs/99gclub/bck/elle01.gif
+	@cmd	attack1 -5 30 10 "ANI_IDLE"
+	frame	data/bgs/99gclub/bck/elle01.gif
+	@cmd	looper 13 30
+	frame	data/bgs/99gclub/bck/elle01.gif
+	frame	data/bgs/99gclub/bck/elle01.gif
+	frame	data/bgs/99gclub/bck/elle01.gif
+	frame	data/bgs/99gclub/bck/elle01.gif
+
+
+#---//---IDLE--ha-you-have-one------//--------
+
+anim	idle
+@script
+	void self = getlocalvar("self");
+	int p1 = getplayerproperty(0, "entity");
+	int p2 = getplayerproperty(1, "entity");
+	int p3 = getplayerproperty(2, "entity");
+
+	float lulcrd2 = getglobalvar("cardlul1");
+
+	if (frame == 0 && lulcrd2 <= 0 || lulcrd2 == NULL())
+	{
+	performattack(self, openborconstant("ANI_FOLLOW16"));
+	}
+
+	else if (frame == 2)
+	{
+	float lulcrd3 = getglobalvar("cardlul1");
+	setglobalvar( "cardlul1", lulcrd3-1);
+	changeopenborvariant("nojoin", 1);
+	changelevelproperty("scrollspeed", 0);
+	}
+@end_script
+	loop	0
+	delay	12
+	offset	30 120
+	bbox	0 0 0 0
+	frame	data/bgs/99gclub/bck/elle01.gif
+	frame	data/bgs/99gclub/bck/elle01.gif
+	@cmd	spawnAni "allsmtlk3" 7 105 1 "ANI_FOLLOW1"
+	frame	data/bgs/99gclub/bck/elle01.gif
+	delay	700
+	frame	data/bgs/99gclub/bck/elle01.gif
+	delay	120
+	frame	data/bgs/99gclub/bck/elle01.gif
+	delay	10
+	frame	data/bgs/99gclub/bck/elle01.gif
+	@cmd	spawnAni3 "slcurtin1" 849 0 150 "ANI_IDLE"
+	@cmd	spawnAni3 "slcurtin1" 267 0 150 "ANI_FOLLOW2"
+	frame	data/bgs/99gclub/bck/elle01.gif
+	@cmd	clearL
+	frame	data/bgs/99gclub/bck/elle01.gif
+	delay	200
+	frame	data/bgs/99gclub/bck/elle01.gif #8
+	delay	12
+	frame	data/bgs/99gclub/bck/elle01.gif
+	frame	data/bgs/99gclub/bck/elle02.gif
+	frame	data/bgs/99gclub/bck/elle03.gif
+	delay	30
+	frame	data/bgs/99gclub/bck/elle04.gif
+	delay	12
+	frame	data/bgs/99gclub/bck/elle05a.gif
+	frame	data/bgs/99gclub/bck/elle06.gif
+	frame	data/bgs/99gclub/bck/elle02.gif
+	frame	data/bgs/99gclub/bck/elle06.gif
+	frame	data/bgs/99gclub/bck/elle05.gif
+	frame	data/bgs/99gclub/bck/elle06.gif
+	frame	data/bgs/99gclub/bck/elle05.gif
+	@cmd	looper 8 5
+	frame	data/bgs/99gclub/bck/elle01.gif
+	delay	10
+	frame	data/bgs/99gclub/bck/elle01.gif
+	@cmd	anichange "ANI_SPAWN"
+	frame	data/bgs/99gclub/bck/elle01.gif
+
+
+#---//---no-card-no-dice------//--------
+
+anim	follow16
+	loop	0
+	delay	12
+	offset	30 120
+	bbox	0 0 0 0
+	frame	data/bgs/99gclub/bck/elle01.gif
+	@cmd	spawnAni "allsmtlk3" 7 105 1 "ANI_IDLE"
+	frame	data/bgs/99gclub/bck/elle01.gif
+	delay	420
+	frame	data/bgs/99gclub/bck/elle01.gif
+	delay	12
+	frame	data/bgs/99gclub/bck/elle01.gif
+	@cmd	anichange "ANI_FOLLOW17"
+	frame	data/bgs/99gclub/bck/elle01.gif
+
+anim	follow17
+	loop	1
+	delay	12
+	offset	30 120
+	bbox	0 0 0 0
+	frame	data/bgs/99gclub/bck/elle01.gif
+	frame	data/bgs/99gclub/bck/elle01.gif
+	frame	data/bgs/99gclub/bck/elle01.gif
+	frame	data/bgs/99gclub/bck/elle02.gif
+	@cmd	clearL
+	frame	data/bgs/99gclub/bck/elle03.gif
+	delay	30
+	frame	data/bgs/99gclub/bck/elle04.gif
+	delay	12
+	frame	data/bgs/99gclub/bck/elle05a.gif
+	frame	data/bgs/99gclub/bck/elle06.gif
+	frame	data/bgs/99gclub/bck/elle02.gif
+	frame	data/bgs/99gclub/bck/elle06.gif
+	frame	data/bgs/99gclub/bck/elle05.gif
+	frame	data/bgs/99gclub/bck/elle06.gif
+	frame	data/bgs/99gclub/bck/elle05.gif
+	delay	5
+	frame	data/bgs/99gclub/bck/elle01.gif #13
+	@cmd	attack1 -5 30 10 "ANI_FOLLOW18"
+	frame	data/bgs/99gclub/bck/elle01.gif
+	@cmd	attack1 -5 30 10 "ANI_FOLLOW18"
+	frame	data/bgs/99gclub/bck/elle01.gif
+	@cmd	looper 13 30
+	frame	data/bgs/99gclub/bck/elle01.gif
+	frame	data/bgs/99gclub/bck/elle01.gif
+	frame	data/bgs/99gclub/bck/elle01.gif
+	frame	data/bgs/99gclub/bck/elle01.gif
+
+anim	follow18
+@script
+	void self = getlocalvar("self");
+	//int rdelle2 = getglobalvar("elledrss1");
+
+	int  rd2 = rand()%14 + 14;
+
+	if (frame == 0)
+	{
+		if ( rd2 >= 0 && rd2 < 4)
+		{
+		changeentityproperty(self, "name", "ANI_FOLLOW2");
+		}
+		else if ( rd2 >= 4 && rd2 < 8)
+		{
+		changeentityproperty(self, "name", "ANI_FOLLOW3");
+		}
+		else if ( rd2 >= 8 && rd2 < 12)
+		{
+		changeentityproperty(self, "name", "ANI_FOLLOW4");
+		}
+		else if ( rd2 >= 12 && rd2 < 16)
+		{
+		changeentityproperty(self, "name", "ANI_FOLLOW5");
+		}
+		else if ( rd2 >= 16 && rd2 < 20)
+		{
+		changeentityproperty(self, "name", "ANI_FOLLOW6");
+		}
+		else if ( rd2 >= 20 && rd2 < 24)
+		{
+		changeentityproperty(self, "name", "ANI_FOLLOW7");
+		}
+		else if ( rd2 >= 24 )
+		{
+		changeentityproperty(self, "name", "ANI_FOLLOW8");
+		}
+	}
+if (frame == 4)
+{
+changeentityproperty(self, "name", "elle1");
+}
+@end_script
+	loop	0
+	delay	7
+	offset	30 120
+	bbox	0 0 0 0
+	frame	data/bgs/99gclub/bck/elle01.gif
+	frame	data/bgs/99gclub/bck/elle01.gif
+	frame	data/bgs/99gclub/bck/elle01.gif
+	@cmd	spawnAniname "allsmtlk3" 7 105 1
+	frame	data/bgs/99gclub/bck/elle01.gif
+	delay	800
+	frame	data/bgs/99gclub/bck/elle01.gif
+	delay	12
+	frame	data/bgs/99gclub/bck/elle01.gif
+	@cmd	clearL
+	frame	data/bgs/99gclub/bck/elle01.gif
+	@cmd	anichange "ANI_SPAWN"
+	frame	data/bgs/99gclub/bck/elle01.gif
+
+#--------------------//---MADMOISELLE--ELLE--END--//-------------
+
+
+
+
+#--------------------//---group-elle-2--//----------------
+
+anim	follow1
+@script
+	void self = getlocalvar("self");
+	int hp1 = getentityproperty(self,"health");
+	if (frame == 1 && hp1 < 500)
+	{
+	updateframe(self, 4);
+	}
+		if (frame == 5)
+		{
+			int itmsp1 = getglobalvar("elledrss1");
+
+			if (itmsp1 == 1)
+			{
+			changeentityproperty(self, "name", "cheese");
+			}
+			else if (itmsp1 == 2)
+			{
+			changeentityproperty(self, "name", "bannana");
+			}
+			else if (itmsp1 == 3)
+			{
+			changeentityproperty(self, "name", "ring");
+			}
+			else if (itmsp1 == 4)
+			{
+			changeentityproperty(self, "name", "1up");
+			}
+			else if (itmsp1 == 5)
+			{
+			changeentityproperty(self, "name", "lulcardx");
+			}
+		}
+	if (frame == 8)
+	{
+	changeentityproperty(self, "name", "elle1");
+	}
+@end_script
+	loop	1 1 3
+	delay	12
+	offset	110 155
+	bbox	80 50 40 80 30
+	frame	data/bgs/99gclub/bck/3drss01.gif
+	frame	data/bgs/99gclub/bck/3drss01.gif
+	frame	data/bgs/99gclub/bck/3drss01.gif
+	frame	data/bgs/99gclub/bck/3drss01.gif
+	frame	data/bgs/99gclub/bck/3drss01.gif #4
+	sound	data/sounds/super1.wav
+	frame	data/bgs/99gclub/bck/3drss02.gif
+	@cmd	dasher 0 3 0
+	@cmd	spawnAniname3 5 60 35 "ANI_SPAWN"
+	frame	data/bgs/99gclub/bck/3drss03.gif
+	delay	210
+	frame	data/bgs/99gclub/bck/3drss04.gif
+	delay	10
+	frame	data/bgs/99gclub/bck/empty.gif
+	@cmd	spawnAni3 "slcurtin1" 849 0 150 "ANI_FOLLOW10"
+	@cmd	spawnAni3 "slcurtin1" 267 0 150 "ANI_FOLLOW11"
+	frame	data/bgs/99gclub/bck/empty.gif
+	@cmd	suicide
+	frame	data/bgs/99gclub/bck/empty.gif
+
+anim	follow2
+@script
+	void self = getlocalvar("self");
+	int hp1 = getentityproperty(self,"health");
+	if (frame == 1 && hp1 < 500)
+	{
+	updateframe(self, 4);
+	}
+		if (frame == 5)
+		{
+			int itmsp1 = getglobalvar("elledrss1");
+
+			if (itmsp1 == 1)
+			{
+			changeentityproperty(self, "name", "cheese");
+			}
+			else if (itmsp1 == 2)
+			{
+			changeentityproperty(self, "name", "bannana");
+			}
+			else if (itmsp1 == 3)
+			{
+			changeentityproperty(self, "name", "ring");
+			}
+			else if (itmsp1 == 4)
+			{
+			changeentityproperty(self, "name", "1up");
+			}
+			else if (itmsp1 == 5)
+			{
+			changeentityproperty(self, "name", "lulcardx");
+			}
+		}
+	if (frame == 8)
+	{
+	changeentityproperty(self, "name", "elle1");
+	}
+@end_script
+	loop	1 1 3  
+	delay	12
+	offset	110 155
+	bbox	80 50 40 80 30
+	frame	data/bgs/99gclub/bck/3drss05.gif
+	frame	data/bgs/99gclub/bck/3drss05.gif
+	frame	data/bgs/99gclub/bck/3drss05.gif
+	frame	data/bgs/99gclub/bck/3drss05.gif
+	frame	data/bgs/99gclub/bck/3drss05.gif #4
+	sound	data/sounds/super1.wav
+	frame	data/bgs/99gclub/bck/3drss06.gif
+	@cmd	dasher 0 3 0
+	@cmd	spawnAniname3 5 -370 35 "ANI_SPAWN"
+	frame	data/bgs/99gclub/bck/3drss07.gif
+	delay	210
+	frame	data/bgs/99gclub/bck/3drss08.gif
+	delay	10
+	frame	data/bgs/99gclub/bck/empty.gif
+	@cmd	spawnAni3 "slcurtin1" 849 0 150 "ANI_FOLLOW10"
+	@cmd	spawnAni3 "slcurtin1" 267 0 150 "ANI_FOLLOW11"
+	frame	data/bgs/99gclub/bck/empty.gif
+	@cmd	suicide
+	frame	data/bgs/99gclub/bck/empty.gif
+
+anim	follow3
+@script
+	void self = getlocalvar("self");
+	int hp1 = getentityproperty(self,"health");
+	if (frame == 1 && hp1 < 500)
+	{
+	updateframe(self, 4);
+	}
+		if (frame == 5)
+		{
+			int itmsp1 = getglobalvar("elledrss1");
+
+			if (itmsp1 == 1)
+			{
+			changeentityproperty(self, "name", "cheese");
+			}
+			else if (itmsp1 == 2)
+			{
+			changeentityproperty(self, "name", "bannana");
+			}
+			else if (itmsp1 == 3)
+			{
+			changeentityproperty(self, "name", "ring");
+			}
+			else if (itmsp1 == 4)
+			{
+			changeentityproperty(self, "name", "1up");
+			}
+			else if (itmsp1 == 5)
+			{
+			changeentityproperty(self, "name", "lulcardx");
+			}
+		}
+	if (frame == 8)
+	{
+	changeentityproperty(self, "name", "elle1");
+	}
+@end_script
+	loop	1 1 3
+	delay	12
+	offset	110 155
+	bbox	80 50 40 80 30
+	frame	data/bgs/99gclub/bck/3drss09.gif
+	frame	data/bgs/99gclub/bck/3drss09.gif
+	frame	data/bgs/99gclub/bck/3drss09.gif
+	frame	data/bgs/99gclub/bck/3drss09.gif
+	frame	data/bgs/99gclub/bck/3drss09.gif #4
+	sound	data/sounds/super1.wav
+	frame	data/bgs/99gclub/bck/3drss10.gif
+	@cmd	dasher 0 3 0
+	@cmd	spawnAniname3 5 -370 35 "ANI_SPAWN"
+	frame	data/bgs/99gclub/bck/3drss11.gif
+	delay	210
+	frame	data/bgs/99gclub/bck/3drss12.gif
+	delay	10
+	frame	data/bgs/99gclub/bck/empty.gif
+	@cmd	spawnAni3 "slcurtin1" 849 0 150 "ANI_FOLLOW10"
+	@cmd	spawnAni3 "slcurtin1" 267 0 150 "ANI_FOLLOW11"
+	frame	data/bgs/99gclub/bck/empty.gif
+	@cmd	suicide
+	frame	data/bgs/99gclub/bck/empty.gif
+
+anim	follow4
+@script
+	void self = getlocalvar("self");
+	int hp1 = getentityproperty(self,"health");
+	if (frame == 1 && hp1 < 500)
+	{
+	updateframe(self, 4);
+	}
+		if (frame == 5)
+		{
+			int itmsp1 = getglobalvar("elledrss1");
+
+			if (itmsp1 == 1)
+			{
+			changeentityproperty(self, "name", "cheese");
+			}
+			else if (itmsp1 == 2)
+			{
+			changeentityproperty(self, "name", "bannana");
+			}
+			else if (itmsp1 == 3)
+			{
+			changeentityproperty(self, "name", "ring");
+			}
+			else if (itmsp1 == 4)
+			{
+			changeentityproperty(self, "name", "1up");
+			}
+			else if (itmsp1 == 5)
+			{
+			changeentityproperty(self, "name", "lulcardx");
+			}
+		}
+	if (frame == 8)
+	{
+	changeentityproperty(self, "name", "elle1");
+	}
+@end_script
+	loop	1 1 3
+	delay	12
+	offset	110 155
+	bbox	80 50 40 80 30
+	frame	data/bgs/99gclub/bck/3drss13.gif
+	frame	data/bgs/99gclub/bck/3drss13.gif
+	frame	data/bgs/99gclub/bck/3drss13.gif
+	frame	data/bgs/99gclub/bck/3drss13.gif
+	frame	data/bgs/99gclub/bck/3drss13.gif #4
+	sound	data/sounds/super1.wav
+	frame	data/bgs/99gclub/bck/3drss14.gif
+	@cmd	dasher 0 3 0
+	@cmd	spawnAniname3 5 60 35 "ANI_SPAWN"
+	frame	data/bgs/99gclub/bck/3drss15.gif
+	delay	210
+	frame	data/bgs/99gclub/bck/3drss16.gif
+	delay	10
+	frame	data/bgs/99gclub/bck/empty.gif
+	@cmd	spawnAni3 "slcurtin1" 849 0 150 "ANI_FOLLOW10"
+	@cmd	spawnAni3 "slcurtin1" 267 0 150 "ANI_FOLLOW11"
+	frame	data/bgs/99gclub/bck/empty.gif
+	@cmd	suicide
+	frame	data/bgs/99gclub/bck/empty.gif
+
+anim	follow5
+@script
+	void self = getlocalvar("self");
+	int hp1 = getentityproperty(self,"health");
+	if (frame == 1 && hp1 < 500)
+	{
+	updateframe(self, 4);
+	}
+		if (frame == 5)
+		{
+			int itmsp1 = getglobalvar("elledrss1");
+
+			if (itmsp1 == 1)
+			{
+			changeentityproperty(self, "name", "cheese");
+			}
+			else if (itmsp1 == 2)
+			{
+			changeentityproperty(self, "name", "bannana");
+			}
+			else if (itmsp1 == 3)
+			{
+			changeentityproperty(self, "name", "ring");
+			}
+			else if (itmsp1 == 4)
+			{
+			changeentityproperty(self, "name", "1up");
+			}
+			else if (itmsp1 == 5)
+			{
+			changeentityproperty(self, "name", "lulcardx");
+			}
+		}
+	if (frame == 8)
+	{
+	changeentityproperty(self, "name", "elle1");
+	}
+@end_script
+	loop	1 1 3
+	delay	12
+	offset	110 155
+	bbox	80 50 40 80 30
+	frame	data/bgs/99gclub/bck/3drss17.gif
+	frame	data/bgs/99gclub/bck/3drss17.gif
+	frame	data/bgs/99gclub/bck/3drss17.gif
+	frame	data/bgs/99gclub/bck/3drss17.gif
+	frame	data/bgs/99gclub/bck/3drss17.gif #4
+	sound	data/sounds/super1.wav
+	frame	data/bgs/99gclub/bck/3drss18.gif
+	@cmd	dasher 0 3 0
+	@cmd	spawnAniname3 5 60 35 "ANI_SPAWN"
+	frame	data/bgs/99gclub/bck/3drss19.gif
+	delay	210
+	frame	data/bgs/99gclub/bck/3drss20.gif
+	delay	10
+	frame	data/bgs/99gclub/bck/empty.gif
+	@cmd	spawnAni3 "slcurtin1" 849 0 150 "ANI_FOLLOW10"
+	@cmd	spawnAni3 "slcurtin1" 267 0 150 "ANI_FOLLOW11"
+	frame	data/bgs/99gclub/bck/empty.gif
+	@cmd	suicide
+	frame	data/bgs/99gclub/bck/empty.gif
+
+#--------------------//---group-elle-1--//----------------
+
+anim	follow6
+@script
+	void self = getlocalvar("self");
+	int hp2 = getentityproperty(self,"health");
+	if (frame == 1 && hp2 < 500)
+	{
+	updateframe(self, 4);
+	}
+		if (frame == 5)
+		{
+			int itmsp1 = getglobalvar("elledrss1");
+
+			if (itmsp1 == 1)
+			{
+			changeentityproperty(self, "name", "cheese");
+			}
+			else if (itmsp1 == 2)
+			{
+			changeentityproperty(self, "name", "bannana");
+			}
+			else if (itmsp1 == 3)
+			{
+			changeentityproperty(self, "name", "ring");
+			}
+			else if (itmsp1 == 4)
+			{
+			changeentityproperty(self, "name", "1up");
+			}
+			else if (itmsp1 == 5)
+			{
+			changeentityproperty(self, "name", "lulcardx");
+			}
+		}
+	if (frame == 8)
+	{
+	changeentityproperty(self, "name", "elle1");
+	}
+@end_script
+	loop	1 1 3
+	delay	12
+	offset	110 155
+	bbox	80 55 45 75 30
+	frame	data/bgs/99gclub/bck/3dsuit01.gif
+	frame	data/bgs/99gclub/bck/3dsuit01.gif
+	frame	data/bgs/99gclub/bck/3dsuit01.gif
+	frame	data/bgs/99gclub/bck/3dsuit01.gif
+	frame	data/bgs/99gclub/bck/3dsuit01.gif #4
+	sound	data/sounds/super1.wav
+	frame	data/bgs/99gclub/bck/3dsuit02.gif
+	@cmd	dasher 0 3 0
+	@cmd	spawnAniname3 5 60 35 "ANI_SPAWN"
+	frame	data/bgs/99gclub/bck/3dsuit03.gif
+	delay	210
+	frame	data/bgs/99gclub/bck/3dsuit04.gif
+	delay	10
+	frame	data/bgs/99gclub/bck/empty.gif
+	@cmd	spawnAni3 "slcurtin1" 849 0 150 "ANI_FOLLOW10"
+	@cmd	spawnAni3 "slcurtin1" 267 0 150 "ANI_FOLLOW11"
+	frame	data/bgs/99gclub/bck/empty.gif
+	@cmd	suicide
+	frame	data/bgs/99gclub/bck/empty.gif
+
+anim	follow7
+@script
+	void self = getlocalvar("self");
+	int hp2 = getentityproperty(self,"health");
+	if (frame == 1 && hp2 < 500)
+	{
+	updateframe(self, 4);
+	}
+		if (frame == 5)
+		{
+			int itmsp1 = getglobalvar("elledrss1");
+
+			if (itmsp1 == 1)
+			{
+			changeentityproperty(self, "name", "cheese");
+			}
+			else if (itmsp1 == 2)
+			{
+			changeentityproperty(self, "name", "bannana");
+			}
+			else if (itmsp1 == 3)
+			{
+			changeentityproperty(self, "name", "ring");
+			}
+			else if (itmsp1 == 4)
+			{
+			changeentityproperty(self, "name", "1up");
+			}
+			else if (itmsp1 == 5)
+			{
+			changeentityproperty(self, "name", "lulcardx");
+			}
+		}
+	if (frame == 8)
+	{
+	changeentityproperty(self, "name", "elle1");
+	}
+@end_script
+	loop	1 1 3
+	delay	12
+	offset	110 155
+	bbox	80 55 45 75 30
+	frame	data/bgs/99gclub/bck/3dsuit05.gif
+	frame	data/bgs/99gclub/bck/3dsuit05.gif
+	frame	data/bgs/99gclub/bck/3dsuit05.gif
+	frame	data/bgs/99gclub/bck/3dsuit05.gif
+	frame	data/bgs/99gclub/bck/3dsuit05.gif #4
+	sound	data/sounds/super1.wav
+	frame	data/bgs/99gclub/bck/3dsuit06.gif
+	@cmd	dasher 0 3 0
+	@cmd	spawnAniname3 5 60 35 "ANI_SPAWN"
+	frame	data/bgs/99gclub/bck/3dsuit07.gif
+	delay	210
+	frame	data/bgs/99gclub/bck/3dsuit08.gif
+	delay	10
+	frame	data/bgs/99gclub/bck/empty.gif
+	@cmd	spawnAni3 "slcurtin1" 849 0 150 "ANI_FOLLOW10"
+	@cmd	spawnAni3 "slcurtin1" 267 0 150 "ANI_FOLLOW11"
+	frame	data/bgs/99gclub/bck/empty.gif
+	@cmd	suicide
+	frame	data/bgs/99gclub/bck/empty.gif
+
+anim	follow8
+@script
+	void self = getlocalvar("self");
+	int hp2 = getentityproperty(self,"health");
+	if (frame == 1 && hp2 < 500)
+	{
+	updateframe(self, 4);
+	}
+		if (frame == 5)
+		{
+			int itmsp1 = getglobalvar("elledrss1");
+
+			if (itmsp1 == 1)
+			{
+			changeentityproperty(self, "name", "cheese");
+			}
+			else if (itmsp1 == 2)
+			{
+			changeentityproperty(self, "name", "bannana");
+			}
+			else if (itmsp1 == 3)
+			{
+			changeentityproperty(self, "name", "ring");
+			}
+			else if (itmsp1 == 4)
+			{
+			changeentityproperty(self, "name", "1up");
+			}
+			else if (itmsp1 == 5)
+			{
+			changeentityproperty(self, "name", "lulcardx");
+			}
+		}
+	if (frame == 8)
+	{
+	changeentityproperty(self, "name", "elle1");
+	}
+@end_script
+	loop	1 1 3
+	delay	12
+	offset	110 155
+	bbox	80 55 45 75 30
+	frame	data/bgs/99gclub/bck/3dsuit09.gif
+	frame	data/bgs/99gclub/bck/3dsuit09.gif
+	frame	data/bgs/99gclub/bck/3dsuit09.gif
+	frame	data/bgs/99gclub/bck/3dsuit09.gif
+	frame	data/bgs/99gclub/bck/3dsuit09.gif #4
+	sound	data/sounds/super1.wav
+	frame	data/bgs/99gclub/bck/3dsuit10.gif
+	@cmd	dasher 0 3 0
+	@cmd	spawnAniname3 5 60 35 "ANI_SPAWN"
+	frame	data/bgs/99gclub/bck/3dsuit11.gif
+	delay	210
+	frame	data/bgs/99gclub/bck/3dsuit12.gif
+	delay	10
+	frame	data/bgs/99gclub/bck/empty.gif
+	@cmd	spawnAni3 "slcurtin1" 849 0 150 "ANI_FOLLOW10"
+	@cmd	spawnAni3 "slcurtin1" 267 0 150 "ANI_FOLLOW11"
+	frame	data/bgs/99gclub/bck/empty.gif
+	@cmd	suicide
+	frame	data/bgs/99gclub/bck/empty.gif
+
+anim	follow9
+@script
+	void self = getlocalvar("self");
+	int hp2 = getentityproperty(self,"health");
+	if (frame == 1 && hp2 < 500)
+	{
+	updateframe(self, 4);
+	}
+		if (frame == 5)
+		{
+			int itmsp1 = getglobalvar("elledrss1");
+
+			if (itmsp1 == 1)
+			{
+			changeentityproperty(self, "name", "cheese");
+			}
+			else if (itmsp1 == 2)
+			{
+			changeentityproperty(self, "name", "bannana");
+			}
+			else if (itmsp1 == 3)
+			{
+			changeentityproperty(self, "name", "ring");
+			}
+			else if (itmsp1 == 4)
+			{
+			changeentityproperty(self, "name", "1up");
+			}
+			else if (itmsp1 == 5)
+			{
+			changeentityproperty(self, "name", "lulcardx");
+			}
+		}
+	if (frame == 8)
+	{
+	changeentityproperty(self, "name", "elle1");
+	}
+@end_script
+	loop	1 1 3
+	delay	12
+	offset	110 155
+	bbox	80 55 45 75 30
+	frame	data/bgs/99gclub/bck/3dsuit13.gif
+	frame	data/bgs/99gclub/bck/3dsuit13.gif
+	frame	data/bgs/99gclub/bck/3dsuit13.gif
+	frame	data/bgs/99gclub/bck/3dsuit13.gif
+	frame	data/bgs/99gclub/bck/3dsuit13.gif #4
+	sound	data/sounds/super1.wav
+	frame	data/bgs/99gclub/bck/3dsuit14.gif
+	@cmd	dasher 0 3 0
+	@cmd	spawnAniname3 5 60 35 "ANI_SPAWN"
+	frame	data/bgs/99gclub/bck/3dsuit15.gif
+	delay	210
+	frame	data/bgs/99gclub/bck/3dsuit16.gif
+	delay	10
+	frame	data/bgs/99gclub/bck/empty.gif
+	@cmd	spawnAni3 "slcurtin1" 849 0 150 "ANI_FOLLOW10"
+	@cmd	spawnAni3 "slcurtin1" 267 0 150 "ANI_FOLLOW11"
+	frame	data/bgs/99gclub/bck/empty.gif
+	@cmd	suicide
+	frame	data/bgs/99gclub/bck/empty.gif
+
+anim	follow10
+@script
+	void self = getlocalvar("self");
+	int hp2 = getentityproperty(self,"health");
+	if (frame == 1 && hp2 < 500)
+	{
+	updateframe(self, 4);
+	}
+		if (frame == 5)
+		{
+			int itmsp1 = getglobalvar("elledrss1");
+
+			if (itmsp1 == 1)
+			{
+			changeentityproperty(self, "name", "cheese");
+			}
+			else if (itmsp1 == 2)
+			{
+			changeentityproperty(self, "name", "bannana");
+			}
+			else if (itmsp1 == 3)
+			{
+			changeentityproperty(self, "name", "ring");
+			}
+			else if (itmsp1 == 4)
+			{
+			changeentityproperty(self, "name", "1up");
+			}
+			else if (itmsp1 == 5)
+			{
+			changeentityproperty(self, "name", "lulcardx");
+			}
+		}
+	if (frame == 8)
+	{
+	changeentityproperty(self, "name", "elle1");
+	}
+@end_script
+	loop	1 1 3
+	delay	12
+	offset	110 155
+	bbox	80 55 45 75 30
+	frame	data/bgs/99gclub/bck/3dsuit17.gif
+	frame	data/bgs/99gclub/bck/3dsuit17.gif
+	frame	data/bgs/99gclub/bck/3dsuit17.gif
+	frame	data/bgs/99gclub/bck/3dsuit17.gif
+	frame	data/bgs/99gclub/bck/3dsuit17.gif #4
+	sound	data/sounds/super1.wav
+	frame	data/bgs/99gclub/bck/3dsuit18.gif
+	@cmd	dasher 0 3 0
+	@cmd	spawnAniname3 5 60 35 "ANI_SPAWN"
+	frame	data/bgs/99gclub/bck/3dsuit19.gif
+	delay	210
+	frame	data/bgs/99gclub/bck/3dsuit20.gif
+	delay	10
+	frame	data/bgs/99gclub/bck/empty.gif
+	@cmd	spawnAni3 "slcurtin1" 849 0 150 "ANI_FOLLOW10"
+	@cmd	spawnAni3 "slcurtin1" 267 0 150 "ANI_FOLLOW11"
+	frame	data/bgs/99gclub/bck/empty.gif
+	@cmd	suicide
+	frame	data/bgs/99gclub/bck/empty.gif
+
+#--------------------//---group-elle-3--//----------------
+
+anim	follow11
+@script
+	void self = getlocalvar("self");
+	int hp3 = getentityproperty(self,"health");
+	if (frame == 1 && hp3 < 500)
+	{
+	updateframe(self, 4);
+	}
+		if (frame == 5)
+		{
+			int itmsp1 = getglobalvar("elledrss1");
+			if (itmsp1 == 1)
+			{
+			changeentityproperty(self, "name", "cheese");
+			}
+			else if (itmsp1 == 2)
+			{
+			changeentityproperty(self, "name", "bannana");
+			}
+			else if (itmsp1 == 3)
+			{
+			changeentityproperty(self, "name", "ring");
+			}
+			else if (itmsp1 == 4)
+			{
+			changeentityproperty(self, "name", "1up");
+			}
+			else if (itmsp1 == 5)
+			{
+			changeentityproperty(self, "name", "lulcardx");
+			}
+		}
+	if (frame == 8)
+	{
+	changeentityproperty(self, "name", "elle1");
+	}
+@end_script
+	loop	1 1 3
+	delay	12
+	offset	105 150
+	bbox	80 55 45 75 30
+	frame	data/bgs/99gclub/bck/drss01.gif
+	frame	data/bgs/99gclub/bck/drss01.gif
+	frame	data/bgs/99gclub/bck/drss01.gif
+	frame	data/bgs/99gclub/bck/drss01.gif
+	frame	data/bgs/99gclub/bck/drss01.gif #4
+	sound	data/sounds/super1.wav
+	frame	data/bgs/99gclub/bck/drss02.gif
+	@cmd	dasher 0 3 0
+	@cmd	spawnAniname3 5 60 35 "ANI_SPAWN"
+	frame	data/bgs/99gclub/bck/drss03.gif
+	delay	210
+	frame	data/bgs/99gclub/bck/drss04.gif
+	delay	10
+	frame	data/bgs/99gclub/bck/empty.gif
+	@cmd	spawnAni3 "slcurtin1" 849 0 150 "ANI_FOLLOW10"
+	@cmd	spawnAni3 "slcurtin1" 267 0 150 "ANI_FOLLOW11"
+	frame	data/bgs/99gclub/bck/empty.gif
+	@cmd	suicide
+	frame	data/bgs/99gclub/bck/empty.gif
+
+
+anim	follow12
+@script
+	void self = getlocalvar("self");
+	int hp3 = getentityproperty(self,"health");
+	if (frame == 1 && hp3 < 500)
+	{
+	updateframe(self, 4);
+	}
+		if (frame == 5)
+		{
+			int itmsp1 = getglobalvar("elledrss1");
+			if (itmsp1 == 1)
+			{
+			changeentityproperty(self, "name", "cheese");
+			}
+			else if (itmsp1 == 2)
+			{
+			changeentityproperty(self, "name", "bannana");
+			}
+			else if (itmsp1 == 3)
+			{
+			changeentityproperty(self, "name", "ring");
+			}
+			else if (itmsp1 == 4)
+			{
+			changeentityproperty(self, "name", "1up");
+			}
+			else if (itmsp1 == 5)
+			{
+			changeentityproperty(self, "name", "lulcardx");
+			}
+		}
+	if (frame == 8)
+	{
+	changeentityproperty(self, "name", "elle1");
+	}
+@end_script
+	loop	1 1 3
+	delay	12
+	offset	105 150
+	bbox	80 55 45 75 30
+	frame	data/bgs/99gclub/bck/drss05.gif
+	frame	data/bgs/99gclub/bck/drss05.gif
+	frame	data/bgs/99gclub/bck/drss05.gif
+	frame	data/bgs/99gclub/bck/drss05.gif
+	frame	data/bgs/99gclub/bck/drss05.gif #4
+	sound	data/sounds/super1.wav
+	frame	data/bgs/99gclub/bck/drss06.gif
+	@cmd	dasher 0 3 0
+	@cmd	spawnAniname3 5 60 35 "ANI_SPAWN"
+	frame	data/bgs/99gclub/bck/drss07.gif
+	delay	210
+	frame	data/bgs/99gclub/bck/drss08.gif
+	delay	10
+	frame	data/bgs/99gclub/bck/empty.gif
+	@cmd	spawnAni3 "slcurtin1" 849 0 150 "ANI_FOLLOW10"
+	@cmd	spawnAni3 "slcurtin1" 267 0 150 "ANI_FOLLOW11"
+	frame	data/bgs/99gclub/bck/empty.gif
+	@cmd	suicide
+	frame	data/bgs/99gclub/bck/empty.gif
+
+anim	follow13
+@script
+	void self = getlocalvar("self");
+	int hp3 = getentityproperty(self,"health");
+	if (frame == 1 && hp3 < 500)
+	{
+	updateframe(self, 4);
+	}
+		if (frame == 5)
+		{
+			int itmsp1 = getglobalvar("elledrss1");
+			if (itmsp1 == 1)
+			{
+			changeentityproperty(self, "name", "cheese");
+			}
+			else if (itmsp1 == 2)
+			{
+			changeentityproperty(self, "name", "bannana");
+			}
+			else if (itmsp1 == 3)
+			{
+			changeentityproperty(self, "name", "ring");
+			}
+			else if (itmsp1 == 4)
+			{
+			changeentityproperty(self, "name", "1up");
+			}
+			else if (itmsp1 == 5)
+			{
+			changeentityproperty(self, "name", "lulcardx");
+			}
+		}
+	if (frame == 8)
+	{
+	changeentityproperty(self, "name", "elle1");
+	}
+@end_script
+	loop	1 1 3
+	delay	12
+	offset	105 150
+	bbox	80 55 45 75 30
+	frame	data/bgs/99gclub/bck/drss09.gif
+	frame	data/bgs/99gclub/bck/drss09.gif
+	frame	data/bgs/99gclub/bck/drss09.gif
+	frame	data/bgs/99gclub/bck/drss09.gif
+	frame	data/bgs/99gclub/bck/drss09.gif #4
+	sound	data/sounds/super1.wav
+	frame	data/bgs/99gclub/bck/drss10.gif
+	@cmd	dasher 0 3 0
+	@cmd	spawnAniname3 5 60 35 "ANI_SPAWN"
+	frame	data/bgs/99gclub/bck/drss11.gif
+	delay	210
+	frame	data/bgs/99gclub/bck/drss12.gif
+	delay	10
+	frame	data/bgs/99gclub/bck/empty.gif
+	@cmd	spawnAni3 "slcurtin1" 849 0 150 "ANI_FOLLOW10"
+	@cmd	spawnAni3 "slcurtin1" 267 0 150 "ANI_FOLLOW11"
+	frame	data/bgs/99gclub/bck/empty.gif
+	@cmd	suicide
+	frame	data/bgs/99gclub/bck/empty.gif
+
+
+anim	follow14
+@script
+	void self = getlocalvar("self");
+	int hp3 = getentityproperty(self,"health");
+	if (frame == 1 && hp3 < 500)
+	{
+	updateframe(self, 4);
+	}
+		if (frame == 5)
+		{
+			int itmsp1 = getglobalvar("elledrss1");
+			if (itmsp1 == 1)
+			{
+			changeentityproperty(self, "name", "cheese");
+			}
+			else if (itmsp1 == 2)
+			{
+			changeentityproperty(self, "name", "bannana");
+			}
+			else if (itmsp1 == 3)
+			{
+			changeentityproperty(self, "name", "ring");
+			}
+			else if (itmsp1 == 4)
+			{
+			changeentityproperty(self, "name", "1up");
+			}
+			else if (itmsp1 == 5)
+			{
+			changeentityproperty(self, "name", "lulcardx");
+			}
+		}
+	if (frame == 8)
+	{
+	changeentityproperty(self, "name", "elle1");
+	}
+@end_script
+	loop	1 1 3
+	delay	12
+	offset	105 150
+	bbox	80 55 45 75 30
+	frame	data/bgs/99gclub/bck/drss13.gif
+	frame	data/bgs/99gclub/bck/drss13.gif
+	frame	data/bgs/99gclub/bck/drss13.gif
+	frame	data/bgs/99gclub/bck/drss13.gif
+	frame	data/bgs/99gclub/bck/drss13.gif #4
+	sound	data/sounds/super1.wav
+	frame	data/bgs/99gclub/bck/drss14.gif
+	@cmd	dasher 0 3 0
+	@cmd	spawnAniname3 5 60 35 "ANI_SPAWN"
+	frame	data/bgs/99gclub/bck/drss15.gif
+	delay	210
+	frame	data/bgs/99gclub/bck/drss16.gif
+	delay	10
+	frame	data/bgs/99gclub/bck/empty.gif
+	@cmd	spawnAni3 "slcurtin1" 849 0 150 "ANI_FOLLOW10"
+	@cmd	spawnAni3 "slcurtin1" 267 0 150 "ANI_FOLLOW11"
+	frame	data/bgs/99gclub/bck/empty.gif
+	@cmd	suicide
+	frame	data/bgs/99gclub/bck/empty.gif
+
+anim	follow15
+@script
+	void self = getlocalvar("self");
+	int hp3 = getentityproperty(self,"health");
+	if (frame == 1 && hp3 < 500)
+	{
+	updateframe(self, 4);
+	}
+		if (frame == 5)
+		{
+			int itmsp1 = getglobalvar("elledrss1");
+			if (itmsp1 == 1)
+			{
+			changeentityproperty(self, "name", "cheese");
+			}
+			else if (itmsp1 == 2)
+			{
+			changeentityproperty(self, "name", "bannana");
+			}
+			else if (itmsp1 == 3)
+			{
+			changeentityproperty(self, "name", "ring");
+			}
+			else if (itmsp1 == 4)
+			{
+			changeentityproperty(self, "name", "1up");
+			}
+			else if (itmsp1 == 5)
+			{
+			changeentityproperty(self, "name", "lulcardx");
+			}
+		}
+	if (frame == 8)
+	{
+	changeentityproperty(self, "name", "elle1");
+	}
+@end_script
+	loop	1 1 3
+	delay	12
+	offset	105 150
+	bbox	80 55 45 75 30
+	frame	data/bgs/99gclub/bck/drss17.gif
+	frame	data/bgs/99gclub/bck/drss17.gif
+	frame	data/bgs/99gclub/bck/drss17.gif
+	frame	data/bgs/99gclub/bck/drss17.gif
+	frame	data/bgs/99gclub/bck/drss17.gif #4
+	sound	data/sounds/super1.wav
+	frame	data/bgs/99gclub/bck/drss18.gif
+	@cmd	dasher 0 3 0
+	@cmd	spawnAniname3 5 60 35 "ANI_SPAWN"
+	frame	data/bgs/99gclub/bck/drss19.gif
+	delay	210
+	frame	data/bgs/99gclub/bck/drss20.gif
+	delay	10
+	frame	data/bgs/99gclub/bck/empty.gif
+	@cmd	spawnAni3 "slcurtin1" 849 0 150 "ANI_FOLLOW10"
+	@cmd	spawnAni3 "slcurtin1" 267 0 150 "ANI_FOLLOW11"
+	frame	data/bgs/99gclub/bck/empty.gif
+	@cmd	suicide
+	frame	data/bgs/99gclub/bck/empty.gif
+
+
+
+

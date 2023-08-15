@@ -1,0 +1,552 @@
+music         data/music/byolvl1.ogg
+
+
+background      data/bgs/beyond/lvl1/back2.gif  1 0
+layer           data/bgs/beyond/lvl1/back2.gif -2200 0 0 0 -20 -1 0 -1 1 1 0 0 0 0 0 0
+#layer           data/bgs/beyond/lvl1/water.gif -1700 0 0 -50 145 0 0 1 1 0 0 1 5 5 1
+layer           data/bgs/beyond/lvl1/water.gif -1700 0 0 -50 145 0 0 -1 1 1 0 0 0 0 0 0.3
+layer		data/bgs/beyond/lvl1/water2.gif -1100 0 0 -50 145 0 0 -1 1 1 1 0 0 0 0 0.4
+layer		data/bgs/beyond/lvl1/dust2.gif -450 0 0 0 0 0 0 -1 1 1 1 0 0 0 0 1.5
+layer		data/bgs/beyond/lvl1/back1.gif -250 0 0 0 30 0 0 -1 1 1 0 0 0 0 0 1
+panel  		data/bgs/beyond/lvl1/panel.gif
+fglayer         data/bgs/beyond/lvl1/front1.gif 500 0 0 0 430 -1 0 -1 1 1 0 0 0 0 0 1
+layer		data/bgs/beyond/lvl1/dust.gif 1500 0 0 0 30 0 0 -1 1 1 1 0 0 0 0 2
+
+direction       both
+light  		10   60
+at       	0
+settime         0
+notime          1
+noslow          0
+order		a
+spawn1  	100 60
+spawn2  	105 65
+spawn3  	110 70
+
+bgspeed		30
+cameratype      1
+cameraoffset    0 -110
+setweap		1
+
+#-----wall--------------------
+wall    -600 300  0 0 2200 2200 10 5000
+#----------------------------
+#-----------------------
+spawn   stgSET7
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW4"));
+} @end_script
+coords  -500 515 350
+at      0
+#----------------------------------
+
+#----------start------------------
+
+group 1 1
+at    0
+
+spawn   mrkarate3
+health  95500
+coords  350 370
+at      0
+
+spawn   mkst1
+coords  10 500 400
+at      0
+
+spawn   ghost3
+coords  1350 240
+at      0
+
+spawn   ghost3
+coords  1350 240
+at      0
+
+#-----wait--john-arrives-----------
+
+group 1 1
+at    0
+
+spawn   ghost1
+coords  1350 240
+at      0
+
+spawn   jonybyo1
+coords  -260 270
+at      0
+
+
+#-----wait---alien-appears-/-john-leaves---------------
+
+spawn   ghost1
+coords  1350 240
+at      0
+
+#---------aircraft-carrier-arrive-----------
+
+spawn   acarrier
+spawnscript data/scripts/noscpos.c
+coords  -700 225
+at      0
+
+#------------alien-attack--------------------
+
+spawn   ghost4
+coords  1350 240
+at      0
+
+spawn   ghost4
+coords  1350 240
+at      0
+
+#-----------------fight--start----------------
+
+group 2 2
+at    0
+
+spawn   ufd6
+health  300
+map     1
+coords  380 360
+at      0
+
+spawn   bckuf1
+spawnscript data/scripts/noscpos.c
+aggression 20
+health  1100
+coords  -250 240
+at      0
+
+spawn   ufd6
+health  300
+coords  80 390
+at      0
+
+
+#---------------------------
+group 1 1
+at    0
+
+spawn   ghost1
+coords  1350 240
+at      0
+
+spawn   bckuf1
+spawnscript data/scripts/noscpos.c
+aggression 20
+health  2500
+coords  1250 240
+at      0
+
+
+
+
+#---------------------------
+
+group 4 4
+at    0
+
+spawn   ufd6
+map     2
+health  300
+coords  80 410
+at      0
+
+spawn   ufd6
+item    gas
+health  300
+coords  330 360
+at      0
+
+
+spawn   ufd6
+map     3
+health  300
+coords  80 350
+at      0
+
+spawn   ufd6
+map     1
+item    neo
+health  300
+coords  300 440
+at      0
+
+spawn   bckuf2
+spawnscript data/scripts/noscpos.c
+aggression 20
+health  1000
+coords  1300 200
+at      0
+
+
+spawn   ufd6
+health  300
+coords  80 410
+at      0
+
+spawn   ufd6
+map     2
+item    neo
+health  300
+coords  330 360
+at      0
+
+
+spawn   ufd6
+item    fuel
+health  450
+coords  80 350
+at      0
+
+spawn   bckuf1
+spawnscript data/scripts/noscpos.c
+aggression 20
+health  1500
+coords  -100 240
+at      0
+
+spawn   bckuf2
+spawnscript data/scripts/noscpos.c
+aggression 20
+health  800
+coords  1300 200
+at      0
+
+spawn   ufd6
+map     3
+health  500
+coords  300 440
+at      0
+
+spawn   bckuf1
+spawnscript data/scripts/noscpos.c
+aggression 20
+health  900
+coords  1250 240
+at      0
+
+
+#---------------------------
+group 1 1
+at    0
+
+spawn   ghost1
+coords  1350 240
+at      0
+
+
+#---------------------------
+
+group 2 2
+at    0
+
+spawn   ufd7
+item    gas
+map     2
+health  700
+coords  470 450
+at      0
+
+spawn   ufd7
+health  400
+coords  130 370
+at      0
+
+spawn   bckuf2
+spawnscript data/scripts/noscpos.c
+aggression 20
+health  800
+coords  1300 200
+at      0
+
+#---------------------------
+#---------------------------
+
+group 1 1
+at    0
+
+spawn   ghost1
+coords  1350 240
+at      0
+
+#------/////////---------------/////////-----
+#------/////////--plane--far---/////////-----
+#------/////////---------------/////////-----
+
+spawn   gnbck
+@script
+void main()
+{
+    void self = getlocalvar("self"); //Get calling entity.
+    int x = getentityproperty(self,"x"); //Get character's x coordinate
+    int XPos = openborvariant("xpos");
+    changeentityproperty(self, "position", x - XPos);
+    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+}
+@end_script
+flip    1
+coords  -300 80
+at      0
+#--------plane---middle----------------
+spawn   gnbck
+@script
+void main()
+{
+    void self = getlocalvar("self"); //Get calling entity.
+    int x = getentityproperty(self,"x"); //Get character's x coordinate
+    int XPos = openborvariant("xpos");
+    changeentityproperty(self, "position", x - XPos);
+    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW3"));
+}
+@end_script
+flip     1
+coords  -200 90
+at      0
+
+
+spawn   gnbck
+@script
+void main()
+{
+    void self = getlocalvar("self"); //Get calling entity.
+    int x = getentityproperty(self,"x"); //Get character's x coordinate
+    int XPos = openborvariant("xpos");
+    changeentityproperty(self, "position", x - XPos);
+    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW4"));
+}
+@end_script
+flip     1
+coords  -370 90
+at      0
+
+spawn   gnbck
+coords  1300 110
+at      0
+
+spawn   gnbck
+@script
+void main()
+{
+    void self = getlocalvar("self"); //Get calling entity.
+    int x = getentityproperty(self,"x"); //Get character's x coordinate
+    int XPos = openborvariant("xpos");
+    changeentityproperty(self, "position", x - XPos);
+    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+}
+@end_script
+coords  1430 110
+at      0
+
+spawn   ghost1
+coords  1350 240
+at      0
+
+#---------------------------
+#---------------------------
+
+group 4 4
+at    0
+
+spawn   ufd6
+item    fuel
+health  300
+coords  80 410
+at      0
+
+spawn   ufd7
+health  400
+coords  340 360
+at      0
+
+spawn   bckuf2
+spawnscript data/scripts/noscpos.c
+aggression 20
+health  800
+coords  1300 200
+at      0
+
+spawn   ufd7
+map     1
+item    neo
+health  400
+coords  30 360
+at      0
+
+spawn   bckuf1
+spawnscript data/scripts/noscpos.c
+aggression 20
+health  400
+coords  450 240
+at      0
+
+spawn   ufd6
+item    gas
+health  300
+map     1
+coords  80 410
+at      0
+
+spawn   bckuf1
+spawnscript data/scripts/noscpos.c
+aggression 20
+health  95400
+coords  210 240
+at      0
+
+spawn   ufd7
+health  400
+coords  300 430
+at      0
+
+spawn   bckuf2
+spawnscript data/scripts/noscpos.c
+aggression 20
+health  95800
+coords  1300 200
+at      0
+
+spawn   ufd7
+map     2
+health  400
+coords  30 360
+at      0
+
+spawn   ufd7
+item    fuel
+health  550
+coords  350 340
+at      0
+
+spawn   bckuf1
+spawnscript data/scripts/noscpos.c
+aggression 20
+health  95400
+coords  110 240
+at      0
+
+spawn   ufd7
+map     3
+item    neo
+health  450
+coords  50 420
+at      0
+
+spawn   bckuf2
+spawnscript data/scripts/noscpos.c
+aggression 20
+health  55800
+coords  1300 200
+at      0
+
+#---------------------------
+
+group 1 1
+at    0
+
+spawn   ghost2
+coords  1350 240
+at      0
+
+#---------------------------
+
+group 2 2
+at    0
+
+spawn   ufd1
+item    gas
+map     1
+health  700
+coords  360 340
+at      0
+
+spawn   ghost1
+coords  1350 240
+at      0
+
+spawn   ufd1
+map     2
+health  950
+coords  150 410
+at      0
+
+spawn   ghost1
+coords  1350 240
+at      0
+
+spawn   ufd1
+item    gas
+map     3
+health  700
+coords  410 460
+at      0
+
+
+#---------/////////////////////////////----------
+#---------/////////-end-level-/////////----------
+
+group 1 1
+at    700
+wait
+at    700
+
+spawn   ghost1
+coords  1300 225
+at      800
+
+#------
+
+group 1 1
+at    990
+wait
+at    990
+
+spawn   ghost1
+coords  500 225
+at      990
+
+spawn   acarrierbrk
+spawnscript data/scripts/noscpos.c
+boss    1
+coords  1040 225
+at      990
+
+spawn   ghost1
+coords  500 225
+at      990
+
+#---------/////////-wait-reset-////////////---------
+
+group 1 1
+at    1100
+
+spawn   ghosttest
+coords  250 225
+at      1100
+
+spawn   ghosttest
+coords  250 225
+at      1100
+
+spawn   ghosttest
+coords  250 225
+at      1500
+
+spawn   ghosttest
+coords  250 225
+at      2000
+
+spawn   ghosttest
+coords  250 225
+at      2500
+
+spawn   ghosttest
+coords  250 225
+at      3000
+
+spawn   ghosttest
+coords  250 225
+at      3500
+
+
+

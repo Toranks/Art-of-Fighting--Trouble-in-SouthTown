@@ -1,0 +1,244 @@
+name		bigalidet
+type		enemy
+health		100
+offscreenkill 	10000
+lifespan 	60
+setlayer	-20
+speed		5
+noquake		1
+falldie		1
+makeinv		3
+shadow		0
+nodrop		1
+facing          1
+nomove          1 1
+nopain		1
+subject_to_obstacle 0
+subject_to_hole 0
+subject_to_wall 0
+subject_to_minz 0
+subject_to_maxz 0
+hostile				player
+candamage			player
+diesound        data/sounds/empty.wav
+animationscript data/scripts/escript.c
+
+
+
+
+load	mkst2
+
+
+
+anim	death
+	loop	0
+	delay	5
+	offset	725 300
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl2/mali/death01.gif
+	frame	data/bgs/beyond/lvl2/mali/death01.gif
+	frame	data/bgs/beyond/lvl2/mali/death01.gif
+		
+anim	fall
+	loop	0
+	delay	5
+	offset	725 300
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl2/mali/death01.gif
+		
+anim	follow1
+	loop	0
+	delay	8
+	offset	725 300
+	bbox	0 0 0 0
+	custentity	mkst2
+	spawnframe	2 20 80 1 1
+	platform	600 445 0 0 350 350 200 170
+	@cmd	dasher -0.7 0 0
+	frame	data/bgs/beyond/lvl2/mali/death01.gif
+	frame	data/bgs/beyond/lvl2/mali/death02.gif
+	frame	data/bgs/beyond/lvl2/mali/death03.gif
+	sound	data/sounds/beat3.wav
+	@cmd	spawn01 "flash" 55 30 1
+	frame	data/bgs/beyond/lvl2/mali/death04.gif
+	frame	data/bgs/beyond/lvl2/mali/death05.gif
+	frame	data/bgs/beyond/lvl2/mali/death06.gif
+	frame	data/bgs/beyond/lvl2/mali/death07.gif
+	frame	data/bgs/beyond/lvl2/mali/death08.gif
+	sound	data/sounds/trainrol.wav
+	frame	data/bgs/beyond/lvl2/mali/death09.gif
+
+	frame	data/bgs/beyond/lvl2/mali/death01.gif#9
+	frame	data/bgs/beyond/lvl2/mali/death02.gif
+	frame	data/bgs/beyond/lvl2/mali/death03.gif
+	sound	data/sounds/beat3.wav
+	@cmd	spawn01 "flash" 55 30 1
+	frame	data/bgs/beyond/lvl2/mali/death04.gif
+	frame	data/bgs/beyond/lvl2/mali/death05.gif
+	frame	data/bgs/beyond/lvl2/mali/death06.gif
+	frame	data/bgs/beyond/lvl2/mali/death07.gif
+	frame	data/bgs/beyond/lvl2/mali/death08.gif
+	frame	data/bgs/beyond/lvl2/mali/death09.gif
+	@cmd	looper 9 80
+	frame	data/bgs/beyond/lvl2/mali/death01.gif
+	frame	data/bgs/beyond/lvl2/mali/death02.gif
+	frame	data/bgs/beyond/lvl2/mali/death03.gif
+	sound	data/sounds/beat3.wav
+	@cmd	spawn01 "flash" 55 30 1
+	frame	data/bgs/beyond/lvl2/mali/death04.gif
+	frame	data/bgs/beyond/lvl2/mali/death05.gif
+	frame	data/bgs/beyond/lvl2/mali/death06.gif
+	frame	data/bgs/beyond/lvl2/mali/death07.gif
+	frame	data/bgs/beyond/lvl2/mali/death08.gif
+	frame	data/bgs/beyond/lvl2/mali/death09.gif
+	@cmd	suicide
+	frame	data/bgs/beyond/lvl2/mali/death09.gif
+
+
+		
+anim	idle
+	loop	1
+	delay	4
+	offset	725 300
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl2/mali/death01.gif
+	frame	data/bgs/beyond/lvl2/mali/death01.gif
+		
+anim	pain
+	loop	0
+	delay	5
+	offset	725 300
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl2/mali/death01.gif
+		
+anim	pain2
+	loop	0
+	delay	5
+	offset	725 300
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl2/mali/death01.gif
+		
+anim	rise
+	loop	0
+	delay	5
+	offset	725 300
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl2/mali/death01.gif
+
+	
+anim	spawn
+	loop	1
+	delay	8
+	offset	725 300
+	bbox	0 0 0 0
+	platform	600 445 0 0 350 350 200 170
+	@cmd	dasher -0.7 0 0
+	frame	data/bgs/beyond/lvl2/mali/death01.gif
+	@cmd	attack1 -100 100 400 "ANI_FOLLOW1"
+	frame	data/bgs/beyond/lvl2/mali/death02.gif
+	@cmd	attack1 -100 100 400 "ANI_FOLLOW1"
+	frame	data/bgs/beyond/lvl2/mali/death03.gif
+	sound	data/sounds/beat3.wav
+	@cmd	spawn01 "flash" 55 30 1
+	frame	data/bgs/beyond/lvl2/mali/death04.gif
+	@cmd	attack1 -100 100 400 "ANI_FOLLOW1"
+	frame	data/bgs/beyond/lvl2/mali/death05.gif
+	sound	data/sounds/bear1.wav
+	@cmd	attack1 -100 100 400 "ANI_FOLLOW1"
+	frame	data/bgs/beyond/lvl2/mali/death06.gif
+	@cmd	attack1 -100 100 400 "ANI_FOLLOW1"
+	frame	data/bgs/beyond/lvl2/mali/death07.gif
+	@cmd	attack1 -100 100 400 "ANI_FOLLOW1"
+	frame	data/bgs/beyond/lvl2/mali/death08.gif
+	@cmd	attack1 -100 100 400 "ANI_FOLLOW1"
+	sound	data/sounds/trainrol.wav
+	frame	data/bgs/beyond/lvl2/mali/death09.gif
+	@cmd	attack1 -100 100 400 "ANI_FOLLOW1"
+	sound	data/sounds/bear1.wav
+	frame	data/bgs/beyond/lvl2/mali/death01.gif
+	@cmd	attack1 -100 100 400 "ANI_FOLLOW1"
+	frame	data/bgs/beyond/lvl2/mali/death02.gif
+	@cmd	attack1 -100 100 400 "ANI_FOLLOW1"
+	frame	data/bgs/beyond/lvl2/mali/death03.gif
+	@cmd	attack1 -100 100 400 "ANI_FOLLOW1"
+	sound	data/sounds/beat3.wav
+	@cmd	spawn01 "flash" 55 30 1
+	frame	data/bgs/beyond/lvl2/mali/death04.gif
+	@cmd	attack1 -100 100 400 "ANI_FOLLOW1"
+	frame	data/bgs/beyond/lvl2/mali/death05.gif
+	@cmd	attack1 -100 100 400 "ANI_FOLLOW1"
+	frame	data/bgs/beyond/lvl2/mali/death06.gif
+	@cmd	attack1 -100 100 400 "ANI_FOLLOW1"
+	frame	data/bgs/beyond/lvl2/mali/death07.gif
+	@cmd	attack1 -100 100 400 "ANI_FOLLOW1"
+	frame	data/bgs/beyond/lvl2/mali/death08.gif
+	@cmd	attack1 -100 100 400 "ANI_FOLLOW1"
+	frame	data/bgs/beyond/lvl2/mali/death09.gif
+	@cmd	attack1 -100 100 400 "ANI_FOLLOW1"
+	sound	data/sounds/bear1.wav
+	frame	data/bgs/beyond/lvl2/mali/death01.gif
+	@cmd	attack1 -100 100 400 "ANI_FOLLOW1"
+	frame	data/bgs/beyond/lvl2/mali/death02.gif
+	@cmd	attack1 -100 100 400 "ANI_FOLLOW1"
+	frame	data/bgs/beyond/lvl2/mali/death03.gif
+	@cmd	attack1 -100 100 400 "ANI_FOLLOW1"
+	sound	data/sounds/beat3.wav
+	@cmd	spawn01 "flash" 55 30 1
+	frame	data/bgs/beyond/lvl2/mali/death04.gif
+	@cmd	attack1 -100 100 400 "ANI_FOLLOW1"
+	sound	data/sounds/bear1.wav
+	frame	data/bgs/beyond/lvl2/mali/death05.gif
+	@cmd	attack1 -100 100 400 "ANI_FOLLOW1"
+	frame	data/bgs/beyond/lvl2/mali/death06.gif
+	@cmd	attack1 -100 100 400 "ANI_FOLLOW1"
+	frame	data/bgs/beyond/lvl2/mali/death07.gif
+	@cmd	attack1 -100 100 400 "ANI_FOLLOW1"
+	frame	data/bgs/beyond/lvl2/mali/death08.gif
+	@cmd	attack1 -100 100 400 "ANI_FOLLOW1"
+	frame	data/bgs/beyond/lvl2/mali/death09.gif
+	@cmd	attack1 -100 100 400 "ANI_FOLLOW1"
+	sound	data/sounds/bear1.wav
+	frame	data/bgs/beyond/lvl2/mali/death01.gif
+	@cmd	attack1 -100 100 400 "ANI_FOLLOW1"
+	frame	data/bgs/beyond/lvl2/mali/death02.gif
+	@cmd	attack1 -100 100 400 "ANI_FOLLOW1"
+	frame	data/bgs/beyond/lvl2/mali/death03.gif
+	@cmd	attack1 -100 100 400 "ANI_FOLLOW1"
+	sound	data/sounds/beat3.wav
+	@cmd	spawn01 "flash" 55 30 1
+	frame	data/bgs/beyond/lvl2/mali/death04.gif
+	@cmd	attack1 -100 100 400 "ANI_FOLLOW1"
+	frame	data/bgs/beyond/lvl2/mali/death05.gif
+	@cmd	attack1 -100 100 400 "ANI_FOLLOW1"
+	frame	data/bgs/beyond/lvl2/mali/death06.gif
+	@cmd	attack1 -100 100 400 "ANI_FOLLOW1"
+	frame	data/bgs/beyond/lvl2/mali/death07.gif
+	@cmd	attack1 -100 100 400 "ANI_FOLLOW1"
+	frame	data/bgs/beyond/lvl2/mali/death08.gif
+	@cmd	attack1 -100 100 400 "ANI_FOLLOW1"
+	frame	data/bgs/beyond/lvl2/mali/death09.gif
+	@cmd	attack1 -100 100 400 "ANI_FOLLOW1"
+	sound	data/sounds/bear1.wav
+	frame	data/bgs/beyond/lvl2/mali/death01.gif
+	@cmd	attack1 -100 100 400 "ANI_FOLLOW1"
+	frame	data/bgs/beyond/lvl2/mali/death02.gif
+	@cmd	attack1 -100 100 400 "ANI_FOLLOW1"
+	frame	data/bgs/beyond/lvl2/mali/death03.gif
+	@cmd	attack1 -100 100 400 "ANI_FOLLOW1"
+	sound	data/sounds/beat3.wav
+	@cmd	spawn01 "flash" 55 30 1
+	frame	data/bgs/beyond/lvl2/mali/death04.gif
+	@cmd	attack1 -100 100 400 "ANI_FOLLOW1"
+	frame	data/bgs/beyond/lvl2/mali/death05.gif
+	@cmd	attack1 -100 100 400 "ANI_FOLLOW1"
+	frame	data/bgs/beyond/lvl2/mali/death06.gif
+	@cmd	attack1 -100 100 400 "ANI_FOLLOW1"
+	frame	data/bgs/beyond/lvl2/mali/death07.gif
+	@cmd	attack1 -100 100 400 "ANI_FOLLOW1"
+	frame	data/bgs/beyond/lvl2/mali/death08.gif
+	@cmd	attack1 -100 100 400 "ANI_FOLLOW1"
+	frame	data/bgs/beyond/lvl2/mali/death09.gif
+
+		
+#|edited by openBor Stats v 0.53
+		

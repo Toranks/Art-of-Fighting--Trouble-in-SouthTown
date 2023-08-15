@@ -1,0 +1,309 @@
+name	bounty1
+type	obstacle
+health	50000
+shadow	0
+nolife	1
+facing	1
+nomove	1 1
+nodrop	2
+offscreenkill 50000
+subject_to_wall 0
+subject_to_platform 0
+subject_to_gravity 0
+subject_to_minz 0
+subject_to_maxz 0
+
+palette	none
+
+load	post1
+load	gold
+
+animationscript data/scripts/escript.c
+
+anim	spawn
+	loop	0
+	delay	15
+	offset	125 75
+	frame	data/chars/misc/bonus/poster/bounty01.gif
+
+
+anim	idle
+	loop	1
+	delay	14
+	offset	125 75
+	bbox	80 10 75 65 50
+	platform	1 1 1 1 1 1 1 1
+	counterrange	0 4 1 1
+	followanim	1
+	frame	data/chars/misc/bonus/poster/bounty01.gif
+	frame	data/chars/misc/bonus/poster/bounty02.gif
+	frame	data/chars/misc/bonus/poster/bounty03.gif
+	frame	data/chars/misc/bonus/poster/bounty04.gif
+
+
+anim	follow1
+	loop	1 8 12
+	delay	14
+	offset	125 75
+	bbox	0 0 0 0
+	platform	1 1 1 1 1 1 1 1
+	frame	data/chars/misc/bonus/poster/bounty01.gif
+	frame	data/chars/misc/bonus/poster/bounty02.gif
+	frame	data/chars/misc/bonus/poster/bounty03.gif
+	frame	data/chars/misc/bonus/poster/bounty04.gif #3
+	@cmd	spawn02 "post1" 245 65 210
+	frame	data/chars/misc/bonus/poster/bounty05.gif
+	frame	data/chars/misc/bonus/poster/bounty06.gif
+	@cmd	spawn01 "gold" 1 30 50
+	frame	data/chars/misc/bonus/poster/bounty07.gif
+	frame	data/chars/misc/bonus/poster/bounty08.gif
+	frame	data/chars/misc/bonus/poster/bounty05.gif #8
+	frame	data/chars/misc/bonus/poster/bounty06.gif
+	frame	data/chars/misc/bonus/poster/bounty07.gif
+	frame	data/chars/misc/bonus/poster/bounty08.gif
+	frame	data/chars/misc/bonus/poster/bounty08.gif
+	frame	data/chars/misc/bonus/poster/bounty08.gif
+
+		
+
+		
+#--------------//bounty02//----------------
+
+anim	follow2
+@script
+if(frame==1)
+{
+  changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_OBSTACLE"));
+}
+@end_script
+	loop	1 2 4
+	delay	14
+	offset	65 75
+	bbox	25 10 75 65 50
+	platform	1 1 1 1 1 1 1 1
+	counterrange	0 3 1 1
+	followanim	3
+	frame	data/chars/misc/bonus/poster/2bounty01.gif
+	frame	data/chars/misc/bonus/poster/2bounty01.gif
+	frame	data/chars/misc/bonus/poster/2bounty01.gif
+	frame	data/chars/misc/bonus/poster/2bounty01.gif
+	frame	data/chars/misc/bonus/poster/2bounty01.gif
+
+anim	follow3
+@script
+if(frame==2)
+{
+  changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_NPC"));
+}
+@end_script
+	loop	1 3 6
+	delay	15
+	offset	65 75
+	bbox	0 0 0 0
+	platform	1 1 1 1 1 1 1 1
+	counterrange	3 7 1 1
+	followanim	2
+	frame	data/chars/misc/bonus/poster/2bounty01.gif
+	@cmd	spawnAni2 "post1" 245 65 210 "ANI_FOLLOW1"
+	frame	data/chars/misc/bonus/poster/2bounty01.gif
+	@cmd	spawn01 "gold" 1 30 50
+	frame	data/chars/misc/bonus/poster/2bounty01.gif
+	bbox	25 10 75 65 50
+	frame	data/chars/misc/bonus/poster/2bounty02.gif
+	frame	data/chars/misc/bonus/poster/2bounty02.gif
+	frame	data/chars/misc/bonus/poster/2bounty02.gif
+	frame	data/chars/misc/bonus/poster/2bounty02.gif
+
+#--------------//bounty03//----------------
+
+anim	follow4
+@script
+if(frame==1)
+{
+  changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_OBSTACLE"));
+}
+@end_script
+	loop	1 2 4
+	delay	14
+	offset	65 75
+	bbox	25 10 75 65 50
+	platform	1 1 1 1 1 1 1 1
+	counterrange	0 3 1 1
+	followanim	5
+	frame	data/chars/misc/bonus/poster/3bounty01.gif
+	frame	data/chars/misc/bonus/poster/3bounty01.gif
+	frame	data/chars/misc/bonus/poster/3bounty01.gif
+	frame	data/chars/misc/bonus/poster/3bounty01.gif
+	frame	data/chars/misc/bonus/poster/3bounty01.gif
+
+anim	follow5
+@script
+if(frame==2)
+{
+  changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_NPC"));
+}
+@end_script
+	loop	1 3 6
+	delay	15
+	offset	65 75
+	bbox	0 0 0 0
+	platform	1 1 1 1 1 1 1 1
+	counterrange	3 7 1 1
+	followanim	4
+	frame	data/chars/misc/bonus/poster/3bounty01.gif
+	@cmd	spawnAni2 "post1" 245 65 210 "ANI_FOLLOW2"
+	frame	data/chars/misc/bonus/poster/3bounty01.gif
+	@cmd	spawn01 "gold" 1 30 50
+	frame	data/chars/misc/bonus/poster/3bounty01.gif
+	bbox	25 10 75 65 50
+	frame	data/chars/misc/bonus/poster/3bounty02.gif
+	frame	data/chars/misc/bonus/poster/3bounty02.gif
+	frame	data/chars/misc/bonus/poster/3bounty02.gif
+	frame	data/chars/misc/bonus/poster/3bounty02.gif
+
+
+
+#--------------//bounty04//----------------
+
+anim	follow6
+@script
+if(frame==1)
+{
+  changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_OBSTACLE"));
+}
+@end_script
+	loop	1 2 4
+	delay	14
+	offset	65 75
+	bbox	25 10 75 65 50
+	platform	1 1 1 1 1 1 1 1
+	counterrange	0 3 1 1
+	followanim	7
+	frame	data/chars/misc/bonus/poster/4bounty01.gif
+	frame	data/chars/misc/bonus/poster/4bounty01.gif
+	frame	data/chars/misc/bonus/poster/4bounty01.gif
+	frame	data/chars/misc/bonus/poster/4bounty01.gif
+	frame	data/chars/misc/bonus/poster/4bounty01.gif
+
+anim	follow7
+@script
+if(frame==2)
+{
+  changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_NPC"));
+}
+@end_script
+	loop	1 3 6
+	delay	15
+	offset	65 75
+	bbox	0 0 0 0
+	platform	1 1 1 1 1 1 1 1
+	counterrange	3 7 1 1
+	followanim	6
+	frame	data/chars/misc/bonus/poster/4bounty01.gif
+	@cmd	spawnAni2 "post1" 245 65 210 "ANI_FOLLOW3"
+	frame	data/chars/misc/bonus/poster/4bounty01.gif
+	@cmd	spawn01 "gold" 1 30 50
+	frame	data/chars/misc/bonus/poster/4bounty01.gif
+	bbox	25 10 75 65 50
+	frame	data/chars/misc/bonus/poster/4bounty02.gif
+	frame	data/chars/misc/bonus/poster/4bounty02.gif
+	frame	data/chars/misc/bonus/poster/4bounty02.gif
+	frame	data/chars/misc/bonus/poster/4bounty02.gif
+
+
+
+#--------------//bounty05//----------------
+
+anim	follow8
+@script
+if(frame==1)
+{
+  changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_OBSTACLE"));
+}
+@end_script
+	loop	1 2 4
+	delay	14
+	offset	65 75
+	bbox	25 10 75 65 50
+	platform	1 1 1 1 1 1 1 1
+	counterrange	0 3 1 1
+	followanim	9
+	frame	data/chars/misc/bonus/poster/5bounty01.gif
+	frame	data/chars/misc/bonus/poster/5bounty01.gif
+	frame	data/chars/misc/bonus/poster/5bounty01.gif
+	frame	data/chars/misc/bonus/poster/5bounty01.gif
+	frame	data/chars/misc/bonus/poster/5bounty01.gif
+
+anim	follow9
+@script
+if(frame==2)
+{
+  changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_NPC"));
+}
+@end_script
+	loop	1 3 6
+	delay	15
+	offset	65 75
+	bbox	0 0 0 0
+	platform	1 1 1 1 1 1 1 1
+	counterrange	3 7 1 1
+	followanim	8
+	frame	data/chars/misc/bonus/poster/5bounty01.gif
+	@cmd	spawnAni2 "post1" 245 65 210 "ANI_FOLLOW4"
+	frame	data/chars/misc/bonus/poster/5bounty01.gif
+	@cmd	spawn01 "gold" 1 30 50
+	frame	data/chars/misc/bonus/poster/5bounty01.gif
+	bbox	25 10 75 65 50
+	frame	data/chars/misc/bonus/poster/5bounty02.gif
+	frame	data/chars/misc/bonus/poster/5bounty02.gif
+	frame	data/chars/misc/bonus/poster/5bounty02.gif
+	frame	data/chars/misc/bonus/poster/5bounty02.gif
+
+
+#--------------//bounty06//----------------
+
+anim	follow10
+@script
+if(frame==1)
+{
+  changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_OBSTACLE"));
+}
+@end_script
+	loop	1 2 4
+	delay	14
+	offset	65 75
+	bbox	25 10 75 65 50
+	platform	1 1 1 1 1 1 1 1
+	counterrange	0 3 1 1
+	followanim	11
+	frame	data/chars/misc/bonus/poster/6bounty01.gif
+	frame	data/chars/misc/bonus/poster/6bounty01.gif
+	frame	data/chars/misc/bonus/poster/6bounty01.gif
+	frame	data/chars/misc/bonus/poster/6bounty01.gif
+	frame	data/chars/misc/bonus/poster/6bounty01.gif
+
+anim	follow11
+@script
+if(frame==2)
+{
+  changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_NPC"));
+}
+@end_script
+	loop	1 3 6
+	delay	15
+	offset	65 75
+	bbox	0 0 0 0
+	platform	1 1 1 1 1 1 1 1
+	counterrange	3 7 1 1
+	followanim	10
+	frame	data/chars/misc/bonus/poster/6bounty01.gif
+	@cmd	spawnAni2 "post1" 245 65 210 "ANI_FOLLOW5"
+	frame	data/chars/misc/bonus/poster/6bounty01.gif
+	@cmd	spawn01 "gold" 1 30 50
+	frame	data/chars/misc/bonus/poster/6bounty01.gif
+	bbox	25 10 75 65 50
+	frame	data/chars/misc/bonus/poster/6bounty02.gif
+	frame	data/chars/misc/bonus/poster/6bounty02.gif
+	frame	data/chars/misc/bonus/poster/6bounty02.gif
+	frame	data/chars/misc/bonus/poster/6bounty02.gif
+		

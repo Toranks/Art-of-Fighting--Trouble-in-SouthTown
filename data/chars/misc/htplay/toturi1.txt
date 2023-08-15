@@ -1,0 +1,128 @@
+name	 toturi1
+type	 obstacle
+nomove	 1 1
+health	 95000
+score	 0
+nolife		1
+falldie		1
+noatflash		1
+flash			Flash0
+shadow   	0
+nodieblink	3
+facing		1
+subject_to_minz    	0
+subject_to_maxz    	0
+subject_to_wall    	0
+subject_to_platform     0
+subject_to_obstacle     0
+subject_to_hole     	0
+animationscript data/scripts/escript.c
+
+palette	none
+
+load	toturi2
+load	newspaper1
+
+
+anim	death
+	loop	0
+	delay	5
+	offset	70 130
+	frame	data/chars/misc/HTplay/tuto01.gif
+		
+anim	follow1
+	loop	0
+	delay	7
+	offset	70 145
+	bbox	0 0 0 0
+	custentity	toturi2
+	spawnframe	10 240 160 25 1
+	platform	1 1 1 1 1 1 1 1
+	frame	data/chars/misc/HTplay/tuto01.gif
+	frame	data/chars/misc/HTplay/tuto02.gif
+	frame	data/chars/misc/HTplay/tuto01.gif
+	frame	data/chars/misc/HTplay/tuto02.gif
+	frame	data/chars/misc/HTplay/tuto01.gif
+	frame	data/chars/misc/HTplay/tuto02.gif
+	frame	data/chars/misc/HTplay/tuto01.gif
+	frame	data/chars/misc/HTplay/tuto02.gif
+	frame	data/chars/misc/HTplay/tuto01.gif
+	frame	data/chars/misc/HTplay/tuto02.gif
+	frame	data/chars/misc/HTplay/tuto01.gif
+	frame	data/chars/misc/HTplay/tuto02.gif
+	frame	data/chars/misc/HTplay/tuto01.gif
+	@cmd	hpgain 350
+	frame	data/chars/misc/HTplay/tuto01.gif
+	@cmd	beidle
+	frame	data/chars/misc/HTplay/tuto01.gif
+		
+anim	idle
+	loop	1
+	delay	8
+	offset	70 145
+	bbox	27 5 85 140
+	counterrange	0 7 1 0
+	followanim	1
+	platform	1 1 1 1 1 1 1 1
+	frame	data/chars/misc/HTplay/tuto02.gif
+	offset	70 144
+	frame	data/chars/misc/HTplay/tuto01.gif
+	offset	70 143
+	frame	data/chars/misc/HTplay/tuto01.gif
+	offset	70 142
+	frame	data/chars/misc/HTplay/tuto01.gif
+	offset	70 141
+	frame	data/chars/misc/HTplay/tuto01.gif
+	offset	70 142
+	frame	data/chars/misc/HTplay/tuto01.gif
+	offset	70 143
+	frame	data/chars/misc/HTplay/tuto01.gif
+	offset	70 144
+	frame	data/chars/misc/HTplay/tuto01.gif
+
+
+anim	follow2
+	loop	1
+	delay	7
+	offset	45 155
+	bbox	10 5 70 150 20
+	counterrange	0 7 1 0
+	followanim	3
+	#platform	-10 160 30 30 80 80 20 1
+	platform	1 1 1 1 1 1 1 1
+	frame	data/chars/misc/HTplay/mail01.gif
+	offset	45 154
+	frame	data/chars/misc/HTplay/mail01.gif
+	offset	45 153
+	frame	data/chars/misc/HTplay/mail01.gif
+	offset	45 152
+	frame	data/chars/misc/HTplay/mail01.gif
+	offset	45 153
+	frame	data/chars/misc/HTplay/mail02.gif
+	offset	45 154
+	frame	data/chars/misc/HTplay/mail01.gif
+
+
+
+
+anim	follow3
+	loop	0
+	delay	6
+	offset	45 153
+	bbox	0 0 0 0
+	platform	1 1 1 1 1 1 1 1
+	frame	data/chars/misc/HTplay/mail01.gif
+	frame	data/chars/misc/HTplay/mail02.gif
+	frame	data/chars/misc/HTplay/mail01.gif #2
+	frame	data/chars/misc/HTplay/mail02.gif
+	@cmd	looper 2 10
+	frame	data/chars/misc/HTplay/mail01.gif
+	@cmd	spawn02 "newspaper1" 185 1 200
+	frame	data/chars/misc/HTplay/mail01.gif
+	frame	data/chars/misc/HTplay/mail01.gif
+	frame	data/chars/misc/HTplay/mail01.gif
+	@cmd	anichange "ANI_FOLLOW2"
+	frame	data/chars/misc/HTplay/mail01.gif
+
+
+

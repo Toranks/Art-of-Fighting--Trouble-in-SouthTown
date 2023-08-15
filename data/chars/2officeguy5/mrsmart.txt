@@ -1,0 +1,779 @@
+name          MrSmart
+type          enemy
+health        420
+speed         9
+jumpheight    4
+jumpmove      0 4
+throw         5 2
+throwdamage   18
+shadow        0
+noquake       0
+blockodds     1
+nolife        1
+falldie	      2
+nodieblink    1
+gfxshadow     1
+dust            dust
+projectilehit enemy obstacle
+diesound      data/sounds/die12.wav
+animationscript data/scripts/escript.c
+
+
+
+alternatepal       data/chars/2officeguy5/map1.gif
+alternatepal       data/chars/2officeguy5/map2.gif
+alternatepal       data/chars/2officeguy5/map3.gif
+alternatepal       data/chars/2officeguy5/map4.gif
+alternatepal       data/chars/2officeguy5/map5.gif
+
+
+
+@script
+   void self = getlocalvar("self");
+   void anim = getentityproperty(self,"animationID");
+   void hp = getentityproperty(self,"health");
+   int x = getentityproperty(self, "x");
+   int a = getentityproperty(self, "a");
+   int z = getentityproperty(self, "z");
+   int Dir = getentityproperty(self, "direction");
+   int Sx = 10;  //----distance from platform
+   int jp = 1;   //----jump velocity
+
+
+if(anim != openborconstant("ANI_DIE") || anim != openborconstant("ANI_FALL") || anim != openborconstant("ANI_RISE") || anim != openborconstant("ANI_JUMP"))
+{
+	float Hy;
+	if(Dir==0)
+	{
+	Sx = -10;
+	jp = -1;
+	}
+
+	Hy = checkplatformbelow(x+Sx,z, 70);
+
+	if(Hy > 1 && a <= 7 && hp > 0)
+	{
+	performattack(self,openborconstant("ANI_JUMP"));
+	changeentityproperty(self, "velocity", 0, 0, 0);
+	tossentity(self, 4, jp, 0);
+	}
+}
+@end_script
+
+
+
+anim	jump
+	range	20 150
+	loop	0
+	delay	20
+	offset	100 189
+	bbox	79 97 50 91
+	frame	data/chars/2officeguy5/rise4.gif
+	delay	17
+	frame	data/chars/2officeguy5/b108.gif
+	frame	data/chars/2officeguy5/b108.gif
+		
+anim	jumpland
+	loop	0
+	delay	12
+	offset	100 189
+	bbox	79 97 50 91
+	frame	data/chars/2officeguy5/rise6.gif
+	frame	data/chars/2officeguy5/rise7.gif
+
+
+anim	attack1
+	range	130 180
+	loop	0
+	delay	9
+	offset	100 189
+	bbox	79 97 50 91
+	hitfx	data/sounds/beat2.wav
+	hitflash	flashscreen1
+	frame	data/chars/2officeguy5/a108.gif
+	frame	data/chars/2officeguy5/a107.gif
+	delay	1
+	move	7
+	frame	data/chars/2officeguy5/a101.gif
+	frame	data/chars/2officeguy5/a101.gif
+	sound	data/sounds/bguyc02.wav
+	frame	data/chars/2officeguy5/a101.gif
+	frame	data/chars/2officeguy5/a101.gif
+	frame	data/chars/2officeguy5/a101.gif
+	frame	data/chars/2officeguy5/a101.gif
+	frame	data/chars/2officeguy5/a102.gif
+	frame	data/chars/2officeguy5/a102.gif
+	frame	data/chars/2officeguy5/a102.gif
+	frame	data/chars/2officeguy5/a102.gif
+	frame	data/chars/2officeguy5/a102.gif
+	move	0
+	delay	9
+	attack	125 105 90 30 12 1 0 0 13 0
+	dropv	3 4 0
+	frame	data/chars/2officeguy5/a103.gif
+	frame	data/chars/2officeguy5/a104.gif
+	frame	data/chars/2officeguy5/a105.gif
+	frame	data/chars/2officeguy5/a106.gif
+	attack	0 0 0 0
+	frame	data/chars/2officeguy5/a107.gif
+	frame	data/chars/2officeguy5/a108.gif
+		
+anim	attack2
+	range	80 120
+	loop	0
+	delay	10
+	offset	100 189
+	bbox	79 97 50 91
+	hitfx	data/sounds/beat3.wav
+	frame	data/chars/2officeguy5/a109.gif
+	frame	data/chars/2officeguy5/a110.gif
+	sound	data/sounds/bguya01.wav
+	frame	data/chars/2officeguy5/a111.gif
+	frame	data/chars/2officeguy5/a112.gif
+	attack	115 110 90 25 12 1 0 0 13 0
+	dropv	3 3 0
+	frame	data/chars/2officeguy5/a113.gif
+	frame	data/chars/2officeguy5/a114.gif
+	frame	data/chars/2officeguy5/a115.gif
+	frame	data/chars/2officeguy5/a116.gif
+	frame	data/chars/2officeguy5/a117.gif
+	frame	data/chars/2officeguy5/a118.gif
+	attack	0 0 0 0
+	frame	data/chars/2officeguy5/a107.gif
+	frame	data/chars/2officeguy5/a108.gif
+		
+anim	attack4
+	range	5 60
+	delay	10
+	offset	100 189
+	bbox	0 0 0 0
+	followanim	1
+	followcond	3
+	hitfx	data/sounds/grab.wav
+	attack	100 81 55 30 0 0 0 0 13 0
+	frame	data/chars/2officeguy5/th01.gif
+	frame	data/chars/2officeguy5/th02.gif
+	frame	data/chars/2officeguy5/th03.gif
+	frame	data/chars/2officeguy5/th02.gif
+	attack	0 0 0 0
+	frame	data/chars/2officeguy5/th01.gif
+		
+anim	attack5
+	range	190 280
+	loop	0
+	delay	2
+	offset	101 190
+	bbox	82 94 42 89
+	move	7
+	jumpframe	8 3 3
+	landframe	13
+	frame	data/chars/2officeguy5/b101.gif
+	frame	data/chars/2officeguy5/b101.gif
+	frame	data/chars/2officeguy5/b101.gif
+	sound	data/sounds/bguy11.wav
+	frame	data/chars/2officeguy5/b102.gif
+	frame	data/chars/2officeguy5/b102.gif
+	frame	data/chars/2officeguy5/b102.gif
+	frame	data/chars/2officeguy5/b103.gif
+	frame	data/chars/2officeguy5/b103.gif
+	move	0
+	delay	10
+	frame	data/chars/2officeguy5/b103.gif
+	frame	data/chars/2officeguy5/b104.gif
+	frame	data/chars/2officeguy5/b105.gif
+	attack	100 95 95 60 14 1 0 0 17 0
+	dropv	3 5 0
+	frame	data/chars/2officeguy5/b106.gif
+	delay	200
+	frame	data/chars/2officeguy5/b107.gif
+	attack	0 0 0 0
+	delay	8
+	frame	data/chars/2officeguy5/b108.gif
+	delay	12
+	frame	data/chars/2officeguy5/rise7.gif
+		
+anim	block
+	loop	0
+	delay	2
+	offset	100 189
+	bbox	79 74 54 114
+	move	-6
+	frame	data/chars/2officeguy5/block01.gif
+	frame	data/chars/2officeguy5/block01.gif
+	frame	data/chars/2officeguy5/block01.gif
+	frame	data/chars/2officeguy5/block01.gif
+	frame	data/chars/2officeguy5/block01.gif
+	delay	20
+	frame	data/chars/2officeguy5/block02.gif
+		
+anim	burn
+	loop	0
+	delay	25
+	offset	100 189
+	bbox	0 0 0 0
+	landframe	3
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 200_50_0
+	@cmd	spawnbind "burn1" 1 1 1
+	@cmd	spawnbind "burn2" 1 1 1
+	@cmd	spawnbind "burn3" 1 1 1
+	attack	78 98 30 45 5 1 0 0 13 0
+	frame	data/chars/2officeguy5/fall1.gif
+	delay	15
+	attack	64 130 50 25 5 1 0 0 13 0
+	frame	data/chars/2officeguy5/fall2.gif
+	delay	500
+	frame	data/chars/2officeguy5/fall3.gif
+	attack	0 0 0 0
+	bbox	58 175 85 15
+	delay	15
+	frame	data/chars/2officeguy5/fall4.gif
+	frame	data/chars/2officeguy5/fall5.gif
+	frame	data/chars/2officeguy5/fall4.gif
+		
+anim	death
+	loop	0
+	delay	40
+	offset	100 189
+	bbox	0 0 0 0
+	frame	data/chars/2officeguy5/fall4.gif
+	delay	14
+	frame	data/chars/2officeguy5/rise1.gif
+	frame	data/chars/2officeguy5/rise2.gif
+	frame	data/chars/2officeguy5/rise3.gif
+	delay	40
+	frame	data/chars/2officeguy5/rise4.gif
+	delay	14
+	frame	data/chars/2officeguy5/rise5.gif
+	frame	data/chars/2officeguy5/rise6.gif
+	frame	data/chars/2officeguy5/fall1.gif
+	frame	data/chars/2officeguy5/fall2.gif
+	frame	data/chars/2officeguy5/fall3.gif
+	frame	data/chars/2officeguy5/fall4.gif
+	frame	data/chars/2officeguy5/pain12.gif
+	frame	data/chars/2officeguy5/fall4.gif
+	frame	data/chars/2officeguy5/fall5.gif
+	frame	data/chars/2officeguy5/fall4.gif
+	frame	data/chars/2officeguy5/fall4.gif
+		
+anim	fall
+	loop	0
+	delay	25
+	offset	100 189
+	bbox	0 0 0 0
+	landframe	3
+	attack	78 98 30 45 5 1 0 0 13 0
+	frame	data/chars/2officeguy5/fall1.gif
+	delay	15
+	attack	64 130 50 25 5 1 0 0 13 0
+	frame	data/chars/2officeguy5/fall2.gif
+	delay	500
+	frame	data/chars/2officeguy5/fall3.gif
+	attack	0 0 0 0
+	bbox	58 175 85 15
+	delay	15
+	frame	data/chars/2officeguy5/fall4.gif
+	frame	data/chars/2officeguy5/fall5.gif
+	frame	data/chars/2officeguy5/fall4.gif
+		
+anim	fall10
+	loop	0
+	delay	10
+	offset	100 189
+	bbox	80 80 50 75
+	landframe	4
+	attack	85 88 30 50 5 1 0 0 13 0
+	frame	data/chars/2officeguy5/pain6.gif
+	delay	40
+	frame	data/chars/2officeguy5/pain7.gif
+	delay	30
+	bbox	71 125 63 30
+	attack	64 125 45 25 5 1 0 0 13 0
+	frame	data/chars/2officeguy5/fall2.gif
+	delay	300
+	bbox	77 130 67 35
+	attack	0 0 0 0
+	frame	data/chars/2officeguy5/fall3.gif
+	bbox	58 167 85 15
+	delay	15
+	frame	data/chars/2officeguy5/fall4.gif
+	frame	data/chars/2officeguy5/fall5.gif
+	frame	data/chars/2officeguy5/fall4.gif
+		
+anim	fall11
+	loop	0
+	delay	20
+	offset	100 189
+	bbox	61 185 90 5	
+	frame	data/chars/2officeguy5/pain12.gif
+	delay	35
+	frame	data/chars/2officeguy5/fall4.gif
+		
+anim	fall2
+	loop	0
+	delay	30
+	offset	100 189
+	bbox	0 0 0 0
+	landframe	3
+	attack	85 90 35 45 5 1 0 0 13 0
+	frame	data/chars/2officeguy5/pain7.gif
+	delay	10
+	attack	64 125 55 25 5 1 0 0 13 0
+	frame	data/chars/2officeguy5/fall2.gif
+	attack	0 0 0 0
+	delay	300
+	frame	data/chars/2officeguy5/fall3.gif
+	delay	15
+	frame	data/chars/2officeguy5/fall4.gif
+	frame	data/chars/2officeguy5/fall5.gif
+	frame	data/chars/2officeguy5/fall4.gif
+		
+anim	fall4
+	loop	0
+	delay	6
+	offset	100 189
+	bbox	0 0 0 0
+	jumpframe	0 1.2 1.5
+	frame	data/chars/2officeguy5/pain8.gif
+	frame	data/chars/2officeguy5/pain9.gif
+	frame	data/chars/2officeguy5/pain10.gif
+	@cmd	leaper 0 0.2 0
+	frame	data/chars/2officeguy5/pain11.gif
+	frame	data/chars/2officeguy5/fall4.gif
+	frame	data/chars/2officeguy5/fall5.gif
+	bbox	58 175 95 15
+	frame	data/chars/2officeguy5/fall4.gif
+		
+anim	fall7
+	delay	1000
+	offset	105 130
+	frame	data/chars/2officeguy5/slamck0.gif
+	offset	100 110
+	frame	data/chars/2officeguy5/slamck1.gif
+	offset	106 130
+	frame	data/chars/2officeguy5/slamck2.gif
+	offset	115 125
+	frame	data/chars/2officeguy5/slamck3.gif
+	offset	125 125
+	frame	data/chars/2officeguy5/slamck4.gif
+	offset	108 122
+	frame	data/chars/2officeguy5/slamck5.gif
+	offset	106 155
+	frame	data/chars/2officeguy5/slamck6.gif
+	offset	125 140
+	frame	data/chars/2officeguy5/slamck7.gif
+	offset	120 105
+	frame	data/chars/2officeguy5/slamck8.gif
+	offset	100 130
+	frame	data/chars/2officeguy5/slamck9.gif
+	offset	105 130
+	frame	data/chars/2officeguy5/slamck10.gif
+	offset	105 130
+	frame	data/chars/2officeguy5/slamck11.gif
+	offset	115 125
+	frame	data/chars/2officeguy5/slamck12.gif
+	offset	115 125
+	frame	data/chars/2officeguy5/slamck13.gif
+	offset	115 125
+	frame	data/chars/2officeguy5/slamck14.gif
+	offset	115 125
+	frame	data/chars/2officeguy5/slamck15.gif
+		
+anim	fall9
+	loop	0
+	delay	10
+	offset	100 189
+	bbox	0 0 0 0
+	quakeframe	2 5 5
+	landframe	2 dust
+	attack	75 105 35 45 5 1 0 0 13 0
+	frame	data/chars/2officeguy5/fall1.gif
+	delay	350
+	attack	75 125 45 35 5 1 0 0 13 0
+	offset	100 180
+	frame	data/chars/2officeguy5/fall2.gif
+	delay	2
+	offset	100 176
+	move	-4
+	frame	data/chars/2officeguy5/fall3.gif
+	frame	data/chars/2officeguy5/fall3.gif
+	attack	0 0 0 0
+	frame	data/chars/2officeguy5/fall3.gif
+	@cmd	looper 3 5
+	offset	100 189
+	move	-3
+	frame	data/chars/2officeguy5/fall4.gif
+	frame	data/chars/2officeguy5/fall4.gif
+	frame	data/chars/2officeguy5/fall4.gif
+	@cmd	looper 6 4
+	move	-2
+	frame	data/chars/2officeguy5/fall5.gif
+	frame	data/chars/2officeguy5/fall5.gif
+	frame	data/chars/2officeguy5/fall5.gif
+	loop	0
+	delay	15
+	move	0
+	bbox	58 175 100 15
+	frame	data/chars/2officeguy5/fall4.gif
+		
+anim	follow1
+	delay	12
+	offset	100 189
+	@cmd	slamstart2
+	@cmd	grabcheck2
+	@cmd	position 7 60 30 -1 -1
+	frame	data/chars/2officeguy5/th01.gif
+	frame	data/chars/2officeguy5/th01.gif
+	@cmd	position 7 65 40 -1 -1
+	frame	data/chars/2officeguy5/th02.gif
+	@cmd	position 7 60 40 -1 -1
+	frame	data/chars/2officeguy5/th03.gif
+	@cmd	position 8 55 65 1 1
+	frame	data/chars/2officeguy5/th05.gif
+	delay	3
+	@cmd	antiwall -30 5 0
+	@cmd	position 5 25 25 1 -1
+	frame	data/chars/2officeguy5/th06.gif
+	@cmd	antiwall -30 5 0
+	@cmd	position 5 25 25 1 -1
+	frame	data/chars/2officeguy5/th06.gif
+	@cmd	antiwall -30 5 0
+	@cmd	position 5 25 25 1 -1
+	frame	data/chars/2officeguy5/th06.gif
+	@cmd	antiwall -30 5 0
+	@cmd	position 5 25 25 1 -1
+	frame	data/chars/2officeguy5/th06.gif
+	sound	data/sounds/bguyc03.wav
+	@cmd	antiwall -30 5 0
+	@cmd	position 1 -30 23 1 1
+	frame	data/chars/2officeguy5/th07.gif
+	@cmd	antiwall -30 5 0
+	@cmd	position 1 -30 23 1 1
+	frame	data/chars/2officeguy5/th07.gif
+	@cmd	antiwall -30 5 0
+	@cmd	position 1 -30 23 1 1
+	frame	data/chars/2officeguy5/th07.gif
+	@cmd	antiwall -30 5 0
+	@cmd	position 1 -30 23 1 1
+	frame	data/chars/2officeguy5/th07.gif
+	@cmd	antiwall -30 5 0
+	@cmd	position 1 -25 70 1 1
+	frame	data/chars/2officeguy5/th08.gif
+	@cmd	antiwall -30 5 0
+	@cmd	position 1 -25 70 1 1
+	frame	data/chars/2officeguy5/th08.gif
+	@cmd	antiwall -30 5 0
+	@cmd	position 1 -25 70 1 1
+	frame	data/chars/2officeguy5/th08.gif
+	@cmd	antiwall -30 5 0
+	@cmd	position 1 -25 70 1 1
+	frame	data/chars/2officeguy5/th08.gif
+	delay	12
+	@cmd	depost 0
+	@cmd	finish 15 1 -2 5 0 0
+	frame	data/chars/2officeguy5/th09.gif
+	frame	data/chars/2officeguy5/th10.gif
+	delay	20
+	frame	data/chars/2officeguy5/th11.gif
+	delay	60
+	frame	data/chars/2officeguy5/th12.gif
+
+
+
+
+		
+anim	follow2
+	range	0 81
+	loop	0
+	delay	8
+	offset	100 189
+	bbox	0 0 0 0
+	hitfx	data/sounds/beat5.wav
+	frame	data/chars/2officeguy5/rise4.gif
+	frame	data/chars/2officeguy5/rise5.gif
+	frame	data/chars/2officeguy5/rise6.gif
+	delay	10
+	attack2	105 90 66 58 12 1 1 0 17 0
+	dropv	4 2 0
+	frame	data/chars/2officeguy5/b107.gif
+	attack2	105 90 88 58 12 1 1 0 17 0
+	dropv	4 2 0
+	frame	data/chars/2officeguy5/b106.gif
+	attack2	0 0 0 0
+	frame	data/chars/2officeguy5/b105.gif
+	frame	data/chars/2officeguy5/b104.gif
+	frame	data/chars/2officeguy5/b103.gif
+	frame	data/chars/2officeguy5/b102.gif
+	frame	data/chars/2officeguy5/b101.gif
+		
+anim	grab
+	loop	0
+	delay	30
+	attackone	0
+	offset	100 189
+	sound	data/sounds/grab.wav
+	@cmd	grabcheck
+	frame	data/chars/2officeguy5/a107.gif
+	delay	12
+	@cmd	slamstart
+	@cmd	position 7 60 30 -1 -1
+	frame	data/chars/2officeguy5/th01.gif
+	@cmd	spawn01 "Flash" 50 100 5
+	frame	data/chars/2officeguy5/th01.gif
+	@cmd	position 7 65 40 -1 -1
+	frame	data/chars/2officeguy5/th02.gif
+	@cmd	position 7 60 40 -1 -1
+	frame	data/chars/2officeguy5/th03.gif
+	@cmd	position 8 55 65 1 1
+	frame	data/chars/2officeguy5/th05.gif
+	delay	3
+	@cmd	antiwall -30 5 0
+	@cmd	position 5 25 25 1 -1
+	frame	data/chars/2officeguy5/th06.gif
+	@cmd	antiwall -30 5 0
+	@cmd	position 5 25 25 1 -1
+	frame	data/chars/2officeguy5/th06.gif
+	@cmd	antiwall -30 5 0
+	@cmd	position 5 25 25 1 -1
+	frame	data/chars/2officeguy5/th06.gif
+	@cmd	antiwall -30 5 0
+	@cmd	position 5 25 25 1 -1
+	frame	data/chars/2officeguy5/th06.gif
+	sound	data/sounds/bguyc03.wav
+	@cmd	antiwall -30 5 0
+	@cmd	position 1 -30 23 1 1
+	frame	data/chars/2officeguy5/th07.gif
+	@cmd	antiwall -30 5 0
+	@cmd	position 1 -30 23 1 1
+	frame	data/chars/2officeguy5/th07.gif
+	@cmd	antiwall -30 5 0
+	@cmd	position 1 -30 23 1 1
+	frame	data/chars/2officeguy5/th07.gif
+	@cmd	antiwall -30 5 0
+	@cmd	position 1 -30 23 1 1
+	frame	data/chars/2officeguy5/th07.gif
+	@cmd	antiwall -30 5 0
+	@cmd	position 1 -25 70 1 1
+	frame	data/chars/2officeguy5/th08.gif
+	@cmd	antiwall -30 5 0
+	@cmd	position 1 -25 70 1 1
+	frame	data/chars/2officeguy5/th08.gif
+	@cmd	antiwall -30 5 0
+	@cmd	position 1 -25 70 1 1
+	frame	data/chars/2officeguy5/th08.gif
+	@cmd	antiwall -30 5 0
+	@cmd	position 1 -25 70 1 1
+	frame	data/chars/2officeguy5/th08.gif
+	delay	12
+	@cmd	depost 0
+	@cmd	finish 15 1 -2 5 0 0
+	frame	data/chars/2officeguy5/th09.gif
+	frame	data/chars/2officeguy5/th10.gif
+	delay	20
+	frame	data/chars/2officeguy5/th11.gif
+	delay	60
+	frame	data/chars/2officeguy5/th12.gif
+
+
+		
+anim	grabbed
+	loop	0
+	delay	10
+	offset	100 189
+	bbox	79 97 50 91
+	frame	data/chars/2officeguy5/grabbed.gif
+		
+anim	idle
+	loop	1
+	delay	9
+	offset	100 189
+	bbox	79 97 50 91
+	frame	data/chars/2officeguy5/idle02.gif
+	frame	data/chars/2officeguy5/idle03.gif
+	frame	data/chars/2officeguy5/idle02.gif
+	frame	data/chars/2officeguy5/idle03.gif
+	frame	data/chars/2officeguy5/idle02.gif
+	frame	data/chars/2officeguy5/idle03.gif
+	frame	data/chars/2officeguy5/idle05.gif
+	frame	data/chars/2officeguy5/idle04.gif
+	delay	200
+	frame	data/chars/2officeguy5/idle01.gif
+	delay	9
+	frame	data/chars/2officeguy5/idle04.gif
+	frame	data/chars/2officeguy5/idle05.gif
+		
+
+		
+anim	pain
+	loop	0
+	delay	3
+	offset	103 189
+	bbox	79 97 50 91
+	frame	data/chars/2officeguy5/pain0.gif
+	offset	100 189
+	frame	data/chars/2officeguy5/pain1.gif
+	offset	103 189
+	frame	data/chars/2officeguy5/pain1.gif
+	delay	40
+	offset	100 189
+	frame	data/chars/2officeguy5/pain1.gif
+
+		
+anim	pain2
+	loop	0
+	delay	3
+	offset	103 189
+	bbox	79 97 50 91
+	frame	data/chars/2officeguy5/pain0.gif
+	offset	100 189
+	frame	data/chars/2officeguy5/pain2.gif
+	offset	103 189
+	frame	data/chars/2officeguy5/pain2.gif
+	delay	40
+	offset	100 189
+	frame	data/chars/2officeguy5/pain2.gif
+		
+anim	pain3
+	loop	0
+	delay	1
+	offset	103 189
+	bbox	0 0 0 0
+	jumpframe	1 2 -1 0
+	frame	data/chars/2officeguy5/pain1.gif
+	delay	25
+	frame	data/chars/2officeguy5/fall2.gif
+	delay	12
+	frame	data/chars/2officeguy5/fall3.gif
+	delay	4
+	bbox	71 165 67 30
+	frame	data/chars/2officeguy5/fall4.gif
+	frame	data/chars/2officeguy5/fall5.gif
+	frame	data/chars/2officeguy5/fall4.gif
+	frame	data/chars/2officeguy5/fall5.gif
+	delay	15
+	bbox	0 0 0 0
+	frame	data/chars/2officeguy5/fall4.gif
+	delay	10
+	frame	data/chars/2officeguy5/rise1.gif
+	frame	data/chars/2officeguy5/rise2.gif
+	frame	data/chars/2officeguy5/rise3.gif
+		
+anim	pain5
+	loop	0
+	delay	23
+	offset	100 189
+	bbox	79 97 50 91
+	frame	data/chars/2officeguy5/pain1.gif
+		
+anim	pain6
+	loop	0
+	delay	23
+	offset	100 189
+	bbox	79 97 50 91
+	frame	data/chars/2officeguy5/pain2.gif
+		
+anim	pain8
+	loop	0
+	delay	2
+	offset	100 189
+	bbox	79 97 50 91
+	move	-6
+	frame	data/chars/2officeguy5/pain0.gif
+	frame	data/chars/2officeguy5/pain0.gif
+	frame	data/chars/2officeguy5/pain0.gif
+	frame	data/chars/2officeguy5/pain1.gif
+	frame	data/chars/2officeguy5/pain1.gif
+	frame	data/chars/2officeguy5/pain1.gif
+	move	-3
+	frame	data/chars/2officeguy5/pain1.gif
+	frame	data/chars/2officeguy5/pain1.gif
+	move	-1
+	frame	data/chars/2officeguy5/pain1.gif
+	delay	35
+	frame	data/chars/2officeguy5/pain1.gif
+		
+anim	pain9
+	loop	0
+	delay	15
+	offset	100 189
+	bbox	79 97 50 91
+	frame	data/chars/2officeguy5/pain0.gif
+	delay	150
+	frame	data/chars/2officeguy5/pain1.gif
+		
+anim	rise
+	loop	0
+	delay	14
+	offset	100 189
+	bbox	0 0 0 0
+	frame	data/chars/2officeguy5/rise1.gif
+	frame	data/chars/2officeguy5/rise2.gif
+	@cmd	riseattack 80 10 "ANI_FOLLOW2"
+	frame	data/chars/2officeguy5/rise3.gif
+	frame	data/chars/2officeguy5/rise4.gif
+	frame	data/chars/2officeguy5/rise5.gif
+	frame	data/chars/2officeguy5/rise6.gif
+	frame	data/chars/2officeguy5/rise7.gif
+		
+anim	spawn
+	loop	0
+	delay	14
+	offset	100 189
+	bbox	79 97 50 91
+	frame	data/chars/2officeguy5/idle02.gif
+	frame	data/chars/2officeguy5/idle03.gif
+	frame	data/chars/2officeguy5/idle02.gif
+	frame	data/chars/2officeguy5/idle03.gif
+	frame	data/chars/2officeguy5/idle02.gif
+	frame	data/chars/2officeguy5/idle03.gif
+	frame	data/chars/2officeguy5/idle02.gif
+	frame	data/chars/2officeguy5/idle03.gif
+	frame	data/chars/2officeguy5/idle02.gif
+	frame	data/chars/2officeguy5/idle03.gif
+	frame	data/chars/2officeguy5/idle02.gif
+	frame	data/chars/2officeguy5/idle03.gif
+	frame	data/chars/2officeguy5/idle02.gif
+	frame	data/chars/2officeguy5/idle03.gif
+	frame	data/chars/2officeguy5/idle02.gif
+	frame	data/chars/2officeguy5/idle03.gif
+	frame	data/chars/2officeguy5/idle02.gif
+	frame	data/chars/2officeguy5/idle03.gif
+	frame	data/chars/2officeguy5/idle05.gif
+	frame	data/chars/2officeguy5/idle04.gif
+	frame	data/chars/2officeguy5/idle01.gif
+		
+anim	special
+	loop	0
+	delay	14
+	offset	100 189
+	bbox	0 0 0 0
+	hitfx	data/sounds/beat3.wav
+	frame	data/chars/2officeguy5/a109.gif
+	frame	data/chars/2officeguy5/a110.gif
+	frame	data/chars/2officeguy5/a111.gif
+	frame	data/chars/2officeguy5/a112.gif
+	delay	9
+	attack	99 122 77 25 17 1 0 0 13
+	frame	data/chars/2officeguy5/a113.gif
+	frame	data/chars/2officeguy5/a115.gif
+	frame	data/chars/2officeguy5/a118.gif
+	attack	0 0 0 0
+	frame	data/chars/2officeguy5/a107.gif
+	frame	data/chars/2officeguy5/a108.gif
+		
+anim	walk
+	loop	1
+	delay	11
+	offset	100 189
+	bbox	79 97 50 91
+	frame	data/chars/2officeguy5/wk00.gif
+	frame	data/chars/2officeguy5/wk01.gif
+	frame	data/chars/2officeguy5/wk02.gif
+	frame	data/chars/2officeguy5/wk03.gif
+	frame	data/chars/2officeguy5/wk04.gif
+	frame	data/chars/2officeguy5/wk05.gif
+	frame	data/chars/2officeguy5/wk06.gif
+	frame	data/chars/2officeguy5/wk07.gif
+		
+#|edited by openBor Stats v 0.53
+		

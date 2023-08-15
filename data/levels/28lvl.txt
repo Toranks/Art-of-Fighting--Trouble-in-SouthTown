@@ -1,0 +1,632 @@
+music		data/music/dock2.ogg
+
+background	data/bgs/28lvl/dock1bck.gif 0 0
+layer         data/bgs/28lvl/water.gif -3000 0 0 -50 130 0 0 1 1 1 0 1 5 5 1
+panel		data/bgs/28lvl/docks2.gif
+layer		data/bgs/28lvl/bck/sun2.gif 2000 1 0 -80 0 0 0 -1 1 1 1 0 0 0 0 3
+fglayer         data/bgs/28lvl/water2.gif 100 0 0 -115 420 0 0 1 1 1 0 1 7 7 1
+fglayer         data/bgs/28lvl/dockfront.gif 100 0 0 0 430 0 0 1 1 1 0
+
+
+direction       left
+light  		-155   -55
+at       	0
+settime         0
+notime          1
+noslow          1
+order		a
+spawn1  	100 330
+spawn2  	145 340
+spawn3  	185 350
+
+
+
+cameraoffset            0 -20
+cameratype              1
+
+
+#------------------
+
+wall    1890 485  0 0 45 45 10 30
+wall    1625 485  0 0 45 45 10 30
+wall    535 485  0 0 980 980 10 30
+wall    355 485  0 0 45 45 10 30
+wall    75 485  0 0 45 45 10 30
+hole 	-5 610 0 0 2015 2015 125
+
+#------------------
+
+#----------------------------------
+spawn   stgSET5
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+} @end_script
+coords  -500 515 350
+at      0
+#----------------------------------
+
+#------entrance
+
+
+spawn   btppl1
+flip	1
+map	1
+coords  500 287
+at      0
+
+spawn   girlboat2
+flip    1
+coords  -750 240
+at      0
+
+spawn   btppl1
+@script void main() {
+   void self = getlocalvar("self");
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+   changeentityproperty(self, "setlayer", -700);
+} @end_script
+map	1
+coords  -1800 325
+at      0
+
+
+spawn   girlboat
+flip    1
+coords  -230 90
+at      0
+
+spawn   girlboat3
+flip    1
+coords  -1580 145
+at      0
+
+
+
+#--------splash-------------------------------
+spawn   girlboat3
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+} @end_script
+coords  180 245
+at      0
+#--------------------------------------
+
+#-----------2
+
+spawn   box2
+item    gold
+health  30
+coords  430 460
+at      0
+
+spawn   drum2
+item    7shuss
+health  10
+coords  340 470
+at      0
+
+
+spawn   basket
+item    1up
+health  10
+coords  -340 370
+at      0
+
+spawn   basket2
+item    diamond
+health  10
+coords  -450 370
+at      0
+
+spawn   basket2
+item    7putin
+health  10
+coords  -380 400
+at      0
+
+spawn   basket
+item    gold
+health  10
+map     1
+coords  -490 400
+at      0
+
+
+spawn   barrel
+item    lulcardx
+health  10
+coords  -590 370
+at      0
+
+spawn   barrel
+item    moneybag
+health  30
+coords  -655 370
+at      0
+
+
+spawn   box2
+item    5neckl
+health  30
+coords  -610 465
+at      0
+
+spawn   basket2
+item    apple
+health  10
+coords  -490 460
+at      0
+
+spawn   basket
+item    apple2
+health  10
+map     2
+coords  -730 460
+at      0
+
+
+spawn   basket
+item    7burger
+health  10
+coords  -1340 470
+at      0
+
+spawn   basket2
+item    ruby
+health  10
+coords  -1440 470
+at      0
+
+
+#-----------------
+spawn   bird7
+coords  580 360
+at      0
+
+spawn   bird7
+flip    1
+coords  -350 230
+at      0
+
+
+spawn   bird3
+coords  -750 210
+at      0
+
+spawn   bird3
+flip    1
+coords  -1350 210
+at      0
+
+
+#------------------
+
+spawn   shark2
+flip    1
+coords  90 575
+at      0
+
+
+spawn   shark2
+flip    1
+coords  -650 575
+at      0
+
+
+spawn   shark2
+flip    1
+coords  -1350 575
+at      0
+
+#------------------
+
+spawn   ghosttime
+@script
+void main()
+{
+	setglobalvar("Kgnextday", NULL());
+	setglobalvar("challenge", NULL());
+	setglobalvar("killelle", NULL());
+	setglobalvar("cupkill", NULL());
+	setglobalvar("bn1", NULL());
+	setglobalvar("bn2", NULL());
+	setglobalvar("bn3", NULL());
+	setglobalvar("bn4", NULL());
+	setglobalvar("rsh1", NULL());
+	setglobalvar("rsh2", NULL());
+	setglobalvar("maphold1", NULL());
+	setglobalvar("maphold2", NULL());
+	setglobalvar("maphold3", NULL());
+}
+@end_script
+health	5
+coords  0 385
+at      0
+
+#------------------
+
+
+#------------------
+
+group 3 3
+at  5
+wait
+at  5
+
+
+spawn   kimberry
+map     3
+#health  130
+coords  -200 380
+at      5
+
+
+spawn   shion
+map     1
+#health  100
+coords  -300 360
+at      5
+
+spawn   sheila
+map     1
+item    7cofe
+#health  220
+coords  700 385
+at      5
+
+
+spawn   ren
+map     4
+#health  120
+coords  -250 380
+at      5
+
+
+spawn   ron
+map     4
+item    moneybag
+#health  110
+coords  750 370
+at      5
+
+spawn   brock
+map     4
+#health  100
+coords  700 400
+at      5
+
+
+spawn   prettyboy
+map     4
+item    moneybag
+#health  110
+coords  -250 380
+at      5
+
+#--------------------------
+
+group 4 4
+at  5
+wait
+at  5
+
+
+spawn   slay
+map     4
+#health  220
+coords  -200 360
+at      5
+
+
+spawn   zen
+map     2
+#health  200
+coords  650 385
+at      5
+
+
+2pspawn   shimali
+map     4
+item    5gbar
+#health  220
+coords  650 365
+at      5
+
+
+spawn   psycho
+map     4
+#health  90
+coords  650 365
+at      5
+
+
+spawn   dan
+map     4
+#health  110
+coords  -210 375
+at      5
+
+2pspawn   shimali
+map     3
+item    food1
+#health  220
+coords  -300 360
+at      5
+
+
+2pspawn   slay
+map     3
+#health  230
+coords  -200 380
+at      5
+
+
+spawn   zen
+map     4
+flip    1
+#health  210
+coords  -230 370
+at      5
+
+#--------------------------
+
+group 3 3
+at  250
+wait
+at  250
+
+spawn   malenko
+map     3
+flip    1
+item    5gbar
+#health  240
+coords  -200 380
+at      250
+
+
+spawn   kraven
+map     3
+#health  210
+coords  -300 360
+at      250
+
+spawn   fatguy
+map     3
+#health  240
+item    cheese
+coords  -250 385
+at      250
+
+
+spawn   brock
+map     3
+#health  120
+coords  650 365
+at      250
+
+2pspawn   ron
+map     3
+#health  130
+coords  -200 385
+at      250
+
+3pspawn   biff
+map     3
+#health  240
+item    ruby
+coords  -250 365
+at      250
+
+#--------------------------
+
+group 1 1
+at  950
+wait
+at  950
+
+2pspawn   jimcombo
+map     3
+#health  240
+coords  600 375
+at      950
+
+
+2pspawn   shimali
+map     1
+#health  210
+item    money1
+coords  -220 375
+at      950
+
+
+2pspawn   vigo
+map     3
+#health  90
+coords  650 415
+at      950
+
+
+3pspawn   vigo
+map     3
+#health  90
+coords  -200 415
+at      950
+
+
+3pspawn   rashad
+map     3
+#health  130
+item    money2
+coords  -280 400
+at      950
+
+3pspawn   dash
+map     3
+#health  240
+coords  680 390
+at      950
+
+#--------------------------
+
+group 2 2
+at  1200
+wait
+at  1200
+
+spawn   beloche
+#health  600
+aggression 200
+item    7putin
+coords  -280 370
+at      1200
+
+#------//-boat-attack---//-------
+spawn   runboat1
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW5"));
+} @end_script
+flip	1
+map     4
+coords  -320 380
+at      1200
+#---------------//------
+
+spawn   slay
+map     1
+#health  280
+aggression 200
+item    gold
+coords  -280 420
+at      1200
+
+
+#--------------------------
+group 4 4
+at  1600
+
+spawn   rodder
+map     1
+#health  90
+coords  -280 430
+at      1600
+
+spawn   rodder
+map     2
+#health  90
+coords  -320 360
+at      1600
+
+2pspawn   rodder
+map     3
+#health  90
+item    7cofe
+coords  630 370
+at      1600
+
+
+spawn   gazz
+map     1
+#health  200
+coords  -230 370
+at      1600
+
+
+spawn   fox
+map     1
+#health  260
+item    food1
+coords  590 390
+at      1600
+
+
+spawn   jay
+map     1
+#health  120
+coords  -290 390
+at      1600
+
+#------//-boat-attack---//-------
+spawn   runboat1
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW4"));
+} @end_script
+map     3
+coords  750 380
+at      1600
+#---------------//------
+
+
+
+
+spawn   thong
+map     1
+#health  130
+coords  590 390
+at      1600
+
+
+3pspawn   vigo
+map     2
+#health  90
+item    moneybag
+coords  -290 390
+at      1600
+
+
+spawn   psycho
+map     2
+#health  100
+coords  590 390
+at      1600
+
+
+spawn   eve
+map     1
+#health  260
+item    7donut
+coords  -290 390
+at      1600
+
+
+spawn   eve
+map     2
+health  800
+boss	1
+item    bannana
+coords  590 390
+at      1600
+
+3pspawn   bash
+map     3
+#health  550
+item    food2
+coords  -290 390
+at      1600
+
+
+#------//-boat-attack---//-------
+spawn   runboat1
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW3"));
+} @end_script
+flip	1
+map     2
+coords  -300 380
+at      1600
+#---------------//------
+
+2pspawn   lucy
+map     3
+#health  100
+coords  -290 390
+at      1600
+
+
+2pspawn   shikky
+map     1
+#health  90
+item    ring
+coords  590 390
+at      1600
+
+

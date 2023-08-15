@@ -1,0 +1,383 @@
+name	 mrkshw1
+type     obstacle
+health	 1000
+score	 0
+nolife   1
+nomove	 1 1
+gfxshadow	1
+subject_to_hole     	0
+subject_to_obstacle     0
+offscreenkill 	10000
+hostile		npc
+candamage	npc
+
+animationscript data/scripts/escript.c
+
+load	screenmover
+load	brkmetal2
+load	smk1
+
+anim	idle
+	loop	1
+	delay	7
+	offset	100 189
+	bbox	0 0 0 0
+	frame	data/chars/3mrkarate/idle01.gif
+		
+anim	spawn
+	loop	0
+	delay	3
+	offset	100 189
+	bbox	0 0 0 0
+	jumpframe	0 1 2
+	landframe	29 
+	@cmd	flip
+	frame	data/chars/3mrkarate/fall14.gif
+	sound	data/sounds/mrkarat01.wav
+	frame	data/chars/3mrkarate/fall13.gif
+	sound	data/sounds/mrkarat09.wav
+	frame	data/chars/3mrkarate/fall12.gif
+	sound	data/sounds/mrkarat09.wav
+	frame	data/chars/3mrkarate/fall11.gif
+	frame	data/chars/3mrkarate/fall14.gif
+	frame	data/chars/3mrkarate/fall13.gif
+	frame	data/chars/3mrkarate/fall12.gif
+	frame	data/chars/3mrkarate/fall11.gif
+	frame	data/chars/3mrkarate/fall14.gif
+	frame	data/chars/3mrkarate/fall13.gif
+	frame	data/chars/3mrkarate/fall12.gif
+	frame	data/chars/3mrkarate/fall11.gif
+	frame	data/chars/3mrkarate/fall14.gif
+	frame	data/chars/3mrkarate/fall13.gif
+	frame	data/chars/3mrkarate/fall12.gif
+	frame	data/chars/3mrkarate/fall11.gif
+	frame	data/chars/3mrkarate/fall14.gif
+	frame	data/chars/3mrkarate/fall13.gif
+	frame	data/chars/3mrkarate/fall12.gif
+	frame	data/chars/3mrkarate/fall11.gif
+	frame	data/chars/3mrkarate/fall14.gif
+	frame	data/chars/3mrkarate/fall13.gif
+	frame	data/chars/3mrkarate/fall12.gif
+	frame	data/chars/3mrkarate/fall11.gif
+	frame	data/chars/3mrkarate/fall14.gif
+	frame	data/chars/3mrkarate/fall13.gif
+	frame	data/chars/3mrkarate/fall12.gif
+	frame	data/chars/3mrkarate/fall11.gif
+	delay	500
+	frame	data/chars/3mrkarate/fall14.gif
+	delay	6
+	frame	data/chars/3mrkarate/xjua08.gif #29
+	offset	100 175
+	frame	data/chars/3mrkarate/xjua09.gif
+	offset	100 189
+	frame	data/chars/3mrkarate/2grab16.gif
+	hitfx	data/sounds/hard1.wav
+	delay	9
+	#attack	50 160 100 75 50 0 1 0 0 100
+	attack	50 160 100 275 50 0 1 0 0 300
+	frame	data/chars/3mrkarate/zbrk01.gif
+	attack	0 0 0 0
+	@cmd	spawn01 "qfx" 1 1 1
+	sound	data/sounds/hard2.wav
+	delay	270
+	frame	data/chars/3mrkarate/zbrk02.gif
+	delay	12
+	frame	data/chars/3mrkarate/2grab16.gif
+	frame	data/chars/3mrkarate/2grab15.gif
+	@cmd	dasher 2.6 0 0
+	sound	data/sounds/mrkarat08.wav
+	frame	data/chars/3mrkarate/wtr01.gif
+	@cmd	spawn01 "screenmover" 1 1 1
+	frame	data/chars/3mrkarate/wtr02.gif
+	delay	7
+	frame	data/chars/3mrkarate/zbrk03.gif #38
+	@cmd	looper 38 19
+	frame	data/chars/3mrkarate/wtr03.gif
+	frame	data/chars/3mrkarate/wtr04.gif
+	frame	data/chars/3mrkarate/wtr05.gif
+	frame	data/chars/3mrkarate/fall14.gif
+	frame	data/chars/3mrkarate/wtr06.gif
+	sound	data/sounds/mrkarat01.wav
+	frame	data/chars/3mrkarate/wtr19.gif
+	frame	data/chars/3mrkarate/wtr18.gif
+	@cmd	stop
+	delay	10
+	@cmd	dasher 0 0 2.5
+	@cmd	layer -180
+	frame	data/chars/3mrkarate/wtr18.gif
+	frame	data/chars/3mrkarate/wturn02.gif
+	frame	data/chars/3mrkarate/xg10.gif
+	frame	data/chars/3mrkarate/xjua12.gif
+	@cmd	stop
+	frame	data/chars/3mrkarate/zbrk05.gif
+	frame	data/chars/3mrkarate/zbrk06.gif
+	frame	data/chars/3mrkarate/zbrk07.gif
+	@cmd	changeopenborvariant "slowmotion" 0
+	frame	data/chars/3mrkarate/zbrk07.gif
+	@cmd    anichange "ANI_FOLLOW1"
+	frame	data/chars/3mrkarate/zbrk07.gif
+
+
+
+anim	follow1
+	loop	1
+	delay	10
+	offset	100 189
+	bbox	0 0 0 0
+	followanim	2
+	followcond	1
+	frame	data/chars/3mrkarate/zbrk07.gif
+	hitfx	data/sounds/grab.wav
+	hitflash	Flash0
+	attack	-200 94 410 96 1 0 1 0 0 200
+	frame	data/chars/3mrkarate/zbrk07.gif
+	attack	0 0 0 0
+	frame	data/chars/3mrkarate/zbrk07.gif
+	frame	data/chars/3mrkarate/zbrk07.gif
+	frame	data/chars/3mrkarate/zbrk07.gif
+
+
+anim	follow2
+@script
+	void self = getlocalvar("self");
+	if(frame==11)
+	{
+	changelevelproperty("bgspeed", 6);
+	}
+	if(frame==19)
+	{
+	changelevelproperty("bgspeed", 4);
+	}
+	if(frame==27)
+	{
+	changelevelproperty("bgspeed", 2);
+	}
+@end_script
+	loop	0
+	delay	30
+	offset	100 189
+	bbox	0 0 0 0
+	@cmd	slamstart2
+	#@cmd	position 0 -53 1 -1 1
+	@cmd	position 0 -53 10 10 1
+	frame	data/chars/3mrkarate/zbrk07.gif
+	sound	data/sounds/mrkarat02.wav
+	@cmd	spawnGun "smk1" 35 1 8 1
+	delay	5
+	@cmd	position 1 -53 10 10 1
+	frame	data/chars/3mrkarate/zbrk07.gif
+	sound	data/sounds/mrkarat01.wav
+	@cmd	position 0 -53 10 10 1
+	frame	data/chars/3mrkarate/zbrk08.gif
+	@cmd	position 1 -53 10 10 1
+	sound	data/sounds/mrkarat02.wav
+	frame	data/chars/3mrkarate/zbrk07.gif
+	sound	data/sounds/elevspark.wav
+	@cmd	position 0 -53 10 10 1
+	frame	data/chars/3mrkarate/zbrk08.gif #4
+	@cmd	position 1 -53 10 10 1
+	frame	data/chars/3mrkarate/zbrk07.gif
+	@cmd	position 0 -53 10 10 1
+	frame	data/chars/3mrkarate/zbrk08.gif
+	@cmd	position 1 -53 10 10 1
+	frame	data/chars/3mrkarate/zbrk07.gif
+	@cmd	looper 4 30
+	@cmd	position 1 -53 10 10 1
+	frame	data/chars/3mrkarate/zbrk08.gif
+	sound	data/sounds/mrkarat02.wav
+	@cmd	spawnbind "explosion8" -90 100 1
+	@cmd	position 2 -45 10 10 1
+	frame	data/chars/3mrkarate/zbrk07.gif
+	@cmd	spawnbind "cardam2" -30 60 1
+	@cmd	spawnbind "cardam2" -60 80 1
+	@cmd	position 1 -53 10 10 1
+	frame	data/chars/3mrkarate/zbrk08.gif
+	@cmd    tosser "brkmetal2" -100 50 1 0.3 3.5 0
+	@cmd    tosser "brkmetal2" -90 40 1 0 3.5 0
+	@cmd    tosser "brkmetal2" -80 50 1 -0.3 3.5 0
+	@cmd	position 2 -45 10 10 1
+	frame	data/chars/3mrkarate/zbrk07.gif
+#----------------------------//---------------------------------
+	sound	data/sounds/elevspark.wav
+	@cmd	position 2 -45 10 10 1
+	frame	data/chars/3mrkarate/zbrk08.gif #12
+	@cmd	position 3 -45 10 10 1
+	frame	data/chars/3mrkarate/zbrk07.gif
+	@cmd	position 2 -45 10 10 1
+	frame	data/chars/3mrkarate/zbrk08.gif
+	@cmd	position 3 -45 10 10 1
+	frame	data/chars/3mrkarate/zbrk07.gif
+	@cmd	looper 12 30
+	@cmd	position 3 -45 10 10 1
+	frame	data/chars/3mrkarate/zbrk08.gif
+	sound	data/sounds/mrkarat02.wav
+	@cmd	spawnbind "explosion8" -90 100 1
+	@cmd	position 4 -35 10 10 1
+	frame	data/chars/3mrkarate/zbrk07.gif
+	@cmd	spawnbind "cardam2" -30 60 1
+	@cmd	spawnbind "cardam2" -60 80 1
+	@cmd	position 3 -45 10 10 1
+	frame	data/chars/3mrkarate/zbrk08.gif
+	@cmd    tosser "brkmetal2" -100 50 1 0.3 3.5 0
+	@cmd    tosser "brkmetal2" -90 40 1 0 3.5 0
+	@cmd    tosser "brkmetal2" -80 50 1 -0.3 3.5 0
+	@cmd	position 4 -35 10 10 1
+	frame	data/chars/3mrkarate/zbrk07.gif
+#----------------------------//---------------------------------
+	sound	data/sounds/elevspark.wav
+	@cmd	position 4 -35 10 10 1
+	frame	data/chars/3mrkarate/zbrk08.gif #20
+	@cmd	position 5 -35 10 10 1
+	frame	data/chars/3mrkarate/zbrk07.gif
+	@cmd	position 4 -35 10 10 1
+	frame	data/chars/3mrkarate/zbrk08.gif
+	@cmd	position 5 -35 10 10 1
+	frame	data/chars/3mrkarate/zbrk07.gif
+	@cmd	looper 20 30
+	@cmd	position 5 -35 10 10 1
+	frame	data/chars/3mrkarate/zbrk08.gif
+	sound	data/sounds/mrkarat02.wav
+	@cmd	spawnbind "explosion8" -90 100 1
+	sound	data/sounds/mrkarat02.wav
+	@cmd	spawnbind "explosion8" -90 100 1
+	@cmd	position 6 -25 10 10 1
+	frame	data/chars/3mrkarate/zbrk07.gif
+	@cmd	spawnbind "cardam2" -30 60 1
+	@cmd	spawnbind "cardam2" -60 80 1
+	@cmd	position 5 -35 10 10 1
+	frame	data/chars/3mrkarate/zbrk08.gif
+	@cmd    tosser "brkmetal2" -100 50 1 0.3 3.5 0
+	@cmd    tosser "brkmetal2" -90 40 1 0 3.5 0
+	@cmd    tosser "brkmetal2" -80 50 1 -0.3 3.5 0
+	@cmd	position 6 -25 10 10 1
+	frame	data/chars/3mrkarate/zbrk07.gif
+#----------------------------//---------------------------------
+	sound	data/sounds/elevspark.wav
+	@cmd	position 6 -25 10 10 1
+	frame	data/chars/3mrkarate/zbrk08.gif #28
+	@cmd	position 7 -25 10 10 1
+	frame	data/chars/3mrkarate/zbrk07.gif
+	@cmd	position 6 -25 10 10 1
+	frame	data/chars/3mrkarate/zbrk08.gif
+	@cmd	position 7 -25 10 10 1
+	frame	data/chars/3mrkarate/zbrk07.gif
+	@cmd	looper 28 30
+	@cmd	position 6 -25 10 10 1
+	frame	data/chars/3mrkarate/zbrk08.gif
+	@cmd	position 7 -25 10 10 1
+	frame	data/chars/3mrkarate/zbrk07.gif
+	@cmd	position 6 -25 10 10 1
+	frame	data/chars/3mrkarate/zbrk08.gif
+	@cmd	position 7 -25 10 10 1
+	frame	data/chars/3mrkarate/zbrk07.gif
+	delay	15
+	@cmd	position 7 -25 10 10 1
+	frame	data/chars/3mrkarate/zbrk07.gif
+	@cmd	changeopenborvariant "slowmotion" 1
+	@cmd	position 8 -15 25 -1 1
+	frame	data/chars/3mrkarate/zbrk09.gif
+	@cmd	killgun 1 0
+	sound	data/sounds/mrkarat07.wav
+	sound	data/sounds/mrkarat09.wav
+	@cmd	position 9 -5 45 -1 1
+	frame	data/chars/3mrkarate/zbrk09.gif
+	sound	data/sounds/mrkarat10.wav
+	@cmd	position 10 25 60 -1 1
+	frame	data/chars/3mrkarate/zbrk10.gif
+	@cmd	position 11 35 75 -1 1
+	frame	data/chars/3mrkarate/zbrk10.gif
+	sound	data/sounds/mrkarat02.wav
+	@cmd	position 12 65 95 -1 1
+	frame	data/chars/3mrkarate/zbrk11.gif
+	sound	data/sounds/mrkarat02.wav
+	@cmd	position 13 80 110 -1 1
+	frame	data/chars/3mrkarate/zbrk11.gif
+	@cmd	depost 0
+	@cmd	finish 1 1 10 3 0 0
+	@cmd	dasher -2 0 0
+	frame	data/chars/3mrkarate/zbrk12.gif
+	sound	data/sounds/bombfall.wav
+	frame	data/chars/3mrkarate/zbrk12.gif
+	delay	350
+	frame	data/chars/3mrkarate/zbrk12.gif
+	@cmd	changeopenborvariant "slowmotion" 1
+	delay	5
+	frame	data/chars/3mrkarate/zbrk12.gif
+	@cmd    anichange "ANI_FOLLOW5"
+	frame	data/chars/3mrkarate/zbrk12.gif
+
+
+
+anim	follow5
+@script
+    if(frame==1){
+	jumptobranch("dummy", 1);
+    }
+@end_script
+	loop	0
+	delay	5
+	offset	100 189
+	bbox	0 0 0 0
+	@cmd	changeopenborvariant "slowmotion" 0
+	frame	data/chars/3mrkarate/zbrk12.gif
+	frame	data/chars/3mrkarate/zbrk12.gif
+	frame	data/chars/3mrkarate/zbrk12.gif
+	frame	data/chars/3mrkarate/zbrk12.gif
+
+
+
+anim	follow6
+@script
+changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_ENEMY"));
+@end_script
+	loop	1 1 10
+	delay	3800
+	offset	100 223
+	bbox	0 0 0 0
+	counterrange 0 15 1 1
+	followanim 8
+	platform   1 1 1 1 1 1 1 1
+	@cmd	flip
+	frame	data/chars/3mrkarate/xfall1.gif
+	bbox	70 97 70 91 130
+	frame	data/chars/3mrkarate/xfall1.gif
+	frame	data/chars/3mrkarate/xfall1.gif
+	frame	data/chars/3mrkarate/xfall1.gif
+	frame	data/chars/3mrkarate/xfall1.gif
+	frame	data/chars/3mrkarate/xfall1.gif
+	frame	data/chars/3mrkarate/xfall1.gif
+	frame	data/chars/3mrkarate/xfall1.gif
+	frame	data/chars/3mrkarate/xfall1.gif
+	frame	data/chars/3mrkarate/xfall1.gif
+	frame	data/chars/3mrkarate/xfall1.gif
+	frame	data/chars/3mrkarate/xfall1.gif
+	frame	data/chars/3mrkarate/xfall1.gif
+	frame	data/chars/3mrkarate/xfall1.gif
+	frame	data/chars/3mrkarate/xfall1.gif
+	frame	data/chars/3mrkarate/xfall1.gif
+	frame	data/chars/3mrkarate/xfall1.gif
+	frame	data/chars/3mrkarate/xfall1.gif
+
+anim	follow8
+	loop	1 4 9
+	delay	12
+	offset	100 189
+	bbox	0 0 0 0
+	jumpframe 0 3 0
+	landframe 3
+	platform   1 1 1 1 1 1 1 1
+	frame	data/chars/3mrkarate/fall1.gif
+	frame	data/chars/3mrkarate/fall2.gif
+	delay	300
+	frame	data/chars/3mrkarate/fall3.gif
+	delay	30000
+	frame	data/chars/3mrkarate/fall4.gif
+	frame	data/chars/3mrkarate/fall4.gif
+	frame	data/chars/3mrkarate/fall4.gif
+	frame	data/chars/3mrkarate/fall4.gif
+	frame	data/chars/3mrkarate/fall4.gif
+	frame	data/chars/3mrkarate/fall4.gif
+	frame	data/chars/3mrkarate/fall4.gif
+
+
+		

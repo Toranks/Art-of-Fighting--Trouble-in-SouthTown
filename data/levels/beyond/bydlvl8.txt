@@ -1,0 +1,551 @@
+music		data/music/byolvl8.ogg
+bossmusic	data/music/byo8bss.ogg
+
+
+background	data/bgs/beyond/lvl8/back4.gif 1 1
+layer		data/bgs/beyond/lvl8/back.gif -10000 0.5 0 0 0 0 0 -1 1 1 0 0 0 0 0 0
+layer		data/bgs/beyond/lvl8/back2.gif -5000 0 0 0 0 0 0 -1 1 1 1 0 0 0 0 0.7
+panel		data/bgs/beyond/lvl8/panel.gif
+layer		data/bgs/beyond/lvl8/middle.gif 280 0 0 980 55 0 0 1 1 1 0 0 0 0 0 0
+layer		data/bgs/beyond/lvl8/panel2.gif 0 0 0 5850 -95 0 0 1 1 1 0 0 0 0 0 0
+fglayer		data/bgs/beyond/lvl8/front1.gif 700 0 0 0 0 0 0 1 1 1 0 0 0 0 0 0
+fglayer		data/bgs/beyond/lvl8/front2.gif 700 0 0 5850 -95 0 0 1 1 1 0 0 0 0 0 0
+layer		data/bgs/beyond/lvl8/wtr.gif -1000 0 0 6550 220 0 0 1 1 1 0 1 3 3 1
+fglayer         data/bgs/beyond/lvl8/light.gif 700 0 0 6080 30 1 1 1 1 1 1
+fglayer		data/bgs/beyond/lvl8/front3.gif  1500 0 0 1100 130 0 0 3 1 1 1 1 5 5 1
+fglayer	        data/bgs/beyond/lvl8/dark.gif 8000 0 0 -15 -1 0 0 1 1 1 2 0 0 0 0 0
+
+
+direction       both
+light  		-155   -55
+at       	0
+settime         0
+notime          1
+noslow          0
+order		a
+spawn1  	105 20
+spawn2  	110 20
+spawn3  	115 20
+
+bgspeed			1
+cameraoffset            0 -90
+cameratype              1
+
+#----------------------
+wall    -20 285  0 0 820 820 200 5000
+wall    790 297  0 0 250 250 200 5000
+hole    970 277  0 0 5040 5040 100
+hole    2627 325  0 0 130 130 50
+hole    3290 325  0 0 102 102 50
+hole    3544 325  0 0 115 115 50
+hole    3812 325  0 0 130 130 50
+hole    4477 325  0 0 120 120 50
+hole    4753 325  0 0 120 120 50
+hole    5027 325  0 0 128 128 50
+hole    5311 325  0 0 111 111 50
+hole    970 470  0 0 5005 5005 150
+wall    830 468  0 0 210 210 150 5000
+wall    5990 285  0 0 200 200 200 5000
+wall    6185 305  0 0 65 65 200 5000
+wall    6245 320  0 0 120 120 200 5000
+wall    6360 310  0 0 230 230 200 5000
+wall    6585 335  0 0 590 590 200 5000
+wall    7170 460  0 0 180 180 330 5000
+wall    5930 460  0 0 140 140 145 5000
+
+#-----------------------
+spawn   stgSET8
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+} @end_script
+coords  -500 515 350
+at      0
+#----------------------------------
+
+spawn   thund3
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+flip    1
+coords  1550 300
+at      0
+
+spawn   thund3
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+coords  2100 300
+at      0
+
+spawn   thund3
+coords  3030 300
+at      0
+
+spawn   thund3
+coords  3470 300
+flip    1
+at      0
+
+spawn   thund3
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+flip    1
+coords  4200 300
+at      0
+
+spawn   thund3
+coords  4925 300
+at      0
+
+spawn   thund3
+coords  5230 300
+flip    1
+at      0
+
+spawn   thund3
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+flip    1
+coords  5750 300
+at      0
+
+#-------------------------
+spawn   tlsdoor
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW3"));
+} @end_script
+coords  860 305
+at      0
+
+spawn   tlsdoor
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW5"));
+} @end_script
+coords  6065 290
+at      0
+#-------------------------
+spawn   door1
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW10"));
+} @end_script
+flip	1
+coords  6075 295 150
+at      0
+#-------------------------
+
+spawn   pedest
+map     1
+coords  770 295
+at      0
+
+spawn   pedest
+map     1
+coords  1060 290
+at      0
+
+spawn   pedest
+map     1
+coords  3990 290
+at      0
+
+spawn   pedest
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_ATTACK1"));
+} @end_script
+map     1
+coords  5890 290
+at      0
+
+
+
+#----------enemie-start-------------------
+scrollx  0  400
+at  230
+#---------------------------
+
+group 1 1
+at    230
+
+spawn   graynose3
+spawnscript data/scripts/noscpos.c
+coords  380 350
+health  600
+flip    1
+map     1
+at      230
+
+#---------------------
+group 1 1
+at    230
+
+spawn   ghost1
+spawnscript data/scripts/noscpos.c
+coords  150 350
+at      230
+
+#---------------------
+
+group 2 2
+at    230
+
+spawn   graynose3
+spawnscript data/scripts/noscpos.c
+coords  600 306
+health  600
+map     2
+at      230
+
+spawn   graynose3
+spawnscript data/scripts/noscpos.c
+coords  240 330
+health  600
+flip    1
+item    fluid
+map     3
+at      230
+
+#---------------------
+group 1 1
+at    230
+
+spawn   ghost1
+spawnscript data/scripts/noscpos.c
+coords  100 350
+at      230
+#---------------------
+
+group 2 2
+at    230
+
+spawn   bignose3
+spawnscript data/scripts/noscpos.c
+coords  630 306
+health  600
+map     2
+flip    1
+at      230
+
+spawn   bignose3
+spawnscript data/scripts/noscpos.c
+coords  270 360
+health  600
+item    byogem
+map     3
+at      230
+
+#---------------------
+group 1 1
+at    230
+
+spawn   ghost1
+spawnscript data/scripts/noscpos.c
+coords  200 350
+at      230
+#---------------------
+
+group 2 2
+at    230
+
+spawn   omega2
+spawnscript data/scripts/noscpos.c
+coords  520 350
+health  700
+map     3
+at      230
+
+spawn   omega2
+spawnscript data/scripts/noscpos.c
+coords  190 350
+health  700
+item    charge
+flip    1
+map     2
+at      230
+
+#----------enemie-end----------
+
+group 1 1
+at    230
+
+spawn   ghost1
+spawnscript data/scripts/noscpos.c
+coords  200 350
+at      230
+
+#---------------------
+scrollx  0  7100
+at  400
+#---------------------
+
+spawn   openball
+spawnscript data/scripts/noscpos.c
+health  55
+coords  770 295
+at      260
+#---------------------
+
+group 10 10
+at    900
+
+spawn   insect3
+map	4
+coords  400 470
+at      900
+
+spawn   insect3
+map	4
+flip    1
+coords  400 470
+at      1150
+
+spawn   insect3
+map	4
+flip    1
+coords  400 470
+at      1650
+
+spawn   insect3
+map	4
+flip    1
+coords  400 470
+at      2150
+
+spawn   insect3
+map	4
+flip    1
+coords  400 470
+at      2650
+
+spawn   insect3
+map	4
+flip    1
+coords  400 470
+at      3150
+
+spawn   insect3
+map	4
+flip    1
+coords  400 470
+at      3650
+
+spawn   insect3
+map	4
+flip    1
+coords  400 470
+at      4150
+
+
+spawn   insect3
+map	4
+flip    1
+coords  400 470
+at      4650
+
+
+spawn   insect3
+map	4
+flip    1
+coords  400 470
+at      5150
+
+
+spawn   tlsdoor
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW9"));
+} @end_script
+coords  -1900 450
+at      5400
+
+
+
+#-------------------------
+blockade 6000
+at      6020
+#-------------------------
+
+group   2 2
+at      6300
+
+spawn   ghost1
+spawnscript data/scripts/noscpos.c
+coords  6800 400
+at      6300
+
+spawn   ghost2
+spawnscript data/scripts/noscpos.c
+coords  6800 400
+at      6300
+
+#-------------------------
+
+group   2 2
+at      6300
+
+spawn   reptile1
+spawnscript data/scripts/noscpos2.c
+map     1
+health  600
+boss    1
+coords  6740 280
+at      6300
+
+spawn   ghost2
+spawnscript data/scripts/noscpos2.c
+coords  6800 400
+at      6300
+
+spawn   reptile1
+spawnscript data/scripts/noscpos2.c
+map     1
+health  600
+coords  6740 280
+at      6300
+
+spawn   ghost2
+spawnscript data/scripts/noscpos2.c
+coords  6800 400
+at      6300
+
+spawn   reptile1
+spawnscript data/scripts/noscpos2.c
+map     1
+health  600
+coords  6740 280
+at      6300
+
+spawn   ghost2
+spawnscript data/scripts/noscpos2.c
+coords  6800 400
+at      6300
+
+#-----
+
+spawn   reptile1
+spawnscript data/scripts/noscpos2.c
+map     2
+health  750
+coords  6740 280
+at      6300
+
+spawn   ghost2
+spawnscript data/scripts/noscpos2.c
+coords  6800 400
+at      6300
+
+spawn   reptile1
+spawnscript data/scripts/noscpos2.c
+map     2
+health  750
+coords  6740 280
+at      6300
+
+spawn   ghost2
+spawnscript data/scripts/noscpos2.c
+coords  6800 400
+at      6300
+
+spawn   reptile1
+spawnscript data/scripts/noscpos2.c
+map     2
+health  750
+coords  6740 280
+at      6300
+
+spawn   ghost2
+spawnscript data/scripts/noscpos2.c
+coords  6800 400
+at      6300
+
+#-------------------------
+
+group   2 2
+at      6300
+
+spawn   ghost1
+spawnscript data/scripts/noscpos2.c
+boss    1
+coords  6800 400
+at      6300
+
+spawn   ghosttime
+spawnscript data/scripts/noscpos2.c
+health  10
+coords  6800 400
+at      6300
+
+#-------------------------
+
+group   3 3
+at      6300
+
+spawn   reptile2
+spawnscript data/scripts/noscpos4.c
+map     1
+health  1800
+boss    1
+coords  6740 280
+at      6300
+
+spawn   ghost2
+spawnscript data/scripts/noscpos2.c
+coords  6800 400
+at      6300
+
+spawn   ghost2
+spawnscript data/scripts/noscpos2.c
+coords  6800 400
+at      6300
+
+spawn   reptile1
+spawnscript data/scripts/noscpos2.c
+map     3
+health  700
+coords  6740 280
+at      6300
+
+spawn   ghost2
+spawnscript data/scripts/noscpos2.c
+coords  6800 400
+at      6300
+
+spawn   ghost2
+spawnscript data/scripts/noscpos2.c
+coords  6800 400
+at      6300
+
+spawn   reptile1
+spawnscript data/scripts/noscpos2.c
+map     3
+health  700
+coords  6740 280
+at      6300
+
+spawn   ghost2
+spawnscript data/scripts/noscpos2.c
+coords  6800 400
+at      6300
+
+#------------END----------------
+group   1 1
+at      6300
+
+spawn   ghost1
+coords  350 300
+at      6300
+
+spawn   trpdrr
+spawnscript data/scripts/noscpos.c
+coords  6435 333
+at      6300
+
+spawn   ghosttest
+coords  340 280
+at      0
+
+spawn   ghosttest
+boss    1
+coords  340 280
+at      0
+

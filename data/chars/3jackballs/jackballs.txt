@@ -1,0 +1,623 @@
+name		jackballs
+#type		enemy
+type		obstacle
+nomove		1 1
+facing		2
+health		2000
+mp		100
+jumpheight	0
+noatflash	1
+flash		flash8
+nopain		1
+noquake		1
+falldie		1
+nodieblink	3
+makeinv		3
+gfxshadow	1
+nodrop		1
+antigrab	10
+diesound        data/sounds/jack6.wav
+hostile				player
+candamage			player npc
+diesound        data/sounds/bang.wav
+animationscript data/scripts/escript.c
+
+palette		data/chars/3jackballs/allpal.gif
+
+load	Steam
+load	flash8
+load	ballsdeath
+load	cardam2
+load	explosion3
+load	jackfinalround
+
+icon		data/chars/3jackballs/icon.gif
+lifebarstatus 300 10 0 1 0 2 5 
+lifeposition 115  240
+nameposition -200 -200
+iconposition 50 227
+nolife 1
+
+
+
+script	@script
+void main()
+{
+   	void self = getlocalvar("self");
+	int x = getentityproperty(self, "x");
+	int z = getentityproperty(self, "z");
+
+
+	void target = findtarget(self);
+
+	if(target!=NULL())
+	{
+		float Tx = getentityproperty(target, "x");
+		float Tz = getentityproperty(target, "z");
+		float Disx = Tx - x;
+		float Disz = Tz - z;
+
+
+         if( Disx >= -145 && Disx <= 2 && Disz >= -8 && Disz <= 17)
+         {
+	 changeentityproperty(target, "position", Tx-2);
+         }
+
+ 
+ 	 if( Disx >= 2 && Disx <= 105 && Disz >= 1 && Disz <= 20)
+         {
+	  changeentityproperty(target, "position", Tx, Tz+1);
+         }
+ 	 if( Disx >= 2 && Disx <= 105 && Disz >= -15 && Disz <= 0)
+         {
+	  changeentityproperty(target, "position", Tx, Tz-1);
+         }
+	}
+}
+@end_script
+
+
+anim	death
+@script
+    if(frame==10)
+	{
+	jumptobranch("dummy", 1);
+	}
+@end_script
+	loop	0
+	delay	5
+	offset	225 480
+	bbox	0 0 0 0
+	jumpframe	-1.5 3 0
+	platform	1 1 1 1 1 1 1 1
+	frame	data/chars/3jackballs/balls01.gif
+	@cmd	changeopenborvariant "slowmotion" 1
+	@cmd	damage_all_enemies 1500 1 1
+	@cmd	spawn01 "explosion3" 0 155 5
+	frame	data/chars/3jackballs/balls02.gif
+	@cmd	spawn01 "explosion3" 80 135 5
+	frame	data/chars/3jackballs/balls01.gif
+	@cmd	spawn01 "cardam2" 60 155 5
+	@cmd	spawn01 "explosion3" 30 175 5
+	frame	data/chars/3jackballs/ballsdeath.gif
+	@cmd	damage_all_enemies 1500 1 1
+	@cmd	spawn01 "ballsdeath" 60 155 5
+	@cmd	spawn01 "cardam2" 70 135 5
+	frame	data/chars/3jackballs/ballsdeath.gif
+	delay	1500
+	frame	data/chars/3jackballs/ballsdeath.gif
+	delay	15
+	frame	data/chars/3jackballs/ballsdeath.gif
+	frame	data/chars/3jackballs/ballsdeath.gif
+	frame	data/chars/3jackballs/ballsdeath.gif
+	frame	data/chars/3jackballs/ballsdeath.gif
+	frame	data/chars/3jackballs/ballsdeath.gif #10
+	frame	data/chars/3jackballs/ballsdeath.gif
+	frame	data/chars/3jackballs/ballsdeath.gif
+	frame	data/chars/3jackballs/ballsdeath.gif
+	
+anim	idle
+	loop	1
+	delay	5
+	offset	225 480
+	bbox	260 290 105 85
+	#platform	10 497 100 100 290 290 25 220
+	platform	1 1 1 1 1 1 1 1
+	frame	data/chars/3jackballs/balls01.gif
+	sound	data/sounds/truck2.wav
+	frame	data/chars/3jackballs/balls02.gif
+	frame	data/chars/3jackballs/balls01.gif
+	frame	data/chars/3jackballs/balls02.gif
+	frame	data/chars/3jackballs/balls01.gif
+	frame	data/chars/3jackballs/balls02.gif
+	frame	data/chars/3jackballs/balls01.gif
+	frame	data/chars/3jackballs/balls02.gif
+	frame	data/chars/3jackballs/balls01.gif
+	frame	data/chars/3jackballs/balls02.gif
+	frame	data/chars/3jackballs/balls01.gif
+	frame	data/chars/3jackballs/balls02.gif
+	frame	data/chars/3jackballs/balls01.gif
+	frame	data/chars/3jackballs/balls02.gif
+	frame	data/chars/3jackballs/balls03.gif
+	frame	data/chars/3jackballs/balls04.gif
+	frame	data/chars/3jackballs/balls05.gif
+	frame	data/chars/3jackballs/balls06.gif
+	frame	data/chars/3jackballs/balls03.gif
+	frame	data/chars/3jackballs/balls04.gif
+	frame	data/chars/3jackballs/balls01.gif
+	frame	data/chars/3jackballs/balls02.gif
+	frame	data/chars/3jackballs/balls03.gif
+	frame	data/chars/3jackballs/balls04.gif
+	frame	data/chars/3jackballs/balls05.gif
+	frame	data/chars/3jackballs/balls06.gif
+	frame	data/chars/3jackballs/balls03.gif
+	frame	data/chars/3jackballs/balls04.gif
+	frame	data/chars/3jackballs/balls01.gif
+	frame	data/chars/3jackballs/balls02.gif
+	frame	data/chars/3jackballs/balls03.gif
+	frame	data/chars/3jackballs/balls04.gif
+	frame	data/chars/3jackballs/balls05.gif
+	frame	data/chars/3jackballs/balls06.gif
+	frame	data/chars/3jackballs/balls03.gif
+	frame	data/chars/3jackballs/balls04.gif
+	frame	data/chars/3jackballs/balls01.gif
+	frame	data/chars/3jackballs/balls02.gif
+	frame	data/chars/3jackballs/balls03.gif
+	frame	data/chars/3jackballs/balls04.gif
+	frame	data/chars/3jackballs/balls05.gif
+	frame	data/chars/3jackballs/balls06.gif
+	frame	data/chars/3jackballs/balls03.gif
+	frame	data/chars/3jackballs/balls04.gif
+	frame	data/chars/3jackballs/balls05.gif
+	frame	data/chars/3jackballs/balls06.gif
+	frame	data/chars/3jackballs/balls01.gif
+	frame	data/chars/3jackballs/balls02.gif
+	sound	data/sounds/truck2.wav
+	frame	data/chars/3jackballs/balls01.gif
+	frame	data/chars/3jackballs/balls02.gif
+	move	2
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	attack	280 370 90 80 15 1 1 1 40 20
+	dropv	3 4
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	sound	data/sounds/truck2.wav
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	attack  0 0 0 0
+	frame	data/chars/3jackballs/walk04.gif
+	move	0
+	frame	data/chars/3jackballs/balls01.gif
+	frame	data/chars/3jackballs/balls02.gif
+	frame	data/chars/3jackballs/balls01.gif
+	frame	data/chars/3jackballs/balls02.gif
+	frame	data/chars/3jackballs/balls01.gif
+	frame	data/chars/3jackballs/balls02.gif
+	frame	data/chars/3jackballs/balls01.gif
+	frame	data/chars/3jackballs/balls02.gif
+	frame	data/chars/3jackballs/balls03.gif
+	frame	data/chars/3jackballs/balls04.gif
+	frame	data/chars/3jackballs/balls05.gif
+	frame	data/chars/3jackballs/balls06.gif
+	frame	data/chars/3jackballs/balls03.gif
+	frame	data/chars/3jackballs/balls04.gif
+	frame	data/chars/3jackballs/balls01.gif
+	frame	data/chars/3jackballs/balls02.gif
+	frame	data/chars/3jackballs/balls03.gif
+	frame	data/chars/3jackballs/balls04.gif
+	frame	data/chars/3jackballs/balls05.gif
+	frame	data/chars/3jackballs/balls06.gif
+	frame	data/chars/3jackballs/balls03.gif
+	sound	data/sounds/truck2.wav
+	frame	data/chars/3jackballs/balls04.gif
+	frame	data/chars/3jackballs/balls01.gif
+	frame	data/chars/3jackballs/balls02.gif
+	frame	data/chars/3jackballs/balls03.gif
+	frame	data/chars/3jackballs/balls04.gif
+	frame	data/chars/3jackballs/balls05.gif
+	frame	data/chars/3jackballs/balls06.gif
+	frame	data/chars/3jackballs/balls03.gif
+	frame	data/chars/3jackballs/balls04.gif
+	frame	data/chars/3jackballs/balls01.gif
+	frame	data/chars/3jackballs/balls02.gif
+	frame	data/chars/3jackballs/balls03.gif
+	frame	data/chars/3jackballs/balls04.gif
+	frame	data/chars/3jackballs/balls05.gif
+	frame	data/chars/3jackballs/balls06.gif
+	frame	data/chars/3jackballs/balls03.gif
+	frame	data/chars/3jackballs/balls04.gif
+	frame	data/chars/3jackballs/balls05.gif
+	frame	data/chars/3jackballs/balls06.gif
+	frame	data/chars/3jackballs/balls01.gif
+	frame	data/chars/3jackballs/balls02.gif
+	frame	data/chars/3jackballs/balls01.gif
+	frame	data/chars/3jackballs/balls02.gif
+	frame	data/chars/3jackballs/balls01.gif
+	frame	data/chars/3jackballs/balls02.gif
+	frame	data/chars/3jackballs/crane03.gif
+	frame	data/chars/3jackballs/crane04.gif
+	frame	data/chars/3jackballs/crane05.gif
+	frame	data/chars/3jackballs/crane06.gif
+	frame	data/chars/3jackballs/crane05.gif
+	frame	data/chars/3jackballs/crane06.gif
+	frame	data/chars/3jackballs/crane05.gif
+	frame	data/chars/3jackballs/crane06.gif
+	frame	data/chars/3jackballs/crane05.gif
+	sound	data/sounds/truck2.wav
+	frame	data/chars/3jackballs/crane06.gif
+	frame	data/chars/3jackballs/crane05.gif
+	frame	data/chars/3jackballs/crane06.gif
+	frame	data/chars/3jackballs/crane05.gif
+	frame	data/chars/3jackballs/crane04.gif
+	frame	data/chars/3jackballs/crane03.gif
+	frame	data/chars/3jackballs/crane02.gif
+	frame	data/chars/3jackballs/crane01.gif
+	frame	data/chars/3jackballs/balls02.gif
+	frame	data/chars/3jackballs/crane03.gif
+	frame	data/chars/3jackballs/crane04.gif
+	frame	data/chars/3jackballs/crane05.gif
+	frame	data/chars/3jackballs/crane06.gif
+	frame	data/chars/3jackballs/crane05.gif
+	frame	data/chars/3jackballs/crane06.gif
+	frame	data/chars/3jackballs/crane05.gif
+	frame	data/chars/3jackballs/crane06.gif
+	frame	data/chars/3jackballs/crane05.gif
+	frame	data/chars/3jackballs/crane06.gif
+	frame	data/chars/3jackballs/crane05.gif
+	frame	data/chars/3jackballs/crane06.gif
+	frame	data/chars/3jackballs/crane05.gif
+	frame	data/chars/3jackballs/crane04.gif
+	frame	data/chars/3jackballs/crane03.gif
+	frame	data/chars/3jackballs/crane02.gif
+	frame	data/chars/3jackballs/crane01.gif
+	frame	data/chars/3jackballs/balls01.gif
+	frame	data/chars/3jackballs/balls02.gif
+	frame	data/chars/3jackballs/balls03.gif
+	frame	data/chars/3jackballs/balls04.gif
+	frame	data/chars/3jackballs/balls05.gif
+	frame	data/chars/3jackballs/balls06.gif
+	frame	data/chars/3jackballs/balls03.gif
+	frame	data/chars/3jackballs/balls04.gif
+	frame	data/chars/3jackballs/balls05.gif
+	frame	data/chars/3jackballs/balls06.gif
+	frame	data/chars/3jackballs/balls01.gif
+	frame	data/chars/3jackballs/balls02.gif
+	frame	data/chars/3jackballs/balls03.gif
+	frame	data/chars/3jackballs/balls04.gif
+	frame	data/chars/3jackballs/balls05.gif
+	frame	data/chars/3jackballs/balls06.gif
+	sound	data/sounds/truck2.wav
+	frame	data/chars/3jackballs/balls03.gif
+	frame	data/chars/3jackballs/balls04.gif
+	frame	data/chars/3jackballs/balls05.gif
+	frame	data/chars/3jackballs/balls06.gif
+	frame	data/chars/3jackballs/balls01.gif
+	frame	data/chars/3jackballs/balls02.gif
+	frame	data/chars/3jackballs/balls03.gif
+	frame	data/chars/3jackballs/balls04.gif
+	frame	data/chars/3jackballs/balls05.gif
+	frame	data/chars/3jackballs/balls06.gif
+	frame	data/chars/3jackballs/balls03.gif
+	frame	data/chars/3jackballs/balls04.gif
+	frame	data/chars/3jackballs/balls05.gif
+	frame	data/chars/3jackballs/balls06.gif
+	move	-2
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	sound	data/sounds/truck2.wav
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	move	0
+	frame	data/chars/3jackballs/balls01.gif
+	frame	data/chars/3jackballs/balls02.gif
+	frame	data/chars/3jackballs/balls03.gif
+	frame	data/chars/3jackballs/balls04.gif
+	frame	data/chars/3jackballs/balls05.gif
+	frame	data/chars/3jackballs/balls06.gif
+	frame	data/chars/3jackballs/balls05.gif
+	frame	data/chars/3jackballs/balls04.gif
+	frame	data/chars/3jackballs/balls03.gif
+	frame	data/chars/3jackballs/balls02.gif
+	frame	data/chars/3jackballs/balls01.gif
+	frame	data/chars/3jackballs/balls02.gif
+	frame	data/chars/3jackballs/balls03.gif
+	frame	data/chars/3jackballs/balls04.gif
+	frame	data/chars/3jackballs/balls05.gif
+	sound	data/sounds/truck2.wav
+	frame	data/chars/3jackballs/balls06.gif
+	frame	data/chars/3jackballs/balls05.gif
+	frame	data/chars/3jackballs/balls04.gif
+	frame	data/chars/3jackballs/balls03.gif
+	frame	data/chars/3jackballs/balls02.gif
+	frame	data/chars/3jackballs/balls01.gif
+	frame	data/chars/3jackballs/balls01.gif
+	frame	data/chars/3jackballs/balls02.gif
+	frame	data/chars/3jackballs/crane03.gif
+	frame	data/chars/3jackballs/crane04.gif
+	frame	data/chars/3jackballs/crane05.gif
+	frame	data/chars/3jackballs/crane06.gif
+	frame	data/chars/3jackballs/crane05.gif
+	frame	data/chars/3jackballs/crane06.gif
+	frame	data/chars/3jackballs/crane05.gif
+	frame	data/chars/3jackballs/crane06.gif
+	frame	data/chars/3jackballs/crane05.gif
+	frame	data/chars/3jackballs/crane04.gif
+	frame	data/chars/3jackballs/crane03.gif
+	frame	data/chars/3jackballs/crane02.gif
+	frame	data/chars/3jackballs/crane01.gif
+	frame	data/chars/3jackballs/balls01.gif
+	frame	data/chars/3jackballs/balls02.gif
+	frame	data/chars/3jackballs/balls03.gif
+	frame	data/chars/3jackballs/balls04.gif
+	frame	data/chars/3jackballs/balls05.gif
+	frame	data/chars/3jackballs/balls06.gif
+	frame	data/chars/3jackballs/balls05.gif
+	frame	data/chars/3jackballs/balls04.gif
+	frame	data/chars/3jackballs/balls03.gif
+	frame	data/chars/3jackballs/balls02.gif
+	frame	data/chars/3jackballs/balls01.gif
+	frame	data/chars/3jackballs/balls02.gif
+	frame	data/chars/3jackballs/balls03.gif
+	frame	data/chars/3jackballs/balls04.gif
+	frame	data/chars/3jackballs/balls05.gif
+	frame	data/chars/3jackballs/balls06.gif
+	frame	data/chars/3jackballs/balls05.gif
+	frame	data/chars/3jackballs/balls04.gif
+	frame	data/chars/3jackballs/balls03.gif
+	frame	data/chars/3jackballs/balls02.gif
+	frame	data/chars/3jackballs/balls01.gif
+
+		
+anim	spawn
+@script
+void self = getlocalvar("self");
+if(frame==1)
+{
+  changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_OBSTACLE"));
+}
+@end_script
+	loop	0
+	delay	5
+	offset	225 480
+	bbox	0 0 0 0
+	custentity	jackfinalround
+	spawnframe	95 210 40 25 1
+	#platform	10 497 100 100 290 290 25 220
+	platform	1 1 1 1 1 1 1 1
+	frame	data/chars/3jackballs/balls01.gif
+	@cmd	spawnbind "Steam" 60 215 5
+	frame	data/chars/3jackballs/balls01.gif
+	move	3
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	sound	data/sounds/truck2.wav
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	attack	280 370 90 80 0 1 1 1 40 20
+	dropv	2 2
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	frame	data/chars/3jackballs/walk01.gif
+	frame	data/chars/3jackballs/walk02.gif
+	frame	data/chars/3jackballs/walk03.gif
+	frame	data/chars/3jackballs/walk04.gif
+	attack  0 0 0 0
+	frame	data/chars/3jackballs/walk04.gif
+	move	0
+	frame	data/chars/3jackballs/balls01.gif
+	frame	data/chars/3jackballs/balls02.gif
+	frame	data/chars/3jackballs/balls01.gif
+	frame	data/chars/3jackballs/balls02.gif
+	frame	data/chars/3jackballs/balls01.gif
+	frame	data/chars/3jackballs/balls02.gif
+	frame	data/chars/3jackballs/balls01.gif
+	frame	data/chars/3jackballs/balls02.gif
+	frame	data/chars/3jackballs/balls01.gif
+	frame	data/chars/3jackballs/balls02.gif
+	frame	data/chars/3jackballs/balls01.gif
+	frame	data/chars/3jackballs/balls02.gif
+	frame	data/chars/3jackballs/balls01.gif
+	frame	data/chars/3jackballs/balls02.gif
+
+
+#|edited by openBor Stats v 0.53
+		

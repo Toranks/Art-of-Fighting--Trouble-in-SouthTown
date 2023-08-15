@@ -1,0 +1,194 @@
+name    pw5
+health  1
+type	enemy
+speed	20
+noquake 1
+remove	1
+nomove	1 1
+gfxshadow     1
+nolife  1
+lifespan  4
+subject_to_platform 0
+subject_to_wall 0
+candamage     player npc
+
+
+alternatepal	data/chars/misc/power/5/map1.gif
+
+
+
+
+anim	idle
+	loop	0
+	delay	3
+	offset	115 130
+	bbox	0 0 0 0
+	attack	70 60 95 80 8 1 0 0 8 15
+	dropv	4 2 0
+	move	8
+	frame	data/chars/misc/power/5/4.gif
+	frame	data/chars/misc/power/5/4.gif
+	frame	data/chars/misc/power/5/5.gif
+	frame	data/chars/misc/power/5/5.gif
+	frame	data/chars/misc/power/5/6.gif
+	frame	data/chars/misc/power/5/6.gif
+	frame	data/chars/misc/power/5/6.gif
+	frame	data/chars/misc/power/5/7.gif
+	frame	data/chars/misc/power/5/7.gif
+	frame	data/chars/misc/power/5/7.gif
+	frame	data/chars/misc/power/5/8.gif
+	frame	data/chars/misc/power/5/8.gif
+	frame	data/chars/misc/power/5/8.gif
+	frame	data/chars/misc/power/5/7.gif
+	frame	data/chars/misc/power/5/7.gif
+	frame	data/chars/misc/power/5/7.gif
+	frame	data/chars/misc/power/5/6.gif
+	frame	data/chars/misc/power/5/6.gif
+	frame	data/chars/misc/power/5/6.gif
+	frame	data/chars/misc/power/5/7.gif
+	frame	data/chars/misc/power/5/7.gif
+	frame	data/chars/misc/power/5/7.gif
+	frame	data/chars/misc/power/5/8.gif
+	frame	data/chars/misc/power/5/8.gif
+	frame	data/chars/misc/power/5/8.gif
+	frame	data/chars/misc/power/5/9.gif
+	frame	data/chars/misc/power/5/9.gif
+	frame	data/chars/misc/power/5/10.gif
+	frame	data/chars/misc/power/5/10.gif
+	frame	data/chars/misc/power/5/11.gif
+	frame	data/chars/misc/power/5/11.gif
+	attack	0 0 0 0
+	frame	data/chars/misc/power/5/empty.gif
+		
+anim	spawn
+	loop	0
+	delay	10
+	offset	115 135
+	bbox	0 0 0 0
+	frame	data/chars/misc/power/5/1.gif
+	frame	data/chars/misc/power/5/2.gif
+	frame	data/chars/misc/power/5/3.gif
+
+#-------------//---player---//---------------------------------
+		
+anim	follow1
+@script
+void self = getlocalvar("self");
+	int Direction = getentityproperty(self, "direction");
+	if(frame == 0 )
+	{
+	  changeentityproperty(self, "candamage",openborconstant("TYPE_ENEMY"));
+	}
+	if(frame == 11 )
+	{
+	killentity(self);
+	}
+@end_script
+	loop	0
+	delay	6
+	offset	115 130
+	bbox	0 0 0 0
+	drawmethod 256 256 0 0 0 1 1
+	hitfx	data/sounds/beat5.wav
+	frame	data/chars/misc/power/5/1.gif
+	attack	67 35 47 76 20 1 1 0 10 20
+	dropv	3 3 0
+	frame	data/chars/misc/power/5/2.gif
+	attack	70 60 95 80 20 1 0 0 8 15
+	dropv	3 3 0
+	frame	data/chars/misc/power/5/3.gif
+	attack	68 56 92 86 20 1 0 0 10 20
+	dropv	3 3 0
+	frame	data/chars/misc/power/5/4.gif
+	attack	64 77 104 62 20 1 0 0 10 20
+	dropv	3 3 0
+	frame	data/chars/misc/power/5/5.gif
+	attack	77 64 96 77 20 1 0 0 10 20
+	dropv	3 3 0
+	frame	data/chars/misc/power/5/6.gif
+	attack	81 59 106 83 2 1 0 0 10 20
+	dropv	3 3 0
+	frame	data/chars/misc/power/5/7.gif
+	attack	94 72 89 67 20 1 0 0 10 20
+	dropv	3 3 0
+	frame	data/chars/misc/power/5/8.gif
+	attack	84 107 99 32 20 1 0 0 10 20
+	dropv	3 3 0
+	frame	data/chars/misc/power/5/9.gif
+	attack	100 113 81 29 20 1 0 0 10 20
+	dropv	3 3 0
+	frame	data/chars/misc/power/5/10.gif
+	attack	0 0 0 0
+	frame	data/chars/misc/power/5/11.gif
+	frame	data/chars/misc/power/5/empty.gif #11
+	frame	data/chars/misc/power/5/empty.gif
+
+
+
+anim	follow2
+@script
+void self = getlocalvar("self");
+	int Direction = getentityproperty(self, "direction");
+	if(frame == 0 )
+	{
+	  changeentityproperty(self, "candamage",openborconstant("TYPE_ENEMY"));
+		if (Direction == 0)
+		{                
+		changeentityproperty(self, "direction", 1);
+		}
+		else
+		{
+		changeentityproperty(self, "direction", 0);
+		}
+	}
+	if(frame == 11 )
+	{
+	killentity(self);
+	}
+@end_script
+	loop	0
+	delay	6
+	offset	115 130
+	bbox	0 0 0 0
+	drawmethod 256 256 0 0 0 1 1 
+	hitfx	data/sounds/beat5.wav
+	frame	data/chars/misc/power/5/1.gif
+	attack	67 35 47 76 20 1 1 0 10 20
+	dropv	3 3 0
+	frame	data/chars/misc/power/5/2.gif
+	attack	70 60 95 80 20 1 0 0 8 15
+	dropv	3 3 0
+	frame	data/chars/misc/power/5/3.gif
+	attack	68 56 92 86 20 1 0 0 10 20
+	dropv	3 3 0
+	frame	data/chars/misc/power/5/4.gif
+	attack	64 77 104 62 20 1 0 0 10 20
+	dropv	3 3 0
+	frame	data/chars/misc/power/5/5.gif
+	attack	77 64 96 77 20 1 0 0 10 20
+	dropv	3 3 0
+	frame	data/chars/misc/power/5/6.gif
+	attack	81 59 106 83 2 1 0 0 10 20
+	dropv	3 3 0
+	frame	data/chars/misc/power/5/7.gif
+	attack	94 72 89 67 20 1 0 0 10 20
+	dropv	3 3 0
+	frame	data/chars/misc/power/5/8.gif
+	attack	84 107 99 32 20 1 0 0 10 20
+	dropv	3 3 0
+	frame	data/chars/misc/power/5/9.gif
+	attack	100 113 81 29 20 1 0 0 10 20
+	dropv	3 3 0
+	frame	data/chars/misc/power/5/10.gif
+	attack	0 0 0 0
+	frame	data/chars/misc/power/5/11.gif
+	frame	data/chars/misc/power/5/empty.gif #11
+	frame	data/chars/misc/power/5/empty.gif
+
+
+
+
+
+
+
+		

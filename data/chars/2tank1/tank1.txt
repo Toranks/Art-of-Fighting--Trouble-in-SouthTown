@@ -1,0 +1,382 @@
+name		tank1
+type		enemy
+health		900
+mp		100
+speedf		1.3
+jumpheight	0
+noquake		1
+falldie		1
+nodieblink	2
+makeinv		3
+gfxshadow	1
+nodrop		1
+facing          3
+nomove          0 1
+antigrab	10
+aggression      25
+nopain		1
+hostile				player npc
+candamage			player npc
+diesound        data/sounds/crash.wav
+KOMap		5 0
+animationscript data/scripts/escript.c
+
+alternatepal       data/chars/2tank1/map1.gif
+alternatepal       data/chars/2tank1/map2.gif
+alternatepal       data/chars/2tank1/map3.gif
+alternatepal       data/chars/2tank1/map4.gif
+alternatepal       data/chars/2tank1/map5.gif
+
+
+load	tankgun1
+load	missile3
+load	explosion1
+load	explosion2
+load	explosion3
+load	cardam2
+load	tank1crash
+
+
+
+anim	attack
+	range	0 220
+	loop	0
+	delay	5
+	offset	205 230
+	bbox	115 135 180 85
+	#platform	100 230 5 5 210 210 20 70
+	sound	data/sounds/minigunend.wav
+	frame	data/chars/2tank1/xtank01.gif
+	frame	data/chars/2tank1/xtank02.gif
+	frame	data/chars/2tank1/xtank03.gif
+	frame	data/chars/2tank1/xtank04.gif
+	delay	9
+	frame	data/chars/2tank1/xplasma01.gif
+	frame	data/chars/2tank1/xplasma02.gif
+	frame	data/chars/2tank1/xplasma03.gif
+	sound	data/sounds/bang2.wav
+	@cmd	spawn01 "explosion2" 60 60 1
+	@cmd	tosser "missile3" 65 60 0 0.7 5 0
+	frame	data/chars/2tank1/xplasma04.gif
+	frame	data/chars/2tank1/xplasma05.gif
+	frame	data/chars/2tank1/xplasma06.gif
+	frame	data/chars/2tank1/xplasma07.gif
+	delay	5
+	frame	data/chars/2tank1/xtank01.gif
+	frame	data/chars/2tank1/xtank02.gif
+	frame	data/chars/2tank1/xtank03.gif
+	frame	data/chars/2tank1/xtank04.gif
+
+
+		
+anim	death
+	loop	0
+	delay	5
+	offset	205 230
+	bbox	0 0 0 0
+	@cmd	killgun 2 0
+	frame	data/chars/2tank1/xtank01.gif
+	frame	data/chars/2tank1/fall2.gif
+	frame	data/chars/2tank1/xtank03.gif
+	frame	data/chars/2tank1/fall4.gif
+	@cmd	spawner2 "cardam2" 0 50 10
+	frame	data/chars/2tank1/xtank01.gif
+	frame	data/chars/2tank1/fall2.gif
+	frame	data/chars/2tank1/xtank03.gif
+	frame	data/chars/2tank1/fall4.gif
+	frame	data/chars/2tank1/xtank01.gif
+	frame	data/chars/2tank1/fall2.gif
+	@cmd	spawn01 "explosion2" -70 50 1
+	frame	data/chars/2tank1/xtank03.gif
+	frame	data/chars/2tank1/fall4.gif
+	frame	data/chars/2tank1/xtank01.gif
+	frame	data/chars/2tank1/fall2.gif
+	frame	data/chars/2tank1/xtank03.gif
+	frame	data/chars/2tank1/fall4.gif
+	@cmd	spawn01 "explosion1" 100 50 1
+	frame	data/chars/2tank1/xtank01.gif
+	frame	data/chars/2tank1/fall2.gif
+	frame	data/chars/2tank1/xtank03.gif
+	frame	data/chars/2tank1/fall4.gif
+	@cmd	spawn01 "explosion2" 120 60 1
+	@cmd	spawner2 "cardam2" -20 80 10
+	frame	data/chars/2tank1/xtank01.gif
+	frame	data/chars/2tank1/fall2.gif
+	frame	data/chars/2tank1/xtank03.gif
+	@cmd	spawn01 "explosion1" 30 70 1
+	frame	data/chars/2tank1/fall4.gif
+	@cmd	spawner2 "cardam2" 0 90 10
+	frame	data/chars/2tank1/xtank01.gif
+	frame	data/chars/2tank1/fall2.gif
+	frame	data/chars/2tank1/xtank03.gif
+	frame	data/chars/2tank1/xtank01.gif
+	frame	data/chars/2tank1/fall2.gif
+	frame	data/chars/2tank1/xtank03.gif
+	frame	data/chars/2tank1/fall4.gif
+	frame	data/chars/2tank1/xtank01.gif
+	@cmd	spawn01 "tank1crash" 0 60 1
+	frame	data/chars/2tank1/fall2.gif
+	frame	data/chars/2tank1/xtank03.gif
+	frame	data/chars/2tank1/fall4.gif
+	frame	data/chars/2tank1/xtank01.gif
+	frame	data/chars/2tank1/fall2.gif
+	frame	data/chars/2tank1/xtank03.gif
+	frame	data/chars/2tank1/fall4.gif
+	frame	data/chars/2tank1/xtank01.gif
+	frame	data/chars/2tank1/fall2.gif
+	frame	data/chars/2tank1/xtank03.gif
+	frame	data/chars/2tank1/fall4.gif
+	frame	data/chars/2tank1/fall1.gif
+	frame	data/chars/2tank1/fall2.gif
+	frame	data/chars/2tank1/fall3.gif
+	frame	data/chars/2tank1/fall4.gif
+	frame	data/chars/2tank1/fall1.gif
+	frame	data/chars/2tank1/fall2.gif
+	frame	data/chars/2tank1/fall3.gif
+	frame	data/chars/2tank1/fall4.gif
+	frame	data/chars/2tank1/fall1.gif
+	frame	data/chars/2tank1/fall2.gif
+	frame	data/chars/2tank1/fall3.gif
+	frame	data/chars/2tank1/fall4.gif
+	frame	data/chars/2tank1/fall1.gif
+	frame	data/chars/2tank1/fall2.gif
+	frame	data/chars/2tank1/fall3.gif
+	frame	data/chars/2tank1/fall4.gif
+
+
+	move	-5
+	frame	data/chars/2tank1/fall1.gif
+	frame	data/chars/2tank1/fall2.gif
+	@cmd	spawn01 "explosion3" -30 20 1
+	frame	data/chars/2tank1/fall3.gif
+	frame	data/chars/2tank1/fall4.gif
+	frame	data/chars/2tank1/fall1.gif
+	frame	data/chars/2tank1/fall2.gif
+	frame	data/chars/2tank1/fall3.gif
+	frame	data/chars/2tank1/fall4.gif
+	frame	data/chars/2tank1/fall1.gif
+	frame	data/chars/2tank1/fall2.gif
+	@cmd	spawn01 "explosion3" 60 0 1
+	frame	data/chars/2tank1/fall3.gif
+	frame	data/chars/2tank1/fall4.gif
+	frame	data/chars/2tank1/fall1.gif
+	frame	data/chars/2tank1/fall2.gif
+	frame	data/chars/2tank1/fall3.gif
+	frame	data/chars/2tank1/fall4.gif
+	frame	data/chars/2tank1/fall1.gif
+	@cmd	spawn01 "explosion3" -30 20 1
+	frame	data/chars/2tank1/fall2.gif
+	frame	data/chars/2tank1/fall3.gif
+	frame	data/chars/2tank1/fall4.gif
+	frame	data/chars/2tank1/fall1.gif
+	frame	data/chars/2tank1/fall2.gif
+	frame	data/chars/2tank1/fall3.gif
+	@cmd	spawn01 "explosion3" 60 0 1
+	frame	data/chars/2tank1/fall4.gif
+	frame	data/chars/2tank1/fall1.gif
+	frame	data/chars/2tank1/fall2.gif
+	frame	data/chars/2tank1/fall3.gif
+	frame	data/chars/2tank1/fall4.gif
+	frame	data/chars/2tank1/fall1.gif
+	frame	data/chars/2tank1/fall2.gif
+	@cmd	spawn01 "explosion3" -30 20 1
+	frame	data/chars/2tank1/fall3.gif
+	frame	data/chars/2tank1/fall4.gif
+	frame	data/chars/2tank1/fall1.gif
+	frame	data/chars/2tank1/fall2.gif
+	frame	data/chars/2tank1/fall3.gif
+	frame	data/chars/2tank1/fall4.gif
+	@cmd	spawn01 "explosion3" 60 0 1
+	frame	data/chars/2tank1/fall1.gif
+	frame	data/chars/2tank1/fall2.gif
+	frame	data/chars/2tank1/fall3.gif
+	frame	data/chars/2tank1/fall4.gif
+	frame	data/chars/2tank1/fall1.gif
+	frame	data/chars/2tank1/fall2.gif
+	frame	data/chars/2tank1/fall3.gif
+	@cmd	spawn01 "explosion3" -30 20 1
+	frame	data/chars/2tank1/fall4.gif
+	frame	data/chars/2tank1/fall1.gif
+	frame	data/chars/2tank1/fall2.gif
+	frame	data/chars/2tank1/fall3.gif
+	frame	data/chars/2tank1/fall4.gif
+	frame	data/chars/2tank1/fall1.gif
+	frame	data/chars/2tank1/fall2.gif
+	frame	data/chars/2tank1/fall3.gif
+	@cmd	spawn01 "explosion3" -30 20 1
+	frame	data/chars/2tank1/fall4.gif
+	frame	data/chars/2tank1/fall1.gif
+	frame	data/chars/2tank1/fall2.gif
+	frame	data/chars/2tank1/fall3.gif
+	@cmd	spawn01 "explosion3" -30 20 1
+	frame	data/chars/2tank1/fall4.gif
+	frame	data/chars/2tank1/fall1.gif
+	frame	data/chars/2tank1/fall2.gif
+	frame	data/chars/2tank1/fall3.gif
+	@cmd	spawn01 "explosion3" 60 0 1
+	frame	data/chars/2tank1/fall4.gif
+	frame	data/chars/2tank1/fall1.gif
+	frame	data/chars/2tank1/fall2.gif
+	frame	data/chars/2tank1/fall3.gif
+	frame	data/chars/2tank1/fall4.gif
+	frame	data/chars/2tank1/fall1.gif
+	frame	data/chars/2tank1/fall2.gif
+	frame	data/chars/2tank1/fall3.gif
+	@cmd	spawn01 "explosion3" -30 20 1
+	frame	data/chars/2tank1/fall4.gif
+	frame	data/chars/2tank1/fall1.gif
+	move	-8
+	frame	data/chars/2tank1/fall2.gif
+	frame	data/chars/2tank1/fall3.gif
+	frame	data/chars/2tank1/fall4.gif
+	frame	data/chars/2tank1/fall1.gif
+	@cmd	spawn01 "explosion3" 60 0 1
+	frame	data/chars/2tank1/fall2.gif
+	frame	data/chars/2tank1/fall3.gif
+	frame	data/chars/2tank1/fall4.gif
+	frame	data/chars/2tank1/fall1.gif
+	frame	data/chars/2tank1/fall2.gif
+	frame	data/chars/2tank1/fall3.gif
+	frame	data/chars/2tank1/fall4.gif
+	frame	data/chars/2tank1/fall1.gif
+	@cmd	spawn01 "explosion3" 60 0 1
+	frame	data/chars/2tank1/fall2.gif
+	frame	data/chars/2tank1/fall3.gif
+	frame	data/chars/2tank1/fall4.gif
+	frame	data/chars/2tank1/fall1.gif
+	frame	data/chars/2tank1/fall2.gif
+	frame	data/chars/2tank1/fall3.gif
+	frame	data/chars/2tank1/fall4.gif
+	@cmd	spawn01 "explosion3" -30 20 1
+	frame	data/chars/2tank1/fall1.gif
+	frame	data/chars/2tank1/brk/empty.gif
+	frame	data/chars/2tank1/fall2.gif
+	frame	data/chars/2tank1/brk/empty.gif
+	frame	data/chars/2tank1/fall3.gif
+	frame	data/chars/2tank1/brk/empty.gif
+	frame	data/chars/2tank1/fall4.gif
+	frame	data/chars/2tank1/brk/empty.gif
+	frame	data/chars/2tank1/fall1.gif
+	frame	data/chars/2tank1/brk/empty.gif
+	frame	data/chars/2tank1/fall2.gif
+	@cmd	spawn01 "explosion3" 60 0 1
+	frame	data/chars/2tank1/brk/empty.gif
+	frame	data/chars/2tank1/fall3.gif
+	frame	data/chars/2tank1/brk/empty.gif
+	frame	data/chars/2tank1/fall4.gif
+	frame	data/chars/2tank1/brk/empty.gif
+	frame	data/chars/2tank1/fall1.gif
+	@cmd	spawn01 "explosion3" -30 20 1
+	frame	data/chars/2tank1/brk/empty.gif
+	frame	data/chars/2tank1/fall2.gif
+	frame	data/chars/2tank1/brk/empty.gif
+	frame	data/chars/2tank1/fall3.gif
+	frame	data/chars/2tank1/brk/empty.gif
+	frame	data/chars/2tank1/fall4.gif
+	frame	data/chars/2tank1/brk/empty.gif
+	frame	data/chars/2tank1/fall1.gif
+	frame	data/chars/2tank1/brk/empty.gif
+	frame	data/chars/2tank1/fall2.gif
+	frame	data/chars/2tank1/brk/empty.gif
+	frame	data/chars/2tank1/fall3.gif
+	frame	data/chars/2tank1/brk/empty.gif
+	frame	data/chars/2tank1/fall4.gif
+	frame	data/chars/2tank1/brk/empty.gif
+	frame	data/chars/2tank1/fall1.gif
+	frame	data/chars/2tank1/brk/empty.gif
+	frame	data/chars/2tank1/fall2.gif
+	frame	data/chars/2tank1/brk/empty.gif
+	frame	data/chars/2tank1/fall3.gif
+	frame	data/chars/2tank1/brk/empty.gif
+	frame	data/chars/2tank1/fall4.gif
+	frame	data/chars/2tank1/brk/empty.gif
+
+
+ 
+		
+anim	fall
+	loop	0
+	delay	5
+	offset	205 230
+	bbox	115 135 180 85
+	#platform	100 230 5 5 210 210 20 70
+	frame	data/chars/2tank1/fall3.gif
+	frame	data/chars/2tank1/fall4.gif
+		
+anim	idle
+	loop	1
+	delay	5
+	offset	205 230
+	bbox	115 135 180 85
+	#platform	100 230 5 5 210 210 20 70
+	frame	data/chars/2tank1/xtank01.gif
+	frame	data/chars/2tank1/xtank02.gif
+	frame	data/chars/2tank1/xtank03.gif
+	frame	data/chars/2tank1/xtank04.gif
+		
+anim	pain
+	loop	0
+	delay	5
+	offset	205 230
+	bbox	115 135 180 85
+	#platform	100 230 5 5 210 210 20 70
+	frame	data/chars/2tank1/xtank01.gif
+	frame	data/chars/2tank1/xtank02.gif
+	frame	data/chars/2tank1/xtank03.gif
+	frame	data/chars/2tank1/xtank04.gif
+		
+anim	pain2
+	loop	0
+	delay	5
+	offset	205 230
+	bbox	115 135 180 85
+	#platform	100 230 5 5 210 210 20 70
+	frame	data/chars/2tank1/xtank01.gif
+	frame	data/chars/2tank1/xtank02.gif
+	frame	data/chars/2tank1/xtank03.gif
+	frame	data/chars/2tank1/xtank04.gif
+		
+anim	rise
+	loop	0
+	delay	5
+	offset	205 230
+	bbox	115 135 180 85
+	#platform	100 230 5 5 210 210 20 70
+	frame	data/chars/2tank1/xtank01.gif
+	frame	data/chars/2tank1/xtank02.gif
+	frame	data/chars/2tank1/xtank03.gif
+	frame	data/chars/2tank1/xtank04.gif
+		
+anim	spawn
+	loop	0
+	delay	5
+	offset	205 230
+	bbox	0 0 0 0
+	frame	data/chars/2tank1/xtank01.gif
+	@cmd	spawnGun "tankgun1" -60 55 1 2
+	frame	data/chars/2tank1/xtank02.gif
+	frame	data/chars/2tank1/xtank03.gif
+	frame	data/chars/2tank1/xtank04.gif
+		
+anim	walk
+	loop	1
+	delay	5
+	offset	205 230
+	bbox	115 135 180 85
+	#platform	100 230 5 5 210 210 20 70
+	frame	data/chars/2tank1/xtank01.gif
+	frame	data/chars/2tank1/xtank02.gif
+	frame	data/chars/2tank1/xtank03.gif
+	frame	data/chars/2tank1/xtank04.gif
+	sound	data/sounds/truck.wav
+	frame	data/chars/2tank1/xtank01.gif
+	frame	data/chars/2tank1/xtank02.gif
+	frame	data/chars/2tank1/xtank03.gif
+	frame	data/chars/2tank1/xtank04.gif
+	frame	data/chars/2tank1/xtank01.gif
+	frame	data/chars/2tank1/xtank02.gif
+	frame	data/chars/2tank1/xtank03.gif
+	frame	data/chars/2tank1/xtank04.gif
+		
+#|edited by openBor Stats v 0.53
+		

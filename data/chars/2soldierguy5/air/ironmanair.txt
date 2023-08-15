@@ -1,0 +1,614 @@
+name          ironmanair
+type          enemy
+health        200
+speed         20
+jumpheight    4
+throw         5 2
+throwdamage   18
+shadow        0
+noquake       1
+nolife        1
+falldie	      2
+nodieblink    3
+risetime        350
+dust            zero
+projectilehit enemy obstacle
+candamage     player obstacle npc
+hostile	      player npc
+
+animationscript data/scripts/escript.c
+
+alternatepal       data/chars/2soldierguy5/map1.gif
+alternatepal       data/chars/2soldierguy5/map2.gif
+alternatepal       data/chars/2soldierguy5/map3.gif
+alternatepal       data/chars/2soldierguy5/map4.gif
+
+
+load	parach2
+
+
+
+
+
+anim	attack1
+	range	60 140
+	loop	0
+	delay	7
+	offset	100 189
+	bbox	79 97 50 91
+	fastattack	1
+	attackone	1
+	hitfx	data/sounds/beat2.wav
+	frame	data/chars/2soldierguy5/air/a01.gif
+	attack2	95 120 70 35 9 0 0 0 30 0
+	frame	data/chars/2soldierguy5/air/a02.gif
+	frame	data/chars/2soldierguy5/air/a03.gif
+	attack2	0 0 0 0
+	frame	data/chars/2soldierguy5/air/a04.gif
+	frame	data/chars/2soldierguy5/air/a05.gif
+	frame	data/chars/2soldierguy5/air/a06.gif
+	attack2	95 120 85 35 9 0 0 0 30 0
+	frame	data/chars/2soldierguy5/air/a07.gif
+	frame	data/chars/2soldierguy5/air/a08.gif
+	attack2	0 0 0 0
+	frame	data/chars/2soldierguy5/air/a09.gif
+	frame	data/chars/2soldierguy5/air/rise5.gif
+	frame	data/chars/2soldierguy5/air/rise6.gif
+		
+anim	attack2
+	range	150 200
+	rangez	-15 15
+	loop	0
+	delay	3
+	offset	100 189
+	bbox	79 97 50 91
+	hitfx	data/sounds/beat3.wav
+	move	8
+	frame	data/chars/2soldierguy5/air/b01.gif
+	frame	data/chars/2soldierguy5/air/b01.gif
+	frame	data/chars/2soldierguy5/air/b01.gif
+	frame	data/chars/2soldierguy5/air/b02.gif
+	frame	data/chars/2soldierguy5/air/b02.gif
+	frame	data/chars/2soldierguy5/air/b02.gif
+	attack	95 100 60 60 12 1 0 0 30 20
+	frame	data/chars/2soldierguy5/air/b03.gif
+	frame	data/chars/2soldierguy5/air/b03.gif
+	frame	data/chars/2soldierguy5/air/b03.gif
+	frame	data/chars/2soldierguy5/air/b04.gif
+	frame	data/chars/2soldierguy5/air/b04.gif
+	frame	data/chars/2soldierguy5/air/b04.gif
+	frame	data/chars/2soldierguy5/air/b05.gif
+	frame	data/chars/2soldierguy5/air/b05.gif
+	frame	data/chars/2soldierguy5/air/b05.gif
+	attack	0 0 0 0
+	frame	data/chars/2soldierguy5/air/b06.gif
+	frame	data/chars/2soldierguy5/air/b06.gif
+	frame	data/chars/2soldierguy5/air/b06.gif
+	frame	data/chars/2soldierguy5/air/b07.gif
+	frame	data/chars/2soldierguy5/air/b07.gif
+	frame	data/chars/2soldierguy5/air/b07.gif
+	move	0
+	delay	12
+	frame	data/chars/2soldierguy5/air/rise5.gif
+	frame	data/chars/2soldierguy5/air/rise6.gif
+		
+anim	backwalk
+	loop	1
+	delay	6
+	offset	100 189
+	bbox	79 97 50 91
+	frame	data/chars/2soldierguy5/air/idle01.gif
+	frame	data/chars/2soldierguy5/air/idle02.gif
+		
+		
+anim	death
+	loop	0
+	delay	14
+	offset	100 189
+	bbox	0 0 0 0
+	frame	data/chars/2soldierguy5/air/rise1.gif
+	frame	data/chars/2soldierguy5/air/rise2.gif
+	frame	data/chars/2soldierguy5/air/rise3.gif
+	frame	data/chars/2soldierguy5/air/rise4.gif
+	frame	data/chars/2soldierguy5/air/rise5.gif
+	frame	data/chars/2soldierguy5/air/rise6.gif
+	@cmd	spawnGun "parach2" -10 55 -1 1
+	frame	data/chars/2soldierguy5/air/pain2.gif
+	frame	data/chars/2soldierguy5/air/pain0.gif
+	delay	6
+	frame	data/chars/2soldierguy5/air/death1.gif
+	movea	-4
+	move	-4
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	move	0
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	movea	-4
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	movea	4
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	movea	-4
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	movea	4
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	movea	-4
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	movea	4
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	movea	-4
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	movea	4
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	movea	-4
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	movea	4
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	delay	3
+	movea	6
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	movea	12
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	frame	data/chars/2soldierguy5/air/death1.gif
+	@cmd	killgun 1 0
+	frame	data/chars/2soldierguy5/air/death1.gif
+		
+anim	fall
+	loop	0
+	delay	30
+	offset	100 189
+	bbox	0 0 0 0
+	followanim	6
+	followcond	1
+	bouncefactor	0
+	@cmd	dethrown
+	landframe	2
+	frame	data/chars/2soldierguy5/fall1.gif
+	delay	12
+	frame	data/chars/2soldierguy5/fall2.gif
+	delay	1000
+	frame	data/chars/2soldierguy5/fall3.gif
+		
+anim	fall10
+	loop	0
+	delay	50
+	offset	100 189
+	bbox	0 0 0 0
+	bouncefactor	0
+	@cmd	dethrown
+	landframe	2
+	attack	78 104 28 44 5 1 0 0 13
+	frame	data/chars/2soldierguy5/pain6.gif
+	delay	30
+	bbox	71 132 63 30
+	attack	64 134 40 22 5 1 0 0 13
+	frame	data/chars/2soldierguy5/fall2.gif
+	delay	1000
+	attack	0 0 0 0
+	frame	data/chars/2soldierguy5/fall3.gif
+		
+anim	fall2
+	loop	0
+	delay	30
+	offset	102 189
+	bbox	0 0 0 0
+	bouncefactor	0
+	@cmd	dethrown
+	landframe	2
+	attack	78 104 28 44 5 1 0 0 13
+	frame	data/chars/2soldierguy5/pain6.gif
+	delay	10
+	attack	64 134 40 22 5 1 0 0 13
+	frame	data/chars/2soldierguy5/fall2.gif
+	attack	0 0 0 0
+	delay	1000
+	frame	data/chars/2soldierguy5/fall3.gif
+		
+anim	fall7
+	delay	1000
+	offset	105 130
+	frame	data/chars/2soldierguy5/slamck0.gif
+	offset	100 110
+	frame	data/chars/2soldierguy5/slamck1.gif
+	offset	106 130
+	frame	data/chars/2soldierguy5/slamck2.gif
+	offset	115 125
+	frame	data/chars/2soldierguy5/slamck3.gif
+	offset	125 125
+	frame	data/chars/2soldierguy5/slamck4.gif
+	offset	108 122
+	frame	data/chars/2soldierguy5/slamck5.gif
+	offset	106 155
+	frame	data/chars/2soldierguy5/slamck6.gif
+	offset	125 140
+	frame	data/chars/2soldierguy5/slamck7.gif
+	offset	120 105
+	frame	data/chars/2soldierguy5/slamck8.gif
+	offset	100 130
+	frame	data/chars/2soldierguy5/slamck9.gif
+		
+anim	fall9
+	loop	0
+	delay	10
+	offset	100 189
+	bbox	0 0 0 0
+	bouncefactor	0
+	@cmd	dethrown
+	landframe	2
+	attack	75 103 29 43 5 1 0 0 13
+	frame	data/chars/2soldierguy5/fall1.gif
+	delay	37
+	attack	75 159 42 31 5 1 0 0 13
+	frame	data/chars/2soldierguy5/fall3.gif
+	delay	8
+	attack	0 0 0 0
+	delay	1000
+	frame	data/chars/2soldierguy5/fall3.gif
+		
+anim	grabbed
+	loop	0
+	delay	10
+	offset	100 189
+	bbox	79 97 50 91
+	frame	data/chars/2soldierguy5/air/grabbed.gif
+		
+anim	idle
+	loop	1
+	delay	9
+	offset	100 189
+	bbox	79 97 50 91
+	frame	data/chars/2soldierguy5/air/idle01.gif
+	frame	data/chars/2soldierguy5/air/idle02.gif
+		
+anim	pain
+	loop	0
+	delay	3
+	offset	103 189
+	bbox	79 97 50 91
+	frame	data/chars/2soldierguy5/air/pain0.gif
+	offset	100 189
+	frame	data/chars/2soldierguy5/air/pain1.gif
+	offset	107 189
+	frame	data/chars/2soldierguy5/air/pain1.gif
+	delay	40
+	offset	100 189
+	frame	data/chars/2soldierguy5/air/pain1.gif
+		
+anim	pain10
+	loop	0
+	delay	1
+	offset	100 189
+	bbox	79 97 50 91
+	jumpframe	1 5 0 0
+	frame	data/chars/2soldierguy5/air/pain1.gif
+	delay	45
+	offset	107 191
+	bbox	0 0 0 0
+	frame	data/chars/2soldierguy5/pain5.gif
+	delay	7
+	offset	116 215
+	frame	data/chars/2soldierguy5/pain4.gif
+	delay	52
+	offset	90 215
+	frame	data/chars/2soldierguy5/pain3.gif
+	delay	4
+	offset	107 187
+	move	12
+	frame	data/chars/2soldierguy5/fall4.gif
+	move	0
+	frame	data/chars/2soldierguy5/fall5.gif
+	frame	data/chars/2soldierguy5/fall4.gif
+	frame	data/chars/2soldierguy5/fall5.gif
+	delay	55
+	frame	data/chars/2soldierguy5/fall4.gif
+	delay	3
+	bbox	88 118 32 23
+	frame	data/chars/2soldierguy5/fall4.gif
+	bbox	0 0 0 0
+	delay	19
+	offset	100 189
+	frame	data/chars/2soldierguy5/rise1.gif
+	delay	13
+	frame	data/chars/2soldierguy5/rise2.gif
+	frame	data/chars/2soldierguy5/rise3.gif
+		
+anim	pain2
+	loop	0
+	delay	3
+	offset	103 189
+	bbox	79 97 50 91
+	frame	data/chars/2soldierguy5/air/pain0.gif
+	offset	100 189
+	frame	data/chars/2soldierguy5/air/pain2.gif
+	offset	107 189
+	frame	data/chars/2soldierguy5/air/pain2.gif
+	delay	40
+	offset	100 189
+	frame	data/chars/2soldierguy5/air/pain2.gif
+		
+anim	pain3
+	loop	0
+	delay	1
+	offset	103 189
+	bbox	0 0 0 0
+	jumpframe	1 2 -1 0
+	frame	data/chars/2soldierguy5/air/pain1.gif
+	delay	25
+	frame	data/chars/2soldierguy5/fall2.gif
+	delay	12
+	frame	data/chars/2soldierguy5/fall3.gif
+	delay	4
+	bbox	71 165 67 30
+	frame	data/chars/2soldierguy5/fall4.gif
+	frame	data/chars/2soldierguy5/fall5.gif
+	frame	data/chars/2soldierguy5/fall4.gif
+	frame	data/chars/2soldierguy5/fall5.gif
+	delay	15
+	bbox	0 0 0 0
+	frame	data/chars/2soldierguy5/fall4.gif
+	delay	10
+	frame	data/chars/2soldierguy5/rise1.gif
+	frame	data/chars/2soldierguy5/rise2.gif
+	frame	data/chars/2soldierguy5/rise3.gif
+		
+anim	pain4
+	loop	0
+	delay	2
+	offset	103 189
+	bbox	0 0 0 0
+	move	-11
+	attack	75 160 37 33 3 1 1 0 13
+	frame	data/chars/2soldierguy5/fall3.gif
+	frame	data/chars/2soldierguy5/fall3.gif
+	frame	data/chars/2soldierguy5/fall3.gif
+	frame	data/chars/2soldierguy5/fall3.gif
+	frame	data/chars/2soldierguy5/fall3.gif
+	frame	data/chars/2soldierguy5/fall3.gif
+	frame	data/chars/2soldierguy5/fall3.gif
+	frame	data/chars/2soldierguy5/fall3.gif
+	frame	data/chars/2soldierguy5/fall3.gif
+	frame	data/chars/2soldierguy5/fall3.gif
+	frame	data/chars/2soldierguy5/fall3.gif
+	frame	data/chars/2soldierguy5/fall3.gif
+	move	-6
+	attack	0 0 0 0
+	frame	data/chars/2soldierguy5/fall4.gif
+	frame	data/chars/2soldierguy5/fall4.gif
+	frame	data/chars/2soldierguy5/fall4.gif
+	frame	data/chars/2soldierguy5/fall4.gif
+	move	-3
+	frame	data/chars/2soldierguy5/fall4.gif
+	frame	data/chars/2soldierguy5/fall4.gif
+	move	0
+	delay	20
+	bbox	0 0 0 0
+	frame	data/chars/2soldierguy5/fall4.gif
+	delay	10
+	frame	data/chars/2soldierguy5/rise1.gif
+	frame	data/chars/2soldierguy5/rise2.gif
+	frame	data/chars/2soldierguy5/rise3.gif
+		
+anim	pain5
+	loop	0
+	delay	23
+	offset	100 189
+	bbox	79 97 50 91
+	frame	data/chars/2soldierguy5/air/pain5.gif
+		
+anim	pain6
+	loop	0
+	delay	23
+	offset	100 189
+	bbox	79 97 50 91
+	frame	data/chars/2soldierguy5/air/pain4.gif
+		
+anim	pain8
+	loop	0
+	delay	2
+	offset	100 189
+	bbox	79 97 50 91
+	move	-6
+	frame	data/chars/2soldierguy5/air/pain1.gif
+	frame	data/chars/2soldierguy5/air/pain1.gif
+	frame	data/chars/2soldierguy5/air/pain1.gif
+	frame	data/chars/2soldierguy5/air/pain2.gif
+	frame	data/chars/2soldierguy5/air/pain2.gif
+	frame	data/chars/2soldierguy5/air/pain2.gif
+	move	-3
+	frame	data/chars/2soldierguy5/air/pain2.gif
+	frame	data/chars/2soldierguy5/air/pain2.gif
+	move	-1
+	frame	data/chars/2soldierguy5/air/pain2.gif
+	delay	35
+	frame	data/chars/2soldierguy5/air/pain2.gif
+		
+anim	pain9
+	loop	0
+	delay	15
+	offset	100 189
+	bbox	79 97 50 91
+	frame	data/chars/2soldierguy5/air/pain1.gif
+	delay	150
+	frame	data/chars/2soldierguy5/air/pain2.gif
+		
+anim	rise
+	loop	0
+	delay	6
+	offset	100 189
+	bbox	0 0 0 0
+	movez	-6
+	move	-4
+	frame	data/chars/2soldierguy5/air/rise1.gif
+	frame	data/chars/2soldierguy5/air/rise1.gif
+	frame	data/chars/2soldierguy5/air/rise2.gif
+	frame	data/chars/2soldierguy5/air/rise2.gif
+	frame	data/chars/2soldierguy5/air/rise3.gif
+	frame	data/chars/2soldierguy5/air/rise3.gif
+	frame	data/chars/2soldierguy5/air/rise4.gif
+	frame	data/chars/2soldierguy5/air/rise4.gif
+	movez	0
+	move	0
+	delay	14
+	frame	data/chars/2soldierguy5/air/rise5.gif
+	frame	data/chars/2soldierguy5/air/rise6.gif
+		
+anim	spawn
+	loop	0
+	delay	8
+	offset	100 189
+	bbox	79 97 50 91
+	frame	data/chars/2soldierguy5/air/idle01.gif
+	frame	data/chars/2soldierguy5/air/idle02.gif
+		
+anim	walk
+	loop	1
+	delay	6
+	offset	100 189
+	bbox	79 97 50 91
+	frame	data/chars/2soldierguy5/air/idle01.gif
+	frame	data/chars/2soldierguy5/air/idle02.gif
+		
+#|edited by openBor Stats v 0.53
+		

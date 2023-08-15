@@ -1,0 +1,81 @@
+name	1pchosse
+type	none
+nolife	1
+antigravity 100
+shadow  0
+offscreenkill	80000
+
+
+
+script @script
+void main()
+{
+    void self = getlocalvar("self");
+    char Name = getentityproperty(self,"name");
+    int HP = getentityproperty(self,"health");
+    int MP = getentityproperty(self,"aggression");
+    int P1 = getplayerproperty(0, "entity");
+    int P2 = getplayerproperty(1, "entity");
+    int P3 = getplayerproperty(2, "entity");
+
+	void anim1 = getentityproperty(P1,"animationID");
+	void anim2 = getentityproperty(P2,"animationID");
+	void anim3 = getentityproperty(P3,"animationID");
+
+	if (P1 != NULL())
+	{
+	changeentityproperty(P1, "model", Name, 1);
+	changeentityproperty(P1, "defaultname", Name);
+	killentity(P2);
+	killentity(P3);
+	}
+	else if (P2 != NULL())
+	{
+	changeentityproperty(P2, "model", Name, 1);
+	changeentityproperty(P2, "defaultname", Name);
+	killentity(P1);
+	killentity(P3);
+	}
+	else if (P3 != NULL())
+	{
+	changeentityproperty(P3, "model", Name, 1);
+	changeentityproperty(P3, "defaultname", Name);
+	killentity(P1);
+	killentity(P2);
+	}
+
+	if (anim1 == openborconstant("ANI_SPAWN") || anim1 == openborconstant("ANI_RESPAWN"))
+	{
+	changeentityproperty(P1, "health", HP);
+	changeentityproperty(P1, "mp", MP);
+	}
+	else if (anim2 == openborconstant("ANI_SPAWN") || anim2 == openborconstant("ANI_RESPAWN"))
+	{
+	changeentityproperty(P2, "health", HP);
+	changeentityproperty(P2, "mp", MP);
+	}
+	else if (anim3 == openborconstant("ANI_SPAWN") || anim3 == openborconstant("ANI_RESPAWN"))
+	{
+	changeentityproperty(P3, "health", HP);
+	changeentityproperty(P3, "mp", MP);
+	}
+}
+@end_script
+
+
+
+anim 	idle
+@script
+	void self = getlocalvar("self");
+	int  x = getglobalvar("1pch");
+	if(frame >= 0 && x == 1)
+	{
+	killentity(self);
+	}
+@end_script
+	loop	1
+	delay	3
+	offset	1 1
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+

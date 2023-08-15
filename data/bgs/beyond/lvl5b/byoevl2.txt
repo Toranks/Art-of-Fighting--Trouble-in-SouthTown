@@ -1,0 +1,59 @@
+name	byoevl2
+type	none
+nolife  1
+shadow	0
+setlayer 	300
+offscreenkill 	10000
+hostile		player
+facing	1
+subject_to_gravity 0
+subject_to_wall 0
+subject_to_platform 0
+subject_to_hole 0
+animationscript data/scripts/escript.c
+
+load	byoelevsp
+
+palette	data/bgs/beyond/lvl5b/elevpal.gif
+
+
+anim	idle
+	loop	1
+	delay	5
+	offset	270 370
+	frame	data/bgs/beyond/lvl5b/elev02.gif
+	@cmd	attack1 50 250 200 "ANI_FOLLOW1"
+	frame	data/bgs/beyond/lvl5b/elev02.gif
+
+
+
+
+anim	follow1
+	loop	0
+	delay	15
+	offset	270 370
+	platform	5 475 0 0 100 100 110 460
+	@cmd	spawnGun5 "byoelevsp" -234 530 110 1 "ANI_FOLLOW6"
+	frame	data/bgs/beyond/lvl5b/elev02.gif
+	sound	data/sounds/elevopen.wav
+	frame	data/bgs/beyond/lvl5b/elev03.gif
+	frame	data/bgs/beyond/lvl5b/elev04.gif
+	frame	data/bgs/beyond/lvl5b/elev05.gif
+	frame	data/bgs/beyond/lvl5b/elev06.gif
+	frame	data/bgs/beyond/lvl5b/elev07.gif
+	sound	data/sounds/alien10.wav
+	frame	data/bgs/beyond/lvl5b/elev08.gif
+	@cmd	anichange "ANI_FOLLOW2"
+	frame	data/bgs/beyond/lvl5b/elev08.gif
+
+
+anim	follow2
+	loop	1
+	delay	1000
+	offset	270 370
+	platform	5 475 0 0 100 100 110 460
+	frame	data/bgs/beyond/lvl5b/elev08.gif
+	frame	data/bgs/beyond/lvl5b/elev08.gif
+
+
+		

@@ -1,0 +1,361 @@
+name	 	cybcann
+type	 	npc
+health	 	160
+facing		1
+nomove		1 1
+nolife   	1
+noatflash 	1
+flash    	Flash5
+falldie		1
+nopain		1
+cantgrab      	1
+nodieblink	3
+nodrop		2
+offscreenkill 	30000
+hostile		player
+shadow	 	0
+diesound      data/sounds/robot2.wav
+
+animationscript data/scripts/escript.c
+
+alternatepal	data/chars/beyond/stuff/object/detmap.gif
+alternatepal	data/chars/beyond/stuff/object/camap1.gif
+
+load	explosion4
+load    lashot1
+load	Steam
+
+
+#------------//-----die------//-------------	
+
+anim	death
+	loop	0
+	delay	8
+	offset	150 160
+	bbox	0 0 0 0
+	platform	1 1 1 1 1 1 1 -1
+	drawmethod	256 256 0 0 0 0 1
+	frame	data/chars/beyond/stuff/object/can37.gif
+	nodrawmethod	
+	frame	data/chars/beyond/stuff/object/can37.gif
+	drawmethod	256 256 0 0 0 0 1
+	frame	data/chars/beyond/stuff/object/can37.gif
+	nodrawmethod	
+	frame	data/chars/beyond/stuff/object/can37.gif
+	drawmethod	256 256 0 0 0 0 1
+	frame	data/chars/beyond/stuff/object/can37.gif
+	nodrawmethod	
+	frame	data/chars/beyond/stuff/object/can37.gif
+	drawmethod	256 256 0 0 0 0 1
+	frame	data/chars/beyond/stuff/object/can37.gif
+	nodrawmethod	
+	frame	data/chars/beyond/stuff/object/can37.gif
+	drawmethod	256 256 0 0 0 0 1
+	frame	data/chars/beyond/stuff/object/can37.gif
+	nodrawmethod	
+	frame	data/chars/beyond/stuff/object/can37.gif
+	drawmethod	256 256 0 0 0 0 1
+	frame	data/chars/beyond/stuff/object/can37.gif
+	nodrawmethod	
+	frame	data/chars/beyond/stuff/object/can37.gif
+	drawmethod	256 256 0 0 0 0 1
+	frame	data/chars/beyond/stuff/object/can37.gif
+	nodrawmethod	
+	frame	data/chars/beyond/stuff/object/can37.gif
+	drawmethod	256 256 0 0 0 0 1
+	frame	data/chars/beyond/stuff/object/can37.gif
+	nodrawmethod	
+	frame	data/chars/beyond/stuff/object/can37.gif
+	drawmethod	256 256 0 0 0 0 1
+	frame	data/chars/beyond/stuff/object/can37.gif
+	nodrawmethod	
+	frame	data/chars/beyond/stuff/object/can37.gif
+	drawmethod	256 256 0 0 0 0 1
+	frame	data/chars/beyond/stuff/object/can37.gif
+	nodrawmethod	
+	frame	data/chars/beyond/stuff/object/can37.gif
+	drawmethod	256 256 0 0 0 0 1
+	frame	data/chars/beyond/stuff/object/can37.gif
+	nodrawmethod	
+	frame	data/chars/beyond/stuff/object/can37.gif
+	drawmethod	256 256 0 0 0 0 1
+	frame	data/chars/beyond/stuff/object/can37.gif
+	nodrawmethod	
+	frame	data/chars/beyond/stuff/object/can37.gif
+	drawmethod	256 256 0 0 0 0 1
+	frame	data/chars/beyond/stuff/object/can37.gif
+	nodrawmethod	
+	frame	data/chars/beyond/stuff/object/can37.gif
+	delay	14
+	@cmd	spawn01 "explosion4" 1 50 -1
+	frame	data/chars/beyond/stuff/object/canx01.gif
+	frame	data/chars/beyond/stuff/object/canx02.gif
+	frame	data/chars/beyond/stuff/object/canx03.gif
+	frame	data/chars/beyond/stuff/object/canx04.gif
+	sound	data/sounds/glass.wav
+	frame	data/chars/beyond/stuff/object/canx05.gif
+	frame	data/chars/beyond/stuff/object/canx06.gif
+	frame	data/chars/beyond/stuff/object/canx07.gif
+	frame	data/chars/beyond/stuff/object/canx08.gif
+	frame	data/chars/beyond/stuff/object/canx09.gif
+	frame	data/chars/beyond/stuff/object/canx10.gif
+	frame	data/chars/beyond/stuff/object/canx10.gif
+	@cmd	spawnGun "Steam" 1 15 1 2
+	frame	data/chars/beyond/stuff/object/canx10.gif
+	delay	450
+	frame	data/chars/beyond/stuff/object/canx10.gif
+	@cmd	killgun 2 0
+	frame	data/chars/beyond/stuff/object/canx10.gif
+	@cmd	clearL
+	frame	data/chars/beyond/stuff/object/canx10.gif
+	frame	data/chars/beyond/stuff/object/canx10.gif
+
+
+#------------------------//-------------------------
+
+
+#------attack-left--//---attack-right--------------
+
+anim	attack1
+	loop	0
+	delay	6
+	offset	150 160
+	bbox	120 55 55 95
+	platform	125 160 0 0 50 50 15 80
+	frame	data/chars/beyond/stuff/object/can35.gif
+	frame	data/chars/beyond/stuff/object/canf01.gif
+	sound	data/sounds/laser3.wav
+	@cmd	spawnAni "lashot1" -25 90 1 "ANI_FOLLOW2"
+	frame	data/chars/beyond/stuff/object/canf02.gif
+	frame	data/chars/beyond/stuff/object/canf03.gif
+	frame	data/chars/beyond/stuff/object/canf04.gif
+	frame	data/chars/beyond/stuff/object/can35.gif
+	frame	data/chars/beyond/stuff/object/canf01.gif
+	sound	data/sounds/laser3.wav
+	@cmd	spawnAni "lashot1" -25 90 1 "ANI_FOLLOW2"
+	frame	data/chars/beyond/stuff/object/canf02.gif
+	frame	data/chars/beyond/stuff/object/canf03.gif
+	frame	data/chars/beyond/stuff/object/canf04.gif
+	frame	data/chars/beyond/stuff/object/can35.gif
+	frame	data/chars/beyond/stuff/object/canf01.gif
+	sound	data/sounds/laser3.wav
+	@cmd	spawnAni "lashot1" -25 90 1 "ANI_FOLLOW2"
+	frame	data/chars/beyond/stuff/object/canf02.gif
+	frame	data/chars/beyond/stuff/object/canf03.gif
+	frame	data/chars/beyond/stuff/object/canf04.gif
+	delay	60
+	frame	data/chars/beyond/stuff/object/can35.gif
+	delay	10
+	frame	data/chars/beyond/stuff/object/can35.gif
+	@cmd	beidle
+	frame	data/chars/beyond/stuff/object/can35.gif
+		
+anim	attack2
+	loop	0
+	delay	6
+	offset	150 160
+	bbox	120 55 55 95
+	platform	125 160 0 0 50 50 15 80
+	frame	data/chars/beyond/stuff/object/can39.gif
+	frame	data/chars/beyond/stuff/object/canf05.gif
+	sound	data/sounds/laser3.wav
+	@cmd	spawnAni "lashot1" 25 90 1 "ANI_FOLLOW1"
+	frame	data/chars/beyond/stuff/object/canf06.gif
+	frame	data/chars/beyond/stuff/object/canf07.gif
+	frame	data/chars/beyond/stuff/object/canf08.gif
+	frame	data/chars/beyond/stuff/object/can39.gif
+	frame	data/chars/beyond/stuff/object/canf05.gif
+	sound	data/sounds/laser3.wav
+	@cmd	spawnAni "lashot1" 25 90 1 "ANI_FOLLOW1"
+	frame	data/chars/beyond/stuff/object/canf06.gif
+	frame	data/chars/beyond/stuff/object/canf07.gif
+	frame	data/chars/beyond/stuff/object/canf08.gif
+	frame	data/chars/beyond/stuff/object/can39.gif
+	frame	data/chars/beyond/stuff/object/canf05.gif
+	sound	data/sounds/laser3.wav
+	@cmd	spawnAni "lashot1" 25 90 1 "ANI_FOLLOW1"
+	frame	data/chars/beyond/stuff/object/canf06.gif
+	frame	data/chars/beyond/stuff/object/canf07.gif
+	frame	data/chars/beyond/stuff/object/canf08.gif
+	delay	60
+	frame	data/chars/beyond/stuff/object/can39.gif
+	delay	10
+	frame	data/chars/beyond/stuff/object/can39.gif
+	@cmd	anichange "ANI_FOLLOW4"
+	frame	data/chars/beyond/stuff/object/can39.gif
+		
+			
+#------------------------//-------------------------
+
+
+
+	
+#----facing-left-right--//---turn-left-right--//--attack-----	
+
+		
+anim	idle
+	loop	1
+	delay	5
+	offset	150 160
+	bbox	120 55 55 95
+	platform	125 160 0 0 50 50 15 80
+	@cmd	clearL
+	frame	data/chars/beyond/stuff/object/can35.gif
+	@cmd	attack1 -270 -10 15 "ANI_ATTACK1"
+	@cmd	attack1 10 290 15 "ANI_FOLLOW2"
+	frame	data/chars/beyond/stuff/object/can35.gif
+	@cmd	attack1 -270 -10 15 "ANI_ATTACK1"
+	@cmd	attack1 10 290 15 "ANI_FOLLOW2"
+	frame	data/chars/beyond/stuff/object/can35.gif
+	@cmd	attack1 -270 -10 15 "ANI_ATTACK1"
+	@cmd	attack1 10 290 15 "ANI_FOLLOW2"
+	frame	data/chars/beyond/stuff/object/can35.gif
+
+
+anim	follow2
+	loop	0
+	delay	9
+	offset	150 160
+	bbox	120 55 55 95
+	platform	125 160 0 0 50 50 15 80
+	frame	data/chars/beyond/stuff/object/can35.gif
+	sound	data/sounds/robot1.wav
+	frame	data/chars/beyond/stuff/object/can36.gif
+	frame	data/chars/beyond/stuff/object/can37.gif
+	frame	data/chars/beyond/stuff/object/can38.gif
+	frame	data/chars/beyond/stuff/object/can39.gif
+	@cmd	anichange "ANI_FOLLOW4"
+	frame	data/chars/beyond/stuff/object/can39.gif
+
+anim	follow4
+	loop	1
+	delay	5
+	offset	150 160
+	bbox	120 55 55 95
+	platform	125 160 0 0 50 50 15 80
+	frame	data/chars/beyond/stuff/object/can39.gif
+	@cmd	attack1 10 270 15 "ANI_ATTACK2"
+	@cmd	attack1 -290 -10 15 "ANI_FOLLOW5"
+	frame	data/chars/beyond/stuff/object/can39.gif
+	@cmd	attack1 10 270 15 "ANI_ATTACK2"
+	@cmd	attack1 -290 -10 15 "ANI_FOLLOW5"
+	frame	data/chars/beyond/stuff/object/can39.gif
+	@cmd	attack1 10 270 15 "ANI_ATTACK2"
+	@cmd	attack1 -290 -10 15 "ANI_FOLLOW5"
+	frame	data/chars/beyond/stuff/object/can39.gif
+
+
+anim	follow5
+	loop	0
+	delay	9
+	offset	150 160
+	bbox	120 55 55 95
+	platform	125 160 0 0 50 50 15 80
+	frame	data/chars/beyond/stuff/object/can39.gif
+	sound	data/sounds/robot1.wav
+	frame	data/chars/beyond/stuff/object/can38.gif
+	frame	data/chars/beyond/stuff/object/can37.gif
+	frame	data/chars/beyond/stuff/object/can36.gif
+	frame	data/chars/beyond/stuff/object/can35.gif
+	@cmd	beidle
+	frame	data/chars/beyond/stuff/object/can35.gif
+
+
+#------------------------//-------------------------
+
+
+
+#-------------spawning---//--gotoidle------
+
+anim	follow1
+	loop	0
+	delay	8
+	offset	150 160
+	bbox	0 0 0 0
+	platform	125 160 0 0 50 50 15 80
+	sound	data/sounds/tcannon.wav
+	frame	data/chars/beyond/stuff/object/can01.gif
+	frame	data/chars/beyond/stuff/object/can02.gif
+	frame	data/chars/beyond/stuff/object/can03.gif
+	frame	data/chars/beyond/stuff/object/can04.gif
+	frame	data/chars/beyond/stuff/object/can05.gif
+	frame	data/chars/beyond/stuff/object/can06.gif
+	frame	data/chars/beyond/stuff/object/can07.gif
+	frame	data/chars/beyond/stuff/object/can08.gif
+	frame	data/chars/beyond/stuff/object/can09.gif
+	frame	data/chars/beyond/stuff/object/can10.gif
+	frame	data/chars/beyond/stuff/object/can11.gif
+	frame	data/chars/beyond/stuff/object/can12.gif
+	frame	data/chars/beyond/stuff/object/can13.gif
+	frame	data/chars/beyond/stuff/object/can14.gif
+	frame	data/chars/beyond/stuff/object/can15.gif
+	bbox	125 95 45 55
+	frame	data/chars/beyond/stuff/object/can16.gif
+	sound	data/sounds/alien9.wav
+	frame	data/chars/beyond/stuff/object/can17.gif
+	frame	data/chars/beyond/stuff/object/can18.gif
+	frame	data/chars/beyond/stuff/object/can19.gif
+	frame	data/chars/beyond/stuff/object/can20.gif
+	frame	data/chars/beyond/stuff/object/can21.gif
+	frame	data/chars/beyond/stuff/object/can22.gif
+	frame	data/chars/beyond/stuff/object/can23.gif
+	bbox	125 55 45 90
+	frame	data/chars/beyond/stuff/object/can24.gif
+	frame	data/chars/beyond/stuff/object/can25.gif
+	frame	data/chars/beyond/stuff/object/can26.gif
+	frame	data/chars/beyond/stuff/object/can27.gif
+	sound	data/sounds/robot3.wav
+	frame	data/chars/beyond/stuff/object/can28.gif
+	frame	data/chars/beyond/stuff/object/can29.gif
+	frame	data/chars/beyond/stuff/object/can30.gif
+	frame	data/chars/beyond/stuff/object/can31.gif
+	frame	data/chars/beyond/stuff/object/can32.gif
+	frame	data/chars/beyond/stuff/object/can33.gif
+	frame	data/chars/beyond/stuff/object/can34.gif
+	frame	data/chars/beyond/stuff/object/can35.gif
+	@cmd	beidle
+	frame	data/chars/beyond/stuff/object/can35.gif
+
+
+
+anim	follow6
+	loop	1
+	delay	5
+	offset	150 160
+	bbox	0 0 0 0
+	platform	1 1 1 1 1 1 1 -1
+	frame	data/chars/beyond/stuff/object/can01.gif
+	@cmd	attack1 -120 120 40 "ANI_FOLLOW1"
+	frame	data/chars/beyond/stuff/object/can01.gif
+	@cmd	attack1 -120 120 40 "ANI_FOLLOW1"
+	frame	data/chars/beyond/stuff/object/can01.gif
+	@cmd	attack1 -120 120 40 "ANI_FOLLOW1"
+	frame	data/chars/beyond/stuff/object/can01.gif
+
+
+
+
+
+
+		
+anim	spawn
+@script
+if(frame==1)
+{
+  changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_OBSTACLE"));
+}
+@end_script
+	loop	0
+	delay	7
+	offset	150 160
+	bbox	0 0 0 0
+	platform	1 1 1 1 1 1 1 -1
+	frame	data/chars/beyond/stuff/object/can01.gif
+	frame	data/chars/beyond/stuff/object/can01.gif
+	frame	data/chars/beyond/stuff/object/can01.gif
+	frame	data/chars/beyond/stuff/object/can01.gif
+	@cmd	anichange "ANI_FOLLOW6"
+	frame	data/chars/beyond/stuff/object/can01.gif
+		
+#|edited by openBor Stats v 0.53
+		

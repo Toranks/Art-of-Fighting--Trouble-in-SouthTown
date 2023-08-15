@@ -1,0 +1,253 @@
+name			ovgrab1
+type			npc
+health			300
+shadow			0
+nomove			1 1
+facing			1
+falldie			1
+nodieblink		3
+nodrop			2
+noquake			1
+subject_to_wall		0
+subject_to_hole		0
+subject_to_platform	0
+subject_to_minz		0
+subject_to_maxz		0
+subject_to_hole		0
+subject_to_gravity	0
+setlayer	999900000
+offscreenkill 	        30000
+diesound      data/sounds/overlord10.wav
+animationscript data/scripts/escript.c
+
+
+load	ovhand1
+load	inryo1
+load	temper2
+
+
+
+anim	spawn
+@script
+	void self = getlocalvar("self");
+	if(frame==0){
+	changelevelproperty("scrollspeed", 0);
+	}
+@end_script
+	loop	0
+	delay	20
+	offset	330 180
+	bbox	0 0 0 0
+	frame	data/chars/beyond/grabs/fpov/ov00.gif
+	@cmd	spawnGun2 "ovhand1" 30 0 380 1
+	frame	data/chars/beyond/grabs/fpov/ov00.gif
+	frame	data/chars/beyond/grabs/fpov/ovsp05.gif
+	sound	data/sounds/blink.wav
+	frame	data/chars/beyond/grabs/fpov/ovsp05.gif
+	frame	data/chars/beyond/grabs/fpov/ovsp04.gif
+	frame	data/chars/beyond/grabs/fpov/ovsp03.gif
+	frame	data/chars/beyond/grabs/fpov/ovsp02.gif
+	frame	data/chars/beyond/grabs/fpov/ovsp01.gif
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	@cmd	anichange "ANI_FOLLOW1"
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+
+
+anim	follow1
+	loop	0
+	delay	12
+	offset	330 180
+	bbox	0 0 0 0
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	@cmd	dasher 0 0 0.5
+	frame	data/chars/beyond/grabs/fpov/ov02.gif
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	frame	data/chars/beyond/grabs/fpov/ov02.gif
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	frame	data/chars/beyond/grabs/fpov/ov02.gif
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	frame	data/chars/beyond/grabs/fpov/ov02.gif
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	frame	data/chars/beyond/grabs/fpov/ov02.gif
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	frame	data/chars/beyond/grabs/fpov/ov02.gif
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	frame	data/chars/beyond/grabs/fpov/ov02.gif
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	frame	data/chars/beyond/grabs/fpov/ov02.gif
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	frame	data/chars/beyond/grabs/fpov/ov02.gif
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	frame	data/chars/beyond/grabs/fpov/ov02.gif
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	frame	data/chars/beyond/grabs/fpov/ov02.gif
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	frame	data/chars/beyond/grabs/fpov/ov02.gif
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	frame	data/chars/beyond/grabs/fpov/ov02.gif
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	frame	data/chars/beyond/grabs/fpov/ov02.gif
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	frame	data/chars/beyond/grabs/fpov/ov02.gif
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	@cmd	stop
+	frame	data/chars/beyond/grabs/fpov/ov02.gif
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	frame	data/chars/beyond/grabs/fpov/ov02.gif
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	frame	data/chars/beyond/grabs/fpov/ov02.gif
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	frame	data/chars/beyond/grabs/fpov/ov02.gif
+	@cmd	spawnGun8 "temper2" 140 0 -55 2 "ANI_FOLLOW5"
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	@cmd	spawnGun8 "inryo1" 0 0 100 3 "ANI_FOLLOW4"
+	frame	data/chars/beyond/grabs/fpov/ov02.gif
+	@cmd	beidle
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+
+
+anim	idle
+	loop	1
+	delay	12
+	offset	330 180
+	bbox	265 405 120 110 800
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	@cmd	clearL
+	frame	data/chars/beyond/grabs/fpov/ov02.gif
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	frame	data/chars/beyond/grabs/fpov/ov02.gif
+
+anim	pain1
+	loop	0
+	delay	9
+	offset	330 180
+	bbox	280 405 100 100 500
+	frame	data/chars/beyond/grabs/fpov/pain1.gif
+	frame	data/chars/beyond/grabs/fpov/pain2.gif
+	frame	data/chars/beyond/grabs/fpov/pain1.gif
+	@cmd	beidle
+	frame	data/chars/beyond/grabs/fpov/pain1.gif
+
+anim	pain2
+	loop	0
+	delay	5
+	offset	330 180
+	bbox	280 405 100 100 500
+	frame	data/chars/beyond/grabs/fpov/pain3.gif
+	frame	data/chars/beyond/grabs/fpov/pain4.gif
+	frame	data/chars/beyond/grabs/fpov/pain3.gif
+	@cmd	beidle
+	frame	data/chars/beyond/grabs/fpov/pain3.gif
+
+
+
+anim	pain3
+	loop	1 2 8
+	delay	6
+	offset	330 180
+	bbox	280 405 100 100 500
+	frame	data/chars/beyond/grabs/fpov/pain5.gif
+	frame	data/chars/beyond/grabs/fpov/pain6.gif
+	frame	data/chars/beyond/grabs/fpov/pain5.gif #2
+	frame	data/chars/beyond/grabs/fpov/pain6.gif
+	frame	data/chars/beyond/grabs/fpov/pain5.gif
+	frame	data/chars/beyond/grabs/fpov/pain6.gif
+	frame	data/chars/beyond/grabs/fpov/pain5.gif
+	frame	data/chars/beyond/grabs/fpov/pain6.gif #8
+	frame	data/chars/beyond/grabs/fpov/pain5.gif
+	frame	data/chars/beyond/grabs/fpov/pain6.gif
+	frame	data/chars/beyond/grabs/fpov/pain5.gif
+	frame	data/chars/beyond/grabs/fpov/pain6.gif
+
+
+
+anim	death
+@script
+	void self = getlocalvar("self");
+	void ov = getentityproperty(self,"parent");
+	if(frame==35){
+	changelevelproperty("scrollspeed", 1);
+     	performattack(ov, openborconstant("ANI_FOLLOW16"));
+	}
+@end_script
+	loop	0
+	delay	8
+	offset	330 180
+	bbox	0 0 0 0
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	@cmd	killgun 2 0
+	@cmd	killgun 3 0
+	@cmd	dasher -0.5 0 0
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	@cmd	killgun 1 1
+	frame	data/chars/beyond/grabs/fpov/ov02.gif
+	@cmd	dasher 1 0 0
+	frame	data/chars/beyond/grabs/fpov/ov01.gif #3
+	frame	data/chars/beyond/grabs/fpov/ov02.gif
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	frame	data/chars/beyond/grabs/fpov/ov02.gif
+	@cmd	dasher -1 0 0
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	frame	data/chars/beyond/grabs/fpov/ov02.gif
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	frame	data/chars/beyond/grabs/fpov/ov02.gif
+	@cmd	dasher 1 0 0
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	frame	data/chars/beyond/grabs/fpov/ov02.gif
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	frame	data/chars/beyond/grabs/fpov/ov02.gif
+	@cmd	dasher -1 0 0
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	frame	data/chars/beyond/grabs/fpov/ov02.gif
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	frame	data/chars/beyond/grabs/fpov/ov02.gif
+	@cmd	looper 3 2
+	@cmd	dasher 0.5 0 0
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	frame	data/chars/beyond/grabs/fpov/ov02.gif
+	@cmd	stop
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	@cmd	dasher 0 0 1
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	frame	data/chars/beyond/grabs/fpov/ov01.gif #25
+	delay	17
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	@cmd	stop
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	delay	50
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	delay	8
+	frame	data/chars/beyond/grabs/fpov/ov01.gif
+	sound	data/sounds/super2.wav
+	#@cmd	killgun 1 1
+	frame	data/chars/beyond/grabs/fpov/ovsp01.gif
+	frame	data/chars/beyond/grabs/fpov/ovsp02.gif
+	frame	data/chars/beyond/grabs/fpov/ovsp03.gif
+	frame	data/chars/beyond/grabs/fpov/ovsp04.gif
+	frame	data/chars/beyond/grabs/fpov/ovsp05.gif #36
+	frame	data/chars/beyond/grabs/fpov/ov00.gif
+	frame	data/chars/beyond/grabs/fpov/ov00.gif
+	frame	data/chars/beyond/grabs/fpov/ov00.gif
+
+
+
+anim	fall
+	loop	0
+	delay	5
+	offset	330 180
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl20/empty.gif
+
+anim	rise
+	loop	0
+	delay	5
+	offset	295 570
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl20/empty.gif
+
+
+

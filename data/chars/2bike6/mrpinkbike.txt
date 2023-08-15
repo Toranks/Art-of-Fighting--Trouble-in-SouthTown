@@ -1,0 +1,434 @@
+name		MrpinkBike
+type		enemy
+health		200
+mp		100
+speedf		1.9
+jumpheight	0
+nolife          1
+noquake		1
+falldie		1
+nodieblink	2
+makeinv		3
+gfxshadow	1
+nodrop		1
+facing          3
+nomove          0 1
+antigrab	10
+aggression      15
+hostile				player obstacle
+candamage			player obstacle
+diesound        data/sounds/die7.wav
+animationscript data/scripts/escript.c
+
+alternatepal       data/chars/2bike6/map1.gif
+alternatepal       data/chars/2bike6/map2.gif
+alternatepal       data/chars/2bike6/map3.gif
+alternatepal       data/chars/2bike6/map4.gif
+
+load	bike4crash
+load	explosion1
+
+
+script	@script
+void main()
+{
+    void self = getlocalvar("self");
+   int x = getentityproperty(self, "x");
+   int y = getentityproperty(self, "a");
+   int z = getentityproperty(self, "z");
+
+   float H = checkplatformbelow(x+1,z, 5000);
+   float Hz = checkplatformbelow(x+1,z-5, 5000);
+   float yH = checkplatformbelow(x-60,z, 5000);
+   float yHz = checkplatformbelow(x-60,z-5, 5000);
+
+   if(Hz >= 1)
+   {
+     changeentityproperty(self, "position", x, z+1);
+   }
+
+   if(H >= 1)
+   {
+     changeentityproperty(self, "position", x-1);
+   }
+   if(yHz >= 1)
+   {
+     changeentityproperty(self, "position", x, z+1);
+   }
+
+   if(yH >= 1)
+   {
+     changeentityproperty(self, "position", x+1);
+   }
+}
+@end_script
+
+
+anim	attack1
+	range	25 260
+	loop	0
+	delay	5
+	offset	165 163
+	bbox	110 77 80 82
+	frame	data/chars/2bike6/bikeratck01.gif
+	sound	data/sounds/bike11.wav
+	frame	data/chars/2bike6/bikeratck02.gif
+	frame	data/chars/2bike6/bikeratck01.gif
+	frame	data/chars/2bike6/bikeratck02.gif
+	frame	data/chars/2bike6/bikeratck01.gif
+	frame	data/chars/2bike6/bikeratck02.gif
+	frame	data/chars/2bike6/bikeratck01.gif
+	frame	data/chars/2bike6/bikeratck02.gif
+	frame	data/chars/2bike6/bikeratck01.gif
+	frame	data/chars/2bike6/bikeratck02.gif
+	frame	data/chars/2bike6/bikeratck01.gif
+	frame	data/chars/2bike6/bikeratck02.gif
+	frame	data/chars/2bike6/bikeratck01.gif
+	frame	data/chars/2bike6/bikeratck02.gif
+	frame	data/chars/2bike6/bikeratck01.gif
+	frame	data/chars/2bike6/bikeratck02.gif
+	frame	data/chars/2bike6/bikeratck03.gif
+	sound	data/sounds/gun1.wav
+	frame	data/chars/2bike6/bikeratck04.gif
+	frame	data/chars/2bike6/bikeratck05.gif
+	frame	data/chars/2bike6/bikeratck02.gif
+	forcedirection 2
+	attack	140 80 245 24 6 1 0 0 11 0
+	frame	data/chars/2bike6/bikeratck03.gif
+	frame	data/chars/2bike6/bikeratck04.gif
+	attack	0 0 0 0
+	frame	data/chars/2bike6/bikeratck05.gif
+	frame	data/chars/2bike6/bikeratck02.gif
+	sound	data/sounds/gun1.wav
+	frame	data/chars/2bike6/bikeratck03.gif
+	frame	data/chars/2bike6/bikeratck04.gif
+	frame	data/chars/2bike6/bikeratck05.gif
+	frame	data/chars/2bike6/bikeratck02.gif
+	frame	data/chars/2bike6/bikeratck03.gif
+	frame	data/chars/2bike6/bikeratck04.gif
+	frame	data/chars/2bike6/bikeratck05.gif
+	frame	data/chars/2bike6/bikeratck02.gif
+	attack	140 80 245 14 6 1 0 0 11 0
+	sound	data/sounds/gun1.wav
+	frame	data/chars/2bike6/bikeratck03.gif
+	frame	data/chars/2bike6/bikeratck04.gif
+	attack	0 0 0 0
+	frame	data/chars/2bike6/bikeratck05.gif
+	frame	data/chars/2bike6/bikeratck02.gif
+	frame	data/chars/2bike6/bikeratck03.gif
+	frame	data/chars/2bike6/bikeratck04.gif
+	frame	data/chars/2bike6/bikeratck05.gif
+	frame	data/chars/2bike6/bikeratck02.gif
+	frame	data/chars/2bike6/bikeratck01.gif
+	frame	data/chars/2bike6/bikeratck02.gif
+	frame	data/chars/2bike6/bikeratck01.gif
+	frame	data/chars/2bike6/bikeratck02.gif
+	frame	data/chars/2bike6/bikeratck01.gif
+	frame	data/chars/2bike6/bikeratck02.gif
+	frame	data/chars/2bike6/bikeratck01.gif
+	frame	data/chars/2bike6/bikeratck02.gif
+	frame	data/chars/2bike6/bikeratck01.gif
+	frame	data/chars/2bike6/bikeratck02.gif
+	frame	data/chars/2bike6/bikeratck01.gif
+	frame	data/chars/2bike6/bikeratck02.gif
+	frame	data/chars/2bike6/bikeratck01.gif
+	frame	data/chars/2bike6/bikeratck02.gif
+		
+anim	attack2
+	range	-268 -40
+	loop	0
+	delay	5
+	offset	165 163
+	bbox	110 77 80 82
+	frame	data/chars/2bike6/bikeratck06.gif
+	sound	data/sounds/bike11.wav
+	frame	data/chars/2bike6/bikeratck07.gif
+	frame	data/chars/2bike6/bikeratck06.gif
+	frame	data/chars/2bike6/bikeratck07.gif
+	frame	data/chars/2bike6/bikeratck06.gif
+	frame	data/chars/2bike6/bikeratck07.gif
+	frame	data/chars/2bike6/bikeratck06.gif
+	frame	data/chars/2bike6/bikeratck07.gif
+	frame	data/chars/2bike6/bikeratck06.gif
+	frame	data/chars/2bike6/bikeratck07.gif
+	frame	data/chars/2bike6/bikeratck06.gif
+	frame	data/chars/2bike6/bikeratck07.gif
+	frame	data/chars/2bike6/bikeratck06.gif
+	frame	data/chars/2bike6/bikeratck07.gif
+	frame	data/chars/2bike6/bikeratck06.gif
+	frame	data/chars/2bike6/bikeratck07.gif
+	sound	data/sounds/gun1.wav
+	frame	data/chars/2bike6/bikeratck08.gif
+	frame	data/chars/2bike6/bikeratck09.gif
+	forcedirection 2
+	attack2	-160 80 245 24 6 1 0 0 11 0
+	frame	data/chars/2bike6/bikeratck010.gif
+	attack2	0 0 0 0
+	frame	data/chars/2bike6/bikeratck07.gif
+	frame	data/chars/2bike6/bikeratck08.gif
+	frame	data/chars/2bike6/bikeratck09.gif
+	sound	data/sounds/gun1.wav
+	frame	data/chars/2bike6/bikeratck010.gif
+	frame	data/chars/2bike6/bikeratck07.gif
+	frame	data/chars/2bike6/bikeratck08.gif
+	attack2	-160 80 245 14 6 1 0 0 11 0
+	frame	data/chars/2bike6/bikeratck09.gif
+	attack2	0 0 0 0
+	frame	data/chars/2bike6/bikeratck010.gif
+	frame	data/chars/2bike6/bikeratck07.gif
+	sound	data/sounds/gun1.wav
+	frame	data/chars/2bike6/bikeratck08.gif
+	frame	data/chars/2bike6/bikeratck09.gif
+	frame	data/chars/2bike6/bikeratck010.gif
+	frame	data/chars/2bike6/bikeratck07.gif
+	frame	data/chars/2bike6/bikeratck06.gif
+	frame	data/chars/2bike6/bikeratck07.gif
+	frame	data/chars/2bike6/bikeratck06.gif
+	frame	data/chars/2bike6/bikeratck07.gif
+	frame	data/chars/2bike6/bikeratck06.gif
+	frame	data/chars/2bike6/bikeratck07.gif
+	frame	data/chars/2bike6/bikeratck06.gif
+	frame	data/chars/2bike6/bikeratck07.gif
+	frame	data/chars/2bike6/bikeratck06.gif
+	frame	data/chars/2bike6/bikeratck07.gif
+	frame	data/chars/2bike6/bikeratck06.gif
+	frame	data/chars/2bike6/bikeratck07.gif
+	frame	data/chars/2bike6/bikeratck06.gif
+	frame	data/chars/2bike6/bikeratck07.gif
+		
+anim	death
+	loop	0
+	delay	40
+	offset	115 187
+	bbox	80 77 80 82
+	jumpframe	0 6 -1
+	landframe	3
+	@cmd	killgun 2 0
+	@cmd	spawn01 "cardam2" -20 30 7
+	@cmd	spawn01 "bike4crash" -20 0 5
+	@cmd	spawn01 "explosion1" -10 50 10
+	frame	data/chars/2bike6/fall1.gif
+	frame	data/chars/2bike6/fall2.gif
+	delay	200
+	frame	data/chars/2bike6/fall3.gif
+	delay	2
+	move	-6
+	frame	data/chars/2bike6/fall4.gif
+	frame	data/chars/2bike6/fall4.gif
+	frame	data/chars/2bike6/fall5.gif
+	frame	data/chars/2bike6/fall5.gif
+	@cmd	spawn01 "dust3" 5 10 5
+	frame	data/chars/2bike6/fall6.gif
+	frame	data/chars/2bike6/fall6.gif
+	frame	data/chars/2bike6/fall7.gif
+	frame	data/chars/2bike6/fall7.gif
+	@cmd	spawn01 "dust3" 5 10 5
+	frame	data/chars/2bike6/fall8.gif
+	frame	data/chars/2bike6/fall8.gif
+	frame	data/chars/2bike6/fall9.gif
+	frame	data/chars/2bike6/fall9.gif
+	@cmd	spawn01 "dust3" 5 10 5
+	frame	data/chars/2bike6/fall10.gif
+	frame	data/chars/2bike6/fall10.gif
+	frame	data/chars/2bike6/fall4.gif
+	frame	data/chars/2bike6/fall4.gif
+	frame	data/chars/2bike6/fall5.gif
+	frame	data/chars/2bike6/fall5.gif
+	@cmd	spawn01 "dust3" 5 10 5
+	frame	data/chars/2bike6/fall6.gif
+	frame	data/chars/2bike6/fall6.gif
+	frame	data/chars/2bike6/fall7.gif
+	frame	data/chars/2bike6/fall7.gif
+	@cmd	spawn01 "dust3" 5 10 5
+	frame	data/chars/2bike6/fall8.gif
+	frame	data/chars/2bike6/fall8.gif
+	frame	data/chars/2bike6/fall9.gif
+	frame	data/chars/2bike6/fall9.gif
+	@cmd	spawn01 "dust3" 5 10 5
+	frame	data/chars/2bike6/fall10.gif
+	frame	data/chars/2bike6/fall10.gif
+	frame	data/chars/2bike6/fall4.gif
+	frame	data/chars/2bike6/fall4.gif
+	frame	data/chars/2bike6/fall5.gif
+	frame	data/chars/2bike6/fall5.gif
+	@cmd	spawn01 "dust3" 5 10 5
+	frame	data/chars/2bike6/fall6.gif
+	frame	data/chars/2bike6/fall6.gif
+	frame	data/chars/2bike6/fall7.gif
+	frame	data/chars/2bike6/fall7.gif
+	@cmd	spawn01 "dust3" 5 10 5
+	frame	data/chars/2bike6/fall8.gif
+	frame	data/chars/2bike6/fall8.gif
+	frame	data/chars/2bike6/fall9.gif
+	frame	data/chars/2bike6/fall9.gif
+	@cmd	spawn01 "dust3" 5 10 5
+	frame	data/chars/2bike6/fall10.gif
+	frame	data/chars/2bike6/fall10.gif
+	frame	data/chars/2bike6/fall4.gif
+	frame	data/chars/2bike6/fall4.gif
+	frame	data/chars/2bike6/fall5.gif
+	frame	data/chars/2bike6/fall5.gif
+	@cmd	spawn01 "dust3" 5 10 5
+	frame	data/chars/2bike6/fall6.gif
+	frame	data/chars/2bike6/fall6.gif
+	frame	data/chars/2bike6/fall7.gif
+	frame	data/chars/2bike6/fall7.gif
+	@cmd	spawn01 "dust3" 5 10 5
+	frame	data/chars/2bike6/fall8.gif
+	frame	data/chars/2bike6/fall8.gif
+	frame	data/chars/2bike6/fall9.gif
+	frame	data/chars/2bike6/fall9.gif
+	@cmd	spawn01 "dust3" 5 10 5
+	frame	data/chars/2bike6/fall10.gif
+	frame	data/chars/2bike6/fall10.gif
+	frame	data/chars/2bike6/fall4.gif
+	frame	data/chars/2bike6/fall4.gif
+	frame	data/chars/2bike6/fall5.gif
+	frame	data/chars/2bike6/fall5.gif
+	@cmd	spawn01 "dust3" 5 10 5
+	frame	data/chars/2bike6/fall6.gif
+	frame	data/chars/2bike6/fall6.gif
+	frame	data/chars/2bike6/fall7.gif
+	frame	data/chars/2bike6/fall7.gif
+	@cmd	spawn01 "dust3" 5 10 5
+	frame	data/chars/2bike6/fall8.gif
+	frame	data/chars/2bike6/fall8.gif
+	frame	data/chars/2bike6/fall9.gif
+	frame	data/chars/2bike6/fall9.gif
+	@cmd	spawn01 "dust3" 5 10 5
+	frame	data/chars/2bike6/fall10.gif
+	frame	data/chars/2bike6/fall10.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/2bike6/fall4.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/2bike6/fall5.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/2bike6/fall6.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/2bike6/fall7.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/2bike6/fall8.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/2bike6/fall9.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/2bike6/fall10.gif
+	frame	data/chars/misc/empty.gif
+		
+anim	fall
+	loop	0
+	delay	5
+	offset	165 163
+	bbox	110 77 80 82
+	frame	data/chars/2bike6/biker01.gif
+	frame	data/chars/2bike6/biker02.gif
+
+
+
+
+
+
+
+anim	follow2
+	loop	0
+	delay	10
+	offset	165 163
+	bbox	0 0 0 0
+	frame	data/chars/2bike6/biker01.gif
+	@cmd	spawnGun "vhclight1" 55 65 1 2
+	frame	data/chars/2bike6/biker02.gif
+	frame	data/chars/2bike6/biker01.gif
+	frame	data/chars/2bike6/biker02.gif
+	frame	data/chars/2bike6/biker01.gif
+	frame	data/chars/2bike6/biker02.gif
+
+
+
+
+		
+anim	idle
+	loop	1
+	delay	5
+	offset	165 163
+	bbox	110 77 80 82
+	frame	data/chars/2bike6/biker01.gif
+	frame	data/chars/2bike6/biker02.gif
+		
+anim	pain
+	loop	0
+	delay	5
+	offset	165 163
+	bbox	110 77 80 82
+	move	9
+	frame	data/chars/2bike6/pain01.gif
+	frame	data/chars/2bike6/pain02.gif
+	frame	data/chars/2bike6/pain01.gif
+	frame	data/chars/2bike6/pain02.gif
+	frame	data/chars/2bike6/pain01.gif
+	frame	data/chars/2bike6/pain02.gif
+	frame	data/chars/2bike6/pain01.gif
+	frame	data/chars/2bike6/pain02.gif
+	frame	data/chars/2bike6/pain01.gif
+	frame	data/chars/2bike6/pain02.gif
+		
+anim	pain2
+	loop	0
+	delay	5
+	offset	165 163
+	bbox	110 77 80 82
+	move	-9
+	frame	data/chars/2bike6/pain01.gif
+	frame	data/chars/2bike6/pain02.gif
+	frame	data/chars/2bike6/pain01.gif
+	frame	data/chars/2bike6/pain02.gif
+	frame	data/chars/2bike6/pain01.gif
+	frame	data/chars/2bike6/pain02.gif
+	frame	data/chars/2bike6/pain01.gif
+	frame	data/chars/2bike6/pain02.gif
+	frame	data/chars/2bike6/pain01.gif
+	frame	data/chars/2bike6/pain02.gif
+		
+anim	rise
+	loop	0
+	delay	5
+	offset	165 163
+	bbox	110 77 80 82
+	frame	data/chars/2bike6/biker01.gif
+	frame	data/chars/2bike6/biker02.gif
+		
+anim	spawn
+	loop	0
+	delay	5
+	offset	165 163
+	bbox	0 0 0 0
+	frame	data/chars/2bike6/biker01.gif
+	frame	data/chars/2bike6/biker02.gif
+		
+anim	walk
+	loop	1
+	delay	5
+	offset	165 163
+	bbox	110 77 80 82
+	frame	data/chars/2bike6/biker01.gif
+	frame	data/chars/2bike6/biker02.gif
+	frame	data/chars/2bike6/biker01.gif
+	frame	data/chars/2bike6/biker02.gif
+	frame	data/chars/2bike6/biker01.gif
+	frame	data/chars/2bike6/biker02.gif
+	frame	data/chars/2bike6/biker01.gif
+	frame	data/chars/2bike6/biker02.gif
+	frame	data/chars/2bike6/biker01.gif
+	frame	data/chars/2bike6/biker02.gif
+	frame	data/chars/2bike6/biker01.gif
+	frame	data/chars/2bike6/biker02.gif
+	frame	data/chars/2bike6/biker01.gif
+	frame	data/chars/2bike6/biker02.gif
+	sound	data/sounds/bike10.wav
+	frame	data/chars/2bike6/biker01.gif
+	frame	data/chars/2bike6/biker02.gif
+	frame	data/chars/2bike6/biker01.gif
+	frame	data/chars/2bike6/biker02.gif
+	frame	data/chars/2bike6/biker01.gif
+	frame	data/chars/2bike6/biker02.gif
+		
+#|edited by openBor Stats v 0.53
+		

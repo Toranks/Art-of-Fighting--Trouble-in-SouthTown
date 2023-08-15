@@ -1,0 +1,880 @@
+name          kasumi
+type          enemy
+subtype	      chase
+health        100
+speed         10
+running	      25 3 3 1 0
+jumpheight    4
+throw         5 2
+throwdamage   18
+blockodds     1
+nopassiveblock 1
+escapehits    2
+shadow        0
+noquake       1
+nolife        1
+falldie	      2
+nodieblink    3
+gfxshadow     1
+dust            dust
+projectilehit enemy obstacle
+diesound      data/sounds/bgdie5.wav
+animationscript data/scripts/escript.c
+
+load	pw5
+
+icon	data/chars/3kasumi/icon.gif
+lifebarstatus 160 10 0 1 0 2 5 
+lifeposition 85  240
+iconposition 20 227
+nameposition -200 -200
+nolife 1
+
+
+
+
+
+script	@script
+void main()
+{
+   	void self = getlocalvar("self");
+	int x = getentityproperty(self, "x");
+	int XPos = openborvariant("xpos");
+	int Screen = openborvariant("hResolution");
+	int hp = getentityproperty(self, "health");
+    	void anim = getentityproperty(self,"animationID");
+
+if(anim != openborconstant("ANI_DIE")){
+
+   if( hp <=0 && x >= XPos+Screen-60) // right
+   	{
+	tossentity(self, 1, -2, 0);
+   	}
+   else if( hp <=0 && x <= XPos+60) // left
+   	{
+	tossentity(self, 1, 2, 0);
+   	}
+  }
+}
+@end_script
+
+
+anim	attack1
+	range	80 110
+	loop	0
+	delay	8
+	offset	100 195
+	bbox	79 97 35 91
+	fastattack	1
+	hitfx	data/sounds/beat4.wav
+	frame	data/chars/3kasumi/a01.gif
+	sound	data/sounds/bgirl10.wav
+	frame	data/chars/3kasumi/a02.gif
+	attack2	95 110 95 30 20 0 1 0 8 0
+	frame	data/chars/3kasumi/a03.gif
+	frame	data/chars/3kasumi/a04.gif
+	attack2	0 0 0 0
+	frame	data/chars/3kasumi/a05.gif
+	bbox	0 0 0 0
+	frame	data/chars/3kasumi/a06.gif
+	hitfx	data/sounds/beat4.wav
+	hitflash	flashscreen1
+	frame	data/chars/3kasumi/a07.gif
+	sound	data/sounds/bgirl11.wav
+	frame	data/chars/3kasumi/a08.gif
+	attack5	95 110 105 45 20 1 1 0 8 0
+	dropv	3 4
+	frame	data/chars/3kasumi/a09.gif
+	frame	data/chars/3kasumi/a10.gif
+	attack5	0 0 0 0
+	bbox	79 97 35 91
+	delay	20
+	frame	data/chars/3kasumi/a11.gif
+	delay	12
+	offset	106 191
+	frame	data/chars/3kasumi/might07.gif
+
+
+anim	attack3
+	range	40 80
+	loop	0
+	delay	7
+	offset	100 195
+	bbox	79 97 35 91
+	fastattack	1
+	frame	data/chars/3kasumi/a105.gif
+	frame	data/chars/3kasumi/a108.gif
+	frame	data/chars/3kasumi/a109.gif
+	attack	90 100 90 45 15 0 0 0 25 0
+	frame	data/chars/3kasumi/a110.gif
+	frame	data/chars/3kasumi/a111.gif
+	attack	0 0 0 0
+	frame	data/chars/3kasumi/a112.gif
+	bbox	0 0 0 0
+	delay	14
+	frame	data/chars/3kasumi/a113.gif
+	attack	90 100 100 45 17 1 1 0 35 0
+	dropv	3 4
+	frame	data/chars/3kasumi/a114.gif
+	frame	data/chars/3kasumi/a116.gif
+	attack	0 0 0 0
+	frame	data/chars/3kasumi/a117.gif
+	frame	data/chars/3kasumi/a118.gif
+
+
+anim	attack2
+	range	190 250
+	loop	0
+	delay	12
+	offset	100 195
+	bbox	0 0 0 0
+	jumpframe	1 3 3
+	landframe	8
+	hitfx	data/sounds/beat3.wav
+	frame	data/chars/3kasumi/jump01.gif
+	delay	6
+	sound	data/sounds/bgirl11.wav
+	frame	data/chars/3kasumi/jump02.gif
+	frame	data/chars/3kasumi/jump03.gif
+	frame	data/chars/3kasumi/jump04.gif
+	frame	data/chars/3kasumi/jump05.gif
+	frame	data/chars/3kasumi/jump06.gif
+	attack	90 85 110 60 12 1 0 0 35 20
+	dropv	3 3
+	frame	data/chars/3kasumi/jump07.gif
+	delay	600
+	frame	data/chars/3kasumi/jump08.gif
+	attack	0 0 0 0
+	delay	14
+	frame	data/chars/3kasumi/jump01.gif
+		
+anim	attack4
+	range	255 400
+	loop	0
+	delay	14
+	offset	100 195
+	bbox	90 85 35 60
+	hitfx	data/sounds/beat2.wav
+	frame	data/chars/3kasumi/b01.gif
+	frame	data/chars/3kasumi/b02.gif
+	frame	data/chars/3kasumi/b03.gif
+	frame	data/chars/3kasumi/b04.gif
+	@cmd	spawn01 "pw5" 80 0 3
+	frame	data/chars/3kasumi/b05.gif
+	delay	30
+	frame	data/chars/3kasumi/b06.gif
+	delay	15
+	frame	data/chars/3kasumi/b07.gif
+		
+anim	attack5
+	range	20 100
+	rangez	6 100
+	loop	0
+	delay	14
+	offset	100 195
+	bbox	0 0 0 0
+	followanim	7
+	followcond	1
+	jumpframe	1 3 1 2
+	landframe	6
+	frame	data/chars/3kasumi/jump01.gif
+	delay	10
+	frame	data/chars/3kasumi/d01.gif
+	frame	data/chars/3kasumi/d02.gif
+	attack	100 95 75 65 8 0 0 0 30 10
+	frame	data/chars/3kasumi/d03.gif
+	delay	60
+	frame	data/chars/3kasumi/d04.gif
+	attack	0 0 0 0
+	delay	300
+	frame	data/chars/3kasumi/d05.gif
+	delay	14
+	frame	data/chars/3kasumi/jump01.gif
+		
+anim	attack6
+	range	20 100
+	rangez	-100 -6
+	loop	0
+	delay	14
+	offset	100 195
+	bbox	0 0 0 0
+	followanim	7
+	followcond	1
+	jumpframe	1 3 1 -2
+	landframe	6
+	frame	data/chars/3kasumi/jump01.gif
+	delay	10
+	frame	data/chars/3kasumi/d01.gif
+	frame	data/chars/3kasumi/d02.gif
+	attack	100 95 75 65 8 0 0 0 30 10
+	frame	data/chars/3kasumi/d03.gif
+	delay	60
+	frame	data/chars/3kasumi/d04.gif
+	attack	0 0 0 0
+	delay	300
+	frame	data/chars/3kasumi/d05.gif
+	delay	14
+	frame	data/chars/3kasumi/jump01.gif
+		
+anim	block
+	loop	0
+	delay	3
+	offset	105 195
+	bbox	0 0 0 0
+	move	-7
+	frame	data/chars/3kasumi/blk00.gif
+	frame	data/chars/3kasumi/blk00.gif
+	frame	data/chars/3kasumi/blk00.gif
+	frame	data/chars/3kasumi/blk01.gif
+	frame	data/chars/3kasumi/blk01.gif
+	frame	data/chars/3kasumi/blk01.gif
+	frame	data/chars/3kasumi/blk01.gif
+	frame	data/chars/3kasumi/blk02.gif
+	frame	data/chars/3kasumi/blk02.gif
+	frame	data/chars/3kasumi/blk02.gif
+	frame	data/chars/3kasumi/blk03.gif
+	frame	data/chars/3kasumi/blk03.gif
+	frame	data/chars/3kasumi/blk03.gif
+	frame	data/chars/3kasumi/blk04.gif
+	frame	data/chars/3kasumi/blk04.gif
+	frame	data/chars/3kasumi/blk04.gif
+	frame	data/chars/3kasumi/blk05.gif
+	frame	data/chars/3kasumi/blk05.gif
+	frame	data/chars/3kasumi/blk05.gif
+	frame	data/chars/3kasumi/blk06.gif
+	frame	data/chars/3kasumi/blk06.gif
+	@cmd	attack1 -10 350 20 "ANI_FOLLOW5"
+	frame	data/chars/3kasumi/blk06.gif
+	move	-4
+	frame	data/chars/3kasumi/blk07.gif
+	@cmd	attack1 -10 350 20 "ANI_FOLLOW5"
+	frame	data/chars/3kasumi/blk07.gif
+	@cmd	attack1 -10 350 20 "ANI_FOLLOW5"
+	frame	data/chars/3kasumi/blk07.gif
+	@cmd	attack1 -10 350 20 "ANI_FOLLOW5"
+	move	0
+	delay	20
+	frame	data/chars/3kasumi/blk07.gif
+		
+anim	burn
+	loop	0
+	delay	25
+	offset	100 193
+	bbox	0 0 0 0
+	landframe	3
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 200_50_0
+	@cmd	spawnbind "burn1" 1 1 1
+	@cmd	spawnbind "burn2" 1 1 1
+	@cmd	spawnbind "burn3" 1 1 1
+	attack	78 98 30 45 5 1 0 0 13 0
+	frame	data/chars/3kasumi/fall1.gif
+	delay	15
+	attack	64 130 50 25 5 1 0 0 13 0
+	frame	data/chars/3kasumi/fall2.gif
+	delay	500
+	frame	data/chars/3kasumi/fall3.gif
+	attack	0 0 0 0
+	bbox	58 175 85 15
+	delay	15
+	frame	data/chars/3kasumi/fall4.gif
+	frame	data/chars/3kasumi/fall5.gif
+	frame	data/chars/3kasumi/fall4.gif
+		
+anim	death
+	loop	0
+	delay	12
+	offset	105 195
+	bbox	0 0 0 0
+	frame	data/chars/3kasumi/death01.gif
+	frame	data/chars/3kasumi/death02.gif
+	frame	data/chars/3kasumi/death03.gif
+	frame	data/chars/3kasumi/death04.gif
+	frame	data/chars/3kasumi/death05.gif
+	delay	100
+	frame	data/chars/3kasumi/death05.gif
+		
+anim	fall
+	loop	0
+	delay	25
+	offset	100 193
+	bbox	0 0 0 0
+	landframe	3
+	attack	78 98 30 45 5 1 0 0 13 0
+	frame	data/chars/3kasumi/fall1.gif
+	delay	15
+	attack	64 130 50 25 5 1 0 0 13 0
+	frame	data/chars/3kasumi/fall2.gif
+	delay	500
+	frame	data/chars/3kasumi/fall3.gif
+	attack	0 0 0 0
+	bbox	58 175 85 15
+	delay	15
+	frame	data/chars/3kasumi/fall4.gif
+	frame	data/chars/3kasumi/fall5.gif
+	frame	data/chars/3kasumi/fall4.gif
+		
+anim	fall10
+	loop	0
+	delay	10
+	offset	100 193
+	bbox	80 80 50 75
+	landframe	4
+	attack	85 88 30 50 5 1 0 0 13 0
+	frame	data/chars/3kasumi/pain6.gif
+	delay	40
+	frame	data/chars/3kasumi/pain7.gif
+	delay	30
+	bbox	71 125 63 30
+	attack	64 125 45 25 5 1 0 0 13 0
+	frame	data/chars/3kasumi/fall2.gif
+	delay	300
+	bbox	77 130 67 35
+	attack	0 0 0 0
+	frame	data/chars/3kasumi/fall3.gif
+	bbox	58 167 85 15
+	delay	15
+	frame	data/chars/3kasumi/fall4.gif
+	frame	data/chars/3kasumi/fall5.gif
+	frame	data/chars/3kasumi/fall4.gif
+		
+anim	fall11
+	loop	0
+	delay	20
+	offset	100 193
+	bbox	61 185 90 5	
+	frame	data/chars/3kasumi/pain12.gif
+	delay	35
+	frame	data/chars/3kasumi/fall4.gif
+		
+anim	fall2
+	loop	0
+	delay	30
+	offset	100 193
+	bbox	0 0 0 0
+	landframe	3
+	attack	85 90 35 45 5 1 0 0 13 0
+	frame	data/chars/3kasumi/pain7.gif
+	delay	10
+	attack	64 125 55 25 5 1 0 0 13 0
+	frame	data/chars/3kasumi/fall2.gif
+	attack	0 0 0 0
+	delay	300
+	frame	data/chars/3kasumi/fall3.gif
+	delay	15
+	frame	data/chars/3kasumi/fall4.gif
+	frame	data/chars/3kasumi/fall5.gif
+	frame	data/chars/3kasumi/fall4.gif
+		
+anim	fall4
+	loop	0
+	delay	6
+	offset	100 193
+	bbox	0 0 0 0
+	jumpframe	0 1.2 1.5
+	frame	data/chars/3kasumi/pain8.gif
+	frame	data/chars/3kasumi/pain9.gif
+	frame	data/chars/3kasumi/pain10.gif
+	@cmd	leaper 0 0.2 0
+	frame	data/chars/3kasumi/pain11.gif
+	frame	data/chars/3kasumi/fall4.gif
+	frame	data/chars/3kasumi/fall5.gif
+	bbox	58 175 95 15
+	frame	data/chars/3kasumi/fall4.gif
+		
+anim	fall7
+	delay	1000
+	offset	105 130
+	frame	data/chars/3kasumi/slamck0.gif
+	offset	100 110
+	frame	data/chars/3kasumi/slamck1.gif
+	offset	106 130
+	frame	data/chars/3kasumi/slamck2.gif
+	offset	115 125
+	frame	data/chars/3kasumi/slamck3.gif
+	offset	125 125
+	frame	data/chars/3kasumi/slamck4.gif
+	offset	108 122
+	frame	data/chars/3kasumi/slamck5.gif
+	offset	106 155
+	frame	data/chars/3kasumi/slamck6.gif
+	offset	125 140
+	frame	data/chars/3kasumi/slamck7.gif
+	offset	120 105
+	frame	data/chars/3kasumi/slamck8.gif
+	offset	100 130
+	frame	data/chars/3kasumi/slamck9.gif
+	offset	105 130
+	frame	data/chars/3kasumi/slamck10.gif
+	offset	105 130
+	frame	data/chars/3kasumi/slamck11.gif
+	offset	115 125
+	frame	data/chars/3kasumi/slamck12.gif
+	offset	115 125
+	frame	data/chars/3kasumi/slamck13.gif
+	offset	115 125
+	frame	data/chars/3kasumi/slamck14.gif
+	offset	115 125
+	frame	data/chars/3kasumi/slamck15.gif
+		
+anim	fall9
+	loop	0
+	delay	10
+	offset	100 185
+	bbox	0 0 0 0
+	quakeframe	2 5 5
+	landframe	2 dust
+	attack	75 90 35 45 5 1 0 0 13 0
+	frame	data/chars/3kasumi/fall1.gif
+	delay	350
+	offset	100 180
+	attack	75 125 45 35 5 1 0 0 13 0
+	frame	data/chars/3kasumi/fall2.gif
+	delay	2
+	offset	100 175
+	move	-4
+	frame	data/chars/3kasumi/fall3.gif
+	frame	data/chars/3kasumi/fall3.gif
+	attack	0 0 0 0
+	frame	data/chars/3kasumi/fall3.gif
+	@cmd	looper 3 5
+	offset	100 193
+	move	-3
+	frame	data/chars/3kasumi/fall4.gif
+	frame	data/chars/3kasumi/fall4.gif
+	frame	data/chars/3kasumi/fall4.gif
+	@cmd	looper 6 4
+	move	-2
+	frame	data/chars/3kasumi/fall5.gif
+	frame	data/chars/3kasumi/fall5.gif
+	frame	data/chars/3kasumi/fall5.gif
+	loop	0
+	delay	15
+	move	0
+	bbox	58 175 100 15
+	frame	data/chars/3kasumi/fall4.gif
+		
+
+		
+anim	follow2
+	loop	0
+	delay	35
+	offset	100 195
+	bbox	0 0 0 0
+	@cmd	slamstart2
+	@cmd	position 11 35 7 -1 1
+	frame	data/chars/3kasumi/2grab07.gif
+	delay	14
+	@cmd	position 11 35 7 -1 1
+	frame	data/chars/3kasumi/2grab07.gif
+	@cmd	position 1 20 7 -1 1
+	frame	data/chars/3kasumi/2grab08.gif
+	@cmd	antiwall -60 5 0
+	@cmd	position 17 20 65 -1 -1
+	frame	data/chars/3kasumi/2grab09.gif
+	@cmd	antiwall -60 5 0
+	@cmd	position 18 20 70 -1 -1
+	frame	data/chars/3kasumi/2grab10.gif
+	@cmd	antiwall -60 5 0
+	@cmd	position 18 15 65 -1 -1
+	frame	data/chars/3kasumi/2grab11.gif
+	@cmd	depost 0
+	@cmd	finish 30 1 3 2 0 1
+	frame	data/chars/3kasumi/2grab12.gif
+	frame	data/chars/3kasumi/2grab13.gif
+	@cmd	clearL
+	frame	data/chars/3kasumi/2grab14.gif
+	frame	data/chars/3kasumi/2grab14.gif
+		
+
+		
+anim	follow5
+	loop	0
+	delay	14
+	offset	100 195
+	bbox	0 0 0 0
+	followanim	2
+	followcond	1
+	hitfx	data/sounds/grab.wav
+	frame	data/chars/3kasumi/2grab01.gif
+	delay	2
+	move	8
+	frame	data/chars/3kasumi/2grab02.gif
+	frame	data/chars/3kasumi/2grab02.gif
+	frame	data/chars/3kasumi/2grab02.gif
+	frame	data/chars/3kasumi/2grab02.gif
+	frame	data/chars/3kasumi/2grab02.gif
+	frame	data/chars/3kasumi/2grab03.gif
+	frame	data/chars/3kasumi/2grab03.gif
+	frame	data/chars/3kasumi/2grab03.gif
+	frame	data/chars/3kasumi/2grab03.gif
+	frame	data/chars/3kasumi/2grab03.gif
+	frame	data/chars/3kasumi/2grab04.gif
+	frame	data/chars/3kasumi/2grab04.gif
+	frame	data/chars/3kasumi/2grab04.gif
+	frame	data/chars/3kasumi/2grab04.gif
+	frame	data/chars/3kasumi/2grab04.gif
+	attack	90 130 75 35 0 0 1 1 0 15
+	frame	data/chars/3kasumi/2grab05.gif
+	frame	data/chars/3kasumi/2grab05.gif
+	frame	data/chars/3kasumi/2grab05.gif
+	frame	data/chars/3kasumi/2grab05.gif
+	frame	data/chars/3kasumi/2grab05.gif
+	move	6
+	frame	data/chars/3kasumi/2grab05.gif
+	frame	data/chars/3kasumi/2grab05.gif
+	frame	data/chars/3kasumi/2grab05.gif
+	frame	data/chars/3kasumi/2grab05.gif
+	frame	data/chars/3kasumi/2grab05.gif
+	move	4
+	frame	data/chars/3kasumi/2grab06.gif
+	frame	data/chars/3kasumi/2grab06.gif
+	frame	data/chars/3kasumi/2grab06.gif
+	frame	data/chars/3kasumi/2grab06.gif
+	frame	data/chars/3kasumi/2grab06.gif
+	attack	0 0 0 0
+	move	0
+	delay	12
+	frame	data/chars/3kasumi/2grab06.gif
+		
+anim	follow6
+	loop	0
+	delay	10
+	offset	100 193
+	bbox	0 0 0 0
+	frame	data/chars/3kasumi/c01.gif
+	frame	data/chars/3kasumi/c02.gif
+	attack	90 140 95 45 10 1 0 0 20 0
+	dropv	3 4
+	frame	data/chars/3kasumi/c03.gif
+	frame	data/chars/3kasumi/c04.gif
+	attack	0 0 0 0
+	frame	data/chars/3kasumi/c05.gif
+	frame	data/chars/3kasumi/c06.gif
+	frame	data/chars/3kasumi/blk07.gif
+		
+anim	follow7
+	loop	0
+	delay	12
+	offset	100 193
+	bbox	0 0 0 0
+	hitflash	flashscreen1
+	@cmd	stop
+	@cmd	leaper 1 1.5 0
+	frame	data/chars/3kasumi/d04.gif
+	delay	8
+	frame	data/chars/3kasumi/d06.gif
+	frame	data/chars/3kasumi/d07.gif
+	frame	data/chars/3kasumi/d08.gif
+	attack5	45 105 100 75 15 1 1 0 20 20
+	dropv	3 4
+	frame	data/chars/3kasumi/d09.gif
+	frame	data/chars/3kasumi/d10.gif
+	frame	data/chars/3kasumi/d11.gif
+	attack5	0 0 0 0
+	frame	data/chars/3kasumi/d12.gif
+	frame	data/chars/3kasumi/d13.gif
+	delay	14
+	frame	data/chars/3kasumi/jump01.gif
+		
+anim	grab
+	loop	0
+	delay	30
+	offset	100 195
+	bbox	0 0 0 0
+	sound	data/sounds/grab.wav
+	@cmd	grabcheck
+	frame	data/chars/3kasumi/a101.gif
+	@cmd	slamstart
+	delay	14
+	@cmd	position 1 20 25 -1 1
+	frame	data/chars/3kasumi/1grab01.gif
+	@cmd	position 24 30 50 -1 1
+	frame	data/chars/3kasumi/1grab02.gif
+	@cmd	antiwall -60 5 0
+	@cmd	position 23 35 50 -1 1
+	frame	data/chars/3kasumi/1grab03.gif
+	@cmd	antiwall -60 5 0
+	@cmd	position 0 -5 35 -1 1
+	frame	data/chars/3kasumi/1grab04.gif
+	@cmd	antiwall -60 5 0
+	@cmd	position 2 -5 65 -1 1
+	frame	data/chars/3kasumi/1grab05.gif
+	@cmd	depost 0
+	@cmd	finish 30 1 -3 2 0 0
+	frame	data/chars/3kasumi/1grab06.gif
+	frame	data/chars/3kasumi/1grab07.gif
+	@cmd	clearL
+	frame	data/chars/3kasumi/1grab08.gif
+		
+anim	grabbed
+	loop	0
+	delay	10
+	offset	100 195
+	bbox	79 97 50 91
+	frame	data/chars/3kasumi/grabbed.gif
+		
+anim	idle
+	loop	1
+	delay	10
+	offset	100 195
+	bbox	79 97 50 91
+	@cmd	depost 0
+	frame	data/chars/3kasumi/idle07.gif
+	frame	data/chars/3kasumi/idle08.gif
+	frame	data/chars/3kasumi/idle09.gif
+	frame	data/chars/3kasumi/idle08.gif
+
+		
+anim	pain
+	loop	0
+	delay	3
+	offset	103 195
+	bbox	79 97 50 91
+	frame	data/chars/3kasumi/pain0.gif
+	offset	100 195
+	frame	data/chars/3kasumi/pain1.gif
+	offset	107 195
+	frame	data/chars/3kasumi/pain1.gif
+	delay	40
+	offset	100 195
+	frame	data/chars/3kasumi/pain1.gif
+
+		
+anim	pain2
+	loop	0
+	delay	3
+	offset	103 195
+	bbox	79 97 50 91
+	frame	data/chars/3kasumi/pain0.gif
+	offset	100 195
+	frame	data/chars/3kasumi/pain2.gif
+	offset	107 195
+	frame	data/chars/3kasumi/pain2.gif
+	delay	40
+	offset	100 195
+	frame	data/chars/3kasumi/pain2.gif
+		
+anim	pain3
+	loop	0
+	delay	1
+	offset	103 193
+	bbox	0 0 0 0
+	jumpframe	1 2 -1 0
+	frame	data/chars/3kasumi/pain1.gif
+	delay	25
+	frame	data/chars/3kasumi/fall2.gif
+	delay	12
+	frame	data/chars/3kasumi/fall3.gif
+	delay	4
+	bbox	71 165 67 30
+	frame	data/chars/3kasumi/fall4.gif
+	frame	data/chars/3kasumi/fall5.gif
+	frame	data/chars/3kasumi/fall4.gif
+	frame	data/chars/3kasumi/fall5.gif
+	delay	15
+	bbox	0 0 0 0
+	frame	data/chars/3kasumi/fall4.gif
+	delay	10
+	frame	data/chars/3kasumi/rise1.gif
+	frame	data/chars/3kasumi/rise2.gif
+	frame	data/chars/3kasumi/rise3.gif
+		
+anim	pain5
+	loop	0
+	delay	23
+	offset	100 195
+	bbox	79 97 50 91
+	frame	data/chars/3kasumi/pain1.gif
+		
+anim	pain6
+	loop	0
+	delay	23
+	offset	100 195
+	bbox	79 97 50 91
+	frame	data/chars/3kasumi/pain2.gif
+		
+anim	pain8
+	loop	0
+	delay	2
+	offset	100 195
+	bbox	79 97 50 91
+	move	-6
+	frame	data/chars/3kasumi/pain1.gif
+	frame	data/chars/3kasumi/pain1.gif
+	frame	data/chars/3kasumi/pain1.gif
+	frame	data/chars/3kasumi/pain2.gif
+	frame	data/chars/3kasumi/pain2.gif
+	frame	data/chars/3kasumi/pain2.gif
+	move	-3
+	frame	data/chars/3kasumi/pain2.gif
+	frame	data/chars/3kasumi/pain2.gif
+	move	-1
+	frame	data/chars/3kasumi/pain2.gif
+	delay	35
+	frame	data/chars/3kasumi/pain2.gif
+		
+anim	pain9
+	loop	0
+	delay	15
+	offset	100 195
+	bbox	79 97 50 91
+	frame	data/chars/3kasumi/pain1.gif
+	delay	150
+	frame	data/chars/3kasumi/pain2.gif
+		
+anim	rise
+	loop	0
+	delay	16
+	offset	100 193
+	bbox	0 0 0 0
+	frame	data/chars/3kasumi/rise0.gif
+	delay	12
+	frame	data/chars/3kasumi/rise4.gif
+	frame	data/chars/3kasumi/rise1.gif
+	frame	data/chars/3kasumi/rise2.gif
+	frame	data/chars/3kasumi/rise3.gif
+	@cmd	riseattack 80 10 "ANI_FOLLOW6"
+	frame	data/chars/3kasumi/rise2.gif
+	@cmd	riseattack 80 10 "ANI_FOLLOW6"
+	frame	data/chars/3kasumi/rise1.gif
+	frame	data/chars/3kasumi/rise4.gif
+	delay	55
+	frame	data/chars/3kasumi/rise1.gif
+	delay	14
+	frame	data/chars/3kasumi/rise5.gif
+	@cmd	riseattack 80 10 "ANI_FOLLOW6"
+	frame	data/chars/3kasumi/rise6.gif
+	@cmd	riseattack 80 10 "ANI_FOLLOW6"
+	frame	data/chars/3kasumi/rise7.gif
+	frame	data/chars/3kasumi/rise8.gif
+	frame	data/chars/3kasumi/rise9.gif
+		
+anim	run
+	loop	1
+	delay	8
+	offset	100 195
+	bbox	79 97 50 91
+	frame	data/chars/3kasumi/run01.gif
+	sound	data/sounds/run.wav
+	frame	data/chars/3kasumi/run02.gif
+	frame	data/chars/3kasumi/run03.gif
+	frame	data/chars/3kasumi/run04.gif
+	sound	data/sounds/run.wav
+	frame	data/chars/3kasumi/run05.gif
+	frame	data/chars/3kasumi/run06.gif
+		
+anim	spawn
+	loop	0
+	delay	510
+	offset	100 195
+	bbox	0 0 0 0
+	frame	data/chars/3kasumi/spawn01.gif
+	delay	16
+	frame	data/chars/3kasumi/spawn02.gif
+	frame	data/chars/3kasumi/spawn03.gif
+	frame	data/chars/3kasumi/spawn04.gif
+	frame	data/chars/3kasumi/spawn05.gif
+		
+anim	special
+	loop	0
+	delay	25
+	offset	105 195
+	bbox	0 0 0 0
+	sound	data/sounds/grab.wav
+	@cmd	slamstart2
+	@cmd	position 1 20 25 -1 1
+	frame	data/chars/3kasumi/1grab01.gif
+	delay	14
+	@cmd	position 24 30 50 -1 1
+	frame	data/chars/3kasumi/1grab02.gif
+	@cmd	antiwall -60 5 0
+	@cmd	position 23 35 50 -1 1
+	frame	data/chars/3kasumi/1grab03.gif
+	@cmd	antiwall -60 5 0
+	@cmd	position 0 -5 35 -1 1
+	frame	data/chars/3kasumi/1grab04.gif
+	@cmd	antiwall -60 5 0
+	@cmd	position 2 -5 65 -1 1
+	frame	data/chars/3kasumi/1grab05.gif
+	@cmd	depost 0
+	@cmd	finish 30 1 -3 2 0 0
+	frame	data/chars/3kasumi/1grab06.gif
+	frame	data/chars/3kasumi/1grab07.gif
+	@cmd	clearL
+	frame	data/chars/3kasumi/1grab08.gif
+		
+anim	special2
+	loop	0
+	delay	3
+	offset	105 195
+	bbox	0 0 0 0
+	move	-7
+	frame	data/chars/3kasumi/blk00.gif
+	frame	data/chars/3kasumi/blk00.gif
+	frame	data/chars/3kasumi/blk00.gif
+	frame	data/chars/3kasumi/blk01.gif
+	frame	data/chars/3kasumi/blk01.gif
+	frame	data/chars/3kasumi/blk01.gif
+	frame	data/chars/3kasumi/blk01.gif
+	frame	data/chars/3kasumi/blk02.gif
+	frame	data/chars/3kasumi/blk02.gif
+	frame	data/chars/3kasumi/blk02.gif
+	frame	data/chars/3kasumi/blk03.gif
+	frame	data/chars/3kasumi/blk03.gif
+	frame	data/chars/3kasumi/blk03.gif
+	frame	data/chars/3kasumi/blk04.gif
+	frame	data/chars/3kasumi/blk04.gif
+	frame	data/chars/3kasumi/blk04.gif
+	frame	data/chars/3kasumi/blk05.gif
+	frame	data/chars/3kasumi/blk05.gif
+	frame	data/chars/3kasumi/blk05.gif
+	frame	data/chars/3kasumi/blk06.gif
+	frame	data/chars/3kasumi/blk06.gif
+	@cmd	attack1 -10 350 20 "ANI_FOLLOW5"
+	frame	data/chars/3kasumi/blk06.gif
+	@cmd	attack1 -10 350 20 "ANI_FOLLOW5"
+	move	-4
+	frame	data/chars/3kasumi/blk07.gif
+	@cmd	attack1 -10 350 20 "ANI_FOLLOW5"
+	frame	data/chars/3kasumi/blk07.gif
+	@cmd	attack1 -10 350 20 "ANI_FOLLOW5"
+	frame	data/chars/3kasumi/blk07.gif
+	@cmd	attack1 -10 350 20 "ANI_FOLLOW5"
+	move	0
+	delay	20
+	@cmd	attack1 -10 350 20 "ANI_FOLLOW5"
+	frame	data/chars/3kasumi/blk07.gif
+		
+anim	upper
+	loop	0
+	delay	12
+	range	10 70
+	offset	105 195
+	bbox	0 0 0 0
+	frame	data/chars/3kasumi/upper01.gif
+	frame	data/chars/3kasumi/upper02.gif
+	attack	100 70 55 65 14 1 0 0 45 0
+	dropv	5 1 0
+	frame	data/chars/3kasumi/upper03.gif
+	delay	14
+	frame	data/chars/3kasumi/upper04.gif
+	attack	0 0 0 0
+	frame	data/chars/3kasumi/upper05.gif
+		
+anim	walk
+	loop	1
+	delay	9
+	offset	100 195
+	bbox	79 97 50 91
+	frame	data/chars/3kasumi/xwk01.gif
+	frame	data/chars/3kasumi/xwk02.gif
+	frame	data/chars/3kasumi/xwk03.gif
+	frame	data/chars/3kasumi/xwk04.gif
+	frame	data/chars/3kasumi/xwk05.gif
+	frame	data/chars/3kasumi/xwk04.gif
+	frame	data/chars/3kasumi/xwk03.gif
+	frame	data/chars/3kasumi/xwk02.gif
+		
+#|edited by openBor Stats v 0.53
+		

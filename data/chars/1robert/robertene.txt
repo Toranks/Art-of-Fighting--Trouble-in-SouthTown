@@ -1,0 +1,1041 @@
+name		Robertene
+type		enemy
+subtype		chase
+health		100
+speed		10
+running		25 3 3 1 0
+jumpheight	4
+throw		5 2
+throwdamage	18
+noquake		1
+grabdistance	50
+grabforce	500
+blockodds	1
+nolife		1
+falldie		2
+nodieblink	1
+gfxshadow	1
+dust            dust
+projectilehit enemy obstacle
+diesound        data/sounds/robde.wav
+animationscript data/scripts/escript.c
+
+
+palette		data/chars/1robert/idle01.gif
+
+load	kgnrobene
+
+
+anim	death
+	loop	0
+	delay	12
+	offset	135 191
+	bbox	0 0 0 0
+	frame	data/chars/1robert/rise1.gif
+	frame	data/chars/1robert/rise2.gif
+	frame	data/chars/1robert/rise3.gif
+	frame	data/chars/1robert/de03.gif
+	frame	data/chars/1robert/de04.gif
+	frame	data/chars/1robert/de05.gif
+	frame	data/chars/1robert/de06.gif
+	frame	data/chars/1robert/de07.gif
+	frame	data/chars/1robert/de08.gif
+	frame	data/chars/1robert/de09.gif
+	frame	data/chars/1robert/de10.gif
+	delay	9
+	frame	data/chars/1robert/de11.gif
+	frame	data/chars/1robert/de10.gif
+	frame	data/chars/1robert/de11.gif
+	delay	120
+	frame	data/chars/1robert/de11.gif
+	delay	14
+	frame	data/chars/1robert/de12.gif
+	frame	data/chars/1robert/de13.gif
+	frame	data/chars/1robert/de14.gif
+	frame	data/chars/1robert/rise4.gif
+	frame	data/chars/1robert/sp24.gif
+	offset	115 191
+	frame	data/chars/1robert/win07.gif
+	frame	data/chars/1robert/win08.gif
+	frame	data/chars/1robert/win09.gif
+	frame	data/chars/1robert/win10.gif
+	delay	5
+	frame	data/chars/1robert/win11.gif
+	frame	data/chars/1robert/empty.gif
+	frame	data/chars/1robert/win11.gif
+	frame	data/chars/1robert/empty.gif
+	frame	data/chars/1robert/win11.gif
+	frame	data/chars/1robert/empty.gif
+	frame	data/chars/1robert/win11.gif
+	frame	data/chars/1robert/empty.gif
+	frame	data/chars/1robert/win11.gif
+	@cmd	spawn01 "kgnrobene" 1 1 1
+	frame	data/chars/1robert/empty.gif
+	frame	data/chars/1robert/empty.gif
+	frame	data/chars/1robert/empty.gif
+	@cmd	suicide
+	frame	data/chars/1robert/empty.gif
+
+
+
+
+
+anim	attack1
+	range	100 115
+	loop	0
+	delay	4
+	offset	135 191
+	bbox	115 95 41 94
+	followanim	1
+	followcond	1
+	fastattack	1
+	move	10
+	frame	data/chars/1robert/a001.gif
+	move	0
+	frame	data/chars/1robert/a002.gif
+	delay	5
+	attack2	122 120 100 30 7 0 0 0 10 0
+	frame	data/chars/1robert/a003.gif
+	attack2	0 0 0 0
+	frame	data/chars/1robert/a004.gif
+
+
+
+anim	follow1
+	loop	0
+	delay	5
+	offset	135 191
+	bbox	115 95 41 94
+	fastattack	1
+	frame	data/chars/1robert/a003.gif
+	frame	data/chars/1robert/a004.gif
+	delay	4
+	frame	data/chars/1robert/a001.gif
+	frame	data/chars/1robert/a002.gif
+	delay	5
+	attack2	122 120 100 30 7 0 0 0 10 0
+	frame	data/chars/1robert/a003.gif
+	attack2	0 0 0 0
+	frame	data/chars/1robert/a004.gif
+	delay	6
+	bbox	0 0 0 0
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/rob02.wav
+	frame	data/chars/1robert/c01.gif
+	frame	data/chars/1robert/c02.gif
+	frame	data/chars/1robert/c03.gif
+	frame	data/chars/1robert/c04.gif
+	frame	data/chars/1robert/c05.gif
+	delay	8
+	attack	155 108 105 45 18 1 0 0 30 0
+	dropv	3 3
+	frame	data/chars/1robert/c06.gif
+	frame	data/chars/1robert/c07.gif
+	attack	0 0 0 0
+	frame	data/chars/1robert/c08.gif
+	frame	data/chars/1robert/c09.gif
+	frame	data/chars/1robert/c10.gif
+	frame	data/chars/1robert/c11.gif
+	frame	data/chars/1robert/c12.gif
+
+
+
+
+anim	attack2
+	range	75 90
+	loop	0
+	delay	4
+	offset	135 191
+	bbox	115 95 41 94
+	followanim	2
+	followcond	1
+	fastattack	1
+	frame	data/chars/1robert/a001.gif
+	frame	data/chars/1robert/a002.gif
+	delay	5
+	attack2	122 120 100 30 7 0 0 0 10 0
+	frame	data/chars/1robert/a003.gif
+	attack2	0 0 0 0
+	frame	data/chars/1robert/a004.gif
+
+
+
+
+anim	follow2
+	loop	0
+	delay	5
+	offset	135 191
+	bbox	115 95 41 94
+	fastattack	1
+	frame	data/chars/1robert/a003.gif
+	frame	data/chars/1robert/a004.gif
+	delay	4
+	frame	data/chars/1robert/a001.gif
+	frame	data/chars/1robert/a002.gif
+	delay	5
+	attack2	122 120 100 30 7 0 0 0 10 0
+	frame	data/chars/1robert/a003.gif
+	attack2	0 0 0 0
+	frame	data/chars/1robert/a004.gif
+	hitfx	data/sounds/beat3.wav
+	sound	data/sounds/rob02.wav
+	frame	data/chars/1robert/b01.gif
+	frame	data/chars/1robert/b02.gif
+	delay	6
+	attack2	150 135 85 52 9 0 0 0 13 0
+	frame	data/chars/1robert/b03.gif
+	attack2	0 0 0 0
+	frame	data/chars/1robert/b04.gif
+	delay	5
+	frame	data/chars/1robert/b02.gif
+	frame	data/chars/1robert/b01.gif
+	bbox	0 0 0 0
+	hitfx	data/sounds/beat2.wav
+	frame	data/chars/1robert/b05.gif
+	frame	data/chars/1robert/b06.gif
+	frame	data/chars/1robert/b07.gif
+	delay	6
+	attack	125 75 90 60 10 0 0 0 20 0
+	frame	data/chars/1robert/b08.gif
+	attack	0 0 0 0
+	frame	data/chars/1robert/b09.gif
+	frame	data/chars/1robert/b10.gif
+	frame	data/chars/1robert/b11.gif
+	frame	data/chars/1robert/b12.gif
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/rob01.wav
+	frame	data/chars/1robert/b13.gif
+	frame	data/chars/1robert/b14.gif
+	frame	data/chars/1robert/b15.gif
+	delay	9
+	attack	125 80 95 60 18 1 0 0 25 0
+	dropv	2 4
+	frame	data/chars/1robert/b16.gif
+	attack	0 0 0 0
+	delay	12
+	frame	data/chars/1robert/b17.gif
+	frame	data/chars/1robert/b18.gif
+	delay	7
+	frame	data/chars/1robert/b21.gif
+	frame	data/chars/1robert/b22.gif
+
+
+
+
+anim	attack4
+	range	50 65
+	loop	0
+	delay	4
+	offset	135 191
+	bbox	115 95 41 94
+	followanim	4
+	followcond	1
+	fastattack	1
+	frame	data/chars/1robert/a001.gif
+	frame	data/chars/1robert/a002.gif
+	delay	5
+	attack2	122 120 100 30 7 0 0 0 10 0
+	frame	data/chars/1robert/a003.gif
+	attack2	0 0 0 0
+	frame	data/chars/1robert/a004.gif
+
+
+
+
+anim	follow4
+	loop	0
+	delay	5
+	offset	135 191
+	bbox	115 95 41 94
+	fastattack	1
+	frame	data/chars/1robert/a003.gif
+	frame	data/chars/1robert/a004.gif
+	delay	4
+	frame	data/chars/1robert/a001.gif
+	frame	data/chars/1robert/a002.gif
+	delay	5
+	attack2	122 120 100 30 7 0 0 0 10 0
+	frame	data/chars/1robert/a003.gif
+	attack2	0 0 0 0
+	frame	data/chars/1robert/a004.gif
+	delay	4
+	hitfx	data/sounds/beat2.wav
+	frame	data/chars/1robert/a05.gif
+	frame	data/chars/1robert/a06.gif
+	delay	6
+	attack2	138 110 60 30 9 0 0 0 15 0
+	frame	data/chars/1robert/a007.gif
+	frame	data/chars/1robert/a008.gif
+	attack2	0 0 0 0
+	frame	data/chars/1robert/a11.gif
+	frame	data/chars/1robert/a12.gif
+	delay	5
+	bbox	0 0 0 0
+	hitfx	data/sounds/beat3.wav
+	sound	data/sounds/rob01.wav
+	frame	data/chars/1robert/a13.gif
+	frame	data/chars/1robert/a14.gif
+	delay	6
+	attack	138 80 72 50 4 0 0 0 12 0
+	frame	data/chars/1robert/a15.gif
+	frame	data/chars/1robert/a16.gif
+	attack	0 0 0 0
+	frame	data/chars/1robert/a17.gif
+	frame	data/chars/1robert/a13.gif
+	delay	4
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/rob02.wav
+	frame	data/chars/1robert/a18.gif
+	frame	data/chars/1robert/a19.gif
+	frame	data/chars/1robert/a20.gif
+	frame	data/chars/1robert/a21.gif
+	delay	7
+	attack	129 95 75 28 18 1 0 0 35 0
+	dropv	2 4
+	frame	data/chars/1robert/a22.gif
+	frame	data/chars/1robert/a23.gif
+	attack	0 0 0 0
+	delay	11
+	frame	data/chars/1robert/a24.gif
+	frame	data/chars/1robert/a25.gif
+	frame	data/chars/1robert/a26.gif
+
+
+anim	block
+	loop	0
+	delay	2
+	offset	135 191
+	bbox	120 95 41 94
+	move	-8
+	frame	data/chars/1robert/blk03.gif
+	frame	data/chars/1robert/blk03.gif
+	frame	data/chars/1robert/blk03.gif
+	frame	data/chars/1robert/blk03.gif
+	frame	data/chars/1robert/blk04.gif
+	frame	data/chars/1robert/blk04.gif
+	move	0
+	delay	12
+	frame	data/chars/1robert/blk04.gif
+	delay	5
+	frame	data/chars/1robert/blk04.gif
+	@cmd	attack1 -110 110 30 "ANI_FOLLOW5"
+	frame	data/chars/1robert/blk04.gif
+	@cmd	attack1 -110 110 30 "ANI_FOLLOW5"
+	frame	data/chars/1robert/blk04.gif
+	@cmd	attack1 -110 110 30 "ANI_FOLLOW5"
+	frame	data/chars/1robert/blk04.gif
+	@cmd	attack1 -110 110 30 "ANI_FOLLOW5"
+	frame	data/chars/1robert/blk04.gif
+	@cmd	attack1 -110 110 30 "ANI_FOLLOW5"
+	frame	data/chars/1robert/blk04.gif
+	@cmd	attack1 -110 110 30 "ANI_FOLLOW5"
+	frame	data/chars/1robert/blk04.gif
+
+
+anim	follow5
+	loop	0
+	delay	4
+	offset	135 191
+	bbox	0 0 0 0
+	hitflash	Flash3
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/rob02.wav
+	frame	data/chars/1robert/sp01.gif
+	frame	data/chars/1robert/sp02.gif
+	frame	data/chars/1robert/sp03.gif
+	frame	data/chars/1robert/sp04.gif
+	frame	data/chars/1robert/sp05.gif
+	frame	data/chars/1robert/sp06.gif
+	delay	3
+	sound	data/sounds/punch2.wav
+	frame	data/chars/1robert/sp07.gif
+	attack	135 84 87 60 20 1 1 0 35 0
+	frame	data/chars/1robert/sp08.gif
+	attack	0 0 0 0
+	frame	data/chars/1robert/sp09.gif
+	frame	data/chars/1robert/sp10.gif
+	sound	data/sounds/punch2.wav
+	frame	data/chars/1robert/sp11.gif
+	attack	71 84 87 60 20 1 1 0 35 0
+	frame	data/chars/1robert/sp12.gif
+	attack	0 0 0 0
+	frame	data/chars/1robert/sp13.gif
+	frame	data/chars/1robert/sp14.gif
+	@cmd	looper 6 4
+	sound	data/sounds/punch2.wav
+	frame	data/chars/1robert/sp07.gif
+	attack	135 84 87 60 20 1 1 0 35 0
+	frame	data/chars/1robert/sp08.gif
+	attack	0 0 0 0
+	frame	data/chars/1robert/sp09.gif
+	sound	data/sounds/punch2.wav
+	frame	data/chars/1robert/sp10.gif
+	frame	data/chars/1robert/sp11.gif
+	attack	71 84 87 60 20 1 1 0 35 0
+	frame	data/chars/1robert/sp12.gif
+	attack	0 0 0 0
+	delay	4
+	frame	data/chars/1robert/sp15.gif
+	sound	data/sounds/punch2.wav
+	frame	data/chars/1robert/sp16.gif
+	frame	data/chars/1robert/sp17.gif
+	attack	135 84 87 60 20 1 1 0 35 0
+	frame	data/chars/1robert/sp18.gif
+	attack	0 0 0 0
+	delay	5
+	frame	data/chars/1robert/sp19.gif
+	frame	data/chars/1robert/sp20.gif
+	frame	data/chars/1robert/sp21.gif
+	delay	7
+	frame	data/chars/1robert/sp22.gif
+	frame	data/chars/1robert/sp23.gif
+	frame	data/chars/1robert/sp24.gif
+	
+		
+anim	burn
+	loop	0
+	delay	50
+	offset	135 191
+	bbox	0 0 0 0
+	landframe	3
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 200_50_0
+	sound	data/sounds/robpa.wav
+	@cmd	spawnbind "burn1" 1 10 1
+	@cmd	spawnbind "burn2" 1 10 1
+	@cmd	spawnbind "burn3" 1 10 1
+	frame	data/chars/1robert/fall1.gif
+	delay	10
+	frame	data/chars/1robert/fall2.gif
+	delay	300
+	frame	data/chars/1robert/fall3.gif
+	delay	180
+	frame	data/chars/1robert/fall4.gif
+	delay	20
+	frame	data/chars/1robert/fall4.gif
+
+		
+anim	fall
+	loop	0
+	delay	50
+	offset	135 191
+	bbox	0 0 0 0
+	landframe	3
+	sound	data/sounds/robpa.wav
+	frame	data/chars/1robert/fall1.gif
+	delay	10
+	frame	data/chars/1robert/fall2.gif
+	delay	300
+	frame	data/chars/1robert/fall3.gif
+	delay	10
+	frame	data/chars/1robert/fall4.gif
+	offset	135 190
+	frame	data/chars/1robert/fall4.gif
+	offset	135 191
+	delay	50
+	bbox	93 180 110 12
+	frame	data/chars/1robert/fall4.gif
+
+
+
+anim	fall10
+	loop	0
+	delay	9
+	offset	125 210
+	bbox	85 115 69 56
+	landframe	4
+	attack	100 115 30 50 5 1 0 0 12 0
+	frame	data/chars/1robert/pain4.gif
+	delay	40
+	frame	data/chars/1robert/pain5.gif
+	delay	30
+	offset	135 191
+	bbox	112 115 64 39
+	attack	120 133 45 25 5 1 0 0 12 0
+	frame	data/chars/1robert/fall2.gif
+	delay	300
+	bbox	110 135 58 37
+	attack	0 0 0 0 0
+	frame	data/chars/1robert/fall3.gif
+	bbox	93 180 110 12
+	delay	10
+	frame	data/chars/1robert/fall4.gif
+	offset	135 190
+	frame	data/chars/1robert/fall4.gif
+	offset	135 191
+	delay	50
+	frame	data/chars/1robert/fall4.gif
+
+
+		
+anim	fall11
+	loop	0
+	delay	20
+	offset	55 88
+	bbox	10 75 110 12
+@script
+    void self = getlocalvar("self");
+
+    changeentityproperty(self, "velocity", 0, 0, 0);
+@end_script
+	frame	data/chars/1robert/pain6.gif
+	delay	5
+	offset	150 191
+	bbox	93 180 110 12
+	frame	data/chars/1robert/fall4.gif
+
+
+
+
+
+
+anim	fall2
+	loop	0
+	delay	30
+	offset	113 200
+	bbox	0 0 0 0
+	landframe	3
+	attack	89 125 35 45 5 1 0 0 13 0
+	frame	data/chars/1robert/pain5.gif
+	delay	10
+	offset	135 187
+	attack	110 131 55 25 5 1 0 0 13 0
+	frame	data/chars/1robert/fall2.gif
+	attack	0 0 0 0
+	delay	300
+	frame	data/chars/1robert/fall3.gif
+	delay	15
+	offset	135 191
+	frame	data/chars/1robert/fall4.gif
+	offset	135 190
+	frame	data/chars/1robert/fall4.gif
+	offset	135 191
+	delay	50
+	frame	data/chars/1robert/fall4.gif
+
+	
+anim	fall4
+	loop	0
+	delay	6
+	offset	60 90
+	bbox	0 0 0 0
+	jumpframe	0 1.2 1.5
+	frame	data/chars/1robert/slam12.gif
+	offset	30 90
+	frame	data/chars/1robert/slam6.gif
+	offset	45 93
+	frame	data/chars/1robert/slam20.gif
+	@cmd	leaper 0 0.2 0
+	offset	60 88
+	frame	data/chars/1robert/pain6.gif
+	offset	150 191
+	frame	data/chars/1robert/fall4.gif
+	offset	150 190
+	frame	data/chars/1robert/fall4.gif
+	offset	150 191
+	bbox	93 180 110 12
+	frame	data/chars/1robert/fall4.gif
+
+
+
+		
+anim	fall7
+	delay	1000
+	offset	60 50
+	frame	data/chars/1robert/slam0.gif
+	offset	50 65
+	frame	data/chars/1robert/slam2.gif
+	offset	50 64
+	frame	data/chars/1robert/slam20.gif
+	offset	40 60
+	frame	data/chars/1robert/slam6.gif
+	offset	72 38
+	frame	data/chars/1robert/slam12.gif
+	offset	26 50
+	frame	data/chars/1robert/slam7.gif
+	offset	47 62
+	frame	data/chars/1robert/slam2.gif
+	offset	80 49
+	frame	data/chars/1robert/slam5.gif
+	offset	70 55
+	frame	data/chars/1robert/slam12.gif
+	offset	66 70
+	frame	data/chars/1robert/slam8.gif
+	offset	26 57
+	frame	data/chars/1robert/slam7.gif
+	offset	26 57
+	frame	data/chars/1robert/slam11.gif
+	offset	45 50
+	drawmethod 256 256 0 0 0 0 -1
+	frame	data/chars/1robert/slam20.gif
+	nodrawmethod
+	offset	55 55
+	frame	data/chars/1robert/slam1.gif
+	offset	50 40
+	frame	data/chars/1robert/slam6.gif
+	offset	80 60
+	frame	data/chars/1robert/slam3.gif
+
+	
+anim	fall9
+	loop	0
+	delay	10
+	offset	135 191
+	bbox	0 0 0 0
+	quakeframe	2 5 5
+	landframe	2 dust
+	attack	115 120 35 45 5 1 0 0 13 0
+	frame	data/chars/1robert/fall1.gif
+	delay	350
+	attack	120 125 45 35 5 1 0 0 13 0
+	offset	135 186
+	frame	data/chars/1robert/fall2.gif
+	delay	2
+	move	-4
+	offset	135 180
+	frame	data/chars/1robert/fall3.gif
+	offset	135 172
+	frame	data/chars/1robert/fall3.gif
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	135 165
+	frame	data/chars/1robert/fall3.gif
+	@cmd	looper 3 5
+	move	-3
+	offset	135 191
+	frame	data/chars/1robert/fall4.gif
+	frame	data/chars/1robert/fall4.gif
+	frame	data/chars/1robert/fall4.gif
+	@cmd	looper 6 4
+	move	-2
+	offset	135 190
+	frame	data/chars/1robert/fall4.gif
+	frame	data/chars/1robert/fall4.gif
+	frame	data/chars/1robert/fall4.gif
+	loop	0
+	delay	15
+	move	0
+	offset	135 191
+	bbox	93 180 110 12
+	frame	data/chars/1robert/fall4.gif
+
+		
+anim	grabbed
+	loop	1
+	delay	100
+	offset	120 191
+	bbox	100 100 41 85
+	frame	data/chars/1robert/pain3.gif
+		
+anim	idle
+	loop	1 2
+	delay	8
+	offset	135 191
+	bbox	115 95 41 94
+	frame	data/chars/1robert/win06.gif
+	frame	data/chars/1robert/idle00.gif
+	frame	data/chars/1robert/idle01.gif
+	frame	data/chars/1robert/idle02.gif
+	frame	data/chars/1robert/idle03.gif
+	frame	data/chars/1robert/idle04.gif
+	frame	data/chars/1robert/idle05.gif
+	frame	data/chars/1robert/idle06.gif
+	frame	data/chars/1robert/idle07.gif
+		
+
+anim	pain11
+	loop	0
+	delay	5
+ 	offset	55 88
+	bbox	0 0 0 0
+	frame	data/chars/1robert/pain6.gif
+
+
+anim	pain
+@script
+    void self = getlocalvar("self");
+    if( frame <= 0){
+      int r = rand()%20;
+      if( r > 0){
+        changeentityproperty(self, "animation", openborconstant("ANI_FOLLOW8"));
+      	}
+}
+@end_script
+	loop	0
+	delay	7
+	offset	135 191
+	bbox	96 100 45 90
+	frame	data/chars/1robert/pain1.gif
+	frame	data/chars/1robert/pain2.gif
+	frame	data/chars/1robert/pain1.gif
+	frame	data/chars/1robert/det01.gif
+		
+
+		
+anim	pain2
+@script
+    void self = getlocalvar("self");
+    if( frame <= 0){
+      int r = rand()%20;
+      if( r > 0){
+        changeentityproperty(self, "animation", openborconstant("ANI_FOLLOW8"));
+      	}
+}
+@end_script
+	loop	0
+	delay	7
+	offset	135 191
+	bbox	100 103 45 85
+	frame	data/chars/1robert/pain3.gif
+	frame	data/chars/1robert/pain4.gif
+	frame	data/chars/1robert/pain3.gif
+	frame	data/chars/1robert/det03.gif
+
+
+
+anim	follow8
+	loop	0
+	delay	6
+	offset	135 191
+	bbox	0 0 0 0
+	flipframe 0
+	frame	data/chars/1robert/dgd01.gif
+	@cmd	dasher 3.1 0 0
+	frame	data/chars/1robert/dgd02.gif
+	delay	7
+	@cmd	spawn01 "dust" 55 1 1
+	frame	data/chars/1robert/dgd03.gif
+	frame	data/chars/1robert/dgd04.gif
+	delay	6
+	frame	data/chars/1robert/dgd05.gif
+	frame	data/chars/1robert/dgd06.gif
+	frame	data/chars/1robert/dgd07.gif
+	@cmd	stop
+	delay	9
+	bbox	118 109 41 80
+	frame	data/chars/1robert/rise4.gif
+
+
+		
+anim	pain3
+	loop	0
+	delay	1
+	offset	135 191
+	bbox	0 0 0 0
+	jumpframe	1 2 -1 0
+	frame	data/chars/1robert/pain2.gif
+	delay	25
+	frame	data/chars/1robert/fall2.gif
+	delay	12
+	frame	data/chars/1robert/fall3.gif
+	delay	4
+	bbox	105 175 67 30
+	frame	data/chars/1robert/fall4.gif
+	offset	135 192
+	frame	data/chars/1robert/fall4.gif
+	offset	135 191
+	frame	data/chars/1robert/fall4.gif
+	offset	135 192
+	frame	data/chars/1robert/fall4.gif
+	delay	15
+	offset	135 191
+	bbox	0 0 0 0
+	frame	data/chars/1robert/fall4.gif
+	delay	50
+	frame	data/chars/1robert/fall4.gif
+		
+anim	pain5
+	loop	0
+	delay	23
+	offset	120 191
+	bbox	102 100 39 97
+	frame	data/chars/1robert/pain1.gif
+		
+anim	pain6
+	loop	0
+	delay	23
+	offset	120 191
+	bbox	102 100 39 97
+	frame	data/chars/1robert/pain5.gif
+		
+anim	pain8
+	loop	0
+	delay	2
+	offset	135 191
+	bbox	102 100 39 97
+	move	-6
+	frame	data/chars/1robert/pain1.gif
+	frame	data/chars/1robert/pain1.gif
+	frame	data/chars/1robert/pain1.gif
+	frame	data/chars/1robert/pain2.gif
+	frame	data/chars/1robert/pain2.gif
+	frame	data/chars/1robert/pain2.gif
+	move	-3
+	frame	data/chars/1robert/pain3.gif
+	frame	data/chars/1robert/pain3.gif
+	move	-1
+	frame	data/chars/1robert/pain3.gif
+	delay	35
+	frame	data/chars/1robert/pain4.gif
+		
+anim	pain9
+	loop	0
+	delay	15
+	offset	135 191
+	bbox	102 100 39 97
+	frame	data/chars/1robert/pain1.gif
+	delay	150
+	frame	data/chars/1robert/pain3.gif
+		
+anim	rise
+	loop	0
+	delay	25
+	offset	135 191
+	bbox	0 0 0 0
+	frame	data/chars/1robert/fall4.gif
+	delay	7
+	frame	data/chars/1robert/rise1.gif
+	frame	data/chars/1robert/rise2.gif
+	frame	data/chars/1robert/rise3.gif
+	frame	data/chars/1robert/rise4.gif
+	
+anim	run
+	loop	1
+	delay	7
+	offset	135 191
+	bbox	115 96 41 90
+	frame	data/chars/1robert/run1.gif
+	@cmd	attack3 160 240 30 145 "ANI_FOLLOW6"
+	@cmd	attack3 160 240 -145 -30 "ANI_FOLLOW6"
+	sound	data/sounds/run.wav
+	delay	7
+	frame	data/chars/1robert/run2.gif
+	@cmd	attack3 160 240 30 145 "ANI_FOLLOW6"
+	@cmd	attack3 160 240 -145 -30 "ANI_FOLLOW6"
+	frame	data/chars/1robert/run3.gif
+	@cmd	attack3 160 240 30 145 "ANI_FOLLOW6"
+	@cmd	attack3 160 240 -145 -30 "ANI_FOLLOW6"
+	delay	8
+	frame	data/chars/1robert/run4.gif
+	@cmd	attack3 160 240 30 145 "ANI_FOLLOW6"
+	@cmd	attack3 160 240 -145 -30 "ANI_FOLLOW6"
+	sound	data/sounds/run.wav
+	delay	7
+	frame	data/chars/1robert/run5.gif
+	@cmd	attack3 160 240 30 145 "ANI_FOLLOW6"
+	@cmd	attack3 160 240 -145 -30 "ANI_FOLLOW6"
+	frame	data/chars/1robert/run6.gif
+
+
+anim	runattack
+	range	160 210
+	rangez	-15 15
+	loop	0
+	delay	12
+	offset	135 191
+	bbox	120 90 45 90
+	jumpframe	0 3 3
+	landframe	9 dust
+	frame	data/chars/1robert/ju01.gif
+	delay	8
+	frame	data/chars/1robert/ju02.gif
+	bbox	118 108 35 30
+	hitfx	data/sounds/beat3.wav
+	sound	data/sounds/rob02.wav
+	offset	135 203
+	frame	data/chars/1robert/ja06.gif
+	frame	data/chars/1robert/ja07.gif
+	delay	9
+	attack	118 130 100 43 15 1 0 0 50 0
+	dropv	3 4
+	frame	data/chars/1robert/ja08.gif
+	frame	data/chars/1robert/ja09.gif
+	attack	0 0 0 0
+	delay	5
+	frame	data/chars/1robert/ja10.gif
+	frame	data/chars/1robert/ja11.gif
+	delay	500
+	bbox	122 83 41 67
+	frame	data/chars/1robert/ju03.gif
+	offset	135 191
+	delay	12
+	frame	data/chars/1robert/rise4.gif
+
+
+
+
+
+
+anim	follow6
+	loop	0
+	delay	6
+	offset	135 191
+	bbox	115 105 45 85
+	fastattack	1
+	hitfx	data/sounds/beat3.wav
+	sound	data/sounds/rob02.wav
+	@cmd	target 3 1 1 1 0
+	@cmd	dash
+	frame	data/chars/1robert/e00.gif
+	frame	data/chars/1robert/e01.gif
+	frame	data/chars/1robert/e02.gif
+	frame	data/chars/1robert/e03.gif
+	frame	data/chars/1robert/e04.gif
+	delay	3
+	attack3	120 130 45 40 5 0 0 0 20 0
+	frame	data/chars/1robert/e05.gif
+	frame	data/chars/1robert/e05.gif
+	attack3	0 0 0 0
+	frame	data/chars/1robert/e05.gif
+	frame	data/chars/1robert/e06.gif
+	frame	data/chars/1robert/e06.gif
+	attack	132 100 85 45 11 1 1 0 30 0
+	dropv	2 5
+	frame	data/chars/1robert/e06.gif
+	frame	data/chars/1robert/e07.gif
+	frame	data/chars/1robert/e07.gif
+	frame	data/chars/1robert/e07.gif
+	attack	0 0 0 0
+	delay	9
+	frame	data/chars/1robert/e08.gif
+	@cmd	stop
+	delay	12
+	frame	data/chars/1robert/b23.gif
+	frame	data/chars/1robert/b24.gif
+
+
+
+
+anim	upper
+	range	0 160
+	rangez	-15 15
+	loop	0
+	delay	8
+	offset	135 191
+	bbox	0 0 0 0
+	fastattack	1
+	forcedirection -1
+	jumpframe	2 4 1.5 0
+	landframe	12 dust
+	hitfx	data/sounds/beat2.wav
+	sound	data/sounds/rob01.wav
+	frame	data/chars/1robert/s01.gif
+	frame	data/chars/1robert/s02.gif
+	attack3	145 110 55 75 7 1 0 0 15 0
+	dropv	3 0
+	frame	data/chars/1robert/s03.gif
+	attack3	0 0 0 0
+	frame	data/chars/1robert/s04.gif
+	hitfx	data/sounds/beat4.wav
+	attack	105 64 127 104 10 1 0 0 35 0
+	dropv	3 4
+	frame	data/chars/1robert/s05.gif
+	frame	data/chars/1robert/s06.gif
+	bbox	120 80 45 70
+	attack	90 35 105 65 10 1 0 0 35 0
+	dropv	3 4
+	frame	data/chars/1robert/s07.gif
+	frame	data/chars/1robert/s08.gif
+	attack	0 0 0 0
+	delay	7
+	frame	data/chars/1robert/s09.gif
+	frame	data/chars/1robert/s10.gif
+	frame	data/chars/1robert/s11.gif
+	delay	150
+	frame	data/chars/1robert/s12.gif
+	delay	15
+	frame	data/chars/1robert/rise4.gif
+
+
+
+
+
+anim	grab
+	loop	0
+	delay	30
+	offset	135 191
+	bbox	114 104 41 85
+	fastattack	1
+	move	10
+	frame	data/chars/1robert/grab.gif
+	move	0
+	delay	5
+	bbox	115 105 41 80
+	frame	data/chars/1robert/grab.gif
+	delay	23
+	attack2	140 123 50 39 8 0 1 0 16 0
+	frame	data/chars/1robert/hold1.gif
+	attack2	0 0 0 0
+	delay	5
+	frame	data/chars/1robert/grab.gif
+	delay	23
+	attack2	140 123 50 39 8 0 1 0 16 0
+	frame	data/chars/1robert/hold1.gif
+	attack2	0 0 0 0
+	delay	5
+	bbox	115 105 41 85
+	frame	data/chars/1robert/grab.gif
+	delay	23
+	attack	130 97 60 39 8 0 1 0 16 0
+	frame	data/chars/1robert/hold2.gif
+	attack	0 0 0 0
+	delay	5
+	frame	data/chars/1robert/grab.gif
+	delay	23
+	attack	130 97 60 39 8 0 1 0 16 0
+	frame	data/chars/1robert/hold2.gif
+	attack	0 0 0 0
+	delay	8
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/rob02.wav
+	frame	data/chars/1robert/d01.gif
+	frame	data/chars/1robert/d02.gif
+	delay	10
+	attack2	129 50 80 95 6 0 0 0 30 0
+	frame	data/chars/1robert/d03.gif
+	attack2	0 0 0 0
+	delay	2
+	frame	data/chars/1robert/d03.gif
+	delay	12
+	attack	129 78 84 63 7 1 0 0 45 0
+	dropv	2 3
+	frame	data/chars/1robert/d04.gif
+	attack	0 0 0 0
+	frame	data/chars/1robert/d05.gif
+	frame	data/chars/1robert/d06.gif
+	
+	
+anim	spawn
+	loop	0
+	delay	15
+	offset	135 191
+	bbox	0 0 0 0
+	frame	data/chars/1robert/win07.gif
+	delay	7
+	frame	data/chars/1robert/win01.gif
+	frame	data/chars/1robert/win02.gif
+	frame	data/chars/1robert/win01.gif
+	frame	data/chars/1robert/win02.gif
+	delay	15
+	frame	data/chars/1robert/win03.gif
+	delay	7
+	frame	data/chars/1robert/win04.gif
+	frame	data/chars/1robert/win05.gif
+	frame	data/chars/1robert/win04.gif
+	frame	data/chars/1robert/win05.gif
+	delay	11
+	frame	data/chars/1robert/win03.gif
+	frame	data/chars/1robert/win06.gif
+	frame	data/chars/1robert/idle00.gif
+	frame	data/chars/1robert/idle01.gif
+		
+anim	walk
+	loop	1
+	delay	10
+	offset	135 191
+	bbox	115 95 41 94
+	frame	data/chars/1robert/wk01.gif
+	frame	data/chars/1robert/wk02.gif
+	frame	data/chars/1robert/wk03.gif
+	frame	data/chars/1robert/wk04.gif
+	frame	data/chars/1robert/wk05.gif
+		

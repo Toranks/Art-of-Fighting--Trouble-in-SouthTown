@@ -1,0 +1,248 @@
+name	lvlbns
+type	enemy
+health   55000
+nolife   1
+nomove	1 1
+facing	1
+offscreenkill 	10000
+subject_to_wall 0
+subject_to_platform 0
+subject_to_hole 0
+shadow	0
+hostile		player
+setlayer	10
+aggression	100
+
+animationscript data/scripts/escript.c
+
+#---------------all-going-start--------------------
+
+anim	pain
+@script
+    void self = getlocalvar("self");
+    char Name = getentityproperty(self,"name");
+
+    if(frame==25){
+	jumptobranch(Name, 1);
+    }
+@end_script
+	loop	0
+	delay	5
+	offset	11 11
+	bbox	0 0 0 0
+	frame	data/bgs/0map/icons/2bonus01.gif
+	frame	data/bgs/0map/icons/2bonus02.gif
+	frame	data/bgs/0map/icons/2bonus03.gif
+	frame	data/bgs/0map/icons/2bonus04.gif
+	frame	data/bgs/0map/icons/2bonus05.gif
+	frame	data/bgs/0map/icons/2bonus01.gif
+	frame	data/bgs/0map/icons/2bonus02.gif
+	frame	data/bgs/0map/icons/2bonus03.gif
+	frame	data/bgs/0map/icons/2bonus04.gif
+	frame	data/bgs/0map/icons/2bonus05.gif
+	frame	data/bgs/0map/icons/2bonus01.gif
+	frame	data/bgs/0map/icons/2bonus02.gif
+	frame	data/bgs/0map/icons/2bonus03.gif
+	frame	data/bgs/0map/icons/2bonus04.gif
+	frame	data/bgs/0map/icons/2bonus05.gif
+	frame	data/bgs/0map/icons/2bonus01.gif
+	frame	data/bgs/0map/icons/2bonus02.gif
+	frame	data/bgs/0map/icons/2bonus03.gif
+	frame	data/bgs/0map/icons/2bonus04.gif
+	frame	data/bgs/0map/icons/2bonus05.gif
+	frame	data/bgs/0map/icons/2bonus01.gif
+	frame	data/bgs/0map/icons/2bonus02.gif
+	frame	data/bgs/0map/icons/2bonus03.gif
+	frame	data/bgs/0map/icons/2bonus04.gif
+	frame	data/bgs/0map/icons/2bonus05.gif
+	delay	20
+	frame	data/bgs/0map/icons/2bonus05.gif #25
+	frame	data/bgs/0map/icons/2bonus05.gif
+	frame	data/bgs/0map/icons/2bonus05.gif
+	delay	100
+	frame	data/bgs/0map/icons/2bonus05.gif
+
+#---------------all-going-end--------------------
+
+
+#---------------BONUS-1-SET------------------
+
+anim	spawn
+@script
+    void self = getlocalvar("self");
+    int  done = getglobalvar("bn1");
+  
+    if(done == 1){
+     performattack(self, openborconstant("ANI_FOLLOW15"));
+     }
+@end_script
+	loop	0
+	delay	5
+	offset	11 11
+	bbox	0 0 0 0
+	frame	data/bgs/0map/icons/2bonus01.gif
+	frame	data/bgs/0map/icons/2bonus01.gif
+
+anim	idle
+	loop	1
+	delay	180
+	offset	11 11
+	bbox	1 1 20 20 300
+	frame	data/bgs/0map/icons/2bonus101.gif
+	delay	6
+	frame	data/bgs/0map/icons/2bonus102.gif
+	frame	data/bgs/0map/icons/2bonus103.gif
+	frame	data/bgs/0map/icons/2bonus104.gif
+	frame	data/bgs/0map/icons/2bonus105.gif
+
+#---------------BONUS-1-SET-END--------------
+
+#------------------/////---------------------
+
+#---------------BONUS-2-SET------------------
+
+
+anim	follow1
+@script
+    void self = getlocalvar("self");
+    int  done = getglobalvar("bn2");
+  
+    if(done == 1){
+     performattack(self, openborconstant("ANI_FOLLOW15"));
+     }
+@end_script
+	loop	0
+	delay	5
+	offset	11 11
+	bbox	0 0 0 0
+	frame	data/bgs/0map/icons/2bonus01.gif
+	@cmd	anichange "ANI_FOLLOW2"
+	frame	data/bgs/0map/icons/2bonus01.gif
+
+anim	follow2
+	loop	1
+	delay	6
+	offset	11 11
+	bbox	1 1 20 20 300
+	frame	data/bgs/0map/icons/2bonus203.gif
+	frame	data/bgs/0map/icons/2bonus204.gif
+	frame	data/bgs/0map/icons/2bonus205.gif
+	delay	180
+	frame	data/bgs/0map/icons/2bonus201.gif
+	delay	6
+	frame	data/bgs/0map/icons/2bonus202.gif
+
+#---------------BONUS-2-SET-END--------------
+
+#------------------/////---------------------
+
+#---------------BONUS-3-SET------------------
+
+anim	follow3
+@script
+    void self = getlocalvar("self");
+    int  done = getglobalvar("bn3");
+  
+    if(done == 1){
+     performattack(self, openborconstant("ANI_FOLLOW15"));
+     }
+@end_script
+	loop	0
+	delay	5
+	offset	11 11
+	bbox	0 0 0 0
+	frame	data/bgs/0map/icons/2bonus01.gif
+	@cmd	anichange "ANI_FOLLOW4"
+	frame	data/bgs/0map/icons/2bonus01.gif
+
+anim	follow4
+	loop	1
+	delay	6
+	offset	11 11
+	bbox	1 1 20 20 300
+	frame	data/bgs/0map/icons/2bonus305.gif
+	delay	180
+	frame	data/bgs/0map/icons/2bonus301.gif
+	delay	6
+	frame	data/bgs/0map/icons/2bonus302.gif
+	frame	data/bgs/0map/icons/2bonus303.gif
+	frame	data/bgs/0map/icons/2bonus304.gif
+
+
+#---------------BONUS-3-SET-END--------------
+
+
+#---------------BONUS-4-SET------------------
+
+
+anim	follow5
+@script
+    void self = getlocalvar("self");
+    int  done = getglobalvar("bn4");
+  
+    if(done == 1){
+     performattack(self, openborconstant("ANI_FOLLOW15"));
+     }
+@end_script
+	loop	0
+	delay	5
+	offset	11 11
+	bbox	0 0 0 0
+	frame	data/bgs/0map/icons/2bonus01.gif
+	@cmd	anichange "ANI_FOLLOW6"
+	frame	data/bgs/0map/icons/2bonus01.gif
+
+anim	follow6
+	loop	1
+	delay	6
+	offset	11 11
+	bbox	1 1 20 20 300
+	frame	data/bgs/0map/icons/2bonus402.gif
+	frame	data/bgs/0map/icons/2bonus403.gif
+	frame	data/bgs/0map/icons/2bonus404.gif
+	frame	data/bgs/0map/icons/2bonus405.gif
+	delay	180
+	frame	data/bgs/0map/icons/2bonus401.gif
+
+
+
+
+
+
+
+
+
+
+#---------------BONUS-3-SET-END--------------
+
+
+
+
+
+
+
+
+
+
+
+#---------------all-X-complete--------------------
+
+anim	follow15
+	loop	1
+	delay	300
+	offset	11 11
+	bbox	0 0 0 0
+	frame	data/bgs/0map/icons/2bonus00.gif
+
+
+
+
+
+
+
+
+
+
+		
+#|edited by openBor Stats v 0.53
+		

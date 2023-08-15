@@ -1,0 +1,312 @@
+name		acarrierbrk
+type		enemy
+speed		16
+health		100
+setlayer	-900
+jumpheight	0
+noquake		1
+falldie		1
+nodieblink	2
+makeinv		3
+shadow		0
+facing		1
+nomove		1 1
+nodrop		2
+antigrab	10
+subject_to_hole 0
+subject_to_obstacle 0
+subject_to_minz 0
+subject_to_maxz 0
+hostile		obstacle
+candamage	obstacle
+diesound        data/sounds/xplosion.wav
+animationscript data/scripts/escript.c
+
+load	brkmetal2
+load	splash
+load	byowater
+
+
+
+
+
+
+anim	follow1
+	loop	1
+	delay	15
+	offset	180 216
+	bbox	0 0 0 0
+	quakeframe	11 15 10
+	hitfx	data/sounds/xplosion.wav
+	frame	data/bgs/beyond/lvl1/bck/brk01.gif
+	frame	data/bgs/beyond/lvl1/bck/brk02.gif
+	frame	data/bgs/beyond/lvl1/bck/brk03.gif
+	frame	data/bgs/beyond/lvl1/bck/brk04.gif
+	delay	34
+	attack	0 63 205 200 200 0 0 0 0 30
+	@cmd    tosser "brkmetal2" -120 52 1 0.3 4 0
+	@cmd    tosser "brkmetal2" -110 57 1 0 4 0
+	@cmd    tosser "brkmetal2" -130 52 1 -0.3 4 0
+	frame	data/bgs/beyond/lvl1/bck/brk05.gif
+	attack	0 0 0 0
+	delay	15
+	frame	data/bgs/beyond/lvl1/bck/brk03.gif
+	frame	data/bgs/beyond/lvl1/bck/brk02.gif
+	frame	data/bgs/beyond/lvl1/bck/brk01.gif
+	frame	data/bgs/beyond/lvl1/bck/brk02.gif
+	frame	data/bgs/beyond/lvl1/bck/brk03.gif
+	frame	data/bgs/beyond/lvl1/bck/brk04.gif
+	attack	0 63 205 200 200 0 0 0 0 30
+	delay	34
+	@cmd    tosser "brkmetal2" -120 52 1 0.3 4 0
+	@cmd    tosser "brkmetal2" -110 57 1 0 4 0
+	@cmd    tosser "brkmetal2" -130 52 1 -0.3 4 0
+	frame	data/bgs/beyond/lvl1/bck/brk05.gif
+	attack	0 0 0 0
+	delay	15
+	frame	data/bgs/beyond/lvl1/bck/brk03.gif
+	frame	data/bgs/beyond/lvl1/bck/brk02.gif
+	@cmd	looper 7 10
+	frame	data/bgs/beyond/lvl1/bck/brk01.gif
+	frame	data/bgs/beyond/lvl1/bck/brk02.gif
+	frame	data/bgs/beyond/lvl1/bck/brk03.gif
+	frame	data/bgs/beyond/lvl1/bck/brk04.gif
+	delay	34
+	frame	data/bgs/beyond/lvl1/bck/brk05.gif
+	delay	15
+	frame	data/bgs/beyond/lvl1/bck/brk03.gif
+	frame	data/bgs/beyond/lvl1/bck/brk02.gif
+	frame	data/bgs/beyond/lvl1/bck/brk01.gif
+	@cmd    anichange "ANI_FOLLOW2"
+	frame	data/bgs/beyond/lvl1/bck/brk01.gif
+
+
+
+
+
+
+
+anim	follow2
+@script
+	if(frame==1){
+  	changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_none"));
+}
+	if(frame==45){
+	jumptobranch("Dummy", 1);
+}
+@end_script
+	loop	1
+	delay	35
+	offset	180 216
+	bbox	0 0 0 0
+	quakeframe	8 15 10
+	frame	data/bgs/beyond/lvl1/bck/brk01.gif
+	sound	data/sounds/alimon2.wav
+	frame	data/bgs/beyond/lvl1/bck/brk02.gif
+	frame	data/bgs/beyond/lvl1/bck/brk06.gif
+	delay	30
+	@cmd	slamstart2
+	@cmd	position 1 -500 1 -1 1
+	frame	data/bgs/beyond/lvl1/bck/brk07.gif
+	sound	data/sounds/bang.wav
+	delay	7
+	@cmd	position 2 -500 1 -1 1
+	frame	data/bgs/beyond/lvl1/bck/brk08.gif
+	sound	data/sounds/bang2.wav
+	@cmd	position 3 -500 1 -1 1
+	frame	data/bgs/beyond/lvl1/bck/brk09.gif
+	@cmd	position 4 -500 1 -1 1
+	frame	data/bgs/beyond/lvl1/bck/brk10.gif
+
+	frame	data/bgs/beyond/lvl1/bck/brk07.gif
+	@cmd	position 2 -500 1 -1 1
+	frame	data/bgs/beyond/lvl1/bck/brk08.gif
+	@cmd	position 3 -500 1 -1 1
+	frame	data/bgs/beyond/lvl1/bck/brk09.gif
+	@cmd	position 4 -500 1 -1 1
+	frame	data/bgs/beyond/lvl1/bck/brk10.gif
+	sound	data/sounds/expl2.wav
+	@cmd	position 1 -500 1 -1 1
+	frame	data/bgs/beyond/lvl1/bck/brk07.gif
+	@cmd	position 2 -500 1 -1 1
+	frame	data/bgs/beyond/lvl1/bck/brk08.gif
+	@cmd	position 3 -500 1 -1 1
+	frame	data/bgs/beyond/lvl1/bck/brk09.gif
+	@cmd	position 4 -500 1 -1 1
+	frame	data/bgs/beyond/lvl1/bck/brk10.gif
+	@cmd	looper 7 7
+	sound	data/sounds/crash.wav
+	@cmd	position 1 -500 1 -1 1
+	frame	data/bgs/beyond/lvl1/bck/brk07.gif
+	@cmd	dasher -0.4 0 0
+	@cmd	position 1 -500 1 -1 1
+	frame	data/bgs/beyond/lvl1/bck/brk07.gif
+	@cmd	position 2 -500 1 -1 1
+	frame	data/bgs/beyond/lvl1/bck/brk08.gif
+	@cmd	position 3 -500 1 -1 1
+	frame	data/bgs/beyond/lvl1/bck/brk09.gif
+	@cmd	position 4 -500 1 -1 1
+	frame	data/bgs/beyond/lvl1/bck/brk10.gif
+	sound	data/sounds/elevspark.wav
+	@cmd	position 1 -500 1 -1 1
+	frame	data/bgs/beyond/lvl1/bck/brk07.gif
+	@cmd	position 2 -500 1 -1 1
+	frame	data/bgs/beyond/lvl1/bck/brk08.gif
+	@cmd	position 3 -500 1 -1 1
+	frame	data/bgs/beyond/lvl1/bck/brk09.gif
+	@cmd	position 4 -500 1 -1 1
+	frame	data/bgs/beyond/lvl1/bck/brk10.gif
+	@cmd	looper 16 54
+	@cmd	changeopenborvariant "slowmotion" 1
+	@cmd	position 1 -500 1 -1 1
+	frame	data/bgs/beyond/lvl1/bck/brk07.gif
+	@cmd	position 2 -500 1 -1 1
+	frame	data/bgs/beyond/lvl1/bck/brk08.gif
+	@cmd	position 3 -500 1 -1 1
+	frame	data/bgs/beyond/lvl1/bck/brk09.gif
+	@cmd	position 4 -500 1 -1 1
+	frame	data/bgs/beyond/lvl1/bck/brk10.gif
+	sound	data/sounds/elevspark.wav
+	@cmd	position 1 -500 1 -1 1
+	frame	data/bgs/beyond/lvl1/bck/brk07.gif
+	@cmd	position 2 -500 1 -1 1
+	frame	data/bgs/beyond/lvl1/bck/brk08.gif
+	@cmd	position 3 -500 1 -1 1
+	frame	data/bgs/beyond/lvl1/bck/brk09.gif
+	@cmd	position 4 -500 1 -1 1
+	frame	data/bgs/beyond/lvl1/bck/brk10.gif
+	frame	data/bgs/beyond/lvl1/bck/brk07.gif
+	frame	data/bgs/beyond/lvl1/bck/brk08.gif
+	frame	data/bgs/beyond/lvl1/bck/brk09.gif
+	frame	data/bgs/beyond/lvl1/bck/brk10.gif
+	frame	data/bgs/beyond/lvl1/bck/brk07.gif
+	frame	data/bgs/beyond/lvl1/bck/brk08.gif
+	frame	data/bgs/beyond/lvl1/bck/brk09.gif
+	frame	data/bgs/beyond/lvl1/bck/brk10.gif
+	frame	data/bgs/beyond/lvl1/bck/brk07.gif
+	frame	data/bgs/beyond/lvl1/bck/brk08.gif
+	frame	data/bgs/beyond/lvl1/bck/brk09.gif
+	delay	100
+	frame	data/bgs/beyond/lvl1/bck/brk10.gif
+	delay	3
+	@cmd	changeopenborvariant "slowmotion" 0
+	frame	data/bgs/beyond/lvl1/bck/brk10.gif
+	frame	data/bgs/beyond/lvl1/bck/brk10.gif
+	frame	data/bgs/beyond/lvl1/bck/brk10.gif
+	frame	data/bgs/beyond/lvl1/bck/brk10.gif
+	frame	data/bgs/beyond/lvl1/bck/brk10.gif
+	frame	data/bgs/beyond/lvl1/bck/brk10.gif
+	frame	data/bgs/beyond/lvl1/bck/brk10.gif
+	frame	data/bgs/beyond/lvl1/bck/brk10.gif
+	@cmd	suicide
+	frame	data/bgs/beyond/lvl1/bck/brk10.gif
+
+
+anim	idle
+	loop	1
+	delay	5
+	offset	180 216
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl1/bck/brk01.gif
+		
+anim	pain
+	loop	0
+	delay	5
+	offset	180 216
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl1/bck/brk01.gif
+		
+anim	rise
+	loop	0
+	delay	5
+	offset	180 216
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl1/bck/brk01.gif
+		
+anim	spawn
+	loop	0
+	delay	250
+	offset	180 216
+	bbox	0 0 0 0
+	quakeframe	12 30 25
+	sound	data/sounds/alimon1.wav
+	frame	data/bgs/beyond/lvl1/bck/brka33.gif
+	sound	data/sounds/alimon1.wav
+	frame	data/bgs/beyond/lvl1/bck/brka33.gif
+	delay	6
+	frame	data/bgs/beyond/lvl1/bck/brka33.gif
+	@cmd	spawnAni "splash" -90 1 3 "ANI_FOLLOW3"
+	@cmd	spawnAni "splash" -40 1 3 "ANI_FOLLOW3"
+	@cmd	spawnAni "splash" 0 1 3 "ANI_FOLLOW3"
+	@cmd	spawnAni "splash" 40 1 3 "ANI_FOLLOW3"
+	@cmd	spawnAni "splash" 90 1 3 "ANI_FOLLOW3"
+	@cmd	spawnbind "byowater" 1 1 1
+	frame	data/bgs/beyond/lvl1/bck/brka33.gif
+	sound	data/sounds/alimon2.wav
+	frame	data/bgs/beyond/lvl1/bck/brka33.gif
+	frame	data/bgs/beyond/lvl1/bck/brka33.gif
+	frame	data/bgs/beyond/lvl1/bck/brka33.gif
+	frame	data/bgs/beyond/lvl1/bck/brka33.gif
+	frame	data/bgs/beyond/lvl1/bck/brka32.gif
+	frame	data/bgs/beyond/lvl1/bck/brka31.gif
+	frame	data/bgs/beyond/lvl1/bck/brka30.gif
+	frame	data/bgs/beyond/lvl1/bck/brka29.gif
+	frame	data/bgs/beyond/lvl1/bck/brka28.gif
+	frame	data/bgs/beyond/lvl1/bck/brka27.gif
+	frame	data/bgs/beyond/lvl1/bck/brka26.gif
+	frame	data/bgs/beyond/lvl1/bck/brka25.gif
+	frame	data/bgs/beyond/lvl1/bck/brka24.gif
+	frame	data/bgs/beyond/lvl1/bck/brka23.gif
+	frame	data/bgs/beyond/lvl1/bck/brka22.gif
+	frame	data/bgs/beyond/lvl1/bck/brka21.gif
+	frame	data/bgs/beyond/lvl1/bck/brka20.gif
+	frame	data/bgs/beyond/lvl1/bck/brka19.gif
+	frame	data/bgs/beyond/lvl1/bck/brka18.gif
+	sound	data/sounds/alimon2.wav
+	frame	data/bgs/beyond/lvl1/bck/brka17.gif
+	frame	data/bgs/beyond/lvl1/bck/brka16.gif
+	frame	data/bgs/beyond/lvl1/bck/brka15.gif
+	frame	data/bgs/beyond/lvl1/bck/brka14.gif
+	frame	data/bgs/beyond/lvl1/bck/brka13.gif
+	frame	data/bgs/beyond/lvl1/bck/brka12.gif
+	frame	data/bgs/beyond/lvl1/bck/brka11.gif
+	frame	data/bgs/beyond/lvl1/bck/brka10.gif
+	frame	data/bgs/beyond/lvl1/bck/brka09.gif
+	frame	data/bgs/beyond/lvl1/bck/brka08.gif
+	frame	data/bgs/beyond/lvl1/bck/brka07.gif
+	frame	data/bgs/beyond/lvl1/bck/brka06.gif
+	frame	data/bgs/beyond/lvl1/bck/brka05.gif
+	frame	data/bgs/beyond/lvl1/bck/brka04.gif
+	frame	data/bgs/beyond/lvl1/bck/brka03.gif
+	frame	data/bgs/beyond/lvl1/bck/brka02.gif
+	frame	data/bgs/beyond/lvl1/bck/brka01.gif
+	frame	data/bgs/beyond/lvl1/bck/brk00.gif
+	frame	data/bgs/beyond/lvl1/bck/brk01.gif
+	frame	data/bgs/beyond/lvl1/bck/brk00.gif
+	frame	data/bgs/beyond/lvl1/bck/brk01.gif
+	frame	data/bgs/beyond/lvl1/bck/brk00.gif
+	frame	data/bgs/beyond/lvl1/bck/brk00.gif
+	frame	data/bgs/beyond/lvl1/bck/brk01.gif
+	frame	data/bgs/beyond/lvl1/bck/brk00.gif
+	frame	data/bgs/beyond/lvl1/bck/brk01.gif
+	frame	data/bgs/beyond/lvl1/bck/brk00.gif
+	frame	data/bgs/beyond/lvl1/bck/brk00.gif
+	frame	data/bgs/beyond/lvl1/bck/brk01.gif
+	frame	data/bgs/beyond/lvl1/bck/brk00.gif
+	frame	data/bgs/beyond/lvl1/bck/brk01.gif
+	frame	data/bgs/beyond/lvl1/bck/brk00.gif
+	frame	data/bgs/beyond/lvl1/bck/brk00.gif
+	frame	data/bgs/beyond/lvl1/bck/brk01.gif
+	frame	data/bgs/beyond/lvl1/bck/brk00.gif
+	frame	data/bgs/beyond/lvl1/bck/brk01.gif
+	sound	data/sounds/alimon1.wav
+	frame	data/bgs/beyond/lvl1/bck/brk00.gif
+	delay	350
+	frame	data/bgs/beyond/lvl1/bck/brk01.gif
+	delay	6
+	frame	data/bgs/beyond/lvl1/bck/brk01.gif
+	@cmd	anichange "ANI_FOLLOW1"
+	frame	data/bgs/beyond/lvl1/bck/brk01.gif
+		
+#|edited by openBor Stats v 0.53
+		

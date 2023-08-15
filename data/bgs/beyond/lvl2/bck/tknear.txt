@@ -1,0 +1,114 @@
+name		tknear
+type		npc
+health		10
+falldie		1
+nodieblink	2
+nodrop		2
+setlayer	-750
+shadow		0
+facing		1
+nomove		1 1
+lifespan 	37
+offscreenkill 	5000
+subject_to_obstacle 0
+subject_to_hole 0
+subject_to_wall 0
+subject_to_minz 0
+subject_to_maxz 0
+candamage	obstacle	
+animationscript data/scripts/escript.c
+
+palette		data/bgs/beyond/lvl2/bck/map1.gif
+
+
+
+
+
+anim	death
+	loop	0
+	delay	11
+	offset	150 170
+	bbox	0 0 0 0
+	quakeframe	1 10 5
+	@cmd	dasher -0.7 0 0
+	frame	data/bgs/beyond/lvl2/bck/tknear13.gif
+	frame	data/bgs/beyond/lvl2/bck/tknear14.gif
+	frame	data/bgs/beyond/lvl2/bck/tknear15.gif
+	frame	data/bgs/beyond/lvl2/bck/tknear16.gif
+	frame	data/bgs/beyond/lvl2/bck/tknear17.gif
+	frame	data/bgs/beyond/lvl2/bck/tknear18.gif
+	frame	data/bgs/beyond/lvl2/bck/tknear19.gif
+	frame	data/bgs/beyond/lvl2/bck/tknear20.gif
+	frame	data/bgs/beyond/lvl2/bck/tknear21.gif
+	frame	data/bgs/beyond/lvl2/bck/tknear22.gif
+	frame	data/bgs/beyond/lvl2/bck/tknear23.gif
+	frame	data/bgs/beyond/lvl2/bck/tknear24.gif
+	frame	data/bgs/beyond/lvl2/bck/tknear25.gif
+	frame	data/bgs/beyond/lvl2/bck/tknear26.gif
+	frame	data/bgs/beyond/lvl2/bck/tknear27.gif
+	frame	data/bgs/beyond/lvl2/bck/tknear28.gif
+	frame	data/bgs/beyond/lvl2/bck/tknear29.gif
+	frame	data/bgs/beyond/lvl2/bck/tknear30.gif
+	frame	data/bgs/beyond/lvl2/bck/tknear31.gif
+	frame	data/bgs/beyond/lvl2/bck/tknear32.gif
+	frame	data/bgs/beyond/lvl2/bck/tknear33.gif
+	frame	data/bgs/beyond/lvl2/bck/tknear34.gif
+	frame	data/bgs/beyond/lvl2/bck/tknear35.gif
+	frame	data/bgs/beyond/lvl2/bck/tknear36.gif
+	frame	data/bgs/beyond/lvl2/bck/empty.gif
+		
+anim	follow1
+	loop	1
+	delay	5
+	offset	150 170
+	bbox	55 160 160 20
+	hitfx	data/sounds/expl2.wav
+	@cmd	dasher -0.6 0 0
+	frame	data/bgs/beyond/lvl2/bck/tknear01.gif
+	frame	data/bgs/beyond/lvl2/bck/tknear02.gif
+	frame	data/bgs/beyond/lvl2/bck/tknear03.gif
+	frame	data/bgs/beyond/lvl2/bck/tknear04.gif
+	frame	data/bgs/beyond/lvl2/bck/tknear05.gif
+	frame	data/bgs/beyond/lvl2/bck/tknear06.gif
+	frame	data/bgs/beyond/lvl2/bck/tknear01.gif
+	frame	data/bgs/beyond/lvl2/bck/tknear02.gif
+	frame	data/bgs/beyond/lvl2/bck/tknear03.gif
+	frame	data/bgs/beyond/lvl2/bck/tknear04.gif
+	frame	data/bgs/beyond/lvl2/bck/tknear05.gif
+	frame	data/bgs/beyond/lvl2/bck/tknear06.gif
+	@cmd	looper 6 10
+	frame	data/bgs/beyond/lvl2/bck/tknear07.gif
+	attack	320 70 155 35 35 0 1 1 0 0
+	sound	data/sounds/carrierg1.wav
+	frame	data/bgs/beyond/lvl2/bck/tknear08.gif
+	frame	data/bgs/beyond/lvl2/bck/tknear09.gif
+	attack	0 0 0 0
+	frame	data/bgs/beyond/lvl2/bck/tknear10.gif
+	frame	data/bgs/beyond/lvl2/bck/tknear11.gif
+	frame	data/bgs/beyond/lvl2/bck/tknear12.gif
+		
+anim	idle
+	loop	0
+	delay	5
+	offset	150 170
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl2/bck/tknear01.gif
+		
+anim	spawn
+@script
+if(frame==1)
+{
+  changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_OBSTACLE"));
+}
+	@end_script	
+	loop	0
+	delay	5
+	offset	150 170
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl2/bck/tknear01.gif
+	frame	data/bgs/beyond/lvl2/bck/tknear01.gif
+	@cmd	anichange "ANI_FOLLOW1"
+	frame	data/bgs/beyond/lvl2/bck/tknear01.gif
+		
+#|edited by openBor Stats v 0.53
+		

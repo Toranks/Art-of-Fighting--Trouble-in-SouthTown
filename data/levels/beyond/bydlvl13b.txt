@@ -1,0 +1,283 @@
+music		data/music/byolvl13.ogg
+#bossmusic	data/music/overlord.ogg
+
+background	data/bgs/beyond/lvl9/back.gif 1 1
+fglayer		data/bgs/beyond/lvl13/back3.gif -3000 0.5 0 0 0 0 0 3 1 1 0 0 0 0 0 0
+fglayer		data/bgs/beyond/lvl13/back2.gif -2000 0.2 0 0 0 0 0 3 1 1 0 0 0 0 0 0
+fglayer		data/bgs/beyond/lvl13/back4.gif 3000 -0.4 0 700 0 50 0 2 1 1 0 0 0 0 0 0
+fglayer		data/bgs/beyond/lvl13/back5.gif -2500 0 0 0 45 0 0 -1 1 1 1 0 0 0 0 2.4
+layer		data/bgs/beyond/lvl13/back1.gif -400 0 0 5870 210 0 0 1 1 1 0 1 4 6 1
+layer		data/bgs/beyond/lvl13/bback2.gif -1500 0 0 6515 0 0 0 1 1 1 0 0 0 0 0 0
+panel		data/bgs/beyond/lvl13/panel3.gif
+layer           data/bgs/beyond/lvl13/pplant1.gif 315 0 0 4690 90 0 0 1 1 1 0 0 0 0 0 0
+fglayer		data/bgs/beyond/lvl13/diamond.gif 1000 0 0 6380 210 0 0 1 1 1 1 0 0 0 0 0
+fglayer		data/bgs/beyond/lvl13/front3.gif 2000 0 0 0 0 0 0 1 1 1 0 0 0 0 0 0
+fglayer		data/bgs/beyond/lvl13/light1.gif 2500 0 0 0 0 0 0 1 1 1 1 0 0 0 0 0
+fglayer		data/bgs/beyond/lvl13/light2.gif 800 0 0 4320 0 0 0 1 1 1 1 1 2 15 1
+fglayer		data/bgs/beyond/lvl13/light3.gif 3800 0 0 5940 0 0 0 1 1 1 1 0 0 0 0 0
+fglayer		data/bgs/beyond/lvl13/back5.gif 2500 0 0 510 200 0 0 3 1 1 1 1 5 15 1
+
+
+direction       both
+light  		-155   -55
+at       	0
+settime         0
+notime          1
+noslow          1
+order		a
+spawn1  	205 20
+spawn2  	210 20
+spawn3  	215 20
+
+bgspeed			1
+cameraoffset            0 -90
+cameratype              1
+#scrollspeed             4
+
+#----------------------
+wall    -50 400  0 0 430 40 230 5000
+wall    250 230 0 0 360 360 100 5000
+wall    485 255 0 130 4370 4190 100 5000
+wall    280 470 240 0 4200 4200 135 5000
+wall    6270 262 0 0 1300 1300 100 5000
+wall    7035 335 0 120 600 600 150 5000
+wall    7300 480 0 0 450 450 160 5000
+wall    5820 460 0 0 270 270 75 5000
+
+wall    4900 245 0 0 220 220 50 5000
+wall    5255 245 0 0 220 220 50 5000
+wall    5615 245 0 0 220 220 50 5000
+
+wall    4720 330 0 0 220 220 30 5000
+wall    5075 330 0 0 220 220 30 5000
+wall    5430 330 0 0 220 220 30 5000
+
+#----------------------------------
+spawn   stgSET8
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW10"));
+} @end_script
+coords  -480 515 350
+at      0
+#----------------------------------
+#---------mrkarate-change--------------
+spawn   1pchosse
+alias   mrk
+health	700
+aggression 300
+coords  300 380
+at      0
+#----------------------------------
+
+spawn   ghosttime
+@script
+void main()
+{
+	clearglobalvar();
+}
+@end_script
+health	5
+coords  30 240
+at      0
+
+#----------------------------------
+
+
+
+spawn   tvwave
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+} @end_script
+coords  6520 420
+at      0
+
+spawn   tvwave
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+} @end_script
+coords  6820 420
+at      0
+
+spawn   tvwave
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+} @end_script
+coords  7120 420
+at      0
+
+#---------------------
+spawn   ghosttest
+coords  315 300
+at      0
+
+
+spawn   mbrain
+coords  7220 -5
+at      0
+
+#---------------------//------note-----//------
+
+spawn   mbrain2
+flip    1
+map     1
+coords  6840 510 300
+at      0
+
+#---------------------//--------------//-------
+
+spawn   source
+map     1
+item	byogem
+coords  435 270
+at      0
+
+spawn   source
+map     1
+item	crystal
+coords  600 290
+at      0
+
+spawn   source
+map     1
+item	orb
+coords  365 355
+at      0
+
+
+
+spawn   byocont
+item    testla
+map     3
+coords  4730 230
+at      0
+
+spawn   byocont
+item    byogem
+map     3
+coords  5555 410
+at      0
+
+spawn   byocont
+item    orb
+map     3
+coords  5640 410
+at      0
+
+spawn   byocont3
+item    ssoul
+map     2
+flip    1
+coords  4810 410
+at      0
+
+spawn   byocont3
+item    1up
+map     2
+flip    1
+coords  5210 410
+at      0
+
+spawn   source
+item	fluid
+coords  6310 415
+at      0
+
+spawn   source
+item	herb
+coords  6390 415
+at      0
+
+#----------OVERLORD-------------
+
+spawn   olcryo
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW4"));
+} @end_script
+coords  7280 310
+at      0
+
+#---------------------
+
+
+spawn   aipw
+coords  350 310
+at      4300
+
+spawn   aipw
+coords  520 420
+at      4330
+
+#------------------
+spawn   aipw
+coords  510 310
+at      4500
+
+spawn   aipw
+coords  680 420
+at      4530
+
+spawn   mbrain
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW4"));
+} @end_script
+flip    1
+map     2
+coords  -215 14
+at      4560
+
+#------------------
+
+spawn   aipw
+coords  770 310
+at      4600
+
+spawn   aipw
+coords  940 420
+at      4630
+
+spawn   aipw
+coords  1070 310
+at      4640
+#----------player-spawns------------
+
+spawn   globalresp01
+coords  1500 320
+at      5000
+
+spawn   globalresp01
+coords  2000 320
+at      5000
+
+#-------------------------------------
+
+#----------boss----------
+
+spawn   overlord2
+spawnscript data/scripts/noscpos.c
+health  2500
+coords  6830 262
+at      6000
+
+#------------------------
+
+spawn   mbrain
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+flip    1
+map     2
+coords  -219 0
+at      6250
+
+
+#------------------------------
+blockade 6050
+at      6350
+#------------------------------
+
+
+
+spawn   ghosttest
+boss    1
+coords  180 310
+at      8500

@@ -1,0 +1,116 @@
+name			comp3
+type			npc
+nomove			1 1
+falldie			1
+nopain			1
+nodrop			2
+nodieblink    		3
+health			450
+shadow			0
+nolife			1
+noatflash		1
+flash			flash8
+subject_to_wall		0
+subject_to_platform	0
+animationscript data/scripts/escript.c
+
+
+
+load	glassbrk2
+
+load	Steam
+load	flash8
+load	explosion3
+
+
+
+
+
+
+
+
+anim	death
+	loop	0
+	delay	5
+	offset	65 115
+	bbox	0 0 0 0
+	sound	data/sounds/wood.wav
+	frame	data/bgs/0bonus4/bck/3comp03.gif
+	@cmd	spawn01 "glassbrk2" -20 155 1
+	frame	data/bgs/0bonus4/bck/3comp03.gif
+	@cmd	spawn01 "glassbrk2" -30 95 1
+	frame	data/bgs/0bonus4/bck/3comp03.gif
+	@cmd	spawn01 "explosion3" -30 95 1
+	frame	data/bgs/0bonus4/bck/3comp03.gif
+	frame	data/bgs/0bonus4/bck/3comp03.gif
+	@cmd	spawn01 "Steam" 0 95 1
+	delay	150
+	frame	data/bgs/0bonus4/bck/3comp03.gif
+	frame	data/bgs/0bonus4/bck/3comp03.gif
+		
+anim	fall
+	platform	-45 135 60 60 175 175 35 100
+	offset	65 115
+	bbox	0 0 0 0
+	frame	data/bgs/0bonus4/bck/3comp01.gif
+		
+anim	follow1
+	platform	-45 135 60 60 175 175 35 100
+	loop	0
+	delay	10
+	offset	65 115
+	bbox	30 40 80 85 8
+	@cmd	spawn01 "glassbrk2" -20 115 1
+	frame	data/bgs/0bonus4/bck/3comp02.gif
+	frame	data/bgs/0bonus4/bck/3comp02.gif
+	frame	data/bgs/0bonus4/bck/3comp02.gif
+	frame	data/bgs/0bonus4/bck/3comp02.gif
+
+		
+		
+anim	idle
+	platform	-45 135 60 60 175 175 30 100
+	loop	1
+	delay	10
+	@cmd	damage 50 "ANI_FOLLOW1"
+	offset	65 115
+	bbox	30 40 80 85 8
+	frame	data/bgs/0bonus4/bck/3comp01.gif
+	frame	data/bgs/0bonus4/bck/3comp01.gif
+		
+anim	spawn
+@script
+if(frame==1)
+{
+  changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_OBSTACLE"));
+}
+@end_script
+	loop	0
+	delay	10
+	offset	65 115
+	bbox	0 0 0 0
+	platform	-45 135 60 60 175 175 30 100
+	frame	data/bgs/0bonus4/bck/3comp01.gif
+	frame	data/bgs/0bonus4/bck/3comp01.gif
+	delay	12600
+	frame	data/bgs/0bonus4/bck/3comp01.gif
+	frame	data/bgs/0bonus4/bck/3comp01.gif
+		
+anim	follow5
+@script
+if(frame==1)
+{
+  changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_OBSTACLE"));
+}
+@end_script
+	loop	0
+	delay	10
+	offset	65 115
+	bbox	0 0 0 0
+	platform	-45 135 60 60 175 175 30 100
+	frame	data/bgs/0bonus4/bck/3comp01.gif
+	frame	data/bgs/0bonus4/bck/3comp01.gif
+	frame	data/bgs/0bonus4/bck/3comp01.gif
+	@cmd	beidle
+	frame	data/bgs/0bonus4/bck/3comp01.gif
+		

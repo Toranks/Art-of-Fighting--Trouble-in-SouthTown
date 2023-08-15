@@ -1,0 +1,228 @@
+name		jontram
+type		npc
+health		650
+cantgrab	1
+falldie		1
+nodrop		2
+facing		1
+shadow		0
+nodieblink	3
+offscreenkill 	20000
+subject_to_platform 0
+subject_to_obstacle 0
+subject_to_wall 0
+subject_to_hole 0
+dust		dust
+candamage	enemy
+hostile		enemy
+escapehits	4
+aggression	100
+setlayer	-1200
+icon		data/chars/3johnny/jicon.gif
+diesound      data/sounds/die6.wav
+
+lifebarstatus 160 10 0 1 0 2 5 
+lifeposition 90  253
+nameposition 90 243
+iconposition 50 229
+nolife 1
+
+animationscript data/scripts/escript.c
+
+palette		data/chars/3johnny/mapal.gif
+
+load	jbyo3
+
+
+script	@script
+void main()
+{
+    void self = getlocalvar("self");
+   changeentityproperty(self, "name", "Johnny");
+}
+@end_script
+
+
+
+
+anim	idle
+	loop	1
+	delay	5
+	offset	110 165
+	bbox	60 65 75 91 50
+	frame	data/chars/3johnny/xtram01.gif
+	@cmd	anichange "ANI_FOLLOW1"
+	frame	data/chars/3johnny/xtram01.gif
+
+anim	follow1
+	loop	1
+	delay	5
+	offset	110 165
+	bbox	65 65 75 91 50
+	frame	data/chars/3johnny/xtram01.gif
+	@cmd	attack4 -160 10 -5 40 -300 300 "ANI_FOLLOW2"
+	frame	data/chars/3johnny/xtram01.gif
+
+anim	follow2
+	loop	0
+	delay	9
+	offset	110 165
+	bbox	0 0 0 0
+	frame	data/chars/3johnny/xtram01.gif
+	@cmd	clearL
+	frame	data/chars/3johnny/xtram03.gif
+	frame	data/chars/3johnny/xtram04.gif
+	attack	-5 60 120 65 40 1 1 0 30 70
+	dropv	2 4
+	frame	data/chars/3johnny/xtram05.gif
+	frame	data/chars/3johnny/xtram05.gif
+	attack	0 0 0 0
+	delay	12
+	frame	data/chars/3johnny/xtram03.gif
+	frame	data/chars/3johnny/xtram01.gif
+	@cmd	anichange "ANI_FOLLOW1"
+	frame	data/chars/3johnny/xtram01.gif
+
+anim	special2
+	loop	0
+	delay	9
+	offset	110 165
+	bbox	0 0 0 0
+	frame	data/chars/3johnny/xtram01.gif
+	@cmd	clearL
+	frame	data/chars/3johnny/xtram03.gif
+	frame	data/chars/3johnny/xtram04.gif
+	attack	-5 60 120 65 40 1 1 0 30 70
+	dropv	2 4
+	frame	data/chars/3johnny/xtram05.gif
+	frame	data/chars/3johnny/xtram05.gif
+	attack	0 0 0 0
+	delay	12
+	frame	data/chars/3johnny/xtram03.gif
+	frame	data/chars/3johnny/xtram01.gif
+	@cmd	anichange "ANI_FOLLOW1"
+	frame	data/chars/3johnny/xtram01.gif
+
+anim	pain
+	loop	0
+	delay	3
+	offset	110 165
+	bbox	0 0 0 0
+	frame	data/chars/3johnny/xtram01.gif
+	delay	10
+	bbox	65 65 75 91 50
+	frame	data/chars/3johnny/xtram02.gif
+	frame	data/chars/3johnny/xtram02.gif
+	frame	data/chars/3johnny/xtram02.gif
+	@cmd	beidle
+	frame	data/chars/3johnny/xtram02.gif
+
+anim	spawn
+@script
+	void self = getlocalvar("self");
+	if(frame==10){
+	changelevelproperty("scrollspeed", 1);
+	}
+@end_script
+	loop	0 
+	delay	10
+	offset	110 165
+	bbox	0 0 0 0
+	frame	data/chars/3johnny/xtram01.gif
+	frame	data/chars/3johnny/xtram01.gif
+	frame	data/chars/3johnny/xtram01.gif
+	frame	data/chars/3johnny/xtram01.gif
+	frame	data/chars/3johnny/xtram01.gif
+	frame	data/chars/3johnny/xtram01.gif
+	@cmd	spawn04 "jbyo3" 0 40 40 "ANI_FOLLOW2"
+	frame	data/chars/3johnny/xtram01.gif
+	frame	data/chars/3johnny/xtram01.gif
+	frame	data/chars/3johnny/xtram01.gif
+	frame	data/chars/3johnny/xtram01.gif
+	frame	data/chars/3johnny/xtram01.gif
+	frame	data/chars/3johnny/xtram01.gif
+	frame	data/chars/3johnny/xtram01.gif
+	@cmd	beidle
+	frame	data/chars/3johnny/xtram01.gif
+	
+anim	death
+@script
+    if(frame==15){
+	jumptobranch("tramdye", 1);
+    }
+	@end_script
+	loop	0
+	delay	14
+	offset	110 165
+	bbox	0 0 0 0
+	frame	data/chars/3johnny/xtram01.gif
+	frame	data/chars/3johnny/xtram02.gif
+	frame	data/chars/3johnny/xtram06.gif
+	delay	5
+	frame	data/chars/3johnny/empty.gif #3
+	frame	data/chars/3johnny/xtram06.gif
+	frame	data/chars/3johnny/empty.gif
+	frame	data/chars/3johnny/xtram06.gif
+	frame	data/chars/3johnny/empty.gif
+	frame	data/chars/3johnny/xtram06.gif
+	frame	data/chars/3johnny/empty.gif
+	frame	data/chars/3johnny/xtram06.gif
+	@cmd	looper 3 5
+	frame	data/chars/3johnny/xtram06.gif
+	delay	300
+	frame	data/chars/3johnny/xtram06.gif
+	delay	10
+	frame	data/chars/3johnny/xtram06.gif
+	frame	data/chars/3johnny/xtram06.gif
+	frame	data/chars/3johnny/xtram06.gif #15
+	frame	data/chars/3johnny/xtram06.gif
+	frame	data/chars/3johnny/xtram06.gif
+	frame	data/chars/3johnny/xtram06.gif
+	delay	1000
+	frame	data/chars/3johnny/xtram06.gif
+
+anim	fall
+	loop	0
+	delay	12
+	offset	110 165
+	bbox	0 0 0 0
+	frame	data/chars/3johnny/xtram02.gif
+	frame	data/chars/3johnny/xtram02.gif
+	frame	data/chars/3johnny/xtram02.gif
+	frame	data/chars/3johnny/xtram02.gif
+
+anim	fall7
+	delay	1000
+	offset	105 130
+	frame	data/chars/3johnny/slamck0.gif
+	offset	100 110
+	frame	data/chars/3johnny/slamck1.gif
+	offset	106 130
+	frame	data/chars/3johnny/slamck2.gif
+	offset	115 125
+	frame	data/chars/3johnny/slamck3.gif
+	offset	125 125
+	frame	data/chars/3johnny/slamck4.gif
+	offset	108 122
+	frame	data/chars/3johnny/slamck5.gif
+	offset	106 155
+	frame	data/chars/3johnny/slamck6.gif
+	offset	125 140
+	frame	data/chars/3johnny/slamck7.gif
+	offset	120 105
+	frame	data/chars/3johnny/slamck8.gif
+	offset	100 130
+	frame	data/chars/3johnny/slamck9.gif
+	offset	105 130
+	frame	data/chars/3johnny/slamck10.gif
+	offset	105 130
+	frame	data/chars/3johnny/slamck11.gif
+	offset	115 125
+	frame	data/chars/3johnny/slamck12.gif
+	offset	115 125
+	frame	data/chars/3johnny/slamck13.gif
+	offset	115 125
+	frame	data/chars/3johnny/slamck14.gif
+	offset	115 125
+	frame	data/chars/3johnny/slamck15.gif
+		

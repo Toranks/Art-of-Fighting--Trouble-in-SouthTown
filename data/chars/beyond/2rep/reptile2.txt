@@ -1,0 +1,1081 @@
+name          reptile2
+type          enemy
+health        1300
+speed         11
+jumpheight    4
+throw         5 2
+throwdamage   18
+blockodds     1
+nopassiveblock 1
+thold         80
+escapehits    3
+nolife        1
+falldie	      2
+nodieblink    1
+gfxshadow     1
+dust          dust
+candamage     player npc
+hostile       player npc
+projectilehit enemy obstacle
+subject_to_wall 0
+diesound      data/sounds/alien5.wav
+animationscript data/scripts/escript.c
+
+load	scball
+load	byowater
+
+
+palette		data/chars/beyond/2rep/mapal.gif
+alternatepal	data/chars/beyond/2rep/map2.gif
+alternatepal	data/chars/beyond/2rep/map3.gif
+alternatepal	data/chars/beyond/2rep/map4.gif
+alternatepal	data/chars/beyond/2rep/map5.gif
+alternatepal	data/chars/beyond/2rep/map6.gif
+
+
+
+anim	follow15
+	loop	0
+	delay	740
+	offset	110 210
+	bbox	0 0 0 0
+	jumpframe 2 2 0 1
+	landframe 4 dust 
+	frame	data/chars/beyond/2rep/rise3.gif
+	delay	12
+	frame	data/chars/beyond/2rep/jump06.gif
+	frame	data/chars/beyond/2rep/jump01.gif
+	delay	150
+	frame	data/chars/beyond/2rep/jump01.gif
+	delay	12
+	@cmd	subwall 1
+	frame	data/chars/beyond/2rep/jump07.gif
+	@cmd	beidle
+	frame	data/chars/beyond/2rep/jump06.gif
+
+
+anim	attack1
+	range	160 190
+	rangez	-15 15
+	loop	0
+	delay	11
+	offset	125 215
+	bbox	95 97 50 100
+	hitfx	data/sounds/beat5.wav
+	hitflash	flashscreen1
+	@cmd	dasher 2 0 0
+	frame	data/chars/beyond/2rep/a01.gif
+	frame	data/chars/beyond/2rep/a02.gif
+	@cmd	dasher 1.5 0 0
+	attack	110 90 120 70 20 1 0 0 30 12
+	dropv	3 4
+	frame	data/chars/beyond/2rep/a03.gif
+	delay	20
+	frame	data/chars/beyond/2rep/a04.gif
+	attack	0 0 0 0
+	delay	14
+	frame	data/chars/beyond/2rep/a05.gif
+	@cmd	stop
+	frame	data/chars/beyond/2rep/a06.gif
+	frame	data/chars/beyond/2rep/idle01.gif
+		
+anim	attack2
+	range	80 135
+	loop	0
+	delay	9
+	offset	125 215
+	bbox	95 97 50 100
+	fastattack	1
+	followanim	1
+	followcond	1
+	hitflash	Flash4
+	hitfx	data/sounds/sl1.wav
+	frame	data/chars/beyond/2rep/a07.gif
+	frame	data/chars/beyond/2rep/a08.gif
+	frame	data/chars/beyond/2rep/a09.gif
+	delay	11
+	attack	135 105 105 50 10 0 0 0 20 0
+	frame	data/chars/beyond/2rep/a10.gif
+	attack	0 0 0 0
+	frame	data/chars/beyond/2rep/grab00.gif
+	frame	data/chars/beyond/2rep/idle01.gif
+		
+anim	attack4
+	range	90 190
+	rangez	25 75
+	delay	20
+	offset	125 215
+	bbox	110 90 35 50
+	hitfx	data/sounds/beat4.wav
+	jumpframe	1 4 2 1
+	landframe	5 dust
+	quakeframe	5 10 5
+	frame	data/chars/beyond/2rep/upper01.gif
+	frame	data/chars/beyond/2rep/jump01.gif
+	attack	55 112 120 89 15 1 0 1 15 20
+	dropv	3 3 0.3
+	frame	data/chars/beyond/2rep/jump02.gif
+	frame	data/chars/beyond/2rep/jump03.gif
+	delay	300
+	frame	data/chars/beyond/2rep/jump04.gif
+	attack	0 0 0 0
+	delay	5
+	sound	data/sounds/bang2.wav
+	frame	data/chars/beyond/2rep/jump05.gif
+	frame	data/chars/beyond/2rep/jump05.gif
+	frame	data/chars/beyond/2rep/jump05.gif
+	frame	data/chars/beyond/2rep/jump06.gif
+	frame	data/chars/beyond/2rep/jump06.gif
+	frame	data/chars/beyond/2rep/jump06.gif
+	frame	data/chars/beyond/2rep/jump07.gif
+	frame	data/chars/beyond/2rep/jump07.gif
+	frame	data/chars/beyond/2rep/jump07.gif
+	frame	data/chars/beyond/2rep/upper01.gif
+	frame	data/chars/beyond/2rep/upper01.gif
+	frame	data/chars/beyond/2rep/upper01.gif
+		
+anim	attack5
+	range	90 190
+	rangez	-75 -25
+	delay	20
+	offset	125 215
+	bbox	110 90 35 50
+	hitfx	data/sounds/beat4.wav
+	jumpframe	1 4 2 -1
+	landframe	5 dust
+	quakeframe	5 10 5
+	frame	data/chars/beyond/2rep/upper01.gif
+	frame	data/chars/beyond/2rep/jump01.gif
+	attack	55 112 120 89 15 1 0 1 15 20
+	dropv	3 3 -0.3
+	frame	data/chars/beyond/2rep/jump02.gif
+	frame	data/chars/beyond/2rep/jump03.gif
+	delay	300
+	frame	data/chars/beyond/2rep/jump04.gif
+	attack	0 0 0 0
+	delay	5
+	sound	data/sounds/bang2.wav
+	frame	data/chars/beyond/2rep/jump05.gif
+	frame	data/chars/beyond/2rep/jump05.gif
+	frame	data/chars/beyond/2rep/jump05.gif
+	frame	data/chars/beyond/2rep/jump06.gif
+	frame	data/chars/beyond/2rep/jump06.gif
+	frame	data/chars/beyond/2rep/jump06.gif
+	frame	data/chars/beyond/2rep/jump07.gif
+	frame	data/chars/beyond/2rep/jump07.gif
+	frame	data/chars/beyond/2rep/jump07.gif
+	frame	data/chars/beyond/2rep/upper01.gif
+	frame	data/chars/beyond/2rep/upper01.gif
+	frame	data/chars/beyond/2rep/upper01.gif
+		
+anim	attack6
+	range	200 280
+	rangez	-15 15
+	loop	0
+	delay	11
+	offset	125 215
+	bbox	95 97 50 100
+	frame	data/chars/beyond/2rep/sp01.gif
+	frame	data/chars/beyond/2rep/sp02.gif
+	frame	data/chars/beyond/2rep/sp03.gif
+	frame	data/chars/beyond/2rep/sp04.gif
+	frame	data/chars/beyond/2rep/sp15.gif
+	offset	125 215
+	frame	data/chars/beyond/2rep/sp16.gif
+	@cmd	spawnAni "scball" 115 40 1 "ANI_FOLLOW2"
+	frame	data/chars/beyond/2rep/sp17.gif
+	frame	data/chars/beyond/2rep/sp18.gif
+	frame	data/chars/beyond/2rep/sp19.gif
+	offset	125 215
+	frame	data/chars/beyond/2rep/sp01.gif
+		
+anim	attack8
+	range	0 65
+	rangez	-15 15
+	loop	0
+	delay	9
+	offset	125 215
+	bbox	0 0 0 0
+	attackone	1
+	followanim	4
+	followcond	1
+	hitfx	data/sounds/grab.wav
+	frame	data/chars/beyond/2rep/grab00.gif
+	delay	15
+	attack	117 100 85 67 0 0 1 1 0 15
+	frame	data/chars/beyond/2rep/grab01.gif
+	attack	0 0 0 0
+	delay	9
+	frame	data/chars/beyond/2rep/grab00.gif
+		
+anim	block
+	loop	0
+	delay	5
+	offset	125 215
+	bbox	95 97 50 100
+	counterrange	1 11 1 1
+	followanim	5
+	move	-5
+	frame	data/chars/beyond/2rep/sp01.gif
+	frame	data/chars/beyond/2rep/sp01.gif
+	frame	data/chars/beyond/2rep/sp02.gif
+	frame	data/chars/beyond/2rep/sp02.gif
+	frame	data/chars/beyond/2rep/sp02.gif
+	frame	data/chars/beyond/2rep/sp02.gif
+	frame	data/chars/beyond/2rep/sp02.gif
+	move	0
+	delay	5
+	frame	data/chars/beyond/2rep/sp02.gif
+	@cmd	attack1 0 120 10 "ANI_FOLLOW5"
+	frame	data/chars/beyond/2rep/sp02.gif
+	@cmd	attack1 0 120 10 "ANI_FOLLOW5"
+	frame	data/chars/beyond/2rep/sp02.gif
+	@cmd	attack1 0 120 10 "ANI_FOLLOW5"
+	frame	data/chars/beyond/2rep/sp02.gif
+	@cmd	attack1 0 120 10 "ANI_FOLLOW5"
+	frame	data/chars/beyond/2rep/sp02.gif
+	@cmd	attack1 0 120 10 "ANI_FOLLOW5"
+	frame	data/chars/beyond/2rep/sp02.gif
+		
+anim	burn
+	loop	0
+	delay	30
+	offset	125 215
+	bbox	0 0 0 0
+	landframe	3
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 200_50_0
+	@cmd	spawnbind "burn1" 1 1 1
+	@cmd	spawnbind "burn2" 1 1 1
+	@cmd	spawnbind "burn3" 1 1 1
+	attack	95 95 29 43 5 1 0 0 13 0
+	frame	data/chars/beyond/2rep/fall1.gif
+	delay	10
+	attack	64 134 40 22 5 1 0 0 13
+	frame	data/chars/beyond/2rep/fall2.gif
+	attack	0 0 0 0
+	delay	300
+	frame	data/chars/beyond/2rep/fall3.gif
+	delay	15
+	frame	data/chars/beyond/2rep/fall4.gif
+		
+anim	death
+	loop	0
+	delay	12
+	offset	125 215
+	bbox	0 0 0 0
+	frame	data/chars/beyond/2rep/fall4.gif
+	frame	data/chars/beyond/2rep/rise0.gif
+	frame	data/chars/beyond/2rep/rise1.gif
+	frame	data/chars/beyond/2rep/rise2.gif
+	frame	data/chars/beyond/2rep/rise3.gif
+	frame	data/chars/beyond/2rep/jump06.gif
+	frame	data/chars/beyond/2rep/jump07.gif
+	frame	data/chars/beyond/2rep/pain0.gif
+	frame	data/chars/beyond/2rep/idle01.gif
+	frame	data/chars/beyond/2rep/det01.gif
+	frame	data/chars/beyond/2rep/det02.gif
+	delay	12
+	drawmethod	256 256 0 0 0 1 -1
+	frame	data/chars/beyond/2rep/det03.gif
+	nodrawmethod	
+	frame	data/chars/beyond/2rep/det03.gif
+	drawmethod	256 256 0 0 0 1 -1
+	frame	data/chars/beyond/2rep/det03.gif
+	nodrawmethod	
+	frame	data/chars/beyond/2rep/det03.gif
+	drawmethod	256 256 0 0 0 1 -1
+	frame	data/chars/beyond/2rep/det03.gif
+	nodrawmethod	
+	frame	data/chars/beyond/2rep/det03.gif
+	drawmethod	256 256 0 0 0 1 -1
+	frame	data/chars/beyond/2rep/det03.gif
+	nodrawmethod	
+	frame	data/chars/beyond/2rep/det03.gif
+	drawmethod	256 256 0 0 0 1 -1
+	frame	data/chars/beyond/2rep/det03.gif
+	nodrawmethod	
+	frame	data/chars/beyond/2rep/det03.gif
+	drawmethod	256 256 0 0 0 1 -1
+	frame	data/chars/beyond/2rep/det03.gif
+	nodrawmethod	
+	frame	data/chars/beyond/2rep/det03.gif
+	frame	data/chars/beyond/2rep/det03.gif
+	delay	6
+	drawmethod	256 256 0 0 0 1 -1
+	frame	data/chars/beyond/2rep/det04.gif #24
+	frame	data/chars/beyond/2rep/det05.gif
+	nodrawmethod	
+	frame	data/chars/beyond/2rep/det06.gif
+	frame	data/chars/beyond/2rep/det07.gif
+	drawmethod	256 256 0 0 0 1 -1
+	frame	data/chars/beyond/2rep/det08.gif
+	frame	data/chars/beyond/2rep/det09.gif
+	nodrawmethod	
+	frame	data/chars/beyond/2rep/det10.gif
+	frame	data/chars/beyond/2rep/det09.gif
+	drawmethod	256 256 0 0 0 1 -1
+	frame	data/chars/beyond/2rep/det08.gif
+	frame	data/chars/beyond/2rep/det07.gif
+	nodrawmethod	
+	frame	data/chars/beyond/2rep/det06.gif
+	frame	data/chars/beyond/2rep/det05.gif
+	@cmd	looper 24 3
+	frame	data/chars/beyond/2rep/det11.gif
+	@cmd	degravity 1
+	frame	data/chars/beyond/2rep/det11.gif
+	drawmethod	256 256 0 0 0 1 -1
+	@cmd	dasher 0 0.5 0
+	frame	data/chars/beyond/2rep/det11.gif
+	delay	250
+	frame	data/chars/beyond/2rep/det11.gif
+	delay	8
+	frame	data/chars/beyond/2rep/empty.gif
+	frame	data/chars/beyond/2rep/det11.gif
+	frame	data/chars/beyond/2rep/empty.gif
+	frame	data/chars/beyond/2rep/det11.gif
+	frame	data/chars/beyond/2rep/empty.gif
+	frame	data/chars/beyond/2rep/det11.gif
+	frame	data/chars/beyond/2rep/empty.gif
+	frame	data/chars/beyond/2rep/det11.gif
+	frame	data/chars/beyond/2rep/empty.gif
+	frame	data/chars/beyond/2rep/det11.gif
+	frame	data/chars/beyond/2rep/empty.gif
+	frame	data/chars/beyond/2rep/det11.gif
+	frame	data/chars/beyond/2rep/empty.gif
+		
+anim	fall
+	loop	0
+	delay	30
+	offset	125 215
+	bbox	0 0 0 0
+	landframe 3
+	attack	95 95 29 43 5 1 0 0 13 0
+	frame	data/chars/beyond/2rep/fall1.gif
+	delay	10
+	attack	64 134 40 22 5 1 0 0 13
+	frame	data/chars/beyond/2rep/fall2.gif
+	attack	0 0 0 0
+	delay	300
+	frame	data/chars/beyond/2rep/fall3.gif
+	delay	15
+	bbox	60 195 145 25
+	frame	data/chars/beyond/2rep/fall4.gif
+		
+anim	fall10
+	loop	0
+	delay	10
+	offset	125 215
+	bbox	90 97 50 80
+	landframe	4
+	attack	95 104 28 50 5 1 0 0 13 0
+	frame	data/chars/beyond/2rep/pain6.gif
+	delay	40
+	frame	data/chars/beyond/2rep/pain7.gif
+	delay	30
+	bbox	71 132 63 30
+	attack	64 134 40 22 5 1 0 0 13
+	frame	data/chars/beyond/2rep/fall1.gif
+	delay	1000
+	bbox	77 154 67 31
+	attack	0 0 0 0
+	frame	data/chars/beyond/2rep/fall2.gif
+	bbox	60 195 145 25
+	frame	data/chars/beyond/2rep/fall4.gif
+		
+anim	fall11
+	loop	0
+	delay	20
+	offset	110 210
+	bbox	61 203 90 7	
+	frame	data/chars/beyond/2rep/pain12.gif
+	delay	35
+	frame	data/chars/beyond/2rep/fall4.gif
+		
+anim	fall2
+	loop	0
+	delay	30
+	offset	125 215
+	bbox	0 0 0 0
+	attack	100 104 28 44 5 1 0 0 13 0
+	frame	data/chars/beyond/2rep/pain6.gif
+	delay	10
+	attack	64 134 40 22 5 1 0 0 13
+	frame	data/chars/beyond/2rep/fall2.gif
+	attack	0 0 0 0
+	frame	data/chars/beyond/2rep/fall3.gif
+	frame	data/chars/beyond/2rep/fall4.gif
+		
+anim	fall4
+	loop	0
+	delay	6
+	offset	110 210
+	bbox	0 0 0 0
+	jumpframe	0 1.2 1.5
+	frame	data/chars/beyond/2rep/pain8.gif
+	frame	data/chars/beyond/2rep/pain9.gif
+	frame	data/chars/beyond/2rep/pain10.gif
+	@cmd	leaper 0 0.2 0
+	frame	data/chars/beyond/2rep/pain11.gif
+	frame	data/chars/beyond/2rep/fall4.gif
+	frame	data/chars/beyond/2rep/fall5.gif
+	bbox	58 193 95 15
+	frame	data/chars/beyond/2rep/fall4.gif
+		
+anim	fall7
+	delay	1000
+	offset	105 130
+	frame	data/chars/beyond/2rep/slamck0.gif
+	offset	100 110
+	frame	data/chars/beyond/2rep/slamck1.gif
+	offset	106 130
+	frame	data/chars/beyond/2rep/slamck2.gif
+	offset	115 125
+	frame	data/chars/beyond/2rep/slamck3.gif
+	offset	125 125
+	frame	data/chars/beyond/2rep/slamck4.gif
+	offset	108 122
+	frame	data/chars/beyond/2rep/slamck5.gif
+	offset	106 155
+	frame	data/chars/beyond/2rep/slamck6.gif
+	offset	125 140
+	frame	data/chars/beyond/2rep/slamck7.gif
+	offset	120 105
+	frame	data/chars/beyond/2rep/slamck8.gif
+	offset	100 130
+	frame	data/chars/beyond/2rep/slamck9.gif
+		
+anim	fall9
+	loop	0
+	delay	10
+	offset	125 215
+	bbox	0 0 0 0
+	quakeframe	2 5 5
+	landframe	2 dust
+	attack	90 103 40 43 5 1 0 0 13 0
+	frame	data/chars/beyond/2rep/fall1.gif
+	delay	350
+	attack	75 159 42 31 5 1 0 0 13
+	frame	data/chars/beyond/2rep/fall2.gif
+	offset	121 175
+	delay	2
+	move	-4
+	frame	data/chars/beyond/2rep/fall3.gif
+	frame	data/chars/beyond/2rep/fall3.gif
+	attack	0 0 0 0
+	frame	data/chars/beyond/2rep/fall3.gif
+	@cmd	looper 3 5
+	offset	125 215
+	move	-3
+	frame	data/chars/beyond/2rep/fall4.gif
+	frame	data/chars/beyond/2rep/fall4.gif
+	frame	data/chars/beyond/2rep/fall4.gif
+	@cmd	looper 6 4
+	move	-2
+	frame	data/chars/beyond/2rep/fall5.gif
+	frame	data/chars/beyond/2rep/fall5.gif
+	frame	data/chars/beyond/2rep/fall5.gif
+	loop	0
+	delay	15
+	move	0
+	bbox	60 195 145 25
+	frame	data/chars/beyond/2rep/fall4.gif
+
+
+		
+anim	follow1
+	loop	0
+	delay	9
+	offset	125 215
+	bbox	0 0 0 0
+	hitfx	data/sounds/sl2.wav
+	hitflash	Flash4
+	frame	data/chars/beyond/2rep/a10.gif
+	frame	data/chars/beyond/2rep/a15.gif
+	@cmd	dasher 2 0 0
+	frame	data/chars/beyond/2rep/a16.gif
+	attack	115 80 100 70 15 1 0 0 25 12
+	dropv	3 4
+	frame	data/chars/beyond/2rep/a17.gif
+	@cmd	dasher 1 0 0
+	frame	data/chars/beyond/2rep/a18.gif
+	delay	11
+	frame	data/chars/beyond/2rep/a19.gif
+	@cmd	stop
+	attack	0 0 0 0
+	frame	data/chars/beyond/2rep/a20.gif
+	frame	data/chars/beyond/2rep/idle01.gif
+		
+anim	follow10
+	loop	1
+	delay	15
+	offset	125 215
+	bbox	0 0 0 0
+	frame	data/chars/beyond/2rep/det03.gif
+	@cmd	attack1 0 180 500 "ANI_SPAWN"
+	frame	data/chars/beyond/2rep/det03.gif
+	@cmd	attack1 0 180 500 "ANI_SPAWN"
+	frame	data/chars/beyond/2rep/det03.gif
+	@cmd	attack1 0 180 500 "ANI_SPAWN"
+	frame	data/chars/beyond/2rep/det03.gif
+	@cmd	attack1 0 180 500 "ANI_SPAWN"
+	frame	data/chars/beyond/2rep/det03.gif
+		
+anim	follow12
+	loop	0
+	delay	150
+	offset	125 215
+	bbox	0 0 0 0
+	jumpframe	30 4.5 0 1.2
+	landframe	32 dust
+	quakeframe	32 10 5
+	frame	data/chars/beyond/2rep/empty.gif
+	delay	14
+	frame	data/chars/beyond/2rep/empty.gif
+	@cmd	spawnGun5 "byowater" 1 8 1.5 2 "ANI_FOLLOW1"
+	frame	data/chars/beyond/2rep/spawn01.gif
+	frame	data/chars/beyond/2rep/spawn02.gif
+	frame	data/chars/beyond/2rep/spawn03.gif
+	frame	data/chars/beyond/2rep/spawn04.gif
+	frame	data/chars/beyond/2rep/spawn05.gif
+	frame	data/chars/beyond/2rep/spawn06.gif
+	frame	data/chars/beyond/2rep/spawn07.gif
+	frame	data/chars/beyond/2rep/spawn08.gif
+	frame	data/chars/beyond/2rep/spawn09.gif
+	frame	data/chars/beyond/2rep/spawn10.gif
+	frame	data/chars/beyond/2rep/spawn11.gif
+	frame	data/chars/beyond/2rep/spawn12.gif
+	frame	data/chars/beyond/2rep/spawn13.gif
+	frame	data/chars/beyond/2rep/spawn14.gif
+	frame	data/chars/beyond/2rep/spawn15.gif
+	frame	data/chars/beyond/2rep/spawn16.gif
+	frame	data/chars/beyond/2rep/spawn17.gif
+	frame	data/chars/beyond/2rep/spawn18.gif
+	frame	data/chars/beyond/2rep/spawn19.gif
+	frame	data/chars/beyond/2rep/spawn20.gif
+	frame	data/chars/beyond/2rep/spawn21.gif
+	frame	data/chars/beyond/2rep/spawn22.gif
+	frame	data/chars/beyond/2rep/spawn23.gif
+	frame	data/chars/beyond/2rep/spawn24.gif
+	frame	data/chars/beyond/2rep/spawn25.gif
+	frame	data/chars/beyond/2rep/spawn26.gif
+	frame	data/chars/beyond/2rep/spawn27.gif
+	delay	30
+	frame	data/chars/beyond/2rep/spawn27.gif
+	delay	5
+	@cmd	killgun 2 0
+	frame	data/chars/beyond/2rep/pain5.gif #30
+	delay	300
+	frame	data/chars/beyond/2rep/pain5.gif
+	delay	5
+	sound	data/sounds/bang2.wav
+	frame	data/chars/beyond/2rep/jump07.gif
+	frame	data/chars/beyond/2rep/jump07.gif
+	frame	data/chars/beyond/2rep/jump07.gif
+	@cmd	subwall 1
+	frame	data/chars/beyond/2rep/pain0.gif
+	frame	data/chars/beyond/2rep/pain0.gif
+	frame	data/chars/beyond/2rep/pain0.gif
+		
+anim	follow2
+	loop	0
+	delay	30
+	offset	125 215
+	bbox	0 0 0 0
+	@cmd	slamstart2
+	@cmd	position 15 28 40 -1 1
+	frame	data/chars/beyond/2rep/grab15.gif
+	delay	20
+	@cmd	position 1 15 80 1 1
+	frame	data/chars/beyond/2rep/grab16.gif
+	@cmd	position 10 -20 155 1 -1
+	frame	data/chars/beyond/2rep/grab17.gif
+	@cmd	position 9 -10 160 1 -1
+	frame	data/chars/beyond/2rep/grab18.gif
+	delay	40
+	@cmd	position 9 -13 163 1 -1
+	frame	data/chars/beyond/2rep/grab19.gif
+	delay	14
+	delay	1
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 2 65 120 1 1
+	frame	data/chars/beyond/2rep/grab20.gif
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 2 65 120 1 1
+	frame	data/chars/beyond/2rep/grab20.gif
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 2 65 120 1 1
+	frame	data/chars/beyond/2rep/grab20.gif
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 2 65 120 1 1
+	frame	data/chars/beyond/2rep/grab20.gif
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 2 65 120 1 1
+	frame	data/chars/beyond/2rep/grab20.gif
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 2 65 120 1 1
+	frame	data/chars/beyond/2rep/grab20.gif
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 2 65 120 1 1
+	frame	data/chars/beyond/2rep/grab20.gif
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 2 65 120 1 1
+	frame	data/chars/beyond/2rep/grab20.gif
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 2 65 120 1 1
+	frame	data/chars/beyond/2rep/grab20.gif
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 2 65 120 1 1
+	frame	data/chars/beyond/2rep/grab20.gif
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 2 65 120 1 1
+	frame	data/chars/beyond/2rep/grab20.gif
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 2 65 120 1 1
+	frame	data/chars/beyond/2rep/grab20.gif
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 2 65 120 1 1
+	frame	data/chars/beyond/2rep/grab20.gif
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 2 25 120 1 1
+	frame	data/chars/beyond/2rep/grab20.gif
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 2 65 120 1 1
+	frame	data/chars/beyond/2rep/grab20.gif
+	delay	14
+	@cmd	depost 0
+	@cmd	finish 35 1 4 1 0 0
+	frame	data/chars/beyond/2rep/grab21.gif
+	frame	data/chars/beyond/2rep/grab22.gif
+	frame	data/chars/beyond/2rep/grab23.gif
+	frame	data/chars/beyond/2rep/grab24.gif
+		
+anim	follow4
+	loop	0
+	delay	30
+	offset	125 215
+	bbox	0 0 0 0
+	@cmd	slamstart2
+	@cmd	position 7 45 10 1 -1
+	frame	data/chars/beyond/2rep/grab01.gif
+	delay	15
+	@cmd	position 0 60 40 1 -1
+	frame	data/chars/beyond/2rep/grab02.gif
+	@cmd	position 15 60 45 1 -1
+	frame	data/chars/beyond/2rep/grab03.gif
+	delay	65
+	@cmd	position 15 60 47 1 -1
+	frame	data/chars/beyond/2rep/grab04.gif
+	delay	2
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 15 55 53 1 -1
+	frame	data/chars/beyond/2rep/grab05.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 15 55 53 1 -1
+	frame	data/chars/beyond/2rep/grab05.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 15 55 53 1 -1
+	frame	data/chars/beyond/2rep/grab05.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 15 55 53 1 -1
+	frame	data/chars/beyond/2rep/grab05.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 15 55 53 1 -1
+	frame	data/chars/beyond/2rep/grab05.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 15 55 53 1 -1
+	frame	data/chars/beyond/2rep/grab05.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 15 55 53 1 -1
+	frame	data/chars/beyond/2rep/grab05.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 7 65 65 1 -1
+	frame	data/chars/beyond/2rep/grab06.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 7 65 65 1 -1
+	frame	data/chars/beyond/2rep/grab06.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 7 65 65 1 -1
+	frame	data/chars/beyond/2rep/grab06.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 7 65 65 1 -1
+	frame	data/chars/beyond/2rep/grab06.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 7 65 65 1 -1
+	frame	data/chars/beyond/2rep/grab06.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 7 65 65 1 -1
+	frame	data/chars/beyond/2rep/grab06.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 7 65 65 1 -1
+	frame	data/chars/beyond/2rep/grab06.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 7 25 65 1 -1
+	frame	data/chars/beyond/2rep/grab06.gif
+	delay	14
+	@cmd	depost 0
+	@cmd	finish 35 1 -4 2 0 0
+	@cmd	spawn01 "flashscreen1" 100 120 3
+	sound	data/sounds/beat4.wav
+	frame	data/chars/beyond/2rep/grab07.gif
+	delay	30
+	frame	data/chars/beyond/2rep/grab08.gif
+	delay	14
+	frame	data/chars/beyond/2rep/grab09.gif
+	frame	data/chars/beyond/2rep/grab00.gif
+		
+anim	follow9
+	loop	0
+	delay	11
+	offset	125 215
+	bbox	0 0 0 0
+	quakeframe	4 10 5
+	jumpframe	0 5 3 0
+	landframe	4 dust
+	frame	data/chars/beyond/2rep/jump01.gif
+	frame	data/chars/beyond/2rep/jump02.gif
+	frame	data/chars/beyond/2rep/jump03.gif
+	delay	300
+	frame	data/chars/beyond/2rep/jump04.gif
+	delay	4
+	frame	data/chars/beyond/2rep/jump05.gif
+	bbox	95 97 50 100
+	sound	data/sounds/bang2.wav
+	frame	data/chars/beyond/2rep/jump05.gif
+	frame	data/chars/beyond/2rep/jump05.gif
+	frame	data/chars/beyond/2rep/jump06.gif
+	frame	data/chars/beyond/2rep/jump06.gif
+	frame	data/chars/beyond/2rep/jump06.gif
+	frame	data/chars/beyond/2rep/jump07.gif
+	frame	data/chars/beyond/2rep/jump07.gif
+	frame	data/chars/beyond/2rep/jump07.gif
+		
+anim	grabbed
+	loop	0
+	delay	10
+	offset	125 215
+	bbox	95 97 50 100
+	frame	data/chars/beyond/2rep/grabbed.gif
+		
+anim	idle
+	loop	1
+	delay	9
+	offset	125 215
+	bbox	95 97 50 100
+	@cmd	clearL
+	frame	data/chars/beyond/2rep/idle01.gif
+	frame	data/chars/beyond/2rep/idle02.gif
+	frame	data/chars/beyond/2rep/idle03.gif
+	frame	data/chars/beyond/2rep/idle04.gif
+	frame	data/chars/beyond/2rep/idle03.gif
+	frame	data/chars/beyond/2rep/idle02.gif
+		
+anim	pain
+	loop	0
+	delay	3
+	offset	125 215
+	bbox	95 97 50 100
+	frame	data/chars/beyond/2rep/pain0.gif
+	offset	122 215
+	frame	data/chars/beyond/2rep/pain1.gif
+	offset	129 215
+	frame	data/chars/beyond/2rep/pain1.gif
+	delay	40
+	offset	122 215
+	frame	data/chars/beyond/2rep/pain1.gif
+		
+anim	pain10
+	loop	0
+	delay	1
+	offset	125 215
+	bbox	95 97 50 100
+	jumpframe	1 5 0 0
+	frame	data/chars/beyond/2rep/pain1.gif
+	delay	45
+	offset	105 185
+	bbox	0 0 0 0
+	frame	data/chars/beyond/2rep/pain5.gif
+	delay	7
+	offset	125 205
+	frame	data/chars/beyond/2rep/pain4.gif
+	delay	52
+	offset	115 220
+	frame	data/chars/beyond/2rep/pain3.gif
+	delay	4
+	offset	125 215
+	move	12
+	frame	data/chars/beyond/2rep/fall4.gif
+	move	0
+	frame	data/chars/beyond/2rep/fall5.gif
+	frame	data/chars/beyond/2rep/fall4.gif
+	frame	data/chars/beyond/2rep/fall5.gif
+	delay	55
+	frame	data/chars/beyond/2rep/fall4.gif
+	delay	3
+	bbox	88 118 32 23
+	frame	data/chars/beyond/2rep/fall4.gif
+	bbox	0 0 0 0
+	delay	19
+	offset	125 215
+	frame	data/chars/beyond/2rep/rise1.gif
+	delay	13
+	frame	data/chars/beyond/2rep/rise2.gif
+	frame	data/chars/beyond/2rep/rise3.gif
+
+		
+anim	pain2
+	loop	0
+	delay	3
+	offset	125 215
+	bbox	95 97 50 100
+	frame	data/chars/beyond/2rep/pain0.gif
+	offset	122 215
+	frame	data/chars/beyond/2rep/pain2.gif
+	offset	129 215
+	frame	data/chars/beyond/2rep/pain2.gif
+	delay	40
+	offset	122 215
+	frame	data/chars/beyond/2rep/pain2.gif
+		
+anim	pain3
+	loop	0
+	delay	1
+	offset	125 215
+	bbox	95 97 50 100
+	jumpframe	1 2 -1 0
+	frame	data/chars/beyond/2rep/pain1.gif
+	delay	25
+	frame	data/chars/beyond/2rep/fall2.gif
+	delay	12
+	frame	data/chars/beyond/2rep/fall3.gif
+	delay	4
+	bbox	71 175 67 30
+	frame	data/chars/beyond/2rep/fall4.gif
+	frame	data/chars/beyond/2rep/fall5.gif
+	frame	data/chars/beyond/2rep/fall4.gif
+	frame	data/chars/beyond/2rep/fall5.gif
+	delay	15
+	bbox	0 0 0 0
+	frame	data/chars/beyond/2rep/fall4.gif
+	delay	10
+	frame	data/chars/beyond/2rep/rise1.gif
+	frame	data/chars/beyond/2rep/rise2.gif
+	frame	data/chars/beyond/2rep/rise3.gif
+		
+anim	pain4
+	loop	0
+	delay	2
+	offset	125 215
+	bbox	0 0 0 0
+	move	-11
+	attack	75 160 37 33 3 1 1 0 13
+	frame	data/chars/beyond/2rep/fall3.gif
+	frame	data/chars/beyond/2rep/fall3.gif
+	frame	data/chars/beyond/2rep/fall3.gif
+	frame	data/chars/beyond/2rep/fall3.gif
+	frame	data/chars/beyond/2rep/fall3.gif
+	frame	data/chars/beyond/2rep/fall3.gif
+	frame	data/chars/beyond/2rep/fall3.gif
+	frame	data/chars/beyond/2rep/fall3.gif
+	frame	data/chars/beyond/2rep/fall3.gif
+	frame	data/chars/beyond/2rep/fall3.gif
+	frame	data/chars/beyond/2rep/fall3.gif
+	frame	data/chars/beyond/2rep/fall3.gif
+	move	-6
+	attack	0 0 0 0
+	frame	data/chars/beyond/2rep/fall4.gif
+	frame	data/chars/beyond/2rep/fall4.gif
+	frame	data/chars/beyond/2rep/fall4.gif
+	frame	data/chars/beyond/2rep/fall4.gif
+	move	-3
+	frame	data/chars/beyond/2rep/fall4.gif
+	frame	data/chars/beyond/2rep/fall4.gif
+	move	0
+	delay	20
+	bbox	0 0 0 0
+	frame	data/chars/beyond/2rep/fall4.gif
+	delay	10
+	frame	data/chars/beyond/2rep/rise1.gif
+	frame	data/chars/beyond/2rep/rise2.gif
+	frame	data/chars/beyond/2rep/rise3.gif
+		
+anim	pain5
+	loop	0
+	delay	23
+	offset	125 215
+	bbox	95 97 50 100
+	frame	data/chars/beyond/2rep/pain1.gif
+		
+anim	pain6
+	loop	0
+	delay	23
+	offset	125 215
+	bbox	95 97 50 100
+	frame	data/chars/beyond/2rep/pain2.gif
+		
+anim	pain8
+	loop	0
+	delay	2
+	offset	125 215
+	bbox	95 97 50 100
+	move	-6
+	frame	data/chars/beyond/2rep/pain1.gif
+	frame	data/chars/beyond/2rep/pain1.gif
+	frame	data/chars/beyond/2rep/pain1.gif
+	frame	data/chars/beyond/2rep/pain2.gif
+	frame	data/chars/beyond/2rep/pain2.gif
+	frame	data/chars/beyond/2rep/pain2.gif
+	move	-3
+	frame	data/chars/beyond/2rep/pain2.gif
+	frame	data/chars/beyond/2rep/pain2.gif
+	move	-1
+	frame	data/chars/beyond/2rep/pain2.gif
+	delay	35
+	frame	data/chars/beyond/2rep/pain2.gif
+		
+anim	pain9
+	loop	0
+	delay	15
+	offset	125 215
+	bbox	95 97 50 100
+	frame	data/chars/beyond/2rep/pain1.gif
+	delay	150
+	frame	data/chars/beyond/2rep/pain2.gif
+		
+anim	rise
+	loop	0
+	delay	12
+	offset	125 215
+	bbox	0 0 0 0
+	frame	data/chars/beyond/2rep/fall4.gif
+	frame	data/chars/beyond/2rep/rise0.gif
+	frame	data/chars/beyond/2rep/rise1.gif
+	frame	data/chars/beyond/2rep/rise2.gif
+	frame	data/chars/beyond/2rep/rise3.gif
+	frame	data/chars/beyond/2rep/jump06.gif
+	frame	data/chars/beyond/2rep/jump07.gif
+	frame	data/chars/beyond/2rep/pain0.gif
+		
+anim	spawn
+	loop	0
+	delay	12
+	offset	125 215
+	bbox	0 0 0 0
+	frame	data/chars/beyond/2rep/det03.gif
+	@cmd	subwall 1
+	frame	data/chars/beyond/2rep/det02.gif
+	frame	data/chars/beyond/2rep/det01.gif
+	frame	data/chars/beyond/2rep/a01.gif
+
+
+
+anim	follow17
+@script
+if(frame==2)
+{
+void self = getlocalvar("self");
+changeentityproperty(self, "candamage",openborconstant("TYPE_PLAYER"));
+changeentityproperty(self, "hostile",openborconstant("TYPE_PLAYER"));
+}
+@end_script
+	loop	0
+	delay	12
+	offset	125 215
+	bbox	0 0 0 0
+	frame	data/chars/beyond/2rep/det03.gif
+	@cmd	subwall 1
+	frame	data/chars/beyond/2rep/det02.gif
+	frame	data/chars/beyond/2rep/det01.gif
+	frame	data/chars/beyond/2rep/a01.gif
+
+
+
+		
+anim	special
+	loop	0
+	delay	9
+	offset	125 215
+	bbox	0 0 0 0
+	followanim	2
+	followcond	1
+	fastattack	1
+	hitfx	data/sounds/grab.wav
+	frame	data/chars/beyond/2rep/grab15.gif
+	attack	110 100 85 65 0 0 1 1 0 15
+	frame	data/chars/beyond/2rep/grab09.gif
+	frame	data/chars/beyond/2rep/grab15.gif
+	frame	data/chars/beyond/2rep/idle01.gif
+		
+anim	special2
+	loop	0
+	delay	12
+	offset	125 215
+	bbox	0 0 0 0
+	frame	data/chars/beyond/2rep/sp01.gif
+	@cmd	dasher 1.5 0 0
+	frame	data/chars/beyond/2rep/sp02.gif
+	frame	data/chars/beyond/2rep/sp03.gif
+	frame	data/chars/beyond/2rep/sp04.gif
+	delay	9
+	@cmd	dasher 1 0 0
+	attack	60 60 85 85 8 1 0 0 12 15
+	frame	data/chars/beyond/2rep/sp05.gif
+	frame	data/chars/beyond/2rep/sp06.gif
+	frame	data/chars/beyond/2rep/sp07.gif
+	frame	data/chars/beyond/2rep/sp08.gif
+	@cmd	stop
+	frame	data/chars/beyond/2rep/sp09.gif
+	attack	0 0 0 0
+	delay	14
+	frame	data/chars/beyond/2rep/sp02.gif
+	frame	data/chars/beyond/2rep/sp01.gif
+		
+anim	upper
+	range	0 180
+	rangez	-15 15
+	loop	0
+	delay	8
+	offset	125 215
+	bbox	0 0 0 0
+	hitflash	flashscreen1
+	hitfx	data/sounds/beat4.wav
+	@cmd	dasher 1 0 0
+	frame	data/chars/beyond/2rep/upper01.gif
+	frame	data/chars/beyond/2rep/upper02.gif
+	frame	data/chars/beyond/2rep/upper03.gif
+	attack	150 50 90 110 18 1 0 0 30 15
+	dropv	6 1
+	frame	data/chars/beyond/2rep/upper04.gif
+	attack	135 55 100 90 18 1 0 0 30 15
+	dropv	6 1
+	frame	data/chars/beyond/2rep/upper05.gif
+	@cmd	stop
+	delay	20
+	frame	data/chars/beyond/2rep/upper06.gif
+	attack	0 0 0 0
+	delay	12
+	frame	data/chars/beyond/2rep/upper07.gif
+	frame	data/chars/beyond/2rep/upper01.gif
+		
+anim	walk
+	loop	1
+	delay	12
+	offset	125 215
+	bbox	95 97 50 100
+	frame	data/chars/beyond/2rep/wk01.gif
+	frame	data/chars/beyond/2rep/wk02.gif
+	frame	data/chars/beyond/2rep/wk03.gif
+	sound	data/sounds/step.wav
+	frame	data/chars/beyond/2rep/wk04.gif
+	frame	data/chars/beyond/2rep/wk05.gif
+	frame	data/chars/beyond/2rep/wk06.gif
+	frame	data/chars/beyond/2rep/wk07.gif
+	frame	data/chars/beyond/2rep/wk08.gif
+	sound	data/sounds/step.wav
+	frame	data/chars/beyond/2rep/wk09.gif
+	frame	data/chars/beyond/2rep/wk10.gif
+	frame	data/chars/beyond/2rep/wk11.gif
+	frame	data/chars/beyond/2rep/wk12.gif
+		
+#|edited by openBor Stats v 0.53
+		

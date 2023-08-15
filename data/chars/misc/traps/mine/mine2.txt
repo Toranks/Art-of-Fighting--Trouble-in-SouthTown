@@ -1,0 +1,73 @@
+name      mine2
+nolife    1
+type      trap
+facing	  1
+nomove	  1 1
+lifespan  6
+offscreenkill 	2000
+hostile   player
+subject_to_hole 0
+subject_to_wall 0
+candamage player
+
+animationscript data/scripts/escript.c
+
+load	explosion5
+load	brkmetal2
+load	lookout
+
+
+
+
+
+		
+anim	idle
+	loop	1
+	delay	1
+	offset	30 20
+	move	-5
+	frame	data/chars/misc/traps/mine/mine02.gif
+	@cmd	attack1 -100 100 20 "ANI_ATTACK1"
+	frame	data/chars/misc/traps/mine/mine02.gif
+	@cmd	attack1 -100 100 20 "ANI_ATTACK1"
+	frame	data/chars/misc/traps/mine/mine02.gif
+	@cmd	attack1 -100 100 20 "ANI_ATTACK1"
+	frame	data/chars/misc/traps/mine/mine02.gif
+
+
+
+anim	attack1
+	loop	0
+	delay	6
+	offset	30 20
+	sound	data/sounds/mineclk.wav
+	frame	data/chars/misc/traps/mine/empty.gif
+	@cmd	spawn01 "explosion5" 1 1 1
+	frame	data/chars/misc/traps/mine/empty.gif
+	@cmd	tosser "brkmetal2" 1 1 1 0.3 4.5 0
+	@cmd	tosser "brkmetal2" 1 5 1 0 5 0
+	@cmd	tosser "brkmetal2" 1 1 1 -0.3 4.5 0
+	frame	data/chars/misc/traps/mine/empty.gif
+	@cmd	suicide
+	frame	data/chars/misc/traps/mine/empty.gif
+
+
+
+anim	spawn
+	loop	0
+	delay	8
+	offset	30 20
+	custentity	lookout
+	spawnframe	1 470 90 0 1
+	frame	data/chars/misc/traps/mine/empty.gif
+	frame	data/chars/misc/traps/mine/empty.gif
+	frame	data/chars/misc/traps/mine/empty.gif
+
+
+
+
+
+
+		
+#|edited by openBor Stats v 0.53
+		

@@ -1,0 +1,69 @@
+name	 rocket2
+health   0
+speed    6
+type     enemy
+jumpheight 1
+shadow	   0
+nolife     1
+hostile				player 
+candamage			player npc
+lifespan  15
+offscreenkill 	5000
+subject_to_platform 0
+subject_to_wall 0
+subject_to_obstacle 0
+animationscript data/scripts/escript.c
+
+
+load	explosion5
+load	mseffect
+
+
+
+
+anim	attack1
+	loop	0
+	delay	3
+	offset	55 50
+	hitfx	data/sounds/fire.wav
+	quakeframe	1 10 7
+	@cmd	spawn01 "explosion5" 0 0 1
+	attack	25 20 60 50 8 0 1 0 10 40
+	frame	data/chars/3deterrent/damage/rocket03.gif
+	attack	0 0 0 0
+	frame	data/chars/3deterrent/damage/grdempty.gif
+		
+anim	death
+	loop	0
+	delay	3
+	offset	55 50
+	quakeframe	1 10 7
+	@cmd	spawn01 "explosion5" 0 0 1
+	attack	-30 -20 150 110 8 0 1 0 10 40
+	frame	data/chars/3deterrent/damage/rocket03.gif
+	attack	0 0 0 0
+	@cmd	spawn01 "mseffect" -25 25 1
+	frame	data/chars/3deterrent/damage/grdempty.gif
+		
+anim	idle
+	loop	1
+	delay	2
+	offset	55 50
+	bbox	0 0 0 0
+	@cmd	degravity 0.8
+	@cmd	spawn01 "mseffect" 0 25 1
+	frame	data/chars/3deterrent/damage/rocket03.gif
+	frame	data/chars/3deterrent/damage/rocket04.gif
+	@cmd	spawn01 "mseffect" 0 25 1
+	frame	data/chars/3deterrent/damage/rocket03.gif
+	frame	data/chars/3deterrent/damage/rocket04.gif
+		
+anim	spawn
+	loop	0
+	delay	3
+	offset	55 50
+	bbox	0 0 0 0
+	frame	data/chars/3deterrent/damage/rocket03.gif
+		
+#|edited by openBor Stats v 0.53
+		

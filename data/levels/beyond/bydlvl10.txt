@@ -1,0 +1,929 @@
+music		data/music/wind.ogg
+
+
+background	data/bgs/beyond/lvl9/back.gif 1 1
+bglayer		data/bgs/beyond/lvl10/back2.gif 0 0 0 475 0 0 -1 1 1 0 0 0 0 0 0.8
+panel		data/bgs/beyond/lvl10/panel.gif
+fglayer		data/bgs/beyond/lvl10/light2.gif 1000 0 0 90 -10 0 0 1 1 1 1 1 2 15 1
+fglayer		data/bgs/beyond/lvl10/front.gif 1200 0 0 0 -5 0 0 1 1 1 0 0 0 0 0
+fglayer		data/bgs/beyond/lvl10/light.gif 2000 0 0 880 400 0 0 1 1 1 1 1 2 15 1
+fglayer		data/bgs/beyond/lvl10/light3.gif 2000 0 0 4190 440 0 0 1 1 1 1 1 2 15 1
+fglayer	        data/bgs/beyond/lvl10/dark.gif 8000 1 1 -5 -5 0 0 1 1 1 2 0 0 0 0 0
+
+direction       both
+light  		-155   -55
+at       	0
+settime         0
+notime          1
+noslow          1
+order		a
+spawn1  	185 10
+spawn2  	190 15
+spawn3  	195 20
+
+bgspeed			1
+cameraoffset            0 -90
+cameratype              1
+
+#----------------------
+wall    -120 820  0 0 1310 1190 150 5000
+wall    -50 1010  0 0 310 100 250 5000
+wall    20 1010  230 20 1050 800 250 510
+wall    4250 840  0 0 320 170 150 5000
+wall    4130 1030  0 0 1230 1355 125 5000
+wall    5130 1040  0 350 700 700 350 5000
+wall    4698 790  0 100 330 230 50 5000
+
+#-----------------------
+spawn   stgSET8
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW3"));
+} @end_script
+coords  -500 515 350
+at      0
+#----------------------------------
+spawn   byoplat2
+coords  1070 795 500
+at      0
+
+spawn   byocont3
+flip    1
+item    orb
+coords  1570 795
+at      0
+
+spawn   byocont3
+flip    1
+item    testla
+coords  2240 795
+at      0
+
+spawn   byocont2
+flip    1
+item    fluid
+coords  2600 930
+at      0
+
+spawn   source
+flip    1
+item    fluid
+coords  4550 800
+at      0
+
+spawn   source
+item    ssoul
+coords  5140 800
+at      0
+
+spawn   byojar2
+flip    1
+item    herb
+coords  3360 790
+at      0
+
+spawn   byojar2
+flip    1
+item    byofoot
+coords  3500 790
+at      0
+
+spawn   byojar2
+flip    1
+item    gold
+coords  3640 790
+at      0
+
+spawn   byojar
+flip    1
+item    byopris
+coords  3810 790
+at      0
+
+spawn   byojar2
+flip    1
+item    byogem
+coords  3260 945
+at      0
+
+spawn   byojar2
+flip    1
+item    gold
+coords  3400 945
+at      0
+
+spawn   byojar2
+flip    1
+item    byofoot
+coords  3540 945
+at      0
+
+spawn   byojar
+flip    1
+item    charge
+coords  3750 945
+at      0
+
+#------------------------------
+
+spawn   cybcann
+flip    1
+coords  1400 830
+at      0
+
+spawn   cybcann
+flip    1
+coords  1350 950
+at      0
+
+spawn   cybcann
+flip    1
+item    crystal
+coords  2950 880
+at      0
+
+spawn   cybelect
+flip    1
+coords  3180 880
+at      0
+
+spawn   cybelect
+flip    1
+coords  3340 880
+at      0
+
+spawn   cybelect
+flip    1
+coords  3480 880
+at      0
+
+spawn   cybelect
+flip    1
+coords  3630 880
+at      0
+
+spawn   cybcann
+flip    1
+item    crystal
+coords  4050 880
+at      0
+
+spawn   byocont2
+flip    1
+item    charge
+coords  4020 960
+at      0
+
+#----door-----
+spawn   byodoor1
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+} @end_script
+flip    1
+map     1
+health  350
+coords  4347 860
+at      0
+
+#-------------begin-----------------
+blockade 345
+at      345
+
+#------------------------------
+
+group	1 1
+at  	345
+wait
+at   	345
+
+spawn   byomonitor
+spawnscript data/scripts/noscpos.c
+coords  490 145
+at      345
+
+group	4 4
+at   	345
+wait
+at   	345
+
+spawn   morph
+spawnscript data/scripts/noscpos.c
+flip    1
+map     2
+health  350
+coords  480 860 520
+at      345
+
+spawn   morph
+spawnscript data/scripts/noscpos.c
+map     3
+health  300
+coords  640 860 520
+at      345
+
+spawn   morph
+spawnscript data/scripts/noscpos.c
+flip    1
+map     6
+health  350
+coords  435 950 520
+at      345
+
+spawn   morph
+spawnscript data/scripts/noscpos.c
+map     5
+health  300
+coords  685 950 520
+at      345
+
+#------------------------------
+blockade 590
+at      590
+#------------------------------
+blockade 900
+at      900
+blockade 1000
+at      1000
+
+group	3 3
+at  	1000
+wait
+at   	1000
+
+spawn   sentry1
+map	1
+health  400
+coords 	550 875
+at      1000
+
+spawn   ghost4
+coords 	550 875
+at      1000
+
+spawn   ghost4
+coords 	550 875
+at      1000
+
+spawn   smrb1
+item	orb
+coords 	550 875
+at      1000
+
+spawn   smrb1
+coords 	650 930
+at      1000
+
+
+#------------------------------
+blockade 1050
+at      1050
+
+blockade 1300
+at      1300
+#------------------------------
+
+group	3 3
+at  	1300
+wait
+at   	1300
+
+spawn   sentry2
+item	fluid
+health  500
+coords 	650 820
+at      1300
+
+spawn   ghost3
+coords 	550 875
+at      1300
+
+spawn   ghost1
+coords 	550 875
+at      1300
+
+spawn   sentry2
+health  450
+coords 	750 920
+at      1300
+
+spawn   smrb2
+coords 	500 800
+at      1300
+
+spawn   ghost1
+coords 	550 875
+at      1300
+
+spawn   smrb2
+item	cell
+coords 	570 800
+at      1300
+
+spawn   ghost1
+coords 	550 875
+at      1300
+
+spawn   smrb2
+coords 	630 880
+at      1300
+
+spawn   ghost1
+coords 	550 875
+at      1300
+
+spawn   smrb2
+coords 	-350 960
+at      1300
+
+spawn   ghost1
+coords 	550 875
+at      1300
+
+spawn   smrb2
+coords 	650 960
+at      1300
+
+spawn   ghost1
+coords 	550 875
+at      1300
+
+spawn   smrb2
+coords 	-350 960
+at      1300
+
+spawn   ghost1
+coords 	550 875
+at      1300
+
+spawn   smrb2
+item	byogem
+coords 	650 880
+at      1300
+
+spawn   ghost1
+coords 	550 875
+at      1300
+
+spawn   smrb2
+coords 	-350 960
+at      1300
+
+#------------------------------
+blockade 1380
+at      1380
+blockade 1450
+at      1450
+#------------------------------
+spawn   smrb1
+coords 	600 900
+at      1450
+
+spawn   smrb1
+coords 	-350 900
+at      1450
+
+spawn   byocargo
+health  5
+item	charge
+coords 	900 820 25
+at      1460
+
+spawn   smrb2
+coords 	600 900
+at      1460
+
+spawn   smrb2
+coords 	-350 900
+at      1460
+
+#------------------------------
+blockade 1500
+at      1500
+#------------------------------
+
+group	3 3
+at   1500
+wait
+at    1500
+
+spawn   omega
+map     1
+health  350
+coords 	300 860
+at      1500
+
+spawn   bignose
+map     2
+health  250
+coords 	-350 890
+at      1500
+
+spawn   ghost1
+coords 	550 875
+at      1500
+
+spawn   bignose
+map     3
+health  200
+coords 	650 890
+at      1500
+
+spawn   graynose
+map     3
+health  200
+coords 	-350 920
+at      1500
+
+spawn   smrb1
+coords 	850 880
+at      1500
+
+spawn   ghost1
+coords 	600 875
+at      1500
+
+spawn   smrb1
+coords 	-350 960
+at      1500
+
+#------------------------------
+blockade 1580
+at      1580
+blockade 1700
+at      1700
+#------------------------------
+group	3 3
+at   1700
+wait
+at    1700
+
+spawn   sentry1
+map	1
+coords 	600 860
+at      1700
+
+spawn   sentry1
+map	2
+coords 	-350 890
+at      1700
+
+spawn   ghost1
+coords 	400 910
+at      1700
+
+spawn   smrb1
+coords 	600 910
+at      1700
+
+spawn   ghost1
+coords 	400 910
+at      1700
+
+spawn   smrb1
+item	fluid
+coords 	-350 910
+at      1700
+
+spawn   ghost1
+coords 	400 910
+at      1700
+
+spawn   smrb2
+coords 	600 910
+at      1700
+
+spawn   ghost1
+coords 	400 910
+at      1700
+
+spawn   smrb2
+coords 	-350 910
+at      1650
+
+#------------------------------
+
+blockade 1750
+at      1750
+blockade 1850
+at      1850
+blockade 1900
+at      1900
+#------------------------------
+group	3 3
+at   1900
+wait
+at    1900
+
+spawn   sentry2
+map	1
+coords 	650 860
+at      1900
+
+spawn   sentry2
+map	2
+item	charge
+coords 	-400 860
+at      1900
+
+spawn   ghost1
+coords 	400 910
+at      1900
+
+spawn   smrb2
+coords 	-350 880
+at      1900
+
+spawn   ghost1
+coords 	400 910
+at      1900
+
+spawn   byocargo
+health  5
+item	fluid
+coords 	900 830 25
+at      1900
+
+spawn   smrb2
+coords 	600 880
+at      1900
+
+spawn   ghost1
+coords 	400 910
+at      1900
+
+spawn   smrb2
+coords 	-350 880
+at      1900
+
+spawn   ghost1
+coords 	400 910
+at      1900
+
+spawn   smrb2
+coords 	600 880
+at      1900
+
+spawn   ghost1
+coords 	400 910
+at      1900
+
+spawn   smrb2
+coords 	-350 880
+at      1900
+
+spawn   ghost1
+coords 	400 910
+at      1900
+
+spawn   smrb2
+item	cell
+coords 	600 880
+at      1900
+
+spawn   ghost1
+coords 	400 910
+at      1900
+
+#------
+
+spawn   smrb1
+coords 	-350 880
+at      1900
+
+spawn   ghost1
+coords 	400 910
+at      1900
+
+spawn   smrb1
+coords 	600 880
+at      1900
+
+spawn   ghost1
+coords 	400 910
+at      1900
+
+#-------------------
+
+blockade 1950
+at      1950
+blockade 2100
+at      2100
+blockade 2200
+at      2200
+#------------------------------
+group	3 3
+at   2200
+wait
+at    2200
+
+spawn   graynosed
+map     1
+health  250
+coords 	340 880
+at      2200
+
+spawn   graynosed
+map     2
+flip	1
+health  220
+coords 	120 880
+at      2200
+
+spawn   ghost2
+coords 	400 910
+at      2200
+
+spawn   smrb1
+coords 	600 880
+at      2200
+
+spawn   ghost2
+coords 	400 910
+at      2200
+
+spawn   smrb1
+coords 	-350 880
+at      2200
+
+spawn   ghost1
+coords 	400 910
+at      2200
+
+spawn   smrb2
+item	cell
+coords 	600 880
+at      2200
+
+spawn   ghost1
+coords 	400 910
+at      2200
+
+spawn   smrb2
+coords 	-350 880
+at      2200
+
+spawn   ghost2
+coords 	400 910
+at      2200
+
+spawn   sentry1
+map	3
+coords 	650 860
+at      2200
+
+#------------------------------
+blockade 2300
+at      2300
+spawn   smrb2
+coords 	-350 880
+at      2300
+spawn   smrb1
+coords 	650 880
+at      2300
+
+blockade 2400
+at      2400
+spawn   smrb2
+coords 	-350 880
+at      2400
+spawn   smrb2
+coords 	650 880
+at      2400
+blockade 2500
+at      2500
+#------------------------------
+
+group	4 4
+at   2500
+wait
+at    2500
+
+spawn   omega
+health  290
+map     4
+coords 	330 880
+at      2500
+
+spawn   graynosed
+map     3
+flip	1
+health  150
+coords 	130 880
+at      2500
+
+spawn   byocargo
+health  5
+item	fluid
+coords 	900 850 25
+at      2500
+
+spawn   ghost2
+coords 	400 910
+at      2500
+
+spawn   ghost2
+coords 	400 910
+at      2500
+
+spawn   morph
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW10"));
+} @end_script
+map     5
+health  200
+coords 	100 840 700
+at      2500
+
+spawn   morph
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW10"));
+} @end_script
+map     2
+health  200
+item	byogem
+coords 	240 910 700
+at      2500
+
+spawn   ghost1
+coords 	400 910
+at      2500
+
+spawn   morph
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW10"));
+} @end_script
+map     5
+health  200
+coords 	100 840 700
+at      2500
+
+spawn   morph
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW10"));
+} @end_script
+map     2
+health  200
+coords 	250 910 700
+at      2500
+
+spawn   bignose
+map     1
+health  260
+coords 	600 930
+at      2500
+#------------------------------
+blockade 2600
+at      2600
+spawn   smrb2
+coords 	650 890
+at      2650
+blockade 2700
+at      2700
+spawn   smrb1
+coords 	-350 890
+at      2750
+spawn   smrb2
+coords 	650 890
+at      2750
+blockade 2800
+at      2800
+#------------------------------
+
+group	2 2
+at   2800
+wait
+at    2800
+
+spawn   sentry1
+health  350
+map     1
+coords 	650 910
+at      2800
+
+spawn   ghost2
+coords 	400 910
+at      2800
+
+spawn   smrb2
+coords 	-350 890
+at      2800
+
+spawn   morph
+health  160
+map     1
+coords 	250 890
+at      2800
+
+spawn   smrb2
+coords 	650 890
+at      2800
+
+spawn   byocargo
+coords 	900 850 25
+at      2800
+
+spawn   morph
+health  140
+map     3
+coords 	130 860
+at      2800
+
+spawn   smrb1
+coords 	-350 890
+at      2800
+
+#---------------------------
+#-----------jar-------------
+#---------------------------
+
+#---------------------------
+blockade 3700
+at      3700
+#---------------------------
+group   3 3
+at      3700
+wait
+at      3700
+
+spawn   smrb1
+coords 	-450 900
+at      3700
+
+spawn   sentry2
+map     2
+item	fluid
+coords 	-380 900
+at      3700
+
+spawn   smrb2
+coords 	-450 905
+at      3700
+
+spawn   ghost2
+coords 	0 900
+at      3700
+
+spawn   ghost2
+coords 	0 900
+at      3700
+
+spawn   sentry2
+coords 	-380 900
+at      3700
+
+spawn   ghost1
+coords 	0 900
+at      3700
+
+spawn   smrb2
+coords 	-450 905
+at      3700
+
+spawn   sentry2
+item	orb
+coords 	-380 900
+at      3700
+
+spawn   smrb1
+coords 	-450 905
+at      3700
+
+spawn   graynose
+map     4
+health  200
+item	cell
+flip    1
+coords 	150 860
+at      3700
+
+spawn   morph
+map     3
+health  180
+coords 	250 860
+at      3700
+
+spawn   smrb1
+coords 	-450 905
+at      3700
+
+spawn   sentry2
+map     1
+coords 	-380 900
+at      3700
+
+#---------------------------
+blockade 4000
+at      4000
+#---------------------------
+
+#--------mother-A-I----------
+spawn   cyberai
+spawnscript data/scripts/noscpos.c
+coords  4860 787
+at      4110
+
+#---------------------------
+
+#----------------------------
+blockade 4300
+at      4300
+#---------------------------

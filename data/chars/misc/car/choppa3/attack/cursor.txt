@@ -1,0 +1,115 @@
+name	 cursor
+type     npc
+subtype	 chase
+speed	 12
+falldie	 1
+nolife   1
+setlayer        500
+hostile		player
+candamage	player npc
+subject_to_platform 0
+lifespan  	390
+animationscript data/scripts/escript.c
+
+
+load	choppa4atk
+
+anim	attack
+	loop	0
+	delay	5
+	offset	35 85
+	bbox	0 0 0 0
+	platform   1 1 1 1 1 1 1 1
+	range	-30 30
+	frame	data/chars/misc/car/choppa3/attack/cursor03.gif
+	frame	data/chars/misc/car/choppa3/attack/cursor04.gif
+	frame	data/chars/misc/car/choppa3/attack/cursor03.gif
+	sound	data/sounds/bip2.wav
+	frame	data/chars/misc/car/choppa3/attack/cursor04.gif
+	frame	data/chars/misc/car/choppa3/attack/cursor03.gif
+	frame	data/chars/misc/car/choppa3/attack/cursor04.gif
+	sound	data/sounds/bip2.wav
+	frame	data/chars/misc/car/choppa3/attack/cursor03.gif
+	frame	data/chars/misc/car/choppa3/attack/cursor04.gif
+	frame	data/chars/misc/car/choppa3/attack/cursor03.gif
+	sound	data/sounds/bip2.wav
+	frame	data/chars/misc/car/choppa3/attack/cursor04.gif
+	frame	data/chars/misc/car/choppa3/attack/cursor03.gif
+	frame	data/chars/misc/car/choppa3/attack/cursor04.gif
+	sound	data/sounds/bip2.wav
+	frame	data/chars/misc/car/choppa3/attack/cursor03.gif
+	frame	data/chars/misc/car/choppa3/attack/cursor04.gif
+	frame	data/chars/misc/car/choppa3/attack/cursor03.gif
+	sound	data/sounds/bip2.wav
+	frame	data/chars/misc/car/choppa3/attack/cursor04.gif
+	frame	data/chars/misc/car/choppa3/attack/cursor03.gif
+	frame	data/chars/misc/car/choppa3/attack/cursor04.gif
+	sound	data/sounds/bip2.wav
+	frame	data/chars/misc/car/choppa3/attack/cursor03.gif
+	frame	data/chars/misc/car/choppa3/attack/cursor04.gif
+	frame	data/chars/misc/car/choppa3/attack/cursor03.gif
+	sound	data/sounds/bip2.wav
+	frame	data/chars/misc/car/choppa3/attack/cursor04.gif
+	frame	data/chars/misc/car/choppa3/attack/cursor03.gif
+	frame	data/chars/misc/car/choppa3/attack/cursor04.gif
+	sound	data/sounds/bip2.wav
+	frame	data/chars/misc/car/choppa3/attack/cursor03.gif
+	frame	data/chars/misc/car/choppa3/attack/cursor04.gif
+	delay	10
+	frame	data/chars/misc/car/choppa3/attack/empty.gif
+	@cmd	spawnGun2 "choppa4atk" 1 1 1 2
+	frame	data/chars/misc/car/choppa3/attack/empty.gif
+	delay	2000
+	frame	data/chars/misc/car/choppa3/attack/empty.gif
+	delay	10
+	frame	data/chars/misc/car/choppa3/attack/empty.gif
+	@cmd	killgun 2 0
+	frame	data/chars/misc/car/choppa3/attack/empty.gif
+	delay	200
+	frame	data/chars/misc/car/choppa3/attack/empty.gif
+
+
+
+anim	death
+	loop	0
+	delay	10
+	offset	35 85
+	bbox	0 0 0 0
+	platform   1 1 1 1 1 1 1 1
+	frame	data/chars/misc/car/choppa3/attack/empty.gif
+	frame	data/chars/misc/car/choppa3/attack/empty.gif
+	@cmd	killgun 2 0
+	frame	data/chars/misc/car/choppa3/attack/empty.gif
+
+		
+anim	idle
+	loop	1
+	delay	14
+	offset	35 85
+	bbox	0 0 0 0
+	platform   1 1 1 1 1 1 1 1
+	sound	data/sounds/bip1.wav
+	frame	data/chars/misc/car/choppa3/attack/cursor01.gif
+	delay	5
+	frame	data/chars/misc/car/choppa3/attack/cursor02.gif
+
+
+anim	spawn
+	loop	0
+	delay	3
+	offset	35 85
+	bbox	0 0 0 0
+@script
+if(frame==1)
+{
+  changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_OBSTACLE"));
+}
+@end_script
+	platform   1 1 1 1 1 1 1 1
+	frame	data/chars/misc/car/choppa3/attack/cursor01.gif
+	frame	data/chars/misc/car/choppa3/attack/cursor02.gif
+	frame	data/chars/misc/car/choppa3/attack/cursor01.gif
+	frame	data/chars/misc/car/choppa3/attack/cursor02.gif
+		
+#|edited by openBor Stats v 0.53
+		

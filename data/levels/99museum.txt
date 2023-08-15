@@ -1,0 +1,82 @@
+music		data/music/museum.ogg
+
+background	data/bgs/99museum/panel.gif 0 0
+panel		data/bgs/99museum/panel.gif
+fglayer         data/bgs/99museum/light.gif 500 0 0 -130 -10 0 0 1 1 1 1
+fglayer         data/bgs/99museum/light2.gif 500 0 0 970 -10 0 0 1 1 1 1 1 1 7 1
+fglayer         data/bgs/99museum/light2.gif 500 0 0 1380 -10 0 0 1 1 1 1 1 1 14 1
+fglayer         data/bgs/99museum/light2.gif 500 0 0 1860 -10 0 0 1 1 1 1 1 1 7 1
+fglayer         data/bgs/99museum/light2.gif 500 0 0 2270 -10 0 0 1 1 1 1 1 1 14 1
+fglayer         data/bgs/99museum/light2.gif 500 0 0 2800 -10 0 0 1 1 1 1 1 1 7 1
+fglayer         data/bgs/99museum/light2.gif 500 0 0 3210 -10 0 0 1 1 1 1 1 1 14 1
+fglayer         data/bgs/99museum/front2.gif 1000 0 0 895 0 0 0 1 1 1
+fglayer         data/bgs/99museum/front1.gif 1000 0 0 0 0 0 0 1 1 1
+layer         data/bgs/99museum/bck/img01.gif 220 0 0 1390 10 0 0 1 1 1 1 1 1 20 -1
+layer         data/bgs/99museum/bck/img02.gif 220 0 0 1810 -40 0 0 1 1 1 1 1 1 20 -1
+layer         data/bgs/99museum/bck/img03.gif 220 0 0 2220 -40 0 0 1 1 1 1 1 1 20 -1
+layer         data/bgs/99museum/bck/img04.gif 220 0 0 940 -40 0 0 1 1 1 1 1 1 20 -1
+layer         data/bgs/99museum/bck/brd01.gif 230 0 0 1550 100 0 0 1 1 1
+layer         data/bgs/99museum/bck/brd02.gif 230 0 0 2035 100 0 0 1 1 1
+layer         data/bgs/99museum/bck/brd03.gif 230 0 0 2445 100 0 0 1 1 1
+layer         data/bgs/99museum/bck/brd04.gif 230 0 0 1145 100 0 0 1 1 1
+layer         data/bgs/99museum/bck/news.gif 270 0 0 3570 225 0 0 1 1 1
+
+direction       both
+light  		0   -30
+at       	0
+settime         0
+notime          1
+noslow          0
+order           a
+spawn1  	200 30
+spawn2  	245 35
+spawn3  	285 40
+
+cameraoffset            0 -90
+cameratype              1
+
+#-------------------------------------------
+wall    -20 260 370 370 800 800 80 5000
+wall    -20 380 460 460 900 900 60 5000
+wall    3520 300 0 220 400 400 130 5000
+wall    3740 395 0 0 200 200 100 5000
+
+#-------------------------------------------
+
+spawn   homexit
+coords  130 355
+at      0
+
+
+spawn   msroll1
+alias   ANI_FOLLOW1
+coords  2090 240
+at      0
+
+spawn   msroll1
+alias   ANI_FOLLOW2
+coords  1600 240
+at      0
+
+spawn   msroll1
+alias   ANI_FOLLOW3
+coords  2500 240
+at      0
+
+spawn   msroll1
+alias   ANI_FOLLOW4
+coords  1205 240
+at      0
+
+spawn   msroll1
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW5"));
+} @end_script
+coords  3600 260
+at      0
+
+#---------------------
+spawn   ghosttest
+coords  170 340
+at      0
+#---------------------

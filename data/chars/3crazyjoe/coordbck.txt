@@ -1,0 +1,517 @@
+
+
+
+----wale2-------
+--------------------up-------------
+ 
+@cmd	spawn03 "wale2" -850 1 -30 1 # -- move right
+@cmd	spawn03 "wale2" 650 1 -30 0  # -- move left
+
+------------------down--------------------------
+@cmd	spawn03 "wale2" -850 1 130 1 # -- move right
+@cmd	spawn03 "wale2" 650 1 130 0  # -- move left
+
+
+
+
+----shark3-------
+down	far
+@cmd	spawn03 "shark3" -390 1 250 1 #--far
+down	close
+@cmd	spawn03 "shark3" -110 1 250 0 #--close
+
+
+----shark-------
+
+@cmd	spawn01 "shark" 270 1 -80
+
+
+
+
+
+
+#----------------//---------
+spawn   crazyjoe
+health  1500
+flip    1
+coords  122 430
+at      0
+#----------------//---------
+
+
+
+
+
+
+
+-------------------//---------------------
+
+
+anim	spawn
+	loop	0
+	delay	200
+	offset	100 197
+	bbox	0 0 0 0
+	custentity	joetlk
+	spawnframe	38 0 35 25 1
+	platform	40 205 0 0 250 250 40 200
+	frame	data/chars/3crazyjoe/span01.gif
+	delay	15
+	frame	data/chars/3crazyjoe/span01.gif
+	frame	data/chars/3crazyjoe/span02.gif
+	frame	data/chars/3crazyjoe/span03.gif
+	frame	data/chars/3crazyjoe/span04.gif
+	delay	100
+	frame	data/chars/3crazyjoe/span05.gif
+	delay	14
+	frame	data/chars/3crazyjoe/span06.gif
+	frame	data/chars/3crazyjoe/span07.gif
+	frame	data/chars/3crazyjoe/span08.gif
+	frame	data/chars/3crazyjoe/span09.gif
+	delay	70
+	frame	data/chars/3crazyjoe/span10.gif
+	delay	14
+	frame	data/chars/3crazyjoe/span11.gif
+	frame	data/chars/3crazyjoe/span12.gif
+	frame	data/chars/3crazyjoe/span13.gif
+	frame	data/chars/3crazyjoe/span14.gif
+	frame	data/chars/3crazyjoe/span15.gif
+	frame	data/chars/3crazyjoe/span16.gif
+	delay	80
+	frame	data/chars/3crazyjoe/span17.gif
+	delay	14
+	frame	data/chars/3crazyjoe/span18.gif
+	frame	data/chars/3crazyjoe/span19.gif
+	frame	data/chars/3crazyjoe/span20.gif
+	frame	data/chars/3crazyjoe/span21.gif
+	frame	data/chars/3crazyjoe/span22.gif
+	delay	100
+	frame	data/chars/3crazyjoe/span22.gif
+	offset	95 189
+	delay	14
+	movez	1
+	frame	data/chars/3crazyjoe/xwk03.gif
+	frame	data/chars/3crazyjoe/xwk01.gif
+	frame	data/chars/3crazyjoe/xwk02.gif
+	frame	data/chars/3crazyjoe/xwk03.gif
+	frame	data/chars/3crazyjoe/xwk01.gif
+	frame	data/chars/3crazyjoe/xwk02.gif
+	frame	data/chars/3crazyjoe/xwk03.gif
+	frame	data/chars/3crazyjoe/xwk01.gif
+	frame	data/chars/3crazyjoe/xwk02.gif
+	frame	data/chars/3crazyjoe/xwk03.gif
+	movez	0
+	offset	100 189
+	@cmd	flip
+	frame	data/chars/3crazyjoe/wk02.gif
+	frame	data/chars/3crazyjoe/wk03.gif
+	delay	100
+	frame	data/chars/3crazyjoe/wk04.gif
+	frame	data/chars/3crazyjoe/wk04.gif
+	frame	data/chars/3crazyjoe/wk04.gif
+	frame	data/chars/3crazyjoe/wk04.gif
+
+
+-------------------//---------------------
+-------------------//---------------------
+
+
+
+
+anim	follow12
+	loop	0
+	delay	15
+	offset	101 190
+	bbox	0 0 0 0
+@script
+    void self = getlocalvar("self");
+
+    if(frame==20){ // set local variable at 1st frame
+      setlocalvar("Flag" + self,1);
+    }
+	@end_script	
+	frame	data/chars/3crazyjoe/rise3.gif
+	@cmd	targetPos 4 835 380
+	@cmd	leap 6
+	delay	9
+	frame	data/chars/3crazyjoe/jump00.gif
+	frame	data/chars/3crazyjoe/jump01.gif
+	delay	6
+	frame	data/chars/3crazyjoe/roll02.gif
+	frame	data/chars/3crazyjoe/roll03.gif
+	frame	data/chars/3crazyjoe/roll04.gif
+	frame	data/chars/3crazyjoe/roll01.gif
+	frame	data/chars/3crazyjoe/roll02.gif
+	frame	data/chars/3crazyjoe/roll03.gif
+	frame	data/chars/3crazyjoe/roll04.gif
+	frame	data/chars/3crazyjoe/roll01.gif
+	frame	data/chars/3crazyjoe/roll02.gif
+	frame	data/chars/3crazyjoe/roll03.gif
+	@cmd	targetPos 5 700 375
+	@cmd	leap 1
+	frame	data/chars/3crazyjoe/roll04.gif
+	frame	data/chars/3crazyjoe/roll01.gif
+	frame	data/chars/3crazyjoe/roll02.gif
+	frame	data/chars/3crazyjoe/roll03.gif
+	frame	data/chars/3crazyjoe/roll04.gif
+	delay	15
+	frame	data/chars/3crazyjoe/rise3.gif
+	@cmd	spawn01 "dust" 1 1 1
+	frame	data/chars/3crazyjoe/rise2.gif
+	delay	150
+	frame	data/chars/3crazyjoe/rise3.gif
+	delay	9
+	frame	data/chars/3crazyjoe/taunt01.gif 
+	@cmd	spawnGun "joesmtlk1" 20 85 1 1
+	frame	data/chars/3crazyjoe/taunt02.gif
+	frame	data/chars/3crazyjoe/taunt03.gif
+	frame	data/chars/3crazyjoe/taunt04.gif
+	frame	data/chars/3crazyjoe/taunt05.gif
+	frame	data/chars/3crazyjoe/taunt06.gif
+
+	frame	data/chars/3crazyjoe/taunt01.gif
+	frame	data/chars/3crazyjoe/taunt02.gif
+	frame	data/chars/3crazyjoe/taunt03.gif
+	frame	data/chars/3crazyjoe/taunt04.gif
+	frame	data/chars/3crazyjoe/taunt05.gif
+	frame	data/chars/3crazyjoe/taunt06.gif #31
+	@cmd	looper 27 7
+
+	frame	data/chars/3crazyjoe/taunt01.gif
+	frame	data/chars/3crazyjoe/taunt02.gif
+	@cmd	spawn03 "wale2" -850 1 -30 1 # -- move right
+	frame	data/chars/3crazyjoe/taunt03.gif
+	frame	data/chars/3crazyjoe/taunt04.gif
+	@cmd	spawn03 "wale2" 650 1 130 0  # -- move left
+	frame	data/chars/3crazyjoe/taunt05.gif
+	frame	data/chars/3crazyjoe/taunt06.gif
+
+	frame	data/chars/3crazyjoe/taunt01.gif
+	frame	data/chars/3crazyjoe/taunt02.gif
+	frame	data/chars/3crazyjoe/taunt03.gif
+	frame	data/chars/3crazyjoe/taunt04.gif
+	frame	data/chars/3crazyjoe/taunt05.gif
+	frame	data/chars/3crazyjoe/taunt06.gif #43
+	@cmd	looper 39 9
+
+	frame	data/chars/3crazyjoe/taunt01.gif
+	frame	data/chars/3crazyjoe/taunt02.gif
+	frame	data/chars/3crazyjoe/taunt03.gif
+	frame	data/chars/3crazyjoe/taunt04.gif
+	frame	data/chars/3crazyjoe/taunt05.gif
+	frame	data/chars/3crazyjoe/taunt06.gif
+
+	frame	data/chars/3crazyjoe/taunt01.gif
+	frame	data/chars/3crazyjoe/taunt02.gif
+	frame	data/chars/3crazyjoe/taunt03.gif
+	frame	data/chars/3crazyjoe/taunt04.gif
+	frame	data/chars/3crazyjoe/taunt05.gif
+	frame	data/chars/3crazyjoe/taunt06.gif #55
+	@cmd	looper 51 15
+
+	frame	data/chars/3crazyjoe/taunt01.gif
+	frame	data/chars/3crazyjoe/taunt02.gif
+	@cmd	spawn03 "wale2" -850 1 -30 1 # -- move right
+	frame	data/chars/3crazyjoe/taunt03.gif
+	frame	data/chars/3crazyjoe/taunt04.gif
+	@cmd	spawn03 "wale2" 650 1 130 0  # -- move left
+	frame	data/chars/3crazyjoe/taunt05.gif
+	frame	data/chars/3crazyjoe/taunt06.gif
+
+	delay	130
+	frame	data/chars/3crazyjoe/taunt01.gif
+	@cmd	killgun 1 0
+	delay	14
+	frame	data/chars/3crazyjoe/taunt01.gif
+	@cmd	flip
+	@cmd	leaper 1 3 1
+	frame	data/chars/3crazyjoe/jump00.gif
+	frame	data/chars/3crazyjoe/jump01.gif
+	delay	6
+	frame	data/chars/3crazyjoe/roll02.gif
+	frame	data/chars/3crazyjoe/roll03.gif
+	frame	data/chars/3crazyjoe/roll04.gif
+	frame	data/chars/3crazyjoe/roll01.gif
+	frame	data/chars/3crazyjoe/roll02.gif
+	frame	data/chars/3crazyjoe/roll03.gif
+	frame	data/chars/3crazyjoe/roll04.gif
+	frame	data/chars/3crazyjoe/roll01.gif
+	frame	data/chars/3crazyjoe/roll02.gif
+	frame	data/chars/3crazyjoe/roll03.gif
+	delay	14
+	frame	data/chars/3crazyjoe/rise3.gif
+	@cmd	spawn01 "dust" 1 1 1
+	frame	data/chars/3crazyjoe/rise2.gif
+	frame	data/chars/3crazyjoe/rise3.gif
+
+
+
+
+#---------------------------------//---------------------
+#---------------------------------//---------------------
+
+	
+anim	follow13
+	loop	0
+	delay	15
+	offset	101 190
+	bbox	0 0 0 0
+@script
+    void self = getlocalvar("self");
+
+    if(frame==20){ // set local variable at 1st frame
+      setlocalvar("Flag" + self,2);
+    }
+	@end_script	
+	frame	data/chars/3crazyjoe/rise3.gif
+	@cmd	targetPos 4 835 380
+	@cmd	leap 6
+	delay	9
+	frame	data/chars/3crazyjoe/jump00.gif
+	frame	data/chars/3crazyjoe/jump01.gif
+	delay	6
+	frame	data/chars/3crazyjoe/roll02.gif
+	frame	data/chars/3crazyjoe/roll03.gif
+	frame	data/chars/3crazyjoe/roll04.gif
+	frame	data/chars/3crazyjoe/roll01.gif
+	frame	data/chars/3crazyjoe/roll02.gif
+	frame	data/chars/3crazyjoe/roll03.gif
+	frame	data/chars/3crazyjoe/roll04.gif
+	frame	data/chars/3crazyjoe/roll01.gif
+	frame	data/chars/3crazyjoe/roll02.gif
+	frame	data/chars/3crazyjoe/roll03.gif
+	@cmd	targetPos 5 700 375
+	@cmd	leap 1
+	frame	data/chars/3crazyjoe/roll04.gif
+	frame	data/chars/3crazyjoe/roll01.gif
+	frame	data/chars/3crazyjoe/roll02.gif
+	frame	data/chars/3crazyjoe/roll03.gif
+	frame	data/chars/3crazyjoe/roll04.gif
+	delay	15
+	frame	data/chars/3crazyjoe/rise3.gif
+	@cmd	spawn01 "dust" 1 1 1
+	frame	data/chars/3crazyjoe/rise2.gif
+	delay	150
+	frame	data/chars/3crazyjoe/rise3.gif
+	delay	9
+	frame	data/chars/3crazyjoe/taunt01.gif 
+	@cmd	spawnGun "joesmtlk1" 20 85 1 1
+	frame	data/chars/3crazyjoe/taunt02.gif
+	frame	data/chars/3crazyjoe/taunt03.gif
+	frame	data/chars/3crazyjoe/taunt04.gif
+	frame	data/chars/3crazyjoe/taunt05.gif
+	frame	data/chars/3crazyjoe/taunt06.gif
+
+	frame	data/chars/3crazyjoe/taunt01.gif
+	frame	data/chars/3crazyjoe/taunt02.gif
+	frame	data/chars/3crazyjoe/taunt03.gif
+	frame	data/chars/3crazyjoe/taunt04.gif
+	frame	data/chars/3crazyjoe/taunt05.gif
+	frame	data/chars/3crazyjoe/taunt06.gif #31
+	@cmd	looper 27 7
+
+	frame	data/chars/3crazyjoe/taunt01.gif
+	frame	data/chars/3crazyjoe/taunt02.gif
+	@cmd	spawn03 "shark3" -390 1 250 1 #--far
+	frame	data/chars/3crazyjoe/taunt03.gif
+	frame	data/chars/3crazyjoe/taunt04.gif
+	@cmd	spawn03 "shark3" -110 1 250 0 #--close
+	frame	data/chars/3crazyjoe/taunt05.gif
+	frame	data/chars/3crazyjoe/taunt06.gif
+
+	frame	data/chars/3crazyjoe/taunt01.gif
+	frame	data/chars/3crazyjoe/taunt02.gif
+	frame	data/chars/3crazyjoe/taunt03.gif
+	frame	data/chars/3crazyjoe/taunt04.gif
+	frame	data/chars/3crazyjoe/taunt05.gif
+	frame	data/chars/3crazyjoe/taunt06.gif #43
+	@cmd	looper 39 9
+
+	frame	data/chars/3crazyjoe/taunt01.gif
+	frame	data/chars/3crazyjoe/taunt02.gif
+	frame	data/chars/3crazyjoe/taunt03.gif
+	frame	data/chars/3crazyjoe/taunt04.gif
+	frame	data/chars/3crazyjoe/taunt05.gif
+	frame	data/chars/3crazyjoe/taunt06.gif
+
+	frame	data/chars/3crazyjoe/taunt01.gif
+	frame	data/chars/3crazyjoe/taunt02.gif
+	frame	data/chars/3crazyjoe/taunt03.gif
+	frame	data/chars/3crazyjoe/taunt04.gif
+	frame	data/chars/3crazyjoe/taunt05.gif
+	frame	data/chars/3crazyjoe/taunt06.gif #55
+	@cmd	looper 51 15
+
+	frame	data/chars/3crazyjoe/taunt01.gif
+	frame	data/chars/3crazyjoe/taunt02.gif
+	@cmd	spawn03 "shark3" -390 1 250 1 #--far
+	frame	data/chars/3crazyjoe/taunt03.gif
+	frame	data/chars/3crazyjoe/taunt04.gif
+	@cmd	spawn03 "shark3" -110 1 250 0 #--close
+	frame	data/chars/3crazyjoe/taunt05.gif
+	frame	data/chars/3crazyjoe/taunt06.gif
+
+	delay	130
+	frame	data/chars/3crazyjoe/taunt01.gif
+	@cmd	killgun 1 0
+	delay	14
+	frame	data/chars/3crazyjoe/taunt01.gif
+	@cmd	flip
+	@cmd	leaper 1 3 1
+	frame	data/chars/3crazyjoe/jump00.gif
+	frame	data/chars/3crazyjoe/jump01.gif
+	delay	6
+	frame	data/chars/3crazyjoe/roll02.gif
+	frame	data/chars/3crazyjoe/roll03.gif
+	frame	data/chars/3crazyjoe/roll04.gif
+	frame	data/chars/3crazyjoe/roll01.gif
+	frame	data/chars/3crazyjoe/roll02.gif
+	frame	data/chars/3crazyjoe/roll03.gif
+	frame	data/chars/3crazyjoe/roll04.gif
+	frame	data/chars/3crazyjoe/roll01.gif
+	frame	data/chars/3crazyjoe/roll02.gif
+	frame	data/chars/3crazyjoe/roll03.gif
+	delay	14
+	frame	data/chars/3crazyjoe/rise3.gif
+	@cmd	spawn01 "dust" 1 1 1
+	frame	data/chars/3crazyjoe/rise2.gif
+	frame	data/chars/3crazyjoe/rise3.gif
+
+
+
+
+
+
+
+
+
+#---------------------------------//---------------------
+#---------------------------------//---------------------
+
+	
+anim	follow14
+	loop	0
+	delay	15
+	offset	101 190
+	bbox	0 0 0 0
+@script
+    void self = getlocalvar("self");
+
+    if(frame==20){ // set local variable at 1st frame
+      setlocalvar("Flag" + self,3);
+    }
+	@end_script	
+	frame	data/chars/3crazyjoe/rise3.gif
+	@cmd	targetPos 4 835 380
+	@cmd	leap 6
+	delay	9
+	frame	data/chars/3crazyjoe/jump00.gif
+	frame	data/chars/3crazyjoe/jump01.gif
+	delay	6
+	frame	data/chars/3crazyjoe/roll02.gif
+	frame	data/chars/3crazyjoe/roll03.gif
+	frame	data/chars/3crazyjoe/roll04.gif
+	frame	data/chars/3crazyjoe/roll01.gif
+	frame	data/chars/3crazyjoe/roll02.gif
+	frame	data/chars/3crazyjoe/roll03.gif
+	frame	data/chars/3crazyjoe/roll04.gif
+	frame	data/chars/3crazyjoe/roll01.gif
+	frame	data/chars/3crazyjoe/roll02.gif
+	frame	data/chars/3crazyjoe/roll03.gif
+	@cmd	targetPos 5 700 375
+	@cmd	leap 1
+	frame	data/chars/3crazyjoe/roll04.gif
+	frame	data/chars/3crazyjoe/roll01.gif
+	frame	data/chars/3crazyjoe/roll02.gif
+	frame	data/chars/3crazyjoe/roll03.gif
+	frame	data/chars/3crazyjoe/roll04.gif
+	delay	15
+	frame	data/chars/3crazyjoe/rise3.gif
+	@cmd	spawn01 "dust" 1 1 1
+	frame	data/chars/3crazyjoe/rise2.gif
+	delay	150
+	frame	data/chars/3crazyjoe/rise3.gif
+	delay	9
+	frame	data/chars/3crazyjoe/taunt01.gif 
+	@cmd	spawnGun "joesmtlk2" 20 85 1 1
+	frame	data/chars/3crazyjoe/taunt02.gif
+	frame	data/chars/3crazyjoe/taunt03.gif
+	frame	data/chars/3crazyjoe/taunt04.gif
+	frame	data/chars/3crazyjoe/taunt05.gif
+	frame	data/chars/3crazyjoe/taunt06.gif
+
+	frame	data/chars/3crazyjoe/taunt01.gif
+	frame	data/chars/3crazyjoe/taunt02.gif
+	frame	data/chars/3crazyjoe/taunt03.gif
+	frame	data/chars/3crazyjoe/taunt04.gif
+	frame	data/chars/3crazyjoe/taunt05.gif
+	frame	data/chars/3crazyjoe/taunt06.gif #31
+	@cmd	looper 27 14
+
+	frame	data/chars/3crazyjoe/taunt01.gif
+	frame	data/chars/3crazyjoe/taunt02.gif
+	@cmd	spawn01 "shark" 270 1 -80
+	frame	data/chars/3crazyjoe/taunt03.gif
+	frame	data/chars/3crazyjoe/taunt04.gif
+	
+	frame	data/chars/3crazyjoe/taunt05.gif
+	frame	data/chars/3crazyjoe/taunt06.gif
+
+	frame	data/chars/3crazyjoe/taunt01.gif
+	frame	data/chars/3crazyjoe/taunt02.gif
+	frame	data/chars/3crazyjoe/taunt03.gif
+	frame	data/chars/3crazyjoe/taunt04.gif
+	frame	data/chars/3crazyjoe/taunt05.gif
+	frame	data/chars/3crazyjoe/taunt06.gif #43
+	@cmd	looper 39 14
+
+	frame	data/chars/3crazyjoe/taunt01.gif
+	frame	data/chars/3crazyjoe/taunt02.gif
+	frame	data/chars/3crazyjoe/taunt03.gif
+	frame	data/chars/3crazyjoe/taunt04.gif
+	frame	data/chars/3crazyjoe/taunt05.gif
+	frame	data/chars/3crazyjoe/taunt06.gif
+	frame	data/chars/3crazyjoe/taunt01.gif
+	frame	data/chars/3crazyjoe/taunt02.gif
+	frame	data/chars/3crazyjoe/taunt03.gif
+	frame	data/chars/3crazyjoe/taunt04.gif
+	frame	data/chars/3crazyjoe/taunt05.gif
+	frame	data/chars/3crazyjoe/taunt06.gif #55
+	@cmd	looper 51 60
+
+	frame	data/chars/3crazyjoe/taunt01.gif
+	frame	data/chars/3crazyjoe/taunt02.gif
+	frame	data/chars/3crazyjoe/taunt03.gif
+	frame	data/chars/3crazyjoe/taunt04.gif
+	@cmd	spawn01 "shark" 270 1 -80
+	frame	data/chars/3crazyjoe/taunt05.gif
+	frame	data/chars/3crazyjoe/taunt06.gif
+
+	delay	160
+	frame	data/chars/3crazyjoe/taunt01.gif
+	@cmd	killgun 1 0
+	delay	14
+	frame	data/chars/3crazyjoe/taunt01.gif
+	@cmd	flip
+	@cmd	leaper -4 3 1
+	frame	data/chars/3crazyjoe/jump00.gif
+	frame	data/chars/3crazyjoe/jump01.gif
+	delay	6
+	frame	data/chars/3crazyjoe/roll02.gif
+	frame	data/chars/3crazyjoe/roll03.gif
+	frame	data/chars/3crazyjoe/roll04.gif
+	frame	data/chars/3crazyjoe/roll01.gif
+	frame	data/chars/3crazyjoe/roll02.gif
+	frame	data/chars/3crazyjoe/roll03.gif
+	frame	data/chars/3crazyjoe/roll04.gif
+	frame	data/chars/3crazyjoe/roll01.gif
+	frame	data/chars/3crazyjoe/roll02.gif
+	frame	data/chars/3crazyjoe/roll03.gif
+	delay	14
+	frame	data/chars/3crazyjoe/rise3.gif
+	@cmd	spawn01 "dust" 1 1 1
+	frame	data/chars/3crazyjoe/rise2.gif
+	frame	data/chars/3crazyjoe/rise3.gif
+
+
+

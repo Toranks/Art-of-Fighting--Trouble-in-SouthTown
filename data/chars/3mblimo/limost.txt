@@ -1,0 +1,479 @@
+name		limost
+type		enemy
+subtype	 	chase
+health		100
+mp		100
+speedf		1.5
+jumpheight	0
+noquake		1
+falldie		1
+nodieblink	1
+makeinv		3
+gfxshadow	0
+nodrop		1
+facing          1
+antigrab	10
+aggression      25
+nopain		1
+hostile				player npc
+candamage			player npc
+subject_to_wall 1
+diesound      data/sounds/crash.wav
+
+
+animationscript data/scripts/escript.c
+
+
+load	dust4
+
+
+script	@script
+void main()
+{
+    void self = getlocalvar("self");
+   int x = getentityproperty(self, "x");
+   int y = getentityproperty(self, "a");
+   int z = getentityproperty(self, "z");
+
+   float H = checkplatformbelow(x+1,z, 5000);
+   float Hz = checkplatformbelow(x+1,z-5, 5000);
+   float yH = checkplatformbelow(x-60,z, 5000);
+   float yHz = checkplatformbelow(x-60,z-5, 5000);
+
+   if(Hz >= 1)
+   {
+     changeentityproperty(self, "position", x, z+1);
+   }
+
+   if(H >= 1)
+   {
+     changeentityproperty(self, "position", x-1);
+   }
+   if(yHz >= 1)
+   {
+     changeentityproperty(self, "position", x, z+1);
+   }
+
+   if(yH >= 1)
+   {
+     changeentityproperty(self, "position", x+1);
+   }
+}
+@end_script
+
+
+
+
+anim	attack1
+	loop	0
+	delay	3
+	offset	235 276
+	bbox	55 190 320 85
+	range	100 380
+	#platform	40 285 10 10 400 400 20 70
+	frame	data/chars/3mblimo/mblimo00.gif
+	@cmd	spawnbind "dust4" -75 10 10
+	@cmd	spawnbind "dust4" 160 10 10
+	frame	data/chars/3mblimo/mblimo01.gif
+	sound	data/sounds/car1.wav
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	sound	data/sounds/bike5.wav
+	frame	data/chars/3mblimo/mblimo02.gif
+	move	8
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	attack	55 200 155 70 9 1 1 0 10 0
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	move	14
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	move	6
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	attack	0 0 0 0
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+
+
+		
+anim	attack2
+	loop	0
+	delay	3
+	offset	235 276
+	bbox	55 190 320 85
+	range	-400 -100
+	#platform	40 285 10 10 400 400 20 70
+	frame	data/chars/3mblimo/mblimo00.gif
+	@cmd	spawnbind2 "dust4" -75 10 10 -1
+	@cmd	spawnbind2 "dust4" 160 10 10 -1
+	frame	data/chars/3mblimo/mblimo01.gif
+	sound	data/sounds/car1.wav
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	sound	data/sounds/bike5.wav
+	frame	data/chars/3mblimo/mblimo02.gif
+	move	-8
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	attack	55 200 155 70 9 1 1 0 10 0
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	move	-14
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	move	-6
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	attack	0 0 0 0
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+		
+anim	death
+	loop	0
+	delay	5
+	offset	235 276
+	bbox	0 0 0 0
+	quakeframe	14 1 5
+	jumpframe	0 2 0 0 1
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	@cmd	subplat 0
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	move	-6
+	movez	0.2
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	move	-15
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	move	-20
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+
+
+
+		
+anim	fall
+	loop	0
+	delay	5
+	offset	235 276
+	bbox	55 190 320 85
+	#platform	40 285 10 10 400 400 20 70
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+		
+anim	idle
+	loop	1
+	delay	3
+	offset	235 276
+	bbox	55 190 320 85
+	#platform	40 285 10 10 400 400 20 70
+	frame	data/chars/3mblimo/mblimo00.gif
+	@cmd	attack1 160 420 30 "ANI_ATTACK1"
+	@cmd	attack1 -410 -160 30 "ANI_ATTACK2"
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	sound	data/sounds/bike5.wav
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	@cmd	attack1 160 420 30 "ANI_ATTACK1"
+	@cmd	attack1 -410 -160 30 "ANI_ATTACK2"
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+		
+anim	pain
+	loop	0
+	delay	3
+	offset	235 276
+	bbox	55 190 320 85
+	#platform	40 285 10 10 400 400 20 70
+	move	9
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+		
+anim	pain2
+	loop	0
+	delay	3
+	offset	235 276
+	bbox	55 190 320 85
+	#platform	40 285 10 10 400 400 20 70
+	move	-9
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+		
+anim	rise
+	loop	0
+	delay	3
+	offset	235 276
+	bbox	55 190 320 85
+	#platform	40 285 10 10 400 400 20 70
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+		
+anim	spawn
+	loop	0
+	delay	3
+	offset	235 276
+	bbox	55 190 320 85
+	#platform	40 285 10 10 400 400 20 70
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+		
+anim	walk
+	loop	1
+	delay	3
+	offset	235 276
+	bbox	55 190 320 85
+	#platform	40 285 10 10 400 400 20 70
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	sound	data/sounds/bike5.wav
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo02.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+	frame	data/chars/3mblimo/mblimo00.gif
+	frame	data/chars/3mblimo/mblimo01.gif
+		
+#|edited by openBor Stats v 0.53
+		

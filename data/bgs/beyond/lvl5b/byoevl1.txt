@@ -1,0 +1,100 @@
+name	byoevl1
+type	obstacle
+nolife  1
+shadow	0
+setlayer 	-2
+offscreenkill 	10000
+facing	1
+hostile		player
+#subject_to_gravity 0
+subject_to_wall 0
+subject_to_platform 0
+subject_to_hole 1
+subject_to_minz 0
+subject_to_maxz 0
+animationscript data/scripts/escript.c	
+
+load	byoevl2
+
+
+
+
+
+
+
+anim	idle
+	loop	1
+	delay	20
+	offset	270 370
+	platform	55 485 0 0 430 430 110 60
+	frame	data/bgs/beyond/lvl5b/elev01.gif
+	@cmd	attack1 70 250 200 "ANI_FOLLOW1"
+	frame	data/bgs/beyond/lvl5b/elev01.gif
+
+
+
+anim	follow1
+@script
+    if(frame==20){
+	jumptobranch("Dummy", 1);
+    }
+@end_script
+	loop	0
+	delay	500
+	offset	270 370
+	platform	55 485 0 0 430 430 110 60
+	frame	data/bgs/beyond/lvl5b/elev01.gif
+	frame	data/bgs/beyond/lvl5b/elev01.gif
+	delay	9
+	@cmd	dasher 0 0.1 0
+	sound	data/sounds/alimon6.wav
+	frame	data/bgs/beyond/lvl5b/elev01.gif
+	frame	data/bgs/beyond/lvl5b/elev01.gif #3
+	frame	data/bgs/beyond/lvl5b/elev01.gif
+	frame	data/bgs/beyond/lvl5b/elev01.gif
+	@cmd	looper 3 2
+	frame	data/bgs/beyond/lvl5b/elev01.gif
+	frame	data/bgs/beyond/lvl5b/elev01.gif
+	@cmd	dasher 0 -0.2 0
+	delay	7
+	frame	data/bgs/beyond/lvl5b/elev01.gif
+	frame	data/bgs/beyond/lvl5b/elev01.gif #9
+	frame	data/bgs/beyond/lvl5b/elev01.gif
+	sound	data/sounds/elevmove.wav
+	frame	data/bgs/beyond/lvl5b/elev01.gif
+	frame	data/bgs/beyond/lvl5b/elev01.gif
+	frame	data/bgs/beyond/lvl5b/elev01.gif
+	@cmd	looper 9 35
+	frame	data/bgs/beyond/lvl5b/elev01.gif
+	@cmd	stop
+	frame	data/bgs/beyond/lvl5b/elev01.gif
+	frame	data/bgs/beyond/lvl5b/elev01.gif
+	frame	data/bgs/beyond/lvl5b/elev01.gif
+	frame	data/bgs/beyond/lvl5b/elev01.gif
+	frame	data/bgs/beyond/lvl5b/elev01.gif
+	frame	data/bgs/beyond/lvl5b/elev01.gif #20
+	frame	data/bgs/beyond/lvl5b/elev01.gif
+	frame	data/bgs/beyond/lvl5b/elev01.gif
+	delay	2000
+	frame	data/bgs/beyond/lvl5b/elev01.gif
+	frame	data/bgs/beyond/lvl5b/elev01.gif
+
+
+
+
+
+
+
+		
+anim	spawn
+	@cmd	degravity 1
+	loop	0
+	delay	10
+	offset	270 370
+	frame	data/bgs/beyond/lvl5b/elev01.gif
+	@cmd	spawnbind "byoevl2" 0 0 0
+	frame	data/bgs/beyond/lvl5b/elev01.gif
+	frame	data/bgs/beyond/lvl5b/elev01.gif
+		
+#|edited by openBor Stats v 0.53
+		

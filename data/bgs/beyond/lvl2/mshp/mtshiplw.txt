@@ -1,0 +1,1313 @@
+name		mtshiplw
+type		enemy
+subtype		notgrab
+health		1200
+offscreenkill 	10000
+facing		1
+nomove		1 1
+jumpheight	0
+nopain		1
+noquake		1
+falldie		1
+nodieblink	3
+makeinv		3
+shadow		0
+nodrop		2
+antigrab	10
+subject_to_obstacle 0
+subject_to_hole 0
+subject_to_wall 0
+subject_to_minz 0
+subject_to_maxz 0
+hostile				player
+candamage			enemy player
+icon		data/bgs/beyond/lvl2/mshp/icon.gif
+diesound        data/sounds/empty.wav
+animationscript 	data/scripts/escript.c
+
+palette		data/bgs/beyond/lvl2/mshp/xlwmap1.gif
+
+lifebarstatus 300 10 0 1 0 2 5 
+lifeposition 115  240
+nameposition -200 -200
+iconposition 50 227
+nolife 1
+
+
+
+load	mtship
+load	mshpdet
+load	tkend1
+
+
+
+		
+anim	fall
+	loop	0
+	delay	5
+	offset	700 270
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+
+
+
+
+
+#---/////////////////////////////////////////-------
+#---//////////////////BACK-STUFF/////////////-------
+#---/////////////////////////////////////////-------
+#---////////////////TURN/RANGE-USE///////////-------
+#---//////////////RIGHT/-490 1000 400////////-------
+#---//////////////LEFT/-1000 -480 400////////-------
+#---/////////////////////////////////////////-------
+#---/////////////////ANIM-IN-USE/////////////-------
+#---///////ATTACK1/ATTACK2/ATTACK3/ATTACK4///-------
+#---///////FOLLOW1/FOLLOW2/FOLLOW3/FOLLOW4///-------
+#---/////////////////////////////////////////-------
+
+
+#---------/////-------back-left---spawn----//////-------
+		
+anim	attack1
+	loop	0
+	delay	6
+	offset	700 270
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	@cmd	damage 30 "ANI_FOLLOW14"
+	sound	data/sounds/elevmove.wav
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp02.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp03.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp04.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp05.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp06.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp07.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp08.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp09.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp10.gif
+	sound	data/sounds/steel3.wav
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp11.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp12.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp13.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp14.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp15.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp16.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp17.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp18.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp19.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp20.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp21.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp22.gif
+	@cmd	anichange "ANI_ATTACK2"
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp22.gif
+
+#---------/////-------back-left---idle----//////-------
+		
+anim	attack2
+	loop	1
+	delay	5
+	offset	700 270
+	bbox	100 140 40 120 20
+	counterrange 0 11 1 1
+     	followanim 1
+	frame	data/bgs/beyond/lvl2/mshp/lw1id01.gif
+	frame	data/bgs/beyond/lvl2/mshp/lw1id02.gif
+	@cmd	attack1 -490 1000 400 "ANI_FOLLOW2"
+	frame	data/bgs/beyond/lvl2/mshp/lw1id03.gif
+	frame	data/bgs/beyond/lvl2/mshp/lw1id04.gif
+	@cmd	attack1 -490 1000 400 "ANI_FOLLOW2"
+	frame	data/bgs/beyond/lvl2/mshp/lw1id05.gif
+	frame	data/bgs/beyond/lvl2/mshp/lw1id06.gif
+	@cmd	attack1 -490 1000 400 "ANI_FOLLOW2"
+	frame	data/bgs/beyond/lvl2/mshp/lw1id07.gif
+	frame	data/bgs/beyond/lvl2/mshp/lw1id06.gif
+	@cmd	attack1 -490 1000 400 "ANI_FOLLOW2"
+	frame	data/bgs/beyond/lvl2/mshp/lw1id05.gif
+	frame	data/bgs/beyond/lvl2/mshp/lw1id04.gif
+	@cmd	attack1 -490 1000 400 "ANI_FOLLOW2"
+	frame	data/bgs/beyond/lvl2/mshp/lw1id03.gif
+	frame	data/bgs/beyond/lvl2/mshp/lw1id02.gif
+
+#---------/////-back-left--pain-change-pos-//////-------
+
+anim	follow1
+@script
+    void self = getlocalvar("self");
+
+    if( frame == 26){
+      int r = rand()%50;
+
+      if( r > 0){
+        changeentityproperty(self, "animation", openborconstant("ANI_ATTACK5"));
+      }
+      else{
+        changeentityproperty(self, "animation", openborconstant("ANI_ATTACK9"));
+      }
+    }
+@end_script
+	loop	0
+	delay	9
+	offset	700 270
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl2/mshp/lw1id08.gif
+	sound	data/sounds/alien8.wav
+	frame	data/bgs/beyond/lvl2/mshp/lw1id10.gif
+	frame	data/bgs/beyond/lvl2/mshp/lw1id09.gif
+	frame	data/bgs/beyond/lvl2/mshp/lw1id08.gif
+	frame	data/bgs/beyond/lvl2/mshp/lw1id01.gif
+	delay	6
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp22.gif
+	sound	data/sounds/steel3.wav
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp21.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp20.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp19.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp18.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp17.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp16.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp15.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp14.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp13.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp12.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp11.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp10.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp09.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp08.gif
+	sound	data/sounds/elevmove.wav
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp07.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp06.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp05.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp04.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp03.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp02.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	@cmd	damage 30 "ANI_FOLLOW14"
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	@cmd	anichange "ANI_ATTACK1"
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+
+
+#---------/////--back-left--hide-turn-face--//////-------
+
+anim	follow2
+	loop	0
+	delay	6
+	offset	700 270
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp22.gif
+	sound	data/sounds/steel3.wav
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp21.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp20.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp19.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp18.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp17.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp16.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp15.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp14.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp13.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp12.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp11.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp10.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp09.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp08.gif
+	sound	data/sounds/elevmove.wav
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp07.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp06.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp05.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp04.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp03.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp02.gif
+	@cmd	damage 30 "ANI_FOLLOW14"
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	@cmd	anichange "ANI_ATTACK3"
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+
+
+
+#---------/////-------back-right---spawn----//////-------
+		
+anim	attack3
+	loop	0
+	delay	6
+	offset	700 270
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	@cmd	damage 30 "ANI_FOLLOW14"
+	sound	data/sounds/elevmove.wav
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp02.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp03.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp04.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp05.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp06.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1spb07.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1spb08.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1spb09.gif
+	sound	data/sounds/steel3.wav
+	frame	data/bgs/beyond/lvl2/mshp/lwr1spb10.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1spb11.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1spb12.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1spb13.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1spb14.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1spb15.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1spb16.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1spb17.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1spb18.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1spb19.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1spb20.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1spb21.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1spb22.gif
+	@cmd	anichange "ANI_ATTACK4"
+	frame	data/bgs/beyond/lvl2/mshp/lwr1spb22.gif
+
+
+
+#---------/////-------back-right--idle----//////-------
+		
+anim	attack4
+	loop	1
+	delay	5
+	offset	700 270
+	bbox	270 140 45 100
+	counterrange 0 11 1 1
+     	followanim 3
+	frame	data/bgs/beyond/lvl2/mshp/lw1idb01.gif
+	@cmd	damage 30 "ANI_FOLLOW14"
+	frame	data/bgs/beyond/lvl2/mshp/lw1idb02.gif
+	@cmd	attack1 -1000 -480 400 "ANI_FOLLOW4"
+	frame	data/bgs/beyond/lvl2/mshp/lw1idb03.gif
+	frame	data/bgs/beyond/lvl2/mshp/lw1idb04.gif
+	@cmd	attack1 -1000 -480 400 "ANI_FOLLOW4"
+	frame	data/bgs/beyond/lvl2/mshp/lw1idb05.gif
+	frame	data/bgs/beyond/lvl2/mshp/lw1idb06.gif
+	@cmd	attack1 -1000 -480 400 "ANI_FOLLOW4"
+	frame	data/bgs/beyond/lvl2/mshp/lw1idb07.gif
+	frame	data/bgs/beyond/lvl2/mshp/lw1idb06.gif
+	@cmd	attack1 -1000 -480 400 "ANI_FOLLOW4"
+	frame	data/bgs/beyond/lvl2/mshp/lw1idb05.gif
+	frame	data/bgs/beyond/lvl2/mshp/lw1idb04.gif
+	@cmd	attack1 -1000 -480 400 "ANI_FOLLOW4"
+	frame	data/bgs/beyond/lvl2/mshp/lw1idb03.gif
+	frame	data/bgs/beyond/lvl2/mshp/lw1idb02.gif
+
+
+#---------/////-back-right--pain-change-pos-//////-------
+
+anim	follow3
+@script
+    void self = getlocalvar("self");
+
+    if( frame == 26){
+      int r = rand()%50;
+
+      if( r > 0){
+        changeentityproperty(self, "animation", openborconstant("ANI_ATTACK11"));
+      }
+      else{
+        changeentityproperty(self, "animation", openborconstant("ANI_ATTACK7"));
+      }
+    }
+@end_script
+	loop	0
+	delay	9
+	offset	700 270
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl2/mshp/lw1idb08.gif
+	sound	data/sounds/alien8.wav
+	frame	data/bgs/beyond/lvl2/mshp/lw1idb10.gif
+	frame	data/bgs/beyond/lvl2/mshp/lw1idb09.gif
+	frame	data/bgs/beyond/lvl2/mshp/lw1idb08.gif
+	frame	data/bgs/beyond/lvl2/mshp/lw1idb01.gif
+	frame	data/bgs/beyond/lvl2/mshp/lw1idb01.gif
+	delay	6
+	frame	data/bgs/beyond/lvl2/mshp/lwr1spb22.gif
+	sound	data/sounds/steel3.wav
+	frame	data/bgs/beyond/lvl2/mshp/lwr1spb21.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1spb20.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1spb19.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1spb18.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1spb17.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1spb16.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1spb15.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1spb14.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1spb13.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1spb12.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1spb11.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1spb10.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1spb09.gif
+	sound	data/sounds/elevmove.wav
+	frame	data/bgs/beyond/lvl2/mshp/lwr1spb08.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp07.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp06.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp05.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp04.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp03.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp02.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	@cmd	damage 30 "ANI_FOLLOW14"
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	@cmd	anichange "ANI_ATTACK3"
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+
+
+
+
+#---------/////--back-right--hide-turn-face--//////-------
+
+anim	follow4
+	loop	0
+	delay	6
+	offset	700 270
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl2/mshp/lwr1spb22.gif
+	sound	data/sounds/steel3.wav
+	frame	data/bgs/beyond/lvl2/mshp/lwr1spb21.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1spb20.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1spb19.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1spb18.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1spb17.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1spb16.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1spb15.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1spb14.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1spb13.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1spb12.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1spb11.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1spb10.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1spb09.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1spb08.gif
+	sound	data/sounds/elevmove.wav
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp07.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp06.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp05.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp04.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp03.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp02.gif
+	@cmd	damage 30 "ANI_FOLLOW14"
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	@cmd	anichange "ANI_ATTACK1"
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+
+
+
+#---/////////////////////////////////////////-------
+#---///////////////BACK-STUFF-END////////////-------
+#---/////////////////////////////////////////-------
+
+
+
+
+
+
+
+#---/////////////////////////////////////////-------
+#---//////////////////MIDDLE-STUFF///////////-------
+#---/////////////////////////////////////////-------
+#---////////////////TURN/RANGE-USE///////////-------
+#---//////////////RIGHT/10 1200 400//////////-------
+#---//////////////LEFT/-1200 -10 400/////////-------
+#---/////////////////////////////////////////-------
+#---/////////////////ANIM-IN-USE/////////////-------
+#---///////ATTACK5/ATTACK6/ATTACK7/ATTACK8///-------
+#---///////FOLLOW5/FOLLOW6/FOLLOW7/FOLLOW8///-------
+#---/////////////////////////////////////////-------
+
+
+#---------/////-------middle-left---spawn----//////-------
+		
+anim	attack5
+	loop	0
+	delay	6
+	offset	700 270
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp01.gif
+	@cmd	damage 30 "ANI_FOLLOW14"
+	sound	data/sounds/elevmove.wav
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp02.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp03.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp04.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp05.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp06.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp07.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp08.gif
+	sound	data/sounds/steel3.wav
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp09.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp10.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp11.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp12.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp13.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp14.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp15.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp16.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp17.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp18.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp19.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp20.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp21.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp22.gif
+	@cmd	anichange "ANI_ATTACK6"
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp22.gif
+
+#---------/////-------middle-left---idle----//////-------
+		
+anim	attack6
+	loop	1
+	delay	5
+	offset	700 270
+	bbox	590 140 40 120 20
+	counterrange 0 11 1 1
+     	followanim 5
+	frame	data/bgs/beyond/lvl2/mshp/lw2id01.gif
+	@cmd	damage 30 "ANI_FOLLOW14"
+	frame	data/bgs/beyond/lvl2/mshp/lw2id02.gif
+	@cmd	attack1 10 1200 400 "ANI_FOLLOW6"
+	frame	data/bgs/beyond/lvl2/mshp/lw2id03.gif
+	frame	data/bgs/beyond/lvl2/mshp/lw2id04.gif
+	@cmd	attack1 10 1200 400 "ANI_FOLLOW6"
+	frame	data/bgs/beyond/lvl2/mshp/lw2id05.gif
+	frame	data/bgs/beyond/lvl2/mshp/lw2id06.gif
+	@cmd	attack1 10 1200 400 "ANI_FOLLOW6"
+	frame	data/bgs/beyond/lvl2/mshp/lw2id07.gif
+	frame	data/bgs/beyond/lvl2/mshp/lw2id06.gif
+	@cmd	attack1 10 1200 400 "ANI_FOLLOW6"
+	frame	data/bgs/beyond/lvl2/mshp/lw2id05.gif
+	frame	data/bgs/beyond/lvl2/mshp/lw2id04.gif
+	@cmd	attack1 10 1200 400 "ANI_FOLLOW6"
+	frame	data/bgs/beyond/lvl2/mshp/lw2id03.gif
+	frame	data/bgs/beyond/lvl2/mshp/lw2id02.gif
+
+#---------/////-middle-left--pain-change-pos-//////-------
+
+anim	follow5
+@script
+    void self = getlocalvar("self");
+
+    if( frame == 26){
+      int r = rand()%50;
+
+      if( r > 0){
+        changeentityproperty(self, "animation", openborconstant("ANI_ATTACK3"));
+      }
+      else{
+        changeentityproperty(self, "animation", openborconstant("ANI_ATTACK9"));
+      }
+    }
+@end_script
+	loop	0
+	delay	9
+	offset	700 270
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl2/mshp/lw2id08.gif
+	sound	data/sounds/alien8.wav
+	frame	data/bgs/beyond/lvl2/mshp/lw2id10.gif
+	frame	data/bgs/beyond/lvl2/mshp/lw2id09.gif
+	frame	data/bgs/beyond/lvl2/mshp/lw2id08.gif
+	frame	data/bgs/beyond/lvl2/mshp/lw2id01.gif
+	delay	6
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp22.gif
+	sound	data/sounds/steel3.wav
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp21.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp20.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp19.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp18.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp17.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp16.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp15.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp14.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp13.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp12.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp11.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp10.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp09.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp08.gif
+	sound	data/sounds/elevmove.wav
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp07.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp06.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp05.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp04.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp03.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp02.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp01.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp01.gif
+	@cmd	damage 30 "ANI_FOLLOW14"
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp01.gif
+	@cmd	anichange "ANI_ATTACK5"
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp01.gif
+
+
+#---------/////--middle-left--hide-turn-face--//////-------
+
+anim	follow6
+	loop	0
+	delay	6
+	offset	700 270
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp22.gif
+	sound	data/sounds/steel3.wav
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp21.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp20.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp19.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp18.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp17.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp16.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp15.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp14.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp13.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp12.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp11.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp10.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp09.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp08.gif
+	sound	data/sounds/elevmove.wav
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp07.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp06.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp05.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp04.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp03.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp02.gif
+	@cmd	damage 30 "ANI_FOLLOW14"
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp01.gif
+	@cmd	anichange "ANI_ATTACK7"
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp01.gif
+
+
+
+#---------/////-------middle-right---spawn----//////-------
+		
+anim	attack7
+	loop	0
+	delay	6
+	offset	700 270
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp01.gif
+	@cmd	damage 30 "ANI_FOLLOW14"
+	sound	data/sounds/elevmove.wav
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp02.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp03.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp04.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp05.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp06.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2spb07.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2spb08.gif
+	sound	data/sounds/steel3.wav
+	frame	data/bgs/beyond/lvl2/mshp/lwr2spb09.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2spb10.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2spb11.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2spb12.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2spb13.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2spb14.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2spb15.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2spb16.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2spb17.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2spb18.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2spb19.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2spb20.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2spb21.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2spb22.gif
+	@cmd	anichange "ANI_ATTACK8"
+	frame	data/bgs/beyond/lvl2/mshp/lwr2spb22.gif
+
+
+
+#---------/////-------middle-right--idle----//////-------
+		
+anim	attack8
+	loop	1
+	delay	5
+	offset	700 270
+	bbox	765 140 45 100
+	counterrange 0 11 1 1
+     	followanim 7
+	frame	data/bgs/beyond/lvl2/mshp/lw2idb01.gif
+	frame	data/bgs/beyond/lvl2/mshp/lw2idb02.gif
+	@cmd	attack1 -1200 -10 400 "ANI_FOLLOW8"
+	frame	data/bgs/beyond/lvl2/mshp/lw2idb03.gif
+	frame	data/bgs/beyond/lvl2/mshp/lw2idb04.gif
+	@cmd	attack1 -1200 -10 400 "ANI_FOLLOW8"
+	frame	data/bgs/beyond/lvl2/mshp/lw2idb05.gif
+	frame	data/bgs/beyond/lvl2/mshp/lw2idb06.gif
+	@cmd	attack1 -1200 -10 400 "ANI_FOLLOW8"
+	frame	data/bgs/beyond/lvl2/mshp/lw2idb07.gif
+	frame	data/bgs/beyond/lvl2/mshp/lw2idb06.gif
+	@cmd	attack1 -1200 -10 400 "ANI_FOLLOW8"
+	frame	data/bgs/beyond/lvl2/mshp/lw2idb05.gif
+	frame	data/bgs/beyond/lvl2/mshp/lw2idb04.gif
+	@cmd	attack1 -1200 -10 400 "ANI_FOLLOW8"
+	frame	data/bgs/beyond/lvl2/mshp/lw2idb03.gif
+	frame	data/bgs/beyond/lvl2/mshp/lw2idb02.gif
+
+
+#---------/////-middle-right--pain-change-pos-//////-------
+
+anim	follow7
+@script
+    void self = getlocalvar("self");
+
+    if( frame == 26){
+      int r = rand()%50;
+
+      if( r > 0){
+        changeentityproperty(self, "animation", openborconstant("ANI_ATTACK11"));
+      }
+      else{
+        changeentityproperty(self, "animation", openborconstant("ANI_ATTACK1"));
+      }
+    }
+@end_script
+	loop	0
+	delay	9
+	offset	700 270
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl2/mshp/lw2idb08.gif
+	sound	data/sounds/alien8.wav
+	frame	data/bgs/beyond/lvl2/mshp/lw2idb10.gif
+	frame	data/bgs/beyond/lvl2/mshp/lw2idb09.gif
+	frame	data/bgs/beyond/lvl2/mshp/lw2idb08.gif
+	frame	data/bgs/beyond/lvl2/mshp/lw2idb01.gif
+	frame	data/bgs/beyond/lvl2/mshp/lw2idb01.gif
+	delay	6
+	frame	data/bgs/beyond/lvl2/mshp/lwr2spb22.gif
+	sound	data/sounds/steel3.wav
+	frame	data/bgs/beyond/lvl2/mshp/lwr2spb21.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2spb20.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2spb19.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2spb18.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2spb17.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2spb16.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2spb15.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2spb14.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2spb13.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2spb12.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2spb11.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2spb10.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2spb09.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2spb08.gif
+	sound	data/sounds/elevmove.wav
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp07.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp06.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp05.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp04.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp03.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp02.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp01.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp01.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp01.gif
+	@cmd	anichange "ANI_ATTACK7"
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp01.gif
+
+
+
+
+#---------/////--middle-right--hide-turn-face--//////-------
+
+anim	follow8
+	loop	0
+	delay	6
+	offset	700 270
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl2/mshp/lwr2spb22.gif
+	sound	data/sounds/steel3.wav
+	frame	data/bgs/beyond/lvl2/mshp/lwr2spb21.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2spb20.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2spb19.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2spb18.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2spb17.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2spb16.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2spb15.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2spb14.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2spb13.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2spb12.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2spb11.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2spb10.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2spb09.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2spb08.gif
+	sound	data/sounds/elevmove.wav
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp07.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp06.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp05.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp04.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp03.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp02.gif
+	@cmd	damage 30 "ANI_FOLLOW14"
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp01.gif
+	@cmd	anichange "ANI_ATTACK5"
+	frame	data/bgs/beyond/lvl2/mshp/lwr2sp01.gif
+
+
+
+#---/////////////////////////////////////////-------
+#---///////////////MIDDLE-STUFF-END//////////-------
+#---/////////////////////////////////////////-------
+
+
+
+
+
+
+
+
+#---/////////////////////////////////////////-------
+#---//////////////////FRONT-STUFF////////////-------
+#---/////////////////////////////////////////-------
+#---////////////////TURN/RANGE-USE///////////-------
+#---//////////////RIGHT/465 1000 400 ////////-------
+#---//////////////LEFT/-1200 455 400/////////-------
+#---/////////////////////////////////////////-------
+#---/////////////////ANIM-IN-USE/////////////-------
+#---/////ATTACK9/ATTACK10/ATTACK11/ATTACK12//-------
+#---/////FOLLOW9/FOLLOW10/FOLLOW11/FOLLOW12//-------
+#---/////////////////////////////////////////-------
+
+
+#---------/////-------front-left---spawn----//////-------
+		
+anim	attack9
+	loop	0
+	delay	6
+	offset	700 270
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp01.gif
+	@cmd	damage 30 "ANI_FOLLOW14"
+	sound	data/sounds/elevmove.wav
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp02.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp03.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp04.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp05.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp06.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp07.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp08.gif
+	sound	data/sounds/steel3.wav
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp09.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp10.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp11.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp12.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp13.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp14.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp15.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp16.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp17.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp18.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp19.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp20.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp21.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp22.gif
+	@cmd	anichange "ANI_attack10"
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp22.gif
+
+#---------/////-------front-left---idle----//////-------
+		
+anim	attack10
+	loop	1
+	delay	5
+	offset	700 270
+	bbox	1045 140 40 120 20
+	counterrange 0 11 1 1
+     	followanim 9
+	frame	data/bgs/beyond/lvl2/mshp/lw3id01.gif
+	frame	data/bgs/beyond/lvl2/mshp/lw3id02.gif
+	@cmd	attack1 465 1000 400 "ANI_follow10"
+	frame	data/bgs/beyond/lvl2/mshp/lw3id03.gif
+	frame	data/bgs/beyond/lvl2/mshp/lw3id04.gif
+	@cmd	attack1 465 1000 400 "ANI_follow10"
+	frame	data/bgs/beyond/lvl2/mshp/lw3id05.gif
+	frame	data/bgs/beyond/lvl2/mshp/lw3id06.gif
+	@cmd	attack1 465 1000 400 "ANI_follow10"
+	frame	data/bgs/beyond/lvl2/mshp/lw3id07.gif
+	frame	data/bgs/beyond/lvl2/mshp/lw3id06.gif
+	@cmd	attack1 465 1000 400 "ANI_follow10"
+	frame	data/bgs/beyond/lvl2/mshp/lw3id05.gif
+	frame	data/bgs/beyond/lvl2/mshp/lw3id04.gif
+	@cmd	attack1 465 1000 400 "ANI_follow10"
+	frame	data/bgs/beyond/lvl2/mshp/lw3id03.gif
+	frame	data/bgs/beyond/lvl2/mshp/lw3id02.gif
+
+#---------/////-front-left--pain-change-pos-//////-------
+
+anim	follow9
+@script
+    void self = getlocalvar("self");
+
+    if( frame == 26){
+      int r = rand()%50;
+
+      if( r > 0){
+        changeentityproperty(self, "animation", openborconstant("ANI_ATTACK7"));
+      }
+      else{
+        changeentityproperty(self, "animation", openborconstant("ANI_ATTACK3"));
+      }
+    }
+@end_script
+	loop	0
+	delay	9
+	offset	700 270
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl2/mshp/lw3id08.gif
+	sound	data/sounds/alien8.wav
+	frame	data/bgs/beyond/lvl2/mshp/lw3id10.gif
+	frame	data/bgs/beyond/lvl2/mshp/lw3id09.gif
+	frame	data/bgs/beyond/lvl2/mshp/lw3id08.gif
+	frame	data/bgs/beyond/lvl2/mshp/lw3id01.gif
+	delay	6
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp22.gif
+	sound	data/sounds/steel3.wav
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp21.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp20.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp19.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp18.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp17.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp16.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp15.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp14.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp13.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp12.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp11.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp10.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp09.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp08.gif
+	sound	data/sounds/elevmove.wav
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp07.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp06.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp05.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp04.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp03.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp02.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp01.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp01.gif
+	@cmd	damage 30 "ANI_FOLLOW14"
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp01.gif
+	@cmd	anichange "ANI_ATTACK9"
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp01.gif
+
+
+#---------/////--front-left--hide-turn-face--//////-------
+
+anim	follow10
+	loop	0
+	delay	6
+	offset	700 270
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp22.gif
+	sound	data/sounds/steel3.wav
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp21.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp20.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp19.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp18.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp17.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp16.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp15.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp14.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp13.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp12.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp11.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp10.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp09.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp08.gif
+	sound	data/sounds/elevmove.wav
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp07.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp06.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp05.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp04.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp03.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp02.gif
+	@cmd	damage 30 "ANI_FOLLOW14"
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp01.gif
+	@cmd	anichange "ANI_attack11"
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp01.gif
+
+
+
+#---------/////-------front-right---spawn----//////-------
+		
+anim	attack11
+	loop	0
+	delay	6
+	offset	700 270
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp01.gif
+	@cmd	damage 30 "ANI_FOLLOW14"
+	sound	data/sounds/elevmove.wav
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp02.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp03.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp04.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp05.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp06.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3spb07.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3spb08.gif
+	sound	data/sounds/steel3.wav
+	frame	data/bgs/beyond/lvl2/mshp/lwr3spb09.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3spb10.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3spb11.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3spb12.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3spb13.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3spb14.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3spb15.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3spb16.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3spb17.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3spb18.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3spb19.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3spb20.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3spb21.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3spb22.gif
+	@cmd	anichange "ANI_attack12"
+	frame	data/bgs/beyond/lvl2/mshp/lwr3spb22.gif
+
+
+
+#---------/////-------front-right--idle----//////-------
+		
+anim	attack12
+	loop	1
+	delay	5
+	offset	700 270
+	bbox	1220 140 45 100
+	counterrange 0 11 1 1
+     	followanim 11
+	frame	data/bgs/beyond/lvl2/mshp/lw3idb01.gif
+	frame	data/bgs/beyond/lvl2/mshp/lw3idb02.gif
+	@cmd	attack1 -1200 455 400 "ANI_follow12"
+	frame	data/bgs/beyond/lvl2/mshp/lw3idb03.gif
+	frame	data/bgs/beyond/lvl2/mshp/lw3idb04.gif
+	@cmd	attack1 -1200 455 400 "ANI_follow12"
+	frame	data/bgs/beyond/lvl2/mshp/lw3idb05.gif
+	frame	data/bgs/beyond/lvl2/mshp/lw3idb06.gif
+	@cmd	attack1 -1200 455 400 "ANI_follow12"
+	frame	data/bgs/beyond/lvl2/mshp/lw3idb07.gif
+	frame	data/bgs/beyond/lvl2/mshp/lw3idb06.gif
+	@cmd	attack1 -1200 455 400 "ANI_follow12"
+	frame	data/bgs/beyond/lvl2/mshp/lw3idb05.gif
+	frame	data/bgs/beyond/lvl2/mshp/lw3idb04.gif
+	@cmd	attack1 -1200 455 400 "ANI_follow12"
+	frame	data/bgs/beyond/lvl2/mshp/lw3idb03.gif
+	frame	data/bgs/beyond/lvl2/mshp/lw3idb02.gif
+
+
+#---------/////-front-right--pain-change-pos-//////-------
+
+anim	follow11
+@script
+    void self = getlocalvar("self");
+
+    if( frame == 26){
+      int r = rand()%50;
+
+      if( r > 0){
+        changeentityproperty(self, "animation", openborconstant("ANI_ATTACK1"));
+      }
+      else{
+        changeentityproperty(self, "animation", openborconstant("ANI_ATTACK5"));
+      }
+    }
+@end_script
+	loop	0
+	delay	9
+	offset	700 270
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl2/mshp/lw3idb08.gif
+	sound	data/sounds/alien8.wav
+	frame	data/bgs/beyond/lvl2/mshp/lw3idb10.gif
+	frame	data/bgs/beyond/lvl2/mshp/lw3idb09.gif
+	frame	data/bgs/beyond/lvl2/mshp/lw3idb08.gif
+	frame	data/bgs/beyond/lvl2/mshp/lw3idb01.gif
+	frame	data/bgs/beyond/lvl2/mshp/lw3idb01.gif
+	delay	6
+	frame	data/bgs/beyond/lvl2/mshp/lwr3spb22.gif
+	sound	data/sounds/steel3.wav
+	frame	data/bgs/beyond/lvl2/mshp/lwr3spb21.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3spb20.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3spb19.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3spb18.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3spb17.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3spb16.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3spb15.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3spb14.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3spb13.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3spb12.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3spb11.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3spb10.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3spb09.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3spb08.gif
+	sound	data/sounds/elevmove.wav
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp07.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp06.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp05.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp04.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp03.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp02.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp01.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp01.gif
+	@cmd	damage 30 "ANI_FOLLOW14"
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp01.gif
+	@cmd	anichange "ANI_ATTACK11"
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp01.gif
+
+
+
+
+#---------/////--front-right--hide-turn-face--//////-------
+
+anim	follow12
+	loop	0
+	delay	6
+	offset	700 270
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl2/mshp/lwr3spb22.gif
+	sound	data/sounds/steel3.wav
+	frame	data/bgs/beyond/lvl2/mshp/lwr3spb21.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3spb20.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3spb19.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3spb18.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3spb17.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3spb16.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3spb15.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3spb14.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3spb13.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3spb12.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3spb11.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3spb10.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3spb09.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3spb08.gif
+	sound	data/sounds/elevmove.wav
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp07.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp06.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp05.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp04.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp03.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp02.gif
+	@cmd	damage 30 "ANI_FOLLOW14"
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp01.gif
+	@cmd	anichange "ANI_attack9"
+	frame	data/bgs/beyond/lvl2/mshp/lwr3sp01.gif
+
+
+
+#---/////////////////////////////////////////-------
+#---///////////////FRONT-STUFF-END///////////-------
+#---/////////////////////////////////////////-------
+
+
+
+
+
+#---/////////////////////////////////////////-------
+#---////////////IDLE-CHANGES-POSITION////////-------
+#---/////////////////////////////////////////-------
+#---/////////////////RANGE-IN-USE////////////-------
+#---//////////LEFT-FRONT---??????////////////-------
+#---//////////RIGHT-FRONT--??????////////////-------
+#---/////////////////////////////////////////-------
+#---//////////LEFT-MIDDLE--??????////////////-------
+#---//////////RIGHT-MIDDLE-??????////////////-------
+#---/////////////////////////////////////////-------
+#---//////////LEFT-BACK----??????////////////-------
+#---//////////RIGHT-BACK---??????////////////-------
+#---/////////////////////////////////////////-------
+#---///////////////ANIM-IN-USE///////////////-------
+#---/////////////////////////////////////////-------
+#---///BACK---LEFT-ATTACK1///RIGHT-ATTACK3///-------
+#---///FRONT--LEFT-ATTACK9///RIGHT-ATTACK11//-------
+#---///MIDDLE-LEFT-ATTACK5///RIGHT-ATTACK7///-------
+#---/////////////////////////////////////////-------
+#---/////////////////////////////////////////-------
+
+
+
+anim	idle
+	loop	1
+	delay	5
+	offset	700 270
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	@cmd	damage 30 "ANI_FOLLOW14"
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	@cmd	anichange "ANI_ATTACK1"
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+
+
+
+#---/////////////////////////////////////////-------
+#---//////////POSITION-CHANGE-END////////////-------
+#---/////////////////////////////////////////-------
+
+
+
+
+
+		
+anim	pain
+	loop	0
+	delay	5
+	offset	700 270
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+		
+anim	pain2
+	loop	0
+	delay	5
+	offset	700 270
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+		
+anim	rise
+	loop	0
+	delay	5
+	offset	700 270
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+		
+anim	spawn
+	loop	1
+	delay	10
+	offset	700 270
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	@cmd	spawnGun "mtship" -50 1 5 1
+	@cmd	spawnGun5 "mtgun1" 1 1 15 2 "ANI_FOLLOW8"
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	@cmd	 playmusic "data/music/wind.ogg" 1
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	delay	2000
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	delay	8
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	@cmd	 playmusic "data/music/mship.ogg" 1
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	@cmd	dasher -0.5 0 0
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif #7
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	@cmd	looper 7 74
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	@cmd	dasher -0.3 0 0
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	@cmd	stop
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	delay	800
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	delay	15
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	@cmd	anichange "ANI_ATTACK9"
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+
+
+
+
+
+
+
+#------------------------------------------------
+#---------------//-----DEATH-----//--------------
+#------------------------------------------------
+
+
+anim	follow14
+@script
+	void self = getlocalvar("self");
+	if (frame == 1)
+	{
+	setglobalvar ("shipdet", 3);
+	}
+@end_script
+	loop	1 15 25
+	delay	10
+	offset	700 270
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	@cmd	spawn05 "tkend1" 2550 1 355
+	@cmd	spawn05 "tkend1" 3500 1 440
+	@cmd	spawn06 "tkend1" -1150 1 390 "ANI_FOLLOW10"
+	@cmd	spawn06 "tkend1" -1800 1 440 "ANI_FOLLOW14" 
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	@cmd	hpgain 1300
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif #3
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	@cmd	looper 3 10
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	@cmd	GunControl 2 0
+	@cmd	degravity 1
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	movea	1
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif #9
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	@cmd	looper 9 25
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	movea	0
+	bbox	0 -60 1400 110 150
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif #14
+	movez	-1
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	movez	1
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	movez	-1
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	movez	1
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	movez	-1
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	movez	1
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	movez	-1
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	movez	1
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	movez	-1
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	movez	1
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	movez	-1
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	movez	1
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	movea	1
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	movea	-1
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	movez	1
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	movez	-1
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	movez	1
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	movez	1
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+	movez	-1
+	frame	data/bgs/beyond/lvl2/mshp/lwr1sp01.gif
+
+
+
+anim	death
+	loop	0
+	delay	5
+	offset	700 270
+	bbox	0 0 0 0
+	@cmd	killgun 1 1
+	@cmd	killgun 2 0
+	@cmd	spawn01 "mshpdet" 52 147 1
+	frame	data/bgs/beyond/lvl2/mshp/1gn00.gif
+	frame	data/bgs/beyond/lvl2/mshp/1gn00.gif
+	frame	data/bgs/beyond/lvl2/mshp/1gn00.gif
+	frame	data/bgs/beyond/lvl2/mshp/1gn00.gif
+	frame	data/bgs/beyond/lvl2/mshp/1gn00.gif
+	frame	data/bgs/beyond/lvl2/mshp/1gn00.gif
+	frame	data/bgs/beyond/lvl2/mshp/1gn00.gif
+
+
+		
+#|edited by openBor Stats v 0.53
+		

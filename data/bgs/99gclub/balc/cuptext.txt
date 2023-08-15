@@ -1,0 +1,392 @@
+name	cuptext
+type	text
+subtype	noskip
+facing	1
+health	500
+nolife	1
+setlayer 9999999999
+offscreenkill	50000
+subject_to_minz    	0
+subject_to_maxz    	0
+subject_to_wall    	0
+subject_to_platform     0
+subject_to_obstacle     0
+subject_to_hole     	0
+subject_to_gravity     	0
+
+animationscript data/scripts/grabscript.c
+
+palette	none
+
+
+
+#--------------//--text--//------------------------------
+
+
+anim	idle
+@script
+void self = getlocalvar("self");
+	char go1 = getentityproperty(self,"name");
+	if (frame == 26)
+		{
+		performattack(self, openborconstant(go1));
+		}
+@end_script
+	loop	0
+	delay	5
+	offset	160 75
+	bbox	0 0 0 0
+	drawmethod 16 6
+	frame	data/bgs/99gclub/balc/text00.gif
+	drawmethod 36 6
+	frame	data/bgs/99gclub/balc/text00.gif
+	drawmethod 56 6
+	frame	data/bgs/99gclub/balc/text00.gif
+	drawmethod 76 6
+	frame	data/bgs/99gclub/balc/text00.gif
+	drawmethod 96 6
+	frame	data/bgs/99gclub/balc/text00.gif
+	drawmethod 116 6
+	frame	data/bgs/99gclub/balc/text00.gif
+	drawmethod 136 6
+	frame	data/bgs/99gclub/balc/text00.gif
+	drawmethod 156 6
+	frame	data/bgs/99gclub/balc/text00.gif
+	drawmethod 176 6
+	frame	data/bgs/99gclub/balc/text00.gif
+	drawmethod 196 6
+	frame	data/bgs/99gclub/balc/text00.gif
+	drawmethod 216 6
+	frame	data/bgs/99gclub/balc/text00.gif
+	drawmethod 236 6
+	frame	data/bgs/99gclub/balc/text00.gif
+	drawmethod 256 6
+	frame	data/bgs/99gclub/balc/text00.gif
+	drawmethod 256 25
+	frame	data/bgs/99gclub/balc/text00.gif
+	drawmethod 256 45
+	frame	data/bgs/99gclub/balc/text00.gif
+	drawmethod 256 66
+	frame	data/bgs/99gclub/balc/text00.gif
+	drawmethod 256 86
+	frame	data/bgs/99gclub/balc/text00.gif
+	drawmethod 256 106
+	frame	data/bgs/99gclub/balc/text00.gif
+	drawmethod 256 126
+	frame	data/bgs/99gclub/balc/text00.gif
+	drawmethod 256 146
+	frame	data/bgs/99gclub/balc/text00.gif
+	drawmethod 256 166
+	frame	data/bgs/99gclub/balc/text00.gif #20
+	drawmethod 256 186
+	frame	data/bgs/99gclub/balc/text00.gif
+	drawmethod 256 206
+	frame	data/bgs/99gclub/balc/text00.gif
+	drawmethod 256 226
+	frame	data/bgs/99gclub/balc/text00.gif
+	drawmethod 256 246
+	frame	data/bgs/99gclub/balc/text00.gif
+	drawmethod 256 256
+	frame	data/bgs/99gclub/balc/text00.gif
+	nodrawmethod
+	frame	data/bgs/99gclub/balc/text00.gif #26
+	frame	data/bgs/99gclub/balc/text00.gif
+	delay	30
+	frame	data/bgs/99gclub/balc/text00.gif
+	frame	data/bgs/99gclub/balc/text00.gif
+	frame	data/bgs/99gclub/balc/text00.gif
+	@cmd	suicide
+	frame	data/bgs/99gclub/balc/text00.gif
+
+
+#-----//--watch-the-cup---//---------
+
+anim	follow1
+	loop	0
+	delay	8
+	offset	160 75
+	bbox	0 0 0 0
+	frame	data/bgs/99gclub/balc/text06.gif
+	@cmd	clearL
+	frame	data/bgs/99gclub/balc/text07.gif
+	frame	data/bgs/99gclub/balc/text07a.gif
+	frame	data/bgs/99gclub/balc/text06.gif #3
+	frame	data/bgs/99gclub/balc/text07.gif
+	frame	data/bgs/99gclub/balc/text07a.gif
+	@cmd	looper 3 15
+	frame	data/bgs/99gclub/balc/text06.gif
+	frame	data/bgs/99gclub/balc/text07.gif
+	@cmd	anichange "ANI_FOLLOW20"
+	frame	data/bgs/99gclub/balc/text07a.gif
+
+
+#-------------------//--success--//---success------------------
+
+anim	follow2
+	loop	0
+	delay	12
+	offset	1 1
+	bbox	0 0 0 0
+	frame	data/bgs/99gclub/balc/text08.gif
+	frame	data/bgs/99gclub/balc/empty.gif
+	frame	data/bgs/99gclub/balc/text08.gif #2
+	frame	data/bgs/99gclub/balc/empty.gif
+	frame	data/bgs/99gclub/balc/text08.gif
+	frame	data/bgs/99gclub/balc/empty.gif
+	@cmd	looper 2 10
+	frame	data/bgs/99gclub/balc/text08.gif
+	@cmd	suicide
+	frame	data/bgs/99gclub/balc/empty.gif
+
+
+#-------------------//--fail--//---FAIL-!!!-----------------
+
+anim	follow3
+	loop	0
+	delay	12
+	offset	1 1
+	bbox	0 0 0 0
+	frame	data/bgs/99gclub/balc/text09.gif
+	frame	data/bgs/99gclub/balc/empty.gif
+	frame	data/bgs/99gclub/balc/text09.gif
+	frame	data/bgs/99gclub/balc/empty.gif
+	frame	data/bgs/99gclub/balc/text09.gif
+	frame	data/bgs/99gclub/balc/empty.gif
+	@cmd	looper 2 10
+	frame	data/bgs/99gclub/balc/text09.gif
+	@cmd	suicide
+	frame	data/bgs/99gclub/balc/empty.gif
+
+#-------------------//--time--over--//--------------------
+
+anim	follow6
+	loop	0
+	delay	12
+	offset	1 1
+	bbox	0 0 0 0
+	frame	data/bgs/99gclub/balc/text08a.gif
+	frame	data/bgs/99gclub/balc/empty.gif
+	frame	data/bgs/99gclub/balc/text08a.gif #2
+	frame	data/bgs/99gclub/balc/empty.gif
+	frame	data/bgs/99gclub/balc/text08a.gif
+	frame	data/bgs/99gclub/balc/empty.gif
+	@cmd	looper 2 10
+	frame	data/bgs/99gclub/balc/text08a.gif
+	@cmd	suicide
+	frame	data/bgs/99gclub/balc/empty.gif
+
+
+#-------------------//--you-lose-//-hihihi-see-ya------------------
+
+anim	follow4
+@script
+void self = getlocalvar("self");
+	if (frame == 1)
+		{
+		setglobalvar ("cupnext", 0);
+		}
+	if (frame == 2)
+		{
+		setglobalvar ("cupkill", 1);
+		}
+@end_script
+	loop	0
+	delay	120
+	offset	160 75
+	bbox	0 0 0 0
+	frame	data/bgs/99gclub/balc/text10.gif
+	frame	data/bgs/99gclub/balc/text10.gif
+	frame	data/bgs/99gclub/balc/text10.gif
+	frame	data/bgs/99gclub/balc/text10.gif
+	@cmd	anichange "ANI_FOLLOW20"
+	frame	data/bgs/99gclub/balc/text10.gif
+
+#-------------------//--thats-it-you-win-//--aagghh------------------
+
+anim	follow5
+@script
+void self = getlocalvar("self");
+	if (frame == 1)
+		{
+		setglobalvar ("cupnext", 0);
+		}
+	if (frame == 2)
+		{
+		setglobalvar ("cupkill", 1);
+		}
+@end_script
+	loop	0
+	delay	20
+	offset	160 75
+	bbox	0 0 0 0
+	frame	data/bgs/99gclub/balc/text11.gif
+	frame	data/bgs/99gclub/balc/text12.gif
+	frame	data/bgs/99gclub/balc/text11.gif #2
+	frame	data/bgs/99gclub/balc/text12.gif
+	frame	data/bgs/99gclub/balc/text11.gif #4
+	frame	data/bgs/99gclub/balc/text12.gif
+	frame	data/bgs/99gclub/balc/text11.gif
+	frame	data/bgs/99gclub/balc/text12.gif
+	@cmd	looper 4 12
+	frame	data/bgs/99gclub/balc/text11.gif
+	frame	data/bgs/99gclub/balc/text12.gif
+	@cmd	anichange "ANI_FOLLOW20"
+	frame	data/bgs/99gclub/balc/text11.gif
+
+#-------------//---text--choose--//-----------------
+
+anim	follow10
+	loop	1 2 5
+	delay	3
+	offset	160 75
+	bbox	0 0 0 0
+	frame	data/bgs/99gclub/balc/text02.gif
+	sound	data/sounds/beep.wav
+	frame	data/bgs/99gclub/balc/text02.gif
+	frame	data/bgs/99gclub/balc/text02.gif
+	@cmd    keyint "ANI_FOLLOW12" 0 "F" 0 0
+	frame	data/bgs/99gclub/balc/text02.gif
+	@cmd    keyint "ANI_FOLLOW11" 0 "A" 0 0
+	frame	data/bgs/99gclub/balc/text02.gif
+
+anim	follow11
+@script
+void self = getlocalvar("self");
+	if (frame == 1)
+		{
+		setglobalvar ("cupnext", 1);
+		}
+	if (frame == 6)
+		{
+		setglobalvar ("cupkill", 1);
+		}
+@end_script
+	loop	0
+	delay	3
+	offset	160 75
+	bbox	0 0 0 0
+	frame	data/bgs/99gclub/balc/text03.gif
+	sound	data/sounds/beep2.wav
+	frame	data/bgs/99gclub/balc/text02.gif
+	frame	data/bgs/99gclub/balc/text03.gif
+	frame	data/bgs/99gclub/balc/text02.gif
+	frame	data/bgs/99gclub/balc/text03.gif
+	frame	data/bgs/99gclub/balc/text02.gif
+	@cmd	looper 2 10
+	frame	data/bgs/99gclub/balc/text03.gif
+	frame	data/bgs/99gclub/balc/text02.gif
+	@cmd	anichange "ANI_FOLLOW20"
+	frame	data/bgs/99gclub/balc/text02.gif
+
+
+
+anim	follow12
+	loop	1 2 5
+	delay	3
+	offset	160 75
+	bbox	0 0 0 0
+	frame	data/bgs/99gclub/balc/text04.gif
+	sound	data/sounds/beep.wav
+	frame	data/bgs/99gclub/balc/text04.gif
+	frame	data/bgs/99gclub/balc/text04.gif
+	@cmd    keyint "ANI_FOLLOW10" 0 "B" 0 0
+	frame	data/bgs/99gclub/balc/text04.gif
+	@cmd    keyint "ANI_FOLLOW13" 0 "A" 0 0
+	frame	data/bgs/99gclub/balc/text04.gif
+
+anim	follow13
+@script
+void self = getlocalvar("self");
+	if (frame == 1)
+		{
+		setglobalvar ("cupnext", 0);
+		}
+	if (frame == 6)
+		{
+		setglobalvar ("cupkill", 1);
+		}
+@end_script
+	loop	0
+	delay	3
+	offset	160 75
+	bbox	0 0 0 0
+	frame	data/bgs/99gclub/balc/text05.gif
+	sound	data/sounds/beep2.wav
+	frame	data/bgs/99gclub/balc/text04.gif
+	frame	data/bgs/99gclub/balc/text05.gif
+	frame	data/bgs/99gclub/balc/text04.gif
+	frame	data/bgs/99gclub/balc/text05.gif
+	frame	data/bgs/99gclub/balc/text04.gif
+	@cmd	looper 2 10
+	frame	data/bgs/99gclub/balc/text05.gif
+	frame	data/bgs/99gclub/balc/text04.gif
+	@cmd	anichange "ANI_FOLLOW20"
+	frame	data/bgs/99gclub/balc/text04.gif
+
+
+#-------------------//--exit--//---------------------
+
+anim	follow20
+	loop	0
+	delay	30
+	offset	160 75
+	bbox	0 0 0 0
+	frame	data/bgs/99gclub/balc/text00.gif
+	delay	5
+	drawmethod 256 256
+	frame	data/bgs/99gclub/balc/text00.gif
+	drawmethod 256 246
+	frame	data/bgs/99gclub/balc/text00.gif
+	drawmethod 256 226
+	frame	data/bgs/99gclub/balc/text00.gif
+	drawmethod 256 206
+	frame	data/bgs/99gclub/balc/text00.gif
+	drawmethod 256 186
+	frame	data/bgs/99gclub/balc/text00.gif
+	drawmethod 256 166
+	frame	data/bgs/99gclub/balc/text00.gif
+	drawmethod 256 146
+	frame	data/bgs/99gclub/balc/text00.gif
+	drawmethod 256 126
+	frame	data/bgs/99gclub/balc/text00.gif
+	drawmethod 256 106
+	frame	data/bgs/99gclub/balc/text00.gif
+	drawmethod 256 86
+	frame	data/bgs/99gclub/balc/text00.gif
+	drawmethod 256 66
+	frame	data/bgs/99gclub/balc/text00.gif
+	drawmethod 256 45
+	frame	data/bgs/99gclub/balc/text00.gif
+	drawmethod 256 25
+	frame	data/bgs/99gclub/balc/text00.gif
+	drawmethod 256 6
+	frame	data/bgs/99gclub/balc/text00.gif
+	drawmethod 236 6
+	frame	data/bgs/99gclub/balc/text00.gif
+	drawmethod 216 6
+	frame	data/bgs/99gclub/balc/text00.gif
+	drawmethod 196 6
+	frame	data/bgs/99gclub/balc/text00.gif
+	drawmethod 176 6
+	frame	data/bgs/99gclub/balc/text00.gif
+	drawmethod 156 6
+	frame	data/bgs/99gclub/balc/text00.gif
+	drawmethod 136 6
+	frame	data/bgs/99gclub/balc/text00.gif
+	drawmethod 116 6
+	frame	data/bgs/99gclub/balc/text00.gif
+	drawmethod 96 6
+	frame	data/bgs/99gclub/balc/text00.gif
+	drawmethod 76 6
+	frame	data/bgs/99gclub/balc/text00.gif
+	drawmethod 56 6
+	frame	data/bgs/99gclub/balc/text00.gif
+	drawmethod 36 6
+	frame	data/bgs/99gclub/balc/text00.gif
+	drawmethod 16 6
+	frame	data/bgs/99gclub/balc/text00.gif
+	drawmethod 16 6
+	frame	data/bgs/99gclub/balc/text00.gif
+	@cmd	suicide
+	frame	data/bgs/99gclub/balc/text00.gif
+

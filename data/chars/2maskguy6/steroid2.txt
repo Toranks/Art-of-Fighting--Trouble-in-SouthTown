@@ -1,0 +1,1198 @@
+name          steroid2
+type          enemy
+health        100
+speed         10
+jumpheight    4
+throw         5 2
+throwdamage   18
+grabdistance	50
+blockodds     1
+paingrab      1
+thold         80
+shadow        0
+noquake       0
+nolife        1
+falldie	      1
+nodieblink    1
+escapehits    3
+gfxshadow     1
+dust            dust
+projectilehit enemy obstacle
+candamage     player obstacle npc
+
+diesound      data/sounds/die3.wav
+animationscript data/scripts/escript.c
+
+alternatepal       data/chars/2maskguy6/map1.gif
+alternatepal       data/chars/2maskguy6/map2.gif
+alternatepal       data/chars/2maskguy6/map3.gif
+alternatepal       data/chars/2maskguy6/map4.gif
+alternatepal       data/chars/2maskguy6/map5.gif
+
+load	steroidtlk
+
+
+icon		data/chars/2maskguy6/icon.gif
+lifebarstatus 300 10 0 1 0 2 5 
+lifeposition 115  240
+nameposition -200 -200
+iconposition 50 227
+nolife 1
+
+script	@script
+void main()
+{
+   	void self = getlocalvar("self");
+	int x = getentityproperty(self, "x");
+	int XPos = openborvariant("xpos");
+	int Screen = openborvariant("hResolution");
+	int hp = getentityproperty(self, "health");
+
+   if( hp <=0 && x >= XPos+Screen-60) // right
+   	{
+	tossentity(self, 1, -2, 0);
+   	}
+   else if( hp <=0 && x <= XPos+60) // left
+   	{
+	tossentity(self, 1, 2, 0);
+   	}
+}
+@end_script
+
+
+anim	attack1
+	range	215 290
+	rangez	-15 15
+	loop	0
+	delay	14
+	offset	105 175
+	bbox	75 70 65 105
+	hitfx	data/sounds/beat4.wav
+	hitflash	flashscreen1
+	frame	data/chars/2maskguy6/a101.gif
+	sound   data/sounds/bguyc05.wav
+	frame	data/chars/2maskguy6/a102.gif
+	delay	2
+	move	8
+	frame	data/chars/2maskguy6/a103.gif
+	frame	data/chars/2maskguy6/a103.gif
+	frame	data/chars/2maskguy6/a103.gif
+	frame	data/chars/2maskguy6/a103.gif
+	frame	data/chars/2maskguy6/a103.gif
+	frame	data/chars/2maskguy6/a103.gif
+	attack	115 80 100 52 18 1 0 0 30 15
+	dropv	3 4 0
+	frame	data/chars/2maskguy6/a104.gif
+	frame	data/chars/2maskguy6/a104.gif
+	frame	data/chars/2maskguy6/a104.gif
+	frame	data/chars/2maskguy6/a104.gif
+	frame	data/chars/2maskguy6/a104.gif
+	frame	data/chars/2maskguy6/a104.gif
+	frame	data/chars/2maskguy6/a104.gif
+	frame	data/chars/2maskguy6/a104.gif
+	frame	data/chars/2maskguy6/a104.gif
+	frame	data/chars/2maskguy6/a105.gif
+	frame	data/chars/2maskguy6/a105.gif
+	frame	data/chars/2maskguy6/a105.gif
+	frame	data/chars/2maskguy6/a105.gif
+	frame	data/chars/2maskguy6/a105.gif
+	frame	data/chars/2maskguy6/a105.gif
+	frame	data/chars/2maskguy6/a106.gif
+	frame	data/chars/2maskguy6/a106.gif
+	frame	data/chars/2maskguy6/a106.gif
+	frame	data/chars/2maskguy6/a106.gif
+	frame	data/chars/2maskguy6/a106.gif
+	frame	data/chars/2maskguy6/a106.gif
+	frame	data/chars/2maskguy6/a106.gif
+	attack	0 0 0 0
+	move	3
+	frame	data/chars/2maskguy6/a107.gif
+	frame	data/chars/2maskguy6/a107.gif
+	frame	data/chars/2maskguy6/a107.gif
+	frame	data/chars/2maskguy6/a107.gif
+	frame	data/chars/2maskguy6/a107.gif
+	frame	data/chars/2maskguy6/a107.gif
+	move	0
+	delay	20
+	frame	data/chars/2maskguy6/a107.gif
+		
+anim	attack2
+	range	170 210
+	rangez	-15 15
+	loop	0
+	delay	3
+	offset	105 175
+	bbox	75 70 65 105
+	hitfx	data/sounds/beat2.wav
+	move	6
+	frame	data/chars/2maskguy6/a201.gif
+	frame	data/chars/2maskguy6/a201.gif
+	sound   data/sounds/bguyc04.wav
+	frame	data/chars/2maskguy6/a201.gif
+	frame	data/chars/2maskguy6/a201.gif
+	frame	data/chars/2maskguy6/a202.gif
+	frame	data/chars/2maskguy6/a202.gif
+	frame	data/chars/2maskguy6/a202.gif
+	attack	110 80 110 50 18 1 1 0 30 15
+	frame	data/chars/2maskguy6/a203.gif
+	frame	data/chars/2maskguy6/a203.gif
+	frame	data/chars/2maskguy6/a203.gif
+	frame	data/chars/2maskguy6/a204.gif
+	frame	data/chars/2maskguy6/a204.gif
+	frame	data/chars/2maskguy6/a204.gif
+	frame	data/chars/2maskguy6/a205.gif
+	frame	data/chars/2maskguy6/a205.gif
+	frame	data/chars/2maskguy6/a205.gif
+	frame	data/chars/2maskguy6/a205.gif
+	attack	0 0 0 0
+	move	0
+	delay	12
+	frame	data/chars/2maskguy6/a206.gif
+	frame	data/chars/2maskguy6/a207.gif
+	frame	data/chars/2maskguy6/a201.gif
+		
+anim	attack4
+	range	100 160
+	rangez	-15 15
+	loop	0
+	delay	3
+	offset	105 175
+	bbox	75 70 65 105
+	followanim	1
+	followcond	3
+	hitfx	data/sounds/grab.wav
+	move	6
+	frame	data/chars/2maskguy6/grab14.gif
+	frame	data/chars/2maskguy6/grab14.gif
+	frame	data/chars/2maskguy6/grab14.gif
+	attack2	125 80 70 46 0 0 1 1 15 15
+	frame	data/chars/2maskguy6/grab01.gif
+	frame	data/chars/2maskguy6/grab01.gif
+	frame	data/chars/2maskguy6/grab01.gif
+	frame	data/chars/2maskguy6/grab02.gif
+	frame	data/chars/2maskguy6/grab02.gif
+	frame	data/chars/2maskguy6/grab02.gif
+	attack2	0 0 0 0
+	move	0
+	delay	15
+	frame	data/chars/2maskguy6/grab01.gif
+		
+anim	block
+	loop	0
+	delay	2
+	offset	105 175
+	bbox	75 70 65 105
+	move	-8
+	frame	data/chars/2maskguy6/block.gif
+	frame	data/chars/2maskguy6/block.gif
+	frame	data/chars/2maskguy6/block.gif
+	frame	data/chars/2maskguy6/block.gif
+	frame	data/chars/2maskguy6/block.gif
+	delay	5
+	@cmd	attack1 -10 150 20 "ANI_FOLLOW5"
+	frame	data/chars/2maskguy6/block.gif
+	@cmd	attack1 -10 150 20 "ANI_FOLLOW5"
+	frame	data/chars/2maskguy6/block.gif
+	@cmd	attack1 -10 150 20 "ANI_FOLLOW5"
+	frame	data/chars/2maskguy6/block.gif
+	@cmd	attack1 -10 150 20 "ANI_FOLLOW5"
+	frame	data/chars/2maskguy6/block.gif
+
+
+anim	follow5
+	loop	0
+	delay	9
+	offset	105 175
+	bbox	0 0 0 0
+	hitfx	data/sounds/beat4.wav
+	hitflash	flashscreen2
+	frame	data/chars/2maskguy6/grab07.gif
+	frame	data/chars/2maskguy6/grab08.gif
+	@cmd	dasher 1.5 0 0
+	frame	data/chars/2maskguy6/grab09.gif
+	delay	30
+	attack	115 80 65 70 12 1 1 1 15 25
+	frame	data/chars/2maskguy6/a106.gif
+	frame	data/chars/2maskguy6/a105.gif
+	attack	0 0 0 0
+	@cmd	stop
+	delay	12
+	frame	data/chars/2maskguy6/a105.gif
+
+		
+anim	burn
+	loop	0
+	delay	25
+	offset	105 188
+	bbox	0 0 0 0
+	landframe	3
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 200_50_0
+	@cmd	spawnbind "burn1" 1 1 1
+	@cmd	spawnbind "burn2" 1 1 1
+	@cmd	spawnbind "burn3" 1 1 1
+	attack	78 65 30 45 5 1 0 0 13 0
+	frame	data/chars/2maskguy6/fall1.gif
+	delay	15
+	attack	64 90 50 25 5 1 0 0 13 0
+	frame	data/chars/2maskguy6/fall2.gif
+	delay	500
+	frame	data/chars/2maskguy6/fall3.gif
+	attack	0 0 0 0
+	bbox	58 175 85 15
+	delay	15
+	frame	data/chars/2maskguy6/fall4.gif
+	frame	data/chars/2maskguy6/fall5.gif
+	frame	data/chars/2maskguy6/fall4.gif
+		
+anim	death
+	loop	0
+	delay	12
+	offset	105 175
+	bbox	0 0 0 0
+	quakeframe	3 5 8
+	spawnframe	27 0 0
+	subentity	dust
+	jumpframe 0 3 -2
+	landframe 3 dust
+	@cmd	changeopenborvariant "slowmotion" 1
+	@cmd	damage_all_enemies 600 1 1
+	attack	78 65 30 45 5 1 0 0 13 0
+	frame	data/chars/2maskguy6/fall1.gif
+	delay	15
+	attack	64 90 50 25 5 1 0 0 13 0
+	frame	data/chars/2maskguy6/fall2.gif
+	delay	500
+	frame	data/chars/2maskguy6/fall3.gif
+	attack	0 0 0 0
+	bbox	58 175 85 15
+	delay	15
+	frame	data/chars/2maskguy6/fall4.gif
+	frame	data/chars/2maskguy6/fall5.gif
+	frame	data/chars/2maskguy6/fall4.gif
+	frame	data/chars/2maskguy6/rise1.gif
+	frame	data/chars/2maskguy6/rise2.gif
+	frame	data/chars/2maskguy6/rise3.gif
+	frame	data/chars/2maskguy6/rise4.gif
+	frame	data/chars/2maskguy6/rise5.gif
+	frame	data/chars/2maskguy6/rise6.gif
+	frame	data/chars/2maskguy6/rise7.gif
+	frame	data/chars/2maskguy6/rise6.gif
+	frame	data/chars/2maskguy6/rise7.gif
+	frame	data/chars/2maskguy6/rise6.gif
+	frame	data/chars/2maskguy6/rise7.gif
+	frame	data/chars/2maskguy6/rise6.gif
+	frame	data/chars/2maskguy6/rise7.gif
+	frame	data/chars/2maskguy6/rise6.gif
+	frame	data/chars/2maskguy6/rise7.gif
+
+	frame	data/chars/2maskguy6/spawn09.gif
+	delay	25
+	frame	data/chars/2maskguy6/spawn08.gif
+	delay	8
+	frame	data/chars/2maskguy6/pain0.gif
+	frame	data/chars/2maskguy6/pain1.gif
+	frame	data/chars/2maskguy6/fall2.gif
+	frame	data/chars/2maskguy6/fall3.gif
+	sound	data/sounds/fall3.wav
+	frame	data/chars/2maskguy6/fall4.gif
+	frame	data/chars/2maskguy6/fall5.gif
+	frame	data/chars/2maskguy6/fall4.gif
+	frame	data/chars/2maskguy6/fall5.gif
+	frame	data/chars/2maskguy6/fall4.gif
+	frame	data/chars/2maskguy6/fall5.gif
+	frame	data/chars/2maskguy6/fall4.gif
+	frame	data/chars/2maskguy6/fall5.gif
+	delay	15
+	frame	data/chars/2maskguy6/fall4.gif
+	delay	5
+	@cmd	changeopenborvariant "slowmotion" 0
+	frame	data/chars/2maskguy6/fall4.gif
+
+
+		
+anim	fall
+	loop	0
+	delay	25
+	offset	105 188
+	bbox	0 0 0 0
+	landframe	3
+	attack	78 65 30 45 5 1 0 0 13 0
+	frame	data/chars/2maskguy6/fall1.gif
+	delay	15
+	attack	64 90 50 25 5 1 0 0 13 0
+	frame	data/chars/2maskguy6/fall2.gif
+	delay	500
+	frame	data/chars/2maskguy6/fall3.gif
+	attack	0 0 0 0
+	bbox	58 175 85 15
+	delay	15
+	frame	data/chars/2maskguy6/fall4.gif
+	frame	data/chars/2maskguy6/fall5.gif
+	frame	data/chars/2maskguy6/fall4.gif
+		
+anim	fall10
+	loop	0
+	delay	10
+	offset	105 188
+	bbox	80 80 50 75
+	landframe	4
+	attack	85 88 30 50 5 1 0 0 13 0
+	frame	data/chars/2maskguy6/pain6.gif
+	delay	40
+	frame	data/chars/2maskguy6/pain7.gif
+	delay	30
+	bbox	71 125 63 30
+	attack	64 125 45 25 5 1 0 0 13 0
+	frame	data/chars/2maskguy6/fall2.gif
+	delay	300
+	bbox	77 130 67 35
+	attack	0 0 0 0
+	frame	data/chars/2maskguy6/fall3.gif
+	bbox	58 167 85 15
+	delay	15
+	frame	data/chars/2maskguy6/fall4.gif
+	frame	data/chars/2maskguy6/fall5.gif
+	frame	data/chars/2maskguy6/fall4.gif
+		
+anim	fall11
+	loop	0
+	delay	20
+	offset	105 188
+	bbox	61 185 90 5	
+	frame	data/chars/2maskguy6/pain12.gif
+	delay	35
+	frame	data/chars/2maskguy6/fall4.gif
+		
+anim	fall2
+	loop	0
+	delay	30
+	offset	105 188
+	bbox	0 0 0 0
+	landframe	3
+	attack	85 90 35 45 5 1 0 0 13 0
+	frame	data/chars/2maskguy6/pain7.gif
+	delay	10
+	attack	64 125 55 25 5 1 0 0 13 0
+	frame	data/chars/2maskguy6/fall2.gif
+	attack	0 0 0 0
+	delay	300
+	frame	data/chars/2maskguy6/fall3.gif
+	delay	15
+	frame	data/chars/2maskguy6/fall4.gif
+	frame	data/chars/2maskguy6/fall5.gif
+	frame	data/chars/2maskguy6/fall4.gif
+		
+anim	fall4
+	loop	0
+	delay	6
+	offset	105 188
+	bbox	0 0 0 0
+	jumpframe	0 1.2 1.5
+	frame	data/chars/2maskguy6/pain8.gif
+	frame	data/chars/2maskguy6/pain9.gif
+	frame	data/chars/2maskguy6/pain10.gif
+	@cmd	leaper 0 0.2 0
+	frame	data/chars/2maskguy6/pain11.gif
+	frame	data/chars/2maskguy6/fall4.gif
+	frame	data/chars/2maskguy6/fall5.gif
+	bbox	58 175 95 15
+	frame	data/chars/2maskguy6/fall4.gif
+		
+anim	fall7
+	delay	1000
+	offset	105 130
+	frame	data/chars/2maskguy6/slamck0.gif
+	offset	100 110
+	frame	data/chars/2maskguy6/slamck1.gif
+	offset	106 130
+	frame	data/chars/2maskguy6/slamck2.gif
+	offset	115 125
+	frame	data/chars/2maskguy6/slamck3.gif
+	offset	125 125
+	frame	data/chars/2maskguy6/slamck4.gif
+	offset	108 122
+	frame	data/chars/2maskguy6/slamck5.gif
+	offset	106 155
+	frame	data/chars/2maskguy6/slamck6.gif
+	offset	125 140
+	frame	data/chars/2maskguy6/slamck7.gif
+	offset	120 105
+	frame	data/chars/2maskguy6/slamck8.gif
+	offset	100 130
+	frame	data/chars/2maskguy6/slamck9.gif
+	offset	105 130
+	frame	data/chars/2maskguy6/slamck10.gif
+	offset	105 130
+	frame	data/chars/2maskguy6/slamck11.gif
+	offset	115 125
+	frame	data/chars/2maskguy6/slamck12.gif
+	offset	115 125
+	frame	data/chars/2maskguy6/slamck13.gif
+	offset	115 125
+	frame	data/chars/2maskguy6/slamck14.gif
+	offset	115 125
+	frame	data/chars/2maskguy6/slamck15.gif
+		
+anim	fall9
+	loop	0
+	delay	10
+	offset	105 188
+	bbox	0 0 0 0
+	quakeframe	2 5 5
+	landframe	2 dust
+	attack	75 70 35 45 5 1 0 0 13 0
+	frame	data/chars/2maskguy6/fall1.gif
+	delay	350
+	attack	75 90 45 35 5 1 0 0 13 0
+	frame	data/chars/2maskguy6/fall2.gif
+	delay	2
+	move	-4
+	offset	105 175
+	frame	data/chars/2maskguy6/fall3.gif
+	frame	data/chars/2maskguy6/fall3.gif
+	attack	0 0 0 0
+	frame	data/chars/2maskguy6/fall3.gif
+	@cmd	looper 3 5
+	move	-3
+	offset	105 188
+	frame	data/chars/2maskguy6/fall4.gif
+	frame	data/chars/2maskguy6/fall4.gif
+	frame	data/chars/2maskguy6/fall4.gif
+	@cmd	looper 6 4
+	move	-2
+	frame	data/chars/2maskguy6/fall5.gif
+	frame	data/chars/2maskguy6/fall5.gif
+	frame	data/chars/2maskguy6/fall5.gif
+	loop	0
+	delay	15
+	move	0
+	bbox	58 175 100 15
+	frame	data/chars/2maskguy6/fall4.gif
+		
+anim	follow1
+	delay	12
+	offset	105 175
+	bbox	0 0 0 0
+	@cmd	slamstart2
+	@cmd	position 15 65 20 1 -1
+	frame	data/chars/2maskguy6/grab02.gif
+	@cmd	spawngrab "grab1" 200 200 450 120 1 8
+	@cmd	position 1 40 50 1 1
+	frame	data/chars/2maskguy6/grab03.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 5 10 130 1 1
+	frame	data/chars/2maskguy6/grab04.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 8 -5 175 1 -1
+	frame	data/chars/2maskguy6/grab05.gif
+	sound	data/sounds/bguy12.wav
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 19 65 80 1 -1
+	frame	data/chars/2maskguy6/grab06.gif
+	attack	90 100 100 75 6 1 0 0 30 20
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 6 45 10 1 1
+	frame	data/chars/2maskguy6/grab07.gif
+	sound	data/sounds/fall.wav
+	@cmd	hurt 8
+	@cmd	spawn01 "dust" 40 1 1
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 3 20 3 1 1
+	frame	data/chars/2maskguy6/grab08.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 6 45 10 1 1
+	frame	data/chars/2maskguy6/grab09.gif
+	attack	0 0 0 0
+	delay	12
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 0 80 10 1 -1
+	frame	data/chars/2maskguy6/grab01.gif
+	delay	10
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 15 65 20 1 -1
+	frame	data/chars/2maskguy6/grab02.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 1 40 50 1 1
+	frame	data/chars/2maskguy6/grab03.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 5 10 130 1 1
+	frame	data/chars/2maskguy6/grab04.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 8 -5 175 1 -1
+	frame	data/chars/2maskguy6/grab05.gif
+	sound	data/sounds/bguy13.wav
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 19 65 80 1 -1
+	frame	data/chars/2maskguy6/grab06.gif
+	attack	90 100 100 75 6 1 0 0 30 20
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 6 45 10 1 1
+	frame	data/chars/2maskguy6/grab07.gif
+	sound	data/sounds/fall.wav
+	@cmd	hurt 8
+	@cmd	spawn01 "dust" 40 1 1
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 3 20 5 1 1
+	frame	data/chars/2maskguy6/grab08.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 6 45 10 1 1
+	frame	data/chars/2maskguy6/grab09.gif
+	attack	0 0 0 0
+	delay	12
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 0 80 10 1 -1
+	frame	data/chars/2maskguy6/grab01.gif
+	delay	10
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 15 65 20 1 -1
+	frame	data/chars/2maskguy6/grab02.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 1 40 50 1 1
+	frame	data/chars/2maskguy6/grab03.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 5 10 130 1 1
+	frame	data/chars/2maskguy6/grab04.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 8 -5 175 1 -1
+	frame	data/chars/2maskguy6/grab05.gif
+	sound	data/sounds/bguy12.wav
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 19 65 80 1 -1
+	frame	data/chars/2maskguy6/grab06.gif
+	attack	90 100 100 75 6 1 0 0 30 20
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 6 45 10 1 1
+	frame	data/chars/2maskguy6/grab07.gif
+	sound	data/sounds/fall.wav
+	@cmd	hurt 8
+	@cmd	spawn01 "dust" 40 1 1
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 3 20 5 1 1
+	frame	data/chars/2maskguy6/grab08.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 6 45 10 1 1
+	frame	data/chars/2maskguy6/grab09.gif
+	attack	0 0 0 0
+	delay	12
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 0 80 10 1 -1
+	frame	data/chars/2maskguy6/grab01.gif
+	delay	10
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 15 65 20 1 -1
+	frame	data/chars/2maskguy6/grab02.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 1 40 50 1 1
+	frame	data/chars/2maskguy6/grab03.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 5 10 130 1 1
+	frame	data/chars/2maskguy6/grab04.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 8 -5 175 1 -1
+	frame	data/chars/2maskguy6/grab05.gif
+	sound	data/sounds/bguy13.wav
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 19 65 80 1 -1
+	frame	data/chars/2maskguy6/grab06.gif
+	attack	90 100 100 75 6 1 0 0 30 20
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 6 45 10 1 1
+	frame	data/chars/2maskguy6/grab07.gif
+	sound	data/sounds/fall.wav
+	@cmd	hurt 8
+	@cmd	spawn01 "dust" 40 1 1
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 3 20 5 1 1
+	frame	data/chars/2maskguy6/grab08.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 6 45 10 1 1
+	frame	data/chars/2maskguy6/grab09.gif
+	attack	0 0 0 0
+	delay	15
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 10 40 20 1 1
+	frame	data/chars/2maskguy6/grab10.gif
+	delay	30
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 15 65 50 -1 -1
+	frame	data/chars/2maskguy6/grab11.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 15 70 45 -1 -1
+	frame	data/chars/2maskguy6/grab12.gif
+	delay	14
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 7 60 70 -1 -1
+	frame	data/chars/2maskguy6/grab13.gif
+	sound	data/sounds/bguy03.wav
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 11 70 80 -1 -1
+	frame	data/chars/2maskguy6/grab14.gif
+	sound	data/sounds/beat4.wav
+	@cmd	killgun 8 0
+	@cmd	spawn01 "flashscreen1" 80 140 1
+	attack	113 60 100 52 18 1 0 0 30 0
+	@cmd	position 1 90 75 -1 -1
+	frame	data/chars/2maskguy6/grab15.gif
+	@cmd	depost 0
+	@cmd	finish 45 2 -2 2.5 0 0
+	frame	data/chars/2maskguy6/grab16.gif
+	delay	25
+	@cmd	clearL
+	frame	data/chars/2maskguy6/grab16.gif
+	attack	0 0 0 0
+	frame	data/chars/2maskguy6/grab17.gif
+		
+anim	grab
+	delay	20
+	attackone	0
+	offset	105 175
+	bbox	0 0 0 0
+	sound	data/sounds/grab.wav
+	frame	data/chars/2maskguy6/grab01.gif
+	frame	data/chars/2maskguy6/grab01.gif
+	delay	12
+	offset	105 175
+	bbox	0 0 0 0
+	@cmd	slamstart
+	@cmd	position 15 65 20 1 -1
+	frame	data/chars/2maskguy6/grab02.gif
+	@cmd	spawngrab "grab1" 200 200 450 110 1 8
+	@cmd	position 1 40 50 1 1
+	frame	data/chars/2maskguy6/grab03.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 5 10 130 1 1
+	frame	data/chars/2maskguy6/grab04.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 8 -5 175 1 -1
+	frame	data/chars/2maskguy6/grab05.gif
+	sound	data/sounds/bguy12.wav
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 19 65 80 1 -1
+	frame	data/chars/2maskguy6/grab06.gif
+	attack	90 100 100 75 6 1 0 0 30 20
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 6 45 10 1 1
+	frame	data/chars/2maskguy6/grab07.gif
+	sound	data/sounds/fall.wav
+	@cmd	hurt 8
+	@cmd	spawn01 "dust" 40 1 1
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 3 20 3 1 1
+	frame	data/chars/2maskguy6/grab08.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 6 45 10 1 1
+	frame	data/chars/2maskguy6/grab09.gif
+	attack	0 0 0 0
+	delay	12
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 0 80 10 1 -1
+	frame	data/chars/2maskguy6/grab01.gif
+	delay	10
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 15 65 20 1 -1
+	frame	data/chars/2maskguy6/grab02.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 1 40 50 1 1
+	frame	data/chars/2maskguy6/grab03.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 5 10 130 1 1
+	frame	data/chars/2maskguy6/grab04.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 8 -5 175 1 -1
+	frame	data/chars/2maskguy6/grab05.gif
+	sound	data/sounds/bguy13.wav
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 19 65 80 1 -1
+	frame	data/chars/2maskguy6/grab06.gif
+	attack	90 100 100 75 6 1 0 0 30 20
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 6 45 10 1 1
+	frame	data/chars/2maskguy6/grab07.gif
+	sound	data/sounds/fall.wav
+	@cmd	hurt 8
+	@cmd	spawn01 "dust" 40 1 1
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 3 20 5 1 1
+	frame	data/chars/2maskguy6/grab08.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 6 45 10 1 1
+	frame	data/chars/2maskguy6/grab09.gif
+	attack	0 0 0 0
+	delay	8
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 2 0 35 1 -1
+	frame	data/chars/2maskguy6/grab19.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 2 0 80 1 -1
+	frame	data/chars/2maskguy6/grab20.gif
+	sound	data/sounds/bguy09.wav
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 2 0 125 1 -1
+	frame	data/chars/2maskguy6/grab21.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 2 0 125 1 -1
+	frame	data/chars/2maskguy6/grab22.gif
+	delay	15
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 2 0 125 1 -1
+	frame	data/chars/2maskguy6/grab23.gif
+	delay	8
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 18 0 140 1 1
+	frame	data/chars/2maskguy6/grab24.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 18 0 75 1 1
+	frame	data/chars/2maskguy6/grab25.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 0 10 1 1
+	frame	data/chars/2maskguy6/grab26.gif
+	@cmd	hurt 9
+	@cmd	spawn01 "dust" 1 1 1
+	sound	data/sounds/bang1.wav
+	attack	45 95 130 65 6 1 0 0 30 20
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 10 0 5 1 1
+	frame	data/chars/2maskguy6/grab27.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 0 10 1 1
+	frame	data/chars/2maskguy6/grab28.gif
+	delay	20
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 0 10 1 1
+	frame	data/chars/2maskguy6/grab29.gif
+	attack	0 0 0 0
+	delay	8
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 2 0 35 1 -1
+	frame	data/chars/2maskguy6/grab19.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 2 0 80 1 -1
+	frame	data/chars/2maskguy6/grab20.gif
+	sound	data/sounds/bguy13.wav
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 2 0 125 1 -1
+	frame	data/chars/2maskguy6/grab21.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 2 0 125 1 -1
+	frame	data/chars/2maskguy6/grab22.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 2 0 125 1 -1
+	frame	data/chars/2maskguy6/grab23.gif
+	delay	12
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 18 0 140 1 1
+	frame	data/chars/2maskguy6/grab24.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 18 0 75 1 1
+	@cmd	killgun 8 0
+	frame	data/chars/2maskguy6/grab25.gif
+	attack	45 95 130 65 6 1 0 0 30 20
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 0 3 1 1
+	frame	data/chars/2maskguy6/grab26.gif
+	@cmd	spawn01 "dust" 1 1 1
+	sound	data/sounds/bang.wav
+	@cmd	depost 0
+	@cmd	finish 40 2 1 6 0 1
+	delay	15
+	frame	data/chars/2maskguy6/grab27.gif
+	frame	data/chars/2maskguy6/grab28.gif
+	frame	data/chars/2maskguy6/grab29.gif
+	attack	0 0 0 0
+	frame	data/chars/2maskguy6/grab29.gif
+	@cmd	clearL
+	frame	data/chars/2maskguy6/grab29.gif
+		
+anim	grabbed
+	loop	0
+	delay	10
+	offset	105 175
+	bbox	75 70 65 105
+	frame	data/chars/2maskguy6/grabbed.gif
+		
+anim	idle
+	loop	0
+	delay	5
+	offset	105 175
+	bbox	75 70 65 105
+	frame	data/chars/2maskguy6/idle01.gif
+	@cmd	clearL
+	frame	data/chars/2maskguy6/idle01.gif
+		
+anim	pain
+	loop	0
+	delay	3
+	offset	105 175
+	bbox	75 70 65 105
+	frame	data/chars/2maskguy6/pain0.gif
+	offset	105 175
+	frame	data/chars/2maskguy6/pain1.gif
+	offset	108 175
+	frame	data/chars/2maskguy6/pain1.gif
+	delay	40
+	offset	105 175
+	frame	data/chars/2maskguy6/pain1.gif
+
+		
+anim	pain2
+	loop	0
+	delay	3
+	offset	105 175
+	bbox	75 70 65 105
+	frame	data/chars/2maskguy6/pain0.gif
+	offset	105 175
+	frame	data/chars/2maskguy6/pain2.gif
+	offset	108 175
+	frame	data/chars/2maskguy6/pain2.gif
+	delay	40
+	offset	105 175
+	frame	data/chars/2maskguy6/pain2.gif
+		
+anim	pain3
+	loop	0
+	delay	5
+	offset	105 175
+	bbox	0 0 0 0
+	jumpframe	1 2 -1 0
+	frame	data/chars/2maskguy6/pain1.gif
+	frame	data/chars/2maskguy6/pain2.gif
+	delay	20
+	frame	data/chars/2maskguy6/fall2.gif
+	delay	12
+	frame	data/chars/2maskguy6/fall3.gif
+	delay	4
+	bbox	71 165 67 30
+	frame	data/chars/2maskguy6/fall4.gif
+	frame	data/chars/2maskguy6/fall5.gif
+	frame	data/chars/2maskguy6/fall4.gif
+	frame	data/chars/2maskguy6/fall5.gif
+	delay	15
+	bbox	0 0 0 0
+	frame	data/chars/2maskguy6/fall4.gif
+	delay	8
+	frame	data/chars/2maskguy6/rise1.gif
+	frame	data/chars/2maskguy6/rise2.gif
+	frame	data/chars/2maskguy6/rise3.gif
+		
+anim	pain5
+	loop	0
+	delay	23
+	offset	110 188
+	bbox	84 70 55 105
+	frame	data/chars/2maskguy6/pain1.gif
+		
+anim	pain6
+	loop	0
+	delay	23
+	offset	110 188
+	bbox	85 70 55 105
+	frame	data/chars/2maskguy6/pain2.gif
+		
+anim	pain8
+	loop	0
+	delay	2
+	offset	105 175
+	bbox	75 70 65 105
+	move	-6
+	frame	data/chars/2maskguy6/pain1.gif
+	frame	data/chars/2maskguy6/pain1.gif
+	frame	data/chars/2maskguy6/pain1.gif
+	frame	data/chars/2maskguy6/pain2.gif
+	frame	data/chars/2maskguy6/pain2.gif
+	frame	data/chars/2maskguy6/pain2.gif
+	move	-3
+	frame	data/chars/2maskguy6/pain2.gif
+	frame	data/chars/2maskguy6/pain2.gif
+	move	-1
+	frame	data/chars/2maskguy6/pain2.gif
+	delay	35
+	frame	data/chars/2maskguy6/pain2.gif
+		
+anim	pain9
+	loop	0
+	delay	15
+	offset	105 175
+	bbox	75 70 65 105
+	frame	data/chars/2maskguy6/pain1.gif
+	delay	150
+	frame	data/chars/2maskguy6/pain2.gif
+		
+anim	rise
+	loop	0
+	delay	14
+	offset	105 175
+	bbox	0 0 0 0
+	frame	data/chars/2maskguy6/rise1.gif
+	frame	data/chars/2maskguy6/rise2.gif
+	attack	100 65 71 60 18 1 1 0 30 0
+	frame	data/chars/2maskguy6/rise3.gif
+	frame	data/chars/2maskguy6/rise4.gif
+	attack	0 0 0 0
+	frame	data/chars/2maskguy6/rise5.gif
+	delay	16
+	@cmd	attack1 -10 130 20 "ANI_Special2"
+	frame	data/chars/2maskguy6/rise6.gif
+	@cmd	attack1 -10 130 20 "ANI_Special2"
+	frame	data/chars/2maskguy6/rise7.gif
+	@cmd	attack1 -10 130 20 "ANI_Special2"
+	frame	data/chars/2maskguy6/idle01.gif
+		
+anim	spawn
+	loop	0
+	delay	200
+	offset	105 175
+	bbox	0 0 0 0
+	custentity	steroidtlk
+	spawnframe	4 10 20 25 1
+	jumpframe	1 5 4
+	landframe	2
+	@cmd	 playmusic "data/music/steroid.ogg" 1
+	frame	data/chars/2maskguy6/spawn02.gif
+	frame	data/chars/2maskguy6/spawn02.gif
+	delay	14
+	frame	data/chars/2maskguy6/spawn03.gif
+	frame	data/chars/2maskguy6/spawn02.gif
+	delay	150
+	frame	data/chars/2maskguy6/spawn01.gif
+	delay	16
+	frame	data/chars/2maskguy6/spawn01.gif
+	frame	data/chars/2maskguy6/spawn02.gif
+	frame	data/chars/2maskguy6/spawn03.gif
+	attack	40 65 140 60 5 1 0 0 45 10
+	frame	data/chars/2maskguy6/spawn04.gif
+	frame	data/chars/2maskguy6/spawn05.gif
+	frame	data/chars/2maskguy6/spawn06.gif
+	frame	data/chars/2maskguy6/spawn07.gif
+	frame	data/chars/2maskguy6/spawn08.gif
+	attack	0 0 0 0
+	frame	data/chars/2maskguy6/spawn09.gif
+	delay	50
+	frame	data/chars/2maskguy6/idle01.gif
+		
+
+
+anim	special
+	delay	8
+	attackone	0
+	offset	105 175
+	bbox	0 0 0 0
+	@cmd	slamstart2
+	sound	data/sounds/grab.wav
+	@cmd	position 2 0 35 1 -1
+	frame	data/chars/2maskguy6/grab19.gif
+	@cmd	spawngrab "grab1" 200 200 450 120 1 8
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 2 0 80 1 -1
+	frame	data/chars/2maskguy6/grab20.gif
+	sound	data/sounds/bguy09.wav
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 2 0 125 1 -1
+	frame	data/chars/2maskguy6/grab21.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 2 0 125 1 -1
+	frame	data/chars/2maskguy6/grab22.gif
+	delay	15
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 2 0 125 1 -1
+	frame	data/chars/2maskguy6/grab23.gif
+	delay	10
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 18 0 140 1 1
+	frame	data/chars/2maskguy6/grab24.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 18 0 75 1 1
+	frame	data/chars/2maskguy6/grab25.gif
+	attack	45 95 130 65 6 1 0 0 30 20
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 0 10 1 1
+	frame	data/chars/2maskguy6/grab26.gif
+	@cmd	hurt 9
+	@cmd	spawn01 "dust" 1 1 1
+	sound	data/sounds/bang1.wav
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 10 0 5 1 1
+	frame	data/chars/2maskguy6/grab27.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 0 10 1 1
+	frame	data/chars/2maskguy6/grab28.gif
+	delay	15
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 0 10 1 1
+	frame	data/chars/2maskguy6/grab29.gif
+	attack	0 0 0 0
+	delay	8
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 2 0 35 1 -1
+	frame	data/chars/2maskguy6/grab19.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 2 0 80 1 -1
+	frame	data/chars/2maskguy6/grab20.gif
+	sound	data/sounds/bguy09.wav
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 2 0 125 1 -1
+	frame	data/chars/2maskguy6/grab21.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 2 0 125 1 -1
+	frame	data/chars/2maskguy6/grab22.gif
+	delay	15
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 2 0 125 1 -1
+	frame	data/chars/2maskguy6/grab23.gif
+	delay	8
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 18 0 140 1 1
+	frame	data/chars/2maskguy6/grab24.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 18 0 75 1 1
+	frame	data/chars/2maskguy6/grab25.gif
+	attack	45 95 130 65 6 1 0 0 30 20
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 0 10 1 1
+	frame	data/chars/2maskguy6/grab26.gif
+	@cmd	hurt 9
+	@cmd	spawn01 "dust" 1 1 1
+	sound	data/sounds/bang1.wav
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 10 0 5 1 1
+	frame	data/chars/2maskguy6/grab27.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 0 10 1 1
+	frame	data/chars/2maskguy6/grab28.gif
+	delay	15
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 0 10 1 1
+	frame	data/chars/2maskguy6/grab29.gif
+	attack	0 0 0 0
+	delay	8
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 2 0 35 1 -1
+	frame	data/chars/2maskguy6/grab19.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 2 0 80 1 -1
+	frame	data/chars/2maskguy6/grab20.gif
+	sound	data/sounds/bguy09.wav
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 2 0 125 1 -1
+	frame	data/chars/2maskguy6/grab21.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 2 0 125 1 -1
+	frame	data/chars/2maskguy6/grab22.gif
+	delay	15
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 2 0 125 1 -1
+	frame	data/chars/2maskguy6/grab23.gif
+	delay	8
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 18 0 140 1 1
+	frame	data/chars/2maskguy6/grab24.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 18 0 75 1 1
+	frame	data/chars/2maskguy6/grab25.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 0 10 1 1
+	frame	data/chars/2maskguy6/grab26.gif
+	@cmd	hurt 9
+	@cmd	spawn01 "dust" 1 1 1
+	sound	data/sounds/bang1.wav
+	attack	45 95 130 65 6 1 0 0 30 20
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 10 0 5 1 1
+	frame	data/chars/2maskguy6/grab27.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 0 10 1 1
+	frame	data/chars/2maskguy6/grab28.gif
+	delay	20
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 0 10 1 1
+	frame	data/chars/2maskguy6/grab29.gif
+	attack	0 0 0 0
+	delay	8
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 2 0 35 1 -1
+	frame	data/chars/2maskguy6/grab19.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 2 0 80 1 -1
+	frame	data/chars/2maskguy6/grab20.gif
+	sound	data/sounds/bguy13.wav
+	@cmd	leaper 0 5 0
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 2 0 125 1 -1
+	frame	data/chars/2maskguy6/grab21.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 2 0 125 1 -1
+	frame	data/chars/2maskguy6/grab22.gif
+	delay	50
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 2 0 125 1 -1
+	frame	data/chars/2maskguy6/grab23.gif
+	delay	12
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 18 0 140 1 1
+	frame	data/chars/2maskguy6/grab24.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 18 0 75 1 1
+	@cmd	killgun 8 0
+	frame	data/chars/2maskguy6/grab25.gif
+	attack	45 95 130 65 6 1 0 0 30 20
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 0 3 1 1
+	frame	data/chars/2maskguy6/grab26.gif
+	@cmd	spawn01 "dust" 1 1 1
+	@cmd	spawn02 "flashsc1" -100 500 300
+	sound	data/sounds/bang.wav
+	@cmd	depost 0
+	@cmd	finish 40 2 1 6 0 1
+	delay	15
+	frame	data/chars/2maskguy6/grab27.gif
+	frame	data/chars/2maskguy6/grab28.gif
+	frame	data/chars/2maskguy6/grab29.gif
+	attack	0 0 0 0
+	frame	data/chars/2maskguy6/grab29.gif
+	@cmd	clearL
+	frame	data/chars/2maskguy6/grab29.gif
+
+
+
+anim	special2
+	delay	12
+	offset	105 175
+	bbox	0 0 0 0
+	frame	data/chars/2maskguy6/grab25.gif
+	frame	data/chars/2maskguy6/spawn09.gif
+	delay	7
+	@cmd	dasher 1 0 0
+	attack	45 60 130 90 6 1 0 0 30 25
+	frame	data/chars/2maskguy6/spawn08.gif
+	sound	data/sounds/bguy09.wav
+	frame	data/chars/2maskguy6/spawn10.gif
+	@cmd	stop
+	frame	data/chars/2maskguy6/spawn08.gif
+	frame	data/chars/2maskguy6/spawn10.gif
+	frame	data/chars/2maskguy6/spawn08.gif
+	frame	data/chars/2maskguy6/spawn10.gif
+	frame	data/chars/2maskguy6/spawn08.gif
+	frame	data/chars/2maskguy6/spawn10.gif
+	attack	0 0 0 0
+	delay	14
+	frame	data/chars/2maskguy6/spawn10.gif
+	frame	data/chars/2maskguy6/spawn09.gif
+
+
+
+anim	walk
+	loop	1
+	delay	11
+	offset	105 175
+	bbox	75 70 65 105
+	frame	data/chars/2maskguy6/wk01.gif
+	frame	data/chars/2maskguy6/wk02.gif
+	frame	data/chars/2maskguy6/wk03.gif
+	frame	data/chars/2maskguy6/wk04.gif
+	frame	data/chars/2maskguy6/wk05.gif
+	frame	data/chars/2maskguy6/wk06.gif
+	frame	data/chars/2maskguy6/wk07.gif
+	frame	data/chars/2maskguy6/wk08.gif
+		
+#|edited by openBor Stats v 0.53
+		

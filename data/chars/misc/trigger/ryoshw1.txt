@@ -1,0 +1,302 @@
+name	 ryoshw1
+type     obstacle
+health	 1000
+score	 0
+nolife   1
+#nomove	 1 1
+gfxshadow	1
+subject_to_hole     	0
+offscreenkill 	20000
+#lifespan  	900
+candamage	npc
+
+animationscript data/scripts/escript.c
+
+palette		data/chars/1ryo/mapal.gif
+
+
+anim	spawn
+@script
+	void self = getlocalvar("self");
+	if(frame==0){
+     	changeentityproperty(self, "direction", 1);
+	}
+@end_script
+	loop	1
+	delay	7280
+	offset	145 204
+	bbox	120 120 45 72
+	frame	data/chars/1ryo/spa15.gif
+	delay	15
+	frame	data/chars/1ryo/rkr00.gif
+	frame	data/chars/1ryo/rkr01.gif
+	frame	data/chars/1ryo/rkr02.gif
+	frame	data/chars/1ryo/rkr03.gif
+	frame	data/chars/1ryo/rkr04.gif
+	@cmd	dasher 1 0 0
+	frame	data/chars/1ryo/rkr05.gif #delay90
+	delay	30
+	frame	data/chars/1ryo/FastRyo/spt01.gif
+	delay	12
+	@cmd	dasher 1.6 0 0
+	frame	data/chars/1ryo/upper03.gif
+	frame	data/chars/1ryo/upper04.gif #delay144
+	@cmd	stop
+	delay	288
+	frame	data/chars/1ryo/upper04.gif #delay432
+	delay	35
+	move	158
+	movez	-15
+	offset	145 239
+	frame	data/chars/1ryo/zbrk01.gif
+	move	0
+	movez	0
+	delay	600
+	frame	data/chars/1ryo/zbrk01.gif
+	delay	35
+	frame	data/chars/1ryo/zbrk01.gif
+	frame	data/chars/1ryo/zbrk01.gif
+	frame	data/chars/1ryo/zbrk01.gif
+	frame	data/chars/1ryo/zbrk01.gif
+
+	offset	145 239
+	frame	data/chars/1ryo/zbrk01.gif #17
+	offset	145 240	
+	frame	data/chars/1ryo/zbrk01.gif
+	offset	145 239	
+	frame	data/chars/1ryo/zbrk01.gif
+	offset	145 240	
+	frame	data/chars/1ryo/zbrk01.gif
+	offset	145 239	
+	frame	data/chars/1ryo/zbrk01.gif
+	offset	145 240		
+	frame	data/chars/1ryo/zbrk01.gif
+	@cmd	looper 17 12
+	frame	data/chars/1ryo/zbrk01.gif
+	frame	data/chars/1ryo/zbrk01.gif
+	delay	20
+	@cmd	flip
+	offset	145 230
+	frame	data/chars/1ryo/fall1.gif
+	offset	145 220
+	frame	data/chars/1ryo/fall2.gif
+	offset	145 210
+	frame	data/chars/1ryo/fall3.gif
+	offset	145 204
+	frame	data/chars/1ryo/fall4.gif
+	delay	30
+	frame	data/chars/1ryo/fall4.gif
+
+	delay	9
+	@cmd	leaper 0 7 0
+	frame	data/chars/1ryo/fall5.gif
+	frame	data/chars/1ryo/fall6.gif
+	frame	data/chars/1ryo/fall7.gif
+	frame	data/chars/1ryo/fall8.gif
+	frame	data/chars/1ryo/fall5.gif
+	frame	data/chars/1ryo/fall6.gif
+	frame	data/chars/1ryo/fall7.gif
+	frame	data/chars/1ryo/fall8.gif
+	drawmethod 256 256 0 1
+	offset	145 104
+	frame	data/chars/1ryo/fall5.gif
+	frame	data/chars/1ryo/fall6.gif
+	frame	data/chars/1ryo/fall7.gif
+	frame	data/chars/1ryo/fall8.gif
+	frame	data/chars/1ryo/fall5.gif
+	frame	data/chars/1ryo/fall6.gif
+	frame	data/chars/1ryo/fall7.gif
+	frame	data/chars/1ryo/fall8.gif
+	nodrawmethod
+	offset	145 204
+	@cmd	flip
+	frame	data/chars/1ryo/de25.gif
+	frame	data/chars/1ryo/de26.gif
+	frame	data/chars/1ryo/de27.gif
+
+	delay	3020
+
+	frame	data/chars/1ryo/de26.gif
+	delay	3
+	movez	25
+	frame	data/chars/1ryo/de26.gif #54
+	movez	0
+	@cmd	degravity 1
+	frame	data/chars/1ryo/fall5.gif
+	@cmd	flip
+	@cmd	dasher -6.6 0 0
+	frame	data/chars/1ryo/fall6.gif
+	frame	data/chars/1ryo/fall7.gif
+	frame	data/chars/1ryo/fall8.gif
+
+	frame	data/chars/1ryo/fall5.gif #55
+	frame	data/chars/1ryo/fall6.gif
+	frame	data/chars/1ryo/fall7.gif
+	frame	data/chars/1ryo/fall8.gif
+	@cmd	looper 55 30
+	frame	data/chars/1ryo/fall7.gif
+	@cmd	suicide
+	frame	data/chars/1ryo/fall8.gif
+
+
+		
+anim	idle
+	loop	1
+	delay	12
+	offset	145 204
+	bbox	120 120 45 72
+	frame	data/chars/1ryo/spa15.gif
+
+
+
+
+anim	follow1
+	loop	1
+	delay	12
+	offset	145 204
+	bbox	120 120 45 72
+	counterrange 0 2 1 1
+     	followanim 2
+	frame	data/chars/1ryo/a22.gif
+	frame	data/chars/1ryo/a22.gif
+	frame	data/chars/1ryo/a22.gif
+
+
+
+
+anim	follow2
+	loop	0
+	delay	6
+	offset	145 204
+	bbox	0 0 0 0
+	@cmd	degravity 0.9
+	frame	data/chars/1ryo/fall5.gif
+	frame	data/chars/1ryo/fall6.gif
+	frame	data/chars/1ryo/fall7.gif
+	frame	data/chars/1ryo/fall8.gif
+	@cmd 	dasher 0 1.3 0
+	frame	data/chars/1ryo/fall5.gif #4
+	frame	data/chars/1ryo/fall6.gif
+	frame	data/chars/1ryo/fall7.gif
+	frame	data/chars/1ryo/fall8.gif
+	@cmd	looper 4 15 
+	drawmethod 156 156 0 1
+	@cmd	layer -20
+	shadowcoords 1 -300
+	frame	data/chars/1ryo/fall5.gif
+	@cmd 	stop
+	frame	data/chars/1ryo/fall6.gif
+	move	20
+	frame	data/chars/1ryo/fall7.gif
+	move	0
+	frame	data/chars/1ryo/fall8.gif
+
+	frame	data/chars/1ryo/fall5.gif #12
+	frame	data/chars/1ryo/fall6.gif
+	frame	data/chars/1ryo/fall7.gif
+	frame	data/chars/1ryo/fall8.gif
+	@cmd	looper 12 20
+	frame	data/chars/1ryo/fall5.gif
+	frame	data/chars/1ryo/fall6.gif
+	frame	data/chars/1ryo/fall7.gif
+	delay	5000
+	frame	data/chars/1ryo/fall8.gif
+
+
+anim	follow3
+	loop	1 19 25
+	delay	12
+	offset	145 204
+	bbox	140 170 75 30
+	frame	data/chars/1ryo/de10.gif
+	frame	data/chars/1ryo/de11.gif
+	frame	data/chars/1ryo/de12.gif
+	frame	data/chars/1ryo/de13.gif
+	frame	data/chars/1ryo/de14.gif
+	frame	data/chars/1ryo/de15.gif
+	frame	data/chars/1ryo/de16.gif
+	frame	data/chars/1ryo/de17.gif
+	frame	data/chars/1ryo/de18.gif
+	frame	data/chars/1ryo/de19.gif
+	frame	data/chars/1ryo/de20.gif
+	frame	data/chars/1ryo/de21.gif
+	frame	data/chars/1ryo/de22.gif
+	frame	data/chars/1ryo/de23.gif
+	frame	data/chars/1ryo/de24.gif
+	frame	data/chars/1ryo/de25.gif
+	frame	data/chars/1ryo/de26.gif
+	frame	data/chars/1ryo/de27.gif
+	frame	data/chars/1ryo/de26.gif #19
+	frame	data/chars/1ryo/de26.gif
+	frame	data/chars/1ryo/de26.gif
+	frame	data/chars/1ryo/de26.gif
+	frame	data/chars/1ryo/de26.gif
+	frame	data/chars/1ryo/de26.gif
+	frame	data/chars/1ryo/de26.gif
+	frame	data/chars/1ryo/de26.gif
+	frame	data/chars/1ryo/de26.gif
+
+
+
+#------------------------//----------------------------
+
+anim	fall7
+	delay	1000
+	offset	45 95
+	bbox	0 0 0 0
+	frame	data/chars/1ryo/slam0.gif
+	offset	45 95
+	frame	data/chars/1ryo/slam1.gif
+	offset	50 85
+	frame	data/chars/1ryo/slam2.gif
+	offset	45 95
+	frame	data/chars/1ryo/slam3.gif
+	offset	45 95
+	frame	data/chars/1ryo/slam4.gif
+	offset	75 55
+	frame	data/chars/1ryo/slam5.gif
+	offset	40 80
+	frame	data/chars/1ryo/slam6.gif
+	offset	20 90
+	frame	data/chars/1ryo/slam7.gif
+	offset	65 55
+	frame	data/chars/1ryo/slam8.gif
+	offset	65 83
+	frame	data/chars/1ryo/slam9.gif
+	offset	65 83
+	frame	data/chars/1ryo/slam10.gif
+	offset	20 90
+	frame	data/chars/1ryo/slam11.gif
+	offset	75 55
+	frame	data/chars/1ryo/slam12.gif
+	offset	75 55
+	frame	data/chars/1ryo/slam13.gif
+	offset	50 85
+	frame	data/chars/1ryo/slam14.gif
+	offset	45 95
+	frame	data/chars/1ryo/slam15.gif
+	offset	55 70
+	frame	data/chars/1ryo/slam16.gif
+	offset	65 83
+	frame	data/chars/1ryo/slam17.gif
+	offset	65 83
+	frame	data/chars/1ryo/slam18.gif
+	offset	45 95
+	frame	data/chars/1ryo/slam19.gif
+	offset	45 95
+	frame	data/chars/1ryo/slam20.gif
+	offset	45 95
+	frame	data/chars/1ryo/slam21.gif
+	offset	45 95
+	frame	data/chars/1ryo/slam22.gif
+	offset	59 85
+	frame	data/chars/1ryo/slam23.gif
+	offset	59 80
+	frame	data/chars/1ryo/slam24.gif
+	offset	45 95
+	bbox	25 10 60 80
+	frame	data/chars/1ryo/slambbox1.gif
+	bbox	0 0 0 0
+
+
+

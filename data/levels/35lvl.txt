@@ -1,0 +1,60 @@
+music		data/music/remuinhoair.ogg
+
+background	data/bgs/35lvl/fallbck.gif 0 8
+panel  		data/bgs/35lvl/fall.gif
+fglayer		data/bgs/35lvl/fallfrt.gif 1000 0 5 0 0 0 0 -1 -1 1
+fglayer		data/bgs/35lvl/rockfrt.gif 1300 0 6 0 0 0 0 -1 -1 1
+
+direction       up
+light  		10 -30
+at       	0
+settime         0
+notime          1
+gravity         -6
+noslow          1
+order		a
+spawn1  	150 5
+spawn2  	140 15
+spawn3  	160 20
+
+
+setweap  	4
+
+
+#----stage-------------
+spawn   stgSET2
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW4"));
+} @end_script
+coords  -500 515 350
+at      0
+#-------------------
+
+
+#-----------------
+
+spawn   rushold
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+} @end_script
+coords  -220 110
+at      0
+
+spawn   timerfall
+coords	195 90
+at	0
+
+#--------enemy----
+
+group   1 1
+at      0
+
+spawn   remuinho2
+health  50000
+coords  370 190
+at      0
+
+spawn   ghosttime
+health  1
+coords  370 190
+at      0

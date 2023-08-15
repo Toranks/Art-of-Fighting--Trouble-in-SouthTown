@@ -1,0 +1,57 @@
+name	rider3b
+type	enemy
+subtype	biker
+health	140
+speed   20
+gfxshadow     1
+nolife	1
+candamage player obstacle npc
+animationscript data/scripts/escript.c
+
+palette		   data/chars/2rider3/map0.gif
+
+load	bike3crash
+load	explosion1
+load	cardam2
+load	ren
+rider	ren
+
+
+
+
+
+
+
+anim	idle
+	loop	1
+	delay	3
+	offset	115 130
+	bbox	65 40 75 90
+	attack	145 71 65 59 10 1 0 1 8 0
+	frame	data/chars/2rider3/biker01.gif
+	frame	data/chars/2rider3/biker02.gif
+		
+anim	pain
+	loop	0
+	delay	5
+	offset	115 130
+	@cmd	spawn01 "explosion1" -10 50 10
+	frame	data/chars/2rider3/biker03.gif
+	frame	data/chars/2rider3/biker04.gif
+	frame	data/chars/2rider1/empty.gif
+	@cmd	spawn01 "cardam2" -20 30 7
+	frame	data/chars/2rider1/empty.gif
+	@cmd	spawn01 "bike3crash" -20 0 5
+	frame	data/chars/2rider1/empty.gif
+		
+anim	spawn
+	loop	0
+	delay	3
+	offset	100 150
+	bbox	44 96 51 51
+	frame	data/chars/2rider3/biker01.gif
+	sound	data/sounds/bike12.wav
+	frame	data/chars/2rider3/biker02.gif
+		
+#|edited by openBor Stats v 0.53
+		

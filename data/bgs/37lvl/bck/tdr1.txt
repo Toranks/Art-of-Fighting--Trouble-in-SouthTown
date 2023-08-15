@@ -1,0 +1,74 @@
+name	tdr1
+type	enemy
+shadow	0
+facing	1
+nomove	1 1
+subject_to_wall 	0
+subject_to_platform	0
+subject_to_obstacle	0
+subject_to_gravity	0
+subject_to_minz		0
+subject_to_maxz		0
+offscreenkill 	50000
+hostile		player
+falldie		1
+nodieblink	3
+
+load	glassbrk2
+load	slay
+load	goINb1	
+
+animationscript data/scripts/escript.c
+
+
+anim	idle
+@script
+if(frame==10)
+{
+  changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_NONE"));
+}
+@end_script
+	loop	1 12 16
+	delay	5
+	offset	50 95
+	bbox	0 0 0 0
+	frame	data/bgs/37lvl/bck/emp.gif
+	@cmd	spawnGun10 "slay" -5 40 40 1 "ANI_FOLLOW20"
+	frame	data/bgs/37lvl/bck/emp.gif
+	delay	760
+	frame	data/bgs/37lvl/bck/emp.gif
+	delay	5
+	frame	data/bgs/37lvl/bck/emp.gif
+	frame	data/bgs/37lvl/bck/emp.gif
+	frame	data/bgs/37lvl/bck/emp.gif
+	@cmd	spawn01 "glassbrk2" -20 1 1
+	@cmd 	gunout 1
+	frame	data/bgs/37lvl/bck/emp.gif
+	@cmd	spawn01 "glassbrk2" 20 1 1
+	frame	data/bgs/37lvl/bck/shpbrk.gif
+	delay	700
+	frame	data/bgs/37lvl/bck/shpbrk.gif
+	@cmd	spawname "goINb1" -5 0 25 "shp01"
+	frame	data/bgs/37lvl/bck/shpbrk.gif
+	delay	5
+	frame	data/bgs/37lvl/bck/shpbrk.gif #10
+	frame	data/bgs/37lvl/bck/shpbrk.gif
+	frame	data/bgs/37lvl/bck/shpbrk.gif #12
+	frame	data/bgs/37lvl/bck/shpbrk.gif
+	frame	data/bgs/37lvl/bck/shpbrk.gif
+	frame	data/bgs/37lvl/bck/shpbrk.gif
+	frame	data/bgs/37lvl/bck/shpbrk.gif
+	frame	data/bgs/37lvl/bck/shpbrk.gif
+	frame	data/bgs/37lvl/bck/shpbrk.gif
+
+
+anim	death
+	loop	0
+	delay	15
+	offset	50 95
+	bbox	0 0 0 0
+	frame	data/bgs/37lvl/bck/emp.gif
+	frame	data/bgs/37lvl/bck/emp.gif
+	frame	data/bgs/37lvl/bck/emp.gif
+	frame	data/bgs/37lvl/bck/emp.gif
+

@@ -1,0 +1,250 @@
+name		syurivent
+type		none
+health		800
+mp		100
+speedf		1
+running		25 2 1.5 1 0
+jumpheight      6
+holdblock 	1
+noquake		1
+falldie		2
+nodieblink	2
+makeinv		3
+riseinv		2
+shadow		0
+dust            dust
+candamage	enemy obstacle npc
+diesound        data/sounds/yurde.wav
+atchain         0 0 0 0 
+icon            data/chars/0yuri/icon.gif
+offscreenkill 	6000
+parrow          data/chars/misc/flash/flash/player1.gif  -36 -145
+parrow2         data/chars/misc/flash/flash/player2.gif  -36 -145
+parrow3         data/chars/misc/flash/flash/player3.gif  -36 -145
+animationscript data/scripts/escript.c
+
+
+palette    	data/chars/0yuri/syuri/map1.gif
+
+
+anim	attack1
+	loop	0
+	delay	5
+	offset	155 201
+	bbox	130 155 60 45 30
+	frame	data/chars/0yuri/syuri/vent/idle.gif
+		
+anim	death
+	loop	0
+	delay	80
+	offset	155 201
+	bbox	0 0 0 0
+	frame	data/chars/0yuri/syuri/vent/fall4.gif
+	frame	data/chars/0yuri/syuri/vent/fall4.gif
+	delay	9
+	frame	data/chars/0yuri/syuri/vent/fall4.gif
+		
+anim	fall
+	loop	0
+	delay	10
+	offset	155 201
+	bbox	0 0 0 0
+	jumpframe	0 2 -1 0 0
+	landframe	3 dust
+	frame	data/chars/0yuri/syuri/vent/fall3.gif
+	frame	data/chars/0yuri/syuri/vent/fall2.gif
+	delay	1500
+	frame	data/chars/0yuri/syuri/vent/fall1.gif
+	delay	12
+	frame	data/chars/0yuri/syuri/vent/pain1.gif
+	frame	data/chars/0yuri/syuri/vent/pain2.gif
+	delay	90
+	frame	data/chars/0yuri/syuri/vent/fall4.gif
+		
+anim	idle
+	loop	1
+	delay	7
+	offset	155 201
+	bbox	130 155 60 45 30
+	frame	data/chars/0yuri/syuri/vent/idle.gif
+		
+anim	pain
+	loop	0
+	delay	3
+	offset	155 201
+	bbox	0 0 0 0
+	move	-7
+	frame	data/chars/0yuri/syuri/vent/pain1.gif
+	frame	data/chars/0yuri/syuri/vent/pain1.gif
+	frame	data/chars/0yuri/syuri/vent/pain1.gif
+	frame	data/chars/0yuri/syuri/vent/pain1.gif
+	frame	data/chars/0yuri/syuri/vent/pain2.gif
+	frame	data/chars/0yuri/syuri/vent/pain2.gif
+	frame	data/chars/0yuri/syuri/vent/pain2.gif
+	frame	data/chars/0yuri/syuri/vent/pain2.gif
+	frame	data/chars/0yuri/syuri/vent/pain2.gif
+	move	0
+	frame	data/chars/0yuri/syuri/vent/pain2.gif
+	delay	15
+	frame	data/chars/0yuri/syuri/vent/pain3.gif
+		
+anim	respawn
+@script
+    void self = getlocalvar("self");
+    int x = getindexedvar(0); //Get respawn x coordinate
+    int z = getentityproperty(self,"z"); //Get character's z coordinate
+    int a = getindexedvar(1); //Get respawn a coordinate
+
+    if(x==NULL()){
+      x = getentityproperty(self, "x");
+    }
+
+    setentityvar(self, 7, NULL());
+    if(a!=NULL()){
+      if(frame > 0){
+        changeentityproperty(self, "position", x, z, a);
+      }
+    }
+	@end_script	
+	delay	1
+	offset	155 201
+	bbox	0 0 0 0
+	frame	data/chars/0yuri/syuri/vent/idle.gif
+	delay	40
+	frame	data/chars/0yuri/syuri/vent/idle.gif
+		
+anim	rise
+	loop	0
+	delay	16
+	offset	155 201
+	bbox	0 0 0 0
+	frame	data/chars/0yuri/syuri/vent/pain3.gif
+		
+anim	spawn
+	loop	0
+	delay	185
+	offset	146 204
+	bbox	0 0 0 0
+	landframe	1
+	frame	data/chars/0yuri/syuri/vent/turn01.gif
+	delay	8
+	@cmd	dasher 1.4 0 0
+	offset	140 147
+	frame	data/chars/0yuri/syuri/air/ju03.gif
+	frame	data/chars/0yuri/syuri/air/ju04.gif
+	frame	data/chars/0yuri/syuri/air/ju05.gif
+	frame	data/chars/0yuri/syuri/air/ju06.gif
+	frame	data/chars/0yuri/syuri/air/ju07.gif
+	frame	data/chars/0yuri/syuri/air/ju08.gif
+	frame	data/chars/0yuri/syuri/air/ju09.gif
+	frame	data/chars/0yuri/syuri/air/ju10.gif
+	frame	data/chars/0yuri/syuri/air/ju03.gif
+	frame	data/chars/0yuri/syuri/air/ju04.gif
+	frame	data/chars/0yuri/syuri/air/ju05.gif
+	frame	data/chars/0yuri/syuri/air/ju06.gif
+	frame	data/chars/0yuri/syuri/air/ju07.gif
+	frame	data/chars/0yuri/syuri/air/ju08.gif
+	offset	140 165
+	delay	190
+	frame	data/chars/0yuri/syuri/vent/stfall1.gif
+		
+anim	turn
+	loop	0
+	delay	9
+	offset	155 201
+	bbox	130 155 60 45 30
+	frame	data/chars/0yuri/syuri/vent/turn01.gif
+	frame	data/chars/0yuri/syuri/vent/turn02.gif
+	frame	data/chars/0yuri/syuri/vent/turn03.gif
+	frame	data/chars/0yuri/syuri/vent/turn04.gif
+	frame	data/chars/0yuri/syuri/vent/turn05.gif
+	frame	data/chars/0yuri/syuri/vent/turn06.gif
+		
+anim	walk
+	loop	1
+	delay	12
+	offset	155 201
+	bbox	130 155 60 45 30
+	frame	data/chars/0yuri/syuri/vent/vent01.gif
+	frame	data/chars/0yuri/syuri/vent/xvent01.gif
+	frame	data/chars/0yuri/syuri/vent/vent02.gif
+	frame	data/chars/0yuri/syuri/vent/vent03.gif
+	frame	data/chars/0yuri/syuri/vent/xvent03.gif
+	frame	data/chars/0yuri/syuri/vent/vent02.gif
+		
+anim	walkoff
+	loop	0
+	delay	8
+	offset	150 170
+	bbox	0 0 0 0
+	landframe	6 dust
+	@cmd	stop
+	offset	150 170
+	move	4
+	frame	data/chars/0yuri/syuri/vent/stfall2.gif
+	offset	143 160
+	frame	data/chars/0yuri/syuri/air/ju05.gif
+	frame	data/chars/0yuri/syuri/air/ju06.gif
+	frame	data/chars/0yuri/syuri/air/ju07.gif
+	frame	data/chars/0yuri/syuri/air/ju08.gif
+	move	0
+	delay	1300
+	offset	154 201
+	frame	data/chars/0yuri/syuri/vent/jup06.gif
+	offset	150 204
+	bbox	130 150 60 45
+	delay	10
+	frame	data/chars/0yuri/syuri/rise4.gif
+	offset	155 201
+	frame	data/chars/0yuri/syuri/vent/turn03.gif
+	frame	data/chars/0yuri/syuri/vent/turn02.gif
+	frame	data/chars/0yuri/syuri/vent/turn01.gif
+		
+#----------------------------------//-----------------------
+
+anim	attackdown
+		
+anim	attackup
+		
+anim	block
+		
+anim	charge
+		
+anim	chargeattack
+		
+anim	forwardjump
+		
+anim	grab
+		
+anim	grabattack
+		
+anim	grabattack2
+		
+anim	grabbackward
+		
+anim	grabforward
+		
+anim	grabforward2
+		
+anim	jump
+		
+anim	jumpattack
+		
+anim	jumpattack2
+		
+anim	jumpattack3
+		
+anim	jumpdelay
+		
+anim	jumpland
+		
+anim	run
+		
+anim	runattack
+		
+anim	runjump
+		
+anim	runjumpattack
+		
+anim	special
+		

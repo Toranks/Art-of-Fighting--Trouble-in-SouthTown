@@ -1,0 +1,268 @@
+name		drone
+type		enemy
+health		310
+speed		12
+jumpheight	0
+noquake		1
+falldie		1
+nodieblink	2
+makeinv		3
+gfxshadow	1
+nodrop		1
+facing          3
+nomove          0 1
+antigrab	10
+aggression      25
+nopain		1
+nodrop		2
+antigravity	40
+flash    	flash8
+noatflash 	1
+hostile		player npc
+candamage	player npc
+KOMap		5 0
+diesound        data/sounds/crash.wav
+
+animationscript data/scripts/escript.c
+
+
+
+alternatepal       data/chars/2tank3/map1.gif
+alternatepal       data/chars/2tank3/map2.gif
+alternatepal       data/chars/2tank3/map3.gif
+alternatepal       data/chars/2tank3/map4.gif
+alternatepal       data/chars/2tank3/map5.gif
+
+
+
+
+load	flash8
+load	explosion2
+load	explosion3
+load	cardam2
+load	missile7
+
+
+
+anim	attack1
+	range	100 450
+	rangez	-20 20
+	delay	5
+	offset	210 214
+	bbox	160 85 95 110 20
+	sound	data/sounds/robot1.wav
+	frame	data/chars/2tank3/atk01.gif
+	offset	210 212
+	frame	data/chars/2tank3/atk02.gif
+	offset	210 210
+	frame	data/chars/2tank3/atk03.gif
+	offset	210 208
+	frame	data/chars/2tank3/atk04.gif
+	offset	210 210
+	frame	data/chars/2tank3/atk05.gif
+	offset	210 212
+	frame	data/chars/2tank3/atk06.gif
+	offset	210 214
+	frame	data/chars/2tank3/atk07.gif
+	offset	210 212
+	frame	data/chars/2tank3/atk201.gif
+	offset	210 210
+	frame	data/chars/2tank3/atk202.gif
+	sound	data/sounds/missilego.wav
+	offset	210 208
+	frame	data/chars/2tank3/atk203.gif
+	@cmd	projectile 1 "missile7" 40 1 65
+	offset	210 210
+	frame	data/chars/2tank3/atk204.gif
+	offset	210 212
+	frame	data/chars/2tank3/atk205.gif
+	offset	210 214
+	frame	data/chars/2tank3/atk206.gif
+	offset	210 212
+	frame	data/chars/2tank3/atk207.gif
+	offset	210 210
+	frame	data/chars/2tank3/atk07.gif
+	offset	210 208
+	frame	data/chars/2tank3/atk06.gif
+	offset	210 210
+	frame	data/chars/2tank3/atk05.gif
+	offset	210 212
+	frame	data/chars/2tank3/atk04.gif
+	offset	210 214
+	frame	data/chars/2tank3/atk03.gif
+	offset	210 212
+	frame	data/chars/2tank3/atk02.gif
+
+		
+anim	attack2
+	range	-450 -50
+	rangez	-55 55
+	delay	5
+	offset	211 211
+	bbox	0 0 0 0
+	jumpframe 0 4 -3
+	landframe 25
+	frame	data/chars/2tank3/idle01.gif
+	sound	data/sounds/tank2.wav
+	frame	data/chars/2tank3/idle02.gif
+	frame	data/chars/2tank3/idle03.gif
+	frame	data/chars/2tank3/idle04.gif
+	frame	data/chars/2tank3/idle05.gif
+	frame	data/chars/2tank3/idle06.gif
+	frame	data/chars/2tank3/idle07.gif
+	frame	data/chars/2tank3/idle01.gif #7
+	frame	data/chars/2tank3/idle02.gif
+	frame	data/chars/2tank3/idle03.gif
+	frame	data/chars/2tank3/idle04.gif
+	frame	data/chars/2tank3/idle05.gif
+	frame	data/chars/2tank3/idle06.gif
+	frame	data/chars/2tank3/idle07.gif
+	frame	data/chars/2tank3/idle01.gif
+	frame	data/chars/2tank3/idle02.gif
+	frame	data/chars/2tank3/idle03.gif
+	frame	data/chars/2tank3/idle04.gif
+	frame	data/chars/2tank3/idle05.gif
+	frame	data/chars/2tank3/idle06.gif
+	frame	data/chars/2tank3/idle07.gif
+	@cmd	looper 7 5
+	frame	data/chars/2tank3/idle01.gif
+	frame	data/chars/2tank3/idle02.gif
+	frame	data/chars/2tank3/idle03.gif
+	frame	data/chars/2tank3/idle04.gif
+	frame	data/chars/2tank3/idle05.gif #25
+	frame	data/chars/2tank3/idle06.gif
+	@cmd	clearL
+	frame	data/chars/2tank3/idle07.gif
+
+
+
+anim	death
+	loop	0
+	delay	11
+	offset	211 211
+	bbox	0 0 0 0
+	frame	data/chars/2tank3/death01.gif
+	@cmd	spawn01 "cardam2" 10 85 1
+	movea	2
+	move	-2
+	frame	data/chars/2tank3/death01.gif
+	@cmd	spawn01 "explosion3" 20 90 1
+	frame	data/chars/2tank3/death02.gif
+	@cmd	spawn01 "explosion3" -20 70 1
+	frame	data/chars/2tank3/death03.gif
+	@cmd	spawn01 "explosion3" 20 90 1
+	frame	data/chars/2tank3/death04.gif
+	@cmd	spawn01 "explosion3" 40 110 1
+	frame	data/chars/2tank3/death05.gif
+	@cmd	spawn01 "explosion3" 20 90 1
+	frame	data/chars/2tank3/death06.gif
+	frame	data/chars/2tank3/death07.gif
+	@cmd	spawn01 "explosion3" -20 90 1
+	frame	data/chars/2tank3/death08.gif
+	delay	6
+	frame	data/chars/2tank3/empty.gif
+	frame	data/chars/2tank3/death09.gif
+	frame	data/chars/2tank3/empty.gif
+	frame	data/chars/2tank3/death10.gif
+	@cmd	spawn01 "explosion3" 20 90 1
+	frame	data/chars/2tank3/empty.gif
+	frame	data/chars/2tank3/death11.gif
+	@cmd	spawn01 "explosion3" -20 70 1
+	frame	data/chars/2tank3/empty.gif
+	frame	data/chars/2tank3/death12.gif
+	@cmd	spawn01 "explosion3" 20 90 1
+	frame	data/chars/2tank3/empty.gif
+	frame	data/chars/2tank3/death13.gif
+	frame	data/chars/2tank3/empty.gif
+	frame	data/chars/2tank3/death14.gif
+	frame	data/chars/2tank3/empty.gif
+	frame	data/chars/2tank3/death15.gif
+	frame	data/chars/2tank3/empty.gif
+	frame	data/chars/2tank3/death15.gif
+	frame	data/chars/2tank3/empty.gif
+	frame	data/chars/2tank3/death15.gif
+	frame	data/chars/2tank3/empty.gif
+	frame	data/chars/2tank3/death15.gif
+	frame	data/chars/2tank3/empty.gif
+	frame	data/chars/2tank3/death15.gif
+	frame	data/chars/2tank3/empty.gif
+	frame	data/chars/2tank3/death15.gif
+	frame	data/chars/2tank3/empty.gif
+	@cmd	suicide
+	frame	data/chars/2tank3/empty.gif
+
+
+	
+anim	fall
+	loop	0
+	delay	5
+	offset	210 210
+	bbox	0 0 0 0
+	frame	data/chars/2tank3/death01.gif
+		
+anim	idle
+	loop	1
+	delay	5
+	offset	210 214
+	bbox	160 85 95 110 20
+	frame	data/chars/2tank3/idle01.gif
+	offset	210 212
+	frame	data/chars/2tank3/idle02.gif
+	offset	210 210
+	frame	data/chars/2tank3/idle03.gif
+	offset	210 208
+	frame	data/chars/2tank3/idle04.gif
+	offset	210 210
+	frame	data/chars/2tank3/idle05.gif
+	offset	210 212
+	frame	data/chars/2tank3/idle06.gif
+	offset	210 214
+	frame	data/chars/2tank3/idle07.gif
+	offset	210 212
+	frame	data/chars/2tank3/idle02.gif
+	offset	210 210
+	frame	data/chars/2tank3/idle03.gif
+	offset	210 208
+	frame	data/chars/2tank3/idle04.gif
+	offset	210 210
+	frame	data/chars/2tank3/idle05.gif
+	offset	210 212
+	frame	data/chars/2tank3/idle06.gif
+	offset	210 214
+	frame	data/chars/2tank3/idle07.gif
+	offset	210 212
+	frame	data/chars/2tank3/idle02.gif
+	offset	210 210
+	frame	data/chars/2tank3/idle03.gif
+	offset	210 208
+	frame	data/chars/2tank3/idle04.gif
+	offset	210 210
+	frame	data/chars/2tank3/idle05.gif
+	offset	210 212
+	frame	data/chars/2tank3/idle06.gif
+	offset	210 214
+	frame	data/chars/2tank3/idle07.gif
+	offset	210 212
+	frame	data/chars/2tank3/idle02.gif
+	offset	210 210
+	frame	data/chars/2tank3/idle03.gif
+	offset	210 208
+	frame	data/chars/2tank3/idle04.gif
+	offset	210 210
+	frame	data/chars/2tank3/idle05.gif
+	offset	210 212
+	frame	data/chars/2tank3/idle06.gif
+	offset	210 214
+	frame	data/chars/2tank3/idle07.gif
+
+		
+		
+anim	spawn
+	loop	0
+	delay	15
+	offset	210 210
+	bbox	0 0 0 0
+	frame	data/chars/2tank3/idle01.gif
+		
+	
+		

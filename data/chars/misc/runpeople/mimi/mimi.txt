@@ -1,0 +1,263 @@
+name	mimi
+type	npc
+aimove	Wander
+speed   9
+height  700
+gfxshadow	1
+hostile		enemy
+subject_to_wall 1
+
+
+
+alternatepal       data/chars/misc/runpeople/mimi/map1.gif
+alternatepal       data/chars/misc/runpeople/mimi/map2.gif
+alternatepal       data/chars/misc/runpeople/mimi/map3.gif
+alternatepal       data/chars/misc/runpeople/mimi/map4.gif
+
+
+
+@script
+   void self = getlocalvar("self");
+   int Direction = getentityproperty(self, "direction");
+   int x = getentityproperty(self, "x");
+   int z = getentityproperty(self, "z");
+   int Dist = 30;
+   int Move = -5;
+   float H;
+
+
+   if(Direction == 0){ //Is entity facing left?                  
+      Dist = -Dist; //Reverse Dist to match facing
+      Move = -Move; //Reverse Move to match facing
+   }
+
+   H = checkplatformbelow(x+Dist,z, 5000);
+
+   if(H >= 1)
+   {
+     changeentityproperty(self, "position", x+Move);
+   }
+@end_script
+
+
+
+anim	idle
+	loop	1
+	delay	11
+	offset	45 100
+	bbox	0 0 0 0
+	frame	data/chars/misc/runpeople/mimi/mitlk01.gif
+	frame	data/chars/misc/runpeople/mimi/mitlk02.gif
+	frame	data/chars/misc/runpeople/mimi/mitlk03.gif
+	frame	data/chars/misc/runpeople/mimi/mitlk04.gif
+	frame	data/chars/misc/runpeople/mimi/mitlk05.gif
+	frame	data/chars/misc/runpeople/mimi/mitlk06.gif
+	frame	data/chars/misc/runpeople/mimi/mitlk07.gif
+	frame	data/chars/misc/runpeople/mimi/mitlk08.gif
+	delay	30
+	frame	data/chars/misc/runpeople/mimi/mitlk08.gif
+	delay	14
+	frame	data/chars/misc/runpeople/mimi/mitlk08.gif
+	frame	data/chars/misc/runpeople/mimi/mitlk07.gif
+	frame	data/chars/misc/runpeople/mimi/mitlk06.gif
+	frame	data/chars/misc/runpeople/mimi/mitlk05.gif
+	frame	data/chars/misc/runpeople/mimi/mitlk04.gif
+	frame	data/chars/misc/runpeople/mimi/mitlk03.gif
+	frame	data/chars/misc/runpeople/mimi/mitlk02.gif
+	frame	data/chars/misc/runpeople/mimi/mitlk01.gif
+	frame	data/chars/misc/runpeople/mimi/mitlk02.gif
+	frame	data/chars/misc/runpeople/mimi/mitlk01.gif
+	frame	data/chars/misc/runpeople/mimi/mitlk02.gif
+	frame	data/chars/misc/runpeople/mimi/mitlk01.gif
+		
+
+		
+anim	spawn
+	loop	0
+	delay	5
+	offset	45 100
+	bbox	0 0 0 0	
+	frame	data/chars/misc/runpeople/mimi/mitlk01.gif
+	frame	data/chars/misc/runpeople/mimi/mitlk01.gif
+	frame	data/chars/misc/runpeople/mimi/mitlk01.gif
+		
+anim	walk
+	loop	1
+	delay	9
+	offset	45 100
+	bbox	0 0 0 0
+	frame	data/chars/misc/runpeople/mimi/mi01.gif
+	frame	data/chars/misc/runpeople/mimi/mi02.gif
+	frame	data/chars/misc/runpeople/mimi/mi03.gif
+	frame	data/chars/misc/runpeople/mimi/mi04.gif
+	frame	data/chars/misc/runpeople/mimi/mi05.gif
+	frame	data/chars/misc/runpeople/mimi/mi06.gif
+	frame	data/chars/misc/runpeople/mimi/mi07.gif
+	frame	data/chars/misc/runpeople/mimi/mi08.gif
+	frame	data/chars/misc/runpeople/mimi/mi09.gif
+	frame	data/chars/misc/runpeople/mimi/mi10.gif
+	frame	data/chars/misc/runpeople/mimi/mi11.gif
+	frame	data/chars/misc/runpeople/mimi/mi12.gif
+
+
+anim	attack1
+	range  -90 170
+	rangez 0 50
+	loop	0
+	delay	14
+	offset	45 100
+	bbox	0 0 0 0
+	frame	data/chars/misc/runpeople/mimi/mitlk01.gif
+	frame	data/chars/misc/runpeople/mimi/mitlk02.gif
+	frame	data/chars/misc/runpeople/mimi/mitlk03.gif
+	frame	data/chars/misc/runpeople/mimi/mitlk04.gif
+	frame	data/chars/misc/runpeople/mimi/mitlk05.gif
+	delay	5
+	move	6
+	offset	45 94
+	frame	data/chars/misc/runpeople/mimi/mir01.gif
+	frame	data/chars/misc/runpeople/mimi/mir01.gif
+	frame	data/chars/misc/runpeople/mimi/mir02.gif
+	frame	data/chars/misc/runpeople/mimi/mir02.gif
+	frame	data/chars/misc/runpeople/mimi/mir03.gif
+	frame	data/chars/misc/runpeople/mimi/mir03.gif
+	frame	data/chars/misc/runpeople/mimi/mir04.gif
+	frame	data/chars/misc/runpeople/mimi/mir04.gif
+	frame	data/chars/misc/runpeople/mimi/mir05.gif
+	frame	data/chars/misc/runpeople/mimi/mir05.gif
+	frame	data/chars/misc/runpeople/mimi/mir06.gif
+	frame	data/chars/misc/runpeople/mimi/mir06.gif
+	frame	data/chars/misc/runpeople/mimi/mir07.gif
+	frame	data/chars/misc/runpeople/mimi/mir07.gif
+	frame	data/chars/misc/runpeople/mimi/mir01.gif
+	frame	data/chars/misc/runpeople/mimi/mir01.gif
+	frame	data/chars/misc/runpeople/mimi/mir02.gif
+	frame	data/chars/misc/runpeople/mimi/mir02.gif
+	frame	data/chars/misc/runpeople/mimi/mir03.gif
+	frame	data/chars/misc/runpeople/mimi/mir03.gif
+	frame	data/chars/misc/runpeople/mimi/mir04.gif
+	sound	data/sounds/wmscream4.wav
+	frame	data/chars/misc/runpeople/mimi/mir04.gif
+	frame	data/chars/misc/runpeople/mimi/mir05.gif
+	frame	data/chars/misc/runpeople/mimi/mir05.gif
+	frame	data/chars/misc/runpeople/mimi/mir06.gif
+	frame	data/chars/misc/runpeople/mimi/mir06.gif
+	frame	data/chars/misc/runpeople/mimi/mir07.gif
+	frame	data/chars/misc/runpeople/mimi/mir07.gif
+	frame	data/chars/misc/runpeople/mimi/mir01.gif
+	frame	data/chars/misc/runpeople/mimi/mir01.gif
+	frame	data/chars/misc/runpeople/mimi/mir02.gif
+	frame	data/chars/misc/runpeople/mimi/mir02.gif
+	frame	data/chars/misc/runpeople/mimi/mir03.gif
+	frame	data/chars/misc/runpeople/mimi/mir03.gif
+	frame	data/chars/misc/runpeople/mimi/mir04.gif
+	frame	data/chars/misc/runpeople/mimi/mir04.gif
+	frame	data/chars/misc/runpeople/mimi/mir05.gif
+	frame	data/chars/misc/runpeople/mimi/mir05.gif
+	frame	data/chars/misc/runpeople/mimi/mir06.gif
+	frame	data/chars/misc/runpeople/mimi/mir06.gif
+	frame	data/chars/misc/runpeople/mimi/mir07.gif
+	frame	data/chars/misc/runpeople/mimi/mir07.gif
+	move	0
+	delay	14
+	offset	45 100
+	frame	data/chars/misc/runpeople/mimi/mitlk01.gif
+	frame	data/chars/misc/runpeople/mimi/mitlk02.gif
+
+
+
+
+anim	attack2
+	range  -90 170
+	rangez -50 0
+	loop	0
+	delay	14
+	offset	45 100
+	bbox	0 0 0 0
+	flipframe 0
+	frame	data/chars/misc/runpeople/mimi/mitlk01.gif
+	frame	data/chars/misc/runpeople/mimi/mitlk02.gif
+	frame	data/chars/misc/runpeople/mimi/mitlk03.gif
+	frame	data/chars/misc/runpeople/mimi/mitlk04.gif
+	frame	data/chars/misc/runpeople/mimi/mitlk05.gif
+	delay	5
+	move	6
+	offset	45 94
+	frame	data/chars/misc/runpeople/mimi/mir01.gif
+	frame	data/chars/misc/runpeople/mimi/mir01.gif
+	frame	data/chars/misc/runpeople/mimi/mir02.gif
+	frame	data/chars/misc/runpeople/mimi/mir02.gif
+	frame	data/chars/misc/runpeople/mimi/mir03.gif
+	frame	data/chars/misc/runpeople/mimi/mir03.gif
+	frame	data/chars/misc/runpeople/mimi/mir04.gif
+	frame	data/chars/misc/runpeople/mimi/mir04.gif
+	frame	data/chars/misc/runpeople/mimi/mir05.gif
+	frame	data/chars/misc/runpeople/mimi/mir05.gif
+	frame	data/chars/misc/runpeople/mimi/mir06.gif
+	frame	data/chars/misc/runpeople/mimi/mir06.gif
+	frame	data/chars/misc/runpeople/mimi/mir07.gif
+	frame	data/chars/misc/runpeople/mimi/mir07.gif
+	frame	data/chars/misc/runpeople/mimi/mir01.gif
+	frame	data/chars/misc/runpeople/mimi/mir01.gif
+	frame	data/chars/misc/runpeople/mimi/mir02.gif
+	frame	data/chars/misc/runpeople/mimi/mir02.gif
+	frame	data/chars/misc/runpeople/mimi/mir03.gif
+	frame	data/chars/misc/runpeople/mimi/mir03.gif
+	frame	data/chars/misc/runpeople/mimi/mir04.gif
+	frame	data/chars/misc/runpeople/mimi/mir04.gif
+	sound	data/sounds/wmscream3.wav
+	frame	data/chars/misc/runpeople/mimi/mir05.gif
+	frame	data/chars/misc/runpeople/mimi/mir05.gif
+	frame	data/chars/misc/runpeople/mimi/mir06.gif
+	frame	data/chars/misc/runpeople/mimi/mir06.gif
+	frame	data/chars/misc/runpeople/mimi/mir07.gif
+	frame	data/chars/misc/runpeople/mimi/mir07.gif
+	frame	data/chars/misc/runpeople/mimi/mir01.gif
+	frame	data/chars/misc/runpeople/mimi/mir01.gif
+	frame	data/chars/misc/runpeople/mimi/mir02.gif
+	frame	data/chars/misc/runpeople/mimi/mir02.gif
+	frame	data/chars/misc/runpeople/mimi/mir03.gif
+	frame	data/chars/misc/runpeople/mimi/mir03.gif
+	frame	data/chars/misc/runpeople/mimi/mir04.gif
+	frame	data/chars/misc/runpeople/mimi/mir04.gif
+	frame	data/chars/misc/runpeople/mimi/mir05.gif
+	frame	data/chars/misc/runpeople/mimi/mir05.gif
+	frame	data/chars/misc/runpeople/mimi/mir06.gif
+	frame	data/chars/misc/runpeople/mimi/mir06.gif
+	frame	data/chars/misc/runpeople/mimi/mir07.gif
+	frame	data/chars/misc/runpeople/mimi/mir07.gif
+	move	0
+	delay	14
+	offset	45 100
+	frame	data/chars/misc/runpeople/mimi/mitlk01.gif
+	frame	data/chars/misc/runpeople/mimi/mitlk02.gif
+
+
+
+anim	backwalk
+	loop	1
+	delay	9
+	offset	45 100
+	bbox	0 0 0 0
+	frame	data/chars/misc/runpeople/mimi/mi01.gif
+	frame	data/chars/misc/runpeople/mimi/mi02.gif
+	frame	data/chars/misc/runpeople/mimi/mi03.gif
+	frame	data/chars/misc/runpeople/mimi/mi04.gif
+	frame	data/chars/misc/runpeople/mimi/mi05.gif
+	frame	data/chars/misc/runpeople/mimi/mi06.gif
+	frame	data/chars/misc/runpeople/mimi/mi07.gif
+	frame	data/chars/misc/runpeople/mimi/mi08.gif
+	frame	data/chars/misc/runpeople/mimi/mi09.gif
+	frame	data/chars/misc/runpeople/mimi/mi10.gif
+	frame	data/chars/misc/runpeople/mimi/mi11.gif
+	frame	data/chars/misc/runpeople/mimi/mi12.gif
+
+
+
+
+
+
+
+		
+#|edited by openBor Stats v 0.53
+		

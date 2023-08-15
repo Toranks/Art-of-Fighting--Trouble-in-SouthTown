@@ -1,0 +1,708 @@
+name		fastryofall
+type		none
+health		150
+mp		100
+speedf		2
+jumpmove	1 0
+running		25 2 1.5 1 0
+jumpheight      3
+holdblock 	1
+noquake		1
+falldie		1
+nodieblink	2
+makeinv		3
+shadow		0
+dust            zero
+risetime        350
+candamage	enemy obstacle npc
+diesound        data/sounds/ryode.wav
+atchain         1 1 2 3
+icon		data/chars/1ryo/icon.gif
+parrow          data/chars/misc/flash/flash/player1.gif  -45 -130
+parrow2         data/chars/misc/flash/flash/player2.gif  -45 -130
+parrow3         data/chars/misc/flash/flash/player3.gif  -45 -130
+
+
+animationscript data/scripts/grabscript.c
+
+palette		data/chars/1ryo/mapal.gif
+alternatepal	data/chars/1ryo/map1.gif
+alternatepal	data/chars/1ryo/map1.gif
+alternatepal	data/chars/1ryo/map2.gif
+alternatepal	data/chars/1ryo/map3.gif
+alternatepal	data/chars/1ryo/map4.gif
+alternatepal	data/chars/1ryo/map5.gif
+alternatepal	data/chars/1ryo/map6.gif
+
+
+
+
+anim	attack1
+	loop	0
+	delay	4
+	offset	121 201
+	bbox	97 100 45 72
+	fastattack	1
+	frame	data/chars/1ryo/air/ju09.gif
+	delay	5
+	attack	115 100 75 45 8 0 0 0 7 0
+	frame	data/chars/1ryo/air/ju10.gif
+	frame	data/chars/1ryo/air/ju11.gif
+	attack	0 0 0 0
+	frame	data/chars/1ryo/air/ju12.gif
+		
+anim	attack2
+	range	0 61
+	loop	0
+	delay	4
+	offset	121 201
+	bbox	102 100 39 80
+	hitfx	data/sounds/beat3.wav
+	frame	data/chars/1ryo/air/ju13.gif
+	frame	data/chars/1ryo/air/ju14.gif
+	delay	5
+	attack2	120 105 86 35 10 0 0 0 12 0
+	frame	data/chars/1ryo/air/ju15.gif
+	frame	data/chars/1ryo/air/ju16.gif
+	attack2	0 0 0 0
+	frame	data/chars/1ryo/air/ju16a.gif
+	frame	data/chars/1ryo/air/ju16b.gif
+	frame	data/chars/1ryo/air/ju16c.gif
+		
+anim	attack3
+	range	0 61
+	loop	0
+	delay	5
+	offset	121 201
+	bbox	102 100 39 80
+	hitfx	data/sounds/beat3.wav
+	frame	data/chars/1ryo/air/ju17.gif
+	frame	data/chars/1ryo/air/ju18.gif
+	frame	data/chars/1ryo/air/ju19.gif
+	frame	data/chars/1ryo/air/ju20.gif
+	attack	73 90 123 50 15 1 0 0 50 0
+	frame	data/chars/1ryo/air/ju21.gif
+	delay	6
+	frame	data/chars/1ryo/air/ju21x.gif
+	attack	0 0 0 0
+	frame	data/chars/1ryo/air/ju22.gif
+	frame	data/chars/1ryo/air/ju23.gif
+	frame	data/chars/1ryo/air/ju24.gif
+	frame	data/chars/1ryo/air/ju25.gif
+	frame	data/chars/1ryo/air/ju26.gif
+	frame	data/chars/1ryo/air/ju27.gif
+		
+anim	attackdown
+	loop	0
+	delay	5
+	offset	121 201
+	bbox	0 0 0 0
+	jumpframe	1 1.5 0 1.5
+	frame	data/chars/1ryo/air/ju35.gif
+	frame	data/chars/1ryo/air/ju36.gif
+	frame	data/chars/1ryo/air/ju37.gif
+	frame	data/chars/1ryo/air/ju38.gif
+	sound	data/sounds/jump.wav
+	frame	data/chars/1ryo/air/ju39.gif
+	frame	data/chars/1ryo/air/ju40.gif
+	frame	data/chars/1ryo/air/ju41.gif
+	frame	data/chars/1ryo/air/ju42.gif
+	sound	data/sounds/jump.wav
+	frame	data/chars/1ryo/air/ju35.gif
+	frame	data/chars/1ryo/air/ju36.gif
+	frame	data/chars/1ryo/air/ju37.gif
+	frame	data/chars/1ryo/air/ju38.gif
+	sound	data/sounds/jump.wav
+	frame	data/chars/1ryo/air/ju35.gif
+	frame	data/chars/1ryo/air/ju36.gif
+	frame	data/chars/1ryo/air/ju37.gif
+	frame	data/chars/1ryo/air/ju38.gif
+	sound	data/sounds/jump.wav
+		
+anim	attackup
+	loop	0
+	delay	5
+	offset	121 201
+	bbox	0 0 0 0
+	jumpframe	1 1.5 0 -1.5
+	frame	data/chars/1ryo/air/ju35.gif
+	frame	data/chars/1ryo/air/ju36.gif
+	frame	data/chars/1ryo/air/ju37.gif
+	frame	data/chars/1ryo/air/ju38.gif
+	sound	data/sounds/jump.wav
+	frame	data/chars/1ryo/air/ju39.gif
+	frame	data/chars/1ryo/air/ju40.gif
+	frame	data/chars/1ryo/air/ju41.gif
+	frame	data/chars/1ryo/air/ju42.gif
+	sound	data/sounds/jump.wav
+	frame	data/chars/1ryo/air/ju35.gif
+	frame	data/chars/1ryo/air/ju36.gif
+	frame	data/chars/1ryo/air/ju37.gif
+	frame	data/chars/1ryo/air/ju38.gif
+	sound	data/sounds/jump.wav
+	frame	data/chars/1ryo/air/ju35.gif
+	frame	data/chars/1ryo/air/ju36.gif
+	frame	data/chars/1ryo/air/ju37.gif
+	frame	data/chars/1ryo/air/ju38.gif
+	sound	data/sounds/jump.wav
+		
+anim	block
+	loop	1 2 4
+	delay	8
+	offset	121 201
+	bbox	97 110 45 65
+	frame	data/chars/1ryo/air/ju30a.gif
+	frame	data/chars/1ryo/air/ju30b.gif
+	frame	data/chars/1ryo/air/ju30c.gif
+	frame	data/chars/1ryo/air/ju30d.gif
+	frame	data/chars/1ryo/air/ju30c.gif
+	frame	data/chars/1ryo/air/ju30d.gif
+		
+anim	death
+	loop	0
+	delay	7
+	offset	121 201
+	bbox	0 0 0 0
+	movez	4
+	frame	data/chars/1ryo/air/fall5.gif
+	frame	data/chars/1ryo/air/fall6.gif
+	frame	data/chars/1ryo/air/fall7.gif
+	frame	data/chars/1ryo/air/fall8.gif
+	frame	data/chars/1ryo/air/fall5.gif #4
+	frame	data/chars/1ryo/air/fall6.gif
+	frame	data/chars/1ryo/air/fall7.gif
+	frame	data/chars/1ryo/air/fall8.gif
+	@cmd	looper 4 6
+	frame	data/chars/1ryo/air/fall5.gif
+	frame	data/chars/1ryo/air/fall6.gif
+	movez	0
+	frame	data/chars/1ryo/air/fall7.gif
+	frame	data/chars/1ryo/air/fall8.gif
+	movez	-4
+	frame	data/chars/1ryo/air/fall5.gif
+	frame	data/chars/1ryo/air/fall6.gif
+	frame	data/chars/1ryo/air/fall7.gif
+	frame	data/chars/1ryo/air/fall8.gif
+	frame	data/chars/1ryo/air/fall5.gif #16
+	frame	data/chars/1ryo/air/fall6.gif
+	frame	data/chars/1ryo/air/fall7.gif
+	frame	data/chars/1ryo/air/fall8.gif
+	@cmd	looper 16 6
+	frame	data/chars/1ryo/air/fall5.gif
+	frame	data/chars/1ryo/air/fall6.gif
+	frame	data/chars/1ryo/air/fall7.gif
+	frame	data/chars/1ryo/air/fall8.gif
+		
+anim	fall
+	loop	0
+	delay	9
+	offset	121 201
+	bbox	0 0 0 0
+	frame	data/chars/1ryo/air/fall1.gif
+	frame	data/chars/1ryo/air/fall2.gif
+	frame	data/chars/1ryo/air/fall3.gif
+		
+anim	forwardjump
+	loop	1
+	delay	5
+	offset	121 201
+	bbox	102 100 39 97
+	frame	data/chars/1ryo/air/ju35.gif
+	frame	data/chars/1ryo/air/ju36.gif
+	frame	data/chars/1ryo/air/ju37.gif
+	frame	data/chars/1ryo/air/ju38.gif
+	sound	data/sounds/jump.wav
+	frame	data/chars/1ryo/air/ju39.gif
+	frame	data/chars/1ryo/air/ju40.gif
+	frame	data/chars/1ryo/air/ju41.gif
+	frame	data/chars/1ryo/air/ju42.gif
+	sound	data/sounds/jump.wav
+	frame	data/chars/1ryo/air/ju35.gif
+	frame	data/chars/1ryo/air/ju36.gif
+	frame	data/chars/1ryo/air/ju37.gif
+	frame	data/chars/1ryo/air/ju38.gif
+	sound	data/sounds/jump.wav
+		
+anim	grab
+	loop	1
+	delay	7
+	offset	121 201
+	bbox	95 100 65 55
+	frame	data/chars/1ryo/air/grab01.gif
+	frame	data/chars/1ryo/air/grab02.gif
+		
+anim	grabattack
+	loop	0
+	delay	5
+	offset	121 201
+	bbox	95 100 65 55
+	attack	0 0 0 0
+	frame	data/chars/1ryo/air/grab01.gif
+	delay	23
+	attack6	141 138 30 23 8 0 1 0 16
+	frame	data/chars/1ryo/air/hold1.gif
+		
+anim	grabattack2
+	loop	0
+	delay	7
+	offset	121 225
+	bbox	95 100 65 55
+	jumpframe	4 2 0 -2
+	landframe 	9
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/ryo02.wav
+	frame	data/chars/1ryo/air/ak04.gif
+	frame	data/chars/1ryo/air/ak05.gif
+	frame	data/chars/1ryo/air/ak01.gif
+	frame	data/chars/1ryo/air/ak02.gif
+	blast	110 102 64 53 13 1 0 60
+	dropv	1 1 4
+	frame	data/chars/1ryo/air/ak06.gif
+	delay	15
+	frame	data/chars/1ryo/air/ak06.gif
+	frame	data/chars/1ryo/air/ak07.gif
+	blast	0 0 0 0
+	delay	9
+	frame	data/chars/1ryo/air/ak04.gif
+	frame	data/chars/1ryo/air/ak05.gif
+	frame	data/chars/1ryo/air/ak01.gif
+	delay	5
+	offset	121 201
+	bbox	100 120 45 40
+	@cmd	keymove 1
+	frame	data/chars/1ryo/air/ju39.gif
+	@cmd	keymove 1
+	frame	data/chars/1ryo/air/ju40.gif
+	@cmd	keymove 1
+	frame	data/chars/1ryo/air/ju41.gif
+		
+anim	grabbackward
+	delay	12
+	attackone	0
+	offset	121 201
+	jumpframe	1 2 0
+	sound	data/sounds/ryo02.wav
+	frame	data/chars/1ryo/air/th05.gif
+	delay	1
+	movea	2
+	move	-1
+	movez	-2
+	@cmd	slamstart
+	@cmd	position 5 40 50 -1 -1
+	frame	data/chars/1ryo/air/th02.gif
+	@cmd	position 5 40 50 -1 -1
+	frame	data/chars/1ryo/air/th02.gif
+	@cmd	position 5 40 50 -1 -1
+	frame	data/chars/1ryo/air/th02.gif
+	@cmd	position 5 40 50 -1 -1
+	frame	data/chars/1ryo/air/th02.gif
+	@cmd	position 5 40 50 -1 -1
+	frame	data/chars/1ryo/air/th02.gif
+	@cmd	position 5 40 50 -1 -1
+	frame	data/chars/1ryo/air/th02.gif
+	@cmd	position 4 0 60 -1 -1
+	frame	data/chars/1ryo/air/th03.gif
+	@cmd	position 4 0 60 -1 -1
+	frame	data/chars/1ryo/air/th03.gif
+	@cmd	position 4 0 60 -1 -1
+	frame	data/chars/1ryo/air/th03.gif
+	@cmd	position 4 0 60 -1 -1
+	frame	data/chars/1ryo/air/th03.gif
+	@cmd	position 4 0 60 -1 -1
+	frame	data/chars/1ryo/air/th03.gif
+	@cmd	position 4 0 60 -1 -1
+	frame	data/chars/1ryo/air/th03.gif
+	attack	100 150 59 50 8 1 0 0 9 0
+	@cmd	position 3 -20 35 -1 -1
+	frame	data/chars/1ryo/air/th04.gif
+	@cmd	position 3 -20 35 -1 -1
+	frame	data/chars/1ryo/air/th04.gif
+	@cmd	position 3 -20 35 -1 -1
+	frame	data/chars/1ryo/air/th04.gif
+	@cmd	position 3 -20 35 -1 -1
+	frame	data/chars/1ryo/air/th04.gif
+	@cmd	position 3 -20 35 -1 -1
+	frame	data/chars/1ryo/air/th04.gif
+	@cmd	position 3 -20 35 -1 -1
+	frame	data/chars/1ryo/air/th04.gif
+	attack	0 0 0 0
+	@cmd	position 6 20 10 -1 -1
+	frame	data/chars/1ryo/air/th05.gif
+	@cmd	position 6 20 10 -1 -1
+	frame	data/chars/1ryo/air/th05.gif
+	@cmd	position 6 20 10 -1 -1
+	frame	data/chars/1ryo/air/th05.gif
+	@cmd	position 6 20 10 -1 -1
+	frame	data/chars/1ryo/air/th05.gif
+	@cmd	position 6 20 10 -1 -1
+	frame	data/chars/1ryo/air/th05.gif
+	@cmd	position 6 20 10 -1 -1
+	frame	data/chars/1ryo/air/th05.gif
+	@cmd	position 5 40 50 -1 -1
+	frame	data/chars/1ryo/air/th02.gif
+	@cmd	position 5 40 50 -1 -1
+	frame	data/chars/1ryo/air/th02.gif
+	@cmd	position 5 40 50 -1 -1
+	frame	data/chars/1ryo/air/th02.gif
+	@cmd	position 5 40 50 -1 -1
+	frame	data/chars/1ryo/air/th02.gif
+	@cmd	position 5 40 50 -1 -1
+	frame	data/chars/1ryo/air/th02.gif
+	@cmd	position 5 40 50 -1 -1
+	frame	data/chars/1ryo/air/th02.gif
+	@cmd	position 0 10 65 -1 -1
+	frame	data/chars/1ryo/air/th04.gif
+	@cmd	position 0 10 65 -1 -1
+	frame	data/chars/1ryo/air/th04.gif
+	@cmd	position 0 5 70 -1 -1
+	frame	data/chars/1ryo/air/th04.gif
+	@cmd	position 0 0 75 -1 -1
+	frame	data/chars/1ryo/air/th04.gif
+	@cmd	position 0 -1 80 -1 -1
+	frame	data/chars/1ryo/air/th04.gif
+	@cmd	position 0 -1 50 -1 -1
+	frame	data/chars/1ryo/air/th04.gif
+	movea	0
+	movez	-2
+	@cmd	depost 0
+	@cmd	throw 35 1 1 1 3 0
+	frame	data/chars/1ryo/air/hold04.gif
+	frame	data/chars/1ryo/air/hold04.gif
+	frame	data/chars/1ryo/air/hold04.gif
+	frame	data/chars/1ryo/air/hold04.gif
+	frame	data/chars/1ryo/air/hold04.gif
+	frame	data/chars/1ryo/air/hold04.gif
+	frame	data/chars/1ryo/air/hold04.gif
+	frame	data/chars/1ryo/air/hold04.gif
+	frame	data/chars/1ryo/air/hold04.gif
+	frame	data/chars/1ryo/air/hold04.gif
+	movez	0
+	delay	25
+	frame	data/chars/1ryo/air/hold05.gif
+	frame	data/chars/1ryo/air/hold04.gif
+	move	0
+	delay	15
+	offset	121 201
+	@cmd	clearL
+	delay	6
+	frame	data/chars/1ryo/air/ju39.gif
+	frame	data/chars/1ryo/air/ju38.gif
+	frame	data/chars/1ryo/air/ju37.gif
+	frame	data/chars/1ryo/air/ju36.gif
+	frame	data/chars/1ryo/air/ju35.gif
+		
+anim	grabforward
+	loop	0
+	delay	5
+	offset	121 201
+	bbox	95 100 65 55
+	attack	0 0 0 0
+	frame	data/chars/1ryo/air/grab02.gif
+	delay	23
+	attack6	141 138 30 23 8 0 1 0 16
+	frame	data/chars/1ryo/air/hold2.gif
+		
+anim	grabforward2
+	loop	0
+	delay	7
+	offset	121 225
+	bbox	95 100 65 55
+	jumpframe	4 2 0 -2
+	landframe 	9
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/ryo02.wav
+	frame	data/chars/1ryo/air/ak04.gif
+	frame	data/chars/1ryo/air/ak05.gif
+	frame	data/chars/1ryo/air/ak01.gif
+	frame	data/chars/1ryo/air/ak02.gif
+	blast	110 102 64 53 13 1 0 60
+	dropv	1 1 4
+	frame	data/chars/1ryo/air/ak06.gif
+	delay	15
+	frame	data/chars/1ryo/air/ak06.gif
+	frame	data/chars/1ryo/air/ak07.gif
+	blast	0 0 0 0
+	delay	9
+	frame	data/chars/1ryo/air/ak04.gif
+	frame	data/chars/1ryo/air/ak05.gif
+	frame	data/chars/1ryo/air/ak01.gif
+	delay	5
+	offset	121 201
+	bbox	100 120 45 40
+	@cmd	keymove 1
+	frame	data/chars/1ryo/air/ju39.gif
+	@cmd	keymove 1
+	frame	data/chars/1ryo/air/ju40.gif
+	@cmd	keymove 1
+	frame	data/chars/1ryo/air/ju41.gif
+		
+anim	idle
+	loop	1 1 5  
+	delay	7
+	offset	121 201
+	bbox	97 105 45 72
+	frame	data/chars/1ryo/air/ju06.gif
+	frame	data/chars/1ryo/air/ju07.gif
+	frame	data/chars/1ryo/air/ju08.gif
+	frame	data/chars/1ryo/air/ju07.gif
+	frame	data/chars/1ryo/air/ju08.gif
+		
+anim	jump
+	loop	1
+	delay	5
+	offset	121 201
+	bbox	97 105 45 60
+	frame	data/chars/1ryo/air/ju35.gif
+	frame	data/chars/1ryo/air/ju36.gif
+	frame	data/chars/1ryo/air/ju37.gif
+	frame	data/chars/1ryo/air/ju38.gif
+	sound	data/sounds/jump.wav
+	frame	data/chars/1ryo/air/ju39.gif
+	frame	data/chars/1ryo/air/ju40.gif
+	frame	data/chars/1ryo/air/ju41.gif
+	frame	data/chars/1ryo/air/ju42.gif
+	sound	data/sounds/jump.wav
+	frame	data/chars/1ryo/air/ju35.gif
+	frame	data/chars/1ryo/air/ju36.gif
+	frame	data/chars/1ryo/air/ju37.gif
+	frame	data/chars/1ryo/air/ju38.gif
+		
+anim	jumpattack
+	loop	0
+	delay	6
+	offset	121 201
+	bbox	104 111 33 50
+	hitfx	data/sounds/beat2.wav
+	sound	data/sounds/ryo02.wav
+	frame	data/chars/1ryo/air/ju45.gif
+	frame	data/chars/1ryo/air/ju46.gif
+	attack	124 140 63 40 13 1 0 0 55 0
+	dropv	1 1 3
+	delay	12
+	frame	data/chars/1ryo/air/ju47.gif
+	attack	107 120 50 70 13 1 0 0 55 0
+	dropv	1 1 3
+	frame	data/chars/1ryo/air/ju48.gif
+	frame	data/chars/1ryo/air/ju49.gif
+	attack	0 0 0 0
+	frame	data/chars/1ryo/air/ju47.gif
+	frame	data/chars/1ryo/air/ju46.gif
+	frame	data/chars/1ryo/air/ju45.gif
+
+		
+anim	jumpland
+	loop	0
+	delay	5
+	offset	121 201
+	bbox	100 120 45 40
+	@cmd	keymove 1
+	frame	data/chars/1ryo/air/ju39.gif
+	@cmd	keymove 1
+	frame	data/chars/1ryo/air/ju40.gif
+	@cmd	keymove 1
+	frame	data/chars/1ryo/air/ju41.gif
+		
+anim	pain
+	loop	0
+	delay	6
+	offset	145 215
+	bbox	120 118 45 72
+	frame	data/chars/1ryo/air/pain1.gif
+	frame	data/chars/1ryo/air/pain2.gif
+	frame	data/chars/1ryo/air/pain1.gif
+		
+anim	pain2
+	loop	0
+	delay	6
+	offset	145 220
+	bbox	120 118 45 72
+	frame	data/chars/1ryo/air/pain3.gif
+	frame	data/chars/1ryo/air/pain4.gif
+	frame	data/chars/1ryo/air/pain3.gif
+		
+anim	respawn
+	loop	0
+	delay	7
+	offset	121 201
+	bbox	0 0 0 0
+	frame	data/chars/1ryo/air/ju07.gif
+	frame	data/chars/1ryo/air/ju08.gif
+	frame	data/chars/1ryo/air/ju07.gif
+	frame	data/chars/1ryo/air/ju08.gif
+		
+anim	rise
+	loop	0
+	delay	6
+	offset	121 201
+	bbox	0 0 0 0
+	frame	data/chars/1ryo/air/ju39.gif
+	frame	data/chars/1ryo/air/ju38.gif
+	frame	data/chars/1ryo/air/ju37.gif
+	frame	data/chars/1ryo/air/ju36.gif
+	frame	data/chars/1ryo/air/ju35.gif
+		
+anim	run
+	loop	1 5 9
+	delay	7
+	offset	121 201
+	bbox	97 105 45 72
+	frame	data/chars/1ryo/air/run01.gif
+	frame	data/chars/1ryo/air/run02.gif
+	frame	data/chars/1ryo/air/run03.gif
+	frame	data/chars/1ryo/air/run04.gif
+	frame	data/chars/1ryo/air/run05.gif
+	delay	5
+	frame	data/chars/1ryo/air/run06.gif
+	frame	data/chars/1ryo/air/run07.gif
+	frame	data/chars/1ryo/air/run06.gif
+	frame	data/chars/1ryo/air/run07.gif
+		
+anim	runattack
+	loop	0
+	delay	2
+	offset	121 201
+	bbox	104 111 33 50
+	hitfx	data/sounds/beat5.wav
+	move	8
+	frame	data/chars/1ryo/air/hsk01.gif
+	frame	data/chars/1ryo/air/hsk01.gif
+	frame	data/chars/1ryo/air/hsk01.gif
+	frame	data/chars/1ryo/air/hsk02.gif
+	frame	data/chars/1ryo/air/hsk02.gif
+	frame	data/chars/1ryo/air/hsk02.gif
+	move	7
+	sound	data/sounds/ryo01.wav
+	attack	109 126 94 42 13 1 1 0 50 0
+	frame	data/chars/1ryo/air/hsk03.gif
+	frame	data/chars/1ryo/air/hsk03.gif
+	frame	data/chars/1ryo/air/hsk03.gif
+	attack	0 0 0 0
+	frame	data/chars/1ryo/air/hsk04.gif
+	frame	data/chars/1ryo/air/hsk04.gif
+	frame	data/chars/1ryo/air/hsk04.gif
+	frame	data/chars/1ryo/air/hsk05.gif
+	frame	data/chars/1ryo/air/hsk05.gif
+	frame	data/chars/1ryo/air/hsk05.gif
+	delay	3
+	move	5
+	frame	data/chars/1ryo/air/hsk06.gif
+	frame	data/chars/1ryo/air/hsk06.gif
+	frame	data/chars/1ryo/air/hsk07.gif
+	sound	data/sounds/ryo01.wav
+	frame	data/chars/1ryo/air/hsk07.gif
+	attack	109 120 91 42 13 1 1 0 50 0
+	frame	data/chars/1ryo/air/hsk08.gif
+	frame	data/chars/1ryo/air/hsk08.gif
+	frame	data/chars/1ryo/air/hsk09.gif
+	frame	data/chars/1ryo/air/hsk09.gif
+	attack	0 0 0 0
+	frame	data/chars/1ryo/air/hsk10.gif
+	frame	data/chars/1ryo/air/hsk10.gif
+		
+anim	runjump
+	loop	1
+	delay	5
+	offset	121 201
+	bbox	97 103 45 55
+	frame	data/chars/1ryo/air/ju35.gif
+	frame	data/chars/1ryo/air/ju36.gif
+	frame	data/chars/1ryo/air/ju37.gif
+	frame	data/chars/1ryo/air/ju38.gif
+	sound	data/sounds/jump.wav
+	frame	data/chars/1ryo/air/ju39.gif
+	frame	data/chars/1ryo/air/ju40.gif
+	frame	data/chars/1ryo/air/ju41.gif
+	frame	data/chars/1ryo/air/ju42.gif
+	sound	data/sounds/jump.wav
+	frame	data/chars/1ryo/air/ju35.gif
+	frame	data/chars/1ryo/air/ju36.gif
+	frame	data/chars/1ryo/air/ju37.gif
+	frame	data/chars/1ryo/air/ju38.gif
+		
+anim	runjumpattack
+	loop	0
+	delay	9
+	offset	121 201
+	bbox	104 111 33 50
+	hitfx	data/sounds/beat3.wav
+	sound	data/sounds/ryo02.wav
+	frame	data/chars/1ryo/air/runat00.gif
+	frame	data/chars/1ryo/air/runat01.gif
+	frame	data/chars/1ryo/air/runat02.gif
+	attack	109 126 77 42 14 1 1 0 50 0
+	dropv	1 2 3
+	frame	data/chars/1ryo/air/runat03.gif
+	attack	109 126 67 52 14 1 1 0 50 0
+	dropv	1 2 3
+	frame	data/chars/1ryo/air/runat04.gif
+	frame	data/chars/1ryo/air/runat05.gif
+		
+anim	spawn
+	loop	0
+	delay	5
+	offset	121 201
+	bbox	0 0 0 0
+	frame	data/chars/1ryo/air/spawn01.gif
+	@cmd	dasher 0 0 0.7
+	frame	data/chars/1ryo/air/spawn02.gif
+	frame	data/chars/1ryo/air/spawn01.gif
+	frame	data/chars/1ryo/air/spawn02.gif
+	frame	data/chars/1ryo/air/spawn01.gif
+	frame	data/chars/1ryo/air/spawn02.gif
+	@cmd	looper 2 11
+	frame	data/chars/1ryo/air/spawn01.gif
+	frame	data/chars/1ryo/air/spawn02.gif
+	@cmd	dasher 0 0 -0.4
+	frame	data/chars/1ryo/air/spawn01.gif
+	frame	data/chars/1ryo/air/spawn02.gif
+	frame	data/chars/1ryo/air/spawn01.gif
+	frame	data/chars/1ryo/air/spawn02.gif
+	frame	data/chars/1ryo/air/spawn01.gif
+	frame	data/chars/1ryo/air/spawn02.gif
+	@cmd	looper 8 5
+	frame	data/chars/1ryo/air/spawn01.gif
+	frame	data/chars/1ryo/air/spawn02.gif
+	frame	data/chars/1ryo/air/spawn01.gif
+	frame	data/chars/1ryo/air/spawn02.gif
+	@cmd	stop
+	frame	data/chars/1ryo/air/spawn01.gif
+	frame	data/chars/1ryo/air/spawn02.gif
+	frame	data/chars/1ryo/air/spawn01.gif
+	frame	data/chars/1ryo/air/spawn02.gif
+	delay	8
+	frame	data/chars/1ryo/air/spawn03.gif
+	frame	data/chars/1ryo/air/spawn04.gif
+	frame	data/chars/1ryo/air/spawn05.gif
+	frame	data/chars/1ryo/air/spawn06.gif
+	frame	data/chars/1ryo/air/spawn07.gif
+	frame	data/chars/1ryo/air/ju40.gif
+	frame	data/chars/1ryo/air/ju39.gif
+	frame	data/chars/1ryo/air/ju38.gif
+	frame	data/chars/1ryo/air/ju37.gif
+	frame	data/chars/1ryo/air/ju36.gif
+	frame	data/chars/1ryo/air/ju43.gif
+	frame	data/chars/1ryo/air/ju42.gif
+
+#-----------------------------//--------------------------
+
+anim	charge
+		
+anim	chargeattack
+		
+anim	grabdown
+		
+anim	jumpattack2
+		
+anim	jumpattack3
+		
+anim	jumpdelay
+		
+anim	jumpforward
+		
+anim	runslide
+		
+anim	special
+		
+anim	walk
+		
+		

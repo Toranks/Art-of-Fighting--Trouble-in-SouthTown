@@ -1,0 +1,79 @@
+name	byoplat2
+type	none
+nolife  1
+shadow	0
+facing	1
+offscreenkill 	10000
+hostile		player
+subject_to_gravity 0
+subject_to_wall 0
+subject_to_minz 0
+subject_to_maxz 0
+subject_to_wall 0
+animationscript data/scripts/escript.c
+
+
+
+
+anim	follow2
+	loop	1
+	delay	9
+	offset	280 70
+	frame	data/bgs/beyond/lvl10/plat01.gif
+	frame	data/bgs/beyond/lvl10/plat02.gif
+	frame	data/bgs/beyond/lvl10/plat03.gif
+
+
+anim	follow1
+	loop	0
+	delay	9
+	offset	280 70
+	platform	20 265 215 0 425 210 215 12
+	frame	data/bgs/beyond/lvl10/plat01.gif
+	sound	data/sounds/robot3.wav
+	frame	data/bgs/beyond/lvl10/plat02.gif
+	frame	data/bgs/beyond/lvl10/plat03.gif
+	frame	data/bgs/beyond/lvl10/plat01.gif
+	@cmd	dasher 0 -0.5 0
+	frame	data/bgs/beyond/lvl10/plat02.gif
+	frame	data/bgs/beyond/lvl10/plat03.gif
+	sound	data/sounds/tcannon.wav
+	frame	data/bgs/beyond/lvl10/plat01.gif
+	frame	data/bgs/beyond/lvl10/plat02.gif
+	frame	data/bgs/beyond/lvl10/plat03.gif
+	@cmd	looper 6 35
+	frame	data/bgs/beyond/lvl10/plat01.gif
+	frame	data/bgs/beyond/lvl10/plat02.gif
+	frame	data/bgs/beyond/lvl10/plat03.gif
+	@cmd	stop
+	frame	data/bgs/beyond/lvl10/plat01.gif
+	delay	30
+	frame	data/bgs/beyond/lvl10/plat01.gif
+	sound	data/sounds/robot3.wav
+	frame	data/bgs/beyond/lvl10/plat01.gif
+	@cmd	anichange "ANI_FOLLOW2"
+	frame	data/bgs/beyond/lvl10/plat01.gif
+		
+anim	idle
+	loop	1
+	delay	5
+	offset	280 70
+	platform	20 265 215 0 425 210 215 12
+	frame	data/bgs/beyond/lvl10/plat01.gif
+	@cmd	attack3 -120 20 1 80 "ANI_FOLLOW1"
+	frame	data/bgs/beyond/lvl10/plat01.gif
+	@cmd	attack3 -120 100 80 130 "ANI_FOLLOW1"
+	frame	data/bgs/beyond/lvl10/plat01.gif
+	@cmd	attack3 -120 160 130 180 "ANI_FOLLOW1"
+	frame	data/bgs/beyond/lvl10/plat01.gif
+		
+anim	spawn
+	loop	0
+	delay	10
+	offset	280 70
+	frame	data/bgs/beyond/lvl10/plat01.gif
+	@cmd	beidle
+	frame	data/bgs/beyond/lvl10/plat01.gif
+		
+#|edited by openBor Stats v 0.53
+		

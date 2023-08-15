@@ -1,0 +1,2513 @@
+name		kfyuri
+type		player
+health		150
+mp		100
+mprate          2
+chargerate      3
+speed		12
+running		28 3 3 1 0
+jumpheight	4
+falldie		2
+noquake		1
+nodieblink	2
+makeinv		3
+riseinv		2
+gfxshadow	1
+holdblock 	1
+modelflag	1
+weaploss	3
+dust            dust
+weapons		kyuribike yuri kyuribike2 kyurifall kyurwtr kyurivent mapcurs mrzero
+candamage	enemy obstacle
+diesound        data/sounds/yurde.wav
+atchain         1 1 2 3 4 0 5 6 7 0 8 1 0
+combostyle      1
+icon            data/chars/0yuri/kfyuri/icon.gif
+parrow          data/chars/misc/flash/flash/player1.gif  -36 -145
+parrow2         data/chars/misc/flash/flash/player2.gif  -36 -145
+parrow3         data/chars/misc/flash/flash/player3.gif  -36 -145
+
+animationscript	data/scripts/grabscript.c
+ondrawscript	data/scripts/water_puddle_script.c
+script		data/scripts/player_script.c
+
+load	kohkn2
+load	haskk2
+
+palette    	data/chars/0yuri/kfyuri/mapal.gif
+alternatepal	data/chars/0yuri/kfyuri/map1.gif
+alternatepal	data/chars/0yuri/kfyuri/map2.gif
+alternatepal	data/chars/0yuri/kfyuri/map3.gif
+alternatepal	data/chars/0yuri/kfyuri/map4.gif
+
+
+
+
+com     d f d f a freespecial26
+com	d f d f s freespecial27
+com	d f j     freespecial2
+com	f d f a   freespecial4
+com	d f s     freespecial5
+com	f d s	  freespecial6
+com	a2	  freespecial15
+com	d u d u s freespecial20
+
+
+anim	freespecial20
+	energycost 55 1
+	weaponframe 20 2
+	loop	0
+	delay	7
+	offset	145 203
+	bbox	0 0 0 0
+	frame	data/chars/0yuri/kfyuri/grabat01.gif
+	frame	data/chars/0yuri/kfyuri/grabat03.gif
+	frame	data/chars/0yuri/kfyuri/grabat04.gif
+	frame	data/chars/0yuri/kfyuri/grabat05.gif
+	frame	data/chars/0yuri/kfyuri/rise5.gif
+	frame	data/chars/0yuri/kfyuri/rise6.gif
+	frame	data/chars/0yuri/kfyuri/dgd11.gif
+	delay	9
+	frame	data/chars/0yuri/kfyuri/blk01.gif
+	frame	data/chars/0yuri/kfyuri/win01.gif
+	frame	data/chars/0yuri/kfyuri/win02.gif
+	frame	data/chars/0yuri/kfyuri/win03.gif
+	delay	25
+	frame	data/chars/0yuri/kfyuri/win04.gif
+	delay	5
+	frame	data/chars/0yuri/kfyuri/win04.gif
+	frame	data/chars/0yuri/kfyuri/empty.gif
+	frame	data/chars/0yuri/kfyuri/win04.gif
+	frame	data/chars/0yuri/kfyuri/empty.gif
+	frame	data/chars/0yuri/kfyuri/win04.gif
+	frame	data/chars/0yuri/kfyuri/empty.gif
+	frame	data/chars/0yuri/kfyuri/win04.gif
+	frame	data/chars/0yuri/kfyuri/empty.gif
+	frame	data/chars/0yuri/kfyuri/win04.gif
+	frame	data/chars/0yuri/kfyuri/empty.gif
+	frame	data/chars/0yuri/kfyuri/win04.gif
+	frame	data/chars/0yuri/kfyuri/empty.gif
+	frame	data/chars/0yuri/kfyuri/win04.gif
+	frame	data/chars/0yuri/kfyuri/empty.gif
+	frame	data/chars/0yuri/kfyuri/win04.gif
+	frame	data/chars/0yuri/kfyuri/empty.gif
+	frame	data/chars/0yuri/kfyuri/win04.gif
+	frame	data/chars/0yuri/kfyuri/empty.gif
+	frame	data/chars/0yuri/kfyuri/win04.gif
+	frame	data/chars/0yuri/kfyuri/empty.gif
+	frame	data/chars/0yuri/kfyuri/win04.gif
+	delay	100
+	frame	data/chars/0yuri/kfyuri/empty.gif
+
+
+anim	freespecial15
+	loop	0
+	delay	8
+	offset	145 203
+	bbox	0 0 0 0
+	frame	data/chars/0yuri/kfyuri/a17.gif
+	frame	data/chars/0yuri/kfyuri/spc07.gif
+	@cmd	spawnAni3 "movelist" 240 300 440 "ANI_FOLLOW5"
+	frame	data/chars/0yuri/kfyuri/spc08.gif
+	frame	data/chars/0yuri/kfyuri/spc09.gif
+	delay	40
+	frame	data/chars/0yuri/kfyuri/spc10.gif
+	frame	data/chars/0yuri/kfyuri/spc10.gif #5
+	delay	8
+	frame	data/chars/0yuri/kfyuri/spc10.gif
+	frame	data/chars/0yuri/kfyuri/spc09.gif
+	frame	data/chars/0yuri/kfyuri/spc08.gif
+	frame	data/chars/0yuri/kfyuri/spc07.gif
+	frame	data/chars/0yuri/kfyuri/a17.gif
+
+
+#--------------------//-grab-escape-beds-//-----------------------
+
+
+anim	follow17
+@script
+	void self = getlocalvar("self");
+	int eTime = openborvariant("elapsed_time");
+	if (frame == 13)
+	{
+	changeentityproperty(self, "invincible", 1);
+	changeentityproperty(self, "invinctime", eTime + 1000);
+	changeentityproperty(self, "blink", 1);
+	}
+@end_script
+	loop	0
+	delay	800
+	offset	145 203
+	bbox	0 0 0 0
+	jumpframe 2 2.4
+	frame	data/chars/0yuri/kfyuri/empty.gif
+	delay	6
+	frame	data/chars/0yuri/kfyuri/grabat01.gif
+	frame	data/chars/0yuri/kfyuri/grabat03.gif
+	frame	data/chars/0yuri/kfyuri/grabat04.gif
+	frame	data/chars/0yuri/kfyuri/grabat05.gif
+	frame	data/chars/0yuri/kfyuri/rise5.gif
+	frame	data/chars/0yuri/kfyuri/rise6.gif
+	frame	data/chars/0yuri/kfyuri/dgd11.gif
+	delay	9
+	frame	data/chars/0yuri/kfyuri/blk01.gif
+	frame	data/chars/0yuri/kfyuri/win01.gif
+	frame	data/chars/0yuri/kfyuri/win02.gif
+	frame	data/chars/0yuri/kfyuri/win03.gif
+	delay	25
+	frame	data/chars/0yuri/kfyuri/win04.gif
+	delay	3
+	frame	data/chars/0yuri/kfyuri/win04.gif
+
+
+
+anim	follow15
+@script
+	void self = getlocalvar("self");
+   	void opp = getentityproperty(self, "opponent");
+	int enedir = getentityproperty(opp,"direction");
+	if (frame == 0 && enedir == 0)
+	{
+	changeentityproperty(self, "direction", 1);
+	}
+	else if (frame == 0 && enedir == 1)
+	{
+	changeentityproperty(self, "direction", 0);
+	}
+@end_script
+	loop	0
+	delay	6
+	offset	145 203
+	bbox	0 0 0 0
+	jumpframe 0 3 -1
+	landframe 8
+	frame	data/chars/0yuri/kfyuri/ju02.gif
+	frame	data/chars/0yuri/kfyuri/air/ju05.gif
+	frame	data/chars/0yuri/kfyuri/air/ju04.gif
+	frame	data/chars/0yuri/kfyuri/air/ju03.gif
+	frame	data/chars/0yuri/kfyuri/air/ju02a.gif
+	frame	data/chars/0yuri/kfyuri/ju03.gif
+	frame	data/chars/0yuri/kfyuri/ju04.gif
+	delay	300
+	frame	data/chars/0yuri/kfyuri/ju05.gif
+	delay	12
+	frame	data/chars/0yuri/kfyuri/ju00a.gif
+
+
+anim	follow16
+@script
+	void self = getlocalvar("self");
+   	void opp = getentityproperty(self, "opponent");
+	int enedir = getentityproperty(opp,"direction");
+	if (frame == 0 && enedir == 0)
+	{
+	changeentityproperty(self, "direction", 1);
+	}
+	else if (frame == 0 && enedir == 1)
+	{
+	changeentityproperty(self, "direction", 0);
+	}
+@end_script
+	loop	0
+	delay	7
+	offset	145 203
+	bbox	0 0 0 0
+	frame	data/chars/0yuri/kfyuri/dgd08.gif
+	frame	data/chars/0yuri/kfyuri/dgd07.gif
+	@cmd	dasher -3 0 0
+	frame	data/chars/0yuri/kfyuri/dgd06.gif
+	frame	data/chars/0yuri/kfyuri/dgd05.gif
+	@cmd	spawn01 "dust" 1 1 1
+	frame	data/chars/0yuri/kfyuri/dgd04.gif
+	frame	data/chars/0yuri/kfyuri/dgd03.gif
+	frame	data/chars/0yuri/kfyuri/dgd02.gif
+	frame	data/chars/0yuri/kfyuri/dgd01.gif
+	delay	12
+	@cmd	stop
+	frame	data/chars/0yuri/kfyuri/dgd11.gif
+
+
+#--------------------------------//-----------------------
+
+
+
+anim	attack1
+	range	0 115
+	loop	0
+	delay	4
+	offset	145 203
+	bbox	132 115 33 80
+	@cmd	attackgrd -60 60 0 1 10 "ANI_FOLLOW10"
+	frame	data/chars/0yuri/kfyuri/a01.gif
+	attack	144 110 80 26 12 0 0 0 6 0
+	frame	data/chars/0yuri/kfyuri/a02.gif
+	delay	5
+	frame	data/chars/0yuri/kfyuri/a03.gif
+	attack	0 0 0 0
+	frame	data/chars/0yuri/kfyuri/a04.gif
+		
+anim	attack2
+	range	0 60
+	loop	0
+	delay	5
+	offset	145 203
+	bbox	132 115 33 80
+	sound	data/sounds/yur01.wav
+	hitfx	data/sounds/beat2.wav
+	frame	data/chars/0yuri/kfyuri/a07.gif
+	frame	data/chars/0yuri/kfyuri/a08.gif
+	delay	6
+	attack	144 110 55 21 14 0 0 0 7 0
+	frame	data/chars/0yuri/kfyuri/a09.gif
+	frame	data/chars/0yuri/kfyuri/a10.gif
+	attack	0 0 0 0
+	frame	data/chars/0yuri/kfyuri/a11.gif
+	frame	data/chars/0yuri/kfyuri/a07.gif
+
+		
+anim	attack3
+	range	0 60
+	loop	0
+	delay	5
+	offset	145 203
+	bbox	132 115 33 80
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/yur02.wav
+	frame	data/chars/0yuri/kfyuri/a17.gif
+	frame	data/chars/0yuri/kfyuri/a18.gif
+	attack2	140 120 50 34 17 0 0 0 7 0
+	frame	data/chars/0yuri/kfyuri/a19.gif
+	frame	data/chars/0yuri/kfyuri/a20.gif
+	attack2	0 0 0 0
+	delay	6
+	frame	data/chars/0yuri/kfyuri/a21.gif
+	frame	data/chars/0yuri/kfyuri/a22.gif
+	frame	data/chars/0yuri/kfyuri/a23.gif
+		
+anim	attack4
+	range	0 60
+	loop	0
+	delay	6
+	offset	145 203
+	bbox	132 115 33 80
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/yur02.wav
+	frame	data/chars/0yuri/kfyuri/b05.gif
+	frame	data/chars/0yuri/kfyuri/b06.gif
+	frame	data/chars/0yuri/kfyuri/b07.gif
+	delay	7
+	attack10 130 95 60 80 40 1 0 0 25 0
+	dropv	5 0.5
+	frame	data/chars/0yuri/kfyuri/b08.gif
+	delay	8
+	frame	data/chars/0yuri/kfyuri/b09.gif
+	attack10 0 0 0 0
+	frame	data/chars/0yuri/kfyuri/b10.gif
+	frame	data/chars/0yuri/kfyuri/b11.gif
+	frame	data/chars/0yuri/kfyuri/b12.gif
+
+
+
+		
+anim	attack5
+	range	0 80
+	loop	0
+	delay	5
+	offset	145 203
+	bbox	132 115 33 80
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/yur02.wav
+	frame	data/chars/0yuri/kfyuri/a27.gif
+	frame	data/chars/0yuri/kfyuri/a28.gif
+	delay	6
+	attack	145 114 65 28 14 0 0 0 14 0
+	frame	data/chars/0yuri/kfyuri/a29.gif
+	frame	data/chars/0yuri/kfyuri/a30.gif
+	attack	0 0 0 0
+	delay	5
+	frame	data/chars/0yuri/kfyuri/a31.gif
+	frame	data/chars/0yuri/kfyuri/a32.gif
+	frame	data/chars/0yuri/kfyuri/a07.gif
+
+
+		
+anim	attack6
+	range	0 80
+	loop	0
+	delay	4
+	offset	145 203
+	bbox	132 115 33 80
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/yur02.wav
+	frame	data/chars/0yuri/kfyuri/b18.gif
+	frame	data/chars/0yuri/kfyuri/b19.gif
+	delay	5
+	attack	145 110 79 45 17 0 0 0 16 0
+	frame	data/chars/0yuri/kfyuri/b20.gif
+	frame	data/chars/0yuri/kfyuri/b21.gif
+	attack	0 0 0 0
+	frame	data/chars/0yuri/kfyuri/b22.gif
+	frame	data/chars/0yuri/kfyuri/b23.gif
+	offset	145 205
+	frame	data/chars/0yuri/kfyuri/a07.gif
+
+
+		
+anim	attack7
+	range	0 80
+	loop	0
+	delay	4
+	offset	145 203
+	bbox	132 115 33 80
+	sound	data/sounds/yur01.wav
+	hitfx	data/sounds/beat3.wav
+	frame	data/chars/0yuri/kfyuri/b27.gif
+	frame	data/chars/0yuri/kfyuri/b28.gif
+	delay	5
+	frame	data/chars/0yuri/kfyuri/b29.gif
+	attack	145 105 79 45 40 1 0 0 25 0
+	frame	data/chars/0yuri/kfyuri/b30.gif
+	frame	data/chars/0yuri/kfyuri/b31.gif
+	delay	6
+	frame	data/chars/0yuri/kfyuri/b32.gif
+	attack	0 0 0 0
+	frame	data/chars/0yuri/kfyuri/b33.gif
+	frame	data/chars/0yuri/kfyuri/b34.gif
+	frame	data/chars/0yuri/kfyuri/b35.gif
+
+		
+anim	attack8
+	range	0 125
+	loop	0
+	delay	6
+	offset	145 203
+	bbox	132 115 33 80
+	sound	data/sounds/yur01.wav
+	hitfx	data/sounds/beat5.wav
+	frame	data/chars/0yuri/kfyuri/b36.gif
+	frame	data/chars/0yuri/kfyuri/b37.gif
+	frame	data/chars/0yuri/kfyuri/b38.gif
+	frame	data/chars/0yuri/kfyuri/b39.gif
+	attack	140 132 90 40 50 1 0 0 25 15
+	dropv	2 3
+	frame	data/chars/0yuri/kfyuri/b40.gif
+	frame	data/chars/0yuri/kfyuri/b41.gif
+	delay	7
+	frame	data/chars/0yuri/kfyuri/b41a.gif
+	attack	0 0 0 0
+	frame	data/chars/0yuri/kfyuri/b42.gif
+	frame	data/chars/0yuri/kfyuri/b43.gif
+	frame	data/chars/0yuri/kfyuri/b44.gif
+
+
+
+
+		
+anim	attackdown
+	loop	0
+	delay	7
+	offset	145 203
+	bbox	0 0 0 0
+	@cmd	dasher 2.5 0 0.5
+	frame	data/chars/0yuri/kfyuri/dgd01.gif
+	frame	data/chars/0yuri/kfyuri/dgd02.gif
+	frame	data/chars/0yuri/kfyuri/dgd03.gif
+	frame	data/chars/0yuri/kfyuri/dgd04.gif
+	@cmd	spawn01 "dust" 15 1 1
+	frame	data/chars/0yuri/kfyuri/dgd05.gif
+	frame	data/chars/0yuri/kfyuri/dgd06.gif
+	frame	data/chars/0yuri/kfyuri/dgd07.gif
+	frame	data/chars/0yuri/kfyuri/dgd08.gif
+	@cmd	stop
+	frame	data/chars/0yuri/kfyuri/dgd09.gif
+	frame	data/chars/0yuri/kfyuri/dgd10.gif
+	frame	data/chars/0yuri/kfyuri/dgd11.gif
+
+
+
+		
+anim	attackup
+	loop	0
+	delay	7
+	offset	145 203
+	bbox	0 0 0 0
+	@cmd	dasher 2.5 0 -0.5
+	frame	data/chars/0yuri/kfyuri/dgd01.gif
+	frame	data/chars/0yuri/kfyuri/dgd02.gif
+	frame	data/chars/0yuri/kfyuri/dgd03.gif
+	frame	data/chars/0yuri/kfyuri/dgd04.gif
+	@cmd	spawn01 "dust" 15 1 1
+	frame	data/chars/0yuri/kfyuri/dgd05.gif
+	frame	data/chars/0yuri/kfyuri/dgd06.gif
+	frame	data/chars/0yuri/kfyuri/dgd07.gif
+	frame	data/chars/0yuri/kfyuri/dgd08.gif
+	@cmd	stop
+	frame	data/chars/0yuri/kfyuri/dgd09.gif
+	frame	data/chars/0yuri/kfyuri/dgd10.gif
+	frame	data/chars/0yuri/kfyuri/dgd11.gif
+
+
+
+anim	follow10
+	loop	0
+	delay	7
+	offset	145 203
+	bbox	0 0 0 0
+	forcedirection	-1
+	attackone	1
+	otg	2
+	jumpframe 0 2 0.7
+	sound	data/sounds/yur01.wav
+	hitfx	data/sounds/beat5.wav
+	hitflash	flashscreen1
+	frame	data/chars/0yuri/kfyuri/a23.gif
+	frame	data/chars/0yuri/kfyuri/c06.gif
+	frame	data/chars/0yuri/kfyuri/c07.gif
+	frame	data/chars/0yuri/kfyuri/grd07.gif
+	frame	data/chars/0yuri/kfyuri/grd08.gif
+	frame	data/chars/0yuri/kfyuri/grd09.gif
+	frame	data/chars/0yuri/kfyuri/grd10.gif
+	attack11 130 185 45 25 50 1 0 0 10 10
+	dropv	2 0 0.6
+	frame	data/chars/0yuri/kfyuri/grd11.gif
+	@cmd	spawn01 "dust" 1 1 1
+	frame	data/chars/0yuri/kfyuri/grd11.gif
+	frame	data/chars/0yuri/kfyuri/grd11.gif
+	attack11 0 0 0 0
+	delay	8
+	frame	data/chars/0yuri/kfyuri/grd12.gif
+	frame	data/chars/0yuri/kfyuri/dgd09.gif
+	frame	data/chars/0yuri/kfyuri/dgd10.gif
+	frame	data/chars/0yuri/kfyuri/dgd11.gif
+
+
+		
+anim	block
+	loop	0
+	delay	7
+	offset	145 203
+	bbox	132 115 33 80
+	frame	data/chars/0yuri/kfyuri/blk01.gif
+	frame	data/chars/0yuri/kfyuri/blk02.gif
+	delay	20
+	frame	data/chars/0yuri/kfyuri/blk03.gif
+
+		
+anim	burn
+	loop	0
+	delay	50
+	offset	145 205
+	bbox	0 0 0 0
+	landframe	3
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 200_50_0
+	@cmd	spawnbind "burn1" 1 1 1
+	@cmd	spawnbind "burn2" 1 1 1
+	@cmd	spawnbind "burn3" 1 1 1
+	sound	data/sounds/yurpa.wav
+	frame	data/chars/0yuri/kfyuri/fall1.gif
+	delay	10
+	frame	data/chars/0yuri/kfyuri/fall2.gif
+	delay	300
+	frame	data/chars/0yuri/kfyuri/fall3.gif
+	delay	180
+	frame	data/chars/0yuri/kfyuri/fall4.gif
+	delay	20
+	frame	data/chars/0yuri/kfyuri/fall4.gif
+		
+anim	cant
+	loop	0
+	delay	7
+	offset	145 203
+	bbox	132 115 33 80
+	sound	data/sounds/yurpa.wav
+	frame	data/chars/0yuri/kfyuri/win01.gif
+	frame	data/chars/0yuri/kfyuri/win02.gif
+	frame	data/chars/0yuri/kfyuri/chrg00.gif
+	frame	data/chars/0yuri/kfyuri/chrg01.gif
+	frame	data/chars/0yuri/kfyuri/chrg02.gif
+	frame	data/chars/0yuri/kfyuri/de01.gif
+	frame	data/chars/0yuri/kfyuri/de02.gif
+	delay	15
+	frame	data/chars/0yuri/kfyuri/de01.gif
+
+
+anim	charge
+	loop	0
+	delay	7
+	offset	145 203
+	bbox	132 115 33 80
+	sound	data/sounds/yurch.wav
+	frame	data/chars/0yuri/kfyuri/win01.gif
+	frame	data/chars/0yuri/kfyuri/win02.gif
+	frame	data/chars/0yuri/kfyuri/chrg00.gif
+	frame	data/chars/0yuri/kfyuri/chrg03.gif
+	frame	data/chars/0yuri/kfyuri/chrg04.gif
+	frame	data/chars/0yuri/kfyuri/chrg05.gif
+	frame	data/chars/0yuri/kfyuri/chrg06.gif
+	@cmd	updateframe getlocalvar("self") 3
+	frame	data/chars/0yuri/kfyuri/chrg01.gif
+	frame	data/chars/0yuri/kfyuri/chrg02.gif
+
+
+
+anim	chargeattack
+	loop	0
+	delay	6
+	offset	145 203
+	bbox	0 0 0 0
+	staydown	300 300
+	sound	data/sounds/yur01.wav
+	hitfx	data/sounds/beat4.wav
+	hitflash	flashscreen1
+	frame	data/chars/0yuri/kfyuri/b27.gif
+	frame	data/chars/0yuri/kfyuri/b28.gif
+	delay	7
+	frame	data/chars/0yuri/kfyuri/b29.gif
+	blast	145 105 79 45 30 0 0 25 0
+	frame	data/chars/0yuri/kfyuri/b30.gif
+	frame	data/chars/0yuri/kfyuri/b31.gif
+	delay	8
+	frame	data/chars/0yuri/kfyuri/b32.gif
+	blast	0 0 0 0
+	frame	data/chars/0yuri/kfyuri/b33.gif
+	frame	data/chars/0yuri/kfyuri/b34.gif
+	frame	data/chars/0yuri/kfyuri/b35.gif
+
+
+
+
+		
+anim	death
+	delay	35
+	offset	145 203
+	bbox	0 0 0 0
+	frame	data/chars/0yuri/kfyuri/fall4.gif
+	delay	8
+	frame	data/chars/0yuri/kfyuri/rise1.gif
+	frame	data/chars/0yuri/kfyuri/rise2.gif
+	frame	data/chars/0yuri/kfyuri/rise3.gif
+	frame	data/chars/0yuri/kfyuri/rise4.gif
+	frame	data/chars/0yuri/kfyuri/rise5.gif
+	frame	data/chars/0yuri/kfyuri/rise6.gif
+	delay	12
+	frame	data/chars/0yuri/kfyuri/dgd11.gif
+	frame	data/chars/0yuri/kfyuri/de01.gif
+	sound        data/sounds/yurde.wav
+	frame	data/chars/0yuri/kfyuri/de02.gif
+	frame	data/chars/0yuri/kfyuri/de03.gif
+	frame	data/chars/0yuri/kfyuri/de04.gif
+	frame	data/chars/0yuri/kfyuri/de05.gif
+	frame	data/chars/0yuri/kfyuri/de06.gif
+	frame	data/chars/0yuri/kfyuri/de07.gif
+	frame	data/chars/0yuri/kfyuri/de06.gif
+	frame	data/chars/0yuri/kfyuri/de07.gif
+	delay	70
+	frame	data/chars/0yuri/kfyuri/de07.gif
+
+
+
+
+		
+anim	fall
+	loop	0
+	delay	50
+	offset	145 205
+	bbox	0 0 0 0
+	landframe	3
+	sound	data/sounds/yurpa.wav
+	frame	data/chars/0yuri/kfyuri/fall1.gif
+	delay	10
+	frame	data/chars/0yuri/kfyuri/fall2.gif
+	delay	300
+	frame	data/chars/0yuri/kfyuri/fall3.gif
+	delay	10
+	frame	data/chars/0yuri/kfyuri/fall4.gif
+		
+anim	fall2
+	loop	0
+	delay	50
+	offset	145 205
+	bbox	0 0 0 0
+	landframe	3
+	sound	data/sounds/yurpa.wav
+	frame	data/chars/0yuri/kfyuri/pain4.gif
+	delay	10
+	frame	data/chars/0yuri/kfyuri/fall2.gif
+	delay	300
+	frame	data/chars/0yuri/kfyuri/fall3.gif
+	delay	10
+	frame	data/chars/0yuri/kfyuri/fall4.gif
+		
+anim	fall3
+	loop	0
+	delay	50
+	offset	145 205
+	bbox	109 123 50 59
+	landframe	3
+	frame	data/chars/0yuri/kfyuri/pain4.gif
+	delay	10
+	bbox	100 140 74 26
+	frame	data/chars/0yuri/kfyuri/fall2.gif
+	delay	300
+	bbox	96 160 59 30
+	frame	data/chars/0yuri/kfyuri/fall3.gif
+	delay	10
+	bbox	0 0 0 0
+	frame	data/chars/0yuri/kfyuri/fall4.gif
+
+
+anim	fall4
+	loop	0
+	delay	2
+	offset	145 205
+	bbox	0 0 0 0
+	flipframe	0
+	move	-3
+	frame	data/chars/0yuri/kfyuri/fall9.gif
+	frame	data/chars/0yuri/kfyuri/fall9.gif
+	frame	data/chars/0yuri/kfyuri/fall10.gif
+	frame	data/chars/0yuri/kfyuri/fall10.gif
+	@cmd	spawn01 "dust3" 25 20 5
+	frame	data/chars/0yuri/kfyuri/fall11.gif
+	@cmd	leaper 0 0.4 0
+	frame	data/chars/0yuri/kfyuri/fall11.gif
+	frame	data/chars/0yuri/kfyuri/fall12.gif
+	frame	data/chars/0yuri/kfyuri/fall12.gif
+	frame	data/chars/0yuri/kfyuri/fall13.gif
+	frame	data/chars/0yuri/kfyuri/fall13.gif
+	@cmd	spawn01 "dust3" 25 20 5
+	frame	data/chars/0yuri/kfyuri/fall14.gif
+	@cmd	leaper 0 0.4 0
+	frame	data/chars/0yuri/kfyuri/fall14.gif
+	frame	data/chars/0yuri/kfyuri/fall9.gif	#12
+	frame	data/chars/0yuri/kfyuri/fall9.gif
+	frame	data/chars/0yuri/kfyuri/fall10.gif
+	frame	data/chars/0yuri/kfyuri/fall10.gif
+	@cmd	spawn01 "dust3" 25 20 5
+	frame	data/chars/0yuri/kfyuri/fall11.gif
+	@cmd	leaper 0 0.4 0
+	frame	data/chars/0yuri/kfyuri/fall11.gif
+	frame	data/chars/0yuri/kfyuri/fall12.gif
+	frame	data/chars/0yuri/kfyuri/fall12.gif
+	frame	data/chars/0yuri/kfyuri/fall13.gif
+	frame	data/chars/0yuri/kfyuri/fall13.gif
+	@cmd	spawn01 "dust3" 25 20 5
+	frame	data/chars/0yuri/kfyuri/fall14.gif
+	@cmd	leaper 0 0.4 0
+	frame	data/chars/0yuri/kfyuri/fall14.gif
+	@cmd	looper 12 8
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/0yuri/kfyuri/fall9.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/0yuri/kfyuri/fall9.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/0yuri/kfyuri/fall10.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/0yuri/kfyuri/fall10.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/0yuri/kfyuri/fall11.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/0yuri/kfyuri/fall11.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/0yuri/kfyuri/fall12.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/0yuri/kfyuri/fall12.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/0yuri/kfyuri/fall13.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/0yuri/kfyuri/fall13.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/0yuri/kfyuri/fall14.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/0yuri/kfyuri/fall14.gif
+	frame	data/chars/misc/empty.gif
+
+
+
+
+		
+anim	fall5
+	loop	0
+	delay	9
+	offset	145 205
+	bbox	0 0 0 0
+	landframe	9
+	sound	data/sounds/yurpa.wav
+	frame	data/chars/0yuri/kfyuri/fall5.gif
+	frame	data/chars/0yuri/kfyuri/fall6.gif
+	frame	data/chars/0yuri/kfyuri/fall7.gif
+	frame	data/chars/0yuri/kfyuri/fall8.gif
+	frame	data/chars/0yuri/kfyuri/fall5.gif
+	frame	data/chars/0yuri/kfyuri/fall6.gif
+	frame	data/chars/0yuri/kfyuri/fall7.gif
+	frame	data/chars/0yuri/kfyuri/fall8.gif
+	@cmd	looper 4 10
+	delay	300
+	frame	data/chars/0yuri/kfyuri/fall5.gif
+	delay	100
+	frame	data/chars/0yuri/kfyuri/fall4.gif
+		
+anim	fall7
+	delay	1000
+	offset	45 95
+	bbox	0 0 0 0
+	frame	data/chars/0yuri/kfyuri/slam0.gif
+	offset	45 95
+	frame	data/chars/0yuri/kfyuri/slam1.gif
+	offset	50 85
+	frame	data/chars/0yuri/kfyuri/slam2.gif
+	offset	45 95
+	frame	data/chars/0yuri/kfyuri/slam3.gif
+	offset	45 95
+	frame	data/chars/0yuri/kfyuri/slam4.gif
+	offset	75 55
+	frame	data/chars/0yuri/kfyuri/slam5.gif
+	offset	40 87
+	frame	data/chars/0yuri/kfyuri/slam6.gif
+	offset	20 90
+	frame	data/chars/0yuri/kfyuri/slam7.gif
+	offset	65 55
+	frame	data/chars/0yuri/kfyuri/slam8.gif
+	offset	65 83
+	frame	data/chars/0yuri/kfyuri/slam9.gif
+	offset	65 83
+	frame	data/chars/0yuri/kfyuri/slam10.gif
+	offset	20 90
+	frame	data/chars/0yuri/kfyuri/slam11.gif
+	offset	75 55
+	frame	data/chars/0yuri/kfyuri/slam12.gif
+	offset	75 55
+	frame	data/chars/0yuri/kfyuri/slam13.gif
+	offset	50 85
+	frame	data/chars/0yuri/kfyuri/slam14.gif
+	offset	48 100
+	frame	data/chars/0yuri/kfyuri/slam15.gif
+	offset	55 70
+	frame	data/chars/0yuri/kfyuri/slam16.gif
+	offset	65 83
+	frame	data/chars/0yuri/kfyuri/slam17.gif
+	offset	65 83
+	frame	data/chars/0yuri/kfyuri/slam18.gif
+	offset	50 100
+	frame	data/chars/0yuri/kfyuri/slam19.gif
+	offset	45 95
+	frame	data/chars/0yuri/kfyuri/slam20.gif
+	offset	50 95
+	frame	data/chars/0yuri/kfyuri/slam21.gif
+	offset	50 95
+	frame	data/chars/0yuri/kfyuri/slam22.gif
+	offset	59 95
+	frame	data/chars/0yuri/kfyuri/slam23.gif
+	offset	59 80
+	frame	data/chars/0yuri/kfyuri/slam24.gif
+	offset	50 100
+	bbox	25 10 60 80
+	frame	data/chars/0yuri/kfyuri/slambbox1.gif
+	bbox	0 0 0 0
+
+
+		
+
+anim	fall8
+	loop	0
+	delay	5
+	offset	145 203
+	bbox	0 0 0 0
+	sound	data/sounds/water_splash01.wav
+	frame	data/chars/0yuri/empty.gif
+	@cmd	spawnAni "byowater" 1 1 1 "ANI_FOLLOW2"
+	frame	data/chars/0yuri/empty.gif
+	delay	300
+	frame	data/chars/0yuri/empty.gif
+	delay	10
+	frame	data/chars/0yuri/empty.gif
+	@cmd	suicide
+	frame	data/chars/0yuri/empty.gif
+
+anim	fall15
+	loop	0
+	delay	5
+	offset	145 203
+	bbox	0 0 0 0
+	sound	data/sounds/water_splash01.wav
+	frame	data/chars/0yuri/empty.gif
+	@cmd	spawnAni "byowater" 1 1 1 "ANI_FOLLOW3"
+	frame	data/chars/0yuri/empty.gif
+	delay	300
+	frame	data/chars/0yuri/empty.gif
+	delay	10
+	frame	data/chars/0yuri/empty.gif
+	@cmd	suicide
+	frame	data/chars/0yuri/empty.gif
+
+
+anim	fall9
+	loop	0
+	delay	9
+	offset	145 205
+	bbox	0 0 0 0
+	landframe	9
+	sound	data/sounds/yurpa.wav
+	frame	data/chars/0yuri/kfyuri/fall5.gif
+	frame	data/chars/0yuri/kfyuri/fall6.gif
+	frame	data/chars/0yuri/kfyuri/fall7.gif
+	frame	data/chars/0yuri/kfyuri/fall8.gif
+	frame	data/chars/0yuri/kfyuri/fall5.gif
+	frame	data/chars/0yuri/kfyuri/fall6.gif
+	frame	data/chars/0yuri/kfyuri/fall7.gif
+	frame	data/chars/0yuri/kfyuri/fall8.gif
+	@cmd	looper 4 10
+	delay	300
+	frame	data/chars/0yuri/kfyuri/fall5.gif
+	delay	100
+	frame	data/chars/0yuri/kfyuri/fall4.gif
+	
+
+		
+anim	freespecial26
+	energycost 35
+	mponly	1
+	loop	0
+	delay	8
+	offset	145 203
+	bbox	132 115 33 80
+	hitfx	data/sounds/beat4.wav
+	hitflash	flashscreen2
+	staydown	500 500
+	frame	data/chars/0yuri/kfyuri/win01.gif
+	frame	data/chars/0yuri/kfyuri/win02.gif
+	frame	data/chars/0yuri/kfyuri/chrg00.gif
+	sound	data/sounds/super1.wav
+	frame	data/chars/0yuri/kfyuri/chrg01.gif
+	@cmd	spawnAni2 "allsp" 10 1 1 3 "ANI_FOLLOW1"
+	frame	data/chars/0yuri/kfyuri/chrg02.gif
+	delay	30
+	frame	data/chars/0yuri/kfyuri/chrg01.gif
+	delay	10
+	frame	data/chars/0yuri/kfyuri/chrg00.gif
+	frame	data/chars/0yuri/kfyuri/a07.gif
+	sound	data/sounds/yurch.wav
+	frame	data/chars/0yuri/kfyuri/a10a.gif
+	offset	135 203
+	frame	data/chars/0yuri/kfyuri/c08.gif
+	offset	125 203
+	frame	data/chars/0yuri/kfyuri/c07.gif
+	frame	data/chars/0yuri/kfyuri/c06.gif
+	offset	145 203
+	frame	data/chars/0yuri/kfyuri/spc07.gif
+	frame	data/chars/0yuri/kfyuri/spc08.gif
+	frame	data/chars/0yuri/kfyuri/spc09.gif
+	delay	45
+	frame	data/chars/0yuri/kfyuri/spc10.gif
+	delay	9
+	offset	135 203
+	sound	data/sounds/slowm.wav
+	bbox	0 0 0 0
+	frame	data/chars/0yuri/kfyuri/spc08.gif
+	delay	2
+	frame	data/chars/0yuri/kfyuri/spc11.gif
+	sound	data/sounds/yur01.wav
+	frame	data/chars/0yuri/kfyuri/spc11.gif
+	move	6
+	frame	data/chars/0yuri/kfyuri/spc11.gif
+	frame	data/chars/0yuri/kfyuri/spc11.gif
+	@cmd	keymove 1.2
+	frame	data/chars/0yuri/kfyuri/spc12.gif
+	frame	data/chars/0yuri/kfyuri/spc12.gif
+	@cmd	keymove 1.2
+	frame	data/chars/0yuri/kfyuri/spc12.gif
+	frame	data/chars/0yuri/kfyuri/spc12.gif
+	@cmd	keymove 1.2
+	attack9	140 80 55 70 80 1 1 0 30 15
+	dropv	2 3
+	frame	data/chars/0yuri/kfyuri/spc13.gif
+	frame	data/chars/0yuri/kfyuri/spc13.gif
+	@cmd	keymove 1.2
+	frame	data/chars/0yuri/kfyuri/spc14.gif
+	frame	data/chars/0yuri/kfyuri/spc14.gif
+	@cmd	keymove 1.2
+	frame	data/chars/0yuri/kfyuri/spc15.gif
+	frame	data/chars/0yuri/kfyuri/spc15.gif
+	@cmd	keymove 1.2
+	frame	data/chars/0yuri/kfyuri/spc15.gif
+	frame	data/chars/0yuri/kfyuri/spc15.gif
+	@cmd	keymove 1.2
+	frame	data/chars/0yuri/kfyuri/spc15.gif
+	frame	data/chars/0yuri/kfyuri/spc15.gif
+	@cmd	keymove 1.2
+	frame	data/chars/0yuri/kfyuri/spc15.gif
+	frame	data/chars/0yuri/kfyuri/spc15.gif
+	@cmd	keymove 1.2
+	frame	data/chars/0yuri/kfyuri/spc16.gif
+	frame	data/chars/0yuri/kfyuri/spc16.gif
+	move	4
+	@cmd	keymove 1.2
+	frame	data/chars/0yuri/kfyuri/spc16.gif
+	frame	data/chars/0yuri/kfyuri/spc16.gif
+	@cmd	keymove 1.2
+	frame	data/chars/0yuri/kfyuri/spc17.gif
+	frame	data/chars/0yuri/kfyuri/spc17.gif
+	@cmd	keymove 1.2
+	frame	data/chars/0yuri/kfyuri/spc17.gif
+	frame	data/chars/0yuri/kfyuri/spc17.gif
+	@cmd	keymove 1.2
+	frame	data/chars/0yuri/kfyuri/spc17.gif
+	frame	data/chars/0yuri/kfyuri/spc17.gif
+	@cmd	keymove 1.2
+	frame	data/chars/0yuri/kfyuri/spc17.gif
+	frame	data/chars/0yuri/kfyuri/spc17.gif
+	attack9	0 0 0 0
+	@cmd	stop
+	move	0
+	delay	15
+	frame	data/chars/0yuri/kfyuri/spc17.gif
+	delay	11
+	frame	data/chars/0yuri/kfyuri/spc18.gif
+	frame	data/chars/0yuri/kfyuri/spc19.gif
+	offset	145 203
+	frame	data/chars/0yuri/kfyuri/b27.gif
+
+
+
+
+
+anim	freespecial2
+	cancel	14 31 0 J freespecial3
+	loop	0
+	delay	6
+	offset	145 203
+	bbox	135 115 20 40
+	jumpframe	1 2.5 2 0
+	forcedirection	-1
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/yur01.wav
+	frame	data/chars/0yuri/kfyuri/ju00.gif
+	frame	data/chars/0yuri/kfyuri/spw10.gif
+	frame	data/chars/0yuri/kfyuri/spw09b.gif
+	attack10 134 113 85 50 20 1 0 0 15 15
+	dropv	2.5 2
+	frame	data/chars/0yuri/kfyuri/spw08a.gif
+	delay	3
+	frame	data/chars/0yuri/kfyuri/spw07.gif
+	@cmd	leaper 2 0.1
+	frame	data/chars/0yuri/kfyuri/spw07.gif
+	@cmd	leaper 2 0.1
+	frame	data/chars/0yuri/kfyuri/spw07.gif
+	attack10 0 0 0 0
+	delay	6
+	frame	data/chars/0yuri/kfyuri/spw06a.gif
+	sound	data/sounds/yur01.wav
+	@cmd	leaper 2 0.1
+	frame	data/chars/0yuri/kfyuri/spw06.gif
+	@cmd	leaper 2 0.1
+	frame	data/chars/0yuri/kfyuri/spw05a.gif
+	attack10 134 113 85 50 20 1 0 0 15 15
+	dropv	2 2
+	frame	data/chars/0yuri/kfyuri/spw04a.gif
+	delay	3
+	frame	data/chars/0yuri/kfyuri/spw03.gif
+	@cmd	leaper 2 0.1
+	frame	data/chars/0yuri/kfyuri/spw03.gif
+	@cmd	leaper 2 0.1
+	frame	data/chars/0yuri/kfyuri/spw03.gif
+	attack10 0 0 0 0
+	delay	1
+	frame	data/chars/0yuri/kfyuri/spw02.gif #14
+	frame	data/chars/0yuri/kfyuri/spw02.gif
+	frame	data/chars/0yuri/kfyuri/spw02.gif
+	frame	data/chars/0yuri/kfyuri/spw02.gif
+	frame	data/chars/0yuri/kfyuri/spw02.gif
+	frame	data/chars/0yuri/kfyuri/spw02.gif
+	frame	data/chars/0yuri/kfyuri/spw06.gif
+	frame	data/chars/0yuri/kfyuri/spw06.gif
+	frame	data/chars/0yuri/kfyuri/spw06.gif
+	frame	data/chars/0yuri/kfyuri/spw06.gif
+	frame	data/chars/0yuri/kfyuri/spw06.gif
+	frame	data/chars/0yuri/kfyuri/spw06.gif
+	frame	data/chars/0yuri/kfyuri/ju03.gif
+	frame	data/chars/0yuri/kfyuri/ju03.gif
+	frame	data/chars/0yuri/kfyuri/ju03.gif
+	frame	data/chars/0yuri/kfyuri/ju03.gif
+	frame	data/chars/0yuri/kfyuri/ju03.gif
+	frame	data/chars/0yuri/kfyuri/ju03.gif
+
+
+
+
+anim	freespecial3
+	loop	0
+	delay	6
+	offset	145 203
+	bbox	135 115 20 40
+	jumpframe	0 1 2 0
+	forcedirection	-1
+	hitfx	data/sounds/beat4.wav
+	hitflash	flashscreen1
+	frame	data/chars/0yuri/kfyuri/spw20.gif
+	sound	data/sounds/yur02.wav
+	frame	data/chars/0yuri/kfyuri/spw21.gif
+	frame	data/chars/0yuri/kfyuri/spw22.gif
+	@cmd	leaper 2 0.2
+	frame	data/chars/0yuri/kfyuri/spw23.gif
+	@cmd	leaper 2 0.2
+	attack	134 113 87 50 20 1 0 0 20 15
+	dropv	2.5 3.5
+	frame	data/chars/0yuri/kfyuri/spw24.gif
+	@cmd	leaper 2 0.2
+	frame	data/chars/0yuri/kfyuri/spw25.gif
+	frame	data/chars/0yuri/kfyuri/spw26.gif
+	attack	0 0 0 0
+	frame	data/chars/0yuri/kfyuri/spw27.gif
+	frame	data/chars/0yuri/kfyuri/b34.gif
+	frame	data/chars/0yuri/kfyuri/b35.gif
+	frame	data/chars/0yuri/kfyuri/b36.gif
+
+
+anim	freespecial4
+	energycost	12
+	mponly	1
+	loop	0
+	delay	8
+	offset	145 203
+	bbox	0 0 0 0
+	fastattack	1
+	jumpframe	4 3.5 1 0
+	landframe	9
+	forcedirection	-1
+	hitfx	data/sounds/beat5.wav
+	staydown	400 400
+	@cmd	dasher 1.7 0 0
+	frame	data/chars/0yuri/kfyuri/c16.gif
+	frame	data/chars/0yuri/kfyuri/upper09.gif
+	attack2	140 125 45 55 8 0 0 0 24 0
+	frame	data/chars/0yuri/kfyuri/upper10.gif
+	attack2	0 0 0 0
+	hitfx	data/sounds/beat4.wav
+	hitflash	flashscreen1
+	frame	data/chars/0yuri/kfyuri/upper11.gif
+	@cmd	stop
+	delay	28
+	attack	138 65 45 105 40 1 0 0 24 0
+	dropv	5 2
+	frame	data/chars/0yuri/kfyuri/upper12.gif #4
+	attack	0 0 0 0
+	delay	8
+	frame	data/chars/0yuri/kfyuri/upper13.gif
+	frame	data/chars/0yuri/kfyuri/upper14.gif
+	frame	data/chars/0yuri/kfyuri/upper15.gif
+	delay	300
+	frame	data/chars/0yuri/kfyuri/upper16.gif
+	delay	6
+	frame	data/chars/0yuri/kfyuri/ju00.gif #9
+	frame	data/chars/0yuri/kfyuri/ju00a.gif
+
+
+
+anim	freespecial5
+	energycost 17
+	mponly	1
+	loop	0
+	delay	8
+	offset	145 203
+	bbox	132 115 33 80
+	custknife	kohkn2
+	throwframe	6
+	sound	data/sounds/yursp1.wav
+	frame	data/chars/0yuri/kfyuri/b36.gif
+	frame	data/chars/0yuri/kfyuri/spa02.gif
+	offset	135 205
+	frame	data/chars/0yuri/kfyuri/spa04.gif
+	frame	data/chars/0yuri/kfyuri/spa05.gif
+	frame	data/chars/0yuri/kfyuri/spa06.gif
+	frame	data/chars/0yuri/kfyuri/spa06.gif
+	sound	data/sounds/super2.wav
+	delay	25
+	frame	data/chars/0yuri/kfyuri/spa06.gif
+	delay	9
+	frame	data/chars/0yuri/kfyuri/spa04.gif
+	offset	138 203
+	frame	data/chars/0yuri/kfyuri/spa03.gif
+	offset	142 203
+	frame	data/chars/0yuri/kfyuri/b44.gif
+
+
+anim	freespecial6
+	energycost 25
+	mponly	1
+	loop	0
+	delay	9
+	offset	145 203
+	bbox	132 115 33 80
+	frame	data/chars/0yuri/kfyuri/b36.gif
+	frame	data/chars/0yuri/kfyuri/spa02.gif
+	sound	data/sounds/yursp5.wav
+	offset	135 203
+	frame	data/chars/0yuri/kfyuri/spa04.gif
+	frame	data/chars/0yuri/kfyuri/spa15.gif
+	delay	6
+	frame	data/chars/0yuri/kfyuri/spa16.gif
+	frame	data/chars/0yuri/kfyuri/spa17.gif
+	frame	data/chars/0yuri/kfyuri/spa18.gif
+	frame	data/chars/0yuri/kfyuri/spa19.gif
+	frame	data/chars/0yuri/kfyuri/spa20.gif
+	frame	data/chars/0yuri/kfyuri/spa21.gif
+	frame	data/chars/0yuri/kfyuri/spa22.gif
+	frame	data/chars/0yuri/kfyuri/spa23.gif
+	frame	data/chars/0yuri/kfyuri/spa24.gif
+	frame	data/chars/0yuri/kfyuri/spa25.gif
+	frame	data/chars/0yuri/kfyuri/spa26.gif
+	frame	data/chars/0yuri/kfyuri/spa27.gif
+	frame	data/chars/0yuri/kfyuri/spa28.gif
+	frame	data/chars/0yuri/kfyuri/spa29.gif
+	delay	8
+	sound	data/sounds/super2.wav
+	frame	data/chars/0yuri/kfyuri/spa07.gif # 18
+	@cmd	projectile 1 "haskk2" 10 1 90
+	frame	data/chars/0yuri/kfyuri/spa08.gif
+	frame	data/chars/0yuri/kfyuri/spa09.gif
+	frame	data/chars/0yuri/kfyuri/spa07.gif
+	frame	data/chars/0yuri/kfyuri/spa05.gif
+	frame	data/chars/0yuri/kfyuri/spa06.gif
+	delay	9
+	frame	data/chars/0yuri/kfyuri/spa04.gif
+	offset	138 203
+	frame	data/chars/0yuri/kfyuri/spa03.gif
+	offset	142 203
+	frame	data/chars/0yuri/kfyuri/b44.gif
+
+
+anim	freespecial27
+	energycost 75
+	mponly	1
+	loop	0
+	delay	8
+	offset	145 203
+	bbox	0 0 0 0
+	followanim	3
+	followcond	1
+	hitfx	data/sounds/beat0.wav
+	sound	data/sounds/yurch.wav
+	frame	data/chars/0yuri/kfyuri/win01.gif
+	frame	data/chars/0yuri/kfyuri/win02.gif
+	frame	data/chars/0yuri/kfyuri/chrg00.gif
+	sound	data/sounds/super1.wav
+	frame	data/chars/0yuri/kfyuri/chrg01.gif
+	@cmd	spawn04 "allsp" 10 1 1 3
+	frame	data/chars/0yuri/kfyuri/chrg02.gif
+	delay	30
+	frame	data/chars/0yuri/kfyuri/chrg01.gif
+	delay	2
+	frame	data/chars/0yuri/kfyuri/run02.gif #6
+	sound	data/sounds/slowm.wav
+	frame	data/chars/0yuri/kfyuri/run02.gif
+	move	2
+	@cmd	keymove 1.2
+	frame	data/chars/0yuri/kfyuri/run02.gif
+	frame	data/chars/0yuri/kfyuri/run02.gif
+	@cmd	keymove 1.2
+	frame	data/chars/0yuri/kfyuri/spe05.gif
+	frame	data/chars/0yuri/kfyuri/spe05.gif
+	move	4
+	@cmd	keymove 1.2
+	frame	data/chars/0yuri/kfyuri/spe05.gif
+	frame	data/chars/0yuri/kfyuri/spe05.gif
+	@cmd	keymove 1.2
+	frame	data/chars/0yuri/kfyuri/spe06.gif
+	frame	data/chars/0yuri/kfyuri/spe06.gif
+	move	7
+	@cmd	keymove 1.2
+	frame	data/chars/0yuri/kfyuri/spe06.gif
+	frame	data/chars/0yuri/kfyuri/spe06.gif
+	@cmd	keymove 1.2
+	attack2	135 140 45 60 0 0 1 1 12 0
+	frame	data/chars/0yuri/kfyuri/spe07.gif #18
+	@cmd	keymove 1.2
+	frame	data/chars/0yuri/kfyuri/spe07.gif
+	@cmd	looper 18 9
+	delay	2
+	frame	data/chars/0yuri/kfyuri/spe07.gif
+	frame	data/chars/0yuri/kfyuri/spe07.gif
+	@cmd	keymove 1.2
+	move	5
+	frame	data/chars/0yuri/kfyuri/spe07.gif
+	frame	data/chars/0yuri/kfyuri/spe07.gif
+	@cmd	keymove 1.2
+	frame	data/chars/0yuri/kfyuri/spe07.gif
+	move	4
+	frame	data/chars/0yuri/kfyuri/spe07.gif
+	attack2	0 0 0 0
+	frame	data/chars/0yuri/kfyuri/dgd05.gif
+	@cmd	keymove 1.2
+	frame	data/chars/0yuri/kfyuri/dgd05.gif
+	frame	data/chars/0yuri/kfyuri/dgd05.gif
+	@cmd	keymove 1.2
+	frame	data/chars/0yuri/kfyuri/dgd05.gif
+	frame	data/chars/0yuri/kfyuri/dgd06.gif
+	@cmd	keymove 1.2
+	frame	data/chars/0yuri/kfyuri/dgd06.gif
+	frame	data/chars/0yuri/kfyuri/dgd06.gif
+	@cmd	keymove 1.2
+	frame	data/chars/0yuri/kfyuri/dgd06.gif
+	frame	data/chars/0yuri/kfyuri/dgd07.gif
+	@cmd	keymove 1.2
+	frame	data/chars/0yuri/kfyuri/dgd07.gif
+	frame	data/chars/0yuri/kfyuri/dgd07.gif
+	@cmd	keymove 1.2
+	frame	data/chars/0yuri/kfyuri/dgd07.gif
+	frame	data/chars/0yuri/kfyuri/dgd08.gif
+	@cmd	keymove 1.2
+	frame	data/chars/0yuri/kfyuri/dgd08.gif
+	frame	data/chars/0yuri/kfyuri/dgd08.gif
+	@cmd	keymove 1.2
+	frame	data/chars/0yuri/kfyuri/dgd08.gif
+	@cmd	stop
+	move	0
+	delay	8
+	frame	data/chars/0yuri/kfyuri/dgd09.gif
+	frame	data/chars/0yuri/kfyuri/dgd10.gif
+	frame	data/chars/0yuri/kfyuri/dgd11.gif
+
+
+anim	follow3
+	loop	0
+	delay	3
+	offset	145 203
+	bbox	0 0 0 0
+	#landframe	142
+	quakeframe	142 5 5
+	forcedirection	-1
+	fastattack	1
+	hitfx	data/sounds/beat2.wav
+	@cmd	stop
+	@cmd	clearL
+	frame	data/chars/0yuri/kfyuri/dgd11.gif
+	attack	0 0 0 0
+	frame	data/chars/0yuri/kfyuri/a17.gif
+	frame	data/chars/0yuri/kfyuri/a18.gif
+	attack	140 120 55 45 0 0 1 0 14 0
+	frame	data/chars/0yuri/kfyuri/a19.gif
+	frame	data/chars/0yuri/kfyuri/a20.gif
+	attack	0 0 0 0
+	frame	data/chars/0yuri/kfyuri/a21.gif
+	frame	data/chars/0yuri/kfyuri/a22.gif
+	frame	data/chars/0yuri/kfyuri/a23.gif
+	frame	data/chars/0yuri/kfyuri/a07.gif
+	frame	data/chars/0yuri/kfyuri/a08.gif
+	attack	140 120 55 45 0 0 1 0 14 0
+	frame	data/chars/0yuri/kfyuri/a09.gif
+	frame	data/chars/0yuri/kfyuri/a10.gif
+	attack	0 0 0 0
+	frame	data/chars/0yuri/kfyuri/a11.gif
+	frame	data/chars/0yuri/kfyuri/a01.gif
+	attack	140 120 55 45 0 0 1 0 14 0
+	frame	data/chars/0yuri/kfyuri/a02.gif
+	frame	data/chars/0yuri/kfyuri/a03.gif
+	attack	0 0 0 0
+	frame	data/chars/0yuri/kfyuri/a04.gif
+	frame	data/chars/0yuri/kfyuri/a28.gif
+	attack	140 120 55 45 0 0 1 0 14 0
+	frame	data/chars/0yuri/kfyuri/a29.gif
+	frame	data/chars/0yuri/kfyuri/a30.gif
+	attack	0 0 0 0
+	frame	data/chars/0yuri/kfyuri/a31.gif
+	frame	data/chars/0yuri/kfyuri/a32.gif
+	frame	data/chars/0yuri/kfyuri/a07.gif
+	frame	data/chars/0yuri/kfyuri/a08.gif
+	attack	140 120 55 45 0 0 1 0 14 0
+	frame	data/chars/0yuri/kfyuri/a09.gif
+	frame	data/chars/0yuri/kfyuri/a10.gif
+	attack	0 0 0 0
+	frame	data/chars/0yuri/kfyuri/a11.gif
+	frame	data/chars/0yuri/kfyuri/a01.gif
+	attack	140 120 55 45 0 0 1 0 14 0
+	frame	data/chars/0yuri/kfyuri/a02.gif
+	frame	data/chars/0yuri/kfyuri/a03.gif
+	attack	0 0 0 0
+	frame	data/chars/0yuri/kfyuri/a04.gif
+	@cmd	looper 1 1 
+	delay	4
+	hitfx	data/sounds/beat1.wav
+	frame	data/chars/0yuri/kfyuri/b36.gif #31
+	frame	data/chars/0yuri/kfyuri/b37.gif
+	frame	data/chars/0yuri/kfyuri/b38.gif
+	frame	data/chars/0yuri/kfyuri/b39.gif
+	attack2	140 120 45 45 0 0 1 0 35 0
+	frame	data/chars/0yuri/kfyuri/b40.gif
+	frame	data/chars/0yuri/kfyuri/b41.gif
+	frame	data/chars/0yuri/kfyuri/b41a.gif
+	attack2	0 0 0 0
+	frame	data/chars/0yuri/kfyuri/b42.gif
+	frame	data/chars/0yuri/kfyuri/b43.gif
+	frame	data/chars/0yuri/kfyuri/b44.gif
+	hitfx	data/sounds/beat5.wav
+	frame	data/chars/0yuri/kfyuri/b06.gif
+	frame	data/chars/0yuri/kfyuri/b07.gif
+	attack	140 120 45 45 0 0 1 0 15 0
+	frame	data/chars/0yuri/kfyuri/b08.gif
+	frame	data/chars/0yuri/kfyuri/b09.gif
+	attack	0 0 0 0
+	frame	data/chars/0yuri/kfyuri/b10.gif
+	frame	data/chars/0yuri/kfyuri/b11.gif
+	frame	data/chars/0yuri/kfyuri/b28.gif
+	frame	data/chars/0yuri/kfyuri/b29.gif
+	attack	140 120 45 45 0 0 1 0 15 0
+	frame	data/chars/0yuri/kfyuri/b31.gif
+	frame	data/chars/0yuri/kfyuri/b32.gif
+	attack	0 0 0 0
+	frame	data/chars/0yuri/kfyuri/b33.gif
+	frame	data/chars/0yuri/kfyuri/b34.gif
+	frame	data/chars/0yuri/kfyuri/b18.gif
+	frame	data/chars/0yuri/kfyuri/b19.gif
+	attack	140 120 45 45 0 0 1 0 15 0
+	frame	data/chars/0yuri/kfyuri/b20.gif
+	frame	data/chars/0yuri/kfyuri/b21.gif
+	attack	0 0 0 0
+	frame	data/chars/0yuri/kfyuri/b22.gif
+	frame	data/chars/0yuri/kfyuri/b23.gif
+	frame	data/chars/0yuri/kfyuri/b28.gif
+	frame	data/chars/0yuri/kfyuri/b29.gif #60
+	attack	140 120 45 45 0 0 1 0 15 0
+	frame	data/chars/0yuri/kfyuri/b31.gif
+	frame	data/chars/0yuri/kfyuri/b32.gif
+	attack	0 0 0 0
+	frame	data/chars/0yuri/kfyuri/b33.gif
+	frame	data/chars/0yuri/kfyuri/b34.gif
+	frame	data/chars/0yuri/kfyuri/b18.gif
+	frame	data/chars/0yuri/kfyuri/b19.gif
+	attack	140 120 45 45 0 0 1 0 15 0
+	frame	data/chars/0yuri/kfyuri/b20.gif
+	frame	data/chars/0yuri/kfyuri/b21.gif
+	attack	0 0 0 0
+	frame	data/chars/0yuri/kfyuri/b22.gif
+	frame	data/chars/0yuri/kfyuri/b23.gif
+	frame	data/chars/0yuri/kfyuri/b28.gif
+	frame	data/chars/0yuri/kfyuri/b29.gif
+	attack	140 120 45 45 0 0 1 0 15 0
+	frame	data/chars/0yuri/kfyuri/b31.gif
+	frame	data/chars/0yuri/kfyuri/b32.gif
+	attack	0 0 0 0
+	frame	data/chars/0yuri/kfyuri/b33.gif
+	frame	data/chars/0yuri/kfyuri/b34.gif
+	frame	data/chars/0yuri/kfyuri/b18.gif
+	frame	data/chars/0yuri/kfyuri/b19.gif
+	attack	140 120 45 45 0 0 1 0 15 0
+	frame	data/chars/0yuri/kfyuri/b20.gif
+	frame	data/chars/0yuri/kfyuri/b21.gif #80
+	attack	0 0 0 0
+	frame	data/chars/0yuri/kfyuri/b22.gif
+	frame	data/chars/0yuri/kfyuri/b23.gif
+	frame	data/chars/0yuri/kfyuri/grabat01.gif
+	attack10 140 120 45 45 0 1 1 0 35 0
+	dropv	3 0
+	frame	data/chars/0yuri/kfyuri/grabat02.gif
+	frame	data/chars/0yuri/kfyuri/grabat04.gif
+	attack10 0 0 0 0
+	frame	data/chars/0yuri/kfyuri/grabat05.gif
+	frame	data/chars/0yuri/kfyuri/grabat06.gif
+	frame	data/chars/0yuri/kfyuri/grabat07.gif
+	movea	2
+	frame	data/chars/0yuri/kfyuri/grabat08.gif
+	hitfx	data/sounds/beat2.wav
+	frame	data/chars/0yuri/kfyuri/spw09a.gif
+	frame	data/chars/0yuri/kfyuri/spw09b.gif
+	attack10 140 120 45 45 1 0 1 0 15 0
+	dropv	1.5 0
+	frame	data/chars/0yuri/kfyuri/spw08a.gif
+	delay	3
+	frame	data/chars/0yuri/kfyuri/spw07.gif
+	frame	data/chars/0yuri/kfyuri/spw07.gif
+	frame	data/chars/0yuri/kfyuri/spw07.gif
+	attack10 0 0 0 0
+	frame	data/chars/0yuri/kfyuri/spw06a.gif
+	frame	data/chars/0yuri/kfyuri/spw06.gif
+	frame	data/chars/0yuri/kfyuri/spw05a.gif
+	attack10 140 120 45 45 1 0 1 0 15 0
+	dropv	1.5 0
+	frame	data/chars/0yuri/kfyuri/spw04a.gif
+	delay	3
+	frame	data/chars/0yuri/kfyuri/spw03.gif #100
+	frame	data/chars/0yuri/kfyuri/spw03.gif
+	frame	data/chars/0yuri/kfyuri/spw03.gif
+	attack10 0 0 0 0
+	frame	data/chars/0yuri/kfyuri/spw02.gif
+	frame	data/chars/0yuri/kfyuri/spw09a.gif
+	frame	data/chars/0yuri/kfyuri/spw09b.gif
+	attack10 140 120 45 45 1 0 1 0 15 0
+	dropv	1.5 0
+	frame	data/chars/0yuri/kfyuri/spw08a.gif
+	delay	3
+	frame	data/chars/0yuri/kfyuri/spw07.gif
+	frame	data/chars/0yuri/kfyuri/spw07.gif
+	frame	data/chars/0yuri/kfyuri/spw07.gif
+	attack10 0 0 0 0
+	frame	data/chars/0yuri/kfyuri/spw06a.gif
+	frame	data/chars/0yuri/kfyuri/spw06.gif
+	frame	data/chars/0yuri/kfyuri/spw05a.gif
+	attack10 140 120 45 45 1 0 1 0 15 0
+	dropv	1.5 0
+	frame	data/chars/0yuri/kfyuri/spw04a.gif
+	delay	3
+	frame	data/chars/0yuri/kfyuri/spw03.gif
+	frame	data/chars/0yuri/kfyuri/spw03.gif
+	frame	data/chars/0yuri/kfyuri/spw03.gif
+	attack10 0 0 0 0
+	frame	data/chars/0yuri/kfyuri/spw02.gif
+	frame	data/chars/0yuri/kfyuri/spw09a.gif
+	frame	data/chars/0yuri/kfyuri/spw09b.gif
+	attack10 140 120 45 45 1 0 1 0 15 0
+	dropv	1.5 0
+	frame	data/chars/0yuri/kfyuri/spw08a.gif
+	delay	3
+	frame	data/chars/0yuri/kfyuri/spw07.gif
+	frame	data/chars/0yuri/kfyuri/spw07.gif
+	frame	data/chars/0yuri/kfyuri/spw07.gif
+	attack10 0 0 0 0
+	frame	data/chars/0yuri/kfyuri/spw06a.gif
+	frame	data/chars/0yuri/kfyuri/spw06.gif
+	frame	data/chars/0yuri/kfyuri/spw05a.gif
+	attack10 140 120 45 45 1 0 1 0 15 0
+	dropv	1.5 0
+	frame	data/chars/0yuri/kfyuri/spw04a.gif
+	delay	3
+	frame	data/chars/0yuri/kfyuri/spw03.gif
+	frame	data/chars/0yuri/kfyuri/spw03.gif
+	frame	data/chars/0yuri/kfyuri/spw03.gif
+	attack10 0 0 0 0
+	frame	data/chars/0yuri/kfyuri/spw02.gif #131
+	delay	6
+	offset	145 203
+	sound	data/sounds/yur02.wav
+	frame	data/chars/0yuri/kfyuri/jub00.gif
+	attack10 140 120 45 45 0 1 1 1 15 0
+	dropv	1.5 0
+	frame	data/chars/0yuri/kfyuri/jub01.gif
+	frame	data/chars/0yuri/kfyuri/jub02.gif
+	attack10 0 0 0 0
+	movea	0
+	frame	data/chars/0yuri/kfyuri/jub03.gif
+	@cmd	leaper 3 1.7
+	frame	data/chars/0yuri/kfyuri/jub04.gif
+	hitfx	data/sounds/beat4.wav
+	hitflash	flashscreen2
+	staydown	300 300
+	frame	data/chars/0yuri/kfyuri/jub05.gif #137
+	attack	125 120 50 40 200 1 1 0 16 0
+	dropv	1 2
+	frame	data/chars/0yuri/kfyuri/jub06.gif
+	frame	data/chars/0yuri/kfyuri/jub05.gif
+	attack	0 0 0 0
+	frame	data/chars/0yuri/kfyuri/jub06.gif
+	delay	35
+	frame	data/chars/0yuri/kfyuri/jub05.gif #141
+	delay	1
+	move	1
+	offset	145 195
+	frame	data/chars/0yuri/kfyuri/jub05.gif
+	offset	145 190
+	frame	data/chars/0yuri/kfyuri/jub06.gif
+	offset	145 185
+	frame	data/chars/0yuri/kfyuri/jub06.gif
+	offset	145 180
+	frame	data/chars/0yuri/kfyuri/jub06.gif
+	offset	145 175
+	frame	data/chars/0yuri/kfyuri/jub06.gif
+	offset	145 170
+	frame	data/chars/0yuri/kfyuri/jub06.gif
+	offset	145 165
+	frame	data/chars/0yuri/kfyuri/jub06.gif
+	offset	145 160
+	frame	data/chars/0yuri/kfyuri/jub06.gif
+	offset	145 203
+	move	0
+	frame	data/chars/0yuri/kfyuri/jub07.gif
+	@cmd	spawn01 "dust" 1 1 1
+	@cmd	spawn01 "qfx" 15 1 1
+	delay	2
+	frame	data/chars/0yuri/kfyuri/jub08.gif
+	#sound	data/sounds/fall2.wav
+	frame	data/chars/0yuri/kfyuri/jub08.gif
+	frame	data/chars/0yuri/kfyuri/jub08.gif
+	frame	data/chars/0yuri/kfyuri/jub09.gif
+	frame	data/chars/0yuri/kfyuri/jub09.gif
+	frame	data/chars/0yuri/kfyuri/jub09.gif
+	frame	data/chars/0yuri/kfyuri/jub10.gif
+	frame	data/chars/0yuri/kfyuri/jub10.gif
+	frame	data/chars/0yuri/kfyuri/jub10.gif
+	frame	data/chars/0yuri/kfyuri/jub10.gif
+	frame	data/chars/0yuri/kfyuri/jub10.gif
+	delay	85
+	frame	data/chars/0yuri/kfyuri/jub10.gif
+	delay	8
+	@cmd	flip
+	frame	data/chars/0yuri/kfyuri/rise1.gif
+	frame	data/chars/0yuri/kfyuri/rise2.gif
+	frame	data/chars/0yuri/kfyuri/rise3.gif
+	frame	data/chars/0yuri/kfyuri/rise4.gif
+	frame	data/chars/0yuri/kfyuri/rise5.gif
+	frame	data/chars/0yuri/kfyuri/rise6.gif
+	frame	data/chars/0yuri/kfyuri/dgd11.gif
+
+
+
+anim	get
+	loop	0
+	delay	8
+	offset	145 203
+	frame	data/chars/0yuri/kfyuri/dgd11.gif
+	delay	15
+	frame	data/chars/0yuri/kfyuri/dgd09.gif
+	delay	8
+	frame	data/chars/0yuri/kfyuri/dgd10.gif
+	frame	data/chars/0yuri/kfyuri/dgd11.gif
+
+
+
+
+anim	grab
+	cancel	0 5 0 J freespecial10
+	loop	1
+	delay	5
+	offset	145 203
+	bbox	132 115 33 80
+	frame	data/chars/0yuri/kfyuri/grab.gif
+	frame	data/chars/0yuri/kfyuri/grab.gif
+	frame	data/chars/0yuri/kfyuri/grab.gif
+	frame	data/chars/0yuri/kfyuri/grab.gif
+	frame	data/chars/0yuri/kfyuri/grab.gif
+	frame	data/chars/0yuri/kfyuri/grab.gif
+
+anim	grabattack
+	loop	0
+	delay	5
+	offset	145 203
+	bbox	132 115 33 80
+	attack	0 0 0 0
+	hitfx	data/sounds/beat2.wav
+	frame	data/chars/0yuri/kfyuri/grab.gif
+	delay	23
+	attack6	156 131 24 31 15 0 1 0 16
+	frame	data/chars/0yuri/kfyuri/hold1.gif
+
+anim	grabattack2
+	loop	0
+	delay	7
+	offset	145 203
+	bbox	132 115 33 80
+	hitfx	data/sounds/beat5.wav
+	staydown	350 350
+	frame	data/chars/0yuri/kfyuri/c15.gif
+	frame	data/chars/0yuri/kfyuri/hold8.gif
+	frame	data/chars/0yuri/kfyuri/hold9.gif
+	frame	data/chars/0yuri/kfyuri/hold10.gif
+	attack10 145 90 35 65 30 1 1 0 16 0
+	dropv	5 1
+	frame	data/chars/0yuri/kfyuri/hold11.gif
+	delay	15
+	frame	data/chars/0yuri/kfyuri/hold12.gif
+	attack10 0 0 0 0
+	delay	9
+	frame	data/chars/0yuri/kfyuri/hold10.gif
+	frame	data/chars/0yuri/kfyuri/hold9.gif
+	frame	data/chars/0yuri/kfyuri/c17.gif
+	frame	data/chars/0yuri/kfyuri/c18.gif
+
+
+anim	grabforward
+	loop	0
+	delay	5
+	offset	145 203
+	bbox	132 115 33 80
+	attack	0 0 0 0
+	hitfx	data/sounds/beat2.wav
+	frame	data/chars/0yuri/kfyuri/grab.gif
+	delay	23
+	attack5	156 108 26 31 15 0 1 0 16 0
+	frame	data/chars/0yuri/kfyuri/hold2.gif
+
+
+anim	grabforward2
+	loop	0
+	delay	7
+	offset	145 203
+	bbox	132 115 33 80
+	jumpframe 3 3.5 1
+	landframe 11
+	hitfx	data/sounds/beat5.wav
+	staydown	350 350
+	frame	data/chars/0yuri/kfyuri/c15.gif
+	frame	data/chars/0yuri/kfyuri/hold8.gif
+	frame	data/chars/0yuri/kfyuri/hold20.gif
+	delay	7
+	blast	135 107 46 60 30 0 0 20 0 
+	dropv	3 4
+	frame	data/chars/0yuri/kfyuri/hold21.gif
+	frame	data/chars/0yuri/kfyuri/hold22.gif
+	frame	data/chars/0yuri/kfyuri/hold21.gif
+	frame	data/chars/0yuri/kfyuri/hold22.gif
+	frame	data/chars/0yuri/kfyuri/hold21.gif
+	frame	data/chars/0yuri/kfyuri/hold22.gif
+	frame	data/chars/0yuri/kfyuri/jua01.gif
+	delay	300
+	frame	data/chars/0yuri/kfyuri/ju04.gif
+	delay	9
+	frame	data/chars/0yuri/kfyuri/ju00a.gif #11
+
+
+anim	grabbackward
+	loop	0
+	delay	9
+	attackone 0
+	offset	145 203
+	bbox	0 0 0 0
+	jumpframe 3 3 0 
+	landframe 10 
+	frame	data/chars/0yuri/kfyuri/grabat01.gif
+	sound	data/sounds/grab.wav
+	frame	data/chars/0yuri/kfyuri/grabat02.gif
+	delay	20
+	@cmd	slamstart
+	@cmd	position 11 40 45 -1 -1
+	frame	data/chars/0yuri/kfyuri/grabat03.gif
+	delay	8
+	@cmd	position 10 45 50 -1 -1
+	frame	data/chars/0yuri/kfyuri/grabat02.gif #3
+	sound	data/sounds/yur01.wav
+	@cmd	position 0 10 80 -1 1
+	frame	data/chars/0yuri/kfyuri/grabat04.gif
+	@cmd	position 2 -10 90 -1 1
+	frame	data/chars/0yuri/kfyuri/grabat05.gif
+	delay	1
+	@cmd	position 2 0 90 1 1
+	frame	data/chars/0yuri/kfyuri/grabat05.gif
+	@cmd	depost 0
+	@cmd	finish 65 1 -3 0.5 0 1
+	frame	data/chars/0yuri/kfyuri/grabat06.gif
+	frame	data/chars/0yuri/kfyuri/grabat07.gif
+	delay	500
+	frame	data/chars/0yuri/kfyuri/grabat08.gif
+	delay	7
+	frame	data/chars/0yuri/kfyuri/ju00a.gif #9
+	@cmd	clearL
+	frame	data/chars/0yuri/kfyuri/ju00.gif
+
+	
+anim	grabbed
+	loop	0
+	delay	100
+	offset	145 203
+	bbox	132 115 33 80
+	frame	data/chars/0yuri/kfyuri/pain3.gif
+		
+anim	freespecial10
+	delay	20
+	attackone	0
+	offset	145 203
+	jumpframe	1 5
+	landframe	10 qfx
+	quakeframe	10 6 5
+	sound	data/sounds/grab.wav
+	@cmd	slamstart2
+	@cmd	position 10 20 55 -1 -1
+	frame	data/chars/0yuri/kfyuri/grab00.gif
+	delay	10
+	@cmd	position 11 25 55 -1 -1
+	frame	data/chars/0yuri/kfyuri/grab15.gif
+	@cmd	keywlk 1.5
+	@cmd	position 0 20 65 -1 1
+	frame	data/chars/0yuri/kfyuri/grab16.gif
+	@cmd	keywlk 1.5
+	sound	data/sounds/yur01.wav
+	@cmd	position 6 -5 65 -1 1
+	frame	data/chars/0yuri/kfyuri/grab17.gif
+	@cmd	keywlk 1.5
+	@cmd	position 12 20 55 -1 1
+	frame	data/chars/0yuri/kfyuri/grab18.gif
+	@cmd	keywlk 1.5
+	@cmd	position 14 15 65 -1 -1
+	frame	data/chars/0yuri/kfyuri/grab19.gif
+	attack	103 139 107 51 6 1 1 0 0 12
+	@cmd	keywlk 1.5
+	offset	145 203
+	@cmd	position 15 10 55 -1 -1
+	frame	data/chars/0yuri/kfyuri/grab20.gif
+	delay	7
+	offset	145 195
+	@cmd	position 15 10 50 -1 -1
+	frame	data/chars/0yuri/kfyuri/grab20.gif #7
+	@cmd	keywlk 1.5
+	@cmd	position 15 10 50 -1 -1
+	frame	data/chars/0yuri/kfyuri/grab21.gif
+	@cmd	looper 7 30
+	offset	145 190
+	@cmd	position 15 10 45 -1 -1
+	frame	data/chars/0yuri/kfyuri/grab22.gif #9
+	delay	3
+	offset	145 190
+	@cmd	stop
+	@cmd	spawn02 "flashsc1" -100 500 300
+	@cmd	position 15 7 40 -1 -1
+	frame	data/chars/0yuri/kfyuri/grab22.gif #10
+	@cmd	position 15 7 40 -1 -1
+	frame	data/chars/0yuri/kfyuri/grab22.gif
+	@cmd	position 15 7 40 -1 -1
+	frame	data/chars/0yuri/kfyuri/grab22.gif
+	@cmd	position 15 7 40 -1 -1
+	frame	data/chars/0yuri/kfyuri/grab22.gif
+	@cmd	position 14 15 45 -1 -1
+	frame	data/chars/0yuri/kfyuri/grab23.gif
+	@cmd	position 14 15 45 -1 -1
+	frame	data/chars/0yuri/kfyuri/grab23.gif
+	@cmd	position 14 15 45 -1 -1
+	frame	data/chars/0yuri/kfyuri/grab23.gif
+	@cmd	position 14 15 45 -1 -1
+	frame	data/chars/0yuri/kfyuri/grab23.gif
+	@cmd	position 15 7 40 -1 -1
+	frame	data/chars/0yuri/kfyuri/grab24.gif
+	@cmd	antiwall 10 -5 0
+	@cmd	position 15 7 40 -1 -1
+	frame	data/chars/0yuri/kfyuri/grab24.gif
+	@cmd	antiwall 10 -5 0
+	@cmd	position 15 7 40 -1 -1
+	frame	data/chars/0yuri/kfyuri/grab24.gif
+	@cmd	antiwall 10 -5 0
+	@cmd	position 15 7 40 -1 -1
+	frame	data/chars/0yuri/kfyuri/grab24.gif
+	@cmd	antiwall 10 -5 0
+	@cmd	position 15 7 40 1 -1
+	frame	data/chars/0yuri/kfyuri/grab24.gif
+	delay	30
+	@cmd	depost 0
+	@cmd	finish 65 1 -2 3 0 1
+	frame	data/chars/0yuri/kfyuri/grab24.gif
+	attack	0 0 0 0
+	delay	8
+	offset	145 205
+	frame	data/chars/0yuri/kfyuri/rise1.gif
+	frame	data/chars/0yuri/kfyuri/rise2.gif
+	frame	data/chars/0yuri/kfyuri/rise3.gif
+	frame	data/chars/0yuri/kfyuri/rise4.gif
+	frame	data/chars/0yuri/kfyuri/rise5.gif
+	frame	data/chars/0yuri/kfyuri/rise6.gif
+	frame	data/chars/0yuri/kfyuri/dgd11.gif
+
+
+
+anim	idle
+	loop	0
+	delay	8
+	offset	145 203
+	bbox	132 115 33 80
+	@cmd	clearL
+	frame	data/chars/0yuri/kfyuri/idle03.gif
+	frame	data/chars/0yuri/kfyuri/idle04.gif
+	frame	data/chars/0yuri/kfyuri/idle05.gif
+	frame	data/chars/0yuri/kfyuri/idle05.gif
+
+		
+anim	jump
+	loop	0
+	delay	9
+	offset	145 203
+	bbox	132 90 33 50
+	frame	data/chars/0yuri/kfyuri/ju01.gif
+	frame	data/chars/0yuri/kfyuri/ju02.gif
+	delay	12
+	frame	data/chars/0yuri/kfyuri/ju03.gif
+	delay	9
+	frame	data/chars/0yuri/kfyuri/ju04.gif
+	delay	7
+	frame	data/chars/0yuri/kfyuri/ju05.gif
+	frame	data/chars/0yuri/kfyuri/ju06.gif
+	frame	data/chars/0yuri/kfyuri/ju05.gif
+	frame	data/chars/0yuri/kfyuri/ju06.gif
+	frame	data/chars/0yuri/kfyuri/ju05.gif
+	frame	data/chars/0yuri/kfyuri/ju06.gif
+	frame	data/chars/0yuri/kfyuri/ju05.gif
+	frame	data/chars/0yuri/kfyuri/ju06.gif
+	frame	data/chars/0yuri/kfyuri/ju05.gif
+	frame	data/chars/0yuri/kfyuri/ju06.gif
+	frame	data/chars/0yuri/kfyuri/ju05.gif
+	frame	data/chars/0yuri/kfyuri/ju06.gif
+	frame	data/chars/0yuri/kfyuri/ju05.gif
+	frame	data/chars/0yuri/kfyuri/ju06.gif
+	frame	data/chars/0yuri/kfyuri/ju05.gif
+	frame	data/chars/0yuri/kfyuri/ju06.gif
+	frame	data/chars/0yuri/kfyuri/ju05.gif
+	frame	data/chars/0yuri/kfyuri/ju06.gif
+	frame	data/chars/0yuri/kfyuri/ju05.gif
+	frame	data/chars/0yuri/kfyuri/ju06.gif
+
+anim	forwardjump
+	loop	0
+	delay	9
+	offset	145 203
+	bbox	132 90 33 50
+	frame	data/chars/0yuri/kfyuri/ju01.gif
+	frame	data/chars/0yuri/kfyuri/ju02.gif
+	delay	12
+	frame	data/chars/0yuri/kfyuri/ju03.gif
+	delay	9
+	frame	data/chars/0yuri/kfyuri/ju04.gif
+	delay	7
+	frame	data/chars/0yuri/kfyuri/ju05.gif
+	frame	data/chars/0yuri/kfyuri/ju06.gif
+	frame	data/chars/0yuri/kfyuri/ju05.gif
+	frame	data/chars/0yuri/kfyuri/ju06.gif
+	frame	data/chars/0yuri/kfyuri/ju05.gif
+	frame	data/chars/0yuri/kfyuri/ju06.gif
+	frame	data/chars/0yuri/kfyuri/ju05.gif
+	frame	data/chars/0yuri/kfyuri/ju06.gif
+	frame	data/chars/0yuri/kfyuri/ju05.gif
+	frame	data/chars/0yuri/kfyuri/ju06.gif
+	frame	data/chars/0yuri/kfyuri/ju05.gif
+	frame	data/chars/0yuri/kfyuri/ju06.gif
+	frame	data/chars/0yuri/kfyuri/ju05.gif
+	frame	data/chars/0yuri/kfyuri/ju06.gif
+	frame	data/chars/0yuri/kfyuri/ju05.gif
+	frame	data/chars/0yuri/kfyuri/ju06.gif
+	frame	data/chars/0yuri/kfyuri/ju05.gif
+	frame	data/chars/0yuri/kfyuri/ju06.gif
+	frame	data/chars/0yuri/kfyuri/ju05.gif
+	frame	data/chars/0yuri/kfyuri/ju06.gif
+
+
+		
+anim	jumpattack
+	loop	0
+	delay	8
+	offset	145 203
+	bbox	131 100 33 45
+	staydown	500 500
+	hitfx	data/sounds/beat3.wav
+	sound	data/sounds/yur01.wav
+	frame	data/chars/0yuri/kfyuri/jua01.gif
+	frame	data/chars/0yuri/kfyuri/jua02.gif
+	delay	30
+	attack	131 130 97 44 25 1 0 0 30 0
+	frame	data/chars/0yuri/kfyuri/jua03.gif
+	delay	8
+	frame	data/chars/0yuri/kfyuri/jua02.gif
+	frame	data/chars/0yuri/kfyuri/jua01.gif
+
+		
+anim	jumpattack2
+	loop	0
+	delay	7
+	offset	145 203
+	bbox	125 100 33 45
+	sound	data/sounds/punch.wav
+	frame	data/chars/0yuri/kfyuri/jua08.gif
+	attack2	130 120 60 40 12 0 0 0 15 0
+	frame	data/chars/0yuri/kfyuri/jua09.gif
+
+	
+		
+anim	jumpattack3
+	loop	0
+	delay	6
+	followanim	6
+	followcond	1
+	offset	145 203
+	bbox	137 100 32 45
+	jumpframe	0 2.2 1.2 0
+	landframe	10
+	quakeframe	19 5 5
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/yur02.wav
+	frame	data/chars/0yuri/kfyuri/jub00.gif
+	frame	data/chars/0yuri/kfyuri/jub01.gif
+	frame	data/chars/0yuri/kfyuri/jub02.gif
+	frame	data/chars/0yuri/kfyuri/jub03.gif
+	frame	data/chars/0yuri/kfyuri/jub04.gif
+	frame	data/chars/0yuri/kfyuri/jub05.gif #5
+	attack2	125 130 50 31 25 0 1 0 16 0
+	frame	data/chars/0yuri/kfyuri/jub06.gif
+	frame	data/chars/0yuri/kfyuri/jub05.gif
+	attack2	0 0 0 0
+	frame	data/chars/0yuri/kfyuri/jub06.gif
+	@cmd	looper 5 30
+	frame	data/chars/0yuri/kfyuri/jub05.gif #9
+	delay	1
+	move	1
+	offset	145 195
+	frame	data/chars/0yuri/kfyuri/jub05.gif
+	offset	145 190
+	frame	data/chars/0yuri/kfyuri/jub06.gif
+	offset	145 185
+	frame	data/chars/0yuri/kfyuri/jub06.gif
+	offset	145 180
+	frame	data/chars/0yuri/kfyuri/jub06.gif
+	offset	145 175
+	frame	data/chars/0yuri/kfyuri/jub06.gif
+	offset	145 170
+	frame	data/chars/0yuri/kfyuri/jub06.gif
+	offset	145 165
+	frame	data/chars/0yuri/kfyuri/jub06.gif
+	offset	145 160
+	frame	data/chars/0yuri/kfyuri/jub06.gif
+	offset	145 203
+	move	0
+	frame	data/chars/0yuri/kfyuri/jub07.gif
+	@cmd	spawn01 "dust" 1 1 1
+	@cmd	spawn01 "qfx" 15 1 1
+	delay	2
+	frame	data/chars/0yuri/kfyuri/jub08.gif
+	#sound	data/sounds/fall2.wav
+	frame	data/chars/0yuri/kfyuri/jub08.gif
+	frame	data/chars/0yuri/kfyuri/jub08.gif
+	frame	data/chars/0yuri/kfyuri/jub09.gif
+	frame	data/chars/0yuri/kfyuri/jub09.gif
+	frame	data/chars/0yuri/kfyuri/jub09.gif
+	frame	data/chars/0yuri/kfyuri/jub10.gif
+	frame	data/chars/0yuri/kfyuri/jub10.gif
+	frame	data/chars/0yuri/kfyuri/jub10.gif
+	frame	data/chars/0yuri/kfyuri/jub10.gif
+	frame	data/chars/0yuri/kfyuri/jub10.gif
+	delay	15
+	frame	data/chars/0yuri/kfyuri/jub10.gif
+	delay	8
+	@cmd	flip
+	frame	data/chars/0yuri/kfyuri/rise1.gif
+	frame	data/chars/0yuri/kfyuri/rise2.gif
+	frame	data/chars/0yuri/kfyuri/rise3.gif
+	frame	data/chars/0yuri/kfyuri/rise4.gif
+	frame	data/chars/0yuri/kfyuri/rise5.gif
+	frame	data/chars/0yuri/kfyuri/rise6.gif
+	frame	data/chars/0yuri/kfyuri/dgd11.gif
+
+
+anim	follow6
+@script
+	void self = getlocalvar("self");
+	void plyr = getentityproperty(self, "playerindex");
+
+	if(frame >= 7 && frame <= 10 )
+	{
+	  if( playerkeys(plyr, 0, "moveup") && playerkeys(plyr, 0, "attack"))
+	  {
+	  performattack(self, openborconstant("ANI_JUMPATTACK3"));
+	  }
+	  if( playerkeys(plyr, 0, "movedown") && playerkeys(plyr, 0, "attack"))
+	  {
+	  performattack(self, openborconstant("ANI_JUMPATTACK2"));
+	  }
+	  if( playerkeys(plyr, 0, "attack"))
+	  {
+	  performattack(self, openborconstant("ANI_JUMPFORWARD"));
+	  }
+	}
+@end_script
+	loop	0
+	delay	5
+	offset	145 203
+	bbox	128 115 30 30
+	jumpframe 0 3 -1 0
+	landframe 12
+	frame	data/chars/0yuri/kfyuri/jub05.gif
+	frame	data/chars/0yuri/kfyuri/jub04.gif
+	frame	data/chars/0yuri/kfyuri/jub03.gif
+	frame	data/chars/0yuri/kfyuri/jub02.gif
+	@cmd	leaper 0.1 2 
+	frame	data/chars/0yuri/kfyuri/jub01.gif
+	frame	data/chars/0yuri/kfyuri/ju03.gif
+	@cmd	leaper 0.1 1
+	frame	data/chars/0yuri/kfyuri/ju04.gif
+	frame	data/chars/0yuri/kfyuri/ju05.gif #7
+	#@cmd	keyint "ANI_jumpforward" 0 "A" 0 0
+	frame	data/chars/0yuri/kfyuri/ju06.gif
+	frame	data/chars/0yuri/kfyuri/ju05.gif
+	frame	data/chars/0yuri/kfyuri/ju06.gif
+	@cmd	looper 7 25
+	frame	data/chars/0yuri/kfyuri/ju00.gif
+	frame	data/chars/0yuri/kfyuri/ju00a.gif #12
+	frame	data/chars/0yuri/kfyuri/ju00.gif
+
+		
+anim	jumpforward
+	loop	0
+	delay	8
+	offset	145 203
+	bbox	125 100 33 45
+	landframe 5
+	hitfx	data/sounds/beat3.wav
+	sound	data/sounds/yur01.wav
+	forcedirection	-1
+	staydown	300 300
+	frame	data/chars/0yuri/kfyuri/juatk02.gif
+	frame	data/chars/0yuri/kfyuri/jua04.gif
+	delay	30
+	attack	120 130 82 55 30 1 0 0 25 0
+	frame	data/chars/0yuri/kfyuri/jua05.gif
+	delay	8
+	frame	data/chars/0yuri/kfyuri/jua04.gif
+	delay	500
+	frame	data/chars/0yuri/kfyuri/juatk02.gif
+	delay	6
+	frame	data/chars/0yuri/kfyuri/ju00a.gif
+
+		
+anim	jumpland
+	loop	0
+	delay	6
+	offset	145 203
+	bbox	132 120 33 50
+	frame	data/chars/0yuri/kfyuri/ju00a.gif
+
+anim	jumpdelay
+	loop	0
+	delay	6
+	offset	145 203
+	bbox	132 120 33 50
+	frame	data/chars/0yuri/kfyuri/ju00.gif
+
+
+		
+anim	pain
+	loop	0
+	delay	7
+	offset	145 203
+	bbox	132 115 33 80
+	frame	data/chars/0yuri/kfyuri/pain1.gif
+	delay	10
+	frame	data/chars/0yuri/kfyuri/pain2.gif
+	delay	7
+	frame	data/chars/0yuri/kfyuri/pain1.gif
+		
+anim	pain2
+	loop	0
+	delay	7
+	offset	145 203
+	bbox	132 115 33 80
+	frame	data/chars/0yuri/kfyuri/pain3.gif
+	delay	10
+	frame	data/chars/0yuri/kfyuri/pain4.gif
+	delay	7
+	frame	data/chars/0yuri/kfyuri/pain3.gif
+		
+anim	pain3
+	loop	0
+	delay	2
+	offset	145 203
+	bbox	132 115 33 80
+	move	-6
+	frame	data/chars/0yuri/kfyuri/pain1.gif
+	frame	data/chars/0yuri/kfyuri/pain1.gif
+	frame	data/chars/0yuri/kfyuri/pain1.gif
+	frame	data/chars/0yuri/kfyuri/pain2.gif
+	frame	data/chars/0yuri/kfyuri/pain2.gif
+	frame	data/chars/0yuri/kfyuri/pain2.gif
+	move	-3
+	frame	data/chars/0yuri/kfyuri/pain2.gif
+	frame	data/chars/0yuri/kfyuri/pain2.gif
+	move	-1
+	frame	data/chars/0yuri/kfyuri/pain2.gif
+	delay	55
+	frame	data/chars/0yuri/kfyuri/pain2.gif
+
+
+
+anim	pain5
+	loop	0
+	delay	12
+	offset	145 203
+	bbox	132 115 33 80
+	frame	data/chars/0yuri/kfyuri/pain1.gif
+	frame	data/chars/0yuri/kfyuri/pain2.gif
+	frame	data/chars/0yuri/kfyuri/pain3.gif
+	frame	data/chars/0yuri/kfyuri/pain4.gif
+	frame	data/chars/0yuri/kfyuri/de01.gif
+	frame	data/chars/0yuri/kfyuri/de02.gif
+	frame	data/chars/0yuri/kfyuri/de03.gif
+	frame	data/chars/0yuri/kfyuri/de04.gif
+	frame	data/chars/0yuri/kfyuri/dgd10.gif
+	delay	18
+	frame	data/chars/0yuri/kfyuri/dgd09.gif
+	delay	12
+	frame	data/chars/0yuri/kfyuri/dgd10.gif
+	frame	data/chars/0yuri/kfyuri/dgd11.gif
+
+
+anim	pain6
+	loop	0
+	delay	14
+	offset	145 203
+	bbox	0 0 0 0
+	frame	data/chars/0yuri/kfyuri/de01.gif
+	frame	data/chars/0yuri/kfyuri/de02.gif
+	frame	data/chars/0yuri/kfyuri/de03.gif
+	frame	data/chars/0yuri/kfyuri/de04.gif
+	frame	data/chars/0yuri/kfyuri/de05.gif
+	frame	data/chars/0yuri/kfyuri/de06.gif
+	delay	750
+	frame	data/chars/0yuri/kfyuri/de07.gif
+	delay	8
+	@cmd	flip
+	frame	data/chars/0yuri/kfyuri/rise1.gif
+	frame	data/chars/0yuri/kfyuri/rise2.gif
+	frame	data/chars/0yuri/kfyuri/rise3.gif
+	frame	data/chars/0yuri/kfyuri/rise4.gif
+	frame	data/chars/0yuri/kfyuri/rise5.gif
+	frame	data/chars/0yuri/kfyuri/rise6.gif
+	frame	data/chars/0yuri/kfyuri/dgd11.gif
+
+
+
+
+
+anim	fall6
+	loop	0
+	delay	9
+	offset	145 205
+	bbox	0 0 0 0
+	landframe	9
+	sound	data/sounds/yurpa.wav
+	frame	data/chars/0yuri/kfyuri/fall5.gif
+	frame	data/chars/0yuri/kfyuri/fall6.gif
+	frame	data/chars/0yuri/kfyuri/fall7.gif
+	frame	data/chars/0yuri/kfyuri/fall8.gif
+	frame	data/chars/0yuri/kfyuri/fall5.gif
+	frame	data/chars/0yuri/kfyuri/fall6.gif
+	frame	data/chars/0yuri/kfyuri/fall7.gif
+	frame	data/chars/0yuri/kfyuri/fall8.gif
+	@cmd	looper 4 10
+	delay	300
+	frame	data/chars/0yuri/kfyuri/fall5.gif
+	delay	14
+	frame	data/chars/0yuri/kfyuri/fall4.gif
+	offset	145 204
+	frame	data/chars/0yuri/kfyuri/fall4.gif
+	delay	700
+	offset	145 205
+	frame	data/chars/0yuri/kfyuri/fall4.gif
+
+
+
+
+		
+anim	rise
+	loop	0
+	delay	35
+	offset	145 203
+	bbox	0 0 0 0
+	frame	data/chars/0yuri/kfyuri/fall4.gif
+	delay	8
+	frame	data/chars/0yuri/kfyuri/rise1.gif
+	frame	data/chars/0yuri/kfyuri/rise2.gif
+	frame	data/chars/0yuri/kfyuri/rise3.gif
+	frame	data/chars/0yuri/kfyuri/rise4.gif
+	frame	data/chars/0yuri/kfyuri/rise5.gif
+	frame	data/chars/0yuri/kfyuri/rise6.gif
+	frame	data/chars/0yuri/kfyuri/dgd11.gif
+
+		
+anim	run
+	loop	1
+	delay	8
+	offset	145 203
+	bbox	132 115 33 80
+	frame	data/chars/0yuri/kfyuri/run01.gif
+	sound	data/sounds/run.wav
+	frame	data/chars/0yuri/kfyuri/run02.gif
+	frame	data/chars/0yuri/kfyuri/run03.gif
+	frame	data/chars/0yuri/kfyuri/run04.gif
+	sound	data/sounds/run.wav
+	frame	data/chars/0yuri/kfyuri/run05.gif
+	frame	data/chars/0yuri/kfyuri/run06.gif
+		
+anim	runattack
+	loop	0
+	delay	6
+	offset	145 203
+	bbox	132 115 33 80
+	fastattack	1
+	forcedirection	-1
+	hitfx	data/sounds/beat3.wav
+	@cmd	dasher 3 0 0
+	frame	data/chars/0yuri/kfyuri/c06.gif
+	sound	data/sounds/punch3.wav
+	frame	data/chars/0yuri/kfyuri/c07.gif
+	attack8	120 115 55 40 8 0 1 0 10 15
+	frame	data/chars/0yuri/kfyuri/c08.gif
+	frame	data/chars/0yuri/kfyuri/c09.gif
+	attack8	0 0 0 0
+	frame	data/chars/0yuri/kfyuri/c10.gif
+	frame	data/chars/0yuri/kfyuri/c11.gif
+	delay	5
+	attack	140 124 56 40 30 1 0 0 17 0
+	dropv	3 3
+	frame	data/chars/0yuri/kfyuri/c13.gif
+	frame	data/chars/0yuri/kfyuri/c13a.gif
+	frame	data/chars/0yuri/kfyuri/c13.gif
+	frame	data/chars/0yuri/kfyuri/c13a.gif
+	@cmd	dasher 1.5 0 0
+	frame	data/chars/0yuri/kfyuri/c13.gif
+	frame	data/chars/0yuri/kfyuri/c13a.gif
+	delay	6
+	attack	0 0 0 0
+	frame	data/chars/0yuri/kfyuri/c14.gif
+	@cmd	stop
+	frame	data/chars/0yuri/kfyuri/c15.gif
+	frame	data/chars/0yuri/kfyuri/c16.gif
+	frame	data/chars/0yuri/kfyuri/c17.gif
+	frame	data/chars/0yuri/kfyuri/c18.gif
+
+
+
+		
+anim	runjump
+	loop	0
+	delay	12
+	offset	145 203
+	bbox	132 90 33 50
+	frame	data/chars/0yuri/kfyuri/ju01.gif
+	frame	data/chars/0yuri/kfyuri/ju02.gif
+	frame	data/chars/0yuri/kfyuri/ju03.gif
+		
+anim	runjumpattack
+	loop	0
+	delay	8
+	offset	145 203
+	bbox	132 90 33 50
+	sound	data/sounds/yur01.wav
+	hitfx	data/sounds/beat5.wav
+	forcedirection	-1
+	staydown	300 300
+	frame	data/chars/0yuri/kfyuri/juatk02.gif
+	frame	data/chars/0yuri/kfyuri/juatk03.gif
+	frame	data/chars/0yuri/kfyuri/juatk04.gif
+	attack	130 87 80 75 30 1 0 0 30 0
+	dropv	3 3
+	frame	data/chars/0yuri/kfyuri/juatk05.gif
+	delay	6
+	frame	data/chars/0yuri/kfyuri/juatk06.gif
+	frame	data/chars/0yuri/kfyuri/juatk07.gif
+	frame	data/chars/0yuri/kfyuri/juatk06.gif
+	frame	data/chars/0yuri/kfyuri/juatk07.gif
+	frame	data/chars/0yuri/kfyuri/juatk06.gif
+	frame	data/chars/0yuri/kfyuri/juatk07.gif
+	frame	data/chars/0yuri/kfyuri/juatk06.gif
+	frame	data/chars/0yuri/kfyuri/juatk07.gif
+	frame	data/chars/0yuri/kfyuri/juatk06.gif
+	frame	data/chars/0yuri/kfyuri/juatk07.gif
+	frame	data/chars/0yuri/kfyuri/juatk06.gif
+	frame	data/chars/0yuri/kfyuri/juatk07.gif
+	frame	data/chars/0yuri/kfyuri/juatk06.gif
+	frame	data/chars/0yuri/kfyuri/juatk07.gif
+	frame	data/chars/0yuri/kfyuri/juatk06.gif
+	frame	data/chars/0yuri/kfyuri/juatk07.gif
+	frame	data/chars/0yuri/kfyuri/juatk06.gif
+	frame	data/chars/0yuri/kfyuri/juatk07.gif
+	frame	data/chars/0yuri/kfyuri/juatk06.gif
+	frame	data/chars/0yuri/kfyuri/juatk07.gif
+	frame	data/chars/0yuri/kfyuri/juatk06.gif
+	frame	data/chars/0yuri/kfyuri/juatk07.gif
+	frame	data/chars/0yuri/kfyuri/juatk06.gif
+	frame	data/chars/0yuri/kfyuri/juatk07.gif
+
+
+		
+anim	runslide
+	loop	0
+	delay	7
+	offset	145 203
+	bbox	133 150 33 50
+	@cmd	dasher 3 0 0
+	frame	data/chars/0yuri/kfyuri/sld04.gif
+	sound	data/sounds/yur01.wav
+	frame	data/chars/0yuri/kfyuri/sld05.gif
+	frame	data/chars/0yuri/kfyuri/sld06.gif
+	attack	130 160 87 40 25 1 0 0 18 0
+	dropv	3 3
+	frame	data/chars/0yuri/kfyuri/sld07.gif
+	frame	data/chars/0yuri/kfyuri/sld08.gif
+	frame	data/chars/0yuri/kfyuri/sld07.gif
+	frame	data/chars/0yuri/kfyuri/sld08.gif
+	frame	data/chars/0yuri/kfyuri/sld07.gif
+	frame	data/chars/0yuri/kfyuri/sld08.gif
+	@cmd	dasher 2.5 0 0
+	frame	data/chars/0yuri/kfyuri/sld07.gif
+	frame	data/chars/0yuri/kfyuri/sld08.gif
+	attack	0 0 0 0
+	@cmd	stop
+	frame	data/chars/0yuri/kfyuri/sld06.gif
+	frame	data/chars/0yuri/kfyuri/sld09.gif
+	frame	data/chars/0yuri/kfyuri/sld10.gif
+	frame	data/chars/0yuri/kfyuri/c17.gif
+
+		
+anim	select
+	loop	0
+	delay	10
+	offset	0 0
+	bbox	0 0 0 0
+	sound	data/sounds/yuri.wav
+	frame	data/chars/0yuri/kfyuri/wait10.gif
+	frame	data/chars/0yuri/kfyuri/wait11.gif
+	frame	data/chars/0yuri/kfyuri/wait12.gif
+	frame	data/chars/0yuri/kfyuri/wait13.gif
+	delay	80
+	frame	data/chars/0yuri/kfyuri/wait13.gif
+	delay	30
+	frame	data/chars/0yuri/kfyuri/wait13.gif
+	frame	data/chars/0yuri/kfyuri/wait13.gif
+	frame	data/chars/0yuri/kfyuri/wait13.gif
+
+
+anim	respawn
+	loop	0
+	delay	6
+	offset	145 203
+	bbox	0 0 0 0
+	jumpframe 1 2.4
+	frame	data/chars/0yuri/kfyuri/grabat01.gif
+	frame	data/chars/0yuri/kfyuri/grabat03.gif
+	frame	data/chars/0yuri/kfyuri/grabat04.gif
+	frame	data/chars/0yuri/kfyuri/grabat05.gif
+	frame	data/chars/0yuri/kfyuri/rise5.gif
+	frame	data/chars/0yuri/kfyuri/rise6.gif
+	frame	data/chars/0yuri/kfyuri/dgd11.gif
+	delay	9
+	frame	data/chars/0yuri/kfyuri/blk01.gif
+	frame	data/chars/0yuri/kfyuri/win01.gif
+	frame	data/chars/0yuri/kfyuri/win02.gif
+	frame	data/chars/0yuri/kfyuri/win03.gif
+	delay	35
+	frame	data/chars/0yuri/kfyuri/win04.gif
+
+
+anim	spawn
+	loop	0
+	delay	6
+	offset	145 203
+	bbox	0 0 0 0
+	jumpframe 1 2.4
+	frame	data/chars/0yuri/kfyuri/grabat01.gif
+	frame	data/chars/0yuri/kfyuri/grabat03.gif
+	frame	data/chars/0yuri/kfyuri/grabat04.gif
+	frame	data/chars/0yuri/kfyuri/grabat05.gif
+	frame	data/chars/0yuri/kfyuri/rise5.gif
+	frame	data/chars/0yuri/kfyuri/rise6.gif
+	frame	data/chars/0yuri/kfyuri/dgd11.gif
+	delay	9
+	frame	data/chars/0yuri/kfyuri/blk01.gif
+	frame	data/chars/0yuri/kfyuri/win01.gif
+	frame	data/chars/0yuri/kfyuri/win02.gif
+	frame	data/chars/0yuri/kfyuri/win03.gif
+	delay	35
+	frame	data/chars/0yuri/kfyuri/win04.gif
+
+
+anim	special
+	energycost 40
+	mponly	1
+	loop	0
+	delay	6
+	offset	145 203
+	bbox	0 0 0 0
+	#jumpframe 0 1
+	#landframe 28
+	hitfx	data/sounds/beat5.wav
+	staydown	400 400
+	frame	data/chars/0yuri/kfyuri/ju00.gif
+	sound	data/sounds/yurch.wav
+	frame	data/chars/0yuri/kfyuri/b12.gif
+	frame	data/chars/0yuri/kfyuri/b18.gif
+	@cmd	leaper 0 0.2
+	frame	data/chars/0yuri/kfyuri/b19.gif
+	delay	3
+	attack	145 115 80 55 35 1 1 0 20 0
+	dropv	3 3
+	sound	data/sounds/punch2.wav
+	@cmd	leaper 0 0.1
+	frame	data/chars/0yuri/kfyuri/spb05.gif
+	@cmd	leaper 0 0.1
+	frame	data/chars/0yuri/kfyuri/spb05.gif
+	attack	0 0 0 0
+	@cmd	leaper 0 0.1
+	frame	data/chars/0yuri/kfyuri/spb05a.gif
+	@cmd	leaper 0 0.1
+	frame	data/chars/0yuri/kfyuri/spb05a.gif
+	attack	128 120 31 55 35 1 1 0 0 30
+	dropv	3 0 1
+	@cmd	leaper 0 0.1
+	frame	data/chars/0yuri/kfyuri/spb06.gif
+	@cmd	leaper 0 0.1
+	frame	data/chars/0yuri/kfyuri/spb06.gif
+	attack	0 0 0 0
+	sound	data/sounds/punch2.wav
+	@cmd	leaper 0 0.1
+	frame	data/chars/0yuri/kfyuri/spb07.gif
+	@cmd	leaper 0 0.1
+	frame	data/chars/0yuri/kfyuri/spb07.gif
+	attack	75 115 77 55 35 1 1 0 20 0
+	dropv	3 3
+	@cmd	leaper 0 0.1
+	frame	data/chars/0yuri/kfyuri/spb08.gif
+	@cmd	leaper 0 0.1
+	frame	data/chars/0yuri/kfyuri/spb08.gif
+	attack	0 0 0 0
+	@cmd	leaper 0 0.1
+	frame	data/chars/0yuri/kfyuri/spb08a.gif
+	sound	data/sounds/punch2.wav
+	@cmd	leaper 0 0.1
+	frame	data/chars/0yuri/kfyuri/spb08a.gif
+	@cmd	leaper 0 0.1
+	attack	128 90 31 55 35 1 1 0 0 30
+	dropv	3 0 -1
+	frame	data/chars/0yuri/kfyuri/spb09.gif
+	@cmd	leaper 0 0.1
+	frame	data/chars/0yuri/kfyuri/spb09.gif
+	attack	0 0 0 0
+	@cmd	leaper 0 0.1
+	frame	data/chars/0yuri/kfyuri/spb10.gif
+	@cmd	leaper 0 0.1
+	frame	data/chars/0yuri/kfyuri/spb10.gif
+	@cmd	looper 4 3
+	delay	6
+	frame	data/chars/0yuri/kfyuri/b22.gif #20
+	frame	data/chars/0yuri/kfyuri/b23.gif
+	frame	data/chars/0yuri/kfyuri/b27.gif
+	frame	data/chars/0yuri/kfyuri/c06.gif
+	frame	data/chars/0yuri/kfyuri/c07.gif
+	frame	data/chars/0yuri/kfyuri/c08.gif
+	frame	data/chars/0yuri/kfyuri/b05.gif
+	#delay	300
+	frame	data/chars/0yuri/kfyuri/b06.gif
+	delay	6
+	#frame	data/chars/0yuri/kfyuri/ju00a.gif
+	#frame	data/chars/0yuri/kfyuri/ju00.gif
+
+		
+anim	waiting
+	loop	0
+	delay	9
+	offset	0 0 0 0
+	frame	data/chars/0yuri/kfyuri/wait1.gif
+	frame	data/chars/0yuri/kfyuri/wait2.gif
+	frame	data/chars/0yuri/kfyuri/wait3.gif
+		
+anim	walk
+	loop	1
+	delay	8
+	offset	145 203
+	bbox	130 112 33 80
+	frame	data/chars/0yuri/kfyuri/ywk01.gif
+	frame	data/chars/0yuri/kfyuri/ywk02.gif
+	frame	data/chars/0yuri/kfyuri/ywk03.gif
+	frame	data/chars/0yuri/kfyuri/ywk04.gif
+	frame	data/chars/0yuri/kfyuri/ywk05.gif
+	frame	data/chars/0yuri/kfyuri/ywk06.gif
+	frame	data/chars/0yuri/kfyuri/ywk07.gif
+	frame	data/chars/0yuri/kfyuri/ywk08.gif
+		
+anim	walkoff
+	loop	0
+	delay	8
+	offset	145 203
+	bbox	130 100 33 45
+	frame	data/chars/0yuri/kfyuri/ju04.gif
+	frame	data/chars/0yuri/kfyuri/ju05.gif
+		
+#|edited by openBor Stats v 0.53
+		

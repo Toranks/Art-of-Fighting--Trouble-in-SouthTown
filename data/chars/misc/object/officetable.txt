@@ -1,0 +1,96 @@
+name	 officetable
+type	 npc
+health	 9999999
+nolife  1
+nomove		1 1
+shadow	  0
+subject_to_wall 0
+hostile		player enemy
+animationscript data/scripts/escript.c
+
+load	fmoney
+
+anim	idle
+	loop	1
+	delay	15
+	offset	210 35
+	bbox	0 0 0 0
+	frame	data/chars/misc/object/officetable.gif
+	@cmd	attack3 -175 170 -1 42 "ANI_FOLLOW1"
+	frame	data/chars/misc/object/officetable.gif
+
+
+anim	follow1
+	loop	0
+	delay	7
+	offset	210 35
+	bbox	0 0 0 0
+	sound	data/sounds/burnt.wav
+	frame	data/chars/misc/object/officetable.gif
+	sound	data/sounds/burnt.wav
+	frame	data/chars/misc/object/officetable1.gif
+	@cmd    tosser "fmoney" 1 70 50 0 1.5 0
+	frame	data/chars/misc/object/officetable2.gif
+	sound	data/sounds/cut3.wav
+	frame	data/chars/misc/object/officetable1.gif
+	sound	data/sounds/cut3.wav
+	@cmd    tosser "fmoney" 1 65 50 0.07 1.5 0
+	frame	data/chars/misc/object/officetable.gif
+	frame	data/chars/misc/object/officetable3.gif
+	@cmd    tosser "fmoney" 1 65 50 -0.07 1.5 0
+	frame	data/chars/misc/object/officetable4.gif
+	sound	data/sounds/glass3.wav
+	frame	data/chars/misc/object/officetable3.gif
+	@cmd    tosser3 "fmoney" 1 40 55 0 3.7 0 "ANI_FOLLOW1"
+	sound	data/sounds/glass3.wav
+	frame	data/chars/misc/object/officetable.gif
+	delay	14
+	frame	data/chars/misc/object/officetable.gif
+	@cmd    tosser3 "fmoney" 1 40 55 0.8 3.8 0 "ANI_FOLLOW2"
+	frame	data/chars/misc/object/officetable.gif
+	@cmd    tosser3 "fmoney" 1 40 55 -0.5 3.7 0 "ANI_FOLLOW1"
+	frame	data/chars/misc/object/officetable.gif
+	@cmd    tosser "fmoney" 0 60 50 0 1.5 0
+	@cmd    tosser "fmoney" -45 55 50 0.07 1.5 0
+	@cmd    tosser "fmoney" 45 55 50 -0.07 1.5 0
+	frame	data/chars/misc/object/officetable.gif
+	@cmd    tosser3 "fmoney" 1 40 60 0 3.8 0 "ANI_FOLLOW2"
+	frame	data/chars/misc/object/officetable.gif
+	@cmd    tosser3 "fmoney" 1 40 50 0.5 3.7 0 "ANI_FOLLOW1"
+	frame	data/chars/misc/object/officetable.gif
+	@cmd    tosser3 "fmoney" 1 40 45 -0.8 3.8 0 "ANI_FOLLOW2"
+	frame	data/chars/misc/object/officetable.gif
+	delay	500
+	frame	data/chars/misc/object/officetable.gif
+	delay	20
+	frame	data/chars/misc/object/officetable.gif
+	@cmd	beidle
+	frame	data/chars/misc/object/officetable.gif
+
+
+
+anim	follow2
+	loop	0
+	delay	15
+	offset	210 35
+	bbox	0 0 0 0
+	frame	data/chars/misc/object/officetable.gif
+	@cmd	beidle
+	frame	data/chars/misc/object/officetable.gif
+
+
+
+
+anim	spawn
+	loop	1
+	offset	210 35
+	bbox	30 10 330 50 50
+	counterrange 0 11 1 1
+     	followanim 2
+	frame	data/chars/misc/object/officetable.gif
+	frame	data/chars/misc/object/officetable.gif
+	frame	data/chars/misc/object/officetable.gif
+	frame	data/chars/misc/object/officetable.gif
+
+
+

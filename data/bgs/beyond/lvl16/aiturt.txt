@@ -1,0 +1,396 @@
+name          aiturt
+type          enemy
+health        20
+nolife	      1
+speed         10
+jumpheight    0
+nopain		1
+nodrop		2
+cantgrab	1
+notgrab		1
+shadow        6
+noquake       1
+nolife        1
+falldie	      1
+nodieblink    3
+aggression	-15
+dust            dust
+projectilehit enemy obstacle
+diesound      data/sounds/bang.wav
+
+animationscript data/scripts/escript.c
+
+
+load	glassbrk2
+load    expeff1
+
+anim	death
+	loop	0
+	delay	9
+	offset	125 440
+	bbox	0 0 0 0
+	platform	1 1 1 1 1 1 1 1
+	frame	data/bgs/beyond/lvl16/aid01.gif
+	offset	121 440
+	@cmd	degravity 1
+	frame	data/bgs/beyond/lvl16/aid02.gif
+	offset	125 440
+	frame	data/bgs/beyond/lvl16/aid01.gif
+	@cmd	spawnbind "glassbrk2" -10 110 1
+	offset	121 440
+	frame	data/bgs/beyond/lvl16/aid02.gif
+	offset	125 440
+	frame	data/bgs/beyond/lvl16/aid01.gif
+	offset	121 440
+	frame	data/bgs/beyond/lvl16/aid02.gif
+	@cmd	spawnbind "glassbrk2" 60 130 1
+	offset	125 440
+	frame	data/bgs/beyond/lvl16/aid01.gif
+	offset	121 440
+	frame	data/bgs/beyond/lvl16/aid02.gif
+	offset	125 440
+	frame	data/bgs/beyond/lvl16/aid01.gif #8
+	offset	121 440
+	frame	data/bgs/beyond/lvl16/aid02.gif
+	offset	125 440
+	frame	data/bgs/beyond/lvl16/aid01.gif
+	offset	121 440
+	frame	data/bgs/beyond/lvl16/aid02.gif
+	@cmd	looper 8 7
+
+	offset	125 440
+	frame	data/bgs/beyond/lvl16/aid01.gif
+	@cmd	dasher 0 0.2 0
+	offset	121 440
+	frame	data/bgs/beyond/lvl16/aid02.gif
+	offset	125 440
+	frame	data/bgs/beyond/lvl16/aid01.gif #14
+	offset	121 440
+	frame	data/bgs/beyond/lvl16/aid02.gif
+	@cmd	spawn01 "expeff1" -15 90 1
+	offset	125 440
+	frame	data/bgs/beyond/lvl16/aid01.gif
+	sound	data/sounds/steel3.wav
+	offset	121 440
+	frame	data/bgs/beyond/lvl16/aid02.gif
+	offset	125 440
+	frame	data/bgs/beyond/lvl16/aid01.gif
+	offset	121 440
+	frame	data/bgs/beyond/lvl16/aid02.gif
+	@cmd	spawn01 "expeff1" 35 110 1
+	offset	125 440
+	frame	data/bgs/beyond/lvl16/aid01.gif
+	offset	121 440
+	frame	data/bgs/beyond/lvl16/aid02.gif
+	@cmd	looper 14 15
+
+	offset	125 440
+	frame	data/bgs/beyond/lvl16/aid01.gif
+	offset	121 440
+	frame	data/bgs/beyond/lvl16/aid02.gif
+	offset	125 440
+	frame	data/bgs/beyond/lvl16/aid01.gif
+	offset	121 440
+	frame	data/bgs/beyond/lvl16/aid02.gif
+	offset	125 440
+	frame	data/bgs/beyond/lvl16/aid01.gif
+	offset	121 440
+	frame	data/bgs/beyond/lvl16/aid02.gif
+	offset	125 440
+	frame	data/bgs/beyond/lvl16/aid01.gif
+	offset	121 440
+	frame	data/bgs/beyond/lvl16/aid02.gif
+	offset	125 440
+	frame	data/bgs/beyond/lvl16/aid01.gif
+	offset	121 440
+	frame	data/bgs/beyond/lvl16/aid02.gif
+	offset	125 440
+	frame	data/bgs/beyond/lvl16/aid01.gif
+	@cmd	stop
+	offset	121 440
+	frame	data/bgs/beyond/lvl16/aid02.gif
+	@cmd	suicide
+	frame	data/bgs/beyond/lvl16/aid02.gif
+
+
+anim	attack1
+	range	0 130
+	loop	0
+	delay	5
+	offset	125 440
+	bbox	65 297 120 90 25
+	platform	1 1 1 1 1 1 1 1
+	frame	data/bgs/beyond/lvl16/ai01.gif
+	movez	-1
+	frame	data/bgs/beyond/lvl16/ai01.gif
+	frame	data/bgs/beyond/lvl16/ai01.gif
+	frame	data/bgs/beyond/lvl16/ai01.gif
+	frame	data/bgs/beyond/lvl16/ai01.gif
+	frame	data/bgs/beyond/lvl16/ai01.gif
+
+	frame	data/bgs/beyond/lvl16/ai02.gif
+	frame	data/bgs/beyond/lvl16/ai02.gif
+	frame	data/bgs/beyond/lvl16/ai02.gif
+	frame	data/bgs/beyond/lvl16/ai02.gif
+	frame	data/bgs/beyond/lvl16/ai02.gif
+	frame	data/bgs/beyond/lvl16/ai02.gif
+
+
+	frame	data/bgs/beyond/lvl16/ai01.gif
+	frame	data/bgs/beyond/lvl16/ai01.gif
+	frame	data/bgs/beyond/lvl16/ai01.gif
+	frame	data/bgs/beyond/lvl16/ai01.gif
+	frame	data/bgs/beyond/lvl16/ai01.gif
+	frame	data/bgs/beyond/lvl16/ai01.gif
+	movez	0
+	move	3
+	frame	data/bgs/beyond/lvl16/ai02.gif
+	frame	data/bgs/beyond/lvl16/ai02.gif
+	frame	data/bgs/beyond/lvl16/ai02.gif
+	frame	data/bgs/beyond/lvl16/ai02.gif
+	frame	data/bgs/beyond/lvl16/ai02.gif
+	frame	data/bgs/beyond/lvl16/ai02.gif
+
+	frame	data/bgs/beyond/lvl16/ai00.gif
+	frame	data/bgs/beyond/lvl16/ai00.gif
+	frame	data/bgs/beyond/lvl16/ai07.gif
+	frame	data/bgs/beyond/lvl16/ai07.gif
+	frame	data/bgs/beyond/lvl16/ai00.gif
+	frame	data/bgs/beyond/lvl16/ai00.gif
+	frame	data/bgs/beyond/lvl16/ai07.gif
+	frame	data/bgs/beyond/lvl16/ai07.gif
+
+	frame	data/bgs/beyond/lvl16/ai03.gif
+	frame	data/bgs/beyond/lvl16/ai04.gif
+	frame	data/bgs/beyond/lvl16/ai03.gif
+	frame	data/bgs/beyond/lvl16/ai04.gif
+	frame	data/bgs/beyond/lvl16/ai03.gif
+	frame	data/bgs/beyond/lvl16/ai04.gif
+	frame	data/bgs/beyond/lvl16/ai03.gif
+	frame	data/bgs/beyond/lvl16/ai04.gif
+	frame	data/bgs/beyond/lvl16/ai03.gif
+	frame	data/bgs/beyond/lvl16/ai04.gif
+	frame	data/bgs/beyond/lvl16/ai03.gif
+	frame	data/bgs/beyond/lvl16/ai04.gif
+	move	0
+	frame	data/bgs/beyond/lvl16/ai01.gif
+	frame	data/bgs/beyond/lvl16/ai01.gif
+	frame	data/bgs/beyond/lvl16/ai01.gif
+	frame	data/bgs/beyond/lvl16/ai01.gif
+	frame	data/bgs/beyond/lvl16/ai01.gif
+	frame	data/bgs/beyond/lvl16/ai01.gif
+
+	frame	data/bgs/beyond/lvl16/ai02.gif
+	frame	data/bgs/beyond/lvl16/ai02.gif
+	frame	data/bgs/beyond/lvl16/ai02.gif
+	frame	data/bgs/beyond/lvl16/ai02.gif
+	frame	data/bgs/beyond/lvl16/ai02.gif
+	frame	data/bgs/beyond/lvl16/ai02.gif
+
+
+
+anim	fall
+	loop	0
+	delay	25
+	offset	125 440
+	bbox	65 297 120 90 25
+	platform	1 1 1 1 1 1 1 1
+	frame	data/bgs/beyond/lvl16/ai01.gif
+
+
+anim	idle
+	loop	1
+	delay	30
+	offset	125 440
+	bbox	65 297 120 90 25
+	platform	1 1 1 1 1 1 1 1
+	frame	data/bgs/beyond/lvl16/ai01.gif
+	frame	data/bgs/beyond/lvl16/ai02.gif
+	frame	data/bgs/beyond/lvl16/ai01.gif
+	frame	data/bgs/beyond/lvl16/ai02.gif
+	delay	80
+	frame	data/bgs/beyond/lvl16/ai01.gif
+	delay	12
+	frame	data/bgs/beyond/lvl16/ai00.gif
+	frame	data/bgs/beyond/lvl16/ai07.gif
+	frame	data/bgs/beyond/lvl16/ai00.gif
+	frame	data/bgs/beyond/lvl16/ai07.gif
+	frame	data/bgs/beyond/lvl16/ai03.gif
+	frame	data/bgs/beyond/lvl16/ai04.gif
+	frame	data/bgs/beyond/lvl16/ai03.gif
+	frame	data/bgs/beyond/lvl16/ai04.gif
+	frame	data/bgs/beyond/lvl16/ai03.gif
+	frame	data/bgs/beyond/lvl16/ai04.gif
+	frame	data/bgs/beyond/lvl16/ai00.gif
+	frame	data/bgs/beyond/lvl16/ai07.gif
+	frame	data/bgs/beyond/lvl16/ai00.gif
+	frame	data/bgs/beyond/lvl16/ai07.gif
+
+
+anim	turn
+	loop	0
+	delay	12
+	offset	125 440
+	bbox	65 297 120 90 25
+	platform	1 1 1 1 1 1 1 1
+	frame	data/bgs/beyond/lvl16/ai00.gif
+	frame	data/bgs/beyond/lvl16/ai07.gif
+	frame	data/bgs/beyond/lvl16/ai00.gif
+	frame	data/bgs/beyond/lvl16/ai07.gif
+	frame	data/bgs/beyond/lvl16/ai03.gif
+	frame	data/bgs/beyond/lvl16/ai04.gif
+	frame	data/bgs/beyond/lvl16/ai03.gif
+	frame	data/bgs/beyond/lvl16/ai04.gif
+	frame	data/bgs/beyond/lvl16/ai03.gif
+	frame	data/bgs/beyond/lvl16/ai04.gif
+	frame	data/bgs/beyond/lvl16/ai01.gif
+	frame	data/bgs/beyond/lvl16/ai05.gif
+	frame	data/bgs/beyond/lvl16/ai06.gif
+	drawmethod 256 256 1
+	frame	data/bgs/beyond/lvl16/ai05.gif
+	delay	5
+	frame	data/bgs/beyond/lvl16/ai01.gif
+	move	4
+	frame	data/bgs/beyond/lvl16/ai01.gif
+	frame	data/bgs/beyond/lvl16/ai01.gif
+	frame	data/bgs/beyond/lvl16/ai01.gif
+	frame	data/bgs/beyond/lvl16/ai01.gif
+	frame	data/bgs/beyond/lvl16/ai01.gif
+
+	frame	data/bgs/beyond/lvl16/ai02.gif
+	frame	data/bgs/beyond/lvl16/ai02.gif
+	frame	data/bgs/beyond/lvl16/ai02.gif
+	frame	data/bgs/beyond/lvl16/ai02.gif
+	frame	data/bgs/beyond/lvl16/ai02.gif
+	frame	data/bgs/beyond/lvl16/ai02.gif
+
+	frame	data/bgs/beyond/lvl16/ai01.gif
+	frame	data/bgs/beyond/lvl16/ai01.gif
+	frame	data/bgs/beyond/lvl16/ai01.gif
+	frame	data/bgs/beyond/lvl16/ai01.gif
+	frame	data/bgs/beyond/lvl16/ai01.gif
+
+	frame	data/bgs/beyond/lvl16/ai02.gif
+	frame	data/bgs/beyond/lvl16/ai02.gif
+	frame	data/bgs/beyond/lvl16/ai02.gif
+	frame	data/bgs/beyond/lvl16/ai02.gif
+	frame	data/bgs/beyond/lvl16/ai02.gif
+	frame	data/bgs/beyond/lvl16/ai02.gif
+
+	frame	data/bgs/beyond/lvl16/ai01.gif
+	frame	data/bgs/beyond/lvl16/ai01.gif
+	frame	data/bgs/beyond/lvl16/ai01.gif
+	frame	data/bgs/beyond/lvl16/ai01.gif
+	frame	data/bgs/beyond/lvl16/ai01.gif
+	frame	data/bgs/beyond/lvl16/ai01.gif
+
+	frame	data/bgs/beyond/lvl16/ai02.gif
+	frame	data/bgs/beyond/lvl16/ai02.gif
+	frame	data/bgs/beyond/lvl16/ai02.gif
+	frame	data/bgs/beyond/lvl16/ai02.gif
+	frame	data/bgs/beyond/lvl16/ai02.gif
+	frame	data/bgs/beyond/lvl16/ai02.gif
+
+	frame	data/bgs/beyond/lvl16/ai00.gif
+	frame	data/bgs/beyond/lvl16/ai00.gif
+	frame	data/bgs/beyond/lvl16/ai00.gif
+	frame	data/bgs/beyond/lvl16/ai07.gif
+	frame	data/bgs/beyond/lvl16/ai07.gif
+	frame	data/bgs/beyond/lvl16/ai07.gif
+
+	frame	data/bgs/beyond/lvl16/ai00.gif
+	frame	data/bgs/beyond/lvl16/ai00.gif
+	frame	data/bgs/beyond/lvl16/ai00.gif
+	frame	data/bgs/beyond/lvl16/ai07.gif
+	frame	data/bgs/beyond/lvl16/ai07.gif
+	frame	data/bgs/beyond/lvl16/ai07.gif
+	move	0
+	delay	12
+	frame	data/bgs/beyond/lvl16/ai03.gif
+	frame	data/bgs/beyond/lvl16/ai04.gif
+	frame	data/bgs/beyond/lvl16/ai03.gif
+	frame	data/bgs/beyond/lvl16/ai04.gif
+
+
+
+
+anim	pain
+	
+anim	rise
+	loop	0
+	delay	22
+	offset	125 440
+	bbox	0 0 0 0
+	platform	1 1 1 1 1 1 1 1
+	frame	data/bgs/beyond/lvl16/ai01.gif
+
+
+anim	spawn
+@script
+if(frame==1)
+{
+  changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_OBSTACLE"));
+}
+@end_script
+	loop	0
+	delay	30
+	offset	125 440
+	bbox	0 0 0 0
+	platform	1 1 1 1 1 1 1 1
+	frame	data/bgs/beyond/lvl16/ai01.gif
+	frame	data/bgs/beyond/lvl16/ai01.gif
+	delay	250
+	frame	data/bgs/beyond/lvl16/ai01.gif
+	delay	12
+	frame	data/bgs/beyond/lvl16/ai00.gif #3
+	frame	data/bgs/beyond/lvl16/ai07.gif
+	frame	data/bgs/beyond/lvl16/ai00.gif
+	frame	data/bgs/beyond/lvl16/ai07.gif
+	delay	30
+	frame	data/bgs/beyond/lvl16/ai01.gif
+	frame	data/bgs/beyond/lvl16/ai02.gif
+	frame	data/bgs/beyond/lvl16/ai01.gif
+	frame	data/bgs/beyond/lvl16/ai02.gif
+	frame	data/bgs/beyond/lvl16/ai01.gif
+	frame	data/bgs/beyond/lvl16/ai02.gif
+	frame	data/bgs/beyond/lvl16/ai01.gif
+	frame	data/bgs/beyond/lvl16/ai02.gif
+	delay	150
+	frame	data/bgs/beyond/lvl16/ai01.gif
+	delay	30
+	frame	data/bgs/beyond/lvl16/ai01.gif
+	frame	data/bgs/beyond/lvl16/ai02.gif
+	frame	data/bgs/beyond/lvl16/ai01.gif
+	frame	data/bgs/beyond/lvl16/ai02.gif
+	frame	data/bgs/beyond/lvl16/ai01.gif
+	frame	data/bgs/beyond/lvl16/ai02.gif
+	delay	12
+	frame	data/bgs/beyond/lvl16/ai00.gif
+	frame	data/bgs/beyond/lvl16/ai07.gif
+	frame	data/bgs/beyond/lvl16/ai00.gif
+	frame	data/bgs/beyond/lvl16/ai07.gif
+	frame	data/bgs/beyond/lvl16/ai00.gif
+	frame	data/bgs/beyond/lvl16/ai03.gif
+	frame	data/bgs/beyond/lvl16/ai04.gif
+	frame	data/bgs/beyond/lvl16/ai03.gif
+	frame	data/bgs/beyond/lvl16/ai04.gif
+	frame	data/bgs/beyond/lvl16/ai03.gif
+	frame	data/bgs/beyond/lvl16/ai04.gif
+	frame	data/bgs/beyond/lvl16/ai03.gif
+	frame	data/bgs/beyond/lvl16/ai04.gif
+	frame	data/bgs/beyond/lvl16/ai03.gif
+	frame	data/bgs/beyond/lvl16/ai04.gif
+	@cmd	looper 3 10
+	frame	data/bgs/beyond/lvl16/ai03.gif
+	frame	data/bgs/beyond/lvl16/ai04.gif
+	frame	data/bgs/beyond/lvl16/ai03.gif
+	frame	data/bgs/beyond/lvl16/ai04.gif
+	frame	data/bgs/beyond/lvl16/ai00.gif
+	frame	data/bgs/beyond/lvl16/ai07.gif
+	frame	data/bgs/beyond/lvl16/ai00.gif
+	frame	data/bgs/beyond/lvl16/ai07.gif
+	frame	data/bgs/beyond/lvl16/ai00.gif
+
+
+
+

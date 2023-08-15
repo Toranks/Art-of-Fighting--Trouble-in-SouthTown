@@ -1,0 +1,156 @@
+name	wdblk1
+type	obstacle
+health	80
+falldie 1
+nolife  1
+shadow	0
+facing	1
+lifespan 10
+subject_to_minz    0
+subject_to_maxz    0
+subject_to_obstacle    0
+hostile				player enemy npc
+candamage			player enemy npc
+animationscript data/scripts/escript.c
+
+
+load	brkwood
+load	brkwood2
+load	brkwood3
+load	brkwood4
+
+
+anim	fall
+	loop	0
+	delay	10
+	offset	5 5
+	frame	data/bgs/beyond/lvl4/wdblk03.gif
+	frame	data/bgs/beyond/lvl4/wdblk03.gif
+
+
+anim	death
+	loop	0
+	delay	10
+	offset	5 5
+	frame	data/bgs/beyond/lvl4/wdblk03.gif
+	frame	data/bgs/beyond/lvl4/wdblk03.gif
+
+
+anim	idle
+	loop	1
+	delay	3
+	offset	165 130
+	counterrange 0 3 1 0
+     	followanim 1
+
+	@cmd	dasher -5.4 0 0 
+
+
+	bbox	15 55 150 110 120
+	frame	data/bgs/beyond/lvl4/wdblk02.gif
+	bbox	95 120 145 105 120
+	@cmd	attack3 -190 165 -40 70 "ANI_FOLLOW1"
+	frame	data/bgs/beyond/lvl4/wdblk02.gif
+	bbox	195 170 170 130 220
+	@cmd	attack3 -110 165 69 100 "ANI_FOLLOW1"
+	frame	data/bgs/beyond/lvl4/wdblk02.gif
+	@cmd	attack3 -55 165 99 180 "ANI_FOLLOW1"
+	frame	data/bgs/beyond/lvl4/wdblk02.gif
+
+
+anim	follow1
+	loop	0
+	delay	7
+	offset	5 5
+	quakeframe	1 10 5
+	@cmd	stop
+	frame	data/bgs/beyond/lvl4/wdblk03.gif
+	sound	data/sounds/wood.wav
+	@cmd	spawn01 "brkwood4" -110 70 10
+	@cmd	spawn01 "brkwood4" 0 70 90
+	@cmd	spawn01 "brkwood4" 90 70 155
+	frame	data/bgs/beyond/lvl4/wdblk03.gif
+	@cmd    tosser "brkwood" -90 50 10 -3 5 0
+	@cmd    tosser "brkwood" 10 50 80 -3 5 0
+	@cmd    tosser "brkwood" 100 50 155 -3 5 0
+	frame	data/bgs/beyond/lvl4/wdblk03.gif
+	@cmd    tosser "brkwood2" -100 35 10 -1 4 0
+	@cmd    tosser "brkwood2" 0 35 80 -1 4 0
+	@cmd    tosser "brkwood2" 90 35 150 -1 4 0
+	frame	data/bgs/beyond/lvl4/wdblk03.gif
+	@cmd    tosser "brkwood3" -80 30 20 -2 5.5 0
+	@cmd    tosser "brkwood3" 15 30 100 -2 5.5 0
+	@cmd    tosser "brkwood3" 105 30 165 -2 5.5 0
+	frame	data/bgs/beyond/lvl4/wdblk03.gif
+	frame	data/bgs/beyond/lvl4/wdblk03.gif
+	frame	data/bgs/beyond/lvl4/wdblk03.gif
+	frame	data/bgs/beyond/lvl4/wdblk03.gif
+	frame	data/bgs/beyond/lvl4/wdblk03.gif
+	frame	data/bgs/beyond/lvl4/wdblk03.gif
+	frame	data/bgs/beyond/lvl4/wdblk03.gif
+	frame	data/bgs/beyond/lvl4/wdblk03.gif
+	frame	data/bgs/beyond/lvl4/wdblk03.gif
+	@cmd	suicide
+	frame	data/bgs/beyond/lvl4/wdblk03.gif
+		
+anim	follow2
+	loop	1
+	delay	5
+	offset	80 375
+	bbox	20 365 145 145 50
+	counterrange 0 3 1 0
+     	followanim 3
+
+	@cmd	dasher -5.4 0 0 
+
+	frame	data/bgs/beyond/lvl4/wdblk01.gif
+	@cmd	attack3 -90 100 -5 60 "ANI_FOLLOW3"
+	frame	data/bgs/beyond/lvl4/wdblk01.gif
+	@cmd	attack3 -90 100 -5 60 "ANI_FOLLOW3"
+	frame	data/bgs/beyond/lvl4/wdblk01.gif
+	@cmd	attack3 -90 100 -5 60 "ANI_FOLLOW3"
+	frame	data/bgs/beyond/lvl4/wdblk01.gif
+		
+anim	follow3
+	loop	0
+	delay	7
+	offset	5 5
+	quakeframe	1 10 5
+	@cmd	stop
+	frame	data/bgs/beyond/lvl4/wdblk03.gif
+	sound	data/sounds/wood.wav
+	@cmd	spawn01 "brkwood4" -60 70 0
+	@cmd	spawn01 "brkwood4" -30 70 15
+	@cmd	spawn01 "brkwood4" 30 200 30
+	@cmd	spawn01 "brkwood4" 30 70 35
+	frame	data/bgs/beyond/lvl4/wdblk03.gif
+	@cmd    tosser "brkwood" 85 20 0 -3 4 -1
+	@cmd    tosser "brkwood" 115 30 0 -2.5 5.5 0
+	@cmd    tosser "brkwood" 100 40 0 -3 4 1
+	frame	data/bgs/beyond/lvl4/wdblk03.gif
+	@cmd    tosser "brkwood2" 65 30 0 -1 4 -1
+	@cmd    tosser "brkwood2" 85 40 0 -1.5 5.5 0
+	@cmd    tosser "brkwood2" 70 50 0 -1 4 1
+	frame	data/bgs/beyond/lvl4/wdblk03.gif
+	@cmd    tosser "brkwood3" 5 50 0 -1.2 3.5 -0.5
+	@cmd    tosser "brkwood3" 15 65 0 -1.6 5 0
+	@cmd    tosser "brkwood3" 10 80 0 -1.2 3.5 0.5
+	frame	data/bgs/beyond/lvl4/wdblk03.gif
+	frame	data/bgs/beyond/lvl4/wdblk03.gif
+	frame	data/bgs/beyond/lvl4/wdblk03.gif
+	frame	data/bgs/beyond/lvl4/wdblk03.gif
+	frame	data/bgs/beyond/lvl4/wdblk03.gif
+	frame	data/bgs/beyond/lvl4/wdblk03.gif
+	frame	data/bgs/beyond/lvl4/wdblk03.gif
+	frame	data/bgs/beyond/lvl4/wdblk03.gif
+	frame	data/bgs/beyond/lvl4/wdblk03.gif
+	frame	data/bgs/beyond/lvl4/wdblk03.gif
+	@cmd	suicide
+	frame	data/bgs/beyond/lvl4/wdblk03.gif
+
+
+		
+
+		
+#|edited by openBor Stats v 0.53
+		

@@ -1,0 +1,76 @@
+name	 missile4
+health   0
+speed    6
+type     enemy
+jumpheight 1
+gfxshadow  1
+nolife     1
+hostile				player 
+candamage			player npc
+lifespan  15
+offscreenkill 	5000
+subject_to_platform 0
+subject_to_wall 0
+subject_to_obstacle 0
+animationscript data/scripts/escript.c
+
+
+load	explosion5
+load	mseffect
+
+
+anim	attack1
+	loop	0
+	delay	3
+	offset	45 40
+	hitfx	data/sounds/fire.wav
+	quakeframe 1 10 7
+	@cmd	spawn01 "explosion5" 0 0 1
+	attack	-30 -20 150 110 8 1 1 0 10 40
+	frame	data/chars/misc/traps/missle/3missle02.gif
+	attack	0 0 0 0
+	frame	data/chars/misc/traps/missle/empty.gif
+		
+anim	death
+	loop	0
+	delay	3
+	offset	45 40
+	quakeframe 1 10 7
+	@cmd	spawn01 "explosion5" 0 0 1
+	attack	-30 -20 150 110 8 1 1 0 10 40
+	frame	data/chars/misc/traps/missle/3missle02.gif
+	attack	0 0 0 0
+	frame	data/chars/misc/traps/missle/empty.gif
+		
+anim	idle
+	loop	1
+	delay	2
+	offset	45 40
+	bbox	0 0 0 0
+	@cmd	degravity 0.8
+	@cmd	spawn01 "mseffect" -25 25 1
+	frame	data/chars/misc/traps/missle/3missle01.gif
+	frame	data/chars/misc/traps/missle/3missle02.gif
+	@cmd	spawn01 "mseffect" -25 25 1
+	frame	data/chars/misc/traps/missle/3missle01.gif
+	frame	data/chars/misc/traps/missle/3missle02.gif
+
+
+
+
+
+
+anim	spawn
+	loop	0
+	delay	3
+	offset	45 40
+	bbox	0 0 0 0
+	frame	data/chars/misc/traps/missle/3missle01.gif
+
+
+
+
+
+		
+#|edited by openBor Stats v 0.53
+		

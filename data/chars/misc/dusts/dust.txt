@@ -1,0 +1,57 @@
+name	dust
+type	none
+lifespan  1.5
+shadow	0
+alpha	1
+subject_to_gravity 0
+
+animationscript @script
+#import "data/scripts/lib_water_puddle.c"
+
+void main() {
+	 void self = getlocalvar("self");
+	 int animpos = getentityproperty(self,"animpos");
+	 void parent = getentityproperty(self,"parent");
+	 void owner = getentityproperty(self,"owner");
+  	void subentity = getentityproperty(self, "subentity");
+	 int is_in_puddle;
+
+  	if ( parent == NULL() ) parent = owner;
+  	if ( parent == NULL() ) parent = subentity;
+
+	 is_in_puddle = check_puddle(self,1);
+	 if ( is_in_puddle ) killentity(self);
+
+	 if ( getentityproperty(parent,"exists") ) {
+		 is_in_puddle = check_puddle(parent,1);
+		 if ( is_in_puddle ) killentity(self);
+	 }
+}
+@end_script
+
+
+
+
+anim idle
+	 loop      0
+	 delay     6
+	 offset    100 43
+	 frame     data/chars/misc/dusts/dust0.gif
+	 frame     data/chars/misc/dusts/dust1.gif
+	 frame     data/chars/misc/dusts/dust2.gif
+	 frame     data/chars/misc/dusts/dust3.gif
+	 frame     data/chars/misc/dusts/dust4.gif
+	 frame     data/chars/misc/dusts/dust5.gif
+	 frame     data/chars/misc/dusts/empty.gif
+
+
+
+
+
+
+
+
+
+
+
+

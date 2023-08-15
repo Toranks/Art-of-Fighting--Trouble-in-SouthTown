@@ -1,0 +1,265 @@
+name          sentry3
+type          enemy
+subtype	      chase
+health        190
+speed         9
+running	      18 0 0 1 0
+jumpheight    0
+throw         5 2
+throwdamage   18
+shadow        0
+cantgrab      1
+nolife        1
+falldie	      1
+nodieblink    1
+gfxshadow     1
+risetime      1500 1500
+candamage     player npc
+hostile       player npc
+projectilehit enemy obstacle
+diesound      data/sounds/xplosion.wav
+
+animationscript data/scripts/escript.c
+
+alternatepal	data/chars/beyond/1cyb4/map1.gif
+alternatepal	data/chars/beyond/1cyb4/map2.gif
+alternatepal	data/chars/beyond/1cyb4/map3.gif
+alternatepal	data/chars/beyond/1cyb4/map4.gif 
+
+
+load	shld1
+load	explosion1
+load	explosion3
+
+
+
+
+anim	attack1
+	range	140 250
+	rangez	-20 20
+	loop	0
+	delay	7
+	offset	108 184
+	bbox	80 70 55 80
+	sound	data/sounds/alien9.wav
+	frame	data/chars/beyond/1cyb4/idle01.gif
+	sound	data/sounds/laser.wav
+	offset	84 184
+	frame	data/chars/beyond/1cyb4/atk01.gif
+	@cmd	target 1.5 0.5 0 0 0
+	@cmd	dash
+	frame	data/chars/beyond/1cyb4/atk02.gif
+	attack	110 75 165 130 11 1 0 0 15 15
+	frame	data/chars/beyond/1cyb4/atk03.gif
+	frame	data/chars/beyond/1cyb4/atk04.gif
+	frame	data/chars/beyond/1cyb4/atk05.gif
+	frame	data/chars/beyond/1cyb4/atk06.gif
+	frame	data/chars/beyond/1cyb4/atk01.gif
+	sound	data/sounds/laser2.wav
+	frame	data/chars/beyond/1cyb4/atk02.gif
+	frame	data/chars/beyond/1cyb4/atk03.gif
+	frame	data/chars/beyond/1cyb4/atk04.gif
+	frame	data/chars/beyond/1cyb4/atk05.gif
+	frame	data/chars/beyond/1cyb4/atk06.gif
+	@cmd	looper 6 3
+	frame	data/chars/beyond/1cyb4/atk01.gif
+	@cmd	stop
+	frame	data/chars/beyond/1cyb4/atk02.gif
+	attack	0 0 0 0
+	frame	data/chars/beyond/1cyb4/atk03.gif
+	@cmd	stop
+	frame	data/chars/beyond/1cyb4/atk04.gif
+	frame	data/chars/beyond/1cyb4/atk05.gif
+	frame	data/chars/beyond/1cyb4/atk06.gif
+		
+anim	attack2
+	range	0 100
+	rangez	-15 15
+	loop	0
+	delay	9
+	offset	108 184
+	bbox	80 70 55 80
+	sound	data/sounds/alien10.wav
+	frame	data/chars/beyond/1cyb4/b01.gif
+	attack3	105 125 110 35 10 0 0 0 15 12
+	frame	data/chars/beyond/1cyb4/b02.gif
+	attack3	0 0 0 0
+	frame	data/chars/beyond/1cyb4/b03.gif
+	frame	data/chars/beyond/1cyb4/b04.gif
+		
+anim	burn
+	loop	0
+	delay	2
+	offset	108 184
+	bbox	0 0 0 0
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 200_50_0
+	@cmd	spawnbind "burn1" 1 1 1
+	@cmd	spawnbind "burn2" 1 1 1
+	@cmd	spawnbind "burn3" 1 1 1
+	@cmd	dasher -3 0 0
+	frame	data/chars/beyond/1cyb4/pain0.gif
+	@cmd	anichange "ANI_RISE"
+	frame	data/chars/beyond/1cyb4/pain0.gif
+		
+anim	death
+	loop	0
+	delay	9
+	offset	108 184
+	bbox	0 0 0 0
+	frame	data/chars/beyond/1cyb4/det01.gif
+	@cmd	spawn01 "explosion1" 20 50 -3
+	frame	data/chars/beyond/1cyb4/det02.gif
+	frame	data/chars/beyond/1cyb4/det03.gif
+	frame	data/chars/beyond/1cyb4/det04.gif
+	frame	data/chars/beyond/1cyb4/det05.gif
+	frame	data/chars/beyond/1cyb4/det06.gif
+	delay	3
+	frame	data/chars/beyond/1cyb4/det07.gif
+	frame	data/chars/beyond/1cyb4/det15.gif
+	frame	data/chars/beyond/1cyb4/det08.gif
+	@cmd	spawn01 "explosion3" 10 1 1
+	frame	data/chars/beyond/1cyb4/det15.gif
+	frame	data/chars/beyond/1cyb4/det09.gif
+	frame	data/chars/beyond/1cyb4/det15.gif
+	frame	data/chars/beyond/1cyb4/det10.gif
+	frame	data/chars/beyond/1cyb4/det15.gif
+	frame	data/chars/beyond/1cyb4/det11.gif
+	frame	data/chars/beyond/1cyb4/det15.gif
+	@cmd	spawn01 "explosion3" -10 30 1
+	frame	data/chars/beyond/1cyb4/det12.gif
+	frame	data/chars/beyond/1cyb4/det15.gif
+	frame	data/chars/beyond/1cyb4/det13.gif
+	frame	data/chars/beyond/1cyb4/det15.gif
+	frame	data/chars/beyond/1cyb4/det14.gif
+	frame	data/chars/beyond/1cyb4/det15.gif
+	@cmd	looper 6 3
+	frame	data/chars/beyond/1cyb4/det15.gif
+	delay	20
+	frame	data/chars/beyond/1cyb4/det15.gif
+	frame	data/chars/beyond/1cyb4/det15.gif
+		
+anim	fall
+	loop	0
+	delay	2
+	offset	108 184
+	bbox	0 0 0 0
+	@cmd	dasher -3 0 0
+	frame	data/chars/beyond/1cyb4/pain0.gif
+	@cmd	anichange "ANI_RISE"
+	frame	data/chars/beyond/1cyb4/pain0.gif
+		
+anim	fall7
+	delay	500
+	offset	108 184
+	frame	data/chars/beyond/1cyb4/pain1.gif
+	frame	data/chars/beyond/1cyb4/pain1.gif
+	frame	data/chars/beyond/1cyb4/pain1.gif
+	frame	data/chars/beyond/1cyb4/pain1.gif
+	frame	data/chars/beyond/1cyb4/pain1.gif
+	frame	data/chars/beyond/1cyb4/pain1.gif
+	frame	data/chars/beyond/1cyb4/pain1.gif
+	frame	data/chars/beyond/1cyb4/pain1.gif
+	frame	data/chars/beyond/1cyb4/pain1.gif
+	frame	data/chars/beyond/1cyb4/pain1.gif
+	frame	data/chars/beyond/1cyb4/pain1.gif
+	frame	data/chars/beyond/1cyb4/pain1.gif
+	frame	data/chars/beyond/1cyb4/pain1.gif
+	frame	data/chars/beyond/1cyb4/pain1.gif
+	frame	data/chars/beyond/1cyb4/pain1.gif
+	frame	data/chars/beyond/1cyb4/pain1.gif
+	frame	data/chars/beyond/1cyb4/pain1.gif
+	frame	data/chars/beyond/1cyb4/pain1.gif
+
+
+
+
+anim	run
+	loop	1
+	delay	6
+	offset	108 184
+	bbox	80 70 55 80
+	drawmethod 256 256 0 0 0 1 -1
+	frame	data/chars/beyond/1cyb4/sp01.gif
+	frame	data/chars/beyond/1cyb4/sp02.gif
+	frame	data/chars/beyond/1cyb4/sp03.gif
+	sound	data/sounds/alien1.wav
+	frame	data/chars/beyond/1cyb4/sp04.gif
+	frame	data/chars/beyond/1cyb4/sp05.gif
+	frame	data/chars/beyond/1cyb4/sp03.gif
+
+
+		
+anim	idle
+	loop	1
+	delay	7
+	offset	108 184
+	bbox	80 70 55 80
+	frame	data/chars/beyond/1cyb4/idle01.gif
+	frame	data/chars/beyond/1cyb4/idle02.gif
+	frame	data/chars/beyond/1cyb4/idle03.gif
+	frame	data/chars/beyond/1cyb4/idle04.gif
+	frame	data/chars/beyond/1cyb4/idle05.gif
+	frame	data/chars/beyond/1cyb4/idle06.gif
+		
+anim	pain
+	loop	0
+	delay	5
+	offset	108 184
+	bbox	80 70 55 80
+	frame	data/chars/beyond/1cyb4/pain0.gif
+	offset	110 184
+	frame	data/chars/beyond/1cyb4/pain1.gif
+	offset	108 184
+	frame	data/chars/beyond/1cyb4/pain1.gif
+	delay	25
+	offset	108 184
+	frame	data/chars/beyond/1cyb4/pain1.gif
+		
+anim	rise
+	loop	0
+	delay	5
+	offset	108 184
+	bbox	0 0 0 0
+	@cmd	dasher -3 0 0
+	frame	data/chars/beyond/1cyb4/pain0.gif
+	@cmd	spawnbind "shld1" 1 -10 5
+	delay	8
+	frame	data/chars/beyond/1cyb4/pain1.gif
+	bbox	80 70 55 80
+	frame	data/chars/beyond/1cyb4/pain0.gif
+	@cmd	dasher -2 0 0
+	frame	data/chars/beyond/1cyb4/idle01.gif
+	frame	data/chars/beyond/1cyb4/pain2.gif
+	frame	data/chars/beyond/1cyb4/pain3.gif
+	frame	data/chars/beyond/1cyb4/pain4.gif
+	@cmd	dasher -1 0 0
+	bbox	0 0 0 0
+	frame	data/chars/beyond/1cyb4/pain3.gif
+	frame	data/chars/beyond/1cyb4/pain2.gif
+	frame	data/chars/beyond/1cyb4/idle01.gif
+	@cmd	stop
+	frame	data/chars/beyond/1cyb4/pain0.gif
+	frame	data/chars/beyond/1cyb4/pain1.gif
+	@cmd	beidle
+	frame	data/chars/beyond/1cyb4/pain1.gif
+		
+anim	spawn
+	loop	0
+	delay	6
+	offset	108 184
+	bbox	0 0 0 0
+	frame	data/chars/beyond/1cyb4/idle01.gif
+		
+anim	turn
+	loop	0
+	delay	7
+	offset	108 184
+	bbox	80 70 55 80
+	frame	data/chars/beyond/1cyb4/turn01.gif
+	sound	data/sounds/alien11.wav
+	frame	data/chars/beyond/1cyb4/turn02.gif
+	frame	data/chars/beyond/1cyb4/turn03.gif
+		
+#|edited by openBor Stats v 0.53
+		

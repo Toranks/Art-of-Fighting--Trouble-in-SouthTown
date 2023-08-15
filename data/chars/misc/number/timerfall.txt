@@ -1,0 +1,93 @@
+name		timerfall
+type		none
+speed		10
+#scroll	 	1
+setlayer	5000
+#nomove		1 1
+facing		1
+alpha		2
+lifespan	600
+subject_to_gravity 0
+subject_to_platform 0
+subject_to_wall 0
+subject_to_obstacle 0
+subject_to_hole 0
+subject_to_minz 0
+subject_to_maxz 0
+palette		data/chars/misc/number/red.gif
+animationscript data/scripts/escript.c
+
+load		Timer2
+load		Timer3
+load		Timer4
+load		Timer5
+load		Timer6
+load		Dot
+
+anim 	spawn
+@script
+    if(frame==9){
+	jumptobranch("Dummy", 1);
+    }
+@end_script
+	delay	1
+	loop	0
+	offset	12 35
+	frame	data/chars/misc/empty.gif
+	delay	10000
+	@cmd	spawnGun "timer6" 0 0 0 1
+	@cmd	spawnGun "timer2" 25 0 0 2
+	@cmd	spawnGun "timer3" 50 0 0 3
+	@cmd	spawnGun "timer4" 82 0 0 4
+	@cmd	spawnbind "dot" 66 0 0
+	frame	data/chars/misc/empty.gif
+	#delay	20250
+	delay	10000
+	frame	data/chars/misc/empty.gif
+	delay	1
+	frame	data/chars/misc/empty.gif
+	@cmd	killgun 1 0
+	@cmd	killgun 2 0
+	@cmd	killgun 3 0
+	@cmd	killgun 4 0
+	frame	data/chars/misc/empty.gif
+	@cmd	spawnbind6 "timer6" 0 0 0 "ANI_FOLLOW1"
+	@cmd	spawnbind6 "timer6" 25 0 0 "ANI_FOLLOW1"
+	@cmd	spawnbind6 "timer6" 50 0 0 "ANI_FOLLOW1"
+	@cmd	spawnbind6 "timer6" 82 0 0 "ANI_FOLLOW1"
+	frame	data/chars/misc/empty.gif
+	delay	200
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif #7
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+
+
+
+anim idle
+	delay	1
+	loop	1
+	offset	12 35
+	frame	data/chars/misc/empty.gif
+
+
+anim fall
+	delay	1
+	loop	0
+	offset	12 35
+	frame	data/chars/misc/empty.gif
+
+
+anim death
+	delay	1
+	loop	0
+	offset	12 35
+@script
+    if(frame==1){
+	jumptobranch("Dummy", 1);
+    }
+@end_script
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif

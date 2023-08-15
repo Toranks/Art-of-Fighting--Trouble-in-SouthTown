@@ -1,0 +1,315 @@
+name		kingmask
+type		enemy
+subtype		notgrab
+aimove		avoid
+cantgrab	1
+nodrop		2
+health		1100
+speed		50
+jumpheight	4
+throwdamage	18
+blockodds	1
+nopassiveblock	1
+escapehits	1
+shadow		0
+noquake		1
+nolife		1
+falldie		1
+nodieblink	3
+shadow		6
+lifespan	20
+dust            dust
+diesound      data/sounds/super3.wav
+animationscript data/scripts/escript.c
+
+load	wylertlk1
+load	kingflwr
+
+
+
+
+anim	follow1
+@script
+void self = getlocalvar("self");
+	if( frame == 1)
+	{
+	changeentityproperty(self, "lifespancountdown", 9999999999999);
+	}
+@end_script
+	loop	1 11 15
+	delay	8
+	offset	100 195
+	bbox	0 0 0 0
+	frame	data/chars/3king/empty.gif
+	sound	data/sounds/super3.wav
+	frame	data/chars/3king/a03.gif
+	frame	data/chars/3king/empty.gif
+	frame	data/chars/3king/a03.gif #4
+	frame	data/chars/3king/empty.gif
+	frame	data/chars/3king/a03.gif
+	frame	data/chars/3king/empty.gif
+	frame	data/chars/3king/a03.gif
+	@cmd	looper 4 5
+	frame	data/chars/3king/empty.gif
+	frame	data/chars/3king/a03.gif
+	delay	4
+	frame	data/chars/3king/a03.gif #11
+	@cmd	attack1 -40 230 100 "ANI_FOLLOW2"
+	frame	data/chars/3king/a03.gif
+	@cmd	attack1 -40 230 100 "ANI_FOLLOW2"
+	frame	data/chars/3king/a03.gif
+	@cmd	attack1 -40 230 100 "ANI_FOLLOW2"
+	frame	data/chars/3king/a03.gif
+	@cmd	attack1 -40 230 100 "ANI_FOLLOW2"
+	frame	data/chars/3king/a03.gif #15
+	frame	data/chars/3king/a03.gif
+
+
+anim	follow2
+@script
+void self = getlocalvar("self");
+	if( frame == 1)
+	{
+	changeentityproperty(self, "lifespancountdown", 7000);
+	}
+@end_script
+	loop	0
+	delay	8
+	offset	100 195
+	bbox	0 0 0 0
+	frame	data/chars/3king/a03.gif
+	frame	data/chars/3king/a03.gif
+	@cmd	spawnAni2 "wylertlk1" 30 1 35 "ANI_FOLLOW1"
+	frame	data/chars/3king/a03.gif
+	frame	data/chars/3king/a03.gif
+	frame	data/chars/3king/a03.gif
+	frame	data/chars/3king/a03.gif
+	frame	data/chars/3king/a03.gif
+	frame	data/chars/3king/a03.gif
+
+
+
+anim	follow5
+@script
+void self = getlocalvar("self");
+	if( frame == 0)
+	{
+	changeentityproperty(self, "lifespancountdown", 7000);
+	}
+@end_script
+	loop	1 1 5
+	delay	5
+	offset	100 195
+	bbox	0 0 0 0
+	frame	data/chars/3king/a03.gif
+	frame	data/chars/3king/a03.gif
+	@cmd	attack1 -40 180 500 "ANI_FOLLOW6"
+	frame	data/chars/3king/a03.gif
+	@cmd	attack1 -40 180 500 "ANI_FOLLOW6"
+	frame	data/chars/3king/a03.gif
+	@cmd	attack1 -40 180 500 "ANI_FOLLOW6"
+	frame	data/chars/3king/a03.gif
+	@cmd	attack1 -40 180 500 "ANI_FOLLOW6"
+	frame	data/chars/3king/a03.gif
+	@cmd	attack1 -40 180 500 "ANI_FOLLOW6"
+	frame	data/chars/3king/a03.gif
+
+
+anim	follow6
+	loop	0
+	delay	5
+	offset	100 195
+	bbox	0 0 0 0
+	frame	data/chars/3king/a03.gif
+	@cmd	subwall 0
+	frame	data/chars/3king/a03.gif
+	@cmd	subhole 0
+	frame	data/chars/3king/a03.gif
+	@cmd	dasher -3 1 0
+	frame	data/chars/3king/a41.gif
+	@cmd	dasher -3 1 0
+	frame	data/chars/3king/a41.gif
+	@cmd	dasher -3 1 0
+	frame	data/chars/3king/a41.gif
+	@cmd	looper 3 10
+	frame	data/chars/3king/a41.gif
+	@cmd	suicide
+	frame	data/chars/3king/a41.gif
+
+
+anim	attack1
+	range	-100 200
+	rangez	-30 30
+	loop	0
+	delay	8
+	offset	100 195
+	bbox	0 0 0 0
+	sound	data/sounds/king.wav
+	frame	data/chars/3king/a04.gif
+	@cmd	targetrgt 3 1 1 1 0
+	@cmd	dash
+	frame	data/chars/3king/a05.gif
+	frame	data/chars/3king/a06.gif
+	frame	data/chars/3king/a07.gif
+	frame	data/chars/3king/a08.gif
+	frame	data/chars/3king/a09.gif
+	frame	data/chars/3king/a10.gif
+	@cmd	targetrgt 3 -1 -1 -1 0
+	@cmd	dash
+	frame	data/chars/3king/a11.gif
+	frame	data/chars/3king/a12.gif
+	@cmd	spawn03 "kingflwr" 10 45 -12 1
+	frame	data/chars/3king/a13.gif
+	frame	data/chars/3king/a14.gif
+	@cmd	spawn03 "kingflwr" 0 40 -6 0
+	frame	data/chars/3king/a15.gif
+	frame	data/chars/3king/a16.gif
+	@cmd	targetrgt 3 1 1 1 0
+	@cmd	dash
+	@cmd	spawn03 "kingflwr" -10 40 5 1
+	frame	data/chars/3king/a17.gif
+	frame	data/chars/3king/a18.gif
+	@cmd	spawn03 "kingflwr" 0 45 -10 0
+	frame	data/chars/3king/a19.gif
+	frame	data/chars/3king/a20.gif
+	@cmd	spawn03 "kingflwr" 10 40 -3 1
+	frame	data/chars/3king/a21.gif
+	@cmd	targetrgt 3 -1 -1 -1 0
+	@cmd	dash
+	frame	data/chars/3king/a22.gif
+	@cmd	spawn03 "kingflwr" -10 45 -5 0
+	frame	data/chars/3king/a23.gif
+	frame	data/chars/3king/a24.gif
+	@cmd	spawn03 "kingflwr" 0 40 15 1
+	frame	data/chars/3king/a25.gif
+	frame	data/chars/3king/a26.gif
+	@cmd	spawn03 "kingflwr" 10 45 10 0
+	frame	data/chars/3king/a27.gif
+	@cmd	stop
+	frame	data/chars/3king/a27.gif
+
+
+
+anim	death
+	loop	0
+	delay	9
+	offset	105 195
+	bbox	0 0 0 0
+	frame	data/chars/3king/a03.gif
+	sound	data/sounds/super1.wav
+	frame	data/chars/3king/a04.gif
+	frame	data/chars/3king/a05.gif
+	frame	data/chars/3king/a35.gif
+	frame	data/chars/3king/a26.gif
+	delay	6
+	@cmd	dasher 0 2 0
+	frame	data/chars/3king/a35.gif #5
+	@cmd	dasher 0 2 0
+	frame	data/chars/3king/a35a.gif
+	@cmd	looper 5 25
+	frame	data/chars/3king/empty.gif
+	delay	5
+	frame	data/chars/3king/empty.gif
+	@cmd	suicide
+	frame	data/chars/3king/empty.gif
+
+
+anim	fall
+	loop	0
+	delay	25
+	offset	100 193
+	bbox	0 0 0 0
+	frame	data/chars/3king/a28.gif
+	frame	data/chars/3king/a29.gif
+	frame	data/chars/3king/a30.gif
+	frame	data/chars/3king/a29.gif
+	frame	data/chars/3king/a28.gif
+	@cmd	stop
+	frame	data/chars/3king/a02.gif
+
+
+anim	idle
+	loop	0
+	delay	10
+	offset	100 195
+	bbox	79 97 50 91
+	frame	data/chars/3king/a02.gif
+	frame	data/chars/3king/a03.gif
+
+
+anim	pain
+	loop	0
+	delay	12
+	offset	103 195
+	bbox	0 0 0 0
+	@cmd	dasher -1 0 0
+	frame	data/chars/3king/a28.gif
+	frame	data/chars/3king/a29.gif
+	frame	data/chars/3king/a30.gif
+	frame	data/chars/3king/a29.gif
+	frame	data/chars/3king/a28.gif
+	#@cmd	stop
+	frame	data/chars/3king/a02.gif
+	@cmd	anichange "ANI_ATTACK1"
+	frame	data/chars/3king/a02.gif
+
+
+anim	rise
+	loop	0
+	delay	16
+	offset	100 193
+	bbox	0 0 0 0
+	frame	data/chars/3king/a02.gif
+
+
+anim	spawn
+	loop	0
+	delay	2
+	offset	100 195
+	bbox	0 0 0 0
+	jumpframe 1 3 1
+	landframe 3
+	frame	data/chars/3king/a01.gif
+	sound	data/sounds/king.wav
+	delay	500
+	attack	70 120 60 75 20 1 0 0 15 20
+	dropv	3 3
+	frame	data/chars/3king/a01.gif
+	attack	0 0 0 0
+	delay	5
+	frame	data/chars/3king/a01.gif
+	delay	20
+	frame	data/chars/3king/a02.gif
+	delay	40
+	frame	data/chars/3king/a03.gif
+
+
+anim	block
+	loop	0
+	delay	5
+	offset	100 195
+	bbox	0 0 0 0
+	frame	data/chars/3king/a36.gif
+	@cmd	dasher -3 0 0
+	frame	data/chars/3king/a37.gif
+	frame	data/chars/3king/a38.gif
+	frame	data/chars/3king/a39.gif
+	delay	50
+	frame	data/chars/3king/a40.gif
+	delay	6
+	frame	data/chars/3king/a39.gif
+	frame	data/chars/3king/a38.gif
+	frame	data/chars/3king/a37.gif
+	frame	data/chars/3king/a36.gif
+
+anim	walk
+	loop	1
+	delay	4
+	offset	100 195
+	bbox	79 97 50 91
+	frame	data/chars/3king/a36.gif
+	frame	data/chars/3king/a37.gif
+	frame	data/chars/3king/a38.gif
+	frame	data/chars/3king/a39.gif
+	frame	data/chars/3king/a40.gif
+		

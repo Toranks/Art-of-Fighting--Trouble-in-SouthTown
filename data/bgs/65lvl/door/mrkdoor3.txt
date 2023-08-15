@@ -1,0 +1,81 @@
+name	mrkdoor3
+type	npc
+nomove	1 1
+health  100
+speedf  0
+facing	1
+nomove	1 1
+shadow	0
+offscreenkill 	10000
+animationscript data/scripts/escript.c
+
+
+palette		data/bgs/65lvl/door/map1.gif
+
+hostile		player
+candamage	player
+load		doorIN
+
+
+
+anim	follow1
+	loop	1
+	delay	5
+	offset	75 145
+	bbox	0 0 0 0
+	frame	data/bgs/65lvl/door/3door1.gif
+	@cmd	attack1 -50 50 60 "ANI_FOLLOW2"
+	frame	data/bgs/65lvl/door/3door1.gif
+		
+anim	follow2
+	loop	0
+	delay	14
+	offset	75 145
+	bbox	0 0 0 0
+	frame	data/bgs/65lvl/door/3open01.gif
+	sound	data/sounds/cycle.wav
+	frame	data/bgs/65lvl/door/3open02.gif
+	sound	data/sounds/bip1.wav
+	frame	data/bgs/65lvl/door/3open03.gif
+	sound	data/sounds/bip1.wav
+	frame	data/bgs/65lvl/door/3open04.gif
+	sound	data/sounds/bip2.wav
+	frame	data/bgs/65lvl/door/3open05.gif
+	delay	55
+	frame	data/bgs/65lvl/door/3open05.gif
+	frame	data/bgs/65lvl/door/3open05.gif
+	@cmd	spawn01 "doorIN" 1 1 18
+	frame	data/bgs/65lvl/door/3open05.gif
+	@cmd	anichange "ANI_FOLLOW3"
+	frame	data/bgs/65lvl/door/3open05.gif
+
+anim	follow3
+	loop	1
+	delay	55
+	offset	75 145
+	bbox	0 0 0 0
+	frame	data/bgs/65lvl/door/3open05.gif
+	frame	data/bgs/65lvl/door/3open05.gif
+
+
+anim	idle
+	loop	1
+	delay	3
+	offset	75 145
+	bbox	40 40 70 120 50
+	@cmd	damage 95 "ANI_FOLLOW1"
+	frame	data/bgs/65lvl/door/3door1.gif
+	frame	data/bgs/65lvl/door/3door1.gif
+
+
+		
+anim	spawn
+	loop	0
+	delay	3
+	offset	75 145
+	bbox	0 0 0 0
+	frame	data/bgs/65lvl/door/3door1.gif
+
+
+
+		

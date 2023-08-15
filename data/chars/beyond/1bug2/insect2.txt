@@ -1,0 +1,121 @@
+name          insect2
+type          npc
+health        50
+speed         7
+jumpheight    4
+throw         5 2
+throwdamage   18
+noquake       1
+nolife        1
+falldie	      1
+nomove		1 1
+facing		1
+cantgrab	1
+antigrab	50
+nodrop		2
+blockodds     1
+nodieblink    1
+gfxshadow     1
+dust            dust
+subject_to_obstacle 0
+subject_to_wall 0
+subject_to_platform 0
+
+lifespan 10
+hostile				player
+candamage			player
+diesound      data/sounds/alien7.wav
+animationscript data/scripts/escript.c
+
+
+palette		data/chars/beyond/1bug2/map1.gif
+
+
+
+anim	attack1
+	loop	0
+	delay	7
+	offset	105 200
+	bbox	0 0 0 0
+	@cmd	dasher -2 0 0
+	frame	data/chars/beyond/1bug2/idle05.gif
+	frame	data/chars/beyond/1bug2/idle06.gif
+	frame	data/chars/beyond/1bug2/idle07.gif
+	frame	data/chars/beyond/1bug2/idle05.gif
+	frame	data/chars/beyond/1bug2/idle06.gif
+	frame	data/chars/beyond/1bug2/idle07.gif
+	@cmd	beidle
+	frame	data/chars/beyond/1bug2/idle07.gif
+		
+anim	death
+	loop	0
+	delay	10
+	offset	105 200
+	bbox	0 0 0 0
+	@cmd	dasher -2.5 0 0
+	frame	data/chars/beyond/1bug2/det01.gif
+	frame	data/chars/beyond/1bug2/det02.gif
+	frame	data/chars/beyond/1bug2/det03.gif
+	frame	data/chars/beyond/1bug2/det04.gif
+	frame	data/chars/beyond/1bug2/det05.gif
+	frame	data/chars/beyond/1bug2/det06.gif
+	frame	data/chars/beyond/1bug2/det07.gif
+	frame	data/chars/beyond/1bug2/det08.gif
+	@cmd	suicide
+	frame	data/chars/beyond/1bug2/det08.gif
+		
+anim	fall
+	loop	0
+	delay	7
+	offset	105 200
+	bbox	80 75 55 80
+	@cmd	dasher -1.4 0 0
+	frame	data/chars/beyond/1bug2/idle08.gif
+	delay	12
+	frame	data/chars/beyond/1bug2/idle09.gif
+	delay	7
+	frame	data/chars/beyond/1bug2/idle08.gif
+		
+anim	idle
+	loop	1
+	delay	5
+	offset	105 200
+	bbox	80 75 55 80
+	@cmd	dasher -2 0 0
+	frame	data/chars/beyond/1bug2/idle05.gif
+	frame	data/chars/beyond/1bug2/idle06.gif
+	frame	data/chars/beyond/1bug2/idle07.gif
+	frame	data/chars/beyond/1bug2/idle05.gif
+	frame	data/chars/beyond/1bug2/idle06.gif
+	frame	data/chars/beyond/1bug2/idle07.gif
+		
+anim	pain
+	loop	0
+	delay	7
+	offset	105 200
+	bbox	80 75 55 80
+	@cmd	dasher -1.4 0 0
+	frame	data/chars/beyond/1bug2/idle08.gif
+	delay	12
+	frame	data/chars/beyond/1bug2/idle09.gif
+	delay	7
+	frame	data/chars/beyond/1bug2/idle08.gif
+
+		
+anim	spawn
+@script
+if(frame==1)
+{
+  changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_OBSTACLE"));
+}
+	@end_script	
+	loop	0
+	delay	6
+	offset	105 200
+	bbox	0 0 0 0
+	frame	data/chars/beyond/1bug2/idle05.gif
+	frame	data/chars/beyond/1bug2/idle06.gif
+	frame	data/chars/beyond/1bug2/idle07.gif
+		
+#|edited by openBor Stats v 0.53
+		

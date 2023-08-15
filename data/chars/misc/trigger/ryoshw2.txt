@@ -1,0 +1,318 @@
+name	 ryoshw2
+type     npc
+health	 1000
+score	 0
+nolife   1
+#nomove	 1 1
+gfxshadow	1
+subject_to_hole     	0
+offscreenkill 	20000
+#lifespan  	900
+candamage	obstacle
+
+animationscript data/scripts/escript.c
+
+palette		data/chars/1ryo/mapal.gif
+
+load	remshw1
+
+anim	spawn
+	loop	0
+	delay	5
+	offset	145 204
+	bbox	120 120 45 72
+	frame	data/chars/1ryo/spa15.gif
+
+anim	idle
+	loop	1
+	delay	12
+	offset	145 204
+	bbox	120 120 45 72
+	@cmd	clearL
+	frame	data/chars/1ryo/spa15.gif
+
+
+
+
+anim	follow3
+	loop	1 19 25
+	delay	12
+	offset	145 204
+	bbox	140 170 75 30
+	frame	data/chars/1ryo/de10.gif
+	frame	data/chars/1ryo/de11.gif
+	frame	data/chars/1ryo/de12.gif
+	frame	data/chars/1ryo/de13.gif
+	frame	data/chars/1ryo/de14.gif
+	frame	data/chars/1ryo/de15.gif
+	frame	data/chars/1ryo/de16.gif
+	frame	data/chars/1ryo/de17.gif
+	frame	data/chars/1ryo/de18.gif
+	frame	data/chars/1ryo/de19.gif
+	frame	data/chars/1ryo/de20.gif
+	frame	data/chars/1ryo/de21.gif
+	frame	data/chars/1ryo/de22.gif
+	frame	data/chars/1ryo/de23.gif
+	frame	data/chars/1ryo/de24.gif
+	frame	data/chars/1ryo/de25.gif
+	frame	data/chars/1ryo/de26.gif
+	frame	data/chars/1ryo/de27.gif
+	frame	data/chars/1ryo/de26.gif #19
+	frame	data/chars/1ryo/de26.gif
+	frame	data/chars/1ryo/de26.gif
+	frame	data/chars/1ryo/de26.gif
+	frame	data/chars/1ryo/de26.gif
+	frame	data/chars/1ryo/de26.gif
+	frame	data/chars/1ryo/de26.gif
+	frame	data/chars/1ryo/de26.gif
+	frame	data/chars/1ryo/de26.gif
+
+
+
+anim	follow4
+@script
+if(frame==1)
+{
+       void self = getlocalvar("self");
+       changeentityproperty(self, "candamage",openborconstant("TYPE_ENEMY"));
+}
+@end_script
+	loop	0
+	delay	12
+	offset	145 204
+	bbox	140 170 75 30
+	followanim	5
+	followcond	1
+	hitfx	data/sounds/grab.wav
+	frame	data/chars/1ryo/de10.gif
+	frame	data/chars/1ryo/de11.gif
+	frame	data/chars/1ryo/de12.gif
+	frame	data/chars/1ryo/de13.gif
+	frame	data/chars/1ryo/de14.gif
+	frame	data/chars/1ryo/de15.gif
+	frame	data/chars/1ryo/de16.gif
+	frame	data/chars/1ryo/de17.gif
+	frame	data/chars/1ryo/de18.gif
+	frame	data/chars/1ryo/de19.gif
+	frame	data/chars/1ryo/de20.gif
+	frame	data/chars/1ryo/de21.gif
+	frame	data/chars/1ryo/de22.gif
+	frame	data/chars/1ryo/de23.gif
+	frame	data/chars/1ryo/de24.gif
+	frame	data/chars/1ryo/de25.gif
+	frame	data/chars/1ryo/de26.gif
+	frame	data/chars/1ryo/de27.gif
+	delay	700
+	frame	data/chars/1ryo/de26.gif #18
+	delay	15
+	frame	data/chars/1ryo/de06.gif
+	delay	200
+	frame	data/chars/1ryo/de05.gif
+	delay	12
+	frame	data/chars/1ryo/de05.gif
+	frame	data/chars/1ryo/de04.gif
+	frame	data/chars/1ryo/de03.gif
+	frame	data/chars/1ryo/de02.gif
+	frame	data/chars/1ryo/de01.gif
+	@cmd	changeopenborvariant "slowmotion" 1
+	frame	data/chars/1ryo/de03.gif
+	delay	7
+	attack	130 110 45 55 0 0 1 1 0 15
+	@cmd	dasher 1.2 0 -0.8
+	frame	data/chars/1ryo/run01.gif
+	frame	data/chars/1ryo/run02.gif
+	@cmd	clearL
+	frame	data/chars/1ryo/run03.gif
+	frame	data/chars/1ryo/run04.gif
+	frame	data/chars/1ryo/run05.gif
+	@cmd	subwall 0
+	frame	data/chars/1ryo/run06.gif
+	@cmd	dasher 1.2 0 0
+	frame	data/chars/1ryo/run01.gif #33
+	frame	data/chars/1ryo/run02.gif
+	frame	data/chars/1ryo/run03.gif
+	frame	data/chars/1ryo/run04.gif
+	frame	data/chars/1ryo/run05.gif
+	frame	data/chars/1ryo/run06.gif
+	@cmd	looper 33 6
+	frame	data/chars/1ryo/run01.gif
+	delay	12
+	@cmd	stop
+	frame	data/chars/1ryo/rkr05.gif
+	frame	data/chars/1ryo/rkr04.gif
+	frame	data/chars/1ryo/rise3.gif
+	frame	data/chars/1ryo/rise2.gif
+	delay	30000
+	frame	data/chars/1ryo/rise2.gif
+	frame	data/chars/1ryo/rise2.gif
+	frame	data/chars/1ryo/rise2.gif
+
+
+anim	follow5
+@script
+	void self = getlocalvar("self");
+	changeentityproperty(self, "gfxshadow", 0);
+@end_script
+	loop	1
+	delay	14
+	offset	140 204
+	jumpframe 4 3 0 -0.5
+	landframe 9
+	@cmd	stop
+	@cmd	slamstart2
+	attack	50 55 290 175 0 0 1 1 0 300
+	@cmd	position 0 40 50 -1 -1
+	frame	data/chars/1ryo/zov01.gif
+	@cmd	position 1 50 50 -1 -1
+	frame	data/chars/1ryo/zov02.gif
+	@cmd	position 2 30 60 -1 -1
+	frame	data/chars/1ryo/zov03.gif
+	@cmd	position 3 20 70 -1 -1
+	frame	data/chars/1ryo/zov04.gif
+	@cmd	position 3 30 70 -1 1
+	drawmethod 245 245 0 0 0 0 -1
+	frame	data/chars/1ryo/zov05.gif
+	@cmd	position 4 10 70 -1 1
+	drawmethod 240 240 0 0 0 0 -1
+	frame	data/chars/1ryo/zov06.gif
+	@cmd	layer -800
+	@cmd	position 5 -15 70 -1 1
+	drawmethod 230 230 0 0 0 0 -1
+	frame	data/chars/1ryo/zov07.gif
+	@cmd	position 6 -10 70 -1 1
+	drawmethod 220 220 0 0 0 0 -1
+	frame	data/chars/1ryo/zov08.gif
+	attack	0 0 0 0
+	delay	250
+	@cmd	position 7 5 70 -1 1
+	drawmethod 210 210 0 0 0 0 -1
+	frame	data/chars/1ryo/zov09.gif 
+	delay	50
+	@cmd	dasher 0 0 2
+	@cmd	position 7 5 70 -1 1
+	frame	data/chars/1ryo/zov09.gif #9
+	@cmd	position 7 5 70 -1 1
+	frame	data/chars/1ryo/zov09.gif
+	@cmd	stop
+	@cmd	position 7 5 70 -1 1
+	frame	data/chars/1ryo/zov09.gif
+	@cmd	spawnAni2 "remshw1" -50 100 195 "ANI_FOLLOW1"	
+	@cmd	position 7 5 70 -1 1
+	frame	data/chars/1ryo/zov09.gif
+	@cmd	position 7 5 70 -1 1
+	frame	data/chars/1ryo/zov09.gif
+	@cmd	position 7 5 70 -1 1
+	frame	data/chars/1ryo/zov09.gif
+	@cmd	position 7 5 70 -1 1
+	frame	data/chars/1ryo/zov09.gif
+	@cmd	position 7 5 70 -1 1
+	frame	data/chars/1ryo/zov09.gif
+	@cmd	position 7 5 70 -1 1
+	frame	data/chars/1ryo/zov09.gif
+	@cmd	position 7 5 70 -1 1
+	frame	data/chars/1ryo/zov09.gif
+	@cmd	position 7 5 70 -1 1
+	frame	data/chars/1ryo/zov09.gif
+	@cmd	position 7 5 70 -1 1
+	frame	data/chars/1ryo/zov09.gif
+	delay	800
+	@cmd	position 7 5 70 -1 1
+	frame	data/chars/1ryo/zov09.gif
+	@cmd	position 7 5 70 -1 1
+	frame	data/chars/1ryo/zov09.gif
+	@cmd	position 7 5 70 -1 1
+	frame	data/chars/1ryo/zov09.gif
+	@cmd	position 7 5 70 -1 1
+	frame	data/chars/1ryo/zov09.gif
+	@cmd	position 7 5 70 -1 1
+	frame	data/chars/1ryo/zov09.gif
+	@cmd	position 7 5 70 -1 1
+	frame	data/chars/1ryo/zov09.gif
+	@cmd	position 7 5 70 -1 1
+	frame	data/chars/1ryo/zov09.gif
+	@cmd	position 7 5 70 -1 1
+	frame	data/chars/1ryo/zov09.gif
+	@cmd	position 7 5 70 -1 1
+	frame	data/chars/1ryo/zov09.gif
+	@cmd	position 7 5 70 -1 1
+	frame	data/chars/1ryo/zov09.gif
+	@cmd	position 7 5 70 -1 1
+	frame	data/chars/1ryo/zov09.gif
+	@cmd	position 7 5 70 -1 1
+	frame	data/chars/1ryo/zov09.gif
+	@cmd	position 7 5 70 -1 1
+	frame	data/chars/1ryo/zov09.gif
+	@cmd	position 7 5 70 -1 1
+	frame	data/chars/1ryo/zov09.gif
+	@cmd	position 7 5 70 -1 1
+	frame	data/chars/1ryo/zov09.gif
+	@cmd	position 7 5 70 -1 1
+	frame	data/chars/1ryo/zov09.gif
+
+
+
+
+
+
+#------------------------//----------------------------
+
+anim	fall7
+	delay	1000
+	offset	45 95
+	bbox	0 0 0 0
+	frame	data/chars/1ryo/slam0.gif
+	offset	45 95
+	frame	data/chars/1ryo/slam1.gif
+	offset	50 85
+	frame	data/chars/1ryo/slam2.gif
+	offset	45 95
+	frame	data/chars/1ryo/slam3.gif
+	offset	45 95
+	frame	data/chars/1ryo/slam4.gif
+	offset	75 55
+	frame	data/chars/1ryo/slam5.gif
+	offset	40 80
+	frame	data/chars/1ryo/slam6.gif
+	offset	20 90
+	frame	data/chars/1ryo/slam7.gif
+	offset	65 55
+	frame	data/chars/1ryo/slam8.gif
+	offset	65 83
+	frame	data/chars/1ryo/slam9.gif
+	offset	65 83
+	frame	data/chars/1ryo/slam10.gif
+	offset	20 90
+	frame	data/chars/1ryo/slam11.gif
+	offset	75 55
+	frame	data/chars/1ryo/slam12.gif
+	offset	75 55
+	frame	data/chars/1ryo/slam13.gif
+	offset	50 85
+	frame	data/chars/1ryo/slam14.gif
+	offset	45 95
+	frame	data/chars/1ryo/slam15.gif
+	offset	55 70
+	frame	data/chars/1ryo/slam16.gif
+	offset	65 83
+	frame	data/chars/1ryo/slam17.gif
+	offset	65 83
+	frame	data/chars/1ryo/slam18.gif
+	offset	45 95
+	frame	data/chars/1ryo/slam19.gif
+	offset	45 95
+	frame	data/chars/1ryo/slam20.gif
+	offset	45 95
+	frame	data/chars/1ryo/slam21.gif
+	offset	45 95
+	frame	data/chars/1ryo/slam22.gif
+	offset	59 85
+	frame	data/chars/1ryo/slam23.gif
+	offset	59 80
+	frame	data/chars/1ryo/slam24.gif
+	offset	45 95
+	bbox	25 10 60 80
+	frame	data/chars/1ryo/slambbox1.gif
+	bbox	0 0 0 0
+
+
+

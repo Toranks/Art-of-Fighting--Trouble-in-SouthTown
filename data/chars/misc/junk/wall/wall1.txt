@@ -1,0 +1,74 @@
+name		wall1
+type		obstacle
+health		100
+jumpheight	0
+nolife          1
+nomove		1
+noquake		1
+facing		3
+makeinv		3
+gfxshadow	1
+nodrop		1
+antigrab	10
+subject_to_hole 0
+subject_to_platform 0
+subject_to_gravity 0
+subject_to_wall 0
+
+
+
+script	@script
+void main()
+{
+    void self = getlocalvar("self");
+	int p1 = getplayerproperty(0, "entity");
+	int p2 = getplayerproperty(1, "entity");
+	int p3 = getplayerproperty(2, "entity");
+
+    float pl1 = getentityproperty(p1, "x");
+    float pl2 = getentityproperty(p2, "x");
+    float pl3 = getentityproperty(p3, "x");
+
+	if(pl1 <= 1310)
+	{
+     changeentityproperty(p1, "direction", 1);
+     changeentityproperty(p1, "position", pl1+1);
+    	}
+	else if(pl2 <= 1310)
+	{
+     changeentityproperty(p2, "direction", 1);
+     changeentityproperty(p2, "position", pl2+1);
+    	}
+	else if(pl3 <= 1310)
+	{
+     changeentityproperty(p3, "direction", 1);
+     changeentityproperty(p3, "position", pl3+1);
+    	}
+}
+@end_script
+
+
+
+
+
+anim	idle
+	loop	1
+	delay	2300
+	offset	50 295
+	bbox	0 0 0 0
+	platform	5 300 0 0 145 145 450 5000
+	sound	data/sounds/Ringsound.wav
+	frame	data/chars/misc/junk/wall/wall1.gif
+
+		
+anim	spawn
+	loop	0
+	delay	250
+	offset	50 295
+	bbox	0 0 0 0
+	#platform	-5 300 0 0 105 105 450 5000
+	platform	5 300 0 0 145 145 450 5000
+	frame	data/chars/misc/junk/wall/wall1.gif
+	delay	5
+	frame	data/chars/misc/junk/wall/wall1.gif
+	frame	data/chars/misc/junk/wall/wall1.gif

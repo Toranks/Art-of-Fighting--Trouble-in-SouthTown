@@ -1,0 +1,783 @@
+name	 tentcl
+type	 none
+falldie		1
+nolife		1
+shadow		0
+hostile         player
+candamage       player
+
+animationscript data/scripts/escript.c
+
+load	tentcl2
+load	venn1
+load	ovrshoot
+
+palette	data/chars/beyond/3overlord/tent/map1.gif
+
+
+
+
+anim	follow1
+	loop	0
+	delay	4
+	offset	100 235
+	bbox	0 0 0 0
+	hitflash	Flash6
+	hitfx	data/sounds/sl1.wav
+	sound	data/sounds/overlord06.wav
+	frame	data/chars/beyond/3overlord/tent/a01.gif
+	@cmd	spawnbind4 "tentcl2" 0 0 0 1 4
+	frame	data/chars/beyond/3overlord/tent/a02.gif
+	frame	data/chars/beyond/3overlord/tent/a03.gif
+	@cmd	spawnbind6 "tentcl2" 100 0 30 "ANI_FOLLOW20"
+	frame	data/chars/beyond/3overlord/tent/a04.gif
+	frame	data/chars/beyond/3overlord/tent/a05.gif
+	@cmd	spawnbind6 "tentcl2" 160 0 50 "ANI_FOLLOW20"
+	frame	data/chars/beyond/3overlord/tent/a06.gif
+	frame	data/chars/beyond/3overlord/tent/a07.gif
+	@cmd	spawnbind6 "tentcl2" 210 0 70 "ANI_FOLLOW20"
+	frame	data/chars/beyond/3overlord/tent/a08.gif
+	frame	data/chars/beyond/3overlord/tent/a09.gif
+	@cmd	spawnbind6 "tentcl2" 270 0 90 "ANI_FOLLOW20"
+	frame	data/chars/beyond/3overlord/tent/a10.gif
+	frame	data/chars/beyond/3overlord/tent/a11.gif
+	frame	data/chars/beyond/3overlord/tent/a12.gif
+	@cmd	spawnbind6 "tentcl2" 300 0 110 "ANI_FOLLOW20"
+	frame	data/chars/beyond/3overlord/tent/a13.gif
+	frame	data/chars/beyond/3overlord/tent/a14.gif
+	frame	data/chars/beyond/3overlord/tent/a13.gif
+	frame	data/chars/beyond/3overlord/tent/a12.gif
+	frame	data/chars/beyond/3overlord/tent/a11.gif
+	frame	data/chars/beyond/3overlord/tent/a10.gif
+	frame	data/chars/beyond/3overlord/tent/a09.gif
+	frame	data/chars/beyond/3overlord/tent/a08.gif
+	frame	data/chars/beyond/3overlord/tent/a07.gif
+	frame	data/chars/beyond/3overlord/tent/a06.gif
+	frame	data/chars/beyond/3overlord/tent/a05.gif
+	frame	data/chars/beyond/3overlord/tent/a04.gif
+	frame	data/chars/beyond/3overlord/tent/a03.gif
+	frame	data/chars/beyond/3overlord/tent/a02.gif
+	frame	data/chars/beyond/3overlord/tent/a01.gif
+	@cmd	beidle
+	frame	data/chars/beyond/3overlord/tent/a01.gif
+
+
+
+
+
+		
+anim	follow2
+	loop	0
+	delay	4
+	offset	100 235
+	bbox	0 0 0 0
+	sound	data/sounds/overlord06.wav
+	frame	data/chars/beyond/3overlord/tent/b01.gif
+	frame	data/chars/beyond/3overlord/tent/b02.gif
+	@cmd	spawnbind6 "tentcl2" 100 0 -30 "ANI_FOLLOW20"
+	frame	data/chars/beyond/3overlord/tent/b03.gif
+	frame	data/chars/beyond/3overlord/tent/b04.gif
+	@cmd	spawnbind6 "tentcl2" 160 0 -50 "ANI_FOLLOW20"
+	frame	data/chars/beyond/3overlord/tent/b05.gif
+	frame	data/chars/beyond/3overlord/tent/b06.gif
+	@cmd	spawnbind6 "tentcl2" 210 0 -70 "ANI_FOLLOW20"
+	frame	data/chars/beyond/3overlord/tent/b07.gif
+	frame	data/chars/beyond/3overlord/tent/b08.gif
+	@cmd	spawnbind6 "tentcl2" 270 0 -90 "ANI_FOLLOW20"
+	frame	data/chars/beyond/3overlord/tent/b09.gif
+	frame	data/chars/beyond/3overlord/tent/b10.gif
+	frame	data/chars/beyond/3overlord/tent/b11.gif
+	@cmd	spawnbind6 "tentcl2" 300 0 -110 "ANI_FOLLOW20"
+	frame	data/chars/beyond/3overlord/tent/b12.gif
+	frame	data/chars/beyond/3overlord/tent/b13.gif
+	frame	data/chars/beyond/3overlord/tent/b14.gif
+	frame	data/chars/beyond/3overlord/tent/b13.gif
+	frame	data/chars/beyond/3overlord/tent/b12.gif
+	frame	data/chars/beyond/3overlord/tent/b11.gif
+	frame	data/chars/beyond/3overlord/tent/b10.gif
+	frame	data/chars/beyond/3overlord/tent/b09.gif
+	frame	data/chars/beyond/3overlord/tent/b08.gif
+	frame	data/chars/beyond/3overlord/tent/b07.gif
+	frame	data/chars/beyond/3overlord/tent/b06.gif
+	frame	data/chars/beyond/3overlord/tent/b05.gif
+	frame	data/chars/beyond/3overlord/tent/b04.gif
+	frame	data/chars/beyond/3overlord/tent/b03.gif
+	frame	data/chars/beyond/3overlord/tent/b02.gif
+	frame	data/chars/beyond/3overlord/tent/b01.gif
+	@cmd	beidle
+	frame	data/chars/beyond/3overlord/tent/b01.gif
+
+
+#-----------------------------------------------------------------
+#-----tentacles----follow1-attack-Zdown-//-follow2-attack-Zup-----
+#-----------------------------------------------------------------
+
+
+anim	idle
+	loop	1
+	delay	4
+	offset	100 185
+	bbox	0 0 0 0
+	frame	data/chars/beyond/3overlord/tent/idle01.gif
+	@cmd	attack4 90 370 0 160 30 150 "ANI_FOLLOW1"
+	frame	data/chars/beyond/3overlord/tent/idle02.gif
+	@cmd	attack4 90 370 0 160 -150 -30 "ANI_FOLLOW2"
+	frame	data/chars/beyond/3overlord/tent/idle03.gif
+	@cmd	attack4 90 370 0 160 30 150 "ANI_FOLLOW1"
+	frame	data/chars/beyond/3overlord/tent/idle04.gif
+	@cmd	attack4 90 370 0 160 -150 -30 "ANI_FOLLOW2"
+	frame	data/chars/beyond/3overlord/tent/idle05.gif
+	@cmd	attack4 90 370 0 160 30 150 "ANI_FOLLOW1"
+	frame	data/chars/beyond/3overlord/tent/idle06.gif
+	@cmd	attack4 90 370 0 160 -150 -30 "ANI_FOLLOW2"
+	frame	data/chars/beyond/3overlord/tent/idle07.gif
+	@cmd	attack4 90 370 0 160 30 150 "ANI_FOLLOW1"
+	frame	data/chars/beyond/3overlord/tent/idle08.gif
+	@cmd	attack4 90 370 0 160 -150 -30 "ANI_FOLLOW2"
+	frame	data/chars/beyond/3overlord/tent/idle07.gif
+	@cmd	attack4 90 370 0 160 30 150 "ANI_FOLLOW1"
+	frame	data/chars/beyond/3overlord/tent/idle06.gif
+	@cmd	attack4 90 370 0 160 -150 -30 "ANI_FOLLOW2"
+	frame	data/chars/beyond/3overlord/tent/idle05.gif
+	@cmd	attack4 90 370 0 160 30 150 "ANI_FOLLOW1"
+	frame	data/chars/beyond/3overlord/tent/idle04.gif
+	@cmd	attack4 90 370 0 160 -150 -30 "ANI_FOLLOW2"
+	frame	data/chars/beyond/3overlord/tent/idle03.gif
+	@cmd	attack4 90 370 0 160 30 150 "ANI_FOLLOW1"
+	frame	data/chars/beyond/3overlord/tent/idle02.gif
+
+
+#--------spawn----
+
+anim	follow4
+	loop	0
+	delay	5
+	offset	100 185
+	bbox	0 0 0 0
+	frame	data/chars/beyond/3overlord/tent/idlesp09.gif
+	@cmd	spawnGun7 "venn1" -5 80 -1 5 1 "ANI_FOLLOW1"
+	@cmd	spawnGun7 "venn1" 10 80 -1 6 -1 "ANI_FOLLOW1"
+	frame	data/chars/beyond/3overlord/tent/idlesp09.gif
+	delay	50
+	frame	data/chars/beyond/3overlord/tent/idlesp09.gif
+	delay	12
+	frame	data/chars/beyond/3overlord/tent/idlesp01.gif
+	frame	data/chars/beyond/3overlord/tent/idlesp02.gif
+	frame	data/chars/beyond/3overlord/tent/idlesp01.gif
+	frame	data/chars/beyond/3overlord/tent/idlesp02.gif
+	frame	data/chars/beyond/3overlord/tent/idlesp01.gif
+	frame	data/chars/beyond/3overlord/tent/idlesp02.gif
+	frame	data/chars/beyond/3overlord/tent/idlesp01.gif
+	frame	data/chars/beyond/3overlord/tent/idlesp02.gif
+	frame	data/chars/beyond/3overlord/tent/idlesp01.gif
+	frame	data/chars/beyond/3overlord/tent/idlesp02.gif
+	frame	data/chars/beyond/3overlord/tent/idlesp01.gif
+	frame	data/chars/beyond/3overlord/tent/idlesp02.gif
+
+	frame	data/chars/beyond/3overlord/tent/idlesp03.gif
+	frame	data/chars/beyond/3overlord/tent/idlesp04.gif
+	frame	data/chars/beyond/3overlord/tent/idlesp03.gif
+	frame	data/chars/beyond/3overlord/tent/idlesp04.gif
+	frame	data/chars/beyond/3overlord/tent/idlesp03.gif
+	frame	data/chars/beyond/3overlord/tent/idlesp04.gif
+	frame	data/chars/beyond/3overlord/tent/idlesp03.gif
+	frame	data/chars/beyond/3overlord/tent/idlesp04.gif
+	frame	data/chars/beyond/3overlord/tent/idlesp03.gif
+	frame	data/chars/beyond/3overlord/tent/idlesp04.gif
+	frame	data/chars/beyond/3overlord/tent/idlesp03.gif
+	frame	data/chars/beyond/3overlord/tent/idlesp04.gif
+	frame	data/chars/beyond/3overlord/tent/idlesp03.gif
+	frame	data/chars/beyond/3overlord/tent/idlesp04.gif
+	frame	data/chars/beyond/3overlord/tent/idlesp03.gif
+	frame	data/chars/beyond/3overlord/tent/idlesp04.gif
+	frame	data/chars/beyond/3overlord/tent/idlesp03.gif
+	frame	data/chars/beyond/3overlord/tent/idlesp04.gif
+
+	frame	data/chars/beyond/3overlord/tent/idlesp05.gif
+	frame	data/chars/beyond/3overlord/tent/idlesp06.gif
+	frame	data/chars/beyond/3overlord/tent/idlesp05.gif
+	frame	data/chars/beyond/3overlord/tent/idlesp06.gif
+	frame	data/chars/beyond/3overlord/tent/idlesp05.gif
+	frame	data/chars/beyond/3overlord/tent/idlesp06.gif
+	frame	data/chars/beyond/3overlord/tent/idlesp05.gif
+	frame	data/chars/beyond/3overlord/tent/idlesp06.gif
+	frame	data/chars/beyond/3overlord/tent/idlesp05.gif
+	frame	data/chars/beyond/3overlord/tent/idlesp06.gif
+	frame	data/chars/beyond/3overlord/tent/idlesp05.gif
+	frame	data/chars/beyond/3overlord/tent/idlesp06.gif
+	frame	data/chars/beyond/3overlord/tent/idlesp05.gif
+	frame	data/chars/beyond/3overlord/tent/idlesp06.gif
+	frame	data/chars/beyond/3overlord/tent/idlesp05.gif
+	frame	data/chars/beyond/3overlord/tent/idlesp06.gif
+	frame	data/chars/beyond/3overlord/tent/idlesp05.gif
+	frame	data/chars/beyond/3overlord/tent/idlesp06.gif
+
+	frame	data/chars/beyond/3overlord/tent/idlesp07.gif
+	frame	data/chars/beyond/3overlord/tent/idlesp08.gif
+	frame	data/chars/beyond/3overlord/tent/idlesp07.gif
+	frame	data/chars/beyond/3overlord/tent/idlesp08.gif
+	sound	data/sounds/break2.wav
+	frame	data/chars/beyond/3overlord/tent/idlesp07.gif
+	frame	data/chars/beyond/3overlord/tent/idlesp08.gif
+	delay	4
+	frame	data/chars/beyond/3overlord/tent/idle01.gif #16
+	sound	data/sounds/break2.wav
+	frame	data/chars/beyond/3overlord/tent/idle02.gif
+	frame	data/chars/beyond/3overlord/tent/idle03.gif
+	frame	data/chars/beyond/3overlord/tent/idle04.gif
+	frame	data/chars/beyond/3overlord/tent/idle05.gif
+	frame	data/chars/beyond/3overlord/tent/idle06.gif
+	frame	data/chars/beyond/3overlord/tent/idle07.gif
+	sound	data/sounds/break2.wav
+	frame	data/chars/beyond/3overlord/tent/idle08.gif
+	frame	data/chars/beyond/3overlord/tent/idle07.gif
+	frame	data/chars/beyond/3overlord/tent/idle06.gif
+	frame	data/chars/beyond/3overlord/tent/idle05.gif
+	frame	data/chars/beyond/3overlord/tent/idle04.gif
+	frame	data/chars/beyond/3overlord/tent/idle03.gif
+	sound	data/sounds/break2.wav
+	frame	data/chars/beyond/3overlord/tent/idle02.gif
+	frame	data/chars/beyond/3overlord/tent/idle01.gif
+	frame	data/chars/beyond/3overlord/tent/idle02.gif
+	@cmd	killgun 5 0
+	@cmd	killgun 6 0
+	frame	data/chars/beyond/3overlord/tent/idle03.gif
+	frame	data/chars/beyond/3overlord/tent/idle04.gif
+	frame	data/chars/beyond/3overlord/tent/idle05.gif
+	sound	data/sounds/break2.wav
+	frame	data/chars/beyond/3overlord/tent/idle06.gif
+	frame	data/chars/beyond/3overlord/tent/idle07.gif
+	frame	data/chars/beyond/3overlord/tent/idle08.gif
+	frame	data/chars/beyond/3overlord/tent/idle07.gif
+	frame	data/chars/beyond/3overlord/tent/idle06.gif
+	frame	data/chars/beyond/3overlord/tent/idle05.gif
+	sound	data/sounds/break2.wav
+	frame	data/chars/beyond/3overlord/tent/idle04.gif
+	frame	data/chars/beyond/3overlord/tent/idle03.gif
+	frame	data/chars/beyond/3overlord/tent/idle02.gif
+	frame	data/chars/beyond/3overlord/tent/idle01.gif
+	frame	data/chars/beyond/3overlord/tent/idle01.gif
+	frame	data/chars/beyond/3overlord/tent/idle02.gif
+	sound	data/sounds/break2.wav
+	frame	data/chars/beyond/3overlord/tent/idle03.gif
+	frame	data/chars/beyond/3overlord/tent/idle04.gif
+	frame	data/chars/beyond/3overlord/tent/idle05.gif
+	frame	data/chars/beyond/3overlord/tent/idle06.gif
+	frame	data/chars/beyond/3overlord/tent/idle07.gif
+	frame	data/chars/beyond/3overlord/tent/idle08.gif
+	sound	data/sounds/break2.wav
+	frame	data/chars/beyond/3overlord/tent/idle07.gif
+	frame	data/chars/beyond/3overlord/tent/idle06.gif
+	frame	data/chars/beyond/3overlord/tent/idle05.gif
+	frame	data/chars/beyond/3overlord/tent/idle04.gif
+	frame	data/chars/beyond/3overlord/tent/idle03.gif
+	frame	data/chars/beyond/3overlord/tent/idle02.gif
+	frame	data/chars/beyond/3overlord/tent/idle01.gif
+	@cmd	beidle
+	frame	data/chars/beyond/3overlord/tent/idle01.gif 
+
+
+#-----------------------------------------------------------------
+#--------------------------------END------------------------------
+#-----------------------------------------------------------------
+
+
+
+
+
+
+#-----------------------------------------------------------------
+#--------tail-idle-follow6-back-attack-//-follow8-vennon----------
+#-----------------------------------------------------------------
+
+
+
+anim	follow5
+	loop	1
+	delay	3
+	offset	218 182
+	bbox	0 0 0 0
+	frame	data/chars/beyond/3overlord/tent/tl01.gif
+	@cmd	attack4 -270 0 0 160 -40 40 "ANI_FOLLOW6"
+	frame	data/chars/beyond/3overlord/tent/tl02.gif
+	@cmd	attack4 -120 120 0 160 30 120 "ANI_FOLLOW8"
+	@cmd	attack4 -120 120 0 160 -120 -30 "ANI_FOLLOW8"
+	frame	data/chars/beyond/3overlord/tent/tl03.gif
+	@cmd	attack4 -270 0 0 160 -40 40 "ANI_FOLLOW6"
+	frame	data/chars/beyond/3overlord/tent/tl04.gif
+	@cmd	attack4 -120 120 0 160 30 120 "ANI_FOLLOW8"
+	@cmd	attack4 -120 120 0 160 -120 -30 "ANI_FOLLOW8"
+	frame	data/chars/beyond/3overlord/tent/tl05.gif
+	@cmd	attack4 -270 0 0 160 -40 40 "ANI_FOLLOW6"
+	frame	data/chars/beyond/3overlord/tent/tl06.gif
+	@cmd	attack4 -120 120 0 160 30 120 "ANI_FOLLOW8"
+	@cmd	attack4 -120 120 0 160 -120 -30 "ANI_FOLLOW8"
+	frame	data/chars/beyond/3overlord/tent/tl07.gif
+	@cmd	attack4 -270 0 0 160 -40 40 "ANI_FOLLOW6"
+	frame	data/chars/beyond/3overlord/tent/tl08.gif
+	@cmd	attack4 -120 120 0 160 30 120 "ANI_FOLLOW8"
+	@cmd	attack4 -120 120 0 160 -120 -30 "ANI_FOLLOW8"
+	frame	data/chars/beyond/3overlord/tent/tl09.gif
+	@cmd	attack4 -270 0 0 160 -40 40 "ANI_FOLLOW6"
+	frame	data/chars/beyond/3overlord/tent/tl10.gif
+	@cmd	attack4 -120 120 0 160 30 120 "ANI_FOLLOW8"
+	@cmd	attack4 -120 120 0 160 -120 -30 "ANI_FOLLOW8"
+	frame	data/chars/beyond/3overlord/tent/tl11.gif
+	@cmd	attack4 -270 0 0 160 -40 40 "ANI_FOLLOW6"
+	frame	data/chars/beyond/3overlord/tent/tl12.gif
+	@cmd	attack4 -120 120 0 160 30 120 "ANI_FOLLOW8"
+	@cmd	attack4 -120 120 0 160 -120 -30 "ANI_FOLLOW8"
+	@cmd	attack4 -270 0 0 160 -40 40 "ANI_FOLLOW6"
+	frame	data/chars/beyond/3overlord/tent/tl13.gif
+
+
+
+
+#------spawn-------
+
+anim	follow11
+	loop	0
+	delay	8
+	offset	218 182
+	bbox	0 0 0 0
+	frame	data/chars/beyond/3overlord/tent/tlsp01.gif
+	@cmd	spawnGun7 "venn1" -20 60 -2 6 1 "ANI_FOLLOW1"
+	@cmd	spawnGun7 "venn1" -5 50 -1 5 1 "ANI_FOLLOW1"
+	frame	data/chars/beyond/3overlord/tent/tlsp02.gif
+	frame	data/chars/beyond/3overlord/tent/tlsp01.gif
+	frame	data/chars/beyond/3overlord/tent/tlsp02.gif
+	frame	data/chars/beyond/3overlord/tent/tlsp01.gif
+	frame	data/chars/beyond/3overlord/tent/tlsp02.gif
+
+	frame	data/chars/beyond/3overlord/tent/tlsp03.gif
+	frame	data/chars/beyond/3overlord/tent/tlsp04.gif
+	frame	data/chars/beyond/3overlord/tent/tlsp03.gif
+	frame	data/chars/beyond/3overlord/tent/tlsp04.gif
+	frame	data/chars/beyond/3overlord/tent/tlsp03.gif
+	frame	data/chars/beyond/3overlord/tent/tlsp04.gif
+
+	frame	data/chars/beyond/3overlord/tent/tlsp05.gif
+	frame	data/chars/beyond/3overlord/tent/tlsp06.gif
+	frame	data/chars/beyond/3overlord/tent/tlsp05.gif
+	frame	data/chars/beyond/3overlord/tent/tlsp06.gif
+	frame	data/chars/beyond/3overlord/tent/tlsp05.gif
+	frame	data/chars/beyond/3overlord/tent/tlsp06.gif
+
+	frame	data/chars/beyond/3overlord/tent/tlsp07.gif
+	frame	data/chars/beyond/3overlord/tent/tlsp08.gif
+	frame	data/chars/beyond/3overlord/tent/tlsp07.gif
+	frame	data/chars/beyond/3overlord/tent/tlsp08.gif
+	frame	data/chars/beyond/3overlord/tent/tlsp07.gif
+	frame	data/chars/beyond/3overlord/tent/tlsp08.gif
+
+	frame	data/chars/beyond/3overlord/tent/tlsp09.gif
+	frame	data/chars/beyond/3overlord/tent/tlsp10.gif
+	frame	data/chars/beyond/3overlord/tent/tlsp09.gif
+	frame	data/chars/beyond/3overlord/tent/tlsp10.gif
+	frame	data/chars/beyond/3overlord/tent/tlsp09.gif
+	frame	data/chars/beyond/3overlord/tent/tlsp10.gif
+
+	frame	data/chars/beyond/3overlord/tent/tlsp11.gif
+	frame	data/chars/beyond/3overlord/tent/tlsp12.gif
+	frame	data/chars/beyond/3overlord/tent/tlsp11.gif
+	frame	data/chars/beyond/3overlord/tent/tlsp12.gif
+	frame	data/chars/beyond/3overlord/tent/tlsp11.gif
+	frame	data/chars/beyond/3overlord/tent/tlsp12.gif #35
+
+	frame	data/chars/beyond/3overlord/tent/tlsp13.gif
+	delay	5
+	frame	data/chars/beyond/3overlord/tent/tlsp14.gif #37
+	frame	data/chars/beyond/3overlord/tent/tlsp15.gif
+	sound	data/sounds/break2.wav
+	frame	data/chars/beyond/3overlord/tent/tlsp14.gif
+	frame	data/chars/beyond/3overlord/tent/tlsp15.gif
+	@cmd	looper 37 20
+
+	frame	data/chars/beyond/3overlord/tent/tlsp14.gif
+	delay	3
+
+	frame	data/chars/beyond/3overlord/tent/tla03.gif
+	@cmd	killgun 5 0
+	@cmd	killgun 6 0
+	frame	data/chars/beyond/3overlord/tent/tla02.gif
+	frame	data/chars/beyond/3overlord/tent/tla01.gif
+
+
+	frame	data/chars/beyond/3overlord/tent/tl01.gif #45
+	frame	data/chars/beyond/3overlord/tent/tl02.gif
+	frame	data/chars/beyond/3overlord/tent/tl03.gif
+	frame	data/chars/beyond/3overlord/tent/tl04.gif
+	frame	data/chars/beyond/3overlord/tent/tl05.gif
+	frame	data/chars/beyond/3overlord/tent/tl06.gif
+	sound	data/sounds/break2.wav
+	frame	data/chars/beyond/3overlord/tent/tl07.gif
+	frame	data/chars/beyond/3overlord/tent/tl08.gif
+	frame	data/chars/beyond/3overlord/tent/tl09.gif
+	frame	data/chars/beyond/3overlord/tent/tl10.gif
+	frame	data/chars/beyond/3overlord/tent/tl11.gif
+	frame	data/chars/beyond/3overlord/tent/tl12.gif
+	frame	data/chars/beyond/3overlord/tent/tl13.gif
+	@cmd	looper 45 10
+	frame	data/chars/beyond/3overlord/tent/tl01.gif
+	frame	data/chars/beyond/3overlord/tent/tl02.gif
+	frame	data/chars/beyond/3overlord/tent/tl03.gif
+	@cmd	anichange "ANI_FOLLOW5"
+	frame	data/chars/beyond/3overlord/tent/tl04.gif
+
+
+
+
+
+
+
+
+
+
+#-----------------------------------------------------------------
+#--------------------------------END------------------------------
+#-----------------------------------------------------------------
+
+
+
+
+
+
+#-----------------------------------------------------------------
+#------------------------///---FOLLOW8---///----------------------
+#----------vennon-spit-then-checks-back-attack--------------------
+#-----------------------------------------------------------------
+
+anim	follow8
+	loop	0
+	delay	5
+	offset	218 182
+	bbox	0 0 0 0
+	frame	data/chars/beyond/3overlord/tent/tlb01.gif
+	sound	data/sounds/overlord08.wav
+	frame	data/chars/beyond/3overlord/tent/tlb02.gif
+	frame	data/chars/beyond/3overlord/tent/tlb03.gif
+	delay	3
+	frame	data/chars/beyond/3overlord/tent/tlb07.gif #3
+	frame	data/chars/beyond/3overlord/tent/tlb08.gif
+	@cmd	tosser4 "venn1" -70 130 1 0.6 4 0.1 1
+	frame	data/chars/beyond/3overlord/tent/tlb09.gif
+	frame	data/chars/beyond/3overlord/tent/tlb10.gif
+	frame	data/chars/beyond/3overlord/tent/tlb11.gif
+	frame	data/chars/beyond/3overlord/tent/tlb12.gif
+	@cmd	tosser4 "venn1" -70 130 1 0 4 0.2 1
+	frame	data/chars/beyond/3overlord/tent/tlb13.gif
+	frame	data/chars/beyond/3overlord/tent/tlb14.gif
+	frame	data/chars/beyond/3overlord/tent/tlb15.gif
+	frame	data/chars/beyond/3overlord/tent/tlb04.gif
+	@cmd	tosser4 "venn1" -70 130 1 -0.6 4 0.1 1
+	frame	data/chars/beyond/3overlord/tent/tlb05.gif
+	frame	data/chars/beyond/3overlord/tent/tlb06.gif
+	frame	data/chars/beyond/3overlord/tent/tlb07.gif
+	frame	data/chars/beyond/3overlord/tent/tlb08.gif
+	@cmd	tosser4 "venn1" -70 130 1 -0.6 4 -0.1 1
+	frame	data/chars/beyond/3overlord/tent/tlb09.gif
+	frame	data/chars/beyond/3overlord/tent/tlb10.gif
+	frame	data/chars/beyond/3overlord/tent/tlb11.gif
+	frame	data/chars/beyond/3overlord/tent/tlb12.gif
+	@cmd	tosser4 "venn1" -70 130 1 0 4 -0.2 1
+	frame	data/chars/beyond/3overlord/tent/tlb13.gif
+	frame	data/chars/beyond/3overlord/tent/tlb14.gif
+	frame	data/chars/beyond/3overlord/tent/tlb15.gif
+	frame	data/chars/beyond/3overlord/tent/tlb04.gif
+	@cmd	tosser4 "venn1" -70 130 1 0.6 4 -0.1 1
+	frame	data/chars/beyond/3overlord/tent/tlb05.gif
+	frame	data/chars/beyond/3overlord/tent/tlb06.gif
+
+	delay	5
+	frame	data/chars/beyond/3overlord/tent/tlb03.gif
+	frame	data/chars/beyond/3overlord/tent/tlb02.gif
+	frame	data/chars/beyond/3overlord/tent/tlb01.gif
+	delay	3
+	frame	data/chars/beyond/3overlord/tent/tl01.gif
+	@cmd	attack4 -270 0 0 160 -40 40 "ANI_FOLLOW6"
+	frame	data/chars/beyond/3overlord/tent/tl02.gif
+	frame	data/chars/beyond/3overlord/tent/tl03.gif
+	@cmd	attack4 -270 0 0 160 -40 40 "ANI_FOLLOW6"
+	frame	data/chars/beyond/3overlord/tent/tl04.gif
+	frame	data/chars/beyond/3overlord/tent/tl05.gif
+	@cmd	attack4 -270 0 0 160 -40 40 "ANI_FOLLOW6"
+	frame	data/chars/beyond/3overlord/tent/tl06.gif
+	frame	data/chars/beyond/3overlord/tent/tl07.gif
+	@cmd	attack4 -270 0 0 160 -40 40 "ANI_FOLLOW6"
+	frame	data/chars/beyond/3overlord/tent/tl08.gif
+	frame	data/chars/beyond/3overlord/tent/tl09.gif
+	@cmd	attack4 -270 0 0 160 -40 40 "ANI_FOLLOW6"
+	frame	data/chars/beyond/3overlord/tent/tl10.gif
+	frame	data/chars/beyond/3overlord/tent/tl11.gif
+	@cmd	attack4 -270 0 0 160 -40 40 "ANI_FOLLOW6"
+	frame	data/chars/beyond/3overlord/tent/tl12.gif
+	@cmd	attack4 -270 0 0 160 -40 40 "ANI_FOLLOW6"
+	frame	data/chars/beyond/3overlord/tent/tl13.gif
+
+	frame	data/chars/beyond/3overlord/tent/tl01.gif
+	@cmd	attack4 -270 0 0 160 -40 40 "ANI_FOLLOW6"
+	frame	data/chars/beyond/3overlord/tent/tl02.gif
+	frame	data/chars/beyond/3overlord/tent/tl03.gif
+	@cmd	attack4 -270 0 0 160 -40 40 "ANI_FOLLOW6"
+	frame	data/chars/beyond/3overlord/tent/tl04.gif
+	frame	data/chars/beyond/3overlord/tent/tl05.gif
+	@cmd	attack4 -270 0 0 160 -40 40 "ANI_FOLLOW6"
+	frame	data/chars/beyond/3overlord/tent/tl06.gif
+	frame	data/chars/beyond/3overlord/tent/tl07.gif
+	@cmd	attack4 -270 0 0 160 -40 40 "ANI_FOLLOW6"
+	frame	data/chars/beyond/3overlord/tent/tl08.gif
+	frame	data/chars/beyond/3overlord/tent/tl09.gif
+	@cmd	attack4 -270 0 0 160 -40 40 "ANI_FOLLOW6"
+	frame	data/chars/beyond/3overlord/tent/tl10.gif
+	frame	data/chars/beyond/3overlord/tent/tl11.gif
+	@cmd	attack4 -270 0 0 160 -40 40 "ANI_FOLLOW6"
+	frame	data/chars/beyond/3overlord/tent/tl12.gif
+	@cmd	attack4 -270 0 0 160 -40 40 "ANI_FOLLOW6"
+	frame	data/chars/beyond/3overlord/tent/tl13.gif
+
+	frame	data/chars/beyond/3overlord/tent/tl01.gif
+	@cmd	attack4 -270 0 0 160 -40 40 "ANI_FOLLOW6"
+	frame	data/chars/beyond/3overlord/tent/tl02.gif
+	frame	data/chars/beyond/3overlord/tent/tl03.gif
+	@cmd	attack4 -270 0 0 160 -40 40 "ANI_FOLLOW6"
+	frame	data/chars/beyond/3overlord/tent/tl04.gif
+	frame	data/chars/beyond/3overlord/tent/tl05.gif
+	@cmd	attack4 -270 0 0 160 -40 40 "ANI_FOLLOW6"
+	frame	data/chars/beyond/3overlord/tent/tl06.gif
+	frame	data/chars/beyond/3overlord/tent/tl07.gif
+	@cmd	attack4 -270 0 0 160 -40 40 "ANI_FOLLOW6"
+	frame	data/chars/beyond/3overlord/tent/tl08.gif
+	frame	data/chars/beyond/3overlord/tent/tl09.gif
+	@cmd	attack4 -270 0 0 160 -40 40 "ANI_FOLLOW6"
+	frame	data/chars/beyond/3overlord/tent/tl10.gif
+	frame	data/chars/beyond/3overlord/tent/tl11.gif
+	@cmd	attack4 -270 0 0 160 -40 40 "ANI_FOLLOW6"
+	frame	data/chars/beyond/3overlord/tent/tl12.gif
+	@cmd	attack4 -270 0 0 160 -40 40 "ANI_FOLLOW6"
+	frame	data/chars/beyond/3overlord/tent/tl13.gif
+	@cmd	anichange "ANI_FOLLOW5"
+	frame	data/chars/beyond/3overlord/tent/tl13.gif
+
+
+#-----------------------------------------------------------------
+#--------------------------------END------------------------------
+#-----------------------------------------------------------------
+
+
+#-----------------------------------------------------------------
+#------------------------///---FOLLOW6---///----------------------
+#-----------------------------------------------------------------
+#-------------------------tail-back-attack------------------------
+#-----------------------------------------------------------------
+
+
+
+anim	follow6
+	loop	0
+	delay	5
+	offset	218 182
+	bbox	0 0 0 0
+	quakeframe	5 8 5
+	fastattack	1
+	hitflash	Flash6
+	hitfx	data/sounds/sl1.wav
+	frame	data/chars/beyond/3overlord/tent/tla02.gif
+	sound	data/sounds/overlord05.wav
+	frame	data/chars/beyond/3overlord/tent/tla03.gif
+	attack2	51 3 130 130 25 0 0 0 9 55
+	frame	data/chars/beyond/3overlord/tent/tla04.gif
+	attack2	0 0 0 0
+	frame	data/chars/beyond/3overlord/tent/tla05.gif
+	attack3	5 3 180 180 25 0 0 0 9 55
+	frame	data/chars/beyond/3overlord/tent/tla06.gif
+	frame	data/chars/beyond/3overlord/tent/tla07.gif
+	@cmd	spawnbind "dust" -150 0 5
+	@cmd	spawnbind "dust" -100 0 0
+	@cmd	spawnbind "dust" -100 0 -5
+	frame	data/chars/beyond/3overlord/tent/tla08.gif
+	sound	data/sounds/bang2.wav
+	frame	data/chars/beyond/3overlord/tent/tla09.gif
+	frame	data/chars/beyond/3overlord/tent/tla10.gif
+	attack3	0 0 0 0
+	frame	data/chars/beyond/3overlord/tent/tla11.gif
+	frame	data/chars/beyond/3overlord/tent/tla12.gif
+	frame	data/chars/beyond/3overlord/tent/tla13.gif
+	frame	data/chars/beyond/3overlord/tent/tla01.gif
+
+
+	frame	data/chars/beyond/3overlord/tent/tla01.gif
+	@cmd	anichange "ANI_FOLLOW5"
+	frame	data/chars/beyond/3overlord/tent/tla01.gif
+
+#-----------------------------------------------------------------
+#--------------------------------END------------------------------
+#-----------------------------------------------------------------
+
+
+
+
+#-----------------------------------------------------------------
+#---------------------crown-attack--------------------------------
+#-----------------------------------------------------------------
+
+anim	follow9
+	loop	1
+	delay	4
+	offset	100 195
+	bbox	0 0 0 0
+	drawmethod 256 256 0 0 0 1
+	frame	data/chars/beyond/3overlord/tent/d04.gif
+	frame	data/chars/beyond/3overlord/tent/d05.gif
+	frame	data/chars/beyond/3overlord/tent/d06.gif
+	frame	data/chars/beyond/3overlord/tent/d07.gif
+	frame	data/chars/beyond/3overlord/tent/d08.gif
+	frame	data/chars/beyond/3overlord/tent/d09.gif
+	frame	data/chars/beyond/3overlord/tent/d10.gif
+	frame	data/chars/beyond/3overlord/tent/d11.gif
+	frame	data/chars/beyond/3overlord/tent/d12.gif
+	frame	data/chars/beyond/3overlord/tent/d13.gif
+	frame	data/chars/beyond/3overlord/tent/d14.gif
+	frame	data/chars/beyond/3overlord/tent/d15.gif
+	delay	10
+	frame	data/chars/beyond/3overlord/tent/dx16.gif
+	frame	data/chars/beyond/3overlord/tent/dx17.gif
+	@cmd	spawnAni "ovrshoot" 10 70 0 "ANI_FOLLOW1"
+	frame	data/chars/beyond/3overlord/tent/dx18.gif
+	frame	data/chars/beyond/3overlord/tent/dx02.gif #17
+	frame	data/chars/beyond/3overlord/tent/dx03.gif
+	delay	4
+	frame	data/chars/beyond/3overlord/tent/d04.gif #19
+	frame	data/chars/beyond/3overlord/tent/d05.gif
+	frame	data/chars/beyond/3overlord/tent/d06.gif
+	frame	data/chars/beyond/3overlord/tent/d07.gif
+	frame	data/chars/beyond/3overlord/tent/d08.gif
+	frame	data/chars/beyond/3overlord/tent/d09.gif
+	frame	data/chars/beyond/3overlord/tent/d10.gif
+	frame	data/chars/beyond/3overlord/tent/d11.gif
+	frame	data/chars/beyond/3overlord/tent/d12.gif
+	frame	data/chars/beyond/3overlord/tent/d13.gif
+	frame	data/chars/beyond/3overlord/tent/d14.gif
+	frame	data/chars/beyond/3overlord/tent/d15.gif
+	frame	data/chars/beyond/3overlord/tent/d16.gif
+	frame	data/chars/beyond/3overlord/tent/d17.gif
+	frame	data/chars/beyond/3overlord/tent/d18.gif
+	frame	data/chars/beyond/3overlord/tent/d02.gif
+	frame	data/chars/beyond/3overlord/tent/d03.gif
+	@cmd	looper 19 7 
+
+
+
+	frame	data/chars/beyond/3overlord/tent/d04.gif
+	frame	data/chars/beyond/3overlord/tent/d05.gif
+	frame	data/chars/beyond/3overlord/tent/d06.gif
+	frame	data/chars/beyond/3overlord/tent/d07.gif
+	frame	data/chars/beyond/3overlord/tent/d08.gif
+	frame	data/chars/beyond/3overlord/tent/d09.gif
+	frame	data/chars/beyond/3overlord/tent/d10.gif
+	frame	data/chars/beyond/3overlord/tent/d11.gif
+	frame	data/chars/beyond/3overlord/tent/d12.gif
+	frame	data/chars/beyond/3overlord/tent/d13.gif
+	frame	data/chars/beyond/3overlord/tent/d14.gif
+	frame	data/chars/beyond/3overlord/tent/d15.gif
+	frame	data/chars/beyond/3overlord/tent/d16.gif
+	frame	data/chars/beyond/3overlord/tent/d17.gif
+	frame	data/chars/beyond/3overlord/tent/d18.gif
+	frame	data/chars/beyond/3overlord/tent/d02.gif
+	frame	data/chars/beyond/3overlord/tent/d03.gif
+
+
+#--------spawn----------
+
+
+anim	follow12
+	loop	0
+	delay	6
+	offset	100 195
+	bbox	0 0 0 0
+	drawmethod 256 256 0 0 0 1
+	frame	data/chars/beyond/3overlord/tent/dsp01.gif
+	frame	data/chars/beyond/3overlord/tent/dsp02.gif
+	frame	data/chars/beyond/3overlord/tent/dsp03.gif
+	frame	data/chars/beyond/3overlord/tent/dsp04.gif
+	frame	data/chars/beyond/3overlord/tent/dsp01.gif #4
+	sound	data/sounds/super2.wav
+	frame	data/chars/beyond/3overlord/tent/dsp02.gif
+	frame	data/chars/beyond/3overlord/tent/dsp03.gif
+	frame	data/chars/beyond/3overlord/tent/dsp04.gif
+	frame	data/chars/beyond/3overlord/tent/dsp01.gif
+	sound	data/sounds/super2.wav
+	frame	data/chars/beyond/3overlord/tent/dsp02.gif
+	frame	data/chars/beyond/3overlord/tent/dsp03.gif
+	frame	data/chars/beyond/3overlord/tent/dsp04.gif
+	@cmd	looper 4 12
+	frame	data/chars/beyond/3overlord/tent/dsp01.gif #12
+	sound	data/sounds/super8.wav
+	frame	data/chars/beyond/3overlord/tent/dsp02.gif
+	sound	data/sounds/super8.wav
+	frame	data/chars/beyond/3overlord/tent/dsp03.gif
+	sound	data/sounds/super8.wav
+	frame	data/chars/beyond/3overlord/tent/dsp04.gif
+	delay	5
+	frame	data/chars/beyond/3overlord/tent/d02.gif #16
+	frame	data/chars/beyond/3overlord/tent/d03.gif
+	frame	data/chars/beyond/3overlord/tent/d04.gif
+	frame	data/chars/beyond/3overlord/tent/d05.gif
+	frame	data/chars/beyond/3overlord/tent/d06.gif
+	frame	data/chars/beyond/3overlord/tent/d07.gif
+	frame	data/chars/beyond/3overlord/tent/d08.gif
+	frame	data/chars/beyond/3overlord/tent/d09.gif
+	frame	data/chars/beyond/3overlord/tent/d10.gif
+	frame	data/chars/beyond/3overlord/tent/d11.gif
+	frame	data/chars/beyond/3overlord/tent/d12.gif
+	frame	data/chars/beyond/3overlord/tent/d13.gif
+	frame	data/chars/beyond/3overlord/tent/d14.gif
+	frame	data/chars/beyond/3overlord/tent/d15.gif
+	frame	data/chars/beyond/3overlord/tent/d16.gif
+	frame	data/chars/beyond/3overlord/tent/d17.gif
+	frame	data/chars/beyond/3overlord/tent/d18.gif
+	@cmd	looper 16 5
+	frame	data/chars/beyond/3overlord/tent/d02.gif
+	frame	data/chars/beyond/3overlord/tent/d03.gif
+	@cmd	anichange "ANI_FOLLOW9"
+	frame	data/chars/beyond/3overlord/tent/d03.gif
+	
+
+#-----------------------------------------------------------------
+#--------------------------------END------------------------------
+#-----------------------------------------------------------------
+
+
+
+#--------------------death------------
+
+
+anim	follow14
+	loop	1
+	delay	600
+	offset	218 182
+	bbox	0 0 0 0
+	frame	data/chars/beyond/3overlord/tent/xdeath.gif
+	delay	12
+	frame	data/chars/beyond/3overlord/tent/xdeath2.gif
+	frame	data/chars/beyond/3overlord/tent/xdeath3.gif
+	frame	data/chars/beyond/3overlord/tent/xdeath4.gif
+	frame	data/chars/beyond/3overlord/tent/xdeath5.gif
+	frame	data/chars/beyond/3overlord/tent/xdeath6.gif
+	frame	data/chars/beyond/3overlord/tent/xdeath7.gif
+	frame	data/chars/beyond/3overlord/tent/xdeath8.gif
+	frame	data/chars/beyond/3overlord/tent/xdeath9.gif
+	frame	data/chars/beyond/3overlord/tent/xdeath10.gif
+	frame	data/chars/beyond/3overlord/tent/xdeath11.gif
+	frame	data/chars/beyond/3overlord/tent/xdeath12.gif
+	delay	5000
+	frame	data/chars/beyond/3overlord/tent/xdeath15.gif
+	frame	data/chars/beyond/3overlord/tent/xdeath15.gif
+	frame	data/chars/beyond/3overlord/tent/xdeath15.gif
+	frame	data/chars/beyond/3overlord/tent/xdeath15.gif
+	frame	data/chars/beyond/3overlord/tent/xdeath15.gif
+	frame	data/chars/beyond/3overlord/tent/xdeath15.gif
+
+
+		
+#|edited by openBor Stats v 0.53
+		

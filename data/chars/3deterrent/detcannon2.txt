@@ -1,0 +1,161 @@
+name      detcannon2
+nolife    1
+nomove	  1 0
+health    10
+nodrop	  2
+type      enemy
+nodieblink	1
+gfxshadow	1
+hostile   player
+subject_to_hole 0
+subject_to_platform 0
+subject_to_gravity 0
+subject_to_wall 0
+hostile		player npc
+candamage	player npc
+
+animationscript data/scripts/escript.c
+
+load	choppatck3
+load	explosion2
+load	pw7
+load	fndeterrent
+
+alternatepal       data/chars/3deterrent/canmap1.gif
+
+
+anim	attack1
+	delay	14
+	offset	240 215
+	frame	data/chars/3deterrent/1.gif
+	sound	data/sounds/tcannon.wav
+	frame	data/chars/3deterrent/2.gif
+	frame	data/chars/3deterrent/3.gif
+	frame	data/chars/3deterrent/4.gif
+	frame	data/chars/3deterrent/5.gif
+	@cmd	flip
+	frame	data/chars/3deterrent/4.gif
+	frame	data/chars/3deterrent/3.gif
+	frame	data/chars/3deterrent/2.gif
+	frame	data/chars/3deterrent/1.gif
+	delay	3
+	frame	data/chars/3deterrent/fire01.gif
+	frame	data/chars/3deterrent/fire02.gif
+	frame	data/chars/3deterrent/fire03.gif
+	frame	data/chars/3deterrent/fire04.gif
+	sound	data/sounds/bang2.wav
+	@cmd	spawnbind "explosion2" 185 0 1
+	frame	data/chars/3deterrent/fire05.gif
+	@cmd	tosser "pw7" 180 40 0 1.7 0.4 0
+	frame	data/chars/3deterrent/fire06.gif
+	frame	data/chars/3deterrent/fire07.gif
+	frame	data/chars/3deterrent/fire08.gif
+	delay	4
+	frame	data/chars/3deterrent/fire09.gif
+	frame	data/chars/3deterrent/fire10.gif
+	frame	data/chars/3deterrent/fire11.gif
+	frame	data/chars/3deterrent/fire12.gif
+	frame	data/chars/3deterrent/fire13.gif
+	frame	data/chars/3deterrent/fire12.gif
+	frame	data/chars/3deterrent/fire11.gif
+	frame	data/chars/3deterrent/fire10.gif
+	delay	20
+	frame	data/chars/3deterrent/fire09.gif
+	delay	12
+	frame	data/chars/3deterrent/fire08.gif
+	frame	data/chars/3deterrent/fire07.gif
+	frame	data/chars/3deterrent/fire06.gif
+	frame	data/chars/3deterrent/fire05.gif
+	frame	data/chars/3deterrent/fire04.gif
+	frame	data/chars/3deterrent/fire03.gif
+	frame	data/chars/3deterrent/fire02.gif
+	frame	data/chars/3deterrent/fire01.gif
+	delay	50
+	frame	data/chars/3deterrent/1.gif
+	@cmd	beidle
+	frame	data/chars/3deterrent/1.gif
+
+
+
+
+		
+anim	attack2
+	delay	40
+	offset	240 215
+	frame	data/chars/3deterrent/1.gif
+	delay	3
+	frame	data/chars/3deterrent/fire01.gif
+	frame	data/chars/3deterrent/fire02.gif
+	frame	data/chars/3deterrent/fire03.gif
+	frame	data/chars/3deterrent/fire04.gif
+	sound	data/sounds/bang2.wav
+	@cmd	spawnbind "explosion2" 185 0 1
+	frame	data/chars/3deterrent/fire05.gif
+	@cmd	tosser "pw7" 180 40 0 1.7 0.4 0
+	frame	data/chars/3deterrent/fire06.gif
+	frame	data/chars/3deterrent/fire07.gif
+	frame	data/chars/3deterrent/fire08.gif
+	delay	4
+	frame	data/chars/3deterrent/fire09.gif
+	frame	data/chars/3deterrent/fire10.gif
+	frame	data/chars/3deterrent/fire11.gif
+	frame	data/chars/3deterrent/fire12.gif
+	frame	data/chars/3deterrent/fire13.gif
+	frame	data/chars/3deterrent/fire12.gif
+	frame	data/chars/3deterrent/fire11.gif
+	frame	data/chars/3deterrent/fire10.gif
+	delay	20
+	frame	data/chars/3deterrent/fire09.gif
+	delay	12
+	frame	data/chars/3deterrent/fire08.gif
+	frame	data/chars/3deterrent/fire07.gif
+	frame	data/chars/3deterrent/fire06.gif
+	frame	data/chars/3deterrent/fire05.gif
+	frame	data/chars/3deterrent/fire04.gif
+	frame	data/chars/3deterrent/fire03.gif
+	frame	data/chars/3deterrent/fire02.gif
+	frame	data/chars/3deterrent/fire01.gif
+	delay	50
+	frame	data/chars/3deterrent/1.gif
+	@cmd	beidle
+	frame	data/chars/3deterrent/1.gif
+
+
+
+
+
+anim	spawn
+	delay	1200
+	loop	0
+	offset	240 215
+	custentity	fndeterrent
+	spawnframe	2 0 125 0 1
+	frame	data/chars/3deterrent/1.gif
+	delay	30
+	frame	data/chars/3deterrent/1.gif
+	frame	data/chars/3deterrent/1.gif
+	frame	data/chars/3deterrent/1.gif
+	delay	100
+	frame	data/chars/3deterrent/1.gif
+
+
+
+
+		
+anim	fall
+	delay	5
+	offset	240 215
+	frame	data/chars/3deterrent/5.gif
+		
+anim	idle
+	delay	5
+	loop	1
+	offset	240 215
+	frame	data/chars/3deterrent/1.gif
+	@cmd	attack1 -550 -120 30 "ANI_ATTACK1"
+	frame	data/chars/3deterrent/1.gif
+	@cmd	attack1 120 550 30 "ANI_ATTACK2"
+	frame	data/chars/3deterrent/1.gif
+		
+#|edited by openBor Stats v 0.53
+		

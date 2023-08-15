@@ -1,0 +1,313 @@
+name	tlsdoor
+type	npc
+health	200
+nolife  1
+nomove	1 1
+nopain	1
+falldie	1
+alpha	1
+shadow	0
+facing	1
+offscreenkill 	15000
+subject_to_minz 0
+subject_to_maxz 0
+subject_to_hole 0
+subject_to_wall 0
+animationscript data/scripts/escript.c
+
+
+load	goIN
+load	insect
+load	insect3
+
+anim	death
+	loop	0
+	delay	14
+	offset	65 190
+	frame	data/bgs/beyond/door/tdr02.gif
+	frame	data/bgs/beyond/door/tdr05.gif
+	frame	data/bgs/beyond/door/tdr06.gif
+	frame	data/bgs/beyond/door/tdr07.gif
+	frame	data/bgs/beyond/door/tdr08.gif
+	frame	data/bgs/beyond/door/tdr09.gif
+	frame	data/bgs/beyond/door/tdr10.gif
+	frame	data/bgs/beyond/door/tdr11.gif
+	sound	data/sounds/super2.wav
+	frame	data/bgs/beyond/door/tdr12.gif
+	frame	data/bgs/beyond/door/tdr12.gif
+
+
+
+#----------------BUG-SPAWN--------------------
+		
+anim	follow1
+	loop	1
+	delay	850
+	offset	5 5
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/door/tdr12.gif
+	@cmd	spawncounttype "insect" "count_enemies" 200 350 1 4
+	frame	data/bgs/beyond/door/tdr12.gif
+	@cmd	spawncounttype "insect" "count_enemies" 400 350 1 4
+	frame	data/bgs/beyond/door/tdr12.gif
+	@cmd	spawncounttype "insect" "count_enemies" -1150 350 1 4
+	frame	data/bgs/beyond/door/tdr12.gif
+	@cmd	spawncounttype "insect" "count_enemies" -1350 350 1 4
+
+
+anim	follow9
+	loop	1
+	delay	10
+	offset	5 5
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/door/tdr12.gif
+	delay	800
+	frame	data/bgs/beyond/door/tdr12.gif
+	@cmd	spawncounttype "insect3" "count_enemies" 1100 1 1 1
+	frame	data/bgs/beyond/door/tdr12.gif
+	@cmd	spawncounttype "insect3" "count_enemies" 500 1 1 1
+	frame	data/bgs/beyond/door/tdr12.gif
+	@cmd	spawncounttype "insect3" "count_enemies" -500 1 1 1
+	frame	data/bgs/beyond/door/tdr12.gif
+	@cmd	spawncounttype "insect3" "count_enemies" -1100 1 1 1
+	frame	data/bgs/beyond/door/tdr12.gif
+	@cmd	looper 1 2
+	delay	12
+	frame	data/bgs/beyond/door/tdr12.gif
+	frame	data/bgs/beyond/door/tdr12.gif
+	@cmd	suicide
+	frame	data/bgs/beyond/door/tdr12.gif  
+
+
+#----------------BUG-SPAWN-END----------------
+
+
+#-----------------------------------------
+#-------------//---door-1-//--------------
+#-----------------------------------------
+		
+anim	idle
+	loop	1
+	delay	9
+	offset	65 190
+	bbox	0 0 0 0
+	counterrange 0 5 1 1
+     	followanim 2
+	platform	5 240 0 45 180 180 90 500
+	frame	data/bgs/beyond/door/tdr01.gif
+	bbox	20 15 100 210 80
+	frame	data/bgs/beyond/door/tdr02.gif
+	frame	data/bgs/beyond/door/tdr03.gif
+	frame	data/bgs/beyond/door/tdr04.gif
+	frame	data/bgs/beyond/door/tdr03.gif
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/door/tdr02.gif
+
+
+anim	follow2
+	loop	0
+	delay	14
+	offset	65 190
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/door/tdr02.gif
+	frame	data/bgs/beyond/door/tdr05.gif
+	frame	data/bgs/beyond/door/tdr06.gif
+	frame	data/bgs/beyond/door/tdr07.gif
+	sound	data/sounds/super2.wav
+	frame	data/bgs/beyond/door/tdr08.gif
+	frame	data/bgs/beyond/door/tdr09.gif
+	frame	data/bgs/beyond/door/tdr10.gif
+	frame	data/bgs/beyond/door/tdr11.gif
+	frame	data/bgs/beyond/door/tdr12.gif
+	@cmd	spawn01 "goIN" 65 1 1
+	frame	data/bgs/beyond/door/tdr12.gif
+	frame	data/bgs/beyond/door/tdr12.gif
+	@cmd	suicide
+	frame	data/bgs/beyond/door/tdr12.gif
+
+#-----------------------------------------
+#-----------------END---------------------
+#-----------------------------------------
+
+
+#-----------------------------------------
+#-------------//---door-2-//--------------
+#-----------------------------------------
+		
+anim	follow3
+	loop	1
+	delay	9
+	offset	65 280
+	bbox	0 0 0 0
+	counterrange 0 5 1 1
+     	followanim 4
+	platform	0 340 5 5 180 180 130 500
+	frame	data/bgs/beyond/door/tdr15.gif
+	bbox	-20 15 150 300
+	frame	data/bgs/beyond/door/tdr16.gif
+	frame	data/bgs/beyond/door/tdr17.gif
+	frame	data/bgs/beyond/door/tdr18.gif
+	frame	data/bgs/beyond/door/tdr17.gif
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/door/tdr16.gif
+
+anim	follow4
+	loop	0
+	delay	5
+	offset	65 280
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/door/tdr15.gif
+	drawmethod 250 230 0 0 0 1
+	frame	data/bgs/beyond/door/tdr15.gif
+	drawmethod 250 220 0 0 0 1
+	frame	data/bgs/beyond/door/tdr15.gif
+	drawmethod 250 210 0 0 0 1
+	frame	data/bgs/beyond/door/tdr15.gif
+	drawmethod 250 200 0 0 0 1
+	frame	data/bgs/beyond/door/tdr15.gif
+	sound	data/sounds/super2.wav
+	drawmethod 250 190 0 0 0 1
+	frame	data/bgs/beyond/door/tdr15.gif
+	drawmethod 250 180 0 0 0 1
+	frame	data/bgs/beyond/door/tdr15.gif
+	drawmethod 250 170 0 0 0 1
+	frame	data/bgs/beyond/door/tdr15.gif
+	drawmethod 250 160 0 0 0 1
+	frame	data/bgs/beyond/door/tdr15.gif
+	drawmethod 250 150 0 0 0 1
+	frame	data/bgs/beyond/door/tdr15.gif
+	drawmethod 250 140 0 0 0 1
+	frame	data/bgs/beyond/door/tdr15.gif
+	drawmethod 250 130 0 0 0 1
+	frame	data/bgs/beyond/door/tdr15.gif
+	drawmethod 250 120 0 0 0 1
+	frame	data/bgs/beyond/door/tdr15.gif
+	drawmethod 250 110 0 0 0 1
+	frame	data/bgs/beyond/door/tdr15.gif
+	drawmethod 250 100 0 0 0 1
+	frame	data/bgs/beyond/door/tdr15.gif
+	drawmethod 250 90 0 0 0 1
+	frame	data/bgs/beyond/door/tdr15.gif
+	drawmethod 250 80 0 0 0 1
+	frame	data/bgs/beyond/door/tdr15.gif
+	drawmethod 250 70 0 0 0 1
+	frame	data/bgs/beyond/door/tdr15.gif
+	drawmethod 250 60 0 0 0 1
+	frame	data/bgs/beyond/door/tdr15.gif
+	drawmethod 250 50 0 0 0 1
+	frame	data/bgs/beyond/door/tdr15.gif
+	drawmethod 250 40 0 0 0 1
+	frame	data/bgs/beyond/door/tdr15.gif
+	drawmethod 250 30 0 0 0 1
+	frame	data/bgs/beyond/door/tdr15.gif
+	drawmethod 250 20 0 0 0 1
+	frame	data/bgs/beyond/door/tdr15.gif
+	drawmethod 250 10 0 0 0 1
+	frame	data/bgs/beyond/door/tdr15.gif
+	drawmethod 250 1 0 0 0 1
+	frame	data/bgs/beyond/door/tdr15.gif
+	@cmd	suicide
+	frame	data/bgs/beyond/door/tdr12.gif
+
+#-----------------------------------------
+#-----------------END---------------------
+#-----------------------------------------
+
+#-----------------------------------------
+#-------------//---door-3-//--------------
+#-----------------------------------------
+		
+anim	follow5
+	loop	1
+	delay	9
+	offset	75 255
+	bbox	0 0 0 0
+	counterrange 0 7 1 1
+     	followanim 6
+	platform	0 310 5 5 180 180 130 500
+	frame	data/bgs/beyond/door/tdr20.gif
+	bbox	-20 15 150 300
+	frame	data/bgs/beyond/door/tdr21.gif
+	frame	data/bgs/beyond/door/tdr22.gif
+	frame	data/bgs/beyond/door/tdr23.gif
+	frame	data/bgs/beyond/door/tdr24.gif
+	frame	data/bgs/beyond/door/tdr23.gif
+	frame	data/bgs/beyond/door/tdr22.gif
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/door/tdr21.gif
+
+
+
+anim	follow6
+	loop	0
+	delay	5
+	offset	75 255
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/door/tdr20.gif
+	drawmethod 250 230 0 0 0 1
+	frame	data/bgs/beyond/door/tdr20.gif
+	drawmethod 250 220 0 0 0 1
+	frame	data/bgs/beyond/door/tdr20.gif
+	drawmethod 250 210 0 0 0 1
+	frame	data/bgs/beyond/door/tdr20.gif
+	drawmethod 250 200 0 0 0 1
+	frame	data/bgs/beyond/door/tdr20.gif
+	sound	data/sounds/super2.wav
+	drawmethod 250 190 0 0 0 1
+	frame	data/bgs/beyond/door/tdr20.gif
+	drawmethod 250 180 0 0 0 1
+	frame	data/bgs/beyond/door/tdr20.gif
+	drawmethod 250 170 0 0 0 1
+	frame	data/bgs/beyond/door/tdr20.gif
+	drawmethod 250 160 0 0 0 1
+	frame	data/bgs/beyond/door/tdr20.gif
+	drawmethod 250 150 0 0 0 1
+	frame	data/bgs/beyond/door/tdr20.gif
+	drawmethod 250 140 0 0 0 1
+	frame	data/bgs/beyond/door/tdr20.gif
+	drawmethod 250 130 0 0 0 1
+	frame	data/bgs/beyond/door/tdr20.gif
+	drawmethod 250 120 0 0 0 1
+	frame	data/bgs/beyond/door/tdr20.gif
+	drawmethod 250 110 0 0 0 1
+	frame	data/bgs/beyond/door/tdr20.gif
+	drawmethod 250 100 0 0 0 1
+	frame	data/bgs/beyond/door/tdr20.gif
+	drawmethod 250 90 0 0 0 1
+	frame	data/bgs/beyond/door/tdr20.gif
+	drawmethod 250 80 0 0 0 1
+	frame	data/bgs/beyond/door/tdr20.gif
+	drawmethod 250 70 0 0 0 1
+	frame	data/bgs/beyond/door/tdr20.gif
+	drawmethod 250 60 0 0 0 1
+	frame	data/bgs/beyond/door/tdr20.gif
+	drawmethod 250 50 0 0 0 1
+	frame	data/bgs/beyond/door/tdr20.gif
+	drawmethod 250 40 0 0 0 1
+	frame	data/bgs/beyond/door/tdr20.gif
+	drawmethod 250 30 0 0 0 1
+	frame	data/bgs/beyond/door/tdr20.gif
+	drawmethod 250 20 0 0 0 1
+	frame	data/bgs/beyond/door/tdr20.gif
+	drawmethod 250 10 0 0 0 1
+	frame	data/bgs/beyond/door/tdr20.gif
+	drawmethod 250 1 0 0 0 1
+	frame	data/bgs/beyond/door/tdr20.gif
+	@cmd	suicide
+	frame	data/bgs/beyond/door/tdr12.gif
+
+
+#-----------------END---------------------
+
+
+anim	spawn
+	loop	0
+	delay	10
+	offset	65 190
+	@cmd	degravity 1
+	frame	data/bgs/beyond/door/tdr12.gif
+	@cmd	beidle
+	frame	data/bgs/beyond/door/tdr12.gif
+		
+#|edited by openBor Stats v 0.53
+		

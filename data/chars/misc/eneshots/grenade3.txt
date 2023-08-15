@@ -1,0 +1,207 @@
+name	 grenade3
+type     enemy
+health   1
+speed    20
+jumpheight 2 
+nolife   1
+lifespan 4
+
+anim	idle
+	loop	1
+	delay	4
+	offset	15 15
+	bbox	0 0 0 0
+	frame	data/chars/misc/eneshots/gre01.gif
+	attack	5 5 15 15 10 0 1 1 5
+	frame	data/chars/misc/eneshots/gre02.gif
+	frame	data/chars/misc/eneshots/gre03.gif
+	attack	0 0 0 0
+	frame	data/chars/misc/eneshots/gre04.gif
+
+
+anim	follow2
+@script
+void self = getlocalvar("self");
+	if(frame == 9 )
+	{
+	performattack(self, openborconstant("ANI_FOLLOW3"));
+	}
+@end_script
+	loop	1 4 8
+	delay	4
+	followanim	3
+	followcond	1
+	offset	15 15
+	bbox	0 0 0 0
+	landframe	8
+	fastattack	1
+	attack	5 5 15 15 10 0 1 1 5
+	frame	data/chars/misc/eneshots/gre01.gif
+	frame	data/chars/misc/eneshots/gre02.gif
+	frame	data/chars/misc/eneshots/gre03.gif
+	frame	data/chars/misc/eneshots/gre04.gif
+	frame	data/chars/misc/eneshots/gre01.gif #4
+	attack	5 5 15 15 10 0 1 1 5
+	frame	data/chars/misc/eneshots/gre02.gif
+	frame	data/chars/misc/eneshots/gre03.gif
+	attack	0 0 0 0
+	frame	data/chars/misc/eneshots/gre04.gif
+	frame	data/chars/misc/eneshots/gre01.gif
+	frame	data/chars/misc/eneshots/gre02.gif
+	frame	data/chars/misc/eneshots/gre03.gif
+
+
+anim	follow3
+@script
+void self = getlocalvar("self");
+	if(frame == 12 )
+	{
+	killentity(self);
+	}
+@end_script
+	loop	0
+	delay	3
+	offset	35 121
+	bbox	0 0 0 0
+	fastattack	1
+	sound   data/sounds/bang2.wav
+	hitfx	data/sounds/fire.wav
+	attack	0 0 0 0
+	frame	data/chars/misc/eneshots/bom01.gif
+	offset	36 126
+	burn    35 73 31 57 30 1 1 0 5 15
+	frame	data/chars/misc/eneshots/bom02.gif
+	burn    27 40 44 90 30 1 1 0 5 15
+	frame	data/chars/misc/eneshots/bom03.gif
+	frame	data/chars/misc/eneshots/bom04.gif
+	frame	data/chars/misc/eneshots/bom05.gif
+	frame	data/chars/misc/eneshots/bom06.gif
+	burn    0 0 0 0
+	frame	data/chars/misc/eneshots/bom07.gif
+	frame	data/chars/misc/eneshots/bom08.gif
+	frame	data/chars/misc/eneshots/bom09.gif
+	frame	data/chars/misc/eneshots/bom10.gif
+	frame	data/chars/misc/eneshots/bom11.gif
+	frame	data/chars/misc/eneshots/bom12.gif #11
+	frame	data/chars/misc/eneshots/empty
+	frame	data/chars/misc/eneshots/empty
+
+anim	death
+	loop	0
+	delay	3
+	offset	35 121
+	bbox	0 0 0 0
+	sound   data/sounds/bang2.wav
+	hitfx	data/sounds/fire.wav
+	burn    30 90 36 39 30 1 1 0 5
+	frame	data/chars/misc/eneshots/bom01.gif
+	offset	36 126
+	burn    35 73 31 57 30 1 1 0 5
+	frame	data/chars/misc/eneshots/bom02.gif
+	burn    27 40 44 90 30 1 1 0 5
+	frame	data/chars/misc/eneshots/bom03.gif
+	frame	data/chars/misc/eneshots/bom04.gif
+	frame	data/chars/misc/eneshots/bom05.gif
+	frame	data/chars/misc/eneshots/bom06.gif
+	burn    0 0 0 0
+	frame	data/chars/misc/eneshots/bom07.gif
+	frame	data/chars/misc/eneshots/bom08.gif
+	frame	data/chars/misc/eneshots/bom09.gif
+	frame	data/chars/misc/eneshots/bom10.gif
+	frame	data/chars/misc/eneshots/bom11.gif
+	frame	data/chars/misc/eneshots/bom12.gif
+
+
+#-------------//---player---//---------------------------------
+		
+anim	attack2
+@script
+void self = getlocalvar("self");
+	if(frame == 0 )
+	{
+	changeentityproperty(self, "candamage",openborconstant("TYPE_ENEMY"));
+	}
+	if(frame == 14 )
+	{
+	performattack(self, openborconstant("ANI_FOLLOW1"));
+	}
+@end_script
+	loop	1 2 10
+	delay	5
+	offset	15 15
+	bbox	0 0 0 0
+	followanim	1
+	followcond	1
+	landframe	12
+	fastattack	1
+	hitfx	data/sounds/burnt.wav
+	frame	data/chars/misc/eneshots/gre05.gif
+	frame	data/chars/misc/eneshots/gre05.gif
+	attack	5 5 15 15 1 0 1 1 0 25
+	frame	data/chars/misc/eneshots/gre01.gif #2
+	frame	data/chars/misc/eneshots/gre02.gif
+	frame	data/chars/misc/eneshots/gre03.gif
+	frame	data/chars/misc/eneshots/gre04.gif
+	frame	data/chars/misc/eneshots/gre01.gif
+	frame	data/chars/misc/eneshots/gre02.gif
+	frame	data/chars/misc/eneshots/gre03.gif
+	frame	data/chars/misc/eneshots/gre04.gif #10
+	frame	data/chars/misc/eneshots/gre01.gif
+	frame	data/chars/misc/eneshots/gre02.gif #12
+	frame	data/chars/misc/eneshots/gre03.gif
+	attack	0 0 0 0
+	frame	data/chars/misc/eneshots/gre04.gif #14
+	frame	data/chars/misc/eneshots/gre04.gif
+	frame	data/chars/misc/eneshots/gre04.gif
+
+
+
+anim	follow1
+@script
+void self = getlocalvar("self");
+//	if(frame == 0 )
+//	{
+//	changeentityproperty(self, "velocity", 0, 0, 0);
+//	}
+	if(frame == 12 )
+	{
+	killentity(self);
+	}
+@end_script
+	loop	0
+	delay	3
+	offset	50 121
+	bbox	0 0 0 0
+	fastattack	1
+	sound	data/sounds/bang2.wav
+	hitfx	data/sounds/fire.wav
+	attack	0 0 0 0
+	frame	data/chars/misc/eneshots/gre05.gif
+	attack	15 90 65 39 30 1 0 0 15 35
+	frame	data/chars/misc/eneshots/bom01.gif
+	offset	50 126
+	attack	10 70 80 60 35 1 1 0 15 35
+	frame	data/chars/misc/eneshots/bom02.gif
+	attack	5 15 90 110 35 1 1 0 15 35
+	frame	data/chars/misc/eneshots/bom03.gif
+	frame	data/chars/misc/eneshots/bom04.gif
+	frame	data/chars/misc/eneshots/bom05.gif
+	frame	data/chars/misc/eneshots/bom06.gif
+	attack	0 0 0 0
+	frame	data/chars/misc/eneshots/bom07.gif
+	frame	data/chars/misc/eneshots/bom08.gif
+	frame	data/chars/misc/eneshots/bom09.gif
+	frame	data/chars/misc/eneshots/bom10.gif
+	frame	data/chars/misc/eneshots/bom11.gif
+	frame	data/chars/misc/eneshots/bom12.gif
+	frame	data/chars/misc/eneshots/gre05.gif #12
+	frame	data/chars/misc/eneshots/gre05.gif
+	frame	data/chars/misc/eneshots/gre05.gif
+	frame	data/chars/misc/eneshots/gre05.gif
+
+
+
+
+
+
+

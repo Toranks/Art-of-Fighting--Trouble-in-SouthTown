@@ -1,0 +1,172 @@
+name	lvlrus
+type	enemy
+health   55000
+nolife   1
+nomove	1 1
+facing	1
+offscreenkill 	10000
+subject_to_wall 0
+subject_to_platform 0
+subject_to_hole 0
+shadow	0
+hostile		player
+setlayer	10
+aggression	100
+
+
+anim	pain
+@script
+    void self = getlocalvar("self");
+    char Name = getentityproperty(self,"name");
+
+    if(frame==25){
+	jumptobranch(Name, 1);
+    }
+@end_script
+	loop	0
+	delay	5
+	offset	11 11
+	bbox	0 0 0 0
+	frame	data/bgs/0map/icons/1runst0.gif
+	offset	11 10
+	frame	data/bgs/0map/icons/1runst00.gif
+	offset	11 11
+	frame	data/bgs/0map/icons/1runst0.gif
+	offset	11 10
+	frame	data/bgs/0map/icons/1runst00.gif
+	offset	11 11
+	frame	data/bgs/0map/icons/1runst0.gif
+	offset	11 10
+	frame	data/bgs/0map/icons/1runst00.gif
+	offset	11 11
+	frame	data/bgs/0map/icons/1runst0.gif
+	offset	11 10
+	frame	data/bgs/0map/icons/1runst00.gif
+	offset	11 11
+	frame	data/bgs/0map/icons/1runst0.gif
+	offset	11 10
+	frame	data/bgs/0map/icons/1runst00.gif
+	offset	11 11
+	frame	data/bgs/0map/icons/1runst0.gif
+	offset	11 10
+	frame	data/bgs/0map/icons/1runst00.gif
+	offset	11 11
+	frame	data/bgs/0map/icons/1runst0.gif
+	offset	11 10
+	frame	data/bgs/0map/icons/1runst00.gif
+	offset	11 11
+	frame	data/bgs/0map/icons/1runst0.gif
+	offset	11 10
+	frame	data/bgs/0map/icons/1runst00.gif
+	offset	11 11
+	frame	data/bgs/0map/icons/1runst0.gif
+	offset	11 10
+	frame	data/bgs/0map/icons/1runst00.gif
+	offset	11 11
+	frame	data/bgs/0map/icons/1runst0.gif
+	offset	11 10
+	frame	data/bgs/0map/icons/1runst00.gif
+	offset	11 11
+	frame	data/bgs/0map/icons/1runst0.gif
+	offset	11 10
+	frame	data/bgs/0map/icons/1runst00.gif
+	offset	11 11
+	frame	data/bgs/0map/icons/1runst0.gif
+	offset	11 10
+	frame	data/bgs/0map/icons/1runst00.gif
+	offset	11 11
+	frame	data/bgs/0map/icons/1runst0.gif
+	delay	20
+	frame	data/bgs/0map/icons/1runst00.gif #25
+	frame	data/bgs/0map/icons/1runst00.gif
+	frame	data/bgs/0map/icons/1runst00.gif
+	delay	100
+	frame	data/bgs/0map/icons/1runst00.gif
+
+anim	idle
+	loop	1
+	delay	90
+	offset	11 11
+	bbox	1 1 20 20 300
+	frame	data/bgs/0map/icons/1runst01.gif
+	delay	6
+	frame	data/bgs/0map/icons/1runst02.gif
+	frame	data/bgs/0map/icons/1runst03.gif
+	frame	data/bgs/0map/icons/1runst02.gif
+
+
+
+anim	follow1
+	loop	1
+	delay	90
+	offset	11 11
+	bbox	1 1 20 20 300
+	frame	data/bgs/0map/icons/1runst01.gif
+	delay	6
+	frame	data/bgs/0map/icons/1runst02.gif
+	frame	data/bgs/0map/icons/1runst03.gif
+	frame	data/bgs/0map/icons/1runst02.gif
+
+
+
+
+
+		
+anim	spawn
+@script
+    void self = getlocalvar("self");
+    int  done = getglobalvar("rsh1");
+  
+    if(done == 1){
+     performattack(self, openborconstant("ANI_FOLLOW15"));
+     }
+@end_script
+	loop	0
+	delay	5
+	offset	11 11
+	bbox	0 0 0 0
+	frame	data/bgs/0map/icons/1runst01.gif
+	frame	data/bgs/0map/icons/1runst01.gif
+
+
+
+anim	follow15
+	loop	1
+	delay	300
+	offset	11 11
+	bbox	0 0 0 0
+	frame	data/bgs/0map/icons/1runst04.gif
+
+
+
+	
+anim	follow2
+@script
+    void self = getlocalvar("self");
+    int  done = getglobalvar("rsh2");
+  
+    if(done == 1){
+     performattack(self, openborconstant("ANI_FOLLOW15"));
+     }
+@end_script
+	loop	1 4 8
+	delay	6
+	offset	11 11
+	bbox	0 0 0 0
+	frame	data/bgs/0map/icons/1runst06.gif
+	delay	90
+	frame	data/bgs/0map/icons/1runst05.gif
+	delay	6
+	frame	data/bgs/0map/icons/1runst06.gif
+	bbox	1 1 20 20 300
+	frame	data/bgs/0map/icons/1runst07.gif
+	frame	data/bgs/0map/icons/1runst06.gif
+	delay	90
+	frame	data/bgs/0map/icons/1runst05.gif #5
+	delay	6
+	frame	data/bgs/0map/icons/1runst06.gif
+	frame	data/bgs/0map/icons/1runst07.gif
+	frame	data/bgs/0map/icons/1runst06.gif
+	frame	data/bgs/0map/icons/1runst06.gif
+	frame	data/bgs/0map/icons/1runst06.gif
+		

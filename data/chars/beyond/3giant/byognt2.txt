@@ -1,0 +1,483 @@
+name          byognt2
+type          enemy
+subtype	      notgrab
+health        700
+speed         9
+jumpheight    0
+nopain		1
+nodrop		2
+cantgrab      	1
+nolife        	1
+falldie	      	1
+noatflash 	1
+flash    	flash8	
+nodieblink    	1
+shadow     	0
+setlayer	200
+hostile         obstacle
+candamage       obstacle
+subject_to_wall		0
+subject_to_platform	0
+subject_to_hole		0
+subject_to_obstacle	0
+subject_to_gravity	0
+subject_to_minz		0
+subject_to_maxz		0
+offscreenkill 	30000
+diesound      data/sounds/alimon2.wav
+
+animationscript data/scripts/escript.c
+
+palette		data/chars/beyond/3giant/mapal.gif
+alternatepal	data/chars/beyond/3giant/map1.gif
+alternatepal	data/chars/beyond/3giant/map2.gif
+
+load	flash8
+load	explosion8
+load	explosion3
+load	smk1
+load	mshpdet2
+
+
+
+
+anim	follow5
+@script
+	void self = getlocalvar("self");
+	if(frame==5){
+	changelevelproperty("bgspeed", 14);
+	}else if(frame==6){
+	changelevelproperty("bgspeed", 13);
+	}else if(frame==7){
+	changelevelproperty("bgspeed", 12);
+ 	}else if(frame==8){
+	changelevelproperty("bgspeed", 11);
+	}else if(frame==9){
+	changelevelproperty("bgspeed", 10);
+	}else if(frame==10){
+	changelevelproperty("bgspeed", 9);
+	}else if(frame==11){
+	changelevelproperty("bgspeed", 8);
+	}else if(frame==12){
+	changelevelproperty("bgspeed", 7);
+	}else if(frame==13){
+	changelevelproperty("bgspeed", 6);
+	}else if(frame==14){
+	changelevelproperty("bgspeed", 5);
+	}else if(frame==15){
+	changelevelproperty("bgspeed", 4);
+	}else if(frame==16){
+	changelevelproperty("bgspeed", 3);
+	}else if(frame==17){
+	changelevelproperty("bgspeed", 2);
+	}else if(frame==18){
+	changelevelproperty("bgspeed", 1);
+	}else if(frame==19){
+	changelevelproperty("bgspeed", 0);
+    	}
+@end_script
+	loop	1 30 34
+	delay	5
+	offset	340 315
+	bbox	0 0 0 0
+	@cmd	position 2 1160 0 -57 -1
+	frame	data/chars/beyond/3giant/tramgb06.gif
+	@cmd	depost 0
+	@cmd	finish 1000 1 0 0 0 -1
+	frame	data/chars/beyond/3giant/tramgb06.gif
+	@cmd	clearL
+	frame	data/chars/beyond/3giant/tramgb06.gif
+	frame	data/chars/beyond/3giant/tramgb06.gif
+	frame	data/chars/beyond/3giant/tramgb06.gif
+	delay	100
+	frame	data/chars/beyond/3giant/tramgb06.gif #5
+	frame	data/chars/beyond/3giant/tramgb06.gif
+	frame	data/chars/beyond/3giant/tramgb06.gif
+	frame	data/chars/beyond/3giant/tramgb06.gif
+	frame	data/chars/beyond/3giant/tramgb06.gif
+	frame	data/chars/beyond/3giant/tramgb06.gif
+	frame	data/chars/beyond/3giant/tramgb06.gif
+	frame	data/chars/beyond/3giant/tramgb06.gif
+	frame	data/chars/beyond/3giant/tramgb06.gif
+	frame	data/chars/beyond/3giant/tramgb06.gif
+	frame	data/chars/beyond/3giant/tramgb06.gif
+	frame	data/chars/beyond/3giant/tramgb06.gif
+	frame	data/chars/beyond/3giant/tramgb06.gif
+	frame	data/chars/beyond/3giant/tramgb06.gif
+	@cmd	killgun 1 0
+	frame	data/chars/beyond/3giant/tramgb06.gif
+	frame	data/chars/beyond/3giant/tramgb06.gif #20
+	delay	7
+	frame	data/chars/beyond/3giant/tramgb06.gif
+	move	-5
+	frame	data/chars/beyond/3giant/tramgb05.gif
+	frame	data/chars/beyond/3giant/tramgb05.gif
+	frame	data/chars/beyond/3giant/tramgb04.gif
+	frame	data/chars/beyond/3giant/tramgb04.gif
+	frame	data/chars/beyond/3giant/tramgb03.gif
+	frame	data/chars/beyond/3giant/tramgb03.gif
+	frame	data/chars/beyond/3giant/tramgb02.gif
+	frame	data/chars/beyond/3giant/tramgb02.gif
+	delay	9
+	move	0
+	frame	data/chars/beyond/3giant/idle00.gif #30
+	frame	data/chars/beyond/3giant/idle01.gif
+	frame	data/chars/beyond/3giant/idle02.gif
+	frame	data/chars/beyond/3giant/idle03.gif #33
+	frame	data/chars/beyond/3giant/idle00.gif
+	frame	data/chars/beyond/3giant/idle01.gif
+	frame	data/chars/beyond/3giant/idle02.gif
+	frame	data/chars/beyond/3giant/idle03.gif
+
+
+
+
+anim	spawn
+	loop	0
+	delay	9
+	offset	290 315
+	bbox	0 0 0 0
+	frame	data/chars/beyond/3giant/tramgo01.gif
+	frame	data/chars/beyond/3giant/tramgo01.gif
+	@cmd	anichange "ANI_FOLLOW1"
+	frame	data/chars/beyond/3giant/tramgo01.gif
+
+
+anim	follow1
+	loop	0
+	delay	5
+	offset	290 315
+	bbox	0 0 0 0
+	frame	data/chars/beyond/3giant/tramgo02.gif
+	@cmd	dasher 1 0 0
+	frame	data/chars/beyond/3giant/tramgo03.gif
+	frame	data/chars/beyond/3giant/tramgo04.gif
+	sound	data/sounds/byogship.wav
+	frame	data/chars/beyond/3giant/tramgo05.gif
+
+	frame	data/chars/beyond/3giant/tramgo02.gif #4
+	frame	data/chars/beyond/3giant/tramgo03.gif
+	frame	data/chars/beyond/3giant/tramgo04.gif
+	frame	data/chars/beyond/3giant/tramgo05.gif
+	@cmd	looper 4 69
+	frame	data/chars/beyond/3giant/tramgo02.gif
+	@cmd	dasher 1 0.5 0
+	frame	data/chars/beyond/3giant/tramgo03.gif
+	sound	data/sounds/byogship.wav
+	frame	data/chars/beyond/3giant/tramgo04.gif
+	frame	data/chars/beyond/3giant/tramgo05.gif
+	frame	data/chars/beyond/3giant/tramgo02.gif #12
+	frame	data/chars/beyond/3giant/tramgo03.gif
+	frame	data/chars/beyond/3giant/tramgo04.gif
+	frame	data/chars/beyond/3giant/tramgo05.gif
+	@cmd	looper 12 15
+	frame	data/chars/beyond/3giant/tramgo02.gif
+	@cmd	dasher 0 0.8 0
+	frame	data/chars/beyond/3giant/tramgo03.gif
+	frame	data/chars/beyond/3giant/tramgo04.gif
+	frame	data/chars/beyond/3giant/tramgo05.gif
+
+	frame	data/chars/beyond/3giant/tramgo02.gif #20
+	frame	data/chars/beyond/3giant/tramgo03.gif
+	frame	data/chars/beyond/3giant/tramgo04.gif
+	frame	data/chars/beyond/3giant/tramgo05.gif
+	@cmd	looper 20 20
+	frame	data/chars/beyond/3giant/tramgo02.gif
+	frame	data/chars/beyond/3giant/tramgo03.gif
+	sound	data/sounds/alimon1.wav
+	frame	data/chars/beyond/3giant/tramgo04.gif
+	frame	data/chars/beyond/3giant/tramgo05.gif
+	frame	data/chars/beyond/3giant/tramgo05.gif
+	frame	data/chars/beyond/3giant/tramgo02.gif
+	@cmd	stop
+	frame	data/chars/beyond/3giant/tramgo03.gif
+	frame	data/chars/beyond/3giant/tramgo04.gif
+	frame	data/chars/beyond/3giant/tramgo05.gif
+	@cmd	anichange "ANI_FOLLOW2"
+	frame	data/chars/beyond/3giant/tramgo05.gif
+
+
+
+
+anim	follow2
+	loop	0
+	delay	10
+	offset	340 315
+	bbox	0 0 0 0
+	followanim	3
+	followcond	1
+	jumpframe 0 -4 0
+	landframe 3
+	hitfx	data/sounds/grab.wav
+	frame	data/chars/beyond/3giant/a07.gif
+	@cmd	flip
+	frame	data/chars/beyond/3giant/a08.gif
+	delay	300
+	frame	data/chars/beyond/3giant/b07.gif
+	delay	14
+	frame	data/chars/beyond/3giant/a05.gif
+	frame	data/chars/beyond/3giant/a03.gif
+	bbox	280 60 120 150 20
+	frame	data/chars/beyond/3giant/tramgb02.gif
+	frame	data/chars/beyond/3giant/tramgb03.gif
+	sound	data/sounds/bear1.wav
+	frame	data/chars/beyond/3giant/tramgb04.gif
+	frame	data/chars/beyond/3giant/tramgb05.gif
+	delay	50
+	attack	250 190 230 255 0 0 1 1 0 160
+	frame	data/chars/beyond/3giant/tramgb06.gif
+	attack	0 0 0 0
+	delay	8
+	frame	data/chars/beyond/3giant/tramgb06.gif
+	frame	data/chars/beyond/3giant/tramgb07.gif
+	frame	data/chars/beyond/3giant/tramgb06.gif
+	frame	data/chars/beyond/3giant/tramgb07.gif
+	frame	data/chars/beyond/3giant/tramgb06.gif
+	frame	data/chars/beyond/3giant/tramgb07.gif
+	frame	data/chars/beyond/3giant/tramgb06.gif
+	frame	data/chars/beyond/3giant/tramgb07.gif
+	frame	data/chars/beyond/3giant/tramgb06.gif
+	#@cmd	anichange "ANI_FOLLOW3"
+	frame	data/chars/beyond/3giant/tramgb07.gif
+	delay	2500
+	frame	data/chars/beyond/3giant/tramgb06.gif
+	frame	data/chars/beyond/3giant/tramgb07.gif
+	frame	data/chars/beyond/3giant/tramgb06.gif
+	frame	data/chars/beyond/3giant/tramgb07.gif
+	frame	data/chars/beyond/3giant/tramgb06.gif
+	frame	data/chars/beyond/3giant/tramgb07.gif
+	frame	data/chars/beyond/3giant/tramgb06.gif
+
+#-----position 1_1160_0_-57_-1 ----MARKS
+
+anim	follow3
+@script
+   void self = getlocalvar("self");
+   void target = getlocalvar("Target" + self);
+   int hp2 = getentityproperty(target,"health"); //Get target's health
+   if ( hp2 <= 1 ){
+	changeentityproperty(self, "animation", openborconstant("ANI_FOLLOW5"));
+	}
+@end_script
+	loop	1 2 22
+	delay	5
+	offset	340 315
+	bbox	280 60 120 150 20
+	@cmd	slamstart2
+	@cmd	position 0 1160 4 -53 -1
+	frame	data/chars/beyond/3giant/tramgb06.gif
+	@cmd	spawnGun4 "smk1" -180 200 235 -1 1
+	@cmd	position 1 1155 4 -53 -1
+	frame	data/chars/beyond/3giant/tramgb07.gif
+	@cmd	position 2 1160 4 -53 -1
+	frame	data/chars/beyond/3giant/tramgb06.gif #2
+	@cmd	position 3 1155 4 -53 -1
+	frame	data/chars/beyond/3giant/tramgb07.gif
+	sound	data/sounds/elevspark.wav
+	@cmd	position 0 1160 4 -53 -1
+	frame	data/chars/beyond/3giant/tramgb06.gif
+	@cmd	hurt2 5
+	@cmd	position 1 1155 4 -53 -1
+	frame	data/chars/beyond/3giant/tramgb07.gif
+	@cmd	position 2 1160 4 -53 -1
+	frame	data/chars/beyond/3giant/tramgb06.gif
+	@cmd	position 3 1155 4 -53 -1
+	frame	data/chars/beyond/3giant/tramgb07.gif
+	@cmd	position 0 1160 4 -53 -1
+	frame	data/chars/beyond/3giant/tramgb06.gif
+	@cmd	position 1 1155 4 -53 -1
+	sound	data/sounds/alien12.wav
+	frame	data/chars/beyond/3giant/tramgb07.gif
+	@cmd	hurt2 5
+	@cmd	position 2 1160 4 -53 -1
+	frame	data/chars/beyond/3giant/tramgb06.gif
+	@cmd	position 3 1155 4 -53 -1
+	frame	data/chars/beyond/3giant/tramgb07.gif
+	@cmd	position 0 1160 4 -53 -1
+	frame	data/chars/beyond/3giant/tramgb06.gif
+	@cmd	position 1 1155 4 -53 -1
+	frame	data/chars/beyond/3giant/tramgb07.gif
+	@cmd	position 2 1160 4 -53 -1
+	frame	data/chars/beyond/3giant/tramgb06.gif
+	@cmd	hurt2 5
+	@cmd	position 3 1155 4 -53 -1
+	frame	data/chars/beyond/3giant/tramgb07.gif
+	attack	0 0 0 0
+	@cmd	position 0 1160 4 -53 -1
+	frame	data/chars/beyond/3giant/tramgb06.gif
+	@cmd	position 1 1155 4 -53 -1
+	frame	data/chars/beyond/3giant/tramgb07.gif
+	@cmd	position 2 1160 4 -53 -1
+	frame	data/chars/beyond/3giant/tramgb06.gif
+	@cmd	position 3 1155 4 -53 -1
+	frame	data/chars/beyond/3giant/tramgb07.gif
+	@cmd	position 0 1160 4 -53 -1
+	frame	data/chars/beyond/3giant/tramgb06.gif #20
+	@cmd	position 1 1155 4 -53 -1
+	frame	data/chars/beyond/3giant/tramgb07.gif
+	@cmd	position 2 1160 4 -53 -1
+	frame	data/chars/beyond/3giant/tramgb06.gif
+	@cmd	position 3 1155 4 -53 -1
+	frame	data/chars/beyond/3giant/tramgb07.gif
+	@cmd	killgun 1 0
+	@cmd	position 2 1160 4 -53 -1
+	frame	data/chars/beyond/3giant/tramgb06.gif
+	@cmd	position 3 1155 4 -53 -1
+	frame	data/chars/beyond/3giant/tramgb07.gif
+
+anim	death
+	loop	0
+	delay	5
+	offset	340 315
+	bbox	0 0 0 0
+	@cmd	position 2 1160 0 -57 -1
+	frame	data/chars/beyond/3giant/tramgb06.gif
+	@cmd	depost 0
+	@cmd	finish 0 1 0 0 0 -1
+	frame	data/chars/beyond/3giant/tramgb07.gif
+	@cmd	killgun 1 0
+	frame	data/chars/beyond/3giant/tramgb06.gif
+	delay	14
+	@cmd	layer 30
+	frame	data/chars/beyond/3giant/deth01.gif
+	sound      data/sounds/alimon2.wav
+	offset	340 310
+	@cmd	clearL
+	frame	data/chars/beyond/3giant/deth02.gif
+	offset	340 305
+	@cmd	spawn01	"explosion3" -80 230 60
+	frame	data/chars/beyond/3giant/deth03.gif
+	offset	340 300
+	@cmd	spawn01	"explosion3" -40 160 60
+	frame	data/chars/beyond/3giant/deth04.gif
+	offset	340 295
+	@cmd	spawn01	"explosion3" 0 230 60
+	frame	data/chars/beyond/3giant/deth05.gif
+	offset	340 290
+	@cmd	spawn01	"explosion3" -60 230 60
+	frame	data/chars/beyond/3giant/deth06.gif
+	offset	340 285
+	@cmd	spawn01	"explosion3" -40 150 60
+	frame	data/chars/beyond/3giant/deth07.gif
+	offset	340 280
+	@cmd	spawn01	"explosion3" -60 210 60
+	frame	data/chars/beyond/3giant/deth08.gif
+	offset	340 275
+	@cmd	spawn01	"explosion3" -80 180 40
+	frame	data/chars/beyond/3giant/deth09.gif
+	delay	7
+	frame	data/chars/beyond/3giant/deth23.gif #14
+	frame	data/chars/beyond/3giant/deth22.gif
+	frame	data/chars/beyond/3giant/deth21.gif
+	frame	data/chars/beyond/3giant/deth20.gif
+	@cmd	spawn01 "mshpdet2" 0 50 40
+	frame	data/chars/beyond/3giant/deth19.gif
+	frame	data/chars/beyond/3giant/deth18.gif
+	frame	data/chars/beyond/3giant/deth17.gif
+	frame	data/chars/beyond/3giant/deth16.gif
+	frame	data/chars/beyond/3giant/deth15.gif
+	@cmd	looper 14 3
+	frame	data/chars/beyond/3giant/deth23.gif #23
+	frame	data/chars/beyond/3giant/deth22.gif
+	@cmd	spawnAni "mshpdet2" 10 60 40 "ANI_FOLLOW4"
+	frame	data/chars/beyond/3giant/deth21.gif
+	frame	data/chars/beyond/3giant/deth20.gif
+	frame	data/chars/beyond/3giant/deth19.gif
+	frame	data/chars/beyond/3giant/deth18.gif
+	delay	6
+	frame	data/chars/beyond/3giant/deth17.gif
+	@cmd	dasher 2 0 0
+	frame	data/chars/beyond/3giant/deth16.gif
+	frame	data/chars/beyond/3giant/deth15.gif
+	frame	data/chars/beyond/3giant/deth23.gif #32
+	frame	data/chars/beyond/3giant/deth22.gif
+	@cmd	spawnAni "mshpdet2" 10 60 40 "ANI_FOLLOW4"
+	frame	data/chars/beyond/3giant/deth21.gif
+	frame	data/chars/beyond/3giant/deth20.gif
+	frame	data/chars/beyond/3giant/deth19.gif
+	frame	data/chars/beyond/3giant/deth18.gif
+	frame	data/chars/beyond/3giant/deth17.gif
+	frame	data/chars/beyond/3giant/deth16.gif
+	frame	data/chars/beyond/3giant/deth15.gif
+	frame	data/chars/beyond/3giant/deth23.gif
+	frame	data/chars/beyond/3giant/deth22.gif
+	frame	data/chars/beyond/3giant/deth21.gif
+	frame	data/chars/beyond/3giant/deth20.gif
+	frame	data/chars/beyond/3giant/deth19.gif
+	frame	data/chars/beyond/3giant/deth18.gif
+	frame	data/chars/beyond/3giant/deth17.gif
+	@cmd	spawnAni "mshpdet2" 10 60 40 "ANI_FOLLOW6"
+	frame	data/chars/beyond/3giant/deth16.gif
+	frame	data/chars/beyond/3giant/deth15.gif
+	frame	data/chars/beyond/3giant/deth23.gif
+	frame	data/chars/beyond/3giant/deth22.gif
+	frame	data/chars/beyond/3giant/deth21.gif
+	frame	data/chars/beyond/3giant/deth20.gif
+	frame	data/chars/beyond/3giant/deth19.gif
+	frame	data/chars/beyond/3giant/deth18.gif
+	frame	data/chars/beyond/3giant/deth17.gif
+	frame	data/chars/beyond/3giant/deth16.gif
+	frame	data/chars/beyond/3giant/deth15.gif
+	@cmd	looper 32 3
+	frame	data/chars/beyond/3giant/deth23.gif
+	frame	data/chars/beyond/3giant/deth22.gif
+	frame	data/chars/beyond/3giant/deth21.gif
+	frame	data/chars/beyond/3giant/deth20.gif
+	frame	data/chars/beyond/3giant/deth19.gif
+	frame	data/chars/beyond/3giant/deth18.gif
+	frame	data/chars/beyond/3giant/deth17.gif
+	frame	data/chars/beyond/3giant/deth16.gif
+	frame	data/chars/beyond/3giant/deth15.gif
+	frame	data/chars/beyond/3giant/empty.gif
+	frame	data/chars/beyond/3giant/empty.gif
+
+
+
+
+	
+anim	fall
+	loop	0
+	delay	2
+	offset	290 315
+	bbox	0 0 0 0
+	frame	data/chars/beyond/3giant/idle01.gif
+	@cmd	anichange "ANI_RISE"
+	frame	data/chars/beyond/3giant/idle01.gif
+
+
+anim	fall7
+	loop	0
+	delay	1000
+	offset	290 315
+	frame	data/chars/beyond/3giant/idle01.gif
+	frame	data/chars/beyond/3giant/idle01.gif
+	frame	data/chars/beyond/3giant/idle01.gif
+	frame	data/chars/beyond/3giant/idle01.gif
+	frame	data/chars/beyond/3giant/idle01.gif
+	frame	data/chars/beyond/3giant/idle01.gif
+	frame	data/chars/beyond/3giant/idle01.gif
+	frame	data/chars/beyond/3giant/idle01.gif
+	frame	data/chars/beyond/3giant/idle01.gif
+	frame	data/chars/beyond/3giant/idle01.gif
+
+
+		
+anim	idle
+	loop	1
+	delay	9
+	offset	290 315
+	bbox	180 175 220 160 20
+	frame	data/chars/beyond/3giant/tramgo01.gif
+	@cmd	clearL
+	frame	data/chars/beyond/3giant/tramgo01.gif
+	frame	data/chars/beyond/3giant/tramgo01.gif
+	frame	data/chars/beyond/3giant/tramgo01.gif
+		
+anim	pain
+	loop	0
+	delay	8
+	offset	290 315
+	bbox	180 175 220 160 20
+	frame	data/chars/beyond/3giant/idle01.gif
+
+		

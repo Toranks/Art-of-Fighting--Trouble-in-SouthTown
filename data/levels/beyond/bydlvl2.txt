@@ -1,0 +1,482 @@
+music		data/music/byolvl2.ogg
+
+background	data/bgs/beyond/lvl2/back1.gif  1 0
+layer		data/bgs/beyond/lvl2/back2.gif -25000 0 0 -10 -110 0 0 -1 1 1 0 0 0 0 0 0.8
+layer		data/bgs/beyond/lvl2/back3.gif -15000 0 0 -10 35 0 0 -1 1 1 0 0 0 0 0 0.9
+layer		data/bgs/beyond/lvl2/shipf.gif -10000 0 0 -10 45 5000 0 -1 1 1 0 0 0 0 0 -0.7
+layer		data/bgs/beyond/lvl2/back4.gif -8000 0 0 -10 65 0 0 -1 1 1 0 0 0 0 0 1
+layer		data/bgs/beyond/lvl2/middle.gif -30000 0 0 -10 135 0 0 -1 1 0 0 3 0.1 1.4 1 2.5
+layer		data/bgs/beyond/lvl2/panel2.gif -400 0 0 -10 145 0 0 -1 1 1 0 0 0 0 0 3
+panel		data/bgs/beyond/lvl2/panel.gif
+layer		data/bgs/beyond/lvl2/front1.gif 1000 0 0 -10 225 0 0 -1 1 1 0 0 0 0 0 3.8
+layer		data/bgs/beyond/lvl2/tkvnear.gif 1800 0 0 -10 390 2500 0 -1 1 1 0 0 0 0 0 1.9
+layer		data/bgs/beyond/lvl2/dust.gif 2500 0 0 0 30 0 0 -1 1 1 1 0 0 0 0 4
+
+direction       both
+light  		10   60
+at       	0
+settime         0
+notime          1
+noslow          0
+order		a
+spawn1  	100 5
+spawn2  	105 10
+spawn3  	110 15
+
+
+scrollspeed     2
+bgspeed		10
+cameratype      1
+cameraoffset    0 -130
+setweap		1
+
+
+
+#-----------------------
+spawn   stgSET7
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW5"));
+} @end_script
+coords  -500 515 350
+at      0
+#----------------------------------
+
+
+
+#------tankfar---------
+spawn   tkspawner
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW3"));
+} @end_script
+coords  2010 180
+at      0
+
+#------tankmiddle---------
+spawn   tkspawner
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+coords  2010 200
+at      0
+
+#------tanknear---------
+spawn   tkspawner
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+} @end_script
+coords  2010 240
+at      0
+
+#-----------//----alien-tank-----//--------------
+
+
+spawn   altkspawner
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+coords  2000 190
+at      0
+
+spawn   altkspawner
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+} @end_script
+coords  2000 220
+at      0
+
+
+spawn   shpmdll
+map     1
+coords  2005 190
+at      0
+
+spawn   shpfar
+map     1
+coords  -690 190
+at      0
+
+#----------//-moster-alien-//----------------
+
+group 1 1
+at    0
+
+spawn   bigalisp
+coords  -200 110
+at      0
+
+spawn   bigali
+health  3500
+coords  450 380
+at      0
+
+spawn   bigalidet
+spawnscript data/scripts/noscpos.c
+health  10000
+coords  2590 320
+at      0
+
+#-----------------------------------
+group 1 1
+at    0
+
+spawn   ghost1
+coords  350 325
+at      0
+#-----------------------------------
+
+group 3 3
+at    0
+
+spawn   ufd4
+map     3
+health  300
+coords  780 335
+at      0
+
+spawn   ufd4
+map     3
+item    gas
+health  360
+coords  -680 375
+at      0
+
+spawn   ufd5
+map     3
+health  620
+coords  -680 455
+at      0
+
+#-----------------------------------
+group 1 1
+at    0
+
+spawn   ghost1
+coords  350 325
+at      0
+#-----------------------------------
+
+group 4 4
+at    0
+
+
+spawn   ufd2
+health  610
+coords  690 455
+at      0
+
+spawn   ufd4
+map     2
+item    neo
+health  420
+coords  -650 375
+at      0
+
+
+spawn   ufd4
+map     2
+item    fuel
+health  420
+coords  650 375
+at      0
+
+spawn   ghost1
+coords  350 325
+at      0
+
+spawn   ufd2
+coords  400 375
+at      0
+
+spawn   ufd6
+map     2
+health  380
+coords  90 375
+at      0
+
+spawn   ufd6
+map     1
+item    neo
+health  380
+coords  40 415
+at      0
+
+spawn   ufd6
+map     3
+item    fuel
+health  380
+coords  -70 375
+at      0
+
+spawn   ghost1
+coords  350 325
+at      0
+
+spawn   ufd2
+coords  350 375
+at      0
+
+
+spawn   ghost1
+coords  350 325
+at      0
+
+spawn   ufd5
+map     2
+item    fuel
+health  620
+coords  -570 455
+at      0
+
+#-----------------------------------
+group 1 1
+at    0
+
+spawn   ghost1
+coords  350 325
+at      0
+#-----------------------------------
+
+group 3 3
+at    0
+
+spawn   ufd8
+health  700
+item    gas
+coords  -650 455
+at      0
+
+spawn   ufd8
+health  700
+coords  670 350
+at      0
+
+spawn   ufd4
+map     1
+health  400
+coords  -450 355
+at      0
+
+spawn   ufd2
+health  610
+coords  450 455
+at      0
+
+spawn   ufd4
+map     1
+health  400
+item    fuel
+coords  650 435
+at      0
+
+spawn   ufd2
+health  610
+coords  450 455
+at      0
+
+spawn   ufd5
+health  600
+map     1
+item    fuel
+coords  -560 455
+at      0
+
+#-----------------------------------
+group 1 1
+at    0
+
+spawn   ghost1
+coords  350 335
+at      0
+#-----------------------------------
+group 4 4
+at    0
+
+spawn   ufd5
+map     3
+health  600
+coords  650 435
+at      0
+
+spawn   ufd4
+map     3
+health  450
+item    neo
+coords  -620 335
+at      0
+
+spawn   ufd7
+map     1
+health  400
+coords  10 435
+at      0
+
+spawn   ufd2
+health  610
+coords  650 455
+at      0
+
+spawn   ufd7
+map     2
+item    fuel
+health  400
+coords  -50 335
+at      0
+
+spawn   ufd6
+map     2
+health  350
+item    neo
+coords  -50 335
+at      0
+
+spawn   ufd6
+map     1
+health  350
+coords  50 435
+at      0
+
+spawn   ufd2
+coords  650 455
+at      0
+
+spawn   ufd5
+map     1
+item    gas
+health  600
+coords  650 435
+at      0
+
+#-----------------------------------
+group 1 1
+at    0
+
+spawn   ghost1
+coords  350 325
+at      0
+#-----------------------------------
+
+group 3 3
+at    0
+
+spawn   ufd8
+health  650
+coords  550 435
+at      0
+
+spawn   ufd2
+health  610
+coords  650 455
+at      0
+
+
+spawn   ufd4
+health  650
+map     1
+item    fuel
+coords  -650 435
+at      0
+
+spawn   ufd4
+health  650
+item    fuel
+coords  -700 435
+at      0
+
+spawn   ufd8
+health  650
+item    gas
+coords  -630 435
+at      0
+
+spawn   ufd2
+health  610
+coords  650 455
+at      0
+
+spawn   ufd1
+map     1
+health  650
+item    neo
+coords  670 335
+at      0
+
+spawn   ufd1
+map     2
+health  650
+coords  610 335
+at      0
+
+spawn   ufd2
+health  610
+coords  650 455
+at      0
+
+spawn   ufd8
+health  650
+item    gas
+coords  -650 435
+at      0
+
+#-----------------------------------
+group 1 1
+at    0
+
+spawn   ghost1
+item    ssoul
+coords  350 325
+at      0
+#-----------------------------------
+
+group 2 2
+at    0
+
+spawn   ufd5
+map     1
+item    ssoul
+health  600
+coords  650 435
+at      0
+
+spawn   ufd4
+map     1
+item    gas
+health  450
+coords  -620 435
+at      0
+
+
+#----------------------------
+
+spawn 	ghost2
+item    1up
+coords  300 330
+at      0
+
+spawn 	ghost2
+item    1up
+coords  350 390
+at      0
+
+spawn   mtshiplw
+spawnscript data/scripts/noscpos.c
+coords  3000 400
+at      0
+
+
+#-----------end-----------------
+
+group 1 1
+at    0
+
+spawn   ghosttest
+coords  350 325
+at      0
+
+spawn   ghosttest
+coords  350 325
+at      0
+
+spawn   ghosttest
+coords  350 325
+at      0
+

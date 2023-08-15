@@ -1,0 +1,166 @@
+name    kingflwr
+health  1
+type	none
+nolife	1
+lifespan  8
+subject_to_gravity	1
+subject_to_wall		1
+candamage     player npc
+animationscript data/scripts/escript.c
+
+
+load	diamond
+load	7donut
+load	7cofe
+load	5bill
+load	5dime
+
+
+
+anim	follow1
+	loop	0
+	delay	5
+	offset	20 20
+	bbox	0 0 0 0
+	frame	data/chars/3king/b11.gif
+	frame	data/chars/3king/empty.gif
+	frame	data/chars/3king/b11.gif
+	frame	data/chars/3king/empty.gif
+	@cmd	spawn01 "diamond" 1 1 1
+	frame	data/chars/3king/b11.gif
+	frame	data/chars/3king/empty.gif
+	@cmd	suicide
+	frame	data/chars/3king/empty.gif
+
+anim	follow2
+	loop	0
+	delay	5
+	offset	20 20
+	bbox	0 0 0 0
+	frame	data/chars/3king/b11.gif
+	frame	data/chars/3king/empty.gif
+	frame	data/chars/3king/b11.gif
+	frame	data/chars/3king/empty.gif
+	@cmd	spawn01 "7donut" 1 1 1
+	frame	data/chars/3king/b11.gif
+	frame	data/chars/3king/empty.gif
+	@cmd	suicide
+	frame	data/chars/3king/empty.gif
+
+anim	follow3
+	loop	0
+	delay	5
+	offset	20 20
+	bbox	0 0 0 0
+	frame	data/chars/3king/b11.gif
+	frame	data/chars/3king/empty.gif
+	frame	data/chars/3king/b11.gif
+	frame	data/chars/3king/empty.gif
+	@cmd	spawn01 "7cofe" 1 1 1
+	frame	data/chars/3king/b11.gif
+	frame	data/chars/3king/empty.gif
+	@cmd	suicide
+	frame	data/chars/3king/empty.gif
+
+anim	follow4
+	loop	0
+	delay	5
+	offset	20 20
+	bbox	0 0 0 0
+	frame	data/chars/3king/b11.gif
+	frame	data/chars/3king/empty.gif
+	frame	data/chars/3king/b11.gif
+	frame	data/chars/3king/empty.gif
+	@cmd	spawn01 "5bill" 1 1 1
+	frame	data/chars/3king/b11.gif
+	frame	data/chars/3king/empty.gif
+	@cmd	suicide
+	frame	data/chars/3king/empty.gif
+
+anim	follow5
+	loop	0
+	delay	5
+	offset	20 20
+	bbox	0 0 0 0
+	frame	data/chars/3king/b11.gif
+	frame	data/chars/3king/empty.gif
+	frame	data/chars/3king/b11.gif
+	frame	data/chars/3king/empty.gif
+	@cmd	spawn01 "5dime" 1 1 1
+	frame	data/chars/3king/b11.gif
+	frame	data/chars/3king/empty.gif
+	@cmd	suicide
+	frame	data/chars/3king/empty.gif
+
+
+
+
+anim	idle
+@script
+void self = getlocalvar("self");
+if (frame == 18)
+{
+	int  r = rand()%55;
+	if (r >= 0 && r < 5)
+	{ 
+	performattack(self, openborconstant("ANI_FOLLOW1"));
+	}
+	else if (r >= 5 && r < 10)
+	{ 
+	performattack(self, openborconstant("ANI_FOLLOW2"));
+	}
+	else if (r >= 10 && r < 15)
+	{ 
+	performattack(self, openborconstant("ANI_FOLLOW3"));
+	}
+	else if (r >= 15 && r < 20)
+	{ 
+	performattack(self, openborconstant("ANI_FOLLOW4"));
+	}
+	else if (r >= 20 && r < 25)
+	{ 
+	performattack(self, openborconstant("ANI_FOLLOW5"));
+	}
+	else
+	{ 
+	killentity(self);
+	}
+}
+@end_script
+	loop	0
+	delay	2
+	offset	20 20
+	bbox	0 0 0 0
+	hitflash	Flash6
+	hitfx	data/sounds/sl1.wav
+	jumpframe 1 0.1 2 
+	landframe 2
+	frame	data/chars/3king/b01.gif
+	delay	400
+	attack2	3 1 25 25 1 0 0 0 8 0
+	frame	data/chars/3king/b01.gif
+	attack2	0 0 0 0
+	delay	9
+	frame	data/chars/3king/b02.gif
+	frame	data/chars/3king/b03.gif
+	frame	data/chars/3king/b04.gif
+	frame	data/chars/3king/b05.gif
+	frame	data/chars/3king/b06.gif
+	frame	data/chars/3king/b07.gif
+	frame	data/chars/3king/b08.gif
+	frame	data/chars/3king/b09.gif
+	frame	data/chars/3king/b10.gif
+	delay	50
+	frame	data/chars/3king/b11.gif
+	delay	5
+	frame	data/chars/3king/b11.gif
+	frame	data/chars/3king/empty.gif
+	frame	data/chars/3king/b11.gif
+	frame	data/chars/3king/empty.gif
+	frame	data/chars/3king/b11.gif
+	frame	data/chars/3king/empty.gif
+	frame	data/chars/3king/b11.gif	#18
+	frame	data/chars/3king/empty.gif
+	frame	data/chars/3king/empty.gif
+	frame	data/chars/3king/empty.gif
+	frame	data/chars/3king/empty.gif

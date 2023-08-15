@@ -1,0 +1,725 @@
+name	 ftnk1
+health   1
+type     obstacle
+nolife   1
+gfxshadow	1
+candamage	player
+subject_to_minz    0
+subject_to_maxz    0
+lifespan  	15
+offscreenkill 	100
+
+animationscript data/scripts/escript.c
+
+load	cardam2
+load	explosion3
+load	fuel
+
+
+
+
+
+
+
+anim	fall
+    @script
+    void self = getlocalvar("self");
+
+    if( frame == 1){
+      int r = rand()%30;
+
+      if( r >= 9){
+        changeentityproperty(self, "animation", openborconstant("ANI_FOLLOW3"));
+      }
+    }
+	@end_script
+
+	delay	9
+	offset	115 120
+	bbox	0 0 0 0
+	sound	data/sounds/xplosion.wav
+	@cmd	spawner2 "cardam2" 0 50 10
+	frame	data/bgs/beyond/lvl3/bck/tnk03.gif
+	@cmd	spawn01 "explosion3" -70 50 10
+	offset	115 135
+	frame	data/bgs/beyond/lvl3/bck/tnk04.gif
+	offset	115 120
+	frame	data/bgs/beyond/lvl3/bck/tnk05.gif
+	@cmd	spawn01 "fuel" 1 3 10
+	frame	data/bgs/beyond/lvl3/bck/tnk05.gif
+
+
+
+anim	follow3
+	delay	9
+	offset	115 120
+	bbox	0 0 0 0
+
+	jumpframe 0 2 
+
+	sound	data/sounds/xplosion.wav
+	frame	data/bgs/beyond/lvl3/bck/tnk03.gif
+	offset	115 135
+	frame	data/bgs/beyond/lvl3/bck/tnk04.gif
+	offset	115 120
+	frame	data/bgs/beyond/lvl3/bck/tnk05.gif
+	frame	data/bgs/beyond/lvl3/bck/tnk05.gif
+	delay	3
+	frame	data/bgs/beyond/lvl3/bck/emp.gif
+	frame	data/bgs/beyond/lvl3/bck/tnk05.gif
+	frame	data/bgs/beyond/lvl3/bck/emp.gif
+	frame	data/bgs/beyond/lvl3/bck/emp.gif
+	frame	data/bgs/beyond/lvl3/bck/tnk05.gif
+	frame	data/bgs/beyond/lvl3/bck/emp.gif
+	frame	data/bgs/beyond/lvl3/bck/emp.gif
+	frame	data/bgs/beyond/lvl3/bck/tnk05.gif
+	frame	data/bgs/beyond/lvl3/bck/emp.gif
+	frame	data/bgs/beyond/lvl3/bck/emp.gif
+	frame	data/bgs/beyond/lvl3/bck/tnk05.gif
+	frame	data/bgs/beyond/lvl3/bck/emp.gif
+	@cmd	suicide
+	frame	data/bgs/beyond/lvl3/bck/emp.gif
+
+
+
+
+
+
+		
+anim	follow1
+	loop	1
+	delay	7
+	offset	115 120
+	bbox	0 0 0 0
+	drawmethod	1 1
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	2 2
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	3 3
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	4 4
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	5 5
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+
+#----------------------------------------
+	@cmd	dasher -0.2 0 0.1
+#----------------------------------------
+
+	drawmethod	6 6
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	7 7
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	8 8
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	9 9
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	10 10
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	12 12
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+
+#----------------------------------------
+	@cmd	dasher -0.3 0 0.2
+#----------------------------------------
+
+	drawmethod	14 14
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	16 16
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	18 18
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	20 20
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	25 25
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	30 30
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	35 35
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+
+#----------------------------------------
+	@cmd	dasher -0.5 0 0.3
+#----------------------------------------
+
+	drawmethod	40 40
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	45 45
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	50 50
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	55 55
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	60 60
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	65 65
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	70 70
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	75 75
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	80 80
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+
+#----------------------------------------
+	@cmd	dasher -0.9 0 0.4
+#----------------------------------------
+
+	drawmethod	85 85
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	90 90
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	95 95
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	100 100
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	105 105
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	110 110
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	115 115
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+
+#----------------------------------------
+	@cmd	dasher -1.1 0 0.5
+#----------------------------------------
+
+	drawmethod	120 120
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	125 125
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	130 130
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	135 135
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	140 140
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	145 145
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	150 150
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	155 155
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+
+#----------------------------------------
+	@cmd	dasher -1.3 0 0.6
+#----------------------------------------
+
+	drawmethod	160 160
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	165 165
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	170 170
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	175 175
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	180 180
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	185 185
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	190 190
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	195 195
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	200 200
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+
+#----------------------------------------
+	@cmd	dasher -1.4 0 0.7
+#----------------------------------------
+
+	drawmethod	205 205
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	210 210
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	215 215
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+
+#----------------------------------------
+	bbox	25 61 180 60 70
+#----------------------------------------
+
+	attack	23 60 185 60 7 0 1 0 0 5
+	drawmethod	220 220
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	225 225
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	230 230
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	235 235
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	240 240
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+#----------------------------------------
+	bbox	0 0 0 0
+#----------------------------------------
+	drawmethod	245 245
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	250 250
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	255 255
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	260 260
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	265 265
+
+#----------------------------------------
+	@cmd	dasher -1.5 0 0.8
+#----------------------------------------
+
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	270 270
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	275 275
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	280 280
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	285 285
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	290 290
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	delay	50
+	frame	data/bgs/beyond/lvl3/bck/emp.gif
+	@cmd	suicide
+	frame	data/bgs/beyond/lvl3/bck/emp.gif
+
+
+
+		
+anim	follow2
+	loop	1
+	delay	7
+	offset	115 120
+	bbox	0 0 0 0
+	drawmethod	1 1
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	2 2
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	3 3
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	4 4
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	5 5
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+
+#----------------------------------------
+	@cmd	dasher 0.2 0 0.1
+#----------------------------------------
+
+	drawmethod	6 6
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	7 7
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	8 8
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	9 9
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	10 10
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	12 12
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+
+#----------------------------------------
+	@cmd	dasher 0.3 0 0.2
+#----------------------------------------
+
+	drawmethod	14 14
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	16 16
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	18 18
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	20 20
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	25 25
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	30 30
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	35 35
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+
+#----------------------------------------
+	@cmd	dasher 0.5 0 0.3
+#----------------------------------------
+
+	drawmethod	40 40
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	45 45
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	50 50
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	55 55
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	60 60
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	65 65
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	70 70
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	75 75
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	80 80
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+
+#----------------------------------------
+	@cmd	dasher 0.9 0 0.4
+#----------------------------------------
+
+	drawmethod	85 85
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	90 90
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	95 95
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	100 100
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	105 105
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	110 110
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	115 115
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+
+#----------------------------------------
+	@cmd	dasher 1.1 0 0.5
+#----------------------------------------
+
+	drawmethod	120 120
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	125 125
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	130 130
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	135 135
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	140 140
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	145 145
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	150 150
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	155 155
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+
+#----------------------------------------
+	@cmd	dasher 1.3 0 0.6
+#----------------------------------------
+
+	drawmethod	160 160
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	165 165
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	170 170
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	175 175
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	180 180
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	185 185
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	190 190
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	195 195
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	200 200
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+
+#----------------------------------------
+	@cmd	dasher 1.4 0 0.7
+#----------------------------------------
+
+	drawmethod	205 205
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	210 210
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	215 215
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+
+#----------------------------------------
+	bbox	25 61 180 60 70
+#----------------------------------------
+
+	attack	23 60 185 60 7 0 1 0 0 5
+	drawmethod	220 220
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	225 225
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	230 230
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	235 235
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	240 240
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+#----------------------------------------
+	bbox	0 0 0 0
+#----------------------------------------
+	drawmethod	245 245
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	250 250
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	255 255
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	260 260
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	265 265
+
+#----------------------------------------
+	@cmd	dasher 1.5 0 0.8
+#----------------------------------------
+
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	270 270
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	275 275
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	280 280
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	285 285
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	290 290
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	delay	50
+	frame	data/bgs/beyond/lvl3/bck/emp.gif
+	@cmd	suicide
+	frame	data/bgs/beyond/lvl3/bck/emp.gif
+		
+anim	idle
+	loop	1
+	delay	30
+	offset	100 75
+	bbox	0 0 0 0
+	movez	10
+	delay	30
+	frame	data/bgs/beyond/lvl3/bck/emp.gif
+
+
+
+
+
+
+
+
+		
+anim	spawn
+	loop	1
+	delay	7
+	offset	115 120
+	bbox	0 0 0 0
+	drawmethod	1 1
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	2 2
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	3 3
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	4 4
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	5 5
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+
+#----------------------------------------
+	@cmd	dasher 0 0 0.1
+#----------------------------------------
+
+	drawmethod	6 6
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	7 7
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	8 8
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	9 9
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	10 10
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	12 12
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+
+#----------------------------------------
+	@cmd	dasher 0 0 0.2
+#----------------------------------------
+
+	drawmethod	14 14
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	16 16
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	18 18
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	20 20
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	25 25
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	30 30
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	35 35
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+
+#----------------------------------------
+	@cmd	dasher 0 0 0.3
+#----------------------------------------
+
+	drawmethod	40 40
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	45 45
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	50 50
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	55 55
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	60 60
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	65 65
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	70 70
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	75 75
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	80 80
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+
+#----------------------------------------
+	@cmd	dasher 0 0 0.4
+#----------------------------------------
+
+	drawmethod	85 85
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	90 90
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	95 95
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	100 100
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	105 105
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	110 110
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	115 115
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+
+#----------------------------------------
+	@cmd	dasher 0 0 0.5
+#----------------------------------------
+
+	drawmethod	120 120
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	125 125
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	130 130
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	135 135
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	140 140
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	145 145
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	150 150
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	155 155
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+
+#----------------------------------------
+	@cmd	dasher 0 0 0.6
+#----------------------------------------
+
+	drawmethod	160 160
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	165 165
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	170 170
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	175 175
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	180 180
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	185 185
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	190 190
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	195 195
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	200 200
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+
+#----------------------------------------
+	@cmd	dasher 0 0 0.7
+#----------------------------------------
+
+	drawmethod	205 205
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	210 210
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	215 215
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+
+#----------------------------------------
+	bbox	25 61 180 60 70
+#----------------------------------------
+
+	attack	23 60 185 60 7 0 1 0 0 5
+	drawmethod	220 220
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	225 225
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	230 230
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	235 235
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	240 240
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+#----------------------------------------
+	bbox	0 0 0 0
+#----------------------------------------
+	drawmethod	245 245
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	250 250
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	255 255
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	260 260
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	265 265
+
+#----------------------------------------
+	@cmd	dasher 0 0 0.8
+#----------------------------------------
+
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	270 270
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	275 275
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	280 280
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	drawmethod	285 285
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	drawmethod	290 290
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	frame	data/bgs/beyond/lvl3/bck/tnk01.gif
+	frame	data/bgs/beyond/lvl3/bck/tnk02.gif
+	delay	50
+	frame	data/bgs/beyond/lvl3/bck/emp.gif
+	@cmd	suicide
+	frame	data/bgs/beyond/lvl3/bck/emp.gif
+		
+#|edited by openBor Stats v 0.53
+		

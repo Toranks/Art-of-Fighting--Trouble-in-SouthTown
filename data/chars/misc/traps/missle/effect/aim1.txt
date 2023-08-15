@@ -1,0 +1,40 @@
+name	 aim1
+type     enemy
+nolife   1
+health   0
+speed    9
+offscreenkill 	10000
+lifespan 7
+scroll	 1
+subject_to_gravity 0
+animationscript data/scripts/escript.c
+
+
+load	bomb1
+
+
+
+
+anim 	idle
+	loop	0
+	delay	5
+	offset	1 1
+	bbox	0 0 0 0
+	frame	data/chars/misc/traps/missle/effect/empty.gif
+
+
+
+anim 	spawn
+	loop	1
+	delay	55
+	offset	1 1
+	bbox	0 0 0 0
+	sound	data/sounds/bombfall.wav
+	@cmd	dasher 2.5 0 0
+	frame	data/chars/misc/traps/missle/effect/empty.gif
+	@cmd	tosser "bomb1" 0 500 -10 0.5 0 0
+	frame	data/chars/misc/traps/missle/effect/empty.gif
+	delay	5
+	@cmd	tosser "bomb1" 0 500 30 0.5 0 0
+	frame	data/chars/misc/traps/missle/effect/empty.gif
+

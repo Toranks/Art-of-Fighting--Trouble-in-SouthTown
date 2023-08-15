@@ -1,0 +1,287 @@
+name	 snskp
+type	 none
+facing   1
+falldie	 1
+nolife	 1
+subject_to_gravity 0
+#lifespan 20
+setlayer	9999999998
+animationscript data/scripts/grabscript.c
+
+anim	spawn
+	loop	0
+	delay	50
+	offset	1 1
+	frame	data/chars/0null/sk04.gif
+	frame	data/chars/0null/sk04.gif
+
+
+
+anim	idle
+@script
+void self = getlocalvar("self");
+void plyr = getentityproperty(self, "playerindex");
+
+	if(frame >= 0)
+	{
+	  if( playerkeys(plyr, 0, "attack"))
+	  {
+	  performattack(self, openborconstant("ANI_FOLLOW6"));
+	  }
+	  if( playerkeys(plyr, 0, "jump"))
+	  {
+	  performattack(self, openborconstant("ANI_FOLLOW6"));
+	  }
+	  if( playerkeys(plyr, 0, "special"))
+	  {
+	  performattack(self, openborconstant("ANI_FOLLOW6"));
+	  }
+	}
+@end_script
+	loop	1
+	delay	3
+	offset	1 1
+	frame	data/chars/0null/sk04.gif
+	frame	data/chars/0null/sk04.gif
+	frame	data/chars/0null/sk04.gif
+	frame	data/chars/0null/sk04.gif
+
+
+
+anim	follow6
+	loop	0
+	delay	3
+	offset	127 57
+	frame	data/chars/0null/sk04.gif
+	drawmethod 6 6 
+	frame	data/chars/0null/sk01.gif
+	sound     data/sounds/super2.wav
+	drawmethod 36 6 
+	frame	data/chars/0null/sk01.gif
+	drawmethod 56 6 
+	frame	data/chars/0null/sk01.gif
+	drawmethod 76 6 
+	frame	data/chars/0null/sk01.gif
+	drawmethod 96 6 
+	frame	data/chars/0null/sk01.gif
+	drawmethod 116 6 
+	frame	data/chars/0null/sk01.gif
+	drawmethod 136 6 
+	frame	data/chars/0null/sk01.gif
+	drawmethod 156 6 
+	frame	data/chars/0null/sk01.gif
+	drawmethod 176 6 
+	frame	data/chars/0null/sk01.gif
+	drawmethod 196 6 
+	frame	data/chars/0null/sk01.gif
+	drawmethod 216 6 
+	frame	data/chars/0null/sk01.gif
+	drawmethod 236 6 
+	frame	data/chars/0null/sk01.gif
+	drawmethod 256 6 
+	frame	data/chars/0null/sk01.gif
+	drawmethod 256 36 
+	frame	data/chars/0null/sk01.gif
+	drawmethod 256 56 
+	frame	data/chars/0null/sk01.gif
+	drawmethod 256 76 
+	frame	data/chars/0null/sk01.gif
+	drawmethod 256 96 
+	frame	data/chars/0null/sk01.gif
+	drawmethod 256 116 
+	frame	data/chars/0null/sk01.gif
+	drawmethod 256 136 
+	frame	data/chars/0null/sk01.gif
+	drawmethod 256 156 
+	frame	data/chars/0null/sk01.gif
+	drawmethod 256 176 
+	frame	data/chars/0null/sk01.gif
+	drawmethod 256 196 
+	frame	data/chars/0null/sk01.gif
+	drawmethod 256 216 
+	frame	data/chars/0null/sk01.gif
+	drawmethod 256 236 
+	frame	data/chars/0null/sk01.gif
+	drawmethod 256 256 
+	frame	data/chars/0null/sk01.gif
+	nodrawmethod
+	frame	data/chars/0null/sk01.gif
+	@cmd	anichange "ANI_FOLLOW1"
+	frame	data/chars/0null/sk01.gif
+
+
+
+#-----------//----SELECTION---//---------------------
+
+
+anim	follow1
+@script
+void self = getlocalvar("self");
+void plyr = getentityproperty(self, "playerindex");
+
+	if(frame >= 1 && frame <= 4 )
+	{
+	  if( playerkeys(plyr, 0, "moveright"))
+	  {
+	  performattack(self, openborconstant("ANI_FOLLOW2"));
+	  }
+	  if( playerkeys(plyr, 0, "attack"))
+	  {
+	  performattack(self, openborconstant("ANI_FOLLOW3"));
+	  }
+	}
+@end_script
+	loop	1 1 4
+	delay	3
+	offset	127 57
+	sound	data/sounds/beep.wav
+	frame	data/chars/0null/sk02.gif
+	frame	data/chars/0null/sk02.gif
+	frame	data/chars/0null/sk02.gif
+	frame	data/chars/0null/sk02.gif
+	frame	data/chars/0null/sk02.gif
+
+
+anim	follow2
+@script
+void self = getlocalvar("self");
+void plyr = getentityproperty(self, "playerindex");
+
+	if(frame >= 1 && frame <= 4 )
+	{
+	  if( playerkeys(plyr, 0, "moveleft"))
+	  {
+	  performattack(self, openborconstant("ANI_FOLLOW1"));
+	  }
+	  if( playerkeys(plyr, 0, "attack"))
+	  {
+	  performattack(self, openborconstant("ANI_FOLLOW4"));
+	  }
+	}
+@end_script
+	loop	1 1 4
+	delay	3
+	offset	127 57
+	sound	data/sounds/beep.wav
+	frame	data/chars/0null/sk03.gif
+	frame	data/chars/0null/sk03.gif
+	frame	data/chars/0null/sk03.gif
+	frame	data/chars/0null/sk03.gif
+	frame	data/chars/0null/sk03.gif
+
+
+#-----------//-----YES--SKIP---//-------------------
+
+anim	follow3
+@script
+	void self = getlocalvar("self");
+	char Name = getentityproperty(self,"name");
+	if (frame == 5)
+	{
+	jumptobranch(Name, 1);
+	}
+@end_script
+	loop	0
+	delay	3
+	offset	127 57
+	frame	data/chars/0null/sk02.gif
+	sound	data/sounds/go.wav
+	frame	data/chars/0null/sk05.gif
+	frame	data/chars/0null/sk02.gif #2
+	frame	data/chars/0null/sk05.gif
+	@cmd	looper 2 10
+	frame	data/chars/0null/sk02.gif
+	frame	data/chars/0null/sk02.gif #5
+	frame	data/chars/0null/sk02.gif
+	delay	55000
+	frame	data/chars/0null/sk05.gif
+
+
+
+#-----------//-----NO--SKIP---//-------------------
+
+anim	follow4
+	loop	0
+	delay	3
+	offset	127 57
+	frame	data/chars/0null/sk03.gif
+	sound	data/sounds/go.wav
+	frame	data/chars/0null/sk05.gif
+	frame	data/chars/0null/sk03.gif #2
+	frame	data/chars/0null/sk05.gif
+	@cmd	looper 2 10
+	frame	data/chars/0null/sk03.gif
+	frame	data/chars/0null/sk03.gif #5
+	@cmd	anichange "ANI_FOLLOW5"
+	frame	data/chars/0null/sk03.gif
+	delay	55000
+	frame	data/chars/0null/sk03.gif
+
+
+#-----------//-----EXIT---//-------------------
+
+
+anim	follow5
+	loop	0
+	delay	3
+	offset	127 57
+	drawmethod 256 236
+	frame	data/chars/0null/sk01.gif
+	drawmethod 256 216
+	frame	data/chars/0null/sk01.gif
+	drawmethod 256 196
+	frame	data/chars/0null/sk01.gif
+	drawmethod 256 176
+	frame	data/chars/0null/sk01.gif
+	drawmethod 256 156
+	frame	data/chars/0null/sk01.gif
+	drawmethod 256 136
+	frame	data/chars/0null/sk01.gif
+	drawmethod 256 116
+	frame	data/chars/0null/sk01.gif
+	drawmethod 256 96
+	frame	data/chars/0null/sk01.gif
+	drawmethod 256 76 
+	frame	data/chars/0null/sk01.gif
+	drawmethod 256 56 
+	frame	data/chars/0null/sk01.gif
+	drawmethod 256 36 
+	frame	data/chars/0null/sk01.gif
+	drawmethod 256 16
+	frame	data/chars/0null/sk01.gif
+	drawmethod 256 6
+	frame	data/chars/0null/sk01.gif
+	drawmethod 236 6
+	frame	data/chars/0null/sk01.gif
+	drawmethod 216 6
+	frame	data/chars/0null/sk01.gif
+	drawmethod 196 6
+	frame	data/chars/0null/sk01.gif
+	drawmethod 176 6
+	frame	data/chars/0null/sk01.gif
+	drawmethod 156 6
+	frame	data/chars/0null/sk01.gif
+	drawmethod 136 6 
+	frame	data/chars/0null/sk01.gif
+	drawmethod 116 6 
+	frame	data/chars/0null/sk01.gif
+	drawmethod 96 6
+	frame	data/chars/0null/sk01.gif
+	drawmethod 76 6 
+	frame	data/chars/0null/sk01.gif
+	drawmethod 56 6
+	frame	data/chars/0null/sk01.gif
+	drawmethod 36 6 
+	frame	data/chars/0null/sk01.gif
+	drawmethod 16 6 
+	frame	data/chars/0null/sk01.gif
+	@cmd	clearL
+	drawmethod 6 6
+	frame	data/chars/0null/sk01.gif
+	nodrawmethod
+	frame	data/chars/0null/sk04.gif
+	@cmd	anichange "ANI_IDLE"
+	frame	data/chars/0null/sk04.gif
+
+
+	

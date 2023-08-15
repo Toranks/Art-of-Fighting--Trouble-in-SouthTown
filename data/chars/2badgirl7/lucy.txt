@@ -1,0 +1,857 @@
+name          lucy
+type          enemy
+subtype	      chase
+health        120
+speed         10
+running	      25 3 3 1 0
+jumpheight    4
+jumpmove       0  4
+throw         5 2
+throwdamage   18
+blockodds     1
+nopassiveblock 1
+escapehits    2
+shadow        0
+noquake       1
+nolife        1
+falldie	      2
+nodieblink    1
+gfxshadow     1
+dust            dust
+projectilehit enemy obstacle 
+diesound      data/sounds/bgdie3.wav
+
+
+
+animationscript data/scripts/escript.c
+
+
+alternatepal       data/chars/2badgirl7/map1.gif
+alternatepal       data/chars/2badgirl7/map2.gif
+alternatepal       data/chars/2badgirl7/map3.gif
+alternatepal       data/chars/2badgirl7/map4.gif
+
+@script
+   void self = getlocalvar("self");
+   void anim = getentityproperty(self,"animationID");
+   void hp = getentityproperty(self,"health");
+   int x = getentityproperty(self, "x");
+   int a = getentityproperty(self, "a");
+   int z = getentityproperty(self, "z");
+   int Dir = getentityproperty(self, "direction");
+   int Sx = 10;  //----distance from platform
+   int jp = 1;   //----jump velocity
+
+
+if(anim != openborconstant("ANI_DIE") || anim != openborconstant("ANI_FALL") || anim != openborconstant("ANI_RISE") || anim != openborconstant("ANI_JUMP"))
+{
+	float Hy;
+	if(Dir==0)
+	{
+	Sx = -10;
+	jp = -1;
+	}
+
+	Hy = checkplatformbelow(x+Sx,z, 70);
+
+	if(Hy > 1 && a <= 7 && hp > 0)
+	{
+	performattack(self,openborconstant("ANI_JUMP"));
+	changeentityproperty(self, "velocity", 0, 0, 0);
+	tossentity(self, 4, jp, 0);
+	}
+}
+@end_script
+
+
+
+
+anim	jump
+	range	20 150
+	loop	0
+	delay	15
+	offset	100 193
+	bbox	79 97 50 91
+	frame	data/chars/2badgirl7/a105.gif
+	frame	data/chars/2badgirl7/a098.gif
+
+anim	jumpland
+	loop	0
+	delay	15
+	offset	100 193
+	bbox	79 97 50 91
+	frame	data/chars/2badgirl7/blk13.gif
+
+
+anim	attack1
+	range	5 80
+	loop	0
+	delay	9
+	offset	100 193
+	bbox	79 97 50 91
+	followanim	1
+	followcond	3
+	hitfx	data/sounds/beat2.wav
+	frame	data/chars/2badgirl7/a080.gif
+	frame	data/chars/2badgirl7/a081.gif
+	frame	data/chars/2badgirl7/a082.gif
+	attack	100 106 80 30 13 0 0 0 13 5
+	frame	data/chars/2badgirl7/a083.gif
+	frame	data/chars/2badgirl7/a084.gif
+	frame	data/chars/2badgirl7/a085.gif
+	attack	0 0 0 0
+	frame	data/chars/2badgirl7/a082.gif
+	frame	data/chars/2badgirl7/a081.gif
+		
+anim	attack2
+	range	160 300
+	loop	0
+	delay	12
+	offset	100 189
+	bbox	0 0 0 0
+	followanim	3
+	followcond	1
+	jumpframe	3 5 2 0
+	landframe	8
+	flipframe	8
+	hitfx	data/sounds/grab.wav
+	frame	data/chars/2badgirl7/blk11.gif
+	sound	data/sounds/bgirl03.wav
+	frame	data/chars/2badgirl7/blk12.gif
+	frame	data/chars/2badgirl7/blk13.gif
+	frame	data/chars/2badgirl7/a105.gif
+	frame	data/chars/2badgirl7/a106.gif
+	frame	data/chars/2badgirl7/a107.gif
+	frame	data/chars/2badgirl7/a108.gif
+	bbox	110 150 43 61
+	delay	200
+	attack	60 125 90 45 1 0 0 1 10 0
+	frame	data/chars/2badgirl7/a109.gif
+	attack	0 0 0 0
+	delay	14
+	frame	data/chars/2badgirl7/rise7.gif
+	frame	data/chars/2badgirl7/rise6.gif
+	frame	data/chars/2badgirl7/rise4.gif
+	frame	data/chars/2badgirl7/rise5.gif
+	frame	data/chars/2badgirl7/rise8.gif
+	frame	data/chars/2badgirl7/rise9.gif
+	frame	data/chars/2badgirl7/rise10.gif
+		
+anim	block
+	loop	0
+	delay	2
+	offset	100 193
+	bbox	0 0 0 0
+	move	-6
+	frame	data/chars/2badgirl7/blk01.gif
+	frame	data/chars/2badgirl7/blk01.gif
+	frame	data/chars/2badgirl7/blk01.gif
+	frame	data/chars/2badgirl7/blk02.gif
+	frame	data/chars/2badgirl7/blk02.gif
+	frame	data/chars/2badgirl7/blk02.gif
+	frame	data/chars/2badgirl7/blk03.gif
+	frame	data/chars/2badgirl7/blk03.gif
+	frame	data/chars/2badgirl7/blk03.gif
+	frame	data/chars/2badgirl7/blk04.gif
+	frame	data/chars/2badgirl7/blk04.gif
+	frame	data/chars/2badgirl7/blk04.gif
+	frame	data/chars/2badgirl7/blk05.gif
+	frame	data/chars/2badgirl7/blk05.gif
+	frame	data/chars/2badgirl7/blk05.gif
+	frame	data/chars/2badgirl7/blk06.gif
+	frame	data/chars/2badgirl7/blk06.gif
+	frame	data/chars/2badgirl7/blk06.gif
+	frame	data/chars/2badgirl7/blk07.gif
+	frame	data/chars/2badgirl7/blk07.gif
+	frame	data/chars/2badgirl7/blk07.gif
+	frame	data/chars/2badgirl7/blk08.gif
+	frame	data/chars/2badgirl7/blk08.gif
+	frame	data/chars/2badgirl7/blk08.gif
+	frame	data/chars/2badgirl7/blk09.gif
+	frame	data/chars/2badgirl7/blk09.gif
+	frame	data/chars/2badgirl7/blk09.gif
+	frame	data/chars/2badgirl7/blk10.gif
+	frame	data/chars/2badgirl7/blk10.gif
+	frame	data/chars/2badgirl7/blk10.gif
+	move	0
+	delay	10
+	frame	data/chars/2badgirl7/blk11.gif
+	frame	data/chars/2badgirl7/blk12.gif
+	frame	data/chars/2badgirl7/blk13.gif
+		
+anim	burn
+	loop	0
+	delay	25
+	offset	100 188
+	bbox	0 0 0 0
+	landframe	3
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 200_50_0
+	@cmd	spawnbind "burn1" 1 1 1
+	@cmd	spawnbind "burn2" 1 1 1
+	@cmd	spawnbind "burn3" 1 1 1
+	attack	95 98 30 45 5 1 0 0 13 0
+	frame	data/chars/2badgirl7/fall1.gif
+	delay	15
+	attack	80 115 50 25 5 1 0 0 13 0
+	frame	data/chars/2badgirl7/fall2.gif
+	delay	500
+	frame	data/chars/2badgirl7/fall3.gif
+	attack	0 0 0 0
+	bbox	58 175 85 15
+	delay	15
+	frame	data/chars/2badgirl7/fall4.gif
+	frame	data/chars/2badgirl7/fall5.gif
+	delay	170
+	frame	data/chars/2badgirl7/fall4.gif
+		
+anim	death
+	loop	0
+	delay	30
+	offset	100 188
+	bbox	0 0 0 0
+	frame	data/chars/2badgirl7/fall4.gif
+		
+anim	fall
+	loop	0
+	delay	25
+	offset	100 188
+	bbox	0 0 0 0
+	landframe	3
+	attack	95 98 30 45 5 1 0 0 13 0
+	frame	data/chars/2badgirl7/fall1.gif
+	delay	15
+	attack	80 115 50 25 5 1 0 0 13 0
+	frame	data/chars/2badgirl7/fall2.gif
+	delay	500
+	frame	data/chars/2badgirl7/fall3.gif
+	attack	0 0 0 0
+	bbox	58 175 85 15
+	delay	15
+	frame	data/chars/2badgirl7/fall4.gif
+	frame	data/chars/2badgirl7/fall5.gif
+	delay	170
+	frame	data/chars/2badgirl7/fall4.gif
+		
+anim	fall10
+	loop	0
+	delay	10
+	offset	100 188
+	bbox	80 80 50 75
+	landframe	4
+	attack	85 88 30 50 5 1 0 0 13 0
+	frame	data/chars/2badgirl7/pain6.gif
+	delay	40
+	frame	data/chars/2badgirl7/pain7.gif
+	delay	30
+	bbox	71 125 63 30
+	attack	64 125 45 25 5 1 0 0 13 0
+	frame	data/chars/2badgirl7/fall2.gif
+	delay	300
+	bbox	77 130 67 35
+	attack	0 0 0 0
+	frame	data/chars/2badgirl7/fall3.gif
+	bbox	58 167 85 15
+	delay	15
+	frame	data/chars/2badgirl7/fall4.gif
+	frame	data/chars/2badgirl7/fall5.gif
+	delay	170
+	frame	data/chars/2badgirl7/fall4.gif
+		
+anim	fall11
+	loop	0
+	delay	20
+	offset	100 188
+	bbox	61 185 90 5	
+	frame	data/chars/2badgirl7/pain12.gif
+	delay	35
+	frame	data/chars/2badgirl7/fall4.gif
+		
+anim	fall2
+	loop	0
+	delay	30
+	offset	100 188
+	bbox	0 0 0 0
+	landframe	3
+	attack	85 90 35 45 5 1 0 0 13 0
+	frame	data/chars/2badgirl7/pain7.gif
+	delay	10
+	attack	75 115 55 25 5 1 0 0 13 0
+	frame	data/chars/2badgirl7/fall2.gif
+	attack	0 0 0 0
+	delay	300
+	frame	data/chars/2badgirl7/fall3.gif
+	delay	15
+	frame	data/chars/2badgirl7/fall4.gif
+	frame	data/chars/2badgirl7/fall5.gif
+	frame	data/chars/2badgirl7/fall4.gif
+		
+anim	fall4
+	loop	0
+	delay	6
+	offset	100 188
+	bbox	0 0 0 0
+	jumpframe	0 1.2 1.5
+	frame	data/chars/2badgirl7/pain8.gif
+	frame	data/chars/2badgirl7/pain9.gif
+	frame	data/chars/2badgirl7/pain10.gif
+	@cmd	leaper 0 0.2 0
+	frame	data/chars/2badgirl7/pain11.gif
+	frame	data/chars/2badgirl7/fall4.gif
+	frame	data/chars/2badgirl7/fall5.gif
+	bbox	58 175 95 15
+	frame	data/chars/2badgirl7/fall4.gif
+		
+anim	fall7
+	delay	1000
+	offset	105 130
+	frame	data/chars/2badgirl7/slamck0.gif
+	offset	100 110
+	frame	data/chars/2badgirl7/slamck1.gif
+	offset	106 130
+	frame	data/chars/2badgirl7/slamck2.gif
+	offset	115 125
+	frame	data/chars/2badgirl7/slamck3.gif
+	offset	125 125
+	frame	data/chars/2badgirl7/slamck4.gif
+	offset	108 122
+	frame	data/chars/2badgirl7/slamck5.gif
+	offset	106 155
+	frame	data/chars/2badgirl7/slamck6.gif
+	offset	125 140
+	frame	data/chars/2badgirl7/slamck7.gif
+	offset	120 105
+	frame	data/chars/2badgirl7/slamck8.gif
+	offset	100 130
+	frame	data/chars/2badgirl7/slamck9.gif
+	offset	105 130
+	frame	data/chars/2badgirl7/slamck10.gif
+	offset	105 130
+	frame	data/chars/2badgirl7/slamck11.gif
+	offset	115 125
+	frame	data/chars/2badgirl7/slamck12.gif
+	offset	115 125
+	frame	data/chars/2badgirl7/slamck13.gif
+	offset	115 125
+	frame	data/chars/2badgirl7/slamck14.gif
+	offset	115 125
+	frame	data/chars/2badgirl7/slamck15.gif
+		
+anim	fall9
+	loop	0
+	delay	10
+	offset	100 188
+	bbox	0 0 0 0
+	quakeframe	2 5 5
+	landframe	2 dust
+	attack	90 90 35 45 5 1 0 0 13 0
+	frame	data/chars/2badgirl7/fall1.gif
+	delay	350
+	attack	75 125 45 35 5 1 0 0 13 0
+	frame	data/chars/2badgirl7/fall2.gif
+	delay	2
+	move	-4
+	frame	data/chars/2badgirl7/fall3.gif
+	frame	data/chars/2badgirl7/fall3.gif
+	attack	0 0 0 0
+	frame	data/chars/2badgirl7/fall3.gif
+	@cmd	looper 3 5
+	move	-3
+	frame	data/chars/2badgirl7/fall4.gif
+	frame	data/chars/2badgirl7/fall4.gif
+	frame	data/chars/2badgirl7/fall4.gif
+	@cmd	looper 6 4
+	move	-2
+	frame	data/chars/2badgirl7/fall5.gif
+	frame	data/chars/2badgirl7/fall5.gif
+	frame	data/chars/2badgirl7/fall5.gif
+	loop	0
+	delay	170
+	move	0
+	bbox	58 175 100 15
+	frame	data/chars/2badgirl7/fall4.gif
+		
+anim	follow1
+	loop	0
+	delay	9
+	offset	100 193
+	bbox	79 97 50 91
+	jumpframe	4 3 1
+	hitfx	data/sounds/beat5.wav
+	frame	data/chars/2badgirl7/a084.gif
+	frame	data/chars/2badgirl7/a085.gif
+	frame	data/chars/2badgirl7/a082.gif
+	frame	data/chars/2badgirl7/a081.gif
+	delay	7
+	frame	data/chars/2badgirl7/a090.gif
+	frame	data/chars/2badgirl7/a091.gif
+	attack	95 105 70 60 13 1 0 0 13 0
+	dropv	3 3 0
+	frame	data/chars/2badgirl7/a092.gif
+	frame	data/chars/2badgirl7/a093.gif
+	frame	data/chars/2badgirl7/a094.gif
+	attack	0 0 0 0
+	frame	data/chars/2badgirl7/a095.gif
+	frame	data/chars/2badgirl7/a096.gif
+	frame	data/chars/2badgirl7/a097.gif
+	frame	data/chars/2badgirl7/a098.gif
+	frame	data/chars/2badgirl7/a105.gif
+	frame	data/chars/2badgirl7/grabbed.gif
+		
+anim	follow10
+	loop	0
+	delay	15
+	offset	100 193
+	bbox	79 97 50 91
+	frame	data/chars/2badgirl7/idle01.gif
+	frame	data/chars/2badgirl7/idle01.gif
+	@cmd	beidle
+	frame	data/chars/2badgirl7/idle01.gif
+		
+anim	follow2
+	range	10 80
+	loop	0
+	delay	12
+	offset	100 192
+	bbox	0 0 0 0
+	hitfx	data/sounds/beat5.wav
+	frame	data/chars/2badgirl7/a126.gif
+	frame	data/chars/2badgirl7/a127.gif
+	attack	100 117 59 40 10 1 0 0 13 5
+	frame	data/chars/2badgirl7/a128.gif
+	frame	data/chars/2badgirl7/a129.gif
+	attack	0 0 0 0
+	frame	data/chars/2badgirl7/a130.gif
+	frame	data/chars/2badgirl7/a126.gif
+	frame	data/chars/2badgirl7/blk12.gif
+	frame	data/chars/2badgirl7/blk13.gif
+	frame	data/chars/2badgirl7/idle01.gif
+		
+anim	follow3
+	delay	12
+	offset	100 200
+	@cmd	slamstart2
+	@cmd	position 1 50 10 -1 -1
+	frame	data/chars/2badgirl7/a110.gif
+	@cmd	position 0 55 1 -1 -1
+	frame	data/chars/2badgirl7/a111.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 2 30 16 -1 -1
+	frame	data/chars/2badgirl7/a112.gif
+	@cmd	spawngrab "grab1" 200 200 450 50 2 8
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 25 10 -1 1
+	frame	data/chars/2badgirl7/a113.gif
+	@cmd	antiwall 60 -5 0
+	frame	data/chars/2badgirl7/a114.gif
+	@cmd	antiwall 60 -5 0
+	frame	data/chars/2badgirl7/a115.gif
+	delay	7
+	frame	data/chars/2badgirl7/a116.gif
+	@cmd	hurt 3
+	@cmd	spawn01 "Flash" 60 15 5
+	sound	data/sounds/beat2.wav
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 10 25 10 -1 1
+	frame	data/chars/2badgirl7/a117.gif
+	@cmd	antiwall 60 -5 0
+	frame	data/chars/2badgirl7/a118.gif
+	@cmd	antiwall 60 -5 0
+	frame	data/chars/2badgirl7/a119.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 25 10 -1 1
+	frame	data/chars/2badgirl7/a120.gif
+	@cmd	hurt 3
+	@cmd	spawn01 "Flash" 60 15 5
+	sound	data/sounds/beat2.wav
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 10 25 10 -1 1
+	frame	data/chars/2badgirl7/a121.gif
+	frame	data/chars/2badgirl7/a116.gif
+	frame	data/chars/2badgirl7/a115.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 25 10 -1 1
+	frame	data/chars/2badgirl7/a114.gif
+	frame	data/chars/2badgirl7/a115.gif
+	frame	data/chars/2badgirl7/a116.gif
+	@cmd	hurt 3
+	@cmd	spawn01 "Flash" 60 15 5
+	sound	data/sounds/beat2.wav
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 10 25 10 -1 1
+	frame	data/chars/2badgirl7/a117.gif
+	frame	data/chars/2badgirl7/a118.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 25 10 -1 1
+	frame	data/chars/2badgirl7/a119.gif
+	frame	data/chars/2badgirl7/a120.gif
+	@cmd	hurt 3
+	@cmd	spawn01 "Flash" 60 15 5
+	sound	data/sounds/beat2.wav
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 10 25 10 -1 1
+	frame	data/chars/2badgirl7/a121.gif
+	frame	data/chars/2badgirl7/a116.gif
+	frame	data/chars/2badgirl7/a115.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 25 10 -1 1
+	frame	data/chars/2badgirl7/a114.gif
+	frame	data/chars/2badgirl7/a115.gif
+	frame	data/chars/2badgirl7/a116.gif
+	@cmd	hurt 3
+	@cmd	spawn01 "Flash" 60 15 5
+	sound	data/sounds/beat2.wav
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 10 25 10 -1 1
+	frame	data/chars/2badgirl7/a117.gif
+	frame	data/chars/2badgirl7/a118.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 25 10 -1 1
+	frame	data/chars/2badgirl7/a119.gif
+	frame	data/chars/2badgirl7/a120.gif
+	@cmd	hurt 3
+	@cmd	spawn01 "Flash" 60 15 5
+	sound	data/sounds/beat2.wav
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 10 25 10 -1 1
+	frame	data/chars/2badgirl7/a121.gif
+	frame	data/chars/2badgirl7/a116.gif
+	frame	data/chars/2badgirl7/a115.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 25 10 -1 1
+	frame	data/chars/2badgirl7/a114.gif
+	frame	data/chars/2badgirl7/a115.gif
+	frame	data/chars/2badgirl7/a116.gif
+	@cmd	hurt 3
+	@cmd	spawn01 "Flash" 60 15 5
+	sound	data/sounds/beat2.wav
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 10 25 10 -1 1
+	frame	data/chars/2badgirl7/a117.gif
+	frame	data/chars/2badgirl7/a118.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 25 10 -1 1
+	frame	data/chars/2badgirl7/a119.gif
+	frame	data/chars/2badgirl7/a120.gif
+	@cmd	hurt 3
+	@cmd	spawn01 "Flash" 60 15 5
+	sound	data/sounds/beat2.wav
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 10 25 10 -1 1
+	frame	data/chars/2badgirl7/a121.gif
+	frame	data/chars/2badgirl7/a116.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 25 10 -1 1
+	frame	data/chars/2badgirl7/a115.gif
+	delay	11
+	frame	data/chars/2badgirl7/a114.gif
+	frame	data/chars/2badgirl7/blk11.gif
+	frame	data/chars/2badgirl7/blk12.gif
+	frame	data/chars/2badgirl7/blk13.gif
+	frame	data/chars/2badgirl7/a01.gif
+	frame	data/chars/2badgirl7/a02.gif
+	frame	data/chars/2badgirl7/a03.gif
+	frame	data/chars/2badgirl7/a04.gif
+	frame	data/chars/2badgirl7/a05.gif
+	frame	data/chars/2badgirl7/a06.gif
+	frame	data/chars/2badgirl7/a07.gif
+	frame	data/chars/2badgirl7/a08.gif
+	frame	data/chars/2badgirl7/a09.gif
+	frame	data/chars/2badgirl7/a10.gif
+	frame	data/chars/2badgirl7/a11.gif
+	frame	data/chars/2badgirl7/a12.gif
+	frame	data/chars/2badgirl7/a13.gif
+	frame	data/chars/2badgirl7/a14.gif
+	frame	data/chars/2badgirl7/a15.gif
+	frame	data/chars/2badgirl7/a16.gif
+	delay	80
+	frame	data/chars/2badgirl7/a16.gif
+	delay	15
+	frame	data/chars/2badgirl7/a01.gif
+	frame	data/chars/2badgirl7/a17.gif
+	@cmd	killgun 8 0
+	frame	data/chars/2badgirl7/a18.gif
+	delay	30
+	@cmd	spawn02 "flashsc1" -100 500 300
+	sound	data/sounds/beat1.wav
+	@cmd	depost 0
+	@cmd	finish 20 1 2 2.5 0 1
+	frame	data/chars/2badgirl7/a19.gif
+	delay	15
+	frame	data/chars/2badgirl7/a20.gif
+	offset	100 193
+	@cmd	clearL
+	frame	data/chars/2badgirl7/idle01.gif
+		
+anim	follow9
+	loop	1
+	delay	5
+	offset	100 193
+	bbox	79 97 50 91
+	frame	data/chars/2badgirl7/a04.gif
+	@cmd	attack1 -170 170 50 "ANI_FOLLOW10"
+	frame	data/chars/2badgirl7/a04.gif
+		
+anim	grabbed
+	loop	0
+	delay	10
+	offset	100 193
+	bbox	79 97 50 91
+	frame	data/chars/2badgirl7/grabbed.gif
+		
+anim	idle
+	loop	1
+	delay	12
+	offset	100 193
+	bbox	79 97 50 91
+	@cmd	clearL
+	frame	data/chars/2badgirl7/idle01.gif
+	frame	data/chars/2badgirl7/idle02.gif
+	frame	data/chars/2badgirl7/idle03.gif
+	frame	data/chars/2badgirl7/idle04.gif
+	frame	data/chars/2badgirl7/idle05.gif
+	frame	data/chars/2badgirl7/idle06.gif
+	frame	data/chars/2badgirl7/idle07.gif
+	frame	data/chars/2badgirl7/idle08.gif
+	frame	data/chars/2badgirl7/idle09.gif
+	frame	data/chars/2badgirl7/idle10.gif
+		
+anim	pain
+	loop	0
+	delay	3
+	offset	103 193
+	bbox	79 97 50 91
+	frame	data/chars/2badgirl7/pain0.gif
+	offset	100 189
+	frame	data/chars/2badgirl7/pain1.gif
+	offset	107 189
+	frame	data/chars/2badgirl7/pain1.gif
+	delay	40
+	offset	100 189
+	frame	data/chars/2badgirl7/pain1.gif
+
+		
+anim	pain2
+	loop	0
+	delay	3
+	offset	103 193
+	bbox	79 97 50 91
+	frame	data/chars/2badgirl7/pain0.gif
+	offset	100 189
+	frame	data/chars/2badgirl7/pain2.gif
+	offset	107 189
+	frame	data/chars/2badgirl7/pain2.gif
+	delay	40
+	offset	100 189
+	frame	data/chars/2badgirl7/pain2.gif
+		
+anim	pain3
+	loop	0
+	delay	1
+	offset	103 188
+	bbox	0 0 0 0
+	jumpframe	1 2 -1 0
+	frame	data/chars/2badgirl7/pain1.gif
+	delay	25
+	frame	data/chars/2badgirl7/fall2.gif
+	delay	12
+	frame	data/chars/2badgirl7/fall3.gif
+	delay	4
+	bbox	71 165 67 30
+	frame	data/chars/2badgirl7/fall4.gif
+	frame	data/chars/2badgirl7/fall5.gif
+	frame	data/chars/2badgirl7/fall4.gif
+	frame	data/chars/2badgirl7/fall5.gif
+	delay	15
+	bbox	0 0 0 0
+	frame	data/chars/2badgirl7/fall4.gif
+	delay	10
+	frame	data/chars/2badgirl7/rise1.gif
+	frame	data/chars/2badgirl7/rise2.gif
+	frame	data/chars/2badgirl7/rise3.gif
+		
+anim	pain5
+	loop	0
+	delay	23
+	offset	100 193
+	bbox	79 97 50 91
+	frame	data/chars/2badgirl7/pain1.gif
+		
+anim	pain6
+	loop	0
+	delay	23
+	offset	100 193
+	bbox	79 97 50 91
+	frame	data/chars/2badgirl7/pain2.gif
+		
+anim	pain8
+	loop	0
+	delay	2
+	offset	100 193
+	bbox	79 97 50 91
+	move	-6
+	frame	data/chars/2badgirl7/pain1.gif
+	frame	data/chars/2badgirl7/pain1.gif
+	frame	data/chars/2badgirl7/pain1.gif
+	frame	data/chars/2badgirl7/pain2.gif
+	frame	data/chars/2badgirl7/pain2.gif
+	frame	data/chars/2badgirl7/pain2.gif
+	move	-3
+	frame	data/chars/2badgirl7/pain2.gif
+	frame	data/chars/2badgirl7/pain2.gif
+	move	-1
+	frame	data/chars/2badgirl7/pain2.gif
+	delay	35
+	frame	data/chars/2badgirl7/pain2.gif
+		
+anim	pain9
+	loop	0
+	delay	15
+	offset	100 193
+	bbox	79 97 50 91
+	frame	data/chars/2badgirl7/pain1.gif
+	delay	150
+	frame	data/chars/2badgirl7/pain2.gif
+		
+anim	rise
+	loop	0
+	delay	14
+	offset	100 190
+	bbox	0 0 0 0
+	@cmd	riseattack 80 10 "ANI_FOLLOW2"
+	frame	data/chars/2badgirl7/rise0.gif
+	frame	data/chars/2badgirl7/rise1.gif
+	@cmd	riseattack 80 10 "ANI_FOLLOW2"
+	frame	data/chars/2badgirl7/rise2.gif
+	frame	data/chars/2badgirl7/rise3.gif
+	@cmd	riseattack 80 10 "ANI_FOLLOW2"
+	frame	data/chars/2badgirl7/rise4.gif
+	frame	data/chars/2badgirl7/rise5.gif
+	@cmd	riseattack 80 10 "ANI_FOLLOW2"
+	frame	data/chars/2badgirl7/rise6.gif
+	frame	data/chars/2badgirl7/rise7.gif
+	frame	data/chars/2badgirl7/rise8.gif
+	frame	data/chars/2badgirl7/rise9.gif
+	frame	data/chars/2badgirl7/rise10.gif
+		
+anim	run
+	loop	1
+	delay	8
+	offset	100 193
+	bbox	79 97 50 91
+	frame	data/chars/2badgirl7/run01.gif
+	sound	data/sounds/run.wav
+	frame	data/chars/2badgirl7/run02.gif
+	frame	data/chars/2badgirl7/run03.gif
+	frame	data/chars/2badgirl7/run04.gif
+	sound	data/sounds/run.wav
+	frame	data/chars/2badgirl7/run05.gif
+	frame	data/chars/2badgirl7/run06.gif
+		
+anim	spawn
+	loop	0
+	delay	50
+	offset	100 193
+	bbox	79 97 50 91
+	frame	data/chars/2badgirl7/idle01.gif
+		
+anim	special
+	loop	0
+	delay	2
+	offset	100 193
+	bbox	0 0 0 0
+	move	-6
+	frame	data/chars/2badgirl7/blk01.gif
+	frame	data/chars/2badgirl7/blk01.gif
+	frame	data/chars/2badgirl7/blk01.gif
+	frame	data/chars/2badgirl7/blk02.gif
+	frame	data/chars/2badgirl7/blk02.gif
+	frame	data/chars/2badgirl7/blk02.gif
+	frame	data/chars/2badgirl7/blk03.gif
+	frame	data/chars/2badgirl7/blk03.gif
+	frame	data/chars/2badgirl7/blk03.gif
+	frame	data/chars/2badgirl7/blk04.gif
+	frame	data/chars/2badgirl7/blk04.gif
+	frame	data/chars/2badgirl7/blk04.gif
+	frame	data/chars/2badgirl7/blk05.gif
+	frame	data/chars/2badgirl7/blk05.gif
+	frame	data/chars/2badgirl7/blk05.gif
+	frame	data/chars/2badgirl7/blk06.gif
+	frame	data/chars/2badgirl7/blk06.gif
+	frame	data/chars/2badgirl7/blk06.gif
+	frame	data/chars/2badgirl7/blk07.gif
+	frame	data/chars/2badgirl7/blk07.gif
+	frame	data/chars/2badgirl7/blk07.gif
+	frame	data/chars/2badgirl7/blk08.gif
+	frame	data/chars/2badgirl7/blk08.gif
+	frame	data/chars/2badgirl7/blk08.gif
+	frame	data/chars/2badgirl7/blk09.gif
+	frame	data/chars/2badgirl7/blk09.gif
+	frame	data/chars/2badgirl7/blk09.gif
+	frame	data/chars/2badgirl7/blk10.gif
+	frame	data/chars/2badgirl7/blk10.gif
+	frame	data/chars/2badgirl7/blk10.gif
+	move	0
+	delay	10
+	frame	data/chars/2badgirl7/blk11.gif
+	frame	data/chars/2badgirl7/blk12.gif
+	frame	data/chars/2badgirl7/blk13.gif
+		
+anim	special2
+	loop	0
+	delay	2
+	offset	100 193
+	bbox	0 0 0 0
+	move	-6
+	frame	data/chars/2badgirl7/blk01.gif
+	frame	data/chars/2badgirl7/blk01.gif
+	frame	data/chars/2badgirl7/blk01.gif
+	frame	data/chars/2badgirl7/blk02.gif
+	frame	data/chars/2badgirl7/blk02.gif
+	frame	data/chars/2badgirl7/blk02.gif
+	frame	data/chars/2badgirl7/blk03.gif
+	frame	data/chars/2badgirl7/blk03.gif
+	frame	data/chars/2badgirl7/blk03.gif
+	frame	data/chars/2badgirl7/blk04.gif
+	frame	data/chars/2badgirl7/blk04.gif
+	frame	data/chars/2badgirl7/blk04.gif
+	frame	data/chars/2badgirl7/blk05.gif
+	frame	data/chars/2badgirl7/blk05.gif
+	frame	data/chars/2badgirl7/blk05.gif
+	frame	data/chars/2badgirl7/blk06.gif
+	frame	data/chars/2badgirl7/blk06.gif
+	frame	data/chars/2badgirl7/blk06.gif
+	frame	data/chars/2badgirl7/blk07.gif
+	frame	data/chars/2badgirl7/blk07.gif
+	frame	data/chars/2badgirl7/blk07.gif
+	frame	data/chars/2badgirl7/blk08.gif
+	frame	data/chars/2badgirl7/blk08.gif
+	frame	data/chars/2badgirl7/blk08.gif
+	frame	data/chars/2badgirl7/blk09.gif
+	frame	data/chars/2badgirl7/blk09.gif
+	frame	data/chars/2badgirl7/blk09.gif
+	frame	data/chars/2badgirl7/blk10.gif
+	frame	data/chars/2badgirl7/blk10.gif
+	frame	data/chars/2badgirl7/blk10.gif
+	move	0
+	delay	10
+	frame	data/chars/2badgirl7/blk11.gif
+	frame	data/chars/2badgirl7/blk12.gif
+	frame	data/chars/2badgirl7/blk13.gif
+		
+anim	walk
+	loop	1
+	delay	9
+	offset	100 193
+	bbox	79 97 50 91
+	frame	data/chars/2badgirl7/wk01.gif
+	frame	data/chars/2badgirl7/wk02.gif
+	frame	data/chars/2badgirl7/wk03.gif
+	frame	data/chars/2badgirl7/wk04.gif
+	frame	data/chars/2badgirl7/wk05.gif
+	frame	data/chars/2badgirl7/wk06.gif
+	frame	data/chars/2badgirl7/wk07.gif
+	frame	data/chars/2badgirl7/wk08.gif
+		
+#|edited by openBor Stats v 0.53
+		

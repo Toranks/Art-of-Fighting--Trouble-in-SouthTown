@@ -1,0 +1,145 @@
+name		bountcar1
+type		obstacle
+health		500
+score		600
+gfxshadow	1
+nolife		1
+falldie		1
+#nodrop		2
+nopain		1
+lifespan	12
+candamage	player
+subject_to_hole	0
+offscreenkill	50000 
+
+animationscript data/scripts/escript.c
+
+alternatepal	data/chars/misc/car/car4/map1.gif
+alternatepal	data/chars/misc/car/car4/map2.gif
+
+load	explosion1
+load	explosion3
+load	cardam2
+load	money1
+
+
+		
+anim	idle
+	loop	1
+	delay	5
+	offset	205 175
+	bbox	110 0 105 90 15
+	hitfx	data/sounds/steel.wav
+	counterrange	0 4 1 1
+	followanim	1
+	staydown	300 300
+	forcedirection	1
+	platform	5 180 100 100 275 275 30 65
+	@cmd	dasher 3 0 0
+	frame	data/chars/misc/car/car4/bountycar01.gif
+	attack	175 115 170 50 0 1 1 1 55 15
+	dropv	5.5 1.7
+	frame	data/chars/misc/car/car4/bountycar02.gif
+	frame	data/chars/misc/car/car4/bountycar01.gif
+	attack	0 0 0 0
+	frame	data/chars/misc/car/car4/bountycar02.gif
+
+		
+anim	spawn
+	loop	0
+	delay	10
+	offset	205 175
+	bbox	0 0 0 0
+	frame	data/chars/misc/car/car4/bountycar01.gif
+	frame	data/chars/misc/car/car4/bountycar02.gif
+	frame	data/chars/misc/car/car4/bountycar01.gif
+	frame	data/chars/misc/car/car4/bountycar02.gif
+
+
+anim	fall
+	loop	0
+	delay	5
+	offset	205 175
+	bbox	0 0 0 0
+	frame	data/chars/misc/car/car4/bountycar01.gif
+	frame	data/chars/misc/car/car4/bountycar02.gif
+
+
+anim	follow1
+	loop	0
+	delay	5
+	offset	205 175
+	bbox	0 0 0 0
+	platform	5 180 100 100 275 275 30 65
+	frame	data/chars/misc/car/car4/bountycar01.gif
+	@cmd	spawnbind "explosion1" 10 90 5
+	@cmd	spawnM2 "cardam2" -15 90 5 1
+	@cmd	clearL
+	offset	208 178
+	attack	175 115 170 50 0 1 1 1 55 15
+	dropv	6.5 0.5
+	frame	data/chars/misc/car/car4/bountycar04.gif
+	@cmd	spawn01 "explosion3" -35 90 5
+	offset	205 175
+	frame	data/chars/misc/car/car4/bountycar01.gif
+	sound	data/sounds/car2.wav
+	offset	208 178
+	@cmd	spawn01 "money1" -15 90 -30
+	frame	data/chars/misc/car/car4/bountycar04.gif
+	offset	205 175
+	#@cmd	dasher -3 0 0
+	@cmd	spawn01 "explosion3" -35 90 5
+	frame	data/chars/misc/car/car4/bountycar01.gif
+	offset	208 178
+	frame	data/chars/misc/car/car4/bountycar04.gif
+	offset	205 175
+	frame	data/chars/misc/car/car4/bountycar01.gif
+	@cmd	spawn01 "explosion3" -15 40 5
+	offset	208 178
+	frame	data/chars/misc/car/car4/bountycar04.gif
+	offset	205 175
+	frame	data/chars/misc/car/car4/bountycar01.gif
+	offset	208 178
+	@cmd	spawn01 "explosion3" -15 90 5
+	frame	data/chars/misc/car/car4/bountycar04.gif
+	offset	205 175
+	frame	data/chars/misc/car/car4/bountycar01.gif
+	frame	data/chars/misc/car/car4/bountycar04.gif #11
+	frame	data/chars/misc/car/car4/bountycar03.gif
+	frame	data/chars/misc/car/car4/bountycar04.gif
+	frame	data/chars/misc/car/car4/bountycar03.gif
+	frame	data/chars/misc/car/car4/bountycar04.gif
+	@cmd	looper 11 30
+	frame	data/chars/misc/car/car4/bountycar03.gif
+	frame	data/chars/misc/car/car4/empty.gif
+	frame	data/chars/misc/car/car4/bountycar04.gif #17
+	frame	data/chars/misc/car/car4/empty.gif
+	frame	data/chars/misc/car/car4/bountycar03.gif
+	frame	data/chars/misc/car/car4/empty.gif
+	frame	data/chars/misc/car/car4/bountycar04.gif
+	frame	data/chars/misc/car/car4/empty.gif
+	frame	data/chars/misc/car/car4/bountycar03.gif
+	frame	data/chars/misc/car/car4/empty.gif
+	@cmd	looper 17 5
+	frame	data/chars/misc/car/car4/bountycar04.gif
+	frame	data/chars/misc/car/car4/empty.gif
+	@cmd	clearL
+	frame	data/chars/misc/car/car4/bountycar03.gif
+	@cmd	stop
+	frame	data/chars/misc/car/car4/empty.gif
+	@cmd	suicide
+	frame	data/chars/misc/car/car4/bountycar04.gif
+
+
+
+anim	death
+	loop	0
+	delay	5
+	offset	205 175
+	bbox	0 0 0 0
+	frame	data/chars/misc/car/car4/bountycar03.gif
+	frame	data/chars/misc/car/car4/bountycar04.gif
+	frame	data/chars/misc/car/car4/bountycar03.gif
+	@cmd	suicide
+	frame	data/chars/misc/car/car4/bountycar04.gif
+		

@@ -1,0 +1,296 @@
+name	 yurshw1
+type     obstacle
+health	 1000
+score	 0
+nolife   1
+nomove	 1 1
+gfxshadow	1
+subject_to_hole     	0
+offscreenkill 	10000
+#lifespan  	900
+candamage	npc
+
+animationscript data/scripts/escript.c
+
+
+		
+anim	spawn
+@script
+	void self = getlocalvar("self");
+	if(frame==0){
+     	changeentityproperty(self, "direction", 1);
+	}
+@end_script
+	loop	1
+	delay	7280
+	offset	145 205
+	bbox	108 121 33 80
+	frame	data/chars/0yuri/spat01.gif
+	delay	14
+	frame	data/chars/0yuri/spat02.gif
+	frame	data/chars/0yuri/spat03.gif
+	frame	data/chars/0yuri/spat04.gif
+	frame	data/chars/0yuri/spat03.gif
+	frame	data/chars/0yuri/spat02.gif
+	frame	data/chars/0yuri/spat01.gif
+	delay	10
+	@cmd	dasher 2.6 0 0
+	frame	data/chars/0yuri/jatk03.gif
+	frame	data/chars/0yuri/run1.gif
+	frame	data/chars/0yuri/run2.gif
+	@cmd	dasher 2.1 0 -0.2
+	frame	data/chars/0yuri/b01.gif
+	frame	data/chars/0yuri/b02.gif
+	@cmd	dasher 1.6 0 -0.2
+	frame	data/chars/0yuri/b03.gif
+	frame	data/chars/0yuri/b06.gif #delay154
+	@cmd	stop
+	delay	278
+	frame	data/chars/0yuri/b06.gif #delay432
+	delay	35
+	move	90
+	frame	data/chars/0yuri/zbrk01.gif
+	move	0
+	delay	600
+	frame	data/chars/0yuri/zbrk01.gif
+	delay	35
+	frame	data/chars/0yuri/zbrk01.gif
+	frame	data/chars/0yuri/zbrk01.gif
+	frame	data/chars/0yuri/zbrk01.gif
+	frame	data/chars/0yuri/zbrk01.gif
+
+	frame	data/chars/0yuri/zbrk01.gif #21
+	frame	data/chars/0yuri/zbrk02.gif
+	frame	data/chars/0yuri/zbrk01.gif
+	frame	data/chars/0yuri/zbrk02.gif
+	frame	data/chars/0yuri/zbrk01.gif
+	frame	data/chars/0yuri/zbrk02.gif
+	@cmd	looper 21 12
+	frame	data/chars/0yuri/zbrk01.gif
+	frame	data/chars/0yuri/zbrk01.gif
+	delay	20
+	move	-40
+	@cmd	flip
+	frame	data/chars/0yuri/fall1.gif
+	move	0
+	frame	data/chars/0yuri/fall2.gif
+	frame	data/chars/0yuri/fall3.gif
+	frame	data/chars/0yuri/fall4.gif
+	delay	30
+	frame	data/chars/0yuri/fall4.gif
+	delay	9
+	@cmd	leaper 0 7 0
+
+	frame	data/chars/0yuri/fall5.gif
+	frame	data/chars/0yuri/fall6.gif
+	frame	data/chars/0yuri/fall7.gif
+	frame	data/chars/0yuri/fall8.gif
+	frame	data/chars/0yuri/fall5.gif
+	frame	data/chars/0yuri/fall6.gif
+	frame	data/chars/0yuri/fall7.gif
+	frame	data/chars/0yuri/fall8.gif
+	drawmethod 256 256 0 1
+	offset	145 105
+	frame	data/chars/0yuri/fall5.gif
+	frame	data/chars/0yuri/fall6.gif
+	frame	data/chars/0yuri/fall7.gif
+	frame	data/chars/0yuri/fall8.gif
+	frame	data/chars/0yuri/fall5.gif
+	frame	data/chars/0yuri/fall6.gif
+	frame	data/chars/0yuri/fall7.gif
+	frame	data/chars/0yuri/fall8.gif
+	nodrawmethod
+	offset	145 205
+	@cmd	flip
+	frame	data/chars/0yuri/zbrk03.gif
+	frame	data/chars/0yuri/zbrk04.gif
+	frame	data/chars/0yuri/zbrk05.gif
+
+	delay	3030
+
+	frame	data/chars/0yuri/zbrk05.gif #53
+	delay	3
+	movez	25
+	frame	data/chars/0yuri/zbrk05.gif
+	movez	0
+	@cmd	degravity 1
+	frame	data/chars/0yuri/fall5.gif
+	@cmd	flip
+	@cmd	dasher -6.6 0 0
+	frame	data/chars/0yuri/fall6.gif
+	frame	data/chars/0yuri/fall7.gif
+	frame	data/chars/0yuri/fall8.gif
+
+	frame	data/chars/0yuri/fall5.gif #59
+	frame	data/chars/0yuri/fall6.gif
+	frame	data/chars/0yuri/fall7.gif
+	frame	data/chars/0yuri/fall8.gif
+	@cmd	looper 59 30
+	frame	data/chars/0yuri/fall7.gif
+	@cmd	suicide
+	frame	data/chars/0yuri/fall8.gif
+		
+		
+anim	idle
+	loop	1
+	delay	8
+	offset	145 205
+	bbox	108 121 33 80
+	frame	data/chars/0yuri/spat01.gif
+
+
+anim	follow1
+	loop	1
+	delay	8
+	offset	145 205
+	bbox	108 121 33 80
+	counterrange 0 2 1 1
+     	followanim 2
+	frame	data/chars/0yuri/d18.gif
+	frame	data/chars/0yuri/d18.gif
+	frame	data/chars/0yuri/d18.gif
+
+
+anim	follow2
+	loop	0
+	delay	6
+	offset	145 205
+	bbox	0 0 0 0
+	@cmd	degravity 0.9
+	frame	data/chars/0yuri/fall5.gif
+	frame	data/chars/0yuri/fall6.gif
+	frame	data/chars/0yuri/fall7.gif
+	frame	data/chars/0yuri/fall8.gif
+	@cmd 	dasher 0 1.3 0
+	frame	data/chars/0yuri/fall5.gif #4
+	frame	data/chars/0yuri/fall6.gif
+	frame	data/chars/0yuri/fall7.gif
+	frame	data/chars/0yuri/fall8.gif
+	@cmd	looper 4 15 
+	drawmethod 156 156 0 1
+	@cmd	layer -20
+	shadowcoords 1 -300
+	frame	data/chars/0yuri/fall5.gif
+	@cmd 	stop
+	frame	data/chars/0yuri/fall6.gif
+	move	-7
+	frame	data/chars/0yuri/fall7.gif
+	move	0
+	frame	data/chars/0yuri/fall8.gif
+
+	frame	data/chars/0yuri/fall5.gif #12
+	frame	data/chars/0yuri/fall6.gif
+	frame	data/chars/0yuri/fall7.gif
+	frame	data/chars/0yuri/fall8.gif
+	@cmd	looper 12 20
+	frame	data/chars/0yuri/fall5.gif
+	frame	data/chars/0yuri/fall6.gif
+	frame	data/chars/0yuri/fall7.gif
+	delay	5000
+	frame	data/chars/0yuri/fall8.gif
+
+
+
+
+
+
+anim	follow3
+	loop	1 18 22
+	delay	12
+	offset	145 205
+	bbox	140 170 75 30
+	frame	data/chars/0yuri/de01.gif
+
+	frame	data/chars/0yuri/de01.gif
+	frame	data/chars/0yuri/de02.gif
+	frame	data/chars/0yuri/de03.gif
+
+	frame	data/chars/0yuri/de01.gif
+	frame	data/chars/0yuri/de02.gif
+	frame	data/chars/0yuri/de03.gif
+
+	frame	data/chars/0yuri/de01.gif
+	frame	data/chars/0yuri/de02.gif
+	frame	data/chars/0yuri/de03.gif
+
+	frame	data/chars/0yuri/de01.gif
+	frame	data/chars/0yuri/de02.gif
+	frame	data/chars/0yuri/de03.gif
+
+	frame	data/chars/0yuri/de04.gif
+
+	frame	data/chars/0yuri/zbrk06.gif
+	frame	data/chars/0yuri/zbrk03.gif
+	frame	data/chars/0yuri/zbrk04.gif
+	frame	data/chars/0yuri/zbrk05.gif #17
+	frame	data/chars/0yuri/zbrk05.gif
+	frame	data/chars/0yuri/zbrk05.gif
+	frame	data/chars/0yuri/zbrk05.gif
+	frame	data/chars/0yuri/zbrk05.gif
+	frame	data/chars/0yuri/zbrk05.gif
+	frame	data/chars/0yuri/zbrk05.gif
+	frame	data/chars/0yuri/zbrk05.gif
+
+
+#-------------------------------//----------------------
+
+anim	fall7
+	delay	1000
+	offset	45 95
+	bbox	0 0 0 0
+	frame	data/chars/0yuri/slam0.gif
+	offset	45 95
+	frame	data/chars/0yuri/slam1.gif
+	offset	50 85
+	frame	data/chars/0yuri/slam2.gif
+	offset	45 95
+	frame	data/chars/0yuri/slam3.gif
+	offset	45 95
+	frame	data/chars/0yuri/slam4.gif
+	offset	75 55
+	frame	data/chars/0yuri/slam5.gif
+	offset	40 80
+	frame	data/chars/0yuri/slam6.gif
+	offset	20 90
+	frame	data/chars/0yuri/slam7.gif
+	offset	65 55
+	frame	data/chars/0yuri/slam8.gif
+	offset	65 83
+	frame	data/chars/0yuri/slam9.gif
+	offset	65 83
+	frame	data/chars/0yuri/slam10.gif
+	offset	20 90
+	frame	data/chars/0yuri/slam11.gif
+	offset	75 55
+	frame	data/chars/0yuri/slam12.gif
+	offset	75 55
+	frame	data/chars/0yuri/slam13.gif
+	offset	50 85
+	frame	data/chars/0yuri/slam14.gif
+	offset	45 95
+	frame	data/chars/0yuri/slam15.gif
+	offset	55 70
+	frame	data/chars/0yuri/slam16.gif
+	offset	65 83
+	frame	data/chars/0yuri/slam17.gif
+	offset	65 83
+	frame	data/chars/0yuri/slam18.gif
+	offset	45 95
+	frame	data/chars/0yuri/slam19.gif
+	offset	45 95
+	frame	data/chars/0yuri/slam20.gif
+	offset	45 95
+	frame	data/chars/0yuri/slam21.gif
+	offset	45 95
+	frame	data/chars/0yuri/slam22.gif
+	offset	59 85
+	frame	data/chars/0yuri/slam23.gif
+	offset	59 80
+	frame	data/chars/0yuri/slam24.gif
+	offset	45 95
+	bbox	25 10 60 80
+	frame	data/chars/0yuri/slambbox1.gif
+	bbox	0 0 0 0
+
+
+

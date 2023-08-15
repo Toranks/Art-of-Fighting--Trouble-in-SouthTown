@@ -1,0 +1,159 @@
+name	 glstatue4
+type	 enemy
+subtype	 notgrab
+health	 100
+nolife    1
+shadow	  6
+nomove    1 1
+falldie	  1
+nopain	  1
+noquake	  1
+alpha	  1
+nodrop	  2
+height    700
+offscreenkill 	10000 
+subject_to_hole 0
+subject_to_platform 0
+hostile		player
+candamage	player
+animationscript data/scripts/escript.c
+
+weapons		totoo4
+
+alternatepal       data/chars/misc/traps/statue/new/gmap1.gif
+alternatepal       data/chars/misc/traps/statue/new/gmap2.gif
+
+
+load	totoo4
+load	smoke4
+
+
+anim	fall
+	loop	0
+	delay	12
+	offset	98 253
+	bbox	0 0 0 0
+	frame	data/chars/misc/traps/statue/new/gstatue01.gif
+
+
+anim	death
+	loop	0
+	delay	12
+	offset	98 253
+	bbox	0 0 0 0
+	frame	data/chars/misc/traps/statue/new/gstatue01.gif
+		
+anim	follow1
+	loop	1
+	delay	12
+	offset	98 253
+	bbox	0 0 0 0
+	weaponframe	2 1
+	frame	data/chars/misc/traps/statue/new/gstatue01.gif
+	@cmd	spawnbind "smoke4" 1 1 1
+	frame	data/chars/misc/traps/statue/new/gstatue02.gif
+	frame	data/chars/misc/traps/statue/new/gstatue03.gif
+	frame	data/chars/misc/traps/statue/new/gstatue04.gif
+	frame	data/chars/misc/traps/statue/new/gstatue05.gif
+
+
+
+
+
+		
+anim	idle
+	loop	1
+	delay	12
+	offset	98 253
+	bbox	0 0 0 0
+	frame	data/chars/misc/traps/statue/new/gstatue01.gif
+	@cmd	attack1 -85 85 40 "ANI_FOLLOW1"
+	frame	data/chars/misc/traps/statue/new/gstatue02.gif
+	@cmd	attack1 -85 85 40 "ANI_FOLLOW1"
+	frame	data/chars/misc/traps/statue/new/gstatue03.gif
+	@cmd	attack1 -85 85 40 "ANI_FOLLOW1"
+	frame	data/chars/misc/traps/statue/new/gstatue04.gif
+	@cmd	attack1 -85 85 40 "ANI_FOLLOW1"
+	frame	data/chars/misc/traps/statue/new/gstatue05.gif
+	@cmd	attack1 -85 85 40 "ANI_FOLLOW1"
+	frame	data/chars/misc/traps/statue/new/gstatue01.gif
+	delay	4
+	frame	data/chars/misc/traps/statue/new/gstatue06.gif
+	@cmd	attack1 -85 85 40 "ANI_FOLLOW1"
+	frame	data/chars/misc/traps/statue/new/gstatue07.gif
+	@cmd	attack1 -85 85 40 "ANI_FOLLOW1"
+	frame	data/chars/misc/traps/statue/new/gstatue08.gif
+	delay	12
+	frame	data/chars/misc/traps/statue/new/gstatue03.gif
+	@cmd	attack1 -85 85 40 "ANI_FOLLOW1"
+	frame	data/chars/misc/traps/statue/new/gstatue04.gif
+	@cmd	attack1 -85 85 40 "ANI_FOLLOW1"
+	frame	data/chars/misc/traps/statue/new/gstatue05.gif
+	@cmd	attack1 -85 85 40 "ANI_FOLLOW1"
+	frame	data/chars/misc/traps/statue/new/gstatue01.gif
+	@cmd	attack1 -85 85 40 "ANI_FOLLOW1"
+	frame	data/chars/misc/traps/statue/new/gstatue02.gif
+	delay	4
+	frame	data/chars/misc/traps/statue/new/gstatue09.gif
+	@cmd	attack1 -85 85 40 "ANI_FOLLOW1"
+	frame	data/chars/misc/traps/statue/new/gstatue10.gif
+	@cmd	attack1 -85 85 40 "ANI_FOLLOW1"
+	frame	data/chars/misc/traps/statue/new/gstatue11.gif
+	delay	12
+	frame	data/chars/misc/traps/statue/new/gstatue04.gif
+	@cmd	attack1 -85 85 40 "ANI_FOLLOW1"
+	frame	data/chars/misc/traps/statue/new/gstatue05.gif
+	@cmd	attack1 -85 85 40 "ANI_FOLLOW1"
+	frame	data/chars/misc/traps/statue/new/gstatue01.gif
+	@cmd	attack1 -85 85 40 "ANI_FOLLOW1"
+	frame	data/chars/misc/traps/statue/new/gstatue02.gif
+	@cmd	attack1 -85 85 40 "ANI_FOLLOW1"
+	frame	data/chars/misc/traps/statue/new/gstatue03.gif
+	delay	4
+	frame	data/chars/misc/traps/statue/new/gstatue12.gif
+	@cmd	attack1 -85 85 40 "ANI_FOLLOW1"
+	frame	data/chars/misc/traps/statue/new/gstatue13.gif
+	@cmd	attack1 -85 85 40 "ANI_FOLLOW1"
+	frame	data/chars/misc/traps/statue/new/gstatue14.gif
+	delay	12
+	@cmd	attack1 -85 85 40 "ANI_FOLLOW1"
+	frame	data/chars/misc/traps/statue/new/gstatue05.gif
+
+
+
+
+anim	FOLLOW10
+	loop	0
+	delay	10
+	offset	98 253
+	bbox	0 0 0 0
+	frame	data/chars/misc/traps/statue/new/gstatue01.gif
+	@cmd	spawnbind "smoke4" 1 1 1
+	frame	data/chars/misc/traps/statue/new/gstatue02.gif
+	frame	data/chars/misc/traps/statue/new/gstatue03.gif
+	@cmd	subscreen 1
+	frame	data/chars/misc/traps/statue/new/gstatue04.gif
+
+
+
+
+		
+anim	spawn
+	loop	0
+	delay	10
+	offset	98 253
+	bbox	0 0 0 0
+@script
+if(frame==1)
+{
+  changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_OBSTACLE"));
+}
+@end_script
+	frame	data/chars/misc/traps/statue/new/gstatue01.gif
+	@cmd	spawnbind "smoke4" 1 1 1
+	frame	data/chars/misc/traps/statue/new/gstatue02.gif
+	frame	data/chars/misc/traps/statue/new/gstatue03.gif
+	@cmd	subhole 0
+	frame	data/chars/misc/traps/statue/new/gstatue04.gif
+	frame	data/chars/misc/traps/statue/new/gstatue05.gif
+

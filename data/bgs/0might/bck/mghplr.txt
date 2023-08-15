@@ -1,0 +1,903 @@
+name	mghplr
+type	none
+health	200
+nolife	1
+facing	1
+shadow 	0
+hostile player
+setlayer  1500
+offscreenkill	50000
+subject_to_gravity 0
+aggression 10
+candamage     obstacle
+
+animationscript data/scripts/escript.c
+
+lifebarstatus 25 190 0 1 1 2 5 
+lifeposition 400  60
+nameposition -200 -200
+nolife 1
+
+palette	none
+
+script	@script
+void main()
+{
+    void self = getlocalvar("self");
+	void hp = getentityproperty(self,"health");
+	void anim = getentityproperty(self,"animationID");
+	void target = findtarget(self);
+  	void plyr = getentityproperty(target, "playerindex");
+	void frame = getentityproperty(self,"animpos");
+
+
+	int p1 = getplayerproperty(0, "entity");
+	int p2 = getplayerproperty(1, "entity");
+	int p3 = getplayerproperty(2, "entity");
+
+	int x = getentityproperty(self,"x");
+	int z = getentityproperty(self,"z");
+
+	int XPos = openborvariant("xpos");
+	int YPos = openborvariant("ypos");
+	int Screen = openborvariant("hResolution");
+	int Screen2 = openborvariant("vResolution");
+		float Vx = getlocalvar("x"+self);
+		float Vz = getlocalvar("z"+self);
+
+
+
+	if(anim == openborconstant("ANI_IDLE") || anim == openborconstant("ANI_FOLLOW3") || anim == openborconstant("ANI_FOLLOW6"))
+	{
+   		if( x >= XPos+Screen-190) // right
+   		{
+        	changeentityproperty(self, "velocity", -0.2, Vz);
+   		}
+   		else if(x <= XPos+190) // left
+   		{
+        	changeentityproperty(self, "velocity", 0.2, Vz);
+   		}
+   		else if( z >= YPos+Screen2-40) // down
+   		{
+		changeentityproperty(self, "velocity", Vx, -0.1);
+   		}
+   		else if( z <= YPos+195) // up
+   		{
+		changeentityproperty(self, "velocity", Vx, 0.1);
+   		}
+
+		if (frame >= 0 && playerkeys(plyr, 0, "special"))
+		{
+			void anim2 = getentityproperty(self,"animationID");
+
+				if (anim2 == openborconstant("ANI_IDLE"))
+				{
+				performattack(self, openborconstant("ANI_FOLLOW1"));
+				}
+				else if (anim2 == openborconstant("ANI_FOLLOW3"))
+				{
+				performattack(self, openborconstant("ANI_FOLLOW4"));
+				}
+				else if (anim2 == openborconstant("ANI_FOLLOW6"))
+				{
+				performattack(self, openborconstant("ANI_FOLLOW7"));
+				}
+		}
+
+
+		if (frame >= 0 && playerkeys(plyr, 2, "attack"))
+		{ 
+		changeentityproperty(self, "health", hp+1);
+		}
+  	}
+
+
+	if(anim == openborconstant("ANI_FOLLOW1") || anim == openborconstant("ANI_FOLLOW4") || anim == openborconstant("ANI_FOLLOW7"))
+	{
+   		if( x == 1025 && z == 330 ) // ---entity will stop here
+   		{
+        	changeentityproperty(self, "velocity", 0, 0);
+		changeentityproperty(self, "position", 1025, 330);
+   		}
+
+   		else if( x < 1025 && z > 330 ) // ---entity moves right and up
+   		{
+        	changeentityproperty(self, "velocity", 0.2, -0.1);
+   		}
+   		else if( x < 1025 && z < 330 ) // ---entity moves right and down
+   		{
+        	changeentityproperty(self, "velocity", 0.2, 0.1);
+   		}
+   		else if( x > 1025 && z > 330 ) // ---entity moves left and up
+   		{
+        	changeentityproperty(self, "velocity", -0.2, -0.1);
+   		}
+   		else if( x > 1025 && z < 330 ) // ---entity moves left and down
+   		{
+        	changeentityproperty(self, "velocity", -0.2, 0.1);
+   		}
+  	}
+
+//-------------------//---break-kill---//--1-win-2-lose------//---------------------
+
+	float out2 = getglobalvar ("brkgo");
+
+   	if( out2 == 1 || out2 == 2)
+	{
+	killentity(self);
+	}
+}
+@end_script
+
+
+#-------------------//----RYO--//-----------------------
+
+anim	spawn
+@script
+    void self = getlocalvar("self");
+    	changeentityproperty(self, "health",-5);
+
+	if(frame==0)
+	{
+	setglobalvar ("center", 0);
+	}
+@end_script
+	loop	0
+	delay	16
+	offset	205 230
+	frame	data/bgs/0might/bck/ryo01.gif
+	frame	data/bgs/0might/bck/ryo02.gif
+	frame	data/bgs/0might/bck/ryo03.gif
+	frame	data/bgs/0might/bck/ryo02.gif
+	frame	data/bgs/0might/bck/ryo01.gif
+
+anim	idle
+@script
+	void self = getlocalvar("self");
+	void hp2 = getentityproperty(self,"health");
+
+	if(frame==1 && hp2 >= 10)
+	{
+	changeentityproperty(self, "edelay", 0, -7, 1, 36, 1, 36);
+	}
+	if(frame==1 && hp2 >= 20)
+	{
+	changeentityproperty(self, "edelay", 0, -10, 1, 36, 1, 36);
+	}
+	if(frame==1 && hp2 >= 30)
+	{
+	changeentityproperty(self, "edelay", 0, -12, 1, 36, 1, 36);
+	}
+	if(frame==1 && hp2 >= 40)
+	{
+	changeentityproperty(self, "edelay", 0, -13, 1, 36, 1, 36);
+	}
+	if(frame==1 && hp2 >= 50)
+	{
+	changeentityproperty(self, "edelay", 0, -14, 1, 36, 1, 36);
+	}
+	if(frame==1 && hp2 >= 60)
+	{
+	changeentityproperty(self, "edelay", 0, -15, 1, 36, 1, 36);
+	}
+	if(frame==1 && hp2 >= 70)
+	{
+	changeentityproperty(self, "edelay", 0, -16, 1, 36, 1, 36);
+	}
+	if(frame==1 && hp2 >= 80)
+	{
+	changeentityproperty(self, "edelay", 0, -17, 1, 36, 1, 36);
+	}
+	if(frame==1 && hp2 >= 90)
+	{
+	changeentityproperty(self, "edelay", 0, -18, 1, 36, 1, 36);
+	}
+	if(frame==1 && hp2 >= 100)
+	{
+	changeentityproperty(self, "edelay", 0, -18, 1, 36, 1, 36);
+	}
+	if(frame==1 && hp2 >= 110)
+	{
+	changeentityproperty(self, "edelay", 0, -19, 1, 36, 1, 36);
+	}
+	if(frame==1 && hp2 >= 120)
+	{
+	changeentityproperty(self, "edelay", 0, -19, 1, 36, 1, 36);
+	}
+	if(frame==1 && hp2 >= 130)
+	{
+	changeentityproperty(self, "edelay", 0, -20, 1, 36, 1, 36);
+	}
+	if(frame==1 && hp2 >= 140)
+	{
+	changeentityproperty(self, "edelay", 0, -20, 1, 36, 1, 36);
+	}
+	if(frame==1 && hp2 >= 150)
+	{
+	changeentityproperty(self, "edelay", 0, -21, 1, 36, 1, 36);
+	}
+	if(frame==1 && hp2 >= 160)
+	{
+	changeentityproperty(self, "edelay", 0, -21, 1, 36, 1, 36);
+	}
+	if(frame==1 && hp2 >= 170)
+	{
+	changeentityproperty(self, "edelay", 0, -22, 1, 36, 1, 36);
+	}
+	if(frame==1 && hp2 >= 180)
+	{
+	changeentityproperty(self, "edelay", 0, -22, 1, 36, 1, 36);
+	}
+	if(frame==1 && hp2 >= 190)
+	{
+	changeentityproperty(self, "edelay", 0, -23, 1, 36, 1, 36);
+	}
+	if(frame==1 && hp2 >= 195)
+	{
+	changeentityproperty(self, "edelay", 0, -24, 1, 36, 1, 36);
+	}
+@end_script
+	loop	1
+	delay	16
+	offset	205 230
+	@cmd	hpgain -1
+	frame	data/bgs/0might/bck/ryo02.gif
+	frame	data/bgs/0might/bck/ryo03.gif
+	@cmd	hpgain -1
+	frame	data/bgs/0might/bck/ryo03.gif
+	frame	data/bgs/0might/bck/ryo02.gif
+	@cmd	hpgain -1
+	frame	data/bgs/0might/bck/ryo01.gif
+	frame	data/bgs/0might/bck/ryo01.gif
+	@cmd	hpgain -1
+	frame	data/bgs/0might/bck/ryo02.gif
+	frame	data/bgs/0might/bck/ryo03.gif
+	@cmd	hpgain -1
+	frame	data/bgs/0might/bck/ryo03.gif
+	frame	data/bgs/0might/bck/ryo02.gif
+	@cmd	hpgain -1
+	frame	data/bgs/0might/bck/ryo01.gif
+	frame	data/bgs/0might/bck/ryo01.gif
+	@cmd	hpgain -1
+	frame	data/bgs/0might/bck/ryo02.gif
+	frame	data/bgs/0might/bck/ryo03.gif
+	@cmd	hpgain -1
+	frame	data/bgs/0might/bck/ryo03.gif
+	frame	data/bgs/0might/bck/ryo02.gif
+	@cmd	hpgain -1
+	frame	data/bgs/0might/bck/ryo01.gif
+	frame	data/bgs/0might/bck/ryo01.gif
+	@cmd	hpgain -1
+	frame	data/bgs/0might/bck/ryo02.gif
+	frame	data/bgs/0might/bck/ryo02.gif
+	@cmd	hpgain -1
+	frame	data/bgs/0might/bck/ryo04.gif
+	@cmd	hpgain -1
+	frame	data/bgs/0might/bck/ryo05.gif
+	@cmd	hpgain -1
+	frame	data/bgs/0might/bck/ryo06.gif
+	@cmd	hpgain -1
+	frame	data/bgs/0might/bck/ryo05.gif
+	@cmd	hpgain -1
+	frame	data/bgs/0might/bck/ryo04.gif
+
+anim	follow1
+@script
+	void self = getlocalvar("self");
+	int brk = getglobalvar ("healthmin");
+	void hp3 = getentityproperty(self,"health");
+
+	if(frame==0)
+	{
+	changeentityproperty(self, "edelay", 0, 0, 1, 36, 1, 36);
+	}
+	if(frame==1)
+	{
+	setglobalvar ("center", 1);
+	}
+	if(frame==10 && hp3 <brk )
+	{
+	updateframe(self, 27);
+	}
+	if (frame == 47)
+	{
+	setglobalvar ("brkgo", 2);
+	}
+@end_script
+	loop	1 21 23
+	delay	16
+	offset	205 230
+	frame	data/bgs/0might/bck/ryo01.gif
+	frame	data/bgs/0might/bck/ryo02.gif
+	frame	data/bgs/0might/bck/ryo03.gif
+	frame	data/bgs/0might/bck/ryo02.gif
+
+	frame	data/bgs/0might/bck/ryo01.gif #4
+	frame	data/bgs/0might/bck/ryo02.gif
+	frame	data/bgs/0might/bck/ryo03.gif
+	frame	data/bgs/0might/bck/ryo02.gif
+	@cmd	looper 4 5
+	frame	data/bgs/0might/bck/ryo01.gif
+	frame	data/bgs/0might/bck/ryo02.gif #9
+	frame	data/bgs/0might/bck/ryo03.gif #10
+	frame	data/bgs/0might/bck/ryo02.gif
+	delay	9
+	frame	data/bgs/0might/bck/ryo04.gif
+	frame	data/bgs/0might/bck/ryo05.gif
+	sound	data/sounds/punch3.wav
+	frame	data/bgs/0might/bck/ryo06.gif
+	frame	data/bgs/0might/bck/ryo07.gif
+	frame	data/bgs/0might/bck/ryo08.gif
+	frame	data/bgs/0might/bck/ryo09.gif
+	frame	data/bgs/0might/bck/ryo10.gif
+	delay	6
+	hitfx	data/sounds/hard1.wav
+	attack	165 155 100 130 600 0 1 1 1 335
+	frame	data/bgs/0might/bck/ryo11.gif #19
+	frame	data/bgs/0might/bck/ryo12.gif
+	attack	0 0 0 0
+	frame	data/bgs/0might/bck/ryo11.gif #21
+	frame	data/bgs/0might/bck/ryo12.gif
+	frame	data/bgs/0might/bck/ryo11.gif
+	frame	data/bgs/0might/bck/ryo12.gif
+	frame	data/bgs/0might/bck/ryo11.gif
+	frame	data/bgs/0might/bck/ryo12.gif
+#---//-----------------break--fail------------//-----------
+	frame	data/bgs/0might/bck/ryo03.gif #27
+	frame	data/bgs/0might/bck/ryo02.gif
+	delay	9
+	frame	data/bgs/0might/bck/ryo04.gif
+	frame	data/bgs/0might/bck/ryo05.gif
+	sound	data/sounds/punch3.wav
+	frame	data/bgs/0might/bck/ryo06.gif
+	frame	data/bgs/0might/bck/ryo07.gif
+	frame	data/bgs/0might/bck/ryo08.gif
+	frame	data/bgs/0might/bck/ryo09.gif
+	frame	data/bgs/0might/bck/ryo10.gif
+	delay	6
+	hitfx	data/sounds/beat5.wav
+	attack	165 155 100 130 100 0 1 1 1 335
+	frame	data/bgs/0might/bck/ryo11.gif #36
+	frame	data/bgs/0might/bck/ryo12.gif
+	attack	0 0 0 0
+	frame	data/bgs/0might/bck/ryo11.gif #38
+	frame	data/bgs/0might/bck/ryo12.gif
+	frame	data/bgs/0might/bck/ryo11.gif
+	frame	data/bgs/0might/bck/ryo12.gif
+	@cmd	looper 38 25
+	frame	data/bgs/0might/bck/ryo11.gif
+	@cmd	spawnAni2 "cuptext" 40 0 30 "ANI_FOLLOW3"
+	frame	data/bgs/0might/bck/ryo11.gif
+	delay	20
+	frame	data/bgs/0might/bck/ryo11.gif
+	frame	data/bgs/0might/bck/ryo11.gif
+	frame	data/bgs/0might/bck/ryo11.gif
+	frame	data/bgs/0might/bck/ryo11.gif # 47
+	frame	data/bgs/0might/bck/ryo11.gif
+	frame	data/bgs/0might/bck/ryo11.gif
+	frame	data/bgs/0might/bck/ryo11.gif
+	frame	data/bgs/0might/bck/ryo11.gif
+
+
+#-------------------//---------//-----------------------
+
+
+#-------------------//----ROBERT--//-----------------------
+
+anim	follow2
+@script
+    void self = getlocalvar("self");
+    	changeentityproperty(self, "health",-5);
+
+	if(frame==0)
+	{
+	setglobalvar ("center", 0);
+	}
+@end_script
+	loop	0
+	delay	16
+	offset	205 230
+	frame	data/bgs/0might/bck/rob01.gif
+	frame	data/bgs/0might/bck/rob02.gif
+	frame	data/bgs/0might/bck/rob03.gif
+	frame	data/bgs/0might/bck/rob02.gif
+	frame	data/bgs/0might/bck/rob01.gif
+	@cmd	anichange "ANI_FOLLOW3"
+	frame	data/bgs/0might/bck/rob01.gif
+
+anim	follow3
+@script
+	void self = getlocalvar("self");
+	void hp2 = getentityproperty(self,"health");
+
+	if(frame==1 && hp2 >= 10)
+	{
+	changeentityproperty(self, "edelay", 0, -7, 1, 36, 1, 36);
+	}
+	if(frame==1 && hp2 >= 20)
+	{
+	changeentityproperty(self, "edelay", 0, -10, 1, 36, 1, 36);
+	}
+	if(frame==1 && hp2 >= 30)
+	{
+	changeentityproperty(self, "edelay", 0, -12, 1, 36, 1, 36);
+	}
+	if(frame==1 && hp2 >= 40)
+	{
+	changeentityproperty(self, "edelay", 0, -13, 1, 36, 1, 36);
+	}
+	if(frame==1 && hp2 >= 50)
+	{
+	changeentityproperty(self, "edelay", 0, -14, 1, 36, 1, 36);
+	}
+	if(frame==1 && hp2 >= 60)
+	{
+	changeentityproperty(self, "edelay", 0, -15, 1, 36, 1, 36);
+	}
+	if(frame==1 && hp2 >= 70)
+	{
+	changeentityproperty(self, "edelay", 0, -16, 1, 36, 1, 36);
+	}
+	if(frame==1 && hp2 >= 80)
+	{
+	changeentityproperty(self, "edelay", 0, -17, 1, 36, 1, 36);
+	}
+	if(frame==1 && hp2 >= 90)
+	{
+	changeentityproperty(self, "edelay", 0, -18, 1, 36, 1, 36);
+	}
+	if(frame==1 && hp2 >= 100)
+	{
+	changeentityproperty(self, "edelay", 0, -18, 1, 36, 1, 36);
+	}
+	if(frame==1 && hp2 >= 110)
+	{
+	changeentityproperty(self, "edelay", 0, -19, 1, 36, 1, 36);
+	}
+	if(frame==1 && hp2 >= 120)
+	{
+	changeentityproperty(self, "edelay", 0, -19, 1, 36, 1, 36);
+	}
+	if(frame==1 && hp2 >= 130)
+	{
+	changeentityproperty(self, "edelay", 0, -20, 1, 36, 1, 36);
+	}
+	if(frame==1 && hp2 >= 140)
+	{
+	changeentityproperty(self, "edelay", 0, -20, 1, 36, 1, 36);
+	}
+	if(frame==1 && hp2 >= 150)
+	{
+	changeentityproperty(self, "edelay", 0, -21, 1, 36, 1, 36);
+	}
+	if(frame==1 && hp2 >= 160)
+	{
+	changeentityproperty(self, "edelay", 0, -21, 1, 36, 1, 36);
+	}
+	if(frame==1 && hp2 >= 170)
+	{
+	changeentityproperty(self, "edelay", 0, -22, 1, 36, 1, 36);
+	}
+	if(frame==1 && hp2 >= 180)
+	{
+	changeentityproperty(self, "edelay", 0, -22, 1, 36, 1, 36);
+	}
+	if(frame==1 && hp2 >= 190)
+	{
+	changeentityproperty(self, "edelay", 0, -23, 1, 36, 1, 36);
+	}
+	if(frame==1 && hp2 >= 195)
+	{
+	changeentityproperty(self, "edelay", 0, -24, 1, 36, 1, 36);
+	}
+@end_script
+	loop	1
+	delay	16
+	offset	205 230
+	@cmd	hpgain -1
+	frame	data/bgs/0might/bck/rob02.gif
+	frame	data/bgs/0might/bck/rob03.gif
+	@cmd	hpgain -1
+	frame	data/bgs/0might/bck/rob03.gif
+	frame	data/bgs/0might/bck/rob02.gif
+	@cmd	hpgain -1
+	frame	data/bgs/0might/bck/rob01.gif
+	frame	data/bgs/0might/bck/rob01.gif
+	@cmd	hpgain -1
+	frame	data/bgs/0might/bck/rob02.gif
+	frame	data/bgs/0might/bck/rob03.gif
+	@cmd	hpgain -1
+	frame	data/bgs/0might/bck/rob03.gif
+	frame	data/bgs/0might/bck/rob02.gif
+	@cmd	hpgain -1
+	frame	data/bgs/0might/bck/rob01.gif
+	frame	data/bgs/0might/bck/rob01.gif
+	@cmd	hpgain -1
+	frame	data/bgs/0might/bck/rob02.gif
+	frame	data/bgs/0might/bck/rob03.gif
+	@cmd	hpgain -1
+	frame	data/bgs/0might/bck/rob03.gif
+	frame	data/bgs/0might/bck/rob02.gif
+	@cmd	hpgain -1
+	frame	data/bgs/0might/bck/rob01.gif
+	frame	data/bgs/0might/bck/rob01.gif
+	@cmd	hpgain -1
+	frame	data/bgs/0might/bck/rob02.gif
+	frame	data/bgs/0might/bck/rob02.gif
+	@cmd	hpgain -1
+	frame	data/bgs/0might/bck/rob04.gif
+	@cmd	hpgain -1
+	frame	data/bgs/0might/bck/rob05.gif
+	@cmd	hpgain -1
+	frame	data/bgs/0might/bck/rob06.gif
+	@cmd	hpgain -1
+	frame	data/bgs/0might/bck/rob05.gif
+	@cmd	hpgain -1
+	frame	data/bgs/0might/bck/rob04.gif
+
+anim	follow4
+@script
+	void self = getlocalvar("self");
+	int brk = getglobalvar ("healthmin");
+	void hp3 = getentityproperty(self,"health");
+
+	if(frame==0)
+	{
+	changeentityproperty(self, "edelay", 0, 0, 1, 36, 1, 36);
+	}
+	if(frame==1)
+	{
+	setglobalvar ("center", 1);
+	}
+	if(frame==10 && hp3 <brk )
+	{
+	updateframe(self, 27);
+	}
+	if (frame == 47)
+	{
+	setglobalvar ("brkgo", 2);
+	}
+@end_script
+	loop	1 21 23
+	delay	16
+	offset	205 230
+	frame	data/bgs/0might/bck/rob01.gif
+	frame	data/bgs/0might/bck/rob02.gif
+	frame	data/bgs/0might/bck/rob03.gif
+	frame	data/bgs/0might/bck/rob02.gif
+
+	frame	data/bgs/0might/bck/rob01.gif #4
+	frame	data/bgs/0might/bck/rob02.gif
+	frame	data/bgs/0might/bck/rob03.gif
+	frame	data/bgs/0might/bck/rob02.gif
+	@cmd	looper 4 5
+	frame	data/bgs/0might/bck/rob01.gif
+	frame	data/bgs/0might/bck/rob02.gif #9
+	frame	data/bgs/0might/bck/rob03.gif #10
+	frame	data/bgs/0might/bck/rob02.gif
+	delay	9
+	frame	data/bgs/0might/bck/rob04.gif
+	frame	data/bgs/0might/bck/rob05.gif
+	sound	data/sounds/punch3.wav
+	frame	data/bgs/0might/bck/rob06.gif
+	frame	data/bgs/0might/bck/rob07.gif
+	frame	data/bgs/0might/bck/rob08.gif
+	frame	data/bgs/0might/bck/rob09.gif
+	frame	data/bgs/0might/bck/rob10.gif
+	delay	6
+	hitfx	data/sounds/hard1.wav
+	attack	165 155 100 130 600 0 1 1 1 335
+	frame	data/bgs/0might/bck/rob11.gif #19
+	frame	data/bgs/0might/bck/rob12.gif
+	attack	0 0 0 0
+	frame	data/bgs/0might/bck/rob11.gif #21
+	frame	data/bgs/0might/bck/rob12.gif
+	frame	data/bgs/0might/bck/rob11.gif
+	frame	data/bgs/0might/bck/rob12.gif
+	frame	data/bgs/0might/bck/rob11.gif
+	frame	data/bgs/0might/bck/rob12.gif
+#---//-----------------break--fail------------//-----------
+	frame	data/bgs/0might/bck/rob03.gif #27
+	frame	data/bgs/0might/bck/rob02.gif
+	delay	9
+	frame	data/bgs/0might/bck/rob04.gif
+	frame	data/bgs/0might/bck/rob05.gif
+	sound	data/sounds/punch3.wav
+	frame	data/bgs/0might/bck/rob06.gif
+	frame	data/bgs/0might/bck/rob07.gif
+	frame	data/bgs/0might/bck/rob08.gif
+	frame	data/bgs/0might/bck/rob09.gif
+	frame	data/bgs/0might/bck/rob10.gif
+	delay	6
+	hitfx	data/sounds/beat5.wav
+	attack	165 155 100 130 100 0 1 1 1 335
+	frame	data/bgs/0might/bck/rob11.gif #36
+	frame	data/bgs/0might/bck/rob12.gif
+	attack	0 0 0 0
+	frame	data/bgs/0might/bck/rob11.gif #38
+	frame	data/bgs/0might/bck/rob12.gif
+	frame	data/bgs/0might/bck/rob11.gif
+	frame	data/bgs/0might/bck/rob12.gif
+	@cmd	looper 38 25
+	frame	data/bgs/0might/bck/rob11.gif
+	@cmd	spawnAni2 "cuptext" 40 0 30 "ANI_FOLLOW3"
+	frame	data/bgs/0might/bck/rob11.gif
+	delay	20
+	frame	data/bgs/0might/bck/rob11.gif
+	frame	data/bgs/0might/bck/rob11.gif
+	frame	data/bgs/0might/bck/rob11.gif
+	frame	data/bgs/0might/bck/rob11.gif # 47
+	frame	data/bgs/0might/bck/rob11.gif
+	frame	data/bgs/0might/bck/rob11.gif
+	frame	data/bgs/0might/bck/rob11.gif
+	frame	data/bgs/0might/bck/rob11.gif
+
+
+#-------------------//---------//-----------------------
+
+
+#-------------------//----YURI--//-----------------------
+
+anim	follow5
+@script
+    void self = getlocalvar("self");
+    	changeentityproperty(self, "health",-5);
+
+	if(frame==0)
+	{
+	setglobalvar ("center", 0);
+	}
+@end_script
+	loop	0
+	delay	16
+	offset	205 230
+	frame	data/bgs/0might/bck/yur01.gif
+	frame	data/bgs/0might/bck/yur02.gif
+	frame	data/bgs/0might/bck/yur03.gif
+	frame	data/bgs/0might/bck/yur02.gif
+	frame	data/bgs/0might/bck/yur01.gif
+	@cmd	anichange "ANI_FOLLOW6"
+	frame	data/bgs/0might/bck/yur01.gif
+
+anim	follow6
+@script
+	void self = getlocalvar("self");
+	void hp2 = getentityproperty(self,"health");
+
+	if(frame==1 && hp2 >= 10)
+	{
+	changeentityproperty(self, "edelay", 0, -7, 1, 36, 1, 36);
+	}
+	if(frame==1 && hp2 >= 20)
+	{
+	changeentityproperty(self, "edelay", 0, -10, 1, 36, 1, 36);
+	}
+	if(frame==1 && hp2 >= 30)
+	{
+	changeentityproperty(self, "edelay", 0, -12, 1, 36, 1, 36);
+	}
+	if(frame==1 && hp2 >= 40)
+	{
+	changeentityproperty(self, "edelay", 0, -13, 1, 36, 1, 36);
+	}
+	if(frame==1 && hp2 >= 50)
+	{
+	changeentityproperty(self, "edelay", 0, -14, 1, 36, 1, 36);
+	}
+	if(frame==1 && hp2 >= 60)
+	{
+	changeentityproperty(self, "edelay", 0, -15, 1, 36, 1, 36);
+	}
+	if(frame==1 && hp2 >= 70)
+	{
+	changeentityproperty(self, "edelay", 0, -16, 1, 36, 1, 36);
+	}
+	if(frame==1 && hp2 >= 80)
+	{
+	changeentityproperty(self, "edelay", 0, -17, 1, 36, 1, 36);
+	}
+	if(frame==1 && hp2 >= 90)
+	{
+	changeentityproperty(self, "edelay", 0, -18, 1, 36, 1, 36);
+	}
+	if(frame==1 && hp2 >= 100)
+	{
+	changeentityproperty(self, "edelay", 0, -18, 1, 36, 1, 36);
+	}
+	if(frame==1 && hp2 >= 110)
+	{
+	changeentityproperty(self, "edelay", 0, -19, 1, 36, 1, 36);
+	}
+	if(frame==1 && hp2 >= 120)
+	{
+	changeentityproperty(self, "edelay", 0, -19, 1, 36, 1, 36);
+	}
+	if(frame==1 && hp2 >= 130)
+	{
+	changeentityproperty(self, "edelay", 0, -20, 1, 36, 1, 36);
+	}
+	if(frame==1 && hp2 >= 140)
+	{
+	changeentityproperty(self, "edelay", 0, -20, 1, 36, 1, 36);
+	}
+	if(frame==1 && hp2 >= 150)
+	{
+	changeentityproperty(self, "edelay", 0, -21, 1, 36, 1, 36);
+	}
+	if(frame==1 && hp2 >= 160)
+	{
+	changeentityproperty(self, "edelay", 0, -21, 1, 36, 1, 36);
+	}
+	if(frame==1 && hp2 >= 170)
+	{
+	changeentityproperty(self, "edelay", 0, -22, 1, 36, 1, 36);
+	}
+	if(frame==1 && hp2 >= 180)
+	{
+	changeentityproperty(self, "edelay", 0, -22, 1, 36, 1, 36);
+	}
+	if(frame==1 && hp2 >= 190)
+	{
+	changeentityproperty(self, "edelay", 0, -23, 1, 36, 1, 36);
+	}
+	if(frame==1 && hp2 >= 195)
+	{
+	changeentityproperty(self, "edelay", 0, -24, 1, 36, 1, 36);
+	}
+@end_script
+	loop	1
+	delay	16
+	offset	205 230
+	@cmd	hpgain -1
+	frame	data/bgs/0might/bck/yur02.gif
+	frame	data/bgs/0might/bck/yur03.gif
+	@cmd	hpgain -1
+	frame	data/bgs/0might/bck/yur03.gif
+	frame	data/bgs/0might/bck/yur02.gif
+	@cmd	hpgain -1
+	frame	data/bgs/0might/bck/yur01.gif
+	frame	data/bgs/0might/bck/yur01.gif
+	@cmd	hpgain -1
+	frame	data/bgs/0might/bck/yur02.gif
+	frame	data/bgs/0might/bck/yur03.gif
+	@cmd	hpgain -1
+	frame	data/bgs/0might/bck/yur03.gif
+	frame	data/bgs/0might/bck/yur02.gif
+	@cmd	hpgain -1
+	frame	data/bgs/0might/bck/yur01.gif
+	frame	data/bgs/0might/bck/yur01.gif
+	@cmd	hpgain -1
+	frame	data/bgs/0might/bck/yur02.gif
+	frame	data/bgs/0might/bck/yur03.gif
+	@cmd	hpgain -1
+	frame	data/bgs/0might/bck/yur03.gif
+	frame	data/bgs/0might/bck/yur02.gif
+	@cmd	hpgain -1
+	frame	data/bgs/0might/bck/yur01.gif
+	frame	data/bgs/0might/bck/yur01.gif
+	@cmd	hpgain -1
+	frame	data/bgs/0might/bck/yur02.gif
+	frame	data/bgs/0might/bck/yur02.gif
+	@cmd	hpgain -1
+	frame	data/bgs/0might/bck/yur04.gif
+	@cmd	hpgain -1
+	frame	data/bgs/0might/bck/yur05.gif
+	@cmd	hpgain -1
+	frame	data/bgs/0might/bck/yur06.gif
+	@cmd	hpgain -1
+	frame	data/bgs/0might/bck/yur05.gif
+	@cmd	hpgain -1
+	frame	data/bgs/0might/bck/yur04.gif
+
+anim	follow7
+@script
+	void self = getlocalvar("self");
+	int brk = getglobalvar ("healthmin");
+	void hp3 = getentityproperty(self,"health");
+
+	if(frame==0)
+	{
+	changeentityproperty(self, "edelay", 0, 0, 1, 36, 1, 36);
+	}
+	if(frame==1)
+	{
+	setglobalvar ("center", 1);
+	}
+	if(frame==10 && hp3 <brk )
+	{
+	updateframe(self, 27);
+	}
+	if (frame == 47)
+	{
+	setglobalvar ("brkgo", 2);
+	}
+@end_script
+	loop	1 21 23
+	delay	16
+	offset	205 230
+	frame	data/bgs/0might/bck/yur01.gif
+	frame	data/bgs/0might/bck/yur02.gif
+	frame	data/bgs/0might/bck/yur03.gif
+	frame	data/bgs/0might/bck/yur02.gif
+
+	frame	data/bgs/0might/bck/yur01.gif #4
+	frame	data/bgs/0might/bck/yur02.gif
+	frame	data/bgs/0might/bck/yur03.gif
+	frame	data/bgs/0might/bck/yur02.gif
+	@cmd	looper 4 5
+	frame	data/bgs/0might/bck/yur01.gif
+	frame	data/bgs/0might/bck/yur02.gif #9
+	frame	data/bgs/0might/bck/yur03.gif #10
+	frame	data/bgs/0might/bck/yur02.gif
+	delay	9
+	frame	data/bgs/0might/bck/yur04.gif
+	frame	data/bgs/0might/bck/yur05.gif
+	sound	data/sounds/punch3.wav
+	frame	data/bgs/0might/bck/yur06.gif
+	frame	data/bgs/0might/bck/yur07.gif
+	frame	data/bgs/0might/bck/yur08.gif
+	frame	data/bgs/0might/bck/yur09.gif
+	frame	data/bgs/0might/bck/yur10.gif
+	delay	6
+	hitfx	data/sounds/hard1.wav
+	attack	165 155 100 130 600 0 1 1 1 335
+	frame	data/bgs/0might/bck/yur11.gif #19
+	frame	data/bgs/0might/bck/yur12.gif
+	attack	0 0 0 0
+	frame	data/bgs/0might/bck/yur11.gif #21
+	frame	data/bgs/0might/bck/yur12.gif
+	frame	data/bgs/0might/bck/yur11.gif
+	frame	data/bgs/0might/bck/yur12.gif
+	frame	data/bgs/0might/bck/yur11.gif
+	frame	data/bgs/0might/bck/yur12.gif
+#---//-----------------break--fail------------//-----------
+	frame	data/bgs/0might/bck/yur03.gif #27
+	frame	data/bgs/0might/bck/yur02.gif
+	delay	9
+	frame	data/bgs/0might/bck/yur04.gif
+	frame	data/bgs/0might/bck/yur05.gif
+	sound	data/sounds/punch3.wav
+	frame	data/bgs/0might/bck/yur06.gif
+	frame	data/bgs/0might/bck/yur07.gif
+	frame	data/bgs/0might/bck/yur08.gif
+	frame	data/bgs/0might/bck/yur09.gif
+	frame	data/bgs/0might/bck/yur10.gif
+	delay	6
+	hitfx	data/sounds/beat5.wav
+	attack	165 155 100 130 100 0 1 1 1 335
+	frame	data/bgs/0might/bck/yur11.gif #36
+	frame	data/bgs/0might/bck/yur12.gif
+	attack	0 0 0 0
+	frame	data/bgs/0might/bck/yur11.gif #38
+	frame	data/bgs/0might/bck/yur12.gif
+	frame	data/bgs/0might/bck/yur11.gif
+	frame	data/bgs/0might/bck/yur12.gif
+	@cmd	looper 38 25
+	frame	data/bgs/0might/bck/yur11.gif
+	@cmd	spawnAni2 "cuptext" 40 0 30 "ANI_FOLLOW3"
+	frame	data/bgs/0might/bck/yur11.gif
+	delay	20
+	frame	data/bgs/0might/bck/yur11.gif
+	frame	data/bgs/0might/bck/yur11.gif
+	frame	data/bgs/0might/bck/yur11.gif
+	frame	data/bgs/0might/bck/yur11.gif # 47
+	frame	data/bgs/0might/bck/yur11.gif
+	frame	data/bgs/0might/bck/yur11.gif
+	frame	data/bgs/0might/bck/yur11.gif
+	frame	data/bgs/0might/bck/yur11.gif
+
+
+#-------------------//---------//-----------------------
+
+
+
+
+
+
+
+
+
+
+
+
+

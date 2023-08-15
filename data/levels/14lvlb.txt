@@ -1,0 +1,273 @@
+music		data/music/gclub2.ogg
+
+background	data/bgs/14lvl/roomsback.gif
+panel		data/bgs/14lvl/rooms2.gif
+layer           data/bgs/14lvl/light2.gif 120 0 0 2659 -5 0 0 1 1 1
+layer           data/bgs/14lvl/light3.gif 120 0 0 695 -5 0 0 1 1 1
+layer           data/bgs/14lvl/front1.gif 115 0 0 2550 45 0 0 1 1 1
+fglayer         data/bgs/14lvl/light1.gif 5 0 0 0 0 1 1 1 1 1 1
+fglayer         data/bgs/14lvl/roomsFront.gif 10 0 0 0 0 0 0 1 1 1
+fglayer         data/bgs/14lvl/front2.gif  2500 0 0 2195 210 0 0 1 1 1
+
+
+
+direction       both
+light  		10   -30
+at       	0
+settime         0
+notime          1
+blocked         1
+noslow          0
+order		a
+spawn1  	480 175 a
+spawn2  	485 180
+spawn3  	490 175
+
+
+
+
+#--------------------------------
+
+wall    1180 190  -85 -85 750 600 70 5000
+wall    1810 180  -20 -20 590 590 70 5000
+wall    2410 200  -20 -20 145 20 70 5000
+wall    2490 175  -20 -20 800 800 70 5000
+wall    210 300  -45 -45 700 700 80 5000
+wall    -10 295  0 0 80 30 80 5000
+wall    -10 215  0 0 360 90 120 5000
+wall    830 295  75 75 240 300 75 5000
+wall    1480 295  125 0 240 280 75 5000
+wall    1730 295  0 0 500 500 35 5000
+wall    2140 295  115 15 460 460 75 5000
+wall    3285 295  -110 200 240 240 150 5000
+wall    3115 255  50 195 380 380 70 60
+
+
+
+
+#-----------------
+
+spawn   1spawn
+flip    1
+coords  660 160
+at      0
+
+spawn   2spawn
+flip    1
+coords  665 165
+at      0
+
+spawn   3spawn
+flip    1
+coords  655 170
+at      0
+
+#--------------------
+blockade 450
+at       0
+#-----------------
+
+spawn rune
+alias ANI_FOLLOW2
+coords  3290 225 120
+at      0
+
+
+spawn ggirl4
+flip  1
+coords  1783 185
+at      0
+
+
+spawn ggirl1
+flip  1
+coords  1173 185
+at      0
+
+spawn bed1
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+coords  1410 200
+at      0
+
+spawn ggirl2
+flip  1
+coords  1090 272
+at      0
+
+spawn ggirl3
+flip  1
+coords  1560 286
+at      0
+
+spawn bed3
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+flip  1
+coords  2070 190
+at      0
+
+spawn bed4
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+flip  1
+coords  1900 185
+at      0
+
+spawn ggirl5
+flip  1
+map   1
+coords  1910 270
+at      0
+
+spawn ggirl6
+flip  1
+coords  2237 280
+at      0
+
+spawn ggirl7
+flip  1
+coords  2476 170
+at      0
+
+spawn ggirl8
+map   1
+coords  2490 270
+at      0
+
+spawn vicemat
+flip  1
+coords  3328 145
+at      0
+
+
+#---------------------------
+
+spawn   ggirl2
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+flip    1
+coords  660 140
+at      0
+
+#---------------------------
+
+spawn   1statue
+map     1
+flip    1
+item    ring
+map     4
+coords  3100 175
+at      0
+
+spawn   3statue
+flip    1
+map     4
+item    apple2
+coords  3175 180
+at      0
+
+spawn   2statue
+flip    1
+coords  2650 285
+at      0
+
+spawn   3statue
+flip    1
+map	4
+item    food6
+coords  3420 290
+at      0
+
+spawn   3statue
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+flip    1
+map	4
+item    money2
+coords  2750 180
+at      0
+
+spawn   3statue
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW3"));
+} @end_script
+flip    1
+map	4
+coords  2940 290
+at      0
+
+spawn   gdesk
+flip    1
+coords  3240 195
+at      0
+
+#--------------------
+spawn   ghost1
+@script
+void main()
+{
+    changeopenborvariant("xpos", 450);
+}
+@end_script
+coords  340 195
+at      0
+
+spawn   ghosttime
+@script
+void main()
+{
+	setglobalvar("Kgnextday", NULL());
+	setglobalvar("challenge", NULL());
+	setglobalvar("killelle", NULL());
+	setglobalvar("bn1", NULL());
+	setglobalvar("bn2", NULL());
+	setglobalvar("bn3", NULL());
+	setglobalvar("bn4", NULL());
+	setglobalvar("rsh1", NULL());
+	setglobalvar("rsh2", NULL());
+}
+@end_script
+health	5
+coords  30 195
+at      0
+
+#--------------------
+blockade 2500
+at       2500
+#--------------------
+
+
+group	2 2
+at	2700
+
+spawn   vice
+health  1300
+boss    1
+aggression 180
+coords  535 220
+at      2700
+
+spawn   mature
+health  1700
+boss    1
+aggression 180
+coords  575 240
+at      2700
+
+spawn   ghost1
+@script
+void main()
+{
+    jumptobranch("04b", 0);
+}
+@end_script
+boss    1
+coords  500 240
+at      2700
+

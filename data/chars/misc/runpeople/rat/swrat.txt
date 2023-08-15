@@ -1,0 +1,101 @@
+name	swrat
+type	npc
+health	20
+aimove	Wander
+falldie 1
+speed  14
+shadow	1
+subject_to_wall 1
+subject_to_platform 0
+subject_to_obstacle 0
+
+animationscript data/scripts/escript.c
+
+alternatepal	data/chars/misc/runpeople/rat/bmap.gif
+
+load	burn2
+
+
+
+
+anim	spawn
+	loop	0
+	delay	14
+	offset	27 37
+	bbox	0 0 0 0
+	frame	data/chars/misc/runpeople/rat/idle02.gif
+
+anim	fall
+	loop	0
+	delay	14
+	offset	27 37
+	bbox	0 0 0 0
+	frame	data/chars/misc/runpeople/rat/idle02.gif
+
+anim	rise
+	loop	0
+	delay	14
+	offset	27 37
+	bbox	0 0 0 0
+	frame	data/chars/misc/runpeople/rat/idle01.gif
+
+
+
+
+anim	burn
+@script
+void self = getlocalvar("self");
+changeentityproperty(self, "colourmap", 1);
+@end_script
+	loop	0
+	delay	14
+	offset	27 37
+	bbox	0 0 0 0
+	@cmd	killgun 2 0
+	frame	data/chars/misc/runpeople/rat/rat01.gif
+	@cmd	spawnGun5 "burn2" 1 7 1 2 "ANI_FOLLOW1"
+	frame	data/chars/misc/runpeople/rat/rat02.gif
+	frame	data/chars/misc/runpeople/rat/rat03.gif
+	@cmd	lifesp 500
+	frame	data/chars/misc/runpeople/rat/rat04.gif
+
+
+
+
+anim	death
+	loop	0
+	delay	14
+	offset	27 37
+	bbox	0 0 0 0
+	jumpframe 0 2 1
+	frame	data/chars/misc/runpeople/rat/death.gif
+	frame	data/chars/misc/runpeople/rat/death.gif
+	frame	data/chars/misc/runpeople/rat/death.gif
+	frame	data/chars/misc/runpeople/rat/death.gif
+	@cmd	killgun 2 0
+	frame	data/chars/misc/runpeople/rat/death.gif
+	frame	data/chars/misc/runpeople/rat/death.gif
+
+
+
+
+anim	idle
+	loop	1
+	delay	14
+	offset	27 37
+	bbox	15 20 25 15
+	frame	data/chars/misc/runpeople/rat/idle01.gif
+	frame	data/chars/misc/runpeople/rat/idle02.gif
+		
+anim	walk
+	loop	1
+	delay	9
+	offset	27 37
+	bbox	15 20 25 15
+	frame	data/chars/misc/runpeople/rat/rat01.gif
+	frame	data/chars/misc/runpeople/rat/rat02.gif
+	frame	data/chars/misc/runpeople/rat/rat03.gif
+	frame	data/chars/misc/runpeople/rat/rat04.gif
+		
+#|edited by openBor Stats v 0.53
+		

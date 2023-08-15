@@ -1,0 +1,131 @@
+name      detegun
+nolife    1
+nomove	  1 1
+health    10
+nodrop	  2
+type      enemy
+nodieblink	1
+gfxshadow	1
+hostile   player
+subject_to_hole 0
+subject_to_platform 0
+subject_to_gravity 0
+subject_to_wall 0
+hostile		player npc
+candamage	player npc
+
+animationscript data/scripts/escript.c
+
+
+load	bullet2
+
+
+
+
+palette		data/chars/3deterrent/detegmap1.gif
+
+
+anim	attack
+	loop	0
+	delay	30
+	offset	35 35
+	bbox	0 0 0 0
+	frame	data/chars/3deterrent/detegun01.gif
+	sound	data/sounds/minigunend.wav
+	frame	data/chars/3deterrent/detegun01.gif
+	delay	8
+	frame	data/chars/3deterrent/detegun01.gif
+	sound	data/sounds/gun.wav
+	frame	data/chars/3deterrent/detegun02.gif
+	@cmd	projectile 1 "bullet2" 50 10 0
+	frame	data/chars/3deterrent/detegun03.gif
+
+	frame	data/chars/3deterrent/detegun01.gif
+	frame	data/chars/3deterrent/detegun02.gif
+	@cmd	projectile 1 "bullet2" 50 10 0
+	frame	data/chars/3deterrent/detegun03.gif
+
+	frame	data/chars/3deterrent/detegun01.gif
+	sound	data/sounds/gun.wav
+	frame	data/chars/3deterrent/detegun02.gif
+	@cmd	projectile 1 "bullet2" 50 10 0
+	frame	data/chars/3deterrent/detegun03.gif
+
+	frame	data/chars/3deterrent/detegun01.gif
+	frame	data/chars/3deterrent/detegun02.gif
+	@cmd	projectile 1 "bullet2" 50 10 0
+	frame	data/chars/3deterrent/detegun03.gif
+
+	frame	data/chars/3deterrent/detegun01.gif
+	sound	data/sounds/gun.wav
+	frame	data/chars/3deterrent/detegun02.gif
+	@cmd	projectile 1 "bullet2" 50 10 0
+	frame	data/chars/3deterrent/detegun03.gif
+
+	frame	data/chars/3deterrent/detegun01.gif
+	frame	data/chars/3deterrent/detegun02.gif
+	@cmd	projectile 1 "bullet2" 50 10 0
+	frame	data/chars/3deterrent/detegun03.gif
+
+	frame	data/chars/3deterrent/detegun01.gif
+	sound	data/sounds/gun.wav
+	frame	data/chars/3deterrent/detegun02.gif
+	@cmd	projectile 1 "bullet2" 50 10 0
+	frame	data/chars/3deterrent/detegun03.gif
+
+	frame	data/chars/3deterrent/detegun01.gif
+	frame	data/chars/3deterrent/detegun02.gif
+	@cmd	projectile 1 "bullet2" 50 10 0
+	frame	data/chars/3deterrent/detegun03.gif
+
+	frame	data/chars/3deterrent/detegun01.gif
+	sound	data/sounds/gun.wav
+	frame	data/chars/3deterrent/detegun02.gif
+	@cmd	projectile 1 "bullet2" 50 10 0
+	frame	data/chars/3deterrent/detegun03.gif
+	delay	15
+	frame	data/chars/3deterrent/detegun01.gif
+	frame	data/chars/3deterrent/detegun01.gif
+	@cmd	beidle
+	frame	data/chars/3deterrent/detegun01.gif
+		
+anim	fall
+	delay	5
+	offset	35 35
+	bbox	0 0 0 0
+	frame	data/chars/3deterrent/detegun01.gif
+	frame	data/chars/3deterrent/detegun01.gif
+		
+anim	idle
+	delay	5
+	loop	1
+	offset	35 35
+	bbox	0 0 0 0
+	frame	data/chars/3deterrent/detegun01.gif
+	@cmd	attack1 30 300 20 "ANI_ATTACK1"
+	offset	35 34
+	frame	data/chars/3deterrent/detegun01.gif
+		
+anim	spawn
+	delay	760
+	loop	0
+	offset	35 35
+	bbox	0 0 0 0
+@script
+if(frame==1)
+{
+  changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_OBSTACLE"));
+}
+@end_script
+	frame	data/chars/3deterrent/detegun01.gif
+	frame	data/chars/3deterrent/detegun01.gif
+	delay	30
+	frame	data/chars/3deterrent/detegun01.gif
+	frame	data/chars/3deterrent/detegun01.gif
+	frame	data/chars/3deterrent/detegun01.gif
+
+
+
+		
+#|edited by openBor Stats v 0.53
+		

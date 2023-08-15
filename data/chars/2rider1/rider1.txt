@@ -1,0 +1,54 @@
+name	rider1
+type	enemy
+subtype	biker
+health	240
+speed   20
+gfxshadow     1
+nolife	1
+candamage player npc
+animationscript data/scripts/escript.c
+
+load	bike1crash
+load	explosion1
+load	cardam2
+load	kraven
+rider	kraven
+
+
+palette		   data/chars/2rider1/mapal.gif
+
+
+
+anim	idle
+	loop	1
+	delay	5
+	offset	100 150
+	bbox	65 55 75 90
+	attack	140 95 65 59 10 1 0 1 8 0
+	frame	data/chars/2rider1/kravenbck01.gif
+	frame	data/chars/2rider1/kravenbck02.gif
+		
+anim	pain
+	loop	0
+	delay	5
+	offset	100 150
+	@cmd	spawn01 "explosion1" -10 50 10
+	frame	data/chars/2rider1/kravenbck03.gif
+	frame	data/chars/2rider1/kravenbck04.gif
+	frame	data/chars/2rider1/empty.gif
+	@cmd	spawn01 "cardam2" -20 30 7
+	frame	data/chars/2rider1/empty.gif
+	@cmd	spawn01 "bike1crash" -20 0 5
+	frame	data/chars/2rider1/empty.gif
+			
+anim	spawn
+	loop	0
+	delay	3
+	offset	100 150
+	bbox	44 96 51 51
+	frame	data/chars/2rider1/kravenbck01.gif
+	sound	data/sounds/bike12.wav
+	frame	data/chars/2rider1/kravenbck02.gif
+		
+#|edited by openBor Stats v 0.53
+		

@@ -1,0 +1,479 @@
+name		lgmist
+type		enemy
+health		110
+cantgrab	1
+speedf		1.4
+jumpheight	0
+noquake		1
+falldie		1
+nodieblink	1
+makeinv		3
+gfxshadow	1
+nodrop		2
+nopain		1
+offscreenkill 	10000
+hostile		player
+candamage       player
+subject_to_hole 0
+subject_to_wall 0
+diesound        data/sounds/empty.wav
+animationscript data/scripts/escript.c
+
+
+alternatepal	data/chars/beyond/1ecto1/map1.gif
+alternatepal	data/chars/beyond/1ecto1/map2.gif
+alternatepal	data/chars/beyond/1ecto1/map3.gif
+alternatepal	data/chars/beyond/1ecto1/map4.gif
+
+
+
+load	mistout
+
+
+
+anim	attack1
+	range	80 260
+	loop	0
+	delay	7
+	offset	115 187
+	bbox	85 77 55 70
+	frame	data/chars/beyond/1ecto1/idle01.gif
+	frame	data/chars/beyond/1ecto1/idle02.gif
+	frame	data/chars/beyond/1ecto1/idle03.gif
+	frame	data/chars/beyond/1ecto1/idle04.gif
+	offset	50 187
+	bbox	20 77 55 70
+	frame	data/chars/beyond/1ecto1/xidle05.gif
+	frame	data/chars/beyond/1ecto1/xidle06.gif
+	frame	data/chars/beyond/1ecto1/xidle07.gif
+	frame	data/chars/beyond/1ecto1/xidle08.gif
+	attack	70 90 160 50 15 1 0 0 11 10
+	frame	data/chars/beyond/1ecto1/xidle09.gif
+	attack	70 90 260 50 15 1 0 0 11 10
+	offset	50 187
+	bbox	25 77 55 70
+	attack	70 90 260 50 15 1 0 0 11 10
+	frame	data/chars/beyond/1ecto1/xidle10.gif
+	attack	0 0 0 0
+	frame	data/chars/beyond/1ecto1/xidle11.gif
+	attack	70 90 260 50 15 1 0 0 11 10
+	frame	data/chars/beyond/1ecto1/xidle12.gif
+	frame	data/chars/beyond/1ecto1/xidle13.gif
+	attack	0 0 0 0
+	frame	data/chars/beyond/1ecto1/xidle14.gif
+	offset	115 187
+	bbox	85 77 55 70
+	frame	data/chars/beyond/1ecto1/idle15.gif
+	@cmd	clearL
+	frame	data/chars/beyond/1ecto1/idle16.gif
+	@cmd	beidle
+	frame	data/chars/beyond/1ecto1/idle16.gif
+		
+anim	attack2
+	range	-15 15
+	rangez	-35 35
+	loop	0
+	delay	7
+	attackone 0
+	offset	115 187
+	bbox	85 77 55 70
+	followanim	1
+	followcond	1
+	@cmd	target 1 1 1 1 0
+	@cmd	dash
+	frame	data/chars/beyond/1ecto1/idle01.gif
+	attack	87 90 55 50 0 1 1 1 11 10
+	frame	data/chars/beyond/1ecto1/idle02.gif
+	frame	data/chars/beyond/1ecto1/idle03.gif
+	frame	data/chars/beyond/1ecto1/idle04.gif
+	frame	data/chars/beyond/1ecto1/idle05.gif
+	frame	data/chars/beyond/1ecto1/idle06.gif
+	frame	data/chars/beyond/1ecto1/idle07.gif
+	frame	data/chars/beyond/1ecto1/idle08.gif
+	frame	data/chars/beyond/1ecto1/idle09.gif
+	frame	data/chars/beyond/1ecto1/idle10.gif
+	frame	data/chars/beyond/1ecto1/idle11.gif
+	frame	data/chars/beyond/1ecto1/idle12.gif
+	frame	data/chars/beyond/1ecto1/idle13.gif
+	frame	data/chars/beyond/1ecto1/idle14.gif
+	attack	0 0 0 0
+	frame	data/chars/beyond/1ecto1/idle15.gif
+	@cmd	stop
+	frame	data/chars/beyond/1ecto1/idle16.gif
+	@cmd	beidle
+	frame	data/chars/beyond/1ecto1/idle16.gif
+		
+anim	attack4
+	range	100 190
+	rangez	40 60
+	loop	0
+	delay	7
+	offset	115 187
+	bbox	85 77 55 70
+	frame	data/chars/beyond/1ecto1/yidle01.gif
+	frame	data/chars/beyond/1ecto1/yidle02.gif
+	frame	data/chars/beyond/1ecto1/yidle03.gif
+	frame	data/chars/beyond/1ecto1/yidle04.gif
+	frame	data/chars/beyond/1ecto1/yidle05.gif
+	@cmd	spawnAnimap "mistout" 1 1 -3 "ANI_FOLLOW2"
+	frame	data/chars/beyond/1ecto1/yidle06.gif
+	frame	data/chars/beyond/1ecto1/yidle07.gif
+	frame	data/chars/beyond/1ecto1/yidle08.gif
+	frame	data/chars/beyond/1ecto1/yidle09.gif
+	frame	data/chars/beyond/1ecto1/idle10.gif
+	frame	data/chars/beyond/1ecto1/idle11.gif
+	frame	data/chars/beyond/1ecto1/idle12.gif
+	frame	data/chars/beyond/1ecto1/idle13.gif
+	frame	data/chars/beyond/1ecto1/idle14.gif
+	frame	data/chars/beyond/1ecto1/idle15.gif
+	@cmd	clearL
+	frame	data/chars/beyond/1ecto1/idle16.gif
+	@cmd	beidle
+	frame	data/chars/beyond/1ecto1/idle16.gif
+		
+anim	attack5
+	range	100 180
+	rangez	-80 -40
+	loop	0
+	delay	7
+	offset	115 187
+	bbox	85 77 55 70
+	frame	data/chars/beyond/1ecto1/yidle01.gif
+	frame	data/chars/beyond/1ecto1/yidle02.gif
+	frame	data/chars/beyond/1ecto1/yidle03.gif
+	frame	data/chars/beyond/1ecto1/yidle04.gif
+	frame	data/chars/beyond/1ecto1/yidle05.gif
+	@cmd	spawn01 "mistout" 1 1 -3
+	frame	data/chars/beyond/1ecto1/yidle06.gif
+	frame	data/chars/beyond/1ecto1/yidle07.gif
+	frame	data/chars/beyond/1ecto1/yidle08.gif
+	frame	data/chars/beyond/1ecto1/yidle09.gif
+	frame	data/chars/beyond/1ecto1/idle10.gif
+	frame	data/chars/beyond/1ecto1/idle11.gif
+	frame	data/chars/beyond/1ecto1/idle12.gif
+	frame	data/chars/beyond/1ecto1/idle13.gif
+	frame	data/chars/beyond/1ecto1/idle14.gif
+	frame	data/chars/beyond/1ecto1/idle15.gif
+	frame	data/chars/beyond/1ecto1/idle16.gif
+	frame	data/chars/beyond/1ecto1/idle01.gif
+	frame	data/chars/beyond/1ecto1/idle02.gif
+	frame	data/chars/beyond/1ecto1/idle03.gif
+	frame	data/chars/beyond/1ecto1/idle04.gif
+	frame	data/chars/beyond/1ecto1/idle05.gif
+	frame	data/chars/beyond/1ecto1/idle06.gif
+	frame	data/chars/beyond/1ecto1/idle07.gif
+	frame	data/chars/beyond/1ecto1/idle08.gif
+	frame	data/chars/beyond/1ecto1/idle09.gif
+	frame	data/chars/beyond/1ecto1/idle10.gif
+	frame	data/chars/beyond/1ecto1/idle11.gif
+	frame	data/chars/beyond/1ecto1/idle12.gif
+	frame	data/chars/beyond/1ecto1/idle13.gif
+	frame	data/chars/beyond/1ecto1/idle14.gif
+	frame	data/chars/beyond/1ecto1/idle15.gif
+	@cmd	clearL
+	frame	data/chars/beyond/1ecto1/idle16.gif
+	@cmd	beidle
+	frame	data/chars/beyond/1ecto1/idle16.gif
+		
+anim	death
+	loop	0
+	delay	6
+	offset	115 187
+	bbox	0 0 0 0
+	frame	data/chars/beyond/1ecto1/idle16.gif
+	frame	data/chars/beyond/1ecto1/idle15.gif
+	frame	data/chars/beyond/1ecto1/idle14.gif
+	frame	data/chars/beyond/1ecto1/idle13.gif
+	frame	data/chars/beyond/1ecto1/idle12.gif
+	frame	data/chars/beyond/1ecto1/idle11.gif
+	frame	data/chars/beyond/1ecto1/idle10.gif
+	frame	data/chars/beyond/1ecto1/idle09.gif
+	frame	data/chars/beyond/1ecto1/idle08.gif
+	frame	data/chars/beyond/1ecto1/idle07.gif
+	frame	data/chars/beyond/1ecto1/idle06.gif
+	frame	data/chars/beyond/1ecto1/idle05.gif
+	frame	data/chars/beyond/1ecto1/idle04.gif
+	frame	data/chars/beyond/1ecto1/idle02.gif
+	frame	data/chars/beyond/1ecto1/idle01.gif
+	frame	data/chars/beyond/1ecto1/idle16.gif
+	frame	data/chars/beyond/1ecto1/idle15.gif
+	frame	data/chars/beyond/1ecto1/idle14.gif
+	frame	data/chars/beyond/1ecto1/idle13.gif
+	frame	data/chars/beyond/1ecto1/idle12.gif
+	frame	data/chars/beyond/1ecto1/idle11.gif
+	frame	data/chars/beyond/1ecto1/idle10.gif
+	offset	175 190
+	frame	data/chars/beyond/1ecto1/spawn42.gif
+	frame	data/chars/beyond/1ecto1/spawn41.gif
+	frame	data/chars/beyond/1ecto1/spawn40.gif
+	frame	data/chars/beyond/1ecto1/spawn39.gif
+	frame	data/chars/beyond/1ecto1/spawn38.gif
+	frame	data/chars/beyond/1ecto1/spawn37.gif
+	frame	data/chars/beyond/1ecto1/spawn36.gif
+	frame	data/chars/beyond/1ecto1/spawn35.gif
+	frame	data/chars/beyond/1ecto1/spawn34.gif
+	frame	data/chars/beyond/1ecto1/spawn33.gif
+	frame	data/chars/beyond/1ecto1/spawn32.gif
+	frame	data/chars/beyond/1ecto1/spawn31.gif
+	frame	data/chars/beyond/1ecto1/spawn30.gif
+	frame	data/chars/beyond/1ecto1/spawn29.gif
+	frame	data/chars/beyond/1ecto1/spawn28.gif
+	frame	data/chars/beyond/1ecto1/spawn26.gif
+	frame	data/chars/beyond/1ecto1/spawn25.gif
+	frame	data/chars/beyond/1ecto1/spawn24.gif
+	frame	data/chars/beyond/1ecto1/spawn23.gif
+	frame	data/chars/beyond/1ecto1/spawn22.gif
+	frame	data/chars/beyond/1ecto1/spawn21.gif
+	frame	data/chars/beyond/1ecto1/spawn20.gif
+	frame	data/chars/beyond/1ecto1/spawn19.gif
+	frame	data/chars/beyond/1ecto1/spawn18.gif
+	frame	data/chars/beyond/1ecto1/spawn17.gif
+	frame	data/chars/beyond/1ecto1/spawn16.gif
+	frame	data/chars/beyond/1ecto1/spawn15.gif
+	frame	data/chars/beyond/1ecto1/spawn14.gif
+	frame	data/chars/beyond/1ecto1/spawn13.gif
+	frame	data/chars/beyond/1ecto1/spawn12.gif
+	frame	data/chars/beyond/1ecto1/spawn11.gif
+	frame	data/chars/beyond/1ecto1/spawn10.gif
+	@cmd	looper 46 3
+	frame	data/chars/beyond/1ecto1/spawn09.gif
+	frame	data/chars/beyond/1ecto1/spawn08.gif
+	frame	data/chars/beyond/1ecto1/spawn07.gif
+	frame	data/chars/beyond/1ecto1/spawn06.gif
+	frame	data/chars/beyond/1ecto1/spawn05.gif
+	frame	data/chars/beyond/1ecto1/spawn04.gif
+	frame	data/chars/beyond/1ecto1/spawn03.gif
+	frame	data/chars/beyond/1ecto1/spawn02.gif
+	frame	data/chars/beyond/1ecto1/spawn01.gif
+	frame	data/chars/beyond/1ecto1/empty.gif
+		
+anim	fall
+	loop	0
+	delay	5
+	offset	115 187
+	bbox	85 77 55 70
+	frame	data/chars/beyond/1ecto1/idle01.gif
+		
+anim	follow1
+	loop	0
+	delay	30
+	offset	115 187
+	bbox	0 0 0 0
+	@cmd	stop
+	@cmd	slamstart2
+	@cmd	position 24 20 10 -1 -1
+	frame	data/chars/beyond/1ecto1/gb01.gif
+	delay	7
+	@cmd	degravity 1
+	movea	2
+	@cmd	position 24 20 10 -1 -1
+	frame	data/chars/beyond/1ecto1/gb01.gif
+	@cmd	position 24 20 10 -1 -1
+	frame	data/chars/beyond/1ecto1/gb02.gif
+	@cmd	position 24 20 10 -1 -1
+	frame	data/chars/beyond/1ecto1/gb03.gif
+	@cmd	position 24 20 10 -1 -1
+	frame	data/chars/beyond/1ecto1/gb04.gif
+	@cmd	position 24 20 10 -1 -1
+	frame	data/chars/beyond/1ecto1/gb05.gif
+	@cmd	position 24 20 10 -1 -1
+	frame	data/chars/beyond/1ecto1/gb06.gif
+	@cmd	position 24 20 10 -1 -1
+	frame	data/chars/beyond/1ecto1/gb07.gif
+	@cmd	position 24 20 10 -1 -1
+	frame	data/chars/beyond/1ecto1/gb08.gif
+	@cmd	position 24 20 10 -1 -1
+	frame	data/chars/beyond/1ecto1/gb09.gif
+	movea	0
+	@cmd	position 24 20 10 -1 -1
+	frame	data/chars/beyond/1ecto1/gb10.gif #10
+	delay	9
+	@cmd	position 7 0 20 -1 -1
+	frame	data/chars/beyond/1ecto1/idle17.gif #11
+	@cmd	position 11 0 20 -1 -1
+	frame	data/chars/beyond/1ecto1/idle18.gif
+	@cmd	position 7 0 20 -1 -1
+	frame	data/chars/beyond/1ecto1/idle19.gif
+	@cmd	position 11 0 20 -1 -1
+	frame	data/chars/beyond/1ecto1/idle20.gif
+	@cmd	position 7 0 20 -1 -1
+	frame	data/chars/beyond/1ecto1/idle21.gif
+	@cmd	position 11 0 20 -1 -1
+	frame	data/chars/beyond/1ecto1/idle22.gif
+	@cmd	position 7 0 20 -1 -1
+	frame	data/chars/beyond/1ecto1/idle23.gif
+	@cmd	position 11 0 20 -1 -1
+	frame	data/chars/beyond/1ecto1/idle24.gif
+	@cmd	looper 11 4
+	@cmd	position 7 0 20 -1 -1
+	frame	data/chars/beyond/1ecto1/idle17.gif
+	@cmd	depost 0
+	@cmd	finish 15 2 1 3 0 0
+	frame	data/chars/beyond/1ecto1/idle18.gif
+	@cmd	degravity 0
+	delay	7
+	frame	data/chars/beyond/1ecto1/gb10.gif
+	frame	data/chars/beyond/1ecto1/gb09.gif
+	frame	data/chars/beyond/1ecto1/gb08.gif
+	frame	data/chars/beyond/1ecto1/gb07.gif
+	frame	data/chars/beyond/1ecto1/gb06.gif
+	frame	data/chars/beyond/1ecto1/gb05.gif
+	frame	data/chars/beyond/1ecto1/gb04.gif
+	frame	data/chars/beyond/1ecto1/gb03.gif
+	frame	data/chars/beyond/1ecto1/gb02.gif
+	@cmd	clearL
+	frame	data/chars/beyond/1ecto1/gb01.gif
+	@cmd	beidle
+	frame	data/chars/beyond/1ecto1/idle16.gif
+		
+anim	idle
+	loop	1
+	delay	7
+	offset	115 187
+	bbox	85 77 55 70
+	frame	data/chars/beyond/1ecto1/idle01.gif
+	@cmd	clearL
+	frame	data/chars/beyond/1ecto1/idle02.gif
+	frame	data/chars/beyond/1ecto1/idle03.gif
+	frame	data/chars/beyond/1ecto1/idle04.gif
+	frame	data/chars/beyond/1ecto1/idle05.gif
+	frame	data/chars/beyond/1ecto1/idle06.gif
+	frame	data/chars/beyond/1ecto1/idle07.gif
+	frame	data/chars/beyond/1ecto1/idle08.gif
+	frame	data/chars/beyond/1ecto1/idle09.gif
+	frame	data/chars/beyond/1ecto1/idle10.gif
+	frame	data/chars/beyond/1ecto1/idle11.gif
+	frame	data/chars/beyond/1ecto1/idle12.gif
+	frame	data/chars/beyond/1ecto1/idle13.gif
+	frame	data/chars/beyond/1ecto1/idle14.gif
+	frame	data/chars/beyond/1ecto1/idle15.gif
+	frame	data/chars/beyond/1ecto1/idle16.gif
+
+
+anim	follow5
+	loop	0
+	delay	7
+	offset	115 187
+	bbox	85 77 55 70
+	frame	data/chars/beyond/1ecto1/idle01.gif
+	@cmd	subwall 1
+	frame	data/chars/beyond/1ecto1/idle01.gif
+	@cmd	beidle
+	frame	data/chars/beyond/1ecto1/idle01.gif
+
+
+anim	follow6
+	loop	1
+	delay	7
+	offset	115 187
+	bbox	85 77 55 70
+	counterrange 0 14 1 1
+     	followanim 5
+	frame	data/chars/beyond/1ecto1/idle01.gif
+	frame	data/chars/beyond/1ecto1/idle02.gif
+	@cmd	attack1 -100 100 80 "ANI_FOLLOW5"
+	frame	data/chars/beyond/1ecto1/idle03.gif
+	frame	data/chars/beyond/1ecto1/idle04.gif
+	frame	data/chars/beyond/1ecto1/idle05.gif
+	@cmd	attack1 -100 100 80 "ANI_FOLLOW5"
+	frame	data/chars/beyond/1ecto1/idle06.gif
+	frame	data/chars/beyond/1ecto1/idle07.gif
+	frame	data/chars/beyond/1ecto1/idle08.gif
+	@cmd	attack1 -100 100 80 "ANI_FOLLOW5"
+	frame	data/chars/beyond/1ecto1/idle09.gif
+	frame	data/chars/beyond/1ecto1/idle10.gif
+	frame	data/chars/beyond/1ecto1/idle11.gif
+	@cmd	attack1 -100 100 80 "ANI_FOLLOW5"
+	frame	data/chars/beyond/1ecto1/idle12.gif
+	frame	data/chars/beyond/1ecto1/idle13.gif
+	frame	data/chars/beyond/1ecto1/idle14.gif
+	@cmd	attack1 -100 100 80 "ANI_FOLLOW5"
+	frame	data/chars/beyond/1ecto1/idle15.gif
+	frame	data/chars/beyond/1ecto1/idle16.gif
+
+
+		
+anim	pain
+	loop	0
+	delay	5
+	offset	115 187
+	bbox	85 77 55 70
+	frame	data/chars/beyond/1ecto1/idle01.gif
+		
+anim	pain2
+	loop	0
+	delay	5
+	offset	115 187
+	bbox	85 77 55 70
+	frame	data/chars/beyond/1ecto1/idle01.gif
+		
+anim	rise
+	loop	0
+	delay	5
+	offset	115 187
+	bbox	85 77 55 70
+	frame	data/chars/beyond/1ecto1/idle01.gif
+		
+anim	spawn
+	loop	0
+	delay	7
+	offset	175 190
+	bbox	0 0 0 0
+	frame	data/chars/beyond/1ecto1/spawn01.gif
+	@cmd	subwall 1
+	frame	data/chars/beyond/1ecto1/spawn02.gif
+	frame	data/chars/beyond/1ecto1/spawn03.gif
+	frame	data/chars/beyond/1ecto1/spawn04.gif
+	frame	data/chars/beyond/1ecto1/spawn05.gif
+	frame	data/chars/beyond/1ecto1/spawn06.gif
+	frame	data/chars/beyond/1ecto1/spawn07.gif
+	frame	data/chars/beyond/1ecto1/spawn08.gif
+	frame	data/chars/beyond/1ecto1/spawn09.gif
+	frame	data/chars/beyond/1ecto1/spawn10.gif
+	frame	data/chars/beyond/1ecto1/spawn11.gif
+	frame	data/chars/beyond/1ecto1/spawn12.gif
+	frame	data/chars/beyond/1ecto1/spawn13.gif
+	frame	data/chars/beyond/1ecto1/spawn14.gif
+	frame	data/chars/beyond/1ecto1/spawn15.gif
+	frame	data/chars/beyond/1ecto1/spawn16.gif
+	frame	data/chars/beyond/1ecto1/spawn17.gif
+	frame	data/chars/beyond/1ecto1/spawn18.gif
+	@cmd	looper 9 5
+	frame	data/chars/beyond/1ecto1/spawn19.gif
+	frame	data/chars/beyond/1ecto1/spawn20.gif
+	frame	data/chars/beyond/1ecto1/spawn21.gif
+	bbox	130 77 55 70
+	frame	data/chars/beyond/1ecto1/spawn22.gif
+	frame	data/chars/beyond/1ecto1/spawn23.gif
+	frame	data/chars/beyond/1ecto1/spawn24.gif
+	frame	data/chars/beyond/1ecto1/spawn25.gif
+	frame	data/chars/beyond/1ecto1/spawn26.gif
+	frame	data/chars/beyond/1ecto1/spawn28.gif
+	frame	data/chars/beyond/1ecto1/spawn29.gif
+	frame	data/chars/beyond/1ecto1/spawn30.gif
+	frame	data/chars/beyond/1ecto1/spawn31.gif
+	frame	data/chars/beyond/1ecto1/spawn32.gif
+	frame	data/chars/beyond/1ecto1/spawn33.gif
+	bbox	145 77 55 70
+	frame	data/chars/beyond/1ecto1/spawn34.gif
+	frame	data/chars/beyond/1ecto1/spawn35.gif
+	frame	data/chars/beyond/1ecto1/spawn36.gif
+	frame	data/chars/beyond/1ecto1/spawn37.gif
+	frame	data/chars/beyond/1ecto1/spawn38.gif
+	frame	data/chars/beyond/1ecto1/spawn39.gif
+	frame	data/chars/beyond/1ecto1/spawn40.gif
+	frame	data/chars/beyond/1ecto1/spawn41.gif
+	frame	data/chars/beyond/1ecto1/spawn42.gif
+	frame	data/chars/beyond/1ecto1/spawn43.gif
+	offset	115 187
+	bbox	85 77 55 70
+	frame	data/chars/beyond/1ecto1/idle10.gif
+	frame	data/chars/beyond/1ecto1/idle11.gif
+	frame	data/chars/beyond/1ecto1/idle12.gif
+	frame	data/chars/beyond/1ecto1/idle13.gif
+	frame	data/chars/beyond/1ecto1/idle14.gif
+	frame	data/chars/beyond/1ecto1/idle15.gif
+	frame	data/chars/beyond/1ecto1/idle16.gif
+		
+#|edited by openBor Stats v 0.53
+		

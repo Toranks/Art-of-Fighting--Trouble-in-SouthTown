@@ -1,0 +1,570 @@
+music		data/music/pitt3.ogg
+bossmusic	data/music/pitt3b.ogg
+
+background      data/bgs/4lvl/pittback.gif
+panel		data/bgs/4lvl/PittRing.gif
+fglayer    	data/bgs/4lvl/pfront1.gif 10 0 0 0 0 0 0 1 1 1
+fglayer    	data/bgs/4lvl/front2.gif 700 0 0 1190 395 0 0 1 1 1
+
+direction       right
+light  		10   -30
+at       	0
+settime         0
+notime          1
+noslow          0
+order		a
+spawn1  	150 30
+spawn2  	145 35
+spawn3  	165 50
+
+cameraoffset            0 -70
+cameratype              1
+
+#----------------------------------------
+wall    1160 380 150 150 455 455 130 60
+wall    1160 429 0 0 490 490 50 5000
+wall    1455 380 150 150 290 290 130 5000
+wall    1130 380 110 110 180 180 130 130
+wall    1190 380 -70 -70 50 50 130 60
+#----------------------------------------
+
+#----stage-------------
+spawn   stgSET1
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW10"));
+} @end_script
+coords  -500 515 350
+at      0
+#-------------------
+
+
+
+spawn	croud
+coords	0 0
+at	0
+
+spawn	croud
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+} @end_script
+coords	1200 320
+at	0
+
+spawn   disco02
+flip    1
+coords	0 410 140
+at	0
+
+spawn   bar07
+flip    1
+coords	-55 -10
+at	0
+
+spawn   bar07
+flip    1
+coords	1370 -20
+at	0
+
+spawn   bar04
+flip    1
+coords	490 380
+at	0
+
+spawn   bar04
+flip    1
+map     1
+coords	220 425
+at	0
+
+spawn   bar04
+flip    1
+map     2
+coords	910 425
+at	0
+
+
+#------------------
+
+
+spawn   barrel
+flip    1
+item    money2
+coords  260 320
+at      0
+
+spawn   barrel
+flip    1
+item    food3
+coords  330 320
+at      0
+
+spawn   barrel
+flip    1
+item    money1
+coords  1030 320
+at      0
+
+spawn   barrel
+flip    1
+item    money1
+coords  1100 320
+at      0
+
+spawn   barrel
+flip    1
+item    food1
+coords  1110 350
+at      0
+
+spawn   barrel
+flip    1
+item    diamond
+coords  1110 380
+at      0
+
+spawn   barrel
+flip    1
+item    gold
+coords  1135 400
+at      0
+
+
+spawn   grfmon
+coords  500 302
+at      0
+
+#---------------------
+#----------------------
+
+
+spawn   tire1
+flip    1
+coords  540 305
+at      0
+
+spawn   tire1
+flip    1
+item    money1
+coords  570 325
+at      0
+
+spawn   tire1
+flip    1
+coords  590 345
+at      0
+
+spawn   tire1
+flip    1
+coords  610 365
+at      0
+
+spawn   tire1
+flip    1
+item    money2
+coords  640 385
+at      0
+
+spawn   tire1
+flip    1
+coords  670 405
+at      0
+
+#-------------------
+
+spawn   tire2
+flip    1
+coords  600 305
+at      0
+
+spawn   tire2
+flip    1
+coords  630 325
+at      0
+
+spawn   tire2
+flip    1
+coords  655 345
+at      0
+
+spawn   tire2
+flip    1
+item    moneybag
+coords  680 365
+at      0
+
+spawn   tire2
+flip    1
+coords  705 385
+at      0
+
+spawn   tire2
+flip    1
+coords  730 405
+at      0
+
+#-------------------
+
+spawn   tire2
+flip    1
+coords  660 305
+at      0
+
+spawn   tire2
+flip    1
+item    diamond
+coords  690 325
+at      0
+
+spawn   tire2
+flip    1
+coords  725 345
+at      0
+
+spawn   tire2
+flip    1
+coords  740 365
+at      0
+
+spawn   tire2
+flip    1
+coords  760 385
+at      0
+
+spawn   tire2
+flip    1
+item    gold
+coords  785 405
+at      0
+
+#---------------------------
+
+spawn   tire1
+flip    1
+coords  610 310 150
+at      0
+
+spawn   tire1
+flip    1
+coords  665 330 150
+at      0
+
+spawn   tire1
+flip    1
+item    1up
+coords  690 350 150
+at      0
+
+spawn   tire1
+flip    1
+coords  705 370 150
+at      0
+
+spawn   tire1
+flip    1
+coords  725 390 150
+at      0
+
+spawn   tire1
+flip    1
+coords  745 410 150
+at      0
+
+#------------------
+
+
+spawn   barrel
+flip    1
+item    money2
+coords  260 320
+at      0
+
+spawn   barrel
+flip    1
+item    food3
+coords  330 320
+at      0
+
+spawn   barrel
+flip    1
+item    money1
+coords  1030 320
+at      0
+
+spawn   barrel
+flip    1
+item    money1
+coords  1100 320
+at      0
+
+spawn   barrel
+flip    1
+item    food1
+coords  1110 350
+at      0
+
+spawn   barrel
+flip    1
+item    diamond
+coords  1110 380
+at      0
+
+spawn   barrel
+flip    1
+item    gold
+coords  1135 400
+at      0
+
+
+#---------------------
+
+group   4 4
+at      0
+wait
+at      0
+
+spawn   ghosttime
+@script
+void main()
+{
+	setglobalvar("Kgnextday", NULL());
+	setglobalvar("challenge", NULL());
+	setglobalvar("killelle", NULL());
+	setglobalvar("cupkill", NULL());
+	setglobalvar("bn1", NULL());
+	setglobalvar("bn2", NULL());
+	setglobalvar("bn3", NULL());
+	setglobalvar("bn4", NULL());
+	setglobalvar("rsh1", NULL());
+	setglobalvar("rsh2", NULL());
+	setglobalvar("maphold1", NULL());
+	setglobalvar("maphold2", NULL());
+	setglobalvar("maphold3", NULL());
+}
+@end_script
+health	5
+coords  30 325
+at      0
+
+spawn   jay
+health  150
+coords  510 320
+at      0
+
+spawn   randy
+health  150
+aggression 100
+coords  520 340
+at      0
+
+spawn   thong
+health  150
+coords  520 360
+at      0
+
+2pspawn   butterbean
+health  300
+aggression 100
+item    money1
+coords  530 380
+at      0
+
+3pspawn   bash
+health  380
+aggression 100
+map     2
+coords  560 390
+at      0
+
+spawn   fox
+health  380
+aggression 100
+item    apple
+map     2
+coords  550 390
+at      0
+
+2pspawn   jay
+health  150
+map     1
+coords  510 320
+at      0
+
+spawn   thong
+health  150
+aggression 100
+map     1
+coords  540 360
+at      0
+
+
+#-----------------------
+
+
+group   3 3
+at      250
+wait
+at      250
+
+
+spawn   rider1b
+health  230
+coords  550 340
+at      250
+
+spawn   rider2b
+flip    1
+health  160
+item    food2
+coords  -280 360
+at      250
+
+spawn   rider3b
+flip    1
+health  160
+coords  550 380
+at      250
+
+spawn   rider4b
+flip    1
+health  200
+coords  -280 380
+at      250
+
+spawn   rider1b
+health  260
+coords  550 340
+at      250
+
+spawn   rider2b
+flip    1
+health  160
+item    money2
+coords  -280 360
+at      250
+
+spawn   rider3b
+flip    1
+health  160
+coords  550 380
+at      250
+
+spawn   rider4b
+flip    1
+health  200
+item    food5
+coords  -280 380
+at      250
+
+
+#---------------------
+
+
+group   4 4
+at      580
+wait
+at      580
+
+spawn   randy
+health  150
+aggression 100
+item    moneybag
+map     1
+coords  650 380 100
+at      580
+
+spawn   thong
+health  150
+aggression 100
+map     2
+coords  630 350 100
+at      580
+
+
+spawn   jay
+health  150
+aggression 100
+map     2
+coords  -500 350
+at      580
+
+spawn   fox
+health  270
+aggression 100
+item    food6
+map     2
+coords  -550 380
+at      580
+
+spawn   dan
+health  150
+aggression 100
+map     2
+coords  650 350 100
+at      580
+
+
+2pspawn   bash
+health  350
+aggression 100
+item    diamond
+map     3
+coords  -500 350
+at      580
+
+
+spawn   butterbean
+health  320
+aggression 100
+map     3
+coords  -520 350
+at      580
+
+
+2pspawn   randy
+health  150
+aggression 100
+map     2
+coords  640 380 100
+at      580
+
+3pspawn   thong
+health  150
+aggression 100
+map     3
+coords  630 350 100
+at      580
+
+
+3pspawn   jay
+health  150
+aggression 100
+map     3
+coords  -500 350
+at      580
+
+2pspawn   butterbean
+health  320
+aggression 100
+item    food5
+map     4
+coords  -520 350
+at      580
+
+#-------------------
+
+group   2 2
+at      1070
+
+spawn   wall1
+health  5000
+coords  140 410
+at      1070
+
+spawn   griff
+health  2800
+aggression 180
+boss    1
+coords  545 330 180
+at      1070
+
+

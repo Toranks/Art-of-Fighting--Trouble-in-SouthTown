@@ -1,0 +1,60 @@
+name	 ftnksp
+type     npc
+nomove	 1 1
+health   0
+nolife   1
+falldie	 1
+lifespan 390
+animationscript data/scripts/escript.c
+
+load	ftnk1
+load	ftnksp2
+
+
+
+
+
+anim	spawn
+	loop	0
+	delay	550
+	offset	10 10
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl3/bck/emp.gif
+	delay	5
+	frame	data/bgs/beyond/lvl3/bck/emp.gif
+	@cmd	beidle
+	frame	data/bgs/beyond/lvl3/bck/emp.gif
+
+
+
+anim	idle
+	loop	1
+	delay	150
+	offset	10 10
+	bbox	0 0 0 0
+	@cmd	spawn01 "ftnk1" 0 0 5
+	frame	data/bgs/beyond/lvl3/bck/emp.gif
+	@cmd	spawnAni "ftnk1" -12 0 5 "ANI_FOLLOW1"
+	frame	data/bgs/beyond/lvl3/bck/emp.gif
+	@cmd	spawnAni "ftnk1" 12 0 5 "ANI_FOLLOW2"
+	frame	data/bgs/beyond/lvl3/bck/emp.gif
+
+
+
+anim	death
+	loop	0
+	delay	10
+	offset	10 10
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl3/bck/emp.gif
+	@cmd	spawn01 "ftnksp2" 0 0 0
+	frame	data/bgs/beyond/lvl3/bck/emp.gif
+	frame	data/bgs/beyond/lvl3/bck/emp.gif
+	@cmd	suicide
+	frame	data/bgs/beyond/lvl3/bck/emp.gif
+
+
+
+		
+#|edited by openBor Stats v 0.53
+		

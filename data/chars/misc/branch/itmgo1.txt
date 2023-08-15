@@ -1,0 +1,99 @@
+name	itmgo1
+type	none
+subject_to_wall 0
+subject_to_platform 0
+subject_to_hole 0
+shadow	0
+offscreenkill 	10000
+hostile player
+
+animationscript data/scripts/escript.c
+
+palette	none
+
+anim	idle
+@script
+    void self = getlocalvar("self");
+    char Name = getentityproperty(self,"name");
+
+    if(frame==5){
+	jumptobranch(Name, 1);
+    }
+@end_script
+	loop	0
+	delay	5
+	offset	35 120
+	bbox	0 70 80 60 30
+	frame	data/chars/misc/branch/emp.gif
+	frame	data/chars/misc/branch/emp.gif
+	frame	data/chars/misc/branch/emp.gif
+	frame	data/chars/misc/branch/emp.gif
+	frame	data/chars/misc/branch/emp.gif
+	frame	data/chars/misc/branch/emp.gif
+	frame	data/chars/misc/branch/emp.gif
+	frame	data/chars/misc/branch/emp.gif
+	frame	data/chars/misc/branch/emp.gif
+
+		
+		
+anim	follow1
+	loop	1
+	delay	5
+	offset	115 200
+	bbox	0 0 0 0
+	frame	data/chars/misc/branch/exmp4.gif
+	offset	115 201
+	frame	data/chars/misc/branch/exmp4.gif
+	offset	115 202
+	frame	data/chars/misc/branch/exmp4.gif
+	offset	115 203
+	frame	data/chars/misc/branch/exmp4.gif
+	offset	115 204
+	frame	data/chars/misc/branch/exmp4.gif
+	offset	115 205
+	frame	data/chars/misc/branch/exmp5.gif
+	offset	115 204
+	frame	data/chars/misc/branch/exmp4.gif
+	offset	115 203
+	frame	data/chars/misc/branch/exmp4.gif
+	offset	115 202
+	frame	data/chars/misc/branch/exmp4.gif
+	offset	115 201
+	frame	data/chars/misc/branch/exmp4.gif
+
+
+anim	follow2
+	loop	1
+	delay	5
+	offset	5 5
+	bbox	0 0 0 0
+	frame	data/chars/misc/branch/emp.gif
+	@cmd	attack1 -50 50 300 "ANI_FOLLOW3"
+	frame	data/chars/misc/branch/emp.gif
+
+
+anim	follow3
+@script
+    void self = getlocalvar("self");
+    char Name = getentityproperty(self,"name");
+
+    if(frame==3){
+	jumptobranch(Name, 1);
+    }
+@end_script
+	loop	1
+	delay	5
+	offset	5 5
+	bbox	0 0 0 0
+	frame	data/chars/misc/branch/emp.gif
+	frame	data/chars/misc/branch/emp.gif
+	frame	data/chars/misc/branch/emp.gif
+	frame	data/chars/misc/branch/emp.gif
+	frame	data/chars/misc/branch/emp.gif
+	frame	data/chars/misc/branch/emp.gif
+	frame	data/chars/misc/branch/emp.gif
+	frame	data/chars/misc/branch/emp.gif
+
+
+
+

@@ -1,0 +1,91 @@
+name	 plrocket2
+type     none
+health   0
+speed    6
+jumpheight 1
+shadow	   0
+nolife     1
+hostile				enemy 
+candamage			enemy
+lifespan  20
+offscreenkill 	5000
+subject_to_platform 0
+subject_to_wall 0
+subject_to_obstacle 0
+animationscript data/scripts/escript.c
+
+
+load	exp5ene
+load	mseffect
+
+
+anim	follow1
+	loop	0
+	delay	3
+	offset	55 50
+	sound	data/sounds/bang.wav
+	hitfx	data/sounds/fire.wav
+	quakeframe	1 10 7
+	@cmd	spawn01 "exp5ene" 0 0 1
+	attack	25 20 60 50 100 1 1 0 10 40
+	frame	data/chars/3deterrent/damage/rocket03.gif
+	attack	0 0 0 0
+	frame	data/chars/3deterrent/damage/grdempty.gif
+	frame	data/chars/3deterrent/damage/grdempty.gif
+	@cmd	suicide
+	frame	data/chars/3deterrent/damage/grdempty.gif
+
+
+anim	attack1
+	loop	0
+	delay	3
+	offset	55 50
+	sound	data/sounds/bang.wav
+	hitfx	data/sounds/fire.wav
+	quakeframe	1 10 7
+	@cmd	spawn01 "exp5ene" 0 0 1
+	attack	25 20 60 50 100 1 1 0 10 40
+	frame	data/chars/3deterrent/damage/rocket03.gif
+	attack	0 0 0 0
+	frame	data/chars/3deterrent/damage/grdempty.gif
+	frame	data/chars/3deterrent/damage/grdempty.gif
+		
+anim	death
+	loop	0
+	delay	3
+	offset	55 50
+	sound	data/sounds/expl2.wav
+	quakeframe	1 10 7
+	@cmd	spawn01 "exp5ene" 0 0 1
+	attack	-30 -20 150 110 100 1 1 0 10 40
+	frame	data/chars/3deterrent/damage/rocket03.gif
+	attack	0 0 0 0
+	@cmd	spawn01 "mseffect" -25 25 1
+	frame	data/chars/3deterrent/damage/grdempty.gif
+		
+anim	idle
+	loop	1
+	delay	2
+	offset	55 50
+	bbox	0 0 0 0
+	followanim	1
+	followcond	1
+	@cmd	degravity 0.8
+	@cmd	spawn01 "mseffect" 0 25 1
+	frame	data/chars/3deterrent/damage/rocket03.gif
+	attack	25 20 60 50 100 1 1 0 10 40
+	frame	data/chars/3deterrent/damage/rocket04.gif
+	@cmd	spawn01 "mseffect" 0 25 1
+	frame	data/chars/3deterrent/damage/rocket03.gif
+	attack	0 0 0 0
+	frame	data/chars/3deterrent/damage/rocket04.gif
+		
+anim	spawn
+	loop	0
+	delay	3
+	offset	55 50
+	bbox	0 0 0 0
+	frame	data/chars/3deterrent/damage/rocket03.gif
+		
+#|edited by openBor Stats v 0.53
+		

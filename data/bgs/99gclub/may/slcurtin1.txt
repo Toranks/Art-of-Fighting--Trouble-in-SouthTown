@@ -1,0 +1,426 @@
+name	slcurtin1
+type	none
+hostile	player
+setlayer -10
+offscreenkill	50000
+
+animationscript data/scripts/escript.c
+
+palette	none
+
+load	elle2
+load	elle2
+load	lulcardx
+
+script	@script
+void main()
+{
+    void self = getlocalvar("self");
+	void Ani = getentityproperty(self,"animationID");
+	void frame = getentityproperty(self,"animpos");
+
+	int ellego3 = getglobalvar ("killelle");
+	if (ellego3 == 1 && Ani == openborconstant("ANI_FOLLOW2") && frame >= 19 && frame <= 25 )
+	{
+		updateframe(self, 28);
+	}
+
+}
+@end_script
+
+
+#------------//----CURTIN-LEFT----//-----
+anim	idle
+@script
+	void self = getlocalvar("self");
+
+	if (frame == 1)
+	{
+	setglobalvar ("killelle", 2);
+	}
+@end_script
+	loop	0
+	delay	10
+	offset	145 160
+	frame	data/bgs/99gclub/may/empty.gif
+	frame	data/bgs/99gclub/may/empty.gif
+	frame	data/bgs/99gclub/may/empty.gif
+	@cmd	spawnAni3 "elle2" 470 0 145 "ANI_IDLE"
+	@cmd	spawnAni3 "elle2" 560 0 145 "ANI_FOLLOW1"
+	@cmd	spawnAni3 "elle2" 650 0 145 "ANI_FOLLOW2"
+	frame	data/bgs/99gclub/may/empty.gif
+	sound	data/sounds/curtin1.wav
+	frame	data/bgs/99gclub/may/empty.gif
+	frame	data/bgs/99gclub/may/curtin1.gif
+	delay	120
+	@cmd	dasher 0.7 0 0
+	frame	data/bgs/99gclub/may/curtin1.gif
+	@cmd	stop
+	frame	data/bgs/99gclub/may/curtin1.gif
+	delay	5
+	frame	data/bgs/99gclub/may/curtin1.gif
+	drawmethod	tintmode 2
+	drawmethod	tintcolor 250_0_0
+	frame	data/bgs/99gclub/may/curtin1.gif #9
+	nodrawmethod
+	frame	data/bgs/99gclub/may/curtin1.gif
+	drawmethod	tintmode 2
+	drawmethod	tintcolor 100_0_0
+	frame	data/bgs/99gclub/may/curtin1.gif
+	nodrawmethod
+	frame	data/bgs/99gclub/may/curtin1.gif
+	@cmd	looper 9 15
+	frame	data/bgs/99gclub/may/curtin1.gif
+	delay	12
+	frame	data/bgs/99gclub/may/curtin1.gif #14
+	sound	data/sounds/curtin1.wav
+	frame	data/bgs/99gclub/may/curtin1.gif
+	delay	120
+	@cmd	dasher -0.7 0 0
+	frame	data/bgs/99gclub/may/curtin1.gif
+	delay	20
+	@cmd	stop
+	frame	data/bgs/99gclub/may/curtin1.gif
+	frame	data/bgs/99gclub/may/curtin1.gif
+	frame	data/bgs/99gclub/may/curtin1.gif
+	frame	data/bgs/99gclub/may/curtin1.gif
+	frame	data/bgs/99gclub/may/curtin1.gif
+	@cmd	suicide
+	frame	data/bgs/99gclub/may/curtin1.gif
+
+#------------//----CURTIN-RIGHT--//--hand-spawn--//-----
+anim	follow2
+@script
+	void self = getlocalvar("self");
+	int p1 = getplayerproperty(0, "entity");
+	int p2 = getplayerproperty(1, "entity");
+	int p3 = getplayerproperty(2, "entity");
+
+	if (frame == 1 && p1 != NULL()){
+	changeentityproperty(p1,"noaicontrol",1);
+	changeentityproperty(p1, "velocity", 0, 0, 0);
+	changeentityproperty(p1, "position", 500, 460, 0);
+	setidle(p1, openborconstant("ANI_IDLE"));
+	changeopenborvariant("xpos", 315);
+	}
+	if (frame == 1 && p2 != NULL()){
+	changeentityproperty(p2,"noaicontrol",1);
+	changeentityproperty(p2, "velocity", 0, 0, 0);
+	changeentityproperty(p2, "position", 500, 460, 0);
+	setidle(p2, openborconstant("ANI_IDLE"));
+	changeopenborvariant("xpos", 315);
+	}
+	if (frame == 1 && p3 != NULL()){
+	changeentityproperty(p3,"noaicontrol",1);
+	changeentityproperty(p3, "velocity", 0, 0, 0);
+	changeentityproperty(p3, "position", 500, 460, 0);
+	setidle(p3, openborconstant("ANI_IDLE"));
+	changeopenborvariant("xpos", 315);
+	}
+@end_script
+	loop	1 23 25
+	delay	10
+	offset	145 160
+	frame	data/bgs/99gclub/may/empty.gif
+	frame	data/bgs/99gclub/may/empty.gif
+	frame	data/bgs/99gclub/may/empty.gif
+	frame	data/bgs/99gclub/may/empty.gif
+	@cmd	flip
+	sound	data/sounds/curtin1.wav
+	frame	data/bgs/99gclub/may/empty.gif
+	frame	data/bgs/99gclub/may/curtin1.gif
+	delay	120
+	@cmd	dasher 0.7 0 0
+	frame	data/bgs/99gclub/may/curtin1.gif
+	@cmd	stop
+	frame	data/bgs/99gclub/may/curtin1.gif
+	delay	5
+	frame	data/bgs/99gclub/may/curtin1.gif
+	drawmethod	tintmode 2
+	drawmethod	tintcolor 250_0_0
+	frame	data/bgs/99gclub/may/curtin1.gif #9
+	nodrawmethod
+	frame	data/bgs/99gclub/may/curtin1.gif
+	drawmethod	tintmode 2
+	drawmethod	tintcolor 100_0_0
+	frame	data/bgs/99gclub/may/curtin1.gif
+	nodrawmethod
+	frame	data/bgs/99gclub/may/curtin1.gif
+	@cmd	looper 9 15
+	frame	data/bgs/99gclub/may/curtin1.gif
+	delay	12
+	frame	data/bgs/99gclub/may/curtin1.gif #14
+	sound	data/sounds/curtin1.wav
+	frame	data/bgs/99gclub/may/curtin1.gif
+	delay	120
+	@cmd	dasher -0.7 0 0
+	frame	data/bgs/99gclub/may/curtin1.gif
+	delay	20
+	@cmd	stop
+	frame	data/bgs/99gclub/may/curtin1.gif #17
+	frame	data/bgs/99gclub/may/curtin1.gif #18
+	frame	data/bgs/99gclub/may/curtin1.gif #19
+	frame	data/bgs/99gclub/may/curtin1.gif
+	@cmd	spawnGun11 "cupgm" 240 0 150 5 "ANI_FOLLOW12"
+	frame	data/bgs/99gclub/may/curtin1.gif
+	delay	10
+	frame	data/bgs/99gclub/may/empty.gif
+	frame	data/bgs/99gclub/may/empty.gif #23
+	frame	data/bgs/99gclub/may/empty.gif
+	frame	data/bgs/99gclub/may/empty.gif
+	frame	data/bgs/99gclub/may/empty.gif
+	delay	10
+	frame	data/bgs/99gclub/may/empty.gif
+	frame	data/bgs/99gclub/may/empty.gif
+	frame	data/bgs/99gclub/may/empty.gif
+	@cmd	killgun 5 1
+	frame	data/bgs/99gclub/may/empty.gif
+	frame	data/bgs/99gclub/may/empty.gif
+	@cmd	suicide
+	frame	data/bgs/99gclub/may/empty.gif
+	frame	data/bgs/99gclub/may/empty.gif
+	frame	data/bgs/99gclub/may/empty.gif
+	frame	data/bgs/99gclub/may/empty.gif
+	frame	data/bgs/99gclub/may/empty.gif #35
+	frame	data/bgs/99gclub/may/empty.gif
+
+
+
+
+
+#------------//----CURTIN-LEFT-kill-elle--//-----
+anim	follow10
+@script
+	void self = getlocalvar("self");
+
+	if (frame == 13)
+	{
+	setglobalvar ("killelle", 1);
+	}
+@end_script
+	loop	0
+	delay	300
+	offset	145 160
+	frame	data/bgs/99gclub/may/empty.gif
+	delay	10
+	frame	data/bgs/99gclub/may/empty.gif
+	frame	data/bgs/99gclub/may/empty.gif
+	sound	data/sounds/curtin1.wav
+	frame	data/bgs/99gclub/may/empty.gif
+	frame	data/bgs/99gclub/may/curtin1.gif
+	delay	120
+	@cmd	dasher 0.7 0 0
+	frame	data/bgs/99gclub/may/curtin1.gif
+	@cmd	stop
+	frame	data/bgs/99gclub/may/curtin1.gif
+	delay	5
+	frame	data/bgs/99gclub/may/curtin1.gif
+	drawmethod	tintmode 2
+	drawmethod	tintcolor 250_0_0
+	frame	data/bgs/99gclub/may/curtin1.gif #8
+	nodrawmethod
+	frame	data/bgs/99gclub/may/curtin1.gif
+	drawmethod	tintmode 2
+	drawmethod	tintcolor 100_0_0
+	frame	data/bgs/99gclub/may/curtin1.gif
+	nodrawmethod
+	frame	data/bgs/99gclub/may/curtin1.gif
+	@cmd	looper 8 5
+	frame	data/bgs/99gclub/may/curtin1.gif
+	delay	12
+	frame	data/bgs/99gclub/may/curtin1.gif
+	sound	data/sounds/curtin1.wav
+	frame	data/bgs/99gclub/may/curtin1.gif
+	delay	120
+	@cmd	dasher -0.7 0 0
+	frame	data/bgs/99gclub/may/curtin1.gif
+	delay	20
+	@cmd	stop
+	frame	data/bgs/99gclub/may/curtin1.gif
+	frame	data/bgs/99gclub/may/curtin1.gif
+	frame	data/bgs/99gclub/may/curtin1.gif
+	frame	data/bgs/99gclub/may/curtin1.gif
+	frame	data/bgs/99gclub/may/curtin1.gif
+	@cmd	suicide
+	frame	data/bgs/99gclub/may/curtin1.gif
+
+#------------//----CURTIN-RIGHT--//--free-player--//-----
+anim	follow11
+@script
+	void self = getlocalvar("self");
+	int p1 = getplayerproperty(0, "entity");
+	int p2 = getplayerproperty(1, "entity");
+	int p3 = getplayerproperty(2, "entity");
+
+	if (frame == 18)
+	{
+	changeopenborvariant("nojoin", 0);
+	changelevelproperty("scrollspeed", 1);
+	}
+	if (frame == 19 && p1 != NULL()){
+	changeentityproperty(p1,"noaicontrol",0);
+	changeentityproperty(p1, "position", 500, 200, 230);
+	}
+	if (frame == 19 && p2 != NULL()){
+	changeentityproperty(p2,"noaicontrol",0);
+	changeentityproperty(p2, "position", 550, 200, 230);
+	}
+	if (frame == 19 && p3 != NULL()){
+	changeentityproperty(p3,"noaicontrol",0);
+	changeentityproperty(p3, "position", 600, 200, 230);
+	}
+@end_script
+	loop	0
+	delay	300
+	offset	145 160
+	frame	data/bgs/99gclub/may/empty.gif
+	delay	10
+	frame	data/bgs/99gclub/may/empty.gif
+	frame	data/bgs/99gclub/may/empty.gif
+	@cmd	flip
+	sound	data/sounds/curtin1.wav
+	frame	data/bgs/99gclub/may/empty.gif
+	frame	data/bgs/99gclub/may/curtin1.gif
+	delay	120
+	@cmd	dasher 0.7 0 0
+	frame	data/bgs/99gclub/may/curtin1.gif
+	@cmd	stop
+	frame	data/bgs/99gclub/may/curtin1.gif
+	delay	5
+	frame	data/bgs/99gclub/may/curtin1.gif
+	drawmethod	tintmode 2
+	drawmethod	tintcolor 250_0_0
+	frame	data/bgs/99gclub/may/curtin1.gif #8
+	nodrawmethod
+	frame	data/bgs/99gclub/may/curtin1.gif
+	drawmethod	tintmode 2
+	drawmethod	tintcolor 100_0_0
+	frame	data/bgs/99gclub/may/curtin1.gif
+	nodrawmethod
+	frame	data/bgs/99gclub/may/curtin1.gif
+	@cmd	looper 8 5
+	frame	data/bgs/99gclub/may/curtin1.gif
+	delay	12
+	frame	data/bgs/99gclub/may/curtin1.gif
+	sound	data/sounds/curtin1.wav
+	frame	data/bgs/99gclub/may/curtin1.gif #14
+	delay	120
+	@cmd	dasher -0.7 0 0
+	frame	data/bgs/99gclub/may/curtin1.gif
+	delay	20
+	@cmd	stop
+	frame	data/bgs/99gclub/may/curtin1.gif
+	frame	data/bgs/99gclub/may/curtin1.gif
+	frame	data/bgs/99gclub/may/curtin1.gif #18
+	frame	data/bgs/99gclub/may/curtin1.gif
+	frame	data/bgs/99gclub/may/curtin1.gif
+	@cmd	suicide
+	frame	data/bgs/99gclub/may/curtin1.gif
+
+
+
+
+
+#------------//----CURTIN-RANDOM-ELLE---//-----
+
+anim	follow3
+@script
+void self = getlocalvar("self");
+if (frame == 1)
+{
+	int  r = rand()%15+15;
+	if (r >= 0 && r < 10)
+	{ 
+ 	setglobalvar ("ellerad1", 1);
+	} 
+	else if (r >= 10 && r < 20)
+	{
+	setglobalvar ("ellerad1", 2);
+	}
+	else if (r >= 20)
+	{
+	setglobalvar ("ellerad1", 3);
+	}
+}
+@end_script
+	loop	1
+	delay	12
+	offset	30 70
+	bbox	0 0 0 0
+	frame	data/bgs/99gclub/may/empty.gif
+	frame	data/bgs/99gclub/may/empty.gif
+	frame	data/bgs/99gclub/may/empty.gif
+
+#------------//----CURTIN-DRESS-RANDOM---//-----
+
+anim	follow4
+@script
+void self = getlocalvar("self");
+if (frame == 1)
+{
+	int  r = rand()%15 + 15;
+	if (r >= 0 && r < 5)
+	{ 
+ 	setglobalvar ("elledrss1", 1);
+	}
+	else if (r >= 5 && r < 10)
+	{ 
+	setglobalvar ("elledrss1", 2);
+	}
+	else if (r >= 15 && r < 20)
+	{ 
+	setglobalvar ("elledrss1", 3);
+	}
+	else if (r >= 20 && r < 25)
+	{ 
+	setglobalvar ("elledrss1", 4);
+	}
+	else if (r >= 25 )
+	{
+	setglobalvar ("elledrss1", 5);
+	}
+}
+@end_script
+	loop	1
+	delay	20
+	offset	30 70
+	frame	data/bgs/99gclub/may/empty.gif
+	frame	data/bgs/99gclub/may/empty.gif
+	frame	data/bgs/99gclub/may/empty.gif
+
+
+#------------//--final-map--//-----------------
+
+
+#------------//----CURTIN-DRESS-RANDOM---//-----
+
+anim	follow5
+@script
+void self = getlocalvar("self");
+int  fmp = getglobalvar("map");
+
+if (frame == 0 && fmp == 20)
+{
+changeentityproperty(self, "animation", openborconstant("ANI_FOLLOW6"));
+}
+@end_script
+	loop	0
+	delay	5
+	offset	30 70
+	frame	data/bgs/99gclub/may/empty.gif
+	frame	data/bgs/99gclub/may/empty.gif
+	frame	data/bgs/99gclub/may/empty.gif
+	@cmd	suicide
+	frame	data/bgs/99gclub/may/empty.gif
+
+
+anim	follow6
+	loop	0
+	delay	5
+	offset	30 70
+	frame	data/bgs/99gclub/may/empty.gif
+	@cmd	spawn01 "lulcardx" 1 1 1
+	frame	data/bgs/99gclub/may/empty.gif
+	frame	data/bgs/99gclub/may/empty.gif
+	@cmd	suicide
+	frame	data/bgs/99gclub/may/empty.gif

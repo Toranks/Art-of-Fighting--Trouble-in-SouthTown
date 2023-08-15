@@ -1,0 +1,1139 @@
+name          bub
+type          enemy
+subtype	      chase
+running	      26 3 3 1 0
+health        100
+speed         12
+jumpheight    4
+throw         5 2
+throwdamage   18
+blockodds     1
+nopassiveblock 1
+paingrab      1
+thold         80
+escapehits    3
+nolife        1
+falldie	      1
+nodieblink    3
+gfxshadow     1
+dust          dust
+candamage	player npc
+projectilehit enemy obstacle
+icon		data/chars/3bub/icon.gif
+diesound      data/sounds/die10.wav
+animationscript data/scripts/escript.c
+
+palette	data/chars/3bub/map1.gif
+
+
+lifebarstatus 300 10 0 1 0 2 5 
+lifeposition 115  240
+nameposition -200 -200
+iconposition 50 227
+nolife 1
+
+
+load	fnbubtlk
+
+
+script	@script
+void main()
+{
+   	void self = getlocalvar("self");
+	int x = getentityproperty(self, "x");
+	int XPos = openborvariant("xpos");
+	int Screen = openborvariant("hResolution");
+	int hp = getentityproperty(self, "health");
+    	void anim = getentityproperty(self,"animationID");
+
+if(anim != openborconstant("ANI_DIE")){
+
+   if( hp <=0 && x >= XPos+Screen-60) // right
+   	{
+	tossentity(self, 1, -2, 0);
+   	}
+   else if( hp <=0 && x <= XPos+60) // left
+   	{
+	tossentity(self, 1, 2, 0);
+   	}
+  }
+}
+@end_script
+
+
+anim	attack1
+	range	110 150
+	loop	0
+	delay	3
+	offset	125 215
+	bbox	95 97 50 100
+	followanim	1
+	followcond	1
+	move	6
+	hitfx	data/sounds/beat1.wav
+	frame	data/chars/3bub/a100.gif
+	sound	data/sounds/bguyc04.wav
+	frame	data/chars/3bub/a100.gif
+	frame	data/chars/3bub/a100.gif
+	frame	data/chars/3bub/a101.gif
+	frame	data/chars/3bub/a101.gif
+	frame	data/chars/3bub/a101.gif
+	move	0
+	delay	15
+	attack3	113 120 110 50 12 0 0 0 45 0
+	frame	data/chars/3bub/a102.gif
+	attack3	0 0 0 0
+	delay	17
+	frame	data/chars/3bub/a103.gif
+		
+anim	attack2
+	range	0 80
+	rangez	-15 15
+	loop	0
+	delay	3
+	offset	125 215
+	bbox	95 97 50 100
+	followanim	5
+	followcond	1
+	move	6
+	hitfx	data/sounds/grab.wav
+	attack	105 100 85 55 0 0 1 1 10 15
+	frame	data/chars/3bub/grab00.gif
+	frame	data/chars/3bub/grab00.gif
+	frame	data/chars/3bub/grab00.gif
+	frame	data/chars/3bub/grab00.gif
+	frame	data/chars/3bub/grab00.gif
+	frame	data/chars/3bub/grab00.gif
+	frame	data/chars/3bub/grab00.gif
+	attack	0 0 0 0
+	move	0
+	delay	15
+	frame	data/chars/3bub/grab01.gif
+		
+anim	block
+	loop	0
+	delay	2
+	offset	125 215
+	bbox	95 97 50 100
+	fastattack	1
+	move	-6
+	frame	data/chars/3bub/block01.gif
+	frame	data/chars/3bub/block01.gif
+	frame	data/chars/3bub/block01.gif
+	frame	data/chars/3bub/block01.gif
+	frame	data/chars/3bub/block01.gif
+	frame	data/chars/3bub/block01.gif
+	move	0
+	delay	40
+	frame	data/chars/3bub/block01.gif
+	delay	5
+	move	5
+	frame	data/chars/3bub/block02.gif
+	frame	data/chars/3bub/block03.gif
+	frame	data/chars/3bub/block04.gif
+	attack3	113 95 105 50 2 1 0 0 45 0
+	dropv	2 1
+	frame	data/chars/3bub/block05.gif
+	attack3	0 0 0 0
+	frame	data/chars/3bub/block06.gif
+	frame	data/chars/3bub/block07.gif
+	attack3	113 95 105 50 2 1 0 0 45 0
+	dropv	2 1
+	frame	data/chars/3bub/block08.gif
+	attack3	0 0 0 0
+	frame	data/chars/3bub/block09.gif
+	frame	data/chars/3bub/block10.gif
+	frame	data/chars/3bub/block04.gif
+	attack3	113 95 105 50 2 1 0 0 45 0
+	dropv	2 1
+	frame	data/chars/3bub/block05.gif
+	attack	0 0 0 0
+	frame	data/chars/3bub/block06.gif
+	frame	data/chars/3bub/block07.gif
+	attack3	113 95 105 50 2 1 0 0 45 0
+	dropv	2 1
+	frame	data/chars/3bub/block08.gif
+	attack3	0 0 0 0
+	frame	data/chars/3bub/block09.gif
+	frame	data/chars/3bub/block10.gif
+	frame	data/chars/3bub/block04.gif
+	attack3	113 95 105 50 2 1 0 0 45 0
+	dropv	2 1
+	frame	data/chars/3bub/block05.gif
+	attack	0 0 0 0
+	frame	data/chars/3bub/block06.gif
+	hitflash	flashscreen1
+	frame	data/chars/3bub/block07.gif
+	attack3	113 60 105 70 2 1 0 0 45 0
+	dropv	4 2
+	frame	data/chars/3bub/block08.gif
+	attack3	0 0 0 0
+	frame	data/chars/3bub/block09.gif
+	frame	data/chars/3bub/block10.gif
+	move	0
+	delay	12
+	frame	data/chars/3bub/block11.gif
+	frame	data/chars/3bub/block12.gif
+		
+anim	burn
+	loop	0
+	delay	25
+	offset	125 215
+	bbox	0 0 0 0
+	landframe	3
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 200_50_0
+	@cmd	spawnbind "burn1" 1 1 1
+	@cmd	spawnbind "burn2" 1 1 1
+	@cmd	spawnbind "burn3" 1 1 1
+	attack	91 98 30 45 5 1 0 0 13 0
+	frame	data/chars/3bub/fall1.gif
+	delay	15
+	attack	72 130 50 25 5 1 0 0 13 0
+	frame	data/chars/3bub/fall2.gif
+	delay	500
+	frame	data/chars/3bub/fall3.gif
+	attack	0 0 0 0 0 0 0 0 0 0
+	bbox	70 195 85 15
+	delay	15
+	frame	data/chars/3bub/fall4.gif
+	frame	data/chars/3bub/fall5.gif
+	frame	data/chars/3bub/fall4.gif
+		
+anim	death
+	loop	0
+	delay	5
+	offset	125 215
+	bbox	0 0 0 0
+	jumpframe 0 4 1  
+	landframe 4 dust
+	frame	data/chars/3bub/fall1.gif
+	@cmd	changeopenborvariant "slowmotion" 1
+	@cmd	damage_all_enemies 600 1 1
+	delay	25
+	frame	data/chars/3bub/fall1.gif
+	delay	15
+	frame	data/chars/3bub/fall2.gif
+	delay	500
+	frame	data/chars/3bub/fall3.gif
+	delay	15
+	frame	data/chars/3bub/fall4.gif
+	frame	data/chars/3bub/fall5.gif
+	frame	data/chars/3bub/fall4.gif
+	delay	6
+	frame	data/chars/3bub/fall4.gif
+	frame	data/chars/3bub/fall5.gif
+	frame	data/chars/3bub/fall4.gif
+	frame	data/chars/3bub/fall5.gif
+	frame	data/chars/3bub/fall4.gif
+	frame	data/chars/3bub/fall5.gif
+	frame	data/chars/3bub/fall4.gif
+	frame	data/chars/3bub/fall5.gif
+	delay	35
+	frame	data/chars/3bub/fall4.gif
+	delay	12
+	frame	data/chars/3bub/rise1.gif
+	frame	data/chars/3bub/rise2.gif
+	frame	data/chars/3bub/rise1.gif
+	frame	data/chars/3bub/fall4.gif
+	frame	data/chars/3bub/rise1.gif
+	frame	data/chars/3bub/rise2.gif
+	frame	data/chars/3bub/rise3.gif
+	frame	data/chars/3bub/rise4.gif
+	frame	data/chars/3bub/run01.gif
+	delay	30
+	frame	data/chars/3bub/pain0.gif
+	delay	12
+	frame	data/chars/3bub/grab01.gif
+	frame	data/chars/3bub/grab02.gif
+	frame	data/chars/3bub/grab03.gif
+	delay	5
+	frame	data/chars/3bub/grab04.gif
+	frame	data/chars/3bub/grab05.gif
+	frame	data/chars/3bub/grab04.gif
+	frame	data/chars/3bub/grab05.gif
+	frame	data/chars/3bub/grab04.gif
+	frame	data/chars/3bub/grab05.gif
+	frame	data/chars/3bub/grab04.gif
+	frame	data/chars/3bub/grab05.gif
+	delay	12
+	frame	data/chars/3bub/pain0.gif
+	sound	data/sounds/bguyc06.wav
+	frame	data/chars/3bub/pain1.gif
+	frame	data/chars/3bub/pain0.gif
+	frame	data/chars/3bub/d02.gif
+	frame	data/chars/3bub/d03.gif
+	frame	data/chars/3bub/d04.gif
+	frame	data/chars/3bub/d05.gif
+	frame	data/chars/3bub/d06.gif
+	frame	data/chars/3bub/d07.gif
+	delay	5
+	sound	data/sounds/fall2.wav
+	@cmd	spawn01 "dust" 1 1 1
+	frame	data/chars/3bub/fall4.gif
+	frame	data/chars/3bub/fall5.gif
+	frame	data/chars/3bub/fall4.gif
+	frame	data/chars/3bub/fall5.gif
+	delay	30
+	frame	data/chars/3bub/fall4.gif
+	delay	5
+	@cmd	changeopenborvariant "slowmotion" 0
+	frame	data/chars/3bub/fall4.gif
+		
+anim	fall
+	loop	0
+	delay	25
+	offset	125 215
+	bbox	0 0 0 0
+	landframe	3
+	attack	91 98 30 45 5 1 0 0 13 0
+	frame	data/chars/3bub/fall1.gif
+	delay	15
+	attack	72 130 50 25 5 1 0 0 13 0
+	frame	data/chars/3bub/fall2.gif
+	delay	500
+	frame	data/chars/3bub/fall3.gif
+	attack	0 0 0 0 0 0 0 0 0 0
+	bbox	70 195 85 15
+	delay	15
+	frame	data/chars/3bub/fall4.gif
+	frame	data/chars/3bub/fall5.gif
+	frame	data/chars/3bub/fall4.gif
+		
+anim	fall10
+	loop	0
+	delay	10
+	offset	125 215
+	bbox	80 80 50 75
+	landframe	4
+	attack	85 88 30 50 5 1 0 0 13 0
+	frame	data/chars/3bub/pain6.gif
+	delay	40
+	frame	data/chars/3bub/pain7.gif
+	delay	30
+	bbox	71 125 63 30
+	attack	64 125 45 25 5 1 0 0 13 0
+	frame	data/chars/3bub/fall2.gif
+	delay	300
+	bbox	77 145 67 35
+	attack	0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/3bub/fall3.gif
+	bbox	70 190 85 15
+	delay	15
+	frame	data/chars/3bub/fall4.gif
+	frame	data/chars/3bub/fall5.gif
+	frame	data/chars/3bub/fall4.gif
+		
+anim	fall11
+	loop	0
+	delay	20
+	offset	125 215
+	bbox	65 185 115 30	
+	frame	data/chars/3bub/pain12.gif
+	delay	35
+	frame	data/chars/3bub/fall4.gif
+		
+anim	fall2
+	loop	0
+	delay	30
+	offset	125 215
+	bbox	0 0 0 0
+	landframe	3
+	attack	85 90 35 45 5 1 0 0 13 0
+	frame	data/chars/3bub/pain7.gif
+	delay	10
+	attack	75 125 55 25 5 1 0 0 13 0
+	frame	data/chars/3bub/fall2.gif
+	attack	0 0 0 0
+	delay	300
+	frame	data/chars/3bub/fall3.gif
+	delay	15
+	frame	data/chars/3bub/fall4.gif
+	frame	data/chars/3bub/fall5.gif
+	frame	data/chars/3bub/fall4.gif
+		
+anim	fall4
+	loop	0
+	delay	6
+	offset	125 215
+	bbox	0 0 0 0
+	jumpframe	0 1.2 1.5
+	frame	data/chars/3bub/pain8.gif
+	frame	data/chars/3bub/pain9.gif
+	frame	data/chars/3bub/pain10.gif
+	@cmd	leaper 0 0.2 0
+	frame	data/chars/3bub/pain11.gif
+	frame	data/chars/3bub/fall4.gif
+	frame	data/chars/3bub/fall5.gif
+	bbox	58 175 95 15
+	frame	data/chars/3bub/fall4.gif
+		
+anim	fall7
+	delay	1000
+	offset	105 130
+	frame	data/chars/3bub/slamck0.gif
+	offset	100 110
+	frame	data/chars/3bub/slamck1.gif
+	offset	106 130
+	frame	data/chars/3bub/slamck2.gif
+	offset	115 125
+	frame	data/chars/3bub/slamck3.gif
+	offset	125 125
+	frame	data/chars/3bub/slamck4.gif
+	offset	108 122
+	frame	data/chars/3bub/slamck5.gif
+	offset	106 155
+	frame	data/chars/3bub/slamck6.gif
+	offset	125 140
+	frame	data/chars/3bub/slamck7.gif
+	offset	120 105
+	frame	data/chars/3bub/slamck8.gif
+	offset	100 130
+	frame	data/chars/3bub/slamck9.gif
+	offset	105 130
+	frame	data/chars/3bub/slamck10.gif
+	offset	105 130
+	frame	data/chars/3bub/slamck11.gif
+	offset	115 125
+	frame	data/chars/3bub/slamck12.gif
+	offset	115 125
+	frame	data/chars/3bub/slamck13.gif
+	offset	115 125
+	frame	data/chars/3bub/slamck14.gif
+	offset	115 125
+	frame	data/chars/3bub/slamck15.gif
+		
+anim	fall9
+	loop	0
+	delay	10
+	offset	125 200
+	bbox	0 0 0 0
+	quakeframe	2 5 5
+	landframe	2 dust
+	attack	90 95 35 45 5 1 0 0 13 0
+	frame	data/chars/3bub/fall1.gif
+	delay	350
+	offset	125 195
+	attack	80 125 45 35 5 1 0 0 13 0
+	frame	data/chars/3bub/fall2.gif
+	delay	2
+	offset	125 200
+	move	-4
+	frame	data/chars/3bub/fall3.gif
+	frame	data/chars/3bub/fall3.gif
+	attack	0 0 0 0
+	frame	data/chars/3bub/fall3.gif
+	@cmd	looper 3 5
+	offset	125 215
+	move	-3
+	frame	data/chars/3bub/fall4.gif
+	frame	data/chars/3bub/fall4.gif
+	frame	data/chars/3bub/fall4.gif
+	@cmd	looper 6 4
+	move	-2
+	frame	data/chars/3bub/fall5.gif
+	frame	data/chars/3bub/fall5.gif
+	frame	data/chars/3bub/fall5.gif
+	loop	0
+	delay	15
+	move	0
+	bbox	58 175 100 15
+	frame	data/chars/3bub/fall4.gif
+		
+anim	follow1
+	loop	0
+	delay	12
+	offset	125 215
+	bbox	95 97 50 100
+	fastattack	1
+	hitfx	data/sounds/beat1.wav
+	frame	data/chars/3bub/a102.gif
+	frame	data/chars/3bub/a103.gif
+	delay	3
+	move	7
+	frame	data/chars/3bub/a104.gif
+	frame	data/chars/3bub/a104.gif
+	frame	data/chars/3bub/a104.gif
+	frame	data/chars/3bub/a105.gif
+	frame	data/chars/3bub/a105.gif
+	frame	data/chars/3bub/a105.gif
+	attack2	90 125 105 50 15 0 0 0 45 0
+	frame	data/chars/3bub/a106.gif
+	frame	data/chars/3bub/a106.gif
+	frame	data/chars/3bub/a106.gif
+	frame	data/chars/3bub/a106.gif
+	attack2	0 0 0 0
+	move	0
+	delay	12
+	frame	data/chars/3bub/a107.gif
+	frame	data/chars/3bub/a108.gif
+	delay	3
+	frame	data/chars/3bub/a109.gif
+	attack	113 95 105 50 7 0 1 0 45 0
+	frame	data/chars/3bub/a110.gif
+	attack	0 0 0 0
+	frame	data/chars/3bub/a111.gif
+	frame	data/chars/3bub/a109.gif
+	attack2	113 95 105 50 7 0 1 0 45 0
+	frame	data/chars/3bub/a110.gif
+	attack2	0 0 0 0
+	frame	data/chars/3bub/a111.gif
+	frame	data/chars/3bub/a109.gif
+	attack	113 95 105 50 7 0 1 0 45 0
+	frame	data/chars/3bub/a110.gif
+	attack	0 0 0 0
+	frame	data/chars/3bub/a111.gif
+	frame	data/chars/3bub/a109.gif
+	attack2	113 95 105 50 17 1 1 0 45 0
+	dropv	2 5
+	frame	data/chars/3bub/a110.gif
+	attack2	0 0 0 0
+	frame	data/chars/3bub/a111.gif
+	delay	15
+	frame	data/chars/3bub/a111.gif
+	frame	data/chars/3bub/a112.gif
+		
+anim	follow2
+	loop	0
+	delay	14
+	offset	125 215
+	bbox	0 0 0 0
+	hitfx	data/sounds/beat4.wav
+	hitflash	flashscreen1
+	frame	data/chars/3bub/c01.gif
+	frame	data/chars/3bub/c02.gif
+	attack	113 103 118 50 25 1 1 0 45 0
+	dropv	2 5
+	frame	data/chars/3bub/c03.gif
+	attack	0 0 0 0
+	delay	24
+	frame	data/chars/3bub/c04.gif
+		
+anim	follow4
+	loop	0
+	delay	30
+	offset	125 215
+	bbox	0 0 0 0
+	jumpframe	0 3 3
+	landframe	2 dust
+	quakeframe	2 3 5
+	sound	data/sounds/bguyc05.wav
+	@cmd	slamstart2
+	@cmd	position 11 75 50 -1 -1
+	frame	data/chars/3bub/d03.gif
+	delay	90
+	@cmd	position 0 75 20 1 -1
+	frame	data/chars/3bub/d04.gif
+	delay	14
+	@cmd	spawngrab "grab1" 200 200 450 135 2 8
+	sound	data/sounds/fall2.wav
+	@cmd	dasher 2 0 0
+	@cmd	spawn01 "dust" 90 0 1
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 18 35 10 1 1
+	frame	data/chars/3bub/d05.gif
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 3 15 20 1 -1
+	frame	data/chars/3bub/d06.gif
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 12 -5 55 1 -1
+	frame	data/chars/3bub/d07.gif
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 11 35 25 1 -1
+	frame	data/chars/3bub/d08.gif
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 2 45 20 1 -1
+	frame	data/chars/3bub/d09.gif
+	@cmd	stop
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 9 45 10 1 1
+	frame	data/chars/3bub/d10.gif
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 9 45 10 1 1
+	frame	data/chars/3bub/d11.gif
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 9 45 10 1 1
+	frame	data/chars/3bub/d12.gif
+	sound	data/sounds/Electricity2.wav
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 9 45 10 1 1
+	frame	data/chars/3bub/d11.gif
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 9 45 10 1 1
+	frame	data/chars/3bub/d12.gif
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 9 45 10 1 1
+	frame	data/chars/3bub/d11.gif
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 9 45 10 1 1
+	frame	data/chars/3bub/d12.gif
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 9 45 10 1 1
+	frame	data/chars/3bub/d11.gif
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 9 45 10 1 1
+	frame	data/chars/3bub/d12.gif
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 9 45 10 1 1
+	frame	data/chars/3bub/d13.gif
+	sound	data/sounds/Electricity4.wav
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 10 45 10 1 1
+	frame	data/chars/3bub/d14.gif
+	@cmd	hurt 5
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 9 45 10 1 1
+	frame	data/chars/3bub/d15.gif
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 10 45 10 1 1
+	frame	data/chars/3bub/d16.gif
+	@cmd	hurt 5
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 9 45 10 1 1
+	frame	data/chars/3bub/d14.gif
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 10 45 10 1 1
+	frame	data/chars/3bub/d15.gif
+	@cmd	hurt 5
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 9 45 10 1 1
+	frame	data/chars/3bub/d16.gif
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 10 45 10 1 1
+	frame	data/chars/3bub/d14.gif
+	@cmd	hurt 5
+	sound	data/sounds/Electricity4.wav
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 9 45 10 1 1
+	frame	data/chars/3bub/d15.gif
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 10 45 10 1 1
+	frame	data/chars/3bub/d16.gif
+	@cmd	hurt 5
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 9 45 10 1 1
+	frame	data/chars/3bub/d14.gif
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 10 45 10 1 1
+	frame	data/chars/3bub/d15.gif
+	@cmd	hurt 5
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 9 45 10 1 1
+	frame	data/chars/3bub/d16.gif
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 10 45 10 1 1
+	frame	data/chars/3bub/d14.gif
+	@cmd	hurt 5
+	sound	data/sounds/Electricity4.wav
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 9 45 10 1 1
+	frame	data/chars/3bub/d15.gif
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 10 45 10 1 1
+	frame	data/chars/3bub/d16.gif
+	@cmd	hurt 5
+	@cmd	antiwall 60 -5 -1
+	@cmd	position 9 45 10 1 1
+	frame	data/chars/3bub/d14.gif
+	@cmd	killgun 8 0
+	@cmd	position 10 45 10 1 1
+	frame	data/chars/3bub/d15.gif
+	@cmd	position 9 45 10 1 1
+	frame	data/chars/3bub/d16.gif
+	@cmd	depost 0
+	@cmd	finish 25 1 2 4 0 1
+	delay	65
+	frame	data/chars/3bub/d17.gif
+	delay	15
+	frame	data/chars/3bub/block12.gif
+	sound	data/sounds/bguylaugh2.wav
+	frame	data/chars/3bub/a103.gif
+		
+anim	follow5
+	range	0 80
+	rangez	-15 15
+	loop	0
+	delay	30
+	offset	125 215
+	bbox	95 97 50 100
+	followanim	5
+	followcond	1
+	jumpframe	28 4 0
+	landframe	29 dust
+	@cmd	slamstart2
+	@cmd	position 7 45 40 -1 1
+	frame	data/chars/3bub/grab00.gif
+	delay	17
+	@cmd	spawngrab "grab1" 200 200 450 115 1 8
+	@cmd	position 1 15 40 1 1
+	frame	data/chars/3bub/grab01.gif
+	delay	15
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 5 150 1 -1
+	frame	data/chars/3bub/grab02.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 5 155 1 -1
+	frame	data/chars/3bub/grab03.gif
+	delay	11
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 5 160 1 -1
+	frame	data/chars/3bub/grab04.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 5 161 1 -1
+	frame	data/chars/3bub/grab05.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 5 160 1 -1
+	frame	data/chars/3bub/grab04.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 5 161 1 -1
+	frame	data/chars/3bub/grab05.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 5 160 1 -1
+	frame	data/chars/3bub/grab04.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 5 161 1 -1
+	frame	data/chars/3bub/grab05.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 5 160 1 -1
+	frame	data/chars/3bub/grab04.gif
+	delay	14
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 5 155 1 -1
+	frame	data/chars/3bub/grab03.gif
+	@cmd	spawn01 "flash" 1 75 1
+	sound	data/sounds/beat1.wav
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 14 5 80 1 1
+	frame	data/chars/3bub/grab13.gif
+	@cmd	hurt 5
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 2 5 80 1 1
+	frame	data/chars/3bub/grab14.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 5 150 1 -1
+	frame	data/chars/3bub/grab02.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 5 155 1 -1
+	frame	data/chars/3bub/grab03.gif
+	@cmd	spawn01 "flash" 1 75 1
+	sound	data/sounds/beat1.wav
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 14 5 80 1 1
+	frame	data/chars/3bub/grab13.gif
+	@cmd	hurt 8
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 2 5 80 1 1
+	frame	data/chars/3bub/grab14.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 5 150 1 -1
+	frame	data/chars/3bub/grab02.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 5 155 1 -1
+	frame	data/chars/3bub/grab03.gif
+	@cmd	spawn01 "flash" 1 75 1
+	sound	data/sounds/beat1.wav
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 14 5 80 1 1
+	frame	data/chars/3bub/grab13.gif
+	@cmd	hurt 8
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 2 5 80 1 1
+	frame	data/chars/3bub/grab14.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 5 150 1 -1
+	frame	data/chars/3bub/grab02.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 5 155 1 -1
+	frame	data/chars/3bub/grab03.gif
+	@cmd	spawn01 "flash" 1 75 1
+	sound	data/sounds/beat1.wav
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 14 5 80 1 1
+	frame	data/chars/3bub/grab13.gif
+	@cmd	hurt 8
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 2 5 80 1 1
+	frame	data/chars/3bub/grab14.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 2 5 75 1 1
+	frame	data/chars/3bub/grab11.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 5 145 1 -1
+	frame	data/chars/3bub/grab02.gif
+	delay	100
+	@cmd	position 18 45 155 1 -1
+	frame	data/chars/3bub/grab12.gif
+	delay	15
+	@cmd	position 9 5 85 1 -1
+	frame	data/chars/3bub/grab06.gif
+	@cmd	killgun 8 0
+	@cmd	spawn01 "flashscreen2" 1 35 1
+	sound	data/sounds/break.wav
+	@cmd	position 20 10 40 1 1
+	frame	data/chars/3bub/grab15.gif
+	@cmd	position 2 10 50 1 1
+	frame	data/chars/3bub/grab16.gif
+	@cmd	depost 0
+	@cmd	finish 25 1 0 4 0.3 0
+	delay	40
+	frame	data/chars/3bub/grab15.gif
+	delay	15
+	frame	data/chars/3bub/rise3.gif
+	frame	data/chars/3bub/rise4.gif
+		
+anim	grabbed
+	loop	0
+	delay	10
+	offset	125 215
+	bbox	95 97 50 100
+	frame	data/chars/3bub/grabbed.gif
+		
+anim	idle
+	loop	1
+	delay	9
+	offset	125 215
+	bbox	95 97 50 100
+	@cmd	clearL
+	frame	data/chars/3bub/idle01.gif
+	frame	data/chars/3bub/idle02.gif
+	frame	data/chars/3bub/idle03.gif
+	frame	data/chars/3bub/idle02.gif
+		
+anim	pain
+	loop	0
+	delay	3
+	offset	125 215
+	bbox	95 97 50 100
+	frame	data/chars/3bub/pain0.gif
+	offset	122 215
+	frame	data/chars/3bub/pain1.gif
+	offset	129 215
+	frame	data/chars/3bub/pain1.gif
+	delay	40
+	offset	122 215
+	frame	data/chars/3bub/pain1.gif
+		
+		
+anim	pain2
+	loop	0
+	delay	3
+	offset	125 215
+	bbox	95 97 50 100
+	frame	data/chars/3bub/pain0.gif
+	offset	122 215
+	frame	data/chars/3bub/pain2.gif
+	offset	129 215
+	frame	data/chars/3bub/pain2.gif
+	delay	40
+	offset	122 215
+	frame	data/chars/3bub/pain2.gif
+		
+anim	pain3
+	loop	0
+	delay	1
+	offset	125 215
+	bbox	95 97 50 100
+	jumpframe	1 2 -1 0
+	frame	data/chars/3bub/pain1.gif
+	delay	25
+	frame	data/chars/3bub/fall2.gif
+	delay	12
+	frame	data/chars/3bub/fall3.gif
+	delay	4
+	bbox	71 175 67 30
+	frame	data/chars/3bub/fall4.gif
+	frame	data/chars/3bub/fall5.gif
+	frame	data/chars/3bub/fall4.gif
+	frame	data/chars/3bub/fall5.gif
+	delay	15
+	bbox	0 0 0 0
+	frame	data/chars/3bub/fall4.gif
+	delay	10
+	frame	data/chars/3bub/rise1.gif
+	frame	data/chars/3bub/rise2.gif
+	frame	data/chars/3bub/rise3.gif
+		
+anim	pain5
+	loop	0
+	delay	23
+	offset	125 215
+	bbox	95 97 50 100
+	frame	data/chars/3bub/pain1.gif
+		
+anim	pain6
+	loop	0
+	delay	23
+	offset	125 215
+	bbox	95 97 50 100
+	frame	data/chars/3bub/pain2.gif
+		
+anim	pain8
+	loop	0
+	delay	2
+	offset	125 215
+	bbox	95 97 50 100
+	move	-6
+	frame	data/chars/3bub/pain1.gif
+	frame	data/chars/3bub/pain1.gif
+	frame	data/chars/3bub/pain1.gif
+	frame	data/chars/3bub/pain2.gif
+	frame	data/chars/3bub/pain2.gif
+	frame	data/chars/3bub/pain2.gif
+	move	-3
+	frame	data/chars/3bub/pain2.gif
+	frame	data/chars/3bub/pain2.gif
+	move	-1
+	frame	data/chars/3bub/pain2.gif
+	delay	35
+	frame	data/chars/3bub/pain2.gif
+		
+anim	pain9
+	loop	0
+	delay	15
+	offset	125 215
+	bbox	95 97 50 100
+	frame	data/chars/3bub/pain1.gif
+	delay	150
+	frame	data/chars/3bub/pain2.gif
+		
+anim	rise
+	loop	0
+	delay	15
+	offset	125 215
+	bbox	0 0 0 0
+	frame	data/chars/3bub/rise1.gif
+	frame	data/chars/3bub/rise2.gif
+	@cmd	riseattack 150 15 "ANI_FOLLOW2"
+	frame	data/chars/3bub/rise3.gif
+	@cmd	riseattack 150 15 "ANI_FOLLOW2"
+	frame	data/chars/3bub/rise4.gif
+		
+anim	run
+	loop	1
+	delay	9
+	offset	125 215
+	bbox	95 97 50 100
+	quakeframe	1 3 5
+	frame	data/chars/3bub/run02.gif
+	frame	data/chars/3bub/run03.gif
+	sound	data/sounds/fall02.wav
+	frame	data/chars/3bub/run04.gif
+	frame	data/chars/3bub/run05.gif
+	frame	data/chars/3bub/run06.gif
+		
+anim	runattack
+	range	0 250
+	rangez	-25 25
+	loop	0
+	delay	12
+	offset	125 215
+	bbox	0 0 0 0
+	followanim	4
+	followcond	1
+	hitfx	data/sounds/grab.wav
+	quakeframe	3 3 5
+	@cmd	target 3 1 1 1 0
+	@cmd	leaper 4 3.5 0
+	frame	data/chars/3bub/d01.gif
+	frame	data/chars/3bub/d02.gif
+	delay	50
+	attack	113 85 110 75 0 0 1 1 10 15
+	frame	data/chars/3bub/d03.gif
+	attack	0 0 0 0
+	delay	14
+	sound	data/sounds/fall2.wav
+	@cmd	dasher 2 0 0
+	@cmd	spawn01 "dust" 60 0 1
+	frame	data/chars/3bub/d04.gif
+	frame	data/chars/3bub/d05.gif
+	frame	data/chars/3bub/d06.gif
+	frame	data/chars/3bub/d07.gif
+	@cmd	stop
+	bbox	95 97 50 100
+	frame	data/chars/3bub/d08.gif
+	frame	data/chars/3bub/rise3.gif
+	frame	data/chars/3bub/rise4.gif
+	frame	data/chars/3bub/idle01.gif
+
+
+		
+anim	spawn
+	loop	0
+	delay	100
+	offset	125 215
+	bbox	0 0 0 0
+	custentity	fnbubtlk
+	spawnframe	27 10 35 25 1
+	landframe	2 dust
+	quakeframe	2 5 8
+	@cmd	degravity 1
+	frame	data/chars/3bub/empty.gif
+	@cmd	degravity 0
+	attack	70 130 118 105 5 1 0 0 20 30
+	dropv	2 5
+	@cmd	changeopenborvariant "slowmotion" 1
+	frame	data/chars/3bub/grab12.gif
+	attack	0 0 0 0
+	delay	15
+	frame	data/chars/3bub/grab11.gif
+	sound	data/sounds/fall2.wav
+	frame	data/chars/3bub/rise2.gif
+	frame	data/chars/3bub/rise1.gif
+	delay	30
+	frame	data/chars/3bub/fall4.gif
+	delay	15
+	frame	data/chars/3bub/rise1.gif
+	frame	data/chars/3bub/rise2.gif
+	frame	data/chars/3bub/rise3.gif
+	frame	data/chars/3bub/rise4.gif
+	frame	data/chars/3bub/grab01.gif
+	frame	data/chars/3bub/grab02.gif
+	frame	data/chars/3bub/grab03.gif
+	frame	data/chars/3bub/grab04.gif
+	delay	5
+	frame	data/chars/3bub/grab05.gif
+	frame	data/chars/3bub/grab04.gif
+	frame	data/chars/3bub/grab05.gif
+	frame	data/chars/3bub/grab04.gif
+	frame	data/chars/3bub/grab05.gif
+	frame	data/chars/3bub/grab04.gif
+	frame	data/chars/3bub/grab05.gif
+	frame	data/chars/3bub/grab04.gif
+	frame	data/chars/3bub/grab05.gif
+	@cmd	changeopenborvariant "slowmotion" 0
+	frame	data/chars/3bub/grab04.gif
+	frame	data/chars/3bub/grab05.gif
+	frame	data/chars/3bub/grab04.gif
+	delay	14
+	frame	data/chars/3bub/grab03.gif
+	frame	data/chars/3bub/grab02.gif
+	frame	data/chars/3bub/grab01.gif
+	delay	6
+	frame	data/chars/3bub/grab01.gif
+	frame	data/chars/3bub/grab01.gif
+		
+anim	special
+	loop	0
+	delay	30
+	offset	125 215
+	bbox	0 0 0 0
+	sound	data/sounds/grab.wav
+	@cmd	slamstart2
+	@cmd	position 7 45 40 -1 1
+	frame	data/chars/3bub/grab00.gif
+	delay	17
+	@cmd	spawngrab "grab1" 200 200 450 80 1 8
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 1 15 40 1 1
+	frame	data/chars/3bub/grab01.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 5 150 1 -1
+	frame	data/chars/3bub/grab02.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 5 155 1 -1
+	frame	data/chars/3bub/grab03.gif
+	delay	11
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 5 160 1 -1
+	frame	data/chars/3bub/grab04.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 5 161 1 -1
+	frame	data/chars/3bub/grab05.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 5 160 1 -1
+	frame	data/chars/3bub/grab04.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 5 161 1 -1
+	frame	data/chars/3bub/grab05.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 5 160 1 -1
+	frame	data/chars/3bub/grab04.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 5 161 1 -1
+	frame	data/chars/3bub/grab05.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 5 160 1 -1
+	frame	data/chars/3bub/grab04.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 5 161 1 -1
+	frame	data/chars/3bub/grab05.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 5 160 1 -1
+	frame	data/chars/3bub/grab04.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 5 161 1 -1
+	frame	data/chars/3bub/grab05.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 5 160 1 -1
+	frame	data/chars/3bub/grab04.gif
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 9 5 161 1 -1
+	frame	data/chars/3bub/grab05.gif
+	delay	16
+	@cmd	killgun 8 0
+	@cmd	antiwall 50 -5 -1
+	@cmd	position 2 5 125 1 1
+	frame	data/chars/3bub/grab06.gif
+	sound	data/sounds/beat4.wav
+	@cmd	spawn01 "flashscreen2" 1 75 1
+	@cmd	position 14 5 135 1 1
+	frame	data/chars/3bub/grab07.gif
+	@cmd	depost 0
+	@cmd	finish 25 1 0 6 0 0
+	frame	data/chars/3bub/grab08.gif
+	frame	data/chars/3bub/grab09.gif
+	sound	data/sounds/bguylaugh2.wav
+	frame	data/chars/3bub/grab10.gif
+		
+anim	upper
+	range	30 180
+	rangez	-15 15
+	loop	0
+	delay	2
+	offset	125 215
+	bbox	0 0 0 0
+	move	6
+	hitfx	data/sounds/beat4.wav
+	hitflash	flashscreen1
+	frame	data/chars/3bub/upper01.gif
+	frame	data/chars/3bub/upper01.gif
+	frame	data/chars/3bub/upper01.gif
+	frame	data/chars/3bub/a104.gif
+	frame	data/chars/3bub/a104.gif
+	frame	data/chars/3bub/a104.gif
+	attack	113 30 75 120 30 1 0 0 55 17
+	dropv	5 2
+	frame	data/chars/3bub/upper04.gif
+	frame	data/chars/3bub/upper04.gif
+	frame	data/chars/3bub/upper04.gif
+	frame	data/chars/3bub/upper04.gif
+	frame	data/chars/3bub/upper04.gif
+	frame	data/chars/3bub/upper04.gif
+	frame	data/chars/3bub/upper04.gif
+	frame	data/chars/3bub/upper04.gif
+	frame	data/chars/3bub/upper04.gif
+	frame	data/chars/3bub/upper04.gif
+	move	0
+	bbox	95 97 50 100
+	delay	15
+	frame	data/chars/3bub/upper04.gif
+	attack	0 0 0 0
+	delay	18
+	frame	data/chars/3bub/upper03.gif
+	frame	data/chars/3bub/upper02.gif
+	frame	data/chars/3bub/upper01.gif
+		
+anim	walk
+	loop	1
+	delay	11
+	offset	125 215
+	bbox	95 97 50 100
+	frame	data/chars/3bub/wk01.gif
+	frame	data/chars/3bub/wk02.gif
+	frame	data/chars/3bub/wk03.gif
+	frame	data/chars/3bub/wk04.gif
+	frame	data/chars/3bub/wk05.gif
+	frame	data/chars/3bub/wk06.gif
+		
+#|edited by openBor Stats v 0.53
+		

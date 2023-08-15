@@ -1,0 +1,94 @@
+name		runtime1
+type	 	none
+speed		10
+setlayer	999999999
+scroll	 	1
+facing   	1
+falldie		1
+alpha		2
+lifespan	350
+subject_to_gravity 0
+subject_to_platform 0
+subject_to_wall 0
+subject_to_obstacle 0
+subject_to_hole 0
+subject_to_minz 0
+subject_to_maxz 0
+
+animationscript data/scripts/escript.c
+
+
+palette		data/chars/misc/number/red.gif
+
+load		Timer2
+load		Timer3
+load		Timer4
+load		Timer5
+load		Timer6
+load		Dot
+
+
+
+
+anim spawn
+@script
+    if(frame==7){
+	jumptobranch("Dummy", 1);
+    }
+@end_script
+	delay	1
+	loop	0
+	offset	12 35
+	frame	data/chars/misc/empty.gif
+	delay	10
+	@cmd	spawnGun "Timer5" 0 0 0 1
+	@cmd	spawnGun "Timer2" 25 0 0 2
+	@cmd	spawnGun "Timer3" 50 0 0 3
+	@cmd	spawnGun "Timer4" 82 0 0 4
+	@cmd	spawnGun "Dot" 66 0 0 5
+	frame	data/chars/misc/empty.gif
+	delay	31090
+	frame	data/chars/misc/empty.gif
+	delay	10
+	frame	data/chars/misc/empty.gif
+	@cmd	killgun 1 0
+	@cmd	killgun 2 0
+	@cmd	killgun 3 0
+	@cmd	killgun 4 0
+	@cmd	killgun 5 0
+	frame	data/chars/misc/empty.gif
+	delay	100
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif #7
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+
+
+
+
+
+anim idle
+	delay	1
+	loop	1
+	offset	12 35
+	frame	data/chars/misc/empty.gif
+
+
+
+
+anim fall
+	delay	1
+	loop	0
+	offset	12 35
+	frame	data/chars/misc/empty.gif
+
+
+anim death
+	delay	5
+	loop	0
+	offset	12 35
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif

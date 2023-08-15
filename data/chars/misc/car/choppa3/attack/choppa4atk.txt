@@ -1,0 +1,65 @@
+name	 choppa4atk
+speed	 10
+type     npc
+subtype	 chase
+nolife   1
+health	 5
+subject_to_platform 0
+hostile		player
+candamage	player npc enemy obstacle
+lifespan  	15
+
+
+
+
+anim	idle
+	loop	1
+	delay	7
+	offset	75 85
+	bbox	0 0 0 0
+	platform   1 1 1 1 1 1 1 1
+	sound	data/sounds/gun4.wav
+	frame	data/chars/misc/car/choppa3/attack/fire01.gif
+	attack5	10 60 130 35 12 1 0 0 30 10
+	dropv	5 2 0
+	frame	data/chars/misc/car/choppa3/attack/fire02.gif
+	frame	data/chars/misc/car/choppa3/attack/fire03.gif
+	attack5	0 0 0 0
+	sound	data/sounds/gun6.wav
+	frame	data/chars/misc/car/choppa3/attack/fire04.gif
+	frame	data/chars/misc/car/choppa3/attack/fire05.gif
+	attack5	10 60 130 35 12 1 0 0 30 10
+	dropv	5 2 0
+	frame	data/chars/misc/car/choppa3/attack/fire06.gif
+	sound	data/sounds/gun1.wav
+	frame	data/chars/misc/car/choppa3/attack/fire07.gif
+	attack5	0 0 0 0
+	frame	data/chars/misc/car/choppa3/attack/fire08.gif
+		
+anim	spawn
+	loop	0
+	delay	5
+	offset	75 85
+	bbox	0 0 0 0
+@script
+if(frame==1)
+{
+  changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_OBSTACLE"));
+}
+@end_script
+	platform   1 1 1 1 1 1 1 1
+	frame	data/chars/misc/car/choppa3/attack/empty.gif
+	frame	data/chars/misc/car/choppa3/attack/empty.gif
+	frame	data/chars/misc/car/choppa3/attack/empty.gif
+
+
+
+
+
+
+
+
+
+		
+#|edited by openBor Stats v 0.53
+		

@@ -1,0 +1,166 @@
+name	 remshw1
+type     npc
+health	 1000
+score	 0
+nolife   1
+nomove	 1 1
+gfxshadow	1
+subject_to_hole     	0
+offscreenkill 	10000
+#lifespan  	900
+candamage	obstacle
+animationscript data/scripts/escript.c
+
+load	torn1
+load	torn2
+
+
+anim	spawn
+	loop	0
+	delay	1500
+	offset	100 189
+	bbox	0 0 0 0
+	landframe 3 dust
+	@cmd	degravity 1
+	frame	data/chars/3remuinho/z01.gif
+	delay	5
+	#@cmd	changeopenborvariant "slowmotion" 1
+	@cmd	degravity 0.8
+	frame	data/chars/3remuinho/z01.gif
+	@cmd	spawnbind "torn1" 1 40 1
+	delay	300
+	frame	data/chars/3remuinho/z01.gif
+	delay	5
+	frame	data/chars/3remuinho/z01.gif
+	frame	data/chars/3remuinho/z01.gif
+	
+		
+anim	idle
+@script
+    if(frame==20){
+	jumptobranch("Dummy", 1);
+    }
+@end_script
+	loop	0
+	delay	12
+	offset	100 189
+	bbox	0 0 0 0
+	@cmd	degravity 1
+	staydown	1100 1100
+	attack	-70 100 350 90 0 0 1 1 30 200
+	frame	data/chars/3remuinho/z02.gif
+	@cmd	spawnGun "torn1" -100 20 1 1
+	@cmd	spawnGun "torn1" 1 10 1 2
+	@cmd	spawnGun "torn1" 110 20 1 3
+	frame	data/chars/3remuinho/z03.gif
+	frame	data/chars/3remuinho/z04.gif
+	attack	0 0 0 0
+	delay	225
+	frame	data/chars/3remuinho/z04.gif
+	frame	data/chars/3remuinho/z04.gif
+	delay	12
+	frame	data/chars/3remuinho/rise4.gif
+	@cmd	killgun 1 0
+	@cmd	killgun 2 0
+	@cmd	killgun 3 0
+	frame	data/chars/3remuinho/rise3.gif
+	@cmd	dasher 0 2 0
+	frame	data/chars/3remuinho/air/idle01.gif #7
+	frame	data/chars/3remuinho/air/idle02.gif
+	frame	data/chars/3remuinho/air/idle01.gif
+	frame	data/chars/3remuinho/air/idle02.gif
+	@cmd	looper 7 4
+	frame	data/chars/3remuinho/air/idle01.gif
+	@cmd	stop
+	shadowcoords 1 -300
+	offset	100 80
+	@cmd	flip
+	frame	data/chars/3remuinho/air/idle02.gif
+	drawmethod 156 156
+	@cmd	layer -20
+	@cmd	dasher 0 -2.4 0
+	frame	data/chars/3remuinho/air/idle01.gif
+	frame	data/chars/3remuinho/air/idle02.gif
+
+	frame	data/chars/3remuinho/air/idle01.gif #15
+	frame	data/chars/3remuinho/air/idle02.gif
+	frame	data/chars/3remuinho/air/idle01.gif
+	frame	data/chars/3remuinho/air/idle02.gif
+	@cmd	looper 15 6
+	frame	data/chars/3remuinho/air/idle01.gif
+	frame	data/chars/3remuinho/air/idle02.gif
+	frame	data/chars/3remuinho/air/idle01.gif
+
+
+#--------------------------overlord-fall-------------------
+
+anim	follow1
+@script
+    if(frame==28){
+	jumptobranch("Dummy", 1);
+    }
+@end_script
+	loop	0
+	delay	4
+	offset	100 189
+	bbox	0 0 0 0
+	jumpframe 1 3 4 
+	landframe 21 dust
+	@cmd	degravity 0
+	@cmd	flip
+	frame	data/chars/3remuinho/ju01.gif
+	frame	data/chars/3remuinho/ju02.gif
+	@cmd	clearL
+	frame	data/chars/3remuinho/ju03.gif
+	frame	data/chars/3remuinho/ju04.gif
+	frame	data/chars/3remuinho/ju05.gif
+	frame	data/chars/3remuinho/ju06.gif
+	frame	data/chars/3remuinho/ju07.gif
+
+	frame	data/chars/3remuinho/ju01.gif
+	frame	data/chars/3remuinho/ju02.gif
+	frame	data/chars/3remuinho/ju03.gif
+	frame	data/chars/3remuinho/ju04.gif
+	frame	data/chars/3remuinho/ju05.gif
+	frame	data/chars/3remuinho/ju06.gif
+	frame	data/chars/3remuinho/ju07.gif
+	@cmd	looper 7 10
+	frame	data/chars/3remuinho/ju01.gif
+	frame	data/chars/3remuinho/ju02.gif
+	frame	data/chars/3remuinho/ju03.gif
+	frame	data/chars/3remuinho/ju04.gif
+	frame	data/chars/3remuinho/ju05.gif
+	frame	data/chars/3remuinho/ju06.gif
+	frame	data/chars/3remuinho/ju07.gif
+	delay	12
+	frame	data/chars/3remuinho/rise3.gif #21
+	frame	data/chars/3remuinho/rise4.gif
+	frame	data/chars/3remuinho/b101.gif
+	frame	data/chars/3remuinho/b102.gif
+	frame	data/chars/3remuinho/z05.gif
+	delay	100
+	frame	data/chars/3remuinho/z05.gif
+	frame	data/chars/3remuinho/z05.gif
+	frame	data/chars/3remuinho/z05.gif
+	frame	data/chars/3remuinho/z05.gif #29
+	delay	30000
+	frame	data/chars/3remuinho/z05.gif
+	frame	data/chars/3remuinho/z05.gif
+	frame	data/chars/3remuinho/z05.gif
+	frame	data/chars/3remuinho/z05.gif
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+

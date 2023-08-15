@@ -1,0 +1,595 @@
+name		syuribike
+type		none
+health		800
+mp		100
+speedf		1.6
+running		16 0 0 0 0
+jumpheight	0
+cantgrab	1
+notgrab		1
+noquake		1
+falldie		1
+nodieblink	1
+makeinv		3
+gfxshadow	1
+nodrop		1
+facing		1
+grabforce       0
+candamage	enemy obstacle
+diesound        data/sounds/yurde.wav
+atchain         1 0 0 0 
+icon            data/chars/0yuri/icon.gif
+parrow          data/chars/misc/flash/flash/player1.gif  -36 -145
+parrow2         data/chars/misc/flash/flash/player2.gif  -36 -145
+parrow3         data/chars/misc/flash/flash/player3.gif  -36 -145
+animationscript data/scripts/grabscript.c
+
+
+palette    	data/chars/0yuri/syuri/map1.gif
+
+
+
+com	a2	freespecial2
+com	a3	freespecial3
+com	j	freespecial4
+
+load	ybikecrash
+load	explosion1
+
+
+
+
+anim	attack1
+	loop	0
+	delay	4
+	offset	215 149
+	bbox	170 70 100 75
+	fastattack	1
+	frame	data/chars/0yuri/syuri/bike/atk01.gif
+	frame	data/chars/0yuri/syuri/bike/atk02.gif
+	@cmd	keymove 0.7
+	frame	data/chars/0yuri/syuri/bike/atk03.gif
+	frame	data/chars/0yuri/syuri/bike/atk04.gif
+	@cmd	keymove 0.7
+	frame	data/chars/0yuri/syuri/bike/atk05.gif
+	frame	data/chars/0yuri/syuri/bike/atk06.gif
+	@cmd	keymove 0.7
+	attack	214 80 125 30 20 0 0 0 11 0
+	frame	data/chars/0yuri/syuri/bike/atk07.gif
+	frame	data/chars/0yuri/syuri/bike/atk08.gif
+	@cmd	keymove 0.7
+	frame	data/chars/0yuri/syuri/bike/atk09.gif
+	attack  0 0 0 0
+	frame	data/chars/0yuri/syuri/bike/atk10.gif
+	@cmd	keymove 0.7
+	attack	230 65 170 40 35 0 0 0 11 0
+	frame	data/chars/0yuri/syuri/bike/atk11.gif
+	frame	data/chars/0yuri/syuri/bike/atk12.gif
+	@cmd	keymove 0.7
+	frame	data/chars/0yuri/syuri/bike/atk13.gif
+	frame	data/chars/0yuri/syuri/bike/atk14.gif
+	@cmd	keymove 0.7
+	frame	data/chars/0yuri/syuri/bike/atk15.gif
+	frame	data/chars/0yuri/syuri/bike/atk16.gif
+	@cmd	keymove 0.7
+	attack	0 0 0 0
+	frame	data/chars/0yuri/syuri/bike/atk17.gif
+	frame	data/chars/0yuri/syuri/bike/atk18.gif
+	@cmd	keymove 0.7
+	frame	data/chars/0yuri/syuri/bike/atk19.gif
+	frame	data/chars/0yuri/syuri/bike/atk20.gif
+	@cmd	keymove 0.7
+	frame	data/chars/0yuri/syuri/bike/atk21.gif
+	frame	data/chars/0yuri/syuri/bike/atk22.gif
+	@cmd	keymove 0.7
+	frame	data/chars/0yuri/syuri/bike/atk01.gif
+	frame	data/chars/0yuri/syuri/bike/atk02.gif
+
+
+anim	backwalk
+	loop	1
+	delay	5
+	offset	215 149
+	bbox	170 70 100 75
+	frame	data/chars/0yuri/syuri/bike/bike03.gif
+	frame	data/chars/0yuri/syuri/bike/bike04.gif
+		
+anim	death
+	loop	0
+	delay	9
+	offset	145 205
+	jumpframe	1 6 -1
+	landframe	20
+	@cmd	spawn01 "ybikecrash" -20 0 10
+	@cmd	spawn01 "explosion1" -10 50 5
+	frame	data/chars/0yuri/syuri/fall5.gif
+	frame	data/chars/0yuri/syuri/fall6.gif
+	frame	data/chars/0yuri/syuri/fall7.gif
+	frame	data/chars/0yuri/syuri/fall8.gif
+	frame	data/chars/0yuri/syuri/fall5.gif
+	frame	data/chars/0yuri/syuri/fall6.gif
+	frame	data/chars/0yuri/syuri/fall7.gif
+	frame	data/chars/0yuri/syuri/fall8.gif
+	frame	data/chars/0yuri/syuri/fall5.gif
+	frame	data/chars/0yuri/syuri/fall6.gif
+	frame	data/chars/0yuri/syuri/fall7.gif
+	frame	data/chars/0yuri/syuri/fall8.gif
+	frame	data/chars/0yuri/syuri/fall5.gif
+	frame	data/chars/0yuri/syuri/fall6.gif
+	frame	data/chars/0yuri/syuri/fall7.gif
+	frame	data/chars/0yuri/syuri/fall8.gif
+	frame	data/chars/0yuri/syuri/fall5.gif
+	frame	data/chars/0yuri/syuri/fall6.gif
+	frame	data/chars/0yuri/syuri/fall7.gif
+	frame	data/chars/0yuri/syuri/fall8.gif
+	delay	2
+	move	-6
+	offset	155 209
+	frame	data/chars/0yuri/syuri/fall9.gif
+	frame	data/chars/0yuri/syuri/fall9.gif
+	frame	data/chars/0yuri/syuri/fall10.gif
+	frame	data/chars/0yuri/syuri/fall10.gif
+	frame	data/chars/0yuri/syuri/fall11.gif
+	frame	data/chars/0yuri/syuri/fall11.gif
+	frame	data/chars/0yuri/syuri/fall12.gif
+	frame	data/chars/0yuri/syuri/fall12.gif
+	@cmd	spawn01 "dust3" 25 20 5
+	frame	data/chars/0yuri/syuri/fall13.gif
+	frame	data/chars/0yuri/syuri/fall13.gif
+	frame	data/chars/0yuri/syuri/fall14.gif
+	frame	data/chars/0yuri/syuri/fall14.gif
+	frame	data/chars/0yuri/syuri/fall9.gif
+	frame	data/chars/0yuri/syuri/fall9.gif
+	frame	data/chars/0yuri/syuri/fall10.gif
+	frame	data/chars/0yuri/syuri/fall10.gif
+	@cmd	spawn01 "dust3" 25 20 5
+	frame	data/chars/0yuri/syuri/fall11.gif
+	frame	data/chars/0yuri/syuri/fall11.gif
+	frame	data/chars/0yuri/syuri/fall12.gif
+	frame	data/chars/0yuri/syuri/fall12.gif
+	frame	data/chars/0yuri/syuri/fall13.gif
+	frame	data/chars/0yuri/syuri/fall13.gif
+	frame	data/chars/0yuri/syuri/fall14.gif
+	frame	data/chars/0yuri/syuri/fall14.gif
+	@cmd	spawn01 "dust3" 25 20 5
+	frame	data/chars/0yuri/syuri/fall9.gif
+	frame	data/chars/0yuri/syuri/fall9.gif
+	frame	data/chars/0yuri/syuri/fall10.gif
+	frame	data/chars/0yuri/syuri/fall10.gif
+	frame	data/chars/0yuri/syuri/fall11.gif
+	frame	data/chars/0yuri/syuri/fall11.gif
+	frame	data/chars/0yuri/syuri/fall12.gif
+	frame	data/chars/0yuri/syuri/fall12.gif
+	@cmd	spawn01 "dust3" 25 20 5
+	frame	data/chars/0yuri/syuri/fall13.gif
+	frame	data/chars/0yuri/syuri/fall13.gif
+	frame	data/chars/0yuri/syuri/fall14.gif
+	frame	data/chars/0yuri/syuri/fall14.gif
+	frame	data/chars/0yuri/syuri/fall9.gif
+	frame	data/chars/0yuri/syuri/fall9.gif
+	frame	data/chars/0yuri/syuri/fall10.gif
+	frame	data/chars/0yuri/syuri/fall10.gif
+	@cmd	spawn01 "dust3" 25 20 5
+	frame	data/chars/0yuri/syuri/fall11.gif
+	frame	data/chars/0yuri/syuri/fall11.gif
+	frame	data/chars/0yuri/syuri/fall12.gif
+	frame	data/chars/0yuri/syuri/fall12.gif
+	frame	data/chars/0yuri/syuri/fall13.gif
+	frame	data/chars/0yuri/syuri/fall13.gif
+	frame	data/chars/0yuri/syuri/fall14.gif
+	frame	data/chars/0yuri/syuri/fall14.gif
+	@cmd	spawn01 "dust3" 25 20 5
+	frame	data/chars/0yuri/syuri/fall9.gif
+	frame	data/chars/0yuri/syuri/fall9.gif
+	frame	data/chars/0yuri/syuri/fall10.gif
+	frame	data/chars/0yuri/syuri/fall10.gif
+	frame	data/chars/0yuri/syuri/fall11.gif
+	frame	data/chars/0yuri/syuri/fall11.gif
+	frame	data/chars/0yuri/syuri/fall12.gif
+	frame	data/chars/0yuri/syuri/fall12.gif
+	@cmd	spawn01 "dust3" 25 20 5
+	frame	data/chars/0yuri/syuri/fall13.gif
+	frame	data/chars/0yuri/syuri/fall13.gif
+	frame	data/chars/0yuri/syuri/fall14.gif
+	frame	data/chars/0yuri/syuri/fall14.gif
+	frame	data/chars/0yuri/syuri/fall9.gif
+	frame	data/chars/0yuri/syuri/fall9.gif
+	frame	data/chars/0yuri/syuri/fall10.gif
+	frame	data/chars/0yuri/syuri/fall10.gif
+	@cmd	spawn01 "dust3" 25 20 5
+	frame	data/chars/0yuri/syuri/fall11.gif
+	frame	data/chars/0yuri/syuri/fall11.gif
+	frame	data/chars/0yuri/syuri/fall12.gif
+	frame	data/chars/0yuri/syuri/fall12.gif
+	frame	data/chars/0yuri/syuri/fall13.gif
+	frame	data/chars/0yuri/syuri/fall13.gif
+	frame	data/chars/0yuri/syuri/fall9.gif
+	frame	data/chars/0yuri/syuri/fall9.gif
+	@cmd	spawn01 "dust3" 25 20 5
+	frame	data/chars/0yuri/syuri/fall10.gif
+	frame	data/chars/0yuri/syuri/fall10.gif
+	frame	data/chars/0yuri/syuri/fall11.gif
+	frame	data/chars/0yuri/syuri/fall11.gif
+	frame	data/chars/0yuri/syuri/fall12.gif
+	frame	data/chars/0yuri/syuri/fall12.gif
+	frame	data/chars/0yuri/syuri/fall13.gif
+	frame	data/chars/0yuri/syuri/fall13.gif
+	@cmd	spawn01 "dust3" 25 20 5
+	frame	data/chars/0yuri/syuri/fall14.gif
+	frame	data/chars/0yuri/syuri/fall14.gif
+	frame	data/chars/0yuri/syuri/fall9.gif
+	frame	data/chars/0yuri/syuri/fall9.gif
+	frame	data/chars/0yuri/syuri/fall10.gif
+	frame	data/chars/0yuri/syuri/fall10.gif
+	frame	data/chars/0yuri/syuri/fall11.gif
+	frame	data/chars/0yuri/syuri/fall11.gif
+	@cmd	spawn01 "dust3" 25 20 5
+	frame	data/chars/0yuri/syuri/fall12.gif
+	frame	data/chars/0yuri/syuri/fall12.gif
+	frame	data/chars/0yuri/syuri/fall13.gif
+	frame	data/chars/0yuri/syuri/fall13.gif
+	frame	data/chars/0yuri/syuri/empty.gif
+	frame	data/chars/0yuri/syuri/fall14.gif
+	frame	data/chars/0yuri/syuri/empty.gif
+	frame	data/chars/0yuri/syuri/fall14.gif
+	frame	data/chars/0yuri/syuri/empty.gif
+	frame	data/chars/0yuri/syuri/fall9.gif
+	frame	data/chars/0yuri/syuri/empty.gif
+	frame	data/chars/0yuri/syuri/fall9.gif
+	frame	data/chars/0yuri/syuri/empty.gif
+	frame	data/chars/0yuri/syuri/fall10.gif
+	frame	data/chars/0yuri/syuri/empty.gif
+	frame	data/chars/0yuri/syuri/fall10.gif
+	frame	data/chars/0yuri/syuri/empty.gif
+	frame	data/chars/0yuri/syuri/fall11.gif
+	frame	data/chars/0yuri/syuri/empty.gif
+	frame	data/chars/0yuri/syuri/fall11.gif
+	frame	data/chars/0yuri/syuri/empty.gif
+	frame	data/chars/0yuri/syuri/fall12.gif
+	frame	data/chars/0yuri/syuri/empty.gif
+	frame	data/chars/0yuri/syuri/fall12.gif
+	frame	data/chars/0yuri/syuri/empty.gif
+	frame	data/chars/0yuri/syuri/fall13.gif
+	frame	data/chars/0yuri/syuri/empty.gif
+	frame	data/chars/0yuri/syuri/fall13.gif
+	frame	data/chars/0yuri/syuri/empty.gif
+	frame	data/chars/0yuri/syuri/fall14.gif
+	frame	data/chars/0yuri/syuri/empty.gif
+	frame	data/chars/0yuri/syuri/fall14.gif
+	frame	data/chars/0yuri/syuri/empty.gif
+
+		
+anim	fall
+	loop	0
+	delay	1
+	offset	215 149
+	bbox	170 70 100 75
+	frame	data/chars/0yuri/syuri/bike/pain01.gif
+	frame	data/chars/0yuri/syuri/bike/pain02.gif
+	frame	data/chars/0yuri/syuri/bike/pain01.gif
+		
+anim	freespecial2
+@script
+	void self = getlocalvar("self");
+	int eTime = openborvariant("elapsed_time");
+	if (frame == 0)
+	{
+	changeentityproperty(self, "invincible", 1);
+	changeentityproperty(self, "invinctime", eTime + 90);
+	changeentityproperty(self, "blink", 1);
+	}
+@end_script
+	loop	0
+	delay	2
+	offset	215 149
+	bbox	170 70 100 75
+	move	10
+	sound	data/sounds/car1.wav
+	hitfx	data/sounds/beat3.wav
+	attack	230 75 60 72 10 1 1 0 5 0
+	@cmd	keymove 1.0
+	frame	data/chars/0yuri/syuri/bike/bike01.gif
+	@cmd	spawnbind2 "dust4" -35 0 2 "ANI_FOLLOW5"
+	@cmd	keymove 1.0
+	frame	data/chars/0yuri/syuri/bike/bike02.gif
+	@cmd	keymove 1.0
+	frame	data/chars/0yuri/syuri/bike/bike01.gif
+	@cmd	keymove 1.0
+	frame	data/chars/0yuri/syuri/bike/bike02.gif
+	@cmd	keymove 1.0
+	frame	data/chars/0yuri/syuri/bike/bike01.gif
+	@cmd	keymove 1.0
+	frame	data/chars/0yuri/syuri/bike/bike02.gif
+	@cmd	keymove 1.0
+	frame	data/chars/0yuri/syuri/bike/bike01.gif
+	@cmd	keymove 1.0
+	frame	data/chars/0yuri/syuri/bike/bike02.gif
+	@cmd	keymove 1.0
+	frame	data/chars/0yuri/syuri/bike/bike01.gif
+	@cmd	keymove 1.0
+	frame	data/chars/0yuri/syuri/bike/bike02.gif
+	@cmd	keymove 1.0
+	frame	data/chars/0yuri/syuri/bike/bike01.gif
+	@cmd	keymove 1.0
+	frame	data/chars/0yuri/syuri/bike/bike02.gif
+	@cmd	keymove 1.0
+	frame	data/chars/0yuri/syuri/bike/bike01.gif
+	@cmd	keymove 1.0
+	frame	data/chars/0yuri/syuri/bike/bike02.gif
+	@cmd	keymove 1.0
+	move	8
+	frame	data/chars/0yuri/syuri/bike/bike01.gif
+	@cmd	keymove 1.0
+	frame	data/chars/0yuri/syuri/bike/bike02.gif
+	@cmd	keymove 1.0
+	frame	data/chars/0yuri/syuri/bike/bike01.gif
+	@cmd	keymove 1.0
+	frame	data/chars/0yuri/syuri/bike/bike02.gif
+	@cmd	keymove 1.0
+	frame	data/chars/0yuri/syuri/bike/bike01.gif
+	@cmd	keymove 1.0
+	frame	data/chars/0yuri/syuri/bike/bike02.gif
+	frame	data/chars/0yuri/syuri/bike/bike01.gif
+	frame	data/chars/0yuri/syuri/bike/bike02.gif
+	move	6
+	frame	data/chars/0yuri/syuri/bike/bike01.gif
+	frame	data/chars/0yuri/syuri/bike/bike02.gif
+	frame	data/chars/0yuri/syuri/bike/bike01.gif
+	frame	data/chars/0yuri/syuri/bike/bike02.gif
+	frame	data/chars/0yuri/syuri/bike/bike01.gif
+	move	3
+	attack	0 0 0 0
+	frame	data/chars/0yuri/syuri/bike/bike02.gif
+	frame	data/chars/0yuri/syuri/bike/bike01.gif
+	frame	data/chars/0yuri/syuri/bike/bike02.gif
+	frame	data/chars/0yuri/syuri/bike/bike01.gif
+	frame	data/chars/0yuri/syuri/bike/bike02.gif
+		
+anim	freespecial3
+@script
+	void self = getlocalvar("self");
+	int eTime = openborvariant("elapsed_time");
+	if (frame == 0)
+	{
+	changeentityproperty(self, "invincible", 1);
+	changeentityproperty(self, "invinctime", eTime + 90);
+	changeentityproperty(self, "blink", 1);
+	}
+@end_script
+	loop	0
+	delay	2
+	offset	215 149
+	bbox	170 70 100 75
+	move	-10
+	sound	data/sounds/car2.wav
+	hitfx	data/sounds/beat3.wav
+	attack2	145 75 60 72 10 1 1 0 5 0
+	@cmd	keymove 1.0
+	frame	data/chars/0yuri/syuri/bike/bike03.gif
+	@cmd	spawnbind2 "dust4" 55 0 2 "ANI_FOLLOW5"
+	@cmd	keymove 1.0
+	frame	data/chars/0yuri/syuri/bike/bike04.gif
+	@cmd	keymove 1.0
+	frame	data/chars/0yuri/syuri/bike/bike03.gif
+	@cmd	keymove 1.0
+	frame	data/chars/0yuri/syuri/bike/bike04.gif
+	@cmd	keymove 1.0
+	frame	data/chars/0yuri/syuri/bike/bike03.gif
+	@cmd	keymove 1.0
+	frame	data/chars/0yuri/syuri/bike/bike04.gif
+	@cmd	keymove 1.0
+	frame	data/chars/0yuri/syuri/bike/bike03.gif
+	@cmd	keymove 1.0
+	frame	data/chars/0yuri/syuri/bike/bike04.gif
+	@cmd	keymove 1.0
+	frame	data/chars/0yuri/syuri/bike/bike03.gif
+	@cmd	keymove 1.0
+	frame	data/chars/0yuri/syuri/bike/bike04.gif
+	@cmd	keymove 1.0
+	frame	data/chars/0yuri/syuri/bike/bike03.gif
+	@cmd	keymove 1.0
+	frame	data/chars/0yuri/syuri/bike/bike04.gif
+	@cmd	keymove 1.0
+	frame	data/chars/0yuri/syuri/bike/bike03.gif
+	@cmd	keymove 1.0
+	frame	data/chars/0yuri/syuri/bike/bike04.gif
+	@cmd	keymove 1.0
+	move	-8
+	frame	data/chars/0yuri/syuri/bike/bike03.gif
+	@cmd	keymove 1.0
+	frame	data/chars/0yuri/syuri/bike/bike04.gif
+	@cmd	keymove 1.0
+	frame	data/chars/0yuri/syuri/bike/bike03.gif
+	@cmd	keymove 1.0
+	frame	data/chars/0yuri/syuri/bike/bike04.gif
+	@cmd	keymove 1.0
+	frame	data/chars/0yuri/syuri/bike/bike03.gif
+	@cmd	keymove 1.0
+	frame	data/chars/0yuri/syuri/bike/bike04.gif
+	frame	data/chars/0yuri/syuri/bike/bike03.gif
+	frame	data/chars/0yuri/syuri/bike/bike04.gif
+	move	-6
+	frame	data/chars/0yuri/syuri/bike/bike03.gif
+	frame	data/chars/0yuri/syuri/bike/bike04.gif
+	frame	data/chars/0yuri/syuri/bike/bike03.gif
+	frame	data/chars/0yuri/syuri/bike/bike04.gif
+	frame	data/chars/0yuri/syuri/bike/bike03.gif
+	move	-3
+	attack	0 0 0 0
+	frame	data/chars/0yuri/syuri/bike/bike04.gif
+	frame	data/chars/0yuri/syuri/bike/bike03.gif
+	frame	data/chars/0yuri/syuri/bike/bike04.gif
+	frame	data/chars/0yuri/syuri/bike/bike03.gif
+	frame	data/chars/0yuri/syuri/bike/bike04.gif
+
+		
+anim	freespecial4
+	loop	0
+	delay	4
+	offset	215 149
+	bbox	170 70 100 75
+	fastattack	1
+	sound	data/sounds/punch.wav
+	frame	data/chars/0yuri/syuri/bike/atk30.gif
+	frame	data/chars/0yuri/syuri/bike/atk31.gif
+	@cmd	keymove 0.7
+	frame	data/chars/0yuri/syuri/bike/atk32.gif
+	frame	data/chars/0yuri/syuri/bike/atk33.gif
+	@cmd	keymove 0.7
+	frame	data/chars/0yuri/syuri/bike/atk34.gif
+	frame	data/chars/0yuri/syuri/bike/atk35.gif
+	@cmd	keymove 0.7
+	frame	data/chars/0yuri/syuri/bike/atk36.gif
+	frame	data/chars/0yuri/syuri/bike/atk37.gif
+	attack2	80 80 150 35 20 0 0 0 11 0
+	@cmd	keymove 0.7
+	frame	data/chars/0yuri/syuri/bike/atk38.gif
+	frame	data/chars/0yuri/syuri/bike/atk39.gif
+	@cmd	keymove 0.7
+	frame	data/chars/0yuri/syuri/bike/atk40.gif
+	attack2 0 0 0 0
+	frame	data/chars/0yuri/syuri/bike/atk41.gif
+	@cmd	keymove 0.7
+	attack2	17 70 180 30 35 0 0 0 11 0
+	frame	data/chars/0yuri/syuri/bike/atk42.gif
+	frame	data/chars/0yuri/syuri/bike/atk43.gif
+	@cmd	keymove 0.7
+	frame	data/chars/0yuri/syuri/bike/atk44.gif
+	frame	data/chars/0yuri/syuri/bike/atk45.gif
+	@cmd	keymove 0.7
+	frame	data/chars/0yuri/syuri/bike/atk46.gif
+	frame	data/chars/0yuri/syuri/bike/atk47.gif
+	@cmd	keymove 0.7
+	attack2	0 0 0 0
+	frame	data/chars/0yuri/syuri/bike/atk48.gif
+	frame	data/chars/0yuri/syuri/bike/atk49.gif
+	@cmd	keymove 0.7
+	frame	data/chars/0yuri/syuri/bike/atk50.gif
+	frame	data/chars/0yuri/syuri/bike/atk51.gif
+	@cmd	keymove 0.7
+	frame	data/chars/0yuri/syuri/bike/atk52.gif
+	frame	data/chars/0yuri/syuri/bike/atk53.gif
+	@cmd	keymove 0.7
+	frame	data/chars/0yuri/syuri/bike/atk54.gif
+	frame	data/chars/0yuri/syuri/bike/atk55.gif
+	@cmd	keymove 0.7
+	frame	data/chars/0yuri/syuri/bike/atk01.gif
+	frame	data/chars/0yuri/syuri/bike/atk02.gif
+
+		
+anim	idle
+	loop	1
+	delay	5
+	offset	215 149
+	bbox	170 70 100 75
+	frame	data/chars/0yuri/syuri/bike/bike01.gif
+	frame	data/chars/0yuri/syuri/bike/bike02.gif
+
+		
+anim	pain
+	loop	0
+	delay	5
+	offset	215 149
+	bbox	170 70 100 75
+	move	4
+	@cmd	keymove 0.7
+	frame	data/chars/0yuri/syuri/bike/pain01.gif
+	bbox	0 0 0 0
+	frame	data/chars/0yuri/syuri/bike/pain02.gif
+	frame	data/chars/0yuri/syuri/bike/pain01.gif
+	frame	data/chars/0yuri/syuri/bike/pain02.gif
+	frame	data/chars/0yuri/syuri/bike/pain01.gif
+	frame	data/chars/0yuri/syuri/bike/pain02.gif
+		
+anim	pain2
+	loop	0
+	delay	5
+	offset	215 149
+	bbox	170 70 100 75
+	move	-4
+	@cmd	keymove 0.7
+	frame	data/chars/0yuri/syuri/bike/pain01.gif
+	bbox	0 0 0 0
+	frame	data/chars/0yuri/syuri/bike/pain02.gif
+	frame	data/chars/0yuri/syuri/bike/pain01.gif
+	frame	data/chars/0yuri/syuri/bike/pain02.gif
+	frame	data/chars/0yuri/syuri/bike/pain01.gif
+	frame	data/chars/0yuri/syuri/bike/pain02.gif
+		
+anim	pain5
+	loop	0
+	delay	5
+	offset	215 149
+	bbox	170 70 100 75
+	@cmd	keymove 1
+	frame	data/chars/0yuri/syuri/bike/pain01.gif
+	move	7
+	movez	-1
+	bbox	0 0 0 0
+	frame	data/chars/0yuri/syuri/bike/pain02.gif
+	@cmd	keymove 1
+	frame	data/chars/0yuri/syuri/bike/pain01.gif
+	frame	data/chars/0yuri/syuri/bike/pain02.gif
+	frame	data/chars/0yuri/syuri/bike/pain01.gif
+	frame	data/chars/0yuri/syuri/bike/pain02.gif
+	frame	data/chars/0yuri/syuri/bike/pain01.gif
+	frame	data/chars/0yuri/syuri/bike/pain02.gif
+		
+anim	spawn
+	loop	0
+	delay	1
+	offset	215 149
+	bbox	0 0 0 0
+	frame	data/chars/0yuri/syuri/bike/bike01.gif
+	frame	data/chars/0yuri/syuri/bike/bike02.gif
+
+
+
+anim	respawn
+	loop	0
+	delay	5
+	offset	215 149
+	bbox	0 0 0 0
+	frame	data/chars/0yuri/syuri/bike/bike01.gif
+	frame	data/chars/0yuri/syuri/bike/bike02.gif
+		
+anim	walk
+	loop	1
+	delay	5
+	offset	215 149
+	bbox	170 70 100 75
+	frame	data/chars/0yuri/syuri/bike/bike01.gif
+	frame	data/chars/0yuri/syuri/bike/bike02.gif
+
+
+#----------------------------//-----------------
+
+anim	rise
+
+anim	run
+
+anim	runjump
+
+anim	jump
+
+anim	jumpdelay
+
+anim	jumpland
+
+anim	get
+
+anim	forwardjump
+
+anim	block
+
+anim	charge
+
+anim	chargeattack
+
+anim	attackdown
+
+anim	attackup
+
+anim	runattack
+
+anim	special

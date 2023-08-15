@@ -1,0 +1,198 @@
+name		yurwtr
+type		none
+health		150
+mp		100
+speedf		1.7
+running		17 0 0 0 0
+jumpheight	0
+cantgrab	1
+notgrab		1
+falldie		2
+noquake		1
+nodieblink	1
+makeinv		3
+riseinv		2
+gfxshadow	1
+facing		2
+grabforce       0
+candamage	enemy obstacle npc
+diesound        data/sounds/yurde.wav
+atchain         0 0 0 0 
+icon            data/chars/0yuri/icon.gif
+parrow          data/chars/misc/flash/flash/player1.gif  -45 -130
+parrow2         data/chars/misc/flash/flash/player2.gif  -45 -130
+parrow3         data/chars/misc/flash/flash/player3.gif  -45 -130
+animationscript data/scripts/escript.c
+
+
+palette		data/chars/0yuri/idle01.gif
+alternatepal	data/chars/0yuri/map1.gif
+alternatepal	data/chars/0yuri/map2.gif
+alternatepal	data/chars/0yuri/map3.gif
+alternatepal	data/chars/0yuri/map4.gif
+
+load	Splash3
+load	swater2
+
+
+
+
+anim	attack1
+		
+anim	attackdown
+		
+anim	attackup
+		
+anim	block
+		
+anim	charge
+		
+anim	chargeattack
+		
+anim	fall
+	loop	0
+	delay	70
+	offset	125 150
+	bbox	0 0 0 0
+	jumpframe 0 4.5 -3.5 0 Splash3
+	landframe 2 Splash3
+	frame	data/chars/0yuri/yurwtr/pain1.gif
+	@cmd	killgun 2 0
+	delay	280
+	frame	data/chars/0yuri/yurwtr/pain2.gif
+	delay	8
+	sound	data/sounds/Splash1.wav
+	frame	data/chars/0yuri/yurwtr/pain3.gif
+	frame	data/chars/0yuri/yurwtr/pain4.gif
+	frame	data/chars/0yuri/yurwtr/pain5.gif
+	frame	data/chars/0yuri/yurwtr/pain6.gif
+
+
+anim	rise
+	loop	0
+	delay	5
+	offset	125 150
+	bbox	0 0 0 0
+	frame	data/chars/0yuri/yurwtr/pain7.gif
+	@cmd	spawnGun5 "swater2" 15 1 1 2 "ANI_FOLLOW2"
+	frame	data/chars/0yuri/yurwtr/pain7.gif
+
+
+
+anim	death
+	loop	0
+	delay	30
+	offset	125 150
+	bbox	0 0 0 0
+	frame	data/chars/1robert/kgnrob/empty.gif
+	@cmd	spawn01 "Splash3" 50 1 1
+	frame	data/chars/1robert/kgnrob/empty.gif
+	@cmd	spawn01 "Splash3" 10 1 1
+	frame	data/chars/1robert/kgnrob/empty.gif
+	@cmd	spawn01 "Splash3" -50 1 1
+	frame	data/chars/1robert/kgnrob/empty.gif
+	@cmd	spawn01 "Splash3" -10 1 1
+	frame	data/chars/1robert/kgnrob/empty.gif
+
+
+anim	forwardjump
+
+		
+anim	freespecial2
+		
+anim	freespecial3
+		
+anim	freespecial4
+		
+anim	freespecial5
+		
+anim	idle
+	loop	1
+	delay	10
+	offset	125 150
+	bbox	105 110 50 40
+	frame	data/chars/0yuri/yurwtr/idle01.gif
+	frame	data/chars/0yuri/yurwtr/idle02.gif
+	frame	data/chars/0yuri/yurwtr/idle03.gif
+	frame	data/chars/0yuri/yurwtr/idle04.gif
+	frame	data/chars/0yuri/yurwtr/idle05.gif
+		
+anim	jump
+		
+anim	jumpdelay
+		
+anim	jumpland
+
+		
+anim	pain
+	loop	0
+	delay	60
+	offset	125 150
+	bbox	0 0 0 0
+	jumpframe 0 4.5 -3.5 0 Splash3
+	landframe 2 Splash3
+	frame	data/chars/0yuri/yurwtr/pain1.gif
+	delay	280
+	frame	data/chars/0yuri/yurwtr/pain2.gif
+	delay	6
+	sound	data/sounds/Splash1.wav
+	frame	data/chars/0yuri/yurwtr/pain3.gif
+	frame	data/chars/0yuri/yurwtr/pain4.gif
+	frame	data/chars/0yuri/yurwtr/pain5.gif
+	frame	data/chars/0yuri/yurwtr/pain6.gif
+	delay	9
+	@cmd	clearL
+	frame	data/chars/0yuri/yurwtr/pain7.gif
+
+
+anim	pain2
+	loop	0
+	delay	60
+	offset	125 150
+	bbox	0 0 0 0
+	jumpframe 0 4.5 -3.5 0 Splash3
+	landframe 2 Splash3
+	frame	data/chars/0yuri/yurwtr/pain1.gif
+	delay	280
+	frame	data/chars/0yuri/yurwtr/pain2.gif
+	delay	6
+	sound	data/sounds/Splash1.wav
+	frame	data/chars/0yuri/yurwtr/pain3.gif
+	frame	data/chars/0yuri/yurwtr/pain4.gif
+	frame	data/chars/0yuri/yurwtr/pain5.gif
+	frame	data/chars/0yuri/yurwtr/pain6.gif
+	delay	9
+	@cmd	clearL
+	frame	data/chars/0yuri/yurwtr/pain7.gif
+
+
+		
+anim	run
+		
+anim	runattack
+		
+anim	runjump
+		
+anim	spawn
+	loop	0
+	delay	10
+	offset	125 150
+	bbox	0 0 0 0
+	frame	data/chars/0yuri/yurwtr/idle04.gif
+	@cmd	spawnGun5 "swater2" 15 1 1 2 "ANI_FOLLOW2"
+	frame	data/chars/0yuri/yurwtr/idle05.gif
+
+anim	respawn
+	loop	0
+	delay	10
+	offset	125 150
+	bbox	0 0 0 0
+	frame	data/chars/0yuri/yurwtr/idle04.gif
+	@cmd	spawnGun5 "swater2" 15 1 1 2 "ANI_FOLLOW2"
+	frame	data/chars/0yuri/yurwtr/idle05.gif
+		
+anim	special
+		
+anim	walk
+
+		

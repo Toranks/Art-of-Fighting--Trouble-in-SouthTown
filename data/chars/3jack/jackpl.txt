@@ -1,0 +1,1718 @@
+name		jackpl
+type		player
+health		300
+mp		100
+mprate          1
+chargerate      12
+speed		10
+running		22 3 2.5 1 0
+jumpheight	4.3
+jumpspeed	14
+nodieblink	2
+secret		1 1
+weaploss	3
+modelflag	1
+noquake         0
+makeinv		3
+riseinv		2
+gfxshadow	1
+fmap		1
+holdblock 	1
+dust            dust
+candamage	enemy obstacle
+projectilehit 	player npc enemy
+weapons		jackbckpl jackpl Robcar2 robfall Robwtr Robvent mapcurs mrzero
+atchain         1 1 2 3 4 0
+combostyle      0
+icon		data/chars/3jack/iconpl.gif
+parrow          data/chars/misc/flash/flash/player1.gif  -36 -145
+parrow2         data/chars/misc/flash/flash/player2.gif  -36 -145
+parrow3         data/chars/misc/flash/flash/player3.gif  -36 -145
+diesound	data/sounds/jack6.wav
+
+
+
+animationscript data/scripts/escript.c
+
+com	f d f a   freespecial1
+com	d f j	  freespecial2
+com	d f d f a freespecial3
+com	a2	  freespecial15
+
+
+
+
+
+
+anim	freespecial15
+	loop	0
+	delay	12
+	offset	108 190
+	bbox	0 0 0 0
+	frame	data/chars/3jack/taunt1.gif
+	frame	data/chars/3jack/taunt2.gif
+	sound	data/sounds/mhmh.wav
+	frame	data/chars/3jack/taunt3.gif
+	frame	data/chars/3jack/taunt2.gif
+	frame	data/chars/3jack/taunt3.gif
+	frame	data/chars/3jack/taunt2.gif
+	frame	data/chars/3jack/taunt3.gif
+	frame	data/chars/3jack/taunt2.gif
+	frame	data/chars/3jack/taunt3.gif
+	frame	data/chars/3jack/taunt2.gif
+	@cmd	spawnAni2 "movelist" 240 300 440 "ANI_FOLLOW8"
+	frame	data/chars/3jack/taunt3.gif
+	frame	data/chars/3jack/taunt2.gif
+	frame	data/chars/3jack/taunt3.gif
+	frame	data/chars/3jack/taunt1.gif
+
+
+
+anim	freespecial3
+@script
+	void self = getlocalvar("self");
+	void plyr = getentityproperty(self, "playerindex");
+	float Vx = getlocalvar("x"+self);
+	float Vz = getlocalvar("z"+self);
+
+	if(frame >= 8 && frame <= 17 )
+	{
+	  if( playerkeys(plyr, 0, "moveup"))
+	  {
+	  changeentityproperty(self, "velocity", Vx, -0.7);
+	  }
+	  if( playerkeys(plyr, 0, "movedown"))
+	  {
+	  changeentityproperty(self, "velocity", Vx, 0.7);
+	  }
+	}
+@end_script
+	energycost	40
+	mponly	1
+	loop	0
+	delay	8
+	offset	108 190
+	bbox	84 98 47 90
+	fastattack	1
+	forcedirection	-1
+	staydown	500 500
+	hitfx	data/sounds/beat5.wav
+	frame	data/chars/3jack/land.gif
+	delay	4
+	frame	data/chars/3jack/sp01.gif
+	frame	data/chars/3jack/sp02.gif
+	sound	data/sounds/jack4.wav
+	frame	data/chars/3jack/sp01.gif
+	frame	data/chars/3jack/sp02.gif
+	frame	data/chars/3jack/sp01.gif
+	frame	data/chars/3jack/sp02.gif
+	frame	data/chars/3jack/sp01.gif
+	bbox	0 0 0 0
+	delay	12
+	@cmd	dasher 2 0 0
+	frame	data/chars/3jack/sp05.gif #8
+	frame	data/chars/3jack/sp06.gif
+	attack8	75 85 70 85 15 0 1 0 12 20
+	frame	data/chars/3jack/sp07.gif
+	attack8	0 0 0 0
+	frame	data/chars/3jack/sp08.gif
+	attack8	75 85 70 85 15 0 1 0 12 20
+	frame	data/chars/3jack/sp09.gif
+	attack8	0 0 0 0
+	frame	data/chars/3jack/sp10.gif
+	frame	data/chars/3jack/sp11.gif
+	delay	15
+	hitflash	flashscreen2
+	hitfx	data/sounds/beat4.wav
+	blast	100 85 100 55 40 1 0 20 20
+	dropv	2 5
+	frame	data/chars/3jack/sp12.gif
+	@cmd	dasher 1.5 0 0
+	frame	data/chars/3jack/sp12.gif
+	@cmd	dasher 1 0 0
+	frame	data/chars/3jack/sp12.gif
+	@cmd	dasher 0.5 0 0
+	frame	data/chars/3jack/sp12.gif
+	@cmd	stop
+	frame	data/chars/3jack/sp12.gif
+	blast	0 0 0 0
+	delay	25
+	frame	data/chars/3jack/sp11.gif
+
+
+
+anim	freespecial1
+	energycost	20
+	mponly	1
+	loop	0
+	delay	2
+	offset	108 190
+	bbox	84 98 47 90
+	forcedirection -1
+	move	5
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/jack3.wav
+	hitflash	flash3
+	frame	data/chars/3jack/upper01.gif
+	frame	data/chars/3jack/upper01.gif
+	frame	data/chars/3jack/upper01.gif
+	frame	data/chars/3jack/upper02.gif
+	frame	data/chars/3jack/upper02.gif
+	frame	data/chars/3jack/upper02.gif
+	move	3
+	attack10 100 82 65 66 12 1 0 0 30 15
+	dropv	3 0
+	frame	data/chars/3jack/upper03.gif
+	frame	data/chars/3jack/upper03.gif
+	frame	data/chars/3jack/upper03.gif
+	attack10 0 0 0 0
+	frame	data/chars/3jack/upper03.gif
+	hitfx	data/sounds/beat4.wav
+	hitflash	flashscreen1
+	attack	95 30 60 120 30 1 0 0 45 15
+	dropv	5 1
+	frame	data/chars/3jack/upper04.gif
+	move	2
+	frame	data/chars/3jack/upper04.gif
+	frame	data/chars/3jack/upper04.gif
+	frame	data/chars/3jack/upper05.gif
+	frame	data/chars/3jack/upper05.gif
+	frame	data/chars/3jack/upper05.gif
+	move	0
+	delay	7
+	frame	data/chars/3jack/upper05.gif
+	attack	0 0 0 0
+	delay	14
+	frame	data/chars/3jack/upper05.gif
+	frame	data/chars/3jack/upper03.gif
+
+
+
+
+anim	freespecial2
+	energycost	20
+	mponly	1
+	loop	0
+	delay	8
+	offset	108 190
+	bbox	84 98 47 90
+	jumpframe	9 3 4 0
+	landframe	13 dust
+	fastattack	1
+	forcedirection	-1
+	staydown	300 300
+	hitfx	data/sounds/beat4.wav
+	hitflash	flash3
+	frame	data/chars/3jack/land.gif
+	delay	4
+	frame	data/chars/3jack/ch01.gif
+	frame	data/chars/3jack/ch02.gif
+	frame	data/chars/3jack/ch03.gif
+	frame	data/chars/3jack/ch04.gif
+	frame	data/chars/3jack/ch01.gif
+	sound	data/sounds/jack3.wav
+	frame	data/chars/3jack/ch02.gif
+	frame	data/chars/3jack/ch03.gif
+	delay	10
+	bbox	0 0 0 0
+	frame	data/chars/3jack/land.gif
+	delay	7
+	sound	data/sounds/super3.wav
+	frame	data/chars/3jack/ju01.gif
+	attack10 105 115 53 65 20 1 1 0 35 25
+	dropv	2 3.5
+	frame	data/chars/3jack/ak1.gif
+	attack10 0 0 0 0
+	frame	data/chars/3jack/ak1.gif
+	hitflash	flashscreen1
+	delay	500
+	attack	106 80 100 70 40 1 1 0 40 25
+	dropv	2 4.5
+	frame	data/chars/3jack/ak2.gif
+	delay	25
+	attack	0 0 0 0
+	sound	data/sounds/fall.wav
+	frame	data/chars/3jack/rise0.gif
+	delay	12
+	frame	data/chars/3jack/rise1.gif
+	delay	20
+	bbox	84 98 47 90
+	frame	data/chars/3jack/rise2.gif
+	delay	12
+	frame	data/chars/3jack/rise3.gif
+
+
+#--------------------//-grab-escape-beds-//-----------------------
+
+
+anim	follow17
+@script
+	void self = getlocalvar("self");
+	int eTime = openborvariant("elapsed_time");
+	if (frame == 10)
+	{
+	changeentityproperty(self, "invincible", 1);
+	changeentityproperty(self, "invinctime", eTime + 1000);
+	changeentityproperty(self, "blink", 1);
+	}
+@end_script
+	loop	0
+	delay	800
+	offset	108 190
+	bbox	0 0 0 0
+	frame	data/chars/3jack/empty.gif
+	delay	12
+	frame	data/chars/3jack/taunt1.gif
+	frame	data/chars/3jack/taunt2.gif
+	sound	data/sounds/mhmh.wav
+	frame	data/chars/3jack/taunt3.gif
+	frame	data/chars/3jack/taunt2.gif
+	frame	data/chars/3jack/taunt3.gif
+	frame	data/chars/3jack/taunt2.gif
+	frame	data/chars/3jack/taunt3.gif
+	frame	data/chars/3jack/taunt2.gif
+	frame	data/chars/3jack/taunt3.gif
+	frame	data/chars/3jack/taunt1.gif
+
+
+anim	follow15
+@script
+	void self = getlocalvar("self");
+   	void opp = getentityproperty(self, "opponent");
+	int enedir = getentityproperty(opp,"direction");
+	if (frame == 0 && enedir == 0)
+	{
+	changeentityproperty(self, "direction", 1);
+	}
+	else if (frame == 0 && enedir == 1)
+	{
+	changeentityproperty(self, "direction", 0);
+	}
+@end_script
+	loop	0
+	delay	20
+	offset	108 190
+	bbox	0 0 0 0
+	jumpframe 0 3 -1
+	landframe 3
+	frame	data/chars/3jack/ju01.gif
+	delay	25
+	frame	data/chars/3jack/ju02.gif
+	delay	300
+	frame	data/chars/3jack/ju01.gif
+	delay	12
+	frame	data/chars/3jack/land.gif
+
+
+anim	follow16
+@script
+	void self = getlocalvar("self");
+   	void opp = getentityproperty(self, "opponent");
+	int enedir = getentityproperty(opp,"direction");
+	if (frame == 0 && enedir == 0)
+	{
+	changeentityproperty(self, "direction", 1);
+	}
+	else if (frame == 0 && enedir == 1)
+	{
+	changeentityproperty(self, "direction", 0);
+	}
+@end_script
+	loop	0
+	delay	7
+	offset	108 190
+	bbox	0 0 0 0
+	frame	data/chars/3jack/grab18.gif
+	@cmd	flip
+	frame	data/chars/3jack/grab19.gif
+	offset	108 132
+	@cmd	dasher 3 0 0
+	frame	data/chars/3jack/grab14.gif
+	frame	data/chars/3jack/grab15.gif
+	frame	data/chars/3jack/grab16.gif
+	@cmd	spawn01 "dust" 1 1 1
+	frame	data/chars/3jack/grab16a.gif
+	offset	108 190
+	frame	data/chars/3jack/grab19.gif
+	frame	data/chars/3jack/grab20.gif
+	frame	data/chars/3jack/grab21.gif
+	delay	12
+	@cmd	stop
+	frame	data/chars/3jack/grab22.gif
+	@cmd	flip
+	frame	data/chars/3jack/idle01.gif
+
+
+#--------------------------------//-----------------------
+
+
+anim	attack1
+	loop	0
+	delay	6
+	offset	108 190
+	bbox	84 98 47 90
+	fastattack	1
+	@cmd	attackgrd -60 60 0 1 10 "ANI_FOLLOW10"
+	hitfx	data/sounds/beat1.wav
+	frame	data/chars/3jack/a01.gif
+	attack	118 90 75 40 15 0 0 0 9 0
+	frame	data/chars/3jack/a02.gif
+	frame	data/chars/3jack/a03.gif
+	attack	0 0 0 0
+	delay	7
+	frame	data/chars/3jack/a04.gif
+
+
+
+anim	follow10
+	loop	0
+	delay	12
+	offset	108 180
+	bbox	0 0 0 0
+	followanim	1
+	followcond	1
+	jumpframe	0 3 1
+	landframe	3 dust
+	forcedirection	-1
+	attackone	1
+	otg	2
+	hitfx	data/sounds/beat5.wav
+	hitflash	flashscreen1
+	frame	data/chars/3jack/ju01.gif
+	offset	108 160
+	frame	data/chars/3jack/ju02.gif
+	offset	108 190
+	attack11 80 165 65 25 50 1 0 0 30 10
+	dropv	2 3
+	frame	data/chars/3jack/grd05.gif
+	delay	30
+	frame	data/chars/3jack/grd05.gif
+	attack11 0 0 0 0
+	delay	12
+	frame	data/chars/3jack/get01.gif
+	frame	data/chars/3jack/get02.gif
+	frame	data/chars/3jack/taunt1.gif
+
+
+anim	follow1
+	loop	0
+	delay	12
+	offset	108 180
+	bbox	0 0 0 0
+	followanim	1
+	followcond	1
+	jumpframe	0 3 0
+	landframe	2 dust
+	frame	data/chars/3jack/grd05.gif
+	delay	300
+	frame	data/chars/3jack/grd05.gif
+	delay	5
+	frame	data/chars/3jack/grd05.gif
+	delay	12
+	frame	data/chars/3jack/get01.gif
+	frame	data/chars/3jack/get02.gif
+	frame	data/chars/3jack/taunt1.gif
+
+		
+anim	attack2
+	loop	0
+	delay	7
+	offset	108 190
+	bbox	84 98 47 90
+	hitfx	data/sounds/beat2.wav
+	sound	data/sounds/jack1.wav
+	frame	data/chars/3jack/a101.gif
+	frame	data/chars/3jack/a102.gif
+	attack	115 92 95 39 20 0 0 0 13 0
+	frame	data/chars/3jack/a103.gif
+	attack	0 0 0 0
+	delay	8
+	frame	data/chars/3jack/a102.gif
+
+
+anim	attack3
+	loop	0
+	delay	7
+	offset	108 190
+	bbox	84 98 47 90
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/jack1.wav
+	move	7
+	frame	data/chars/3jack/b101.gif
+	frame	data/chars/3jack/b102.gif
+	attack2	110 110 75 55 20 0 0 0 15 0
+	frame	data/chars/3jack/b103.gif
+	attack2	0 0 0 0
+	move	0
+	frame	data/chars/3jack/b102.gif
+	delay	8
+	frame	data/chars/3jack/b101.gif
+
+anim	attack4
+	loop	0
+	delay	7
+	offset	108 190
+	bbox	84 98 47 90
+	forcedirection -1
+	hitfx	data/sounds/beat3.wav
+	sound	data/sounds/jack2.wav
+	frame	data/chars/3jack/a104.gif
+	frame	data/chars/3jack/a105.gif
+	frame	data/chars/3jack/a106.gif
+	attack	108 85 90 60 30 1 0 0 17 0
+	dropv	2 4
+	delay	9
+	frame	data/chars/3jack/a107.gif
+	frame	data/chars/3jack/a108.gif
+	attack	0 0 0 0
+	frame	data/chars/3jack/a109.gif
+	frame	data/chars/3jack/a110.gif
+
+
+
+
+anim	special
+@script
+	void self = getlocalvar("self");
+	void plyr = getentityproperty(self, "playerindex");
+	float Vx = getlocalvar("x"+self);
+	float Vz = getlocalvar("z"+self);
+
+	if(frame >= 9 && frame < 14 )
+	{
+	  if( playerkeys(plyr, 0, "moveup"))
+	  {
+	  changeentityproperty(self, "velocity", Vx, -0.5);
+	  }
+	  if( playerkeys(plyr, 0, "movedown"))
+	  {
+	  changeentityproperty(self, "velocity", Vx, 0.5);
+	  }
+	  if( playerkeys(plyr, 0, "moveleft"))
+	  {
+	  changeentityproperty(self, "velocity", -1.5, Vz);
+	  }
+	  if( playerkeys(plyr, 0, "moveright"))
+	  {
+	  changeentityproperty(self, "velocity", 1.5, Vz);
+	  }
+	}
+@end_script
+	energycost	50
+	mponly	1
+	loop	0
+	delay	12
+	offset	108 190
+	bbox	0 0 0 0
+	hitfx	data/sounds/beat5.wav
+	frame	data/chars/3jack/sp01.gif
+	frame	data/chars/3jack/sp02.gif
+	sound	data/sounds/jack2.wav
+	frame	data/chars/3jack/sp01.gif
+	frame	data/chars/3jack/sp02.gif
+	frame	data/chars/3jack/sp01.gif
+	frame	data/chars/3jack/sp02.gif
+	delay	10
+	frame	data/chars/3jack/land.gif
+	frame	data/chars/3jack/sp20.gif
+	frame	data/chars/3jack/sp21.gif
+	delay	8
+	frame	data/chars/3jack/sp22.gif #9
+	blast	60 100 105 80 30 1 0 12 20
+	frame	data/chars/3jack/sp23.gif
+	@cmd	spawn01 "dust" 1 1 1
+	sound	data/sounds/punch2.wav
+	frame	data/chars/3jack/sp24.gif
+	blast	0 0 0 0
+	frame	data/chars/3jack/sp25.gif
+	@cmd	looper 9 30
+	delay	10
+	frame	data/chars/3jack/sp22.gif
+	frame	data/chars/3jack/sp23.gif
+	@cmd	stop
+	frame	data/chars/3jack/sp24.gif
+	frame	data/chars/3jack/sp25.gif
+	delay	12
+	frame	data/chars/3jack/sp22.gif
+	frame	data/chars/3jack/sp21.gif
+	frame	data/chars/3jack/sp20.gif
+	frame	data/chars/3jack/land.gif
+		
+anim	charge
+	loop	0
+	delay	12
+	offset	108 190
+	bbox	84 98 47 90
+	frame	data/chars/3jack/block01.gif
+	delay	6
+	sound	data/sounds/bguye5.wav
+	frame	data/chars/3jack/ch01.gif
+	frame	data/chars/3jack/ch02.gif
+	frame	data/chars/3jack/ch03.gif
+	frame	data/chars/3jack/ch04.gif
+	frame	data/chars/3jack/ch01.gif #5
+	frame	data/chars/3jack/ch02.gif
+	frame	data/chars/3jack/ch03.gif
+	frame	data/chars/3jack/ch04.gif
+	@cmd	updateframe getlocalvar("self") 5
+	frame	data/chars/3jack/block01.gif
+	frame	data/chars/3jack/block01.gif
+
+		
+anim	block
+	loop	0
+	delay	9
+	offset	108 190
+	bbox	84 98 47 90
+	frame	data/chars/3jack/block01.gif
+	frame	data/chars/3jack/block02.gif
+
+
+anim	jump
+	loop	0
+	delay	20
+	offset	108 190
+	bbox	84 80 47 55
+	frame	data/chars/3jack/ju01.gif
+	delay	25
+	frame	data/chars/3jack/ju02.gif
+	frame	data/chars/3jack/ju01.gif
+
+anim	jumpland
+	loop	0
+	delay	12
+	offset	108 190
+	bbox	84 98 47 90
+	frame	data/chars/3jack/land.gif
+
+anim	walkoff
+	loop	0
+	delay	20
+	offset	108 190
+	bbox	84 80 47 55
+	frame	data/chars/3jack/ju01.gif
+
+anim	jumpattack
+	loop	0
+	delay	9
+	offset	108 190
+	bbox	84 80 47 55
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/jack1.wav
+	frame	data/chars/3jack/jua05.gif
+	frame	data/chars/3jack/jua06.gif
+	delay	35
+	attack2	95 96 78 84 16 0 0 0 15 20
+	frame	data/chars/3jack/jua07.gif
+	attack2 0 0 0 0
+	delay	12
+	frame	data/chars/3jack/jua06.gif
+	frame	data/chars/3jack/jua05.gif
+
+
+
+anim	jumpattack2
+	loop	0
+	delay	14
+	offset	108 190
+	bbox	84 80 47 55
+	landframe	3 dust
+	quakeframe	3 5 5
+	staydown	500 500
+	hitfx	data/sounds/beat2.wav
+	sound	data/sounds/jack2.wav
+	frame	data/chars/3jack/jua05.gif
+	frame	data/chars/3jack/jua01.gif
+	delay	500
+	attack	75 125 105 65 30 1 0 0 17 20
+	dropv	5 1
+	frame	data/chars/3jack/jua02.gif
+	delay	5
+	offset	108 180
+	frame	data/chars/3jack/jua02.gif #3
+	sound	data/sounds/bang2.wav
+	frame	data/chars/3jack/jua03.gif
+	frame	data/chars/3jack/jua03.gif
+	frame	data/chars/3jack/jua03.gif
+	frame	data/chars/3jack/jua03.gif
+	frame	data/chars/3jack/jua03.gif
+	attack	0 0 0 0
+	@cmd	flip
+	offset	108 190
+	frame	data/chars/3jack/rise0.gif
+	frame	data/chars/3jack/rise0.gif
+	frame	data/chars/3jack/rise0.gif
+	frame	data/chars/3jack/rise0.gif
+	frame	data/chars/3jack/rise1.gif
+	frame	data/chars/3jack/rise1.gif
+	frame	data/chars/3jack/rise2.gif
+	frame	data/chars/3jack/rise2.gif
+	frame	data/chars/3jack/rise3.gif
+	frame	data/chars/3jack/rise3.gif
+
+
+
+
+anim	jumpforward
+	loop	0
+	delay	9
+	offset	108 190
+	bbox	84 80 47 55
+	forcedirection -1
+	staydown	500 500
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/jack1.wav
+	frame	data/chars/3jack/jua05.gif
+	frame	data/chars/3jack/jua10.gif
+	delay	45
+	attack	95 96 95 70 22 1 0 0 15 20
+	frame	data/chars/3jack/jua11.gif
+	attack 0 0 0 0
+	delay	12
+	frame	data/chars/3jack/jua10.gif
+	frame	data/chars/3jack/jua05.gif
+
+
+
+anim	runjumpattack
+	loop	0
+	delay	9
+	offset	108 190
+	bbox	84 80 47 55
+	landframe	3 dust
+	quakeframe	3 5 5
+	staydown	300 300
+	forcedirection -1
+	hitfx	data/sounds/beat4.wav
+	sound	data/sounds/jack2.wav
+	frame	data/chars/3jack/jua10.gif
+	offset	108 180
+	frame	data/chars/3jack/ak1.gif
+	attack	95 75 110 65 30 1 0 0 17 20
+	dropv	3 4
+	delay	500
+	offset	108 165
+	frame	data/chars/3jack/ak2.gif
+	delay	5
+	offset	108 155
+	frame	data/chars/3jack/ak2.gif
+	sound	data/sounds/bang2.wav
+	attack	0 0 0 0
+	offset	108 190
+	frame	data/chars/3jack/rise0.gif
+	frame	data/chars/3jack/rise0.gif
+	frame	data/chars/3jack/rise0.gif
+	frame	data/chars/3jack/rise0.gif
+	frame	data/chars/3jack/rise1.gif
+	frame	data/chars/3jack/rise1.gif
+	frame	data/chars/3jack/rise2.gif
+	frame	data/chars/3jack/rise2.gif
+	frame	data/chars/3jack/rise3.gif
+	frame	data/chars/3jack/rise3.gif
+
+
+
+		
+anim	death
+	range	181 270
+	loop	0
+	delay	14
+	offset	108 190
+	bbox	0 0 0 0
+	jumpframe	8 2 0.5 3 1
+	landframe	9
+	frame	data/chars/3jack/rise0.gif
+	frame	data/chars/3jack/rise1.gif
+	frame	data/chars/3jack/rise2.gif
+	delay	45
+	frame	data/chars/3jack/rise2.gif
+	delay	25
+	frame	data/chars/3jack/death1.gif
+	frame	data/chars/3jack/death2.gif
+	delay	130
+	frame	data/chars/3jack/death3.gif
+		
+		
+anim	grab
+	cancel	0 5 0 j freespecial5
+	cancel	0 5 0 b j freespecial6
+	cancel	0 5 0 f j freespecial7
+	loop	0
+	delay	5
+	offset	108 190
+	bbox	84 98 47 90
+	frame	data/chars/3jack/slam01.gif
+	frame	data/chars/3jack/slam01.gif
+	frame	data/chars/3jack/slam01.gif
+	frame	data/chars/3jack/slam01.gif
+	frame	data/chars/3jack/slam01.gif
+	frame	data/chars/3jack/slam01.gif
+
+
+anim	grabforward
+	loop	0
+	delay	9
+	offset	108 190
+	bbox	84 98 47 90
+	hitfx	data/sounds/beat3.wav
+	sound	data/sounds/jack2.wav
+	frame	data/chars/3jack/a104.gif
+	frame	data/chars/3jack/a105.gif
+	frame	data/chars/3jack/a106.gif
+	delay	12
+	blast	105 80 90 65 30 1 0 35 15
+	dropv	2 4
+	frame	data/chars/3jack/a107.gif
+	frame	data/chars/3jack/a108.gif
+	blast	0 0 0 0
+	delay	20
+	frame	data/chars/3jack/a109.gif
+	delay	12
+	frame	data/chars/3jack/a102.gif
+	frame	data/chars/3jack/a104.gif
+
+
+anim	grabbackward
+	loop	0
+	delay	25
+	offset	108 190
+	bbox	0 0 0 0
+	sound	data/sounds/grab.wav
+	@cmd	slamstart
+	@cmd	position 10 45 45 -1 1
+	frame	data/chars/3jack/grab02.gif
+	delay	14
+	sound	data/sounds/jack3.wav
+	@cmd	position 13 45 50 -1 -1
+	frame	data/chars/3jack/grab04.gif
+	@cmd	position 13 30 60 -1 -1
+	frame	data/chars/3jack/grab05.gif
+	@cmd	position 0 15 95 -1 1
+	frame	data/chars/3jack/grab06.gif
+	@cmd	position 1 -15 115 -1 1
+	frame	data/chars/3jack/grab07.gif
+	@cmd	position 2 -45 100 -1 1
+	frame	data/chars/3jack/grab08.gif
+	delay	45
+	@cmd	depost 0
+	@cmd	finish 40 1 -3.5 1.5 0 -1
+	frame	data/chars/3jack/grab09.gif
+	delay	14
+	frame	data/chars/3jack/grab10.gif
+	@cmd	flip
+	frame	data/chars/3jack/idle02.gif
+
+
+anim	freespecial5
+	loop	0
+	delay	15
+	offset	108 190
+	bbox	0 0 0 0
+	jumpframe	1 4 0 0
+	landframe	4 dust
+	sound	data/sounds/grab.wav
+	@cmd	slamstart2
+	@cmd	position 13 40 40 -1 1
+	frame	data/chars/3jack/slam01.gif
+	delay	20
+	@cmd	position 0 35 70 -1 -1
+	frame	data/chars/3jack/slam02.gif #1
+	sound	data/sounds/jack2.wav
+	@cmd	position 2 45 55 -1 -1
+	frame	data/chars/3jack/slam03.gif
+	delay	1000
+	attack	75 130 125 70 20 1 1 1 20 30
+	dropv	3 3
+	@cmd	position 14 40 55 -1 1
+	frame	data/chars/3jack/slam04.gif
+	delay	18
+	@cmd	spawn01 "qfx" 50 1 1
+	@cmd	position 15 40 45 -1 1
+	frame	data/chars/3jack/slam05.gif #4
+	@cmd	position 14 40 45 -1 1
+	frame	data/chars/3jack/slam05.gif
+	attack	0 0 0 0
+	@cmd	depost 0
+	@cmd	finish 45 1 1 5 0 -1
+	frame	data/chars/3jack/slam05.gif
+	frame	data/chars/3jack/slam06.gif
+	frame	data/chars/3jack/slam07.gif
+
+
+anim	freespecial6
+	loop	0
+	delay	5
+	offset	108 190
+	bbox	0 0 0 0
+	jumpframe	1 3.5 -1.5 0
+	landframe	4 dust
+	sound	data/sounds/grab.wav
+	@cmd	slamstart2
+	@cmd	position 13 40 40 -1 1
+	frame	data/chars/3jack/slam01.gif
+	delay	20
+	@cmd	position 0 35 70 -1 -1
+	frame	data/chars/3jack/slam02.gif #1
+	sound	data/sounds/jack2.wav
+	@cmd	position 2 45 55 -1 -1
+	frame	data/chars/3jack/slam03.gif
+	delay	1000
+	attack	75 130 125 70 20 1 1 1 20 30
+	dropv	3 3
+	@cmd	position 14 40 55 -1 1
+	frame	data/chars/3jack/slam04.gif
+	delay	18
+	@cmd	spawn01 "qfx" 50 1 1
+	@cmd	position 15 40 45 -1 1
+	frame	data/chars/3jack/slam05.gif #4
+	@cmd	position 14 40 45 -1 1
+	frame	data/chars/3jack/slam05.gif
+	attack	0 0 0 0
+	@cmd	depost 0
+	@cmd	finish 45 1 1 5 0 -1
+	frame	data/chars/3jack/slam05.gif
+	frame	data/chars/3jack/slam06.gif
+	frame	data/chars/3jack/slam07.gif
+
+
+anim	freespecial7
+	loop	0
+	delay	5
+	offset	108 190
+	bbox	0 0 0 0
+	jumpframe	1 3.5 1.5 0
+	landframe	4 dust
+	sound	data/sounds/grab.wav
+	@cmd	slamstart2
+	@cmd	position 13 40 40 -1 1
+	frame	data/chars/3jack/slam01.gif
+	delay	20
+	@cmd	position 0 35 70 -1 -1
+	frame	data/chars/3jack/slam02.gif #1
+	sound	data/sounds/jack2.wav
+	@cmd	position 2 45 55 -1 -1
+	frame	data/chars/3jack/slam03.gif
+	delay	1000
+	attack	75 130 125 70 20 1 1 1 20 30
+	dropv	3 3
+	@cmd	position 14 40 55 -1 1
+	frame	data/chars/3jack/slam04.gif
+	delay	18
+	@cmd	spawn01 "qfx" 50 1 1
+	@cmd	position 15 40 45 -1 1
+	frame	data/chars/3jack/slam05.gif #4
+	@cmd	position 14 40 45 -1 1
+	frame	data/chars/3jack/slam05.gif
+	attack	0 0 0 0
+	@cmd	depost 0
+	@cmd	finish 45 1 1 5 0 -1
+	frame	data/chars/3jack/slam05.gif
+	frame	data/chars/3jack/slam06.gif
+	frame	data/chars/3jack/slam07.gif
+
+
+anim	grabattack
+	cancel	8 20 0 a freespecial10
+	loop	0
+	delay	12
+	offset	108 190
+	bbox	0 0 0 0
+	sound	data/sounds/grab.wav
+	@cmd	slamstart
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	delay	30
+	sound	data/sounds/jack1.wav
+	@cmd	position 13 64 92 -1 1
+	frame	data/chars/3jack/hold02.gif
+	sound	data/sounds/jack2.wav
+	delay	12
+	@cmd	position 10 58 78 -1 -1
+	frame	data/chars/3jack/hold03.gif
+	sound	data/sounds/beat2.wav
+	@cmd	spawn01 "Flash" 45 110 1
+	@cmd	position 11 47 90 -1 -1
+	frame	data/chars/3jack/hold04.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 64 92 -1 1
+	frame	data/chars/3jack/hold02.gif
+	@cmd	position 10 58 78 -1 -1
+	frame	data/chars/3jack/hold03.gif
+	sound	data/sounds/beat2.wav
+	@cmd	spawn01 "Flash" 45 110 1
+	@cmd	position 11 47 90 -1 -1
+	frame	data/chars/3jack/hold04.gif
+	delay	4
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif #8
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif #20
+	delay	12
+	@cmd	position 13 64 92 -1 1
+	frame	data/chars/3jack/hold02.gif
+	@cmd	position 10 58 78 -1 -1
+	frame	data/chars/3jack/hold03.gif
+	sound	data/sounds/beat2.wav
+	@cmd	spawn01 "Flash" 45 110 1
+	@cmd	position 11 47 90 -1 -1
+	frame	data/chars/3jack/hold04.gif
+	@cmd	depost 0
+	@cmd	finish 40 1 -3 2 0 -1
+	frame	data/chars/3jack/hold04.gif
+	frame	data/chars/3jack/hold04.gif
+	frame	data/chars/3jack/hold04.gif
+
+
+anim	freespecial10
+	cancel	4 16 0 a freespecial11
+	loop	0
+	delay	12
+	offset	108 190
+	bbox	0 0 0 0
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 64 92 -1 1
+	frame	data/chars/3jack/hold02.gif
+	@cmd	position 10 58 78 -1 -1
+	frame	data/chars/3jack/hold03.gif
+	sound	data/sounds/beat2.wav
+	@cmd	spawn01 "Flash" 45 110 1
+	@cmd	position 11 47 90 -1 -1
+	frame	data/chars/3jack/hold04.gif
+	delay	4
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif #4
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif #16
+	delay	12
+	@cmd	position 13 64 92 -1 1
+	frame	data/chars/3jack/hold02.gif
+	@cmd	position 10 58 78 -1 -1
+	frame	data/chars/3jack/hold03.gif
+	sound	data/sounds/beat2.wav
+	@cmd	spawn01 "Flash" 45 110 1
+	@cmd	position 11 47 90 -1 -1
+	frame	data/chars/3jack/hold04.gif
+	@cmd	depost 0
+	@cmd	finish 50 1 -3 2 0 -1
+	frame	data/chars/3jack/hold04.gif
+	frame	data/chars/3jack/hold04.gif
+	frame	data/chars/3jack/hold04.gif
+
+
+
+anim	freespecial11
+	cancel	4 16 0 a freespecial12
+	loop	0
+	delay	12
+	offset	108 190
+	bbox	0 0 0 0
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 64 92 -1 1
+	frame	data/chars/3jack/hold02.gif
+	@cmd	position 10 58 78 -1 -1
+	frame	data/chars/3jack/hold03.gif
+	sound	data/sounds/beat2.wav
+	@cmd	spawn01 "Flash" 45 110 1
+	@cmd	position 11 47 90 -1 -1
+	frame	data/chars/3jack/hold04.gif
+	delay	4
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif #4
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif #16
+	delay	12
+	@cmd	position 13 64 92 -1 1
+	frame	data/chars/3jack/hold02.gif
+	@cmd	position 10 58 78 -1 -1
+	frame	data/chars/3jack/hold03.gif
+	sound	data/sounds/beat2.wav
+	@cmd	spawn01 "Flash" 45 110 1
+	@cmd	position 11 47 90 -1 -1
+	frame	data/chars/3jack/hold04.gif
+	@cmd	depost 0
+	@cmd	finish 60 1 -3 2 0 -1
+	frame	data/chars/3jack/hold04.gif
+	frame	data/chars/3jack/hold04.gif
+	frame	data/chars/3jack/hold04.gif
+
+anim	freespecial12
+	cancel	4 16 0 a freespecial13
+	loop	0
+	delay	12
+	offset	108 190
+	bbox	0 0 0 0
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 64 92 -1 1
+	frame	data/chars/3jack/hold02.gif
+	@cmd	position 10 58 78 -1 -1
+	frame	data/chars/3jack/hold03.gif
+	sound	data/sounds/beat2.wav
+	@cmd	spawn01 "Flash" 45 110 1
+	@cmd	position 11 47 90 -1 -1
+	frame	data/chars/3jack/hold04.gif
+	delay	4
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif #4
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif #16
+	delay	12
+	@cmd	position 13 64 92 -1 1
+	frame	data/chars/3jack/hold02.gif
+	@cmd	position 10 58 78 -1 -1
+	frame	data/chars/3jack/hold03.gif
+	sound	data/sounds/beat2.wav
+	@cmd	spawn01 "Flash" 45 110 1
+	@cmd	position 11 47 90 -1 -1
+	frame	data/chars/3jack/hold04.gif
+	@cmd	depost 0
+	@cmd	finish 70 1 -3 2 0 -1
+	frame	data/chars/3jack/hold04.gif
+	frame	data/chars/3jack/hold04.gif
+	frame	data/chars/3jack/hold04.gif
+
+anim	freespecial13
+	cancel	4 16 0 a freespecial14
+	loop	0
+	delay	12
+	offset	108 190
+	bbox	0 0 0 0
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 64 92 -1 1
+	frame	data/chars/3jack/hold02.gif
+	@cmd	position 10 58 78 -1 -1
+	frame	data/chars/3jack/hold03.gif
+	sound	data/sounds/beat2.wav
+	@cmd	spawn01 "Flash" 45 110 1
+	@cmd	position 11 47 90 -1 -1
+	frame	data/chars/3jack/hold04.gif
+	delay	4
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif #4
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif #16
+	delay	12
+	@cmd	position 13 64 92 -1 1
+	frame	data/chars/3jack/hold02.gif
+	@cmd	position 10 58 78 -1 -1
+	frame	data/chars/3jack/hold03.gif
+	sound	data/sounds/beat2.wav
+	@cmd	spawn01 "Flash" 45 110 1
+	@cmd	position 11 47 90 -1 -1
+	frame	data/chars/3jack/hold04.gif
+	@cmd	depost 0
+	@cmd	finish 80 1 -3 2 0 -1
+	frame	data/chars/3jack/hold04.gif
+	frame	data/chars/3jack/hold04.gif
+	frame	data/chars/3jack/hold04.gif
+
+anim	freespecial14
+	loop	0
+	delay	12
+	offset	108 190
+	bbox	0 0 0 0
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 64 92 -1 1
+	frame	data/chars/3jack/hold02.gif
+	@cmd	position 10 58 78 -1 -1
+	frame	data/chars/3jack/hold03.gif
+	sound	data/sounds/beat2.wav
+	@cmd	spawn01 "Flash" 45 110 1
+	@cmd	position 11 47 90 -1 -1
+	frame	data/chars/3jack/hold04.gif
+	delay	4
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif #4
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif
+	@cmd	position 13 63 90 -1 1
+	frame	data/chars/3jack/hold01.gif #16
+	delay	12
+	@cmd	position 13 64 92 -1 1
+	frame	data/chars/3jack/hold02.gif
+	@cmd	position 10 58 78 -1 -1
+	frame	data/chars/3jack/hold03.gif
+	sound	data/sounds/beat2.wav
+	@cmd	spawn01 "Flash" 45 110 1
+	@cmd	position 11 47 90 -1 -1
+	frame	data/chars/3jack/hold04.gif
+	@cmd	depost 0
+	@cmd	finish 90 1 -3 2 0 -1
+	frame	data/chars/3jack/hold04.gif
+	frame	data/chars/3jack/hold04.gif
+	frame	data/chars/3jack/hold04.gif
+	frame	data/chars/3jack/hold04.gif
+
+
+		
+anim	grabbed
+	loop	0
+	delay	10
+	offset	108 190
+	bbox	84 98 47 90
+	frame	data/chars/3jack/grabbed.gif
+		
+anim	idle
+	loop	1
+	delay	10
+	offset	108 190
+	bbox	84 98 47 90
+	frame	data/chars/3jack/idle01.gif
+	@cmd	clearL
+	frame	data/chars/3jack/idle02.gif
+	@cmd	mpgain 3
+	frame	data/chars/3jack/idle03.gif
+	frame	data/chars/3jack/idle04.gif
+	@cmd	mpgain 3
+	frame	data/chars/3jack/idle03.gif
+	frame	data/chars/3jack/idle02.gif
+		
+		
+anim	rise
+	loop	0
+	delay	55
+	offset	108 190
+	bbox	0 0 0 0
+	frame	data/chars/3jack/fall4.gif
+	delay	14
+	frame	data/chars/3jack/rise0.gif
+	frame	data/chars/3jack/rise1.gif
+	frame	data/chars/3jack/rise2.gif
+	frame	data/chars/3jack/rise3.gif
+	frame	data/chars/3jack/idle01.gif
+		
+anim	spawn
+	loop	0
+	delay	12
+	offset	108 190
+	bbox	0 0 0 0
+	frame	data/chars/3jack/block01.gif
+	frame	data/chars/3jack/idle06.gif
+	sound	data/sounds/mhmh.wav
+	frame	data/chars/3jack/idle05.gif
+	frame	data/chars/3jack/idle06.gif
+	frame	data/chars/3jack/idle05.gif
+	frame	data/chars/3jack/idle06.gif
+	frame	data/chars/3jack/idle05.gif
+	frame	data/chars/3jack/idle06.gif
+	frame	data/chars/3jack/idle05.gif
+	frame	data/chars/3jack/block01.gif
+
+
+anim	respawn
+	loop	0
+	delay	12
+	offset	108 190
+	bbox	0 0 0 0
+	frame	data/chars/3jack/taunt1.gif
+	frame	data/chars/3jack/taunt2.gif
+	sound	data/sounds/mhmh.wav
+	frame	data/chars/3jack/taunt3.gif
+	frame	data/chars/3jack/taunt2.gif
+	frame	data/chars/3jack/taunt3.gif
+	frame	data/chars/3jack/taunt2.gif
+	frame	data/chars/3jack/taunt3.gif
+	frame	data/chars/3jack/taunt2.gif
+	frame	data/chars/3jack/taunt3.gif
+	frame	data/chars/3jack/taunt1.gif
+		
+anim	walk
+	loop	1
+	delay	12
+	offset	108 190
+	bbox	84 98 47 90
+	frame	data/chars/3jack/wk01.gif
+	frame	data/chars/3jack/wk02.gif
+	frame	data/chars/3jack/wk03.gif
+	frame	data/chars/3jack/wk04.gif
+	frame	data/chars/3jack/wk05.gif
+	frame	data/chars/3jack/wk06.gif
+
+
+anim	run
+	loop	1
+	delay	7
+	offset	108 190
+	bbox	84 98 47 90
+	frame	data/chars/3jack/run01.gif
+	sound	data/sounds/run.wav
+	@cmd	spawn01 "dust" 1 0 1
+	frame	data/chars/3jack/run02.gif
+	frame	data/chars/3jack/run03.gif
+	frame	data/chars/3jack/run04.gif
+	sound	data/sounds/run.wav
+	@cmd	spawn01 "dust" 1 0 1
+	frame	data/chars/3jack/run05.gif
+	frame	data/chars/3jack/run06.gif
+
+
+
+anim	runattack
+	loop	0
+	delay	2
+	offset	108 190
+	bbox	84 98 47 90
+	staydown	300 300
+	hitfx	data/sounds/beat5.wav
+	forcedirection -1
+	move	6
+	sound	data/sounds/jack3.wav
+	frame	data/chars/3jack/ratk01.gif
+	frame	data/chars/3jack/ratk01.gif
+	frame	data/chars/3jack/ratk01.gif
+	frame	data/chars/3jack/ratk01.gif
+	frame	data/chars/3jack/ratk01.gif
+	frame	data/chars/3jack/ratk02.gif
+	frame	data/chars/3jack/ratk02.gif
+	frame	data/chars/3jack/ratk02.gif
+	move	4
+	frame	data/chars/3jack/ratk02.gif
+	frame	data/chars/3jack/ratk02.gif
+	attack	115 80 75 65 20 1 0 0 12 0
+	dropv	3 4
+	frame	data/chars/3jack/ratk03.gif
+	frame	data/chars/3jack/ratk03.gif
+	frame	data/chars/3jack/ratk03.gif
+	frame	data/chars/3jack/ratk03.gif
+	frame	data/chars/3jack/ratk03.gif
+	move	2
+	frame	data/chars/3jack/ratk04.gif
+	frame	data/chars/3jack/ratk04.gif
+	frame	data/chars/3jack/ratk04.gif
+	frame	data/chars/3jack/ratk04.gif
+	move	0
+	frame	data/chars/3jack/ratk04.gif
+	frame	data/chars/3jack/ratk04.gif
+	attack	0 0 0 0
+	delay	10
+	frame	data/chars/3jack/ratk02.gif
+	frame	data/chars/3jack/ratk01.gif
+
+
+
+#------------------//---------------------//-----
+
+anim	pain
+	loop	0
+	delay	3
+	offset	108 190
+	bbox	85 96 39 91
+	frame	data/chars/3jack/pain0.gif
+	offset	105 190
+	frame	data/chars/3jack/pain1.gif
+	offset	110 190
+	frame	data/chars/3jack/pain1.gif
+	delay	40
+	offset	105 190
+	frame	data/chars/3jack/pain1.gif
+
+anim	pain2
+	loop	0
+	delay	3
+	offset	108 190
+	bbox	85 96 39 91
+	frame	data/chars/3jack/pain0.gif
+	offset	105 190
+	frame	data/chars/3jack/pain2.gif
+	offset	110 190
+	frame	data/chars/3jack/pain2.gif
+	delay	40
+	offset	105 190
+	frame	data/chars/3jack/pain2.gif
+
+anim	pain3
+	loop	0
+	delay	2
+	offset	108 190
+	bbox	85 96 39 91
+	move	-6
+	frame	data/chars/3jack/pain1.gif
+	frame	data/chars/3jack/pain1.gif
+	frame	data/chars/3jack/pain1.gif
+	frame	data/chars/3jack/pain2.gif
+	frame	data/chars/3jack/pain2.gif
+	frame	data/chars/3jack/pain2.gif
+	move	-3
+	frame	data/chars/3jack/pain2.gif
+	frame	data/chars/3jack/pain2.gif
+	move	-1
+	frame	data/chars/3jack/pain2.gif
+	delay	35
+	frame	data/chars/3jack/pain2.gif
+
+anim	pain5
+	loop	0
+	delay	10
+	offset	108 190
+	bbox	85 96 39 91
+	frame	data/chars/3jack/pain0.gif 
+	frame	data/chars/3jack/pain1.gif 
+	frame	data/chars/3jack/pain0.gif 
+	frame	data/chars/3jack/pain2.gif 
+	frame	data/chars/3jack/rise3.gif
+	frame	data/chars/3jack/rise2.gif
+	frame	data/chars/3jack/rise3.gif
+
+anim	pain6
+	loop	0
+	delay	14
+	offset	108 190
+	bbox	0 0 0 0
+	frame	data/chars/3jack/pain0.gif
+	frame	data/chars/3jack/pain2.gif
+	frame	data/chars/3jack/rise3.gif
+	frame	data/chars/3jack/rise2.gif
+	frame	data/chars/3jack/rise1.gif
+	frame	data/chars/3jack/rise1.gif
+	frame	data/chars/3jack/rise1.gif
+	frame	data/chars/3jack/rise1.gif
+	frame	data/chars/3jack/rise1.gif
+	frame	data/chars/3jack/rise1.gif
+	delay	850
+	frame	data/chars/3jack/rise1.gif
+	delay	14
+	frame	data/chars/3jack/rise2.gif
+	frame	data/chars/3jack/rise3.gif
+
+
+
+anim	burn
+	loop	0
+	delay	25
+	offset	108 190
+	bbox	0 0 0 0
+	landframe	3
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 200_50_0
+	@cmd	spawnbind "burn1" 1 1 1
+	@cmd	spawnbind "burn2" 1 1 1
+	@cmd	spawnbind "burn3" 1 1 1
+	attack	78 98 30 45 5 1 0 0 13 0
+	frame	data/chars/3jack/fall1.gif
+	delay	15
+	attack	64 130 50 25 5 1 0 0 13 0
+	frame	data/chars/3jack/fall2.gif
+	delay	500
+	frame	data/chars/3jack/fall3.gif
+	attack	0 0 0 0
+	bbox	58 175 85 15
+	delay	15
+	frame	data/chars/3jack/fall4.gif
+	frame	data/chars/3jack/fall5.gif
+	frame	data/chars/3jack/fall4.gif
+		
+anim	fall
+	loop	0
+	delay	25
+	offset	108 190
+	bbox	0 0 0 0
+	landframe	3
+	attack	78 98 30 45 5 1 0 0 13 0
+	frame	data/chars/3jack/fall1.gif
+	delay	15
+	attack	64 130 50 25 5 1 0 0 13 0
+	frame	data/chars/3jack/fall2.gif
+	delay	500
+	frame	data/chars/3jack/fall3.gif
+	attack	0 0 0 0
+	bbox	58 175 85 15
+	delay	15
+	frame	data/chars/3jack/fall4.gif
+	frame	data/chars/3jack/fall5.gif
+	frame	data/chars/3jack/fall4.gif
+
+
+
+anim	fall2
+	loop	0
+	delay	25
+	offset	108 190
+	bbox	0 0 0 0
+	landframe	3
+	attack	78 98 30 45 5 1 0 0 13 0
+	frame	data/chars/3jack/fall1.gif
+	delay	15
+	attack	64 130 50 25 5 1 0 0 13 0
+	frame	data/chars/3jack/fall2.gif
+	delay	500
+	frame	data/chars/3jack/fall3.gif
+	attack	0 0 0 0
+	bbox	58 175 85 15
+	delay	15
+	frame	data/chars/3jack/fall4.gif
+	frame	data/chars/3jack/fall5.gif
+	frame	data/chars/3jack/fall4.gif
+
+	
+anim	fall3
+	loop	0
+	delay	10
+	offset	108 190
+	bbox	80 80 50 75
+	landframe	4
+	attack	85 88 30 50 5 1 0 0 13 0
+	frame	data/chars/3jack/pain6.gif
+	delay	40
+	frame	data/chars/3jack/pain7.gif
+	delay	30
+	bbox	71 125 63 30
+	attack	64 125 45 25 5 1 0 0 13 0
+	frame	data/chars/3jack/fall2.gif
+	delay	300
+	bbox	77 130 67 35
+	attack	0 0 0 0
+	frame	data/chars/3jack/fall3.gif
+	bbox	58 167 85 15
+	delay	15
+	frame	data/chars/3jack/fall4.gif
+	frame	data/chars/3jack/fall5.gif
+	frame	data/chars/3jack/fall4.gif
+
+
+anim	fall4
+	loop	0
+	delay	10
+	offset	108 130
+	bbox	0 0 0 0
+	frame	data/chars/3jack/grab14.gif
+	offset	108 120
+	frame	data/chars/3jack/grab15.gif
+	offset	108 110
+	frame	data/chars/3jack/grab16.gif
+	frame	data/chars/3jack/grab16a.gif
+	offset	108 130
+	frame	data/chars/3jack/grab14.gif
+	offset	108 120
+	frame	data/chars/3jack/grab15.gif
+	offset	108 110
+	frame	data/chars/3jack/grab16.gif
+	frame	data/chars/3jack/grab16a.gif
+	@cmd	looper 4 7
+	offset	108 130
+	frame	data/chars/3jack/grab14.gif
+	offset	108 120
+	frame	data/chars/3jack/grab15.gif
+	offset	108 110
+	frame	data/chars/3jack/grab16.gif
+	frame	data/chars/3jack/grab16a.gif
+
+
+anim	fall7
+	delay	1000
+	offset	100 165
+	frame	data/chars/3jack/slamck0.gif
+	offset	80 185
+	frame	data/chars/3jack/pain1.gif
+	offset	115 145
+	frame	data/chars/3jack/slamck2.gif
+	offset	95 150
+	frame	data/chars/3jack/slamck3.gif
+	offset	95 155
+	frame	data/chars/3jack/slamck12.gif
+	offset	125 140
+	frame	data/chars/3jack/slamck7.gif
+	offset	106 135
+	frame	data/chars/3jack/slamck12.gif
+	offset	90 175
+	frame	data/chars/3jack/slamck11.gif
+	offset	110 135
+	frame	data/chars/3jack/slamck14.gif
+	offset	115 160
+	frame	data/chars/3jack/slamck18.gif
+	offset	115 160
+	frame	data/chars/3jack/slamck19.gif
+	bbox	0 0 0 0
+	offset	103 150
+	frame	data/chars/3jack/slamck5.gif
+	offset	130 135
+	frame	data/chars/3jack/slamck7.gif
+	offset	124 100
+	frame	data/chars/3jack/slamck8.gif
+	offset	105 125
+	frame	data/chars/3jack/slamck1.gif
+	offset	85 180
+	frame	data/chars/3jack/pain0.gif
+	offset	125 110
+	frame	data/chars/3jack/slamck8.gif
+	offset	120 155
+	frame	data/chars/3jack/slamck16.gif
+	offset	120 155
+	frame	data/chars/3jack/slamck17.gif
+	offset	100 170
+	frame	data/chars/3jack/slamck14.gif
+	offset	100 165
+	frame	data/chars/3jack/slamck20.gif
+	offset	95 175
+	frame	data/chars/3jack/slamck11.gif
+	offset	95 170
+	frame	data/chars/3jack/slamck15.gif
+	offset	100 170
+	frame	data/chars/3jack/slamck10.gif
+	offset	90 165
+	frame	data/chars/3jack/slamck11.gif
+	offset	95 175
+	bbox	80 85 60 80
+	frame	data/chars/3jack/slamck14.gif
+	bbox	0 0 0 0
+
+
+anim	waiting
+	loop	1
+	delay	12
+	offset	0 0
+	frame	data/chars/3jack/wait1.gif
+	frame	data/chars/3jack/wait2.gif
+
+
+
+anim	get
+	delay	9
+	offset	108 190
+	bbox	0 0 0 0
+	frame	data/chars/3jack/get02.gif
+	delay	15
+	frame	data/chars/3jack/get01.gif
+	delay	9
+	frame	data/chars/3jack/get02.gif
+	frame	data/chars/3jack/taunt1.gif
+
+
+
+
+
+

@@ -1,0 +1,746 @@
+name          morph2
+type          enemy
+subtype       chase
+health        250
+speed         9
+height		90
+throw         5 2
+throwdamage   18
+shadow        0
+noquake       1
+nolife        1
+falldie	      2
+escapehits    3
+blockodds     1
+nodieblink    1
+gfxshadow     1
+offscreenkill 15000
+dust            dust
+subject_to_platform	0
+subject_to_wall		1
+candamage     player npc
+hostile       player
+projectilehit enemy obstacle
+diesound      data/sounds/alien6.wav
+animationscript data/scripts/escript.c
+
+load	gnpwr3
+
+palette		data/chars/beyond/1alien7/mpal.gif
+alternatepal	data/chars/beyond/1alien7/map1.gif
+alternatepal	data/chars/beyond/1alien7/map2.gif
+alternatepal	data/chars/beyond/1alien7/map3.gif
+alternatepal	data/chars/beyond/1alien7/map4.gif
+alternatepal	data/chars/beyond/1alien7/map5.gif
+alternatepal	data/chars/beyond/1alien7/map6.gif
+
+
+
+
+anim	follow10
+	loop	0
+	delay	9
+	offset	107 195
+	bbox	0 0 0 0
+	jumpframe 3 4 0 -1 
+	landframe 6
+	frame	data/chars/beyond/1alien7/spawn16.gif
+	frame	data/chars/beyond/1alien7/spawn16.gif
+	delay	1000
+	frame	data/chars/beyond/1alien7/spawn16.gif
+	delay	10
+	frame	data/chars/beyond/1alien7/ju01.gif #3
+	frame	data/chars/beyond/1alien7/ju02.gif
+	delay	200
+	frame	data/chars/beyond/1alien7/ju03.gif
+	delay	10
+	frame	data/chars/beyond/1alien7/a00.gif
+	frame	data/chars/beyond/1alien7/a10.gif
+	frame	data/chars/beyond/1alien7/a01.gif
+	@cmd	beidle
+	frame	data/chars/beyond/1alien7/a01.gif
+
+
+
+
+script	@script
+void main()
+{
+    void self = getlocalvar("self");
+    int alt = getentityproperty(self, "a");
+    int z = getentityproperty(self, "z");
+    if ( alt < 135 && z < 491 ){
+	changeentityproperty(self, "setlayer", -1200);
+  	changeentityproperty(self, "gfxshadow", 0);
+    	changeentityproperty(self, "subject_to_platform", 1);
+  	changeentityproperty(getlocalvar("self"), "hostile", openborconstant("TYPE_NPC"));
+  	changeentityproperty(self, "subject_to_wall", 0);
+	}
+}
+@end_script
+
+
+
+
+anim	walkoff
+	loop	0
+	delay	5
+	offset	107 195
+	bbox	0 0 0 0
+	landframe 11 
+	drawmethod	200 200 0 0 0 0 -1 0 0 0 0 -1
+	frame	data/chars/beyond/1alien7/ju01.gif
+	frame	data/chars/beyond/1alien7/ju01.gif
+	@cmd	layer -1200
+	frame	data/chars/beyond/1alien7/ju01.gif
+	frame	data/chars/beyond/1alien7/ju02.gif
+	frame	data/chars/beyond/1alien7/ju02.gif
+	frame	data/chars/beyond/1alien7/ju02.gif
+	frame	data/chars/beyond/1alien7/ju03.gif
+	frame	data/chars/beyond/1alien7/ju03.gif
+	@cmd	leaper 0 1 0.6
+	frame	data/chars/beyond/1alien7/ju03.gif #8
+	frame	data/chars/beyond/1alien7/ju03.gif #9
+	delay	200
+	frame	data/chars/beyond/1alien7/ju03.gif
+	delay	12
+	frame	data/chars/beyond/1alien7/a01.gif #11
+	@cmd	lifesp 12000
+	frame	data/chars/beyond/1alien7/a00.gif
+	@cmd	beidle
+	frame	data/chars/beyond/1alien7/a00.gif
+
+
+
+anim	spawn
+	loop	0
+	delay	14
+	offset	107 195
+	bbox	0 0 0 0
+	jumpframe	0 6 6
+	landframe	3
+	frame	data/chars/beyond/1alien7/ju01.gif
+	frame	data/chars/beyond/1alien7/ju02.gif
+	delay	200
+	frame	data/chars/beyond/1alien7/ju03.gif
+	delay	14
+	frame	data/chars/beyond/1alien7/a00.gif
+
+
+
+anim	attack1
+	range	40 110
+	loop	0
+	delay	9
+	offset	100 185
+	bbox	79 97 50 91
+	followanim	1
+	followcond	1
+	fastattack	1
+	hitflash	Flash6
+	hitfx	data/sounds/beat2.wav
+	frame	data/chars/beyond/1alien7/a10.gif
+	frame	data/chars/beyond/1alien7/a11.gif
+	delay	11
+	attack	110 95 100 45 8 0 0 0 18 0
+	frame	data/chars/beyond/1alien7/a12.gif
+	frame	data/chars/beyond/1alien7/a13.gif
+	attack	0 0 0 0
+	delay	9
+	frame	data/chars/beyond/1alien7/a14.gif
+	frame	data/chars/beyond/1alien7/a10.gif
+		
+
+
+anim	attack4
+	range	80 155
+	rangez	10 50
+	loop	0
+	delay	9
+	offset	110 165
+	bbox	79 97 40 45
+	fastattack	1
+	hitflash	Flash6
+	hitfx	data/sounds/sl1.wav
+	@cmd	dasher 3 0 0.3
+	frame	data/chars/beyond/1alien7/ju03.gif
+	frame	data/chars/beyond/1alien7/ju04.gif
+	offset	100 183
+	frame	data/chars/beyond/1alien7/b01.gif
+	frame	data/chars/beyond/1alien7/b02.gif
+	@cmd	dasher 2 0 0.2
+	attack	75 50 55 100 12 1 0 0 20 15
+	dropv	2 3
+	frame	data/chars/beyond/1alien7/b03.gif
+	attack	75 70 120 95 12 1 0 0 40 15
+	dropv	2 3
+	bbox	64 117 34 42
+	offset	100 195
+	frame	data/chars/beyond/1alien7/b04.gif
+	@cmd	dasher 1 0 0
+	frame	data/chars/beyond/1alien7/b05.gif
+	attack	0 0 0 0
+	frame	data/chars/beyond/1alien7/b06.gif
+	@cmd	stop
+	offset	100 180
+	frame	data/chars/beyond/1alien7/rise5.gif
+		
+anim	attack5
+	range	80 155
+	rangez	-50 -10
+	loop	0
+	delay	9
+	offset	110 165
+	bbox	79 97 40 45
+	fastattack	1
+	hitflash	Flash6
+	hitfx	data/sounds/sl1.wav
+	@cmd	dasher 3 0 -0.3
+	frame	data/chars/beyond/1alien7/ju03.gif
+	frame	data/chars/beyond/1alien7/ju04.gif
+	offset	100 183
+	frame	data/chars/beyond/1alien7/b01.gif
+	frame	data/chars/beyond/1alien7/b02.gif
+	@cmd	dasher 2 0 -0.2
+	attack	75 50 55 100 12 1 0 0 20 15
+	dropv	2 3
+	frame	data/chars/beyond/1alien7/b03.gif
+	attack	75 70 120 95 12 1 0 0 40 15
+	dropv	2 3
+	bbox	64 117 34 42
+	offset	100 195
+	frame	data/chars/beyond/1alien7/b04.gif
+	@cmd	dasher 1 0 0
+	frame	data/chars/beyond/1alien7/b05.gif
+	attack	0 0 0 0
+	frame	data/chars/beyond/1alien7/b06.gif
+	@cmd	stop
+	offset	100 180
+	frame	data/chars/beyond/1alien7/rise5.gif
+
+		
+anim	block
+	loop	0
+	delay	10
+	offset	100 183
+	bbox	75 80 50 91
+	jumpframe	0 2 -2
+	landframe	3
+	frame	data/chars/beyond/1alien7/blk01.gif
+	bbox	0 0 0 0
+	frame	data/chars/beyond/1alien7/blk02.gif
+	delay	300
+	frame	data/chars/beyond/1alien7/blk03.gif
+	delay	12
+	@cmd	attack1 0 160 15 "ANI_FOLLOW2"
+	frame	data/chars/beyond/1alien7/ju02.gif
+	@cmd	attack1 0 160 15 "ANI_FOLLOW2"
+	frame	data/chars/beyond/1alien7/rise5.gif
+		
+anim	burn
+	loop	0
+	delay	25
+	offset	100 183
+	bbox	0 0 0 0
+	landframe	3
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 200_50_0
+	@cmd	spawnbind "burn1" 1 1 1
+	@cmd	spawnbind "burn2" 1 1 1
+	@cmd	spawnbind "burn3" 1 1 1
+	attack	75 103 29 43 5 1 0 0 13 0
+	frame	data/chars/beyond/1alien7/fall1.gif
+	delay	15
+	attack	64 134 40 22 5 1 0 0 13
+	frame	data/chars/beyond/1alien7/fall2.gif
+	delay	500
+	frame	data/chars/beyond/1alien7/fall3.gif
+	attack	0 0 0 0
+	bbox	58 175 85 15
+	delay	20
+	frame	data/chars/beyond/1alien7/fall4.gif
+		
+anim	death
+	loop	0
+	delay	5
+	offset	100 183
+	bbox	0 0 0 0
+	frame	data/chars/beyond/1alien7/fall4.gif
+	delay	9
+	frame	data/chars/beyond/1alien7/de01.gif
+	frame	data/chars/beyond/1alien7/de02.gif
+	frame	data/chars/beyond/1alien7/de03.gif
+	frame	data/chars/beyond/1alien7/de04.gif
+	frame	data/chars/beyond/1alien7/de05.gif
+	frame	data/chars/beyond/1alien7/de06.gif
+	frame	data/chars/beyond/1alien7/de07.gif
+	frame	data/chars/beyond/1alien7/de08.gif
+	frame	data/chars/beyond/1alien7/de09.gif
+	frame	data/chars/beyond/1alien7/de10.gif
+	frame	data/chars/beyond/1alien7/de11.gif
+	frame	data/chars/beyond/1alien7/de12.gif
+	@cmd	looper 2 3
+	delay	7
+	frame	data/chars/beyond/1alien7/de13.gif
+	frame	data/chars/beyond/1alien7/de14.gif
+	frame	data/chars/beyond/1alien7/de15.gif
+	frame	data/chars/beyond/1alien7/de13.gif
+	frame	data/chars/beyond/1alien7/de14.gif
+	frame	data/chars/beyond/1alien7/de15.gif
+	frame	data/chars/beyond/1alien7/de13.gif
+	frame	data/chars/beyond/1alien7/de14.gif
+	frame	data/chars/beyond/1alien7/de15.gif
+	delay	3
+	frame	data/chars/beyond/1alien7/de16.gif
+	frame	data/chars/beyond/1alien7/de17.gif
+	frame	data/chars/beyond/1alien7/de18.gif
+	frame	data/chars/beyond/1alien7/de19.gif
+	frame	data/chars/beyond/1alien7/de20.gif
+	frame	data/chars/beyond/1alien7/de21.gif
+	frame	data/chars/beyond/1alien7/de22.gif
+	frame	data/chars/beyond/1alien7/de23.gif
+	frame	data/chars/beyond/1alien7/de24.gif
+	frame	data/chars/beyond/1alien7/de25.gif
+	frame	data/chars/beyond/1alien7/de26.gif
+	frame	data/chars/beyond/1alien7/de27.gif
+	frame	data/chars/beyond/1alien7/de28.gif
+	frame	data/chars/beyond/1alien7/de29.gif
+	frame	data/chars/beyond/1alien7/de30.gif
+	frame	data/chars/beyond/1alien7/de31.gif
+	frame	data/chars/beyond/1alien7/de32.gif
+	frame	data/chars/beyond/1alien7/de33.gif
+	frame	data/chars/beyond/1alien7/de34.gif
+	frame	data/chars/beyond/1alien7/de35.gif
+	frame	data/chars/beyond/1alien7/de36.gif
+		
+anim	fall
+	loop	0
+	delay	25
+	offset	100 183
+	bbox	0 0 0 0
+	landframe	3
+	attack	75 103 29 43 5 1 0 0 13 0
+	frame	data/chars/beyond/1alien7/fall1.gif
+	delay	15
+	attack	64 134 40 22 5 1 0 0 13
+	frame	data/chars/beyond/1alien7/fall2.gif
+	delay	500
+	frame	data/chars/beyond/1alien7/fall3.gif
+	attack	0 0 0 0
+	bbox	58 175 85 15
+	delay	20
+	frame	data/chars/beyond/1alien7/fall4.gif
+		
+anim	fall10
+	loop	0
+	delay	10
+	offset	100 183
+	bbox	79 70 50 91
+	landframe	4
+	attack	78 85 30 45 5 1 0 0 13 0
+	frame	data/chars/beyond/1alien7/pain6.gif
+	delay	40
+	frame	data/chars/beyond/1alien7/pain7.gif
+	delay	30
+	bbox	71 118 63 30
+	attack	64 125 45 25 5 1 0 0 13 0
+	frame	data/chars/beyond/1alien7/fall2.gif
+	delay	1000
+	bbox	77 130 67 35
+	attack	0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/beyond/1alien7/fall3.gif
+	bbox	58 167 85 15
+	frame	data/chars/beyond/1alien7/fall4.gif
+		
+anim	fall11
+	loop	0
+	delay	20
+	offset	100 183
+	bbox	61 185 90 5	
+	frame	data/chars/beyond/1alien7/pain12.gif
+	delay	35
+	frame	data/chars/beyond/1alien7/fall4.gif
+		
+anim	fall2
+	loop	0
+	delay	30
+	offset	102 183
+	bbox	0 0 0 0
+	attack	78 90 35 45 5 1 0 0 13 0
+	frame	data/chars/beyond/1alien7/pain6.gif
+	delay	10
+	attack	64 125 45 25 5 1 0 0 13 0
+	frame	data/chars/beyond/1alien7/fall2.gif
+	attack	0 0 0 0
+	frame	data/chars/beyond/1alien7/fall3.gif
+	frame	data/chars/beyond/1alien7/fall4.gif
+		
+anim	fall4
+	loop	0
+	delay	6
+	offset	100 183
+	bbox	0 0 0 0
+	jumpframe	0 1.2 1.5
+	frame	data/chars/beyond/1alien7/pain8.gif
+	frame	data/chars/beyond/1alien7/pain9.gif
+	frame	data/chars/beyond/1alien7/pain10.gif
+	@cmd	leaper 0 0.2 0
+	frame	data/chars/beyond/1alien7/pain11.gif
+	frame	data/chars/beyond/1alien7/fall4.gif
+	frame	data/chars/beyond/1alien7/fall5.gif
+	bbox	58 175 95 15
+	frame	data/chars/beyond/1alien7/fall4.gif
+		
+anim	fall7
+	delay	1000
+	offset	105 130
+	frame	data/chars/beyond/1alien7/slamck0.gif
+	offset	100 110
+	frame	data/chars/beyond/1alien7/slamck1.gif
+	offset	106 130
+	frame	data/chars/beyond/1alien7/slamck2.gif
+	offset	115 125
+	frame	data/chars/beyond/1alien7/slamck3.gif
+	offset	125 125
+	frame	data/chars/beyond/1alien7/slamck4.gif
+	offset	108 122
+	frame	data/chars/beyond/1alien7/slamck5.gif
+	offset	106 155
+	frame	data/chars/beyond/1alien7/slamck6.gif
+	offset	125 140
+	frame	data/chars/beyond/1alien7/slamck7.gif
+	offset	120 105
+	frame	data/chars/beyond/1alien7/slamck8.gif
+	offset	100 130
+	frame	data/chars/beyond/1alien7/slamck9.gif
+	offset	105 130
+	frame	data/chars/beyond/1alien7/slamck10.gif
+	offset	105 130
+	frame	data/chars/beyond/1alien7/slamck11.gif
+	offset	115 125
+	frame	data/chars/beyond/1alien7/slamck12.gif
+	offset	115 125
+	frame	data/chars/beyond/1alien7/slamck13.gif
+	offset	115 125
+	frame	data/chars/beyond/1alien7/slamck14.gif
+	offset	115 125
+	frame	data/chars/beyond/1alien7/slamck15.gif
+		
+anim	fall9
+	loop	0
+	delay	10
+	offset	100 183
+	bbox	0 0 0 0
+	quakeframe	2 5 5
+	landframe	2 dust
+	attack	75 90 35 45 5 1 0 0 13 0
+	frame	data/chars/beyond/1alien7/fall1.gif
+	delay	350
+	attack	75 120 45 35 5 1 0 0 13 0
+	frame	data/chars/beyond/1alien7/fall2.gif
+	delay	2
+	move	-4
+	frame	data/chars/beyond/1alien7/fall3.gif
+	frame	data/chars/beyond/1alien7/fall3.gif
+	attack	0 0 0 0
+	frame	data/chars/beyond/1alien7/fall3.gif
+	@cmd	looper 3 5
+	move	-3
+	frame	data/chars/beyond/1alien7/fall4.gif
+	frame	data/chars/beyond/1alien7/fall4.gif
+	frame	data/chars/beyond/1alien7/fall4.gif
+	@cmd	looper 6 4
+	move	-2
+	frame	data/chars/beyond/1alien7/fall5.gif
+	frame	data/chars/beyond/1alien7/fall5.gif
+	frame	data/chars/beyond/1alien7/fall5.gif
+	loop	0
+	delay	15
+	move	0
+	bbox	58 175 100 15
+	frame	data/chars/beyond/1alien7/fall4.gif
+		
+anim	follow1
+	loop	0
+	delay	8
+	offset	100 185
+	bbox	80 97 30 60
+	fastattack	1
+	hitflash	Flash6
+	hitfx	data/sounds/beat3.wav
+	frame	data/chars/beyond/1alien7/a13.gif
+	attack	0 0 0 0
+	frame	data/chars/beyond/1alien7/a14.gif
+	frame	data/chars/beyond/1alien7/a10.gif
+	offset	100 183
+	frame	data/chars/beyond/1alien7/a01.gif
+	frame	data/chars/beyond/1alien7/a02.gif
+	delay	9
+	bbox	115 95 25 54
+	attack	128 99 90 31 11 1 0 0 25 0
+	dropv	2 3
+	frame	data/chars/beyond/1alien7/a03.gif
+	frame	data/chars/beyond/1alien7/a04.gif
+	attack	0 0 0 0
+	bbox	83 100 35 60
+	frame	data/chars/beyond/1alien7/a05.gif
+	frame	data/chars/beyond/1alien7/a02.gif
+	frame	data/chars/beyond/1alien7/a01.gif
+		
+anim	follow2
+	loop	0
+	delay	9
+	offset	100 183
+	bbox	0 0 0 0
+	hitflash	Flash6
+	hitfx	data/sounds/beat5.wav
+	frame	data/chars/beyond/1alien7/rise5.gif
+	@cmd	dasher 1.5 0 0
+	frame	data/chars/beyond/1alien7/c01.gif
+	frame	data/chars/beyond/1alien7/c02.gif
+	@cmd	dasher 2.5 0 0
+	attack	111 140 115 35 11 1 0 0 20 0
+	frame	data/chars/beyond/1alien7/c03.gif
+	bbox	80 115 30 60
+	delay	6
+	frame	data/chars/beyond/1alien7/c04.gif
+	frame	data/chars/beyond/1alien7/c05.gif
+	frame	data/chars/beyond/1alien7/c04.gif
+	frame	data/chars/beyond/1alien7/c05.gif
+	@cmd	dasher 1 0 0
+	frame	data/chars/beyond/1alien7/c04.gif
+	attack	0 0 0 0
+	delay	9
+	frame	data/chars/beyond/1alien7/c06.gif
+	@cmd	stop
+	frame	data/chars/beyond/1alien7/c01.gif
+	frame	data/chars/beyond/1alien7/rise5.gif
+		
+anim	follow4
+	loop	0
+	delay	30
+	offset	100 183
+	bbox	0 0 0 0
+	@cmd	slamstart2
+	@cmd	position 7 55 25 -1 -1
+	frame	data/chars/beyond/1alien7/gb01.gif
+	delay	12
+	@cmd	position 1 28 18 -1 1
+	frame	data/chars/beyond/1alien7/gb03.gif
+	@cmd	position 1 25 15 -1 1
+	frame	data/chars/beyond/1alien7/gb02.gif
+	@cmd	position 2 -20 60 -1 1
+	frame	data/chars/beyond/1alien7/gb04.gif
+	@cmd	position 0 -45 20 -1 1
+	frame	data/chars/beyond/1alien7/gb05.gif
+	@cmd	depost 0
+	@cmd	finish 15 1 -2 5 0 0
+	frame	data/chars/beyond/1alien7/gb06.gif
+	@cmd	clearL
+	delay	20
+	frame	data/chars/beyond/1alien7/gb06.gif
+	delay	12
+	frame	data/chars/beyond/1alien7/gb07.gif
+	@cmd	flip
+	frame	data/chars/beyond/1alien7/idle01.gif
+		
+anim	follow5
+	loop	0
+	delay	12
+	offset	100 183
+	bbox	0 0 0 0
+	hitflash	Flash6
+	hitfx	data/sounds/beat5.wav
+	frame	data/chars/beyond/1alien7/c01.gif
+	@cmd	dasher 1 0 0
+	frame	data/chars/beyond/1alien7/c10.gif
+	attack	100 15 65 115 12 1 0 0 40 10
+	dropv	2 3
+	delay	15
+	frame	data/chars/beyond/1alien7/c11.gif
+	frame	data/chars/beyond/1alien7/c12.gif
+	attack	0 0 0 0
+	@cmd	stop
+	delay	12
+	frame	data/chars/beyond/1alien7/c13.gif
+	frame	data/chars/beyond/1alien7/c01.gif
+	frame	data/chars/beyond/1alien7/rise5.gif
+		
+anim	grabbed
+	loop	0
+	delay	10
+	offset	100 183
+	bbox	79 97 50 91
+	frame	data/chars/beyond/1alien7/grabbed.gif
+		
+anim	idle
+	loop	1
+	delay	6
+	offset	100 183
+	bbox	79 97 50 91
+	frame	data/chars/beyond/1alien7/idle02.gif
+	frame	data/chars/beyond/1alien7/idle03.gif
+	frame	data/chars/beyond/1alien7/idle04.gif
+	frame	data/chars/beyond/1alien7/idle05.gif
+	frame	data/chars/beyond/1alien7/idle06.gif
+	frame	data/chars/beyond/1alien7/idle07.gif
+	frame	data/chars/beyond/1alien7/idle08.gif
+	frame	data/chars/beyond/1alien7/idle09.gif
+	frame	data/chars/beyond/1alien7/idle10.gif
+	frame	data/chars/beyond/1alien7/idle11.gif
+	frame	data/chars/beyond/1alien7/idle12.gif
+	frame	data/chars/beyond/1alien7/idle13.gif
+	frame	data/chars/beyond/1alien7/idle14.gif
+		
+anim	pain
+	loop	0
+	delay	3
+	offset	103 183
+	bbox	79 97 50 91
+	frame	data/chars/beyond/1alien7/pain0.gif
+	offset	100 183
+	frame	data/chars/beyond/1alien7/pain1.gif
+	offset	108 183
+	frame	data/chars/beyond/1alien7/pain1.gif
+	delay	40
+	offset	100 183
+	frame	data/chars/beyond/1alien7/pain1.gif
+
+		
+anim	pain2
+	loop	0
+	delay	3
+	offset	103 183
+	bbox	79 97 50 91
+	frame	data/chars/beyond/1alien7/pain0.gif
+	offset	100 183
+	frame	data/chars/beyond/1alien7/pain2.gif
+	offset	108 183
+	frame	data/chars/beyond/1alien7/pain2.gif
+	delay	40
+	offset	100 183
+	frame	data/chars/beyond/1alien7/pain2.gif
+		
+anim	pain3
+	loop	0
+	delay	1
+	offset	103 183
+	bbox	0 0 0 0
+	jumpframe	1 2 -1 0
+	frame	data/chars/beyond/1alien7/pain1.gif
+	delay	25
+	frame	data/chars/beyond/1alien7/fall2.gif
+	delay	12
+	frame	data/chars/beyond/1alien7/fall3.gif
+	delay	4
+	bbox	71 165 67 30
+	frame	data/chars/beyond/1alien7/fall4.gif
+	frame	data/chars/beyond/1alien7/fall5.gif
+	frame	data/chars/beyond/1alien7/fall4.gif
+	frame	data/chars/beyond/1alien7/fall5.gif
+	delay	15
+	bbox	0 0 0 0
+	frame	data/chars/beyond/1alien7/fall4.gif
+	delay	10
+	frame	data/chars/beyond/1alien7/rise1.gif
+	frame	data/chars/beyond/1alien7/rise2.gif
+	frame	data/chars/beyond/1alien7/rise3.gif
+		
+anim	pain5
+	loop	0
+	delay	23
+	offset	100 183
+	bbox	79 97 50 91
+	frame	data/chars/beyond/1alien7/pain1.gif
+		
+anim	pain6
+	loop	0
+	delay	23
+	offset	100 183
+	bbox	79 97 50 91
+	frame	data/chars/beyond/1alien7/pain2.gif
+		
+anim	pain8
+	loop	0
+	delay	2
+	offset	100 183
+	bbox	79 97 50 91
+	move	-6
+	frame	data/chars/beyond/1alien7/pain1.gif
+	frame	data/chars/beyond/1alien7/pain1.gif
+	frame	data/chars/beyond/1alien7/pain1.gif
+	frame	data/chars/beyond/1alien7/pain2.gif
+	frame	data/chars/beyond/1alien7/pain2.gif
+	frame	data/chars/beyond/1alien7/pain2.gif
+	move	-3
+	frame	data/chars/beyond/1alien7/pain2.gif
+	frame	data/chars/beyond/1alien7/pain2.gif
+	move	-1
+	frame	data/chars/beyond/1alien7/pain2.gif
+	delay	35
+	frame	data/chars/beyond/1alien7/pain2.gif
+		
+anim	pain9
+	loop	0
+	delay	15
+	offset	100 183
+	bbox	79 97 50 91
+	frame	data/chars/beyond/1alien7/pain1.gif
+	delay	150
+	frame	data/chars/beyond/1alien7/pain2.gif
+		
+anim	rise
+	loop	0
+	delay	50
+	offset	100 183
+	bbox	0 0 0 0
+	@cmd	attack1 0 110 15 "ANI_FOLLOW5"
+	frame	data/chars/beyond/1alien7/fall4.gif
+	delay	12
+	@cmd	attack1 0 110 15 "ANI_FOLLOW5"
+	frame	data/chars/beyond/1alien7/rise2.gif
+	@cmd	attack1 0 110 15 "ANI_FOLLOW5"
+	frame	data/chars/beyond/1alien7/rise3.gif
+	@cmd	attack1 0 110 15 "ANI_FOLLOW5"
+	frame	data/chars/beyond/1alien7/rise4.gif
+	frame	data/chars/beyond/1alien7/rise5.gif
+
+		
+anim	special
+	loop	0
+	delay	9
+	offset	100 183
+	bbox	0 0 0 0
+	followanim	4
+	followcond	1
+	fastattack	1
+	hitfx	data/sounds/grab.wav
+	frame	data/chars/beyond/1alien7/rise5.gif
+	frame	data/chars/beyond/1alien7/gb00.gif
+	attack	105 80 55 50 0 0 1 1 0 0
+	delay	20
+	frame	data/chars/beyond/1alien7/gb01.gif
+	delay	12
+	frame	data/chars/beyond/1alien7/gb00.gif
+
+		
+anim	walk
+	loop	1
+	delay	8
+	offset	100 183
+	bbox	79 97 50 91
+	frame	data/chars/beyond/1alien7/wk01.gif
+	frame	data/chars/beyond/1alien7/wk02.gif
+	frame	data/chars/beyond/1alien7/wk03.gif
+	frame	data/chars/beyond/1alien7/wk04.gif
+	frame	data/chars/beyond/1alien7/wk05.gif
+	frame	data/chars/beyond/1alien7/wk06.gif
+	frame	data/chars/beyond/1alien7/wk07.gif
+	frame	data/chars/beyond/1alien7/wk08.gif
+	frame	data/chars/beyond/1alien7/wk09.gif
+	frame	data/chars/beyond/1alien7/wk10.gif
+	frame	data/chars/beyond/1alien7/wk11.gif
+	frame	data/chars/beyond/1alien7/wk12.gif
+		
+#|edited by openBor Stats v 0.53
+		

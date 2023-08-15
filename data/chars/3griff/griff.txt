@@ -1,0 +1,687 @@
+name          griff
+type          enemy
+health        100
+speed         11
+jumpheight    4
+throw         5 2
+throwdamage   18
+blockodds     1
+nopassiveblock 1
+shadow        0
+noquake       1
+paingrab      1
+nolife        1
+nodieblink    1
+falldie       2
+gfxshadow     1
+grabdistance  60
+escapehits    2
+dust            dust
+projectilehit enemy obstacle
+diesound      data/sounds/die4.wav
+animationscript data/scripts/escript.c
+
+
+palette		data/chars/3griff/map1.gif
+
+icon		data/chars/3griff/icon.gif
+lifebarstatus 300 10 0 1 0 2 5 
+lifeposition 115  240
+nameposition -200 -200
+iconposition 50 227
+nolife 1
+
+
+
+load	grifftlk
+
+
+anim	attack1
+	range	30 90
+	rangez	-15 15
+	loop	0
+	delay	9
+	offset	100 189
+	bbox	79 97 50 91
+	followanim	1
+	followcond	1
+	sound	data/sounds/bguy12.wav
+	hitfx	data/sounds/beat2.wav
+	frame	data/chars/3griff/a101.gif
+	frame	data/chars/3griff/a102.gif
+	attack	121 106 59 20 13 0 0 0 35 15
+	frame	data/chars/3griff/a103.gif
+	attack	0 0 0 0
+	frame	data/chars/3griff/a104.gif
+	frame	data/chars/3griff/a101.gif
+		
+anim	attack2
+	range	120 150
+	rangez	-15 15
+	loop	0
+	delay	8
+	offset	100 189
+	bbox	79 97 50 91
+	hitfx	data/sounds/beat5.wav
+	frame	data/chars/3griff/b101.gif
+	frame	data/chars/3griff/b102.gif
+	frame	data/chars/3griff/b103.gif
+	attack	110 115 115 40 20 1 1 0 45 15
+	dropv	3 3 0
+	frame	data/chars/3griff/b104.gif
+	frame	data/chars/3griff/b105.gif
+	frame	data/chars/3griff/b106.gif
+	attack	0 0 0 0 0
+	delay	12
+	frame	data/chars/3griff/b107.gif
+	frame	data/chars/3griff/b108.gif
+		
+anim	attack3
+	range	0 100
+	rangez	30 100
+	loop	0
+	delay	20
+	offset	100 189
+	bbox	79 97 50 91
+	jumpframe	2 3 1 2
+	landframe	5
+	sound	data/sounds/bguy11.wav
+	hitfx	data/sounds/beat5.wav
+	frame	data/chars/3griff/rise4.gif
+	delay	12
+	frame	data/chars/3griff/ju01.gif
+	attack	75 95 90 60 20 1 1 0 35 25
+	frame	data/chars/3griff/ju02.gif
+	frame	data/chars/3griff/ju03.gif
+	delay	100
+	frame	data/chars/3griff/ju04.gif
+	attack	0 0 0 0
+	delay	20
+	frame	data/chars/3griff/rise4.gif
+		
+anim	attack4
+	range	0 100
+	rangez	-100 -30
+	loop	0
+	delay	20
+	offset	100 189
+	bbox	79 97 50 91
+	jumpframe	2 3 1 -2
+	landframe	5
+	hitfx	data/sounds/beat1.wav
+	frame	data/chars/3griff/rise4.gif
+	delay	12
+	frame	data/chars/3griff/ju01.gif
+	attack	75 95 90 60 20 1 1 0 35 25
+	frame	data/chars/3griff/ju02.gif
+	frame	data/chars/3griff/ju03.gif
+	delay	100
+	frame	data/chars/3griff/ju04.gif
+	attack	0 0 0 0
+	delay	20
+	frame	data/chars/3griff/rise4.gif
+		
+anim	attack5
+	range	165 230
+	rangez	-15 15
+	loop	0
+	delay	20
+	offset	100 189
+	bbox	79 97 50 91
+	jumpframe	1 3 3 0
+	landframe	4
+	hitfx	data/sounds/beat3.wav
+	frame	data/chars/3griff/rise4.gif
+	delay	12
+	frame	data/chars/3griff/d01.gif
+	frame	data/chars/3griff/d02.gif
+	attack	80 80 115 50 20 1 0 0 45 20
+	dropv	3 4 0
+	delay	100
+	frame	data/chars/3griff/d04.gif
+	attack	0 0 0 0
+	delay	12
+	frame	data/chars/3griff/d05.gif
+	frame	data/chars/3griff/rise4.gif
+		
+anim	block
+	loop	0
+	delay	4
+	offset	100 189
+	bbox	79 97 50 91
+	move	-4
+	frame	data/chars/3griff/block01.gif
+	frame	data/chars/3griff/block01.gif
+	frame	data/chars/3griff/block01.gif
+	frame	data/chars/3griff/block02.gif
+	bbox	0 0 0 0
+	frame	data/chars/3griff/block02.gif
+	frame	data/chars/3griff/block02.gif
+	move	0
+	delay	12
+	frame	data/chars/3griff/block03.gif
+	sound	data/sounds/bguyc02.wav
+	frame	data/chars/3griff/block04.gif
+	frame	data/chars/3griff/block05.gif
+	attack	70 115 115 40 20 1 1 0 45 0
+	dropv	3 3 0
+	frame	data/chars/3griff/block06.gif
+	attack	0 0 0 0
+	frame	data/chars/3griff/block05.gif
+	frame	data/chars/3griff/block04.gif
+	frame	data/chars/3griff/rise4.gif
+		
+anim	burn
+	loop	0
+	delay	25
+	offset	100 189
+	bbox	0 0 0 0
+	landframe	3
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 200_50_0
+	@cmd	spawnbind "burn1" 1 1 1
+	@cmd	spawnbind "burn2" 1 1 1
+	@cmd	spawnbind "burn3" 1 1 1
+	attack	78 98 30 45 5 1 0 0 13 0
+	frame	data/chars/3griff/fall1.gif
+	delay	15
+	attack	64 120 50 25 5 1 0 0 13 0
+	frame	data/chars/3griff/fall2.gif
+	delay	500
+	frame	data/chars/3griff/fall3.gif
+	attack	0 0 0 0
+	bbox	58 175 85 15
+	delay	15
+	frame	data/chars/3griff/fall4.gif
+	frame	data/chars/3griff/fall5.gif
+	frame	data/chars/3griff/fall4.gif
+		
+anim	death
+	loop	0
+	delay	14
+	offset	100 189
+	bbox	0 0 0 0
+	quakeframe	15 6 6
+	spawnframe	15 0 0
+	subentity	dust
+	frame	data/chars/3griff/fall4.gif
+	frame	data/chars/3griff/rise1.gif
+	frame	data/chars/3griff/rise2.gif
+	frame	data/chars/3griff/rise3.gif
+	frame	data/chars/3griff/rise4.gif
+	frame	data/chars/3griff/pain0.gif
+	frame	data/chars/3griff/grabbed.gif
+	frame	data/chars/3griff/pain0.gif
+	frame	data/chars/3griff/pain1.gif
+	delay	25
+	frame	data/chars/3griff/pain6.gif
+	delay	10
+	frame	data/chars/3griff/pain0.gif
+	frame	data/chars/3griff/grabbed.gif
+	frame	data/chars/3griff/fall1.gif
+	frame	data/chars/3griff/fall2.gif
+	frame	data/chars/3griff/fall3.gif
+	sound	data/sounds/fall3.wav
+	frame	data/chars/3griff/fall4.gif
+	frame	data/chars/3griff/fall5.gif
+	delay	20
+	frame	data/chars/3griff/fall4.gif
+	frame	data/chars/3griff/rise1.gif
+		
+anim	fall
+	loop	0
+	delay	25
+	offset	100 189
+	bbox	0 0 0 0
+	landframe	3
+	attack	78 98 30 45 5 1 0 0 13 0
+	frame	data/chars/3griff/fall1.gif
+	delay	15
+	attack	64 120 50 25 5 1 0 0 13 0
+	frame	data/chars/3griff/fall2.gif
+	delay	500
+	frame	data/chars/3griff/fall3.gif
+	attack	0 0 0 0
+	bbox	58 175 85 15
+	delay	15
+	frame	data/chars/3griff/fall4.gif
+	frame	data/chars/3griff/fall5.gif
+	frame	data/chars/3griff/fall4.gif
+		
+anim	fall10
+	loop	0
+	delay	10
+	offset	100 189
+	bbox	80 80 50 75
+	landframe	4
+	attack	85 88 30 50 5 1 0 0 13 0
+	frame	data/chars/3griff/pain6.gif
+	delay	40
+	frame	data/chars/3griff/pain7.gif
+	delay	30
+	bbox	71 125 63 30
+	attack	64 125 45 25 5 1 0 0 13 0
+	frame	data/chars/3griff/fall2.gif
+	delay	300
+	bbox	77 130 67 35
+	attack	0 0 0 0
+	frame	data/chars/3griff/fall3.gif
+	bbox	58 167 85 15
+	delay	15
+	frame	data/chars/3griff/fall4.gif
+	frame	data/chars/3griff/fall5.gif
+	frame	data/chars/3griff/fall4.gif
+		
+anim	fall11
+	loop	0
+	delay	20
+	offset	100 189
+	bbox	61 185 90 5	
+	frame	data/chars/3griff/pain12.gif
+	delay	35
+	frame	data/chars/3griff/fall4.gif
+		
+anim	fall2
+	loop	0
+	delay	30
+	offset	100 189
+	bbox	0 0 0 0
+	landframe	3
+	attack	85 90 35 45 5 1 0 0 13 0
+	frame	data/chars/3griff/pain7.gif
+	delay	10
+	attack	64 125 55 25 5 1 0 0 13 0
+	frame	data/chars/3griff/fall2.gif
+	attack	0 0 0 0
+	delay	300
+	frame	data/chars/3griff/fall3.gif
+	delay	15
+	frame	data/chars/3griff/fall4.gif
+	frame	data/chars/3griff/fall5.gif
+	frame	data/chars/3griff/fall4.gif
+		
+anim	fall4
+	loop	0
+	delay	6
+	offset	100 189
+	bbox	0 0 0 0
+	jumpframe	0 1.2 1.5
+	frame	data/chars/3griff/pain8.gif
+	frame	data/chars/3griff/pain9.gif
+	frame	data/chars/3griff/pain10.gif
+	@cmd	leaper 0 0.2 0
+	frame	data/chars/3griff/pain11.gif
+	frame	data/chars/3griff/fall4.gif
+	frame	data/chars/3griff/fall5.gif
+	bbox	58 175 95 15
+	frame	data/chars/3griff/fall4.gif
+		
+anim	fall7
+	delay	1000
+	offset	105 130
+	frame	data/chars/3griff/slamck0.gif
+	offset	100 110
+	frame	data/chars/3griff/slamck1.gif
+	offset	106 130
+	frame	data/chars/3griff/slamck2.gif
+	offset	115 125
+	frame	data/chars/3griff/slamck3.gif
+	offset	125 125
+	frame	data/chars/3griff/slamck4.gif
+	offset	108 122
+	frame	data/chars/3griff/slamck5.gif
+	offset	106 155
+	frame	data/chars/3griff/slamck6.gif
+	offset	125 140
+	frame	data/chars/3griff/slamck7.gif
+	offset	120 105
+	frame	data/chars/3griff/slamck8.gif
+	offset	100 130
+	frame	data/chars/3griff/slamck9.gif
+	offset	105 130
+	frame	data/chars/3griff/slamck10.gif
+	offset	105 130
+	frame	data/chars/3griff/slamck11.gif
+	offset	115 125
+	frame	data/chars/3griff/slamck12.gif
+	offset	115 125
+	frame	data/chars/3griff/slamck13.gif
+	offset	115 125
+	frame	data/chars/3griff/slamck14.gif
+	offset	115 125
+	frame	data/chars/3griff/slamck15.gif
+		
+anim	fall9
+	loop	0
+	delay	10
+	offset	100 180
+	bbox	0 0 0 0
+	quakeframe	2 5 5
+	landframe	2 dust
+	attack	75 105 35 45 5 1 0 0 13 0
+	frame	data/chars/3griff/fall1.gif
+	delay	350
+	offset	100 185
+	attack	75 115 45 35 5 1 0 0 13 0
+	frame	data/chars/3griff/fall2.gif
+	delay	2
+	offset	100 185
+	move	-4
+	frame	data/chars/3griff/fall3.gif
+	frame	data/chars/3griff/fall3.gif
+	attack	0 0 0 0
+	frame	data/chars/3griff/fall3.gif
+	@cmd	looper 3 5
+	offset	100 189
+	move	-3
+	frame	data/chars/3griff/fall4.gif
+	frame	data/chars/3griff/fall4.gif
+	frame	data/chars/3griff/fall4.gif
+	@cmd	looper 6 4
+	move	-2
+	frame	data/chars/3griff/fall5.gif
+	frame	data/chars/3griff/fall5.gif
+	frame	data/chars/3griff/fall5.gif
+	loop	0
+	delay	15
+	move	0
+	bbox	58 175 100 15
+	frame	data/chars/3griff/fall4.gif
+		
+anim	follow1
+	loop	0
+	delay	9
+	offset	100 189
+	bbox	79 97 50 91
+	hitfx	data/sounds/beat3.wav
+	frame	data/chars/3griff/a103.gif
+	frame	data/chars/3griff/a104.gif
+	frame	data/chars/3griff/a105.gif
+	frame	data/chars/3griff/a106.gif
+	attack	100 106 90 30 15 1 1 0 45 15
+	dropv	3 4 0
+	frame	data/chars/3griff/a107.gif
+	attack	0 0 0 0
+	frame	data/chars/3griff/a108.gif
+		
+anim	follow2
+	loop	0
+	delay	12
+	offset	100 189
+	bbox	0 0 0 0
+	frame	data/chars/3griff/rise3.gif
+	sound	data/sounds/bguy13.wav
+	hitfx	data/sounds/beat4.wav
+	hitflash	flashscreen2
+	frame	data/chars/3griff/c06.gif
+	attack	85 80 70 50 20 1 1 0 45 15
+	dropv	4 1 0
+	frame	data/chars/3griff/c07.gif
+	frame	data/chars/3griff/c08.gif
+	attack	0 0 0 0
+	frame	data/chars/3griff/c06.gif
+	frame	data/chars/3griff/rise4.gif
+		
+anim	grabbed
+	loop	0
+	delay	10
+	offset	100 189
+	bbox	79 97 50 91
+	frame	data/chars/3griff/grabbed.gif
+		
+anim	idle
+	loop	1
+	delay	12
+	offset	100 189
+	bbox	79 97 50 91
+	frame	data/chars/3griff/idle01.gif
+		
+anim	pain
+	loop	0
+	delay	3
+	offset	103 189
+	bbox	79 97 50 91
+	frame	data/chars/3griff/pain0.gif
+	offset	100 189
+	frame	data/chars/3griff/pain1.gif
+	offset	107 189
+	frame	data/chars/3griff/pain1.gif
+	delay	40
+	offset	100 189
+	frame	data/chars/3griff/pain1.gif
+
+		
+anim	pain2
+	loop	0
+	delay	3
+	offset	103 189
+	bbox	79 97 50 91
+	frame	data/chars/3griff/pain0.gif
+	offset	100 189
+	frame	data/chars/3griff/pain2.gif
+	offset	107 189
+	frame	data/chars/3griff/pain2.gif
+	delay	40
+	offset	100 189
+	frame	data/chars/3griff/pain2.gif
+		
+anim	pain3
+	loop	0
+	delay	1
+	offset	103 189
+	bbox	0 0 0 0
+	jumpframe	1 2 -1 0
+	frame	data/chars/3griff/pain1.gif
+	delay	25
+	frame	data/chars/3griff/fall2.gif
+	delay	12
+	frame	data/chars/3griff/fall3.gif
+	delay	4
+	bbox	71 165 67 30
+	frame	data/chars/3griff/fall4.gif
+	frame	data/chars/3griff/fall5.gif
+	frame	data/chars/3griff/fall4.gif
+	frame	data/chars/3griff/fall5.gif
+	delay	15
+	bbox	0 0 0 0
+	frame	data/chars/3griff/fall4.gif
+	delay	10
+	frame	data/chars/3griff/rise1.gif
+	frame	data/chars/3griff/rise2.gif
+	frame	data/chars/3griff/rise3.gif
+		
+anim	pain5
+	loop	0
+	delay	23
+	offset	100 189
+	bbox	79 97 50 91
+	frame	data/chars/3griff/pain1.gif
+		
+anim	pain6
+	loop	0
+	delay	23
+	offset	100 189
+	bbox	79 97 50 91
+	frame	data/chars/3griff/pain2.gif
+		
+anim	pain8
+	loop	0
+	delay	2
+	offset	100 189
+	bbox	79 97 50 91
+	move	-6
+	frame	data/chars/3griff/pain1.gif
+	frame	data/chars/3griff/pain1.gif
+	frame	data/chars/3griff/pain1.gif
+	frame	data/chars/3griff/pain2.gif
+	frame	data/chars/3griff/pain2.gif
+	frame	data/chars/3griff/pain2.gif
+	move	-3
+	frame	data/chars/3griff/pain2.gif
+	frame	data/chars/3griff/pain2.gif
+	move	-1
+	frame	data/chars/3griff/pain2.gif
+	delay	35
+	frame	data/chars/3griff/pain2.gif
+		
+anim	pain9
+	loop	0
+	delay	15
+	offset	100 189
+	bbox	79 97 50 91
+	frame	data/chars/3griff/pain1.gif
+	delay	150
+	frame	data/chars/3griff/pain2.gif
+		
+anim	rise
+	loop	0
+	delay	15
+	offset	100 189
+	bbox	0 0 0 0
+	@cmd	riseattack 100 20 "ANI_FOLLOW2"
+	frame	data/chars/3griff/rise1.gif
+	@cmd	riseattack 100 20 "ANI_FOLLOW2"
+	frame	data/chars/3griff/rise2.gif
+	@cmd	riseattack 100 20 "ANI_FOLLOW2"
+	frame	data/chars/3griff/rise3.gif
+	@cmd	riseattack 100 20 "ANI_FOLLOW2"
+	frame	data/chars/3griff/rise4.gif
+		
+anim	spawn
+	loop	0
+	delay	10
+	offset	100 189
+	bbox	0 0 0 0
+	custentity	grifftlk
+	spawnframe	8 10 40 25 1
+	frame	data/chars/3griff/c05.gif
+	frame	data/chars/3griff/rise3.gif
+	frame	data/chars/3griff/rise4.gif
+	frame	data/chars/3griff/idle01.gif
+	frame	data/chars/3griff/rise4.gif
+	frame	data/chars/3griff/rise3.gif
+	frame	data/chars/3griff/rise4.gif
+	delay	90
+	frame	data/chars/3griff/idle01.gif
+	delay	40
+	frame	data/chars/3griff/idle01.gif
+	frame	data/chars/3griff/idle01.gif
+	delay	5
+	frame	data/chars/3griff/idle01.gif
+	frame	data/chars/3griff/idle01.gif
+		
+anim	special
+	loop	0
+	delay	12
+	offset	100 189
+	bbox	0 0 0 0
+	jumpframe	2 5 2
+	landframe	5
+	hitfx	data/sounds/beat6.wav
+	hitflash	flashscreen2
+	sound	data/sounds/bguy12.wav
+	frame	data/chars/3griff/c01.gif
+	attack	80 100 85 60 20 1 1 0 45 20
+	dropv	6 2 0
+	frame	data/chars/3griff/c02.gif
+	delay	60
+	frame	data/chars/3griff/c03.gif
+	attack	0 0 0 0
+	delay	20
+	frame	data/chars/3griff/c04.gif
+	delay	100
+	frame	data/chars/3griff/c05.gif
+	delay	17
+	frame	data/chars/3griff/rise4.gif
+
+
+anim	special2
+	loop	0
+	delay	12
+	offset	100 189
+	bbox	0 0 0 0
+	fastattack	1
+	@cmd	dasher 0.5 0 0
+	hitflash	flash3
+	frame	data/chars/3griff/b110.gif
+	frame	data/chars/3griff/b111.gif
+	hitfx	data/sounds/beat5.wav
+	attack3	90 91 70 60 5 1 0 0 45 14
+	dropv	3 0.5 0
+	@cmd	stop
+	frame	data/chars/3griff/b112.gif
+	attack3	0 0 0 0
+	frame	data/chars/3griff/b113.gif
+	hitflash	flashscreen1
+	hitfx	data/sounds/beat4.wav
+	attack5	100 70 100 65 9 1 1 0 45 15
+	dropv	3 3 0
+	frame	data/chars/3griff/b114.gif
+	attack5	0 0 0 0
+	frame	data/chars/3griff/b115.gif
+	frame	data/chars/3griff/b116.gif
+	frame	data/chars/3griff/b117.gif
+
+
+		
+anim	throw
+	range 0 30
+	rangez -15 15
+	loop	0
+	delay	8
+	offset	100 189
+	bbox	0 0 0 0
+	frame	data/chars/3griff/trow01.gif
+	frame	data/chars/3griff/trow02.gif
+	frame	data/chars/3griff/trow03.gif
+	frame	data/chars/3griff/trow04.gif
+	delay	12
+	frame	data/chars/3griff/trow05.gif
+	frame	data/chars/3griff/trow06.gif
+	frame	data/chars/3griff/trow07.gif
+	frame	data/chars/3griff/trow08.gif
+	frame	data/chars/3griff/trow09.gif
+		
+anim	upper
+	range	0 210
+	rangez	-30 30
+	loop	0
+	delay	7
+	offset	100 189
+	bbox	0 0 0 0
+	jumpframe	2 5 2.5
+	landframe	5
+	sound	data/sounds/bguy12.wav
+	frame	data/chars/3griff/c01.gif
+	hitfx	data/sounds/beat6.wav
+	hitflash	flashscreen2
+	frame	data/chars/3griff/c02.gif
+	delay	60
+	attack	70 15 80 120 20 1 0 0 50 40
+	dropv	7 3 0
+	frame	data/chars/3griff/c03.gif
+	attack	0 0 0 0
+	delay	20
+	bbox	77 60 50 95
+	frame	data/chars/3griff/c04.gif
+	delay	100
+	frame	data/chars/3griff/c05.gif
+	delay	17
+	frame	data/chars/3griff/rise4.gif
+		
+anim	walk
+	loop	1
+	delay	12
+	offset	100 189
+	bbox	79 97 50 91
+	frame	data/chars/3griff/wk01.gif
+	frame	data/chars/3griff/wk02.gif
+	frame	data/chars/3griff/wk03.gif
+	frame	data/chars/3griff/wk04.gif
+	frame	data/chars/3griff/wk05.gif
+	frame	data/chars/3griff/wk04.gif
+	frame	data/chars/3griff/wk03.gif
+	frame	data/chars/3griff/wk02.gif
+		
+#|edited by openBor Stats v 0.53
+		

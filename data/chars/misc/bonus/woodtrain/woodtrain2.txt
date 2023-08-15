@@ -1,0 +1,94 @@
+name		woodtrain2
+type		enemy
+subtype		notgrab
+health		100
+jumpheight	0
+nolife          1
+noquake		1
+falldie		1
+nodieblink	3
+makeinv		3
+noatflash 	1
+flash     	flash5
+shadow		6
+nodrop		1
+nomove          1 1 
+antigrab	80
+aggression      55
+hostile				player npc
+candamage			player npc
+sound   data/sounds/wood.wav
+animationscript data/scripts/escript.c
+
+alternatepal       data/chars/misc/bonus/woodtrain/map1.gif
+alternatepal       data/chars/misc/bonus/woodtrain/map2.gif
+
+load 	brkwood
+
+
+anim	death
+	loop	0
+	delay	16
+	offset	40 130
+	jumpframe 0 2 -1
+	platform   1 1 1 1 1 1 1 1
+	sound   data/sounds/wood.wav
+	@cmd    tosser "brkwood" -20 60 0 -0.5 5 0
+	@cmd    tosser "brkwood" -10 70 0 0 5 0
+	@cmd    tosser "brkwood" 30 40 0 -0.5 5 0
+	@cmd    tosser "brkwood" 35 50 0 -1 4 0
+	@cmd    tosser "brkwood" 20 80 0 -0.5 6 0
+	@cmd    tosser "brkwood" 10 90 0 -1 4 0
+	frame	data/chars/misc/bonus/woodtrain/tfall1.gif
+	frame	data/chars/misc/bonus/woodtrain/tfall2.gif
+	offset	70 130
+	frame	data/chars/misc/bonus/woodtrain/tfall3.gif
+	frame	data/chars/misc/bonus/woodtrain/tfall4.gif
+	delay	200
+	frame	data/chars/misc/bonus/woodtrain/tfall4.gif
+		
+anim	fall
+	loop	0
+	delay	30
+	offset	40 130
+	platform   1 1 1 1 1 1 1 1
+	frame	data/chars/misc/bonus/woodtrain/tfall1.gif
+	frame	data/chars/misc/bonus/woodtrain/tfall2.gif
+		
+anim	idle
+	loop	1
+	delay	20
+	offset	40 130
+	bbox	0 0 70 135
+	platform   1 1 1 1 1 1 1 1
+	frame	data/chars/misc/bonus/woodtrain/tstand.gif
+	frame	data/chars/misc/bonus/woodtrain/tstand.gif
+	frame	data/chars/misc/bonus/woodtrain/tstand.gif
+
+		
+anim	pain
+	loop	0
+	delay	9
+	offset	40 130
+	bbox	0 0 70 135
+	hitfx	data/sounds/block.wav
+	platform   1 1 1 1 1 1 1 1
+	@cmd	target 50 50 900 600 0
+	frame	data/chars/misc/bonus/woodtrain/tpain1.gif
+	frame	data/chars/misc/bonus/woodtrain/tpain2.gif
+	frame	data/chars/misc/bonus/woodtrain/tstand.gif
+	frame	data/chars/misc/bonus/woodtrain/tpain1.gif
+	frame	data/chars/misc/bonus/woodtrain/tpain2.gif
+	frame	data/chars/misc/bonus/woodtrain/tstand.gif
+	frame	data/chars/misc/bonus/woodtrain/tpain1.gif
+		
+anim	spawn
+	loop	0
+	delay	100
+	offset	40 130
+	bbox	0 0 70 135
+	platform   1 1 1 1 1 1 1 1
+	frame	data/chars/misc/bonus/woodtrain/tstand.gif
+		
+#|edited by openBor Stats v 0.53
+		

@@ -1,0 +1,180 @@
+name	 	tmplamp
+type		npc
+subtype		notgrab
+health		3
+jumpheight	0
+nolife          1
+noquake		1
+makeinv		3
+noatflash 	1
+flash     	flash5
+shadow		6
+nodrop		1
+nomove          1 1
+facing		1
+antigrab	80
+aggression      55
+hostile				npc
+candamage			player npc
+diesound        data/sounds/glass.wav
+
+animationscript data/scripts/escript.c
+
+
+
+
+load	trigger1
+
+
+
+
+anim	attack1
+
+
+	
+anim	fall
+@script
+    void self = getlocalvar("self");
+	if (frame == 0)
+	{
+	changeentityproperty(self, "direction", 1);
+	changeentityproperty(self, "velocity", 0, 0, 0);
+	}
+@end_script
+	loop	0
+	delay	14
+	offset	55 75
+	bbox	0 0 0 0
+	jumpframe 1 2 -2
+	hitfx	data/sounds/empty.wav
+	frame	data/bgs/64lvl/bck/lmpfll1.gif
+	frame	data/bgs/64lvl/bck/lmpfll2.gif
+	@cmd	spawn01 "trigger1" -50 -70 1
+	frame	data/bgs/64lvl/bck/lmpfll3.gif
+		
+anim	idle
+	loop	1
+	delay	8
+	offset	55 75
+	seta	115
+	@cmd	flip
+	frame	data/bgs/64lvl/bck/lmp02.gif
+	frame	data/bgs/64lvl/bck/lmp03.gif
+	frame	data/bgs/64lvl/bck/lmp04.gif
+	frame	data/bgs/64lvl/bck/lmp05.gif
+	frame	data/bgs/64lvl/bck/lmp06.gif
+	frame	data/bgs/64lvl/bck/lmp07.gif
+	frame	data/bgs/64lvl/bck/lmp08.gif
+	frame	data/bgs/64lvl/bck/lmp09.gif
+	frame	data/bgs/64lvl/bck/lmp10.gif
+	frame	data/bgs/64lvl/bck/lmp11.gif
+	bbox	25 20 60 50 15
+	frame	data/bgs/64lvl/bck/lmp10.gif
+	frame	data/bgs/64lvl/bck/lmp09.gif
+	frame	data/bgs/64lvl/bck/lmp08.gif
+	frame	data/bgs/64lvl/bck/lmp07.gif
+	frame	data/bgs/64lvl/bck/lmp06.gif
+	frame	data/bgs/64lvl/bck/lmp05.gif
+	frame	data/bgs/64lvl/bck/lmp04.gif
+	frame	data/bgs/64lvl/bck/lmp03.gif
+	frame	data/bgs/64lvl/bck/lmp02.gif
+	frame	data/bgs/64lvl/bck/lmp01.gif
+	@cmd	flip
+	frame	data/bgs/64lvl/bck/lmp01.gif
+	frame	data/bgs/64lvl/bck/lmp02.gif
+	frame	data/bgs/64lvl/bck/lmp03.gif
+	frame	data/bgs/64lvl/bck/lmp04.gif
+	frame	data/bgs/64lvl/bck/lmp05.gif
+	frame	data/bgs/64lvl/bck/lmp06.gif
+	frame	data/bgs/64lvl/bck/lmp07.gif
+	frame	data/bgs/64lvl/bck/lmp08.gif
+	frame	data/bgs/64lvl/bck/lmp09.gif
+	bbox	0 0 0 0
+	frame	data/bgs/64lvl/bck/lmp10.gif
+	frame	data/bgs/64lvl/bck/lmp11.gif
+	frame	data/bgs/64lvl/bck/lmp10.gif
+	frame	data/bgs/64lvl/bck/lmp09.gif
+	frame	data/bgs/64lvl/bck/lmp08.gif
+	frame	data/bgs/64lvl/bck/lmp07.gif
+	frame	data/bgs/64lvl/bck/lmp06.gif
+	frame	data/bgs/64lvl/bck/lmp05.gif
+	frame	data/bgs/64lvl/bck/lmp04.gif
+	frame	data/bgs/64lvl/bck/lmp03.gif
+	frame	data/bgs/64lvl/bck/lmp02.gif
+	frame	data/bgs/64lvl/bck/lmp01.gif
+
+
+		
+anim	spawn
+@script
+if(frame==1)
+{
+  changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_OBSTACLE"));
+}
+@end_script
+	loop	0
+	delay	10
+	offset	55 75
+	bbox	0 0 0 0
+	seta	115
+	frame	data/bgs/64lvl/bck/lmp01.gif
+	frame	data/bgs/64lvl/bck/lmp01.gif
+	frame	data/bgs/64lvl/bck/lmp01.gif
+	delay	8
+	@cmd	flip
+	frame	data/bgs/64lvl/bck/lmp02.gif
+	frame	data/bgs/64lvl/bck/lmp03.gif
+	frame	data/bgs/64lvl/bck/lmp04.gif
+	frame	data/bgs/64lvl/bck/lmp05.gif
+	frame	data/bgs/64lvl/bck/lmp06.gif
+	frame	data/bgs/64lvl/bck/lmp07.gif
+	frame	data/bgs/64lvl/bck/lmp08.gif
+	frame	data/bgs/64lvl/bck/lmp09.gif
+	frame	data/bgs/64lvl/bck/lmp10.gif
+	frame	data/bgs/64lvl/bck/lmp11.gif
+	frame	data/bgs/64lvl/bck/lmp10.gif
+	frame	data/bgs/64lvl/bck/lmp09.gif
+	frame	data/bgs/64lvl/bck/lmp08.gif
+	frame	data/bgs/64lvl/bck/lmp07.gif
+	frame	data/bgs/64lvl/bck/lmp06.gif
+	frame	data/bgs/64lvl/bck/lmp05.gif
+	frame	data/bgs/64lvl/bck/lmp04.gif
+	frame	data/bgs/64lvl/bck/lmp03.gif
+	frame	data/bgs/64lvl/bck/lmp02.gif
+	frame	data/bgs/64lvl/bck/lmp01.gif
+	frame	data/bgs/64lvl/bck/lmp01.gif
+	frame	data/bgs/64lvl/bck/lmp02.gif
+	frame	data/bgs/64lvl/bck/lmp03.gif
+	frame	data/bgs/64lvl/bck/lmp04.gif
+	frame	data/bgs/64lvl/bck/lmp05.gif
+	frame	data/bgs/64lvl/bck/lmp06.gif
+	frame	data/bgs/64lvl/bck/lmp07.gif
+	frame	data/bgs/64lvl/bck/lmp08.gif
+	frame	data/bgs/64lvl/bck/lmp09.gif
+	frame	data/bgs/64lvl/bck/lmp10.gif
+	frame	data/bgs/64lvl/bck/lmp11.gif
+	frame	data/bgs/64lvl/bck/lmp10.gif
+	frame	data/bgs/64lvl/bck/lmp09.gif
+	frame	data/bgs/64lvl/bck/lmp08.gif
+	frame	data/bgs/64lvl/bck/lmp07.gif
+	frame	data/bgs/64lvl/bck/lmp06.gif
+	frame	data/bgs/64lvl/bck/lmp05.gif
+	frame	data/bgs/64lvl/bck/lmp04.gif
+	frame	data/bgs/64lvl/bck/lmp03.gif
+	frame	data/bgs/64lvl/bck/lmp02.gif
+	frame	data/bgs/64lvl/bck/lmp01.gif
+	@cmd	looper 3 21
+	frame	data/bgs/64lvl/bck/lmp02.gif
+
+
+
+
+
+
+
+
+
+
+		
+#|edited by openBor Stats v 0.53
+		

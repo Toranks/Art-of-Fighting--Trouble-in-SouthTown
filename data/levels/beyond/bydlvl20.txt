@@ -1,0 +1,185 @@
+music		data/music/finaloverl.ogg
+
+background	data/bgs/beyond/lvl20/back3.gif 0 0
+layer		data/bgs/beyond/lvl20/back3.gif  -30000 0.3 0 0 0 0 0 1 1 1 0 0 0 0 0 0
+layer		data/bgs/beyond/lvl20/back2.gif -20000 0.2 0 0 0 0 0 1 1 1 0 0 0 0 0 0
+layer		data/bgs/beyond/lvl20/back1b.gif -10000 0.1 0 0 0 0 0 1 1 1 0 0 0 0 0 0
+layer		data/bgs/beyond/lvl20/light3.gif -5000 0.1 0 0 0 0 0 1 1 1 1 0 0 0 0 0
+layer		data/bgs/beyond/lvl20/braindead.gif -2000 0.1 0 1190 50 0 0 1 1 1
+layer		data/bgs/beyond/lvl20/braintent.gif -1000 0 0 1090 190 0 0 1 1 1
+layer		data/bgs/beyond/lvl20/tank.gif -1000 0 0 370 175 0 0 1 1 1
+layer		data/bgs/beyond/lvl20/panel2.gif -500 0 0 0 -4 0 0 1 1 1
+panel		data/bgs/beyond/lvl20/panel3.gif
+fglayer		data/bgs/beyond/lvl20/light4.gif -200 0 0 0 0 0 0 -1 1 1 1
+fglayer		data/bgs/beyond/lvl20/front1.gif 1000 -0.5 0 0 340 0 0 -1 1 1 0 0 0 0 0 0
+fglayer		data/bgs/beyond/lvl20/front2.gif 600 0 0 0 0 0 0 -1 1 1 0 0 0 0 0 0
+fglayer		data/bgs/beyond/lvl20/light.gif 2000 0 0 0 0 0 0 -1 1 1 1 3 0.1 3.5 2 0
+fglayer		data/bgs/beyond/lvl20/light2.gif 1500 0 0 0 0 0 0 -1 1 1 1
+layer		data/bgs/beyond/lvl20/smoke.gif 415 0 0 130 315 0 0 1 1 1 1 1 2 22 1
+fglayer		data/bgs/beyond/lvl20/smoke.gif 200 0 0 -920 370 0 0 1 1 1 1 1 4 32 1
+fglayer		data/bgs/beyond/lvl20/smoke.gif 200 0 0 920 370 0 0 1 1 1 1 1 5 42 1
+
+
+
+
+direction       both
+light  		-155   -55
+at       	0
+shadowalpha     1
+at              0
+shadowcolor     -15
+at              0
+settime         0
+notime          1
+noslow          1
+order		a
+spawn1  	205 20
+spawn2  	205 20
+spawn3  	205 20
+
+
+cameraoffset            0 -110
+bgspeed			1 0
+cameratype              1
+#setweap			2
+
+#----------------------------------
+wall    -50 510  0 0 270 160 170 5000
+wall    2180 510  -270 -160 0 0 170 5000
+#----------------------------------
+
+load	aofint3
+load	snskp
+load	gendleave1
+load	ghosttime
+load	theend2
+load	ghosttest
+
+
+
+spawn   1spawn
+flip	1
+coords	1600 440
+at      0
+
+spawn   2spawn
+flip	1
+coords	1600 440
+at      0
+
+spawn   3spawn
+flip	1
+coords	1600 440
+at      0
+
+
+spawn   cryswall1
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+} @end_script
+coords  800 500
+at      0
+
+
+spawn   crystrigger
+coords  1780 400
+at      0
+
+spawn   crystrigger
+coords  1580 430
+at      0
+
+spawn   crystrigger
+coords  1900 460
+at      0
+
+spawn   crystrigger
+coords  1350 460
+at      0
+
+spawn   crystrigger
+coords  1100 400
+at      0
+
+spawn   byobtent
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW3"));
+} @end_script
+flip    1
+coords  1137 365
+at      0
+
+spawn   byobtent
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+flip    1
+coords  1524 380
+at      0
+
+spawn   byobtent
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+} @end_script
+flip    1
+coords  1808 360
+at      0
+
+
+spawn   byotkcn1
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
+} @end_script
+flip    1
+coords  455 352
+at      0
+
+spawn   overlordmad
+#@script void main() {
+#   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW10"));
+#} @end_script
+coords  1750 430
+at      0
+
+#---------------------
+
+spawn   ghosttime
+@script
+void main()
+{
+    changeopenborvariant("xpos", 1395);
+}
+@end_script
+health  10
+coords  190 270
+at      0
+#----------------------------------
+
+spawn   stgSET9
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW5"));
+} @end_script
+coords  -490 515 350
+at      0
+
+#---------//--------------
+spawn   1pryopain
+aggression 10
+coords  -10 400 410
+at      0
+#----------------------------------
+spawn   freewaytot
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW4"));
+} @end_script
+coords  250 140
+at      0
+
+
+
+#----------------------------------
+
+spawn   ghosttest
+coords  190 270
+at      9000
+#---------------------

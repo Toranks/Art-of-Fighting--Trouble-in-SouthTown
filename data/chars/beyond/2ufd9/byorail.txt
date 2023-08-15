@@ -1,0 +1,355 @@
+name			byorail
+type			enemy
+shadow			0
+nolife			1
+facing			1
+subject_to_wall		0
+subject_to_hole		0
+subject_to_platform	0
+subject_to_gravity	0
+subject_to_minz		0
+subject_to_maxz		0
+offscreenkill 	        20000
+
+animationscript data/scripts/escript.c
+
+load	morph2
+load	bignose2
+load	graynose2
+load	nosedgrey2
+
+#void spawnGun9
+#(void Name, float dx, float dy, 
+#float dz, float map, int Num, void Ani)
+
+
+
+
+anim	spawn
+	loop	0
+	delay	5
+	offset	340 145
+	bbox	0 0 0 0
+	frame	data/chars/beyond/2ufd9/idle05.gif
+	@cmd	spawnGun9 "nosedgrey2" -100 45 2 1 200 1 "ANI_follow10"
+	frame	data/chars/beyond/2ufd9/idle05.gif
+	@cmd	spawnGun9 "nosedgrey2" 0 45 2 1 200 2 "ANI_follow10"
+	frame	data/chars/beyond/2ufd9/idle05.gif
+	@cmd	spawnGun9 "nosedgrey2" 100 45 2 1 200 3 "ANI_follow10"
+	frame	data/chars/beyond/2ufd9/idle05.gif
+	@cmd	dasher 2 0 0	         #------------------------move in 
+	frame	data/chars/beyond/2ufd9/idle05.gif
+	movez	-1
+	frame	data/chars/beyond/2ufd9/idle01.gif #5
+	frame	data/chars/beyond/2ufd9/idle02.gif
+	frame	data/chars/beyond/2ufd9/idle03.gif
+	frame	data/chars/beyond/2ufd9/idle04.gif
+	movez	1
+	frame	data/chars/beyond/2ufd9/idle01.gif
+	frame	data/chars/beyond/2ufd9/idle02.gif
+	frame	data/chars/beyond/2ufd9/idle03.gif
+	frame	data/chars/beyond/2ufd9/idle04.gif
+	@cmd	looper 5 12
+	movez	-1
+	frame	data/chars/beyond/2ufd9/idle01.gif
+	frame	data/chars/beyond/2ufd9/idle02.gif
+	frame	data/chars/beyond/2ufd9/idle03.gif
+	frame	data/chars/beyond/2ufd9/idle04.gif
+	movez	1
+	frame	data/chars/beyond/2ufd9/idle01.gif
+	frame	data/chars/beyond/2ufd9/idle02.gif
+	frame	data/chars/beyond/2ufd9/idle03.gif
+	frame	data/chars/beyond/2ufd9/idle04.gif
+	@cmd	stop         #----------------------------stop--/-release--
+	movez	-1
+	frame	data/chars/beyond/2ufd9/idle01.gif #21
+	frame	data/chars/beyond/2ufd9/idle02.gif
+	frame	data/chars/beyond/2ufd9/idle03.gif
+	frame	data/chars/beyond/2ufd9/idle04.gif
+	movez	1
+	frame	data/chars/beyond/2ufd9/idle01.gif
+	frame	data/chars/beyond/2ufd9/idle02.gif
+	frame	data/chars/beyond/2ufd9/idle03.gif
+	frame	data/chars/beyond/2ufd9/idle04.gif
+	@cmd	looper 21 10
+	movez	-1
+	frame	data/chars/beyond/2ufd9/idle01.gif
+	@cmd 	gunout 1
+	@cmd 	gunout 2
+	@cmd 	gunout 3
+	frame	data/chars/beyond/2ufd9/idle02.gif
+	frame	data/chars/beyond/2ufd9/idle03.gif
+	frame	data/chars/beyond/2ufd9/idle04.gif
+	movez	1
+	frame	data/chars/beyond/2ufd9/idle01.gif
+	frame	data/chars/beyond/2ufd9/idle02.gif
+	@cmd	dasher 2 0 0	         #------------------------move out
+	frame	data/chars/beyond/2ufd9/idle03.gif
+	frame	data/chars/beyond/2ufd9/idle04.gif
+	movez	-1
+	frame	data/chars/beyond/2ufd9/idle01.gif #37
+	frame	data/chars/beyond/2ufd9/idle02.gif
+	frame	data/chars/beyond/2ufd9/idle03.gif
+	frame	data/chars/beyond/2ufd9/idle04.gif
+	movez	1
+	frame	data/chars/beyond/2ufd9/idle01.gif
+	frame	data/chars/beyond/2ufd9/idle02.gif
+	frame	data/chars/beyond/2ufd9/idle03.gif
+	frame	data/chars/beyond/2ufd9/idle04.gif
+	@cmd	looper 37 14
+	frame	data/chars/beyond/2ufd9/idle05.gif
+	frame	data/chars/beyond/2ufd9/idle05.gif
+	frame	data/chars/beyond/2ufd9/idle05.gif
+	@cmd	suicide
+	frame	data/chars/beyond/2ufd9/idle05.gif 
+
+anim	idle
+	loop	1
+	delay	5
+	offset	340 145
+	bbox	0 0 0 0
+	frame	data/chars/beyond/2ufd9/idle01.gif
+
+
+
+anim	follow10
+	loop	0
+	delay	5
+	offset	340 145
+	bbox	0 0 0 0
+	frame	data/chars/beyond/2ufd9/idle05.gif
+	@cmd	spawnGun9 "graynose2" -70 45 2 1 200 1 "ANI_follow10"
+	frame	data/chars/beyond/2ufd9/idle05.gif
+	@cmd	spawnGun9 "graynose2" 30 45 2 1 200 2 "ANI_follow10"
+	frame	data/chars/beyond/2ufd9/idle05.gif
+	@cmd	spawnGun9 "graynose2" 130 45 2 1 200 3 "ANI_follow10"
+	frame	data/chars/beyond/2ufd9/idle05.gif
+	@cmd	dasher -2 0 0	         #------------------------move in 
+	frame	data/chars/beyond/2ufd9/idle05.gif
+	movez	-1
+	frame	data/chars/beyond/2ufd9/idle01.gif #5
+	frame	data/chars/beyond/2ufd9/idle02.gif
+	frame	data/chars/beyond/2ufd9/idle03.gif
+	frame	data/chars/beyond/2ufd9/idle04.gif
+	movez	1
+	frame	data/chars/beyond/2ufd9/idle01.gif
+	frame	data/chars/beyond/2ufd9/idle02.gif
+	frame	data/chars/beyond/2ufd9/idle03.gif
+	frame	data/chars/beyond/2ufd9/idle04.gif
+	@cmd	looper 5 12
+	movez	-1
+	frame	data/chars/beyond/2ufd9/idle01.gif
+	frame	data/chars/beyond/2ufd9/idle02.gif
+	frame	data/chars/beyond/2ufd9/idle03.gif
+	frame	data/chars/beyond/2ufd9/idle04.gif
+	movez	1
+	frame	data/chars/beyond/2ufd9/idle01.gif
+	frame	data/chars/beyond/2ufd9/idle02.gif
+	frame	data/chars/beyond/2ufd9/idle03.gif
+	frame	data/chars/beyond/2ufd9/idle04.gif
+	@cmd	stop         #----------------------------stop--/-release--
+	movez	-1
+	frame	data/chars/beyond/2ufd9/idle01.gif #21
+	frame	data/chars/beyond/2ufd9/idle02.gif
+	frame	data/chars/beyond/2ufd9/idle03.gif
+	frame	data/chars/beyond/2ufd9/idle04.gif
+	movez	1
+	frame	data/chars/beyond/2ufd9/idle01.gif
+	frame	data/chars/beyond/2ufd9/idle02.gif
+	frame	data/chars/beyond/2ufd9/idle03.gif
+	frame	data/chars/beyond/2ufd9/idle04.gif
+	@cmd	looper 21 10
+	movez	-1
+	frame	data/chars/beyond/2ufd9/idle01.gif
+	@cmd 	gunout 1
+	@cmd 	gunout 2
+	@cmd 	gunout 3
+	frame	data/chars/beyond/2ufd9/idle02.gif
+	frame	data/chars/beyond/2ufd9/idle03.gif
+	frame	data/chars/beyond/2ufd9/idle04.gif
+	movez	1
+	frame	data/chars/beyond/2ufd9/idle01.gif
+	frame	data/chars/beyond/2ufd9/idle02.gif
+	@cmd	dasher -2 0 0	         #------------------------move out
+	frame	data/chars/beyond/2ufd9/idle03.gif
+	frame	data/chars/beyond/2ufd9/idle04.gif
+	movez	-1
+	frame	data/chars/beyond/2ufd9/idle01.gif #37
+	frame	data/chars/beyond/2ufd9/idle02.gif
+	frame	data/chars/beyond/2ufd9/idle03.gif
+	frame	data/chars/beyond/2ufd9/idle04.gif
+	movez	1
+	frame	data/chars/beyond/2ufd9/idle01.gif
+	frame	data/chars/beyond/2ufd9/idle02.gif
+	frame	data/chars/beyond/2ufd9/idle03.gif
+	frame	data/chars/beyond/2ufd9/idle04.gif
+	@cmd	looper 37 14
+	frame	data/chars/beyond/2ufd9/idle05.gif
+	frame	data/chars/beyond/2ufd9/idle05.gif
+	frame	data/chars/beyond/2ufd9/idle05.gif
+	@cmd	suicide
+	frame	data/chars/beyond/2ufd9/idle05.gif
+
+
+
+anim	follow14
+	loop	0
+	delay	5
+	offset	340 145
+	bbox	0 0 0 0
+	frame	data/chars/beyond/2ufd9/idle05.gif
+	@cmd	spawnGun9 "morph2" -80 45 25 2 120 1 "ANI_follow10"
+	frame	data/chars/beyond/2ufd9/idle05.gif
+	@cmd	spawnGun9 "morph2" 20 45 25 3 120 2 "ANI_follow10"
+	frame	data/chars/beyond/2ufd9/idle05.gif
+	@cmd	spawnGun9 "morph2" 120 45 25 2 120 3 "ANI_follow10"
+	frame	data/chars/beyond/2ufd9/idle05.gif
+	@cmd	dasher -2 0 0	         #------------------------move in 
+	frame	data/chars/beyond/2ufd9/idle05.gif
+	movez	-1
+	frame	data/chars/beyond/2ufd9/idle01.gif #5
+	frame	data/chars/beyond/2ufd9/idle02.gif
+	frame	data/chars/beyond/2ufd9/idle03.gif
+	frame	data/chars/beyond/2ufd9/idle04.gif
+	movez	1
+	frame	data/chars/beyond/2ufd9/idle01.gif
+	frame	data/chars/beyond/2ufd9/idle02.gif
+	frame	data/chars/beyond/2ufd9/idle03.gif
+	frame	data/chars/beyond/2ufd9/idle04.gif
+	@cmd	looper 5 12
+	movez	-1
+	frame	data/chars/beyond/2ufd9/idle01.gif
+	frame	data/chars/beyond/2ufd9/idle02.gif
+	frame	data/chars/beyond/2ufd9/idle03.gif
+	frame	data/chars/beyond/2ufd9/idle04.gif
+	movez	1
+	frame	data/chars/beyond/2ufd9/idle01.gif
+	frame	data/chars/beyond/2ufd9/idle02.gif
+	frame	data/chars/beyond/2ufd9/idle03.gif
+	frame	data/chars/beyond/2ufd9/idle04.gif
+	@cmd	stop         #----------------------------stop--/-release--
+	movez	-1
+	frame	data/chars/beyond/2ufd9/idle01.gif #21
+	frame	data/chars/beyond/2ufd9/idle02.gif
+	frame	data/chars/beyond/2ufd9/idle03.gif
+	frame	data/chars/beyond/2ufd9/idle04.gif
+	movez	1
+	frame	data/chars/beyond/2ufd9/idle01.gif
+	frame	data/chars/beyond/2ufd9/idle02.gif
+	frame	data/chars/beyond/2ufd9/idle03.gif
+	frame	data/chars/beyond/2ufd9/idle04.gif
+	@cmd	looper 21 10
+	movez	-1
+	frame	data/chars/beyond/2ufd9/idle01.gif
+	@cmd 	gunout 1
+	@cmd 	gunout 2
+	@cmd 	gunout 3
+	frame	data/chars/beyond/2ufd9/idle02.gif
+	frame	data/chars/beyond/2ufd9/idle03.gif
+	frame	data/chars/beyond/2ufd9/idle04.gif
+	movez	1
+	frame	data/chars/beyond/2ufd9/idle01.gif
+	frame	data/chars/beyond/2ufd9/idle02.gif
+	@cmd	dasher -2 0 0	         #------------------------move out
+	frame	data/chars/beyond/2ufd9/idle03.gif
+	frame	data/chars/beyond/2ufd9/idle04.gif
+	movez	-1
+	frame	data/chars/beyond/2ufd9/idle01.gif #37
+	frame	data/chars/beyond/2ufd9/idle02.gif
+	frame	data/chars/beyond/2ufd9/idle03.gif
+	frame	data/chars/beyond/2ufd9/idle04.gif
+	movez	1
+	frame	data/chars/beyond/2ufd9/idle01.gif
+	frame	data/chars/beyond/2ufd9/idle02.gif
+	frame	data/chars/beyond/2ufd9/idle03.gif
+	frame	data/chars/beyond/2ufd9/idle04.gif
+	@cmd	looper 37 14
+	frame	data/chars/beyond/2ufd9/idle05.gif
+	frame	data/chars/beyond/2ufd9/idle05.gif
+	frame	data/chars/beyond/2ufd9/idle05.gif
+	@cmd	suicide
+	frame	data/chars/beyond/2ufd9/idle05.gif
+
+
+anim	follow12
+	loop	0
+	delay	5
+	offset	340 145
+	bbox	0 0 0 0
+	frame	data/chars/beyond/2ufd9/idle05.gif
+	@cmd	spawnGun9 "bignose2" -80 45 20 4 210 1 "ANI_follow10"
+	frame	data/chars/beyond/2ufd9/idle05.gif
+	@cmd	spawnGun9 "bignose2" 20 45 20 7 210 2 "ANI_follow10"
+	frame	data/chars/beyond/2ufd9/idle05.gif
+	@cmd	spawnGun9 "bignose2" 120 45 20 4 210 3 "ANI_follow10"
+	frame	data/chars/beyond/2ufd9/idle05.gif
+	@cmd	dasher 2 0 0	         #------------------------move in 
+	frame	data/chars/beyond/2ufd9/idle05.gif
+	movez	-1
+	frame	data/chars/beyond/2ufd9/idle01.gif #5
+	frame	data/chars/beyond/2ufd9/idle02.gif
+	frame	data/chars/beyond/2ufd9/idle03.gif
+	frame	data/chars/beyond/2ufd9/idle04.gif
+	movez	1
+	frame	data/chars/beyond/2ufd9/idle01.gif
+	frame	data/chars/beyond/2ufd9/idle02.gif
+	frame	data/chars/beyond/2ufd9/idle03.gif
+	frame	data/chars/beyond/2ufd9/idle04.gif
+	@cmd	looper 5 12
+	movez	-1
+	frame	data/chars/beyond/2ufd9/idle01.gif
+	frame	data/chars/beyond/2ufd9/idle02.gif
+	frame	data/chars/beyond/2ufd9/idle03.gif
+	frame	data/chars/beyond/2ufd9/idle04.gif
+	movez	1
+	frame	data/chars/beyond/2ufd9/idle01.gif
+	frame	data/chars/beyond/2ufd9/idle02.gif
+	frame	data/chars/beyond/2ufd9/idle03.gif
+	frame	data/chars/beyond/2ufd9/idle04.gif
+	@cmd	stop         #----------------------------stop--/-release--
+	movez	-1
+	frame	data/chars/beyond/2ufd9/idle01.gif #21
+	frame	data/chars/beyond/2ufd9/idle02.gif
+	frame	data/chars/beyond/2ufd9/idle03.gif
+	frame	data/chars/beyond/2ufd9/idle04.gif
+	movez	1
+	frame	data/chars/beyond/2ufd9/idle01.gif
+	frame	data/chars/beyond/2ufd9/idle02.gif
+	frame	data/chars/beyond/2ufd9/idle03.gif
+	frame	data/chars/beyond/2ufd9/idle04.gif
+	@cmd	looper 21 10
+	movez	-1
+	frame	data/chars/beyond/2ufd9/idle01.gif
+	@cmd 	gunout 1
+	@cmd 	gunout 2
+	@cmd 	gunout 3
+	frame	data/chars/beyond/2ufd9/idle02.gif
+	frame	data/chars/beyond/2ufd9/idle03.gif
+	frame	data/chars/beyond/2ufd9/idle04.gif
+	movez	1
+	frame	data/chars/beyond/2ufd9/idle01.gif
+	frame	data/chars/beyond/2ufd9/idle02.gif
+	@cmd	dasher 2 0 0	         #------------------------move out
+	frame	data/chars/beyond/2ufd9/idle03.gif
+	frame	data/chars/beyond/2ufd9/idle04.gif
+	movez	-1
+	frame	data/chars/beyond/2ufd9/idle01.gif #37
+	frame	data/chars/beyond/2ufd9/idle02.gif
+	frame	data/chars/beyond/2ufd9/idle03.gif
+	frame	data/chars/beyond/2ufd9/idle04.gif
+	movez	1
+	frame	data/chars/beyond/2ufd9/idle01.gif
+	frame	data/chars/beyond/2ufd9/idle02.gif
+	frame	data/chars/beyond/2ufd9/idle03.gif
+	frame	data/chars/beyond/2ufd9/idle04.gif
+	@cmd	looper 37 14
+	frame	data/chars/beyond/2ufd9/idle05.gif
+	frame	data/chars/beyond/2ufd9/idle05.gif
+	frame	data/chars/beyond/2ufd9/idle05.gif
+	@cmd	suicide
+	frame	data/chars/beyond/2ufd9/idle05.gif
+
+
+
+
+

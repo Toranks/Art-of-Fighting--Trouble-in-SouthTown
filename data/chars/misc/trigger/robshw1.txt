@@ -1,0 +1,284 @@
+name	 robshw1
+type     obstacle
+health	 1000
+score	 0
+nolife   1
+nomove	 1 1
+gfxshadow	1
+subject_to_hole     	0
+offscreenkill 	10000
+#lifespan  	900
+candamage	npc
+
+animationscript data/scripts/escript.c
+
+
+anim	spawn
+@script
+	void self = getlocalvar("self");
+	if(frame==0){
+     	changeentityproperty(self, "direction", 1);
+	}
+@end_script
+	loop	1
+	delay	7280
+	offset	135 191
+	bbox	115 95 41 94
+	frame	data/chars/1robert/b43.gif
+	delay	14
+	frame	data/chars/1robert/sup01.gif
+	frame	data/chars/1robert/sup02.gif
+	frame	data/chars/1robert/sup03.gif
+	frame	data/chars/1robert/sup04.gif
+	frame	data/chars/1robert/sup05.gif
+	frame	data/chars/1robert/sup06.gif
+	delay	10
+	@cmd	dasher 2.6 0 0
+	frame	data/chars/1robert/sup07.gif
+	frame	data/chars/1robert/sup01.gif
+	frame	data/chars/1robert/b24.gif
+	@cmd	dasher 2.1 0 0.1
+	frame	data/chars/1robert/b23.gif
+	frame	data/chars/1robert/b27.gif
+	@cmd	dasher 1.6 0 0.1
+	frame	data/chars/1robert/b25.gif
+	frame	data/chars/1robert/b26.gif #delay 154
+	@cmd	stop
+	delay	278
+	frame	data/chars/1robert/b26.gif #delay 432
+	delay	35
+	move	78
+	frame	data/chars/1robert/zbrk01.gif
+	move	0
+	delay	600
+	frame	data/chars/1robert/zbrk01.gif
+	delay	35
+	frame	data/chars/1robert/zbrk01.gif
+	frame	data/chars/1robert/zbrk01.gif
+	frame	data/chars/1robert/zbrk01.gif
+	frame	data/chars/1robert/zbrk01.gif
+
+	frame	data/chars/1robert/zbrk01.gif #21 
+	frame	data/chars/1robert/zbrk01.gif
+	frame	data/chars/1robert/zbrk01.gif
+	frame	data/chars/1robert/zbrk01.gif
+	frame	data/chars/1robert/zbrk01.gif
+	frame	data/chars/1robert/zbrk01.gif
+	@cmd	looper 21 12
+	frame	data/chars/1robert/zbrk01.gif
+	frame	data/chars/1robert/zbrk01.gif
+	delay	20
+	frame	data/chars/1robert/zbrk02.gif
+	frame	data/chars/1robert/zbrk02.gif
+	frame	data/chars/1robert/zbrk02.gif
+	frame	data/chars/1robert/zbrk02.gif
+	delay	30
+	frame	data/chars/1robert/zbrk01.gif
+	delay	9
+	@cmd	flip
+	@cmd	leaper 0 7 0
+	move	-50
+	frame	data/chars/1robert/fall5.gif
+	move	0
+	frame	data/chars/1robert/fall6.gif
+	frame	data/chars/1robert/fall7.gif
+	frame	data/chars/1robert/fall8.gif
+	frame	data/chars/1robert/fall5.gif
+	frame	data/chars/1robert/fall6.gif
+	frame	data/chars/1robert/fall7.gif
+	frame	data/chars/1robert/fall8.gif
+	offset	135 90
+	drawmethod 256 256 0 1
+	frame	data/chars/1robert/fall5.gif
+	frame	data/chars/1robert/fall6.gif
+	frame	data/chars/1robert/fall7.gif
+	frame	data/chars/1robert/fall8.gif
+	frame	data/chars/1robert/fall5.gif
+	frame	data/chars/1robert/fall6.gif
+	frame	data/chars/1robert/fall7.gif
+	frame	data/chars/1robert/fall8.gif
+	nodrawmethod
+	offset	125 191
+	@cmd	flip
+	frame	data/chars/1robert/zbrk03.gif
+	frame	data/chars/1robert/zbrk04.gif
+	frame	data/chars/1robert/zbrk05.gif
+
+	delay	3020
+
+	frame	data/chars/1robert/zbrk05.gif
+	delay	3
+	movez	25
+	frame	data/chars/1robert/zbrk05.gif #54
+	movez	0
+	@cmd	degravity 1
+	frame	data/chars/1robert/fall5.gif
+	@cmd	flip
+	@cmd	dasher -6.6 0 0
+	frame	data/chars/1robert/fall6.gif
+	frame	data/chars/1robert/fall7.gif
+	frame	data/chars/1robert/fall8.gif
+
+	frame	data/chars/1robert/fall5.gif #59
+	frame	data/chars/1robert/fall6.gif
+	frame	data/chars/1robert/fall7.gif
+	frame	data/chars/1robert/fall8.gif
+	@cmd	looper 59 30
+	frame	data/chars/1robert/fall7.gif
+	@cmd	suicide
+	frame	data/chars/1robert/fall8.gif
+	
+		
+anim	idle
+	loop	1
+	delay	8
+	offset	135 191
+	bbox	115 95 41 94
+	frame	data/chars/1robert/b43.gif
+
+
+anim	follow1
+	loop	1
+	delay	8
+	offset	135 191
+	bbox	115 95 41 94
+	counterrange 0 2 1 1
+     	followanim 2
+	frame	data/chars/1robert/a13.gif
+	frame	data/chars/1robert/a13.gif
+	frame	data/chars/1robert/a13.gif
+
+anim	follow2
+	loop	0
+	delay	6
+	offset	135 191
+	bbox	0 0 0 0
+	@cmd	degravity 0.9
+	frame	data/chars/1robert/fall5.gif
+	frame	data/chars/1robert/fall6.gif
+	frame	data/chars/1robert/fall7.gif
+	frame	data/chars/1robert/fall8.gif
+	@cmd 	dasher 0 1.3 0
+	frame	data/chars/1robert/fall5.gif #4
+	frame	data/chars/1robert/fall6.gif
+	frame	data/chars/1robert/fall7.gif
+	frame	data/chars/1robert/fall8.gif
+	@cmd	looper 4 15 
+	drawmethod 156 156 0 1
+	@cmd	layer -20
+	shadowcoords 1 -300
+	frame	data/chars/1robert/fall5.gif
+	@cmd 	stop
+	frame	data/chars/1robert/fall6.gif
+	move	-10
+	frame	data/chars/1robert/fall7.gif
+	move	0
+	frame	data/chars/1robert/fall8.gif
+
+	frame	data/chars/1robert/fall5.gif #12
+	frame	data/chars/1robert/fall6.gif
+	frame	data/chars/1robert/fall7.gif
+	frame	data/chars/1robert/fall8.gif
+	@cmd	looper 12 20
+	frame	data/chars/1robert/fall5.gif
+	frame	data/chars/1robert/fall6.gif
+	frame	data/chars/1robert/fall7.gif
+	delay	5000
+	frame	data/chars/1robert/fall8.gif
+
+
+
+
+anim	follow3
+	loop	1 16 20
+	delay	80
+	offset	135 191
+	bbox	140 170 75 30
+	frame	data/chars/1robert/de01.gif
+	delay	12
+	frame	data/chars/1robert/de02.gif
+	frame	data/chars/1robert/de03.gif
+	frame	data/chars/1robert/de04.gif
+	frame	data/chars/1robert/de05.gif
+	frame	data/chars/1robert/de06.gif
+	frame	data/chars/1robert/de07.gif
+	frame	data/chars/1robert/de08.gif
+	frame	data/chars/1robert/de09.gif
+	frame	data/chars/1robert/de10.gif
+	frame	data/chars/1robert/de11.gif
+	frame	data/chars/1robert/de11.gif
+	frame	data/chars/1robert/de11.gif
+	frame	data/chars/1robert/de11.gif
+	frame	data/chars/1robert/de11.gif
+	frame	data/chars/1robert/de11.gif #16
+	frame	data/chars/1robert/de11.gif
+	frame	data/chars/1robert/de11.gif
+	frame	data/chars/1robert/de11.gif
+	frame	data/chars/1robert/de11.gif
+	frame	data/chars/1robert/de11.gif
+	frame	data/chars/1robert/de11.gif
+	frame	data/chars/1robert/de11.gif
+
+
+#-------------------------------//---------------------
+
+anim	fall7
+	delay	1000
+	offset	45 95
+	bbox	0 0 0 0
+	frame	data/chars/1robert/slam0.gif
+	offset	45 95
+	frame	data/chars/1robert/slam1.gif
+	offset	50 85
+	frame	data/chars/1robert/slam2.gif
+	offset	45 95
+	frame	data/chars/1robert/slam3.gif
+	offset	45 95
+	frame	data/chars/1robert/slam4.gif
+	offset	75 55
+	frame	data/chars/1robert/slam5.gif
+	offset	40 80
+	frame	data/chars/1robert/slam6.gif
+	offset	20 90
+	frame	data/chars/1robert/slam7.gif
+	offset	65 55
+	frame	data/chars/1robert/slam8.gif
+	offset	65 83
+	frame	data/chars/1robert/slam9.gif
+	offset	65 83
+	frame	data/chars/1robert/slam10.gif
+	offset	20 90
+	frame	data/chars/1robert/slam11.gif
+	offset	75 55
+	frame	data/chars/1robert/slam12.gif
+	offset	75 55
+	frame	data/chars/1robert/slam13.gif
+	offset	50 85
+	frame	data/chars/1robert/slam14.gif
+	offset	45 95
+	frame	data/chars/1robert/slam15.gif
+	offset	55 70
+	frame	data/chars/1robert/slam16.gif
+	offset	65 83
+	frame	data/chars/1robert/slam17.gif
+	offset	65 83
+	frame	data/chars/1robert/slam18.gif
+	offset	45 95
+	frame	data/chars/1robert/slam19.gif
+	offset	45 95
+	frame	data/chars/1robert/slam20.gif
+	offset	45 95
+	frame	data/chars/1robert/slam21.gif
+	offset	45 95
+	frame	data/chars/1robert/slam22.gif
+	offset	59 85
+	frame	data/chars/1robert/slam23.gif
+	offset	59 80
+	frame	data/chars/1robert/slam24.gif
+	offset	45 95
+	bbox	25 10 60 80
+	frame	data/chars/1robert/slambbox1.gif
+	bbox	0 0 0 0
+
+
+

@@ -1,0 +1,168 @@
+music         data/music/office2.ogg
+
+background 	data/bgs/55lvl/back.gif 0.3 0
+panel		data/bgs/55lvl/office01b.gif
+fglayer		data/bgs/55lvl/light2.gif 2000 0 0 0 -5 0 0 1 1 1 1 0 0 0 0 0
+fglayer         data/bgs/55lvl/frontb.gif 1000 0 0 0 0 0 0 1 1 1
+
+
+
+
+
+direction       both
+light  		-90   -30
+at       	0
+settime         0
+notime          1
+noslow          0
+order		a
+spawn1  	200 20
+spawn2  	190 30
+spawn3  	210 40
+
+
+cameraoffset            0 -115
+
+
+
+
+#---------------------
+wall   -85 512 35 35 200 200 50 5000
+#---------------------
+
+#----------------------------------
+spawn   stgSET5
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW9"));
+} @end_script
+coords  -500 515 350
+at      0
+#----------------------------------
+
+spawn   wallbrk3
+coords  976 360
+at	0
+
+#---------------------
+
+group 4 4
+at    220
+wait
+at    220
+
+spawn   mrtall
+map     1
+#health  530
+coords  510 420
+at	220
+
+
+spawn   ghost1
+coords  440 430
+at	220
+
+spawn   mrtall
+map     2
+#health  550
+item    food5
+coords  550 450
+at	220
+
+spawn   ghost1
+coords  440 420
+at	220
+
+spawn   candy
+map     1
+#health  240
+item    lulcardx
+coords  -320 440
+at	220
+
+spawn   ghost1
+coords  440 420
+at	220
+
+spawn   candy
+map     2
+item    lulcardx
+#health  200
+coords  -350 440
+at	220
+
+3pspawn   mrtall
+map     3
+#health  550
+coords  550 450
+at	220
+
+2pspawn   candy
+map     3
+#health  240
+coords  -350 440
+at	220
+
+#----------------
+
+group 1 1
+at   450
+wait
+at    450
+
+spawn   kingmask
+coords  370 440 250
+at	450
+
+
+#----------------
+
+group 3 3
+at    1045
+
+spawn   gemma
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW9"));
+} @end_script
+health  1050
+map     4
+item    food4
+coords  550 435
+at      1045
+
+spawn   bronko
+#health  1550
+item    7shuss
+map     4
+coords  -1550 435
+at      1045
+
+spawn   ghost4
+coords  950 435
+at      1045
+
+2pspawn   bronko
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW8"));
+} @end_script
+health  1250
+map     2
+coords  550 435
+at      1045
+
+#----------------------
+
+group 1 1
+at    1045
+
+
+spawn   ghosttime
+health  5
+coords  950 435
+at      1045
+
+spawn   goIN
+coords  200 400
+at      1045
+
+
+

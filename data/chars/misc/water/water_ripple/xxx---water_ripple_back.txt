@@ -1,0 +1,48 @@
+name	water_ripple_back
+type	none
+toflip 1
+nomove 1 0
+
+#antigravity 100
+subject_to_wall 0
+subject_to_obstacle 0
+subject_to_platform 0
+subject_to_gravity 0
+no_adjust_base 1
+
+script	@script
+	void main() {
+  		void self = getlocalvar("self");
+		int animpos = getentityproperty(self,"animpos");
+
+		if ( animpos >= 10 ) {
+			killentity(self);
+		}
+
+		//drawstring(10,150,0,"esisto_bsplat_flash");
+	}
+@end_script
+
+anim idle
+	delay	6
+		offset  26  107
+    	frame	data/chars/misc/water/water_ripple/water_ripple_back01.gif
+    	frame	data/chars/misc/water/water_ripple/water_ripple_back02.gif
+		offset  24  107
+    	frame	data/chars/misc/water/water_ripple/water_ripple_back03.gif
+		offset  25  122
+    	frame	data/chars/misc/water/water_ripple/water_ripple_back04.gif
+		offset  30  110
+    	frame	data/chars/misc/water/water_ripple/water_ripple_back05.gif
+    	frame	data/chars/misc/water/water_ripple/water_ripple_back06.gif
+    	frame	data/chars/misc/water/water_ripple/water_ripple_back07.gif
+		offset  29  108
+    	frame	data/chars/misc/water/water_ripple/water_ripple_back08.gif
+		offset  31  106
+    	frame	data/chars/misc/water/water_ripple/water_ripple_back09.gif
+    	frame	data/chars/misc/empty.gif
+	@cmd killentity getlocalvar("self")
+    	frame	data/chars/misc/empty.gif
+
+
+

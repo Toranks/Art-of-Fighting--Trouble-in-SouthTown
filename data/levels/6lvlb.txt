@@ -1,0 +1,320 @@
+music		data/music/mount2.ogg
+bossmusic	data/music/mount2b.ogg
+
+background 	data/bgs/6lvl/back.gif 0.3 0
+panel		data/bgs/6lvl/mountain2.gif
+fglayer          data/bgs/6lvl/light.gif 1000 0 0 30 -100 1 1 1 1 1 1
+fglayer          data/bgs/6lvl/light.gif 1000 0 0 480 -100 1 1 1 1 1 1
+fglayer          data/bgs/6lvl/light.gif 1000 0 0 1100 -70 1 1 1 1 1 1
+fglayer          data/bgs/6lvl/light.gif 1000 0 0 10 480 1 1 1 1 1 1
+fglayer          data/bgs/6lvl/light.gif 1000 0 0 750 480 1 1 1 1 1 1
+fglayer          data/bgs/6lvl/light.gif 1000 0 0 2150 310 1 1 1 1 1 1
+fglayer          data/bgs/6lvl/light.gif 1000 0 0 2600 310 1 1 1 1 1 1
+fglayer          data/bgs/6lvl/light.gif 1000 0 0 3100 310 1 1 1 1 1 1
+fglayer         data/bgs/6lvl/mount2front.gif 2000 0 0 0 0 0 1 1 1 1
+
+
+
+
+
+direction       both
+light  		10   -30
+at       	0
+settime         0
+notime          1
+noslow          1
+order		a
+spawn1  	105 20
+spawn2  	185 20
+spawn3  	185 20
+
+cameratype      1
+cameraoffset    0 -40
+
+
+wall 1000 715 -1010 -1010 590 590 535 5000
+wall 1880 665 -300 -300 510 410 480 5000
+wall 2330 645 -50 -40 850 760 50 5000
+Wall 2310 790 140 -20 850 870 95 5000
+wall 2570 610 -420 -420 950 950 620 5000
+
+wall -10 740 0 0 210 170 30 5000
+wall 0 850 0 0 85 85 115 5000
+
+
+hole 770 800 190 190 325 375 85
+hole 1030 850 -640 -640 600 600 50
+hole 150 870 -280 -280 240 240 50
+hole 1830 850 -200 -200 1340 1340 65
+hole 3180 850 0 0 330 330 130
+
+
+#------------------
+spawn   1spawn
+@script
+void main()
+{
+    changeopenborvariant("ypos", 600);
+}
+@end_script
+flip    1
+coords  155 750
+at      0
+
+spawn   2spawn
+flip    1
+coords  165 760
+at      0
+
+spawn   3spawn
+flip    1
+coords  160 770
+at      0
+
+
+#------------------
+
+spawn   bats
+coords  2900 795
+at      0
+
+spawn   bats
+flip    1
+coords  630 825
+at      0
+
+
+#------------------
+
+spawn   log
+flip    1
+health  30
+item    food1
+coords  2100 700
+at      0
+
+spawn   log
+flip    1
+health  30
+item    gold
+coords  3450 650
+at      0
+
+
+
+spawn   cloudfog
+flip    1
+coords  90 1050
+at      0
+
+
+spawn   cloudfog
+flip    1
+coords  730 1000
+at      0
+
+spawn   cloudfog
+flip    1
+coords  1100 1070
+at      0
+
+spawn   cloudfog
+flip    1
+coords  1500 1070
+at      0
+
+spawn   cloudfog
+flip    1
+coords  1900 1070
+at      0
+
+
+spawn   cloudfog
+flip    1
+coords  2300 1030
+at      0
+
+spawn   cloudfog
+flip    1
+coords  3115 1000
+at      0
+
+
+spawn waterfall
+coords  2300 360
+flip    1
+at      0
+
+spawn waterfall2
+coords  810 405
+flip    1
+at      0
+
+spawn bridge
+coords  2472 668
+flip    1
+at      0
+
+spawn waterfall4
+coords  2780 590
+flip    1
+at      0
+
+#-------secret-------------
+
+
+#--------//////------------
+
+
+
+
+#----------enemy------------
+
+blockade 100
+at 	 100
+
+blockade 300
+at 	 300
+
+blockade 500
+at 	 500
+
+blockade 1000
+at 	 1000
+
+blockade 1300
+at 	 1300
+
+blockade 1500
+at 	 1500
+
+#----------------------
+
+group   3 3
+at      1750
+wait
+at      1755
+
+spawn   eagle
+health  70
+coords  600 670
+at      1750
+
+spawn   eagle
+health  80
+coords  680 670
+at      1750
+
+spawn   eagle
+health  60
+item    diamond
+coords  730 670
+at      1750
+
+spawn   eagle
+health  80
+coords  600 670
+at      1750
+
+spawn   eagle
+health  70
+coords  680 675
+at      1750
+
+spawn   eagle
+health  90
+coords  730 670
+at      1750
+
+#----------------------
+
+blockade 1870
+at  	 1870
+
+#----------------------
+
+blockade 2500
+at       2500
+
+#----------------
+
+
+group   4 4
+at      2550
+wait
+at      2555
+
+spawn   tiger
+health  280
+coords  730 670
+at      2550
+
+spawn   tiger
+health  300
+coords  850 670
+at      2550
+
+spawn   tiger
+health  290
+coords  -130 680
+at      2550
+
+spawn   tiger
+health  280
+coords  -150 680
+at      2550
+
+spawn   tiger
+health  310
+coords  730 670
+at      2550
+
+spawn   tiger
+health  280
+coords  850 670
+at      2550
+
+spawn   tiger
+health  320
+coords  -130 680
+at      2550
+
+spawn   tiger
+health  350
+coords  -150 680
+at      2550
+
+#------------------
+
+
+group   1 1
+at      2550
+wait
+at      2555
+
+spawn   pipasspawn
+boss    1
+coords  700 670
+at      2550
+
+#------------------
+
+group   1 1
+at      3300
+wait
+at      3300
+
+
+spawn   ghost3
+@script
+void main()
+{
+    jumptobranch("rem", 1);
+}
+@end_script
+boss    1
+coords  500 680
+at      3300
+
+
+

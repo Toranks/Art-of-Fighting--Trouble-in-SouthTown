@@ -1,0 +1,367 @@
+name		jonyrod2
+type		none
+health		400
+mp		100
+speedf		1.5
+jumpheight	0
+cantgrab	1
+notgrab		1
+noquake		1
+falldie		1
+nodieblink	1
+makeinv		3
+gfxshadow	1
+modelflag 	1
+weaploss	3
+nodrop		1
+facing		1
+grabforce       0
+candamage	enemy obstacle
+diesound        data/sounds/ryode.wav
+atchain         0 0 0 0 
+icon		data/chars/3johnny/iconpl.gif
+parrow          data/chars/misc/flash/flash/player1.gif  -36 -145
+parrow2         data/chars/misc/flash/flash/player2.gif  -36 -145
+parrow3         data/chars/misc/flash/flash/player3.gif  -36 -145
+diesound        data/sounds/bang2.wav
+
+animationscript data/scripts/escript.c
+
+com     a2	freespecial1
+com     a3	freespecial2
+
+load	jonythemachinegun
+load	explosion1
+load	burn2
+load	cardam2
+load	steam
+
+
+
+
+anim	freespecial1
+@script
+	void self = getlocalvar("self");
+	void plyr = getentityproperty(self, "playerindex");
+	float Vx = getlocalvar("x"+self);
+	float Vz = getlocalvar("z"+self);
+
+	if(frame >= 1 )
+	{
+	  if( playerkeys(plyr, 0, "moveup"))
+	  {
+	  changeentityproperty(self, "velocity", Vx, -0.5);
+	  }
+	  if( playerkeys(plyr, 0, "movedown"))
+	  {
+	  changeentityproperty(self, "velocity", Vx, 0.5);
+	  }
+	  if( playerkeys(plyr, 0, "moveleft"))
+	  {
+	  changeentityproperty(self, "velocity", -2, Vz);
+	  }
+	  if( playerkeys(plyr, 0, "moveright"))
+	  {
+	  changeentityproperty(self, "velocity", 2, Vz);
+	  }
+	}
+@end_script
+	loop	0
+	delay	1
+	offset	170 130
+	bbox	0 0 0 0
+	frame	data/chars/3jhonnyRod/empty.gif
+	@cmd	spawnbind "dust4" -90 1 1
+	@cmd	spawnbind "dust4" 75 1 1
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	sound	data/sounds/car1.wav
+	frame	data/chars/3jhonnyRod/empty.gif
+	frame	data/chars/3jhonnyRod/jhrod02.gif
+	frame	data/chars/3jhonnyRod/empty.gif
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	sound	data/sounds/bike5.wav
+	frame	data/chars/3jhonnyRod/empty.gif
+	move	8
+	attack	70 55 265 80 12 0 1 0 0 10
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/empty.gif
+	frame	data/chars/3jhonnyRod/empty.gif
+	frame	data/chars/3jhonnyRod/jhrod02.gif
+	frame	data/chars/3jhonnyRod/empty.gif
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/empty.gif
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/empty.gif
+	frame	data/chars/3jhonnyRod/jhrod02.gif
+	move	14
+	frame	data/chars/3jhonnyRod/empty.gif
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/empty.gif
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/empty.gif
+	frame	data/chars/3jhonnyRod/jhrod02.gif
+	frame	data/chars/3jhonnyRod/empty.gif
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/empty.gif
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/jhrod02.gif
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/jhrod02.gif
+	move	6
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/jhrod02.gif
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/jhrod02.gif
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/jhrod02.gif
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	attack	0 0 0 0
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/jhrod02.gif
+	@cmd	stop
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+		
+anim	freespecial2
+@script
+	void self = getlocalvar("self");
+	void plyr = getentityproperty(self, "playerindex");
+	float Vx = getlocalvar("x"+self);
+	float Vz = getlocalvar("z"+self);
+
+	if(frame >= 1 )
+	{
+	  if( playerkeys(plyr, 0, "moveup"))
+	  {
+	  changeentityproperty(self, "velocity", Vx, -0.5);
+	  }
+	  if( playerkeys(plyr, 0, "movedown"))
+	  {
+	  changeentityproperty(self, "velocity", Vx, 0.5);
+	  }
+	  if( playerkeys(plyr, 0, "moveleft"))
+	  {
+	  changeentityproperty(self, "velocity", -2, Vz);
+	  }
+	  if( playerkeys(plyr, 0, "moveright"))
+	  {
+	  changeentityproperty(self, "velocity", 2, Vz);
+	  }
+	}
+@end_script
+	loop	0
+	delay	1
+	offset	170 130
+	bbox	0 0 0 0
+	frame	data/chars/3jhonnyRod/empty.gif
+	@cmd	spawnbind2 "dust4" -90 1 1 -1
+	@cmd	spawnbind2 "dust4" 75 1 1 -1
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	sound	data/sounds/car1.wav
+	frame	data/chars/3jhonnyRod/empty.gif
+	frame	data/chars/3jhonnyRod/jhrod02.gif
+	frame	data/chars/3jhonnyRod/empty.gif
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	sound	data/sounds/bike5.wav
+	frame	data/chars/3jhonnyRod/empty.gif
+	move	-8
+	attack	20 55 265 80 12 0 1 0 0 10
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/empty.gif
+	frame	data/chars/3jhonnyRod/empty.gif
+	frame	data/chars/3jhonnyRod/jhrod02.gif
+	frame	data/chars/3jhonnyRod/empty.gif
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/empty.gif
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/empty.gif
+	frame	data/chars/3jhonnyRod/jhrod02.gif
+	move	-14
+	frame	data/chars/3jhonnyRod/empty.gif
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/empty.gif
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/empty.gif
+	frame	data/chars/3jhonnyRod/jhrod02.gif
+	frame	data/chars/3jhonnyRod/empty.gif
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/empty.gif
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/jhrod02.gif
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/jhrod02.gif
+	move	-6
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/jhrod02.gif
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/jhrod02.gif
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/jhrod02.gif
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	attack	0 0 0 0
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/jhrod02.gif
+	@cmd	stop
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+		
+anim	death
+@script
+	void self = getlocalvar("self");
+	void Gun = getentityvar(self, 1);
+
+	if(frame == 0 )
+	{
+        damageentity(Gun, self, 1000, 0, openborconstant("ATK_NORMAL"));
+	}
+	if(frame == 24 )
+	{
+	bindentity(Gun, NULL());
+	setentityvar(self, 1, NULL());
+	}
+@end_script
+	loop	0
+	delay	5
+	offset	170 130
+	bbox	0 0 0 0
+	quakeframe	14 1 5
+	frame	data/chars/3jhonnyRod/death00.gif
+	@cmd	spawn01 "explosion1" 80 100 10
+	frame	data/chars/3jhonnyRod/death01.gif
+	@cmd	spawnGun "burn2" 155 70 15 2
+	frame	data/chars/3jhonnyRod/death00.gif
+	@cmd	spawnGun "Steam" 135 60 15 3
+	frame	data/chars/3jhonnyRod/death01.gif
+	@cmd	spawn01 "explosion1" -70 90 10
+	frame	data/chars/3jhonnyRod/death00.gif
+	@cmd	spawn01 "cardam2" 0 50 10
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif #6
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/death00.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	@cmd	looper 6 15
+	frame	data/chars/3jhonnyRod/death00.gif
+	move	-6
+	frame	data/chars/3jhonnyRod/death01.gif #11
+	frame	data/chars/3jhonnyRod/empty.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	@cmd	spawn01 "explosion3" -10 80 10
+	frame	data/chars/3jhonnyRod/empty.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/empty.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/empty.gif
+	@cmd	spawn01 "explosion3" -10 80 10
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/empty.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/empty.gif
+	@cmd	looper 11 7
+	frame	data/chars/3jhonnyRod/death01.gif
+	@cmd	killgun 2 0
+	frame	data/chars/3jhonnyRod/empty.gif
+	@cmd	killgun 3 0
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/empty.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/empty.gif
+	frame	data/chars/3jhonnyRod/death01.gif
+	frame	data/chars/3jhonnyRod/empty.gif
+		
+anim	fall
+	loop	0
+	delay	5
+	offset	170 130
+	bbox	0 0 0 0
+	platform	30 135 0 0 300 300 20 70
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/jhrod02.gif
+		
+anim	idle
+	loop	1
+	delay	5
+	offset	170 130
+	bbox	30 35 290 85
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/jhrod02.gif
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	sound	data/sounds/bike5.wav
+	frame	data/chars/3jhonnyRod/jhrod02.gif
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/jhrod02.gif
+		
+anim	pain
+	loop	0
+	delay	5
+	offset	170 130
+	bbox	30 35 290 85
+	move	6
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/jhrod02.gif
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	bbox	0 0 0 0
+	frame	data/chars/3jhonnyRod/jhrod02.gif
+
+		
+anim	pain2
+	loop	0
+	delay	5
+	offset	170 130
+	bbox	30 35 290 85
+	move	-6
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/jhrod02.gif
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	bbox	0 0 0 0
+	frame	data/chars/3jhonnyRod/jhrod02.gif
+		
+anim	rise
+	loop	0
+	delay	5
+	offset	170 130
+	bbox	30 35 290 85
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/jhrod02.gif
+
+anim	respawn
+	loop	0
+	delay	12
+	offset	170 130
+	bbox	0 0 0 0
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	@cmd	spawnGun5 "jonythemachinegun" 95 65 1 1 "ANI_FOLLOW1" 
+	frame	data/chars/3jhonnyRod/jhrod02.gif
+		
+anim	spawn
+	loop	0
+	delay	12
+	offset	170 130
+	bbox	0 0 0 0
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	@cmd	spawnGun5 "jonythemachinegun" 95 65 1 1 "ANI_FOLLOW1" 
+	frame	data/chars/3jhonnyRod/jhrod02.gif
+
+		
+anim	walk
+	loop	1
+	delay	5
+	offset	170 130
+	bbox	30 35 290 85
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/jhrod02.gif
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	sound	data/sounds/bike5.wav
+	frame	data/chars/3jhonnyRod/jhrod02.gif
+	frame	data/chars/3jhonnyRod/jhrod01.gif
+	frame	data/chars/3jhonnyRod/jhrod02.gif
+
+		

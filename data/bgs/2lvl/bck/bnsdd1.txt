@@ -1,0 +1,69 @@
+name	bnsdd1
+type	enemy
+shadow	0
+facing	1
+nomove	1 1
+subject_to_wall 	0
+subject_to_platform	0
+subject_to_obstacle	0
+subject_to_gravity	0
+subject_to_minz		0
+subject_to_maxz		0
+offscreenkill 	10000
+setlayer	-50 
+hostile		player
+falldie		1
+nodieblink	3
+lifespan 	4
+
+#load	goINb1	
+
+#animationscript data/scripts/escript.c
+
+
+anim	idle
+@script
+if(frame==10)
+{
+  changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_NONE"));
+}
+@end_script
+	loop	0
+	offset	60 139
+	delay	17
+	frame	data/bgs/2lvl/bck/dd01.gif
+	frame	data/bgs/2lvl/bck/dd02.gif
+	frame	data/bgs/2lvl/bck/dd03.gif
+	frame	data/bgs/2lvl/bck/dd04.gif
+	frame	data/bgs/2lvl/bck/dd04.gif
+	frame	data/bgs/2lvl/bck/dd04.gif
+	frame	data/bgs/2lvl/bck/dd04.gif
+	frame	data/bgs/2lvl/bck/dd04.gif
+	frame	data/bgs/2lvl/bck/dd04.gif
+#	@cmd	spawn01 "goINb1" -25 1 1
+	frame	data/bgs/2lvl/bck/dd04.gif
+	frame	data/bgs/2lvl/bck/dd04.gif
+#	@cmd	anichange "ANI_FOLLOW1"
+	delay	1000
+	frame	data/bgs/2lvl/bck/dd04.gif
+
+
+anim	death
+	loop	0
+	offset	60 139
+	delay	15
+	frame	data/bgs/2lvl/bck/dd04.gif
+	frame	data/bgs/2lvl/bck/dd04.gif
+	frame	data/bgs/2lvl/bck/dd04.gif
+	frame	data/bgs/2lvl/bck/dd04.gif
+
+
+anim	spawn
+	loop	0
+	offset	60 139
+	delay	15
+	frame	data/bgs/2lvl/bck/dd00.gif
+	frame	data/bgs/2lvl/bck/dd00.gif
+	frame	data/bgs/2lvl/bck/dd00.gif
+	frame	data/bgs/2lvl/bck/dd00.gif
+

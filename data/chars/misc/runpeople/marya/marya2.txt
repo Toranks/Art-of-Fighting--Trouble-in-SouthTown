@@ -1,0 +1,215 @@
+name		marya2
+type		enemy
+subtype		notgrab
+health		500
+speed		10
+jumpheight	0
+nolife          1
+noquake		1
+makeinv		3
+gfxshadow	1
+nodrop		1
+antigrab	10
+hostile		player npc
+candamage	player npc
+subject_to_platform 0
+subject_to_obstacle 0
+diesound        data/sounds/empty.wav
+
+animationscript data/scripts/escript.c
+
+
+#-------moves 
+
+
+
+
+alternatepal       data/chars/misc/runpeople/marya/map1.gif
+alternatepal       data/chars/misc/runpeople/marya/map2.gif
+alternatepal       data/chars/misc/runpeople/marya/map3.gif
+alternatepal       data/chars/misc/runpeople/marya/map4.gif
+
+
+
+anim	spawn
+@script
+if(frame==1)
+{
+  changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_OBSTACLE"));
+}
+@end_script
+	loop	0
+	delay	5
+	offset	45 105
+	bbox	0 0 0 0
+	platform 1 1 1 1 1 1 1 1
+	frame	data/chars/misc/runpeople/marya/marya03.gif
+	frame	data/chars/misc/runpeople/marya/marya03.gif
+	frame	data/chars/misc/runpeople/marya/marya03.gif
+	frame	data/chars/misc/runpeople/marya/marya03.gif
+	frame	data/chars/misc/runpeople/marya/marya03.gif
+	frame	data/chars/misc/runpeople/marya/marya03.gif
+
+
+
+anim	idle
+	loop    1 1 4
+	delay   5
+	offset	45 105
+	bbox    0 0 0 0
+	platform 1 1 1 1 1 1 1 1
+	frame	data/chars/misc/runpeople/marya/marya02.gif
+	frame	data/chars/misc/runpeople/marya/marya01.gif
+	@cmd	attack3 0 110 0 -25 "ANI_ATTACK1"
+	frame	data/chars/misc/runpeople/marya/marya01.gif
+	@cmd	attack3 0 110 0 25 "ANI_ATTACK2"
+	frame	data/chars/misc/runpeople/marya/marya01.gif
+	frame	data/chars/misc/runpeople/marya/marya01.gif
+	frame	data/chars/misc/runpeople/marya/marya01.gif
+
+
+anim	attack1
+	range	0 110
+	rangez  0 25
+	loop    0
+	delay   9
+	offset	45 105
+	bbox    0 0 0 0
+	platform 1 1 1 1 1 1 1 1
+	frame	data/chars/misc/runpeople/marya/marya01.gif
+	@cmd	dasher -1 0 0
+	frame	data/chars/misc/runpeople/marya/marya03.gif
+	frame	data/chars/misc/runpeople/marya/marya04.gif
+	frame	data/chars/misc/runpeople/marya/marya05.gif
+	sound	data/sounds/run2.wav
+	frame	data/chars/misc/runpeople/marya/marya06.gif
+	frame	data/chars/misc/runpeople/marya/marya07.gif
+	frame	data/chars/misc/runpeople/marya/marya08.gif
+	frame	data/chars/misc/runpeople/marya/marya09.gif
+	frame	data/chars/misc/runpeople/marya/marya10.gif
+	sound	data/sounds/run2.wav
+	frame	data/chars/misc/runpeople/marya/marya03.gif
+	frame	data/chars/misc/runpeople/marya/marya04.gif
+	frame	data/chars/misc/runpeople/marya/marya05.gif
+	frame	data/chars/misc/runpeople/marya/marya06.gif
+	sound	data/sounds/run2.wav
+	frame	data/chars/misc/runpeople/marya/marya07.gif
+	frame	data/chars/misc/runpeople/marya/marya08.gif
+	sound	data/sounds/eek.wav
+	frame	data/chars/misc/runpeople/marya/marya09.gif
+	frame	data/chars/misc/runpeople/marya/marya10.gif
+	sound	data/sounds/run2.wav
+	frame	data/chars/misc/runpeople/marya/marya03.gif
+	frame	data/chars/misc/runpeople/marya/marya04.gif
+	frame	data/chars/misc/runpeople/marya/marya05.gif
+	frame	data/chars/misc/runpeople/marya/marya06.gif
+	frame	data/chars/misc/runpeople/marya/marya07.gif
+	frame	data/chars/misc/runpeople/marya/marya08.gif
+	frame	data/chars/misc/runpeople/marya/marya09.gif
+	frame	data/chars/misc/runpeople/marya/marya10.gif
+	sound	data/sounds/run2.wav
+	frame	data/chars/misc/runpeople/marya/marya03.gif
+	frame	data/chars/misc/runpeople/marya/marya04.gif
+	frame	data/chars/misc/runpeople/marya/marya05.gif
+	frame	data/chars/misc/runpeople/marya/marya06.gif
+	frame	data/chars/misc/runpeople/marya/marya07.gif
+	frame	data/chars/misc/runpeople/marya/marya08.gif
+	frame	data/chars/misc/runpeople/marya/marya09.gif
+	frame	data/chars/misc/runpeople/marya/marya10.gif
+	@cmd	stop
+	frame	data/chars/misc/runpeople/marya/marya01.gif
+	frame	data/chars/misc/runpeople/marya/marya01.gif
+
+
+
+
+anim	attack2
+	range	0 110
+	rangez  -25 0
+	loop    0
+	delay   9
+	offset	45 105
+	bbox    0 0 0 0
+	platform 1 1 1 1 1 1 1 1
+	frame	data/chars/misc/runpeople/marya/marya01.gif
+	@cmd	dasher 1 0 0
+	frame	data/chars/misc/runpeople/marya/marya11.gif
+	frame	data/chars/misc/runpeople/marya/marya12.gif
+	frame	data/chars/misc/runpeople/marya/marya13.gif
+	sound	data/sounds/run2.wav
+	frame	data/chars/misc/runpeople/marya/marya14.gif
+	frame	data/chars/misc/runpeople/marya/marya15.gif
+	frame	data/chars/misc/runpeople/marya/marya16.gif
+	frame	data/chars/misc/runpeople/marya/marya17.gif
+	frame	data/chars/misc/runpeople/marya/marya18.gif
+	sound	data/sounds/run2.wav
+	frame	data/chars/misc/runpeople/marya/marya11.gif
+	frame	data/chars/misc/runpeople/marya/marya12.gif
+	frame	data/chars/misc/runpeople/marya/marya13.gif
+	frame	data/chars/misc/runpeople/marya/marya14.gif
+	sound	data/sounds/run2.wav
+	frame	data/chars/misc/runpeople/marya/marya15.gif
+	frame	data/chars/misc/runpeople/marya/marya16.gif
+	frame	data/chars/misc/runpeople/marya/marya17.gif
+	frame	data/chars/misc/runpeople/marya/marya18.gif
+	sound	data/sounds/run2.wav
+	frame	data/chars/misc/runpeople/marya/marya11.gif
+	frame	data/chars/misc/runpeople/marya/marya12.gif
+	frame	data/chars/misc/runpeople/marya/marya13.gif
+	frame	data/chars/misc/runpeople/marya/marya14.gif
+	frame	data/chars/misc/runpeople/marya/marya15.gif
+	frame	data/chars/misc/runpeople/marya/marya16.gif
+	frame	data/chars/misc/runpeople/marya/marya17.gif
+	frame	data/chars/misc/runpeople/marya/marya18.gif
+	sound	data/sounds/run2.wav
+	frame	data/chars/misc/runpeople/marya/marya11.gif
+	sound	data/sounds/eek.wav
+	frame	data/chars/misc/runpeople/marya/marya12.gif
+	frame	data/chars/misc/runpeople/marya/marya13.gif
+	frame	data/chars/misc/runpeople/marya/marya14.gif
+	frame	data/chars/misc/runpeople/marya/marya15.gif
+	frame	data/chars/misc/runpeople/marya/marya16.gif
+	frame	data/chars/misc/runpeople/marya/marya17.gif
+	frame	data/chars/misc/runpeople/marya/marya18.gif
+	@cmd	stop
+	frame	data/chars/misc/runpeople/marya/marya01.gif
+	frame	data/chars/misc/runpeople/marya/marya01.gif
+
+
+anim	walk
+	loop    1
+	delay   9
+	offset	45 105
+	bbox    0 0 0 0
+	platform 1 1 1 1 1 1 1 1
+	frame	data/chars/misc/runpeople/marya/marya11.gif
+	frame	data/chars/misc/runpeople/marya/marya12.gif
+	frame	data/chars/misc/runpeople/marya/marya13.gif
+	sound	data/sounds/run2.wav
+	frame	data/chars/misc/runpeople/marya/marya14.gif
+	frame	data/chars/misc/runpeople/marya/marya15.gif
+	frame	data/chars/misc/runpeople/marya/marya16.gif
+	sound	data/sounds/run2.wav
+	frame	data/chars/misc/runpeople/marya/marya17.gif
+	frame	data/chars/misc/runpeople/marya/marya18.gif
+
+
+
+anim	backwalk
+	loop    1
+	delay   9
+	offset	45 105
+	bbox    0 0 0 0
+	platform 1 1 1 1 1 1 1 1
+	frame	data/chars/misc/runpeople/marya/marya03.gif
+	frame	data/chars/misc/runpeople/marya/marya04.gif
+	frame	data/chars/misc/runpeople/marya/marya05.gif
+	sound	data/sounds/run2.wav
+	frame	data/chars/misc/runpeople/marya/marya06.gif
+	frame	data/chars/misc/runpeople/marya/marya07.gif
+	frame	data/chars/misc/runpeople/marya/marya08.gif
+	sound	data/sounds/run2.wav
+	frame	data/chars/misc/runpeople/marya/marya09.gif
+	frame	data/chars/misc/runpeople/marya/marya10.gif
+
+

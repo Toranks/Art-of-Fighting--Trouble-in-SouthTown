@@ -1,0 +1,141 @@
+name		temper2
+type		npc
+nolife			1
+speed			0
+nomove			1 
+noquake			1
+shadow			0
+falldie			1
+antigrab		10
+lifespan        	5
+offscreenkill 	        20000
+subject_to_wall		0
+subject_to_platform 	0
+subject_to_obstacle 	0
+subject_to_hole 	0
+subject_to_minz		0
+subject_to_maxz		0
+setlayer	999900000
+icon		data/chars/beyond/grabs/heat/a03.gif
+diesound        data/sounds/empty.wav
+
+animationscript data/scripts/escript.c
+
+load	temper1
+load	jbyo3
+
+
+#setglobalvar-----getglobalvar-----globalvar
+#setscriptvar-----getscriptvar-----scriptvar
+
+
+anim 	spawn
+@script
+	if(frame==1){
+    	setglobalvar("madjon", 2);
+	}
+@end_script
+	loop	0
+	delay	5
+	offset	1 1
+	bbox	0 0 0 0
+	frame	data/chars/beyond/grabs/heat/a04.gif 
+	frame	data/chars/beyond/grabs/heat/a04.gif
+	frame	data/chars/beyond/grabs/heat/a04.gif
+	frame	data/chars/beyond/grabs/heat/a04.gif
+
+
+anim 	idle
+	loop    1
+	delay   14
+	offset	1 1
+	bbox    0 0 0 0
+	frame	data/chars/beyond/grabs/heat/a04.gif
+	frame	data/chars/beyond/grabs/heat/a04.gif
+
+
+anim 	death
+	loop    0
+	delay   10
+	offset	1 1
+	bbox    0 0 0 0
+	frame	data/chars/beyond/grabs/heat/a04.gif
+	@cmd	clearL
+	frame	data/chars/beyond/grabs/heat/a04.gif
+	frame	data/chars/beyond/grabs/heat/a04.gif
+	frame	data/chars/beyond/grabs/heat/a04.gif
+	frame	data/chars/beyond/grabs/heat/a04.gif
+	frame	data/chars/beyond/grabs/heat/a04.gif
+	frame	data/chars/beyond/grabs/heat/a04.gif
+	frame	data/chars/beyond/grabs/heat/a04.gif
+	frame	data/chars/beyond/grabs/heat/a04.gif
+	frame	data/chars/beyond/grabs/heat/a04.gif
+	frame	data/chars/beyond/grabs/heat/a04.gif
+	frame	data/chars/beyond/grabs/heat/a04.gif
+	frame	data/chars/beyond/grabs/heat/a04.gif
+	frame	data/chars/beyond/grabs/heat/a04.gif
+	frame	data/chars/beyond/grabs/heat/a04.gif
+	frame	data/chars/beyond/grabs/heat/a04.gif
+	frame	data/chars/beyond/grabs/heat/a04.gif
+
+
+
+
+anim 	follow1
+	loop    0
+	delay   5
+	offset	1 1
+	bbox    0 0 0 0
+	frame	data/chars/beyond/grabs/heat/a04.gif
+	frame	data/chars/beyond/grabs/heat/a04.gif
+	@cmd	spawn02 "temper1" 160 250 425
+	frame	data/chars/beyond/grabs/heat/a04.gif
+	frame	data/chars/beyond/grabs/heat/a04.gif
+	@cmd	suicide
+	frame	data/chars/beyond/grabs/heat/a04.gif
+
+
+
+
+anim 	follow2
+	loop    0
+	delay   5
+	offset	1 1
+	bbox    0 0 0 0
+	frame	data/chars/beyond/grabs/heat/a04.gif
+	frame	data/chars/beyond/grabs/heat/a04.gif
+	@cmd	spawnAni2 "jbyo3" 30 250 250 "ANI_FOLLOW8"
+	frame	data/chars/beyond/grabs/heat/a04.gif
+	frame	data/chars/beyond/grabs/heat/a04.gif
+	@cmd	suicide
+	frame	data/chars/beyond/grabs/heat/a04.gif
+
+
+anim 	follow5
+	loop    1 2 8
+	delay   4
+	offset	55 75
+	bbox    0 0 0 0
+	frame	data/chars/beyond/grabs/heat/a04.gif
+	@cmd	degravity 1
+	@cmd	stop
+	@cmd	lifesp 9999000
+	frame	data/chars/beyond/grabs/heat/a04.gif
+	frame	data/chars/beyond/grabs/heat/a01.gif
+	frame	data/chars/beyond/grabs/heat/a02.gif
+	frame	data/chars/beyond/grabs/heat/a03.gif
+	frame	data/chars/beyond/grabs/heat/a01.gif
+	frame	data/chars/beyond/grabs/heat/a02.gif
+	frame	data/chars/beyond/grabs/heat/a03.gif
+	frame	data/chars/beyond/grabs/heat/a01.gif
+	frame	data/chars/beyond/grabs/heat/a02.gif
+	frame	data/chars/beyond/grabs/heat/a03.gif
+
+
+
+
+
+
+
+
+

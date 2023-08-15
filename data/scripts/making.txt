@@ -1,0 +1,54 @@
+void targetbind(void Name, int Tx, int Tz)
+{// Targetting certain position before leaping there
+//  Name : entity name to be spawned
+//  Tx : Leaping destination x coordinate
+//  Tz : Leaping destination z coordinate
+    void self = getlocalvar("self");
+    void Spawn;
+    float x = getentityproperty(self, "x"); // Get entity's x coordinate
+    float z = getentityproperty(self, "z"); // Get entity's z coordinate
+    int XPos = openborvariant("xpos"); //Get screen edge's position
+    int YPos = openborvariant("ypos"); // Get camera position
+    Tx=Tx+XPos;
+    Tz=Tz+YPos;
+
+
+    if(Tx < x){
+      changeentityproperty(self, "direction", 0); // Face left 
+    } else {
+      changeentityproperty(self, "direction", 1); // Face right
+    }
+    setlocalvar("x"+self, (Tx-x)/(20*Vy)); // Calculate Vx then store value in local variable
+    setlocalvar("z"+self, (Tz-z)/(20*Vy)); // Calculate Vz then store value in local variable
+    Spawn = spawn01(Name, tx, tz, 0);
+    bindentity(Spawn, tx, tz, 0, 0, 0);
+
+}
+
+
+
+void targetbind(void Name, float Vy, int Tx, int Tz)
+{// Targetting certain position before leaping there
+//  Name : entity name to be spawned
+//  Tx : Leaping destination x coordinate
+//  Tz : Leaping destination z coordinate
+    void self = getlocalvar("self");
+    void Spawn;
+    float x = getentityproperty(self, "x"); // Get entity's x coordinate
+    float z = getentityproperty(self, "z"); // Get entity's z coordinate
+    int XPos = openborvariant("xpos"); //Get screen edge's position
+    int YPos = openborvariant("ypos"); // Get camera position
+    Tx=Tx+XPos;
+    Tz=Tz+YPos;
+
+
+    if(Tx < x){
+      changeentityproperty(self, "direction", 0); // Face left 
+    } else {
+      changeentityproperty(self, "direction", 1); // Face right
+    }
+    setlocalvar("x"+self, (Tx-x)/(20*Vy)); // Calculate Vx then store value in local variable
+    setlocalvar("z"+self, (Tz-z)/(20*Vy)); // Calculate Vz then store value in local variable
+    Spawn = spawn01(Name, tx, tz, 0);
+    bindentity(Spawn, tx, tz, 0, 0, 0);
+}

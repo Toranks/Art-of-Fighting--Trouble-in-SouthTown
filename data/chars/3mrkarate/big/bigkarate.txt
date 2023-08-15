@@ -1,0 +1,565 @@
+name          bigkarate
+type          enemy
+health        100
+speed         9
+jumpheight    4
+jumpmove      0 4
+throw         5 2
+throwdamage   18
+shadow        0
+noquake       1
+nolife        1
+falldie	      2
+nodieblink    1
+gfxshadow     1
+dust            dust
+subject_to_obstacle 	0
+projectilehit enemy obstacle
+candamage     player
+diesound      data/sounds/die4.wav
+animationscript data/scripts/escript.c
+
+
+
+palette		data/chars/3mrkarate/big/map1.gif
+
+load	kmask
+load	bob2
+
+
+
+
+
+
+anim	death
+	range	30 150
+	loop	0
+	delay	5
+	offset	100 189
+	bbox	0 0 0 0
+	sound	data/sounds/beat4.wav
+	@cmd	spawn01 "bob2" 1 1 1
+	frame	data/chars/3mrkarate/big/empty.gif
+	@cmd	spawn01 "kmask" -50 10 1
+	frame	data/chars/3mrkarate/big/empty.gif
+	delay	40
+	@cmd	changeopenborvariant "slowmotion" 1
+	frame	data/chars/3mrkarate/big/empty.gif
+	frame	data/chars/3mrkarate/big/empty.gif
+	frame	data/chars/3mrkarate/big/empty.gif
+	frame	data/chars/3mrkarate/big/empty.gif
+	frame	data/chars/3mrkarate/big/empty.gif
+	sound	data/sounds/super4.wav
+	frame	data/chars/3mrkarate/big/empty.gif
+	frame	data/chars/3mrkarate/big/empty.gif
+	@cmd	changeopenborvariant "slowmotion" 0
+	frame	data/chars/3mrkarate/big/empty.gif
+
+
+anim	jump
+	range	30 150
+	loop	0
+	delay	20
+	offset	100 189
+	bbox	79 97 50 91
+	frame	data/chars/3mrkarate/big/rise14.gif
+	delay	17
+	frame	data/chars/3mrkarate/big/jump00.gif
+	frame	data/chars/3mrkarate/big/jump01.gif
+
+
+
+		
+anim	jumpland
+	loop	0
+	delay	12
+	offset	100 189
+	bbox	79 97 50 91
+	frame	data/chars/3mrkarate/big/jump06.gif
+	frame	data/chars/3mrkarate/big/rise14.gif
+
+
+
+anim	attack1
+	range	40 90
+	loop	0
+	delay	10
+	offset	100 189
+	bbox	79 97 50 91
+	hitfx	data/sounds/beat2.wav
+	frame	data/chars/3mrkarate/big/a100.gif
+	frame	data/chars/3mrkarate/big/a101.gif
+	frame	data/chars/3mrkarate/big/a102.gif
+	frame	data/chars/3mrkarate/big/a103.gif
+	frame	data/chars/3mrkarate/big/a104.gif
+	attack	95 105 75 35 8 0 0 0 15 0
+	frame	data/chars/3mrkarate/big/a105.gif
+	frame	data/chars/3mrkarate/big/a106.gif
+	frame	data/chars/3mrkarate/big/a107.gif
+	attack	0 0 0 0
+	frame	data/chars/3mrkarate/big/a108.gif
+		
+anim	attack2
+	range	120 150
+	loop	0
+	delay	3
+	offset	100 189
+	bbox	79 97 50 91
+	hitfx	data/sounds/beat2.wav
+	move	5
+	frame	data/chars/3mrkarate/big/b01.gif
+	frame	data/chars/3mrkarate/big/b01.gif
+	frame	data/chars/3mrkarate/big/b01.gif
+	frame	data/chars/3mrkarate/big/b02.gif
+	frame	data/chars/3mrkarate/big/b02.gif
+	frame	data/chars/3mrkarate/big/b02.gif
+	frame	data/chars/3mrkarate/big/b03.gif
+	frame	data/chars/3mrkarate/big/b03.gif
+	frame	data/chars/3mrkarate/big/b03.gif
+	frame	data/chars/3mrkarate/big/b04.gif
+	frame	data/chars/3mrkarate/big/b04.gif
+	frame	data/chars/3mrkarate/big/b04.gif
+	move	0
+	delay	12
+	attack	110 100 75 35 8 1 0 0 40 0
+	frame	data/chars/3mrkarate/big/b05.gif
+	frame	data/chars/3mrkarate/big/b06.gif
+	frame	data/chars/3mrkarate/big/b07.gif
+	attack	0 0 0 0
+	frame	data/chars/3mrkarate/big/b08.gif
+	frame	data/chars/3mrkarate/big/b09.gif
+		
+anim	attack4
+	range	80 150
+	rangez	15 40
+	loop	0
+	delay	7
+	offset	100 189
+	bbox	79 97 50 91
+	jumpframe	1 2.5 2.5 0.5
+	landframe	7 dust
+	hitfx	data/sounds/beat2.wav
+	frame	data/chars/3mrkarate/big/rise14.gif
+	frame	data/chars/3mrkarate/big/jump00.gif
+	frame	data/chars/3mrkarate/big/jump01.gif
+	frame	data/chars/3mrkarate/big/jump02.gif
+	frame	data/chars/3mrkarate/big/jump03.gif
+	attack	100 80 75 45 8 1 0 0 15 15
+	frame	data/chars/3mrkarate/big/jump04.gif
+	delay	100
+	frame	data/chars/3mrkarate/big/jump05.gif
+	attack	0 0 0 0
+	delay	15
+	frame	data/chars/3mrkarate/big/jump06.gif
+	frame	data/chars/3mrkarate/big/rise14.gif
+		
+anim	attack5
+	range	80 150
+	rangez	-40 -15
+	loop	0
+	delay	7
+	offset	100 189
+	bbox	79 97 50 91
+	jumpframe	1 2.5 2.5 -0.5
+	landframe	7 dust
+	hitfx	data/sounds/beat2.wav
+	frame	data/chars/3mrkarate/big/rise14.gif
+	frame	data/chars/3mrkarate/big/jump00.gif
+	frame	data/chars/3mrkarate/big/jump01.gif
+	frame	data/chars/3mrkarate/big/jump02.gif
+	frame	data/chars/3mrkarate/big/jump03.gif
+	attack	100 80 75 45 8 1 0 0 15 15
+	frame	data/chars/3mrkarate/big/jump04.gif
+	delay	100
+	frame	data/chars/3mrkarate/big/jump05.gif
+	attack	0 0 0 0
+	delay	15
+	frame	data/chars/3mrkarate/big/jump06.gif
+	frame	data/chars/3mrkarate/big/rise14.gif
+		
+anim	burn
+	loop	0
+	delay	25
+	offset	100 189
+	bbox	0 0 0 0
+	landframe	3
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 200_50_0
+	@cmd	spawnbind "burn1" 1 1 1
+	@cmd	spawnbind "burn2" 1 1 1
+	@cmd	spawnbind "burn3" 1 1 1
+	attack	78 98 30 45 5 1 0 0 13 0
+	frame	data/chars/3mrkarate/big/fall1.gif
+	delay	15
+	attack	64 130 50 25 5 1 0 0 13 0
+	frame	data/chars/3mrkarate/big/fall2.gif
+	delay	500
+	frame	data/chars/3mrkarate/big/fall3.gif
+	attack	0 0 0 0
+	bbox	58 175 85 15
+	delay	15
+	frame	data/chars/3mrkarate/big/fall4.gif
+	frame	data/chars/3mrkarate/big/fall5.gif
+	frame	data/chars/3mrkarate/big/fall4.gif
+		
+anim	fall
+	loop	0
+	delay	25
+	offset	100 189
+	bbox	0 0 0 0
+	landframe	3
+	attack	78 98 30 45 5 1 0 0 13 0
+	frame	data/chars/3mrkarate/big/fall1.gif
+	delay	15
+	attack	64 130 50 25 5 1 0 0 13 0
+	frame	data/chars/3mrkarate/big/fall2.gif
+	delay	500
+	frame	data/chars/3mrkarate/big/fall3.gif
+	attack	0 0 0 0
+	bbox	58 175 85 15
+	delay	15
+	frame	data/chars/3mrkarate/big/fall4.gif
+	frame	data/chars/3mrkarate/big/fall5.gif
+	frame	data/chars/3mrkarate/big/fall4.gif
+		
+anim	fall10
+	loop	0
+	delay	10
+	offset	100 189
+	bbox	80 80 50 75
+	landframe	4
+	attack	85 88 30 50 5 1 0 0 13 0
+	frame	data/chars/3mrkarate/big/pain6.gif
+	delay	40
+	frame	data/chars/3mrkarate/big/pain7.gif
+	delay	30
+	bbox	71 125 63 30
+	attack	64 125 45 25 5 1 0 0 13 0
+	frame	data/chars/3mrkarate/big/fall2.gif
+	delay	300
+	bbox	77 130 67 35
+	attack	0 0 0 0
+	frame	data/chars/3mrkarate/big/fall3.gif
+	bbox	58 167 85 15
+	delay	15
+	frame	data/chars/3mrkarate/big/fall4.gif
+	frame	data/chars/3mrkarate/big/fall5.gif
+	frame	data/chars/3mrkarate/big/fall4.gif
+		
+anim	fall11
+	loop	0
+	delay	20
+	offset	100 189
+	bbox	61 185 90 5
+      @script
+    void self = getlocalvar("self");
+
+    changeentityproperty(self, "velocity", 0, 0, 0);
+	@end_script	
+	frame	data/chars/3mrkarate/big/pain12.gif
+	delay	5
+	frame	data/chars/3mrkarate/big/fall4.gif
+		
+anim	fall2
+	loop	0
+	delay	30
+	offset	100 189
+	bbox	0 0 0 0
+	landframe	3
+	attack	85 90 35 45 5 1 0 0 13 0
+	frame	data/chars/3mrkarate/big/pain7.gif
+	delay	10
+	attack	64 125 55 25 5 1 0 0 13 0
+	frame	data/chars/3mrkarate/big/fall2.gif
+	attack	0 0 0 0
+	delay	300
+	frame	data/chars/3mrkarate/big/fall3.gif
+	delay	15
+	frame	data/chars/3mrkarate/big/fall4.gif
+	frame	data/chars/3mrkarate/big/fall5.gif
+	frame	data/chars/3mrkarate/big/fall4.gif
+		
+anim	fall4
+	loop	0
+	delay	6
+	offset	100 189
+	bbox	0 0 0 0
+	jumpframe	0 1.2 1.5
+	frame	data/chars/3mrkarate/big/pain8.gif
+	frame	data/chars/3mrkarate/big/pain9.gif
+	frame	data/chars/3mrkarate/big/pain10.gif
+	@cmd	leaper 0 0.2 0
+	frame	data/chars/3mrkarate/big/pain11.gif
+	frame	data/chars/3mrkarate/big/fall4.gif
+	frame	data/chars/3mrkarate/big/fall5.gif
+	bbox	58 175 95 15
+	frame	data/chars/3mrkarate/big/fall4.gif
+		
+anim	fall7
+	delay	1000
+	offset	105 130
+	frame	data/chars/3mrkarate/big/slamck0.gif
+	offset	100 110
+	frame	data/chars/3mrkarate/big/slamck1.gif
+	offset	106 130
+	frame	data/chars/3mrkarate/big/slamck2.gif
+	offset	115 125
+	frame	data/chars/3mrkarate/big/slamck3.gif
+	offset	125 125
+	frame	data/chars/3mrkarate/big/slamck4.gif
+	offset	108 122
+	frame	data/chars/3mrkarate/big/slamck5.gif
+	offset	106 155
+	frame	data/chars/3mrkarate/big/slamck6.gif
+	offset	125 140
+	frame	data/chars/3mrkarate/big/slamck7.gif
+	offset	120 105
+	frame	data/chars/3mrkarate/big/slamck8.gif
+	offset	100 130
+	frame	data/chars/3mrkarate/big/slamck9.gif
+	offset	105 130
+	frame	data/chars/3mrkarate/big/slamck10.gif
+	offset	105 130
+	frame	data/chars/3mrkarate/big/slamck11.gif
+	offset	115 125
+	frame	data/chars/3mrkarate/big/slamck12.gif
+	offset	115 125
+	frame	data/chars/3mrkarate/big/slamck13.gif
+	offset	115 125
+	frame	data/chars/3mrkarate/big/slamck14.gif
+	offset	115 125
+	frame	data/chars/3mrkarate/big/slamck15.gif
+		
+anim	fall9
+	loop	0
+	delay	10
+	offset	100 185
+	bbox	0 0 0 0
+	quakeframe	2 5 5
+	landframe	2 dust
+	attack	75 105 35 45 5 1 0 0 13 0
+	frame	data/chars/3mrkarate/big/fall1.gif
+	delay	350
+	offset	100 175
+	attack	75 125 45 35 5 1 0 0 13 0
+	frame	data/chars/3mrkarate/big/fall2.gif
+	delay	2
+	offset	100 170
+	move	-4
+	frame	data/chars/3mrkarate/big/fall3.gif
+	frame	data/chars/3mrkarate/big/fall3.gif
+	attack	0 0 0 0
+	frame	data/chars/3mrkarate/big/fall3.gif
+	@cmd	looper 3 5
+	offset	100 189
+	move	-3
+	frame	data/chars/3mrkarate/big/fall4.gif
+	frame	data/chars/3mrkarate/big/fall4.gif
+	frame	data/chars/3mrkarate/big/fall4.gif
+	@cmd	looper 6 4
+	move	-2
+	frame	data/chars/3mrkarate/big/fall5.gif
+	frame	data/chars/3mrkarate/big/fall5.gif
+	frame	data/chars/3mrkarate/big/fall5.gif
+	loop	0
+	delay	15
+	move	0
+	bbox	58 175 100 15
+	frame	data/chars/3mrkarate/big/fall4.gif
+		
+anim	grabbed
+	loop	0
+	delay	10
+	offset	100 189
+	bbox	79 97 50 91
+	frame	data/chars/3mrkarate/big/grabbed.gif
+		
+anim	idle
+	loop	1
+	delay	25
+	offset	100 189
+	bbox	79 97 50 91
+	frame	data/chars/3mrkarate/big/idle01.gif
+		
+anim	pain
+	loop	0
+	delay	3
+	offset	103 189
+	bbox	79 97 50 91
+	frame	data/chars/3mrkarate/big/pain0.gif
+	offset	100 189
+	frame	data/chars/3mrkarate/big/pain1.gif
+	offset	108 189
+	frame	data/chars/3mrkarate/big/pain1.gif
+	delay	40
+	offset	100 189
+	frame	data/chars/3mrkarate/big/pain1.gif
+
+anim	pain11
+	loop	0
+	delay	5
+	offset	100 189
+	bbox	0 0 0 0
+	frame	data/chars/3mrkarate/big/pain12.gif
+		
+anim	pain2
+	loop	0
+	delay	3
+	offset	103 189
+	bbox	79 97 50 91
+	frame	data/chars/3mrkarate/big/pain0.gif
+	offset	100 189
+	frame	data/chars/3mrkarate/big/pain2.gif
+	offset	108 189
+	frame	data/chars/3mrkarate/big/pain2.gif
+	delay	40
+	offset	100 189
+	frame	data/chars/3mrkarate/big/pain2.gif
+		
+anim	pain3
+	loop	0
+	delay	1
+	offset	103 189
+	bbox	0 0 0 0
+	jumpframe	1 2 -1 0
+	frame	data/chars/3mrkarate/big/pain1.gif
+	delay	25
+	frame	data/chars/3mrkarate/big/fall2.gif
+	delay	12
+	frame	data/chars/3mrkarate/big/fall3.gif
+	delay	4
+	bbox	71 165 67 30
+	frame	data/chars/3mrkarate/big/fall4.gif
+	frame	data/chars/3mrkarate/big/fall5.gif
+	frame	data/chars/3mrkarate/big/fall4.gif
+	frame	data/chars/3mrkarate/big/fall5.gif
+	delay	15
+	bbox	0 0 0 0
+	frame	data/chars/3mrkarate/big/fall4.gif
+	delay	10
+	frame	data/chars/3mrkarate/big/rise1.gif
+	frame	data/chars/3mrkarate/big/rise2.gif
+	frame	data/chars/3mrkarate/big/rise3.gif
+		
+anim	pain5
+	loop	0
+	delay	23
+	offset	100 189
+	bbox	79 97 50 91
+	frame	data/chars/3mrkarate/big/pain1.gif
+		
+anim	pain6
+	loop	0
+	delay	23
+	offset	100 189
+	bbox	79 97 50 91
+	frame	data/chars/3mrkarate/big/pain2.gif
+		
+anim	pain8
+	loop	0
+	delay	2
+	offset	100 189
+	bbox	79 97 50 91
+	move	-6
+	frame	data/chars/3mrkarate/big/pain1.gif
+	frame	data/chars/3mrkarate/big/pain1.gif
+	frame	data/chars/3mrkarate/big/pain1.gif
+	frame	data/chars/3mrkarate/big/pain2.gif
+	frame	data/chars/3mrkarate/big/pain2.gif
+	frame	data/chars/3mrkarate/big/pain2.gif
+	move	-3
+	frame	data/chars/3mrkarate/big/pain2.gif
+	frame	data/chars/3mrkarate/big/pain2.gif
+	move	-1
+	frame	data/chars/3mrkarate/big/pain2.gif
+	delay	35
+	frame	data/chars/3mrkarate/big/pain2.gif
+		
+anim	pain9
+	loop	0
+	delay	15
+	offset	100 189
+	bbox	79 97 50 91
+	frame	data/chars/3mrkarate/big/pain1.gif
+	delay	150
+	frame	data/chars/3mrkarate/big/pain2.gif
+		
+anim	rise
+	loop	0
+	delay	315
+	offset	100 189
+	bbox	0 0 0 0
+	frame	data/chars/3mrkarate/big/fall4.gif
+	delay	15
+	frame	data/chars/3mrkarate/big/rise1.gif
+	frame	data/chars/3mrkarate/big/rise2.gif
+	frame	data/chars/3mrkarate/big/rise3.gif
+	delay	12
+	frame	data/chars/3mrkarate/big/rise4.gif
+	frame	data/chars/3mrkarate/big/rise5.gif
+	frame	data/chars/3mrkarate/big/rise6.gif
+	frame	data/chars/3mrkarate/big/rise7.gif
+	frame	data/chars/3mrkarate/big/rise6.gif
+	frame	data/chars/3mrkarate/big/rise7.gif
+	frame	data/chars/3mrkarate/big/rise6.gif
+	frame	data/chars/3mrkarate/big/rise7.gif
+	frame	data/chars/3mrkarate/big/rise6.gif
+	frame	data/chars/3mrkarate/big/rise7.gif
+	frame	data/chars/3mrkarate/big/rise6.gif
+	frame	data/chars/3mrkarate/big/rise7.gif
+	delay	15
+	frame	data/chars/3mrkarate/big/rise8.gif
+	frame	data/chars/3mrkarate/big/rise5.gif
+	frame	data/chars/3mrkarate/big/rise4.gif
+	frame	data/chars/3mrkarate/big/rise9.gif
+	frame	data/chars/3mrkarate/big/rise10.gif
+	frame	data/chars/3mrkarate/big/rise11.gif
+	frame	data/chars/3mrkarate/big/rise12.gif
+	frame	data/chars/3mrkarate/big/rise13.gif
+	frame	data/chars/3mrkarate/big/rise14.gif
+
+
+
+anim	follow10
+	loop	0
+	delay	650
+	offset	100 189
+	bbox	0 0 0 0
+	frame	data/chars/3mrkarate/big/spawn01.gif
+	delay	15
+	frame	data/chars/3mrkarate/big/spawn02.gif
+	frame	data/chars/3mrkarate/big/spawn03.gif
+	frame	data/chars/3mrkarate/big/spawn04.gif
+	delay	550
+	frame	data/chars/3mrkarate/big/spawn05.gif
+
+
+
+
+
+		
+anim	spawn
+	loop	1
+	delay	5
+	offset	100 189
+	bbox	0 0 0 0
+	frame	data/chars/3mrkarate/big/spawn01.gif
+	@cmd	attack1 -190 190 300 "ANI_FOLLOW10"
+	frame	data/chars/3mrkarate/big/spawn01.gif
+
+
+
+		
+anim	walk
+	loop	1
+	delay	11
+	offset	100 189
+	bbox	79 97 50 91
+	frame	data/chars/3mrkarate/big/wk01.gif
+	frame	data/chars/3mrkarate/big/wk02.gif
+	frame	data/chars/3mrkarate/big/wk03.gif
+	frame	data/chars/3mrkarate/big/wk04.gif
+	frame	data/chars/3mrkarate/big/wk05.gif
+		
+#|edited by openBor Stats v 0.53
+		

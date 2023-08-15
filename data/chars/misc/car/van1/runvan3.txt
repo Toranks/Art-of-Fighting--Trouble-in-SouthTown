@@ -1,0 +1,480 @@
+name	runvan3
+type	none
+gfxshadow  	1
+subject_to_hole 0
+subject_to_wall 0
+subject_to_platform 0
+offscreenkill 10000
+candamage player
+animationscript data/scripts/escript.c
+
+
+alternatepal       data/chars/misc/car/van1/3vanmap1.gif
+alternatepal       data/chars/misc/car/van1/3vanmap2.gif
+alternatepal       data/chars/misc/car/van1/3vanmap3.gif
+
+#--------spawn-spot---------//------------
+#spawn   runvan3 ---> right
+#coords  650 370
+#at      300
+#spawn   runvan3 <--- left
+#flip    1
+#coords  -180 370
+#at      300
+#--------------------------------	
+
+
+load	randy
+load	thong
+load	jay
+load	butterbean
+load	malenko
+load	dash
+load	kmi
+load	brock
+load	steroid
+load	lookout
+load	van3arm
+load	dust4
+load	dustrun
+
+
+
+anim	idle
+	loop	0
+	delay	200
+	offset	200 192
+	hitfx	data/sounds/steel2.wav
+	staydown 300 300
+	frame	data/chars/misc/car/van1/3van01.gif
+	@cmd	spawn01 "lookout" 165 400 250
+	frame	data/chars/misc/car/van1/3van02.gif
+	delay	5
+	@cmd	spawnGun3 "van3arm" 0 5 5 1
+	frame	data/chars/misc/car/van1/3van01.gif
+	attack	70 106 280 60 70 1 1 0 30 15
+	dropv	7 0 0
+	frame	data/chars/misc/car/van1/3van02.gif
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van02.gif
+	@cmd	spawnGun10 "malenko" -90 80 1 2 "ANI_FOLLOW17"
+	@cmd	spawnGun10 "kmi" -130 65 3 3 "ANI_FOLLOW17"
+	@cmd	spawnGun10 "dash" -90 65 3 4 "ANI_FOLLOW17"
+	@cmd	spawnGun10 "brock" -40 65 3 5 "ANI_FOLLOW17"
+	frame	data/chars/misc/car/van1/3van01.gif
+	sound	data/sounds/car1.wav
+	frame	data/chars/misc/car/van1/3van02.gif
+	frame	data/chars/misc/car/van1/3van01.gif
+	@cmd	dasher 3 0 0
+	frame	data/chars/misc/car/van1/3van02.gif
+	frame	data/chars/misc/car/van1/3van01.gif #10
+	frame	data/chars/misc/car/van1/3van02.gif
+	frame	data/chars/misc/car/van1/3van01.gif
+	sound	data/sounds/bike5.wav
+	frame	data/chars/misc/car/van1/3van02.gif
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van02.gif
+	@cmd	looper 10 4 
+	frame	data/chars/misc/car/van1/3van01.gif
+	attack	0 0 0 0
+	@cmd	stop
+	@cmd	flip
+	delay	5
+	frame	data/chars/misc/car/van1/3van02.gif
+	sound	data/sounds/bike4.wav
+	frame	data/chars/misc/car/van1/3van01.gif
+	@cmd	killgun 1 0
+	frame	data/chars/misc/car/van1/3van02.gif
+	sound	data/sounds/bike1.wav
+	frame	data/chars/misc/car/van1/3van01.gif #20
+	delay	300
+	frame	data/chars/misc/car/van1/3van02.gif
+	delay	5
+	frame	data/chars/misc/car/van1/3van01.gif
+	sound	data/sounds/bike4.wav
+	frame	data/chars/misc/car/van1/3van02.gif
+	@cmd	spawnGun3 "van3arm" 0 5 5 1
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van02.gif
+	attack	70 106 280 60 70 1 1 0 30 15
+	dropv	7 0 0
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van02.gif
+	frame	data/chars/misc/car/van1/3van01.gif
+	@cmd	dasher 2 0 0
+	sound	data/sounds/car1.wav
+	frame	data/chars/misc/car/van1/3van02.gif
+	frame	data/chars/misc/car/van1/3van01.gif #30
+	frame	data/chars/misc/car/van1/3van02.gif
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van02.gif
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van02.gif
+	@cmd	looper 30 2
+	frame	data/chars/misc/car/van1/3van01.gif
+	@cmd	spawnbind "dustrun" -110 6 3
+	@cmd	spawnbind "dustrun" 70 6 3
+	@cmd	dasher 2 0 0
+	frame	data/chars/misc/car/van1/3van02.gif
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van02.gif
+	sound	data/sounds/car2.wav
+	frame	data/chars/misc/car/van1/3van01.gif #40
+	frame	data/chars/misc/car/van1/3van02.gif
+	@cmd	dasher 1 0 0
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van03.gif
+	frame	data/chars/misc/car/van1/3van01.gif
+	attack	0 0 0 0
+	frame	data/chars/misc/car/van1/3van03.gif
+	@cmd	stop
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van03.gif #47
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van03.gif
+	frame	data/chars/misc/car/van1/3van01.gif
+	@cmd	looper 47 15
+	frame	data/chars/misc/car/van1/3van03.gif
+	@cmd 	gunout 2
+	@cmd 	gunout 3
+	@cmd 	gunout 4
+	@cmd 	gunout 5
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van03.gif
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van03.gif
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van03.gif
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van03.gif
+	frame	data/chars/misc/car/van1/3van01.gif #60
+	frame	data/chars/misc/car/van1/3van03.gif
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van03.gif
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van03.gif
+	@cmd	looper 60 5
+	frame	data/chars/misc/car/van1/3van01.gif
+	sound	data/sounds/car1.wav
+	frame	data/chars/misc/car/van1/3van02.gif
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van02.gif
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van02.gif
+	@cmd	dasher 1 0 0
+	frame	data/chars/misc/car/van1/3van01.gif #72
+	sound	data/sounds/bike2.wav
+	@cmd	spawnbind "dust4" -100 7 7
+	@cmd	spawnbind "dust4" 80 7 7
+	frame	data/chars/misc/car/van1/3van02.gif
+	frame	data/chars/misc/car/van1/3van01.gif #74
+	frame	data/chars/misc/car/van1/3van02.gif
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van02.gif
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van02.gif
+	@cmd	looper 74 10
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van02.gif
+	@cmd	stop
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van02.gif
+	@cmd	killgun 1 0
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van02.gif
+	@cmd	suicide
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van02.gif
+
+
+
+anim	follow1
+	loop	0
+	delay	200
+	offset	200 192
+	hitfx	data/sounds/steel2.wav
+	staydown 300 300
+	frame	data/chars/misc/car/van1/3van01.gif
+	@cmd	spawn01 "lookout" 165 400 250
+	frame	data/chars/misc/car/van1/3van02.gif
+	delay	5
+	@cmd	spawnGun3 "van3arm" 0 5 5 1
+	frame	data/chars/misc/car/van1/3van01.gif
+	attack	70 106 280 60 70 1 1 0 30 15
+	dropv	7 0 0
+	frame	data/chars/misc/car/van1/3van02.gif
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van02.gif
+	@cmd	spawnGun10 "butterbean" -90 80 1 2 "ANI_FOLLOW17"
+	@cmd	spawnGun10 "randy" -130 65 3 3 "ANI_FOLLOW17"
+	@cmd	spawnGun10 "thong" -70 65 3 4 "ANI_FOLLOW17"
+	@cmd	spawnGun10 "jay" -30 65 3 5 "ANI_FOLLOW17"
+	frame	data/chars/misc/car/van1/3van01.gif
+	sound	data/sounds/car1.wav
+	frame	data/chars/misc/car/van1/3van02.gif
+	frame	data/chars/misc/car/van1/3van01.gif
+	@cmd	dasher 3 0 0
+	frame	data/chars/misc/car/van1/3van02.gif
+	frame	data/chars/misc/car/van1/3van01.gif #10
+	frame	data/chars/misc/car/van1/3van02.gif
+	frame	data/chars/misc/car/van1/3van01.gif
+	sound	data/sounds/bike5.wav
+	frame	data/chars/misc/car/van1/3van02.gif
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van02.gif
+	@cmd	looper 10 4 
+	frame	data/chars/misc/car/van1/3van01.gif
+	attack	0 0 0 0
+	@cmd	stop
+	@cmd	flip
+	delay	5
+	frame	data/chars/misc/car/van1/3van02.gif
+	sound	data/sounds/bike4.wav
+	frame	data/chars/misc/car/van1/3van01.gif
+	@cmd	killgun 1 0
+	frame	data/chars/misc/car/van1/3van02.gif
+	sound	data/sounds/bike1.wav
+	frame	data/chars/misc/car/van1/3van01.gif #20
+	delay	300
+	frame	data/chars/misc/car/van1/3van02.gif
+	delay	5
+	frame	data/chars/misc/car/van1/3van01.gif
+	sound	data/sounds/bike4.wav
+	frame	data/chars/misc/car/van1/3van02.gif
+	@cmd	spawnGun3 "van3arm" 0 5 5 1
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van02.gif
+	attack	70 106 280 60 70 1 1 0 30 15
+	dropv	7 0 0
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van02.gif
+	frame	data/chars/misc/car/van1/3van01.gif
+	@cmd	dasher 2 0 0
+	sound	data/sounds/car1.wav
+	frame	data/chars/misc/car/van1/3van02.gif
+	frame	data/chars/misc/car/van1/3van01.gif #30
+	frame	data/chars/misc/car/van1/3van02.gif
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van02.gif
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van02.gif
+	@cmd	looper 30 2
+	frame	data/chars/misc/car/van1/3van01.gif
+	@cmd	spawnbind "dustrun" -110 6 3
+	@cmd	spawnbind "dustrun" 70 6 3
+	@cmd	dasher 2 0 0
+	frame	data/chars/misc/car/van1/3van02.gif
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van02.gif
+	sound	data/sounds/car2.wav
+	frame	data/chars/misc/car/van1/3van01.gif #40
+	frame	data/chars/misc/car/van1/3van02.gif
+	@cmd	dasher 1 0 0
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van03.gif
+	frame	data/chars/misc/car/van1/3van01.gif
+	attack	0 0 0 0
+	frame	data/chars/misc/car/van1/3van03.gif
+	@cmd	stop
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van03.gif #47
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van03.gif
+	frame	data/chars/misc/car/van1/3van01.gif
+	@cmd	looper 47 15
+	frame	data/chars/misc/car/van1/3van03.gif
+	@cmd 	gunout 2
+	@cmd 	gunout 3
+	@cmd 	gunout 4
+	@cmd 	gunout 5
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van03.gif
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van03.gif
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van03.gif
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van03.gif
+	frame	data/chars/misc/car/van1/3van01.gif #60
+	frame	data/chars/misc/car/van1/3van03.gif
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van03.gif
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van03.gif
+	@cmd	looper 60 5
+	frame	data/chars/misc/car/van1/3van01.gif
+	sound	data/sounds/car1.wav
+	frame	data/chars/misc/car/van1/3van02.gif
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van02.gif
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van02.gif
+	@cmd	dasher 1 0 0
+	frame	data/chars/misc/car/van1/3van01.gif #72
+	sound	data/sounds/bike2.wav
+	@cmd	spawnbind "dust4" -100 7 7
+	@cmd	spawnbind "dust4" 80 7 7
+	frame	data/chars/misc/car/van1/3van02.gif
+	frame	data/chars/misc/car/van1/3van01.gif #74
+	frame	data/chars/misc/car/van1/3van02.gif
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van02.gif
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van02.gif
+	@cmd	looper 74 10
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van02.gif
+	@cmd	stop
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van02.gif
+	@cmd	killgun 1 0
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van02.gif
+	@cmd	suicide
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van02.gif
+
+
+
+anim	follow2
+	loop	0
+	delay	200
+	offset	200 192
+	hitfx	data/sounds/steel2.wav
+	staydown 300 300
+	frame	data/chars/misc/car/van1/3van01.gif
+	@cmd	spawn01 "lookout" 165 400 250
+	frame	data/chars/misc/car/van1/3van02.gif
+	delay	5
+	@cmd	spawnGun3 "van3arm" 0 5 5 1
+	frame	data/chars/misc/car/van1/3van01.gif
+	attack	70 106 280 60 70 1 1 0 30 15
+	dropv	7 0 0
+	frame	data/chars/misc/car/van1/3van02.gif
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van02.gif
+	@cmd	spawnGun9 "steroid" -60 80 1 3 1100 2 "ANI_FOLLOW17"
+	@cmd	spawnGun9 "steroid" -110 65 3 4 1500 3 "ANI_FOLLOW17"
+	frame	data/chars/misc/car/van1/3van01.gif
+	sound	data/sounds/car1.wav
+	frame	data/chars/misc/car/van1/3van02.gif
+	frame	data/chars/misc/car/van1/3van01.gif
+	@cmd	dasher 3 0 0
+	frame	data/chars/misc/car/van1/3van02.gif
+	frame	data/chars/misc/car/van1/3van01.gif #10
+	frame	data/chars/misc/car/van1/3van02.gif
+	frame	data/chars/misc/car/van1/3van01.gif
+	sound	data/sounds/bike5.wav
+	frame	data/chars/misc/car/van1/3van02.gif
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van02.gif
+	@cmd	looper 10 4 
+	frame	data/chars/misc/car/van1/3van01.gif
+	attack	0 0 0 0
+	@cmd	stop
+	@cmd	flip
+	delay	5
+	frame	data/chars/misc/car/van1/3van02.gif
+	sound	data/sounds/bike4.wav
+	frame	data/chars/misc/car/van1/3van01.gif
+	@cmd	killgun 1 0
+	frame	data/chars/misc/car/van1/3van02.gif
+	sound	data/sounds/bike1.wav
+	frame	data/chars/misc/car/van1/3van01.gif #20
+	delay	300
+	frame	data/chars/misc/car/van1/3van02.gif
+	delay	5
+	frame	data/chars/misc/car/van1/3van01.gif
+	sound	data/sounds/bike4.wav
+	frame	data/chars/misc/car/van1/3van02.gif
+	@cmd	spawnGun3 "van3arm" 0 5 5 1
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van02.gif
+	attack	70 106 280 60 70 1 1 0 30 15
+	dropv	7 0 0
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van02.gif
+	frame	data/chars/misc/car/van1/3van01.gif
+	@cmd	dasher 2 0 0
+	sound	data/sounds/car1.wav
+	frame	data/chars/misc/car/van1/3van02.gif
+	frame	data/chars/misc/car/van1/3van01.gif #30
+	frame	data/chars/misc/car/van1/3van02.gif
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van02.gif
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van02.gif
+	@cmd	looper 30 2
+	frame	data/chars/misc/car/van1/3van01.gif
+	@cmd	spawnbind "dustrun" -110 6 3
+	@cmd	spawnbind "dustrun" 70 6 3
+	@cmd	dasher 2 0 0
+	frame	data/chars/misc/car/van1/3van02.gif
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van02.gif
+	sound	data/sounds/car2.wav
+	frame	data/chars/misc/car/van1/3van01.gif #40
+	frame	data/chars/misc/car/van1/3van02.gif
+	@cmd	dasher 1 0 0
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van03.gif
+	frame	data/chars/misc/car/van1/3van01.gif
+	attack	0 0 0 0
+	frame	data/chars/misc/car/van1/3van03.gif
+	@cmd	stop
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van03.gif #47
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van03.gif
+	frame	data/chars/misc/car/van1/3van01.gif
+	@cmd	looper 47 15
+	frame	data/chars/misc/car/van1/3van03.gif
+	@cmd 	gunout 2
+	@cmd 	gunout 3
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van03.gif
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van03.gif
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van03.gif
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van03.gif
+	frame	data/chars/misc/car/van1/3van01.gif #60
+	frame	data/chars/misc/car/van1/3van03.gif
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van03.gif
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van03.gif
+	@cmd	looper 60 5
+	frame	data/chars/misc/car/van1/3van01.gif
+	sound	data/sounds/car1.wav
+	frame	data/chars/misc/car/van1/3van02.gif
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van02.gif
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van02.gif
+	@cmd	dasher 1 0 0
+	frame	data/chars/misc/car/van1/3van01.gif #72
+	sound	data/sounds/bike2.wav
+	@cmd	spawnbind "dust4" -100 7 7
+	@cmd	spawnbind "dust4" 80 7 7
+	frame	data/chars/misc/car/van1/3van02.gif
+	frame	data/chars/misc/car/van1/3van01.gif #74
+	frame	data/chars/misc/car/van1/3van02.gif
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van02.gif
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van02.gif
+	@cmd	looper 74 10
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van02.gif
+	@cmd	stop
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van02.gif
+	@cmd	killgun 1 0
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van02.gif
+	@cmd	suicide
+	frame	data/chars/misc/car/van1/3van01.gif
+	frame	data/chars/misc/car/van1/3van02.gif
+		

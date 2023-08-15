@@ -1,0 +1,69 @@
+name	trpdrr
+type	enemy
+nomove	1 1
+nolife  1
+shadow	0
+facing	1
+offscreenkill 	10000
+#setlayer 	-300
+subject_to_wall 0
+
+animationscript data/scripts/escript.c
+
+load	goIN
+
+anim	idle
+	loop	1
+	delay	10
+	offset	185 112
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl8/trapd01.gif
+	@cmd	attack3 -90 90 10 60 "ANI_FOLLOW1"
+	frame	data/bgs/beyond/lvl8/trapd01.gif
+
+
+anim	follow1
+	loop	0
+	delay	14
+	offset	185 112
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl8/trapd01.gif
+	sound	data/sounds/minigunend.wav
+	frame	data/bgs/beyond/lvl8/trapd02.gif
+	frame	data/bgs/beyond/lvl8/trapd03.gif
+	frame	data/bgs/beyond/lvl8/trapd04.gif
+	frame	data/bgs/beyond/lvl8/trapd05.gif
+	frame	data/bgs/beyond/lvl8/trapd06.gif
+	frame	data/bgs/beyond/lvl8/trapd07.gif
+	frame	data/bgs/beyond/lvl8/trapd08.gif
+	sound	data/sounds/carhit.wav
+	frame	data/bgs/beyond/lvl8/trapd09.gif
+	delay	70
+	frame	data/bgs/beyond/lvl8/trapd10.gif
+	frame	data/bgs/beyond/lvl8/trapd10.gif
+	@cmd	spawn01 "goIN" -40 0 40 
+	frame	data/bgs/beyond/lvl8/trapd10.gif
+	frame	data/bgs/beyond/lvl8/trapd10.gif
+	@cmd	anichange "ANI_FOLLOW2"
+	frame	data/bgs/beyond/lvl8/trapd10.gif
+
+anim	follow2
+	loop	1
+	delay	500
+	offset	185 112
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl8/trapd10.gif
+	frame	data/bgs/beyond/lvl8/trapd10.gif
+	frame	data/bgs/beyond/lvl8/trapd10.gif
+
+anim	spawn
+	loop	0
+	delay	10
+	offset	185 112
+	bbox	0 0 0 0
+	frame	data/bgs/beyond/lvl8/trapd00.gif
+	frame	data/bgs/beyond/lvl8/trapd00.gif
+	frame	data/bgs/beyond/lvl8/trapd00.gif
+
+
+

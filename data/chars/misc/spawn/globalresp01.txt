@@ -1,0 +1,111 @@
+name		globalresp01
+type		none
+nolife		1
+shadow		0
+hostile		player
+candamage	player
+subject_to_gravity 1
+subject_to_wall 1
+offscreenkill 	50000 
+
+animationscript data/scripts/escript.c
+
+
+anim 	spawn
+	loop	0
+	delay	5
+	offset	1 1
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+
+
+anim 	idle
+	loop	1
+	delay	5
+	offset	1 1
+	frame	data/chars/misc/empty.gif
+	@cmd	attack1 -80 80 50 "ANI_FOLLOW1"
+	frame	data/chars/misc/empty.gif
+	@cmd	attack1 -80 80 50 "ANI_FOLLOW1"
+	frame	data/chars/misc/empty.gif
+
+
+anim 	follow1
+@script
+	if(frame >= 0){
+    	setglobalvar("clear", 1);
+	}
+@end_script
+	loop	0
+	delay	5
+	offset	1 1
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	@cmd	anichange "ANI_FOLLOW2"
+	frame	data/chars/misc/empty.gif
+
+
+anim 	follow2
+@script
+	if(frame >= 0){
+    	setglobalvar("clear", 2);
+	}
+@end_script
+	loop	0
+	delay	5
+	offset	1 1
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	@cmd	anichange "ANI_FOLLOW3"
+	frame	data/chars/misc/empty.gif
+
+
+
+
+anim 	follow3
+@script
+   void self = getlocalvar("self");
+   int x = getentityproperty(self,"x");
+   int z = getentityproperty(self,"z");
+   int a = getentityproperty(self,"a");
+
+    int  bck = getglobalvar("clear");
+
+   int Pl1 = getplayerproperty(0, "entity");
+   int Pl2 = getplayerproperty(1, "entity");
+   int Pl3 = getplayerproperty(2, "entity");
+
+    	void anim1 = getentityproperty(Pl1,"animationID");
+    	void anim2 = getentityproperty(Pl2,"animationID");
+    	void anim3 = getentityproperty(Pl3,"animationID");
+
+
+    	if(frame >= 0 && anim1 == openborconstant("ANI_RESPAWN"))
+	{
+	   changeentityproperty(Pl1, "position", x, z, a);
+	}
+	else if(frame >= 0 && anim2 == openborconstant("ANI_RESPAWN"))
+	{
+	   changeentityproperty(Pl2, "position", x, z, a);
+	}
+	else if(frame >= 0 && anim3 == openborconstant("ANI_RESPAWN"))
+	{
+	   changeentityproperty(Pl3, "position", x, z, a);
+	}
+	else if(frame >= 0 && bck == 1)
+	{
+	setidle(self, openborconstant("ANI_IDLE"));
+	}
+@end_script
+	loop	1
+	delay	3
+	offset	1 1
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/spawn/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/spawn/empty.gif
+
+
+

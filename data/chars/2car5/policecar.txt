@@ -1,0 +1,464 @@
+name		policecar
+type		npc
+health		100
+mp		100
+speedf		1.6
+jumpheight	0
+noquake		1
+falldie		1
+nodieblink	1
+makeinv		3
+gfxshadow	1
+nodrop		1
+facing          3
+nomove          0 1
+antigrab	10
+aggression      25
+nopain		1
+diesound        data/sounds/PoliceSiren3.wav
+animationscript data/scripts/escript.c
+
+hostile				player enemy
+candamage			player enemy
+
+
+
+load	dust4
+load    dustrun
+load	burn1
+load	spark
+load	explosion1
+
+
+
+
+
+anim	attack1
+	range	50 260
+	loop	0
+	delay	5
+	offset	190 122
+	bbox	25 20 350 100
+	#platform	10 122 10 10 345 345 20 70
+	move	10
+	sound	data/sounds/car1.wav
+	hitfx	data/sounds/beat3.wav
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+	@cmd	spawnbind "dust4" -75 10 10
+	@cmd	spawnbind "dust4" 85 10 10
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+	forcedirection 2
+	attack	199 55 155 70 9 1 1 0 10 0
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+	move	8
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+	move	6
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+	frame	data/chars/2car5/car01.gif
+	move	3
+	attack	0 0 0 0
+	frame	data/chars/2car5/car02.gif
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+		
+anim	attack2
+	range	-268 -50
+	loop	0
+	delay	5
+	offset	190 122
+	bbox	25 20 350 100
+	#platform	10 122 10 10 345 345 20 70
+	move	-10
+	sound	data/sounds/car1.wav
+	hitfx	data/sounds/beat3.wav
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+	@cmd	spawnbind "dustrun" -75 17 10
+	@cmd	spawnbind "dustrun" 85 17 10
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+	forcedirection 2
+	attack2	48 55 140 70 9 1 1 0 10 0
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+	move	-8
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+	move	-6
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+	frame	data/chars/2car5/car01.gif
+	move	-3
+	attack2	0 0 0 0
+	frame	data/chars/2car5/car02.gif
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+
+
+
+
+
+		
+anim	death
+	loop	0
+	delay	15
+	offset	190 320
+	bbox	0 0 0 0
+	quakeframe	3 1 5
+	jumpframe 1 4 2 0
+	landframe 3
+	@cmd	killgun 2 0
+	@cmd	killgun 3 0
+	frame	data/chars/2car5/death1.gif
+	@cmd	spawn01 "explosion1" 40 50 10
+	frame	data/chars/2car5/death2.gif
+	delay	300
+	frame	data/chars/2car5/death3.gif
+	delay	7
+	@cmd	spawnbind "burn1" 30 80 10
+	@cmd	spawnbind "spark" 60 10 10
+	@cmd	spawn01 "explosion1" 60 140 10
+	frame	data/chars/2car5/death4.gif
+	frame	data/chars/2car5/death5.gif
+	frame	data/chars/2car5/death4.gif
+	sound	data/sounds/crash.wav
+	frame	data/chars/2car5/death5.gif
+	frame	data/chars/2car5/death4.gif
+	frame	data/chars/2car5/death5.gif
+	frame	data/chars/2car5/death4.gif
+	frame	data/chars/2car5/death5.gif
+	frame	data/chars/2car5/death4.gif
+	sound	data/sounds/bike3.wav
+
+	frame	data/chars/2car5/death5.gif
+	frame	data/chars/2car5/death4.gif
+	frame	data/chars/2car5/death5.gif
+	frame	data/chars/2car5/death4.gif
+	frame	data/chars/2car5/death5.gif
+	frame	data/chars/2car5/death4.gif
+	frame	data/chars/2car5/death5.gif
+	frame	data/chars/2car5/death4.gif
+	frame	data/chars/2car5/death5.gif
+	frame	data/chars/2car5/death4.gif
+	frame	data/chars/2car5/death5.gif
+	frame	data/chars/2car5/death4.gif
+	frame	data/chars/2car5/death5.gif
+	frame	data/chars/2car5/death4.gif
+	sound	data/sounds/bike3.wav
+	frame	data/chars/2car5/death5.gif
+	frame	data/chars/2car5/death4.gif
+	frame	data/chars/2car5/death5.gif
+	frame	data/chars/2car5/death4.gif
+	frame	data/chars/2car5/death5.gif
+	frame	data/chars/2car5/death4.gif
+	frame	data/chars/2car5/death5.gif
+	frame	data/chars/2car5/death4.gif
+	frame	data/chars/2car5/death5.gif
+	frame	data/chars/2car5/death4.gif
+	frame	data/chars/2car5/death5.gif
+	sound	data/sounds/bike3.wav
+	frame	data/chars/2car5/death4.gif
+	frame	data/chars/2car5/death5.gif
+	frame	data/chars/2car5/death4.gif
+	frame	data/chars/2car5/death5.gif
+	move	-10
+	frame	data/chars/2car5/death4.gif
+	frame	data/chars/2car5/death5.gif
+	frame	data/chars/2car5/death4.gif
+	frame	data/chars/2car5/death5.gif
+	frame	data/chars/2car5/death4.gif
+	sound	data/sounds/bike3.wav
+	frame	data/chars/2car5/death5.gif
+	frame	data/chars/2car5/death4.gif
+	frame	data/chars/2car5/death5.gif
+	frame	data/chars/2car5/death4.gif
+	frame	data/chars/2car5/death5.gif
+
+	frame	data/chars/2car5/death4.gif
+	frame	data/chars/2car5/death5.gif
+	frame	data/chars/2car5/death4.gif
+	frame	data/chars/2car5/death5.gif
+	frame	data/chars/2car5/death4.gif
+	sound	data/sounds/bike3.wav
+	frame	data/chars/2car5/death5.gif
+	frame	data/chars/2car5/death4.gif
+	frame	data/chars/2car5/death5.gif
+	frame	data/chars/2car5/death4.gif
+	frame	data/chars/2car5/death5.gif
+	frame	data/chars/2car5/death4.gif
+	frame	data/chars/2car5/death5.gif
+	frame	data/chars/2car5/death4.gif
+	sound	data/sounds/bike3.wav
+	frame	data/chars/2car5/death5.gif
+	frame	data/chars/2car5/death4.gif
+	frame	data/chars/2car5/death5.gif
+	frame	data/chars/2car5/death4.gif
+	frame	data/chars/2car5/death5.gif
+	frame	data/chars/2car5/death4.gif
+	frame	data/chars/2car5/death5.gif
+	frame	data/chars/2car5/death4.gif
+	frame	data/chars/2car5/death5.gif
+	sound	data/sounds/bike3.wav
+	frame	data/chars/2car5/death4.gif
+	frame	data/chars/2car5/death5.gif
+	frame	data/chars/2car5/death4.gif
+	frame	data/chars/2car5/death5.gif
+	frame	data/chars/2car5/death4.gif
+	frame	data/chars/2car5/death5.gif
+	frame	data/chars/2car5/death4.gif
+	move	-15
+	frame	data/chars/2car5/death5.gif
+	frame	data/chars/2car5/death4.gif
+	frame	data/chars/2car5/death5.gif
+	frame	data/chars/2car5/death4.gif
+	frame	data/chars/2car5/death5.gif
+	frame	data/chars/2car5/death4.gif
+	frame	data/chars/2car5/death5.gif
+	frame	data/chars/2car5/death4.gif
+	frame	data/chars/2car5/death5.gif
+	frame	data/chars/2car5/death4.gif
+	frame	data/chars/2car5/death5.gif
+	frame	data/chars/2car5/death4.gif
+	frame	data/chars/2car5/death5.gif
+	frame	data/chars/2car5/death4.gif
+	frame	data/chars/2car5/death5.gif
+	frame	data/chars/2car5/death4.gif
+	frame	data/chars/2car5/death5.gif
+	frame	data/chars/2car5/death4.gif
+	frame	data/chars/2car5/death5.gif
+	frame	data/chars/2car5/death4.gif
+	frame	data/chars/2car5/death5.gif
+	frame	data/chars/2car5/death4.gif
+	frame	data/chars/2car5/death5.gif
+	frame	data/chars/2car5/death4.gif
+	frame	data/chars/2car5/death5.gif
+	frame	data/chars/2car5/death4.gif
+	frame	data/chars/2car5/death5.gif
+	frame	data/chars/2car5/death4.gif
+	frame	data/chars/2car5/death5.gif
+	frame	data/chars/2car5/death4.gif
+	frame	data/chars/2car5/death5.gif
+	frame	data/chars/2car5/death4.gif
+	frame	data/chars/2car5/death5.gif
+	frame	data/chars/2car5/death4.gif
+	frame	data/chars/2car5/death5.gif
+	frame	data/chars/2car5/death4.gif
+	frame	data/chars/2car5/death5.gif
+	frame	data/chars/2car5/death4.gif
+	frame	data/chars/2car5/death5.gif
+	frame	data/chars/2car5/death4.gif
+	frame	data/chars/2car5/death5.gif
+	frame	data/chars/2car5/death4.gif
+	frame	data/chars/2car5/death5.gif
+	frame	data/chars/2car5/death4.gif
+	frame	data/chars/2car5/death5.gif
+	frame	data/chars/2car5/death4.gif
+	frame	data/chars/2car5/death5.gif
+	frame	data/chars/2car5/death4.gif
+	frame	data/chars/2car5/death5.gif
+
+
+
+
+
+		
+anim	fall
+	loop	0
+	delay	5
+	offset	190 122
+	bbox	25 20 350 100
+	#platform	10 122 10 10 345 345 20 70
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+
+
+
+anim	follow2
+	loop	0
+	delay	5
+	offset	150 121
+	bbox	0 0 0 0
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car00.gif
+	@cmd	spawnGun5 "vhclight1" -40 130 2 3 "ANI_FOLLOW4"
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car00.gif
+	frame	data/chars/2car5/car01.gif
+	@cmd	spawnGun5 "vhclight1" 155 40 1 2 "ANI_FOLLOW3"
+	frame	data/chars/2car5/car00.gif
+	frame	data/chars/2car5/car01.gif
+
+anim	spawn
+	loop	0
+	delay	5
+	offset	190 122
+	bbox	0 0 0 0
+	#platform	10 122 10 10 345 345 20 70
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+
+		
+anim	idle
+	loop	1
+	delay	5
+	offset	190 122
+	bbox	25 20 350 100
+	#platform	10 122 10 10 345 345 20 70
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+	sound	data/sounds/policesiren.wav
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+	frame	data/chars/2car5/car02.gif
+
+
+		
+anim	pain
+	loop	0
+	delay	5
+	offset	190 122
+	bbox	25 20 350 100
+	#platform	10 122 10 10 345 345 20 70
+	move	9
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+		
+anim	pain2
+	loop	0
+	delay	5
+	offset	190 122
+	bbox	25 20 350 100
+	#platform	10 122 10 10 345 345 20 70
+	move	-9
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+		
+anim	rise
+	loop	0
+	delay	5
+	offset	190 122
+	bbox	25 20 350 100
+	#platform	10 122 10 10 345 345 20 70
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+		
+anim	spawn
+@script
+if(frame==1)
+{
+  changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_OBSTACLE"));
+}
+@end_script
+	loop	0
+	delay	5
+	offset	190 122
+	bbox	0 0 0 0
+	#platform	10 122 10 10 345 345 20 70
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+		
+anim	walk
+	loop	1
+	delay	5
+	offset	190 122
+	bbox	25 20 350 100
+	#platform	10 122 10 10 345 345 20 70
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+	sound	data/sounds/policesiren.wav
+	frame	data/chars/2car5/car02.gif
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+	frame	data/chars/2car5/car01.gif
+	frame	data/chars/2car5/car02.gif
+	frame	data/chars/2car5/car02.gif
+		
+#|edited by openBor Stats v 0.53
+		

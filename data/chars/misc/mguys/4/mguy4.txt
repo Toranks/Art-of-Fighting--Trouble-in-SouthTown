@@ -1,0 +1,86 @@
+name      mguy4
+nolife    1
+type      trap
+hostile   player
+setlayer  -610
+offscreenkill 	7000
+subject_to_hole 0
+subject_to_wall 0
+hostile		player npc
+candamage	player npc
+
+animationscript data/scripts/escript.c
+
+
+
+
+
+load	missile5
+
+
+
+
+
+
+
+
+
+
+anim	attack1
+	delay	12
+	offset	100 140
+	drawmethod	220 220 0 0 0 0
+	frame	data/chars/misc/mguys/4/mguy00.gif
+	sound	data/sounds/grab2.wav
+	frame	data/chars/misc/mguys/4/mguy01.gif
+	delay	40
+	frame	data/chars/misc/mguys/4/mguy02.gif
+	delay	12
+	sound	data/sounds/burnt.wav
+	frame	data/chars/misc/mguys/4/mguy03.gif
+	@cmd	tosser "missile5" 5 70 1 0 1.5 1
+	frame	data/chars/misc/mguys/4/mguy02.gif
+	delay	15
+	frame	data/chars/misc/mguys/4/mguy03.gif
+	frame	data/chars/misc/mguys/4/mguy04.gif
+	frame	data/chars/misc/mguys/4/mguy05.gif
+	delay	50
+	frame	data/chars/misc/mguys/4/mguy06.gif
+	delay	15
+	frame	data/chars/misc/mguys/4/mguy02.gif
+	frame	data/chars/misc/mguys/4/mguy01.gif
+	frame	data/chars/misc/mguys/4/mguy00.gif
+	delay	50
+	frame	data/chars/misc/mguys/4/mguy00.gif
+	frame	data/chars/misc/mguys/4/mguy00.gif
+	@cmd	beidle
+	frame	data/chars/misc/mguys/4/mguy00.gif
+
+
+
+
+anim	spawn
+	delay	1750
+	loop	0
+	offset	100 140
+	drawmethod	220 220 0 0 0 0
+	frame	data/chars/misc/mguys/4/mguy00.gif
+	frame	data/chars/misc/mguys/4/mguy00.gif
+
+
+
+
+
+
+		
+anim	idle
+	delay	5
+	loop	1
+	offset	100 140
+	drawmethod	220 220 0 0 0 0
+	frame	data/chars/misc/mguys/4/mguy00.gif
+	@cmd	attack1 -150 150 500 "ANI_ATTACK1"
+	frame	data/chars/misc/mguys/4/mguy00.gif
+		
+#|edited by openBor Stats v 0.53
+		

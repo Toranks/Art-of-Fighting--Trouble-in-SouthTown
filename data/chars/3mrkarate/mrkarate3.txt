@@ -1,0 +1,648 @@
+name          mrkarate3
+type          npc
+health        10000
+nodrop	      2
+facing        1
+nomove        0 1
+speed         18
+blockodds     1
+nopassiveblock 1
+nodieblink    2
+escapehits    2
+noquake       1
+nolife        1
+falldie	      1
+gfxshadow     1
+aggression    20
+dust            dust
+subject_to_screen 1
+candamage     enemy
+hostile       enemy
+animationscript data/scripts/escript.c
+
+
+load	3pw13
+
+
+
+
+anim	attack1
+	range	10 150
+	rangez	-22 22
+	loop	0
+	delay	6
+	offset	100 189
+	bbox	85 97 40 50
+	followanim	1
+	followcond	1
+	fastattack	1
+	landframe	4 dust
+	hitfx	data/sounds/beat2.wav
+	@cmd	targetrgt 2 1 1 1 0
+	@cmd	leap 2.5
+	frame	data/chars/3mrkarate/h01.gif
+	offset	100 180
+	frame	data/chars/3mrkarate/g08.gif
+	bbox	0 0 0 0
+	attack	100 95 85 60 17 0 0 0 45 15
+	frame	data/chars/3mrkarate/g09.gif
+	delay	300
+	frame	data/chars/3mrkarate/g09.gif
+	attack	0 0 0 0
+	delay	12
+	offset	100 189
+	frame	data/chars/3mrkarate/h02.gif
+	@cmd	beidle
+	frame	data/chars/3mrkarate/h02.gif
+		
+anim	attack2
+	range	-150 -10
+	rangez	-15 15
+	loop	0
+	delay	6
+	offset	100 189
+	bbox	85 97 40 50
+	@cmd	targetrgt 2 1 1 1 0
+	@cmd	leap 3
+	hitfx	data/sounds/beat2.wav
+	frame	data/chars/3mrkarate/fall16.gif
+	offset	100 189
+	frame	data/chars/3mrkarate/f01.gif
+	bbox	0 0 0 0
+	frame	data/chars/3mrkarate/f02.gif
+	attack2	40 99 70 70 19 0 0 0 45 15
+	frame	data/chars/3mrkarate/f03.gif
+	attack2	0 0 0 0
+	delay	5
+	frame	data/chars/3mrkarate/f04.gif
+	frame	data/chars/3mrkarate/f05.gif
+	frame	data/chars/3mrkarate/g06.gif
+	frame	data/chars/3mrkarate/xg08.gif
+	delay	7
+	attack2	30 85 85 75 22 0 0 0 45 15
+	frame	data/chars/3mrkarate/xg09.gif
+	attack2	0 0 0 0
+	frame	data/chars/3mrkarate/xg10.gif
+	frame	data/chars/3mrkarate/xwtr15.gif
+	frame	data/chars/3mrkarate/upper11.gif
+	@cmd	beidle
+	frame	data/chars/3mrkarate/upper11.gif
+		
+anim	attack4
+	range	170 350
+	rangez	-30 30
+	loop	0
+	delay	6
+	offset	100 189
+	bbox	85 97 40 50
+	hitfx	data/sounds/beat2.wav
+	frame	data/chars/3mrkarate/xrun10.gif
+	frame	data/chars/3mrkarate/xrun11.gif
+	frame	data/chars/3mrkarate/xrun12.gif
+	@cmd	targetrgt 0.5 1.5 1 1 0
+	@cmd	dash
+	frame	data/chars/3mrkarate/xrun13.gif
+	@cmd	spawn01 "3pw13" 35 65 1
+	frame	data/chars/3mrkarate/xrun14.gif
+	frame	data/chars/3mrkarate/xrun15.gif
+	@cmd	targetrgt 0.5 1.5 1 1 0
+	@cmd	dash
+	frame	data/chars/3mrkarate/xrun16.gif
+	frame	data/chars/3mrkarate/xrun17.gif
+	frame	data/chars/3mrkarate/xrun18.gif
+	@cmd	targetrgt 0.5 1.5 1 1 0
+	@cmd	dash
+	frame	data/chars/3mrkarate/xrun19.gif
+	@cmd	spawn01 "3pw13" 30 60 2
+	frame	data/chars/3mrkarate/xrun20.gif
+	frame	data/chars/3mrkarate/xrun21.gif
+	@cmd	targetrgt 0.5 1.5 1 1 0
+	@cmd	dash
+	frame	data/chars/3mrkarate/xrun10.gif
+	frame	data/chars/3mrkarate/xrun11.gif
+	frame	data/chars/3mrkarate/xrun12.gif
+	@cmd	targetrgt 0.5 1.5 1 1 0
+	@cmd	dash
+	frame	data/chars/3mrkarate/xrun13.gif
+	@cmd	spawn01 "3pw13" 35 65 1
+	frame	data/chars/3mrkarate/xrun14.gif
+	frame	data/chars/3mrkarate/xrun15.gif
+	@cmd	targetrgt 0.5 1.5 1 1 0
+	@cmd	dash
+	frame	data/chars/3mrkarate/xrun16.gif
+	frame	data/chars/3mrkarate/xrun17.gif
+	frame	data/chars/3mrkarate/xrun18.gif
+	@cmd	targetrgt 0.5 1.5 1 1 0
+	@cmd	dash
+	frame	data/chars/3mrkarate/xrun19.gif
+	@cmd	spawn01 "3pw13" 30 60 2
+	frame	data/chars/3mrkarate/xrun20.gif
+	frame	data/chars/3mrkarate/xrun21.gif
+	@cmd	beidle
+	frame	data/chars/3mrkarate/xrun21.gif
+		
+anim	attack5
+	range	-280 -180
+	rangez	-20 20
+	loop	0
+	delay	12
+	offset	100 189
+	bbox	80 85 35 60
+	jumpframe	0 4 -3.5
+	landframe	10
+	hitfx	data/sounds/beat1.wav
+	frame	data/chars/3mrkarate/fall16.gif
+	bbox	0 0 0 0
+	frame	data/chars/3mrkarate/fall10.gif
+	delay	6
+	frame	data/chars/3mrkarate/fall11.gif
+	frame	data/chars/3mrkarate/fall12.gif
+	frame	data/chars/3mrkarate/fall13.gif
+	frame	data/chars/3mrkarate/fall14.gif
+	delay	9
+	offset	100 180
+	frame	data/chars/3mrkarate/xg08.gif
+	frame	data/chars/3mrkarate/xg11.gif
+	attack	45 105 100 55 12 0 0 0 45 15
+	frame	data/chars/3mrkarate/xg12.gif
+	delay	200
+	frame	data/chars/3mrkarate/xg13.gif
+	attack	0 0 0 0
+	delay	12
+	frame	data/chars/3mrkarate/xwtr15.gif
+	@cmd	beidle
+	frame	data/chars/3mrkarate/xwtr15.gif
+		
+anim	backwalk
+	loop	1
+	delay	6
+	offset	100 189
+	bbox	79 97 50 91
+	frame	data/chars/3mrkarate/xrun01.gif
+	frame	data/chars/3mrkarate/xrun02.gif
+	frame	data/chars/3mrkarate/xrun03.gif
+	frame	data/chars/3mrkarate/xrun04.gif
+	frame	data/chars/3mrkarate/xrun05.gif
+	frame	data/chars/3mrkarate/xrun06.gif
+		
+anim	block
+	loop	0
+	delay	8
+	offset	100 189
+	bbox	0 0 0 0
+	jumpframe	0 3 -1 2
+	landframe	20
+	frame	data/chars/3mrkarate/fall16.gif
+	frame	data/chars/3mrkarate/fall15.gif
+	frame	data/chars/3mrkarate/fall13.gif
+	frame	data/chars/3mrkarate/fall12.gif
+	frame	data/chars/3mrkarate/fall11.gif
+	frame	data/chars/3mrkarate/fall10.gif
+	delay	6
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 -100 100 25 "ANI_FOLLOW5"
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 -100 100 25 "ANI_FOLLOW5"
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 -100 100 25 "ANI_FOLLOW5"
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 -100 100 25 "ANI_FOLLOW5"
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 -100 100 25 "ANI_FOLLOW5"
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 -100 100 25 "ANI_FOLLOW5"
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 -100 100 25 "ANI_FOLLOW5"
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 -100 100 25 "ANI_FOLLOW5"
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 -100 100 25 "ANI_FOLLOW5"
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 -100 100 25 "ANI_FOLLOW5"
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 -100 100 25 "ANI_FOLLOW5"
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 -100 100 25 "ANI_FOLLOW5"
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 -100 100 25 "ANI_FOLLOW5"
+	frame	data/chars/3mrkarate/fall16.gif
+	delay	9
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	beidle
+	frame	data/chars/3mrkarate/fall16.gif
+		
+anim	burn
+	loop	0
+	delay	30
+	offset	104 190
+	bbox	0 0 0 0
+	bouncefactor	0
+	@cmd	dethrown
+	landframe	3
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 200_50_0
+	@cmd	spawnbind "burn1" 1 1 1
+	@cmd	spawnbind "burn2" 1 1 1
+	@cmd	spawnbind "burn3" 1 1 1
+	attack	77 101 35 54 5 1 0 0 13
+	frame	data/chars/3mrkarate/fall1.gif
+	delay	10
+	attack	61 124 61 26 5 1 0 0 13
+	frame	data/chars/3mrkarate/fall2.gif
+	attack	0 0 0 0
+	delay	1000
+	frame	data/chars/3mrkarate/fall3.gif
+	delay	2
+	frame	data/chars/3mrkarate/fall17.gif
+
+
+
+		
+anim	death
+	loop	0
+	delay	4
+	offset	100 189
+	bbox	0 0 0 0
+	@cmd	targetrgt 1 1 1 1 1
+	@cmd	dash
+	frame	data/chars/3mrkarate/xrun01.gif
+	frame	data/chars/3mrkarate/xrun02.gif
+	frame	data/chars/3mrkarate/xrun03.gif
+	frame	data/chars/3mrkarate/xrun04.gif
+	frame	data/chars/3mrkarate/xrun05.gif
+	frame	data/chars/3mrkarate/xrun06.gif
+	frame	data/chars/3mrkarate/xrun01.gif
+	frame	data/chars/3mrkarate/xrun02.gif
+	frame	data/chars/3mrkarate/xrun03.gif
+	frame	data/chars/3mrkarate/xrun04.gif
+	frame	data/chars/3mrkarate/xrun05.gif
+	frame	data/chars/3mrkarate/xrun06.gif
+	@cmd	looper 6 3
+	frame	data/chars/3mrkarate/xrun01.gif
+	frame	data/chars/3mrkarate/xrun02.gif
+	frame	data/chars/3mrkarate/xrun03.gif
+	frame	data/chars/3mrkarate/xrun04.gif
+	@cmd	changeopenborvariant "slowmotion" 1
+	frame	data/chars/3mrkarate/xrun05.gif
+	@cmd	degravity 1
+	frame	data/chars/3mrkarate/xrun06.gif
+	delay	9
+	frame	data/chars/3mrkarate/upper01.gif
+	@cmd	stop
+	@cmd	leaper 0 1 0
+	frame	data/chars/3mrkarate/upper02.gif
+	frame	data/chars/3mrkarate/upper03.gif
+	@cmd	layer 700
+	frame	data/chars/3mrkarate/upper04.gif
+	delay	100
+	frame	data/chars/3mrkarate/upper04.gif
+	frame	data/chars/3mrkarate/upper04.gif
+	@cmd	changeopenborvariant "slowmotion" 0
+	delay	50
+	frame	data/chars/3mrkarate/upper04.gif
+	delay	15
+	frame	data/chars/3mrkarate/empty.gif
+	frame	data/chars/3mrkarate/empty.gif
+
+
+
+
+
+
+
+		
+anim	fall
+	loop	0
+	delay	30
+	offset	104 190
+	bbox	0 0 0 0
+	bouncefactor	0
+	@cmd	dethrown
+	landframe	3
+	attack	77 101 35 54 5 1 0 0 13
+	frame	data/chars/3mrkarate/fall1.gif
+	delay	10
+	attack	61 124 61 26 5 1 0 0 13
+	frame	data/chars/3mrkarate/fall2.gif
+	attack	0 0 0 0
+	delay	1000
+	frame	data/chars/3mrkarate/fall3.gif
+	delay	2
+	frame	data/chars/3mrkarate/fall17.gif
+		
+anim	follow1
+	loop	0
+	delay	8
+	offset	100 189
+	bbox	0 0 0 0
+	fastattack	1
+	hitfx	data/sounds/beat2.wav
+	frame	data/chars/3mrkarate/g09.gif
+	frame	data/chars/3mrkarate/g11.gif
+	frame	data/chars/3mrkarate/g12.gif
+	frame	data/chars/3mrkarate/g13.gif
+	attack	95 95 65 75 19 0 0 0 45 15
+	frame	data/chars/3mrkarate/g14.gif
+	frame	data/chars/3mrkarate/g15.gif
+	attack	0 0 0 0
+	delay	5
+	frame	data/chars/3mrkarate/g06.gif
+	frame	data/chars/3mrkarate/g07.gif
+	frame	data/chars/3mrkarate/g08.gif
+	attack	100 95 85 65 19 0 0 0 45 0
+	frame	data/chars/3mrkarate/g17.gif
+	delay	8
+	frame	data/chars/3mrkarate/g18.gif
+	attack	0 0 0 0
+	offset	100 170
+	frame	data/chars/3mrkarate/g08.gif
+	offset	105 180
+	frame	data/chars/3mrkarate/g01.gif
+	@cmd	beidle
+	frame	data/chars/3mrkarate/g01.gif
+		
+anim	follow2
+	loop	0
+	delay	9
+	offset	100 189
+	bbox	0 0 0 0
+	jumpframe	0 1 2
+	hitfx	data/sounds/beat4.wav
+	frame	data/chars/3mrkarate/xjua08.gif
+	frame	data/chars/3mrkarate/xjua09.gif
+	attack	93 90 60 75 27 0 0 0 45 17
+	delay	17
+	frame	data/chars/3mrkarate/xjua10.gif
+	attack	0 0 0 0
+	delay	12
+	frame	data/chars/3mrkarate/xjua09.gif
+		
+anim	follow4
+	loop	0
+	delay	9
+	offset	100 189
+	bbox	0 0 0 0
+	jumpframe	0 1 -2
+	hitfx	data/sounds/beat4.wav
+	frame	data/chars/3mrkarate/xjua12.gif
+	frame	data/chars/3mrkarate/xjua13.gif
+	attack	95 90 60 75 27 0 0 0 45 17
+	delay	17
+	frame	data/chars/3mrkarate/xjua14.gif
+	attack	0 0 0 0
+	delay	12
+	frame	data/chars/3mrkarate/xjua13.gif
+		
+anim	follow5
+	loop	0
+	delay	6
+	offset	100 189
+	bbox	0 0 0 0
+	hitfx	data/sounds/beat3.wav
+	@cmd	stop
+	frame	data/chars/3mrkarate/g05.gif
+	@cmd	targetrgt 2 2 1 1 0
+	@cmd	leap 2
+	frame	data/chars/3mrkarate/g06.gif
+	frame	data/chars/3mrkarate/g07.gif
+	frame	data/chars/3mrkarate/g08.gif
+	attack	100 95 85 65 19 0 0 0 45 0
+	frame	data/chars/3mrkarate/g17.gif
+	delay	8
+	frame	data/chars/3mrkarate/g18.gif
+	attack	0 0 0 0
+	offset	100 170
+	frame	data/chars/3mrkarate/g08.gif
+	offset	105 180
+	frame	data/chars/3mrkarate/g01.gif
+	@cmd	beidle
+	frame	data/chars/3mrkarate/g01.gif
+
+
+
+		
+anim	idle
+	loop	1
+	delay	4
+	offset	100 189
+	bbox	79 97 50 91
+	frame	data/chars/3mrkarate/xrun01.gif
+	frame	data/chars/3mrkarate/xrun02.gif
+	frame	data/chars/3mrkarate/xrun03.gif
+	frame	data/chars/3mrkarate/xrun04.gif
+	frame	data/chars/3mrkarate/xrun05.gif
+	frame	data/chars/3mrkarate/xrun06.gif
+		
+anim	pain
+	loop	0
+	delay	12
+	offset	103 189
+	bbox	79 97 50 91
+	jumpframe	1 3.3 2
+	landframe	26 dust
+	frame	data/chars/3mrkarate/pain2.gif
+	bbox	0 0 0 0
+	frame	data/chars/3mrkarate/pain6.gif
+	delay	6
+	frame	data/chars/3mrkarate/fall11.gif
+	frame	data/chars/3mrkarate/fall12.gif
+	frame	data/chars/3mrkarate/fall13.gif
+	frame	data/chars/3mrkarate/fall14.gif
+	frame	data/chars/3mrkarate/fall15.gif
+	@cmd	attack1 0 120 10 "ANI_FOLLOW2"
+	@cmd	attack1 -120 0 10 "ANI_FOLLOW4"
+	delay	5
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 0 140 20 "ANI_FOLLOW2"
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 -140 0 20 "ANI_FOLLOW4"
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 0 140 20 "ANI_FOLLOW2"
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 -140 0 20 "ANI_FOLLOW4"
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 0 140 20 "ANI_FOLLOW2"
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 -140 0 20 "ANI_FOLLOW4"
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 0 140 20 "ANI_FOLLOW2"
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 -140 0 20 "ANI_FOLLOW4"
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 0 140 20 "ANI_FOLLOW2"
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 -140 0 20 "ANI_FOLLOW4"
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 0 140 20 "ANI_FOLLOW2"
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 -140 0 20 "ANI_FOLLOW4"
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 0 140 20 "ANI_FOLLOW2"
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 -140 0 20 "ANI_FOLLOW4"
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 0 140 20 "ANI_FOLLOW2"
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 -140 0 20 "ANI_FOLLOW4"
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 0 140 20 "ANI_FOLLOW2"
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 -140 0 20 "ANI_FOLLOW4"
+	frame	data/chars/3mrkarate/fall16.gif
+	delay	12
+	frame	data/chars/3mrkarate/2grab07.gif
+	@cmd	beidle
+	frame	data/chars/3mrkarate/2grab07.gif
+		
+anim	pain2
+	loop	0
+	delay	12
+	offset	103 189
+	bbox	79 97 50 91
+	jumpframe	1 3.3 -2
+	landframe	26 dust
+	frame	data/chars/3mrkarate/pain2.gif
+	bbox	0 0 0 0
+	frame	data/chars/3mrkarate/pain6.gif
+	delay	6
+	frame	data/chars/3mrkarate/fall11.gif
+	frame	data/chars/3mrkarate/fall12.gif
+	frame	data/chars/3mrkarate/fall13.gif
+	frame	data/chars/3mrkarate/fall14.gif
+	frame	data/chars/3mrkarate/fall15.gif
+	@cmd	attack1 0 120 10 "ANI_FOLLOW2"
+	@cmd	attack1 -120 0 10 "ANI_FOLLOW4"
+	delay	5
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 0 140 20 "ANI_FOLLOW2"
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 -140 0 20 "ANI_FOLLOW4"
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 0 140 20 "ANI_FOLLOW2"
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 -140 0 20 "ANI_FOLLOW4"
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 0 140 20 "ANI_FOLLOW2"
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 -140 0 20 "ANI_FOLLOW4"
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 0 140 20 "ANI_FOLLOW2"
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 -140 0 20 "ANI_FOLLOW4"
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 0 140 20 "ANI_FOLLOW2"
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 -140 0 20 "ANI_FOLLOW4"
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 0 140 20 "ANI_FOLLOW2"
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 -140 0 20 "ANI_FOLLOW4"
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 0 140 20 "ANI_FOLLOW2"
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 -140 0 20 "ANI_FOLLOW4"
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 0 140 20 "ANI_FOLLOW2"
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 -140 0 20 "ANI_FOLLOW4"
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 0 140 20 "ANI_FOLLOW2"
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 -140 0 20 "ANI_FOLLOW4"
+	frame	data/chars/3mrkarate/fall16.gif
+	delay	12
+	frame	data/chars/3mrkarate/2grab07.gif
+	@cmd	beidle
+	frame	data/chars/3mrkarate/2grab07.gif
+		
+anim	rise
+	loop	0
+	delay	2
+	offset	100 189
+	bbox	0 0 0 0
+	frame	data/chars/3mrkarate/fall17.gif
+	frame	data/chars/3mrkarate/fall17.gif
+		
+anim	spawn
+	loop	0
+	delay	4
+	offset	100 189
+	bbox	0 0 0 0
+	frame	data/chars/3mrkarate/run01.gif
+	frame	data/chars/3mrkarate/run02.gif
+	sound	data/sounds/run.wav
+	frame	data/chars/3mrkarate/run03.gif
+	frame	data/chars/3mrkarate/run04.gif
+	frame	data/chars/3mrkarate/run05.gif
+	sound	data/sounds/run.wav
+	frame	data/chars/3mrkarate/run06.gif
+
+	frame	data/chars/3mrkarate/run01.gif
+	frame	data/chars/3mrkarate/run02.gif
+	sound	data/sounds/run.wav
+	frame	data/chars/3mrkarate/run03.gif
+	frame	data/chars/3mrkarate/run04.gif
+	frame	data/chars/3mrkarate/run05.gif
+	sound	data/sounds/run.wav
+	frame	data/chars/3mrkarate/run06.gif
+	@cmd	looper 7 2
+	frame	data/chars/3mrkarate/run01.gif
+	frame	data/chars/3mrkarate/run02.gif
+	sound	data/sounds/run.wav
+	frame	data/chars/3mrkarate/run03.gif
+	frame	data/chars/3mrkarate/run04.gif
+	frame	data/chars/3mrkarate/run05.gif
+	sound	data/sounds/run.wav
+	frame	data/chars/3mrkarate/run06.gif
+
+
+
+		
+anim	special2
+	loop	0
+	delay	8
+	offset	100 189
+	bbox	0 0 0 0
+	jumpframe	0 3 -1 -2
+	landframe	20
+	frame	data/chars/3mrkarate/fall16.gif
+	frame	data/chars/3mrkarate/fall15.gif
+	frame	data/chars/3mrkarate/fall13.gif
+	frame	data/chars/3mrkarate/fall12.gif
+	frame	data/chars/3mrkarate/fall11.gif
+	frame	data/chars/3mrkarate/fall10.gif
+	delay	6
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 -100 100 25 "ANI_FOLLOW5"
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 -100 100 25 "ANI_FOLLOW5"
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 -100 100 25 "ANI_FOLLOW5"
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 -100 100 25 "ANI_FOLLOW5"
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 -100 100 25 "ANI_FOLLOW5"
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 -100 100 25 "ANI_FOLLOW5"
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 -100 100 25 "ANI_FOLLOW5"
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 -100 100 25 "ANI_FOLLOW5"
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 -100 100 25 "ANI_FOLLOW5"
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 -100 100 25 "ANI_FOLLOW5"
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 -100 100 25 "ANI_FOLLOW5"
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 -100 100 25 "ANI_FOLLOW5"
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	attack1 -100 100 25 "ANI_FOLLOW5"
+	frame	data/chars/3mrkarate/fall16.gif
+	delay	9
+	frame	data/chars/3mrkarate/fall16.gif
+	@cmd	beidle
+	frame	data/chars/3mrkarate/fall16.gif
+		
+#|edited by openBor Stats v 0.53
+		

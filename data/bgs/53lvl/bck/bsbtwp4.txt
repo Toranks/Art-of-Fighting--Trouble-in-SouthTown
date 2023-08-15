@@ -1,0 +1,167 @@
+name	 	bsbtwp4
+type		npc
+subtype		notgrab
+health		3000
+speed         	15
+jumpheight    	4
+nodieblink    	1
+weaploss	3
+nolife          1
+noquake		1
+shadow		0
+nomove          1 1
+subject_to_hole 0
+subject_to_wall 0
+subject_to_platform 0
+subject_to_obstacle 0
+animationscript data/scripts/escript.c
+
+
+
+
+
+load	brkwood2
+load	brkwood4
+load	brkwood3
+
+
+palette		data/bgs/53lvl/bck/bossboatPAL.gif
+
+
+#	weaponframe	(frame nr5) (wp nr1)
+
+
+
+
+anim	fall
+@script
+	void self = getlocalvar("self");
+	int p1 = getplayerproperty(0, "entity");
+	int p2 = getplayerproperty(1, "entity");
+	int p3 = getplayerproperty(2, "entity");
+	if (frame == 0 && p1 != NULL()){
+     	tossentity(p1, 9, 0, 0);
+	}
+	else if (frame == 0 && p2 != NULL()){
+     	tossentity(p2, 10, 0, 0);
+	}
+	else if (frame == 0 && p3 != NULL()){
+     	tossentity(p3, 11, 0, 0);
+	}
+@end_script
+	delay	5
+	loop	0
+	offset	320 210
+	bbox	0 0 0 0
+	jumpframe	1 8 0
+	landframe	5
+	platform	15 370 0 0 670 670 155 1
+	frame	data/bgs/53lvl/bck/bossboat5.gif
+	delay	30
+	frame	data/bgs/53lvl/bck/bossboat5.gif
+	frame	data/bgs/53lvl/bck/bossboat5.gif
+	frame	data/bgs/53lvl/bck/bossboat5.gif
+	delay	1000
+	frame	data/bgs/53lvl/bck/bossboat5.gif
+	delay	30
+	frame	data/bgs/53lvl/bck/bossboat5.gif
+		
+anim	idle
+	delay	10
+	loop	1
+	offset	320 210
+	bbox	161 90 300 190 200
+	frame	data/bgs/53lvl/bck/bossboat5.gif
+	frame	data/bgs/53lvl/bck/bossboat5.gif
+
+
+		
+anim	pain
+@script
+	void self = getlocalvar("self");
+	int p1 = getplayerproperty(0, "entity");
+	int p2 = getplayerproperty(1, "entity");
+	int p3 = getplayerproperty(2, "entity");
+	if (frame == 0 && p1 != NULL()){
+     	tossentity(p1, 9, 0, 0);
+	}
+	else if (frame == 0 && p2 != NULL()){
+     	tossentity(p2, 10, 0, 0);
+	}
+	else if (frame == 0 && p3 != NULL()){
+     	tossentity(p3, 11, 0, 0);
+	}
+@end_script
+	delay	5
+	loop	0
+	offset	320 210
+	bbox	0 0 0 0
+	jumpframe	1 8 0
+	landframe	5
+	platform	15 370 0 0 670 670 155 1
+	frame	data/bgs/53lvl/bck/bossboat5.gif
+	delay	30
+	frame	data/bgs/53lvl/bck/bossboat5.gif
+	frame	data/bgs/53lvl/bck/bossboat5.gif
+	frame	data/bgs/53lvl/bck/bossboat5.gif
+	delay	1000
+	frame	data/bgs/53lvl/bck/bossboat5.gif
+	delay	30
+	frame	data/bgs/53lvl/bck/bossboat5.gif
+
+		
+anim	pain2
+	delay	6
+	loop	0
+	offset	320 210
+	bbox	0 0 0 0
+	movez	3
+	frame	data/bgs/53lvl/bck/bossboat5.gif
+	movez	-3
+	frame	data/bgs/53lvl/bck/bossboat5.gif
+	movez	3
+	@cmd	spawn01 "brkwood4" -110 20 1
+	frame	data/bgs/53lvl/bck/bossboat5.gif
+	movez	-3
+	frame	data/bgs/53lvl/bck/bossboat5.gif
+	movez	3
+	@cmd    tosser "brkwood3" -110 1 1 0.1 5 0.1
+	@cmd    tosser "brkwood2" -130 1 1 0 5 0.1
+	@cmd    tosser "brkwood3" -150 1 1 -0.1 5 0.1
+	frame	data/bgs/53lvl/bck/bossboat5.gif
+	movez	-3
+	frame	data/bgs/53lvl/bck/bossboat5.gif
+	movez	3
+	frame	data/bgs/53lvl/bck/bossboat5.gif
+	movez	-3
+	@cmd	hpgain 100
+	frame	data/bgs/53lvl/bck/bossboat5.gif
+	movez	0
+	@cmd	clearL
+	frame	data/bgs/53lvl/bck/bossboat5.gif
+		
+anim	rise
+	delay	10
+	loop	0
+	offset	320 210
+	bbox	0 0 0 0
+	frame	data/bgs/53lvl/bck/bossboat5.gif
+		
+anim	spawn
+	delay	5
+	loop	0
+	offset	320 210
+	bbox	0 0 0 0
+	frame	data/bgs/53lvl/bck/bossboat4.gif
+	@cmd	spawnbind "bcabin2" 180 0 60
+	@cmd	spawnbind "boarfrt" -26 0 143
+	frame	data/bgs/53lvl/bck/bossboat5.gif
+	frame	data/bgs/53lvl/bck/bossboat4.gif
+	frame	data/bgs/53lvl/bck/bossboat5.gif
+	frame	data/bgs/53lvl/bck/bossboat4.gif
+	frame	data/bgs/53lvl/bck/bossboat5.gif
+	frame	data/bgs/53lvl/bck/bossboat4.gif
+	frame	data/bgs/53lvl/bck/bossboat5.gif
+		
+#|edited by openBor Stats v 0.53
+		

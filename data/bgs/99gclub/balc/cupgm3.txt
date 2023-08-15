@@ -1,0 +1,783 @@
+name	cupgm3
+type	npc
+height	130
+health	500
+nolife	1
+scroll	1
+nomove		1 1
+nopain		1
+nodrop		2
+setlayer 999999950
+offscreenkill	50000
+subject_to_minz    	0
+subject_to_maxz    	0
+subject_to_wall    	0
+subject_to_platform     1
+subject_to_obstacle     0
+subject_to_hole     	0
+subject_to_gravity     	0
+aggression		0
+
+animationscript data/scripts/escript.c
+
+palette	none
+load	cupgm
+load	cuptext
+load	apple
+load	moneybag
+load	1up
+load	lulcardx
+
+
+#----------------//--cup-move--//-----------------
+#---left-790--//---middle-940---//---right-1090---
+
+script	@script
+void main()
+{
+    void self = getlocalvar("self");
+	void Ani = getentityproperty(self,"animationID");
+
+	void aggro = getentityproperty(self,"aggression");
+
+	int cupday = getglobalvar ("cupkill");
+	if (cupday == 1 && Ani != openborconstant("ANI_FOLLOW25"))
+	{
+		performattack(self, openborconstant("ANI_FOLLOW25"));
+	}
+
+	int choosex1 = getglobalvar ("cupchoose");
+	if (choosex1 == 1 && Ani != openborconstant("ANI_FOLLOW21"))
+	{
+		performattack(self, openborconstant("ANI_FOLLOW21"));
+	}
+
+
+//---------------------------move---------left-790--//---middle-940---//---right-1090-------------------------------
+
+     	if ( Ani == openborconstant("ANI_FOLLOW20"))
+	{
+            void frame = getentityproperty(self,"animpos");
+	    int pch2 = loadsample("data/sounds/cup.wav");
+	    int x = getentityproperty(self,"x");
+	    int cupmv = getglobalvar ("mv1");
+	    int cupmv2 = getglobalvar ("mv2");
+	    int cupmv3 = getglobalvar ("mv3");
+
+
+
+		int r = rand()%10+5;
+
+		if (x==940)
+		{
+		changeentityproperty(self, "velocity", 0, 0);
+	
+			if (r >= 5 && cupmv3 == 3)
+			{
+			setglobalvar ("mv1", 1);
+			changeentityproperty(self, "velocity", -3-aggro);
+			setglobalvar ("mv3", 0);
+playsample(openborconstant(pch2), 0, 100, 100, 100, 0);
+			}
+			else if (r < 5 && cupmv3 == 3)
+			{
+			setglobalvar ("mv2", 2);
+			changeentityproperty(self, "velocity", 3+aggro);
+			setglobalvar ("mv3", 0);
+playsample(openborconstant(pch2), 0, 100, 100, 100, 0);
+			}
+	    int cupmv = getglobalvar ("mv1");
+		}
+		if (cupmv == 1 && x <= 790 )
+		{
+		setglobalvar ("mv3", 3);
+		changeentityproperty(self, "velocity", 3+aggro);
+		setglobalvar ("mv1", 0);
+		}
+		else if (x <= 790 )
+		{
+		setglobalvar ("mv3", 3);
+		changeentityproperty(self, "velocity", 0, 0);
+		}
+	    int cupmv = getglobalvar ("mv2");
+		if (cupmv2 == 2 && x >=  1090 )
+		{
+		setglobalvar ("mv3", 3);
+		changeentityproperty(self, "velocity", -3-aggro);
+		setglobalvar ("mv2", 0);
+		}
+		else if (x >=  1090 )
+		{
+		setglobalvar ("mv3", 3);
+		changeentityproperty(self, "velocity", 0, 0);
+		}
+	} //follow 20 end
+
+//-------------------------------------------------------------------
+//--------left-790--//---middle-940---//---right-1090--------this-counts-for-all-!!!
+
+	if ( Ani == openborconstant("ANI_FOLLOW21") || Ani == openborconstant("ANI_FOLLOW22"))
+	{
+	//void frame2 = getentityproperty(self,"animpos");
+	int xstop1 = getentityproperty(self,"x");
+
+		if (xstop1>=935 && xstop1<=945)
+		{
+		changeentityproperty(self, "velocity", 0, 0);
+		}
+		if (xstop1<=790)
+		{
+		changeentityproperty(self, "velocity", 0, 0);
+		}
+		if (xstop1>=1090)
+		{
+		changeentityproperty(self, "velocity", 0, 0);
+		}
+	}
+}
+@end_script
+
+
+anim	spawn
+@script
+	void self = getlocalvar("self");
+	if (frame == 1)
+	{
+        changeentityproperty(self, "position", 1090, 1, 50);
+	}
+@end_script
+	loop	0
+	delay	5
+	offset	85 85
+	bbox	0 0 0 0
+	frame	data/bgs/99gclub/balc/cup01.gif
+	frame	data/bgs/99gclub/balc/cup01.gif
+	frame	data/bgs/99gclub/balc/cup01.gif
+
+
+#@cmd	spawnAni4 "cupgm1" 940 50 1 "ANI_IDLE"
+#@cmd	spawnAni4 "cupgm2" 790 50 1 "ANI_IDLE"
+#@cmd	spawnAni4 "cupgm3" 1090 50 1 "ANI_IDLE"
+
+
+anim	idle
+@script
+	void self = getlocalvar("self");
+	int itm2 = getglobalvar ("cupitm1");
+	if (frame == 0 && itm2 == 3)
+	{
+		performattack(self, openborconstant("ANI_FOLLOW1"));
+		//setglobalvar ("cupitm1", NULL());
+	}
+@end_script
+	loop	1 10 14
+	delay	5
+	offset	85 85
+	bbox	0 0 0 0
+	frame	data/bgs/99gclub/balc/cup01.gif
+	delay	120
+	@cmd	dasher 0 0 2
+	frame	data/bgs/99gclub/balc/cup01.gif
+	delay	80
+	@cmd	stop
+	frame	data/bgs/99gclub/balc/cup01.gif
+	frame	data/bgs/99gclub/balc/cup01.gif   #3
+	delay	200
+	frame	data/bgs/99gclub/balc/cup01.gif   #4
+	delay	80
+	frame	data/bgs/99gclub/balc/cup01.gif   #5
+	delay	40
+	frame	data/bgs/99gclub/balc/cup01.gif   #6
+	frame	data/bgs/99gclub/balc/cup01.gif   #7
+	@cmd	anichange "ANI_FOLLOW20"
+	frame	data/bgs/99gclub/balc/cup01.gif   #8
+	delay	3
+	frame	data/bgs/99gclub/balc/cup01.gif   #9
+	frame	data/bgs/99gclub/balc/cup01.gif   #10
+	frame	data/bgs/99gclub/balc/cup01.gif   #11
+	frame	data/bgs/99gclub/balc/cup01.gif   #12
+	frame	data/bgs/99gclub/balc/cup01.gif   #13
+	frame	data/bgs/99gclub/balc/cup01.gif   #14
+	frame	data/bgs/99gclub/balc/cup01.gif   #15
+
+
+
+
+#------------//--item--show-start-//--------------
+#-----------------//--apple--//--------------
+
+anim	follow1
+@script
+void self = getlocalvar("self");
+void aggro5 = getentityproperty(self,"aggression");
+
+if (frame == 0 && aggro5 == 1)
+	{
+	performattack(self, openborconstant("ANI_FOLLOW2"));
+	}
+if (frame == 0 && aggro5 == 2)
+	{
+	performattack(self, openborconstant("ANI_FOLLOW3"));
+	}
+if (frame == 0 && aggro5 == 3)
+	{
+	performattack(self, openborconstant("ANI_FOLLOW4"));
+	}
+else if (frame == 1)
+	{
+	setentityvar(self, 7, 5);
+	}
+@end_script
+	loop	0
+	delay	5
+	offset	85 85
+	bbox	0 0 0 0
+	frame	data/bgs/99gclub/balc/cup01.gif
+	delay	120
+	@cmd	dasher 0 0 2
+	frame	data/bgs/99gclub/balc/cup01.gif
+	delay	80
+	@cmd	stop
+	@cmd	spawnGun5 "cupgm" 1 5 1 1 "ANI_FOLLOW5"
+	frame	data/bgs/99gclub/balc/cup01.gif
+	@cmd	GunControl 1 0 1 5 1
+	@cmd	dasher 0 0 -1
+	frame	data/bgs/99gclub/balc/cup01.gif   #3
+	@cmd	stop
+	delay	200
+	frame	data/bgs/99gclub/balc/cup01.gif   #4
+	delay	80
+	@cmd	dasher 0 0 1
+	frame	data/bgs/99gclub/balc/cup01.gif   #5
+	delay	40
+	@cmd	stop
+	frame	data/bgs/99gclub/balc/cup01.gif   #6
+	@cmd	GunControl 1 1 1 5 1
+	@cmd	spawname2 "cuptext" 132 100 168 "ANI_FOLLOW1"
+	frame	data/bgs/99gclub/balc/cup01.gif   #7
+	@cmd	anichange "ANI_FOLLOW20"
+	frame	data/bgs/99gclub/balc/cup01.gif   #8
+	delay	3
+	frame	data/bgs/99gclub/balc/cup01.gif   #9
+	frame	data/bgs/99gclub/balc/cup01.gif   #10
+	frame	data/bgs/99gclub/balc/cup01.gif   #11
+	frame	data/bgs/99gclub/balc/cup01.gif   #12
+	frame	data/bgs/99gclub/balc/cup01.gif   #13
+	frame	data/bgs/99gclub/balc/cup01.gif   #14
+
+#-----------------//--moneybag--//--------------
+
+anim	follow2
+@script
+void self = getlocalvar("self");
+	if (frame == 1)
+	{
+	setentityvar(self, 8, 5);
+	}
+@end_script
+	loop	0
+	delay	5
+	offset	85 85
+	bbox	0 0 0 0
+	frame	data/bgs/99gclub/balc/cup01.gif
+	delay	120
+	@cmd	dasher 0 0 2
+	frame	data/bgs/99gclub/balc/cup01.gif
+	delay	80
+	@cmd	stop
+	@cmd	spawnGun5 "cupgm" 1 5 1 1 "ANI_FOLLOW6"
+	frame	data/bgs/99gclub/balc/cup01.gif
+	@cmd	GunControl 1 0 1 5 1
+	@cmd	dasher 0 0 -1
+	frame	data/bgs/99gclub/balc/cup01.gif   #3
+	@cmd	stop
+	delay	200
+	frame	data/bgs/99gclub/balc/cup01.gif   #4
+	delay	80
+	@cmd	dasher 0 0 1
+	frame	data/bgs/99gclub/balc/cup01.gif   #5
+	delay	40
+	@cmd	stop
+	frame	data/bgs/99gclub/balc/cup01.gif   #6
+	@cmd	GunControl 1 1 1 5 1
+	@cmd	spawname2 "cuptext" 132 100 168 "ANI_FOLLOW1"
+	frame	data/bgs/99gclub/balc/cup01.gif   #7
+	@cmd	anichange "ANI_FOLLOW20"
+	frame	data/bgs/99gclub/balc/cup01.gif   #8
+	delay	3
+	frame	data/bgs/99gclub/balc/cup01.gif   #9
+	frame	data/bgs/99gclub/balc/cup01.gif   #10
+	frame	data/bgs/99gclub/balc/cup01.gif   #11
+	frame	data/bgs/99gclub/balc/cup01.gif   #12
+	frame	data/bgs/99gclub/balc/cup01.gif   #13
+	frame	data/bgs/99gclub/balc/cup01.gif   #14
+
+#-----------------//--1up--//--------------
+
+anim	follow3
+@script
+void self = getlocalvar("self");
+	if (frame == 1)
+	{
+	setentityvar(self, 9, 5);
+	}
+@end_script
+	loop	0
+	delay	5
+	offset	85 85
+	bbox	0 0 0 0
+	frame	data/bgs/99gclub/balc/cup01.gif
+	delay	120
+	@cmd	dasher 0 0 2
+	frame	data/bgs/99gclub/balc/cup01.gif
+	delay	80
+	@cmd	stop
+	@cmd	spawnGun5 "cupgm" 1 5 1 1 "ANI_FOLLOW7"
+	frame	data/bgs/99gclub/balc/cup01.gif
+	@cmd	GunControl 1 0 1 5 1
+	@cmd	dasher 0 0 -1
+	frame	data/bgs/99gclub/balc/cup01.gif   #3
+	@cmd	stop
+	delay	200
+	frame	data/bgs/99gclub/balc/cup01.gif   #4
+	delay	80
+	@cmd	dasher 0 0 1
+	frame	data/bgs/99gclub/balc/cup01.gif   #5
+	delay	40
+	@cmd	stop
+	frame	data/bgs/99gclub/balc/cup01.gif   #6
+	@cmd	GunControl 1 1 1 5 1
+	@cmd	spawname2 "cuptext" 132 100 168 "ANI_FOLLOW1"
+	frame	data/bgs/99gclub/balc/cup01.gif   #7
+	@cmd	anichange "ANI_FOLLOW20"
+	frame	data/bgs/99gclub/balc/cup01.gif   #8
+	delay	3
+	frame	data/bgs/99gclub/balc/cup01.gif   #9
+	frame	data/bgs/99gclub/balc/cup01.gif   #10
+	frame	data/bgs/99gclub/balc/cup01.gif   #11
+	frame	data/bgs/99gclub/balc/cup01.gif   #12
+	frame	data/bgs/99gclub/balc/cup01.gif   #13
+	frame	data/bgs/99gclub/balc/cup01.gif   #14
+
+#-----------------//--lul-card-//--------------
+
+anim	follow4
+@script
+void self = getlocalvar("self");
+	if (frame == 1)
+	{
+	setentityvar(self, 10, 5);
+	}
+@end_script
+	loop	0
+	delay	5
+	offset	85 85
+	bbox	0 0 0 0
+	frame	data/bgs/99gclub/balc/cup01.gif
+	delay	120
+	@cmd	dasher 0 0 2
+	frame	data/bgs/99gclub/balc/cup01.gif
+	delay	80
+	@cmd	stop
+	@cmd	spawnGun5 "lulcardx" 1 5 1 1 "ANI_FOLLOW1"
+	frame	data/bgs/99gclub/balc/cup01.gif
+	@cmd	GunControl 1 0 1 5 1
+	@cmd	dasher 0 0 -1
+	frame	data/bgs/99gclub/balc/cup01.gif   #3
+	@cmd	stop
+	delay	200
+	frame	data/bgs/99gclub/balc/cup01.gif   #4
+	delay	80
+	@cmd	dasher 0 0 1
+	frame	data/bgs/99gclub/balc/cup01.gif   #5
+	delay	40
+	@cmd	stop
+	frame	data/bgs/99gclub/balc/cup01.gif   #6
+	@cmd	GunControl 1 1 1 5 1
+	@cmd	spawname2 "cuptext" 132 100 168 "ANI_FOLLOW1"
+	frame	data/bgs/99gclub/balc/cup01.gif   #7
+	@cmd	anichange "ANI_FOLLOW20"
+	frame	data/bgs/99gclub/balc/cup01.gif   #8
+	delay	3
+	frame	data/bgs/99gclub/balc/cup01.gif   #9
+	frame	data/bgs/99gclub/balc/cup01.gif   #10
+	frame	data/bgs/99gclub/balc/cup01.gif   #11
+	frame	data/bgs/99gclub/balc/cup01.gif   #12
+	frame	data/bgs/99gclub/balc/cup01.gif   #13
+	frame	data/bgs/99gclub/balc/cup01.gif   #14
+
+#--------------------item-show-end--------------------------
+
+anim	follow20
+	loop	1 3 4
+	delay	1
+	offset	85 85
+	bbox	0 0 0 0
+	frame	data/bgs/99gclub/balc/cup01.gif
+	frame	data/bgs/99gclub/balc/cup01.gif
+	frame	data/bgs/99gclub/balc/cup01.gif
+	frame	data/bgs/99gclub/balc/cup01.gif #3
+	frame	data/bgs/99gclub/balc/cup01.gif #4
+	frame	data/bgs/99gclub/balc/cup01.gif #5
+	frame	data/bgs/99gclub/balc/cup01.gif #6
+	frame	data/bgs/99gclub/balc/cup01.gif #7
+
+
+#--------------//----STOP-AND-CHOOSE--//-------------
+
+anim	follow21
+@script
+void self = getlocalvar("self");
+	int ab = getentityvar(self, 7);
+	int ab2 = getentityvar(self, 8);
+	int ab3 = getentityvar(self, 9);
+	int ab4 = getentityvar(self, 10);
+
+	if (frame == 1)
+		{
+		setglobalvar ("cupchoose", 0);
+		setglobalvar ("mv1", 0);
+		}
+	if (frame == 2)
+		{
+		setglobalvar ("cupchoose", 0);
+		}
+	if (frame == 1 && ab == 5)
+		{
+		performattack(self, openborconstant("ANI_FOLLOW22"));
+		}
+	else if (frame == 1 && ab2 == 5)
+		{
+		performattack(self, openborconstant("ANI_FOLLOW5"));
+		}
+	else if (frame == 1 && ab3 == 5)
+		{
+		performattack(self, openborconstant("ANI_FOLLOW6"));
+		}
+	else if (frame == 1 && ab4 == 5)
+		{
+		performattack(self, openborconstant("ANI_FOLLOW7"));
+		}
+@end_script
+	loop	1 6 8
+	delay	30
+	offset	85 85
+	bbox	0 0 0 0
+	counterrange 0 9 1 0
+     	followanim 24
+	frame	data/bgs/99gclub/balc/cup01.gif
+	frame	data/bgs/99gclub/balc/cup01.gif
+	frame	data/bgs/99gclub/balc/cup01.gif
+	frame	data/bgs/99gclub/balc/cup01.gif
+	frame	data/bgs/99gclub/balc/cup01.gif
+	bbox	63 22 45 40 50
+	frame	data/bgs/99gclub/balc/cup01.gif
+	frame	data/bgs/99gclub/balc/cup01.gif
+	frame	data/bgs/99gclub/balc/cup01.gif
+	frame	data/bgs/99gclub/balc/cup01.gif
+	frame	data/bgs/99gclub/balc/cup01.gif
+
+#--------hand-spawn---set-bbox--apple-item-is-here--------
+
+anim	follow22
+	loop	1 3 7
+	delay	30
+	offset	85 85
+	bbox	0 0 0 0
+	counterrange 0 7 1 0
+     	followanim 23
+	frame	data/bgs/99gclub/balc/cup01.gif
+	@cmd	spawnGun11 "cupgm" 180 0 200 5 "ANI_FOLLOW12"
+	frame	data/bgs/99gclub/balc/cup01.gif
+	frame	data/bgs/99gclub/balc/cup01.gif
+	bbox	63 22 45 40 50
+	frame	data/bgs/99gclub/balc/cup01.gif #3
+	frame	data/bgs/99gclub/balc/cup01.gif
+	frame	data/bgs/99gclub/balc/cup01.gif
+	frame	data/bgs/99gclub/balc/cup01.gif
+	frame	data/bgs/99gclub/balc/cup01.gif
+	frame	data/bgs/99gclub/balc/cup01.gif #8
+
+#--------hand-spawn---set-bbox--money-bag-item-is-here--------
+
+anim	follow5
+	loop	1 3 7
+	delay	3
+	offset	85 85
+	bbox	0 0 0 0
+	counterrange 0 7 1 0
+     	followanim 23
+	frame	data/bgs/99gclub/balc/cup01.gif
+	@cmd	spawnGun11 "cupgm" 180 0 200 5 "ANI_FOLLOW12"
+	frame	data/bgs/99gclub/balc/cup01.gif
+	frame	data/bgs/99gclub/balc/cup01.gif
+	bbox	63 22 45 40 50
+	frame	data/bgs/99gclub/balc/cup01.gif #3
+	frame	data/bgs/99gclub/balc/cup01.gif
+	frame	data/bgs/99gclub/balc/cup01.gif
+	frame	data/bgs/99gclub/balc/cup01.gif
+	frame	data/bgs/99gclub/balc/cup01.gif
+	frame	data/bgs/99gclub/balc/cup01.gif #8
+
+#--------hand-spawn---set-bbox--1up-item-is-here--------
+
+anim	follow6
+	loop	1 3 7
+	delay	3
+	offset	85 85
+	bbox	0 0 0 0
+	counterrange 0 7 1 0
+     	followanim 23
+	frame	data/bgs/99gclub/balc/cup01.gif
+	@cmd	spawnGun11 "cupgm" 180 0 200 5 "ANI_FOLLOW12"
+	frame	data/bgs/99gclub/balc/cup01.gif
+	frame	data/bgs/99gclub/balc/cup01.gif
+	bbox	63 22 45 40 50
+	frame	data/bgs/99gclub/balc/cup01.gif #3
+	frame	data/bgs/99gclub/balc/cup01.gif
+	frame	data/bgs/99gclub/balc/cup01.gif
+	frame	data/bgs/99gclub/balc/cup01.gif
+	frame	data/bgs/99gclub/balc/cup01.gif
+	frame	data/bgs/99gclub/balc/cup01.gif #8
+
+#--------hand-spawn---set-bbox--LUL-item-is-here--------
+
+anim	follow7
+@script
+void self = getlocalvar("self");
+	if (frame == 1)
+		{
+		setentityvar(self, 11, 1);
+		}
+@end_script
+	loop	1 3 7
+	delay	3
+	offset	85 85
+	bbox	0 0 0 0
+	counterrange 0 7 1 0
+     	followanim 23
+	frame	data/bgs/99gclub/balc/cup01.gif
+	@cmd	spawnGun11 "cupgm" 180 0 200 5 "ANI_FOLLOW12"
+	frame	data/bgs/99gclub/balc/cup01.gif
+	frame	data/bgs/99gclub/balc/cup01.gif
+	bbox	63 22 45 40 50
+	frame	data/bgs/99gclub/balc/cup01.gif #3
+	frame	data/bgs/99gclub/balc/cup01.gif
+	frame	data/bgs/99gclub/balc/cup01.gif
+	frame	data/bgs/99gclub/balc/cup01.gif
+	frame	data/bgs/99gclub/balc/cup01.gif
+	frame	data/bgs/99gclub/balc/cup01.gif #8
+
+
+#--------cup-reveal--item-right---------------------------
+
+anim	follow23
+@script
+void self = getlocalvar("self");
+	int it = getentityvar(self, 7);
+	int it2 = getentityvar(self, 8);
+	int it3 = getentityvar(self, 9);
+	int it4 = getentityvar(self, 10);
+
+	int ab6 = getentityvar(self, 11);
+
+	if (frame == 1 && it == 5)
+		{
+		setentityvar(self, 7, 0);
+		changeentityproperty(self, "name", "apple");
+		}
+	if (frame == 1 && it2 == 5)
+		{
+		setentityvar(self, 8, 0);
+		changeentityproperty(self, "name", "moneybag");
+		}
+	if (frame == 1 && it3 == 5)
+		{
+		setentityvar(self, 9, 0);
+		changeentityproperty(self, "name", "1up");
+		}
+	if (frame == 1 && it4 == 5)
+		{
+		setentityvar(self, 10, 0);
+		changeentityproperty(self, "name", "lulcardx");
+		}
+	if (frame == 10 && ab6 == 1)
+		{
+		performattack(self, openborconstant("ANI_FOLLOW26"));
+		setentityvar(self, 11, 0);
+		}
+@end_script
+	loop	0
+	delay	5
+	offset	85 85
+	bbox	0 0 0 0
+	frame	data/bgs/99gclub/balc/cup01.gif
+	delay	80
+	@cmd	stop
+	@cmd	GunControl 1 0 1 5 30
+	frame	data/bgs/99gclub/balc/cup01.gif
+	@cmd	dasher 0 0 -1
+	frame	data/bgs/99gclub/balc/cup01.gif
+	@cmd	stop
+	delay	200
+	@cmd	spawnAni2 "cuptext" 30 0 30 "ANI_FOLLOW2"
+	frame	data/bgs/99gclub/balc/cup01.gif
+	delay	80
+	@cmd	dasher 0 0 1
+	frame	data/bgs/99gclub/balc/cup01.gif
+	delay	40
+	@cmd	stop
+	frame	data/bgs/99gclub/balc/cup01.gif
+	delay	50
+	frame	data/bgs/99gclub/balc/cup01.gif
+	@cmd	killgun 1 1
+	frame	data/bgs/99gclub/balc/cup01.gif
+	@cmd	spawnAniname2  980 55 200 "ANI_SPAWN"
+	frame	data/bgs/99gclub/balc/cup01.gif
+	frame	data/bgs/99gclub/balc/cup01.gif #9
+	delay	10
+	frame	data/bgs/99gclub/balc/cup01.gif #10
+	frame	data/bgs/99gclub/balc/cup01.gif
+	@cmd	spawname2 "cuptext" 132 100 168 "ANI_FOLLOW10"
+	frame	data/bgs/99gclub/balc/cup01.gif
+	delay	50
+	frame	data/bgs/99gclub/balc/cup01.gif
+	frame	data/bgs/99gclub/balc/cup01.gif
+	frame	data/bgs/99gclub/balc/cup01.gif
+
+
+
+
+#--------cup-reveal--wrong-------------------------------
+
+anim	follow24
+@script
+void self = getlocalvar("self");
+	if (frame == 10)
+		{
+		setglobalvar ("cupkill", 1);
+		}
+@end_script
+	loop	0
+	delay	5
+	offset	85 85
+	bbox	0 0 0 0
+	frame	data/bgs/99gclub/balc/cup01.gif
+	delay	80
+	@cmd	stop
+	frame	data/bgs/99gclub/balc/cup01.gif
+	@cmd	dasher 0 0 -1
+	frame	data/bgs/99gclub/balc/cup01.gif
+	@cmd	stop
+	delay	200
+	@cmd	spawnAni2 "cuptext" 30 0 30 "ANI_FOLLOW3"
+	frame	data/bgs/99gclub/balc/cup01.gif
+	delay	80
+	@cmd	dasher 0 0 1
+	frame	data/bgs/99gclub/balc/cup01.gif
+	delay	40
+	@cmd	stop
+	frame	data/bgs/99gclub/balc/cup01.gif
+	delay	30
+	frame	data/bgs/99gclub/balc/cup01.gif
+	frame	data/bgs/99gclub/balc/cup01.gif
+	@cmd	spawname2 "cuptext" 132 100 168 "ANI_FOLLOW4"
+	frame	data/bgs/99gclub/balc/cup01.gif
+	delay	50
+	frame	data/bgs/99gclub/balc/cup01.gif #9
+	frame	data/bgs/99gclub/balc/cup01.gif #10
+	frame	data/bgs/99gclub/balc/cup01.gif
+	frame	data/bgs/99gclub/balc/cup01.gif
+
+#--------cup--win-all------------------------------
+
+anim	follow26
+@script
+void self = getlocalvar("self");
+	if (frame == 5)
+		{
+		setglobalvar ("cupkill", 1);
+		}
+@end_script
+	loop	0
+	delay	30
+	offset	85 85
+	bbox	0 0 0 0
+	frame	data/bgs/99gclub/balc/cup01.gif
+	frame	data/bgs/99gclub/balc/cup01.gif
+	@cmd	spawname2 "cuptext" 132 100 168 "ANI_FOLLOW5"
+	frame	data/bgs/99gclub/balc/cup01.gif
+	frame	data/bgs/99gclub/balc/cup01.gif #3
+	frame	data/bgs/99gclub/balc/cup01.gif #4
+	frame	data/bgs/99gclub/balc/cup01.gif
+	frame	data/bgs/99gclub/balc/cup01.gif
+
+#--------cup-over-------------------------------
+
+anim	follow25
+@script
+	void self = getlocalvar("self");
+	void aggro2 = getentityproperty(self,"aggression");
+	int next = getglobalvar ("cupnext");
+
+	if (frame == 0)
+	{
+	aggro2 = aggro2 +1;
+	changeentityproperty(self,"aggression", aggro2);
+	}
+	if (frame == 7 && next == 1)
+	{
+		setglobalvar ("cupkill", 0);
+		//setglobalvar ("cupitm1", 0);
+		performattack(self, openborconstant("ANI_SPAWN"));
+	}
+	if (frame == 9)
+	{
+		setglobalvar ("mv1", NULL());
+		setglobalvar ("cupitm1", NULL());
+		setglobalvar ("cupkill", 2);
+	}
+@end_script
+	loop	0
+	delay	15
+	offset	85 85
+	bbox	0 0 0 0
+	frame	data/bgs/99gclub/balc/cup01.gif
+	frame	data/bgs/99gclub/balc/cup01.gif
+	delay	120
+	@cmd	dasher 0 0 -2
+	frame	data/bgs/99gclub/balc/cup01.gif
+	delay	50
+	@cmd	stop
+	frame	data/bgs/99gclub/balc/cup01.gif
+	delay	10
+	frame	data/bgs/99gclub/balc/cup01.gif
+	@cmd	killgun 5 1
+	frame	data/bgs/99gclub/balc/cup01.gif
+	@cmd	killgun 2 1
+	frame	data/bgs/99gclub/balc/cup01.gif
+	frame	data/bgs/99gclub/balc/cup01.gif #7
+	frame	data/bgs/99gclub/balc/cup01.gif #8
+	frame	data/bgs/99gclub/balc/cup01.gif #9
+	@cmd	suicide
+	frame	data/bgs/99gclub/balc/cup01.gif
+
+#--------//--crap-//--crap--//--crap--//-------
+
+anim	pain
+	loop	0
+	delay	5
+	offset	85 85
+	bbox	0 0 0 0
+	frame	data/bgs/99gclub/balc/cup01.gif
+	frame	data/bgs/99gclub/balc/cup01.gif
+
+anim	fall
+	loop	0
+	delay	5
+	offset	85 85
+	bbox	0 0 0 0
+	frame	data/bgs/99gclub/balc/cup01.gif
+	frame	data/bgs/99gclub/balc/cup01.gif
+
+

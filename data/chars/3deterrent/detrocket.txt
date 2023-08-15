@@ -1,0 +1,105 @@
+name      detrocket
+type      enemy
+nolife    1
+nomove	  1 1
+facing    3
+health    10
+nodrop	  2
+nodieblink	1
+shadow	0
+hostile   player
+subject_to_hole 0
+subject_to_platform 0
+subject_to_gravity 0
+subject_to_wall 0
+hostile		player npc
+candamage	player npc
+
+animationscript data/scripts/escript.c
+load	rocket1
+
+
+
+alternatepal       data/chars/3deterrent/mismap1.gif
+
+
+
+anim	attack1
+	delay	14
+	offset	75 73
+	frame	data/chars/3deterrent/missile01.gif
+	frame	data/chars/3deterrent/missile02.gif
+	frame	data/chars/3deterrent/missile03.gif
+	frame	data/chars/3deterrent/missile04.gif
+	frame	data/chars/3deterrent/missile05.gif
+	frame	data/chars/3deterrent/missile06.gif
+	frame	data/chars/3deterrent/missile07.gif
+	delay	200
+	frame	data/chars/3deterrent/missile07.gif
+	delay	100
+	@cmd	spawn01 "rocket1" 28 15 1
+	frame	data/chars/3deterrent/missile08.gif
+	@cmd	spawn01 "rocket1" 14 15 1
+	frame	data/chars/3deterrent/missile09.gif
+	@cmd	spawn01 "rocket1" 0 15 1
+	frame	data/chars/3deterrent/missile10.gif
+	@cmd	spawn01 "rocket1" -14 15 1
+	frame	data/chars/3deterrent/missile11.gif
+	@cmd	spawn01 "rocket1" -28 15 1
+	frame	data/chars/3deterrent/missile12.gif
+	delay	300
+	frame	data/chars/3deterrent/missile12.gif
+	delay	14
+	frame	data/chars/3deterrent/missile13.gif
+	frame	data/chars/3deterrent/missile14.gif
+	frame	data/chars/3deterrent/missile15.gif
+	frame	data/chars/3deterrent/missile16.gif
+	delay	550
+	frame	data/chars/3deterrent/missile17.gif
+	frame	data/chars/3deterrent/missile17.gif
+	@cmd	beidle
+	frame	data/chars/3deterrent/missile17.gif
+		
+anim	fall
+	delay	5
+	offset	75 73
+	frame	data/chars/3deterrent/missile01.gif
+
+
+anim	pain
+	delay	5
+	offset	75 73
+	frame	data/chars/3deterrent/missile01.gif
+
+
+anim	rise
+	delay	5
+	offset	75 73
+	frame	data/chars/3deterrent/missile01.gif
+
+anim	spawn
+	loop	0
+	delay	800
+	offset	75 73
+@script
+if(frame==1)
+{
+  changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_OBSTACLE"));
+}
+@end_script
+	frame	data/chars/3deterrent/missile01.gif
+	frame	data/chars/3deterrent/missile01.gif
+
+
+		
+anim	idle
+	delay	5
+	loop	1
+	offset	75 73
+	frame	data/chars/3deterrent/missile01.gif
+	@cmd	attack1 -80 80 200 "ANI_ATTACK1"
+	offset	75 72
+	frame	data/chars/3deterrent/missile01.gif
+		
+#|edited by openBor Stats v 0.53
+		
