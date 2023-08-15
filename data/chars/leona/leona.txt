@@ -1,0 +1,3015 @@
+name leona
+type		player
+health		150
+mp		125
+mprate          1
+chargerate      5
+speed		13
+running		28 3.2 2.5 1 1
+jumpheight      4
+nodieblink	2
+weaploss	3
+modelflag	1
+noquake         0
+makeinv		3
+riseinv		1
+gfxshadow	1
+fmap		1
+holdblock 	1
+blockpain	15
+falldie		2
+dust            dust
+candamage	enemy obstacle
+projectilehit 	player npc enemy
+weapons		yuribike leonaplr yuribike2 yurifall yurwtr yurivent mapcurs mrzero ssleona
+atchain         1 1 2 3 4 0 5 6 7 0 8 1
+combostyle      1
+icon		data/chars/leona/icon1.png
+parrow          data/chars/misc/flash/flash/player1.gif  -36 -145
+parrow2         data/chars/misc/flash/flash/player2.gif  -36 -145
+parrow3         data/chars/misc/flash/flash/player3.gif  -36 -145
+
+animationscript		data/scripts/grabscript.c
+ondrawscript 		data/scripts/water_puddle_script.c
+script			data/scripts/player_script.c
+
+palette		data/chars/leona/idle01.png
+
+
+load	pw12
+load	leonapw
+load 	vslasher
+
+
+com	a3	  freespecial29
+com	a2 	  freespecial15
+
+com	d f a	  freespecial9
+com	d f j	  freespecial8
+com	d f s	  freespecial7
+
+com	f d f a freespecial26
+com	f d f s freespecial27
+com	d u d u s freespecial30
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+anim	attack1
+	drawmethod	240 240
+	cancel	3 6 0 d f a freespecial9
+	range	0 135
+	rangez	-25 25
+	loop	0
+	delay	3
+	offset	34 132
+	bbox	20 28 26 74
+	fastattack	1
+	hitfx	data/sounds/beat2.wav
+	@cmd	attackgrd -75 75 0 1 20 "ANI_FOLLOW10"
+	frame	data/chars/leona/atk01.png
+	offset	30 131
+	frame	data/chars/leona/atk02.png
+	offset	45 129
+	attack	53 53 66 80 6 0 0 0 1 15
+	frame	data/chars/leona/atk03.png
+	offset	46 131
+	delay	4
+	frame	data/chars/leona/atk04.png
+	offset	40 132
+	attack	0 0 0 0 0 0 0 0 0 0
+	delay	2
+	frame	data/chars/leona/atk05.png
+	offset	37 131
+	frame	data/chars/leona/atk06.png
+		
+anim	attack2
+	drawmethod	240 240
+	range	0 60
+	rangez	-25 25
+	loop	0
+	delay	4
+	offset	44 131
+	bbox	29 29 29 103
+	fastattack	1
+	hitflash	Flash4
+	hitfx	data/sounds/sl1.wav
+	sound	data/sounds/xleona01.wav
+	frame	data/chars/leona/atk2-01.png
+	offset	46 131
+	frame	data/chars/leona/atk2-02.png
+	offset	47 131
+	delay	5
+	attack	33 33 77 40 20 0 0 0 15 15
+	frame	data/chars/leona/atk2-03.png
+	offset	46 131
+	frame	data/chars/leona/atk2-04.png
+	offset	46 131
+	attack	0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/leona/atk2-02.png
+	offset	44 131
+	frame	data/chars/leona/atk2-01.png
+		
+anim	attack3
+	drawmethod	240 240
+	cancel	3 7 0 d f a freespecial9
+	range	0 60
+	rangez	-25 25
+	loop	0
+	delay	5
+	offset	44 123
+	bbox	32 31 27 93
+	fastattack	1
+	hitflash	Flash4
+	hitfx	data/sounds/sl1.wav
+	sound	data/sounds/xleona01.wav
+	frame	data/chars/leona/atk3-01.png
+	@cmd	dasher 1 0 0
+	offset	54 122
+	frame	data/chars/leona/atk3-02.png
+	delay	8
+	attack2	42 25 66 40 20 0 0 0 20 15
+	offset	56 120
+	frame	data/chars/leona/atk3-03.png
+	delay	2
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	41 150
+	frame	data/chars/leona/atk3-04.png
+	delay	8
+	attack2	30 -3 39 74 20 0 0 1 20 15
+	@cmd	stop
+	offset	39 131
+	frame	data/chars/leona/atk3-05.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	40 124
+	frame	data/chars/leona/atk3-06.png
+	offset	44 127
+	delay	5
+	frame	data/chars/leona/atk3-07.png
+		
+anim	attack4
+	drawmethod	240 240
+	cancel	3 10 0 d f a freespecial9
+	range	0 60
+	rangez	-25 25
+	loop	0
+	delay	6
+	fastattack	1
+	offset	36 124
+	bbox	24 29 27 96
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/xleona02.wav
+	frame	data/chars/leona/atk4-01.png
+	offset	39 140
+	frame	data/chars/leona/atk4-02.png
+	@cmd	dasher 1 0 0
+	offset	33 145
+	attack10	16 41 62 60 40 0 0 0 35 15
+	frame	data/chars/leona/atk4-03.png
+	offset	31 143
+	frame	data/chars/leona/atk4-04.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	29 129
+	frame	data/chars/leona/atk4-05.png
+	offset	45 139
+	delay	12
+	attack10	24 43 65 60 40 1 0 0 35 15
+	dropv	5 1
+	frame	data/chars/leona/atk4-06.png
+	@cmd	stop
+	offset	44 135
+	frame	data/chars/leona/atk4-07.png
+	offset	47 139
+	attack10	0 0 0 0 0 0 0 0 0 0
+	delay	8
+	frame	data/chars/leona/atk4-08.png
+	offset	43 134
+	frame	data/chars/leona/atk4-09.png
+	offset	52 124
+	frame	data/chars/leona/atk4-10.png
+		
+anim	attack5
+	drawmethod	240 240
+	range	60 85
+	rangez	-25 25
+	loop	0
+	delay	5
+	offset	38 129
+	bbox	22 30 28 86
+	fastattack	1
+	hitflash	Flash4
+	hitfx	data/sounds/sl1.wav
+	sound	data/sounds/xleona01.wav
+	frame	data/chars/leona/atk5-01.png
+	offset	40 126
+	frame	data/chars/leona/atk5-02.png
+	offset	39 124
+	frame	data/chars/leona/atk5-03.png
+	offset	41 125
+	frame	data/chars/leona/atk5-04.png
+	@cmd	dasher 1 0 0
+	offset	53 117
+	frame	data/chars/leona/atk5-05.png
+	offset	40 115
+	frame	data/chars/leona/atk5-06.png
+	offset	18 121
+	attack	11 27 77 37 20 0 0 0 10 15
+	delay	6
+	frame	data/chars/leona/atk5-07.png
+	@cmd	stop
+	offset	17 123
+	attack	0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/leona/atk5-08.png
+	offset	16 128
+	frame	data/chars/leona/atk5-09.png
+	offset	24 131
+	frame	data/chars/leona/atk5-10.png
+		
+anim	attack6
+	drawmethod	240 240
+	range	60 135
+	rangez	-25 25
+	loop	0
+	delay	5
+	offset	37 131
+	bbox	25 26 26 106
+	fastattack	1
+	forcedirection	-1
+	hitfx	data/sounds/beat4.wav
+	hitflash	flashscreen1
+	sound	data/sounds/xleona02.wav
+	frame	data/chars/leona/atk6-01.png
+	offset	41 143
+	frame	data/chars/leona/atk6-02.png
+	offset	47 126
+	@cmd	dasher 1 0 0
+	frame	data/chars/leona/atk6-03.png
+	offset	41 130
+	frame	data/chars/leona/atk6-04.png
+	offset	47 137
+	blast	43 -4 85 97 60 1 0 0 40 30
+	dropv	2 4
+	frame	data/chars/leona/atk6-05.png
+	offset	49 127
+	@cmd	stop
+	frame	data/chars/leona/atk6-06.png
+	offset	51 123
+	frame	data/chars/leona/atk6-07.png
+	offset	55 117
+	frame	data/chars/leona/atk6-08.png
+	offset	38 121
+	frame	data/chars/leona/atk6-09.png
+	offset	34 134
+	frame	data/chars/leona/atk6-10.png
+		
+anim	attackdown
+	drawmethod	240 240
+	loop	0
+	delay	5
+	bbox	0 0 0 0
+	jumpframe	0 3 0 1
+	landframe	14
+	offset	33 165
+	frame	data/chars/leona/jump01.png
+	offset	41 165
+	frame	data/chars/leona/jump02.png
+	offset	43 165
+	frame	data/chars/leona/jump03.png
+	offset	44 152
+	frame	data/chars/leona/jump04.png
+	offset	43 168
+	frame	data/chars/leona/jump05.png
+	offset	27 176
+	frame	data/chars/leona/jump06.png
+	offset	19 168
+	frame	data/chars/leona/jump07.png
+	offset	23 158
+	frame	data/chars/leona/jump08.png
+	offset	24 148
+	frame	data/chars/leona/jump09.png
+	offset	52 135
+	frame	data/chars/leona/jump10.png
+	offset	19 153
+	frame	data/chars/leona/jump11.png
+	offset	27 153
+	frame	data/chars/leona/jump12.png
+	offset	19 159
+	frame	data/chars/leona/jump13.png
+	delay	300
+	offset	27 159
+	frame	data/chars/leona/jump14.png
+	@cmd	spawn01 "dust" 1 1 1
+	delay	5
+	offset	40 81
+	frame	data/chars/leona/jumpland01.png
+		
+anim	attackup
+	drawmethod	240 240
+	loop	0
+	delay	5
+	bbox	0 0 0 0
+	jumpframe	0 3 0 -1
+	landframe	14
+	offset	33 165
+	frame	data/chars/leona/jump01.png
+	offset	45 165
+	frame	data/chars/leona/jump02.png
+	offset	41 165
+	frame	data/chars/leona/jump03.png
+	offset	46 152
+	frame	data/chars/leona/jump04.png
+	offset	48 168
+	frame	data/chars/leona/jump05.png
+	offset	29 176
+	frame	data/chars/leona/jump06.png
+	offset	16 168
+	frame	data/chars/leona/jump07.png
+	offset	24 158
+	frame	data/chars/leona/jump08.png
+	offset	26 148
+	frame	data/chars/leona/jump09.png
+	offset	53 135
+	frame	data/chars/leona/jump10.png
+	offset	17 153
+	frame	data/chars/leona/jump11.png
+	offset	27 153
+	frame	data/chars/leona/jump12.png
+	offset	19 159
+	frame	data/chars/leona/jump13.png
+	delay	300
+	offset	28 159
+	frame	data/chars/leona/jump14.png
+	@cmd	spawn01 "dust" 1 1 1
+	delay	5
+	offset	40 80
+	frame	data/chars/leona/jumpland01.png
+		
+anim	block
+	drawmethod	240 240
+	loop	0
+	delay	6
+	offset	27 131
+	bbox	13 32 28 100
+	frame	data/chars/leona/block01.png
+	bbox	17 30 32 94
+	offset	32 123
+	frame	data/chars/leona/block02.png
+	bbox	15 29 33 96
+	offset	32 124
+	frame	data/chars/leona/block03.png
+	bbox	16 29 33 93
+	offset	32 121
+	frame	data/chars/leona/block04.png
+		
+anim	blockpain
+	drawmethod	240 240
+	loop	0
+	delay	2
+	cancel	5 12 0 a freespecial3
+	move	-6
+	bbox	15 30 36 94
+	offset	32 123
+	frame	data/chars/leona/block02.png
+	offset	32 124
+	frame	data/chars/leona/block03.png
+	offset	32 121
+	frame	data/chars/leona/block04.png
+	offset	32 121
+	frame	data/chars/leona/block04.png
+	move	-4
+	offset	32 121
+	frame	data/chars/leona/block04.png
+	offset	32 121
+	frame	data/chars/leona/block04.png
+	offset	32 121
+	frame	data/chars/leona/block04.png
+	move	0
+	delay	4
+	offset	32 121
+	frame	data/chars/leona/block04.png
+	offset	32 121
+	frame	data/chars/leona/block04.png
+	offset	32 121
+	frame	data/chars/leona/block04.png
+	offset	32 121
+	frame	data/chars/leona/block04.png
+	offset	32 121
+	frame	data/chars/leona/block04.png
+	offset	32 121
+	frame	data/chars/leona/block04.png
+	offset	32 124
+	frame	data/chars/leona/block03.png
+	@cmd	anichange "ANI_BLOCK"
+	offset	32 123
+	frame	data/chars/leona/block02.png
+		
+anim	burn
+	drawmethod	240 240
+	loop	0
+	delay	30
+	offset	35 106
+	bbox	0 0 0 0
+	landframe	3
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 200_50_0
+	@cmd	spawnbind "burn1" 1 1 1
+	@cmd	spawnbind "burn2" 1 1 1
+	@cmd	spawnbind "burn3" 1 1 1
+	attack	16 6 38 39 5 1 0 0 13 0
+	sound	data/sounds/xleonaPain01.wav
+	frame	data/chars/leona/fall01.png
+	offset	37 89
+	frame	data/chars/leona/fall02.png
+	offset	42 75
+	delay	500
+	frame	data/chars/leona/fall03.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	delay	10
+	offset	55 35
+	frame	data/chars/leona/fall04.png
+	delay	50
+	offset	55 35
+	frame	data/chars/leona/fall05.png
+		
+anim	charge
+	drawmethod	240 240
+	bbox	30 30 30 95
+	offset	45 125
+	loop	0
+	delay	9
+	sound	data/sounds/xclark05.wav
+	frame	data/chars/leona/chargex01.png
+	sound	data/sounds/xleonaCharge.wav
+	bbox	31 31 30 95
+	offset	47 125
+	frame	data/chars/leona/chargex02.png
+	bbox	31 31 30 97
+	offset	47 127
+	delay	6
+	frame	data/chars/leona/chargex03.png
+	bbox	31 18 30 99
+	offset	45 116
+	frame	data/chars/leona/chargex04.png
+	bbox	35 3 32 101
+	offset	51 103
+	frame	data/chars/leona/chargex05.png
+	bbox	36 7 31 97
+	offset	51 103
+	frame	data/chars/leona/chargex06.png
+	bbox	35 3 32 101
+	offset	51 103
+	frame	data/chars/leona/chargex05.png
+	@cmd	updateframe getlocalvar("self") 5
+	bbox	29 19 32 100
+	offset	45 118
+	frame	data/chars/leona/chargex08.png
+	bbox	26 26 32 96
+	offset	41 121
+	frame	data/chars/leona/chargex09.png
+	bbox	26 29 32 96
+	offset	41 124
+	frame	data/chars/leona/chargex10.png
+	bbox	24 36 32 96
+	offset	39 131
+	frame	data/chars/leona/chargex11.png
+		
+anim	chargeattack
+	drawmethod	240 240
+	energycost	5
+	mponly	1
+	bbox	26 28 30 102
+	offset	40 129
+	loop	0
+	delay	3
+	fastattack	1
+	staydown	300 300
+	hitflash	Flash4
+	hitfx	data/sounds/sl2.wav
+	frame	data/chars/leona/freespecial9-03.png
+	sound	data/sounds/leonakire.wav
+	offset	38 129
+	frame	data/chars/leona/freespecial9-04.png
+	offset	28 99
+	frame	data/chars/leona/freespecial9-05.png
+	sound	data/sounds/blade.wav
+	delay	5
+	blast	-36 -39 165 159 60 1 0 0 10 30
+	offset	44 114
+	frame	data/chars/leona/freespecial9-06.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	40 139
+	frame	data/chars/leona/freespecial9-07.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	52 126
+	frame	data/chars/leona/freespecial9-08.png
+	offset	57 113
+	frame	data/chars/leona/freespecial9-09.png
+	offset	55 100
+	frame	data/chars/leona/freespecial9-10.png
+	delay	3
+	offset	54 94
+	frame	data/chars/leona/freespecial9-15.png
+	offset	54 92
+	frame	data/chars/leona/freespecial9-16.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	delay	35
+	offset	54 92
+	frame	data/chars/leona/freespecial9-11.png
+	delay	5
+	offset	49 110
+	frame	data/chars/leona/freespecial9-12.png
+	offset	53 124
+	frame	data/chars/leona/freespecial9-13.png
+	offset	40 129
+	frame	data/chars/leona/freespecial9-03.png
+	bbox	23 30 33 97
+	offset	39 126
+	frame	data/chars/leona/freespecial9-14.png
+		
+anim	death
+	drawmethod	240 240
+	loop	0
+	delay	40
+	offset	58 35
+	bbox	0 0 0 0
+	offset	58 35
+	frame	data/chars/leona/fall04.png
+	offset	35 65
+	delay	7
+	frame	data/chars/leona/rise02.png
+	offset	30 74
+	frame	data/chars/leona/rise03.png
+	offset	31 89
+	frame	data/chars/leona/jumpland03.png
+	offset	60 55
+	frame	data/chars/leona/death02.png
+	offset	46 73
+	frame	data/chars/leona/death03.png
+	offset	27 80
+	frame	data/chars/leona/death04.png
+	sound	data/sounds/leonadeth1.wav
+	offset	39 131
+	frame	data/chars/leona/death05.png
+	offset	40 131
+	frame	data/chars/leona/death06.png
+	offset	39 128
+	frame	data/chars/leona/death07.png
+	offset	40 119
+	frame	data/chars/leona/death08.png
+	offset	41 116
+	frame	data/chars/leona/death09.png
+	offset	41 114
+	frame	data/chars/leona/death10.png
+	offset	41 115
+	frame	data/chars/leona/death11.png
+	offset	40 117
+	frame	data/chars/leona/death12.png
+	offset	38 118
+	frame	data/chars/leona/death13.png
+	offset	38 119
+	frame	data/chars/leona/death14.png
+	offset	38 120
+	frame	data/chars/leona/death15.png
+	offset	40 118
+	frame	data/chars/leona/death16.png
+	sound	data/sounds/xleonaDeth.wav
+	offset	44 114
+	frame	data/chars/leona/death17.png
+	offset	43 103
+	frame	data/chars/leona/death18.png
+	offset	46 103
+	frame	data/chars/leona/death19.png
+	offset	48 101
+	frame	data/chars/leona/death20.png
+	offset	48 97
+	frame	data/chars/leona/death21.png
+	offset	48 87
+	frame	data/chars/leona/death22.png
+	offset	57 85
+	frame	data/chars/leona/death23.png
+	offset	60 85
+	frame	data/chars/leona/death24.png
+	offset	80 65
+	delay	6
+	frame	data/chars/leona/death25.png
+	offset	29 61
+	frame	data/chars/leona/death26.png
+	offset	29 80
+	frame	data/chars/leona/death27.png
+	offset	40 83
+	frame	data/chars/leona/death28.png
+	offset	82 43
+	frame	data/chars/leona/death29.png
+	offset	82 40
+	frame	data/chars/leona/death30.png
+	offset	82 37
+	frame	data/chars/leona/death31.png
+	offset	82 35
+	delay	40
+	frame	data/chars/leona/death32.png
+		
+anim	fall
+	drawmethod	240 240
+	loop	0
+	delay	30
+	offset	33 106
+	bbox	0 0 0 0
+	landframe	3
+	sound	data/sounds/xleonaPain01.wav
+	attack	17 2 29 43 5 1 0 0 13 0
+	frame	data/chars/leona/fall01.png
+	offset	39 89
+	frame	data/chars/leona/fall02.png
+	offset	50 75
+	delay	500
+	frame	data/chars/leona/fall03.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	delay	10
+	offset	56 35
+	frame	data/chars/leona/fall04.png
+	delay	50
+	offset	56 35
+	frame	data/chars/leona/fall05.png
+		
+anim	fall2
+	drawmethod	240 240
+	loop	0
+	delay	30
+	offset	33 106
+	bbox	0 0 0 0
+	landframe	3
+	sound	data/sounds/xleonaPain01.wav
+	attack	17 2 38 43 5 1 0 0 13 0
+	frame	data/chars/leona/fall01.png
+	offset	40 89
+	frame	data/chars/leona/fall02.png
+	offset	52 75
+	delay	500
+	frame	data/chars/leona/fall03.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	delay	10
+	offset	56 35
+	frame	data/chars/leona/fall04.png
+	delay	50
+	offset	56 35
+	frame	data/chars/leona/fall05.png
+		
+anim	fall3
+	drawmethod	240 240
+	loop	0
+	delay	30
+	offset	33 106
+	bbox	15 8 39 33
+	landframe	3
+	sound	data/sounds/xleonaPain01.wav
+	attack	17 2 29 43 5 1 0 0 13 0
+	frame	data/chars/leona/fall01.png
+	bbox	23 7 44 28
+	offset	39 89
+	frame	data/chars/leona/fall02.png
+	bbox	25 20 73 21
+	offset	51 75
+	delay	500
+	frame	data/chars/leona/fall03.png
+	bbox	30 15 86 18
+	attack	0 0 0 0 0 0 0 0 0 0
+	delay	10
+	offset	56 35
+	frame	data/chars/leona/fall04.png
+	bbox	0 0 0 0
+	delay	50
+	offset	56 35
+	frame	data/chars/leona/fall05.png
+		
+anim	fall7
+	drawmethod	240 240
+	delay	1000
+	offset	44 94
+	bbox	0 0 0 0
+	frame	data/chars/leona/slam01.png
+	offset	30 113
+	frame	data/chars/leona/slam02.png
+	offset	53 32
+	frame	data/chars/leona/slam03.png
+	offset	40 83
+	frame	data/chars/leona/slam04.png
+	offset	38 93
+	frame	data/chars/leona/slam05.png
+	offset	54 76
+	frame	data/chars/leona/slam06.png
+	offset	27 87
+	frame	data/chars/leona/slam07.png
+	offset	22 100
+	frame	data/chars/leona/slam08.png
+	offset	22 97
+	frame	data/chars/leona/slam09.png
+	offset	83 24
+	frame	data/chars/leona/slam10.png
+	offset	78 25
+	frame	data/chars/leona/slam11.png
+	offset	31 96
+	frame	data/chars/leona/slam12.png
+	offset	75 22
+	frame	data/chars/leona/slam13.png
+	offset	75 22
+	frame	data/chars/leona/slam14.png
+	offset	51 30
+	frame	data/chars/leona/slam15.png
+	offset	23 97
+	frame	data/chars/leona/slam16.png
+	offset	27 111
+	frame	data/chars/leona/slam17.png
+	offset	74 30
+	frame	data/chars/leona/slam18.png
+	offset	74 30
+	frame	data/chars/leona/slam19.png
+	offset	27 111
+	frame	data/chars/leona/slam20.png
+	offset	47 70
+	frame	data/chars/leona/slam21.png
+	offset	38 93
+	frame	data/chars/leona/slam22.png
+	offset	26 116
+	frame	data/chars/leona/slam23.png
+	offset	29 80
+	frame	data/chars/leona/slam24.png
+	offset	38 92
+	frame	data/chars/leona/slam25.png
+	bbox	1 31 44 43
+	offset	24 61
+	frame	data/chars/leona/slam26.png
+		
+anim	fall9
+	drawmethod	240 240
+	loop	0
+	delay	9
+	offset	54 69
+	bbox	0 0 0 0
+	landframe	14
+	sound	data/sounds/xleonaPain01.wav
+	frame	data/chars/leona/fall9-01.png
+	offset	56 55
+	frame	data/chars/leona/fall9-02.png
+	offset	56 61
+	frame	data/chars/leona/fall9-03.png
+	offset	48 61
+	frame	data/chars/leona/fall9-04.png
+	offset	49 54
+	frame	data/chars/leona/fall9-05.png
+	offset	57 49
+	frame	data/chars/leona/fall9-06.png
+	offset	54 69
+	frame	data/chars/leona/fall9-01.png
+	offset	55 55
+	frame	data/chars/leona/fall9-02.png
+	offset	55 61
+	frame	data/chars/leona/fall9-03.png
+	offset	48 61
+	frame	data/chars/leona/fall9-04.png
+	offset	49 54
+	frame	data/chars/leona/fall9-05.png
+	offset	58 50
+	frame	data/chars/leona/fall9-06.png
+	offset	54 69
+	frame	data/chars/leona/fall9-01.png
+	offset	56 55
+	frame	data/chars/leona/fall9-02.png
+	offset	56 35
+	frame	data/chars/leona/fall05.png
+		
+anim	follow10
+	drawmethod	240 240
+	loop	0
+	delay	4
+	bbox	0 0 0 0
+	jumpframe	0 2 1.5
+	landframe	14 dust
+	forcedirection	-1
+	attackone	1
+	otg	2
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/xleona03.wav
+	hitflash	flashscreen1
+	offset	33 165
+	frame	data/chars/leona/jump01.png
+	offset	41 165
+	frame	data/chars/leona/jump02.png
+	offset	43 165
+	frame	data/chars/leona/jump03.png
+	offset	44 152
+	frame	data/chars/leona/jump04.png
+	offset	48 168
+	frame	data/chars/leona/jump05.png
+	offset	27 176
+	frame	data/chars/leona/jump06.png
+	offset	19 168
+	frame	data/chars/leona/jump07.png
+	offset	22 158
+	frame	data/chars/leona/jump08.png
+	offset	25 148
+	frame	data/chars/leona/jump09.png
+	offset	53 135
+	frame	data/chars/leona/jump10.png
+	offset	18 153
+	frame	data/chars/leona/jump11.png
+	offset	27 153
+	frame	data/chars/leona/jump12.png
+	offset	18 159
+	frame	data/chars/leona/jump13.png
+	offset	28 159
+	frame	data/chars/leona/jump14.png
+	delay	9
+	delay	9
+	attack11	-1 49 87 35 50 1 0 0 8 10
+	dropv	2 3
+	offset	38 82
+	frame	data/chars/leona/jumpland01.png
+	offset	35 88
+	frame	data/chars/leona/jumpland02.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	43 107
+	frame	data/chars/leona/jumpland04.png
+	offset	30 124
+	frame	data/chars/leona/jumpland05.png
+		
+anim	follow15
+	drawmethod	240 240
+@script
+	void self = getlocalvar("self");
+   	void opp = getentityproperty(self, "opponent");
+	int enedir = getentityproperty(opp,"direction");
+	if (frame == 0 && enedir == 0)
+	{
+	changeentityproperty(self, "direction", 1);
+	}
+	else if (frame == 0 && enedir == 1)
+	{
+	changeentityproperty(self, "direction", 0);
+	}
+	@end_script	
+	loop	0
+	delay	5
+	bbox	0 0 0 0
+	jumpframe	0 3 -1
+	landframe	14
+	offset	33 165
+	frame	data/chars/leona/jump01.png
+	offset	44 165
+	frame	data/chars/leona/jump02.png
+	offset	43 165
+	frame	data/chars/leona/jump03.png
+	offset	42 152
+	frame	data/chars/leona/jump04.png
+	offset	46 168
+	frame	data/chars/leona/jump05.png
+	offset	26 176
+	frame	data/chars/leona/jump06.png
+	offset	19 168
+	frame	data/chars/leona/jump07.png
+	offset	24 158
+	frame	data/chars/leona/jump08.png
+	offset	24 148
+	frame	data/chars/leona/jump09.png
+	offset	52 135
+	frame	data/chars/leona/jump10.png
+	offset	17 153
+	frame	data/chars/leona/jump11.png
+	offset	26 153
+	frame	data/chars/leona/jump12.png
+	offset	19 159
+	frame	data/chars/leona/jump13.png
+	delay	300
+	offset	28 159
+	frame	data/chars/leona/jump14.png
+	delay	5
+	@cmd	spawn01 "dust" 1 1 1
+	offset	37 82
+	frame	data/chars/leona/jumpland01.png
+	offset	34 88
+	frame	data/chars/leona/jumpland02.png
+	offset	31 89
+	frame	data/chars/leona/jumpland03.png
+		
+anim	follow16
+	drawmethod	240 240
+@script
+	void self = getlocalvar("self");
+   	void opp = getentityproperty(self, "opponent");
+	int enedir = getentityproperty(opp,"direction");
+	if (frame == 0 && enedir == 0)
+	{
+	changeentityproperty(self, "direction", 1);
+	}
+	else if (frame == 0 && enedir == 1)
+	{
+	changeentityproperty(self, "direction", 0);
+	}
+	@end_script	
+	loop	0
+	delay	5
+	bbox	0 0 0 0
+	jumpframe	0 3 -1
+	landframe	14
+	offset	33 165
+	frame	data/chars/leona/jump01.png
+	offset	45 165
+	frame	data/chars/leona/jump02.png
+	offset	41 165
+	frame	data/chars/leona/jump03.png
+	offset	43 152
+	frame	data/chars/leona/jump04.png
+	offset	46 168
+	frame	data/chars/leona/jump05.png
+	offset	28 176
+	frame	data/chars/leona/jump06.png
+	offset	16 168
+	frame	data/chars/leona/jump07.png
+	offset	24 158
+	frame	data/chars/leona/jump08.png
+	offset	26 148
+	frame	data/chars/leona/jump09.png
+	offset	52 135
+	frame	data/chars/leona/jump10.png
+	offset	17 153
+	frame	data/chars/leona/jump11.png
+	offset	25 153
+	frame	data/chars/leona/jump12.png
+	offset	19 159
+	frame	data/chars/leona/jump13.png
+	delay	300
+	offset	28 159
+	frame	data/chars/leona/jump14.png
+	@cmd	spawn01 "dust" 1 1 1
+	delay	5
+	@cmd	dasher -2 0 0
+	offset	40 75
+	frame	data/chars/leona/follow16-01.png
+	offset	38 68
+	frame	data/chars/leona/follow16-02.png
+	offset	39 75
+	frame	data/chars/leona/follow16-03.png
+	offset	39 75
+	frame	data/chars/leona/follow16-03.png
+	offset	39 75
+	frame	data/chars/leona/follow16-03.png
+	delay	10
+	@cmd	stop
+	offset	38 75
+	frame	data/chars/leona/follow16-01.png
+	delay	5
+	offset	51 111
+	frame	data/chars/leona/follow16-04.png
+		
+anim	follow17
+	drawmethod	240 240
+	offset	40 113
+@script
+	void self = getlocalvar("self");
+	int eTime = openborvariant("elapsed_time");
+	if (frame == 7)
+	{
+	changeentityproperty(self, "invincible", 1);
+	changeentityproperty(self, "invinctime", eTime + 1000);
+	changeentityproperty(self, "blink", 1);
+	}
+	@end_script	
+	loop	0
+	delay	800
+	bbox	0 0 0 0
+	frame	data/chars/leona/empty.png
+	delay	9
+	offset	44 125
+	frame	data/chars/leona/atk5-04.png
+	offset	53 117
+	frame	data/chars/leona/atk5-05.png
+	offset	40 115
+	frame	data/chars/leona/atk5-06.png
+	offset	30 119
+	frame	data/chars/leona/win04.png
+	offset	46 103
+	frame	data/chars/leona/win05.png
+	offset	46 86
+	frame	data/chars/leona/win06.png
+	offset	44 96
+	frame	data/chars/leona/win07.png
+	sound	data/sounds/xleona02.wav
+	offset	46 86
+	frame	data/chars/leona/win06.png
+	offset	44 96
+	frame	data/chars/leona/win07.png
+	offset	44 103
+	frame	data/chars/leona/win05.png
+	offset	30 119
+	frame	data/chars/leona/win04.png
+	offset	40 115
+	frame	data/chars/leona/atk5-06.png
+	offset	54 117
+	frame	data/chars/leona/atk5-05.png
+	offset	52 124
+	frame	data/chars/leona/atk4-10.png
+		
+anim	follow4
+	drawmethod	240 240
+	offset	41 140
+	loop	0
+	delay	3
+	bbox	0 0 0 0
+	fastattack	1
+	forcedirection	-1
+	hitflash	Flash
+	hitfx	data/sounds/beat3.wav
+	@cmd	stop
+	frame	data/chars/leona/atk4-02.png
+	@cmd	dasher 1 0 0
+	offset	35 145
+	attack10	14 45 62 60 40 0 0 0 35 30
+	frame	data/chars/leona/atk4-03.png
+	offset	34 143
+	frame	data/chars/leona/atk4-04.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	31 129
+	frame	data/chars/leona/atk4-05.png
+	offset	43 139
+	attack10	22 43 65 60 40 0 0 0 35 30
+	frame	data/chars/leona/atk4-06.png
+	offset	41 135
+	frame	data/chars/leona/atk4-07.png
+	offset	45 139
+	attack10	0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/leona/atk4-08.png
+	@cmd	stop
+	offset	43 134
+	frame	data/chars/leona/atk4-09.png
+	offset	36 133
+	frame	data/chars/leona/atk01.png
+	offset	32 132
+	frame	data/chars/leona/atk02.png
+	offset	43 130
+	attack	55 57 63 65 20 0 0 0 1 30
+	frame	data/chars/leona/atk03.png
+	offset	43 131
+	frame	data/chars/leona/atk04.png
+	offset	39 133
+	attack	0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/leona/atk05.png
+	offset	39 131
+	frame	data/chars/leona/atk06.png
+	offset	42 131
+	hitflash	Flash4
+	hitfx	data/sounds/sl1.wav
+	sound	data/sounds/xleona01.wav
+	frame	data/chars/leona/atk2-01.png
+	offset	47 131
+	frame	data/chars/leona/atk2-02.png
+	offset	48 131
+	attack	32 31 77 42 20 0 0 0 15 30
+	frame	data/chars/leona/atk2-03.png
+	offset	49 131
+	frame	data/chars/leona/atk2-04.png
+	offset	47 131
+	attack	0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/leona/atk2-02.png
+	offset	42 131
+	frame	data/chars/leona/atk2-01.png
+	offset	47 123
+	hitflash	Flash4
+	hitfx	data/sounds/sl1.wav
+	sound	data/sounds/xleona01.wav
+	frame	data/chars/leona/atk3-01.png
+	offset	54 122
+	frame	data/chars/leona/atk3-02.png
+	attack2	42 25 66 40 20 0 0 0 20 30
+	offset	56 121
+	frame	data/chars/leona/atk3-03.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	41 150
+	frame	data/chars/leona/atk3-04.png
+	attack2	27 -3 42 74 20 0 0 1 20 15
+	offset	38 131
+	frame	data/chars/leona/atk3-05.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	41 124
+	frame	data/chars/leona/atk3-06.png
+	offset	44 126
+	frame	data/chars/leona/atk3-07.png
+	offset	38 129
+	hitflash	Flash4
+	hitfx	data/sounds/sl1.wav
+	sound	data/sounds/xleona01.wav
+	frame	data/chars/leona/atk5-01.png
+	offset	40 126
+	frame	data/chars/leona/atk5-02.png
+	offset	40 124
+	frame	data/chars/leona/atk5-03.png
+	offset	41 125
+	frame	data/chars/leona/atk5-04.png
+	offset	48 117
+	frame	data/chars/leona/atk5-05.png
+	offset	40 115
+	frame	data/chars/leona/atk5-06.png
+	offset	18 122
+	attack	11 28 78 37 20 0 0 0 10 30
+	frame	data/chars/leona/atk5-07.png
+	offset	18 123
+	attack	0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/leona/atk5-08.png
+	offset	17 128
+	frame	data/chars/leona/atk5-09.png
+	offset	24 131
+	frame	data/chars/leona/atk5-10.png
+	offset	37 131
+	hitflash	flashscreen1
+	sound	data/sounds/xleona02.wav
+	frame	data/chars/leona/atk6-01.png
+	offset	41 143
+	frame	data/chars/leona/atk6-02.png
+	offset	46 126
+	frame	data/chars/leona/atk6-03.png
+	offset	41 130
+	frame	data/chars/leona/atk6-04.png
+	offset	47 137
+	attack	42 -4 85 97 60 0 0 0 40 30
+	frame	data/chars/leona/atk6-05.png
+	offset	49 127
+	frame	data/chars/leona/atk6-06.png
+	offset	51 123
+	frame	data/chars/leona/atk6-07.png
+	offset	53 117
+	frame	data/chars/leona/atk6-08.png
+	offset	38 121
+	frame	data/chars/leona/atk6-09.png
+	offset	31 134
+	frame	data/chars/leona/atk6-10.png
+	offset	42 140
+	frame	data/chars/leona/atk4-02.png
+	@cmd	dasher 1 0 0
+	offset	35 145
+	attack10	14 47 62 60 40 0 0 0 35 30
+	frame	data/chars/leona/atk4-03.png
+	offset	34 143
+	frame	data/chars/leona/atk4-04.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	31 129
+	frame	data/chars/leona/atk4-05.png
+	offset	42 139
+	attack10	22 48 65 60 40 0 0 0 35 30
+	frame	data/chars/leona/atk4-06.png
+	offset	41 135
+	frame	data/chars/leona/atk4-07.png
+	offset	45 139
+	attack10	0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/leona/atk4-08.png
+	@cmd	stop
+	offset	43 134
+	frame	data/chars/leona/atk4-09.png
+	offset	37 133
+	frame	data/chars/leona/atk01.png
+	offset	33 132
+	frame	data/chars/leona/atk02.png
+	offset	43 130
+	attack	53 55 65 65 20 0 0 0 1 30
+	frame	data/chars/leona/atk03.png
+	offset	42 131
+	frame	data/chars/leona/atk04.png
+	offset	39 132
+	attack	0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/leona/atk05.png
+	offset	39 131
+	frame	data/chars/leona/atk06.png
+	offset	43 131
+	hitflash	Flash4
+	hitfx	data/sounds/sl1.wav
+	sound	data/sounds/xleona01.wav
+	frame	data/chars/leona/atk2-01.png
+	offset	47 131
+	frame	data/chars/leona/atk2-02.png
+	offset	48 131
+	attack	29 31 79 40 20 0 0 0 15 30
+	frame	data/chars/leona/atk2-03.png
+	offset	47 131
+	frame	data/chars/leona/atk2-04.png
+	offset	47 131
+	attack	0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/leona/atk2-02.png
+	offset	43 131
+	frame	data/chars/leona/atk2-01.png
+	offset	47 123
+	hitflash	Flash4
+	hitfx	data/sounds/sl1.wav
+	sound	data/sounds/xleona01.wav
+	frame	data/chars/leona/atk3-01.png
+	@cmd	dasher 1 0 0
+	offset	54 122
+	frame	data/chars/leona/atk3-02.png
+	attack2	42 24 66 40 20 0 0 0 20 30
+	offset	55 121
+	frame	data/chars/leona/atk3-03.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	41 150
+	frame	data/chars/leona/atk3-04.png
+	attack2	28 -3 40 73 20 0 0 1 20 30
+	offset	40 131
+	frame	data/chars/leona/atk3-05.png
+	@cmd	stop
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	41 124
+	frame	data/chars/leona/atk3-06.png
+	offset	45 126
+	frame	data/chars/leona/atk3-07.png
+	offset	38 129
+	hitflash	Flash4
+	hitfx	data/sounds/sl1.wav
+	sound	data/sounds/xleona01.wav
+	frame	data/chars/leona/atk5-01.png
+	offset	40 126
+	frame	data/chars/leona/atk5-02.png
+	offset	40 124
+	frame	data/chars/leona/atk5-03.png
+	offset	41 125
+	frame	data/chars/leona/atk5-04.png
+	@cmd	dasher 1 0 0
+	offset	53 117
+	frame	data/chars/leona/atk5-05.png
+	offset	40 115
+	frame	data/chars/leona/atk5-06.png
+	offset	18 122
+	attack	11 29 77 37 20 0 0 0 10 30
+	frame	data/chars/leona/atk5-07.png
+	offset	18 124
+	attack	0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/leona/atk5-08.png
+	@cmd	stop
+	offset	17 128
+	frame	data/chars/leona/atk5-09.png
+	offset	25 131
+	frame	data/chars/leona/atk5-10.png
+	offset	37 131
+	hitfx	data/sounds/beat4.wav
+	hitflash	flashscreen1
+	sound	data/sounds/xleona02.wav
+	frame	data/chars/leona/atk6-01.png
+	offset	41 143
+	frame	data/chars/leona/atk6-02.png
+	offset	48 126
+	frame	data/chars/leona/atk6-03.png
+	offset	40 130
+	frame	data/chars/leona/atk6-04.png
+	offset	47 138
+	attack	44 -5 85 97 60 0 0 0 40 30
+	frame	data/chars/leona/atk6-05.png
+	offset	49 128
+	frame	data/chars/leona/atk6-06.png
+	offset	51 124
+	frame	data/chars/leona/atk6-07.png
+	offset	53 118
+	frame	data/chars/leona/atk6-08.png
+	offset	38 122
+	frame	data/chars/leona/atk6-09.png
+	offset	32 134
+	frame	data/chars/leona/atk6-10.png
+	offset	42 132
+	frame	data/chars/leona/freespecial27-01.png
+	delay	6
+	offset	41 124
+	frame	data/chars/leona/chargex10.png
+	offset	38 82
+	frame	data/chars/leona/follow3-0.png
+	@cmd	spawnbind "vslasher" 10 1 1
+	delay	10
+	freeze	18 0 74 104 40 1 1 1 35 20
+	offset	21 102
+	frame	data/chars/leona/follow3-1.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	delay	10
+	offset	24 92
+	frame	data/chars/leona/follow3-2.png
+	attack	21 0 77 89 30 0 1 1 35 20
+	delay	30
+	offset	29 87
+	frame	data/chars/leona/follow3-3.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	delay	10
+	offset	32 87
+	frame	data/chars/leona/follow3-4.png
+	delay	20
+	attack	31 0 67 90 30 0 1 1 40 20
+	offset	36 87
+	frame	data/chars/leona/follow3-5.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	delay	10
+	offset	32 149
+	frame	data/chars/leona/follow3-6.png
+	delay	3
+	attack	0 0 65 160 10 1 1 0 0 0
+	offset	20 160
+	frame	data/chars/leona/follow3-7.png
+	offset	31 158
+	frame	data/chars/leona/follow3-8.png
+	attack	1 0 80 161 10 1 1 0 0 0
+	offset	36 159
+	frame	data/chars/leona/follow3-9.png
+	offset	38 160
+	frame	data/chars/leona/follow3-10.png
+	offset	30 155
+	frame	data/chars/leona/follow3-11.png
+	offset	33 147
+	frame	data/chars/leona/follow3-12.png
+	offset	40 129
+	hitflash	Flash4
+	hitfx	data/sounds/sl2.wav
+	frame	data/chars/leona/freespecial9-03.png
+	sound	data/sounds/leonakire.wav
+	offset	41 129
+	@cmd	spawnbind2 "leonapw" -40 80 1 "ANI_FOLLOW3"
+	frame	data/chars/leona/freespecial9-04.png
+	offset	30 99
+	frame	data/chars/leona/freespecial9-05.png
+	sound	data/sounds/blade.wav
+	blast	-37 -22 165 159 60 1 0 0 10 30
+	offset	43 113
+	frame	data/chars/leona/freespecial9-06.png
+	attack	0 0 0 0 0 0 0 0 0 30
+	offset	35 139
+	frame	data/chars/leona/freespecial9-07.png
+	blast	-29 -27 165 159 60 1 0 0 10 30
+	offset	52 126
+	frame	data/chars/leona/freespecial9-08.png
+	attack	0 0 0 0 0 0 0 0 0 30
+	offset	57 113
+	frame	data/chars/leona/freespecial9-09.png
+	blast	-39 -44 172 150 60 1 0 0 10 30
+	offset	54 100
+	frame	data/chars/leona/freespecial9-10.png
+	delay	3
+	offset	54 94
+	frame	data/chars/leona/freespecial9-15.png
+	offset	54 92
+	frame	data/chars/leona/freespecial9-16.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	delay	35
+	offset	56 92
+	frame	data/chars/leona/freespecial9-11.png
+	delay	5
+	offset	51 110
+	frame	data/chars/leona/freespecial9-12.png
+	offset	54 124
+	frame	data/chars/leona/freespecial9-13.png
+	offset	40 129
+	frame	data/chars/leona/freespecial9-03.png
+	offset	39 126
+	frame	data/chars/leona/freespecial9-14.png
+		
+anim	freespecial15
+	drawmethod	240 240
+	bbox	28 29 30 97
+	loop	0
+	delay	9
+	offset	44 125
+	frame	data/chars/leona/atk5-04.png
+	bbox	34 24 32 94
+	offset	53 117
+	frame	data/chars/leona/atk5-05.png
+	bbox	27 24 32 92
+	offset	40 115
+	frame	data/chars/leona/atk5-06.png
+	bbox	20 31 32 89
+	offset	30 119
+	frame	data/chars/leona/win04.png
+	bbox	25 23 43 80
+	offset	46 103
+	frame	data/chars/leona/win05.png
+	bbox	25 15 47 72
+	offset	46 86
+	frame	data/chars/leona/win06.png
+	bbox	25 15 47 81
+	offset	44 96
+	frame	data/chars/leona/win07.png
+	bbox	25 15 47 71
+	sound	data/sounds/xleona02.wav
+	offset	46 86
+	frame	data/chars/leona/win06.png
+	bbox	25 15 47 82
+	offset	44 96
+	frame	data/chars/leona/win07.png
+	bbox	25 22 47 82
+	offset	44 103
+	frame	data/chars/leona/win05.png
+	bbox	9 33 47 87
+	offset	30 119
+	frame	data/chars/leona/win04.png
+	bbox	17 23 47 93
+	offset	40 115
+	frame	data/chars/leona/atk5-06.png
+	bbox	28 23 44 93
+	offset	54 117
+	frame	data/chars/leona/atk5-05.png
+	bbox	35 32 35 93
+	offset	52 124
+	frame	data/chars/leona/atk4-10.png
+		
+anim	freespecial26
+	drawmethod	240 240
+	bbox	25 12 35 44
+	energycost	35
+	mponly	1
+	loop	0
+	delay	10
+	staydown	500 500
+	forcedirection	-1
+	hitfx	data/sounds/beat4.wav
+	hitflash	flashscreen2
+	delay	10
+	offset	38 68
+	frame	data/chars/leona/follow16-02.png
+	bbox	25 12 35 44
+	offset	38 68
+	frame	data/chars/leona/follow16-02.png
+	sound	data/sounds/super1.wav
+	bbox	25 12 35 44
+	@cmd	spawnAni2 "allsp" 1 1 1 2 "ANI_FOLLOW1"
+	offset	38 68
+	frame	data/chars/leona/follow16-02.png
+	bbox	28 18 37 52
+	offset	43 74
+	frame	data/chars/leona/follow16-03.png
+	bbox	28 18 37 52
+	offset	43 74
+	frame	data/chars/leona/follow16-03.png
+	bbox	28 18 37 52
+	delay	40
+	offset	43 74
+	frame	data/chars/leona/follow16-03.png
+	bbox	25 15 37 44
+	@cmd	keymove 1.2
+	delay	6
+	offset	39 73
+	frame	data/chars/leona/follow16-01.png
+	move	7
+	delay	5
+	bbox	45 15 57 24
+	offset	61 73
+	frame	data/chars/leona/run03.png
+	@cmd	keymove 1.2
+	sound	data/sounds/run.wav
+	bbox	45 15 57 24
+	offset	61 73
+	frame	data/chars/leona/run04.png
+	@cmd	keymove 1.2
+	bbox	51 15 57 24
+	offset	68 71
+	frame	data/chars/leona/run05.png
+	sound	data/sounds/leonakill.wav
+	bbox	0 0 0 0
+	offset	75 102
+	frame	data/chars/leona/freespecial8-01.png
+	@cmd	keymove 1.2
+	bbox	0 0 0 0
+	offset	75 102
+	frame	data/chars/leona/freespecial8-01.png
+	bbox	0 0 0 0
+	offset	75 102
+	frame	data/chars/leona/freespecial8-01.png
+	@cmd	keymove 1.2
+	bbox	0 0 0 0
+	offset	58 108
+	frame	data/chars/leona/freespecial8-02.png
+	bbox	0 0 0 0
+	offset	58 108
+	frame	data/chars/leona/freespecial8-02.png
+	@cmd	keymove 1.2
+	bbox	0 0 0 0
+	offset	58 108
+	frame	data/chars/leona/freespecial8-02.png
+	bbox	0 0 0 0
+	offset	58 108
+	frame	data/chars/leona/freespecial8-03.png
+	@cmd	keymove 1.2
+	bbox	0 0 0 0
+	offset	58 108
+	frame	data/chars/leona/freespecial8-03.png
+	move	7
+	bbox	0 0 0 0
+	offset	58 108
+	frame	data/chars/leona/freespecial8-03.png
+	@cmd	keymove 1.2
+	attack	29 0 72 58 40 1 0 0 10 30
+	offset	58 112
+	frame	data/chars/leona/freespecial8-04.png
+	offset	58 112
+	frame	data/chars/leona/freespecial8-04.png
+	@cmd	keymove 1.2
+	offset	58 112
+	frame	data/chars/leona/freespecial8-04.png
+	move	4
+	delay	4
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	57 109
+	frame	data/chars/leona/freespecial8-05.png
+	@cmd	keymove 1.2
+	offset	57 109
+	frame	data/chars/leona/freespecial8-05.png
+	offset	57 109
+	frame	data/chars/leona/freespecial8-05.png
+	@cmd	keymove 1.2
+	delay	5
+	attack	29 0 88 58 40 1 0 0 10 30
+	offset	58 107
+	frame	data/chars/leona/freespecial8-06.png
+	offset	58 107
+	frame	data/chars/leona/freespecial8-06.png
+	@cmd	keymove 1.2
+	offset	58 107
+	frame	data/chars/leona/freespecial8-06.png
+	move	5
+	delay	4
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	37 118
+	frame	data/chars/leona/freespecial8-07.png
+	@cmd	keymove 1.2
+	offset	37 118
+	frame	data/chars/leona/freespecial8-07.png
+	move	6
+	delay	6
+	attack	15 0 88 59 40 1 0 0 10 30
+	offset	20 128
+	frame	data/chars/leona/freespecial8-08.png
+	@cmd	keymove 1.2
+	delay	5
+	offset	20 128
+	frame	data/chars/leona/freespecial8-08.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	@cmd	stop
+	offset	40 126
+	frame	data/chars/leona/atk5-02.png
+	offset	35 124
+	frame	data/chars/leona/atk4-01.png
+	delay	9
+	offset	52 124
+	frame	data/chars/leona/atk4-10.png
+		
+anim	freespecial27
+	drawmethod	240 240
+	energycost	50
+	mponly	1
+	loop	0
+	delay	4
+	bbox	0 0 0 0
+	followanim	4
+	followcond	1
+	fastattack	1
+	seal	7 1
+	hitfx	data/sounds/empty.wav
+	offset	45 125
+	frame	data/chars/leona/grabattack2-10.png
+	offset	52 128
+	frame	data/chars/leona/grabattack2-11.png
+	offset	38 130
+	frame	data/chars/leona/grabattack2-12.png
+	delay	15
+	offset	35 132
+	frame	data/chars/leona/grabattack2-13.png
+	delay	8
+	offset	42 132
+	frame	data/chars/leona/freespecial27-01.png
+	offset	40 131
+	frame	data/chars/leona/freespecial27-02.png
+	offset	39 130
+	frame	data/chars/leona/freespecial27-03.png
+	offset	38 129
+	frame	data/chars/leona/atk5-01.png
+	offset	42 126
+	frame	data/chars/leona/atk5-02.png
+	offset	41 124
+	frame	data/chars/leona/atk5-03.png
+	@cmd	spawn04 "allsp" 1 1 1 2
+	offset	42 123
+	frame	data/chars/leona/freespecial27-04.png
+	sound	data/sounds/super1.wav
+	offset	30 124
+	frame	data/chars/leona/rise06.png
+	sound	data/sounds/leonaikimasu.wav
+	offset	43 107
+	frame	data/chars/leona/rise05.png
+	offset	34 88
+	frame	data/chars/leona/freespecial27-07.png
+	offset	40 82
+	frame	data/chars/leona/freespecial27-08.png
+	offset	32 89
+	frame	data/chars/leona/freespecial27-09.png
+	offset	43 73
+	frame	data/chars/leona/freespecial27-10.png
+	offset	39 66
+	frame	data/chars/leona/freespecial27-11.png
+	@cmd	keymove 1.2
+	offset	39 68
+	frame	data/chars/leona/freespecial27-12.png
+	delay	4
+	@cmd	dasher 4 0 0
+	attack	66 0 50 68 0 0 1 1 10 20
+	move	6
+	offset	68 73
+	frame	data/chars/leona/run01.png
+	offset	81 67
+	frame	data/chars/leona/run02.png
+	offset	62 73
+	frame	data/chars/leona/run03.png
+	@cmd	keymove 1.2
+	offset	62 73
+	frame	data/chars/leona/run04.png
+	offset	68 71
+	frame	data/chars/leona/run05.png
+	@cmd	keymove 1.2
+	offset	82 69
+	frame	data/chars/leona/run06.png
+	offset	63 74
+	frame	data/chars/leona/run07.png
+	@cmd	keymove 1.2
+	offset	62 74
+	frame	data/chars/leona/run08.png
+	offset	68 73
+	frame	data/chars/leona/run01.png
+	@cmd	keymove 1.2
+	offset	81 67
+	frame	data/chars/leona/run02.png
+	offset	62 73
+	frame	data/chars/leona/run03.png
+	@cmd	keymove 1.2
+	offset	61 73
+	frame	data/chars/leona/run04.png
+	offset	68 71
+	frame	data/chars/leona/run05.png
+	@cmd	keymove 1.2
+	offset	82 69
+	frame	data/chars/leona/run06.png
+	offset	64 74
+	frame	data/chars/leona/run07.png
+	@cmd	keymove 1.2
+	offset	62 74
+	frame	data/chars/leona/run08.png
+	offset	68 73
+	frame	data/chars/leona/run01.png
+	@cmd	keymove 1.2
+	offset	81 67
+	frame	data/chars/leona/run02.png
+	offset	62 73
+	frame	data/chars/leona/run03.png
+	@cmd	keymove 1.2
+	offset	62 73
+	frame	data/chars/leona/run04.png
+	offset	68 71
+	frame	data/chars/leona/run05.png
+	@cmd	keymove 1.2
+	offset	82 69
+	frame	data/chars/leona/run06.png
+	offset	64 74
+	frame	data/chars/leona/run07.png
+	@cmd	keymove 1.2
+	offset	62 74
+	frame	data/chars/leona/run08.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	@cmd	stop
+	delay	7
+	@cmd	dasher 1 0 0
+	offset	43 110
+	frame	data/chars/leona/freespecial27-21.png
+	offset	18 116
+	frame	data/chars/leona/freespecial27-22.png
+	offset	22 116
+	frame	data/chars/leona/freespecial27-23.png
+	offset	23 115
+	frame	data/chars/leona/freespecial27-24.png
+	@cmd	stop
+	offset	42 110
+	frame	data/chars/leona/freespecial27-25.png
+		
+anim	freespecial29
+	drawmethod	240 240
+@script
+	void self = getlocalvar("self");
+	int mp1 = getentityproperty(self,"mp");
+	void plyr = getentityproperty(self, "playerindex");
+
+	if(frame > 6 && playerkeys(plyr, 0, "attack3"))
+	{
+	  updateframe(self, 4);
+	}
+	@end_script	
+	bbox	30 42 31 83
+	offset	46 125
+	loop	0
+	delay	9
+	sound	data/sounds/xclark05.wav
+	frame	data/chars/leona/charge01.png
+	bbox	30 30 32 95
+	offset	48 124
+	frame	data/chars/leona/charge02.png
+	bbox	30 30 32 99
+	offset	48 128
+	delay	6
+	frame	data/chars/leona/charge03.png
+	bbox	29 17 33 100
+	offset	45 116
+	frame	data/chars/leona/charge04.png
+	bbox	29 9 32 98
+	offset	45 106
+	frame	data/chars/leona/charge05.png
+	@cmd	mpgain 2
+	bbox	34 7 33 97
+	offset	51 103
+	frame	data/chars/leona/charge06.png
+	bbox	35 12 33 99
+	offset	51 110
+	frame	data/chars/leona/charge07.png
+	bbox	27 19 35 100
+	offset	45 118
+	frame	data/chars/leona/charge08.png
+	bbox	24 28 32 94
+	offset	40 121
+	frame	data/chars/leona/charge09.png
+	bbox	25 29 31 96
+	offset	41 124
+	frame	data/chars/leona/charge10.png
+	bbox	23 32 33 100
+	offset	39 131
+	frame	data/chars/leona/charge11.png
+		
+anim	freespecial3
+	drawmethod	240 240
+	offset	37 131
+	loop	0
+	delay	6
+	bbox	0 0 0 0
+	delay	6
+	staydown	500 500
+	frame	data/chars/leona/atk6-01.png
+	offset	41 143
+	frame	data/chars/leona/atk6-02.png
+	delay	3
+	move	6
+	sound	data/sounds/punch3.wav
+	offset	48 126
+	frame	data/chars/leona/atk6-03.png
+	offset	41 130
+	frame	data/chars/leona/atk6-04.png
+	hitfx	data/sounds/hard2.wav
+	delay	5
+	offset	47 138
+	blast	43 -4 85 97 60 1 0 0 40 30
+	dropv	2 4
+	move	4
+	frame	data/chars/leona/atk6-05.png
+	delay	4
+	offset	49 128
+	frame	data/chars/leona/atk6-06.png
+	offset	51 124
+	frame	data/chars/leona/atk6-07.png
+	offset	53 118
+	frame	data/chars/leona/atk6-08.png
+	offset	38 122
+	frame	data/chars/leona/atk6-09.png
+	offset	31 134
+	frame	data/chars/leona/atk6-10.png
+		
+anim	freespecial30
+	drawmethod	240 240
+	energycost	50
+	mponly	1
+	weaponframe	18 9
+	loop	0
+	delay	9
+	fastattack	1
+	bbox	0 0 0 0
+	hitfx	data/sounds/beat5.wav
+	hitflash	Flash3
+	seal	7 1
+	staydown	400 400
+	offset	45 124
+	delay	9
+	frame	data/chars/leona/chargex01.png
+	offset	47 125
+	frame	data/chars/leona/chargex02.png
+	sound	data/sounds/leonashout.wav
+	offset	47 127
+	delay	6
+	frame	data/chars/leona/chargex03.png
+	@cmd	spawnbind "pw12" 1 1 1
+	attack	-23 -32 140 150 30 1 0 0 0 0
+	offset	45 116
+	frame	data/chars/leona/chargex04.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	46 107
+	frame	data/chars/leona/chargex05.png
+	attack	-20 -45 140 150 30 1 0 0 0 0
+	offset	50 103
+	frame	data/chars/leona/chargex06.png
+	@cmd	spawnbind "pw12" 1 1 1
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	46 107
+	frame	data/chars/leona/chargex05.png
+	attack	-22 -45 140 150 30 1 0 0 0 0
+	offset	50 103
+	frame	data/chars/leona/chargex06.png
+	@cmd	spawnbind "pw12" 1 1 1
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	46 107
+	frame	data/chars/leona/chargex05.png
+	attack	-21 -45 140 150 30 1 0 0 0 0
+	offset	50 103
+	frame	data/chars/leona/chargex06.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	46 107
+	frame	data/chars/leona/chargex05.png
+	attack	-21 -45 140 150 30 1 0 0 0 0
+	offset	50 103
+	frame	data/chars/leona/chargex06.png
+	@cmd	spawnbind "pw12" 1 1 1
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	46 107
+	frame	data/chars/leona/chargex05.png
+	attack	-20 -45 140 150 30 1 0 0 0 0
+	offset	50 103
+	frame	data/chars/leona/chargex06.png
+	@cmd	spawnbind "pw12" 1 1 1
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	46 107
+	frame	data/chars/leona/chargex05.png
+	attack	-20 -45 140 150 30 1 0 0 0 0
+	offset	50 103
+	frame	data/chars/leona/chargex06.png
+	offset	40 113
+	frame	data/chars/leona/empty.png
+	offset	51 110
+	frame	data/chars/leona/chargex07.png
+	offset	40 113
+	frame	data/chars/leona/empty.png
+	offset	51 110
+	frame	data/chars/leona/chargex07.png
+	offset	40 113
+	frame	data/chars/leona/empty.png
+	offset	51 110
+	frame	data/chars/leona/chargex07.png
+		
+anim	freespecial7
+	drawmethod	240 240
+	energycost	9
+	mponly	1
+	bbox	28 30 33 95
+	offset	45 124
+	loop	0
+	delay	14
+	sound	data/sounds/xclark05.wav
+	sound	data/sounds/xleonaCharge.wav
+	frame	data/chars/leona/charge01.png
+	bbox	29 30 33 95
+	offset	45 124
+	frame	data/chars/leona/charge02.png
+	bbox	29 30 33 99
+	offset	45 128
+	frame	data/chars/leona/charge03.png
+	@cmd	spawnbind2 "leonapw" -40 80 1 "ANI_FOLLOW2"
+	sound	data/sounds/super2.wav
+	attack	34 -5 89 85 30 0 1 0 0 30
+	bbox	29 17 33 100
+	offset	45 116
+	frame	data/chars/leona/charge04.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	bbox	30 9 30 98
+	offset	45 106
+	frame	data/chars/leona/charge05.png
+	attack	37 -5 89 85 30 0 1 0 0 30
+	bbox	36 7 32 97
+	offset	52 103
+	frame	data/chars/leona/charge06.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	delay	18
+	bbox	36 12 32 99
+	offset	52 110
+	frame	data/chars/leona/charge07.png
+	attack	34 -5 89 85 30 0 1 0 0 30
+	delay	9
+	bbox	29 19 32 100
+	offset	45 118
+	frame	data/chars/leona/charge08.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	bbox	24 28 32 94
+	offset	40 121
+	frame	data/chars/leona/charge09.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	bbox	25 29 32 96
+	offset	41 124
+	frame	data/chars/leona/charge10.png
+	bbox	22 32 35 100
+	offset	39 131
+	frame	data/chars/leona/charge11.png
+		
+anim	freespecial8
+	drawmethod	240 240
+	energycost	7
+	mponly	1
+	fastattack	1
+	hitflash	Flash4
+	hitfx	data/sounds/sl1.wav
+	delay	10
+	offset	39 66
+	frame	data/chars/leona/follow16-02.png
+	offset	43 73
+	frame	data/chars/leona/follow16-03.png
+	delay	6
+	@cmd	dasher 5 0 0
+	offset	40 73
+	frame	data/chars/leona/follow16-01.png
+	delay	5
+	bbox	46 15 57 22
+	offset	62 73
+	frame	data/chars/leona/run03.png
+	sound	data/sounds/run.wav
+	bbox	47 16 54 21
+	offset	62 73
+	frame	data/chars/leona/run04.png
+	bbox	54 15 54 22
+	offset	68 71
+	frame	data/chars/leona/run05.png
+	sound	data/sounds/leonakill.wav
+	bbox	0 0 0 0
+	offset	76 102
+	frame	data/chars/leona/freespecial8-01.png
+	bbox	0 0 0 0
+	offset	59 108
+	frame	data/chars/leona/freespecial8-02.png
+	bbox	0 0 0 0
+	offset	57 108
+	frame	data/chars/leona/freespecial8-03.png
+	@cmd	spawnbind2 "leonapw" -40 80 1 "ANI_FOLLOW5"
+	sound	data/sounds/slashsabre.wav
+	attack	31 0 72 58 20 1 0 0 10 30
+	bbox	0 0 0 0
+	offset	58 112
+	frame	data/chars/leona/freespecial8-04.png
+	delay	4
+	attack	0 0 0 0 0 0 0 0 0 0
+	bbox	0 0 0 0
+	offset	58 109
+	frame	data/chars/leona/freespecial8-05.png
+	delay	5
+	attack	30 0 88 58 20 1 0 0 10 30
+	bbox	0 0 0 0
+	offset	58 107
+	frame	data/chars/leona/freespecial8-06.png
+	delay	4
+	attack	0 0 0 0 0 0 0 0 0 0
+	bbox	0 0 0 0
+	offset	37 118
+	frame	data/chars/leona/freespecial8-07.png
+	delay	6
+	attack	18 0 88 59 20 1 0 0 10 30
+	staydown	400 400
+	bbox	0 0 0 0
+	offset	20 127
+	frame	data/chars/leona/freespecial8-08.png
+	delay	5
+	@cmd	stop
+	bbox	0 0 0 0
+	offset	20 127
+	frame	data/chars/leona/freespecial8-08.png
+	offset	40 126
+	frame	data/chars/leona/atk5-02.png
+	offset	35 124
+	frame	data/chars/leona/atk4-01.png
+	delay	9
+	offset	52 124
+	frame	data/chars/leona/atk4-10.png
+		
+anim	freespecial9
+	drawmethod	240 240
+	energycost	5
+	mponly	1
+	bbox	29 28 27 88
+	offset	40 129
+	loop	0
+	delay	3
+	fastattack	1
+	hitflash	Flash4
+	hitfx	data/sounds/sl2.wav
+	frame	data/chars/leona/freespecial9-03.png
+	sound	data/sounds/leonakire.wav
+	offset	40 129
+	@cmd	spawnbind2 "leonapw" -40 80 1 "ANI_FOLLOW3"
+	frame	data/chars/leona/freespecial9-04.png
+	offset	28 99
+	frame	data/chars/leona/freespecial9-05.png
+	bbox	0 0 0 0
+	sound	data/sounds/blade.wav
+	delay	5
+	blast	-36 -40 165 159 40 1 0 0 10 30
+	offset	43 113
+	frame	data/chars/leona/freespecial9-06.png
+	bbox	0 0 0 0
+	attack	0 0 0 0 0 1 0 0 0 30
+	offset	40 139
+	frame	data/chars/leona/freespecial9-07.png
+	bbox	0 0 0 0
+	blast	-29 -27 165 159 40 1 0 0 10 30
+	offset	52 126
+	frame	data/chars/leona/freespecial9-08.png
+	attack	0 0 0 0 0 1 0 0 0 30
+	offset	57 113
+	frame	data/chars/leona/freespecial9-09.png
+	bbox	0 0 0 0
+	blast	-36 -37 165 143 40 1 0 0 10 30
+	delay	3
+	offset	54 100
+	frame	data/chars/leona/freespecial9-10.png
+	delay	3
+	offset	54 94
+	frame	data/chars/leona/freespecial9-15.png
+	offset	54 92
+	frame	data/chars/leona/freespecial9-16.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	delay	35
+	offset	54 91
+	frame	data/chars/leona/freespecial9-11.png
+	delay	5
+	offset	49 110
+	frame	data/chars/leona/freespecial9-12.png
+	offset	53 124
+	frame	data/chars/leona/freespecial9-13.png
+	offset	40 129
+	frame	data/chars/leona/freespecial9-03.png
+	bbox	23 30 32 97
+	offset	39 126
+	frame	data/chars/leona/freespecial9-14.png
+		
+anim	get
+	drawmethod	240 240
+	loop	0
+	delay	5
+	bbox	13 33 30 92
+	offset	28 124
+	frame	data/chars/leona/jumpland05.png
+	sound	data/sounds/leonasuiko.wav
+	offset	43 107
+	frame	data/chars/leona/jumpland04.png
+	delay	9
+	offset	30 89
+	frame	data/chars/leona/jumpland03.png
+	delay	5
+	offset	33 88
+	frame	data/chars/leona/jumpland02.png
+	offset	43 107
+	frame	data/chars/leona/jumpland04.png
+	offset	30 124
+	frame	data/chars/leona/jumpland05.png
+		
+anim	grab
+	drawmethod	240 240
+	bbox	25 23 33 90
+	offset	44 112
+	loop	0
+	delay	6
+	frame	data/chars/leona/grab01.png
+		
+anim	grabattack
+	drawmethod	240 240
+	offset	31 129
+	loop	0
+	delay	6
+	attack	0 0 0 0 0 0 0 0 0 0
+	fastattack	1
+	hitfx	data/sounds/beat5.wav
+	frame	data/chars/leona/atk4-05.png
+	offset	44 139
+	attack2	23 51 65 60 30 0 0 0 15 15
+	frame	data/chars/leona/atk4-06.png
+	attack2	0 0 0 0 0 0 0 0 0 0
+	offset	42 134
+	frame	data/chars/leona/atk4-07.png
+	offset	45 138
+	frame	data/chars/leona/atk4-08.png
+	offset	43 133
+	frame	data/chars/leona/atk4-09.png
+	offset	52 124
+	frame	data/chars/leona/atk4-10.png
+		
+anim	grabattack2
+	drawmethod	240 240
+	offset	48 106
+	loop	0
+	delay	7
+	attackone	0
+	bbox	0 0 0 0
+	staydown	500 500
+	fastattack	1
+	frame	data/chars/leona/grabattack2-01.png
+	sound	data/sounds/applejus.wav
+	delay	4
+	offset	46 104
+	frame	data/chars/leona/grabattack2-02.png
+	offset	47 113
+	frame	data/chars/leona/grabattack2-03.png
+	offset	45 115
+	frame	data/chars/leona/grabattack2-04.png
+	delay	4
+	offset	52 116
+	frame	data/chars/leona/grabattack2-05.png
+	offset	43 99
+	frame	data/chars/leona/grabattack2-06.png
+	offset	43 96
+	frame	data/chars/leona/grabattack2-07.png
+	hitflash	Flash4
+	attack	32 0 56 65 20 1 0 1 40 13
+	hitfx	data/sounds/sl1.wav
+	offset	43 115
+	delay	20
+	frame	data/chars/leona/grabattack2-08.png
+	offset	44 123
+	delay	5
+	frame	data/chars/leona/grabattack2-09.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	delay	5
+	offset	45 125
+	frame	data/chars/leona/grabattack2-10.png
+	offset	53 128
+	frame	data/chars/leona/grabattack2-11.png
+	offset	38 130
+	frame	data/chars/leona/grabattack2-12.png
+	delay	20
+	offset	33 132
+	frame	data/chars/leona/grabattack2-13.png
+		
+anim	grabbackward
+	drawmethod	240 240
+	otg	1
+	loop	0
+	delay	20
+	bbox	0 0 0 0
+	forcedirection	-1
+	attackone	0
+	staydown	500 500
+	@cmd	slamstart
+	sound	data/sounds/grab.wav
+	@cmd	position 10 35 49 -1 -1
+	offset	56 92
+	frame	data/chars/leona/freespecial9-11.png
+	delay	9
+	@cmd	position 11 33 50 -1 -1
+	offset	52 126
+	frame	data/chars/leona/freespecial9-08.png
+	delay	25
+	@cmd	position 9 15 70 -1 1
+	offset	40 139
+	frame	data/chars/leona/freespecial9-07.png
+	delay	9
+	@cmd	position 8 0 70 -1 -1
+	offset	43 113
+	frame	data/chars/leona/freespecial9-06.png
+	delay	35
+	@cmd	depost 0
+	@cmd	throw 70 1 3 3 0 -1
+	offset	28 99
+	frame	data/chars/leona/freespecial9-05.png
+	delay	15
+	offset	38 129
+	frame	data/chars/leona/freespecial9-04.png
+	@cmd	flip
+	@cmd	clearL
+	offset	43 107
+	frame	data/chars/leona/jumpland04.png
+		
+anim	grabbed
+	delay	10
+	drawmethod	240 240
+	offset	34 133
+	bbox	19 31 31 103
+	frame	data/chars/leona/pain01.png
+		
+anim	grabdown
+	drawmethod	240 240
+	offset	43 100
+	delay	6
+	loop	0
+	attackone	0
+	hitfx	data/sounds/beat5.wav
+	frame	data/chars/leona/grabdown01.png
+	offset	54 115
+	delay	7
+	attack10	41 -4 46 85 40 1 1 0 30 10
+	dropv	6.5 0.5
+	frame	data/chars/leona/grabdown02.png
+	offset	33 132
+	frame	data/chars/leona/grabdown03.png
+	offset	30 133
+	frame	data/chars/leona/grabdown04.png
+	offset	35 149
+	frame	data/chars/leona/grabdown05.png
+	offset	35 145
+	frame	data/chars/leona/grabdown06.png
+	offset	32 145
+	frame	data/chars/leona/grabdown07.png
+	offset	19 142
+	frame	data/chars/leona/grabdown08.png
+	offset	19 141
+	frame	data/chars/leona/grabdown09.png
+	offset	30 141
+	frame	data/chars/leona/grabdown10.png
+	offset	36 135
+	frame	data/chars/leona/grabdown11.png
+		
+anim	idle
+	drawmethod	240 240
+	loop	1 8 16
+	delay	9
+	offset	39 129
+	bbox	22 30 32 99
+	frame	data/chars/leona/idle01.png
+	@cmd	clearL
+	bbox	21 31 32 100
+	offset	38 130
+	frame	data/chars/leona/idle02.png
+	bbox	20 30 32 99
+	offset	38 128
+	frame	data/chars/leona/idle03.png
+	bbox	21 30 32 101
+	offset	39 130
+	frame	data/chars/leona/idle04.png
+	bbox	21 29 33 100
+	offset	38 128
+	frame	data/chars/leona/idle05.png
+	bbox	22 30 32 100
+	offset	38 129
+	frame	data/chars/leona/idle06.png
+	bbox	21 29 33 101
+	offset	38 129
+	frame	data/chars/leona/idle07.png
+	bbox	22 30 32 99
+	offset	39 128
+	frame	data/chars/leona/idle08.png
+	bbox	22 30 33 100
+	offset	38 129
+	frame	data/chars/leona/idle09.png
+	bbox	22 31 33 99
+	offset	38 129
+	frame	data/chars/leona/idle10.png
+	bbox	22 30 32 99
+	offset	38 129
+	frame	data/chars/leona/idle11.png
+	bbox	21 30 33 101
+	offset	37 130
+	frame	data/chars/leona/idle12.png
+	bbox	21 30 33 101
+	offset	38 131
+	frame	data/chars/leona/idle13.png
+	bbox	22 30 34 99
+	offset	39 128
+	frame	data/chars/leona/idle14.png
+	bbox	22 30 33 99
+	offset	39 128
+	frame	data/chars/leona/idle15.png
+	bbox	23 30 32 99
+	offset	39 129
+	frame	data/chars/leona/idle16.png
+		
+anim	jump
+	drawmethod	240 240
+	loop	0
+	delay	5
+	offset	34 165
+	bbox	17 39 27 104
+	frame	data/chars/leona/jump01.png
+	bbox	29 35 36 60
+	offset	41 165
+	frame	data/chars/leona/jump02.png
+	bbox	23 30 40 28
+	offset	43 165
+	frame	data/chars/leona/jump03.png
+	bbox	32 47 30 -42
+	offset	41 152
+	frame	data/chars/leona/jump04.png
+	bbox	38 90 25 -54
+	offset	43 168
+	frame	data/chars/leona/jump05.png
+	bbox	13 107 27 -68
+	offset	23 176
+	frame	data/chars/leona/jump06.png
+	bbox	2 102 27 -66
+	offset	23 168
+	frame	data/chars/leona/jump07.png
+	bbox	14 68 42 23
+	offset	23 158
+	frame	data/chars/leona/jump08.png
+	bbox	14 43 37 26
+	offset	23 148
+	frame	data/chars/leona/jump09.png
+	bbox	42 10 40 33
+	offset	50 135
+	frame	data/chars/leona/jump10.png
+	bbox	35 11 -33 52
+	offset	19 153
+	frame	data/chars/leona/jump11.png
+	bbox	51 24 -37 33
+	offset	24 153
+	frame	data/chars/leona/jump12.png
+	bbox	8 26 23 109
+	offset	17 159
+	frame	data/chars/leona/jump13.png
+	bbox	14 31 22 105
+	offset	25 159
+	frame	data/chars/leona/jump14.png
+		
+anim	jumpattack
+	drawmethod	240 240
+	bbox	16 28 43 45
+	offset	34 132
+	forcedirection	-1
+	delay	9
+	staydown	300 300
+	hitfx	data/sounds/beat3.wav
+	sound	data/sounds/xleona03.wav
+	frame	data/chars/leona/jumpattack01.png
+	bbox	12 27 25 48
+	offset	24 129
+	attack	24 34 94 55 30 1 0 0 20 0
+	frame	data/chars/leona/jumpattack02.png
+	bbox	9 28 34 42
+	offset	24 133
+	frame	data/chars/leona/jumpattack03.png
+	bbox	15 29 28 48
+	offset	28 143
+	frame	data/chars/leona/jumpattack04.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	bbox	22 28 23 53
+	offset	34 159
+	frame	data/chars/leona/jumpattack05.png
+	bbox	24 28 23 53
+	offset	34 159
+	frame	data/chars/leona/jumpattack06.png
+		
+anim	jumpattack2
+	drawmethod	240 240
+	offset	40 126
+	delay	4
+	loop	0
+	frame	data/chars/leona/jumpattack2-01.png
+	offset	69 112
+	delay	100
+	attack	74 17 60 44 10 0 1 0 5 15
+	frame	data/chars/leona/jumpattack2-02.png
+	offset	70 112
+	delay	100
+	attack	74 17 62 44 10 0 0 1 5 15
+	frame	data/chars/leona/jumpattack2-03.png
+	offset	54 127
+	frame	data/chars/leona/jumpattack2-04.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	34 135
+	frame	data/chars/leona/jumpattack2-05.png
+	offset	39 135
+	frame	data/chars/leona/jumpattack2-06.png
+		
+anim	jumpdelay
+	drawmethod	240 240
+	loop	0
+	delay	4
+	offset	39 129
+	bbox	23 29 32 101
+	frame	data/chars/leona/jumpdelay01.png
+	bbox	22 29 26 85
+	offset	38 125
+	frame	data/chars/leona/jumpdelay02.png
+		
+anim	jumpland
+	drawmethod	240 240
+	loop	0
+	delay	4
+	offset	37 82
+	bbox	23 22 28 61
+	frame	data/chars/leona/jumpland01.png
+	bbox	21 28 24 61
+	offset	33 88
+	frame	data/chars/leona/jumpland02.png
+	bbox	19 29 25 61
+	offset	30 89
+	frame	data/chars/leona/jumpland03.png
+	bbox	29 29 29 79
+	offset	43 107
+	frame	data/chars/leona/jumpland04.png
+	bbox	12 33 31 92
+	offset	29 124
+	frame	data/chars/leona/jumpland05.png
+		
+anim	pain
+	drawmethod	240 240
+	loop	0
+	delay	5
+	offset	34 133
+	bbox	19 31 31 103
+	frame	data/chars/leona/pain01.png
+	offset	33 134
+	frame	data/chars/leona/pain02.png
+	offset	29 132
+	frame	data/chars/leona/pain03.png
+	offset	44 119
+	frame	data/chars/leona/pain04.png
+		
+anim	pain2
+	drawmethod	240 240
+	loop	0
+	delay	3
+	offset	29 123
+	bbox	11 23 33 101
+	frame	data/chars/leona/pain2-01.png
+	offset	22 119
+	frame	data/chars/leona/pain2-02.png
+	offset	23 101
+	frame	data/chars/leona/pain2-03.png
+	offset	23 93
+	frame	data/chars/leona/pain2-04.png
+		
+anim	pain3
+	drawmethod	240 240
+	loop	0
+	delay	2
+	offset	29 132
+	bbox	10 34 34 99
+	move	-6
+	frame	data/chars/leona/pain3-01.png
+	offset	44 119
+	frame	data/chars/leona/pain3-02.png
+	offset	43 113
+	frame	data/chars/leona/pain3-03.png
+	offset	39 110
+	frame	data/chars/leona/pain3-04.png
+	offset	46 91
+	frame	data/chars/leona/pain3-05.png
+	offset	57 82
+	frame	data/chars/leona/pain3-06.png
+	offset	30 132
+	move	-4
+	frame	data/chars/leona/pain3-07.png
+	offset	44 119
+	frame	data/chars/leona/pain3-08.png
+	offset	43 113
+	frame	data/chars/leona/pain3-09.png
+	offset	24 114
+	frame	data/chars/leona/pain3-10.png
+	offset	34 117
+	frame	data/chars/leona/pain3-11.png
+	offset	33 81
+	move	-2
+	frame	data/chars/leona/pain3-12.png
+	offset	30 93
+	frame	data/chars/leona/pain3-13.png
+	offset	36 102
+	frame	data/chars/leona/pain3-14.png
+	offset	29 118
+	delay	50
+	frame	data/chars/leona/pain3-15.png
+		
+anim	pain5
+	drawmethod	240 240
+	loop	0
+	delay	12
+	offset	31 135
+	bbox	14 31 26 92
+	frame	data/chars/leona/pain5-01.png
+	offset	39 139
+	frame	data/chars/leona/pain5-02.png
+	offset	49 147
+	frame	data/chars/leona/pain5-03.png
+	offset	29 136
+	frame	data/chars/leona/pain5-04.png
+	offset	23 100
+	frame	data/chars/leona/pain5-05.png
+	offset	24 93
+	delay	40
+	frame	data/chars/leona/pain5-06.png
+	offset	23 101
+	delay	12
+	frame	data/chars/leona/pain5-07.png
+	offset	22 119
+	frame	data/chars/leona/pain5-08.png
+		
+anim	respawn
+	drawmethod	240 240
+	offset	30 139
+	bbox	0 0 0 0
+	delay	10
+	frame	data/chars/leona/spawn01.png
+	offset	30 140
+	sound	data/sounds/katenai.wav
+	frame	data/chars/leona/spawn02.png
+	offset	33 137
+	frame	data/chars/leona/spawn03.png
+	offset	35 136
+	frame	data/chars/leona/spawn04.png
+	delay	25
+	offset	34 136
+	frame	data/chars/leona/spawn05.png
+	offset	34 138
+	frame	data/chars/leona/spawn06.png
+	offset	32 140
+	frame	data/chars/leona/spawn07.png
+	offset	35 135
+	frame	data/chars/leona/spawn08.png
+		
+anim	rise
+	drawmethod	240 240
+	offset	56 35
+	bbox	0 0 0 0
+	loop	0
+	delay	25
+	frame	data/chars/leona/fall05.png
+	offset	39 65
+	delay	6
+	frame	data/chars/leona/rise02.png
+	offset	32 75
+	frame	data/chars/leona/rise03.png
+	offset	43 85
+	frame	data/chars/leona/rise04.png
+	offset	43 106
+	frame	data/chars/leona/rise05.png
+	offset	29 124
+	frame	data/chars/leona/rise06.png
+		
+anim	run
+	drawmethod	240 240
+	cancel	1 8 0 s freespecial9
+	bbox	53 19 47 20
+	offset	62 74
+	loop	1
+	delay	4
+	frame	data/chars/leona/run01.png
+	bbox	64 16 47 22
+	offset	75 75
+	frame	data/chars/leona/run02.png
+	sound	data/sounds/run.wav
+	bbox	45 18 48 20
+	offset	55 75
+	frame	data/chars/leona/run03.png
+	bbox	47 18 48 20
+	offset	55 74
+	frame	data/chars/leona/run04.png
+	bbox	51 17 50 20
+	offset	62 72
+	frame	data/chars/leona/run05.png
+	bbox	64 19 49 20
+	offset	76 75
+	frame	data/chars/leona/run06.png
+	sound	data/sounds/run.wav
+	bbox	46 17 50 20
+	offset	57 73
+	frame	data/chars/leona/run07.png
+	bbox	48 17 44 21
+	offset	55 74
+	frame	data/chars/leona/run08.png
+		
+anim	runattack
+	drawmethod	240 240
+	delay	5
+	offset	32 131
+	bbox	25 27 25 105
+	loop	0
+	fastattack	1
+	forcedirection	-1
+	@cmd	dasher 1.5 0 0
+	hitfx	data/sounds/beat4.wav
+	sound	data/sounds/xleona02.wav
+	frame	data/chars/leona/atk6-01.png
+	offset	41 143
+	frame	data/chars/leona/atk6-02.png
+	offset	47 126
+	frame	data/chars/leona/atk6-03.png
+	offset	41 130
+	frame	data/chars/leona/atk6-04.png
+	offset	47 138
+	blast	42 -4 85 97 60 1 0 0 40 30
+	dropv	2 4
+	frame	data/chars/leona/atk6-05.png
+	offset	49 128
+	frame	data/chars/leona/atk6-06.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	51 124
+	frame	data/chars/leona/atk6-07.png
+	offset	55 118
+	frame	data/chars/leona/atk6-08.png
+	@cmd	stop
+	offset	40 122
+	frame	data/chars/leona/atk6-09.png
+	offset	31 134
+	frame	data/chars/leona/atk6-10.png
+		
+anim	runjump
+	drawmethod	240 240
+	loop	0
+	delay	5
+	offset	34 165
+	bbox	17 39 26 111
+	frame	data/chars/leona/jump01.png
+	bbox	32 36 33 60
+	offset	46 165
+	frame	data/chars/leona/jump02.png
+	bbox	23 30 38 28
+	offset	43 165
+	frame	data/chars/leona/jump03.png
+	bbox	31 50 28 -41
+	offset	41 152
+	frame	data/chars/leona/jump04.png
+	bbox	37 87 25 -47
+	offset	43 168
+	frame	data/chars/leona/jump05.png
+	bbox	12 114 29 -79
+	offset	26 176
+	frame	data/chars/leona/jump06.png
+	bbox	2 107 27 -72
+	offset	18 168
+	frame	data/chars/leona/jump07.png
+	bbox	14 68 44 23
+	offset	24 158
+	frame	data/chars/leona/jump08.png
+	bbox	14 41 41 29
+	offset	23 148
+	frame	data/chars/leona/jump09.png
+	bbox	42 8 31 33
+	offset	50 135
+	frame	data/chars/leona/jump10.png
+	bbox	35 11 -33 54
+	offset	19 153
+	frame	data/chars/leona/jump11.png
+	bbox	51 22 -37 33
+	offset	24 153
+	frame	data/chars/leona/jump12.png
+	bbox	7 26 23 101
+	offset	18 159
+	frame	data/chars/leona/jump13.png
+	bbox	12 31 25 105
+	offset	28 159
+	frame	data/chars/leona/jump14.png
+		
+anim	runjumpattack
+	drawmethod	240 240
+	offset	26 163
+	loop	0
+	delay	5
+	fastattack	1
+	forcedirection	-1
+	staydown	300 300
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/xleona03.wav
+	frame	data/chars/leona/runjumpattack01.png
+	offset	33 166
+	frame	data/chars/leona/runjumpattack02.png
+	offset	43 160
+	frame	data/chars/leona/runjumpattack03.png
+	offset	35 155
+	frame	data/chars/leona/runjumpattack04.png
+	offset	48 138
+	delay	7
+	attack	47 31 91 54 50 1 1 0 50 15
+	dropv	3 3 0
+	frame	data/chars/leona/runjumpattack05.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	49 137
+	frame	data/chars/leona/runjumpattack06.png
+	attack	48 27 91 55 50 1 1 0 50 15
+	offset	49 137
+	frame	data/chars/leona/runjumpattack07.png
+	offset	37 130
+	frame	data/chars/leona/runjumpattack08.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	34 138
+	frame	data/chars/leona/runjumpattack09.png
+	offset	35 148
+	frame	data/chars/leona/runjumpattack10.png
+		
+anim	runslide
+	drawmethod	240 240
+	offset	41 74
+	loop	0
+	delay	7
+	fastattack	1
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/punch.wav
+	@cmd	dasher 2 0 0
+	frame	data/chars/leona/runslide01.png
+	offset	45 78
+	frame	data/chars/leona/runslide02.png
+	offset	44 61
+	frame	data/chars/leona/runslide03.png
+	offset	51 58
+	attack	55 7 83 53 15 1 1 0 7 20
+	frame	data/chars/leona/runslide04.png
+	offset	48 58
+	frame	data/chars/leona/runslide05.png
+	offset	45 53
+	frame	data/chars/leona/runslide06.png
+	offset	43 55
+	frame	data/chars/leona/runslide07.png
+	dropv	4.5 -1 0
+	attack	0 0 0 0 0 0 0 0 0 0
+	@cmd	dasher 1 0 0
+	offset	43 63
+	frame	data/chars/leona/runslide08.png
+	dropv	0.3 4
+	attack	39 29 80 50 15 0 0 1 20 20
+	delay	8
+	offset	43 73
+	frame	data/chars/leona/runslide09.png
+	@cmd	stop
+	delay	8
+	offset	46 82
+	frame	data/chars/leona/runslide10.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	39 91
+	frame	data/chars/leona/runslide11.png
+	offset	37 95
+	frame	data/chars/leona/runslide12.png
+		
+anim	select
+	delay	6
+	offset	0 0
+	sound	data/sounds/leonakill.wav
+	frame	data/chars/leona/wait1.png
+		
+anim	spawn
+	drawmethod	240 240
+	offset	30 139
+	bbox	0 0 0 0
+	delay	10
+	frame	data/chars/leona/spawn01.png
+	offset	30 140
+	sound	data/sounds/leonah.wav
+	frame	data/chars/leona/spawn02.png
+	offset	33 137
+	frame	data/chars/leona/spawn03.png
+	offset	35 136
+	frame	data/chars/leona/spawn04.png
+	delay	40
+	offset	34 136
+	frame	data/chars/leona/spawn05.png
+	delay	10
+	offset	33 138
+	frame	data/chars/leona/spawn06.png
+	offset	32 140
+	frame	data/chars/leona/spawn07.png
+	offset	35 135
+	frame	data/chars/leona/spawn08.png
+		
+anim	special
+	drawmethod	240 240
+	energycost	50
+	mponly	1
+	loop	0
+	delay	9
+	fastattack	1
+	bbox	0 0 0 0
+	hitfx	data/sounds/beat5.wav
+	hitflash	Flash3
+	seal	7 1
+	staydown	400 400
+	offset	45 124
+	delay	9
+	frame	data/chars/leona/chargex01.png
+	offset	47 125
+	frame	data/chars/leona/chargex02.png
+	sound	data/sounds/leonashout.wav
+	offset	47 127
+	delay	6
+	frame	data/chars/leona/chargex03.png
+	@cmd	spawnbind "pw12" 1 1 1
+	attack	-23 -32 140 150 30 1 0 0 0 0
+	offset	45 116
+	frame	data/chars/leona/chargex04.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	46 107
+	frame	data/chars/leona/chargex05.png
+	attack	-20 -45 140 150 30 1 0 0 0 0
+	offset	50 103
+	frame	data/chars/leona/chargex06.png
+	@cmd	spawnbind "pw12" 1 1 1
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	46 107
+	frame	data/chars/leona/chargex05.png
+	attack	-22 -45 140 150 30 1 0 0 0 0
+	offset	50 103
+	frame	data/chars/leona/chargex06.png
+	@cmd	spawnbind "pw12" 1 1 1
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	46 107
+	frame	data/chars/leona/chargex05.png
+	attack	-21 -45 140 150 30 1 0 0 0 0
+	offset	50 103
+	frame	data/chars/leona/chargex06.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	46 107
+	frame	data/chars/leona/chargex05.png
+	attack	-21 -45 140 150 30 1 0 0 0 0
+	offset	50 103
+	frame	data/chars/leona/chargex06.png
+	@cmd	spawnbind "pw12" 1 1 1
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	46 107
+	frame	data/chars/leona/chargex05.png
+	attack	-20 -45 140 150 30 1 0 0 0 0
+	offset	50 103
+	frame	data/chars/leona/chargex06.png
+	@cmd	spawnbind "pw12" 1 1 1
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	46 107
+	frame	data/chars/leona/chargex05.png
+	attack	-20 -45 140 150 30 1 0 0 0 0
+	offset	50 103
+	frame	data/chars/leona/chargex06.png
+	offset	51 110
+	frame	data/chars/leona/chargex07.png
+	offset	45 118
+	frame	data/chars/leona/chargex08.png
+	offset	41 121
+	frame	data/chars/leona/chargex09.png
+	offset	41 124
+	frame	data/chars/leona/chargex10.png
+	offset	39 131
+	frame	data/chars/leona/chargex11.png
+		
+anim	waiting
+	loop	1
+	delay	6
+	offset	0 0
+	frame	data/chars/leona/wait1.png
+		
+anim	walk
+	drawmethod	240 240
+	bbox	13 33 26 103
+	offset	24 137
+	loop	1
+	delay	7
+	frame	data/chars/leona/walk01.png
+	bbox	18 45 27 92
+	offset	29 138
+	frame	data/chars/leona/walk02.png
+	bbox	18 34 27 102
+	offset	30 142
+	frame	data/chars/leona/walk03.png
+	bbox	10 33 28 101
+	offset	21 144
+	frame	data/chars/leona/walk04.png
+	bbox	15 36 28 97
+	offset	25 143
+	frame	data/chars/leona/walk05.png
+	bbox	11 34 28 96
+	offset	24 142
+	frame	data/chars/leona/walk06.png
+	bbox	23 33 26 101
+	offset	33 139
+	frame	data/chars/leona/walk07.png
+	bbox	27 32 27 99
+	offset	36 136
+	frame	data/chars/leona/walk08.png
+	bbox	16 31 26 98
+	offset	26 138
+	frame	data/chars/leona/walk09.png
+	bbox	15 32 27 106
+	offset	25 143
+	frame	data/chars/leona/walk10.png
+	bbox	17 33 28 110
+	offset	27 144
+	frame	data/chars/leona/walk11.png
+	bbox	14 32 27 102
+	offset	25 140
+	frame	data/chars/leona/walk12.png
+	bbox	14 33 27 102
+	offset	26 140
+	frame	data/chars/leona/walk13.png
+		
+anim	walkoff
+	drawmethod	240 240
+	loop	0
+	delay	12
+	offset	29 158
+	bbox	18 43 24 62
+	frame	data/chars/leona/walkoff01.png
+	bbox	20 42 23 66
+	offset	33 149
+	frame	data/chars/leona/walkoff02.png
+		
+#|edited by openBor Stats v 0.67
+		

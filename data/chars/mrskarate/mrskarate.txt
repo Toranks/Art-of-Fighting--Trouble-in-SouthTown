@@ -1,0 +1,2551 @@
+name mrskarate
+type player
+health  170
+gfxshadow	1
+speed   10
+mp              150
+mprate          1
+chargerate      9
+speed		11
+running		28 3.3 3 1 1
+jumpheight	4
+falldie		2
+noquake		1
+nodieblink	2
+makeinv		3
+riseinv		1
+holdblock 	1
+blockpain	15
+modelflag	1
+weaploss	3
+dust            dust
+candamage	enemy obstacle
+weapons		yuribike kfyuri yuribike2 yurifall yurwtr yurivent mapcurs mrzero
+atchain         1 1 2 3 4 0 5 6 7 0 8 1
+combostyle      1
+icon            data/chars/mrskarate/icon.gif
+parrow          data/chars/misc/flash/flash/player1.gif  -36 -145
+parrow2         data/chars/misc/flash/flash/player2.gif  -36 -145
+parrow3         data/chars/misc/flash/flash/player3.gif  -36 -145
+
+animationscript		data/scripts/grabscript.c
+ondrawscript	data/scripts/water_puddle_script.c
+script		data/scripts/player_script.c
+
+palette		data/chars/mrskarate/idle01.png
+
+load 	hadok2
+load 	hsken
+load    mrskaratepw
+
+com     a3	  freespecial29
+com     d f a   freespecial26
+com	f d f s freespecial27
+com	d f j     freespecial2
+com	f d a     freespecial3
+com	d f a   freespecial4
+com	d f s     freespecial5
+com	f d s	  freespecial6
+com	a2	  freespecial15
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+anim	attack1
+	bbox	14 7 31 88
+	range	0 135
+	rangez	-20 20
+	delay	3
+	offset	26 95
+	@cmd	attackgrd -75 75 0 1 20 "ANI_FOLLOW10"
+	frame	data/chars/mrskarate/attack01.png
+	offset	26 95
+	frame	data/chars/mrskarate/attack02.png
+	offset	26 95
+	frame	data/chars/mrskarate/attack05.png
+	offset	26 95
+	frame	data/chars/mrskarate/attack03.png
+	attack	21 7 79 39 10 0 1 0 5 15
+	offset	26 95
+	frame	data/chars/mrskarate/attack04.png
+	offset	26 95
+	frame	data/chars/mrskarate/attack01.png
+		
+anim	attack2
+	loop	0
+	cancel	2 5 0 d f a freespecial4
+	cancel	2 5 0 d f j freespecial2
+	bbox	16 12 32 82
+	offset	26 94
+	range	0 60
+	rangez	-20 20
+	sound	data/sounds/yur01.wav
+	hitfx	data/sounds/beat2.wav
+	delay	4
+	frame	data/chars/mrskarate/attack2-01.png
+	offset	25 92
+	frame	data/chars/mrskarate/attack2-02.png
+	attack	31 1 66 40 20 0 1 0 5 15
+	offset	21 91
+	frame	data/chars/mrskarate/attack2-03.png
+	offset	21 91
+	frame	data/chars/mrskarate/attack2-04.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	delay	5
+	offset	25 92
+	frame	data/chars/mrskarate/attack2-02.png
+	offset	25 93
+	frame	data/chars/mrskarate/attack2-05.png
+		
+anim	attack3
+	loop	0
+	cancel	2 5 0 d f a freespecial4
+	cancel	2 5 0 d f j freespecial2
+	bbox	1 4 26 90
+	offset	26 94
+	range	0 60
+	rangez	-20 20
+	hitfx	data/sounds/beat5.wav
+	delay	3
+	frame	data/chars/mrskarate/attack3-01.png
+	offset	38 101
+	frame	data/chars/mrskarate/attack3-02.png
+	attack	16 31 60 61 20 0 1 0 5 12
+	offset	25 94
+	frame	data/chars/mrskarate/attack3-03.png
+	delay	2
+	offset	25 94
+	frame	data/chars/mrskarate/attack3-04.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	22 95
+	frame	data/chars/mrskarate/attack3-05.png
+		
+anim	attack4
+	loop	0
+	bbox	10 8 30 85
+	cancel	6 9 0 d f a freespecial4
+	cancel	6 9 0 d f j freespecial2
+	range	22 47
+	rangez	-20 20
+	delay	4
+	hitfx	data/sounds/beat5.wav
+	offset	28 93
+	frame	data/chars/mrskarate/freespecial29-1.png
+	offset	29 85
+	frame	data/chars/mrskarate/attack4-02.png
+	offset	43 63
+	frame	data/chars/mrskarate/attack4-03.png
+	offset	29 57
+	frame	data/chars/mrskarate/attack4-04.png
+	offset	24 72
+	frame	data/chars/mrskarate/attack4-05.png
+	sound	data/sounds/yur02.wav
+	offset	17 79
+	frame	data/chars/mrskarate/attack4-06.png
+	attack	31 -4 47 104 40 1 1 0 40 15
+	offset	0 124
+	frame	data/chars/mrskarate/attack4-07.png
+	offset	0 120
+	frame	data/chars/mrskarate/attack4-08.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	-2 108
+	frame	data/chars/mrskarate/attack4-09.png
+	offset	17 79
+	frame	data/chars/mrskarate/attack4-06.png
+	offset	26 89
+	frame	data/chars/mrskarate/attack4-10.png
+		
+anim	attack5
+	loop	0
+	bbox	15 8 31 73
+	offset	28 82
+	range	50 85
+	rangez	-20 20
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/yur02.wav
+	delay	5
+	frame	data/chars/mrskarate/attack5-01.png
+	offset	41 73
+	frame	data/chars/mrskarate/attack5-02.png
+	offset	17 91
+	frame	data/chars/mrskarate/attack5-03.png
+	offset	15 80
+	frame	data/chars/mrskarate/attack5-04.png
+	attack	21 7 77 41 50 1 1 0 8 20
+	offset	-6 88
+	frame	data/chars/mrskarate/attack5-05.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	-5 89
+	frame	data/chars/mrskarate/attack5-06.png
+	offset	-4 99
+	frame	data/chars/mrskarate/attack5-08.png
+	offset	15 86
+	frame	data/chars/mrskarate/attack5-07.png
+	offset	27 81
+	frame	data/chars/mrskarate/attack5-01.png
+		
+anim	attack6
+	loop	0
+	cancel	2 5 0 d f a freespecial4
+	cancel	2 5 0 d f j freespecial2
+	bbox	16 9 26 85
+	offset	20 94
+	range	50 85
+	rangez	-20 20
+	sound	data/sounds/yur01.wav
+	hitfx	data/sounds/beat3.wav
+	delay	5
+	frame	data/chars/mrskarate/attack6-01.png
+	offset	4 94
+	frame	data/chars/mrskarate/attack6-02.png
+	delay	7
+	attack	32 -2 73 75 20 0 1 0 7 12
+	offset	11 104
+	frame	data/chars/mrskarate/attack6-03.png
+	delay	4
+	offset	-11 100
+	frame	data/chars/mrskarate/attack6-04.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	4 94
+	frame	data/chars/mrskarate/attack6-02.png
+	offset	-7 98
+	frame	data/chars/mrskarate/attack6-05.png
+		
+anim	attack7
+	offset	28 82
+	bbox	15 8 31 73
+	range	85 135
+	rangez	-20 20
+	loop	0
+	delay	5
+	hitfx	data/sounds/beat5.wav
+	frame	data/chars/mrskarate/attack5-01.png
+	offset	41 73
+	frame	data/chars/mrskarate/attack5-02.png
+	offset	17 91
+	frame	data/chars/mrskarate/attack5-03.png
+	sound	data/sounds/yur02.wav
+	offset	15 80
+	frame	data/chars/mrskarate/attack5-04.png
+	delay	7
+	blast	17 -3 85 55 50 1 0 1 10 20
+	offset	10 95
+	frame	data/chars/mrskarate/attack7-01.png
+	offset	4 88
+	frame	data/chars/mrskarate/attack5-05.png
+	delay	6
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	-5 89
+	frame	data/chars/mrskarate/attack5-06.png
+	offset	-4 99
+	frame	data/chars/mrskarate/attack5-08.png
+	offset	15 86
+	frame	data/chars/mrskarate/attack5-07.png
+	offset	27 81
+	frame	data/chars/mrskarate/attack5-01.png
+		
+anim	attackdown
+	loop	0
+	delay	5
+	offset	47 82
+	@cmd	dasher 0 0 1
+	bbox	0 0 0 0
+	frame	data/chars/mrskarate/attackup-01.png
+	offset	48 63
+	frame	data/chars/mrskarate/attackup-02.png
+	offset	33 68
+	frame	data/chars/mrskarate/attackup-03.png
+	offset	30 37
+	frame	data/chars/mrskarate/attackup-04.png
+	offset	19 60
+	frame	data/chars/mrskarate/attackup-05.png
+	offset	30 38
+	frame	data/chars/mrskarate/attackup-06.png
+	offset	35 63
+	frame	data/chars/mrskarate/attackup-07.png
+	offset	26 63
+	frame	data/chars/mrskarate/attackup-08.png
+	offset	29 62
+	frame	data/chars/mrskarate/attackup-09.png
+	@cmd	stop
+	offset	30 72
+	frame	data/chars/mrskarate/attackup-10.png
+	@cmd	spawn01 "dust" 1 1 1
+	offset	28 89
+	frame	data/chars/mrskarate/attackup-11.png
+		
+anim	attackup
+	loop	0
+	delay	5
+	offset	47 82
+	@cmd	dasher 0 0 -1
+	bbox	0 0 0 0
+	frame	data/chars/mrskarate/attackup-01.png
+	offset	48 63
+	frame	data/chars/mrskarate/attackup-02.png
+	offset	33 68
+	frame	data/chars/mrskarate/attackup-03.png
+	offset	30 37
+	frame	data/chars/mrskarate/attackup-04.png
+	offset	19 60
+	frame	data/chars/mrskarate/attackup-05.png
+	offset	30 38
+	frame	data/chars/mrskarate/attackup-06.png
+	offset	35 63
+	frame	data/chars/mrskarate/attackup-07.png
+	offset	26 63
+	frame	data/chars/mrskarate/attackup-08.png
+	offset	29 62
+	frame	data/chars/mrskarate/attackup-09.png
+	@cmd	stop
+	offset	30 72
+	frame	data/chars/mrskarate/attackup-10.png
+	@cmd	spawn01 "dust" 1 1 1
+	offset	28 89
+	frame	data/chars/mrskarate/attackup-11.png
+		
+anim	block
+	loop	0
+	bbox	4 8 33 83
+	offset	26 91
+	delay	4
+	frame	data/chars/mrskarate/block-01.png
+	bbox	2 8 33 85
+	offset	27 93
+	frame	data/chars/mrskarate/block-02.png
+	bbox	2 9 33 85
+	offset	26 94
+	frame	data/chars/mrskarate/block-03.png
+		
+anim	blockpain
+	bbox	4 9 38 82
+	loop	0
+	delay	2
+	cancel	5 12 0 a freespecial12
+	move	-6
+	offset	26 91
+	frame	data/chars/mrskarate/block-01.png
+	offset	27 93
+	frame	data/chars/mrskarate/block-02.png
+	offset	26 94
+	frame	data/chars/mrskarate/block-03.png
+	offset	26 94
+	frame	data/chars/mrskarate/block-03.png
+	move	-4
+	offset	26 94
+	frame	data/chars/mrskarate/block-03.png
+	offset	26 94
+	frame	data/chars/mrskarate/block-03.png
+	offset	26 94
+	frame	data/chars/mrskarate/block-03.png
+	move	0
+	delay	4
+	offset	26 94
+	frame	data/chars/mrskarate/block-03.png
+	offset	26 94
+	frame	data/chars/mrskarate/block-03.png
+	offset	26 94
+	frame	data/chars/mrskarate/block-03.png
+	offset	26 94
+	frame	data/chars/mrskarate/block-03.png
+	offset	26 94
+	frame	data/chars/mrskarate/block-03.png
+	offset	26 94
+	frame	data/chars/mrskarate/block-03.png
+	offset	27 93
+	frame	data/chars/mrskarate/block-02.png
+	@cmd	anichange "ANI_BLOCK"
+	offset	26 91
+	frame	data/chars/mrskarate/block-01.png
+		
+anim	burn
+	loop	0
+	landframe	5
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 200_50_0
+	@cmd	spawnbind "burn1" 1 1 1
+	@cmd	spawnbind "burn2" 1 1 1
+	@cmd	spawnbind "burn3" 1 1 1
+	bbox	0 0 0 0
+	delay	50
+	attack	8 9 34 31 3 1 1 0 0 0
+	offset	30 92
+	sound	data/sounds/yurpa.wav
+	frame	data/chars/mrskarate/fall01.png
+	delay	10
+	offset	36 62
+	frame	data/chars/mrskarate/fall02.png
+	offset	33 69
+	frame	data/chars/mrskarate/fall03.png
+	offset	41 101
+	frame	data/chars/mrskarate/fall04.png
+	delay	300
+	offset	31 55
+	frame	data/chars/mrskarate/fall05.png
+	delay	10
+	offset	37 18
+	frame	data/chars/mrskarate/fall06.png
+		
+anim	charge
+	loop	0
+	bbox	9 9 32 84
+	offset	28 93
+	delay	7
+	sound	data/sounds/yurch.wav
+	frame	data/chars/mrskarate/freespecial29-1.png
+	sound	data/sounds/xclark05.wav
+	bbox	4 7 32 74
+	offset	26 81
+	frame	data/chars/mrskarate/freespecial29-2.png
+	bbox	6 8 33 75
+	offset	25 83
+	frame	data/chars/mrskarate/freespecial29-3.png
+	bbox	4 10 31 85
+	offset	25 95
+	frame	data/chars/mrskarate/freespecial29-4.png
+	delay	4
+	bbox	4 12 31 90
+	offset	29 102
+	frame	data/chars/mrskarate/freespecial29-5.png
+	bbox	4 12 31 90
+	offset	29 102
+	frame	data/chars/mrskarate/freespecial29-6.png
+	bbox	4 12 31 90
+	offset	29 102
+	frame	data/chars/mrskarate/freespecial29-5.png
+	@cmd	updateframe getlocalvar("self") 4
+	bbox	4 12 31 90
+	offset	29 102
+	frame	data/chars/mrskarate/freespecial29-6.png
+		
+anim	death
+	loop	0
+	delay	50
+	offset	37 18
+	frame	data/chars/mrskarate/fall06.png
+	delay	7
+	offset	23 58
+	frame	data/chars/mrskarate/rise01.png
+	offset	18 61
+	frame	data/chars/mrskarate/rise02.png
+	offset	20 61
+	frame	data/chars/mrskarate/rise03.png
+	offset	21 61
+	frame	data/chars/mrskarate/rise04.png
+	offset	19 62
+	frame	data/chars/mrskarate/rise05.png
+	offset	15 63
+	frame	data/chars/mrskarate/rise06.png
+	offset	20 72
+	frame	data/chars/mrskarate/rise07.png
+	offset	27 90
+	frame	data/chars/mrskarate/rise08.png
+	offset	26 93
+	frame	data/chars/mrskarate/rise09.png
+	sound	data/sounds/yurpa.wav
+	delay	8
+	offset	21 97
+	frame	data/chars/mrskarate/death-01.png
+	offset	26 102
+	frame	data/chars/mrskarate/death-02.png
+	offset	34 90
+	frame	data/chars/mrskarate/death-03.png
+	offset	30 90
+	frame	data/chars/mrskarate/death-04.png
+	sound	data/sounds/yurde.wav
+	offset	25 91
+	frame	data/chars/mrskarate/death-05.png
+	offset	25 92
+	frame	data/chars/mrskarate/death-06.png
+	offset	26 89
+	frame	data/chars/mrskarate/death-07.png
+	offset	26 88
+	frame	data/chars/mrskarate/death-08.png
+	offset	28 81
+	frame	data/chars/mrskarate/death-09.png
+	delay	40
+	offset	38 49
+	frame	data/chars/mrskarate/death-10.png
+	delay	15
+	offset	38 51
+	frame	data/chars/mrskarate/death-11.png
+	offset	38 51
+	frame	data/chars/mrskarate/death-12.png
+	delay	50
+	offset	38 46
+	frame	data/chars/mrskarate/death-13.png
+		
+anim	fall
+	loop	0
+	landframe	5
+	bbox	0 0 0 0
+	delay	50
+	attack	8 9 34 31 3 1 1 0 0 0
+	offset	30 92
+	sound	data/sounds/yurpa.wav
+	frame	data/chars/mrskarate/fall01.png
+	delay	10
+	offset	36 62
+	frame	data/chars/mrskarate/fall02.png
+	offset	33 69
+	frame	data/chars/mrskarate/fall03.png
+	offset	41 101
+	frame	data/chars/mrskarate/fall04.png
+	delay	300
+	offset	31 55
+	frame	data/chars/mrskarate/fall05.png
+	delay	10
+	offset	37 18
+	frame	data/chars/mrskarate/fall06.png
+		
+anim	fall2
+	loop	0
+	landframe	5
+	bbox	0 0 0 0
+	delay	50
+	attack	8 9 34 31 3 1 1 0 0 0
+	offset	30 92
+	sound	data/sounds/yurpa.wav
+	frame	data/chars/mrskarate/fall01.png
+	delay	10
+	offset	36 62
+	frame	data/chars/mrskarate/fall02.png
+	offset	33 69
+	frame	data/chars/mrskarate/fall03.png
+	offset	41 101
+	frame	data/chars/mrskarate/fall04.png
+	delay	300
+	offset	31 55
+	frame	data/chars/mrskarate/fall05.png
+	delay	10
+	offset	37 18
+	frame	data/chars/mrskarate/fall06.png
+		
+anim	fall3
+	loop	0
+	landframe	5
+	bbox	5 10 45 39
+	delay	50
+	attack	8 9 34 31 3 1 1 0 0 0
+	offset	30 92
+	frame	data/chars/mrskarate/fall01.png
+	bbox	12 5 60 20
+	delay	10
+	offset	36 62
+	frame	data/chars/mrskarate/fall02.png
+	bbox	12 9 60 20
+	offset	33 69
+	frame	data/chars/mrskarate/fall03.png
+	offset	41 101
+	frame	data/chars/mrskarate/fall04.png
+	delay	300
+	offset	31 55
+	frame	data/chars/mrskarate/fall05.png
+	delay	10
+	offset	37 18
+	frame	data/chars/mrskarate/fall06.png
+		
+anim	fall7
+	loop	0
+	delay	1000
+	bbox	0 0 0 0
+	offset	29 80
+	frame	data/chars/mrskarate/fall7-01.png
+	offset	3 91
+	frame	data/chars/mrskarate/fall7-02.png
+	offset	33 60
+	frame	data/chars/mrskarate/fall7-03.png
+	offset	4 90
+	frame	data/chars/mrskarate/fall7-04.png
+	offset	12 99
+	frame	data/chars/mrskarate/fall7-05.png
+	offset	37 33
+	frame	data/chars/mrskarate/fall7-06.png
+	offset	37 77
+	frame	data/chars/mrskarate/fall7-07.png
+	offset	17 74
+	frame	data/chars/mrskarate/fall7-08.png
+	offset	42 40
+	frame	data/chars/mrskarate/fall7-09.png
+	offset	49 10
+	frame	data/chars/mrskarate/fall7-10.png
+	offset	45 14
+	frame	data/chars/mrskarate/fall7-11.png
+	offset	16 75
+	frame	data/chars/mrskarate/fall7-12.png
+	offset	47 31
+	frame	data/chars/mrskarate/fall7-13.png
+	offset	46 34
+	frame	data/chars/mrskarate/fall7-14.png
+	offset	31 49
+	frame	data/chars/mrskarate/fall7-15.png
+	offset	7 99
+	frame	data/chars/mrskarate/fall7-16.png
+	offset	34 38
+	frame	data/chars/mrskarate/fall7-17.png
+	offset	48 54
+	frame	data/chars/mrskarate/fall7-18.png
+	offset	50 57
+	frame	data/chars/mrskarate/fall7-19.png
+	offset	7 98
+	frame	data/chars/mrskarate/fall7-20.png
+	offset	16 85
+	frame	data/chars/mrskarate/fall7-21.png
+	offset	5 77
+	frame	data/chars/mrskarate/fall7-22.png
+	offset	4 90
+	frame	data/chars/mrskarate/fall7-04.png
+	offset	44 83
+	frame	data/chars/mrskarate/fall7-23.png
+	offset	29 69
+	frame	data/chars/mrskarate/fall7-24.png
+	offset	7 98
+	frame	data/chars/mrskarate/fall7-20.png
+		
+anim	fall9
+	loop	0
+	landframe	9
+	delay	9
+	offset	20 76
+	sound	data/sounds/yurpa.wav
+	frame	data/chars/mrskarate/fall9-01.png
+	offset	20 79
+	frame	data/chars/mrskarate/fall9-02.png
+	offset	20 87
+	frame	data/chars/mrskarate/fall9-03.png
+	offset	20 80
+	frame	data/chars/mrskarate/fall9-04.png
+	offset	20 76
+	frame	data/chars/mrskarate/fall9-01.png
+	offset	20 79
+	frame	data/chars/mrskarate/fall9-02.png
+	offset	20 87
+	frame	data/chars/mrskarate/fall9-03.png
+	@cmd	looper 4 20
+	offset	20 80
+	frame	data/chars/mrskarate/fall9-04.png
+	delay	300
+	offset	20 76
+	frame	data/chars/mrskarate/fall9-01.png
+	delay	15
+	@cmd	clearL
+	offset	37 18
+	frame	data/chars/mrskarate/fall9-05.png
+		
+anim	follow10
+	loop	0
+	delay	10
+	bbox	0 0 0 0
+	forcedirection	-1
+	attackone	1
+	otg	2
+	sound	data/sounds/yur01.wav
+	hitfx	data/sounds/beat5.wav
+	hitflash	flashscreen1
+	delay	10
+	offset	26 94
+	frame	data/chars/mrskarate/attack3-01.png
+	delay	3
+	offset	38 101
+	frame	data/chars/mrskarate/attack3-02.png
+	delay	10
+	attack11	23 69 69 28 50 1 1 0 10 12
+	offset	25 94
+	frame	data/chars/mrskarate/attack3-03.png
+	delay	2
+	offset	25 94
+	frame	data/chars/mrskarate/attack3-04.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	22 95
+	frame	data/chars/mrskarate/attack3-05.png
+		
+anim	follow14
+	delay	10
+	loop	0
+	fastattack	1
+	hitfx	data/sounds/hard2.wav
+	offset	26 86
+	frame	data/chars/mrskarate/follow14-01.png
+	offset	26 81
+	frame	data/chars/mrskarate/follow14-02.png
+	delay	80
+	offset	26 84
+	frame	data/chars/mrskarate/follow14-03.png
+	delay	8
+	attack	7 0 44 87 0 1 1 0 0 10
+	dropv	1.3 1
+	offset	26 144
+	frame	data/chars/mrskarate/follow14-04.png
+	sound	data/sounds/yuriora.wav
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	26 144
+	frame	data/chars/mrskarate/follow14-05.png
+	attack	7 0 44 87 0 1 1 0 0 10
+	dropv	1.3 -1
+	offset	26 144
+	frame	data/chars/mrskarate/follow14-04.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	26 144
+	frame	data/chars/mrskarate/follow14-05.png
+	attack	7 0 44 87 0 1 1 0 0 10
+	dropv	1.3 1
+	offset	26 144
+	frame	data/chars/mrskarate/follow14-04.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	26 144
+	frame	data/chars/mrskarate/follow14-05.png
+	attack	7 0 44 87 0 1 1 0 0 10
+	dropv	1.3 -1
+	offset	26 144
+	frame	data/chars/mrskarate/follow14-04.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	26 144
+	frame	data/chars/mrskarate/follow14-05.png
+	attack	7 0 44 87 0 1 1 0 0 10
+	dropv	1.3 1
+	offset	26 144
+	frame	data/chars/mrskarate/follow14-04.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	26 144
+	frame	data/chars/mrskarate/follow14-05.png
+	attack	7 0 44 87 0 1 1 0 0 10
+	dropv	4.5 0
+	offset	26 118
+	frame	data/chars/mrskarate/follow14-06.png
+	attack	7 0 44 87 0 1 0 1 0 10
+	dropv	4.5 0
+	offset	26 120
+	frame	data/chars/mrskarate/follow14-07.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	21 97
+	frame	data/chars/mrskarate/follow14-08.png
+	offset	27 89
+	frame	data/chars/mrskarate/follow14-09.png
+	offset	27 91
+	frame	data/chars/mrskarate/follow14-10.png
+	delay	60
+	hitfx	data/sounds/beat4.wav
+	offset	26 84
+	frame	data/chars/mrskarate/follow14-03.png
+	sound	data/sounds/yuriora1.wav
+	delay	8
+	blast	4 -5 43 86 50 1 1 0 50 15
+	dropv	6.5 0
+	offset	26 128
+	frame	data/chars/mrskarate/follow14-11.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	26 128
+	frame	data/chars/mrskarate/follow14-12.png
+	delay	50
+	offset	26 128
+	frame	data/chars/mrskarate/follow14-13.png
+		
+anim	follow15
+@script
+	void self = getlocalvar("self");
+   	void opp = getentityproperty(self, "opponent");
+	int enedir = getentityproperty(opp,"direction");
+	if (frame == 0 && enedir == 0)
+	{
+	changeentityproperty(self, "direction", 1);
+	}
+	else if (frame == 0 && enedir == 1)
+	{
+	changeentityproperty(self, "direction", 0);
+	}
+	@end_script	
+	loop	0
+	delay	6
+	bbox	0 0 0 0
+	jumpframe	0 3.4 -1
+	landframe	8
+	offset	20 109
+	frame	data/chars/mrskarate/forwardjump07.png
+	offset	31 77
+	frame	data/chars/mrskarate/forwardjump06.png
+	offset	27 91
+	frame	data/chars/mrskarate/forwardjump05.png
+	offset	30 81
+	frame	data/chars/mrskarate/forwardjump04.png
+	offset	26 94
+	frame	data/chars/mrskarate/forwardjump03.png
+	offset	15 105
+	frame	data/chars/mrskarate/jump04.png
+	offset	15 112
+	frame	data/chars/mrskarate/forwardjump02.png
+	delay	300
+	offset	19 112
+	frame	data/chars/mrskarate/forwardjump08.png
+	delay	3
+	offset	26 94
+	frame	data/chars/mrskarate/jumpdelay01.png
+		
+anim	follow16
+@script
+	void self = getlocalvar("self");
+   	void opp = getentityproperty(self, "opponent");
+	int enedir = getentityproperty(opp,"direction");
+	if (frame == 0 && enedir == 0)
+	{
+	changeentityproperty(self, "direction", 1);
+	}
+	else if (frame == 0 && enedir == 1)
+	{
+	changeentityproperty(self, "direction", 0);
+	}
+	@end_script	
+	loop	0
+	delay	7
+	bbox	0 0 0 0
+	offset	29 62
+	frame	data/chars/mrskarate/attackup-09.png
+	@cmd	dasher -3 0 0
+	offset	26 63
+	frame	data/chars/mrskarate/attackup-08.png
+	offset	35 63
+	frame	data/chars/mrskarate/attackup-07.png
+	offset	30 38
+	frame	data/chars/mrskarate/attackup-06.png
+	offset	19 60
+	frame	data/chars/mrskarate/attackup-05.png
+	offset	30 37
+	frame	data/chars/mrskarate/attackup-04.png
+	offset	33 68
+	frame	data/chars/mrskarate/attackup-03.png
+	@cmd	stop
+	offset	30 72
+	frame	data/chars/mrskarate/attackup-10.png
+	@cmd	spawn01 "dust" 1 1 1
+	offset	28 89
+	frame	data/chars/mrskarate/attackup-11.png
+		
+anim	follow17
+@script
+	void self = getlocalvar("self");
+	int eTime = openborvariant("elapsed_time");
+	if (frame == 7)
+	{
+	changeentityproperty(self, "invincible", 1);
+	changeentityproperty(self, "invinctime", eTime + 1000);
+	changeentityproperty(self, "blink", 1);
+	}
+	@end_script	
+	loop	0
+	delay	800
+	offset	38 115
+	bbox	0 0 0 0
+	frame	data/chars/mrskarate/empty.png
+	delay	8
+	offset	27 90
+	frame	data/chars/mrskarate/rise08.png
+	offset	21 97
+	frame	data/chars/mrskarate/death-01.png
+	delay	10
+	offset	26 102
+	frame	data/chars/mrskarate/follow17-01.png
+	delay	8
+	offset	27 103
+	frame	data/chars/mrskarate/follow17-02.png
+	sound	data/sounds/yuriyata.wav
+	offset	29 99
+	frame	data/chars/mrskarate/follow17-03.png
+	offset	29 102
+	frame	data/chars/mrskarate/follow17-04.png
+	delay	40
+	offset	29 101
+	frame	data/chars/mrskarate/follow17-05.png
+	delay	6
+	offset	21 97
+	frame	data/chars/mrskarate/death-01.png
+	offset	27 90
+	frame	data/chars/mrskarate/rise08.png
+		
+anim	follow4
+	loop	0
+	delay	2
+	bbox	0 0 0 0
+	jumpframe	1 3 1 0
+	landframe	54
+	fastattack	1
+	forcedirection	-1
+	hitflash	Flash
+	hitfx	data/sounds/beat3.wav
+	@cmd	stop
+	offset	42 87
+	frame	data/chars/mrskarate/run01.png
+	sound	data/sounds/yurihein.wav
+	offset	32 90
+	frame	data/chars/mrskarate/follow4-01.png
+	@cmd	leaper 0 0.5
+	attack	5 36 57 62 10 0 1 0 20 30
+	delay	2
+	offset	15 92
+	frame	data/chars/mrskarate/follow4-02.png
+	@cmd	leaper 0 1
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	27 92
+	frame	data/chars/mrskarate/follow4-03.png
+	offset	31 94
+	frame	data/chars/mrskarate/follow4-04.png
+	attack	16 26 72 55 10 0 1 0 20 30
+	offset	30 94
+	frame	data/chars/mrskarate/follow4-05.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	@cmd	leaper 0 0.9
+	offset	30 94
+	frame	data/chars/mrskarate/follow4-06.png
+	offset	31 93
+	frame	data/chars/mrskarate/follow4-07.png
+	attack	15 28 78 54 10 0 1 0 20 30
+	offset	33 93
+	frame	data/chars/mrskarate/follow4-08.png
+	offset	27 92
+	frame	data/chars/mrskarate/follow4-03.png
+	offset	31 94
+	frame	data/chars/mrskarate/follow4-04.png
+	attack	16 26 72 55 10 0 1 0 20 30
+	offset	30 94
+	frame	data/chars/mrskarate/follow4-05.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	30 94
+	frame	data/chars/mrskarate/follow4-06.png
+	offset	31 93
+	frame	data/chars/mrskarate/follow4-07.png
+	@cmd	leaper 0 0.9
+	attack	15 28 78 54 10 0 1 0 20 30
+	offset	33 93
+	frame	data/chars/mrskarate/follow4-08.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	27 92
+	frame	data/chars/mrskarate/follow4-03.png
+	offset	31 94
+	frame	data/chars/mrskarate/follow4-04.png
+	attack	16 26 72 55 10 0 1 0 20 30
+	offset	30 94
+	frame	data/chars/mrskarate/follow4-05.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	30 94
+	frame	data/chars/mrskarate/follow4-06.png
+	offset	31 93
+	frame	data/chars/mrskarate/follow4-07.png
+	attack	15 28 78 54 10 0 1 0 20 30
+	offset	33 93
+	frame	data/chars/mrskarate/follow4-08.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	27 92
+	frame	data/chars/mrskarate/follow4-03.png
+	@cmd	leaper 0 0.9
+	offset	31 94
+	frame	data/chars/mrskarate/follow4-04.png
+	attack	16 26 72 55 10 0 1 0 20 30
+	offset	30 94
+	frame	data/chars/mrskarate/follow4-05.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	30 94
+	frame	data/chars/mrskarate/follow4-06.png
+	offset	31 93
+	frame	data/chars/mrskarate/follow4-07.png
+	attack	15 28 78 54 10 0 1 0 20 30
+	offset	33 93
+	frame	data/chars/mrskarate/follow4-08.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	27 92
+	frame	data/chars/mrskarate/follow4-03.png
+	offset	31 94
+	frame	data/chars/mrskarate/follow4-04.png
+	@cmd	leaper 0 0.9
+	attack	16 26 72 55 10 0 1 0 20 30
+	offset	30 94
+	frame	data/chars/mrskarate/follow4-05.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	30 94
+	frame	data/chars/mrskarate/follow4-06.png
+	offset	31 93
+	frame	data/chars/mrskarate/follow4-07.png
+	attack	15 28 78 54 10 0 1 0 20 30
+	offset	33 93
+	frame	data/chars/mrskarate/follow4-08.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	27 92
+	frame	data/chars/mrskarate/follow4-03.png
+	offset	31 94
+	frame	data/chars/mrskarate/follow4-04.png
+	attack	16 26 72 55 10 0 1 0 20 30
+	offset	30 94
+	frame	data/chars/mrskarate/follow4-05.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	@cmd	leaper 0 0.9
+	offset	30 94
+	frame	data/chars/mrskarate/follow4-06.png
+	offset	31 93
+	frame	data/chars/mrskarate/follow4-07.png
+	attack	15 28 78 54 10 0 1 0 20 30
+	offset	33 93
+	frame	data/chars/mrskarate/follow4-08.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	27 92
+	frame	data/chars/mrskarate/follow4-03.png
+	offset	31 94
+	frame	data/chars/mrskarate/follow4-04.png
+	attack	16 26 72 55 10 0 1 0 20 30
+	offset	30 94
+	frame	data/chars/mrskarate/follow4-05.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	30 94
+	frame	data/chars/mrskarate/follow4-06.png
+	attack	15 28 73 51 10 0 0 1 20 30
+	@cmd	leaper 0 0.9
+	offset	31 93
+	frame	data/chars/mrskarate/follow4-07.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	33 93
+	frame	data/chars/mrskarate/follow4-08.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	27 92
+	frame	data/chars/mrskarate/follow4-03.png
+	offset	31 94
+	frame	data/chars/mrskarate/follow4-04.png
+	attack	16 26 72 55 10 0 1 0 20 30
+	offset	30 94
+	frame	data/chars/mrskarate/follow4-05.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	30 94
+	frame	data/chars/mrskarate/follow4-06.png
+	attack	15 28 73 51 10 0 0 1 20 30
+	@cmd	leaper 0 0.9
+	offset	31 93
+	frame	data/chars/mrskarate/follow4-07.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	33 93
+	frame	data/chars/mrskarate/follow4-08.png
+	attack	29 14 66 60 10 1 1 0 20 30
+	dropv	2.6 1 0
+	offset	40 78
+	frame	data/chars/mrskarate/follow4-09.png
+	delay	5
+	attack	0 0 0 0 0 0 0 0 0 0
+	@cmd	leaper 2.3 2.1
+	offset	38 65
+	frame	data/chars/mrskarate/follow4-10.png
+	offset	19 116
+	frame	data/chars/mrskarate/follow4-11.png
+	offset	62 87
+	frame	data/chars/mrskarate/follow4-12.png
+	offset	61 74
+	frame	data/chars/mrskarate/follow4-13.png
+	offset	38 118
+	frame	data/chars/mrskarate/jumpattack2-02.png
+	offset	19 102
+	frame	data/chars/mrskarate/jumpattack-01.png
+	offset	26 104
+	frame	data/chars/mrskarate/jumpattack-02.png
+	sound	data/sounds/yur01.wav
+	delay	20
+	hitflash	flashscreen2
+	hitfx	data/sounds/beat4.wav
+	blast	20 16 74 56 40 1 1 0 60 15
+	dropv	2.6 4 0
+	offset	22 100
+	frame	data/chars/mrskarate/runjumpattack-03.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	delay	4
+	offset	19 102
+	frame	data/chars/mrskarate/jumpattack-01.png
+		
+anim	forwardjump
+	loop	0
+	delay	10
+	bbox	18 17 24 79
+	offset	31 109
+	frame	data/chars/mrskarate/forwardjump01.png
+	delay	7
+	bbox	2 14 23 81
+	offset	15 112
+	frame	data/chars/mrskarate/forwardjump02.png
+	bbox	2 12 30 61
+	offset	15 105
+	frame	data/chars/mrskarate/jump04.png
+	bbox	9 0 46 47
+	offset	26 94
+	frame	data/chars/mrskarate/forwardjump03.png
+	bbox	9 0 50 36
+	offset	30 81
+	frame	data/chars/mrskarate/forwardjump04.png
+	bbox	3 13 34 44
+	offset	27 91
+	frame	data/chars/mrskarate/forwardjump05.png
+	bbox	1 3 49 35
+	offset	31 77
+	frame	data/chars/mrskarate/forwardjump06.png
+	bbox	0 4 49 54
+	offset	20 109
+	frame	data/chars/mrskarate/forwardjump07.png
+	delay	12
+	bbox	6 16 24 89
+	offset	19 112
+	frame	data/chars/mrskarate/forwardjump08.png
+		
+anim	freespecial12
+	offset	40 86
+@script
+	void self = getlocalvar("self");
+	int eTime = openborvariant("elapsed_time");
+	if (frame == 0)
+	{
+	changeentityproperty(self, "invincible", 1);
+	changeentityproperty(self, "invinctime", eTime + 70);
+	changeentityproperty(self, "blink", 1);
+	}
+	@end_script	
+	loop	0
+	forcedirection	-1
+	delay	4
+	bbox	0 0 0 0
+	staydown	500 500
+	hitfx	data/sounds/beat4.wav
+	frame	data/chars/mrskarate/freespecial12-01.png
+	offset	39 86
+	frame	data/chars/mrskarate/freespecial12-02.png
+	sound	data/sounds/yurisaifa.wav
+	@cmd	dasher 2.5 0 0
+	offset	48 90
+	frame	data/chars/mrskarate/freespecial12-03.png
+	offset	38 97
+	frame	data/chars/mrskarate/freespecial12-04.png
+	offset	14 106
+	frame	data/chars/mrskarate/freespecial12-05.png
+	offset	5 99
+	frame	data/chars/mrskarate/freespecial12-06.png
+	delay	5
+	blast	0 -5 69 69 50 1 1 0 40 20
+	dropv	3 3 0
+	offset	-1 105
+	frame	data/chars/mrskarate/freespecial12-07.png
+	@cmd	stop
+	offset	6 91
+	frame	data/chars/mrskarate/freespecial12-08.png
+	offset	6 91
+	frame	data/chars/mrskarate/freespecial12-09.png
+	delay	15
+	offset	6 90
+	frame	data/chars/mrskarate/freespecial12-10.png
+	delay	4
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	20 91
+	frame	data/chars/mrskarate/freespecial12-11.png
+	offset	25 93
+	frame	data/chars/mrskarate/freespecial12-12.png
+		
+anim	freespecial15
+	loop	0
+	delay	10
+	bbox	8 11 30 91
+	offset	29 102
+	sound	data/sounds/yurta.wav
+	frame	data/chars/mrskarate/freespecial15-01.png
+	bbox	7 11 30 89
+	offset	26 100
+	frame	data/chars/mrskarate/freespecial15-02.png
+	bbox	5 9 35 84
+	offset	26 93
+	frame	data/chars/mrskarate/freespecial15-03.png
+	bbox	5 11 35 86
+	offset	26 97
+	frame	data/chars/mrskarate/freespecial15-04.png
+	bbox	5 9 35 84
+	offset	26 93
+	frame	data/chars/mrskarate/freespecial15-03.png
+	bbox	5 11 35 86
+	offset	26 97
+	frame	data/chars/mrskarate/freespecial15-04.png
+	bbox	5 9 35 84
+	offset	26 93
+	frame	data/chars/mrskarate/freespecial15-03.png
+	bbox	7 11 32 88
+	offset	29 99
+	frame	data/chars/mrskarate/freespecial15-05.png
+	delay	7
+	bbox	13 8 38 80
+	offset	31 88
+	frame	data/chars/mrskarate/freespecial15-06.png
+	bbox	13 8 38 80
+	offset	31 88
+	frame	data/chars/mrskarate/freespecial15-07.png
+	sound	data/sounds/beat2.wav
+	bbox	13 8 38 80
+	offset	31 88
+	frame	data/chars/mrskarate/freespecial15-08.png
+	bbox	13 8 38 80
+	offset	31 88
+	frame	data/chars/mrskarate/freespecial15-06.png
+	bbox	13 8 38 80
+	offset	31 88
+	frame	data/chars/mrskarate/freespecial15-07.png
+	sound	data/sounds/beat2.wav
+	bbox	13 8 38 80
+	offset	31 88
+	frame	data/chars/mrskarate/freespecial15-08.png
+	bbox	13 8 38 80
+	offset	31 88
+	frame	data/chars/mrskarate/freespecial15-06.png
+	bbox	13 8 38 80
+	offset	31 88
+	frame	data/chars/mrskarate/freespecial15-07.png
+	sound	data/sounds/beat2.wav
+	bbox	13 8 38 80
+	offset	31 88
+	frame	data/chars/mrskarate/freespecial15-08.png
+		
+anim	freespecial2
+	bbox	8 10 31 81
+	offset	27 91
+	energycost	5
+	mponly	1
+	loop	0
+	staydown	300 300
+	forcedirection	-1
+	hitfx	data/sounds/beat4.wav
+	hitflash	flashscreen1
+	@cmd	dasher 1.5 0 0
+	delay	5
+	frame	data/chars/mrskarate/freespecial2-01.png
+	offset	27 89
+	frame	data/chars/mrskarate/freespecial2-02.png
+	bbox	0 0 0 0
+	offset	36 89
+	frame	data/chars/mrskarate/freespecial2-03.png
+	offset	42 86
+	frame	data/chars/mrskarate/freespecial2-04.png
+	offset	49 74
+	frame	data/chars/mrskarate/freespecial2-05.png
+	offset	42 70
+	frame	data/chars/mrskarate/freespecial2-06.png
+	offset	35 72
+	frame	data/chars/mrskarate/freespecial2-07.png
+	@cmd	stop
+	sound	data/sounds/yurichesto.wav
+	delay	10
+	attack	23 -4 52 104 50 1 1 0 50 20
+	dropv	4 2.5
+	offset	29 128
+	frame	data/chars/mrskarate/freespecial2-08.png
+	delay	8
+	offset	29 123
+	frame	data/chars/mrskarate/freespecial2-09.png
+	delay	7
+	offset	29 123
+	frame	data/chars/mrskarate/freespecial2-10.png
+	delay	8
+	offset	27 124
+	frame	data/chars/mrskarate/freespecial2-11.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	delay	4
+	offset	33 116
+	frame	data/chars/mrskarate/freespecial2-12.png
+	offset	34 99
+	frame	data/chars/mrskarate/freespecial2-13.png
+	offset	30 90
+	frame	data/chars/mrskarate/freespecial2-14.png
+	offset	33 82
+	frame	data/chars/mrskarate/freespecial2-15.png
+	offset	35 77
+	frame	data/chars/mrskarate/freespecial2-16.png
+	offset	37 76
+	frame	data/chars/mrskarate/freespecial2-17.png
+	offset	28 87
+	frame	data/chars/mrskarate/freespecial2-18.png
+	bbox	12 11 26 74
+	offset	26 86
+	frame	data/chars/mrskarate/freespecial2-19.png
+	offset	26 81
+	frame	data/chars/mrskarate/freespecial2-20.png
+	offset	26 84
+	frame	data/chars/mrskarate/freespecial2-21.png
+	offset	26 93
+	frame	data/chars/mrskarate/freespecial2-22.png
+		
+anim	freespecial27
+	energycost	75
+	mponly	1
+	loop	0
+	delay	7
+	bbox	0 0 0 0
+	followanim	4
+	followcond	1
+	fastattack	1
+	seal	7 1
+	hitfx	data/sounds/empty.wav
+	offset	26 89
+	frame	data/chars/mrskarate/freespecial5-08.png
+	sound	data/sounds/yurkyokugen.wav
+	offset	25 93
+	frame	data/chars/mrskarate/freespecial5-09.png
+	offset	25 93
+	frame	data/chars/mrskarate/freespecial5-09.png
+	offset	25 93
+	frame	data/chars/mrskarate/freespecial5-10.png
+	offset	25 93
+	frame	data/chars/mrskarate/freespecial5-10.png
+	delay	2
+	offset	26 81
+	frame	data/chars/mrskarate/freespecial6-01.png
+	offset	26 81
+	frame	data/chars/mrskarate/freespecial6-01.png
+	delay	25
+	offset	25 83
+	frame	data/chars/mrskarate/freespecial6-02.png
+	offset	25 83
+	frame	data/chars/mrskarate/freespecial6-02.png
+	delay	7
+	offset	25 93
+	frame	data/chars/mrskarate/freespecial5-09.png
+	offset	25 93
+	frame	data/chars/mrskarate/freespecial5-09.png
+	offset	25 93
+	frame	data/chars/mrskarate/freespecial5-10.png
+	offset	25 93
+	frame	data/chars/mrskarate/freespecial5-10.png
+	@cmd	spawn04 "allsp" 1 20 1 2
+	offset	29 102
+	frame	data/chars/mrskarate/freespecial29-5.png
+	sound	data/sounds/super1.wav
+	offset	29 102
+	frame	data/chars/mrskarate/freespecial29-6.png
+	offset	29 102
+	frame	data/chars/mrskarate/freespecial29-5.png
+	offset	29 102
+	frame	data/chars/mrskarate/freespecial29-6.png
+	offset	29 102
+	frame	data/chars/mrskarate/freespecial29-5.png
+	offset	29 102
+	frame	data/chars/mrskarate/freespecial29-6.png
+	offset	29 102
+	frame	data/chars/mrskarate/freespecial29-5.png
+	offset	29 102
+	frame	data/chars/mrskarate/freespecial29-6.png
+	sound	data/sounds/slowm.wav
+	move	4
+	delay	4.5
+	offset	49 84
+	frame	data/chars/mrskarate/run06.png
+	@cmd	keymove 1.2
+	offset	47 86
+	frame	data/chars/mrskarate/run07.png
+	sound	data/sounds/run.wav
+	@cmd	keymove 1.2
+	@cmd	keymove 1.2
+	offset	39 89
+	frame	data/chars/mrskarate/run08.png
+	@cmd	dasher 5 0 0
+	attack	21 0 49 74 0 0 1 0 10 20
+	move	6
+	offset	25 87
+	frame	data/chars/mrskarate/run09.png
+	offset	44 86
+	frame	data/chars/mrskarate/run10.png
+	@cmd	keymove 1.2
+	offset	42 87
+	frame	data/chars/mrskarate/run01.png
+	offset	44 85
+	frame	data/chars/mrskarate/run02.png
+	@cmd	keymove 1.2
+	sound	data/sounds/run.wav
+	offset	40 89
+	frame	data/chars/mrskarate/run03.png
+	offset	28 88
+	frame	data/chars/mrskarate/run04.png
+	@cmd	keymove 1.2
+	offset	44 85
+	frame	data/chars/mrskarate/run05.png
+	offset	49 84
+	frame	data/chars/mrskarate/run06.png
+	@cmd	keymove 1.2
+	offset	47 86
+	frame	data/chars/mrskarate/run07.png
+	sound	data/sounds/run.wav
+	offset	39 89
+	frame	data/chars/mrskarate/run08.png
+	@cmd	keymove 1.2
+	offset	25 87
+	frame	data/chars/mrskarate/run09.png
+	offset	44 86
+	frame	data/chars/mrskarate/run10.png
+	@cmd	keymove 1.2
+	offset	49 84
+	frame	data/chars/mrskarate/run06.png
+	offset	47 86
+	frame	data/chars/mrskarate/run07.png
+	@cmd	keymove 1.2
+	sound	data/sounds/run.wav
+	offset	39 89
+	frame	data/chars/mrskarate/run08.png
+	offset	25 87
+	frame	data/chars/mrskarate/run09.png
+	@cmd	keymove 1.2
+	offset	44 86
+	frame	data/chars/mrskarate/run10.png
+	offset	42 87
+	frame	data/chars/mrskarate/run01.png
+	@cmd	keymove 1.2
+	offset	44 85
+	frame	data/chars/mrskarate/run02.png
+	sound	data/sounds/run.wav
+	offset	40 89
+	frame	data/chars/mrskarate/run03.png
+	offset	28 88
+	frame	data/chars/mrskarate/run04.png
+	@cmd	keymove 1.2
+	offset	44 85
+	frame	data/chars/mrskarate/run05.png
+	offset	49 84
+	frame	data/chars/mrskarate/run06.png
+	@cmd	keymove 1.2
+	offset	47 86
+	frame	data/chars/mrskarate/run07.png
+	sound	data/sounds/run.wav
+	offset	39 89
+	frame	data/chars/mrskarate/run08.png
+	@cmd	keymove 1.2
+	offset	25 87
+	frame	data/chars/mrskarate/run09.png
+	offset	44 86
+	frame	data/chars/mrskarate/run10.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	delay	6
+	@cmd	dasher 1 0 0
+	offset	22 90
+	frame	data/chars/mrskarate/freespecial27-01.png
+	offset	22 90
+	frame	data/chars/mrskarate/freespecial27-01.png
+	offset	30 96
+	frame	data/chars/mrskarate/freespecial27-02.png
+	@cmd	stop
+	offset	30 96
+	frame	data/chars/mrskarate/freespecial27-02.png
+		
+anim	freespecial29
+ @script
+	void self = getlocalvar("self");
+	int mp1 = getentityproperty(self,"mp");
+	void plyr = getentityproperty(self, "playerindex");
+
+	if(frame >= 9 && playerkeys(plyr, 0, "attack3"))
+	{
+	  updateframe(self, 6);
+	}
+	@end_script	
+	loop	0
+	delay	7
+	bbox	7 11 32 94
+	offset	26 105
+	sound	data/sounds/yurch.wav
+	frame	data/chars/mrskarate/charge-01.png
+	sound	data/sounds/xclark05.wav
+	bbox	7 11 32 94
+	offset	26 105
+	frame	data/chars/mrskarate/charge-02.png
+	bbox	7 11 32 94
+	offset	26 105
+	frame	data/chars/mrskarate/charge-03.png
+	bbox	7 11 32 92
+	offset	26 103
+	frame	data/chars/mrskarate/charge-04.png
+	bbox	7 10 32 95
+	offset	26 105
+	frame	data/chars/mrskarate/charge-06.png
+	bbox	7 11 32 95
+	offset	26 106
+	frame	data/chars/mrskarate/charge-05.png
+	delay	3
+	@cmd	mpgain 3
+	bbox	7 11 32 92
+	offset	26 103
+	frame	data/chars/mrskarate/charge-04.png
+	bbox	7 11 32 94
+	offset	26 105
+	frame	data/chars/mrskarate/charge-03.png
+	bbox	7 11 32 94
+	offset	26 105
+	frame	data/chars/mrskarate/charge-02.png
+	bbox	7 11 32 94
+	offset	26 105
+	frame	data/chars/mrskarate/charge-01.png
+		
+anim	freespecial3
+	energycost	5
+	mponly	1
+	loop	0
+	delay	4
+	bbox	17 11 27 84
+	fastattack	1
+	forcedirection	-1
+	staydown	300 300
+	offset	26 95
+	hitfx	data/sounds/beat3.wav
+	sound	data/sounds/yur03.wav
+	frame	data/chars/mrskarate/attack01.png
+	bbox	0 0 0 0
+	offset	26 95
+	frame	data/chars/mrskarate/attack02.png
+	attack	33 0 58 66 10 0 1 0 15 15
+	offset	26 95
+	frame	data/chars/mrskarate/attack05.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	26 95
+	frame	data/chars/mrskarate/freespecial3-01.png
+	attack	28 -3 78 65 10 0 1 0 15 15
+	offset	26 95
+	frame	data/chars/mrskarate/attack03.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	26 95
+	frame	data/chars/mrskarate/attack04.png
+	attack	30 -3 60 66 10 0 1 0 15 15
+	offset	26 95
+	frame	data/chars/mrskarate/freespecial3-02.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	26 103
+	frame	data/chars/mrskarate/freespecial3-03.png
+	attack	27 -3 66 77 10 0 1 0 15 15
+	offset	26 107
+	frame	data/chars/mrskarate/freespecial3-04.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	26 95
+	frame	data/chars/mrskarate/freespecial3-05.png
+	attack	26 -4 58 73 10 0 1 0 15 15
+	offset	26 95
+	frame	data/chars/mrskarate/freespecial3-06.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	26 95
+	frame	data/chars/mrskarate/freespecial3-07.png
+	attack	33 0 58 66 10 0 1 0 15 15
+	offset	26 95
+	frame	data/chars/mrskarate/attack05.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	26 95
+	frame	data/chars/mrskarate/freespecial3-01.png
+	attack	28 -3 78 65 10 0 1 0 15 15
+	offset	26 95
+	frame	data/chars/mrskarate/attack03.png
+	sound	data/sounds/marcohands.wav
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	26 95
+	frame	data/chars/mrskarate/attack04.png
+	attack	30 -3 60 66 10 0 1 0 15 15
+	offset	26 95
+	frame	data/chars/mrskarate/freespecial3-02.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	26 103
+	frame	data/chars/mrskarate/freespecial3-03.png
+	attack	27 -3 66 77 10 0 1 0 15 15
+	offset	26 107
+	frame	data/chars/mrskarate/freespecial3-04.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	26 95
+	frame	data/chars/mrskarate/freespecial3-05.png
+	attack	26 -4 58 73 10 0 1 0 15 15
+	offset	26 95
+	frame	data/chars/mrskarate/freespecial3-06.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	26 95
+	frame	data/chars/mrskarate/freespecial3-07.png
+	offset	28 89
+	frame	data/chars/mrskarate/attackup-11.png
+	@cmd	dasher 3 0 0
+	delay	6
+	offset	50 73
+	frame	data/chars/mrskarate/freespecial4-01.png
+	attack	26 -2 55 44 20 0 1 0 10 15
+	offset	43 63
+	frame	data/chars/mrskarate/freespecial4-02.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	delay	5
+	offset	29 57
+	frame	data/chars/mrskarate/freespecial4-03.png
+	delay	6
+	attack	23 -3 47 66 20 1 1 0 10 10
+	offset	28 78
+	frame	data/chars/mrskarate/freespecial4-04.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	delay	5
+	offset	16 89
+	frame	data/chars/mrskarate/freespecial4-09.png
+	offset	26 118
+	@cmd	stop
+	@cmd	flip
+	sound	data/sounds/yur01.wav
+	frame	data/chars/mrskarate/follow14-06.png
+	delay	30
+	hitfx	data/sounds/hard2.wav
+	attack	7 0 44 87 0 1 1 0 0 10
+	dropv	4.5 0
+	offset	26 118
+	frame	data/chars/mrskarate/follow14-06.png
+	bbox	3 12 29 85
+	@cmd	flip
+	delay	4
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	21 97
+	frame	data/chars/mrskarate/follow14-08.png
+	offset	28 89
+	frame	data/chars/mrskarate/attackup-11.png
+		
+anim	freespecial4
+	cancel	19 23 0 d f a freespecial7
+	energycost	5
+	mponly	1
+	loop	0
+	delay	4
+	bbox	9 10 29 78
+	fastattack	1
+	forcedirection	-1
+	staydown	400 400
+	@cmd	dasher 2 0 0
+	jumpframe	7 3.8 1 0
+	landframe	18
+	hitfx	data/sounds/beat3.wav
+	offset	28 89
+	frame	data/chars/mrskarate/attackup-11.png
+	bbox	0 0 0 0
+	delay	6
+	offset	50 73
+	frame	data/chars/mrskarate/freespecial4-01.png
+	attack	26 -2 55 44 20 0 1 0 10 15
+	offset	43 63
+	frame	data/chars/mrskarate/freespecial4-02.png
+	sound	data/sounds/yuriuppa.wav
+	attack	0 0 0 0 0 0 0 0 0 0
+	delay	5
+	offset	29 57
+	frame	data/chars/mrskarate/freespecial4-03.png
+	delay	6
+	attack	23 -3 47 66 20 1 1 0 10 10
+	offset	28 78
+	frame	data/chars/mrskarate/freespecial4-04.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	delay	5
+	offset	16 89
+	frame	data/chars/mrskarate/freespecial4-09.png
+	hitflash	flashscreen1
+	hitfx	data/sounds/beat4.wav
+	attack10	0 -2 38 106 35 1 1 0 25 15
+	delay	10
+	offset	7 136
+	frame	data/chars/mrskarate/freespecial4-05.png
+	delay	5
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	7 136
+	frame	data/chars/mrskarate/freespecial4-05.png
+	attack10	0 -2 38 106 35 1 1 0 25 15
+	delay	10
+	offset	7 136
+	frame	data/chars/mrskarate/freespecial4-05.png
+	delay	5
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	7 136
+	frame	data/chars/mrskarate/freespecial4-05.png
+	attack10	0 -2 38 106 35 1 1 0 25 15
+	dropv	5 1 0
+	delay	10
+	offset	7 136
+	frame	data/chars/mrskarate/freespecial4-05.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	delay	5
+	offset	6 126
+	frame	data/chars/mrskarate/freespecial4-06.png
+	offset	6 126
+	frame	data/chars/mrskarate/freespecial4-06.png
+	offset	11 108
+	frame	data/chars/mrskarate/freespecial4-07.png
+	offset	14 108
+	frame	data/chars/mrskarate/freespecial4-07.png
+	bbox	12 11 24 77
+	offset	19 104
+	frame	data/chars/mrskarate/freespecial4-08.png
+	offset	22 104
+	frame	data/chars/mrskarate/freespecial4-08.png
+	bbox	0 0 0 0
+	delay	300
+	offset	23 101
+	frame	data/chars/mrskarate/freespecial4-10.png
+	@cmd	stop
+	delay	3
+	offset	26 94
+	frame	data/chars/mrskarate/jumpdelay01.png
+	offset	20 61
+	frame	data/chars/mrskarate/rise03.png
+	offset	21 61
+	frame	data/chars/mrskarate/rise04.png
+	offset	27 90
+	frame	data/chars/mrskarate/rise08.png
+	offset	26 93
+	frame	data/chars/mrskarate/rise09.png
+		
+anim	freespecial5
+	bbox	10 5 28 85
+	offset	30 90
+	freespecial5	
+	energycost	5
+	mponly	1
+	loop	0
+	delay	8
+	custknife	hsken
+	throwframe	5 73
+	sound	data/sounds/yursp1.wav
+	frame	data/chars/mrskarate/freespecial5-01.png
+	offset	34 99
+	frame	data/chars/mrskarate/freespecial5-02.png
+	offset	39 96
+	frame	data/chars/mrskarate/freespecial5-03.png
+	offset	32 86
+	frame	data/chars/mrskarate/freespecial5-04.png
+	offset	24 85
+	frame	data/chars/mrskarate/freespecial5-05.png
+	offset	24 90
+	frame	data/chars/mrskarate/freespecial5-06.png
+	offset	24 90
+	frame	data/chars/mrskarate/freespecial5-07.png
+	offset	26 89
+	frame	data/chars/mrskarate/freespecial5-08.png
+	offset	25 93
+	frame	data/chars/mrskarate/freespecial5-09.png
+	offset	25 93
+	frame	data/chars/mrskarate/freespecial5-10.png
+		
+anim	freespecial6
+	bbox	14 7 33 82
+	energycost	15
+	mponly	1
+	loop	0
+	delay	4
+	custknife	hadok2
+	throwframe	14
+	offset	26 89
+	frame	data/chars/mrskarate/freespecial5-08.png
+	offset	25 93
+	frame	data/chars/mrskarate/freespecial5-09.png
+	offset	25 93
+	frame	data/chars/mrskarate/freespecial5-10.png
+	sound	data/sounds/super1.wav
+	@cmd	spawnAni2 "allsp" 1 1 1 2 "ANI_FOLLOW1"
+	delay	2
+	offset	26 81
+	frame	data/chars/mrskarate/freespecial6-01.png
+	bbox	0 0 0 0
+	sound	data/sounds/yursp5.wav
+	delay	50
+	offset	25 83
+	frame	data/chars/mrskarate/freespecial6-02.png
+	@cmd	spawnbind2 "mrskaratepw" -35 65 1 "ANI_FOLLOW1"
+	delay	5
+	offset	40 86
+	frame	data/chars/mrskarate/freespecial6-03.png
+	offset	39 86
+	frame	data/chars/mrskarate/freespecial6-04.png
+	offset	40 86
+	frame	data/chars/mrskarate/freespecial6-03.png
+	offset	39 86
+	frame	data/chars/mrskarate/freespecial6-04.png
+	offset	40 86
+	frame	data/chars/mrskarate/freespecial6-03.png
+	offset	39 86
+	frame	data/chars/mrskarate/freespecial6-04.png
+	offset	40 86
+	frame	data/chars/mrskarate/freespecial6-03.png
+	offset	39 86
+	frame	data/chars/mrskarate/freespecial6-04.png
+	offset	20 92
+	frame	data/chars/mrskarate/freespecial6-05.png
+	sound	data/sounds/super2.wav
+	delay	40
+	offset	30 98
+	frame	data/chars/mrskarate/freespecial6-06.png
+	delay	9
+	offset	30 92
+	frame	data/chars/mrskarate/freespecial6-07.png
+	delay	4
+	offset	20 92
+	frame	data/chars/mrskarate/freespecial6-05.png
+	offset	25 93
+	frame	data/chars/mrskarate/freespecial5-10.png
+		
+anim	freespecial7
+	energycost	5
+	mponly	1
+	loop	0
+	delay	5
+	bbox	0 0 0 0
+	fastattack	1
+	forcedirection	-1
+	jumpframe	4 4 1 0
+	landframe	11
+	hitfx	data/sounds/beat3.wav
+	offset	17 79
+	frame	data/chars/mrskarate/attack4-06.png
+	attack	17 -1 52 75 20 0 1 0 10 15
+	delay	4
+	sound	data/sounds/yuridble.wav
+	offset	40 95
+	frame	data/chars/mrskarate/freespecial7-01.png
+	offset	40 95
+	frame	data/chars/mrskarate/freespecial7-01.png
+	delay	5
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	31 91
+	frame	data/chars/mrskarate/freespecial7-02.png
+	hitfx	data/sounds/beat4.wav
+	delay	10
+	attack	0 -3 36 129 35 1 1 0 25 15
+	offset	8 130
+	frame	data/chars/mrskarate/freespecial7-03.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	8 130
+	frame	data/chars/mrskarate/freespecial7-03.png
+	attack	0 -3 36 129 35 1 1 0 25 15
+	offset	8 130
+	frame	data/chars/mrskarate/freespecial7-03.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	delay	8
+	offset	17 117
+	frame	data/chars/mrskarate/freespecial7-04.png
+	offset	17 120
+	frame	data/chars/mrskarate/freespecial7-05.png
+	offset	14 108
+	frame	data/chars/mrskarate/freespecial4-07.png
+	bbox	9 11 26 79
+	delay	300
+	offset	25 101
+	frame	data/chars/mrskarate/freespecial7-06.png
+	bbox	8 11 26 79
+	delay	4
+	offset	26 94
+	frame	data/chars/mrskarate/jumpdelay01.png
+		
+anim	get
+	loop	0
+	delay	5
+	offset	27 90
+	frame	data/chars/mrskarate/get-01.png
+	offset	20 61
+	frame	data/chars/mrskarate/get-02.png
+	offset	20 63
+	frame	data/chars/mrskarate/get-03.png
+	delay	8
+	offset	23 58
+	frame	data/chars/mrskarate/get-04.png
+	offset	18 61
+	frame	data/chars/mrskarate/get-05.png
+	offset	20 63
+	frame	data/chars/mrskarate/get-03.png
+	offset	27 90
+	frame	data/chars/mrskarate/get-01.png
+		
+anim	grab
+	loop	0
+	delay	100
+	offset	26 89
+	bbox	17 10 21 77
+	frame	data/chars/mrskarate/attack4-10.png
+		
+anim	grabattack
+	loop	0
+	delay	5
+	offset	26 89
+	bbox	17 10 21 77
+	frame	data/chars/mrskarate/attack4-10.png
+	offset	26 100
+	frame	data/chars/mrskarate/grabattack-01.png
+	delay	7
+	attack	25 24 39 47 15 0 1 0 16 8
+	offset	27 101
+	frame	data/chars/mrskarate/grabattack-02.png
+		
+anim	grabattack2
+	attackone	0
+	loop	0
+	delay	6
+	bbox	0 0 0 0
+	hitfx	data/sounds/beat5.wav
+	staydown	350 350
+	offset	27 81
+	frame	data/chars/mrskarate/attack5-01.png
+	offset	41 73
+	frame	data/chars/mrskarate/attack5-02.png
+	offset	17 91
+	frame	data/chars/mrskarate/attack5-03.png
+	sound	data/sounds/yur02.wav
+	offset	15 80
+	frame	data/chars/mrskarate/attack5-04.png
+	delay	7
+	blast	17 -3 85 55 50 1 0 1 10 20
+	offset	10 95
+	frame	data/chars/mrskarate/attack7-01.png
+	offset	4 88
+	frame	data/chars/mrskarate/attack5-05.png
+	delay	6
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	-5 89
+	frame	data/chars/mrskarate/attack5-06.png
+	offset	-4 99
+	frame	data/chars/mrskarate/attack5-08.png
+	offset	15 86
+	frame	data/chars/mrskarate/attack5-07.png
+	offset	27 81
+	frame	data/chars/mrskarate/attack5-01.png
+		
+anim	grabbackward
+	loop	0
+	delay	15
+	bbox	0 0 0 0
+	sound	data/sounds/yur02.wav
+	@cmd	slamstart
+	@cmd	position 10 40 50 -1 -1
+	offset	26 89
+	frame	data/chars/mrskarate/attack4-10.png
+	offset	18 94
+	delay	7
+	frame	data/chars/mrskarate/attack6-02.png
+	offset	27 91
+	frame	data/chars/mrskarate/attack2-05.png
+	offset	21 90
+	frame	data/chars/mrskarate/grabbackward-01.png
+	offset	31 59
+	@cmd	position 11 30 50 -1 -1
+	frame	data/chars/mrskarate/grabbackward-02.png
+	offset	25 61
+	@cmd	position 5 50 50 -1 -1
+	frame	data/chars/mrskarate/grabbackward-03.png
+	offset	24 64
+	@cmd	position 8 30 60 -1 -1
+	frame	data/chars/mrskarate/grabbackward-04.png
+	offset	37 72
+	@cmd	position 8 20 55 -1 -1
+	frame	data/chars/mrskarate/grabbackward-05.png
+	offset	37 72
+	@cmd	position 7 10 70 -1 -1
+	frame	data/chars/mrskarate/grabbackward-05.png
+	offset	37 72
+	delay	1
+	@cmd	position 7 0 20 1 -1
+	frame	data/chars/mrskarate/grabbackward-06.png
+	offset	55 44
+	delay	2
+	@cmd	depost 0
+	@cmd	throw 60 1 3.5 2 0 1
+	move	-1
+	frame	data/chars/mrskarate/grabbackward-06.png
+	delay	9
+	offset	55 44
+	frame	data/chars/mrskarate/grabbackward-06.png
+	@cmd	clearL
+	offset	55 44
+	frame	data/chars/mrskarate/grabbackward-06.png
+	delay	8
+	@cmd	dasher -3 0 0
+	offset	30 38
+	frame	data/chars/mrskarate/attackup-06.png
+	offset	19 60
+	frame	data/chars/mrskarate/attackup-05.png
+	offset	30 37
+	frame	data/chars/mrskarate/attackup-04.png
+	offset	33 68
+	frame	data/chars/mrskarate/attackup-03.png
+	@cmd	stop
+	offset	30 72
+	frame	data/chars/mrskarate/attackup-10.png
+	offset	28 89
+	frame	data/chars/mrskarate/attackup-11.png
+		
+anim	grabbed
+	bbox	0 9 38 87
+	loop	0
+	delay	100
+	offset	28 96
+	frame	data/chars/mrskarate/pain03.png
+		
+anim	grabforward
+	offset	25 94
+	loop	0
+	delay	5
+	forcedirection	-1
+	fastattack	1
+	hitfx	data/sounds/ashslap.wav
+	frame	data/chars/mrskarate/grabforward-01.png
+	offset	23 95
+	frame	data/chars/mrskarate/grabforward-02.png
+	delay	6
+	blast	20 -4 59 60 30 1 1 0 20 15
+	offset	24 94
+	frame	data/chars/mrskarate/grabforward-03.png
+	delay	5
+	offset	25 108
+	frame	data/chars/mrskarate/grabforward-04.png
+	offset	26 107
+	frame	data/chars/mrskarate/grabforward-05.png
+	offset	22 94
+	frame	data/chars/mrskarate/grabforward-06.png
+	offset	23 93
+	frame	data/chars/mrskarate/grabforward-07.png
+		
+anim	grabup
+	loop	0
+	followcond	3
+	followanim	14
+	attackone	0
+	delay	5
+	offset	18 87
+	staydown	450 450
+	hitfx	data/sounds/ashslap.wav
+	sound	data/sounds/yur01.wav
+	frame	data/chars/mrskarate/grabforward-01.png
+	offset	23 95
+	frame	data/chars/mrskarate/grabforward-02.png
+	delay	6
+	attack	20 -4 59 60 30 1 1 0 20 15
+	dropv	6.5 -0.3
+	offset	24 94
+	frame	data/chars/mrskarate/grabforward-03.png
+	delay	5
+	offset	25 108
+	frame	data/chars/mrskarate/grabforward-04.png
+	offset	26 107
+	frame	data/chars/mrskarate/grabforward-05.png
+	offset	22 94
+	frame	data/chars/mrskarate/grabforward-06.png
+	offset	23 93
+	frame	data/chars/mrskarate/grabforward-07.png
+		
+anim	idle
+	loop	1
+	delay	7
+	offset	26 93
+	bbox	9 11 31 83
+	frame	data/chars/mrskarate/idle01.png
+	bbox	9 11 31 83
+	offset	26 94
+	frame	data/chars/mrskarate/idle02.png
+	bbox	7 11 31 87
+	offset	26 98
+	frame	data/chars/mrskarate/idle03.png
+	bbox	7 11 31 90
+	offset	24 102
+	frame	data/chars/mrskarate/idle04.png
+	bbox	7 8 31 90
+	offset	26 98
+	frame	data/chars/mrskarate/idle05.png
+	bbox	7 8 31 88
+	offset	26 95
+	frame	data/chars/mrskarate/idle06.png
+		
+anim	jump
+	loop	0
+	bbox	6 9 26 97
+	delay	12
+	offset	20 107
+	frame	data/chars/mrskarate/jump01.png
+	bbox	2 14 24 78
+	offset	15 112
+	frame	data/chars/mrskarate/jump02.png
+	bbox	1 8 28 58
+	delay	8
+	offset	11 104
+	frame	data/chars/mrskarate/jump03.png
+	bbox	2 12 30 61
+	offset	15 105
+	frame	data/chars/mrskarate/jump04.png
+	bbox	6 17 24 88
+	delay	10
+	offset	19 119
+	frame	data/chars/mrskarate/jump05.png
+		
+anim	jumpattack
+	bbox	6 12 33 52
+	offset	19 102
+	loop	0
+	delay	5
+	staydown	500 500
+	hitfx	data/sounds/beat3.wav
+	sound	data/sounds/yur01.wav
+	frame	data/chars/mrskarate/jumpattack-01.png
+	offset	26 104
+	frame	data/chars/mrskarate/jumpattack-02.png
+	offset	19 102
+	frame	data/chars/mrskarate/jumpattack-01.png
+	attack	23 22 83 52 25 1 1 0 30 13
+	delay	8
+	offset	32 104
+	frame	data/chars/mrskarate/jumpattack-03.png
+		
+anim	jumpattack2
+	bbox	28 19 22 56
+	offset	41 111
+	loop	0
+	delay	7
+	frame	data/chars/mrskarate/jumpattack2-01.png
+	offset	38 118
+	frame	data/chars/mrskarate/jumpattack2-02.png
+	attack	13 2 56 51 12 0 1 0 15 10
+	offset	19 84
+	frame	data/chars/mrskarate/jumpattack2-03.png
+		
+anim	jumpdelay
+	loop	0
+	bbox	8 9 24 82
+	delay	6
+	offset	26 94
+	frame	data/chars/mrskarate/jumpdelay01.png
+		
+anim	jumpland
+	loop	0
+	bbox	8 8 24 83
+	delay	6
+	offset	26 94
+	frame	data/chars/mrskarate/jumpdelay01.png
+		
+anim	pain
+	loop	0
+	delay	7
+	offset	28 96
+	bbox	1 12 36 84
+	sound	data/sounds/yurpa.wav
+	frame	data/chars/mrskarate/pain01.png
+	offset	28 96
+	frame	data/chars/mrskarate/pain02.png
+	offset	28 96
+	frame	data/chars/mrskarate/pain03.png
+	offset	40 90
+	frame	data/chars/mrskarate/pain04.png
+		
+anim	pain2
+	bbox	5 7 33 79
+	offset	26 86
+	loop	0
+	frame	data/chars/mrskarate/pain2-01.png
+	offset	26 84
+	frame	data/chars/mrskarate/pain2-02.png
+	offset	28 80
+	frame	data/chars/mrskarate/pain2-03.png
+	offset	31 78
+	frame	data/chars/mrskarate/pain2-04.png
+		
+anim	pain3
+	loop	0
+	delay	2
+	offset	28 96
+	bbox	1 16 33 78
+	move	-6
+	frame	data/chars/mrskarate/pain3-01.png
+	offset	28 96
+	frame	data/chars/mrskarate/pain3-02.png
+	offset	40 90
+	frame	data/chars/mrskarate/pain3-03.png
+	move	-3
+	offset	28 96
+	frame	data/chars/mrskarate/pain3-04.png
+	move	-1
+	offset	35 105
+	frame	data/chars/mrskarate/pain3-05.png
+	delay	40
+	offset	33 105
+	frame	data/chars/mrskarate/pain3-05.png
+		
+anim	pain5
+	bbox	1 11 43 78
+	loop	0
+	offset	40 90
+	frame	data/chars/mrskarate/pain5-01.png
+	offset	47 87
+	frame	data/chars/mrskarate/pain5-02.png
+	offset	56 87
+	frame	data/chars/mrskarate/pain5-03.png
+	offset	28 96
+	frame	data/chars/mrskarate/pain5-04.png
+	offset	26 86
+	frame	data/chars/mrskarate/pain5-05.png
+	offset	26 84
+	frame	data/chars/mrskarate/pain5-06.png
+	move	0
+	delay	25
+	offset	28 80
+	frame	data/chars/mrskarate/pain5-07.png
+	offset	20 62
+	frame	data/chars/mrskarate/pain5-08.png
+		
+anim	respawn
+	loop	0
+	delay	50
+	offset	26 105
+	frame	data/chars/mrskarate/charge-01.png
+	delay	8
+	offset	26 105
+	frame	data/chars/mrskarate/charge-02.png
+	offset	26 105
+	frame	data/chars/mrskarate/charge-03.png
+	offset	26 103
+	frame	data/chars/mrskarate/charge-04.png
+	offset	26 105
+	frame	data/chars/mrskarate/charge-06.png
+	offset	26 106
+	frame	data/chars/mrskarate/charge-05.png
+	delay	10
+	offset	26 103
+	frame	data/chars/mrskarate/charge-04.png
+	delay	5
+	offset	26 105
+	frame	data/chars/mrskarate/charge-03.png
+	delay	8
+	offset	26 105
+	frame	data/chars/mrskarate/charge-02.png
+	offset	26 105
+	frame	data/chars/mrskarate/charge-01.png
+	delay	8
+	offset	26 105
+	frame	data/chars/mrskarate/charge-02.png
+	delay	50
+	offset	26 105
+	frame	data/chars/mrskarate/charge-03.png
+		
+anim	rise
+	loop	0
+	delay	7
+	offset	23 58
+	frame	data/chars/mrskarate/rise01.png
+	offset	18 61
+	frame	data/chars/mrskarate/rise02.png
+	offset	20 61
+	frame	data/chars/mrskarate/rise03.png
+	offset	21 61
+	frame	data/chars/mrskarate/rise04.png
+	offset	19 62
+	frame	data/chars/mrskarate/rise05.png
+	offset	15 63
+	frame	data/chars/mrskarate/rise06.png
+	offset	20 72
+	frame	data/chars/mrskarate/rise07.png
+	offset	27 90
+	frame	data/chars/mrskarate/rise08.png
+	offset	26 93
+	frame	data/chars/mrskarate/rise09.png
+		
+anim	run
+	loop	1
+	bbox	31 6 45 50
+	delay	4.5
+	offset	42 87
+	frame	data/chars/mrskarate/run01.png
+	bbox	31 6 45 50
+	offset	44 85
+	frame	data/chars/mrskarate/run02.png
+	bbox	31 6 45 50
+	sound	data/sounds/run.wav
+	offset	40 89
+	frame	data/chars/mrskarate/run03.png
+	bbox	20 6 34 81
+	offset	28 88
+	frame	data/chars/mrskarate/run04.png
+	bbox	31 6 34 79
+	offset	44 85
+	frame	data/chars/mrskarate/run05.png
+	bbox	41 6 34 52
+	offset	49 84
+	frame	data/chars/mrskarate/run06.png
+	bbox	39 6 34 58
+	offset	47 86
+	frame	data/chars/mrskarate/run07.png
+	bbox	32 8 34 58
+	sound	data/sounds/run.wav
+	offset	39 89
+	frame	data/chars/mrskarate/run08.png
+	bbox	17 8 34 77
+	offset	25 87
+	frame	data/chars/mrskarate/run09.png
+	bbox	34 4 34 54
+	offset	44 86
+	frame	data/chars/mrskarate/run10.png
+		
+anim	runattack
+	bbox	22 9 26 82
+	offset	25 92
+	loop	0
+	delay	6
+	forcedirection	-1
+	fastattack	1
+	jumpframe	3 1 2
+	landframe	6
+	@cmd	dasher 3.5 0 0
+	hitfx	data/sounds/hard2.wav
+	frame	data/chars/mrskarate/runattack-01.png
+	sound	data/sounds/yur02.wav
+	offset	26 94
+	frame	data/chars/mrskarate/runattack-02.png
+	delay	6
+	attack	37 0 59 56 35 1 1 0 20 15
+	dropv	2 3
+	offset	55 87
+	frame	data/chars/mrskarate/runattack-03.png
+	offset	55 87
+	frame	data/chars/mrskarate/runattack-03.png
+	offset	55 87
+	frame	data/chars/mrskarate/runattack-03.png
+	offset	55 87
+	frame	data/chars/mrskarate/runattack-03.png
+	@cmd	dasher 2 0 0
+	delay	4
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	33 97
+	frame	data/chars/mrskarate/runattack-04.png
+	offset	25 95
+	frame	data/chars/mrskarate/runattack-05.png
+	bbox	10 10 26 79
+	offset	27 90
+	frame	data/chars/mrskarate/rise08.png
+	@cmd	stop
+	offset	26 93
+	frame	data/chars/mrskarate/rise09.png
+		
+anim	runjumpattack
+	loop	0
+	delay	8
+	fastattack	1
+	forcedirection	-1
+	seal	7 1
+	sound	data/sounds/yurikyak.wav
+	hitfx	data/sounds/beat5.wav
+	staydown	300 300
+	bbox	6 12 33 52
+	offset	19 102
+	frame	data/chars/mrskarate/jumpattack-01.png
+	movez	0
+	movea	0
+	move	3
+	offset	26 104
+	frame	data/chars/mrskarate/jumpattack-02.png
+	offset	19 102
+	frame	data/chars/mrskarate/jumpattack-01.png
+	attack	23 22 83 52 30 1 1 0 40 15
+	dropv	3 3 0
+	delay	8
+	offset	32 104
+	frame	data/chars/mrskarate/jumpattack-03.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	@cmd	leaper 1.3 2.1
+	delay	3
+	offset	26 104
+	frame	data/chars/mrskarate/jumpattack-02.png
+	offset	19 102
+	frame	data/chars/mrskarate/jumpattack-01.png
+	delay	5
+	offset	24 96
+	frame	data/chars/mrskarate/runjumpattack-01.png
+	offset	29 97
+	frame	data/chars/mrskarate/runjumpattack-02.png
+	delay	8
+	offset	19 102
+	frame	data/chars/mrskarate/jumpattack-01.png
+	offset	26 104
+	frame	data/chars/mrskarate/jumpattack-02.png
+	attack	20 16 74 56 30 1 1 0 40 15
+	dropv	2.6 4 0
+	offset	22 100
+	frame	data/chars/mrskarate/runjumpattack-03.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	delay	4
+	offset	19 102
+	frame	data/chars/mrskarate/jumpattack-01.png
+		
+anim	runslide
+	bbox	11 8 25 50
+	loop	0
+	forcedirection	-1
+	fastattack	1
+	hitfx	data/sounds/beat5.wav
+	delay	5
+	@cmd	dasher 2 0 0
+	offset	19 62
+	frame	data/chars/mrskarate/runslide-01.png
+	offset	19 63
+	frame	data/chars/mrskarate/runslide-02.png
+	delay	7
+	attack	25 20 86 39 20 1 1 0 15 20
+	dropv	3 4
+	offset	20 63
+	frame	data/chars/mrskarate/runslide-03.png
+	offset	24 63
+	frame	data/chars/mrskarate/runslide-04.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	17 62
+	frame	data/chars/mrskarate/runslide-05.png
+	offset	23 59
+	frame	data/chars/mrskarate/runslide-06.png
+	offset	18 61
+	frame	data/chars/mrskarate/runslide-07.png
+	@cmd	stop
+	offset	20 62
+	frame	data/chars/mrskarate/runslide-08.png
+	offset	19 62
+	frame	data/chars/mrskarate/rise05.png
+		
+anim	select
+	loop	0
+	delay	5
+	bbox	0 0 0 0
+	sound	data/sounds/yuri.wav
+	frame	data/chars/mrskarate/select01.png
+		
+anim	spawn
+	loop	0
+	delay	40
+	offset	22 102
+	frame	data/chars/mrskarate/spawn-01.png
+	sound	data/sounds/yurwi.wav
+	offset	22 102
+	frame	data/chars/mrskarate/spawn-01.png
+	delay	8
+	offset	26 102
+	frame	data/chars/mrskarate/spawn-02.png
+	offset	27 103
+	frame	data/chars/mrskarate/spawn-03.png
+	offset	27 102
+	frame	data/chars/mrskarate/spawn-04.png
+	offset	26 104
+	frame	data/chars/mrskarate/spawn-05.png
+	delay	50
+	offset	26 105
+	frame	data/chars/mrskarate/spawn-06.png
+	delay	7
+	offset	28 93
+	frame	data/chars/mrskarate/freespecial29-1.png
+	offset	27 90
+	frame	data/chars/mrskarate/rise08.png
+	offset	26 93
+	frame	data/chars/mrskarate/rise09.png
+		
+anim	special
+	energycost	40
+	mponly	1
+	loop	0
+	delay	3
+	bbox	0 0 0 0
+	hitflash	Flash3
+	hitfx	data/sounds/hard2.wav
+	sound	data/sounds/yur03.wav
+	staydown	400 400
+	fastattack	1
+	offset	26 86
+	frame	data/chars/mrskarate/follow14-01.png
+	offset	26 81
+	frame	data/chars/mrskarate/follow14-02.png
+	delay	10
+	offset	26 84
+	frame	data/chars/mrskarate/follow14-03.png
+	delay	8
+	attack	0 0 63 116 20 1 1 0 0 15
+	dropv	1.3 1
+	offset	26 144
+	frame	data/chars/mrskarate/follow14-04.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	26 144
+	frame	data/chars/mrskarate/follow14-05.png
+	attack	0 0 63 116 20 1 1 0 0 15
+	dropv	1.3 -1
+	offset	26 144
+	frame	data/chars/mrskarate/follow14-04.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	26 144
+	frame	data/chars/mrskarate/follow14-05.png
+	attack	0 0 63 116 20 1 1 0 0 15
+	dropv	1.3 1
+	offset	26 144
+	frame	data/chars/mrskarate/follow14-04.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	26 144
+	frame	data/chars/mrskarate/follow14-05.png
+	attack	0 0 63 116 20 1 1 0 0 15
+	dropv	1.3 -1
+	offset	26 144
+	frame	data/chars/mrskarate/follow14-04.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	26 144
+	frame	data/chars/mrskarate/follow14-05.png
+	attack	0 0 63 116 20 1 1 0 0 15
+	dropv	1.3 1
+	offset	26 144
+	frame	data/chars/mrskarate/follow14-04.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	26 144
+	frame	data/chars/mrskarate/follow14-05.png
+	delay	13
+	attack	7 0 44 87 20 1 1 0 10 15
+	dropv	4.5 0
+	offset	26 118
+	frame	data/chars/mrskarate/follow14-06.png
+	delay	20
+	sound	data/sounds/yur01.wav
+	attack	7 0 44 87 20 1 0 1 10 15
+	dropv	4.5 0
+	offset	26 120
+	frame	data/chars/mrskarate/follow14-07.png
+	delay	4
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	21 97
+	frame	data/chars/mrskarate/follow14-08.png
+	offset	28 89
+	frame	data/chars/mrskarate/attackup-11.png
+		
+anim	waiting
+	loop	0
+	frame	data/chars/mrskarate/wait01.png
+		
+anim	walk
+	loop	1
+	delay	8
+	offset	43 96
+	bbox	22 9 28 87
+	frame	data/chars/mrskarate/walk01.png
+	bbox	19 9 28 91
+	offset	40 100
+	frame	data/chars/mrskarate/walk02.png
+	bbox	0 11 30 92
+	offset	20 103
+	frame	data/chars/mrskarate/walk03.png
+	bbox	0 11 30 92
+	offset	20 103
+	frame	data/chars/mrskarate/walk04.png
+	bbox	7 10 31 89
+	offset	28 99
+	frame	data/chars/mrskarate/walk05.png
+	bbox	16 10 32 84
+	offset	37 94
+	frame	data/chars/mrskarate/walk06.png
+		
+anim	walkoff
+	loop	0
+	delay	12
+	bbox	6 9 26 97
+	offset	20 107
+	frame	data/chars/mrskarate/jump01.png
+	bbox	6 17 24 88
+	offset	19 119
+	frame	data/chars/mrskarate/jump05.png
+		
+#|edited by openBor Stats v 0.67
+		

@@ -1,0 +1,3297 @@
+name nestkyo
+type		player
+health		150
+mp		100
+mprate          1
+chargerate      3
+speed		11
+running		26 3.2 3 1 1
+jumpheight	4
+nodieblink	2
+weaploss	3
+modelflag	1
+noquake         0
+makeinv		3
+riseinv		1
+gfxshadow	1
+fmap		1
+holdblock 	1
+blockpain	15
+falldie		2
+dust            dust
+candamage	enemy obstacle
+projectilehit 	player npc enemy
+weapons		Robcar kyoplr Robcar2 robfall Robwtr Robvent mapcurs mrzero ryoturt
+atchain         1 1 2 3 4 0 5 6 7 0 8 1
+combostyle      1
+icon		data/chars/xkyo/iconpl.png
+parrow          data/chars/misc/flash/flash/player1.gif  -36 -145
+parrow2         data/chars/misc/flash/flash/player2.gif  -36 -145
+parrow3         data/chars/misc/flash/flash/player3.gif  -36 -145
+
+palette         data/chars/nestkyo/idle-01.png
+
+animationscript		data/scripts/grabscript.c
+ondrawscript 		data/scripts/water_puddle_script.c
+script			data/scripts/player_script.c
+
+
+load	xkyopw
+
+
+com	d f a	  freespecial9
+com	d f s 	  freespecial7
+com	f d s 	  freespecial5
+com	d f j 	  freespecial6
+com	a2	  freespecial15
+com     f d f a freespecial26
+com	f d f s freespecial27
+com	a3	  freespecial29
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+anim	attack1
+	cancel	1 3 0 s freespecial6
+	range	0 135
+	rangez	-25 25
+	loop	0
+	delay	3
+	fastattack	1
+	hitfx	data/sounds/beat2.wav
+	@cmd	attackgrd -60 60 0 1 10 "ANI_FOLLOW10"
+	offset	34 98
+	bbox	20 12 29 86
+	frame	data/chars/nestkyo/attack1-01.png
+	bbox	34 9 27 88
+	delay	6
+	attack	38 9 72 26 6 0 0 0 1 15
+	offset	49 96
+	frame	data/chars/nestkyo/attack1-02.png
+	bbox	32 13 27 88
+	offset	49 101
+	frame	data/chars/nestkyo/attack1-03.png
+		
+anim	attack2
+	cancel	1 4 0 s freespecial6
+	range	0 65
+	rangez	-25 25
+	loop	0
+	delay	3
+	fastattack	1
+	hitfx	data/sounds/beat2.wav
+	sound	data/sounds/xkyo01.wav
+	bbox	18 7 36 94
+	offset	35 101
+	frame	data/chars/nestkyo/attack3-01.png
+	delay	6
+	attack	33 8 60 28 30 0 0 0 7 15
+	bbox	27 9 32 92
+	offset	39 100
+	frame	data/chars/nestkyo/attack3-02.png
+	bbox	18 6 34 95
+	offset	36 101
+	frame	data/chars/nestkyo/attack3-03.png
+	attack	0 0 0 0
+	bbox	18 11 33 87
+	offset	36 98
+	frame	data/chars/nestkyo/attack3-04.png
+		
+anim	attack3
+	cancel	2 4 0 d f j freespecial6
+	cancel	2 4 0 d f a freespecial9
+	cancel	2 4 0 d f s freespecial7
+	bbox	15 4 34 87
+	range	6 66
+	rangez	-25 25
+	loop	0
+	delay	3
+	fastattack	1
+	hitfx	data/sounds/beat3.wav
+	offset	29 91
+	frame	data/chars/nestkyo/attack2-01.png
+	bbox	33 5 20 75
+	offset	44 79
+	frame	data/chars/nestkyo/attack2-02.png
+	bbox	44 7 23 73
+	delay	6
+	attack2	50 2 45 36 20 0 0 0 5 15
+	offset	57 81
+	frame	data/chars/nestkyo/attack2-03.png
+	bbox	16 9 30 83
+	attack2	0 0 0 0 0 0 0 0 0 0
+	offset	29 91
+	frame	data/chars/nestkyo/attack2-04.png
+		
+anim	attack4
+	range	0 51
+	rangez	-25 25
+	delay	12
+	fastattack	1
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/xkyo01.wav
+	loop	0
+	bbox	22 12 29 69
+	offset	31 80
+	frame	data/chars/nestkyo/attack4-01.png
+	delay	3
+	bbox	22 3 33 80
+	offset	32 83
+	frame	data/chars/nestkyo/attack4-02.png
+	attack10	33 0 62 60 40 1 1 0 20 15
+	dropv	4.5 1.2 0
+	bbox	27 13 27 90
+	offset	31 103
+	frame	data/chars/nestkyo/attack4-03.png
+	attack10	0 0 0 0
+	bbox	22 33 29 96
+	offset	30 128
+	frame	data/chars/nestkyo/attack4-04.png
+	hitfx	data/sounds/beat4.wav
+	delay	4
+	burn	51 21 60 60 40 1 1 0 40 15
+	dropv	4.5 1.2 0
+	bbox	21 38 27 91
+	offset	30 128
+	frame	data/chars/nestkyo/attack4-05.png
+	delay	10
+	attack10	0 0 0 0 0 0 0 0 0 0
+	bbox	26 33 20 90
+	offset	30 123
+	frame	data/chars/nestkyo/attack4-06.png
+	bbox	22 31 24 88
+	offset	30 119
+	frame	data/chars/nestkyo/attack4-07.png
+	delay	2
+	bbox	21 13 26 91
+	offset	31 103
+	frame	data/chars/nestkyo/attack4-08.png
+	bbox	15 9 31 93
+	offset	27 102
+	frame	data/chars/nestkyo/attack4-09.png
+		
+anim	attack5
+	range	50 85
+	rangez	-25 25
+	loop	0
+	fastattack	1
+	hitfx	data/sounds/beat3.wav
+	delay	3
+	bbox	32 13 28 94
+	offset	48 108
+	frame	data/chars/nestkyo/attack5-01.png
+	bbox	7 7 26 96
+	offset	21 105
+	frame	data/chars/nestkyo/attack5-02.png
+	delay	6
+	attack2	27 20 77 40 20 0 1 0 5 15
+	bbox	8 14 28 93
+	offset	28 108
+	frame	data/chars/nestkyo/attack5-03.png
+	attack2	0 0 0 0
+	delay	5
+	offset	27 105
+	frame	data/chars/nestkyo/attack5-04.png
+	bbox	6 7 25 97
+	offset	25 105
+	frame	data/chars/nestkyo/attack5-05.png
+		
+anim	attack6
+	range	55 85
+	rangez	-25 25
+	loop	0
+	delay	3
+	fastattack	1
+	hitfx	data/sounds/beat3.wav
+	sound	data/sounds/xkyo02.wav
+	bbox	16 11 32 94
+	offset	32 108
+	frame	data/chars/nestkyo/attack9-01.png
+	delay	2
+	bbox	25 6 25 85
+	offset	31 114
+	frame	data/chars/nestkyo/attack9-02.png
+	delay	2
+	bbox	31 5 27 74
+	offset	39 96
+	frame	data/chars/nestkyo/attack9-03.png
+	delay	10
+	attack2	25 15 79 58 30 0 0 0 5 15
+	bbox	7 16 33 38
+	offset	22 110
+	frame	data/chars/nestkyo/attack9-04.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	delay	5
+	bbox	7 16 33 38
+	offset	22 110
+	frame	data/chars/nestkyo/attack9-05.png
+	delay	2
+	bbox	11 9 24 77
+	offset	26 108
+	frame	data/chars/nestkyo/attack9-06.png
+		
+anim	attack7
+	range	55 85
+	rangez	-25 25
+	loop	0
+	delay	5
+	fastattack	1
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/xkyo02.wav
+	bbox	34 10 26 97
+	offset	46 107
+	frame	data/chars/nestkyo/attack7-01.png
+	bbox	9 8 26 97
+	offset	20 104
+	frame	data/chars/nestkyo/attack7-02.png
+	bbox	7 10 28 94
+	offset	25 105
+	frame	data/chars/nestkyo/attack7-03.png
+	bbox	9 14 32 94
+	offset	30 108
+	frame	data/chars/nestkyo/attack7-04.png
+	delay	6
+	attack	14 1 90 54 40 1 0 0 40 15
+	dropv	2 4 0
+	bbox	4 7 32 53
+	offset	21 104
+	frame	data/chars/nestkyo/attack7-05.png
+	bbox	8 6 30 51
+	offset	47 103
+	frame	data/chars/nestkyo/attack7-07.png
+	bbox	7 11 28 94
+	offset	25 105
+	frame	data/chars/nestkyo/attack7-06.png
+	attack	0 0 0 0
+	delay	8
+	bbox	9 8 26 97
+	offset	20 104
+	frame	data/chars/nestkyo/attack7-08.png
+	bbox	12 10 35 91
+	offset	28 101
+	frame	data/chars/nestkyo/attack7-09.png
+		
+anim	attack8
+	bbox	24 9 31 91
+	range	65 135
+	rangez	-25 25
+	loop	0
+	delay	5
+	fastattack	1
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/xkyo03.wav
+	move	3
+	offset	41 99
+	frame	data/chars/nestkyo/attack8-01.png
+	bbox	29 19 24 89
+	movez	0
+	movea	0
+	move	3
+	offset	42 108
+	frame	data/chars/nestkyo/attack8-02.png
+	bbox	29 27 25 91
+	offset	43 117
+	frame	data/chars/nestkyo/attack8-03.png
+	bbox	27 23 26 94
+	offset	43 116
+	frame	data/chars/nestkyo/attack8-04.png
+	bbox	18 13 29 90
+	offset	29 103
+	frame	data/chars/nestkyo/attack8-05.png
+	bbox	9 7 30 48
+	offset	33 103
+	frame	data/chars/nestkyo/attack8-06.png
+	bbox	2 5 36 50
+	delay	7
+	attack	9 0 98 55 60 1 1 0 50 20
+	dropv	3 3 0
+	offset	17 104
+	frame	data/chars/nestkyo/attack8-07.png
+	bbox	4 12 35 96
+	delay	6
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	31 108
+	frame	data/chars/nestkyo/attack8-08.png
+	bbox	10 10 28 95
+	offset	36 105
+	frame	data/chars/nestkyo/attack8-09.png
+	bbox	17 12 36 94
+	move	0
+	offset	42 106
+	frame	data/chars/nestkyo/attack8-10.png
+	bbox	24 6 31 97
+	offset	44 104
+	frame	data/chars/nestkyo/attack8-11.png
+	bbox	14 10 31 93
+	offset	31 103
+	frame	data/chars/nestkyo/attack8-12.png
+	bbox	30 3 27 96
+	offset	45 100
+	frame	data/chars/nestkyo/attack8-13.png
+	bbox	13 8 32 93
+	offset	28 100
+	frame	data/chars/nestkyo/attack8-14.png
+		
+anim	attackdown
+	bbox	0 0 0 0
+	loop	0
+	jumpframe	0 1 3.5 2
+	landframe	6
+	delay	8
+	offset	26 150
+	frame	data/chars/nestkyo/jump-01.png
+	offset	28 129
+	frame	data/chars/nestkyo/jump-02.png
+	offset	35 128
+	frame	data/chars/nestkyo/jump-03.png
+	offset	50 105
+	frame	data/chars/nestkyo/jump-04.png
+	offset	36 116
+	frame	data/chars/nestkyo/jump-05.png
+	delay	300
+	offset	28 120
+	frame	data/chars/nestkyo/jump-06.png
+	delay	7
+	@cmd	spawn01 "dust" 10 1 1
+	offset	35 78
+	frame	data/chars/nestkyo/jumpland-01.png
+		
+anim	attackup
+	loop	0
+	delay	7
+	offset	39 83
+	frame	data/chars/nestkyo/run-01.png
+	@cmd	dasher 4 0 -1
+	@cmd	spawn01 "dust" 75 1 1
+	sound	data/sounds/run.wav
+	offset	69 81
+	frame	data/chars/nestkyo/run-02.png
+	offset	65 69
+	frame	data/chars/nestkyo/run-03.png
+	offset	38 79
+	frame	data/chars/nestkyo/run-04.png
+	sound	data/sounds/run.wav
+	offset	68 86
+	frame	data/chars/nestkyo/run-05.png
+	@cmd	stop
+	offset	58 85
+	frame	data/chars/nestkyo/run-06.png
+		
+anim	block
+	loop	0
+	delay	7
+	offset	31 91
+	bbox	13 4 34 88
+	attack	0 0 0 0
+	bbox	18 11 33 87
+	offset	36 98
+	frame	data/chars/nestkyo/attack3-04.png
+	frame	data/chars/nestkyo/attack2-01.png
+	bbox	31 6 25 74
+	offset	41 79
+	frame	data/chars/nestkyo/attack2-02.png
+		
+anim	blockpain
+	loop	0
+	delay	2
+	cancel	5 12 0 a freespecial12
+	move	-6
+	bbox	31 6 25 74
+	offset	41 79
+	frame	data/chars/nestkyo/attack2-02.png
+	offset	41 79
+	frame	data/chars/nestkyo/attack2-02.png
+	offset	41 79
+	frame	data/chars/nestkyo/attack2-02.png
+	offset	41 79
+	frame	data/chars/nestkyo/attack2-02.png
+	move	-4
+	offset	41 79
+	frame	data/chars/nestkyo/attack2-02.png
+	offset	41 79
+	frame	data/chars/nestkyo/attack2-02.png
+	offset	41 79
+	frame	data/chars/nestkyo/attack2-02.png
+	move	0
+	delay	4
+	offset	41 79
+	frame	data/chars/nestkyo/attack2-02.png
+	offset	41 79
+	frame	data/chars/nestkyo/attack2-02.png
+	offset	41 79
+	frame	data/chars/nestkyo/attack2-02.png
+	offset	41 79
+	frame	data/chars/nestkyo/attack2-02.png
+	offset	41 79
+	frame	data/chars/nestkyo/attack2-02.png
+	offset	41 79
+	frame	data/chars/nestkyo/attack2-02.png
+	offset	41 79
+	frame	data/chars/nestkyo/attack2-02.png
+	@cmd	anichange "ANI_BLOCK"
+	offset	41 79
+	frame	data/chars/nestkyo/attack2-02.png
+		
+anim	burn
+	loop	0
+	delay	30
+	offset	25 93
+	bbox	0 0 0 0
+	landframe	3
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 200_50_0
+	@cmd	spawnbind "burn1" 1 1 1
+	@cmd	spawnbind "burn2" 1 1 1
+	@cmd	spawnbind "burn3" 1 1 1
+	attack	3 10 37 37 5 1 0 0 13 0
+	frame	data/chars/nestkyo/attackburn-01.png
+	offset	19 51
+	frame	data/chars/nestkyo/attackburn-02.png
+	delay	500
+	offset	26 63
+	frame	data/chars/nestkyo/attackburn-03.png
+	attack	0 0 0 0
+	delay	10
+	offset	28 40
+	frame	data/chars/nestkyo/attackburn-04.png
+	delay	50
+	offset	31 32
+	frame	data/chars/nestkyo/attackburn-05.png
+		
+anim	charge
+	loop	0
+	delay	10
+	offset	25 105
+	bbox	11 10 29 95
+	sound	data/sounds/xkyochrg2.wav
+	frame	data/chars/nestkyo/chargemp-01.png
+	delay	8
+	bbox	11 15 29 95
+	offset	21 110
+	frame	data/chars/nestkyo/chargemp-02.png
+	delay	5
+	bbox	11 36 29 95
+	offset	21 131
+	frame	data/chars/nestkyo/chargemp-03.png
+	@cmd	mpgain 2
+	delay	5
+	bbox	11 36 29 95
+	offset	21 131
+	frame	data/chars/nestkyo/chargemp-04.png
+	delay	5
+	bbox	11 36 29 95
+	offset	21 131
+	frame	data/chars/nestkyo/chargemp-05.png
+	@cmd	updateframe getlocalvar("self") 2
+	delay	5
+	offset	21 133
+	frame	data/chars/nestkyo/chargemp-06.png
+		
+anim	chargeattack
+	delay	12
+	fastattack	1
+	hitfx	data/sounds/hard2.wav
+	sound	data/sounds/butobus.wav
+	loop	0
+	bbox	22 12 29 69
+	offset	31 80
+	frame	data/chars/nestkyo/attack4-01.png
+	delay	3
+	bbox	22 3 33 80
+	offset	32 83
+	frame	data/chars/nestkyo/attack4-02.png
+	attack10	33 0 62 60 40 1 1 0 20 15
+	dropv	4.5 1.2 0
+	bbox	27 13 27 90
+	offset	31 103
+	frame	data/chars/nestkyo/attack4-03.png
+	attack10	0 0 0 0
+	bbox	22 33 29 96
+	offset	30 128
+	frame	data/chars/nestkyo/attack4-04.png
+	delay	4
+	burn	51 21 60 60 40 1 1 0 40 15
+	dropv	6.5 0.5
+	bbox	21 38 27 91
+	offset	30 128
+	frame	data/chars/nestkyo/attack4-05.png
+	delay	15
+	attack10	0 0 0 0 0 0 0 0 0 0
+	bbox	26 33 20 90
+	offset	30 123
+	frame	data/chars/nestkyo/attack4-06.png
+	bbox	22 31 24 88
+	offset	30 119
+	frame	data/chars/nestkyo/attack4-07.png
+	delay	3
+	bbox	21 13 26 91
+	offset	31 103
+	frame	data/chars/nestkyo/attack4-08.png
+	bbox	15 9 31 93
+	offset	27 102
+	frame	data/chars/nestkyo/attack4-09.png
+		
+anim	death
+	loop	0
+	delay	14
+	offset	28 32
+	bbox	0 0 0 0
+	frame	data/chars/nestkyo/death-01.png
+	offset	35 40
+	frame	data/chars/nestkyo/death-02.png
+	sound	data/sounds/xkyopain.wav
+	offset	27 64
+	frame	data/chars/nestkyo/death-03.png
+	offset	32 103
+	frame	data/chars/nestkyo/death-11.png
+	sound	data/sounds/nestkyodeth.wav
+	offset	32 103
+	frame	data/chars/nestkyo/death-12.png
+	offset	32 89
+	frame	data/chars/nestkyo/death-13.png
+	offset	32 89
+	frame	data/chars/nestkyo/death-14.png
+	offset	30 75
+	frame	data/chars/nestkyo/death-15.png
+	offset	30 75
+	frame	data/chars/nestkyo/death-16.png
+	offset	35 83
+	frame	data/chars/nestkyo/death-17.png
+	offset	49 84
+	frame	data/chars/nestkyo/death-18.png
+	offset	60 63
+	frame	data/chars/nestkyo/death-19.png
+	offset	70 38
+	frame	data/chars/nestkyo/death-20.png
+	offset	79 15
+	frame	data/chars/nestkyo/death-21.png
+	offset	79 15
+	frame	data/chars/nestkyo/death-21.png
+	offset	79 15
+	frame	data/chars/nestkyo/death-21.png
+		
+anim	fall
+	loop	0
+	delay	30
+	offset	23 93
+	bbox	0 0 0 0
+	landframe	3
+	sound	data/sounds/xkyopain.wav
+	attack	3 11 36 34 5 1 0 0 13 0
+	frame	data/chars/nestkyo/fall-01.png
+	offset	18 51
+	frame	data/chars/nestkyo/fall-02.png
+	delay	500
+	offset	21 63
+	frame	data/chars/nestkyo/fall-03.png
+	attack	0 0 0 0
+	delay	10
+	offset	29 40
+	frame	data/chars/nestkyo/fall-04.png
+	delay	50
+	offset	27 31
+	frame	data/chars/nestkyo/fall-05.png
+		
+anim	fall2
+	loop	0
+	delay	30
+	offset	18 98
+	bbox	0 0 0 0
+	sound	data/sounds/xkyopain.wav
+	landframe	3 dust
+	attack	5 9 27 35 5 1 0 0 13 0
+	frame	data/chars/nestkyo/fall2-01.png
+	offset	25 51
+	frame	data/chars/nestkyo/fall2-02.png
+	offset	23 63
+	attack	0 0 0 0 0 0 0 0 0 0
+	delay	500
+	frame	data/chars/nestkyo/fall2-03.png
+	offset	29 40
+	delay	10
+	frame	data/chars/nestkyo/fall2-04.png
+	offset	28 31
+	delay	50
+	frame	data/chars/nestkyo/fall2-05.png
+		
+anim	fall7
+	delay	1000
+	offset	21 93
+	bbox	0 0 0 0
+	frame	data/chars/nestkyo/fall7-01.png
+	offset	25 106
+	frame	data/chars/nestkyo/fall7-12.png
+	offset	42 63
+	frame	data/chars/nestkyo/fall7-14.png
+	offset	30 89
+	frame	data/chars/nestkyo/fall7-21.png
+	offset	41 108
+	frame	data/chars/nestkyo/fall7-22.png
+	offset	62 51
+	frame	data/chars/nestkyo/fall7-06.png
+	offset	40 98
+	frame	data/chars/nestkyo/fall7-24.png
+	offset	24 116
+	frame	data/chars/nestkyo/fall7-08.png
+	offset	28 107
+	frame	data/chars/nestkyo/fall7-26.png
+	offset	70 32
+	frame	data/chars/nestkyo/fall7-03.png
+	offset	63 40
+	frame	data/chars/nestkyo/fall7-11.png
+	offset	25 75
+	frame	data/chars/nestkyo/fall7-04.png
+	offset	62 52
+	frame	data/chars/nestkyo/fall7-06.png
+	offset	62 52
+	frame	data/chars/nestkyo/fall7-06.png
+	offset	20 139
+	frame	data/chars/nestkyo/fall7-07.png
+	offset	22 104
+	frame	data/chars/nestkyo/fall7-17.png
+	offset	72 64
+	frame	data/chars/nestkyo/fall7-09.png
+	offset	77 52
+	frame	data/chars/nestkyo/fall7-10.png
+	offset	59 51
+	frame	data/chars/nestkyo/fall7-11.png
+	offset	21 86
+	frame	data/chars/nestkyo/fall7-13.png
+	offset	30 89
+	frame	data/chars/nestkyo/fall7-21.png
+	offset	26 88
+	frame	data/chars/nestkyo/fall7-12.png
+	offset	39 86
+	frame	data/chars/nestkyo/fall7-22.png
+	offset	26 84
+	frame	data/chars/nestkyo/fall7-01.png
+	bbox	6 6 30 91
+	offset	18 87
+	frame	data/chars/nestkyo/fall7-25.png
+	bbox	0 0 0 0
+	offset	28 107
+	frame	data/chars/nestkyo/fall7-26.png
+		
+anim	follow10
+	loop	0
+	delay	20
+	offset	40 81
+	bbox	0 0 0 0
+	forcedirection	-1
+	attackone	1
+	otg	2
+	hitfx	data/sounds/beat4.wav
+	hitflash	flashscreen1
+	sound	data/sounds/xkyo01.wav
+	frame	data/chars/nestkyo/follow10-01.png
+	offset	61 82
+	delay	8
+	frame	data/chars/nestkyo/follow10-02.png
+	offset	69 76
+	frame	data/chars/nestkyo/follow10-03.png
+	offset	50 75
+	delay	12
+	attack11	17 47 71 31 50 1 0 0 50 10
+	dropv	2 3
+	frame	data/chars/nestkyo/follow10-04.png
+	offset	49 75
+	frame	data/chars/nestkyo/follow10-05.png
+	offset	46 70
+	attack11	0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/nestkyo/follow10-06.png
+	offset	49 72
+	frame	data/chars/nestkyo/follow10-07.png
+	offset	46 80
+	frame	data/chars/nestkyo/follow10-08.png
+	offset	26 91
+	frame	data/chars/nestkyo/follow10-09.png
+		
+anim	follow15
+ @script
+	void self = getlocalvar("self");
+   	void opp = getentityproperty(self, "opponent");
+	int enedir = getentityproperty(opp,"direction");
+	if (frame == 0 && enedir == 0)
+	{
+	changeentityproperty(self, "direction", 1);
+	}
+	else if (frame == 0 && enedir == 1)
+	{
+	changeentityproperty(self, "direction", 0);
+	}
+	@end_script	
+	loop	0
+	delay	7
+	offset	28 122
+	bbox	0 0 0 0
+	jumpframe	0 3 -1
+	landframe	7
+	frame	data/chars/nestkyo/follow15-01.png
+	offset	18 94
+	frame	data/chars/nestkyo/follow15-02.png
+	offset	25 54
+	frame	data/chars/nestkyo/follow15-03.png
+	offset	24 64
+	frame	data/chars/nestkyo/follow15-04.png
+	offset	38 44
+	frame	data/chars/nestkyo/follow15-05.png
+	offset	31 97
+	frame	data/chars/nestkyo/follow15-06.png
+	offset	24 140
+	delay	500
+	frame	data/chars/nestkyo/follow15-07.png
+	offset	25 91
+	delay	9
+	frame	data/chars/nestkyo/follow15-08.png
+		
+anim	follow16
+        @script
+	void self = getlocalvar("self");
+   	void opp = getentityproperty(self, "opponent");
+	int enedir = getentityproperty(opp,"direction");
+	if (frame == 0 && enedir == 0)
+	{
+	changeentityproperty(self, "direction", 1);
+	}
+	else if (frame == 0 && enedir == 1)
+	{
+	changeentityproperty(self, "direction", 0);
+	}
+	@end_script	
+	loop	0
+	delay	7
+	offset	28 122
+	bbox	0 0 0 0
+	jumpframe	0 3 -1
+	landframe	7
+	frame	data/chars/nestkyo/follow15-01.png
+	offset	18 94
+	frame	data/chars/nestkyo/follow15-02.png
+	offset	25 54
+	frame	data/chars/nestkyo/follow15-03.png
+	offset	24 64
+	frame	data/chars/nestkyo/follow15-04.png
+	offset	38 44
+	frame	data/chars/nestkyo/follow15-05.png
+	offset	31 97
+	frame	data/chars/nestkyo/follow15-06.png
+	offset	24 140
+	delay	500
+	frame	data/chars/nestkyo/follow15-07.png
+	bbox	0 0 0 0
+	offset	25 91
+	delay	9
+	frame	data/chars/nestkyo/follow15-08.png
+		
+anim	follow17
+@script
+	void self = getlocalvar("self");
+	int eTime = openborvariant("elapsed_time");
+	if (frame == 7)
+	{
+	changeentityproperty(self, "invincible", 1);
+	changeentityproperty(self, "invinctime", eTime + 1000);
+	changeentityproperty(self, "blink", 1);
+	}
+	@end_script	
+	loop	0
+	delay	800
+	offset	38 115
+	bbox	0 0 0 0
+	frame	data/chars/nestkyo/empty.png
+	delay	10
+	offset	25 105
+	bbox	0 0 0 0
+	frame	data/chars/nestkyo/chargemp-01.png
+	delay	8
+	bbox	0 0 0 0
+	offset	21 110
+	frame	data/chars/nestkyo/chargemp-02.png
+	sound	data/sounds/kachida.wav
+	delay	8
+	bbox	0 0 0 0
+	offset	21 131
+	frame	data/chars/nestkyo/chargemp-03.png
+	delay	8
+	bbox	0 0 0 0
+	offset	21 131
+	frame	data/chars/nestkyo/chargemp-04.png
+	delay	8
+	bbox	0 0 0 0
+	offset	21 131
+	frame	data/chars/nestkyo/chargemp-05.png
+	bbox	0 0 0 0
+	delay	13
+	offset	21 133
+	frame	data/chars/nestkyo/chargemp-06.png
+		
+anim	forwardjump
+	loop	0
+	delay	12
+	offset	25 155
+	bbox	5 25 26 106
+	frame	data/chars/nestkyo/forwardjump-01.png
+	bbox	37 7 -37 43
+	offset	30 117
+	delay	8
+	frame	data/chars/nestkyo/forwardjump-02.png
+	bbox	27 5 37 35
+	offset	35 69
+	frame	data/chars/nestkyo/forwardjump-03.png
+	bbox	11 13 34 39
+	offset	25 94
+	frame	data/chars/nestkyo/forwardjump-04.png
+	bbox	11 13 34 39
+	offset	23 84
+	frame	data/chars/nestkyo/forwardjump-05.png
+	bbox	1 24 32 37
+	offset	20 119
+	frame	data/chars/nestkyo/forwardjump-06.png
+	bbox	7 25 35 65
+	offset	30 142
+	frame	data/chars/nestkyo/forwardjump-07.png
+		
+anim	freespecial10
+	energycost	7
+	mponly	1
+	loop	0
+	delay	5
+	offset	44 71
+	bbox	34 2 32 69
+	forcedirection	-1
+	fastattack	1
+	hitfx	data/sounds/beat5.wav
+	frame	data/chars/nestkyo/freespecial10-01.png
+	bbox	0 0 0 0
+	offset	46 79
+	@cmd	spawn01 "dust" 1 1 1
+	@cmd	dasher 2 0 0
+	delay	4
+	frame	data/chars/nestkyo/freespecial10-02.png
+	bbox	0 0 0 0
+	offset	41 81
+	frame	data/chars/nestkyo/freespecial10-03.png
+	delay	6
+	bbox	0 0 0 0
+	attack	19 3 49 67 20 0 1 0 14 20
+	offset	28 93
+	frame	data/chars/nestkyo/freespecial10-04.png
+	bbox	0 0 0 0
+	burn	0 0 0 0 0 0 0 0 0 0
+	offset	30 107
+	frame	data/chars/nestkyo/freespecial10-05.png
+	sound	data/sounds/xkyo04.wav
+	bbox	0 0 0 0
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	30 108
+	@cmd	dasher 1 0 0
+	frame	data/chars/nestkyo/freespecial10-06.png
+	staydown	300 300
+	hitfx	data/sounds/beat4.wav
+	hitflash	flashscreen1
+	bbox	0 0 0 0
+	offset	31 107
+	delay	20
+	burn	21 -8 78 85 40 1 0 0 30 20
+	dropv	4 2.5
+	@cmd	spawnbind2 "xkyopw" 70 45 1 "ANI_FOLLOW2"
+	@cmd	stop
+	frame	data/chars/nestkyo/freespecial10-07.png
+	delay	7
+	bbox	7 7 33 94
+	offset	22 101
+	frame	data/chars/nestkyo/freespecial10-08.png
+		
+anim	freespecial11
+	loop	0
+	delay	4
+	forcedirection	-1
+	@cmd	dasher 1.5 0 0
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/xkyo03.wav
+	move	3
+	offset	41 99
+	frame	data/chars/nestkyo/attack8-01.png
+	bbox	29 19 24 89
+	movez	0
+	movea	0
+	move	3
+	offset	42 108
+	frame	data/chars/nestkyo/attack8-02.png
+	bbox	29 27 25 91
+	offset	43 117
+	frame	data/chars/nestkyo/attack8-03.png
+	bbox	27 23 26 94
+	offset	43 116
+	frame	data/chars/nestkyo/attack8-04.png
+	bbox	18 13 29 90
+	offset	29 103
+	frame	data/chars/nestkyo/attack8-05.png
+	bbox	9 7 30 48
+	offset	33 103
+	frame	data/chars/nestkyo/attack8-06.png
+	bbox	2 5 36 50
+	delay	5
+	attack	9 0 98 55 60 1 1 0 50 20
+	dropv	3 3 0
+	offset	17 104
+	frame	data/chars/nestkyo/attack8-07.png
+	bbox	4 12 35 96
+	delay	4
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	31 108
+	frame	data/chars/nestkyo/attack8-08.png
+	bbox	10 10 28 95
+	offset	36 105
+	frame	data/chars/nestkyo/attack8-09.png
+	bbox	17 12 36 94
+	move	0
+	offset	42 106
+	frame	data/chars/nestkyo/attack8-10.png
+	bbox	24 6 31 97
+	offset	44 104
+	frame	data/chars/nestkyo/attack8-11.png
+	bbox	14 10 31 93
+	offset	31 103
+	frame	data/chars/nestkyo/attack8-12.png
+	@cmd	stop
+	bbox	30 3 27 96
+	offset	45 100
+	frame	data/chars/nestkyo/attack8-13.png
+	delay	2
+	bbox	13 8 32 93
+	offset	28 100
+	frame	data/chars/nestkyo/attack8-14.png
+		
+anim	freespecial12
+@script
+	void self = getlocalvar("self");
+	int eTime = openborvariant("elapsed_time");
+	if (frame == 0)
+	{
+	changeentityproperty(self, "invincible", 1);
+	changeentityproperty(self, "invinctime", eTime + 70);
+	changeentityproperty(self, "blink", 1);
+	}
+	@end_script	
+	loop	0
+	delay	4
+	bbox	0 0 0 0
+	staydown	500 500
+	hitfx	data/sounds/beat4.wav
+	sound	data/sounds/xkyo03.wav
+	offset	41 99
+	frame	data/chars/nestkyo/attack8-01.png
+	offset	42 108
+	frame	data/chars/nestkyo/attack8-02.png
+	offset	43 117
+	frame	data/chars/nestkyo/attack8-03.png
+	offset	43 116
+	frame	data/chars/nestkyo/attack8-04.png
+	offset	29 103
+	frame	data/chars/nestkyo/attack8-05.png
+	offset	33 103
+	frame	data/chars/nestkyo/attack8-06.png
+	delay	7
+	blast	9 0 98 55 50 1 1 0 50 20
+	dropv	2 4
+	offset	17 104
+	frame	data/chars/nestkyo/attack8-07.png
+	offset	31 108
+	frame	data/chars/nestkyo/attack8-08.png
+	attack9	0 0 0 0
+	offset	36 105
+	frame	data/chars/nestkyo/attack8-09.png
+	move	0
+	offset	42 106
+	frame	data/chars/nestkyo/attack8-10.png
+	offset	44 104
+	frame	data/chars/nestkyo/attack8-11.png
+	offset	31 103
+	frame	data/chars/nestkyo/attack8-12.png
+	offset	45 100
+	frame	data/chars/nestkyo/attack8-13.png
+	offset	28 100
+	frame	data/chars/nestkyo/attack8-14.png
+		
+anim	freespecial15
+	loop	0
+	delay	6
+	offset	20 103
+	bbox	4 8 34 95
+	frame	data/chars/nestkyo/select-01.png
+	bbox	5 12 34 95
+	offset	20 106
+	delay	5
+	sound	data/sounds/kyosleep.wav
+	frame	data/chars/nestkyo/select-02.png
+	bbox	5 11 34 97
+	offset	19 108
+	frame	data/chars/nestkyo/select-03.png
+	bbox	5 11 34 97
+	offset	19 108
+	frame	data/chars/nestkyo/select-04.png
+	bbox	5 11 34 97
+	offset	19 108
+	frame	data/chars/nestkyo/select-05.png
+	bbox	5 11 34 97
+	offset	18 108
+	frame	data/chars/nestkyo/select-06.png
+	bbox	11 12 34 97
+	offset	29 109
+	frame	data/chars/nestkyo/select-07.png
+	bbox	11 31 34 97
+	offset	31 128
+	frame	data/chars/nestkyo/select-08.png
+	bbox	11 57 34 97
+	offset	31 154
+	frame	data/chars/nestkyo/select-09.png
+	bbox	11 57 34 99
+	offset	32 156
+	frame	data/chars/nestkyo/select-10.png
+	bbox	11 54 34 99
+	offset	32 153
+	frame	data/chars/nestkyo/select-11.png
+	bbox	11 48 34 99
+	offset	31 146
+	frame	data/chars/nestkyo/select-12.png
+	bbox	11 42 34 99
+	offset	32 140
+	frame	data/chars/nestkyo/select-13.png
+	bbox	11 25 34 99
+	offset	31 123
+	frame	data/chars/nestkyo/select-14.png
+	bbox	11 12 34 99
+	offset	32 110
+	frame	data/chars/nestkyo/select-15.png
+	bbox	11 12 34 99
+	offset	32 110
+	frame	data/chars/nestkyo/select-16.png
+	bbox	11 12 34 99
+	offset	32 110
+	delay	20
+	frame	data/chars/nestkyo/select-17.png
+	bbox	11 12 34 99
+	delay	10
+	offset	29 109
+	frame	data/chars/nestkyo/select-07.png
+	bbox	4 10 34 99
+	delay	10
+	offset	19 108
+	frame	data/chars/nestkyo/select-06.png
+	bbox	4 10 34 99
+	delay	10
+	offset	19 108
+	frame	data/chars/nestkyo/select-05.png
+	bbox	4 10 34 99
+	delay	10
+	offset	19 108
+	frame	data/chars/nestkyo/select-04.png
+	bbox	4 10 34 99
+	delay	10
+	offset	19 108
+	frame	data/chars/nestkyo/select-03.png
+	bbox	4 12 34 96
+	delay	10
+	offset	19 107
+	frame	data/chars/nestkyo/select-02.png
+	bbox	4 10 34 94
+	delay	10
+	offset	20 103
+	frame	data/chars/nestkyo/select-01.png
+		
+anim	freespecial26
+	energycost	35
+	loop	0
+	delay	7
+	offset	20 101
+	bbox	6 9 29 92
+	staydown	500 500
+	forcedirection	-1
+	hitfx	data/sounds/beat4.wav
+	hitflash	flashscreen2
+	sound	data/sounds/xkyochrg.wav
+	frame	data/chars/nestkyo/freespecial26-01.png
+	bbox	1 18 36 90
+	offset	20 108
+	frame	data/chars/nestkyo/freespecial26-02.png
+	bbox	1 17 36 90
+	offset	20 106
+	frame	data/chars/nestkyo/freespecial26-03.png
+	bbox	0 0 0 0
+	offset	26 102
+	frame	data/chars/nestkyo/freespecial26-04.png
+	bbox	20 4 37 72
+	offset	40 74
+	sound	data/sounds/super1.wav
+	@cmd	spawnAni2 "allsp" 1 1 1 4 "ANI_FOLLOW1"
+	frame	data/chars/nestkyo/freespecial26-05.png
+	bbox	20 2 37 72
+	offset	40 74
+	frame	data/chars/nestkyo/freespecial26-06.png
+	bbox	20 1 37 72
+	offset	40 72
+	frame	data/chars/nestkyo/freespecial26-07.png
+	bbox	20 1 37 72
+	offset	40 72
+	frame	data/chars/nestkyo/freespecial26-08.png
+	bbox	20 1 37 72
+	offset	40 73
+	frame	data/chars/nestkyo/freespecial26-09.png
+	bbox	20 3 37 72
+	offset	40 75
+	frame	data/chars/nestkyo/freespecial26-10.png
+	bbox	20 2 37 72
+	offset	40 74
+	frame	data/chars/nestkyo/freespecial26-11.png
+	bbox	20 1 37 72
+	offset	40 73
+	frame	data/chars/nestkyo/freespecial26-12.png
+	bbox	20 2 37 72
+	offset	40 74
+	frame	data/chars/nestkyo/freespecial26-13.png
+	bbox	20 3 37 72
+	offset	40 75
+	frame	data/chars/nestkyo/freespecial26-14.png
+	bbox	20 2 37 72
+	offset	40 74
+	frame	data/chars/nestkyo/freespecial26-15.png
+	bbox	20 0 37 72
+	offset	40 72
+	frame	data/chars/nestkyo/freespecial26-16.png
+	bbox	20 3 37 72
+	offset	40 76
+	frame	data/chars/nestkyo/freespecial26-17.png
+	bbox	20 7 37 77
+	offset	40 84
+	frame	data/chars/nestkyo/freespecial26-18.png
+	offset	40 93
+	delay	2
+	move	7
+	bbox	29 16 30 77
+	sound	data/sounds/xkyo04.wav
+	frame	data/chars/nestkyo/freespecial26-19.png
+	bbox	29 16 30 77
+	offset	40 93
+	frame	data/chars/nestkyo/freespecial26-20.png
+	bbox	30 9 27 77
+	offset	43 85
+	@cmd	keymove 1.2
+	frame	data/chars/nestkyo/freespecial26-21.png
+	bbox	30 9 27 77
+	offset	43 85
+	frame	data/chars/nestkyo/freespecial26-22.png
+	bbox	39 16 29 74
+	offset	46 89
+	@cmd	keymove 1.2
+	frame	data/chars/nestkyo/freespecial26-23.png
+	bbox	39 16 29 74
+	offset	46 89
+	frame	data/chars/nestkyo/freespecial26-24.png
+	bbox	0 0 0 0
+	offset	47 85
+	@cmd	keymove 1.2
+	burn	46 0 56 64 150 1 1 0 50 20
+	dropv	3 4 0
+	frame	data/chars/nestkyo/freespecial26-25.png
+	offset	47 85
+	frame	data/chars/nestkyo/freespecial26-26.png
+	offset	73 88
+	@cmd	keymove 1.2
+	frame	data/chars/nestkyo/freespecial26-27.png
+	offset	73 88
+	move	6
+	frame	data/chars/nestkyo/freespecial26-28.png
+	offset	43 91
+	@cmd	keymove 1.2
+	burn	24 0 90 69 150 1 1 0 50 20
+	dropv	3 4 0
+	frame	data/chars/nestkyo/freespecial26-29.png
+	offset	43 91
+	@cmd	keymove 1.2
+	frame	data/chars/nestkyo/freespecial26-30.png
+	offset	37 84
+	@cmd	keymove 1.2
+	frame	data/chars/nestkyo/freespecial26-31.png
+	offset	37 84
+	@cmd	keymove 1.2
+	frame	data/chars/nestkyo/freespecial26-32.png
+	offset	29 81
+	move	5
+	frame	data/chars/nestkyo/freespecial26-33.png
+	offset	29 81
+	@cmd	keymove 1.2
+	frame	data/chars/nestkyo/freespecial26-34.png
+	offset	29 84
+	burn	18 29 46 55 150 1 1 0 50 20
+	dropv	3 4 0
+	delay	3
+	@cmd	keymove 1.2
+	frame	data/chars/nestkyo/freespecial26-35.png
+	offset	29 84
+	@cmd	keymove 1.2
+	frame	data/chars/nestkyo/freespecial26-36.png
+	offset	29 84
+	@cmd	keymove 1.2
+	frame	data/chars/nestkyo/freespecial26-37.png
+	offset	29 77
+	@cmd	keymove 1.2
+	frame	data/chars/nestkyo/freespecial26-38.png
+	offset	29 77
+	@cmd	keymove 1.2
+	frame	data/chars/nestkyo/freespecial26-39.png
+	offset	29 77
+	@cmd	keymove 1.2
+	frame	data/chars/nestkyo/freespecial26-40.png
+	bbox	13 2 38 53
+	offset	29 76
+	@cmd	keymove 1.2
+	frame	data/chars/nestkyo/freespecial26-41.png
+	bbox	13 2 38 53
+	offset	29 76
+	@cmd	keymove 1.2
+	frame	data/chars/nestkyo/freespecial26-42.png
+	bbox	13 2 38 53
+	offset	29 76
+	@cmd	keymove 1.2
+	frame	data/chars/nestkyo/freespecial26-43.png
+	bbox	13 2 38 53
+	offset	29 76
+	@cmd	keymove 1.2
+	frame	data/chars/nestkyo/freespecial26-44.png
+	bbox	13 2 38 53
+	offset	29 76
+	@cmd	keymove 1.2
+	frame	data/chars/nestkyo/freespecial26-45.png
+	bbox	13 2 38 53
+	offset	29 76
+	move	4
+	frame	data/chars/nestkyo/freespecial26-46.png
+	bbox	13 2 38 53
+	offset	29 76
+	@cmd	keymove 1.2
+	frame	data/chars/nestkyo/freespecial26-47.png
+	bbox	13 2 38 53
+	offset	29 76
+	@cmd	keymove 1.2
+	frame	data/chars/nestkyo/freespecial26-48.png
+	bbox	13 2 38 53
+	offset	29 76
+	@cmd	keymove 1.2
+	frame	data/chars/nestkyo/freespecial26-49.png
+	bbox	13 2 38 53
+	offset	29 76
+	@cmd	stop
+	move	0
+	delay	12
+	frame	data/chars/nestkyo/freespecial26-50.png
+	bbox	13 2 38 53
+	offset	29 76
+	burn	0 0 0 0 0 0 0 0 0 0
+	delay	9
+	frame	data/chars/nestkyo/freespecial26-51.png
+	bbox	22 12 26 60
+	offset	36 82
+	frame	data/chars/nestkyo/freespecial26-52.png
+	bbox	8 9 32 82
+	offset	26 91
+	frame	data/chars/nestkyo/freespecial26-53.png
+	bbox	4 10 31 92
+	offset	20 102
+	frame	data/chars/nestkyo/freespecial26-54.png
+		
+anim	freespecial28
+	offset	35 94
+	energycost	50
+	mponly	1
+	jumpframe	118 4 0
+	landframe	147
+	loop	0
+	delay	15
+	bbox	0 0 0 0
+	sound	data/sounds/super1.wav
+	@cmd	spawn04 "allsp" 1 1 1 4
+	@cmd	slamstart2
+	@cmd	position 10 35 49 -1 -1
+	frame	data/chars/nestkyo/freespecial28-01.png
+	sound	data/sounds/temeiii.wav
+	offset	35 93
+	frame	data/chars/nestkyo/freespecial28-02.png
+	offset	35 92
+	frame	data/chars/nestkyo/freespecial28-03.png
+	offset	35 92
+	frame	data/chars/nestkyo/freespecial28-04.png
+	offset	35 95
+	frame	data/chars/nestkyo/freespecial28-05.png
+	offset	35 94
+	frame	data/chars/nestkyo/freespecial28-06.png
+	offset	35 95
+	frame	data/chars/nestkyo/freespecial28-07.png
+	offset	35 94
+	frame	data/chars/nestkyo/freespecial28-08.png
+	offset	35 94
+	frame	data/chars/nestkyo/freespecial28-09.png
+	offset	35 94
+	frame	data/chars/nestkyo/freespecial28-10.png
+	offset	35 95
+	delay	4
+	frame	data/chars/nestkyo/freespecial28-11.png
+	offset	35 95
+	@cmd	spawn01 "explosion1" 90 120 1
+	@cmd	spawn01 "flashscreen2" 20 30 1
+	attack	32 -3 134 118 85 0 1 0 15 35
+	frame	data/chars/nestkyo/freespecial28-12.png
+	@cmd	spawn01 "qfx" 1 1 1
+	offset	37 113
+	frame	data/chars/nestkyo/freespecial28-13.png
+	offset	37 158
+	@cmd	spawn01 "explosion2" 0 60 5
+	@cmd	spawn01 "explosion1" 50 80 -1
+	frame	data/chars/nestkyo/freespecial28-14.png
+	offset	38 123
+	frame	data/chars/nestkyo/freespecial28-15.png
+	attack	32 -3 134 118 85 0 1 0 15 35
+	offset	38 127
+	@cmd	spawn01 "explosion2" 70 60 5
+	frame	data/chars/nestkyo/freespecial28-16.png
+	@cmd	spawn01 "qfx" 1 1 1
+	offset	38 133
+	frame	data/chars/nestkyo/freespecial28-17.png
+	@cmd	spawn01 "explosion1" 90 120 1
+	offset	38 148
+	frame	data/chars/nestkyo/freespecial28-18.png
+	attack	32 -3 134 167 85 0 1 0 15 35
+	offset	38 152
+	frame	data/chars/nestkyo/freespecial28-19.png
+	@cmd	spawn01 "explosion2" 0 60 5
+	@cmd	spawn01 "explosion1" 50 80 -1
+	offset	36 153
+	frame	data/chars/nestkyo/freespecial28-20.png
+	sound	data/sounds/kusanagiryu.wav
+	attack	8 -3 145 165 85 0 1 0 15 35
+	offset	46 152
+	frame	data/chars/nestkyo/freespecial28-21.png
+	@cmd	spawn01 "explosion2" 70 60 5
+	offset	68 153
+	frame	data/chars/nestkyo/freespecial28-22.png
+	offset	45 153
+	frame	data/chars/nestkyo/freespecial28-23.png
+	attack	22 -3 141 159 85 0 1 0 15 35
+	sound	data/sounds/bang.wav
+	offset	75 153
+	frame	data/chars/nestkyo/freespecial28-24.png
+	@cmd	spawn01 "qfx" 1 1 1
+	offset	54 153
+	frame	data/chars/nestkyo/freespecial28-25.png
+	sound	data/sounds/bang.wav
+	offset	56 153
+	frame	data/chars/nestkyo/freespecial28-26.png
+	offset	65 153
+	attack	1 1 133 147 85 0 1 0 15 35
+	frame	data/chars/nestkyo/freespecial28-27.png
+	@cmd	spawn01 "explosion2" 0 60 5
+	@cmd	spawn01 "explosion1" 50 80 -1
+	offset	66 156
+	frame	data/chars/nestkyo/freespecial28-28.png
+	@cmd	spawn01 "qfx" 1 1 1
+	offset	67 156
+	frame	data/chars/nestkyo/freespecial28-29.png
+	sound	data/sounds/bang.wav
+	offset	70 156
+	attack	0 0 162 148 85 0 1 0 15 35
+	frame	data/chars/nestkyo/freespecial28-30.png
+	@cmd	spawn01 "qfx" 1 1 1
+	offset	62 163
+	frame	data/chars/nestkyo/freespecial28-31.png
+	sound	data/sounds/bang.wav
+	offset	67 163
+	frame	data/chars/nestkyo/freespecial28-32.png
+	offset	65 166
+	attack	10 0 152 146 85 0 1 0 15 35
+	frame	data/chars/nestkyo/freespecial28-33.png
+	@cmd	spawn01 "explosion2" 0 60 5
+	@cmd	spawn01 "explosion1" 50 80 -1
+	offset	65 166
+	frame	data/chars/nestkyo/freespecial28-34.png
+	hitfx	data/sounds/burn.wav
+	offset	64 168
+	frame	data/chars/nestkyo/freespecial28-35.png
+	sound	data/sounds/bang.wav
+	offset	72 168
+	attack	22 0 139 140 40 0 1 0 15 35
+	frame	data/chars/nestkyo/freespecial28-36.png
+	@cmd	spawn01 "qfx" 1 1 1
+	offset	90 166
+	frame	data/chars/nestkyo/freespecial28-37.png
+	hitfx	data/sounds/burn.wav
+	offset	97 167
+	frame	data/chars/nestkyo/freespecial28-38.png
+	sound	data/sounds/bang.wav
+	offset	92 169
+	attack	32 44 120 110 40 0 1 0 15 35
+	frame	data/chars/nestkyo/freespecial28-39.png
+	@cmd	spawn01 "qfx" 1 1 1
+	offset	95 169
+	frame	data/chars/nestkyo/freespecial28-40.png
+	hitfx	data/sounds/burn.wav
+	offset	95 169
+	frame	data/chars/nestkyo/freespecial28-41.png
+	sound	data/sounds/bang.wav
+	offset	97 169
+	attack	46 50 120 110 40 0 1 0 15 35
+	frame	data/chars/nestkyo/freespecial28-42.png
+	hitfx	data/sounds/burn.wav
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	95 170
+	frame	data/chars/nestkyo/freespecial28-43.png
+	sound	data/sounds/bang.wav
+	attack	44 50 120 110 40 0 0 1 15 35
+	offset	95 170
+	frame	data/chars/nestkyo/freespecial28-44.png
+	@cmd	spawn01 "qfx" 1 1 1
+	offset	36 171
+	attack	0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/nestkyo/freespecial28-45.png
+	offset	46 172
+	frame	data/chars/nestkyo/freespecial28-46.png
+	hitfx	data/sounds/burn.wav
+	offset	54 174
+	frame	data/chars/nestkyo/freespecial28-47.png
+	sound	data/sounds/bang.wav
+	offset	64 172
+	attack	21 50 142 110 40 0 1 0 15 35
+	frame	data/chars/nestkyo/freespecial28-48.png
+	@cmd	spawn01 "qfx" 1 1 1
+	offset	81 173
+	frame	data/chars/nestkyo/freespecial28-49.png
+	hitfx	data/sounds/burn.wav
+	offset	85 172
+	frame	data/chars/nestkyo/freespecial28-50.png
+	sound	data/sounds/bang.wav
+	attack	32 -3 134 118 40 0 1 0 15 35
+	offset	89 172
+	frame	data/chars/nestkyo/freespecial28-51.png
+	hitfx	data/sounds/burn.wav
+	offset	90 172
+	frame	data/chars/nestkyo/freespecial28-52.png
+	sound	data/sounds/bang.wav
+	offset	93 172
+	attack	39 47 120 110 40 0 1 0 15 35
+	frame	data/chars/nestkyo/freespecial28-53.png
+	@cmd	spawn01 "qfx" 1 1 1
+	offset	92 171
+	frame	data/chars/nestkyo/freespecial28-54.png
+	hitfx	data/sounds/burn.wav
+	offset	92 170
+	frame	data/chars/nestkyo/freespecial28-55.png
+	sound	data/sounds/bang.wav
+	offset	95 170
+	attack	58 44 120 110 40 0 1 0 15 35
+	frame	data/chars/nestkyo/freespecial28-56.png
+	@cmd	spawn01 "qfx" 1 1 1
+	hitfx	data/sounds/burn.wav
+	offset	94 170
+	frame	data/chars/nestkyo/freespecial28-57.png
+	sound	data/sounds/bang.wav
+	offset	94 170
+	attack	59 46 123 110 40 0 1 0 15 35
+	frame	data/chars/nestkyo/freespecial28-58.png
+	@cmd	spawn01 "qfx" 1 1 1
+	hitfx	data/sounds/burn.wav
+	offset	90 168
+	frame	data/chars/nestkyo/freespecial28-59.png
+	sound	data/sounds/bang.wav
+	attack	55 46 126 110 40 0 0 1 15 35
+	offset	93 167
+	frame	data/chars/nestkyo/freespecial28-60.png
+	@cmd	spawn01 "qfx" 1 1 1
+	hitfx	data/sounds/burn.wav
+	offset	91 167
+	attack	0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/nestkyo/freespecial28-61.png
+	sound	data/sounds/bang.wav
+	attack	55 46 120 110 40 0 0 1 15 35
+	offset	93 167
+	frame	data/chars/nestkyo/freespecial28-62.png
+	@cmd	spawn01 "qfx" 1 1 1
+	hitfx	data/sounds/burn.wav
+	offset	87 164
+	attack	0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/nestkyo/freespecial28-63.png
+	sound	data/sounds/bang.wav
+	attack	32 -3 134 118 40 0 1 0 15 35
+	offset	38 164
+	frame	data/chars/nestkyo/freespecial28-64.png
+	offset	50 163
+	attack	0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/nestkyo/freespecial28-65.png
+	offset	58 164
+	frame	data/chars/nestkyo/freespecial28-66.png
+	@cmd	spawn01 "qfx" 1 1 1
+	hitfx	data/sounds/burn.wav
+	offset	71 163
+	frame	data/chars/nestkyo/freespecial28-67.png
+	sound	data/sounds/bang.wav
+	attack	32 -3 134 118 40 0 1 0 15 35
+	offset	81 161
+	frame	data/chars/nestkyo/freespecial28-68.png
+	offset	89 161
+	frame	data/chars/nestkyo/freespecial28-69.png
+	@cmd	spawn01 "qfx" 1 1 1
+	hitfx	data/sounds/burn.wav
+	offset	90 161
+	frame	data/chars/nestkyo/freespecial28-70.png
+	sound	data/sounds/bang.wav
+	offset	94 161
+	attack	41 36 120 110 40 0 1 0 15 35
+	frame	data/chars/nestkyo/freespecial28-71.png
+	@cmd	spawn01 "qfx" 1 1 1
+	hitfx	data/sounds/burn.wav
+	offset	94 161
+	frame	data/chars/nestkyo/freespecial28-72.png
+	sound	data/sounds/bang.wav
+	offset	51 86
+	attack	10 0 115 76 40 0 1 0 15 35
+	frame	data/chars/nestkyo/freespecial28-73.png
+	@cmd	spawn01 "qfx" 1 1 1
+	hitfx	data/sounds/burn.wav
+	offset	65 89
+	frame	data/chars/nestkyo/freespecial28-74.png
+	sound	data/sounds/bang.wav
+	offset	52 89
+	attack	14 0 120 80 40 0 1 0 15 35
+	frame	data/chars/nestkyo/freespecial28-75.png
+	@cmd	spawn01 "qfx" 1 1 1
+	hitfx	data/sounds/burn.wav
+	offset	77 158
+	frame	data/chars/nestkyo/freespecial28-76.png
+	sound	data/sounds/bang.wav
+	offset	78 158
+	attack	45 36 120 110 40 0 1 0 15 35
+	frame	data/chars/nestkyo/freespecial28-77.png
+	offset	77 158
+	frame	data/chars/nestkyo/freespecial28-78.png
+	@cmd	spawn01 "qfx" 1 1 1
+	hitfx	data/sounds/burn.wav
+	offset	52 94
+	frame	data/chars/nestkyo/freespecial28-79.png
+	sound	data/sounds/bang.wav
+	offset	52 98
+	attack	20 0 120 87 40 0 1 0 15 35
+	frame	data/chars/nestkyo/freespecial28-80.png
+	@cmd	spawn01 "qfx" 1 1 1
+	hitfx	data/sounds/burn.wav
+	offset	52 98
+	frame	data/chars/nestkyo/freespecial28-81.png
+	sound	data/sounds/bang.wav
+	attack	21 0 120 77 40 0 0 1 15 35
+	offset	52 90
+	frame	data/chars/nestkyo/freespecial28-82.png
+	offset	51 83
+	attack	0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/nestkyo/freespecial28-83.png
+	offset	55 96
+	frame	data/chars/nestkyo/freespecial28-84.png
+	hitfx	data/sounds/burn.wav
+	offset	44 88
+	frame	data/chars/nestkyo/freespecial28-85.png
+	sound	data/sounds/bang.wav
+	offset	58 95
+	attack	21 5 120 73 40 0 1 0 15 35
+	frame	data/chars/nestkyo/freespecial28-86.png
+	@cmd	spawn01 "qfx" 1 1 1
+	hitfx	data/sounds/burn.wav
+	offset	49 86
+	frame	data/chars/nestkyo/freespecial28-87.png
+	sound	data/sounds/bang.wav
+	attack	32 -3 134 118 40 0 1 0 15 35
+	offset	58 94
+	frame	data/chars/nestkyo/freespecial28-88.png
+	@cmd	spawn01 "qfx" 1 1 1
+	offset	47 91
+	frame	data/chars/nestkyo/freespecial28-89.png
+	hitfx	data/sounds/burn.wav
+	offset	69 89
+	frame	data/chars/nestkyo/freespecial28-90.png
+	sound	data/sounds/bang.wav
+	offset	35 97
+	attack	9 0 120 79 40 0 1 0 15 35
+	frame	data/chars/nestkyo/freespecial28-91.png
+	@cmd	spawn01 "qfx" 1 1 1
+	hitfx	data/sounds/burn.wav
+	offset	35 105
+	frame	data/chars/nestkyo/freespecial28-92.png
+	sound	data/sounds/bang.wav
+	offset	36 104
+	attack	13 0 120 87 40 0 1 0 15 35
+	frame	data/chars/nestkyo/freespecial28-93.png
+	@cmd	spawn01 "qfx" 1 1 1
+	hitfx	data/sounds/burn.wav
+	offset	36 102
+	frame	data/chars/nestkyo/freespecial28-94.png
+	sound	data/sounds/bang.wav
+	offset	36 106
+	attack	16 0 120 89 40 0 1 0 15 35
+	frame	data/chars/nestkyo/freespecial28-95.png
+	@cmd	spawn01 "qfx" 1 1 1
+	hitfx	data/sounds/burn.wav
+	offset	35 83
+	frame	data/chars/nestkyo/freespecial28-96.png
+	sound	data/sounds/bang.wav
+	attack	32 -3 134 118 40 0 1 0 15 35
+	offset	36 98
+	frame	data/chars/nestkyo/freespecial28-97.png
+	@cmd	spawn01 "qfx" 1 1 1
+	hitfx	data/sounds/burn.wav
+	offset	27 94
+	frame	data/chars/nestkyo/freespecial28-98.png
+	sound	data/sounds/bang.wav
+	offset	45 97
+	attack	15 0 120 85 40 0 1 0 15 35
+	frame	data/chars/nestkyo/freespecial28-99.png
+	@cmd	spawn01 "qfx" 1 1 1
+	offset	34 92
+	attack	0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/nestkyo/freespecial28-100.png
+	sound	data/sounds/bang.wav
+	attack	1 1 122 87 20 0 0 0 15 35
+	offset	53 96
+	frame	data/chars/nestkyo/freespecial28-102.png
+	@cmd	spawn01 "qfx" 1 1 1
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	53 92
+	frame	data/chars/nestkyo/freespecial28-103.png
+	sound	data/sounds/bang.wav
+	attack	1 1 118 82 20 0 0 0 15 35
+	offset	57 100
+	frame	data/chars/nestkyo/freespecial28-104.png
+	@cmd	spawn01 "qfx" 1 1 1
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	57 100
+	frame	data/chars/nestkyo/freespecial28-105.png
+	sound	data/sounds/bang.wav
+	attack	19 1 102 84 20 0 1 0 15 35
+	offset	57 100
+	frame	data/chars/nestkyo/freespecial28-106.png
+	@cmd	spawn01 "qfx" 1 1 1
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	57 100
+	frame	data/chars/nestkyo/freespecial28-107.png
+	sound	data/sounds/bang.wav
+	attack	21 1 104 90 20 0 1 0 15 35
+	offset	57 102
+	frame	data/chars/nestkyo/freespecial28-108.png
+	@cmd	spawn01 "qfx" 1 1 1
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	57 105
+	frame	data/chars/nestkyo/freespecial28-109.png
+	sound	data/sounds/bang.wav
+	attack	22 1 103 84 20 0 1 0 15 35
+	offset	57 101
+	frame	data/chars/nestkyo/freespecial28-110.png
+	@cmd	spawn01 "qfx" 1 1 1
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	57 102
+	frame	data/chars/nestkyo/freespecial28-111.png
+	sound	data/sounds/bang.wav
+	attack	18 -1 52 86 20 0 1 0 15 35
+	offset	44 101
+	frame	data/chars/nestkyo/freespecial28-112.png
+	@cmd	spawn01 "qfx" 1 1 1
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	50 101
+	frame	data/chars/nestkyo/freespecial28-113.png
+	sound	data/sounds/bang.wav
+	attack	17 -3 51 96 20 0 1 0 15 35
+	offset	42 100
+	frame	data/chars/nestkyo/freespecial28-114.png
+	@cmd	spawn01 "qfx" 1 1 1
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	42 101
+	frame	data/chars/nestkyo/freespecial28-115.png
+	sound	data/sounds/bang.wav
+	blast	21 -2 52 94 20 0 1 0 15 35
+	dropv	9.5 1
+	offset	48 97
+	frame	data/chars/nestkyo/freespecial28-116.png
+	@cmd	spawn01 "qfx" 1 1 1
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	48 101
+	frame	data/chars/nestkyo/freespecial28-117.png
+	@cmd	position 10 35 49 -1 1
+	sound	data/sounds/bang.wav
+	blast	25 -2 48 94 20 0 1 0 15 35
+	dropv	9.5 1
+	offset	48 97
+	frame	data/chars/nestkyo/freespecial28-118.png
+	@cmd	depost 0
+	@cmd	finish 200 1 1 8 0 1
+	delay	3
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	51 126
+	frame	data/chars/nestkyo/freespecial28-119.png
+	@cmd	clearL
+	sound	data/sounds/bang.wav
+	attack	14 -2 59 107 20 1 1 0 15 35
+	dropv	9.5 1
+	offset	34 134
+	frame	data/chars/nestkyo/freespecial28-120.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	21 119
+	frame	data/chars/nestkyo/freespecial28-121.png
+	sound	data/sounds/bang.wav
+	attack	20 -4 56 108 20 1 1 0 15 35
+	dropv	9.5 1
+	offset	34 119
+	frame	data/chars/nestkyo/freespecial28-122.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	22 125
+	frame	data/chars/nestkyo/freespecial28-123.png
+	sound	data/sounds/bang.wav
+	attack	16 -2 52 107 20 1 1 0 15 35
+	dropv	9.5 1
+	offset	30 120
+	frame	data/chars/nestkyo/freespecial28-124.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	21 125
+	frame	data/chars/nestkyo/freespecial28-125.png
+	sound	data/sounds/bang.wav
+	attack	10 -2 53 97 20 1 1 0 15 35
+	dropv	9.5 1
+	offset	25 132
+	frame	data/chars/nestkyo/freespecial28-126.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	22 132
+	frame	data/chars/nestkyo/freespecial28-127.png
+	sound	data/sounds/bang.wav
+	attack	11 -4 54 101 20 1 1 0 15 35
+	dropv	9.5 1
+	offset	37 138
+	frame	data/chars/nestkyo/freespecial28-128.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	29 138
+	frame	data/chars/nestkyo/freespecial28-129.png
+	offset	37 138
+	frame	data/chars/nestkyo/freespecial28-130.png
+	offset	29 138
+	frame	data/chars/nestkyo/freespecial28-131.png
+	offset	37 138
+	frame	data/chars/nestkyo/freespecial28-132.png
+	offset	29 138
+	frame	data/chars/nestkyo/freespecial28-133.png
+	offset	37 138
+	frame	data/chars/nestkyo/freespecial28-134.png
+	delay	2
+	sound	data/sounds/bang.wav
+	attack	0 1 88 114 20 1 1 0 15 35
+	ddropv	9.8 1
+	offset	43 155
+	frame	data/chars/nestkyo/freespecial28-135.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	43 155
+	frame	data/chars/nestkyo/freespecial28-136.png
+	sound	data/sounds/bang.wav
+	attack	0 0 88 116 20 1 1 0 15 35
+	dropv	9.5 1
+	offset	43 155
+	frame	data/chars/nestkyo/freespecial28-137.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	43 155
+	frame	data/chars/nestkyo/freespecial28-138.png
+	sound	data/sounds/bang.wav
+	attack	0 0 87 117 20 1 1 0 15 35
+	dropv	9.5 1
+	offset	43 155
+	frame	data/chars/nestkyo/freespecial28-139.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	43 155
+	frame	data/chars/nestkyo/freespecial28-140.png
+	delay	3
+	@cmd	spawn01 "explosion2" 0 60 5
+	@cmd	spawn01 "explosion1" 50 80 -1
+	attack	1 0 87 112 20 1 1 0 18 35
+	dropv	9.5 1
+	offset	43 155
+	frame	data/chars/nestkyo/freespecial28-141.png
+	offset	43 149
+	frame	data/chars/nestkyo/freespecial28-142.png
+	offset	20 146
+	frame	data/chars/nestkyo/freespecial28-143.png
+	offset	43 151
+	frame	data/chars/nestkyo/freespecial28-144.png
+	offset	20 146
+	frame	data/chars/nestkyo/freespecial28-145.png
+	offset	28 147
+	frame	data/chars/nestkyo/freespecial28-146.png
+	sound	data/sounds/bang.wav
+	blast	5 0 67 84 20 1 1 0 15 35
+	dropv	9.5 1
+	offset	30 123
+	frame	data/chars/nestkyo/freespecial28-147.png
+	delay	3
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	28 149
+	frame	data/chars/nestkyo/freespecial28-148.png
+	delay	4
+	offset	33 100
+	frame	data/chars/nestkyo/freespecial28-101.png
+	offset	25 105
+	frame	data/chars/nestkyo/chargemp-01.png
+		
+anim	freespecial29
+@script
+	void self = getlocalvar("self");
+	int mp1 = getentityproperty(self,"mp");
+	void plyr = getentityproperty(self, "playerindex");
+
+	if(frame > 4 && playerkeys(plyr, 0, "attack3"))
+	{
+	  updateframe(self, 3);
+	}
+	@end_script	
+	loop	0
+	delay	10
+	offset	25 94
+	bbox	10 9 31 85
+	sound	data/sounds/xkyochrg2.wav
+	frame	data/chars/nestkyo/charge-01.png
+	delay	7
+	bbox	23 10 27 76
+	offset	32 87
+	frame	data/chars/nestkyo/charge-02.png
+	delay	5
+	bbox	29 4 24 77
+	offset	44 81
+	frame	data/chars/nestkyo/charge-03.png
+	delay	7
+	bbox	20 9 26 70
+	offset	32 79
+	frame	data/chars/nestkyo/charge-04.png
+	@cmd	mpgain 1
+	delay	7
+	bbox	20 8 27 71
+	offset	32 80
+	frame	data/chars/nestkyo/charge-05.png
+	delay	11
+	bbox	20 9 26 70
+	offset	32 79
+	frame	data/chars/nestkyo/charge-04.png
+	delay	7
+	bbox	20 8 27 71
+	offset	32 80
+	frame	data/chars/nestkyo/charge-05.png
+		
+anim	freespecial5
+	energycost	10
+	mponly	1
+	loop	0
+	delay	15
+	offset	22 128
+	bbox	7 36 33 92
+	sound	data/sounds/xkyodeth.wav
+	frame	data/chars/nestkyo/freespecial5-01.png
+	bbox	0 0 0 0
+	offset	18 131
+	frame	data/chars/nestkyo/freespecial5-02.png
+	bbox	0 0 0 0
+	offset	27 119
+	delay	7
+	frame	data/chars/nestkyo/freespecial5-03.png
+	bbox	0 0 0 0
+	offset	76 114
+	sound	data/sounds/super2.wav
+	frame	data/chars/nestkyo/freespecial5-04.png
+	bbox	0 0 0 0
+	offset	36 132
+	@cmd	projectile 1 "xkyopw" 1 1 0
+	frame	data/chars/nestkyo/freespecial5-05.png
+	bbox	0 0 0 0
+	offset	36 132
+	delay	20
+	frame	data/chars/nestkyo/freespecial5-06.png
+	bbox	0 0 0 0
+	offset	39 91
+	delay	12
+	frame	data/chars/nestkyo/freespecial5-07.png
+		
+anim	freespecial6
+	energycost	8
+	mponly	1
+	loop	0
+	delay	6
+	offset	35 99
+	bbox	0 0 0 0
+	fastattack	1
+	forcedirection	-1
+	@cmd	dasher 1.5 0 0
+	frame	data/chars/nestkyo/freeknuckle6-01.png
+	sound	data/sounds/xkyo01.wav
+	delay	4
+	offset	27 112
+	frame	data/chars/nestkyo/freeknuckle6-02.png
+	delay	4
+	offset	33 109
+	frame	data/chars/nestkyo/freeknuckle6-03.png
+	delay	8
+	offset	37 102
+	frame	data/chars/nestkyo/freeknuckle6-04.png
+	delay	4
+	offset	47 89
+	frame	data/chars/nestkyo/freeknuckle6-05.png
+	delay	5
+	staydown	400 400
+	hitflash	flashscreen1
+	hitfx	data/sounds/beat4.wav
+	attack	29 0 48 50 10 0 1 0 25 0
+	offset	43 94
+	frame	data/chars/nestkyo/freeknuckle6-06.png
+	offset	34 101
+	attack	0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/nestkyo/freeknuckle6-07.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	28 102
+	frame	data/chars/nestkyo/freeknuckle6-08.png
+	@cmd	stop
+	delay	10
+	offset	30 101
+	frame	data/chars/nestkyo/freeknuckle6-09.png
+	sound	data/sounds/xkyodeth.wav
+	staydown	400 400
+	hitflash	flashscreen1
+	hitfx	data/sounds/beat4.wav
+	attack	28 0 43 56 25 1 1 0 50 15
+	offset	31 101
+	frame	data/chars/nestkyo/freeknuckle6-10.png
+	offset	31 101
+	frame	data/chars/nestkyo/freeknuckle6-11.png
+	offset	31 101
+	frame	data/chars/nestkyo/freeknuckle6-12.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	25 102
+	frame	data/chars/nestkyo/freeknuckle6-13.png
+	offset	22 102
+	frame	data/chars/nestkyo/freeknuckle6-14.png
+	offset	22 102
+	frame	data/chars/nestkyo/freeknuckle6-15.png
+		
+anim	freespecial7
+	energycost	7
+	mponly	1
+	cancel	10 21 0 s freespecial8
+	cancel	10 21 0 a freespecial8
+	loop	0
+	delay	7
+	forcedirection	-1
+	fastattack	1
+	hitfx	data/sounds/beat5.wav
+	bbox	22 9 35 38
+	offset	36 84
+	sound	data/sounds/xkyo01.wav
+	frame	data/chars/nestkyo/freespecial7-03.png
+	bbox	42 11 29 44
+	offset	56 88
+	delay	4
+	@cmd	spawn01 "dust" 1 1 1
+	@cmd	dasher 1 0 0
+	frame	data/chars/nestkyo/freespecial7-04.png
+	bbox	45 6 28 76
+	offset	59 81
+	@cmd	spawnbind2 "xkyopw" 60 40 1 "ANI_FOLLOW2"
+	frame	data/chars/nestkyo/freespecial7-05.png
+	bbox	45 7 28 76
+	offset	64 83
+	frame	data/chars/nestkyo/freespecial7-06.png
+	bbox	45 10 28 76
+	offset	56 86
+	frame	data/chars/nestkyo/freespecial7-07.png
+	bbox	0 0 0 0
+	offset	50 85
+	@cmd	dasher 2 0 0
+	burn	45 5 85 50 20 0 0 0 25 20
+	dropv	3 1.2
+	frame	data/chars/nestkyo/freespecial7-08.png
+	bbox	35 12 31 74
+	offset	52 85
+	frame	data/chars/nestkyo/freespecial7-09.png
+	sound	data/sounds/burn.wav
+	bbox	35 12 31 74
+	offset	52 86
+	delay	5
+	frame	data/chars/nestkyo/freespecial7-10.png
+	bbox	37 10 24 74
+	offset	51 84
+	@cmd	dasher 1 0 0
+	frame	data/chars/nestkyo/freespecial7-11.png
+	bbox	37 8 27 76
+	offset	55 83
+	attack10	0 0 0 0 0 0 0 0 0 0
+	delay	2
+	frame	data/chars/nestkyo/freespecial7-13.png
+	bbox	45 8 24 77
+	offset	55 85
+	@cmd	stop
+	frame	data/chars/nestkyo/freespecial7-15.png
+	bbox	45 8 24 77
+	offset	55 85
+	frame	data/chars/nestkyo/freespecial7-16.png
+	bbox	22 5 31 79
+	offset	35 84
+	frame	data/chars/nestkyo/freespecial7-17.png
+	bbox	22 5 31 79
+	offset	35 84
+	frame	data/chars/nestkyo/freespecial7-18.png
+	bbox	22 5 31 79
+	offset	35 84
+	frame	data/chars/nestkyo/freespecial7-19.png
+	bbox	24 12 30 79
+	offset	37 91
+	frame	data/chars/nestkyo/freespecial7-20.png
+	bbox	24 12 30 79
+	offset	37 91
+	frame	data/chars/nestkyo/freespecial7-21.png
+	bbox	16 10 33 88
+	offset	33 98
+	frame	data/chars/nestkyo/freespecial7-22.png
+		
+anim	freespecial8
+	energycost	4
+	mponly	1
+	cancel	11 19 0 s freespecial3
+	cancel	11 19 0 s freespecial3
+	cancel	11 13 0 s freespecial10
+	cancel	11 13 0 a freespecial10
+	cancel	11 13 0 j freespecial11
+	loop	0
+	delay	4
+	offset	36 99
+	bbox	0 0 0 0
+	forcedirection	-1
+	fastattack	1
+	hitfx	data/sounds/beat5.wav
+	attack8	0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/nestkyo/freespecial8-01.png
+	offset	40 99
+	sound	data/sounds/xkyo02.wav
+	frame	data/chars/nestkyo/freespecial8-02.png
+	offset	22 93
+	frame	data/chars/nestkyo/freespecial8-03.png
+	offset	34 87
+	frame	data/chars/nestkyo/freespecial8-04.png
+	offset	47 86
+	@cmd	spawn01 "dust" 1 1 1
+	@cmd	dasher 2 0 0
+	delay	4
+	sound	data/sounds/punch2.wav
+	frame	data/chars/nestkyo/freespecial8-05.png
+	offset	46 85
+	frame	data/chars/nestkyo/freespecial8-06.png
+	offset	55 88
+	@cmd	spawnbind2 "xkyopw" 70 75 -1 "ANI_FOLLOW3"
+	frame	data/chars/nestkyo/freespecial8-07.png
+	hitfx	data/sounds/burn.wav
+	offset	43 91
+	frame	data/chars/nestkyo/freespecial8-08.png
+	offset	38 89
+	attack10	13 5 80 40 20 1 0 0 25 20
+	dropv	3 1.5
+	frame	data/chars/nestkyo/freespecial8-09.png
+	offset	36 82
+	delay	5
+	@cmd	dasher 1 0 0
+	frame	data/chars/nestkyo/freespecial8-10.png
+	offset	36 83
+	frame	data/chars/nestkyo/freespecial8-11.png
+	@cmd	stop
+	bbox	14 6 27 87
+	offset	28 93
+	frame	data/chars/nestkyo/freespecial8-13.png
+	bbox	21 8 26 83
+	offset	33 91
+	frame	data/chars/nestkyo/freespecial8-14.png
+		
+anim	freespecial9
+	energycost	10
+	mponly	1
+	loop	0
+	delay	8
+	offset	28 91
+	bbox	0 0 0 0
+	jumpframe	3 4 1
+	landframe	10
+	fastattack	1
+	forcedirection	-1
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/xkyo04.wav
+	@cmd	dasher 1.5 0 0
+	frame	data/chars/nestkyo/freespecial9-01.png
+	offset	37 79
+	frame	data/chars/nestkyo/freespecial9-02.png
+	attack10	32 0 64 80 15 1 0 0 15 15
+	dropv	4 1
+	offset	53 81
+	frame	data/chars/nestkyo/freespecial9-04.png
+	offset	42 124
+	attack10	0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/nestkyo/freespecial9-05.png
+	offset	20 129
+	@cmd	spawnbind2 "xkyopw" 70 45 1 "ANI_FOLLOW2"
+	attack10	1 0 100 110 6 1 0 0 35 20
+	dropv	2 1
+	frame	data/chars/nestkyo/freespecial9-06.png
+	offset	26 122
+	attack10	0 0 0 0
+	frame	data/chars/nestkyo/freespecial9-07.png
+	offset	30 123
+	hitflash	flashscreen1
+	hitfx	data/sounds/burn.wav
+	burn	4 0 100 110 20 1 0 0 3 20
+	dropv	4 1
+	frame	data/chars/nestkyo/freespecial9-08.png
+	@cmd	spawnbind2 "xkyopw" -40 80 1 "ANI_FOLLOW3"
+	offset	28 122
+	frame	data/chars/nestkyo/freespecial9-09.png
+	offset	30 117
+	frame	data/chars/nestkyo/freespecial9-10.png
+	offset	26 115
+	burn	0 0 0 0
+	delay	15
+	delay	500
+	frame	data/chars/nestkyo/freespecial9-11.png
+	offset	25 91
+	delay	12
+	frame	data/chars/nestkyo/jumpattack3-06.png
+		
+anim	get
+	delay	9
+	offset	25 91
+	bbox	0 0 0 0
+	frame	data/chars/nestkyo/get-01.png
+	offset	27 69
+	delay	15
+	frame	data/chars/nestkyo/get-02.png
+	offset	24 78
+	delay	9
+	frame	data/chars/nestkyo/get-03.png
+	offset	25 91
+	frame	data/chars/nestkyo/get-04.png
+		
+anim	grab
+	cancel	0 1 0 s freespecial28
+	loop	0
+	delay	10
+	offset	24 95
+	bbox	23 4 40 91
+	frame	data/chars/nestkyo/grab-01.png
+		
+anim	grabattack
+	loop	0
+	delay	5
+	offset	24 95
+	attack	0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/nestkyo/grab-01.png
+	offset	24 104
+	delay	23
+	attack6	27 20 40 44 15 0 1 0 16 0
+	frame	data/chars/nestkyo/grabattack-01.png
+		
+anim	grabattack2
+	loop	0
+	delay	7
+	attackone	0
+	offset	26 95
+	hitfx	data/sounds/beat5.wav
+	fastattack	1
+	attack	0 0 0 0 0 0 0 0 0 0
+	sound	data/sounds/xkyo03.wav
+	frame	data/chars/nestkyo/grabattack2-01.png
+	offset	31 102
+	frame	data/chars/nestkyo/grabattack2-02.png
+	offset	19 104
+	frame	data/chars/nestkyo/grabattack2-03.png
+	offset	19 111
+	delay	10
+	attack	0 0 60 80 12 0 0 0 12 0
+	frame	data/chars/nestkyo/grabattack2-04.png
+	offset	19 139
+	attack	0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/nestkyo/grabattack2-05.png
+	offset	19 124
+	attack8	14 0 81 59 12 0 0 0 30 0
+	frame	data/chars/nestkyo/grabattack2-06.png
+	offset	17 114
+	attack8	0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/nestkyo/grabattack2-07.png
+	offset	16 117
+	attack8	15 0 69 59 12 0 0 0 30 0
+	frame	data/chars/nestkyo/grabattack2-08.png
+	offset	24 102
+	attack8	0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/nestkyo/grabattack2-09.png
+	offset	21 102
+	frame	data/chars/nestkyo/grabattack2-10.png
+	offset	18 103
+	frame	data/chars/nestkyo/grabattack2-11.png
+		
+anim	grabbackward
+	otg	2
+	loop	0
+	delay	12
+	attackone	0
+	offset	30 94
+	forcedirection	-1
+	@cmd	slamstart
+	sound	data/sounds/grab.wav
+	@cmd	position 10 35 48 -1 -1
+	frame	data/chars/nestkyo/grabbackward-01.png
+	bbox	0 0 0 0
+	offset	36 97
+	@cmd	position 11 30 48 -1 -1
+	frame	data/chars/nestkyo/grabbackward-02.png
+	bbox	0 0 0 0
+	offset	24 98
+	@cmd	position 0 10 75 -1 1
+	frame	data/chars/nestkyo/grabbackward-03.png
+	bbox	0 0 0 0
+	offset	36 90
+	@cmd	position 6 -20 80 -1 1
+	frame	data/chars/nestkyo/grabbackward-04.png
+	bbox	0 0 0 0
+	offset	36 77
+	delay	5
+	@cmd	position 1 -40 15 1 1
+	frame	data/chars/nestkyo/grabbackward-05.png
+	bbox	0 0 0 0
+	offset	36 77
+	delay	5
+	@cmd	depost 0
+	@cmd	finish 60 1 -2 -4 0 1
+	frame	data/chars/nestkyo/grabbackward-06.png
+	bbox	0 0 0 0
+	offset	36 77
+	delay	10
+	frame	data/chars/nestkyo/grabbackward-07.png
+	bbox	0 0 0 0
+	offset	24 56
+	delay	5
+	frame	data/chars/nestkyo/grabbackward-08.png
+	delay	5
+	bbox	0 0 0 0
+	offset	15 59
+	hitfx	data/sounds/beat5.wav
+	frame	data/chars/nestkyo/grabbackward-09.png
+	bbox	0 0 0 0
+	offset	19 44
+	hitflash	flashscreen1
+	attack11	-5 11 92 35 50 1 0 0 50 10
+	dropv	2 -2
+	frame	data/chars/nestkyo/grabbackward-10.png
+	bbox	0 0 0 0
+	offset	19 44
+	delay	25
+	frame	data/chars/nestkyo/grabbackward-11.png
+	bbox	0 0 0 0
+	offset	36 46
+	delay	9
+	frame	data/chars/nestkyo/grabbackward-12.png
+	bbox	0 0 0 0
+	offset	29 70
+	@cmd	flip
+	frame	data/chars/nestkyo/grabbackward-13.png
+	bbox	0 0 0 0
+	offset	26 91
+	frame	data/chars/nestkyo/grabbackward-14.png
+		
+anim	grabbed
+	loop	0
+	delay	10
+	offset	23 103
+	bbox	9 15 32 88
+	frame	data/chars/nestkyo/grabbed-01.png
+		
+anim	grabforward
+	loop	0
+	delay	5
+	offset	34 95
+	fastattack	1
+	hitfx	data/sounds/burn.wav
+	frame	data/chars/nestkyo/grabforward-01.png
+	sound	data/sounds/xkyo01.wav
+	bbox	0 0 0 0
+	offset	29 80
+	delay	20
+	frame	data/chars/nestkyo/attack4-01.png
+	bbox	0 0 0 0
+	offset	30 83
+	delay	15
+	blast	30 11 40 44 20 0 1 0 20 0
+	frame	data/chars/nestkyo/attack4-02.png
+	delay	3
+	bbox	0 0 0 0
+	offset	30 103
+	burn	0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/nestkyo/attack4-03.png
+	hitfx	data/sounds/beat4.wav
+	bbox	0 0 0 0
+	offset	32 129
+	delay	4
+	burn	41 21 63 74 25 0 1 0 40 0
+	frame	data/chars/nestkyo/attack4-04.png
+	delay	10
+	bbox	0 0 0 0
+	offset	30 128
+	burn	0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/nestkyo/attack4-05.png
+	hitfx	data/sounds/beat4.wav
+	bbox	0 0 0 0
+	offset	30 123
+	delay	10
+	burn	38 11 72 76 25 0 1 0 15 0
+	frame	data/chars/nestkyo/attack4-06.png
+	delay	13
+	bbox	0 0 0 0
+	offset	30 119
+	attack	0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/nestkyo/attack4-07.png
+	bbox	22 13 25 90
+	offset	32 103
+	delay	3
+	frame	data/chars/nestkyo/attack4-08.png
+	bbox	17 12 25 90
+	offset	27 102
+	frame	data/chars/nestkyo/attack4-09.png
+		
+anim	grabup
+	delay	12
+	fastattack	1
+	hitfx	data/sounds/hard2.wav
+	sound	data/sounds/butobus.wav
+	loop	0
+	offset	31 80
+	frame	data/chars/nestkyo/attack4-01.png
+	delay	3
+	offset	32 83
+	frame	data/chars/nestkyo/attack4-02.png
+	attack10	33 0 62 60 40 1 1 0 20 15
+	dropv	4.5 1.2 0
+	offset	31 103
+	frame	data/chars/nestkyo/attack4-03.png
+	attack10	0 0 0 0
+	offset	30 128
+	frame	data/chars/nestkyo/attack4-04.png
+	delay	4
+	burn	51 21 60 60 40 1 1 0 40 15
+	dropv	6.5 0.5
+	offset	30 128
+	frame	data/chars/nestkyo/attack4-05.png
+	delay	15
+	attack10	0 0 0 0 0 0 0 0 0 0
+	offset	30 123
+	frame	data/chars/nestkyo/attack4-06.png
+	offset	30 119
+	frame	data/chars/nestkyo/attack4-07.png
+	delay	3
+	bbox	21 13 26 91
+	offset	31 103
+	frame	data/chars/nestkyo/attack4-08.png
+	bbox	15 9 31 93
+	offset	27 102
+	frame	data/chars/nestkyo/attack4-09.png
+		
+anim	idle
+	loop	1
+	delay	8
+	offset	30 101
+	bbox	11 9 28 92
+	frame	data/chars/nestkyo/idle-01.png
+	bbox	13 9 28 92
+	offset	31 102
+	@cmd	clearL
+	frame	data/chars/nestkyo/idle-02.png
+	bbox	14 10 28 92
+	offset	31 102
+	frame	data/chars/nestkyo/idle-03.png
+	bbox	14 9 28 92
+	offset	31 101
+	frame	data/chars/nestkyo/idle-04.png
+	bbox	15 9 28 91
+	offset	31 100
+	frame	data/chars/nestkyo/idle-05.png
+	bbox	13 10 28 91
+	offset	31 101
+	frame	data/chars/nestkyo/idle-06.png
+	bbox	11 11 28 91
+	offset	31 102
+	frame	data/chars/nestkyo/idle-07.png
+	bbox	11 11 28 91
+	offset	31 102
+	frame	data/chars/nestkyo/idle-08.png
+	bbox	11 10 28 91
+	offset	31 101
+	frame	data/chars/nestkyo/idle-09.png
+	bbox	9 10 28 90
+	offset	30 100
+	frame	data/chars/nestkyo/idle-10.png
+		
+anim	jump
+	loop	0
+	delay	7
+	bbox	9 23 22 105
+	offset	26 140
+	frame	data/chars/nestkyo/jump-01.png
+	bbox	9 11 29 47
+	offset	28 110
+	frame	data/chars/nestkyo/jump-02.png
+	bbox	20 9 24 44
+	offset	35 100
+	frame	data/chars/nestkyo/jump-03.png
+	delay	25
+	bbox	32 9 25 39
+	offset	50 85
+	frame	data/chars/nestkyo/jump-04.png
+	delay	7
+	bbox	20 9 24 45
+	offset	36 100
+	frame	data/chars/nestkyo/jump-05.png
+	bbox	11 13 26 46
+	offset	28 110
+	frame	data/chars/nestkyo/jump-06.png
+	bbox	7 26 24 102
+	offset	26 140
+	frame	data/chars/nestkyo/jump-07.png
+		
+anim	jumpattack
+	loop	0
+	delay	7
+	offset	33 112
+	bbox	16 13 31 63
+	forcedirection	-1
+	hitfx	data/sounds/beat3.wav
+	sound	data/sounds/punch2.wav
+	frame	data/chars/nestkyo/jumpattack-01.png
+	bbox	24 9 27 48
+	offset	32 116
+	frame	data/chars/nestkyo/jumpattack-02.png
+	bbox	32 9 29 42
+	offset	43 95
+	frame	data/chars/nestkyo/jumpattack-03.png
+	bbox	26 4 32 41
+	offset	39 82
+	staydown	500 500
+	attack	35 18 82 50 25 1 0 0 35 0
+	frame	data/chars/nestkyo/jumpattack-04.png
+		
+anim	jumpattack2
+	loop	0
+	delay	7
+	offset	21 81
+	bbox	2 9 26 42
+	frame	data/chars/nestkyo/jumpattack2-01.png
+	bbox	22 14 23 36
+	offset	35 77
+	attack2	29 13 47 55 12 0 0 0 35 0
+	frame	data/chars/nestkyo/jumpattack2-02.png
+		
+anim	jumpattack3
+	followanim	6
+	followcond	1
+	fastattack	1
+	loop	0
+	delay	12
+	offset	27 77
+	bbox	8 7 27 45
+	jumpframe	1 -1 3.5
+	landframe	4 dust
+	attack	0 0 0 0 0 0 0 0 0 0
+	@cmd	leaper -1 3
+	hitfx	data/sounds/beat3.wav
+	sound	data/sounds/xkyo02.wav
+	frame	data/chars/nestkyo/jumpattack3-01.png
+	bbox	8 8 27 45
+	offset	27 79
+	frame	data/chars/nestkyo/jumpattack3-02.png
+	bbox	16 6 45 40
+	attack	38 14 75 54 20 1 0 0 35 0
+	dropv	2 4
+	offset	36 67
+	delay	500
+	frame	data/chars/nestkyo/jumpattack3-03.png
+	bbox	16 6 45 40
+	offset	36 67
+	frame	data/chars/nestkyo/jumpattack3-04.png
+	delay	9
+	offset	29 70
+	bbox	18 9 29 61
+	frame	data/chars/nestkyo/jumpattack3-05.png
+	offset	26 91
+	frame	data/chars/nestkyo/jumpattack3-06.png
+		
+anim	jumpdelay
+	loop	0
+	delay	7
+	offset	30 78
+	bbox	9 5 36 73
+	frame	data/chars/nestkyo/jumpdelay-01.png
+		
+anim	jumpland
+	loop	0
+	delay	7
+	offset	35 78
+	bbox	8 4 34 74
+	frame	data/chars/nestkyo/jumpland-01.png
+		
+anim	pain
+	loop	0
+	delay	4
+	offset	21 103
+	bbox	3 15 34 88
+	frame	data/chars/nestkyo/pain-01.png
+	bbox	2 12 36 92
+	frame	data/chars/nestkyo/pain-02.png
+	bbox	3 13 34 93
+	frame	data/chars/nestkyo/pain-03.png
+	bbox	2 13 39 92
+	delay	15
+	frame	data/chars/nestkyo/pain-04.png
+		
+anim	pain2
+	loop	0
+	delay	4
+	offset	21 103
+	bbox	3 15 34 88
+	frame	data/chars/nestkyo/pain-01.png
+	bbox	2 12 36 92
+	frame	data/chars/nestkyo/pain-02.png
+	bbox	3 13 34 93
+	frame	data/chars/nestkyo/pain-03.png
+	bbox	2 13 39 92
+	delay	15
+	frame	data/chars/nestkyo/pain-04.png
+		
+anim	pain3
+	loop	0
+	delay	4
+	offset	21 103
+	bbox	5 13 32 90
+	move	-6
+	frame	data/chars/nestkyo/pain3-01.png
+	bbox	3 15 33 89
+	offset	18 105
+	frame	data/chars/nestkyo/pain3-02.png
+	bbox	1 14 34 92
+	offset	19 106
+	frame	data/chars/nestkyo/pain3-03.png
+	bbox	2 15 35 91
+	offset	23 107
+	frame	data/chars/nestkyo/pain3-04.png
+	bbox	2 12 33 91
+	offset	20 105
+	frame	data/chars/nestkyo/pain3-05.png
+	bbox	1 11 34 91
+	offset	21 101
+	frame	data/chars/nestkyo/pain3-06.png
+	bbox	5 5 30 93
+	offset	23 97
+	move	-4
+	frame	data/chars/nestkyo/pain3-07.png
+	bbox	3 3 35 85
+	offset	21 88
+	frame	data/chars/nestkyo/pain3-08.png
+	bbox	2 1 36 77
+	offset	23 78
+	frame	data/chars/nestkyo/pain3-09.png
+	bbox	0 2 39 62
+	offset	24 64
+	frame	data/chars/nestkyo/pain3-10.png
+	bbox	2 2 33 77
+	offset	22 78
+	frame	data/chars/nestkyo/pain3-11.png
+	bbox	3 3 38 84
+	offset	19 87
+	move	-2
+	frame	data/chars/nestkyo/pain3-12.png
+	bbox	3 3 38 84
+	offset	19 87
+	frame	data/chars/nestkyo/pain3-13.png
+	bbox	4 6 34 91
+	offset	18 97
+	frame	data/chars/nestkyo/pain3-14.png
+	bbox	4 6 34 91
+	offset	18 97
+	delay	50
+	frame	data/chars/nestkyo/pain3-15.png
+		
+anim	pain5
+	loop	0
+	delay	12
+	offset	24 103
+	bbox	6 11 32 92
+	frame	data/chars/nestkyo/pain5-01.png
+	bbox	3 14 33 92
+	offset	19 105
+	frame	data/chars/nestkyo/pain5-02.png
+	bbox	2 10 31 91
+	offset	21 101
+	frame	data/chars/nestkyo/pain5-03.png
+	bbox	2 5 34 92
+	offset	29 97
+	frame	data/chars/nestkyo/pain5-04.png
+	bbox	6 10 34 81
+	offset	25 91
+	frame	data/chars/nestkyo/pain5-05.png
+	bbox	17 9 28 61
+	offset	29 70
+	delay	30
+	frame	data/chars/nestkyo/pain5-06.png
+	bbox	8 10 33 81
+	offset	25 91
+	delay	12
+	frame	data/chars/nestkyo/pain5-07.png
+		
+anim	pain6
+	loop	0
+	delay	12
+	offset	21 93
+	bbox	0 0 0 0
+	frame	data/chars/nestkyo/pain6-01.png
+	offset	19 51
+	frame	data/chars/nestkyo/pain6-02.png
+	offset	23 63
+	frame	data/chars/nestkyo/pain6-03.png
+	offset	26 44
+	frame	data/chars/nestkyo/pain6-04.png
+	offset	29 40
+	frame	data/chars/nestkyo/pain6-05.png
+	offset	28 31
+	delay	900
+	frame	data/chars/nestkyo/pain6-06.png
+	offset	38 74
+	delay	9
+	frame	data/chars/nestkyo/pain6-07.png
+	offset	38 64
+	frame	data/chars/nestkyo/pain6-08.png
+	offset	18 139
+	frame	data/chars/nestkyo/pain6-09.png
+	offset	21 94
+	frame	data/chars/nestkyo/pain6-10.png
+	offset	34 78
+	frame	data/chars/nestkyo/pain6-11.png
+		
+anim	respawn
+	loop	0
+	delay	12
+	offset	20 112
+	bbox	0 0 0 0
+	frame	data/chars/nestkyo/respawn-01.png
+	offset	21 112
+	delay	6
+	sound	data/sounds/xkyotlk.wav
+	frame	data/chars/nestkyo/respawn-02.png
+	delay	5
+	offset	20 135
+	frame	data/chars/nestkyo/respawn-03.png
+	delay	5
+	offset	20 135
+	frame	data/chars/nestkyo/respawn-04.png
+	delay	5
+	offset	20 136
+	frame	data/chars/nestkyo/respawn-05.png
+	delay	5
+	offset	18 139
+	frame	data/chars/nestkyo/respawn-06.png
+	delay	20
+	offset	18 140
+	loop	0
+	frame	data/chars/nestkyo/respawn-07.png
+	offset	27 92
+	frame	data/chars/nestkyo/respawn-08.png
+	offset	27 92
+	frame	data/chars/nestkyo/respawn-09.png
+	offset	27 94
+	delay	20
+	frame	data/chars/nestkyo/respawn-10.png
+		
+anim	rise
+	loop	0
+	delay	20
+	offset	30 31
+	bbox	0 0 0 0
+	frame	data/chars/nestkyo/rise-01.png
+	delay	10
+	offset	34 74
+	frame	data/chars/nestkyo/rise-02.png
+	delay	10
+	offset	31 64
+	frame	data/chars/nestkyo/rise-03.png
+	delay	5
+	offset	18 139
+	frame	data/chars/nestkyo/rise-04.png
+	delay	5
+	offset	21 94
+	frame	data/chars/nestkyo/rise-05.png
+	offset	25 91
+	frame	data/chars/nestkyo/rise-06.png
+		
+anim	run
+	bbox	15 4 31 83
+	loop	1
+	delay	7
+	offset	39 88
+	frame	data/chars/nestkyo/run-01.png
+	sound	data/sounds/run.wav
+	bbox	41 1 34 89
+	offset	69 91
+	frame	data/chars/nestkyo/run-02.png
+	bbox	41 1 34 83
+	offset	65 84
+	frame	data/chars/nestkyo/run-03.png
+	bbox	17 2 29 86
+	offset	38 89
+	frame	data/chars/nestkyo/run-04.png
+	sound	data/sounds/run.wav
+	bbox	54 4 26 87
+	offset	68 91
+	frame	data/chars/nestkyo/run-05.png
+	bbox	54 5 26 80
+	offset	58 85
+	frame	data/chars/nestkyo/run-06.png
+		
+anim	runattack
+	loop	0
+	delay	5
+	forcedirection	-1
+	@cmd	dasher 1.5 0 0
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/xkyo03.wav
+	move	3
+	offset	41 99
+	frame	data/chars/nestkyo/attack8-01.png
+	bbox	29 19 24 89
+	movez	0
+	movea	0
+	move	3
+	offset	42 108
+	frame	data/chars/nestkyo/attack8-02.png
+	bbox	29 27 25 91
+	offset	43 117
+	frame	data/chars/nestkyo/attack8-03.png
+	bbox	27 23 26 94
+	offset	43 116
+	frame	data/chars/nestkyo/attack8-04.png
+	bbox	18 13 29 90
+	offset	29 103
+	frame	data/chars/nestkyo/attack8-05.png
+	bbox	9 7 30 48
+	offset	33 103
+	frame	data/chars/nestkyo/attack8-06.png
+	bbox	2 5 36 50
+	delay	5
+	attack	9 0 98 55 60 1 1 0 50 20
+	dropv	3 3 0
+	offset	17 104
+	frame	data/chars/nestkyo/attack8-07.png
+	bbox	4 12 35 96
+	delay	4
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	31 108
+	frame	data/chars/nestkyo/attack8-08.png
+	bbox	10 10 28 95
+	offset	36 105
+	frame	data/chars/nestkyo/attack8-09.png
+	bbox	17 12 36 94
+	move	0
+	offset	42 106
+	frame	data/chars/nestkyo/attack8-10.png
+	bbox	24 6 31 97
+	offset	44 104
+	frame	data/chars/nestkyo/attack8-11.png
+	bbox	14 10 31 93
+	offset	31 103
+	frame	data/chars/nestkyo/attack8-12.png
+	@cmd	stop
+	bbox	30 3 27 96
+	offset	45 100
+	frame	data/chars/nestkyo/attack8-13.png
+	delay	2
+	bbox	13 8 32 93
+	offset	28 100
+	frame	data/chars/nestkyo/attack8-14.png
+		
+anim	runjump
+	loop	0
+	delay	6
+	offset	26 150
+	bbox	5 23 26 111
+	frame	data/chars/nestkyo/runjump-01.png
+	bbox	10 11 28 67
+	offset	28 125
+	frame	data/chars/nestkyo/runjump-02.png
+	bbox	18 8 27 58
+	offset	35 120
+	frame	data/chars/nestkyo/runjump-03.png
+	bbox	32 7 26 50
+	offset	52 110
+	delay	120
+	frame	data/chars/nestkyo/runjump-04.png
+	bbox	18 8 27 54
+	offset	36 130
+	delay	8
+	frame	data/chars/nestkyo/runjump-05.png
+	bbox	10 12 28 52
+	offset	28 135
+	frame	data/chars/nestkyo/runjump-06.png
+	bbox	6 24 25 103
+	offset	26 155
+	frame	data/chars/nestkyo/runjump-07.png
+		
+anim	runjumpattack
+	fastattack	1
+	bbox	24 8 27 54
+	loop	0
+	delay	5
+	forcedirection	-1
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/xkyo03.wav
+	move	3
+	offset	41 111
+	frame	data/chars/nestkyo/attack8-01.png
+	delay	4
+	bbox	29 19 24 89
+	movez	0
+	movea	0
+	move	3
+	offset	42 120
+	frame	data/chars/nestkyo/attack8-02.png
+	delay	4
+	bbox	29 27 25 91
+	offset	43 130
+	frame	data/chars/nestkyo/attack8-03.png
+	delay	4
+	bbox	27 23 26 94
+	offset	43 140
+	frame	data/chars/nestkyo/attack8-04.png
+	delay	4
+	bbox	18 13 29 90
+	offset	29 137
+	frame	data/chars/nestkyo/attack8-05.png
+	delay	3
+	bbox	9 7 30 48
+	offset	33 140
+	frame	data/chars/nestkyo/attack8-06.png
+	bbox	2 5 36 50
+	delay	7
+	attack	9 0 98 55 60 1 1 0 50 15
+	dropv	3 3 0
+	offset	17 139
+	frame	data/chars/nestkyo/attack8-07.png
+	delay	5
+	attack	0 0 0 0 0 0 0 0 0 0
+	bbox	10 10 28 95
+	offset	36 140
+	frame	data/chars/nestkyo/attack8-09.png
+	delay	2
+	bbox	16 22 45 45
+	offset	34 150
+	frame	data/chars/nestkyo/freespecial6-03.png
+	bbox	23 11 28 43
+	offset	37 132
+	delay	2
+	frame	data/chars/nestkyo/attack9-02.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	bbox	32 9 28 40
+	offset	44 116
+	delay	3
+	frame	data/chars/nestkyo/attack9-03.png
+	delay	5
+	sound	data/sounds/punch.wav
+	bbox	11 9 26 40
+	offset	27 105
+	frame	data/chars/nestkyo/jumpattack3-02.png
+	delay	8
+	attack	36 -7 60 115 10 1 1 0 30 0
+	dropv	2.6 4 0
+	bbox	16 16 32 54
+	offset	31 145
+	frame	data/chars/nestkyo/runjumpattack-07.png
+	delay	4
+	bbox	16 16 32 54
+	offset	31 142
+	frame	data/chars/nestkyo/runjumpattack-08.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	delay	4
+	bbox	14 5 29 45
+	offset	29 103
+	frame	data/chars/nestkyo/runjumpattack-09.png
+	delay	2
+	bbox	12 9 28 48
+	offset	28 132
+	frame	data/chars/nestkyo/runjumpattack-10.png
+		
+anim	runslide
+	loop	0
+	delay	6
+	offset	24 91
+	bbox	12 9 32 81
+	hitfx	data/sounds/beat5.wav
+	@cmd	dasher 3 0 0
+	frame	data/chars/nestkyo/runslide-01.png
+	bbox	19 11 23 57
+	offset	28 70
+	frame	data/chars/nestkyo/runslide-02.png
+	@cmd	spawn01 "dust" 1 1 1
+	offset	26 58
+	bbox	10 4 39 53
+	frame	data/chars/nestkyo/runslide-03.png
+	bbox	71 10 -44 41
+	offset	40 62
+	attack10	31 24 80 40 12 1 0 0 20 0
+	dropv	2 2.5
+	sound	data/sounds/punch3.wav
+	frame	data/chars/nestkyo/runslide-04.png
+	bbox	71 8 -44 41
+	offset	39 56
+	delay	11
+	frame	data/chars/nestkyo/runslide-05.png
+	bbox	13 8 35 42
+	offset	23 65
+	attack10	0 0 0 0 0 0 0 0 0 0
+	delay	6
+	@cmd	dasher 2 0 0
+	frame	data/chars/nestkyo/runslide-06.png
+	bbox	5 10 30 45
+	offset	21 65
+	frame	data/chars/nestkyo/runslide-07.png
+	bbox	2 10 38 42
+	offset	23 64
+	attack9	6 16 100 40 20 1 0 0 20 0
+	dropv	0.3 4
+	delay	8
+	frame	data/chars/nestkyo/runslide-08.png
+	bbox	19 9 38 42
+	offset	31 64
+	frame	data/chars/nestkyo/runslide-09.png
+	bbox	2 12 38 38
+	offset	23 64
+	@cmd	dasher 1 0 0
+	frame	data/chars/nestkyo/runslide-10.png
+	bbox	6 8 30 46
+	offset	21 65
+	attack9	0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/nestkyo/runslide-11.png
+	bbox	13 6 34 43
+	offset	23 65
+	frame	data/chars/nestkyo/runslide-12.png
+	bbox	11 5 34 40
+	offset	26 58
+	@cmd	stop
+	frame	data/chars/nestkyo/runslide-13.png
+	bbox	16 9 28 61
+	offset	28 70
+	frame	data/chars/nestkyo/runslide-14.png
+	bbox	9 11 36 80
+	offset	24 91
+	frame	data/chars/nestkyo/runslide-15.png
+		
+anim	select
+	loop	0
+	delay	2
+	offset	0 0
+	sound	data/sounds/blink.wav
+	sound	data/sounds/kyolol.wav
+	frame	data/chars/nestkyo/wait1-01.png
+		
+anim	spawn
+	loop	0
+	delay	6
+	offset	20 103
+	bbox	0 0 0 0
+	frame	data/chars/nestkyo/select-01.png
+	offset	20 106
+	delay	5
+	sound	data/sounds/xkyotlk.wav
+	frame	data/chars/nestkyo/select-02.png
+	offset	19 108
+	frame	data/chars/nestkyo/select-03.png
+	offset	19 108
+	frame	data/chars/nestkyo/select-04.png
+	offset	19 108
+	frame	data/chars/nestkyo/select-05.png
+	offset	18 108
+	frame	data/chars/nestkyo/select-06.png
+	offset	29 109
+	frame	data/chars/nestkyo/select-07.png
+	offset	31 128
+	frame	data/chars/nestkyo/select-08.png
+	offset	31 154
+	frame	data/chars/nestkyo/select-09.png
+	offset	32 156
+	frame	data/chars/nestkyo/select-10.png
+	offset	32 153
+	frame	data/chars/nestkyo/select-11.png
+	offset	31 146
+	frame	data/chars/nestkyo/select-12.png
+	offset	32 140
+	frame	data/chars/nestkyo/select-13.png
+	offset	31 123
+	frame	data/chars/nestkyo/select-14.png
+	offset	32 110
+	frame	data/chars/nestkyo/select-15.png
+	offset	32 110
+	frame	data/chars/nestkyo/select-16.png
+	offset	32 110
+	delay	20
+	frame	data/chars/nestkyo/select-17.png
+	delay	10
+	offset	29 109
+	frame	data/chars/nestkyo/select-07.png
+	delay	10
+	offset	19 108
+	frame	data/chars/nestkyo/select-06.png
+	delay	10
+	offset	19 108
+	frame	data/chars/nestkyo/select-05.png
+	delay	10
+	offset	19 108
+	frame	data/chars/nestkyo/select-04.png
+	delay	10
+	offset	19 108
+	frame	data/chars/nestkyo/select-03.png
+	delay	10
+	offset	19 107
+	frame	data/chars/nestkyo/select-02.png
+	delay	10
+	offset	20 103
+	frame	data/chars/nestkyo/select-01.png
+		
+anim	special
+	energycost	30
+	mponly	1
+	loop	0
+	delay	9
+	offset	21 112
+	bbox	0 0 0 0
+	staydown	500 500
+	hitfx	data/sounds/burn.wav
+	sound	data/sounds/xkyochrg.wav
+	frame	data/chars/nestkyo/special-01.png
+	offset	21 113
+	frame	data/chars/nestkyo/special-02.png
+	offset	45 133
+	frame	data/chars/nestkyo/special-03.png
+	offset	45 133
+	delay	15
+	frame	data/chars/nestkyo/special-04.png
+	offset	45 133
+	sound	data/sounds/super2.wav
+	delay	6
+	@cmd	spawnAni "xkyopw" 0 1 -5 "ANI_FOLLOW1"
+	@cmd	spawnAni "xkyopw" -40 1 -5 "ANI_FOLLOW1"
+	@cmd	spawnAni "xkyopw" 40 1 -5 "ANI_FOLLOW1"
+	frame	data/chars/nestkyo/special-05.png
+	offset	45 140
+	burn	-37 0 150 140 25 1 0 0 4 0
+	dropv	5 1
+	frame	data/chars/nestkyo/special-06.png
+	offset	45 144
+	frame	data/chars/nestkyo/special-07.png
+	delay	6
+	burn	-37 0 150 140 25 1 0 0 4 0
+	dropv	5 1
+	offset	45 135
+	frame	data/chars/nestkyo/special-08.png
+	offset	45 133
+	burn	0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/nestkyo/special-09.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	45 133
+	sound	data/sounds/super2.wav
+	delay	6
+	@cmd	spawnAni "xkyopw" 0 1 -5 "ANI_FOLLOW1"
+	@cmd	spawnAni "xkyopw" -40 1 -5 "ANI_FOLLOW1"
+	@cmd	spawnAni "xkyopw" 40 1 -5 "ANI_FOLLOW1"
+	frame	data/chars/nestkyo/special-05.png
+	delay	6
+	offset	45 140
+	burn	-37 0 150 140 25 1 0 0 4 0
+	dropv	5 1
+	frame	data/chars/nestkyo/special-06.png
+	offset	45 144
+	frame	data/chars/nestkyo/special-07.png
+	delay	6
+	burn	-37 0 150 140 25 1 0 0 4 0
+	dropv	5 1
+	offset	45 135
+	frame	data/chars/nestkyo/special-08.png
+	offset	45 133
+	burn	0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/nestkyo/special-09.png
+	offset	45 133
+	sound	data/sounds/super2.wav
+	delay	6
+	@cmd	spawnAni "xkyopw" 0 1 -5 "ANI_FOLLOW1"
+	@cmd	spawnAni "xkyopw" -40 1 -5 "ANI_FOLLOW1"
+	@cmd	spawnAni "xkyopw" 40 1 -5 "ANI_FOLLOW1"
+	frame	data/chars/nestkyo/special-05.png
+	offset	45 140
+	burn	-37 0 150 140 25 1 0 0 4 0
+	dropv	5 1
+	frame	data/chars/nestkyo/special-06.png
+	offset	45 144
+	frame	data/chars/nestkyo/special-07.png
+	delay	6
+	burn	-37 0 150 140 25 1 0 0 4 0
+	dropv	5 1
+	offset	45 135
+	frame	data/chars/nestkyo/special-08.png
+	offset	45 133
+	burn	0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/nestkyo/special-09.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	45 133
+	sound	data/sounds/super2.wav
+	delay	6
+	@cmd	spawnAni "xkyopw" 0 1 -5 "ANI_FOLLOW1"
+	@cmd	spawnAni "xkyopw" -40 1 -5 "ANI_FOLLOW1"
+	@cmd	spawnAni "xkyopw" 40 1 -5 "ANI_FOLLOW1"
+	frame	data/chars/nestkyo/special-05.png
+	delay	6
+	offset	45 140
+	burn	-37 0 150 140 25 1 0 0 4 0
+	dropv	5 1
+	frame	data/chars/nestkyo/special-06.png
+	offset	45 144
+	frame	data/chars/nestkyo/special-07.png
+	delay	6
+	burn	-37 0 150 140 25 1 0 0 4 0
+	dropv	5 1
+	offset	45 135
+	frame	data/chars/nestkyo/special-08.png
+	offset	45 133
+	burn	0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/nestkyo/special-09.png
+	offset	45 134
+	delay	25
+	frame	data/chars/nestkyo/special-10.png
+	offset	45 132
+	delay	9
+	frame	data/chars/nestkyo/special-11.png
+	offset	21 112
+	frame	data/chars/nestkyo/special-12.png
+	offset	21 112
+	frame	data/chars/nestkyo/special-13.png
+		
+anim	waiting
+	loop	1
+	delay	12
+	offset	0 0
+	frame	data/chars/nestkyo/wait1-01.png
+		
+anim	walk
+	loop	1
+	delay	10
+	bbox	21 10 21 101
+	offset	39 114
+	frame	data/chars/nestkyo/walk-01.png
+	bbox	0 0 0 0
+	offset	27 115
+	frame	data/chars/nestkyo/walk-02.png
+	bbox	15 9 26 101
+	offset	35 114
+	frame	data/chars/nestkyo/walk-03.png
+	bbox	19 9 27 100
+	offset	40 113
+	frame	data/chars/nestkyo/walk-04.png
+	bbox	20 9 22 103
+	offset	38 114
+	frame	data/chars/nestkyo/walk-05.png
+	bbox	16 9 16 103
+	offset	32 114
+	frame	data/chars/nestkyo/walk-06.png
+	bbox	14 11 26 102
+	offset	33 114
+	frame	data/chars/nestkyo/walk-07.png
+	bbox	18 8 24 104
+	offset	35 114
+		
+anim	walkoff
+	loop	0
+	delay	12
+	offset	43 126
+	bbox	27 22 31 84
+	frame	data/chars/nestkyo/jump-07.png
+		
+#|edited by openBor Stats v 0.67
+		

@@ -1,0 +1,2851 @@
+name kyomi
+type		player
+health		150
+mp		100
+mprate          1
+chargerate      3
+speed		11
+running		26 3.4 3 1 1
+jumpheight	4.3
+nodieblink	2
+weaploss	3
+modelflag	1
+noquake         0
+makeinv		3
+riseinv		1
+gfxshadow	1
+fmap		1
+holdblock 	1
+blockpain	15
+falldie		2
+dust            dust
+candamage	enemy obstacle
+projectilehit 	player npc enemy
+weapons		Robcar kyoplr Robcar2 robfall Robwtr Robvent mapcurs mrzero ryoturt
+atchain         1 1 2 3 4 0 5 6 7 0 8 1
+combostyle      1
+icon		data/chars/kyomi/icon.png
+parrow          data/chars/misc/flash/flash/player1.gif  -36 -145
+parrow2         data/chars/misc/flash/flash/player2.gif  -36 -145
+parrow3         data/chars/misc/flash/flash/player3.gif  -36 -145
+
+palette         data/chars/kyomi/idle-01.png
+alternatepal	data/chars/kyomi/map1.png
+
+animationscript		data/scripts/grabscript.c
+ondrawscript 		data/scripts/water_puddle_script.c
+script			data/scripts/player_script.c
+
+
+load	xkyopw
+load	kyomipw
+
+
+com	d f a	  freespecial9
+com	d f s 	  freespecial7
+com	f d s 	  freespecial5
+com	d f j 	  freespecial6
+com	a2	  freespecial15
+com     f d f a freespecial26
+com	f d f s freespecial27
+com	a3	  freespecial29
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+anim	attack1
+	cancel	1 3 0 d f j freespecial6
+	cancel	1 3 0 d f s freespecial7
+	cancel	1 3 0 d f a freespecial9
+	bbox	18 9 30 94
+	offset	36 102
+	cancel	1 3 0 s freespecial6
+	range	0 135
+	rangez	-25 25
+	loop	0
+	delay	3
+	fastattack	1
+	hitfx	data/sounds/beat2.wav
+	@cmd	attackgrd -60 60 0 1 10 "ANI_FOLLOW10"
+	frame	data/chars/kyomi/attack-01.png
+	sound	data/sounds/kyomihum.wav
+	delay	6
+	attack	38 9 72 26 6 0 0 0 1 15
+	offset	49 96
+	frame	data/chars/kyomi/attack-02.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	bbox	32 13 27 88
+	offset	49 101
+	frame	data/chars/kyomi/attack-03.png
+		
+anim	attack2
+	cancel	1 4 0 d f j freespecial6
+	cancel	1 4 0 d f s freespecial7
+	cancel	1 4 0 d f a freespecial9
+	range	0 65
+	rangez	-25 25
+	loop	0
+	delay	3
+	fastattack	1
+	hitfx	data/sounds/beat2.wav
+	sound	data/sounds/xkyo01.wav
+	bbox	18 7 36 94
+	offset	35 101
+	frame	data/chars/kyomi/attack2-01.png
+	delay	6
+	attack	33 8 60 28 30 0 0 0 7 15
+	bbox	27 9 32 92
+	offset	39 100
+	frame	data/chars/kyomi/attack2-02.png
+	offset	35 101
+	frame	data/chars/kyomi/attack2-01.png
+	attack	0 0 0 0
+	bbox	18 11 33 87
+	offset	36 98
+	frame	data/chars/kyomi/attack2-03.png
+		
+anim	attack3
+	cancel	4 8 0 d f j freespecial6
+	cancel	4 8 0 d f s freespecial7
+	cancel	4 8 0 d f a freespecial9
+	range	0 65
+	rangez	-25 25
+	delay	3
+	offset	37 109
+	frame	data/chars/kyomi/attack3-01.png
+	offset	35 114
+	frame	data/chars/kyomi/attack3-02.png
+	offset	28 91
+	frame	data/chars/kyomi/attack3-03.png
+	offset	29 79
+	frame	data/chars/kyomi/attack3-04.png
+	delay	5
+	attack	41 0 42 79 25 0 1 0 15 15
+	offset	30 90
+	frame	data/chars/kyomi/attack3-05.png
+	offset	30 88
+	frame	data/chars/kyomi/attack3-06.png
+	offset	29 79
+	frame	data/chars/kyomi/attack3-04.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	28 91
+	frame	data/chars/kyomi/attack3-03.png
+		
+anim	attack4
+	range	0 51
+	rangez	-25 25
+	delay	8
+	fastattack	1
+	hitfx	data/sounds/hard2.wav
+	sound	data/sounds/xkyo01.wav
+	loop	0
+	bbox	17 0 32 76
+	offset	25 75
+	frame	data/chars/kyomi/attack4-01.png
+	delay	3
+	offset	22 72
+	frame	data/chars/kyomi/attack4-02.png
+	offset	22 73
+	frame	data/chars/kyomi/attack4-03.png
+	offset	22 80
+	frame	data/chars/kyomi/attack4-04.png
+	offset	27 83
+	frame	data/chars/kyomi/attack4-05.png
+	attack10	29 -5 48 73 0 0 1 0 20 15
+	offset	28 103
+	frame	data/chars/kyomi/attack4-06.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	29 129
+	frame	data/chars/kyomi/attack4-07.png
+	delay	4
+	attack10	23 -7 53 97 40 1 1 0 40 15
+	dropv	4.5 1.2 0
+	offset	29 128
+	frame	data/chars/kyomi/attack4-08.png
+	delay	14
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	29 123
+	frame	data/chars/kyomi/attack4-09.png
+	delay	3
+	offset	29 119
+	frame	data/chars/kyomi/attack4-10.png
+	offset	30 103
+	frame	data/chars/kyomi/attack4-11.png
+	offset	30 102
+	frame	data/chars/kyomi/attack4-12.png
+		
+anim	attack5
+	range	45 85
+	rangez	-25 25
+	loop	0
+	fastattack	1
+	hitfx	data/sounds/beat3.wav
+	delay	3
+	bbox	32 13 28 94
+	offset	48 107
+	frame	data/chars/kyomi/attack5-01.png
+	offset	21 105
+	frame	data/chars/kyomi/attack5-02.png
+	delay	5
+	attack2	27 20 77 54 20 0 1 0 5 15
+	bbox	8 14 28 93
+	offset	28 108
+	frame	data/chars/kyomi/attack5-03.png
+	attack2	0 0 0 0 0 0 0 0 0 0
+	delay	4
+	offset	27 105
+	frame	data/chars/kyomi/attack5-04.png
+	offset	21 105
+	frame	data/chars/kyomi/attack5-02.png
+		
+anim	attack6
+	cancel	4 6 0 d f s freespecial7
+	range	50 85
+	rangez	-25 25
+	loop	0
+	delay	3
+	fastattack	1
+	hitfx	data/sounds/beat3.wav
+	sound	data/sounds/xkyo02.wav
+	bbox	16 11 32 79
+	offset	34 90
+	frame	data/chars/kyomi/attack6-01.png
+	delay	2
+	offset	36 107
+	frame	data/chars/kyomi/attack6-02.png
+	offset	37 108
+	frame	data/chars/kyomi/attack6-03.png
+	offset	47 91
+	frame	data/chars/kyomi/attack6-04.png
+	delay	9
+	attack2	25 27 79 58 30 0 0 0 5 15
+	offset	29 105
+	frame	data/chars/kyomi/attack6-05.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	delay	2
+	offset	26 108
+	frame	data/chars/kyomi/attack6-06.png
+		
+anim	attack7
+	range	50 85
+	rangez	-25 25
+	loop	0
+	delay	5
+	fastattack	1
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/xkyo02.wav
+	bbox	34 10 26 97
+	offset	29 99
+	frame	data/chars/kyomi/attack7-01.png
+	offset	29 108
+	frame	data/chars/kyomi/attack7-02.png
+	offset	42 117
+	frame	data/chars/kyomi/attack7-03.png
+	offset	37 116
+	frame	data/chars/kyomi/attack7-04.png
+	offset	28 102
+	frame	data/chars/kyomi/attack7-05.png
+	offset	20 102
+	frame	data/chars/kyomi/attack7-06.png
+	attack	8 4 97 79 40 1 1 0 40 15
+	delay	6
+	offset	7 103
+	frame	data/chars/kyomi/attack7-07.png
+	attack2	0 0 0 0 0 0 0 0 0 0
+	delay	4
+	offset	18 104
+	frame	data/chars/kyomi/attack5-04.png
+	offset	21 104
+	frame	data/chars/kyomi/attack5-02.png
+	offset	28 101
+	frame	data/chars/kyomi/attack7-08.png
+		
+anim	attack8
+	bbox	24 9 31 91
+	range	85 135
+	rangez	-25 25
+	loop	0
+	delay	4
+	fastattack	1
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/xkyo03.wav
+	move	3
+	offset	29 99
+	frame	data/chars/kyomi/attack7-01.png
+	offset	29 108
+	frame	data/chars/kyomi/attack7-02.png
+	offset	42 117
+	frame	data/chars/kyomi/attack7-03.png
+	offset	37 116
+	frame	data/chars/kyomi/attack7-04.png
+	offset	28 102
+	frame	data/chars/kyomi/attack7-05.png
+	offset	20 102
+	frame	data/chars/kyomi/attack7-06.png
+	attack	8 4 97 79 60 1 1 0 40 20
+	dropv	3 3 0
+	delay	6
+	offset	7 103
+	frame	data/chars/kyomi/attack7-07.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	delay	5
+	offset	3 102
+	frame	data/chars/kyomi/attack8-01.png
+	offset	7 104
+	frame	data/chars/kyomi/attack8-02.png
+	offset	18 105
+	frame	data/chars/kyomi/attack8-03.png
+	offset	28 103
+	frame	data/chars/kyomi/attack8-04.png
+	delay	3
+	offset	18 102
+	frame	data/chars/kyomi/attack8-05.png
+	offset	35 99
+	frame	data/chars/kyomi/attack8-06.png
+	offset	31 100
+	frame	data/chars/kyomi/attack8-07.png
+		
+anim	attackdown
+	loop	0
+	delay	7
+	offset	23 91
+	bbox	0 0 0 0
+	frame	data/chars/kyomi/attackdown-01.png
+	@cmd	dasher -3 0 1
+	@cmd	spawn01 "dust" 1 1 1
+	sound	data/sounds/kyomikochida.wav
+	offset	62 103
+	frame	data/chars/kyomi/attackdown-07.png
+	offset	55 92
+	frame	data/chars/kyomi/attackdown-06.png
+	offset	50 78
+	frame	data/chars/kyomi/attackdown-05.png
+	offset	53 67
+	frame	data/chars/kyomi/attackdown-04.png
+	offset	59 60
+	frame	data/chars/kyomi/attackdown-03.png
+	offset	31 68
+	frame	data/chars/kyomi/attackdown-02.png
+	@cmd	stop
+	offset	23 91
+	frame	data/chars/kyomi/attackdown-01.png
+		
+anim	attackup
+	loop	0
+	delay	7
+	offset	23 91
+	bbox	0 0 0 0
+	frame	data/chars/kyomi/attackdown-01.png
+	@cmd	dasher 3 0 -1
+	@cmd	spawn01 "dust" 75 1 1
+	offset	31 68
+	frame	data/chars/kyomi/attackdown-02.png
+	offset	59 60
+	frame	data/chars/kyomi/attackdown-03.png
+	offset	53 67
+	frame	data/chars/kyomi/attackdown-04.png
+	offset	50 78
+	frame	data/chars/kyomi/attackdown-05.png
+	offset	55 92
+	frame	data/chars/kyomi/attackdown-06.png
+	offset	62 103
+	frame	data/chars/kyomi/attackdown-07.png
+	@cmd	stop
+	offset	23 91
+	frame	data/chars/kyomi/attackdown-01.png
+		
+anim	block
+	delay	7
+	loop	0
+	bbox	3 8 36 95
+	offset	30 102
+	frame	data/chars/kyomi/block-01.png
+	bbox	3 5 36 95
+	offset	32 99
+	frame	data/chars/kyomi/block-02.png
+		
+anim	blockpain
+	loop	0
+	delay	2
+	cancel	5 12 0 a freespecial12
+	move	-6
+	bbox	3 8 36 95
+	offset	30 102
+	frame	data/chars/kyomi/block-01.png
+	offset	32 99
+	frame	data/chars/kyomi/block-02.png
+	offset	32 99
+	frame	data/chars/kyomi/block-02.png
+	offset	32 99
+	frame	data/chars/kyomi/block-02.png
+	move	-4
+	offset	32 99
+	frame	data/chars/kyomi/block-02.png
+	offset	32 99
+	frame	data/chars/kyomi/block-02.png
+	offset	32 99
+	frame	data/chars/kyomi/block-02.png
+	move	0
+	delay	4
+	offset	32 99
+	frame	data/chars/kyomi/block-02.png
+	offset	32 99
+	frame	data/chars/kyomi/block-02.png
+	offset	32 99
+	frame	data/chars/kyomi/block-02.png
+	offset	32 99
+	frame	data/chars/kyomi/block-02.png
+	offset	32 99
+	frame	data/chars/kyomi/block-02.png
+	offset	32 99
+	frame	data/chars/kyomi/block-02.png
+	offset	32 99
+	frame	data/chars/kyomi/block-02.png
+	@cmd	anichange "ANI_BLOCK"
+	offset	30 102
+	frame	data/chars/kyomi/block-01.png
+		
+anim	burn
+	loop	0
+	delay	30
+	offset	25 93
+	bbox	0 0 0 0
+	landframe	3
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 200_50_0
+	@cmd	spawnbind "burn1" 1 1 1
+	@cmd	spawnbind "burn2" 1 1 1
+	@cmd	spawnbind "burn3" 1 1 1
+	attack	3 10 37 37 5 1 0 0 13 0
+	sound	data/sounds/xkyopain.wav
+	frame	data/chars/kyomi/fall-01.png
+	offset	18 51
+	frame	data/chars/kyomi/fall-02.png
+	delay	500
+	offset	21 63
+	frame	data/chars/kyomi/fall-03.png
+	attack	0 0 0 0
+	delay	10
+	offset	29 40
+	frame	data/chars/kyomi/fall-04.png
+	delay	50
+	offset	27 31
+	frame	data/chars/kyomi/fall-05.png
+		
+anim	charge
+	loop	0
+	delay	10
+	offset	25 105
+	bbox	11 10 29 96
+	sound	data/sounds/xkyochrg2.wav
+	frame	data/chars/kyomi/follow17-01.png
+	sound	data/sounds/xclark05.wav
+	delay	8
+	bbox	11 16 29 95
+	offset	21 110
+	frame	data/chars/kyomi/follow17-02.png
+	delay	5
+	bbox	9 35 31 99
+	offset	21 133
+	frame	data/chars/kyomi/follow17-03.png
+	bbox	9 32 31 100
+	offset	21 131
+	frame	data/chars/kyomi/follow17-04.png
+	@cmd	mpgain 2
+	bbox	9 32 31 100
+	offset	21 131
+	frame	data/chars/kyomi/follow17-05.png
+	bbox	9 32 31 100
+	offset	21 131
+	frame	data/chars/kyomi/follow17-06.png
+	@cmd	updateframe getlocalvar("self") 2
+	bbox	9 32 31 100
+	offset	21 131
+	frame	data/chars/kyomi/follow17-07.png
+		
+anim	death
+	loop	0
+	delay	14
+	bbox	0 0 0 0
+	offset	28 32
+	frame	data/chars/kyomi/fall-05.png
+	offset	35 40
+	frame	data/chars/kyomi/pain6-01.png
+	sound	data/sounds/xkyopain.wav
+	offset	27 64
+	frame	data/chars/kyomi/pain3-05.png
+	delay	10
+	offset	32 103
+	frame	data/chars/kyomi/death-01.png
+	sound	data/sounds/kyomideth.wav
+	offset	32 103
+	frame	data/chars/kyomi/death-02.png
+	offset	32 89
+	frame	data/chars/kyomi/death-03.png
+	offset	32 89
+	frame	data/chars/kyomi/death-04.png
+	offset	30 75
+	frame	data/chars/kyomi/death-05.png
+	offset	30 75
+	frame	data/chars/kyomi/death-06.png
+	offset	30 73
+	frame	data/chars/kyomi/death-07.png
+	offset	35 83
+	frame	data/chars/kyomi/death-08.png
+	offset	49 84
+	frame	data/chars/kyomi/death-09.png
+	offset	60 63
+	frame	data/chars/kyomi/death-10.png
+	offset	70 38
+	frame	data/chars/kyomi/death-11.png
+	offset	79 15
+	frame	data/chars/kyomi/death-12.png
+	offset	79 15
+	frame	data/chars/kyomi/death-12.png
+	delay	7
+	offset	79 46
+	frame	data/chars/kyomi/death-13.png
+	offset	75 46
+	frame	data/chars/kyomi/death-13.png
+	offset	79 46
+	frame	data/chars/kyomi/death-13.png
+	offset	75 46
+	frame	data/chars/kyomi/death-13.png
+	delay	14
+	offset	79 15
+	frame	data/chars/kyomi/death-12.png
+	offset	79 15
+	frame	data/chars/kyomi/death-12.png
+		
+anim	fall
+	loop	0
+	delay	30
+	offset	23 93
+	bbox	0 0 0 0
+	landframe	3
+	sound	data/sounds/xkyopain.wav
+	attack	3 11 36 34 5 1 0 0 13 0
+	frame	data/chars/kyomi/fall-01.png
+	offset	18 51
+	frame	data/chars/kyomi/fall-02.png
+	delay	500
+	offset	21 63
+	frame	data/chars/kyomi/fall-03.png
+	attack	0 0 0 0
+	delay	10
+	offset	29 40
+	frame	data/chars/kyomi/fall-04.png
+	delay	50
+	offset	27 31
+	frame	data/chars/kyomi/fall-05.png
+		
+anim	fall2
+	loop	0
+	delay	30
+	offset	23 93
+	bbox	0 0 0 0
+	landframe	3
+	sound	data/sounds/xkyopain.wav
+	attack	3 11 36 34 5 1 0 0 13 0
+	frame	data/chars/kyomi/fall-01.png
+	offset	18 51
+	frame	data/chars/kyomi/fall-02.png
+	delay	500
+	offset	21 63
+	frame	data/chars/kyomi/fall-03.png
+	attack	0 0 0 0
+	delay	10
+	offset	29 40
+	frame	data/chars/kyomi/fall-04.png
+	delay	50
+	offset	27 31
+	frame	data/chars/kyomi/fall-05.png
+		
+anim	fall7
+	delay	1000
+	offset	21 93
+	bbox	0 0 0 0
+	frame	data/chars/kyomi/fall7-01.png
+	offset	25 106
+	frame	data/chars/kyomi/fall7-02.png
+	offset	42 63
+	frame	data/chars/kyomi/fall7-03.png
+	offset	30 89
+	frame	data/chars/kyomi/fall7-04.png
+	offset	41 108
+	frame	data/chars/kyomi/fall7-05.png
+	offset	62 51
+	frame	data/chars/kyomi/fall7-06.png
+	offset	40 98
+	frame	data/chars/kyomi/fall7-07.png
+	offset	24 116
+	frame	data/chars/kyomi/fall7-08.png
+	offset	38 57
+	frame	data/chars/kyomi/fall7-09.png
+	offset	70 32
+	frame	data/chars/kyomi/fall7-10.png
+	offset	63 40
+	frame	data/chars/kyomi/fall7-11.png
+	offset	25 75
+	frame	data/chars/kyomi/fall7-12.png
+	offset	62 52
+	frame	data/chars/kyomi/fall7-13.png
+	offset	62 52
+	frame	data/chars/kyomi/fall7-14.png
+	offset	34 61
+	frame	data/chars/kyomi/fall7-15.png
+	offset	22 104
+	frame	data/chars/kyomi/fall7-16.png
+	offset	72 64
+	frame	data/chars/kyomi/fall7-17.png
+	offset	77 52
+	frame	data/chars/kyomi/fall7-18.png
+	offset	59 51
+	frame	data/chars/kyomi/fall7-19.png
+	offset	21 86
+	frame	data/chars/kyomi/fall7-20.png
+	offset	30 89
+	frame	data/chars/kyomi/fall7-21.png
+	offset	26 88
+	frame	data/chars/kyomi/fall7-22.png
+	offset	39 86
+	frame	data/chars/kyomi/fall7-23.png
+	offset	26 84
+	frame	data/chars/kyomi/fall7-24.png
+	bbox	6 6 30 91
+	offset	18 87
+	frame	data/chars/kyomi/fall7-25.png
+	bbox	0 0 0 0
+	offset	28 107
+	frame	data/chars/kyomi/fall7-26.png
+		
+anim	fall9
+	delay	9
+	landframe	10
+	offset	39 100
+	frame	data/chars/kyomi/fall9-01.png
+	offset	38 94
+	frame	data/chars/kyomi/fall9-02.png
+	offset	34 112
+	frame	data/chars/kyomi/fall9-03.png
+	offset	34 110
+	frame	data/chars/kyomi/fall9-04.png
+	offset	38 100
+	frame	data/chars/kyomi/fall9-01.png
+	offset	38 94
+	frame	data/chars/kyomi/fall9-02.png
+	offset	34 112
+	frame	data/chars/kyomi/fall9-03.png
+	offset	34 110
+	frame	data/chars/kyomi/fall9-04.png
+	@cmd	looper 4 10
+	offset	38 100
+	frame	data/chars/kyomi/fall9-01.png
+	delay	300
+	offset	38 94
+	frame	data/chars/kyomi/fall9-02.png
+	delay	15
+	@cmd	clearL
+	offset	27 31
+	frame	data/chars/kyomi/fall-05.png
+		
+anim	follow10
+	loop	0
+	delay	20
+	offset	40 81
+	bbox	0 0 0 0
+	forcedirection	-1
+	attackone	1
+	otg	2
+	hitfx	data/sounds/beat4.wav
+	hitflash	flashscreen1
+	sound	data/sounds/xkyo01.wav
+	frame	data/chars/kyomi/follow10-01.png
+	offset	61 82
+	delay	8
+	frame	data/chars/kyomi/follow10-02.png
+	offset	69 76
+	frame	data/chars/kyomi/follow10-03.png
+	offset	50 75
+	delay	12
+	attack11	17 47 71 31 50 1 0 0 50 10
+	dropv	2 3
+	frame	data/chars/kyomi/follow10-04.png
+	offset	49 75
+	frame	data/chars/kyomi/follow10-05.png
+	offset	46 70
+	attack11	0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/kyomi/follow10-06.png
+	offset	49 72
+	frame	data/chars/kyomi/follow10-07.png
+	offset	46 80
+	frame	data/chars/kyomi/follow10-08.png
+	delay	5
+	offset	46 76
+	frame	data/chars/kyomi/follow10-09.png
+	offset	26 91
+	frame	data/chars/kyomi/attackdown-01.png
+		
+anim	follow15
+ @script
+	void self = getlocalvar("self");
+   	void opp = getentityproperty(self, "opponent");
+	int enedir = getentityproperty(opp,"direction");
+	if (frame == 0 && enedir == 0)
+	{
+	changeentityproperty(self, "direction", 1);
+	}
+	else if (frame == 0 && enedir == 1)
+	{
+	changeentityproperty(self, "direction", 0);
+	}
+	@end_script	
+	loop	0
+	delay	7
+	offset	28 122
+	bbox	0 0 0 0
+	jumpframe	0 3 -1
+	landframe	7
+	frame	data/chars/kyomi/forwardjump-05.png
+	sound	data/sounds/kyomioto.wav
+	offset	20 119
+	frame	data/chars/kyomi/pain6-05.png
+	offset	23 84
+	frame	data/chars/kyomi/forwardjump-04.png
+	offset	25 94
+	frame	data/chars/kyomi/forwardjump-03.png
+	offset	35 69
+	frame	data/chars/kyomi/forwardjump-02.png
+	offset	30 117
+	frame	data/chars/kyomi/forwardjump-01.png
+	offset	26 140
+	delay	500
+	frame	data/chars/kyomi/jump-01.png
+	delay	9
+	offset	23 91
+	frame	data/chars/kyomi/attackdown-01.png
+		
+anim	follow16
+        @script
+	void self = getlocalvar("self");
+   	void opp = getentityproperty(self, "opponent");
+	int enedir = getentityproperty(opp,"direction");
+	if (frame == 0 && enedir == 0)
+	{
+	changeentityproperty(self, "direction", 1);
+	}
+	else if (frame == 0 && enedir == 1)
+	{
+	changeentityproperty(self, "direction", 0);
+	}
+	@end_script	
+	loop	0
+	delay	7
+	offset	28 122
+	bbox	0 0 0 0
+	jumpframe	0 3 -1
+	landframe	7
+	frame	data/chars/kyomi/forwardjump-05.png
+	sound	data/sounds/kyomioto.wav
+	offset	20 119
+	frame	data/chars/kyomi/pain6-05.png
+	offset	23 84
+	frame	data/chars/kyomi/forwardjump-04.png
+	offset	25 94
+	frame	data/chars/kyomi/forwardjump-03.png
+	offset	35 69
+	frame	data/chars/kyomi/forwardjump-02.png
+	offset	30 117
+	frame	data/chars/kyomi/forwardjump-01.png
+	offset	26 140
+	delay	500
+	frame	data/chars/kyomi/jump-01.png
+	delay	9
+	offset	23 91
+	frame	data/chars/kyomi/attackdown-01.png
+		
+anim	follow17
+@script
+	void self = getlocalvar("self");
+	int eTime = openborvariant("elapsed_time");
+	if (frame == 7)
+	{
+	changeentityproperty(self, "invincible", 1);
+	changeentityproperty(self, "invinctime", eTime + 1000);
+	changeentityproperty(self, "blink", 1);
+	}
+	@end_script	
+	loop	0
+	delay	800
+	offset	38 115
+	bbox	0 0 0 0
+	frame	data/chars/kyomi/empty.png
+	delay	10
+	offset	25 105
+	bbox	0 0 0 0
+	frame	data/chars/kyomi/follow17-01.png
+	delay	8
+	bbox	0 0 0 0
+	offset	21 110
+	frame	data/chars/kyomi/follow17-02.png
+	sound	data/sounds/kachida.wav
+	delay	8
+	bbox	0 0 0 0
+	offset	21 133
+	frame	data/chars/kyomi/follow17-03.png
+	delay	8
+	bbox	0 0 0 0
+	offset	21 131
+	frame	data/chars/kyomi/follow17-04.png
+	delay	8
+	bbox	0 0 0 0
+	offset	21 131
+	frame	data/chars/kyomi/follow17-05.png
+	bbox	0 0 0 0
+	delay	13
+	offset	21 131
+	frame	data/chars/kyomi/follow17-06.png
+	offset	21 131
+	frame	data/chars/kyomi/follow17-07.png
+		
+anim	follow4
+	followanim	5
+	followcond	2
+	fastattack	1
+	loop	0
+	delay	9
+	move	0
+	@cmd	stop
+	bbox	0 0 0 0
+	hitfx	data/sounds/grab.wav
+	offset	53 81
+	frame	data/chars/kyomi/freespecial9-01.png
+	@cmd	clearL
+	attack2	0 0 0 0
+	offset	53 81
+	frame	data/chars/kyomi/freespecial9-01.png
+	offset	53 81
+	frame	data/chars/kyomi/freespecial9-01.png
+	offset	20 83
+	frame	data/chars/kyomi/follow4-01.png
+	offset	37 80
+	frame	data/chars/kyomi/follow4-02.png
+	delay	20
+	attack	23 0 69 75 0 0 1 1 5 20
+	offset	38 89
+	frame	data/chars/kyomi/follow4-03.png
+	attack	0 0 0
+	delay	12
+	offset	37 80
+	frame	data/chars/kyomi/follow4-02.png
+	offset	20 83
+	frame	data/chars/kyomi/follow4-01.png
+	offset	24 91
+	frame	data/chars/kyomi/attackdown-01.png
+	offset	22 102
+	frame	data/chars/kyomi/freespecial6-15.png
+		
+anim	follow5
+	loop	0
+	delay	30
+	bbox	0 0 0 0
+	@cmd	slamstart3
+	@cmd	grabcheck2
+	@cmd	position 10 55 60 -1 -1
+	offset	38 89
+	frame	data/chars/kyomi/follow4-03.png
+	delay	70
+	@cmd	position 11 45 100 -1 -1
+	offset	26 119
+	frame	data/chars/kyomi/follow5-01.png
+	delay	40
+	sound	data/sounds/xkyodeth.wav
+	@cmd	spawn01 "explosion1" 90 120 1
+	@cmd	position 11 45 100 -1 -1
+	attack	-16 1 120 110 185 1 1 0 15 35
+	dropv	8 1
+	@cmd	spawn01 "flashscreen2" 20 30 1
+	offset	22 125
+	frame	data/chars/kyomi/follow5-02.png
+	delay	10
+	@cmd	spawn01 "explosion2" 0 60 5
+	@cmd	spawn01 "explosion1" 50 80 -1
+	@cmd	position 13 50 80 -1 1
+	offset	22 125
+	frame	data/chars/kyomi/follow5-02.png
+	@cmd	spawn01 "explosion2" 70 60 5
+	@cmd	position 13 50 80 -1 1
+	offset	24 102
+	frame	data/chars/kyomi/follow5-03.png
+	attack	0 0 0 0
+	@cmd	depost 0
+	@cmd	finish 200 1 1 8 0 1
+	delay	45
+	offset	24 102
+	frame	data/chars/kyomi/follow5-03.png
+	delay	10
+	offset	28 102
+	frame	data/chars/kyomi/follow5-04.png
+	@cmd	clearL
+	offset	28 102
+	frame	data/chars/kyomi/follow5-05.png
+	offset	24 91
+	frame	data/chars/kyomi/attackdown-01.png
+	offset	22 102
+	frame	data/chars/kyomi/freespecial6-15.png
+		
+anim	forwardjump
+	loop	0
+	delay	12
+	bbox	9 23 22 105
+	offset	26 140
+	frame	data/chars/kyomi/jump-01.png
+	bbox	37 7 -37 43
+	offset	30 117
+	delay	8
+	frame	data/chars/kyomi/forwardjump-01.png
+	delay	10
+	bbox	27 5 37 35
+	offset	35 69
+	frame	data/chars/kyomi/forwardjump-02.png
+	bbox	11 13 34 39
+	offset	25 94
+	frame	data/chars/kyomi/forwardjump-03.png
+	bbox	11 13 34 39
+	offset	23 84
+	frame	data/chars/kyomi/forwardjump-04.png
+	delay	8
+	bbox	1 24 32 37
+	offset	20 119
+	frame	data/chars/kyomi/pain6-05.png
+	bbox	7 25 35 65
+	offset	30 142
+	frame	data/chars/kyomi/forwardjump-05.png
+		
+anim	freespecial10
+	staydown	200 200
+	energycost	5
+	mponly	1
+	loop	0
+	delay	5
+	offset	44 71
+	bbox	34 2 32 69
+	forcedirection	-1
+	fastattack	1
+	hitfx	data/sounds/beat5.wav
+	frame	data/chars/kyomi/freespecial10-01.png
+	bbox	0 0 0 0
+	offset	46 79
+	@cmd	spawn01 "dust" 1 1 1
+	@cmd	dasher 2 0 0
+	delay	4
+	frame	data/chars/kyomi/freespecial10-02.png
+	bbox	0 0 0 0
+	offset	41 81
+	frame	data/chars/kyomi/freespecial10-03.png
+	delay	6
+	bbox	0 0 0 0
+	blast	19 3 49 67 20 0 1 0 14 20
+	offset	28 93
+	frame	data/chars/kyomi/freespecial10-04.png
+	bbox	0 0 0 0
+	burn	0 0 0 0 0 0 0 0 0 0
+	offset	30 107
+	frame	data/chars/kyomi/freespecial10-05.png
+	sound	data/sounds/xkyo04.wav
+	bbox	0 0 0 0
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	30 108
+	@cmd	dasher 1 0 0
+	frame	data/chars/kyomi/freespecial10-06.png
+	staydown	300 300
+	hitfx	data/sounds/beat4.wav
+	hitflash	flashscreen1
+	bbox	0 0 0 0
+	offset	31 107
+	delay	20
+	burn	21 -8 78 85 40 1 0 0 30 20
+	dropv	4 2.5
+	@cmd	spawnbind2 "xkyopw" 70 45 1 "ANI_FOLLOW2"
+	@cmd	stop
+	frame	data/chars/kyomi/freespecial10-07.png
+	delay	7
+	bbox	7 7 33 94
+	offset	22 101
+	frame	data/chars/kyomi/freespecial10-08.png
+		
+anim	freespecial11
+	staydown	200 200
+	loop	0
+	delay	5
+	forcedirection	-1
+	@cmd	dasher 1 0 0
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/xkyo03.wav
+	move	3
+	sound	data/sounds/xkyo03.wav
+	move	3
+	offset	28 99
+	offset	28 99
+	frame	data/chars/kyomi/attack7-01.png
+	movez	0
+	movea	0
+	move	3
+	offset	29 108
+	frame	data/chars/kyomi/attack7-02.png
+	offset	42 117
+	frame	data/chars/kyomi/attack7-03.png
+	offset	37 116
+	frame	data/chars/kyomi/attack7-04.png
+	offset	28 102
+	frame	data/chars/kyomi/attack7-05.png
+	offset	20 102
+	frame	data/chars/kyomi/attack7-06.png
+	attack	8 4 97 79 60 1 1 0 40 20
+	dropv	3 3 0
+	offset	7 103
+	frame	data/chars/kyomi/attack7-07.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	delay	4
+	offset	3 102
+	frame	data/chars/kyomi/attack8-01.png
+	offset	7 104
+	frame	data/chars/kyomi/attack8-02.png
+	offset	18 105
+	frame	data/chars/kyomi/attack8-03.png
+	move	0
+	offset	28 103
+	frame	data/chars/kyomi/attack8-04.png
+	delay	3
+	offset	18 102
+	frame	data/chars/kyomi/attack8-05.png
+	@cmd	stop
+	offset	35 99
+	frame	data/chars/kyomi/attack8-06.png
+	delay	2
+	offset	31 100
+	frame	data/chars/kyomi/attack8-07.png
+		
+anim	freespecial12
+@script
+	void self = getlocalvar("self");
+	int eTime = openborvariant("elapsed_time");
+	if (frame == 0)
+	{
+	changeentityproperty(self, "invincible", 1);
+	changeentityproperty(self, "invinctime", eTime + 70);
+	changeentityproperty(self, "blink", 1);
+	}
+	@end_script	
+	loop	0
+	delay	4
+	bbox	0 0 0 0
+	staydown	500 500
+	hitfx	data/sounds/beat4.wav
+	sound	data/sounds/kyomihiya.wav
+	forcedirection	-1
+	@cmd	dasher 1 0 0
+	sound	data/sounds/xkyo03.wav
+	move	3
+	sound	data/sounds/xkyo03.wav
+	move	3
+	offset	28 99
+	offset	28 99
+	frame	data/chars/kyomi/attack7-01.png
+	movez	0
+	movea	0
+	move	3
+	offset	29 108
+	frame	data/chars/kyomi/attack7-02.png
+	offset	42 117
+	frame	data/chars/kyomi/attack7-03.png
+	offset	37 116
+	frame	data/chars/kyomi/attack7-04.png
+	@cmd	stop
+	offset	28 102
+	frame	data/chars/kyomi/attack7-05.png
+	offset	20 102
+	frame	data/chars/kyomi/attack7-06.png
+	attack	8 4 97 79 60 1 1 0 40 20
+	dropv	3 3 0
+	offset	7 103
+	frame	data/chars/kyomi/attack7-07.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	delay	4
+	offset	3 102
+	frame	data/chars/kyomi/attack8-01.png
+	offset	7 104
+	frame	data/chars/kyomi/attack8-02.png
+	offset	18 105
+	frame	data/chars/kyomi/attack8-03.png
+	move	0
+	offset	28 103
+	frame	data/chars/kyomi/attack8-04.png
+	delay	3
+	offset	18 102
+	frame	data/chars/kyomi/attack8-05.png
+	offset	35 99
+	frame	data/chars/kyomi/attack8-06.png
+	delay	2
+	offset	31 100
+	frame	data/chars/kyomi/attack8-07.png
+		
+anim	freespecial13
+	staydown	200 200
+	fastattack	1
+	forcedirection	-1
+	offset	58 75
+	move	1
+	delay	1
+	hitfx	data/sounds/beat4.wav
+	frame	data/chars/kyomi/freespecial13-08.png
+	offset	58 75
+	frame	data/chars/kyomi/freespecial13-09.png
+	offset	58 75
+	frame	data/chars/kyomi/freespecial13-10.png
+	offset	58 75
+	frame	data/chars/kyomi/freespecial13-11.png
+	offset	58 75
+	frame	data/chars/kyomi/freespecial13-10.png
+	offset	58 75
+	frame	data/chars/kyomi/freespecial13-09.png
+	offset	58 75
+	frame	data/chars/kyomi/freespecial13-08.png
+	sound	data/sounds/xkyo03.wav
+	delay	6
+	offset	37 120
+	frame	data/chars/kyomi/freespecial13-01.png
+	offset	38 115
+	frame	data/chars/kyomi/freespecial13-02.png
+	offset	34 106
+	frame	data/chars/kyomi/freespecial13-03.png
+	delay	8
+	attack	28 1 68 56 30 1 1 0 20 15
+	offset	26 92
+	frame	data/chars/kyomi/freespecial13-04.png
+	delay	5
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	28 91
+	frame	data/chars/kyomi/freespecial13-05.png
+	delay	10
+	offset	28 91
+	burn	38 6 54 60 30 1 1 0 30 15
+	dropv	1 2
+	frame	data/chars/kyomi/freespecial13-06.png
+	offset	28 91
+	frame	data/chars/kyomi/freespecial13-07.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	32 91
+	delay	6
+	frame	data/chars/kyomi/freespecial5-05.png
+	bbox	18 11 33 87
+	offset	36 98
+	frame	data/chars/kyomi/attack2-03.png
+		
+anim	freespecial14
+	staydown	200 200
+	delay	11
+	fastattack	1
+	forcedirection	-1
+	hitfx	data/sounds/beat4.wav
+	sound	data/sounds/kyomihiya.wav
+	loop	0
+	bbox	17 0 32 76
+	offset	25 75
+	frame	data/chars/kyomi/attack4-01.png
+	delay	3
+	offset	22 72
+	frame	data/chars/kyomi/attack4-02.png
+	offset	22 73
+	frame	data/chars/kyomi/attack4-03.png
+	offset	22 80
+	frame	data/chars/kyomi/attack4-04.png
+	offset	27 83
+	frame	data/chars/kyomi/attack4-05.png
+	attack10	29 -5 48 73 0 0 1 0 20 15
+	offset	28 103
+	frame	data/chars/kyomi/attack4-06.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	29 129
+	frame	data/chars/kyomi/attack4-07.png
+	delay	4
+	blast	23 -7 53 97 40 1 1 0 40 15
+	dropv	4.5 1.2 0
+	offset	29 128
+	frame	data/chars/kyomi/attack4-08.png
+	delay	14
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	29 123
+	frame	data/chars/kyomi/attack4-09.png
+	delay	3
+	offset	29 119
+	frame	data/chars/kyomi/attack4-10.png
+	offset	30 103
+	frame	data/chars/kyomi/attack4-11.png
+	offset	30 102
+	frame	data/chars/kyomi/attack4-12.png
+		
+anim	freespecial15
+	loop	0
+	delay	6
+	offset	20 103
+	bbox	4 8 34 95
+	frame	data/chars/kyomi/freespecial15-01.png
+	bbox	5 12 34 95
+	offset	20 106
+	delay	5
+	sound	data/sounds/kyomiburnt.wav
+	frame	data/chars/kyomi/freespecial15-02.png
+	bbox	5 11 34 97
+	offset	19 108
+	frame	data/chars/kyomi/freespecial15-03.png
+	bbox	5 11 34 97
+	offset	19 108
+	frame	data/chars/kyomi/freespecial15-04.png
+	bbox	5 11 34 97
+	offset	19 108
+	frame	data/chars/kyomi/freespecial15-05.png
+	bbox	5 11 34 97
+	offset	18 108
+	frame	data/chars/kyomi/freespecial15-06.png
+	bbox	11 12 34 97
+	offset	29 109
+	frame	data/chars/kyomi/freespecial15-07.png
+	bbox	11 31 34 97
+	offset	31 128
+	frame	data/chars/kyomi/freespecial15-08.png
+	bbox	11 57 34 97
+	offset	31 153
+	frame	data/chars/kyomi/freespecial15-09.png
+	bbox	11 57 34 99
+	offset	32 155
+	frame	data/chars/kyomi/freespecial15-10.png
+	bbox	11 54 34 99
+	offset	32 152
+	frame	data/chars/kyomi/freespecial15-11.png
+	bbox	11 48 34 99
+	offset	31 145
+	frame	data/chars/kyomi/freespecial15-12.png
+	bbox	11 42 34 99
+	offset	32 138
+	frame	data/chars/kyomi/freespecial15-13.png
+	bbox	11 25 34 99
+	offset	31 122
+	frame	data/chars/kyomi/freespecial15-14.png
+	bbox	11 12 34 99
+	offset	32 110
+	frame	data/chars/kyomi/freespecial15-15.png
+	bbox	11 12 34 99
+	offset	32 110
+	frame	data/chars/kyomi/freespecial15-16.png
+	bbox	11 12 34 99
+	offset	32 110
+	delay	20
+	frame	data/chars/kyomi/freespecial15-17.png
+	delay	7
+	bbox	11 12 34 97
+	offset	29 109
+	frame	data/chars/kyomi/freespecial15-07.png
+	bbox	5 11 34 97
+	offset	18 108
+	frame	data/chars/kyomi/freespecial15-06.png
+	bbox	5 11 34 97
+	offset	19 108
+	frame	data/chars/kyomi/freespecial15-05.png
+	bbox	5 11 34 97
+	offset	19 108
+	frame	data/chars/kyomi/freespecial15-04.png
+	bbox	5 11 34 97
+	offset	19 108
+	frame	data/chars/kyomi/freespecial15-03.png
+	bbox	5 12 34 95
+	offset	20 106
+	delay	5
+	frame	data/chars/kyomi/freespecial15-02.png
+	delay	6
+	offset	20 103
+	bbox	4 8 34 95
+	frame	data/chars/kyomi/freespecial15-01.png
+		
+anim	freespecial26
+	energycost	35
+	loop	0
+	delay	4
+	offset	9 102
+	bbox	6 9 29 92
+	staydown	500 500
+	forcedirection	-1
+	hitfx	data/sounds/beat4.wav
+	hitflash	flashscreen2
+	sound	data/sounds/kyomipower.wav
+	frame	data/chars/kyomi/freespecial26-01.png
+	offset	7 112
+	frame	data/chars/kyomi/freespecial26-02.png
+	offset	8 110
+	frame	data/chars/kyomi/freespecial26-03.png
+	offset	24 104
+	frame	data/chars/kyomi/freespecial26-04.png
+	sound	data/sounds/super1.wav
+	@cmd	spawnAni2 "allsp" 1 1 1 4 "ANI_FOLLOW1"
+	offset	44 76
+	frame	data/chars/kyomi/freespecial26-05.png
+	offset	45 76
+	frame	data/chars/kyomi/freespecial26-06.png
+	delay	15
+	offset	47 74
+	frame	data/chars/kyomi/freespecial26-07.png
+	@cmd	spawnAni2 "kyomipw" 4 -22 1 4 "ANI_FOLLOW1"
+	offset	47 74
+	frame	data/chars/kyomi/freespecial26-08.png
+	offset	47 75
+	frame	data/chars/kyomi/freespecial26-09.png
+	offset	47 77
+	frame	data/chars/kyomi/freespecial26-10.png
+	offset	47 76
+	frame	data/chars/kyomi/freespecial26-11.png
+	delay	10
+	offset	47 75
+	frame	data/chars/kyomi/freespecial26-09.png
+	offset	47 77
+	frame	data/chars/kyomi/freespecial26-10.png
+	sound	data/sounds/xkyochrg.wav
+	offset	47 76
+	frame	data/chars/kyomi/freespecial26-11.png
+	delay	9
+	offset	47 75
+	frame	data/chars/kyomi/freespecial26-09.png
+	offset	47 77
+	frame	data/chars/kyomi/freespecial26-10.png
+	offset	47 76
+	frame	data/chars/kyomi/freespecial26-11.png
+	delay	8
+	offset	47 75
+	frame	data/chars/kyomi/freespecial26-09.png
+	offset	47 77
+	frame	data/chars/kyomi/freespecial26-10.png
+	offset	47 76
+	frame	data/chars/kyomi/freespecial26-11.png
+	delay	7
+	offset	47 75
+	frame	data/chars/kyomi/freespecial26-09.png
+	offset	47 77
+	frame	data/chars/kyomi/freespecial26-10.png
+	offset	47 76
+	frame	data/chars/kyomi/freespecial26-11.png
+	delay	6
+	offset	47 75
+	frame	data/chars/kyomi/freespecial26-09.png
+	offset	47 77
+	frame	data/chars/kyomi/freespecial26-10.png
+	offset	47 76
+	frame	data/chars/kyomi/freespecial26-11.png
+	delay	5
+	offset	47 75
+	frame	data/chars/kyomi/freespecial26-09.png
+	offset	47 77
+	frame	data/chars/kyomi/freespecial26-10.png
+	offset	47 76
+	frame	data/chars/kyomi/freespecial26-11.png
+	delay	4
+	offset	47 75
+	frame	data/chars/kyomi/freespecial26-09.png
+	offset	47 77
+	frame	data/chars/kyomi/freespecial26-10.png
+	offset	47 76
+	frame	data/chars/kyomi/freespecial26-11.png
+	delay	3
+	offset	47 75
+	frame	data/chars/kyomi/freespecial26-09.png
+	offset	47 77
+	frame	data/chars/kyomi/freespecial26-10.png
+	offset	47 76
+	frame	data/chars/kyomi/freespecial26-11.png
+	delay	2
+	offset	47 75
+	frame	data/chars/kyomi/freespecial26-09.png
+	offset	47 77
+	frame	data/chars/kyomi/freespecial26-10.png
+	offset	47 76
+	frame	data/chars/kyomi/freespecial26-11.png
+	delay	1
+	offset	47 75
+	frame	data/chars/kyomi/freespecial26-09.png
+	offset	47 77
+	frame	data/chars/kyomi/freespecial26-10.png
+	offset	47 76
+	frame	data/chars/kyomi/freespecial26-11.png
+	offset	45 74
+	frame	data/chars/kyomi/freespecial26-12.png
+	delay	3
+	offset	44 78
+	frame	data/chars/kyomi/freespecial26-13.png
+	offset	43 86
+	frame	data/chars/kyomi/freespecial26-14.png
+	move	5
+	sound	data/sounds/xkyo04.wav
+	offset	43 96
+	frame	data/chars/kyomi/freespecial26-15.png
+	offset	43 87
+	frame	data/chars/kyomi/freespecial26-16.png
+	offset	43 91
+	frame	data/chars/kyomi/freespecial26-17.png
+	burn	46 0 56 64 200 1 1 0 50 20
+	dropv	3 4 0
+	offset	43 87
+	frame	data/chars/kyomi/freespecial26-18.png
+	offset	40 90
+	frame	data/chars/kyomi/freespecial26-19.png
+	delay	4
+	burn	24 0 90 69 200 1 1 0 50 20
+	dropv	3 4 0
+	offset	-3 93
+	frame	data/chars/kyomi/freespecial26-20.png
+	delay	3
+	offset	-9 86
+	frame	data/chars/kyomi/freespecial26-21.png
+	offset	-13 83
+	frame	data/chars/kyomi/freespecial26-22.png
+	burn	18 29 46 55 200 1 1 0 50 20
+	dropv	3 4 0
+	offset	0 84
+	frame	data/chars/kyomi/freespecial26-23.png
+	delay	5
+	offset	6 79
+	frame	data/chars/kyomi/freespecial26-24.png
+	burn	0 0 0 0 0 0 0 0 0 0
+	offset	13 78
+	frame	data/chars/kyomi/freespecial26-25.png
+	offset	21 88
+	frame	data/chars/kyomi/freespecial26-26.png
+	offset	24 93
+	frame	data/chars/kyomi/freespecial8-13.png
+	offset	22 102
+	frame	data/chars/kyomi/freespecial6-15.png
+		
+anim	freespecial27
+	energycost	50
+	mponly	1
+	loop	0
+	delay	8
+	bbox	0 0 0 0
+	followanim	4
+	followcond	2
+	fastattack	1
+	forcedirection	-1
+	seal	7 4
+	hitfx	data/sounds/beat5.wav
+	offset	22 103
+	sound	data/sounds/xkyochrg.wav
+	frame	data/chars/kyomi/freespecial29-01.png
+	@cmd	clearL
+	offset	21 102
+	frame	data/chars/kyomi/freespecial29-02.png
+	offset	25 91
+	frame	data/chars/kyomi/freespecial29-03.png
+	sound	data/sounds/super1.wav
+	@cmd	spawn04 "allsp" 1 1 1 4
+	offset	27 92
+	frame	data/chars/kyomi/respawn-06.png
+	offset	27 94
+	frame	data/chars/kyomi/respawn-07.png
+	offset	27 94
+	delay	20
+	frame	data/chars/kyomi/respawn-08.png
+	@cmd	spawn01 "dust" 10 1 1
+	delay	5
+	offset	33 93
+	frame	data/chars/kyomi/freespecial8-12.png
+	move	5
+	delay	1
+	offset	58 75
+	frame	data/chars/kyomi/freespecial13-08.png
+	attack2	36 1 47 77 0 0 1 0 10 20
+	offset	58 75
+	frame	data/chars/kyomi/freespecial13-08.png
+	@cmd	keymove 1.2
+	offset	58 75
+	frame	data/chars/kyomi/freespecial13-09.png
+	@cmd	keymove 1.2
+	offset	58 75
+	frame	data/chars/kyomi/freespecial13-09.png
+	@cmd	keymove 1.2
+	offset	58 75
+	frame	data/chars/kyomi/freespecial13-10.png
+	@cmd	keymove 1.2
+	offset	58 75
+	frame	data/chars/kyomi/freespecial13-10.png
+	@cmd	keymove 1.2
+	offset	58 75
+	frame	data/chars/kyomi/freespecial13-11.png
+	@cmd	keymove 1.2
+	offset	58 75
+	frame	data/chars/kyomi/freespecial13-11.png
+	@cmd	keymove 1.2
+	offset	58 75
+	frame	data/chars/kyomi/freespecial13-09.png
+	@cmd	keymove 1.2
+	offset	58 75
+	frame	data/chars/kyomi/freespecial13-09.png
+	@cmd	keymove 1.2
+	offset	58 75
+	frame	data/chars/kyomi/freespecial13-08.png
+	@cmd	keymove 1.2
+	offset	58 75
+	frame	data/chars/kyomi/freespecial13-08.png
+	delay	6
+	@cmd	keymove 1.2
+	offset	58 75
+	frame	data/chars/kyomi/freespecial27-01.png
+	@cmd	keymove 1.2
+	offset	58 75
+	frame	data/chars/kyomi/freespecial27-01.png
+	@cmd	keymove 1.2
+	offset	58 75
+	frame	data/chars/kyomi/freespecial27-01.png
+	@cmd	keymove 1.2
+	offset	58 75
+	frame	data/chars/kyomi/freespecial27-01.png
+	attack2	0 0 0 0 0 0 0 0 0 0
+	offset	58 75
+	frame	data/chars/kyomi/freespecial27-01.png
+	move	0
+	@cmd	stop
+	offset	38 115
+	frame	data/chars/kyomi/freespecial13-02.png
+	delay	6
+	offset	37 120
+	frame	data/chars/kyomi/freespecial13-01.png
+	offset	32 91
+	frame	data/chars/kyomi/freespecial5-05.png
+	offset	36 98
+	frame	data/chars/kyomi/attack2-03.png
+		
+anim	freespecial29
+@script
+	void self = getlocalvar("self");
+	int mp1 = getentityproperty(self,"mp");
+	void plyr = getentityproperty(self, "playerindex");
+
+	if(frame > 4 && playerkeys(plyr, 0, "attack3"))
+	{
+	  updateframe(self, 3);
+	}
+	@end_script	
+	loop	0
+	delay	10
+	offset	22 103
+	bbox	5 9 34 95
+	sound	data/sounds/xkyochrg2.wav
+	frame	data/chars/kyomi/freespecial29-01.png
+	sound	data/sounds/xclark05.wav
+	bbox	6 10 36 93
+	offset	21 102
+	frame	data/chars/kyomi/freespecial29-02.png
+	bbox	16 4 29 88
+	offset	25 91
+	frame	data/chars/kyomi/freespecial29-03.png
+	delay	5
+	bbox	18 9 28 70
+	offset	33 78
+	frame	data/chars/kyomi/freespecial29-04.png
+	@cmd	mpgain 1.5
+	bbox	18 9 28 70
+	offset	33 78
+	frame	data/chars/kyomi/freespecial29-05.png
+	bbox	18 9 28 70
+	offset	33 78
+	frame	data/chars/kyomi/freespecial29-04.png
+	bbox	18 9 28 70
+	offset	33 78
+	frame	data/chars/kyomi/freespecial29-05.png
+		
+anim	freespecial5
+	energycost	5
+	mponly	1
+	loop	0
+	delay	15
+	offset	22 109
+	bbox	7 17 33 93
+	sound	data/sounds/xkyodeth.wav
+	frame	data/chars/kyomi/attack3-01.png
+	bbox	5 18 34 97
+	offset	22 114
+	frame	data/chars/kyomi/attack3-02.png
+	bbox	0 0 0 0
+	offset	27 100
+	delay	7
+	frame	data/chars/kyomi/freespecial5-01.png
+	bbox	0 0 0 0
+	offset	35 89
+	sound	data/sounds/super2.wav
+	frame	data/chars/kyomi/freespecial5-02.png
+	bbox	0 0 0 0
+	offset	36 108
+	@cmd	projectile 1 "xkyopw" 1 1 0
+	frame	data/chars/kyomi/freespecial5-03.png
+	bbox	0 0 0 0
+	offset	33 113
+	delay	20
+	frame	data/chars/kyomi/freespecial5-04.png
+	bbox	0 0 0 0
+	offset	39 91
+	delay	12
+	frame	data/chars/kyomi/freespecial5-05.png
+		
+anim	freespecial6
+	energycost	5
+	mponly	1
+	loop	0
+	delay	6
+	offset	35 99
+	bbox	0 0 0 0
+	fastattack	1
+	forcedirection	-1
+	@cmd	dasher 1.5 0 0
+	frame	data/chars/kyomi/freespecial6-01.png
+	sound	data/sounds/xkyo01.wav
+	delay	4
+	offset	27 112
+	frame	data/chars/kyomi/freespecial6-02.png
+	delay	4
+	offset	33 109
+	frame	data/chars/kyomi/freespecial6-03.png
+	delay	8
+	offset	37 102
+	frame	data/chars/kyomi/freespecial6-04.png
+	delay	4
+	offset	47 89
+	frame	data/chars/kyomi/freespecial6-05.png
+	delay	5
+	staydown	400 400
+	hitflash	flashscreen1
+	hitfx	data/sounds/beat4.wav
+	attack	29 0 48 50 10 0 1 0 25 0
+	offset	43 94
+	frame	data/chars/kyomi/freespecial6-06.png
+	offset	34 101
+	attack	0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/kyomi/freespecial6-07.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	28 102
+	frame	data/chars/kyomi/freespecial6-08.png
+	@cmd	stop
+	delay	10
+	offset	30 101
+	frame	data/chars/kyomi/freespecial6-09.png
+	sound	data/sounds/xkyodeth.wav
+	staydown	400 400
+	hitflash	flashscreen1
+	hitfx	data/sounds/beat4.wav
+	attack	28 0 43 56 25 1 1 0 50 15
+	offset	31 101
+	frame	data/chars/kyomi/freespecial6-10.png
+	offset	31 101
+	frame	data/chars/kyomi/freespecial6-11.png
+	offset	31 101
+	frame	data/chars/kyomi/freespecial6-12.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	25 102
+	frame	data/chars/kyomi/freespecial6-13.png
+	offset	22 102
+	frame	data/chars/kyomi/freespecial6-14.png
+	offset	22 102
+	frame	data/chars/kyomi/freespecial6-15.png
+		
+anim	freespecial7
+	offset	19 89
+	energycost	5
+	mponly	1
+	cancel	10 21 0 s freespecial8
+	cancel	10 21 0 a freespecial14
+	cancel	10 21 0 j freespecial13
+	loop	0
+	delay	6
+	forcedirection	-1
+	fastattack	1
+	hitfx	data/sounds/beat5.wav
+	move	2
+	frame	data/chars/kyomi/freespecial7-01.png
+	offset	33 82
+	frame	data/chars/kyomi/freespecial7-02.png
+	offset	36 84
+	sound	data/sounds/xkyo01.wav
+	frame	data/chars/kyomi/freespecial7-03.png
+	offset	56 88
+	delay	4
+	@cmd	spawn01 "dust" 1 1 1
+	@cmd	dasher 1 0 0
+	frame	data/chars/kyomi/freespecial7-04.png
+	offset	59 81
+	@cmd	spawnbind2 "xkyopw" 60 40 1 "ANI_FOLLOW2"
+	frame	data/chars/kyomi/freespecial7-05.png
+	offset	64 83
+	frame	data/chars/kyomi/freespecial7-06.png
+	offset	56 86
+	frame	data/chars/kyomi/freespecial7-07.png
+	offset	50 87
+	frame	data/chars/kyomi/freespecial7-08.png
+	offset	50 85
+	@cmd	dasher 2 0 0
+	burn	45 5 85 50 20 0 0 0 25 20
+	dropv	3 1.2
+	frame	data/chars/kyomi/freespecial7-09.png
+	sound	data/sounds/burn.wav
+	offset	52 85
+	delay	5
+	frame	data/chars/kyomi/freespecial7-10.png
+	sound	data/sounds/burn.wav
+	bbox	35 12 31 74
+	offset	52 86
+	delay	5
+	frame	data/chars/kyomi/freespecial7-11.png
+	bbox	37 10 24 74
+	offset	51 84
+	@cmd	dasher 1 0 0
+	frame	data/chars/kyomi/freespecial7-12.png
+	bbox	37 8 27 76
+	offset	55 84
+	attack10	0 0 0 0 0 0 0 0 0 0
+	delay	2
+	frame	data/chars/kyomi/freespecial7-13.png
+	bbox	45 8 24 77
+	offset	55 84
+	@cmd	stop
+	frame	data/chars/kyomi/freespecial7-14.png
+	bbox	45 8 24 77
+	offset	55 85
+	frame	data/chars/kyomi/freespecial7-15.png
+	bbox	22 5 31 79
+	offset	35 84
+	frame	data/chars/kyomi/freespecial7-16.png
+	bbox	22 5 31 79
+	offset	35 84
+	frame	data/chars/kyomi/freespecial7-16.png
+	bbox	26 5 31 87
+	offset	39 91
+	delay	12
+	frame	data/chars/kyomi/freespecial5-05.png
+	bbox	18 11 33 87
+	offset	36 98
+	frame	data/chars/kyomi/attack2-03.png
+		
+anim	freespecial8
+	energycost	4
+	mponly	1
+	cancel	11 19 0 s freespecial3
+	cancel	11 19 0 s freespecial3
+	cancel	11 13 0 s freespecial10
+	cancel	11 13 0 a freespecial10
+	cancel	11 13 0 j freespecial11
+	loop	0
+	delay	4
+	offset	36 99
+	bbox	0 0 0 0
+	forcedirection	-1
+	fastattack	1
+	hitfx	data/sounds/beat5.wav
+	attack8	0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/kyomi/freespecial6-01.png
+	offset	40 99
+	sound	data/sounds/xkyo02.wav
+	frame	data/chars/kyomi/freespecial8-01.png
+	offset	22 93
+	frame	data/chars/kyomi/freespecial8-02.png
+	offset	34 87
+	frame	data/chars/kyomi/freespecial8-03.png
+	offset	47 86
+	@cmd	spawn01 "dust" 1 1 1
+	@cmd	dasher 2 0 0
+	delay	4
+	sound	data/sounds/punch2.wav
+	frame	data/chars/kyomi/freespecial8-04.png
+	offset	46 85
+	frame	data/chars/kyomi/freespecial8-05.png
+	offset	55 88
+	@cmd	spawnbind2 "xkyopw" 70 75 -1 "ANI_FOLLOW3"
+	frame	data/chars/kyomi/freespecial8-06.png
+	hitfx	data/sounds/burn.wav
+	offset	43 91
+	frame	data/chars/kyomi/freespecial8-07.png
+	offset	38 89
+	attack10	13 5 80 49 20 1 0 0 25 20
+	dropv	3 1.5
+	frame	data/chars/kyomi/freespecial8-08.png
+	offset	36 82
+	delay	5
+	@cmd	dasher 1 0 0
+	frame	data/chars/kyomi/freespecial8-09.png
+	offset	36 83
+	frame	data/chars/kyomi/freespecial8-10.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	@cmd	stop
+	offset	28 82
+	frame	data/chars/kyomi/freespecial8-11.png
+	bbox	21 8 26 83
+	offset	33 93
+	frame	data/chars/kyomi/freespecial8-12.png
+	offset	33 93
+	frame	data/chars/kyomi/freespecial8-13.png
+	offset	33 91
+	frame	data/chars/kyomi/freespecial8-14.png
+		
+anim	freespecial9
+	freespecial9	
+	energycost	5
+	mponly	1
+	loop	0
+	delay	8
+	offset	28 91
+	bbox	0 0 0 0
+	jumpframe	3 4 1
+	landframe	10
+	fastattack	1
+	forcedirection	-1
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/xkyo04.wav
+	@cmd	dasher 1.5 0 0
+	frame	data/chars/kyomi/attack3-03.png
+	offset	37 79
+	frame	data/chars/kyomi/attack3-04.png
+	attack10	32 0 64 80 15 1 0 0 15 15
+	dropv	4 1
+	offset	53 81
+	frame	data/chars/kyomi/freespecial9-01.png
+	offset	42 124
+	attack10	0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/kyomi/freespecial9-02.png
+	offset	20 129
+	@cmd	spawnbind2 "xkyopw" 70 45 1 "ANI_FOLLOW2"
+	attack10	1 0 100 110 6 1 0 0 35 20
+	dropv	2 1
+	frame	data/chars/kyomi/freespecial9-03.png
+	offset	26 122
+	attack10	0 0 0 0
+	frame	data/chars/kyomi/freespecial9-04.png
+	offset	30 123
+	hitflash	flashscreen1
+	hitfx	data/sounds/burn.wav
+	burn	4 0 100 110 20 1 0 0 3 20
+	dropv	4 1
+	frame	data/chars/kyomi/freespecial9-05.png
+	@cmd	spawnbind2 "xkyopw" -40 80 1 "ANI_FOLLOW3"
+	offset	28 122
+	frame	data/chars/kyomi/freespecial9-06.png
+	offset	30 117
+	frame	data/chars/kyomi/freespecial9-07.png
+	offset	26 115
+	burn	0 0 0 0
+	delay	15
+	delay	500
+	frame	data/chars/kyomi/freespecial9-08.png
+	offset	25 91
+	delay	12
+	frame	data/chars/kyomi/attackdown-01.png
+		
+anim	get
+	delay	7
+	offset	23 91
+	frame	data/chars/kyomi/attackdown-01.png
+	delay	10
+	offset	25 68
+	frame	data/chars/kyomi/get-01.png
+	delay	7
+	offset	25 78
+	frame	data/chars/kyomi/pain6-06.png
+	offset	23 91
+	frame	data/chars/kyomi/attackdown-01.png
+		
+anim	grab
+	loop	0
+	delay	10
+	offset	24 95
+	bbox	23 4 40 91
+	frame	data/chars/kyomi/grab.png
+		
+anim	grabattack
+	attack	0 0 0 0 0 0 0 0 0 0
+	loop	0
+	delay	5
+	offset	24 95
+	bbox	23 4 40 91
+	frame	data/chars/kyomi/grab.png
+	attack6	27 20 40 51 15 0 1 0 16 10
+	delay	23
+	offset	27 105
+	frame	data/chars/kyomi/attack5-04.png
+		
+anim	grabattack2
+	loop	0
+	delay	7
+	attackone	0
+	hitfx	data/sounds/beat5.wav
+	fastattack	1
+	attack	0 0 0 0 0 0 0 0 0 0
+	sound	data/sounds/xkyo03.wav
+	offset	24 95
+	bbox	23 4 40 91
+	frame	data/chars/kyomi/grab.png
+	offset	40 102
+	frame	data/chars/kyomi/grabattack2-01.png
+	offset	24 102
+	frame	data/chars/kyomi/grabattack2-02.png
+	offset	7 102
+	frame	data/chars/kyomi/grabattack2-03.png
+	delay	8
+	attack	1 0 57 80 12 0 1 0 12 10
+	offset	3 111
+	frame	data/chars/kyomi/grabattack2-04.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	4 139
+	frame	data/chars/kyomi/grabattack2-05.png
+	offset	4 140
+	frame	data/chars/kyomi/grabattack2-06.png
+	attack	9 0 52 100 12 0 1 0 12 10
+	offset	5 131
+	frame	data/chars/kyomi/grabattack2-07.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	9 124
+	frame	data/chars/kyomi/grabattack2-08.png
+	attack	14 0 85 68 12 1 1 0 12 10
+	offset	7 103
+	frame	data/chars/kyomi/grabattack2-09.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	11 102
+	frame	data/chars/kyomi/grabattack2-10.png
+	offset	9 102
+	frame	data/chars/kyomi/grabattack2-11.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	7 103
+	frame	data/chars/kyomi/grabattack2-12.png
+	offset	4 104
+	frame	data/chars/kyomi/grabattack2-13.png
+		
+anim	grabbackward
+	otg	2
+	loop	0
+	delay	12
+	attackone	0
+	offset	30 94
+	forcedirection	-1
+	@cmd	slamstart
+	sound	data/sounds/grab.wav
+	@cmd	position 10 35 48 -1 -1
+	frame	data/chars/kyomi/grab.png
+	bbox	0 0 0 0
+	offset	36 97
+	@cmd	position 11 30 48 -1 -1
+	frame	data/chars/kyomi/grabbackward-01.png
+	bbox	0 0 0 0
+	offset	24 98
+	@cmd	position 0 10 75 -1 1
+	frame	data/chars/kyomi/grabbackward-02.png
+	bbox	0 0 0 0
+	offset	36 90
+	@cmd	position 6 -20 80 -1 1
+	frame	data/chars/kyomi/grabbackward-03.png
+	bbox	0 0 0 0
+	offset	36 77
+	delay	5
+	@cmd	position 1 -40 15 1 1
+	frame	data/chars/kyomi/grabbackward-04.png
+	bbox	0 0 0 0
+	offset	36 77
+	delay	5
+	@cmd	depost 0
+	@cmd	finish 60 1 -2 -4 0 1
+	frame	data/chars/kyomi/grabbackward-04.png
+	bbox	0 0 0 0
+	offset	36 77
+	delay	10
+	frame	data/chars/kyomi/grabbackward-04.png
+	bbox	0 0 0 0
+	offset	24 56
+	delay	5
+	frame	data/chars/kyomi/grabbackward-05.png
+	delay	5
+	bbox	0 0 0 0
+	offset	15 59
+	hitfx	data/sounds/beat5.wav
+	frame	data/chars/kyomi/grabbackward-06.png
+	bbox	0 0 0 0
+	offset	19 44
+	hitflash	flashscreen1
+	attack11	-9 11 99 37 50 1 0 0 50 10
+	dropv	2 -2
+	frame	data/chars/kyomi/grabbackward-07.png
+	bbox	0 0 0 0
+	offset	19 44
+	frame	data/chars/kyomi/grabbackward-07.png
+	bbox	0 0 0 0
+	offset	36 46
+	delay	9
+	frame	data/chars/kyomi/grabbackward-08.png
+	bbox	0 0 0 0
+	offset	26 70
+	@cmd	flip
+	frame	data/chars/kyomi/jumpattack3-03.png
+	bbox	0 0 0 0
+	offset	24 91
+	frame	data/chars/kyomi/attackdown-01.png
+		
+anim	grabbed
+	loop	0
+	delay	10
+	offset	23 103
+	bbox	9 15 32 88
+	offset	21 103
+	frame	data/chars/kyomi/pain-01.png
+		
+anim	grabforward
+	loop	0
+	delay	5
+	offset	34 95
+	fastattack	1
+	hitfx	data/sounds/burn.wav
+	frame	data/chars/kyomi/grab.png
+	delay	11
+	fastattack	1
+	sound	data/sounds/xkyo01.wav
+	offset	25 75
+	frame	data/chars/kyomi/attack4-01.png
+	delay	3
+	offset	22 72
+	frame	data/chars/kyomi/attack4-02.png
+	offset	22 73
+	frame	data/chars/kyomi/attack4-03.png
+	offset	22 80
+	frame	data/chars/kyomi/attack4-04.png
+	offset	27 83
+	frame	data/chars/kyomi/attack4-05.png
+	blast	29 -5 48 73 0 0 1 0 20 15
+	offset	28 103
+	frame	data/chars/kyomi/attack4-06.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	29 129
+	frame	data/chars/kyomi/attack4-07.png
+	delay	4
+	burn	23 -7 53 97 40 1 1 0 40 15
+	dropv	4.5 1.2 0
+	offset	29 128
+	frame	data/chars/kyomi/attack4-08.png
+	delay	14
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	29 123
+	frame	data/chars/kyomi/attack4-09.png
+	delay	3
+	offset	29 119
+	frame	data/chars/kyomi/attack4-10.png
+	offset	30 103
+	frame	data/chars/kyomi/attack4-11.png
+	offset	30 102
+	frame	data/chars/kyomi/attack4-12.png
+		
+anim	grabup
+	delay	12
+	fastattack	1
+	hitfx	data/sounds/hard2.wav
+	sound	data/sounds/butobus.wav
+	loop	0
+	offset	25 75
+	frame	data/chars/kyomi/attack4-01.png
+	delay	3
+	offset	22 72
+	frame	data/chars/kyomi/attack4-02.png
+	offset	22 73
+	frame	data/chars/kyomi/attack4-03.png
+	offset	22 80
+	frame	data/chars/kyomi/attack4-04.png
+	offset	27 83
+	frame	data/chars/kyomi/attack4-05.png
+	attack10	33 0 62 60 40 1 1 0 20 15
+	dropv	4.5 1.2 0
+	offset	28 103
+	frame	data/chars/kyomi/attack4-06.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	29 129
+	frame	data/chars/kyomi/attack4-07.png
+	delay	4
+	burn	51 21 60 60 40 1 1 0 40 15
+	dropv	6.5 0.5
+	offset	29 128
+	frame	data/chars/kyomi/attack4-08.png
+	delay	14
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	29 123
+	frame	data/chars/kyomi/attack4-09.png
+	delay	3
+	offset	29 119
+	frame	data/chars/kyomi/attack4-10.png
+	offset	30 103
+	frame	data/chars/kyomi/attack4-11.png
+	offset	30 102
+	frame	data/chars/kyomi/attack4-12.png
+		
+anim	idle
+	loop	1
+	delay	8
+	offset	30 101
+	bbox	11 9 28 92
+	frame	data/chars/kyomi/idle-01.png
+	bbox	13 9 28 92
+	offset	31 102
+	@cmd	clearL
+	frame	data/chars/kyomi/idle-02.png
+	bbox	14 10 28 92
+	offset	31 102
+	frame	data/chars/kyomi/idle-03.png
+	bbox	14 9 28 92
+	offset	31 101
+	frame	data/chars/kyomi/idle-04.png
+	bbox	15 9 28 91
+	offset	31 100
+	frame	data/chars/kyomi/idle-05.png
+	bbox	13 10 28 91
+	offset	31 101
+	frame	data/chars/kyomi/idle-06.png
+	bbox	11 11 28 91
+	offset	31 102
+	frame	data/chars/kyomi/idle-07.png
+	bbox	11 11 28 91
+	offset	31 102
+	frame	data/chars/kyomi/idle-08.png
+	bbox	11 10 28 91
+	offset	31 101
+	frame	data/chars/kyomi/idle-09.png
+	bbox	9 10 28 90
+	offset	30 100
+	frame	data/chars/kyomi/idle-10.png
+		
+anim	jump
+	loop	0
+	delay	7
+	bbox	9 23 22 105
+	offset	26 140
+	frame	data/chars/kyomi/jump-01.png
+	bbox	9 11 29 47
+	offset	28 110
+	frame	data/chars/kyomi/jump-02.png
+	bbox	20 9 24 44
+	offset	35 100
+	frame	data/chars/kyomi/jump-03.png
+	delay	25
+	bbox	32 9 25 39
+	offset	50 85
+	frame	data/chars/kyomi/jump-04.png
+	delay	7
+	bbox	20 9 24 44
+	offset	35 100
+	frame	data/chars/kyomi/jump-03.png
+	bbox	9 11 29 47
+	offset	28 110
+	frame	data/chars/kyomi/jump-02.png
+	bbox	9 23 22 105
+	offset	26 140
+	frame	data/chars/kyomi/jump-01.png
+		
+anim	jumpattack
+	staydown	500 500
+	loop	0
+	delay	7
+	offset	33 108
+	bbox	16 13 31 63
+	forcedirection	-1
+	hitfx	data/sounds/beat3.wav
+	sound	data/sounds/punch2.wav
+	frame	data/chars/kyomi/attack6-02.png
+	offset	37 107
+	frame	data/chars/kyomi/attack6-03.png
+	offset	47 86
+	frame	data/chars/kyomi/attack6-04.png
+	offset	39 82
+	attack	35 18 82 50 25 1 0 0 35 0
+	frame	data/chars/kyomi/jumpattack-01.png
+		
+anim	jumpattack2
+	offset	30 136
+	loop	0
+	delay	7
+	frame	data/chars/kyomi/jumpattack2-01.png
+	attack	2 2 58 54 35 1 1 0 25 15
+	dropv	1 2
+	offset	17 95
+	frame	data/chars/kyomi/jumpattack2-02.png
+		
+anim	jumpattack3
+	fastattack	1
+	loop	0
+	delay	12
+	offset	27 77
+	bbox	8 7 27 45
+	jumpframe	1 -1 3.5
+	landframe	4 dust
+	attack	0 0 0 0 0 0 0 0 0 0
+	@cmd	leaper -1 3
+	hitfx	data/sounds/beat3.wav
+	sound	data/sounds/xkyo02.wav
+	frame	data/chars/kyomi/jumpattack3-01.png
+	offset	27 79
+	frame	data/chars/kyomi/jumpattack3-02.png
+	delay	500
+	offset	39 67
+	attack	35 18 82 50 25 1 0 0 35 15
+	frame	data/chars/kyomi/jumpattack-01.png
+	offset	39 67
+	frame	data/chars/kyomi/jumpattack-01.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	delay	9
+	offset	26 70
+	frame	data/chars/kyomi/jumpattack3-03.png
+	offset	24 91
+	frame	data/chars/kyomi/attackdown-01.png
+		
+anim	jumpdelay
+	loop	0
+	delay	7
+	offset	30 78
+	bbox	9 5 36 73
+	offset	34 78
+	frame	data/chars/kyomi/pain6-06.png
+		
+anim	jumpland
+	loop	0
+	delay	7
+	offset	30 78
+	bbox	9 5 36 73
+	offset	34 78
+	frame	data/chars/kyomi/pain6-06.png
+		
+anim	pain
+	loop	0
+	delay	4
+	offset	21 103
+	bbox	3 15 34 88
+	frame	data/chars/kyomi/pain-01.png
+	offset	21 105
+	frame	data/chars/kyomi/pain-02.png
+	offset	21 106
+	frame	data/chars/kyomi/pain-03.png
+	delay	15
+	offset	21 107
+	frame	data/chars/kyomi/pain-04.png
+		
+anim	pain2
+	loop	0
+	delay	4
+	offset	21 103
+	bbox	3 15 34 88
+	frame	data/chars/kyomi/pain-01.png
+	offset	21 105
+	frame	data/chars/kyomi/pain-02.png
+	offset	21 106
+	frame	data/chars/kyomi/pain-03.png
+	delay	15
+	offset	21 107
+	frame	data/chars/kyomi/pain-04.png
+		
+anim	pain3
+	loop	0
+	delay	4
+	offset	21 103
+	bbox	3 9 40 95
+	move	-6
+	frame	data/chars/kyomi/pain-01.png
+	bbox	5 9 40 97
+	offset	21 105
+	frame	data/chars/kyomi/pain-02.png
+	bbox	3 10 40 97
+	offset	21 106
+	frame	data/chars/kyomi/pain-03.png
+	bbox	3 10 40 98
+	offset	21 107
+	frame	data/chars/kyomi/pain-04.png
+	bbox	0 8 40 94
+	offset	20 101
+	frame	data/chars/kyomi/pain3-01.png
+	bbox	1 5 41 93
+	offset	21 97
+	frame	data/chars/kyomi/pain3-02.png
+	bbox	2 1 39 88
+	offset	23 88
+	move	-4
+	frame	data/chars/kyomi/pain3-03.png
+	bbox	0 0 43 79
+	offset	21 78
+	frame	data/chars/kyomi/pain3-04.png
+	bbox	0 0 42 65
+	offset	23 64
+	frame	data/chars/kyomi/pain3-05.png
+	bbox	0 0 39 79
+	offset	21 78
+	frame	data/chars/kyomi/pain3-04.png
+	bbox	2 2 39 87
+	offset	23 88
+	frame	data/chars/kyomi/pain3-03.png
+	bbox	2 7 36 91
+	offset	21 97
+	frame	data/chars/kyomi/pain3-02.png
+	bbox	6 11 33 91
+	offset	20 101
+	move	-2
+	frame	data/chars/kyomi/pain3-01.png
+	bbox	5 9 33 91
+	offset	20 99
+	frame	data/chars/kyomi/pain-07.png
+	delay	50
+	bbox	22 17 39 93
+	offset	37 109
+	frame	data/chars/kyomi/pain-08.png
+		
+anim	pain5
+	loop	0
+	delay	14
+	offset	21 103
+	bbox	3 9 40 95
+	frame	data/chars/kyomi/pain-01.png
+	bbox	5 9 40 97
+	offset	21 105
+	frame	data/chars/kyomi/pain-02.png
+	bbox	3 10 40 97
+	offset	21 106
+	frame	data/chars/kyomi/pain-03.png
+	bbox	3 10 40 98
+	offset	21 107
+	frame	data/chars/kyomi/pain-04.png
+	bbox	0 8 40 94
+	offset	20 101
+	frame	data/chars/kyomi/pain3-01.png
+	move	0
+	bbox	1 5 41 93
+	offset	21 97
+	frame	data/chars/kyomi/pain3-02.png
+	bbox	2 1 39 88
+	offset	23 88
+	frame	data/chars/kyomi/pain3-03.png
+		
+anim	pain6
+	loop	0
+	delay	12
+	offset	23 93
+	bbox	0 0 0 0
+	sound	data/sounds/xkyopain.wav
+	attack	3 11 36 34 5 1 0 0 13 0
+	frame	data/chars/kyomi/fall-01.png
+	offset	18 51
+	frame	data/chars/kyomi/fall-02.png
+	delay	500
+	offset	21 63
+	frame	data/chars/kyomi/fall-03.png
+	offset	26 44
+	frame	data/chars/kyomi/pain6-01.png
+	offset	29 40
+	frame	data/chars/kyomi/fall-04.png
+	delay	900
+	offset	27 31
+	frame	data/chars/kyomi/fall-05.png
+	offset	38 74
+	delay	9
+	frame	data/chars/kyomi/pain6-02.png
+	offset	38 64
+	frame	data/chars/kyomi/pain6-03.png
+	offset	18 139
+	frame	data/chars/kyomi/pain6-04.png
+	offset	21 94
+	frame	data/chars/kyomi/pain6-05.png
+	offset	34 78
+	frame	data/chars/kyomi/pain6-06.png
+		
+anim	respawn
+	loop	0
+	delay	12
+	offset	23 114
+	bbox	0 0 0 0
+	frame	data/chars/kyomi/respawn-01.png
+	offset	20 112
+	frame	data/chars/kyomi/respawn-02.png
+	offset	21 112
+	delay	6
+	sound	data/sounds/xkyotlk.wav
+	frame	data/chars/kyomi/respawn-03.png
+	delay	5
+	offset	20 112
+	frame	data/chars/kyomi/respawn-04.png
+	offset	20 112
+	frame	data/chars/kyomi/respawn-04.png
+	offset	20 112
+	frame	data/chars/kyomi/respawn-04.png
+	delay	20
+	offset	18 124
+	loop	0
+	frame	data/chars/kyomi/respawn-05.png
+	offset	27 92
+	frame	data/chars/kyomi/respawn-06.png
+	offset	27 94
+	frame	data/chars/kyomi/respawn-07.png
+	offset	27 94
+	delay	20
+	frame	data/chars/kyomi/respawn-08.png
+		
+anim	rise
+	delay	20
+	offset	27 31
+	frame	data/chars/kyomi/fall-05.png
+	offset	38 74
+	delay	10
+	frame	data/chars/kyomi/pain6-02.png
+	offset	38 64
+	frame	data/chars/kyomi/pain6-03.png
+	delay	5
+	offset	18 139
+	frame	data/chars/kyomi/pain6-04.png
+	offset	21 94
+	frame	data/chars/kyomi/pain6-05.png
+	offset	34 78
+	frame	data/chars/kyomi/pain6-06.png
+		
+anim	run
+	bbox	15 4 31 83
+	loop	1
+	delay	7
+	offset	39 88
+	frame	data/chars/kyomi/run-01.png
+	sound	data/sounds/run.wav
+	bbox	41 1 34 89
+	offset	69 91
+	frame	data/chars/kyomi/run-02.png
+	bbox	41 1 34 83
+	offset	65 84
+	frame	data/chars/kyomi/run-03.png
+	bbox	17 2 29 86
+	offset	38 89
+	frame	data/chars/kyomi/run-04.png
+	sound	data/sounds/run.wav
+	bbox	54 4 26 87
+	offset	68 91
+	frame	data/chars/kyomi/run-05.png
+	bbox	54 5 26 80
+	offset	58 85
+	frame	data/chars/kyomi/run-06.png
+		
+anim	runattack
+	loop	0
+	delay	5
+	forcedirection	-1
+	@cmd	dasher 1.5 0 0
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/xkyo03.wav
+	move	3
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/xkyo03.wav
+	move	3
+	offset	28 99
+	offset	28 99
+	frame	data/chars/kyomi/attack7-01.png
+	movez	0
+	movea	0
+	move	3
+	offset	29 108
+	frame	data/chars/kyomi/attack7-02.png
+	offset	42 117
+	frame	data/chars/kyomi/attack7-03.png
+	offset	37 116
+	frame	data/chars/kyomi/attack7-04.png
+	offset	28 102
+	frame	data/chars/kyomi/attack7-05.png
+	offset	20 102
+	frame	data/chars/kyomi/attack7-06.png
+	attack	8 4 97 79 60 1 1 0 40 20
+	dropv	3 3 0
+	offset	7 103
+	frame	data/chars/kyomi/attack7-07.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	delay	4
+	offset	3 102
+	frame	data/chars/kyomi/attack8-01.png
+	offset	7 104
+	frame	data/chars/kyomi/attack8-02.png
+	offset	18 105
+	frame	data/chars/kyomi/attack8-03.png
+	move	0
+	offset	28 103
+	frame	data/chars/kyomi/attack8-04.png
+	delay	3
+	offset	18 102
+	frame	data/chars/kyomi/attack8-05.png
+	@cmd	stop
+	offset	35 99
+	frame	data/chars/kyomi/attack8-06.png
+	delay	2
+	offset	31 100
+	frame	data/chars/kyomi/attack8-07.png
+		
+anim	runjumpattack
+	fastattack	1
+	bbox	24 8 27 54
+	loop	0
+	delay	5
+	forcedirection	-1
+	hitfx	data/sounds/beat5.wav
+	sound	data/sounds/xkyo03.wav
+	offset	41 111
+	frame	data/chars/kyomi/attack7-01.png
+	delay	4
+	bbox	29 19 24 89
+	movez	0
+	movea	0
+	move	3
+	offset	42 120
+	frame	data/chars/kyomi/attack7-02.png
+	delay	4
+	bbox	29 27 25 91
+	offset	43 130
+	frame	data/chars/kyomi/attack7-03.png
+	delay	4
+	bbox	27 23 26 94
+	offset	43 140
+	frame	data/chars/kyomi/attack7-04.png
+	delay	4
+	bbox	18 13 29 90
+	offset	29 137
+	frame	data/chars/kyomi/attack7-05.png
+	delay	3
+	bbox	9 7 30 48
+	offset	33 140
+	frame	data/chars/kyomi/attack7-06.png
+	bbox	2 5 36 50
+	delay	7
+	attack	9 0 98 79 60 1 1 0 50 15
+	dropv	3 3 0
+	offset	17 139
+	frame	data/chars/kyomi/attack7-07.png
+	delay	6
+	offset	22 139
+	bbox	2 5 36 50
+	frame	data/chars/kyomi/attack8-01.png
+	delay	5
+	attack	0 0 0 0 0 0 0 0 0 0
+	bbox	10 10 28 95
+	offset	36 140
+	frame	data/chars/kyomi/attack8-02.png
+	delay	2
+	bbox	16 22 45 45
+	offset	34 150
+	frame	data/chars/kyomi/runjumpattack2-01.png
+	bbox	23 11 28 43
+	offset	37 132
+	delay	2
+	frame	data/chars/kyomi/attack6-03.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	bbox	32 9 28 40
+	offset	44 116
+	delay	3
+	frame	data/chars/kyomi/attack6-04.png
+	delay	5
+	sound	data/sounds/punch.wav
+	bbox	11 9 26 40
+	offset	27 105
+	frame	data/chars/kyomi/jumpattack3-02.png
+	delay	8
+	attack	36 -7 60 115 10 1 1 0 30 0
+	dropv	2.6 4 0
+	sound	data/sounds/kyomihiya.wav
+	bbox	16 16 32 54
+	offset	31 145
+	frame	data/chars/kyomi/runjumpattack2-02.png
+	delay	4
+	bbox	16 16 32 54
+	offset	31 142
+	frame	data/chars/kyomi/runjumpattack2-03.png
+	offset	31 123
+	bbox	14 4 32 54
+	frame	data/chars/kyomi/runjumpattack2-05.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	delay	4
+	bbox	14 5 29 45
+	offset	29 103
+	frame	data/chars/kyomi/runjumpattack2-04.png
+		
+anim	runslide
+	loop	0
+	delay	6
+	offset	24 91
+	bbox	12 9 32 81
+	hitfx	data/sounds/beat5.wav
+	@cmd	dasher 3 0 0
+	frame	data/chars/kyomi/attackdown-01.png
+	offset	26 70
+	frame	data/chars/kyomi/jumpattack3-03.png
+	@cmd	spawn01 "dust" 1 1 1
+	offset	26 58
+	frame	data/chars/kyomi/runslide-01.png
+	offset	40 62
+	attack10	31 24 80 40 12 1 0 0 20 0
+	dropv	2 2.5
+	sound	data/sounds/punch3.wav
+	frame	data/chars/kyomi/runslide-02.png
+	offset	39 56
+	delay	11
+	frame	data/chars/kyomi/runslide-03.png
+	offset	23 65
+	attack10	0 0 0 0 0 0 0 0 0 0
+	delay	6
+	@cmd	dasher 2 0 0
+	frame	data/chars/kyomi/runslide-04.png
+	offset	21 65
+	frame	data/chars/kyomi/runslide-05.png
+	offset	23 64
+	attack9	6 16 100 40 20 1 0 0 20 0
+	dropv	0.3 4
+	delay	8
+	frame	data/chars/kyomi/runslide-06.png
+	offset	31 64
+	frame	data/chars/kyomi/runslide-07.png
+	offset	23 64
+	delay	8
+	frame	data/chars/kyomi/runslide-06.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	21 65
+	frame	data/chars/kyomi/runslide-05.png
+	offset	23 65
+	frame	data/chars/kyomi/runslide-04.png
+	@cmd	stop
+	offset	26 58
+	frame	data/chars/kyomi/runslide-01.png
+	offset	26 70
+	frame	data/chars/kyomi/jumpattack3-03.png
+	offset	24 91
+	frame	data/chars/kyomi/attackdown-01.png
+		
+anim	select
+	loop	0
+	delay	6
+	offset	0 0
+	sound	data/sounds/kyomilol.wav
+	frame	data/chars/kyomi/wait02.png
+		
+anim	spawn
+	bbox	0 0 0 0
+	loop	0
+	delay	60
+	offset	34 111
+	frame	data/chars/kyomi/spawn-01.png
+	sound	data/sounds/kyomiletsgo.wav
+	delay	6
+	offset	34 111
+	frame	data/chars/kyomi/spawn-02.png
+	offset	34 110
+	frame	data/chars/kyomi/spawn-03.png
+	delay	60
+	offset	34 110
+	frame	data/chars/kyomi/spawn-04.png
+	delay	9
+	offset	25 105
+	frame	data/chars/kyomi/follow17-01.png
+	offset	20 103
+	frame	data/chars/kyomi/freespecial29-01.png
+	offset	22 102
+	frame	data/chars/kyomi/freespecial6-15.png
+		
+anim	special
+	energycost	30
+	mponly	1
+	loop	0
+	delay	9
+	offset	21 112
+	bbox	0 0 0 0
+	staydown	500 500
+	hitfx	data/sounds/burn.wav
+	sound	data/sounds/xkyochrg.wav
+	frame	data/chars/kyomi/respawn-02.png
+	offset	21 112
+	frame	data/chars/kyomi/respawn-03.png
+	offset	45 118
+	frame	data/chars/kyomi/special-01.png
+	offset	45 118
+	delay	15
+	frame	data/chars/kyomi/special-02.png
+	offset	45 150
+	sound	data/sounds/super2.wav
+	delay	6
+	@cmd	spawnAni "xkyopw" 0 1 -5 "ANI_FOLLOW1"
+	@cmd	spawnAni "xkyopw" -40 1 -5 "ANI_FOLLOW1"
+	@cmd	spawnAni "xkyopw" 40 1 -5 "ANI_FOLLOW1"
+	frame	data/chars/kyomi/special-03.png
+	offset	45 151
+	burn	-37 12 150 140 25 1 0 0 4 0
+	dropv	5 1
+	frame	data/chars/kyomi/special-04.png
+	offset	45 152
+	frame	data/chars/kyomi/special-05.png
+	delay	6
+	burn	-37 14 150 140 25 1 0 0 4 0
+	dropv	5 1
+	offset	45 153
+	frame	data/chars/kyomi/special-06.png
+	offset	45 153
+	burn	0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/kyomi/special-07.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	45 153
+	sound	data/sounds/super2.wav
+	delay	6
+	@cmd	spawnAni "xkyopw" 0 1 -5 "ANI_FOLLOW1"
+	@cmd	spawnAni "xkyopw" -40 1 -5 "ANI_FOLLOW1"
+	@cmd	spawnAni "xkyopw" 40 1 -5 "ANI_FOLLOW1"
+	frame	data/chars/kyomi/special-08.png
+	delay	6
+	offset	45 138
+	burn	-37 -1 150 140 25 1 0 0 4 0
+	dropv	5 1
+	frame	data/chars/kyomi/special-09.png
+	offset	45 146
+	frame	data/chars/kyomi/special-10.png
+	offset	45 150
+	sound	data/sounds/super2.wav
+	delay	6
+	@cmd	spawnAni "xkyopw" 0 1 -5 "ANI_FOLLOW1"
+	@cmd	spawnAni "xkyopw" -40 1 -5 "ANI_FOLLOW1"
+	@cmd	spawnAni "xkyopw" 40 1 -5 "ANI_FOLLOW1"
+	frame	data/chars/kyomi/special-03.png
+	offset	45 151
+	burn	-37 12 150 140 25 1 0 0 4 0
+	dropv	5 1
+	frame	data/chars/kyomi/special-04.png
+	offset	45 152
+	frame	data/chars/kyomi/special-05.png
+	delay	6
+	burn	-37 14 150 140 25 1 0 0 4 0
+	dropv	5 1
+	offset	45 153
+	frame	data/chars/kyomi/special-06.png
+	offset	45 153
+	burn	0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/kyomi/special-07.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	45 153
+	sound	data/sounds/super2.wav
+	delay	6
+	@cmd	spawnAni "xkyopw" 0 1 -5 "ANI_FOLLOW1"
+	@cmd	spawnAni "xkyopw" -40 1 -5 "ANI_FOLLOW1"
+	@cmd	spawnAni "xkyopw" 40 1 -5 "ANI_FOLLOW1"
+	frame	data/chars/kyomi/special-08.png
+	delay	6
+	offset	45 138
+	burn	-37 -1 150 140 25 1 0 0 4 0
+	dropv	5 1
+	frame	data/chars/kyomi/special-09.png
+	offset	45 146
+	frame	data/chars/kyomi/special-10.png
+	offset	45 150
+	sound	data/sounds/super2.wav
+	delay	6
+	@cmd	spawnAni "xkyopw" 0 1 -5 "ANI_FOLLOW1"
+	@cmd	spawnAni "xkyopw" -40 1 -5 "ANI_FOLLOW1"
+	@cmd	spawnAni "xkyopw" 40 1 -5 "ANI_FOLLOW1"
+	frame	data/chars/kyomi/special-03.png
+	offset	45 151
+	burn	-37 12 150 140 25 1 0 0 4 0
+	dropv	5 1
+	frame	data/chars/kyomi/special-04.png
+	offset	45 152
+	frame	data/chars/kyomi/special-05.png
+	delay	6
+	burn	-37 14 150 140 25 1 0 0 4 0
+	dropv	5 1
+	offset	45 153
+	frame	data/chars/kyomi/special-06.png
+	offset	45 153
+	burn	0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/kyomi/special-07.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	45 153
+	sound	data/sounds/super2.wav
+	delay	6
+	@cmd	spawnAni "xkyopw" 0 1 -5 "ANI_FOLLOW1"
+	@cmd	spawnAni "xkyopw" -40 1 -5 "ANI_FOLLOW1"
+	@cmd	spawnAni "xkyopw" 40 1 -5 "ANI_FOLLOW1"
+	frame	data/chars/kyomi/special-08.png
+	delay	6
+	offset	45 138
+	burn	-37 -1 150 140 25 1 0 0 4 0
+	dropv	5 1
+	frame	data/chars/kyomi/special-09.png
+	offset	45 146
+	frame	data/chars/kyomi/special-10.png
+	offset	45 118
+	delay	10
+	frame	data/chars/kyomi/special-02.png
+	offset	45 118
+	frame	data/chars/kyomi/special-01.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	21 112
+	frame	data/chars/kyomi/respawn-03.png
+	offset	21 112
+	frame	data/chars/kyomi/respawn-02.png
+		
+anim	waiting
+	loop	1
+	delay	6
+	offset	0 0
+	frame	data/chars/kyomi/wait01.png
+		
+anim	walk
+	loop	1
+	bbox	6 9 33 99
+	delay	9
+	offset	27 107
+	frame	data/chars/kyomi/walk-01.png
+	bbox	6 9 33 103
+	offset	29 111
+	frame	data/chars/kyomi/walk-02.png
+	bbox	6 9 33 106
+	offset	30 114
+	frame	data/chars/kyomi/walk-03.png
+	bbox	7 9 35 102
+	offset	32 110
+	frame	data/chars/kyomi/walk-04.png
+	bbox	7 9 35 101
+	offset	32 109
+	frame	data/chars/kyomi/walk-05.png
+		
+anim	walkoff
+	delay	3
+	bbox	32 9 25 39
+	offset	50 85
+	frame	data/chars/kyomi/jump-04.png
+	delay	7
+	bbox	20 9 24 44
+	offset	35 100
+	frame	data/chars/kyomi/jump-03.png
+		
+#|edited by openBor Stats v 0.67
+		
