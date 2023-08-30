@@ -45,25 +45,22 @@ at	0
 
 #---------------------
 
-group 4 4
+group 6 6
 at    220
 wait
 at    220
 
 spawn   mrtall
-map     1
-#health  530
+map     6
 coords  510 420
 at	220
-
 
 spawn   ghost1
 coords  440 430
 at	220
 
 spawn   mrtall
-map     2
-#health  550
+map     5
 item    food5
 coords  550 450
 at	220
@@ -74,7 +71,6 @@ at	220
 
 spawn   candy
 map     1
-#health  240
 item    lulcardx
 coords  -320 440
 at	220
@@ -86,13 +82,12 @@ at	220
 spawn   candy
 map     2
 item    lulcardx
-#health  200
 coords  -350 440
 at	220
 
 spawn  mrtall
 spawnscript	data/scripts/hard.c
-map     3
+map     4
 #health  550
 coords  550 450
 at	220
@@ -133,7 +128,7 @@ coords  550 435
 at      1045
 
 spawn   bronko
-#health  1550
+spawnscript	data/scripts/hard.c
 item    7shuss
 map     4
 coords  -1550 435
@@ -148,7 +143,7 @@ spawn  bronko
 void main()
 	{
 	void self = getlocalvar("self");
-	void difficulty = getglobalvar("hard");
+	void difficulty = getglobalvar("mania");
 	performattack(self, openborconstant("ANI_FOLLOW8"));
 	
 	if(difficulty == 0){
@@ -156,7 +151,6 @@ void main()
     }
 }
 @end_script
-#health  1250
 map     2
 coords  550 435
 at      1045
