@@ -33,6 +33,7 @@ load	bullnpc
 
 
 
+
 anim	attack1
 	delay	11
 	offset	130 205
@@ -565,41 +566,6 @@ anim	walk
 	platform	1 1 1 1 1 1 1 1
 	frame	data/chars/3jhonnyRod/idle01.gif
 	frame	data/chars/3jhonnyRod/idle02.gif
-script	@script
-void main()
-{
-	void self = getlocalvar("self");
-	void anim = getentityproperty(self,"animationID");
-	void frame = getentityproperty(self,"animpos");
-	void dir = getentityproperty(self,"direction");
-	void Par = getentityproperty(self,"parent");
-	void plyr = getentityproperty(Par,"playerindex");
-
-     	if ( anim == openborconstant("ANI_FOLLOW1") && frame > 1 )
-	{
-	  if( playerkeys(plyr, 0, "attack") && dir == 1)
-	  {
-	  performattack(self, openborconstant("ANI_FOLLOW10"));
-	  }
-	  if( playerkeys(plyr, 0, "attack") && dir == 0)
-	  {
-	  performattack(self, openborconstant("ANI_FOLLOW11"));
-	  }
-	  if( playerkeys(plyr, 0, "jump"))
-	  {
-	  performattack(self, openborconstant("ANI_FOLLOW12"));
-	  }
-	  if( playerkeys(plyr, 0, "moveleft"))
-	  {
-	  changeentityproperty(self, "direction", 0);
-	  }
-	  if( playerkeys(plyr, 0, "moveright"))
-	  {
-	  changeentityproperty(self, "direction", 1);
-	  }
-	}
-}
-	@end_script	
 		
-#|edited by openBor Stats v 0.53
+#|edited by openBor Stats v 0.67
 		

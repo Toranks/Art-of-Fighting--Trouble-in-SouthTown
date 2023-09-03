@@ -120,6 +120,7 @@ load	frag
 
 
 
+
 anim	attack1
 	range	0 200
 	rangez	-40 40
@@ -712,7 +713,7 @@ anim	follow17
 	frame	data/chars/3johnny/taunt01.gif
 	frame	data/chars/3johnny/taunt01.gif
 		
-anim	follow2
+anim	freespecial9
 @script
 	void self = getlocalvar("self");
 	void plyr = getentityproperty(self, "playerindex");
@@ -731,6 +732,8 @@ anim	follow2
 	  }
 	}
 	@end_script	
+	energycost	75
+	mponly	1
 	attackone	0
 	loop	0
 	delay	15
@@ -738,7 +741,7 @@ anim	follow2
 	jumpframe	3 6 0 0
 	landframe	16 dust
 	sound	data/sounds/grab.wav
-	@cmd	slamstart
+	@cmd	slamstart2
 	@cmd	position 0 40 80 1 1
 	frame	data/chars/3johnny/1grab01.gif
 	@cmd	position 1 -5 125 1 1
@@ -1403,6 +1406,7 @@ anim	get
 		
 anim	grab
 	loop	0
+	cancel	0 2 0 s freespecial9
 	delay	12
 	offset	105 190
 	bbox	85 96 39 91
@@ -1496,7 +1500,6 @@ anim	grabattack2
 	jumpframe	3 6 0 0
 	landframe	16 dust
 	sound	data/sounds/grab.wav
-	@cmd	anichangeMP "ANI_FOLLOW2" 75
 	@cmd	slamstart
 	@cmd	position 0 40 80 1 1
 	frame	data/chars/3johnny/1grab01.gif
