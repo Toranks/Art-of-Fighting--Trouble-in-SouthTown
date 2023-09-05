@@ -3,9 +3,9 @@ type player
 health  170
 gfxshadow	1
 speed   10
-mp              150
+mp              100
 mprate          1
-chargerate      9
+chargerate      2
 speed		11
 running		28 3.3 3 1 1
 jumpheight	4.3
@@ -21,7 +21,7 @@ weaploss	3
 dust            dust
 candamage	enemy obstacle
 weapons		pltank kfyuri syuribike2 yurifall syurwtr syurivent mapcurs mrzero
-atchain         1 1 2 3 4 5 0 6 7
+atchain         1 1 2 3 4 0 5 0 6 7 1
 combostyle      1
 icon            data/chars/foxy/icon.png
 parrow          data/chars/misc/flash/flash/player1.gif  -36 -145
@@ -96,6 +96,28 @@ com	a3	  freespecial29
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 anim	attack1
 	cancel	2 5 0 d f a freespecial9
 	cancel	2 5 0 d f j freespecial6
@@ -117,84 +139,105 @@ anim	attack1
 	delay	4
 	attack	26 14 69 61 10 0 1 0 0 15
 	offset	28 117
+	bbox	13 15 26 101
 	frame	data/chars/foxy/attack04.png
 	offset	23 118
 	frame	data/chars/foxy/attack05.png
 		
 anim	attack2
-	cancel	2 6 0 d f a freespecial9
-	cancel	2 6 0 d f j freespecial6
+	cancel	2 7 0 d f a freespecial9
+	cancel	2 7 0 d f j freespecial6
 	loop	0
-	range	0 60
+	range	0 70
 	rangez	-25 25
 	bbox	14 22 27 100
 	hitfx	data/sounds/sl1.wav
 	delay	4
 	offset	28 121
+	bbox	14 22 27 100
 	frame	data/chars/foxy/attack2-01.png
 	offset	31 109
+	bbox	15 11 27 97
 	frame	data/chars/foxy/attack2-02.png
 	delay	2
 	offset	29 108
+	bbox	14 9 27 100
+	attack	34 14 77 71 20 0 1 0 10 20
 	frame	data/chars/foxy/attack2-03.png
 	offset	37 108
+	bbox	23 9 27 100
 	frame	data/chars/foxy/attack2-04.png
 	delay	7
 	attack	34 14 77 71 20 0 1 0 10 20
 	offset	36 108
+	bbox	23 9 27 100
 	frame	data/chars/foxy/attack2-05.png
 	delay	4
 	offset	26 110
+	bbox	14 8 27 100
 	frame	data/chars/foxy/attack2-06.png
 	attack	0 0 0 0 0 0 0 0 0 0
 	offset	24 110
+	bbox	7 10 27 100
 	frame	data/chars/foxy/attack2-07.png
 		
 anim	attack3
-	cancel	3 8 0 d f a freespecial9
-	cancel	3 8 0 d f j freespecial6
+	cancel	3 10 0 d f a freespecial9
+	cancel	3 10 0 d f j freespecial6
 	loop	0
-	range	0 60
+	range	0 70
 	rangez	-25 25
 	fastattack	1
 	hitfx	data/sounds/sl2.wav
 	delay	4
 	offset	29 109
-	bbox	24 10 26 94
+	bbox	10 12 28 99
 	frame	data/chars/foxy/attack3-01.png
 	delay	6
 	offset	36 109
+	bbox	17 12 28 99
 	frame	data/chars/foxy/attack3-02.png
 	delay	4
 	attack	38 43 33 55 20 0 1 0 8 15
 	offset	38 108
+	bbox	17 12 28 99
 	frame	data/chars/foxy/attack3-03.png
 	@cmd	spawnbind2 "foxypw" 1 1 0 "ANI_FOLLOW4"
 	delay	2
-	attack	0 0 0 0 0 0 0 0 0 0
+	attack	50 5 63 74 20 0 1 0 8 15
+	bbox	17 12 28 99
 	offset	37 109
 	frame	data/chars/foxy/attack3-04.png
 	offset	44 150
+	bbox	28 50 28 99
+	attack	46 0 72 64 20 0 1 0 8 15
 	frame	data/chars/foxy/attack3-05.png
 	delay	3
-	attack	41 21 53 97 20 0 1 0 8 15
+	attack	1 0 53 52 20 0 1 0 8 15
+	bbox	26 45 28 99
 	offset	43 145
 	frame	data/chars/foxy/attack3-06.png
 	delay	9
 	attack	0 0 0 0 0 0 0 0 0 0
+	bbox	22 32 28 99
 	offset	40 133
 	frame	data/chars/foxy/attack3-07.png
 	delay	4
 	offset	39 113
+	bbox	23 11 28 99
 	frame	data/chars/foxy/attack3-08.png
 	delay	3
 	offset	28 110
+	bbox	11 11 28 99
 	frame	data/chars/foxy/attack3-09.png
 	delay	5
 	offset	23 110
+	bbox	7 10 28 99
 	frame	data/chars/foxy/idle04.png
 		
 anim	attack4
+	cancel	5 12 0 d f a freespecial9
+	cancel	5 12 0 d f j freespecial6
 	loop	0
 	range	0 60
 	rangez	-25 25
@@ -213,13 +256,14 @@ anim	attack4
 	frame	data/chars/foxy/attack4-03.png
 	offset	13 107
 	frame	data/chars/foxy/attack4-04.png
-	attack	31 -5 68 65 25 1 1 0 8 20
+	attack	31 -5 68 65 25 1 0 0 8 20
 	offset	18 99
+	bbox	13 8 36 75
 	frame	data/chars/foxy/attack4-05.png
-	attack	0 0 0 0 0 0 0 0 0 0
 	offset	14 97
+	attack	31 -5 68 65 25 1 0 0 8 20
 	frame	data/chars/foxy/attack4-06.png
-	attack	30 28 65 60 20 1 0 0 7 20
+	attack	30 28 65 60 20 1 0 0 8 20
 	delay	7
 	offset	14 106
 	frame	data/chars/foxy/attack4-07.png
@@ -227,6 +271,7 @@ anim	attack4
 	offset	12 109
 	frame	data/chars/foxy/attack4-08.png
 	offset	21 111
+	bbox	10 12 28 99
 	frame	data/chars/foxy/attack4-09.png
 	offset	28 117
 	frame	data/chars/foxy/attack4-10.png
@@ -234,47 +279,56 @@ anim	attack4
 	frame	data/chars/foxy/attack4-11.png
 		
 anim	attack5
-	cancel	4 8 0 d f a freespecial9
-	cancel	4 8 0 d f j freespecial6
+	cancel	4 10 0 d f a freespecial9
+	cancel	4 10 0 d f j freespecial6
 	loop	0
-	range	45 85
+	range	60 70
 	rangez	-25 25
-	bbox	26 26 20 100
+	bbox	21 26 24 100
 	hitfx	data/sounds/sl1.wav
-	delay	4
+	delay	5
 	offset	34 125
 	frame	data/chars/foxy/attack5-01.png
 	move	3
-	delay	2
+	delay	4
 	offset	40 103
+	bbox	21 6 24 94
 	frame	data/chars/foxy/attack5-02.png
 	offset	54 100
+	bbox	36 6 24 94
 	frame	data/chars/foxy/attack5-03.png
 	sound	data/sounds/foxydah.wav
 	offset	56 100
+	bbox	21 6 24 94
 	frame	data/chars/foxy/attack5-04.png
 	offset	48 97
+	bbox	46 6 24 62
 	frame	data/chars/foxy/attack5-05.png
 	delay	6
-	attack	59 21 88 36 20 0 1 0 10 15
+	attack	59 21 88 36 35 1 1 0 10 15
 	offset	42 96
+	bbox	41 6 24 71
 	frame	data/chars/foxy/attack5-06.png
 	offset	31 95
+	bbox	29 6 24 86
 	frame	data/chars/foxy/attack5-07.png
 	delay	7
 	attack	0 0 0 0 0 0 0 0 0 0
 	offset	41 100
+	bbox	38 6 24 85
 	frame	data/chars/foxy/attack5-08.png
 	offset	39 108
+	bbox	30 6 24 94
 	frame	data/chars/foxy/attack5-09.png
 	offset	39 118
+	bbox	28 19 24 94
 	frame	data/chars/foxy/attack5-10.png
 		
 anim	attack6
 	cancel	4 8 0 d f a freespecial9
 	cancel	4 8 0 d f j freespecial6
 	loop	0
-	range	50 100
+	range	70 150
 	rangez	-25 25
 	bbox	24 10 26 94
 	move	1
@@ -297,10 +351,12 @@ anim	attack6
 	sound	data/sounds/foxyseh.wav
 	offset	36 106
 	bbox	39 18 26 70
+	attack	56 0 90 54 30 0 1 0 20 15
 	frame	data/chars/foxy/attack6-05.png
 	delay	3
 	offset	30 89
 	bbox	34 0 26 75
+	attack	56 0 90 54 30 0 1 0 20 15
 	frame	data/chars/foxy/attack6-06.png
 	delay	9
 	attack	47 13 90 42 30 0 1 0 20 15
@@ -320,7 +376,7 @@ anim	attack6
 anim	attack7
 	bbox	11 21 24 101
 	loop	0
-	range	50 135
+	range	70 150
 	rangez	-25 25
 	hitfx	data/sounds/sl2.wav
 	delay	3
@@ -343,9 +399,11 @@ anim	attack7
 	@cmd	spawnbind2 "foxypw" 1 -1 0 "ANI_FOLLOW5"
 	offset	42 100
 	bbox	52 3 24 76
+	attack	58 21 99 58 40 1 1 0 10 20
 	frame	data/chars/foxy/attack7-06.png
 	offset	33 101
 	bbox	39 3 24 76
+	attack	43 21 99 58 40 1 1 0 10 20
 	frame	data/chars/foxy/attack7-07.png
 	delay	7
 	attack	36 21 99 58 40 1 1 0 10 20
@@ -430,12 +488,14 @@ anim	blockpain
 	delay	2
 	cancel	5 12 0 a freespecial12
 	move	-6
-	bbox	0 12 22 79
+	bbox	14 12 22 79
 	offset	30 111
 	frame	data/chars/foxy/blockpain01.png
 	offset	34 131
+	bbox	21 26 22 79
 	frame	data/chars/foxy/blockpain02.png
 	offset	17 117
+	bbox	0 12 22 79
 	frame	data/chars/foxy/blockpain03.png
 	offset	19 116
 	frame	data/chars/foxy/blockpain04.png
@@ -461,9 +521,11 @@ anim	blockpain
 	offset	17 117
 	frame	data/chars/foxy/blockpain03.png
 	offset	34 131
+	bbox	21 26 22 79
 	frame	data/chars/foxy/blockpain02.png
 	@cmd	anichange "ANI_BLOCK"
 	offset	30 111
+	bbox	14 12 22 79
 	frame	data/chars/foxy/blockpain01.png
 		
 anim	burn
@@ -489,6 +551,7 @@ anim	burn
 	offset	29 110
 	frame	data/chars/foxy/fall06.png
 	offset	40 54
+	attack	0 0 0 0
 	frame	data/chars/foxy/fall07.png
 	delay	10
 	offset	46 21
@@ -498,36 +561,47 @@ anim	burn
 	frame	data/chars/foxy/fall09.png
 		
 anim	charge
-	delay	6
+	bbox	12 19 25 102
+	delay	9
+	loop	1
+	offset	27 120
 	sound	data/sounds/xclark05.wav
-	bbox	7 10 21 100
-	offset	17 109
-	frame	data/chars/foxy/freespecial29-01.png
-	bbox	7 10 21 100
-	offset	17 109
-	frame	data/chars/foxy/freespecial29-02.png
-	bbox	5 10 23 100
-	offset	16 109
-	frame	data/chars/foxy/freespecial29-03.png
-	bbox	5 10 23 100
-	offset	16 109
-	frame	data/chars/foxy/freespecial29-04.png
-	bbox	6 10 24 100
-	offset	17 109
-	frame	data/chars/foxy/freespecial29-05.png
-	bbox	8 10 24 100
-	offset	19 109
-	frame	data/chars/foxy/freespecial29-06.png
-	bbox	6 10 25 100
-	offset	17 109
-	frame	data/chars/foxy/freespecial29-07.png
-	bbox	6 10 25 100
-	offset	17 109
-	frame	data/chars/foxy/freespecial29-08.png
-	@cmd	updateframe getlocalvar("self") 2
-	bbox	7 10 21 100
-	offset	17 109
-	frame	data/chars/foxy/freespecial29-01.png
+	frame	data/chars/foxy/charge01.png
+	bbox	14 18 25 102
+	delay	7
+	offset	29 119
+	frame	data/chars/foxy/follow17-01.png
+	bbox	31 55 25 102
+	offset	44 156
+	frame	data/chars/foxy/follow17-02.png
+	bbox	35 47 25 102
+	offset	47 148
+	frame	data/chars/foxy/charge02.png
+	bbox	60 36 25 102
+	offset	70 137
+	frame	data/chars/foxy/charge03.png
+	bbox	67 46 25 102
+	offset	72 147
+	frame	data/chars/foxy/charge04.png
+	bbox	65 72 25 102
+	offset	64 173
+	frame	data/chars/foxy/charge05.png
+	bbox	61 70 25 102
+	delay	7
+	offset	60 171
+	frame	data/chars/foxy/charge06.png
+	bbox	60 70 25 102
+	offset	59 171
+	frame	data/chars/foxy/charge07.png
+	bbox	58 70 25 102
+	offset	57 171
+	frame	data/chars/foxy/charge08.png
+	bbox	58 70 25 102
+	offset	57 171
+	frame	data/chars/foxy/charge09.png
+	@cmd	updateframe getlocalvar("self") 7
+	bbox	55 70 25 102
+	frame	data/chars/foxy/charge09.png
 		
 anim	death
 	delay	40
@@ -591,6 +665,7 @@ anim	death
 	frame	data/chars/foxy/rise01.png
 	offset	31 27
 	frame	data/chars/foxy/rise01.png
+	delay	75
 	offset	44 22
 	frame	data/chars/foxy/fall09.png
 	offset	46 21
@@ -614,6 +689,7 @@ anim	fall
 	offset	29 110
 	frame	data/chars/foxy/fall06.png
 	offset	40 54
+	attack	0 0 0 0
 	frame	data/chars/foxy/fall07.png
 	delay	10
 	offset	46 21
@@ -640,6 +716,7 @@ anim	fall2
 	offset	29 110
 	frame	data/chars/foxy/fall06.png
 	offset	40 54
+	attack	0 0 0 0
 	frame	data/chars/foxy/fall07.png
 	delay	10
 	offset	46 21
@@ -788,14 +865,14 @@ anim	follow10
 	frame	data/chars/foxy/follow10-02.png
 	delay	2
 	offset	36 59
-	frame	data/chars/foxy/follow10-03.png
 	attack11	14 43 92 32 50 1 1 0 50 10
+	frame	data/chars/foxy/follow10-03.png
 	delay	3
 	offset	56 68
 	frame	data/chars/foxy/follow10-04.png
+	attack	0 0 0 0 0 0 0 0 0 0
 	offset	44 69
 	frame	data/chars/foxy/follow10-05.png
-	attack	0 0 0 0 0 0 0 0 0 0
 	offset	36 67
 	frame	data/chars/foxy/follow10-06.png
 	delay	6
@@ -1001,7 +1078,6 @@ anim	follow4
 	bbox	0 0 0 0
 	forcedirection	-1
 	fastattack	1
-	seal	15 2
 	move	0
 	@cmd	stop
 	@cmd	clearL
@@ -1016,13 +1092,13 @@ anim	follow4
 	sound	data/sounds/foxyha.wav
 	offset	24 109
 	frame	data/chars/foxy/follow4-05.png
-	attack	35 22 70 79 10 0 1 0 5 20
+	attack	35 22 70 79 5 0 1 0 5 20
 	offset	30 108
 	frame	data/chars/foxy/follow4-06.png
 	attack	0 0 0 0 0 0 0 0 0 0
 	offset	27 108
 	frame	data/chars/foxy/follow4-07.png
-	attack	29 28 54 72 10 0 1 0 5 20
+	attack	29 28 54 72 5 0 1 0 5 20
 	offset	25 108
 	frame	data/chars/foxy/follow4-08.png
 	attack	0 0 0 0 0 0 0 0 0 0
@@ -1033,7 +1109,7 @@ anim	follow4
 	frame	data/chars/foxy/attack02.png
 	offset	39 119
 	frame	data/chars/foxy/attack03.png
-	attack	26 14 69 61 10 0 1 0 0 20
+	attack	26 14 69 61 5 0 1 0 0 20
 	offset	28 117
 	frame	data/chars/foxy/attack04.png
 	attack	0 0 0 0 0 0 0 0 0 0
@@ -1045,7 +1121,7 @@ anim	follow4
 	frame	data/chars/foxy/attack2-03.png
 	offset	37 108
 	frame	data/chars/foxy/attack2-04.png
-	attack	34 14 77 71 20 0 1 0 5 20
+	attack	34 14 77 71 10 0 1 0 5 20
 	offset	36 108
 	frame	data/chars/foxy/attack2-05.png
 	offset	26 110
@@ -1060,7 +1136,7 @@ anim	follow4
 	frame	data/chars/foxy/follow4-10.png
 	offset	17 117
 	frame	data/chars/foxy/follow4-11.png
-	attack	21 6 41 76 19 0 1 0 5 20
+	attack	21 6 41 76 10 0 1 0 5 20
 	offset	19 116
 	frame	data/chars/foxy/follow4-12.png
 	attack	0 0 0 0 0 0 0 0 0 0
@@ -1071,7 +1147,7 @@ anim	follow4
 	offset	36 109
 	frame	data/chars/foxy/attack3-02.png
 	delay	4
-	attack	38 43 33 55 20 0 1 0 8 20
+	attack	38 43 33 55 10 0 1 0 8 20
 	offset	38 108
 	frame	data/chars/foxy/attack3-03.png
 	@cmd	spawnbind2 "foxypw" 1 1 0 "ANI_FOLLOW4"
@@ -1080,7 +1156,7 @@ anim	follow4
 	frame	data/chars/foxy/attack3-04.png
 	offset	44 150
 	frame	data/chars/foxy/attack3-05.png
-	attack	41 21 53 97 20 0 1 0 8 20
+	attack	41 21 53 97 10 0 1 0 8 20
 	offset	43 145
 	frame	data/chars/foxy/attack3-06.png
 	attack	0 0 0 0 0 0 0 0 0 0
@@ -1119,7 +1195,7 @@ anim	follow4
 	frame	data/chars/foxy/attack7-06.png
 	offset	33 101
 	frame	data/chars/foxy/attack7-07.png
-	attack	36 21 99 58 40 0 1 0 10 20
+	attack	36 21 99 58 20 0 1 0 10 20
 	offset	23 101
 	frame	data/chars/foxy/attack7-08.png
 	attack	0 0 0 0 0 0 0 0 0 0
@@ -1133,73 +1209,73 @@ anim	follow4
 	hitfx	data/sounds/sl1.wav
 	offset	17 109
 	frame	data/chars/foxy/freespecial29-01.png
-	attack	46 9 63 74 10 0 1 0 5 20
+	attack	46 9 63 74 5 0 1 0 5 20
 	offset	17 109
 	frame	data/chars/foxy/freespecial29-02.png
 	attack	0 0 0 0 0 0 0 0 0 0
 	offset	16 109
 	frame	data/chars/foxy/freespecial29-03.png
-	attack	20 15 59 67 10 0 1 0 5 20
+	attack	20 15 59 67 5 0 1 0 5 20
 	offset	16 109
 	frame	data/chars/foxy/freespecial29-04.png
 	attack	0 0 0 0 0 0 0 0 0 0
 	offset	17 109
 	frame	data/chars/foxy/freespecial29-05.png
-	attack	18 2 45 85 10 0 1 0 5 20
+	attack	18 2 45 85 5 0 1 0 5 20
 	offset	19 109
 	frame	data/chars/foxy/freespecial29-06.png
 	attack	0 0 0 0 0 0 0 0 0 0
 	offset	17 109
 	frame	data/chars/foxy/freespecial29-07.png
-	attack	17 11 67 80 10 0 1 0 5 20
+	attack	17 11 67 80 5 0 1 0 5 20
 	offset	17 109
 	frame	data/chars/foxy/freespecial29-08.png
 	attack	0 0 0 0 0 0 0 0 0 0
 	offset	17 109
 	frame	data/chars/foxy/freespecial29-01.png
-	attack	18 10 92 81 10 0 1 0 5 20
+	attack	18 10 92 81 5 0 1 0 5 20
 	offset	17 109
 	frame	data/chars/foxy/freespecial29-02.png
 	attack	0 0 0 0 0 0 0 0 1 0
 	offset	16 109
 	frame	data/chars/foxy/freespecial29-03.png
-	attack	16 13 63 76 10 0 1 0 5 20
+	attack	16 13 63 76 5 0 1 0 5 20
 	offset	16 109
 	frame	data/chars/foxy/freespecial29-04.png
 	attack	0 0 0 0 0 0 0 0 0 0
 	offset	17 109
 	frame	data/chars/foxy/freespecial29-05.png
-	attack	18 2 43 79 10 0 1 0 5 20
+	attack	18 2 43 79 5 0 1 0 5 20
 	offset	19 109
 	frame	data/chars/foxy/freespecial29-06.png
 	attack	0 0 0 0 0 0 0 0 0 0
 	offset	17 109
 	frame	data/chars/foxy/freespecial29-07.png
-	attack	16 14 67 79 10 0 1 0 5 20
+	attack	16 14 67 79 5 0 1 0 5 20
 	offset	17 109
 	frame	data/chars/foxy/freespecial29-08.png
 	attack	0 0 0 0 0 0 0 0 0 0
 	offset	17 109
 	frame	data/chars/foxy/freespecial29-01.png
-	attack	17 11 93 80 10 0 1 0 5 20
+	attack	17 11 93 80 5 0 1 0 5 20
 	offset	17 109
 	frame	data/chars/foxy/freespecial29-02.png
 	attack	0 0 0 0 0 0 0 0 0 0
 	offset	16 109
 	frame	data/chars/foxy/freespecial29-03.png
-	attack	15 14 64 76 10 0 1 0 5 20
+	attack	15 14 64 76 5 0 1 0 5 20
 	offset	16 109
 	frame	data/chars/foxy/freespecial29-04.png
 	attack	0 0 0 0 0 0 0 0 0 0
 	offset	17 109
 	frame	data/chars/foxy/freespecial29-05.png
-	attack	16 2 44 74 10 0 1 0 5 20
+	attack	16 2 44 74 5 0 1 0 5 20
 	offset	19 109
 	frame	data/chars/foxy/freespecial29-06.png
 	attack	0 0 0 0 0 0 0 0 0 0
 	offset	17 109
 	frame	data/chars/foxy/freespecial29-07.png
-	attack	15 13 68 78 10 0 1 0 5 20
+	attack	15 13 68 78 5 0 1 0 5 20
 	offset	17 109
 	frame	data/chars/foxy/freespecial29-08.png
 	attack	0 0 0 0 0 0 0 0 0 0
@@ -1211,7 +1287,7 @@ anim	follow4
 	offset	43 77
 	frame	data/chars/foxy/freespecial9-01.png
 	sound	data/sounds/foxykire.wav
-	attack	55 11 52 65 20 1 1 0 10 20
+	attack	53 0 52 65 10 1 1 0 10 20
 	offset	38 92
 	frame	data/chars/foxy/freespecial9-02.png
 	attack	0 0 0 0 0 0 0 0 0 0
@@ -1219,14 +1295,15 @@ anim	follow4
 	offset	56 136
 	frame	data/chars/foxy/freespecial9-03.png
 	sound	data/sounds/blade.wav
-	blast	-2 -2 123 114 40 1 1 0 10 20
+	blast	-2 -2 123 155 100 1 1 1 40 40
 	dropv	3 3 0
 	offset	58 161
 	frame	data/chars/foxy/freespecial9-04.png
-	attack	0 0 0 0 0 0 0 0 0 0
 	offset	68 161
+	blast	-2 -2 127 164 100 1 1 1 40 40
+	dropv	3 3 0
 	frame	data/chars/foxy/freespecial9-05.png
-	blast	-2 -2 118 153 20 1 1 0 10 20
+	blast	-2 -2 125 153 100 1 1 1 40 40
 	dropv	3 3 0
 	offset	69 152
 	frame	data/chars/foxy/freespecial9-06.png
@@ -1316,7 +1393,7 @@ anim	freespecial1
 	hitfx	data/sounds/sl2.wav
 	frame	data/chars/foxy/freespecial1-06.png
 	sound	data/sounds/slashsabre.wav
-	attack	43 -2 70 126 25 1 1 0 10 20
+	attack	43 -2 70 126 30 1 1 0 10 20
 	dropv	6.5 0.5
 	delay	4
 	offset	51 112
@@ -1366,12 +1443,64 @@ anim	freespecial12
 	frame	data/chars/foxy/freespecial12-02.png
 	sound	data/sounds/slashsabre.wav
 	offset	92 164
+	attack	0 0 164 96 60 1 1 0 40 20
 	frame	data/chars/foxy/freespecial12-03.png
 	attack	37 -2 122 197 60 1 1 0 40 20
 	dropv	1.5 4
 	offset	77 164
 	frame	data/chars/foxy/freespecial12-04.png
 	offset	92 165
+	attack	0 86 170 107 60 1 1 0 40 20
+	frame	data/chars/foxy/freespecial12-05.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	offset	92 166
+	frame	data/chars/foxy/freespecial12-06.png
+	offset	93 118
+	frame	data/chars/foxy/freespecial12-07.png
+	offset	93 125
+	frame	data/chars/foxy/freespecial12-08.png
+	offset	54 108
+	frame	data/chars/foxy/freespecial12-09.png
+	delay	300
+	offset	61 109
+	frame	data/chars/foxy/freespecial12-10.png
+	delay	4
+	offset	28 93
+	frame	data/chars/foxy/jumpdelay01.png
+	offset	42 65
+	frame	data/chars/foxy/get02.png
+	offset	36 61
+	frame	data/chars/foxy/get03.png
+	offset	28 93
+	frame	data/chars/foxy/jumpdelay01.png
+		
+anim	freespecial13
+	staydown	500 500
+	loop	0
+	forcedirection	-1
+	jumpframe	0 3.5 1
+	landframe	11
+	delay	4
+	bbox	0 0 0 0
+	offset	43 108
+	hitfx	data/sounds/beat4.wav
+	frame	data/chars/foxy/forwardjump01.png
+	delay	7
+	offset	81 113
+	frame	data/chars/foxy/freespecial12-01.png
+	delay	4
+	offset	87 137
+	frame	data/chars/foxy/freespecial12-02.png
+	sound	data/sounds/slashsabre.wav
+	offset	92 164
+	attack	0 0 164 96 60 1 1 0 40 20
+	frame	data/chars/foxy/freespecial12-03.png
+	attack	37 -2 122 197 60 1 1 0 40 20
+	dropv	1.5 4
+	offset	77 164
+	frame	data/chars/foxy/freespecial12-04.png
+	offset	92 165
+	attack	0 86 170 107 60 1 1 0 40 20
 	frame	data/chars/foxy/freespecial12-05.png
 	attack	0 0 0 0 0 0 0 0 0 0
 	offset	92 166
@@ -1396,91 +1525,63 @@ anim	freespecial12
 	frame	data/chars/foxy/jumpdelay01.png
 		
 anim	freespecial15
-	cancel	2 25 0 d f j freespecial6
-	cancel	2 25 0 d f s freespecial7
-	cancel	2 25 0 d f a freespecial9
 	delay	8
-	bbox	7 10 21 100
 	offset	17 109
 	sound	data/sounds/foxybum.wav
 	frame	data/chars/foxy/freespecial29-01.png
-	bbox	7 10 21 100
 	offset	17 109
 	frame	data/chars/foxy/freespecial29-02.png
-	bbox	5 10 23 100
 	offset	16 109
 	frame	data/chars/foxy/freespecial29-03.png
-	bbox	5 10 23 100
 	offset	16 109
 	frame	data/chars/foxy/freespecial29-04.png
-	bbox	6 10 24 100
 	offset	17 109
 	frame	data/chars/foxy/freespecial29-05.png
-	bbox	8 10 24 100
 	offset	19 109
 	frame	data/chars/foxy/freespecial29-06.png
-	bbox	6 10 25 100
 	offset	17 109
 	frame	data/chars/foxy/freespecial29-07.png
-	bbox	6 10 25 100
 	offset	17 109
 	frame	data/chars/foxy/freespecial29-08.png
-	bbox	7 10 21 100
 	offset	17 109
 	frame	data/chars/foxy/freespecial29-01.png
-	bbox	7 10 21 100
 	offset	17 109
 	frame	data/chars/foxy/freespecial29-02.png
-	bbox	5 10 23 100
 	offset	16 109
 	frame	data/chars/foxy/freespecial29-03.png
-	bbox	5 10 23 100
 	offset	16 109
 	frame	data/chars/foxy/freespecial29-04.png
-	bbox	6 10 24 100
 	offset	17 109
 	frame	data/chars/foxy/freespecial29-05.png
-	bbox	8 10 24 100
 	offset	19 109
 	frame	data/chars/foxy/freespecial29-06.png
-	bbox	6 10 25 100
 	offset	17 109
 	frame	data/chars/foxy/freespecial29-07.png
-	bbox	6 10 25 100
 	offset	17 109
 	frame	data/chars/foxy/freespecial29-08.png
-	bbox	7 10 21 100
 	offset	17 109
 	frame	data/chars/foxy/freespecial29-01.png
-	bbox	7 10 21 100
 	offset	17 109
 	frame	data/chars/foxy/freespecial29-02.png
-	bbox	5 10 23 100
 	offset	16 109
 	frame	data/chars/foxy/freespecial29-03.png
-	bbox	5 10 23 100
 	offset	16 109
 	frame	data/chars/foxy/freespecial29-04.png
-	bbox	6 10 24 100
 	offset	17 109
 	frame	data/chars/foxy/freespecial29-05.png
-	bbox	8 10 24 100
 	offset	19 109
 	frame	data/chars/foxy/freespecial29-06.png
-	bbox	6 10 25 100
 	offset	17 109
 	frame	data/chars/foxy/freespecial29-07.png
-	bbox	6 10 25 100
 	offset	17 109
 	frame	data/chars/foxy/freespecial29-08.png
-	delay	199
-	bbox	7 10 21 100
+	delay	50
 	offset	17 109
 	frame	data/chars/foxy/freespecial29-01.png
 		
 anim	freespecial2
 	staydown	300 300
-	energycost	7
+	energycost	5
 	mponly	1
 	fastattack	1
 	loop	0
@@ -1492,7 +1593,7 @@ anim	freespecial2
 	offset	43 77
 	frame	data/chars/foxy/freespecial9-01.png
 	sound	data/sounds/foxykire.wav
-	attack	55 11 52 65 20 1 1 0 10 20
+	attack	55 11 52 65 10 1 1 0 10 20
 	delay	6
 	offset	38 92
 	frame	data/chars/foxy/freespecial9-02.png
@@ -1502,7 +1603,7 @@ anim	freespecial2
 	offset	56 136
 	frame	data/chars/foxy/freespecial9-03.png
 	sound	data/sounds/blade.wav
-	blast	-2 -2 123 114 40 1 1 0 10 20
+	blast	-2 -2 123 114 25 1 1 0 10 30
 	dropv	3 3 0
 	offset	58 161
 	frame	data/chars/foxy/freespecial9-04.png
@@ -1510,7 +1611,7 @@ anim	freespecial2
 	delay	5
 	offset	68 161
 	frame	data/chars/foxy/freespecial9-05.png
-	blast	-2 -2 118 153 20 1 1 0 10 20
+	blast	-2 -2 118 153 25 1 1 0 10 30
 	dropv	3 3 0
 	delay	6
 	offset	69 152
@@ -1617,7 +1718,7 @@ anim	freespecial26
 	@cmd	keymove 1.5
 	offset	33 88
 	frame	data/chars/foxy/freespecial26-08.png
-	attack	64 -3 62 52 200 1 1 0 50 20
+	attack	64 -3 62 52 150 1 1 0 50 20
 	dropv	3 4
 	offset	34 84
 	frame	data/chars/foxy/freespecial26-09.png
@@ -1634,6 +1735,8 @@ anim	freespecial26
 	@cmd	keymove 1.5
 	offset	33 85
 	frame	data/chars/foxy/freespecial26-10.png
+	attack	64 -3 96 52 150 1 1 0 50 20
+	dropv	3 4
 	offset	46 78
 	frame	data/chars/foxy/freespecial26-11.png
 	@cmd	keymove 1.5
@@ -1731,7 +1834,7 @@ anim	freespecial27
 	bbox	0 0 0 0
 	fastattack	1
 	forcedirection	-1
-	seal	15 2
+	seal	15 1
 	followanim	4
 	followcond	1
 	hitfx	data/sounds/empty.wav
@@ -1746,7 +1849,7 @@ anim	freespecial27
 	frame	data/chars/foxy/freespecial27-03.png
 	move	7
 	@cmd	keymove 1.2
-	attack	48 0 39 100 0 0 1 0 8 20
+	attack	48 0 55 100 0 0 1 0 8 20
 	delay	2
 	offset	56 109
 	sound	data/sounds/foxyshoki.wav
@@ -1898,54 +2001,45 @@ anim	freespecial29
 	int mp1 = getentityproperty(self,"mp");
 	void plyr = getentityproperty(self, "playerindex");
 
-	if(frame >= 10 && playerkeys(plyr, 0, "attack3"))
+	if(frame >= 8 && playerkeys(plyr, 0, "attack3"))
 	{
-	  updateframe(self, 8);
+	  updateframe(self, 1);
 	}
 	@end_script	
-	bbox	12 19 25 102
-	delay	9
 	loop	0
-	offset	27 120
+	delay	6
 	sound	data/sounds/xclark05.wav
-	frame	data/chars/foxy/charge01.png
-	bbox	14 18 25 102
-	delay	7
-	offset	29 119
-	frame	data/chars/foxy/follow17-01.png
-	bbox	31 55 25 102
-	offset	44 156
-	frame	data/chars/foxy/follow17-02.png
-	bbox	35 47 25 102
-	offset	47 148
-	frame	data/chars/foxy/charge02.png
-	bbox	60 36 25 102
-	offset	70 137
-	frame	data/chars/foxy/charge03.png
-	bbox	67 46 25 102
-	offset	72 147
-	frame	data/chars/foxy/charge04.png
-	bbox	65 72 25 102
-	offset	64 173
-	frame	data/chars/foxy/charge05.png
-	bbox	61 70 25 102
-	delay	7
-	offset	60 171
-	frame	data/chars/foxy/charge06.png
+	bbox	7 10 21 100
+	offset	17 109
+	frame	data/chars/foxy/freespecial29-01.png
+	bbox	7 10 21 100
+	offset	17 109
+	frame	data/chars/foxy/freespecial29-02.png
+	bbox	5 10 23 100
+	offset	16 109
+	frame	data/chars/foxy/freespecial29-03.png
+	bbox	5 10 23 100
+	offset	16 109
+	frame	data/chars/foxy/freespecial29-04.png
+	bbox	6 10 24 100
+	offset	17 109
+	frame	data/chars/foxy/freespecial29-05.png
+	bbox	8 10 24 100
+	offset	19 109
 	@cmd	mpgain 2
-	bbox	60 70 25 102
-	offset	59 171
-	frame	data/chars/foxy/charge07.png
-	bbox	58 70 25 102
-	offset	57 171
-	frame	data/chars/foxy/charge08.png
-	bbox	58 70 25 102
-	offset	57 171
-	frame	data/chars/foxy/charge09.png
-	bbox	55 70 25 102
+	frame	data/chars/foxy/freespecial29-06.png
+	bbox	6 10 25 100
+	offset	17 109
+	frame	data/chars/foxy/freespecial29-07.png
+	bbox	6 10 25 100
+	offset	17 109
+	frame	data/chars/foxy/freespecial29-08.png
+	bbox	7 10 21 100
+	offset	17 109
+	frame	data/chars/foxy/freespecial29-01.png
 		
 anim	freespecial3
-	energycost	5
+	energycost	10
 	mponly	1
 	loop	0
 	jumpframe	1 3 2
@@ -1968,18 +2062,18 @@ anim	freespecial3
 	offset	73 85
 	frame	data/chars/foxy/freespecial3-02.png
 	sound	data/sounds/slashsabre.wav
-	attack	8 0 110 117 25 1 1 0 8 20
+	attack	8 0 110 117 60 1 1 0 10 30
 	dropv	6 0
 	offset	74 148
 	frame	data/chars/foxy/freespecial3-03.png
 	@cmd	spawnbind2 "foxypw" 1 -1 0 "ANI_FOLLOW3"
 	delay	2
-	attack	15 0 140 145 25 1 1 0 8 20
+	attack	15 0 140 145 60 1 1 0 10 30
 	dropv	6 0
 	offset	64 118
 	frame	data/chars/foxy/freespecial3-04.png
 	delay	4
-	attack	-2 -2 169 174 25 1 1 0 8 20
+	attack	-2 -2 169 174 60 1 1 0 10 30
 	dropv	6 0
 	offset	83 146
 	frame	data/chars/foxy/freespecial3-05.png
@@ -1995,7 +2089,6 @@ anim	freespecial3
 	delay	3
 	offset	37 99
 	frame	data/chars/foxy/freespecial3-10.png
-	bbox	47 23 33 96
 	delay	300
 	offset	57 125
 	frame	data/chars/foxy/freespecial3-11.png
@@ -2012,7 +2105,7 @@ anim	freespecial3
 	frame	data/chars/foxy/jumpdelay01.png
 		
 anim	freespecial4
-	energycost	5
+	energycost	7
 	mponly	1
 	loop	0
 	jumpframe	0 1 2
@@ -2022,18 +2115,19 @@ anim	freespecial4
 	offset	73 85
 	frame	data/chars/foxy/freespecial3-02.png
 	sound	data/sounds/slashsabre.wav
-	attack	8 0 110 117 25 1 1 0 8 20
+	attack	8 0 110 117 60 1 1 0 8 20
 	dropv	6 0
 	offset	74 148
 	frame	data/chars/foxy/freespecial3-03.png
+	bbox	0 0 0 0
 	@cmd	spawnbind2 "foxypw" 1 -1 0 "ANI_FOLLOW3"
 	delay	2
-	attack	15 0 140 145 25 1 1 0 8 20
+	attack	15 0 140 145 60 1 1 0 8 20
 	dropv	6 0
 	offset	64 118
 	frame	data/chars/foxy/freespecial3-04.png
 	delay	4
-	attack	-2 -2 169 174 25 1 1 0 8 20
+	attack	-2 -2 169 174 60 1 1 0 8 20
 	dropv	6 0
 	offset	83 146
 	frame	data/chars/foxy/freespecial3-05.png
@@ -2049,7 +2143,6 @@ anim	freespecial4
 	delay	3
 	offset	37 99
 	frame	data/chars/foxy/freespecial3-10.png
-	bbox	47 23 33 96
 	delay	300
 	offset	57 125
 	frame	data/chars/foxy/freespecial3-11.png
@@ -2066,7 +2159,7 @@ anim	freespecial4
 	frame	data/chars/foxy/jumpdelay01.png
 		
 anim	freespecial6
-	energycost	5
+	energycost	3
 	mponly	1
 	loop	0
 	cancel	1 8 0 j freespecial1
@@ -2080,7 +2173,7 @@ anim	freespecial6
 	@cmd	dasher 2 0 0
 	offset	39 92
 	frame	data/chars/foxy/freespecial6-02.png
-	attack	60 8 40 73 12 0 1 0 8 10
+	attack	60 8 40 73 25 0 1 0 8 10
 	delay	6
 	offset	38 84
 	frame	data/chars/foxy/freespecial6-03.png
@@ -2104,7 +2197,7 @@ anim	freespecial6
 	frame	data/chars/foxy/freespecial6-01.png
 		
 anim	freespecial7
-	energycost	10
+	energycost	7
 	mponly	1
 	bbox	17 16 26 98
 	delay	26
@@ -2149,6 +2242,7 @@ anim	freespecial7
 	frame	data/chars/foxy/freespecial7-12.png
 	delay	7
 	offset	43 93
+	bbox	42 13 30 63
 	@cmd	projectile 1 "foxypw" 1 1 0
 	sound	data/sounds/laser5.wav
 	frame	data/chars/foxy/freespecial7-13.png
@@ -2160,11 +2254,11 @@ anim	freespecial7
 	frame	data/chars/foxy/freespecial7-15.png
 		
 anim	freespecial8
-	energycost	7
+	energycost	10
 	mponly	1
 	loop	0
 	forcedirection	-1
-	bbox	26 26 20 100
+	bbox	0 0 0 0
 	delay	4
 	offset	34 125
 	@cmd	dasher 1.5 0 0
@@ -2186,7 +2280,7 @@ anim	freespecial8
 	delay	4
 	offset	56 93
 	frame	data/chars/foxy/runattack01.png
-	attack	70 21 104 45 60 0 1 0 40 20
+	attack	70 21 104 45 20 0 1 0 40 20
 	dropv	2 3 0
 	delay	9
 	offset	51 95
@@ -2201,7 +2295,6 @@ anim	freespecial8
 	@cmd	stop
 	offset	39 118
 	frame	data/chars/foxy/attack5-10.png
-	bbox	11 21 24 101
 	offset	24 121
 	frame	data/chars/foxy/attack7-01.png
 	offset	27 119
@@ -2232,7 +2325,7 @@ anim	freespecial8
 	frame	data/chars/foxy/attack7-11.png
 		
 anim	freespecial9
-	energycost	5
+	energycost	7
 	mponly	1
 	fastattack	1
 	loop	0
@@ -2244,7 +2337,7 @@ anim	freespecial9
 	offset	43 77
 	frame	data/chars/foxy/freespecial9-01.png
 	sound	data/sounds/foxykire.wav
-	attack	55 11 52 65 20 1 1 0 10 20
+	attack	55 11 52 65 10 1 1 0 10 20
 	delay	6
 	offset	38 92
 	frame	data/chars/foxy/freespecial9-02.png
@@ -2254,7 +2347,7 @@ anim	freespecial9
 	offset	56 136
 	frame	data/chars/foxy/freespecial9-03.png
 	sound	data/sounds/blade.wav
-	blast	-2 -2 123 114 40 1 1 0 10 20
+	blast	-2 -2 123 114 25 1 1 0 10 30
 	dropv	3 3 0
 	offset	58 161
 	frame	data/chars/foxy/freespecial9-04.png
@@ -2262,7 +2355,7 @@ anim	freespecial9
 	delay	5
 	offset	68 161
 	frame	data/chars/foxy/freespecial9-05.png
-	blast	-2 -2 118 153 20 1 1 0 10 20
+	blast	-2 -2 118 153 25 1 1 0 10 30
 	dropv	3 3 0
 	delay	6
 	offset	69 152
@@ -2317,7 +2410,6 @@ anim	grabattack
 	loop	0
 	offset	29 109
 	frame	data/chars/foxy/grab01.png
-	attack	0 0 0 0 0 0 0 0 0 0
 	offset	29 108
 	frame	data/chars/foxy/grabattack01.png
 	delay	10
@@ -2328,6 +2420,7 @@ anim	grabattack
 anim	grabattack2
 	loop	0
 	delay	7
+	attackone	0
 	offset	36 108
 	hitfx	data/sounds/beat5.wav
 	frame	data/chars/foxy/grabattack2-01.png
@@ -2340,7 +2433,7 @@ anim	grabattack2
 	delay	6
 	offset	81 100
 	frame	data/chars/foxy/grabattack2-04.png
-	blast	66 15 92 49 20 1 1 0 30 10
+	blast	66 15 92 49 30 1 1 0 30 10
 	dropv	3 3 0
 	delay	12
 	offset	80 102
@@ -2386,11 +2479,12 @@ anim	grabbackward
 	frame	data/chars/foxy/grabbackward05.png
 	sound	data/sounds/foxyhep.wav
 	offset	12 94
-	frame	data/chars/foxy/grabbackward06.png
 	blast	52 9 112 51 40 1 0 0 30 10
+	frame	data/chars/foxy/grabbackward06.png
 	offset	12 94
 	frame	data/chars/foxy/grabbackward07.png
 	offset	19 100
+	attack	0 0 0 0
 	frame	data/chars/foxy/grabbackward08.png
 	offset	39 108
 	frame	data/chars/foxy/attack5-09.png
@@ -2407,6 +2501,7 @@ anim	grabbed
 anim	grabdown
 	delay	6
 	loop	0
+	attackone	0
 	offset	38 60
 	hitfx	data/sounds/sl2.wav
 	frame	data/chars/foxy/grabup01.png
@@ -2443,7 +2538,6 @@ anim	grabforward
 	offset	33 110
 	loop	0
 	frame	data/chars/foxy/grabforward01.png
-	attack	0 0 0 0 0 0 0 0 0 0
 	offset	46 110
 	frame	data/chars/foxy/grabforward02.png
 	delay	13
@@ -2451,8 +2545,57 @@ anim	grabforward
 	offset	44 110
 	frame	data/chars/foxy/grabforward03.png
 		
+anim	grabforward2
+	loop	0
+	delay	7
+	attackone	0
+	offset	36 108
+	hitfx	data/sounds/beat5.wav
+	frame	data/chars/foxy/grabattack2-01.png
+	delay	4
+	offset	41 107
+	frame	data/chars/foxy/grabattack2-02.png
+	delay	7
+	offset	36 123
+	frame	data/chars/foxy/grabattack2-03.png
+	delay	6
+	offset	81 100
+	frame	data/chars/foxy/grabattack2-04.png
+	blast	66 15 92 49 30 1 1 0 30 10
+	dropv	3 3 0
+	delay	12
+	offset	80 102
+	frame	data/chars/foxy/grabattack2-05.png
+	attack	0 0 0 0 0 0 0 0 0 0
+	delay	4
+	offset	36 123
+	frame	data/chars/foxy/grabattack2-03.png
+	offset	41 107
+	frame	data/chars/foxy/grabattack2-02.png
+	offset	36 108
+	frame	data/chars/foxy/grabattack2-01.png
+		
 anim	idle
-	loop	1
+	loop	0
+	delay	15
+	bbox	20 27 29 97
+	offset	36 123
+	frame	data/chars/foxy/idle12.png
+	delay	4
+	bbox	20 23 29 99
+	offset	35 121
+	frame	data/chars/foxy/idle13.png
+	bbox	23 21 29 99
+	offset	39 119
+	frame	data/chars/foxy/idle14.png
+	delay	10
+	bbox	13 19 29 99
+	offset	28 117
+	frame	data/chars/foxy/idle15.png
+	delay	70
+	bbox	7 20 30 99
+	offset	23 118
+	frame	data/chars/foxy/idle16.png
 	delay	9
 	offset	30 110
 	bbox	16 14 27 97
@@ -2526,35 +2669,8 @@ anim	idle
 	bbox	8 14 29 97
 	offset	24 109
 	frame	data/chars/foxy/idle11.png
-	bbox	9 14 27 97
-	offset	23 110
-	frame	data/chars/foxy/idle04.png
-	bbox	9 14 27 97
-	offset	23 110
-	frame	data/chars/foxy/idle05.png
-	delay	30
-	bbox	9 14 27 97
-	offset	23 110
-	frame	data/chars/foxy/idle06.png
-	delay	31
-	bbox	20 27 29 97
-	offset	36 123
-	frame	data/chars/foxy/idle12.png
-	delay	4
-	bbox	20 23 29 99
-	offset	35 121
-	frame	data/chars/foxy/idle13.png
-	bbox	23 21 29 99
-	offset	39 119
-	frame	data/chars/foxy/idle14.png
-	delay	10
-	bbox	13 19 29 99
-	offset	28 117
-	frame	data/chars/foxy/idle15.png
-	delay	70
-	bbox	7 20 30 99
-	offset	23 118
-	frame	data/chars/foxy/idle16.png
+	@cmd	updateframe getlocalvar("self") 8
+	frame	data/chars/foxy/idle11.png
 		
 anim	jump
 	cancel	2 10 0 d f a freespecial4
@@ -2632,9 +2748,11 @@ anim	jumpattack2
 	frame	data/chars/foxy/jumpattack2-02.png
 	delay	7
 	offset	45 116
+	bbox	34 18 35 52
 	frame	data/chars/foxy/jumpattack2-03.png
 	attack	23 65 52 55 12 0 1 0 35 10
 	offset	37 117
+	bbox	23 18 35 52
 	frame	data/chars/foxy/jumpattack2-04.png
 		
 anim	jumpattack3
@@ -2652,39 +2770,52 @@ anim	jumpattack3
 	offset	26 107
 	frame	data/chars/foxy/jumpattack3-01.png
 	offset	30 108
+	bbox	13 16 29 56
 	frame	data/chars/foxy/jumpattack3-02.png
 	offset	34 105
+	bbox	18 12 29 58
 	frame	data/chars/foxy/jumpattack3-03.png
 	delay	500
 	attack	24 49 89 69 25 1 1 0 35 15
 	offset	41 105
+	bbox	25 21 29 54
 	frame	data/chars/foxy/jumpattack3-04.png
 	offset	49 110
 	frame	data/chars/foxy/jumpattack3-05.png
 	delay	7
 	offset	28 93
+	bbox	13 21 29 69
 	frame	data/chars/foxy/jumpdelay01.png
 	attack	0 0 0 0 0 0 0 0 0 0
 	offset	42 65
+	bbox	27 11 29 52
 	frame	data/chars/foxy/get02.png
 	offset	36 61
+	bbox	20 11 29 52
 	frame	data/chars/foxy/get03.png
 	offset	28 93
+	bbox	14 22 29 52
 	frame	data/chars/foxy/jumpdelay01.png
 		
 anim	jumpdelay
+	bbox	9 12 34 70
 	offset	28 93
 	frame	data/chars/foxy/jumpdelay01.png
 	offset	34 110
+	bbox	16 17 34 70
 	frame	data/chars/foxy/jumpdelay02.png
 		
 anim	jumpland
+	bbox	12 18 34 61
 	offset	28 93
 	frame	data/chars/foxy/jumpdelay01.png
+	bbox	31 16 23 46
 	offset	42 65
 	frame	data/chars/foxy/get02.png
+	bbox	23 14 25 38
 	offset	36 61
 	frame	data/chars/foxy/get03.png
+	bbox	15 21 29 57
 	offset	28 93
 	frame	data/chars/foxy/jumpdelay01.png
 		
@@ -2693,11 +2824,14 @@ anim	pain
 	offset	21 109
 	bbox	6 12 25 98
 	frame	data/chars/foxy/pain01.png
+	bbox	18 18 28 81
 	sound	data/sounds/foxypain.wav
 	offset	32 109
 	frame	data/chars/foxy/pain02.png
+	bbox	24 18 28 71
 	offset	43 102
 	frame	data/chars/foxy/pain03.png
+	bbox	28 15 31 69
 	offset	53 95
 	frame	data/chars/foxy/pain04.png
 		
@@ -2707,11 +2841,13 @@ anim	pain2
 	loop	0
 	offset	21 109
 	frame	data/chars/foxy/pain2-01.png
+	bbox	12 16 33 60
 	sound	data/sounds/foxypain1.wav
 	offset	35 90
 	frame	data/chars/foxy/pain2-02.png
 	offset	39 81
 	frame	data/chars/foxy/pain2-03.png
+	bbox	5 20 32 72
 	offset	26 106
 	frame	data/chars/foxy/pain2-04.png
 		
@@ -2721,17 +2857,21 @@ anim	pain3
 	bbox	6 12 25 98
 	move	-6
 	frame	data/chars/foxy/pain01.png
+	bbox	16 15 30 81
 	offset	32 109
 	frame	data/chars/foxy/pain02.png
+	bbox	22 15 31 69
 	offset	43 102
 	frame	data/chars/foxy/pain03.png
 	sound	data/sounds/foxypain.wav
 	move	-3
 	offset	53 95
 	frame	data/chars/foxy/pain04.png
+	bbox	4 18 30 78
 	move	-3
 	offset	21 109
 	frame	data/chars/foxy/pain01.png
+	bbox	18 17 26 79
 	delay	50
 	offset	32 109
 	frame	data/chars/foxy/pain02.png
@@ -2744,17 +2884,21 @@ anim	pain5
 	frame	data/chars/foxy/pain5-01.png
 	offset	43 102
 	frame	data/chars/foxy/pain5-02.png
+	bbox	16 18 30 76
 	sound	data/sounds/foxypain2.wav
 	offset	32 109
 	frame	data/chars/foxy/pain5-03.png
+	bbox	3 18 32 79
 	offset	21 109
 	frame	data/chars/foxy/pain5-04.png
 	offset	26 106
 	frame	data/chars/foxy/pain5-05.png
+	bbox	10 17 35 59
 	move	0
 	delay	25
 	offset	35 90
 	frame	data/chars/foxy/pain5-06.png
+	bbox	15 14 30 55
 	offset	39 81
 	frame	data/chars/foxy/pain5-07.png
 		
@@ -2862,31 +3006,36 @@ anim	runattack
 	@cmd	dasher 1.5 0 0
 	hitfx	data/sounds/sl2.wav
 	frame	data/chars/foxy/attack5-01.png
+	bbox	22 19 32 70
 	move	3
 	move	3
 	delay	2
 	offset	40 103
 	frame	data/chars/foxy/attack5-02.png
+	bbox	35 12 34 70
 	movez	0
 	movea	0
 	move	3
 	offset	54 100
 	sound	data/sounds/foxyieah.wav
 	frame	data/chars/foxy/attack5-03.png
+	bbox	52 14 31 60
 	offset	56 100
 	frame	data/chars/foxy/attack5-04.png
 	delay	4
 	offset	56 93
 	frame	data/chars/foxy/runattack01.png
-	attack	70 21 104 45 60 1 1 0 40 20
+	attack	70 21 104 45 30 1 1 0 40 20
 	dropv	2 3 0
 	delay	9
 	offset	51 95
 	frame	data/chars/foxy/runattack02.png
+	bbox	27 17 39 64
 	attack	0 0 0 0 0 0 0 0 0 0
 	delay	7
 	offset	41 100
 	frame	data/chars/foxy/runattack03.png
+	bbox	28 12 29 89
 	move	0
 	offset	39 108
 	frame	data/chars/foxy/attack5-09.png
@@ -2904,25 +3053,30 @@ anim	runjumpattack
 	delay	6
 	offset	33 123
 	frame	data/chars/foxy/runjumpattack01.png
-	attack	44 15 84 57 60 1 1 0 50 20
+	bbox	30 9 30 70
+	attack	44 15 84 57 25 1 1 0 50 20
 	offset	34 114
 	frame	data/chars/foxy/runjumpattack02.png
 	attack	0 0 0 0 0 0 0 0 0 0
 	delay	7
 	offset	31 109
 	frame	data/chars/foxy/runjumpattack03.png
+	bbox	14 18 35 53
 	offset	21 124
 	frame	data/chars/foxy/runjumpattack04.png
 	sound	data/sounds/foxyeah.wav
 	offset	18 125
 	frame	data/chars/foxy/runjumpattack05.png
+	bbox	10 30 53 42
 	delay	4
 	offset	41 143
 	frame	data/chars/foxy/runjumpattack06.png
+	bbox	18 11 49 42
 	attack	46 39 54 70 15 1 1 0 30 20
 	delay	6
 	offset	55 125
 	frame	data/chars/foxy/runjumpattack07.png
+	bbox	31 22 29 80
 	attack	0 0 0 0 0 0 0 0 0 0
 	offset	35 125
 	frame	data/chars/foxy/runjumpattack08.png
@@ -2940,6 +3094,7 @@ anim	runjumpattack
 	frame	data/chars/foxy/jump06.png
 		
 anim	runslide
+	bbox	9 13 32 71
 	loop	0
 	forcedirection	-1
 	hitfx	data/sounds/beat5.wav
@@ -2947,10 +3102,13 @@ anim	runslide
 	delay	7
 	offset	28 93
 	frame	data/chars/foxy/rise05.png
+	bbox	22 11 24 41
 	offset	36 61
 	frame	data/chars/foxy/get03.png
+	bbox	35 8 26 51
 	offset	45 61
 	frame	data/chars/foxy/runslide01.png
+	bbox	62 17 29 38
 	@cmd	spawn01 "dust" 1 1 1
 	delay	4
 	attack	67 25 82 42 20 1 1 0 15 20
@@ -2962,11 +3120,14 @@ anim	runslide
 	delay	7
 	offset	66 60
 	frame	data/chars/foxy/runslide02.png
+	bbox	54 13 24 42
 	attack	0 0 0 0 0 0 0 0 0 0
 	offset	56 64
 	frame	data/chars/foxy/runslide04.png
+	bbox	31 15 27 41
 	offset	38 64
 	frame	data/chars/foxy/runslide05.png
+	bbox	18 16 28 42
 	offset	32 63
 	frame	data/chars/foxy/runslide06.png
 	offset	27 64
@@ -3023,7 +3184,7 @@ anim	spawn
 		
 anim	special
 	staydown	500 500
-	energycost	12
+	energycost	30
 	mponly	1
 	loop	0
 	fastattack	1
