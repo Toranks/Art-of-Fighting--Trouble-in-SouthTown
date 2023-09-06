@@ -5,6 +5,7 @@ void main()
 	void anim = getentityproperty(self,"animationID");
 	void attacker = getentityproperty(self,"parent");
   	int plyr = getentityvar(attacker, "player");
+  	int start = getglobalvar("brkstart");
 	void frame = getentityproperty(self,"animpos");
 
 
@@ -39,7 +40,7 @@ void main()
 		changeentityproperty(self, "velocity", Vx, 0.1);
    		}
 
-		if (frame >= 0 && playerkeys(plyr, 0, "special"))
+		if (frame >= 0 && start == 1 && playerkeys(plyr, 0, "special"))
 		{
 			void anim2 = getentityproperty(self,"animationID");
 
@@ -58,7 +59,7 @@ void main()
 		}
 
 
-		if (frame >= 0 && playerkeys(plyr, 1, "attack"))
+		if (frame >= 0 && start == 1 && playerkeys(plyr, 1, "attack"))
 		{ 
 		changeentityproperty(self, "health", hp+1);
 		}
