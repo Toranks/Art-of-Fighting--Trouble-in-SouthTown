@@ -1,13 +1,12 @@
 name foxy
 type player
-health  170
+health  150
 gfxshadow	1
-speed   10
+speed   12
 mp              100
 mprate          1
 chargerate      2
-speed		11
-running		28 3.3 3 1 1
+running		29 3.3 3 1 1
 jumpheight	4.3
 falldie		2
 noquake         0
@@ -85,6 +84,14 @@ com	a3	  freespecial29
 
 
 
+
+
+
+
+
+
+
+
 anim	attack1
 	cancel	2 5 0 d f a freespecial9
 	cancel	2 5 0 d f j freespecial6
@@ -104,7 +111,7 @@ anim	attack1
 	offset	39 119
 	frame	data/chars/foxy/attack03.png
 	delay	4
-	attack	26 14 69 61 10 0 1 0 1 15
+	attack	15 -2 80 59 10 0 1 0 1 15
 	offset	28 117
 	bbox	13 15 26 101
 	frame	data/chars/foxy/attack04.png
@@ -458,7 +465,7 @@ anim	block
 		
 anim	blockpain
 	loop	0
-	delay	2
+	delay	6
 	cancel	5 12 0 a freespecial12
 	move	-6
 	bbox	14 12 22 79
@@ -480,7 +487,7 @@ anim	blockpain
 	offset	19 116
 	frame	data/chars/foxy/blockpain04.png
 	move	0
-	delay	4
+	delay	8
 	offset	19 116
 	frame	data/chars/foxy/blockpain04.png
 	offset	19 116
@@ -838,12 +845,12 @@ anim	follow10
 	frame	data/chars/foxy/follow10-02.png
 	delay	2
 	offset	36 59
-	attack11	14 43 92 32 50 1 1 0 50 10
+	attack11	14 43 101 30 50 1 1 0 50 10
 	frame	data/chars/foxy/follow10-03.png
 	delay	3
 	offset	56 68
 	frame	data/chars/foxy/follow10-04.png
-	attack	0 0 0 0 0 0 0 0 0 0
+	attack11	0 0 0 0 0 0 0 0 0 0
 	offset	44 69
 	frame	data/chars/foxy/follow10-05.png
 	offset	36 67
@@ -1269,7 +1276,7 @@ anim	follow4
 	staydown	500 500
 	frame	data/chars/foxy/freespecial9-03.png
 	sound	data/sounds/blade.wav
-	attack	-2 -2 123 155 100 1 1 0 60 40
+	attack	-2 -2 135 155 100 1 1 0 60 40
 	dropv	4 4 0
 	offset	58 161
 	frame	data/chars/foxy/freespecial9-04.png
@@ -1297,6 +1304,7 @@ anim	follow4
 		
 anim	forwardjump
 	cancel	1 10 0 d f a freespecial4
+	cancel	1 10 0 s freespecial4
 	delay	7
 	bbox	35 10 31 59
 	offset	43 124
@@ -2652,6 +2660,7 @@ anim	idle
 		
 anim	jump
 	cancel	2 10 0 d f a freespecial4
+	cancel	2 10 0 s freespecial4
 	delay	7
 	bbox	13 29 22 91
 	offset	24 149
@@ -2695,6 +2704,7 @@ anim	jump
 		
 anim	jumpattack
 	cancel	3 4 0 d f a freespecial4
+	cancel	3 4 0 s freespecial4
 	bbox	28 15 33 54
 	staydown	500 500
 	loop	0
@@ -2716,6 +2726,7 @@ anim	jumpattack
 		
 anim	jumpattack2
 	cancel	3 4 0 d f a freespecial4
+	cancel	3 4 0 s freespecial4
 	delay	2
 	hitfx	data/sounds/sl1.wav
 	bbox	37 18 35 52
@@ -2735,6 +2746,7 @@ anim	jumpattack2
 		
 anim	jumpattack3
 	cancel	3 5 0 d f a freespecial4
+	cancel	3 5 0 s freespecial4
 	staydown	300 300
 	fastattack	1
 	forcedirection	-1
@@ -3003,7 +3015,7 @@ anim	runattack
 	delay	4
 	offset	56 93
 	frame	data/chars/foxy/runattack01.png
-	attack	70 21 104 45 30 1 1 0 40 20
+	attack	70 12 104 45 30 1 1 0 40 20
 	dropv	2 3 0
 	delay	9
 	offset	51 95
@@ -3023,6 +3035,7 @@ anim	runattack
 		
 anim	runjumpattack
 	cancel	2 10 0 d f a freespecial4
+	cancel	2 10 0 s freespecial4
 	staydown	300 300
 	forcedirection	-1
 	hitfx	data/sounds/beat4.wav
@@ -3051,6 +3064,7 @@ anim	runjumpattack
 	frame	data/chars/foxy/runjumpattack06.png
 	bbox	18 11 49 42
 	attack	46 39 54 70 15 1 1 0 20 20
+	dropv	-3 0
 	delay	6
 	offset	55 125
 	frame	data/chars/foxy/runjumpattack07.png
@@ -3090,7 +3104,7 @@ anim	runslide
 	@cmd	spawn01 "dust" 1 1 1
 	delay	4
 	attack	67 25 82 42 20 1 1 0 15 20
-	dropv	3 4
+	dropv	2 4
 	offset	66 60
 	frame	data/chars/foxy/runslide02.png
 	offset	68 60
