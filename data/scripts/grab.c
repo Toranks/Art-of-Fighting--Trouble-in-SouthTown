@@ -5,6 +5,7 @@ void main()
    	void victim2 = getentityvar(self, "target");
   	int victim = getentityvar(self, "player");
 	int HP = getentityproperty(self,"health");
+	int victimHP = getentityproperty(victim2,"health");
 	int HPmax = getentityproperty(self,"maxhealth");
 	int x1 = getentityproperty(attacker,"x");
 	int z1 = getentityproperty(attacker,"z");
@@ -19,7 +20,18 @@ void main()
 		
   if (attacker == NULL() && victim2 == NULL()) {
 		killentity(self);
-	
+
+    } else if (victimHP < 1) {
+		changeentityproperty(victim2, "position", x1, z1);
+     	performattack(victim2, openborconstant("ANI_DIE"));
+    	setidle(attacker, openborconstant("ANI_IDLE"));
+     	bindentity(victim2, NULL());
+		killentity(self);
+
+    } else if (HP > 1 && victim2 == NULL()) {
+		setidle(attacker, openborconstant("ANI_IDLE"));
+		killentity(self);
+        
 	} else if(HP>=HPmax && escape == 1){
 		changeentityproperty(victim2, "position", x1, z1);
      	performattack(victim2, openborconstant("ANI_FOLLOW15"));
