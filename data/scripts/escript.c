@@ -14,21 +14,23 @@ void spawngrab(float fX, float fY, float fZ,int HPgv, int Num2, int Num)
 	void vSpawn;	
 	vSpawn = spawn02("grab"+plyr, fX, fY, fZ);
 
-
-    	if(hard == 1){
-			if(mania == 1){
-			changeentityproperty(vSpawn, "maxhealth", HPgv * 1.1);
-			} else if (mania == 0) {
-			changeentityproperty(vSpawn, "maxhealth", HPgv * 1.05);
-			}
-		} else if (hard == 0){
-				changeentityproperty(vSpawn, "maxhealth", HPgv);
-		}
-
+        if (vSpawn != NULL()) {
+            if(hard == 1){
+                if(mania == 1){
+                changeentityproperty(vSpawn, "maxhealth", HPgv * 1.1);
+                } else if (mania == 0) {
+                changeentityproperty(vSpawn, "maxhealth", HPgv * 1.05);
+                }
+            } else if (hard == 0){
+                    changeentityproperty(vSpawn, "maxhealth", HPgv);
+            }
         setentityvar(vSpawn, "grabgo", Num2);
 		setentityvar(self, Num, vSpawn);
 		changeentityproperty(vSpawn, "parent", self); //Set caller as parent.
-	return vSpawn; //Return spawn.
+        return vSpawn;
+        } else if (vSpawn == NULL()){
+                bindentity(vtm, NULL());
+        }
 }
 
 
@@ -301,7 +303,6 @@ void clearSlam()
 	}
 }
 
-
 void slamstart()
 { // Slam Starter for grab slams
 // Use finish or throw after using this
@@ -329,7 +330,7 @@ void slamstart2()
 { // Slam Starter for nongrab slams
 // Use finish or throw after using this
    void self = getlocalvar("self");
-  void target = getentityproperty(self, "opponent");
+   void target = getentityproperty(self, "opponent");
 
   if(target == NULL() || getentityproperty(target, "dead") == 1){
     setidle(self);

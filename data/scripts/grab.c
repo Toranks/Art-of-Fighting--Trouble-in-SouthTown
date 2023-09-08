@@ -3,7 +3,7 @@ void main()
 	void self = getlocalvar("self");
 	void attacker = getentityproperty(self,"parent");
    	void victim2 = getentityvar(self, "target");
-    void realvictim = getentityvar(attacker, "grabbing");
+    void realvictim = getentityproperty(attacker, "opponent");
   	int victim = getentityvar(self, "player");
 	int HP = getentityproperty(self,"health");
 	int victimHP = getentityproperty(victim2,"health");
@@ -20,7 +20,11 @@ void main()
 	void iAttack = playerkeys(victim, 1, "attack");
 		
   if (attacker == NULL() && victim2 == NULL()) {
-        if  (realvictim != NULL()) {
+        if  (realvictim != NULL() && escape == 1) {
+     	performattack(realvictim, openborconstant("ANI_FOLLOW15"));
+    	bindentity(realvictim, NULL());
+        } else if (realvictim != NULL() && escape == 2) {
+     	performattack(realvictim, openborconstant("ANI_FOLLOW16"));
     	bindentity(realvictim, NULL());
         }
 		killentity(self);
@@ -35,7 +39,11 @@ void main()
 
     } else if (HP > 1 && victim2 == NULL()) {
 		setidle(attacker, openborconstant("ANI_IDLE"));
-        if  (realvictim != NULL()) {
+        if  (realvictim != NULL() && escape == 1) {
+     	performattack(realvictim, openborconstant("ANI_FOLLOW15"));
+    	bindentity(realvictim, NULL());
+        } else if (realvictim != NULL() && escape == 2) {
+     	performattack(realvictim, openborconstant("ANI_FOLLOW16"));
     	bindentity(realvictim, NULL());
         }
 		killentity(self);
