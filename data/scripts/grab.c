@@ -3,6 +3,7 @@ void main()
 	void self = getlocalvar("self");
 	void attacker = getentityproperty(self,"parent");
    	void victim2 = getentityvar(self, "target");
+    void realvictim = getentityvar(attacker, "grabbing");
   	int victim = getentityvar(self, "player");
 	int HP = getentityproperty(self,"health");
 	int victimHP = getentityproperty(victim2,"health");
@@ -19,17 +20,24 @@ void main()
 	void iAttack = playerkeys(victim, 1, "attack");
 		
   if (attacker == NULL() && victim2 == NULL()) {
+        if  (realvictim != NULL()) {
+    	bindentity(realvictim, NULL());
+        }
 		killentity(self);
 
-    } else if (victimHP < 1) {
+    } else if (victimHP < 1 && victim2 != NULL()) {
 		changeentityproperty(victim2, "position", x1, z1);
      	performattack(victim2, openborconstant("ANI_DIE"));
     	setidle(attacker, openborconstant("ANI_IDLE"));
      	bindentity(victim2, NULL());
+		killentity(victim2);
 		killentity(self);
 
     } else if (HP > 1 && victim2 == NULL()) {
 		setidle(attacker, openborconstant("ANI_IDLE"));
+        if  (realvictim != NULL()) {
+    	bindentity(realvictim, NULL());
+        }
 		killentity(self);
         
 	} else if(HP>=HPmax && escape == 1){
