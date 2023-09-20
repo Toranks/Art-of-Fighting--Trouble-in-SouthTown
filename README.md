@@ -23,6 +23,7 @@ With this game is wich we can see all the resources allowed by this engine raise
 - Map to visit the city, all stages, exclusive fights against an harder version of all bosses, all scenes, images of the game, enemies, and making-of.
 
 PLOT
+
 Ryo, Robert and Yuri return to South Town after a long period of trainning in Antarctica. When they arrive they find their dojo empty and different and Takuma (Mr Karate) is nowere to be seen. Suddenly for no reason they are attacked by Mr. Big thugs...
 - "Why is this happening?" they say...
 - "Is takuma in some kind of trouble and now we are paying for it?"
@@ -46,10 +47,9 @@ I am satisfied only with your thanks and fun.
 
 
 
-///////////////////////////////////////////////////////////
+/////////////////////////ESPAÑOL//////////////////////////////////
 
 
-ESPAÑOL
 Creado en 2017 por Jon Silva, era ya considerado uno de los mejores juegos, si no el mejor, creados con el motor Openbor, un veterano motor de software libre para crear juegos estilo Beat'em up inspirado en Streets of Rage.
 https://jon-fretes-silva.wixsite.com/aofsouthtown
 
@@ -72,6 +72,7 @@ Es con este juego con el que podemos ver elevados a la máxima potencia todos lo
 - Mapa para visitar la ciudad, todas las etapas, combates exclusivos contra los jefes en una versión aún más dura, todas las escenas, imágenes del juego, de los enemigos, y de cómo se hizo durante la etapa de creación.
 
 ARGUMENTO
+
 Ryo, Robert y Yuri regresan a South Town después de un largo período de entrenamiento en la Antártida. Cuando llegan, encuentran su dojo ocupado por extraños y no encuentran a Takuma (Mr. Karate). De repente, sin razón, son atacados por los secuaces de Mr. Big...
 Tras lograr escapar de la emboscada, comienzan un viaje por todo South Town con la esperanza de encontrar a su desaparecido maestro Takuma, que aparentemente está escondido.
 A medida que avanza su viaje, comienzan a descubrir que las cosas no son lo que parecían, y Mr. Big parece decidido a capturarlos para poner fin a la rebelión de Takuma contra él.
