@@ -1,0 +1,872 @@
+name          temjin2
+type          enemy
+health        1000
+speed         8
+jumpheight    4
+throw         5 2
+throwdamage   18
+shadow        0
+paingrab      1
+nolife        1
+falldie       2
+nodieblink    2
+gfxshadow     1
+blockodds     1
+nopassiveblock 1
+dust            dust
+projectilehit enemy obstacle
+diesound      data/sounds/die12.wav
+animationscript data/scripts/escript.c
+
+
+
+icon	data/chars/3temjin/icon.gif
+lifebarstatus 160 10 0 1 0 2 5 
+lifeposition 285  240
+iconposition 220 227
+nameposition -200 -200
+nolife 1
+
+load	taodisc
+
+
+script	@script
+void main()
+{
+   	void self = getlocalvar("self");
+	int x = getentityproperty(self, "x");
+	int XPos = openborvariant("xpos");
+	int Screen = openborvariant("hResolution");
+	int hp = getentityproperty(self, "health");
+    	void anim = getentityproperty(self,"animationID");
+
+if(anim != openborconstant("ANI_DIE")){
+
+   if( hp <=0 && x >= XPos+Screen-60) // right
+   	{
+	tossentity(self, 1, -2, 0);
+   	}
+   else if( hp <=0 && x <= XPos+60) // left
+   	{
+	tossentity(self, 1, 2, 0);
+   	}
+  }
+}
+	@end_script	
+		
+		
+		
+		
+		
+		
+anim	attack1
+	range	20 100
+	loop	0
+	delay	12
+	offset	100 189
+	bbox	79 80 50 109
+	fastattack	1
+	followanim	1
+	followcond	1
+	hitfx	data/sounds/beat3.wav
+	frame	data/chars/3temjin/a096.gif
+	attack	100 90 95 35 14 0 0 0 18 0
+	frame	data/chars/3temjin/a097.gif
+	frame	data/chars/3temjin/a098.gif
+	attack	0 0 0 0
+	frame	data/chars/3temjin/a096.gif
+		
+anim	attack2
+	range	0 100
+	rangez	-100 -12
+	loop	0
+	delay	9
+	offset	100 189
+	bbox	79 80 50 109
+	jumpframe	1 3 1 -1
+	landframe	4
+	hitfx	data/sounds/beat2.wav
+	frame	data/chars/3temjin/rise3.gif
+	frame	data/chars/3temjin/c01.gif
+	sound	data/sounds/bguyb02.wav
+	frame	data/chars/3temjin/c02.gif
+	delay	200
+	attack	80 80 90 90 15 1 0 0 45 15
+	dropv	2 2 -1
+	frame	data/chars/3temjin/c03.gif
+	attack	0 0 0 0
+	delay	12
+	frame	data/chars/3temjin/c04.gif
+	frame	data/chars/3temjin/rise3.gif
+		
+anim	attack4
+	range	0 100
+	rangez	12 100
+	loop	0
+	delay	9
+	offset	100 189
+	bbox	79 80 50 109
+	jumpframe	1 3 1 1
+	landframe	4
+	hitfx	data/sounds/beat2.wav
+	frame	data/chars/3temjin/rise3.gif
+	frame	data/chars/3temjin/c01.gif
+	frame	data/chars/3temjin/c02.gif
+	delay	200
+	attack	80 80 90 90 15 1 0 0 45 15
+	dropv	2 2 1
+	frame	data/chars/3temjin/c03.gif
+	attack	0 0 0 0
+	delay	12
+	frame	data/chars/3temjin/c04.gif
+	frame	data/chars/3temjin/rise3.gif
+		
+anim	attack5
+	range	240 350
+	loop	0
+	delay	8
+	offset	100 189
+	bbox	0 0 0 0
+	jumpframe	0 2 2
+	frame	data/chars/3temjin/b01.gif
+	frame	data/chars/3temjin/b02.gif
+	frame	data/chars/3temjin/b03.gif
+	frame	data/chars/3temjin/b04.gif
+	frame	data/chars/3temjin/b05.gif
+	delay	5
+	move	15
+	offset	100 170
+	frame	data/chars/3temjin/b06.gif
+	frame	data/chars/3temjin/b06.gif
+	attack	100 110 90 50 25 1 0 0 25 0
+	dropv	3 5
+	frame	data/chars/3temjin/b07.gif
+	frame	data/chars/3temjin/b07.gif
+	frame	data/chars/3temjin/b08.gif
+	frame	data/chars/3temjin/b08.gif
+	frame	data/chars/3temjin/b06.gif
+	frame	data/chars/3temjin/b06.gif
+	frame	data/chars/3temjin/b07.gif
+	frame	data/chars/3temjin/b07.gif
+	frame	data/chars/3temjin/b08.gif
+	frame	data/chars/3temjin/b08.gif
+	frame	data/chars/3temjin/b06.gif
+	frame	data/chars/3temjin/b06.gif
+	frame	data/chars/3temjin/b07.gif
+	frame	data/chars/3temjin/b07.gif
+	frame	data/chars/3temjin/b08.gif
+	frame	data/chars/3temjin/b08.gif
+	frame	data/chars/3temjin/b06.gif
+	frame	data/chars/3temjin/b06.gif
+	frame	data/chars/3temjin/b07.gif
+	frame	data/chars/3temjin/b07.gif
+	frame	data/chars/3temjin/b08.gif
+	frame	data/chars/3temjin/b08.gif
+	attack	0 0 0 0
+	delay	6
+	move	5
+	offset	100 189
+	frame	data/chars/3temjin/b02.gif
+	frame	data/chars/3temjin/b02.gif
+	frame	data/chars/3temjin/b03.gif
+	frame	data/chars/3temjin/b03.gif
+	frame	data/chars/3temjin/b04.gif
+	frame	data/chars/3temjin/b04.gif
+	move	0
+	delay	14
+	frame	data/chars/3temjin/rise2.gif
+	frame	data/chars/3temjin/rise3.gif
+		
+anim	attack6
+	range	140 220
+	loop	0
+	delay	12
+	offset	100 189
+	bbox	0 0 0 0
+	followanim	4
+	followcond	3
+	jumpframe	2 2 2.5
+	landframe	4
+	hitfx	data/sounds/grab.wav
+	frame	data/chars/3temjin/rise3.gif
+	sound	data/sounds/bguyb04.wav
+	frame	data/chars/3temjin/rise2.gif
+	frame	data/chars/3temjin/upper02.gif
+	delay	200
+	attack	100 110 75 50 0 0 1 1 10 0
+	frame	data/chars/3temjin/grab01.gif
+	attack	0 0 0 0
+	delay	17
+	frame	data/chars/3temjin/grab02.gif
+	delay	12
+	frame	data/chars/3temjin/rise3.gif
+	frame	data/chars/3temjin/rise2.gif
+	frame	data/chars/3temjin/rise3.gif
+		
+anim	block
+	loop	0
+	delay	3
+	offset	100 185
+	bbox	0 0 0 0
+	move	-7
+	frame	data/chars/3temjin/blk00.gif
+	frame	data/chars/3temjin/blk00.gif
+	frame	data/chars/3temjin/blk00.gif
+	frame	data/chars/3temjin/blk01.gif
+	frame	data/chars/3temjin/blk01.gif
+	frame	data/chars/3temjin/blk01.gif
+	frame	data/chars/3temjin/blk02.gif
+	frame	data/chars/3temjin/blk02.gif
+	frame	data/chars/3temjin/blk02.gif
+	frame	data/chars/3temjin/blk03.gif
+	frame	data/chars/3temjin/blk03.gif
+	frame	data/chars/3temjin/blk03.gif
+	frame	data/chars/3temjin/blk04.gif
+	frame	data/chars/3temjin/blk04.gif
+	frame	data/chars/3temjin/blk04.gif
+	frame	data/chars/3temjin/blk05.gif
+	frame	data/chars/3temjin/blk05.gif
+	frame	data/chars/3temjin/blk05.gif
+	frame	data/chars/3temjin/blk06.gif
+	frame	data/chars/3temjin/blk06.gif
+	frame	data/chars/3temjin/blk06.gif
+	move	-4
+	frame	data/chars/3temjin/blk07.gif
+	frame	data/chars/3temjin/blk07.gif
+	frame	data/chars/3temjin/blk07.gif
+	frame	data/chars/3temjin/blk08.gif
+	frame	data/chars/3temjin/blk08.gif
+	frame	data/chars/3temjin/blk08.gif
+	move	-2
+	offset	100 189
+	frame	data/chars/3temjin/blk09.gif
+	frame	data/chars/3temjin/blk09.gif
+	frame	data/chars/3temjin/blk09.gif
+	move	0
+	delay	14
+	frame	data/chars/3temjin/blk10.gif
+		
+anim	burn
+	loop	0
+	delay	25
+	offset	100 189
+	bbox	0 0 0 0
+	landframe	3
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 200_50_0
+	@cmd	spawnbind "burn1" 1 1 1
+	@cmd	spawnbind "burn2" 1 1 1
+	@cmd	spawnbind "burn3" 1 1 1
+	attack	78 98 30 45 5 1 0 0 13 0
+	frame	data/chars/3temjin/fall1.gif
+	delay	15
+	attack	64 130 50 25 5 1 0 0 13 0
+	frame	data/chars/3temjin/fall2.gif
+	delay	500
+	frame	data/chars/3temjin/fall3.gif
+	attack	0 0 0 0
+	bbox	58 175 85 15
+	delay	15
+	frame	data/chars/3temjin/fall4.gif
+	frame	data/chars/3temjin/fall5.gif
+	frame	data/chars/3temjin/fall4.gif
+		
+anim	death
+	loop	0
+	delay	14
+	offset	100 189
+	bbox	0 0 0 0
+	frame	data/chars/3temjin/rise1.gif
+	frame	data/chars/3temjin/rise2.gif
+	frame	data/chars/3temjin/rise3.gif
+	frame	data/chars/3temjin/death02.gif
+	frame	data/chars/3temjin/death03.gif
+	frame	data/chars/3temjin/death04.gif
+	delay	500
+	frame	data/chars/3temjin/death04.gif
+		
+anim	fall
+	loop	0
+	delay	25
+	offset	100 189
+	bbox	83 86 50 68
+	landframe	3
+	attack	86 84 40 70 5 1 0 0 13 50
+	frame	data/chars/3temjin/fall1.gif
+	delay	15
+	bbox	65 111 86 50
+	attack	64 112 91 45 5 1 0 0 13 50
+	frame	data/chars/3temjin/fall2.gif
+	delay	500
+	bbox	70 127 85 45
+	attack	65 127 91 45 5 1 0 0 13 50
+	frame	data/chars/3temjin/fall3.gif
+	delay	15
+	attack	0 0 0 0
+	bbox	60 177 85 15
+	frame	data/chars/3temjin/fall4.gif
+	frame	data/chars/3temjin/fall5.gif
+	frame	data/chars/3temjin/fall4.gif
+		
+anim	fall10
+	loop	0
+	delay	10
+	offset	100 189
+	bbox	87 75 55 91
+	landframe	4
+	attack	93 85 40 60 5 1 0 0 13 50
+	frame	data/chars/3temjin/pain6.gif
+	delay	40
+	frame	data/chars/3temjin/pain7.gif
+	delay	30
+	bbox	65 111 86 50
+	attack	64 112 91 45 5 1 0 0 13 50
+	frame	data/chars/3temjin/fall2.gif
+	delay	300
+	bbox	70 127 85 45
+	attack	65 127 91 45 5 1 0 0 13 50
+	frame	data/chars/3temjin/fall3.gif
+	delay	15
+	attack	0 0 0 0
+	bbox	60 177 85 15
+	frame	data/chars/3temjin/fall4.gif
+	frame	data/chars/3temjin/fall5.gif
+	frame	data/chars/3temjin/fall4.gif
+		
+anim	fall11
+	loop	0
+	delay	20
+	offset	100 189
+	bbox	61 185 90 5
+	frame	data/chars/3temjin/pain12.gif
+	delay	35
+	frame	data/chars/3temjin/fall4.gif
+		
+anim	fall2
+	loop	0
+	delay	30
+	offset	100 189
+	bbox	87 75 55 91
+	landframe	3
+	attack	85 90 35 45 5 1 0 0 13 50
+	frame	data/chars/3temjin/pain7.gif
+	delay	10
+	bbox	65 111 86 50
+	attack	64 125 55 25 5 1 0 0 13 50
+	frame	data/chars/3temjin/fall2.gif
+	attack	0 0 0 0
+	delay	300
+	frame	data/chars/3temjin/fall3.gif
+	delay	15
+	bbox	58 175 85 15
+	frame	data/chars/3temjin/fall4.gif
+	frame	data/chars/3temjin/fall5.gif
+	frame	data/chars/3temjin/fall4.gif
+		
+anim	fall4
+	loop	0
+	delay	6
+	offset	100 189
+	bbox	0 0 0 0
+	jumpframe	0 1.2 1.5
+	frame	data/chars/3temjin/pain8.gif
+	frame	data/chars/3temjin/pain9.gif
+	frame	data/chars/3temjin/pain10.gif
+	@cmd	leaper 0 0.2 0
+	frame	data/chars/3temjin/pain11.gif
+	frame	data/chars/3temjin/fall4.gif
+	frame	data/chars/3temjin/fall5.gif
+	bbox	58 175 95 15
+	frame	data/chars/3temjin/fall4.gif
+		
+anim	fall7
+	delay	1000
+	offset	105 130
+	frame	data/chars/3temjin/slamck0.gif
+	offset	100 110
+	frame	data/chars/3temjin/slamck1.gif
+	offset	106 130
+	frame	data/chars/3temjin/slamck2.gif
+	offset	115 125
+	frame	data/chars/3temjin/slamck3.gif
+	offset	125 125
+	frame	data/chars/3temjin/slamck4.gif
+	offset	108 122
+	frame	data/chars/3temjin/slamck5.gif
+	offset	106 155
+	frame	data/chars/3temjin/slamck6.gif
+	offset	125 140
+	frame	data/chars/3temjin/slamck7.gif
+	offset	120 105
+	frame	data/chars/3temjin/slamck8.gif
+	offset	100 130
+	frame	data/chars/3temjin/slamck9.gif
+	offset	105 130
+	frame	data/chars/3temjin/slamck10.gif
+	offset	105 130
+	frame	data/chars/3temjin/slamck11.gif
+	offset	115 125
+	frame	data/chars/3temjin/slamck12.gif
+	offset	115 125
+	frame	data/chars/3temjin/slamck13.gif
+	offset	115 125
+	frame	data/chars/3temjin/slamck14.gif
+	offset	115 125
+	frame	data/chars/3temjin/slamck15.gif
+		
+anim	fall9
+	loop	0
+	delay	10
+	offset	100 189
+	bbox	83 86 50 68
+	quakeframe	2 5 5
+	landframe	2 dust
+	attack	86 84 40 70 5 1 0 0 13 50
+	frame	data/chars/3temjin/fall1.gif
+	delay	350
+	offset	100 180
+	bbox	65 111 86 50
+	attack	64 112 91 45 5 1 0 0 13 50
+	frame	data/chars/3temjin/fall2.gif
+	delay	2
+	offset	100 175
+	move	-4
+	bbox	70 127 85 45
+	attack	65 127 91 45 5 1 0 0 13 50
+	frame	data/chars/3temjin/fall3.gif
+	frame	data/chars/3temjin/fall3.gif
+	frame	data/chars/3temjin/fall3.gif
+	@cmd	looper 3 5
+	offset	100 189
+	move	-3
+	attack	0 0 0 0
+	bbox	0 0 0 0
+	frame	data/chars/3temjin/fall4.gif
+	frame	data/chars/3temjin/fall4.gif
+	frame	data/chars/3temjin/fall4.gif
+	@cmd	looper 6 4
+	move	-2
+	frame	data/chars/3temjin/fall5.gif
+	frame	data/chars/3temjin/fall5.gif
+	frame	data/chars/3temjin/fall5.gif
+	loop	0
+	delay	15
+	move	0
+	bbox	60 177 85 15
+	frame	data/chars/3temjin/fall4.gif
+		
+anim	follow1
+	loop	0
+	delay	7
+	offset	100 189
+	bbox	79 80 50 109
+	fastattack	1
+	frame	data/chars/3temjin/a098.gif
+	frame	data/chars/3temjin/a096.gif
+	sound	data/sounds/bguyb04.wav
+	frame	data/chars/3temjin/a099.gif
+	frame	data/chars/3temjin/a100.gif
+	attack	100 85 90 40 7 0 0 0 20 0
+	frame	data/chars/3temjin/a101.gif
+	frame	data/chars/3temjin/a102.gif
+	attack	0 0 0 0
+	frame	data/chars/3temjin/a100.gif
+	frame	data/chars/3temjin/a096.gif
+	attack2	100 90 95 40 7 0 0 0 20 0
+	frame	data/chars/3temjin/a097.gif
+	frame	data/chars/3temjin/a098.gif
+	attack2	0 0 0 0
+	frame	data/chars/3temjin/a096.gif
+	sound	data/sounds/bguyb04.wav
+	frame	data/chars/3temjin/a099.gif
+	frame	data/chars/3temjin/a100.gif
+	attack	100 80 90 40 7 0 0 0 13 0
+	frame	data/chars/3temjin/a101.gif
+	frame	data/chars/3temjin/a102.gif
+	attack	0 0 0 0
+	frame	data/chars/3temjin/a100.gif
+	frame	data/chars/3temjin/a096.gif
+	attack2	100 90 95 40 7 0 0 0 20 0
+	frame	data/chars/3temjin/a097.gif
+	frame	data/chars/3temjin/a098.gif
+	attack2	0 0 0 0
+	frame	data/chars/3temjin/a096.gif
+	sound	data/sounds/bguyb04.wav
+	frame	data/chars/3temjin/a099.gif
+	frame	data/chars/3temjin/a100.gif
+	attack	100 80 90 40 7 0 0 0 13 0
+	frame	data/chars/3temjin/a101.gif
+	frame	data/chars/3temjin/a102.gif
+	attack	0 0 0 0
+	frame	data/chars/3temjin/a100.gif
+	frame	data/chars/3temjin/a096.gif
+	attack2	100 90 95 40 7 0 0 0 20 0
+	frame	data/chars/3temjin/a097.gif
+	frame	data/chars/3temjin/a098.gif
+	attack2	0 0 0 0
+	frame	data/chars/3temjin/a096.gif
+	sound	data/sounds/bguyb04.wav
+	frame	data/chars/3temjin/a099.gif
+	frame	data/chars/3temjin/a100.gif
+	attack	100 80 90 40 7 0 0 0 13 0
+	frame	data/chars/3temjin/a101.gif
+	frame	data/chars/3temjin/a102.gif
+	attack	0 0 0 0
+	frame	data/chars/3temjin/a100.gif
+	frame	data/chars/3temjin/a096.gif
+	attack2	100 90 95 40 9 1 0 0 20 0
+	frame	data/chars/3temjin/a097.gif
+	frame	data/chars/3temjin/a098.gif
+	attack2	0 0 0 0
+	frame	data/chars/3temjin/a096.gif
+	sound	data/sounds/bguyb04.wav
+	frame	data/chars/3temjin/a099.gif
+	frame	data/chars/3temjin/a100.gif
+	attack	100 80 90 40 9 1 0 0 13 0
+	frame	data/chars/3temjin/a101.gif
+	frame	data/chars/3temjin/a102.gif
+	attack	0 0 0 0
+	frame	data/chars/3temjin/a100.gif
+		
+anim	follow2
+	loop	0
+	delay	9
+	offset	100 189
+	bbox	0 0 0 0
+	frame	data/chars/3temjin/rise0.gif
+	frame	data/chars/3temjin/rise1.gif
+	frame	data/chars/3temjin/d01.gif
+	frame	data/chars/3temjin/d02.gif
+	attack	60 135 125 60 20 1 0 0 40 0
+	dropv	3 3
+	frame	data/chars/3temjin/d03.gif
+	frame	data/chars/3temjin/d04.gif
+	attack	0 0 0 0
+	frame	data/chars/3temjin/d05.gif
+	frame	data/chars/3temjin/rise3.gif
+		
+anim	follow4
+	loop	0
+	delay	55
+	offset	100 189
+	bbox	0 0 0 0
+	jumpframe	2 5 -0.5
+	quakeframe	8 4 5
+	@cmd	slamstart2
+	@cmd	spawngrab 200 200 450 45 1 8
+	@cmd	position 7 50 10 -1 1
+	frame	data/chars/3temjin/grab01.gif
+	delay	15
+	@cmd	position 11 50 10 -1 1
+	frame	data/chars/3temjin/grab02.gif
+	@cmd	position 23 40 30 -1 1
+	frame	data/chars/3temjin/grab03.gif
+	@cmd	position 24 25 60 -1 1
+	frame	data/chars/3temjin/grab04.gif
+	@cmd	position 1 20 55 -1 1
+	frame	data/chars/3temjin/grab05.gif
+	@cmd	position 2 10 110 1 1
+	frame	data/chars/3temjin/grab06.gif
+	@cmd	position 10 5 115 1 -1
+	frame	data/chars/3temjin/grab07.gif
+	delay	25
+	@cmd	position 9 10 105 1 -1
+	frame	data/chars/3temjin/grab08.gif
+	delay	2
+	sound	data/sounds/break.wav
+	@cmd	spawn02 "flashsc1" -10 200 190
+	@cmd	position 9 15 65 -1 -1
+	frame	data/chars/3temjin/grab09.gif #8
+	@cmd	position 9 15 65 -1 -1
+	frame	data/chars/3temjin/grab09.gif
+	@cmd	position 9 15 65 -1 -1
+	frame	data/chars/3temjin/grab09.gif
+	@cmd	position 9 15 65 -1 -1
+	frame	data/chars/3temjin/grab09.gif
+	@cmd	position 9 15 65 -1 -1
+	frame	data/chars/3temjin/grab09.gif
+	@cmd	position 9 15 65 -1 -1
+	frame	data/chars/3temjin/grab09.gif
+	@cmd	position 9 15 65 -1 -1
+	frame	data/chars/3temjin/grab09.gif
+	sound	data/sounds/fall.wav
+	@cmd	position 2 10 40 -1 1
+	frame	data/chars/3temjin/grab10.gif
+	@cmd	killgrab
+	@cmd	position 2 10 40 -1 1
+	frame	data/chars/3temjin/grab10.gif
+	@cmd	position 2 10 40 -1 1
+	frame	data/chars/3temjin/grab10.gif
+	@cmd	position 2 10 40 -1 1
+	frame	data/chars/3temjin/grab10.gif
+	@cmd	position 2 10 40 -1 1
+	frame	data/chars/3temjin/grab10.gif
+	@cmd	position 2 10 40 -1 1
+	frame	data/chars/3temjin/grab10.gif
+	@cmd	position 2 10 40 -1 1
+	frame	data/chars/3temjin/grab10.gif
+	@cmd	position 18 15 60 -1 -1
+	frame	data/chars/3temjin/grab11.gif
+	@cmd	position 18 15 60 -1 -1
+	frame	data/chars/3temjin/grab11.gif
+	@cmd	position 18 15 60 -1 -1
+	frame	data/chars/3temjin/grab11.gif
+	@cmd	position 18 15 60 -1 -1
+	frame	data/chars/3temjin/grab11.gif
+	@cmd	position 18 15 60 -1 -1
+	frame	data/chars/3temjin/grab11.gif
+	@cmd	position 18 15 60 -1 -1
+	frame	data/chars/3temjin/grab11.gif
+	@cmd	position 18 15 60 -1 -1
+	frame	data/chars/3temjin/grab11.gif
+	@cmd	position 9 10 70 -1 -1
+	frame	data/chars/3temjin/grab12.gif
+	@cmd	position 9 10 70 -1 -1
+	frame	data/chars/3temjin/grab12.gif
+	@cmd	position 9 10 70 -1 -1
+	frame	data/chars/3temjin/grab12.gif
+	@cmd	position 9 10 70 -1 -1
+	frame	data/chars/3temjin/grab12.gif
+	@cmd	position 9 10 70 -1 -1
+	frame	data/chars/3temjin/grab12.gif
+	@cmd	position 9 10 70 -1 -1
+	frame	data/chars/3temjin/grab12.gif
+	@cmd	position 9 10 70 -1 -1
+	frame	data/chars/3temjin/grab12.gif
+	@cmd	depost 0
+	@cmd	finish 40 1 -1 4 0 1
+	delay	40
+	frame	data/chars/3temjin/grab13.gif
+	delay	14
+	frame	data/chars/3temjin/rise1.gif
+	frame	data/chars/3temjin/rise2.gif
+	@cmd	clearL
+	frame	data/chars/3temjin/rise3.gif
+		
+anim	grab
+	loop	0
+	delay	50
+	range	0 30
+	offset	100 189
+	bbox	0 0 0 0
+	attackone	0
+	sound	data/sounds/grab.wav
+	frame	data/chars/3temjin/grab00.gif
+	delay	15
+	@cmd	slamstart
+	@cmd	position 23 40 15 -1 1
+	frame	data/chars/3temjin/grab15.gif
+	delay	15
+	@cmd	position 1 10 30 -1 1
+	frame	data/chars/3temjin/grab16.gif
+	@cmd	position 2 -5 70 -1 1
+	frame	data/chars/3temjin/grab17.gif
+	@cmd	depost 0
+	@cmd	finish 30 1 -3 3 0 0
+	delay	30
+	delay	15
+	frame	data/chars/3temjin/grab19.gif
+	@cmd	clearL
+	frame	data/chars/3temjin/grab18.gif
+	delay	14
+	frame	data/chars/3temjin/grab20.gif
+	frame	data/chars/3temjin/blk09.gif
+	frame	data/chars/3temjin/blk10.gif
+		
+anim	grabbed
+	loop	0
+	delay	10
+	offset	100 189
+	bbox	79 97 50 91
+	frame	data/chars/3temjin/grabbed.gif
+		
+anim	idle
+	loop	1
+	delay	10
+	offset	100 189
+	bbox	79 80 50 109
+	@cmd	lifeaggr 25 250
+	frame	data/chars/3temjin/idle01.gif
+	@cmd	depost 0
+	frame	data/chars/3temjin/idle02.gif
+	@cmd	clearL
+	frame	data/chars/3temjin/idle03.gif
+	frame	data/chars/3temjin/idle04.gif
+		
+anim	pain
+	loop	0
+	delay	3
+	offset	103 189
+	bbox	79 80 50 109
+	frame	data/chars/3temjin/pain0.gif
+	offset	100 189
+	frame	data/chars/3temjin/pain1.gif
+	offset	107 189
+	frame	data/chars/3temjin/pain1.gif
+	delay	40
+	offset	100 189
+	frame	data/chars/3temjin/pain1.gif
+		
+anim	pain2
+	loop	0
+	delay	3
+	offset	103 189
+	bbox	79 80 50 109
+	frame	data/chars/3temjin/pain0.gif
+	offset	100 189
+	frame	data/chars/3temjin/pain2.gif
+	offset	107 189
+	frame	data/chars/3temjin/pain2.gif
+	delay	40
+	offset	100 189
+	frame	data/chars/3temjin/pain2.gif
+		
+anim	pain3
+	loop	0
+	delay	1
+	offset	103 189
+	bbox	0 0 0 0
+	jumpframe	1 2 -1 0
+	frame	data/chars/3temjin/pain1.gif
+	delay	25
+	frame	data/chars/3temjin/fall2.gif
+	delay	12
+	frame	data/chars/3temjin/fall3.gif
+	delay	4
+	bbox	71 165 67 30
+	frame	data/chars/3temjin/fall4.gif
+	frame	data/chars/3temjin/fall5.gif
+	frame	data/chars/3temjin/fall4.gif
+	frame	data/chars/3temjin/fall5.gif
+	delay	15
+	bbox	0 0 0 0
+	frame	data/chars/3temjin/fall4.gif
+	delay	10
+	frame	data/chars/3temjin/rise1.gif
+	frame	data/chars/3temjin/rise2.gif
+	frame	data/chars/3temjin/rise3.gif
+		
+anim	pain5
+	loop	0
+	delay	23
+	offset	100 189
+	bbox	79 80 50 109
+	frame	data/chars/3temjin/pain1.gif
+		
+anim	pain6
+	loop	0
+	delay	23
+	offset	100 189
+	bbox	79 80 50 109
+	frame	data/chars/3temjin/pain2.gif
+		
+anim	pain8
+	loop	0
+	delay	2
+	offset	100 189
+	bbox	79 80 50 109
+	move	-6
+	frame	data/chars/3temjin/pain1.gif
+	frame	data/chars/3temjin/pain1.gif
+	frame	data/chars/3temjin/pain1.gif
+	frame	data/chars/3temjin/pain2.gif
+	frame	data/chars/3temjin/pain2.gif
+	frame	data/chars/3temjin/pain2.gif
+	move	-3
+	frame	data/chars/3temjin/pain2.gif
+	frame	data/chars/3temjin/pain2.gif
+	move	-1
+	frame	data/chars/3temjin/pain2.gif
+	delay	35
+	frame	data/chars/3temjin/pain2.gif
+		
+anim	pain9
+	loop	0
+	delay	15
+	offset	100 189
+	bbox	79 80 50 109
+	frame	data/chars/3temjin/pain1.gif
+	delay	150
+	frame	data/chars/3temjin/pain2.gif
+		
+anim	rise
+	loop	0
+	delay	14
+	offset	100 189
+	bbox	0 0 0 0
+	frame	data/chars/3temjin/rise0.gif
+	@cmd	riseattack 80 10 "ANI_FOLLOW2"
+	frame	data/chars/3temjin/rise1.gif
+	@cmd	riseattack 80 10 "ANI_FOLLOW2"
+	frame	data/chars/3temjin/rise2.gif
+	frame	data/chars/3temjin/rise3.gif
+		
+anim	spawn
+	loop	0
+	delay	660
+	offset	100 189
+	bbox	0 0 0 0
+	frame	data/chars/3temjin/spawn01.gif
+	@cmd	spawn01 "taodisc" -490 -30 5
+	delay	20
+	frame	data/chars/3temjin/spawn01.gif
+		
+anim	special
+	delay	30
+	offset	100 189
+	bbox	0 0 0 0
+	sound	data/sounds/grab.wav
+	@cmd	slamstart2
+	@cmd	position 23 40 15 -1 1
+	frame	data/chars/3temjin/grab15.gif
+	delay	15
+	@cmd	position 1 10 30 -1 1
+	frame	data/chars/3temjin/grab16.gif
+	@cmd	position 2 -5 70 -1 1
+	frame	data/chars/3temjin/grab17.gif
+	@cmd	depost 0
+	@cmd	finish 30 1 -3 3 0 0
+	delay	30
+	delay	15
+	frame	data/chars/3temjin/grab19.gif
+	@cmd	clearL
+	frame	data/chars/3temjin/grab18.gif
+	delay	14
+	frame	data/chars/3temjin/grab20.gif
+	frame	data/chars/3temjin/blk09.gif
+	frame	data/chars/3temjin/blk10.gif
+		
+anim	upper
+	range	5 180
+	loop	0
+	delay	8
+	offset	100 189
+	bbox	0 0 0 0
+	jumpframe	2 3 2
+	landframe	3
+	frame	data/chars/3temjin/upper01.gif
+	sound	data/sounds/bguyb04.wav
+	frame	data/chars/3temjin/upper02.gif
+	delay	300
+	attack	80 80 75 85 20 1 0 0 35 0
+	dropv	4 2
+	frame	data/chars/3temjin/upper03.gif
+	attack	0 0 0 0
+	delay	12
+	frame	data/chars/3temjin/rise3.gif
+	frame	data/chars/3temjin/rise2.gif
+	frame	data/chars/3temjin/rise3.gif
+		
+anim	walk
+	loop	1
+	delay	10
+	offset	100 189
+	bbox	79 80 50 109
+	frame	data/chars/3temjin/wk01.gif
+	frame	data/chars/3temjin/wk02.gif
+	frame	data/chars/3temjin/wk03.gif
+	frame	data/chars/3temjin/wk04.gif
+	frame	data/chars/3temjin/wk05.gif
+		
+#|edited by openBor Stats v 0.67
+		
