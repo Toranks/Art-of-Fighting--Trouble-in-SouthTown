@@ -21,9 +21,13 @@ void main()
 		
   if (attacker == NULL() && victim2 == NULL()) {
         if  (realvictim != NULL() && escape == 1) {
+		changeentityproperty(realvictim, "position", x1, z1);
+        changeentityproperty(realvictim, "velocity", NULL(), 0, NULL());
      	performattack(realvictim, openborconstant("ANI_FOLLOW15"));
     	bindentity(realvictim, NULL());
         } else if (realvictim != NULL() && escape == 2) {
+		changeentityproperty(realvictim, "position", x1, z1);
+        changeentityproperty(realvictim, "velocity", NULL(), 0, NULL());
      	performattack(realvictim, openborconstant("ANI_FOLLOW16"));
     	bindentity(realvictim, NULL());
         }
@@ -31,6 +35,7 @@ void main()
 
     } else if (victimHP < 1 && victim2 != NULL()) {
 		changeentityproperty(victim2, "position", x1, z1);
+        changeentityproperty(victim2, "velocity", NULL(), 0, NULL());
      	performattack(victim2, openborconstant("ANI_DIE"));
     	setidle(attacker, openborconstant("ANI_IDLE"));
      	bindentity(victim2, NULL());
@@ -40,16 +45,21 @@ void main()
     } else if (HP > 1 && victim2 == NULL()) {
 		setidle(attacker, openborconstant("ANI_IDLE"));
         if  (realvictim != NULL() && escape == 1) {
-     	performattack(realvictim, openborconstant("ANI_FOLLOW15"));
-    	bindentity(realvictim, NULL());
+            changeentityproperty(realvictim, "position", x1, z1);
+            changeentityproperty(realvictim, "velocity", NULL(), 0, NULL());
+            performattack(realvictim, openborconstant("ANI_FOLLOW15"));
+            bindentity(realvictim, NULL());
         } else if (realvictim != NULL() && escape == 2) {
-     	performattack(realvictim, openborconstant("ANI_FOLLOW16"));
-    	bindentity(realvictim, NULL());
+            changeentityproperty(realvictim, "position", x1, z1);
+            changeentityproperty(realvictim, "velocity", NULL(), 0, NULL());
+            performattack(realvictim, openborconstant("ANI_FOLLOW16"));
+            bindentity(realvictim, NULL());
         }
 		killentity(self);
         
 	} else if(HP>=HPmax && escape == 1){
 		changeentityproperty(victim2, "position", x1, z1);
+        changeentityproperty(victim2, "velocity", NULL(), 0, NULL());
      	performattack(victim2, openborconstant("ANI_FOLLOW15"));
     	setidle(attacker, openborconstant("ANI_IDLE"));
      	bindentity(victim2, NULL());
@@ -58,6 +68,7 @@ void main()
 
 	} else if(HP>=HPmax && escape == 2){
 		changeentityproperty(victim2, "position", x1, z1);
+        changeentityproperty(victim2, "velocity", NULL(), 0, NULL());
      	performattack(victim2, openborconstant("ANI_FOLLOW16"));
     	setidle(attacker, openborconstant("ANI_IDLE"));
      	bindentity(victim2, NULL());
