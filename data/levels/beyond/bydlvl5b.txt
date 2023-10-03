@@ -92,37 +92,33 @@ at      480
 
 spawn   sylo2
 flip    1
-map     5
-health  150
 coords  90 260 315
 at      480
 
 spawn  sylo
 spawnscript	data/scripts/hard.c
-map     6
+map     1
 flip    1
 health  230
 coords  -630 315 315
 at      480
 
 spawn  sylo2
-spawnscript	data/scripts/hard.c
-map     5
-health  150
+item    herb
+map     2
 coords  -550 270 315
 at      480
 
 spawn   sylo
-map     6
+map     3
 flip    1
-item    herb
 health  230
+spawnscript	data/scripts/hard.c
 coords  280 315 315
 at      480
 
 spawn   sylo2
-map     5
-health  150
+map     4
 coords  430 270 315
 at      480
 
@@ -148,8 +144,7 @@ void main()
     }
 }
 @end_script
-map     1
-health  160
+map     5
 coords  630 320 70
 at      750
 
@@ -167,8 +162,7 @@ void main()
 }
 @end_script
 flip    1
-map     2
-health  150
+map     6
 coords  -210 320 70
 at      750
 
@@ -177,14 +171,12 @@ spawn   sylo2
    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
 } @end_script
 flip    1
-map     1
-health  170
+map     7
 coords  -240 290 70
 at      750
 
 spawn   sylo2
-map     4
-health  150
+map     8
 coords  320 265 315
 at      750
 
@@ -192,9 +184,8 @@ spawn   sylo2
 @script void main() {
    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
 } @end_script
-map     3
+map     9
 item    fluid
-health  160
 coords  630 320 70
 at      750
 
@@ -203,8 +194,6 @@ spawn   sylo2
    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
 } @end_script
 flip    1
-map     5
-health  150
 coords  -210 320 70
 at      750
 
@@ -219,13 +208,13 @@ at      1000
 
 spawn   sylo
 flip    1
-map     5
+map     1
 health  240
 coords  80 260 315
 at      1000
 
 spawn   sylo
-map     6
+map     2
 flip    1
 item    herb
 health  230
@@ -233,16 +222,14 @@ coords  250 315 315
 at      1000
 
 spawn   sylo2
-map     5
-health  150
+map     3
 coords  410 270 315
 at      1000
 
 spawn  sylo
 spawnscript	data/scripts/hard.c
-map     6
+map     4
 flip    1
-item    herb
 health  230
 coords  -150 315 315
 at      1000
@@ -251,7 +238,7 @@ at      1000
 blockade 1450
 at      1450
 #-----------------------
-group 2 2
+group 6 6
 at      1450
 wait
 at      1450
@@ -259,6 +246,7 @@ at      1450
 spawn   sylo
 flip    1
 map     5
+item    herb
 health  240
 coords  80 260 315
 at      1450
@@ -266,13 +254,13 @@ at      1450
 spawn   sylo
 map     6
 flip    1
-health  230
 coords  220 315 315
 at      1450
 
 spawn   sylo2
-map     5
-health  150
+map     7
+health  230
+spawnscript	data/scripts/hard.c
 coords  410 270 315
 at      1450
 
@@ -281,22 +269,20 @@ spawn   sylo2
    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
 } @end_script
 flip    1
-map     1
-health  170
+map     8
 coords  -240 290 70
 at      1450
 
 spawn  sylo
 spawnscript	data/scripts/hard.c
 flip    1
-map     4
+map     9
 health  240
 coords  -80 260 315
 at      1450
 
 spawn  sylo
 spawnscript	data/scripts/hard.c
-map     5
 flip    1
 health  230
 coords  -220 315 315
@@ -307,12 +293,96 @@ spawn   sylo2
    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
 } @end_script
 flip    1
-map     5
-health  150
+map     1
 coords  -210 320 70
 at      1450
 
+
 #-----------------------
+
+spawn   sylo
+flip    1
+map     2
+spawnscript	data/scripts/mania.c
+health  240
+coords  80 260 315
+at      1450
+
+spawn   sylo
+map     3
+spawnscript	data/scripts/mania.c
+flip    1
+coords  220 315 315
+at      1450
+
+spawn   sylo2
+map     4
+health  230
+spawnscript	data/scripts/mania.c
+coords  410 270 315
+at      1450
+
+spawn   sylo2
+@script
+void main()
+	{
+	void self = getlocalvar("self");
+	void difficulty = getglobalvar("mania");
+	performattack(self, openborconstant("ANI_FOLLOW2"));
+	
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+flip    1
+map     5
+coords  -240 290 70
+at      1450
+
+spawn  sylo
+spawnscript	data/scripts/mania.c
+flip    1
+map     6
+health  240
+coords  -80 260 315
+at      1450
+
+spawn  sylo
+spawnscript	data/scripts/mania.c
+flip    1
+map     7
+health  230
+coords  -220 315 315
+at      1450
+
+spawn   sylo2
+@script
+void main()
+	{
+	void self = getlocalvar("self");
+	void difficulty = getglobalvar("mania");
+	performattack(self, openborconstant("ANI_FOLLOW2"));
+	
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+flip    1
+map     8
+coords  -210 320 70
+at      1450
+
+
+spawn   sylo
+flip    1
+map     9
+spawnscript	data/scripts/mania.c
+health  240
+coords  80 260 315
+at      1450
+
 #-------//-badbreak---//--------
 spawn   badbreak
 coords  50 300
