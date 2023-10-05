@@ -4,6 +4,7 @@ void main()
 	void attacker = getentityproperty(self,"parent");
    	void victim2 = getentityvar(self, "target");
     void realvictim = getentityproperty(attacker, "opponent");
+	void attackerani = getentityproperty(attacker,"animationID");
 	void victimani = getentityproperty(victim2,"animationID");
 	void realvictimani = getentityproperty(realvictim,"animationID");
 	void plyr = getentityproperty(realvictim, "playerindex");
@@ -38,6 +39,10 @@ void main()
 
     } else if (plyr != victim) {
     	setidle(attacker, openborconstant("ANI_IDLE"));
+     	bindentity(victim2, NULL());
+		killentity(self);
+
+    } else if (attackerani == openborconstant("ANI_IDLE")) {
      	bindentity(victim2, NULL());
 		killentity(self);
 		
