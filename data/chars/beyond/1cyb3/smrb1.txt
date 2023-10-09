@@ -24,33 +24,55 @@ alternatepal		data/chars/beyond/1cyb3/pal.gif
 load	explosion3
 load	cybpwr1
 
-anim	jump
-	range	50 200
-	loop	0
-	delay	20
-	offset	93 128
-	bbox	70 75 50 55 30
-	platform   1 1 1 1 1 1 1 1
-	frame	data/chars/beyond/1cyb3/jump01.gif
-	frame	data/chars/beyond/1cyb3/jump02.gif
-
-anim	jumpland
+anim	attack2
+	range	100 250
+	rangez	35 60
 	loop	0
 	delay	12
 	offset	93 128
-	bbox	70 75 50 55 30
-	platform   1 1 1 1 1 1 1 1
+	bbox	0 0 0 0
+	platform	1 1 1 1 1 1 1 1
+	jumpframe	1 3 0 1
+	landframe	3
+	frame	data/chars/beyond/1cyb3/jump01.gif
+	delay	10
+	sound	data/sounds/land.wav
+	frame	data/chars/beyond/1cyb3/jump02.gif
+	delay	200
+	frame	data/chars/beyond/1cyb3/jump02.gif
+	delay	12
 	frame	data/chars/beyond/1cyb3/jump03.gif
 	frame	data/chars/beyond/1cyb3/jump04.gif
 	frame	data/chars/beyond/1cyb3/jump03.gif
-
+		
+anim	attack4
+	range	100 250
+	rangez	-60 -35
+	loop	0
+	delay	12
+	offset	93 128
+	bbox	0 0 0 0
+	platform	1 1 1 1 1 1 1 1
+	jumpframe	1 3 0 -1
+	landframe	3
+	frame	data/chars/beyond/1cyb3/jump01.gif
+	delay	10
+	sound	data/sounds/land.wav
+	frame	data/chars/beyond/1cyb3/jump02.gif
+	delay	200
+	frame	data/chars/beyond/1cyb3/jump02.gif
+	delay	12
+	frame	data/chars/beyond/1cyb3/jump03.gif
+	frame	data/chars/beyond/1cyb3/jump04.gif
+	frame	data/chars/beyond/1cyb3/jump03.gif
+		
 anim	attack5
 	range	0 250
 	loop	0
 	delay	7
 	offset	93 128
 	bbox	70 75 50 55 30
-	platform   1 1 1 1 1 1 1 1
+	platform	1 1 1 1 1 1 1 1
 	sound	data/sounds/alien10.wav
 	frame	data/chars/beyond/1cyb3/a01.gif
 	frame	data/chars/beyond/1cyb3/a02.gif
@@ -85,54 +107,12 @@ anim	attack5
 	frame	data/chars/beyond/1cyb3/a02.gif
 	frame	data/chars/beyond/1cyb3/a01.gif
 		
-anim	attack2
-	range	100 250
-	rangez	35 60
-	loop	0
-	delay	12
-	offset	93 128
-	bbox	0 0 0 0
-	platform   1 1 1 1 1 1 1 1
-	jumpframe	1 3 0 1
-	landframe	3
-	frame	data/chars/beyond/1cyb3/jump01.gif
-	delay	10
-	sound	data/sounds/land.wav
-	frame	data/chars/beyond/1cyb3/jump02.gif
-	delay	200
-	frame	data/chars/beyond/1cyb3/jump02.gif
-	delay	12
-	frame	data/chars/beyond/1cyb3/jump03.gif
-	frame	data/chars/beyond/1cyb3/jump04.gif
-	frame	data/chars/beyond/1cyb3/jump03.gif
-		
-anim	attack4
-	range	100 250
-	rangez	-60 -35
-	loop	0
-	delay	12
-	offset	93 128
-	bbox	0 0 0 0
-	platform   1 1 1 1 1 1 1 1
-	jumpframe	1 3 0 -1
-	landframe	3
-	frame	data/chars/beyond/1cyb3/jump01.gif
-	delay	10
-	sound	data/sounds/land.wav
-	frame	data/chars/beyond/1cyb3/jump02.gif
-	delay	200
-	frame	data/chars/beyond/1cyb3/jump02.gif
-	delay	12
-	frame	data/chars/beyond/1cyb3/jump03.gif
-	frame	data/chars/beyond/1cyb3/jump04.gif
-	frame	data/chars/beyond/1cyb3/jump03.gif
-		
 anim	block
 	loop	0
 	delay	12
 	offset	93 128
 	bbox	0 0 0 0
-	platform   1 1 1 1 1 1 1 1
+	platform	1 1 1 1 1 1 1 1
 	jumpframe	1 3 -3
 	landframe	3
 	frame	data/chars/beyond/1cyb3/jump01.gif
@@ -145,14 +125,13 @@ anim	block
 	frame	data/chars/beyond/1cyb3/jump03.gif
 	frame	data/chars/beyond/1cyb3/jump04.gif
 	frame	data/chars/beyond/1cyb3/jump03.gif
-
 		
 anim	death
 	loop	0
 	delay	30
 	offset	93 128
 	bbox	0 0 0 0
-	platform   1 1 1 1 1 1 1 1
+	platform	1 1 1 1 1 1 1 1
 	frame	data/chars/beyond/1cyb3/pain04.gif
 	delay	5
 	offset	93 128
@@ -173,14 +152,13 @@ anim	death
 	frame	data/chars/beyond/1cyb3/pain17.gif
 	frame	data/chars/beyond/1cyb3/pain18.gif
 	frame	data/chars/beyond/1cyb3/pain19.gif
-
 		
 anim	fall
 	loop	0
 	delay	3
 	offset	93 128
-	bbox	0 0 0 0
-	platform   1 1 1 1 1 1 1 1
+	bbox	70 75 50 55
+	platform	1 1 1 1 1 1 1 1
 	landframe	2 dust
 	frame	data/chars/beyond/1cyb3/pain02.gif
 	delay	100
@@ -215,19 +193,39 @@ anim	idle
 	loop	1
 	delay	6
 	offset	93 128
-	bbox	70 75 50 55 30
-	platform   1 1 1 1 1 1 1 1
+	bbox	70 75 50 55
+	platform	1 1 1 1 1 1 1 1
 	frame	data/chars/beyond/1cyb3/idle01.gif
 	frame	data/chars/beyond/1cyb3/idle02.gif
 	frame	data/chars/beyond/1cyb3/idle03.gif
 	frame	data/chars/beyond/1cyb3/idle04.gif
 		
+anim	jump
+	range	50 200
+	loop	0
+	delay	20
+	offset	93 128
+	bbox	70 75 50 55
+	platform	1 1 1 1 1 1 1 1
+	frame	data/chars/beyond/1cyb3/jump01.gif
+	frame	data/chars/beyond/1cyb3/jump02.gif
+		
+anim	jumpland
+	loop	0
+	delay	12
+	offset	93 128
+	bbox	70 75 50 55
+	platform	1 1 1 1 1 1 1 1
+	frame	data/chars/beyond/1cyb3/jump03.gif
+	frame	data/chars/beyond/1cyb3/jump04.gif
+	frame	data/chars/beyond/1cyb3/jump03.gif
+		
 anim	pain
 	loop	0
 	delay	10
 	offset	93 128
-	bbox	0 0 0 0
-	platform   1 1 1 1 1 1 1 1
+	bbox	70 75 50 55
+	platform	1 1 1 1 1 1 1 1
 	@cmd	dasher -3.5 0 0
 	frame	data/chars/beyond/1cyb3/pain00.gif
 	delay	30
@@ -245,8 +243,8 @@ anim	pain2
 	loop	0
 	delay	10
 	offset	93 128
-	bbox	0 0 0 0
-	platform   1 1 1 1 1 1 1 1
+	bbox	70 75 50 55
+	platform	1 1 1 1 1 1 1 1
 	@cmd	dasher -3.5 0 0
 	frame	data/chars/beyond/1cyb3/pain00.gif
 	delay	30
@@ -265,7 +263,7 @@ anim	rise
 	delay	14
 	offset	93 128
 	bbox	0 0 0 0
-	platform   1 1 1 1 1 1 1 1
+	platform	1 1 1 1 1 1 1 1
 	frame	data/chars/beyond/1cyb3/pain04.gif
 	frame	data/chars/beyond/1cyb3/pain05.gif
 		
@@ -275,12 +273,12 @@ if(frame==1)
 {
   changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_OBSTACLE"));
 }
-@end_script
+	@end_script	
 	loop	0
 	delay	50
 	offset	93 128
 	bbox	0 0 0 0
-	platform   1 1 1 1 1 1 1 1
+	platform	1 1 1 1 1 1 1 1
 	frame	data/chars/beyond/1cyb3/idle01.gif
 	frame	data/chars/beyond/1cyb3/idle01.gif
 	frame	data/chars/beyond/1cyb3/idle01.gif
@@ -291,12 +289,12 @@ anim	walk
 	loop	1
 	delay	6
 	offset	93 128
-	bbox	70 75 50 55 30
+	bbox	70 75 50 55
 	frame	data/chars/beyond/1cyb3/wk01.gif
 	frame	data/chars/beyond/1cyb3/wk02.gif
 	sound	data/sounds/grenpin.wav
 	frame	data/chars/beyond/1cyb3/wk03.gif
 	frame	data/chars/beyond/1cyb3/wk04.gif
 		
-#|edited by openBor Stats v 0.53
+#|edited by openBor Stats v 0.67
 		
