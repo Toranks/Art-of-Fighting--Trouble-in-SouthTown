@@ -189,8 +189,6 @@ coords  4347 860
 at      0
 
 #-------------begin-----------------
-blockade 345
-at      345
 
 #------------------------------
 
@@ -212,7 +210,7 @@ at      345
 
 #-----------------//-
 
-group	4 4
+group	7 7
 at   	345
 wait
 at   	345
@@ -220,90 +218,166 @@ at   	345
 spawn   morph
 spawnscript data/scripts/noscpos7.c
 flip    1
-map     2
-health  350
 coords  480 860 520
 at      345
 
 spawn   morph
 spawnscript data/scripts/noscpos7.c
-map     3
-health  300
+map     1
 coords  640 860 520
 at      345
 
 spawn   morph
 spawnscript data/scripts/noscpos7.c
 flip    1
-map     6
-health  350
+map     2
+health  400
+item	herb
 coords  435 950 520
 at      345
 
 spawn   morph
-spawnscript data/scripts/noscpos7.c
-map     5
-health  300
-item	herb
+@script
+void main()
+{
+    void self = getlocalvar("self");
+	void difficulty = getglobalvar("hard");
+    int x = getentityproperty(self,"x");
+    int XPos = openborvariant("xpos");
+    changeentityproperty(self, "position", x - XPos);
+    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW18"));
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+map     3
+health  400
 coords  685 950 520
+at      345.7
+
+
+spawn   morph
+@script
+void main()
+{
+    void self = getlocalvar("self");
+	void difficulty = getglobalvar("hard");
+    int x = getentityproperty(self,"x");
+    int XPos = openborvariant("xpos");
+    changeentityproperty(self, "position", x - XPos);
+    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW18"));
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+flip    1
+map     4
+health  400
+coords  560 860 520
 at      345
 
-#------------------------------
-blockade 590
-at      590
-#------------------------------
-blockade 900
-at      900
-blockade 1000
-at      1000
+spawn   morph
+@script
+void main()
+{
+    void self = getlocalvar("self");
+	void difficulty = getglobalvar("mania");
+    int x = getentityproperty(self,"x");
+    int XPos = openborvariant("xpos");
+    changeentityproperty(self, "position", x - XPos);
+    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW18"));
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+map     5
+health  500
+coords  500 950 520
+at      345
 
-group	3 3
-at  	1000
-wait
-at   	1000
-
-spawn   sentry1
-map	1
-health  400
-coords 	550 875
-at      1000
-
-spawn   ghost4
-coords 	550 875
-at      1000
-
-spawn   ghost4
-coords 	550 875
-at      1000
-
-spawn   smrb1
-item	orb
-coords 	550 875
-at      1000
-
-spawn   smrb1
-coords 	650 930
-at      1000
+spawn   morph
+@script
+void main()
+{
+    void self = getlocalvar("self");
+	void difficulty = getglobalvar("mania");
+    int x = getentityproperty(self,"x");
+    int XPos = openborvariant("xpos");
+    changeentityproperty(self, "position", x - XPos);
+    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW18"));
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+flip    1
+map     6
+health  500
+coords  600 950 520
+at      345
 
 
-#------------------------------
-blockade 1050
-at      1050
-
-blockade 1300
-at      1300
 #------------------------------
 
-group	3 3
+group	8 8
 at  	1300
 wait
 at   	1300
 
-spawn   sentry2
-item	fluid
-health  500
-coords 	650 820
+
+spawn   sentry1
+coords 	550 875
 at      1300
+
+spawn   sentry1
+spawnscript data/scripts/hard.c
+map		1
+health	300
+coords 	570 900
+at      1300
+
+spawn   sentry1
+spawnscript data/scripts/mania.c
+map		2
+health	400
+coords 	590 920
+at      1300
+
+spawn   sentry1
+spawnscript data/scripts/mania.c
+map		3
+health	400
+coords 	610 940
+at      1300
+
+spawn   smrb1
+item	orb
+map		1
+coords 	650 875
+at      1300
+
+spawn   smrb1
+spawnscript data/scripts/hard.c
+health	100
+coords 	650 900
+at      1300
+
+spawn   smrb1
+spawnscript data/scripts/mania.c
+map		1
+health	150
+coords 	650 920
+at      1300
+
+spawn   smrb1
+spawnscript data/scripts/mania.c
+health	150
+coords 	650 940
+at      1300
+
 
 spawn   ghost3
 coords 	550 875
@@ -313,14 +387,73 @@ spawn   ghost1
 coords 	550 875
 at      1300
 
+spawn   ghost1
+coords 	550 875
+at      1300
+
+spawn   ghost1
+coords 	550 875
+at      1300
+
+spawn   ghost1
+coords 	550 875
+at      1300
+
+spawn   ghost1
+coords 	550 875
+at      1300
+
+spawn   sentry2
+item	fluid
+health  500
+coords 	650 820
+at      1300
+
 spawn   sentry2
 @script void main()
 {
 	void self = getlocalvar("self");
+	void difficulty = getglobalvar("hard");
 	changeentityproperty(self, "speed", 1.5);
+	if(difficulty == 0){
+      killentity(self);
+    }
 }
 @end_script
-health  450
+map		1
+health  500
+coords 	650 850
+at      1300
+
+spawn   sentry2
+@script void main()
+{
+	void self = getlocalvar("self");
+	void difficulty = getglobalvar("mania");
+	changeentityproperty(self, "speed", 1.8);
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+map		2
+health  600
+coords 	650 880
+at      1300
+
+spawn   sentry2
+@script void main()
+{
+	void self = getlocalvar("self");
+	void difficulty = getglobalvar("mania");
+	changeentityproperty(self, "speed", 1.8);
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+map		3
+health  600
 coords 	750 920
 at      1300
 
@@ -333,6 +466,7 @@ coords 	550 875
 at      1300
 
 spawn   smrb2
+map		1
 item	cell
 coords 	570 800
 at      1300
@@ -350,6 +484,8 @@ coords 	550 875
 at      1300
 
 spawn   smrb2
+map		1
+item	byogem
 coords 	-350 960
 at      1300
 
@@ -358,6 +494,7 @@ coords 	550 875
 at      1300
 
 spawn   smrb2
+spawnscript data/scripts/hard.c
 coords 	650 960
 at      1300
 
@@ -366,6 +503,8 @@ coords 	550 875
 at      1300
 
 spawn   smrb2
+map		1
+spawnscript data/scripts/hard.c
 coords 	-350 960
 at      1300
 
@@ -374,7 +513,7 @@ coords 	550 875
 at      1300
 
 spawn   smrb2
-item	byogem
+spawnscript data/scripts/hard.c
 coords 	650 880
 at      1300
 
@@ -383,285 +522,409 @@ coords 	550 875
 at      1300
 
 spawn   smrb2
+spawnscript data/scripts/hard.c
+map		1
+coords 	-350 960
+at      1300
+#----------------
+
+
+spawn   smrb2
+spawnscript data/scripts/mania.c
+item	chargemp
+coords 	500 800
+at      1300
+
+spawn   ghost1
+coords 	550 875
+at      1300
+
+spawn   smrb2
+map		1
+spawnscript data/scripts/mania.c
+item	cell
+coords 	570 800
+at      1300
+
+spawn   ghost1
+coords 	550 875
+at      1300
+
+spawn   smrb2
+spawnscript data/scripts/mania.c
+coords 	630 880
+at      1300
+
+spawn   ghost1
+coords 	550 875
+at      1300
+
+spawn   smrb2
+map		1
+spawnscript data/scripts/mania.c
 coords 	-350 960
 at      1300
 
 #------------------------------
-blockade 1380
-at      1380
-blockade 1450
-at      1450
+
 #------------------------------
 spawn   smrb1
-coords 	600 900
-at      1450
+coords 	600 800
+at      1300
+
+spawn   ghost1
+coords 	550 875
+at      1300
 
 spawn   smrb1
+map		1
 coords 	-350 900
-at      1450
+at      1300
+
+spawn   ghost1
+coords 	550 875
+at      1300
 
 spawn   byocargo
-health  5
 item	charge
 coords 	900 820 25
-at      1460
+at      1300
 
-spawn   smrb2
+spawn   ghost1
+coords 	550 875
+at      1300
+
+spawn   smrb1
 coords 	600 900
-at      1460
+at      1300
 
-spawn   smrb2
-coords 	-350 900
-at      1460
+spawn   ghost1
+coords 	550 875
+at      1300
+
+spawn   smrb1
+map		1
+coords 	-350 800
+at      1300
 
 #------------------------------
-blockade 1500
-at      1500
 #------------------------------
 
-group	3 3
+group	5 5
 at   1500
 wait
 at    1500
 
 spawn   omega
-map     1
-health  350
-item	chargemp
+map     5
 coords 	300 860
 at      1500
 
-spawn   bignose
-map     2
-health  250
-coords 	-350 890
-at      1500
-
-spawn   ghost1
-coords 	550 875
+spawn   omega
+map     6
+health	600
+spawnscript data/scripts/mania.c
+coords 	300 900
 at      1500
 
 spawn   bignose
-map     3
-health  200
+spawnscript data/scripts/hard.c
+health	400
+coords 	-350 880
+at      1500
+
+spawn   bignose
+map     1
+item	chargemp
 coords 	650 890
 at      1500
 
 spawn   graynose
-map     3
-health  200
+map     6
 coords 	-350 920
 at      1500
+
 
 spawn   smrb1
 coords 	850 880
 at      1500
 
-spawn   ghost1
-coords 	600 875
+spawn   graynose
+map     5
+health	350
+spawnscript data/scripts/hard.c
+coords 	-350 900
 at      1500
 
 spawn   smrb1
+map     1
 coords 	-350 960
 at      1500
 
-#------------------------------
-blockade 1580
-at      1580
-blockade 1700
-at      1700
-#------------------------------
-group	3 3
-at   1700
-wait
-at    1700
 
 spawn   sentry1
-map	1
 coords 	600 860
-at      1700
+at      1500
 
 spawn   sentry1
-map	2
-coords 	-350 890
-at      1700
-
-spawn   ghost1
-coords 	400 910
-at      1700
-
-spawn   smrb1
-coords 	600 910
-at      1700
-
-spawn   ghost1
-coords 	400 910
-at      1700
-
-spawn   smrb1
-@script void main()
-{
-	void self = getlocalvar("self");
-	changeentityproperty(self, "speed", 1.5);
-}
-@end_script
-item	orb
-coords 	-350 910
-at      1700
-
-spawn   ghost1
-coords 	400 910
-at      1700
-
-spawn   smrb2
-@script void main()
-{
-	void self = getlocalvar("self");
-	changeentityproperty(self, "speed", 1.5);
-}
-@end_script
-coords 	600 910
-at      1700
-
-spawn   ghost1
-coords 	400 910
-at      1700
-
-spawn   smrb2
-coords 	-350 910
-at      1650
-
-#------------------------------
-
-blockade 1750
-at      1750
-blockade 1850
-at      1850
-blockade 1900
-at      1900
-#------------------------------
-group	3 3
-at   1900
-wait
-at    1900
-
-spawn   sentry2
+spawnscript data/scripts/hard.c
 map	1
+coords 	-350 890
+at      1500
+
+spawn   sentry1
+spawnscript data/scripts/mania.c
+map	2
+coords 	600 860
+at      1500
+
+spawn   sentry1
+spawnscript data/scripts/mania.c
+map	3
+coords 	600 860
+at      1500
+
+spawn   ghost1
+coords 	400 910
+at      1500
+
+spawn   smrb1
+item	orb
+coords 	600 910
+at      1500
+
+spawn   ghost1
+coords 	400 910
+at      1500
+
+spawn   smrb1
+map		1
+health	100
+@script void main()
+{
+	void self = getlocalvar("self");
+	void difficulty = getglobalvar("hard");
+	changeentityproperty(self, "speed", 1.5);
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+coords 	-350 910
+at      1500
+
+spawn   ghost1
+coords 	400 910
+at      1500
+
+spawn   smrb2
+health	80
+item	chargemp
+@script void main()
+{
+	void self = getlocalvar("self");
+	void difficulty = getglobalvar("hard");
+	changeentityproperty(self, "speed", 1.5);
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+map		1
+coords 	600 910
+at      1500
+
+spawn   ghost1
+coords 	400 910
+at      1500
+
+spawn   smrb2
+coords 	-350 910
+at      1500
+
+
+spawn   sentry2
+item	charge
 coords 	650 860
-at      1900
+at      1500
 
 spawn   sentry2
 @script void main()
 {
 	void self = getlocalvar("self");
-	changeentityproperty(self, "speed", 1.4);
+	void difficulty = getglobalvar("mania");
+	changeentityproperty(self, "speed", 1.5);
+	if(difficulty == 0){
+      killentity(self);
+    }
 }
 @end_script
-map	2
-item	charge
+map		1
 coords 	-400 860
-at      1900
+at      1500
+
+spawn   sentry2
+@script void main()
+{
+	void self = getlocalvar("self");
+	void difficulty = getglobalvar("hard");
+	changeentityproperty(self, "speed", 1.2);
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+map		2
+health  500
+coords 	-350 880
+at      1500
+
+spawn   sentry2
+@script void main()
+{
+	void self = getlocalvar("self");
+	void difficulty = getglobalvar("mania");
+	changeentityproperty(self, "speed", 1.5);
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+map		3
+health  500
+coords 	650 950
+at      1500
 
 spawn   ghost1
 coords 	400 910
-at      1900
+at      1500
 
 spawn   smrb2
 coords 	-350 880
-at      1900
+at      1500
 
 spawn   ghost1
 coords 	400 910
-at      1900
+at      1500
 
 spawn   byocargo
 health  5
 item	fluid
 coords 	900 850 25
-at      1900
+at      1500
 
 spawn   smrb2
+map		1
 coords 	600 880
-at      1900
+at      1500
 
 spawn   ghost1
 coords 	400 910
-at      1900
+at      1500
 
 spawn   smrb2
 coords 	-350 880
-at      1900
+at      1500
 
 spawn   ghost1
 coords 	400 910
-at      1900
+at      1500
 
 spawn   smrb2
 @script void main()
 {
 	void self = getlocalvar("self");
+	void difficulty = getglobalvar("hard");
 	changeentityproperty(self, "speed", 1.5);
+	if(difficulty == 0){
+      killentity(self);
+    }
 }
 @end_script
+map		1
 coords 	600 880
-at      1900
+at      1500
 
 spawn   ghost1
 coords 	400 910
-at      1900
+at      1500
 
 spawn   smrb2
+@script void main()
+{
+	void self = getlocalvar("self");
+	void difficulty = getglobalvar("mania");
+	changeentityproperty(self, "speed", 2);
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
 coords 	-350 880
-at      1900
+at      1500
 
 spawn   ghost1
 coords 	400 910
-at      1900
+at      1500
 
 spawn   smrb2
+map		1
 item	cell
 coords 	600 880
-at      1900
+at      1500
 
 spawn   ghost1
 coords 	400 910
-at      1900
-
-#------
+at      1500
 
 spawn   smrb1
+@script void main()
+{
+	void self = getlocalvar("self");
+	void difficulty = getglobalvar("mania");
+	changeentityproperty(self, "speed", 2);
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+map		1
 coords 	-350 880
-at      1900
+at      1500
 
 spawn   ghost1
 coords 	400 910
-at      1900
+at      1500
 
 spawn   smrb1
+@script void main()
+{
+	void self = getlocalvar("self");
+	void difficulty = getglobalvar("mania");
+	changeentityproperty(self, "speed", 2);
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+map		1
 coords 	600 880
-at      1900
+at      1500
 
 spawn   ghost1
 coords 	400 910
-at      1900
+at      1500
 
 #-------------------
 
-blockade 1950
-at      1950
-blockade 2100
-at      2100
-blockade 2200
-at      2200
 #------------------------------
-group	3 3
+
+group	5 5
 at   2200
 wait
 at    2200
 
 spawn   graynosed
-map     1
-health  250
 item    chargemp
 coords 	340 880
 at      2200
@@ -670,13 +933,34 @@ spawn   graynosed
 @script void main()
 {
 	void self = getlocalvar("self");
-	changeentityproperty(self, "speed", 1.4);
+	void difficulty = getglobalvar("mania");
+	changeentityproperty(self, "speed", 1.5);
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+map     1
+health	450
+flip	1
+coords 	120 880
+at      2200
+
+spawn   graynosed
+@script void main()
+{
+	void self = getlocalvar("self");
+	void difficulty = getglobalvar("hard");
+	changeentityproperty(self, "speed", 1.3);
+	if(difficulty == 0){
+      killentity(self);
+    }
 }
 @end_script
 map     2
+health	350
 flip	1
-health  220
-coords 	120 880
+coords 	230 880
 at      2200
 
 spawn   ghost2
@@ -684,6 +968,8 @@ coords 	400 910
 at      2200
 
 spawn   smrb1
+spawnscript data/scripts/hard.c
+health	100
 coords 	600 880
 at      2200
 
@@ -692,6 +978,9 @@ coords 	400 910
 at      2200
 
 spawn   smrb1
+map		1
+spawnscript data/scripts/mania.c
+health	150
 coords 	-350 880
 at      2200
 
@@ -709,6 +998,9 @@ coords 	400 910
 at      2200
 
 spawn   smrb2
+map		1
+spawnscript data/scripts/mania.c
+health	100
 coords 	-350 880
 at      2200
 
@@ -716,63 +1008,76 @@ spawn   ghost2
 coords 	400 910
 at      2200
 
-spawn   sentry1
-map	3
-coords 	650 860
+spawn   smrb2
+spawnscript data/scripts/hard.c
+health	80
+coords 	-350 880
+at      2200
+
+spawn   smrb1
+coords 	650 880
+at      2200
+
+spawn   smrb2
+spawnscript data/scripts/mania.c
+health	100
+coords 	-350 880
+at      2200
+
+spawn   smrb2
+spawnscript data/scripts/hard.c
+health	80
+coords 	650 880
 at      2200
 
 #------------------------------
-blockade 2300
-at      2300
-spawn   smrb2
-coords 	-350 880
-at      2300
-spawn   smrb1
-coords 	650 880
-at      2300
 
-blockade 2400
-at      2400
-spawn   smrb2
-coords 	-350 880
-at      2400
-spawn   smrb2
-coords 	650 880
-at      2400
-blockade 2500
-at      2500
-#------------------------------
-
-group	4 4
+group	5 5
 at   2500
 wait
 at    2500
 
-spawn   omega
-health  290
-map     4
-item    chargemp
-coords 	330 880
+spawn   graynosed
+map     3
+coords 	300 880
 at      2500
 
 spawn   graynosed
-map     3
+spawnscript data/scripts/hard.c
+health	350
+map     4
 flip	1
-health  150
-coords 	130 880
+coords 	100 880
 at      2500
 
-spawn   byocargo
-health  5
-item	fluid
-coords 	900 900 25
+spawn   graynosed
+spawnscript data/scripts/mania.c
+health	450
+map     5
+flip	1
+coords 	200 880
 at      2500
 
-spawn   ghost2
+spawn   graynosed
+spawnscript data/scripts/mania.c
+health	450
+map     6
+coords 	400 880
+at      2500
+
+spawn   ghost1
 coords 	400 910
 at      2500
 
-spawn   ghost2
+spawn   ghost1
+coords 	400 910
+at      2500
+
+spawn   ghost1
+coords 	400 910
+at      2500
+
+spawn   ghost1
 coords 	400 910
 at      2500
 
@@ -780,8 +1085,7 @@ spawn   morph
 @script void main() {
    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW10"));
 } @end_script
-map     5
-health  200
+map     7
 coords 	100 840 700
 at      2500
 
@@ -789,8 +1093,6 @@ spawn   morph
 @script void main() {
    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW10"));
 } @end_script
-map     2
-health  200
 item	byogem
 coords 	240 910 700
 at      2500
@@ -803,8 +1105,7 @@ spawn   morph
 @script void main() {
    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW10"));
 } @end_script
-map     5
-health  200
+map     1
 coords 	100 840 700
 at      2500
 
@@ -813,84 +1114,113 @@ spawn   morph
    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW10"));
 } @end_script
 map     2
-health  200
 coords 	250 910 700
 at      2500
 
-spawn   bignose
-map     1
-health  260
-coords 	600 930
+spawn   byocargo
+item	fluid
+coords 	900 900 25
 at      2500
-#------------------------------
-blockade 2600
-at      2600
+
 spawn   smrb2
 coords 	650 890
-at      2650
-blockade 2700
-at      2700
+at      2500
+
 spawn   smrb1
 coords 	-350 890
-at      2750
+at      2500
+
 spawn   smrb2
-coords 	650 890
-at      2750
-blockade 2800
-at      2800
-#------------------------------
-
-group	2 2
-at   2800
-wait
-at    2800
-
-spawn   sentry1
-health  350
-item	1up
 map     1
-coords 	650 910
-at      2800
+health	120
+item	chargemp
+@script void main()
+{
+	void self = getlocalvar("self");
+	void difficulty = getglobalvar("mania");
+	changeentityproperty(self, "speed", 2);
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+coords 	650 890
+at      2500
+
 
 spawn   ghost2
 coords 	400 910
-at      2800
+at      2500
 
 spawn   smrb2
+health	80
+@script void main()
+{
+	void self = getlocalvar("self");
+	void difficulty = getglobalvar("hard");
+	changeentityproperty(self, "speed", 1.5);
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
 coords 	-350 890
-at      2800
+at      2500
 
 spawn   morph
-health  160
-map     1
+map     3
 coords 	250 890
-at      2800
+at      2500
 
 spawn   smrb2
+map     1
+health	120
+@script void main()
+{
+	void self = getlocalvar("self");
+	void difficulty = getglobalvar("mania");
+	changeentityproperty(self, "speed", 2);
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
 coords 	650 890
-at      2800
+at      2500
 
 spawn   byocargo
+item	1up
 coords 	900 850 25
-at      2800
+at      2500
 
 spawn   morph
-health  140
-map     3
+map     4
+health	400
+spawnscript data/scripts/hard.c
 coords 	130 860
-at      2800
+at      2500
 
 spawn   smrb1
+map     1
+health	150
+@script void main()
+{
+	void self = getlocalvar("self");
+	void difficulty = getglobalvar("mania");
+	changeentityproperty(self, "speed", 2);
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
 coords 	-350 890
-at      2800
+at      2500
 
 #---------------------------
 #-----------jar-------------
 #---------------------------
 
 #---------------------------
-blockade 3700
-at      3700
 #---------------------------
 group   1 1
 at      3700
@@ -912,10 +1242,11 @@ coords  50 820
 at      4100
 #-------//-badbreak---//--------
 #--------mother-A-I----------
+
 spawn   cyberai
 spawnscript data/scripts/noscpos.c
-2phealth	6500
-3phealth	7000
+2phealth	8000
+3phealth	9000
 coords  4860 787
 at      4110
 
