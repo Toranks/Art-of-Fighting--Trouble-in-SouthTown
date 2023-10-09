@@ -1,6 +1,6 @@
 name          aiarm
 type          enemy
-health        1600
+health        750
 speedf        1
 jumpheight    0
 cantgrab      1
@@ -25,6 +25,25 @@ diesound      data/sounds/wood.wav
 
 animationscript data/scripts/escript.c
 
+script	@script
+void main()
+{
+  void self = getlocalvar("self");
+  void anim = getentityproperty(self,"animationID");
+  int P1 = getplayerproperty(0, "entity");
+  int P2 = getplayerproperty(1, "entity");
+  int P3 = getplayerproperty(2, "entity");
+	
+  if(anim == openborconstant("ANI_SPAWN") && P1 != NULL() && P2 != NULL() && P3 != NULL())
+	{
+ 	changeentityproperty(self, "health", 2000);
+	}
+	else if (anim == openborconstant("ANI_SPAWN") && P1 != NULL() && P2 != NULL() && P3 == NULL())
+	{
+ 	changeentityproperty(self, "health", 1500);
+	}
+}
+@end_script
 
 load	explosion3
 load	smrb3
