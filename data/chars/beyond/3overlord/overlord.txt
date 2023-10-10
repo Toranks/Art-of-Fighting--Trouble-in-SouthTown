@@ -1,6 +1,7 @@
 name          overlord
 type          enemy
-health        5000
+health        4000
+subtype	      notgrab
 speed         11
 jumpheight    5
 jumpspeed     25
@@ -24,6 +25,7 @@ dust            dust
 projectilehit enemy obstacle
 diesound      data/sounds/alien5.wav
 animationscript data/scripts/escript.c
+
 
 palette	data/chars/beyond/3overlord/map1.gif
 
@@ -710,6 +712,7 @@ anim	idle
 	offset	100 189
 	bbox	79 97 50 91
 	frame	data/chars/beyond/3overlord/idle01.gif
+	@cmd	lifeaggr 15 200
 	@cmd	depost 0
 	frame	data/chars/beyond/3overlord/idle02.gif
 	@cmd	clearL
@@ -820,18 +823,18 @@ anim	spawn
 	}
 	else if (P1 != NULL() && P2 != NULL() && P3 == NULL())
 	{
-	changeentityproperty(self, "maxhealth", 7500);
-	changeentityproperty(self, "health", 7500);
+	changeentityproperty(self, "maxhealth", 8000);
+	changeentityproperty(self, "health", 8000);
 	}
 	else if (P1 != NULL() && P2 == NULL() && P3 != NULL())
 	{
-	changeentityproperty(self, "maxhealth", 7500);
-	changeentityproperty(self, "health", 7500);
+	changeentityproperty(self, "maxhealth", 7000);
+	changeentityproperty(self, "health", 7000);
 	}
 	else if (P1 == NULL() && P2 != NULL() && P3 != NULL())
 	{
-	changeentityproperty(self, "maxhealth", 7500);
-	changeentityproperty(self, "health", 7500);
+	changeentityproperty(self, "maxhealth", 7000);
+	changeentityproperty(self, "health", 7000);
 	}
 	@end_script
 	loop	0
