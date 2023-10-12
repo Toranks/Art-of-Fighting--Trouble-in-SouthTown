@@ -735,7 +735,8 @@ anim	follow3
 	void plyr = getentityproperty(self, "playerindex");
 	float Vx = getlocalvar("x"+self);
 	float Vz = getlocalvar("z"+self);
-
+	int MP = getentityproperty(self,"mp");
+	
 	if(frame >= 1 && frame <= 7 )
 	{
 	  if( playerkeys(plyr, 0, "moveup"))
@@ -756,7 +757,7 @@ anim	follow3
 	  changeentityproperty(self, "direction", 1);
 	  changeentityproperty(self, "velocity", 3, Vz);
 	  }
-	  if( playerkeys(plyr, 0, "attack"))
+	  if( playerkeys(plyr, 0, "attack") || MP <= 1)
 	  {
 	  updateframe(self, 9);
 	  }
@@ -1293,6 +1294,7 @@ anim	freespecial16
 @script
 	void self = getlocalvar("self");
 	void plyr = getentityproperty(self, "playerindex");
+	int MP = getentityproperty(self,"mp");
 
 	float V = 1.5;
 	float xdir = 0;
@@ -1316,7 +1318,7 @@ anim	freespecial16
 	  {
 	 	 zdir = V/2;
 	  }
-	  if( playerkeys(plyr, 0, "attack"))
+	  if( playerkeys(plyr, 0, "attack") || MP <= 2)
 	  {
 	    updateframe(self, 9);
 	  }

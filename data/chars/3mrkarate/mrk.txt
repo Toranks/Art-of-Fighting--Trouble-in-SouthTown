@@ -2619,10 +2619,11 @@ anim	freespecial32
 @script
 	void self = getlocalvar("self");
 	void plyr = getentityproperty(self, "playerindex");
+	int MP = getentityproperty(self,"mp");
 
 	if(frame > 1 && frame <= 8 )
 	{
-	  if( playerkeys(plyr, 0, "attack"))
+	  if( playerkeys(plyr, 0, "attack") || MP <= 2)
 	  {
 	    updateframe(self, 10);
 	  }
