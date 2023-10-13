@@ -20,38 +20,53 @@ void main()
 	int MP1 = getentityproperty(P1,"mp");
 	int MP2 = getentityproperty(P2,"mp");
 	int MP3 = getentityproperty(P3,"mp");
+    char nm = getentityproperty(P1,"defaultmodel");
+    char nm2 = getentityproperty(P2,"defaultmodel");
+    char nm3 = getentityproperty(P3,"defaultmodel");
+	void anim1 = getentityproperty(P1,"animationID");
+	void anim2 = getentityproperty(P2,"animationID");
+	void anim3 = getentityproperty(P3,"animationID");
 
 	if (P1 != NULL())
 	{
-	changeentityproperty(P1, "model", Name, 1);
-	changeentityproperty(P1, "defaultname", Name);
-		if (HP1 >= 150) {
-			changeentityproperty(P1, "health", 170);
-		}
-		if (MP1 >= 100) {
-			changeentityproperty(P1, "mp", 200);
+		if (nm != Name)
+		{
+			changeentityproperty(P1, "model", Name, 0);
+			changeentityproperty(P1, "defaultname", Name);
+			if (anim1 == openborconstant("ANI_SPAWN") && HP1 >= 150) {
+				changeentityproperty(P1, "health", 170);
+			}
+			if (anim1 == openborconstant("ANI_SPAWN") && MP1 >= 100) {
+				changeentityproperty(P1, "mp", 200);
+			}
 		}
 	}
 	else if (P2 != NULL())
 	{
-	changeentityproperty(P2, "model", Name, 1);
-	changeentityproperty(P2, "defaultname", Name);
-		if (HP2 >= 150) {
-			changeentityproperty(P2, "health", 170);
-		}
-		if (MP2 >= 100) {
-			changeentityproperty(P2, "mp", 200);
+		if (nm2 != Name)
+		{
+			changeentityproperty(P2, "model", Name, 0);
+			changeentityproperty(P2, "defaultname", Name);
+			if (anim2 == openborconstant("ANI_SPAWN") && HP2 >= 150) {
+				changeentityproperty(P2, "health", 170);
+			}
+			if (anim2 == openborconstant("ANI_SPAWN") && MP2 >= 100) {
+				changeentityproperty(P2, "mp", 200);
+			}
 		}
 	}
 	else if (P3 != NULL())
 	{
-	changeentityproperty(P3, "model", Name, 1);
-	changeentityproperty(P3, "defaultname", Name);
-		if (HP3 >= 150) {
-			changeentityproperty(P3, "health", 170);
-		}
-		if (MP3 >= 100) {
-			changeentityproperty(P3, "mp", 200);
+		if (nm3 != Name)
+		{
+			changeentityproperty(P3, "model", Name, 0);
+			changeentityproperty(P3, "defaultname", Name);
+			if (anim3 == openborconstant("ANI_SPAWN") && HP3 >= 150) {
+				changeentityproperty(P2, "health", 170);
+			}
+			if (anim3 == openborconstant("ANI_SPAWN") && MP3 >= 100) {
+				changeentityproperty(P3, "mp", 200);
+			}
 		}
 	}
 }
