@@ -75,13 +75,14 @@ void main()
 	void frame = getentityproperty(self,"animpos");
 	void mana = getentityproperty(self,"mp");
 
-	if(anim == openborconstant("ANI_RUN") && frame >= 0 && playerkeys(plyr, 1, "special") && (mana>=101))
+	if(anim == openborconstant("ANI_RUN") && frame >= 0 && playerkeys(plyr, 1, "special") && (mana>=41))
 	{
-	performattack(self, openborconstant("ANI_FREESPECIAL6"));
+	performattack(self, openborconstant("ANI_FOLLOW9"));
 	changeentityproperty(self, "mp", mana-20);
 	}
 }
 	@end_script	
+		
 		
 		
 		
@@ -1615,14 +1616,13 @@ anim	freespecial12
 	@cmd	anichange "ANI_FOLLOW6"
 	frame	data/chars/3remuinho/empty.gif
 		
-anim	freespecial13
-	energycost	20
+anim	follow9
 	mponly	1
 	loop	0
 	delay	8
 	offset	100 191
 	bbox	0 0 0 0
-	followanim	5
+	followanim	8
 	followcond	2
 	fastattack	1
 	hitfx	data/sounds/grab.wav
