@@ -203,6 +203,8 @@ void main()
 		
 		
 		
+		
+		
 anim	attack1
 	range	0 135
 	rangez	-25 25
@@ -1152,19 +1154,19 @@ anim	follow6
 	{
 	  if( playerkeys(plyr, 0, "moveup"))
 	  {
-	  changeentityproperty(self, "velocity", Vx, -0.5);
+	  changeentityproperty(self, "velocity", 0, -0.5);
 	  }
 	  else if( playerkeys(plyr, 0, "movedown"))
 	  {
-	  changeentityproperty(self, "velocity", Vx, 0.5);
+	  changeentityproperty(self, "velocity", 0, 0.5);
 	  }
 	  else if( playerkeys(plyr, 0, "moveleft"))
 	  {
-	  changeentityproperty(self, "velocity", -1, Vz);
+	  changeentityproperty(self, "velocity", -1, 0);
 	  }
 	  else if( playerkeys(plyr, 0, "moveright"))
 	  {
-	  changeentityproperty(self, "velocity", 1, Vz);
+	  changeentityproperty(self, "velocity", 1, 0);
 	  }
 	  else
 	  {
@@ -2504,32 +2506,6 @@ anim	spawn
 	frame	data/chars/3remuinho/rise4.gif
 		
 anim	special
-@script
-	void self = getlocalvar("self");
-	void plyr = getentityproperty(self, "playerindex");
-	float Vx = getlocalvar("x"+self);
-	float Vz = getlocalvar("z"+self);
-
-	if(frame >= 2 && frame <= 15 )
-	{
-	  if( playerkeys(plyr, 0, "moveup"))
-	  {
-	  changeentityproperty(self, "velocity", Vx, -0.5);
-	  }
-	  if( playerkeys(plyr, 0, "movedown"))
-	  {
-	  changeentityproperty(self, "velocity", Vx, 0.5);
-	  }
-	  if( playerkeys(plyr, 0, "moveleft"))
-	  {
-	  changeentityproperty(self, "velocity", -1, Vz);
-	  }
-	  if( playerkeys(plyr, 0, "moveright"))
-	  {
-	  changeentityproperty(self, "velocity", 1, Vz);
-	  }
-	}
-	@end_script	
 	energycost	80
 	mponly	1
 	loop	0
@@ -2544,25 +2520,30 @@ anim	special
 	offset	100 189
 	frame	data/chars/3remuinho/air/e01.gif
 	frame	data/chars/3remuinho/air/e02.gif
+	@cmd	keymove 1.1
 	frame	data/chars/3remuinho/air/e03.gif
-	attack	85 100 105 60 15 1 0 0 30 30
+	attack	85 100 105 60 20 1 0 0 30 30
 	dropv	4 5 0
 	frame	data/chars/3remuinho/air/e05.gif
 	frame	data/chars/3remuinho/air/e06.gif
+	@cmd	keymove 1.1
 	frame	data/chars/3remuinho/air/e07.gif
 	frame	data/chars/3remuinho/air/e08.gif
 	attack	0 0 0 0
 	frame	data/chars/3remuinho/air/e09.gif
+	@cmd	keymove 1.1
 	frame	data/chars/3remuinho/air/e10.gif
-	attack	20 95 90 60 15 1 0 0 30 30
+	attack	20 95 90 60 20 1 0 0 30 30
 	dropv	4 5 0
 	frame	data/chars/3remuinho/air/e11.gif
 	frame	data/chars/3remuinho/air/e12.gif
+	@cmd	keymove 1.1
 	attack	0 0 0 0
 	frame	data/chars/3remuinho/air/e13.gif
 	frame	data/chars/3remuinho/air/e14.gif
 	offset	114 235
 	frame	data/chars/3remuinho/blk04.gif
+	@cmd	keymove 1.1
 	@cmd	looper	2 10
 	delay	7
 	offset	110 170

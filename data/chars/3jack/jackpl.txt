@@ -99,6 +99,11 @@ com     a3        freespecial29
 
 
 
+
+
+
+
+
 anim	attack1
 	loop	0
 	delay	6
@@ -266,7 +271,7 @@ anim	charge
 	offset	108 190
 	bbox	84 98 50 90
 	frame	data/chars/3jack/block01.gif
-	delay	6
+	delay	10
 	sound	data/sounds/bguye5.wav
 	frame	data/chars/3jack/ch01.gif
 	frame	data/chars/3jack/ch02.gif
@@ -2082,32 +2087,6 @@ anim	spawn
 	frame	data/chars/3jack/block01.gif
 		
 anim	special
-@script
-	void self = getlocalvar("self");
-	void plyr = getentityproperty(self, "playerindex");
-	float Vx = getlocalvar("x"+self);
-	float Vz = getlocalvar("z"+self);
-
-	if(frame >= 9 && frame < 14 )
-	{
-	  if( playerkeys(plyr, 0, "moveup"))
-	  {
-	  changeentityproperty(self, "velocity", Vx, -0.5);
-	  }
-	  if( playerkeys(plyr, 0, "movedown"))
-	  {
-	  changeentityproperty(self, "velocity", Vx, 0.5);
-	  }
-	  if( playerkeys(plyr, 0, "moveleft"))
-	  {
-	  changeentityproperty(self, "velocity", -1.5, Vz);
-	  }
-	  if( playerkeys(plyr, 0, "moveright"))
-	  {
-	  changeentityproperty(self, "velocity", 1.5, Vz);
-	  }
-	}
-	@end_script	
 	energycost	60
 	mponly	1
 	loop	0
@@ -2128,13 +2107,17 @@ anim	special
 	frame	data/chars/3jack/sp21.gif
 	delay	8
 	frame	data/chars/3jack/sp22.gif
-	blast	60 100 105 80 20 1 0 0 20 0
+	@cmd	keymove 1.05
+	blast	60 100 105 80 15 1 0 0 20 10
 	frame	data/chars/3jack/sp23.gif
 	@cmd	spawn01 "dust" 1 1 1
+	@cmd	keymove 1.05
 	sound	data/sounds/punch2.wav
 	frame	data/chars/3jack/sp24.gif
+	@cmd	keymove 1.05
 	blast	0 0 0 0
 	frame	data/chars/3jack/sp25.gif
+	@cmd	keymove 1.05
 	@cmd	looper 9 30
 	delay	10
 	frame	data/chars/3jack/sp22.gif
@@ -2175,5 +2158,5 @@ anim	walkoff
 	bbox	90 73 47 75
 	frame	data/chars/3jack/ju01.gif
 		
-#|edited by openBor Stats v 0.53
+#|edited by openBor Stats v 0.67
 		
