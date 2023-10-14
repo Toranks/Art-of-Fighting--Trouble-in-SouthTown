@@ -56,8 +56,6 @@ at      0
 #---------mrkarate-change--------------
 spawn   1pchosse
 alias   mrk
-#health	700
-aggression 300
 coords  300 380
 at      0
 #----------------------------------
@@ -322,228 +320,517 @@ at      0
 #----------------------------------
 
 #------------------------------
-blockade 1580
-at      2700
 #-------------------------
 
-group 3 3
-at    2700
-wait
+group 12 12
 at    2700
 
 spawn   reptile1
 map     1
 item	byogem
 coords  -100 335
-at      2700
+at      0
 
 spawn   reptile1
 map     2
 coords  600 265
-at      2700
+at      0
 
 spawn   reptile1
 map     3
 coords  600 400
-at      2700
+at      0
 
 spawn   reptile1
 map     4
+spawnscript data/scripts/hard.c
 item	chargemp
 coords  -100 335
-at      2700
+at      0
 
 spawn   reptile1
-map     1
+map     5
+spawnscript data/scripts/mania.c
 coords  600 265
-at      2700
+at      0
 
 spawn   reptile1
-map     2
+spawnscript data/scripts/mania.c
 coords  600 400
-at      2700
-
-
-#-------------------------
-blockade 2800
-at      3300
-#-------------------------
-group 3 3
-at    3300
-wait
-at    3300
-
-spawn   reptile3
-@script void main() {
-   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW10"));
-} @end_script
-map     3
-flip    1
-item	chargemp
-coords  -100 305
-at      3300
-
-spawn   reptile3
-@script void main() {
-   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW10"));
-} @end_script
-map     4
-flip    1
-coords  -200 435
-at      3300
-
-spawn   reptile3
-@script void main() {
-   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW10"));
-} @end_script
-map     3
-item	charge
-coords  600 315
-at      3300
-
-spawn   reptile3
-@script void main() {
-   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW10"));
-} @end_script
-map     4
-flip    1
-item	orb
-coords  -200 435
-at      3300
-
-
-#-------------------------
-
-blockade 3400
-at      4200
-
-#-------------------------
-
-group 3 3
-at    4200
-wait
-at    4200
-
-spawn   omega
-map     2
-health  500
-coords  80 360
-at      4200
-
-spawn  omega
-spawnscript	data/scripts/hard.c
-health  1000
-coords  150 290
-at      4200
-
-spawn   graynosed
-map     2
-item	chargemp
-coords  350 350
-at      4200
-
-spawn   graynosed
-map     4
-coords  200 280
-at      4200
-
-spawn   graynosed
-map     1
-item	charge
-coords  300 360
-at      4200
-
-spawn   graynosed
-map     2
-item	crystal
-coords  150 290
-at      4200
-
-#-------------------------
-blockade 4300
-at      4500
-
-spawn   sylo2
-@script void main() {
-   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
-} @end_script
-map     3
-coords  600 350
-at      4500
-
-spawn   sylo2
-@script void main() {
-   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
-} @end_script
-map     3
-flip    1
-coords  -150 350
-at      4800
-
-spawn   sylo2
-@script void main() {
-   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
-} @end_script
-map     3
-coords  650 350
-at      5000
-
-#-------------------------
-
-group 3 3
-at    5200
-wait
-at    5200
-
-spawn   bignose
-map     2
-coords  -200 300
-at      5200
-
-spawn  omega
-spawnscript	data/scripts/hard.c
-map     1
-health  1000
-coords  600 400
-at      5200
-
-spawn   bignose
-map     3
-item	chargemp
-coords  -100 400
-at      5200
-
-spawn   bignose
-map     4
-health  500
-coords  600 400
-at      5200
-
-spawn   graynose
-map     1
-item	fluid
-coords  -200 300
-at      5200
+at      0
 
 spawn   nosedgrey
+map     1
+coords  100 335
+at      0
+
+spawn   nosedgrey
+map     2
+coords 1200 265
+at      0
+
+spawn   nosedgrey
+map     3
+coords  100 400
+at      0
+
+spawn   nosedgrey
+spawnscript data/scripts/hard.c
 map     4
+coords  300 335
+at      0
+
+spawn   nosedgrey
+spawnscript data/scripts/mania.c
+map     5
+coords  300 265
+at      0
+
+spawn   nosedgrey
+spawnscript data/scripts/mania.c
+coords  300 400
+at      0
+
+
+#-------------------------
+
+#-------------------------
+group 12 12
+at    0
+
+spawn   reptile3
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW10"));
+} @end_script
+flip    1
+coords  -200 300
+at      0
+
+spawn   reptile3
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW10"));
+} @end_script
+item	orb
+map     1
+flip    1
+coords  -200 435
+at      0
+
+spawn   reptile3
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW10"));
+} @end_script
+map     2
+item	charge
+coords  600 300
+at      0
+
+spawn   reptile3
+@script
+void main()
+{
+    void self = getlocalvar("self");
+	void difficulty = getglobalvar("hard");
+    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW10"));
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+health	450
+item	chargemp
+map     3
+flip    1
+coords  600 450
+at      0
+
+spawn   reptile3
+@script
+void main()
+{
+    void self = getlocalvar("self");
+	void difficulty = getglobalvar("mania");
+    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW10"));
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+health	550
+map     4
+flip    1
+coords  -100 350
+at      0
+
+spawn   reptile3
+@script
+void main()
+{
+    void self = getlocalvar("self");
+	void difficulty = getglobalvar("mania");
+    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW10"));
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+health	550
+map     5
+flip    1
+coords  -100 400
+at      0
+
+spawn   reptile3
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW10"));
+} @end_script
+flip    1
+coords  -200 300
+at      0
+
+spawn   reptile3
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW10"));
+} @end_script
+map     1
+flip    1
+coords  -200 435
+at      0
+
+spawn   reptile3
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW10"));
+} @end_script
+map     2
+coords  600 300
+at      0
+
+spawn   reptile3
+@script
+void main()
+{
+    void self = getlocalvar("self");
+	void difficulty = getglobalvar("hard");
+    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW10"));
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+health	450
+map     3
+flip    1
+coords  600 450
+at      0
+
+spawn   reptile3
+@script
+void main()
+{
+    void self = getlocalvar("self");
+	void difficulty = getglobalvar("mania");
+    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW10"));
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+health	550
+map     4
+flip    1
+coords  -100 350
+at      0
+
+spawn   reptile3
+@script
+void main()
+{
+    void self = getlocalvar("self");
+	void difficulty = getglobalvar("mania");
+    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW10"));
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+health	550
+map     5
+flip    1
+coords  600 370
+at      0
+
+
+#-------------------------
+
+#-------------------------
+
+group 14 14
+at    0
+
+
+spawn   omega
+health	400
+coords  50 400
+at      0
+
+spawn  omega
+map     1
 coords  100 400
 at      5200
 
-spawn   bignose
+spawn  omega
 map     2
-coords  600 400
+coords  150 400
+at      0
+
+spawn   omega
+map     3
+spawnscript	data/scripts/hard.c
+health	500
+coords  200 400
+at      0
+
+spawn  omega
+spawnscript	data/scripts/mania.c
+map     4
+health  600
+coords  250 400
 at      5200
+
+spawn  omega
+spawnscript	data/scripts/mania.c
+map     5
+health  600
+coords  300 400
+at      0
+
+spawn  omega
+spawnscript	data/scripts/mania.c
+map     6
+health  600
+coords  350 400
+at      0
+
+spawn   graynosed
+health	250
+coords  50 250
+at      0
+
+spawn   graynosed
+map     1
+coords  100 250
+at      0
+
+spawn   graynosed
+map     2
+item	charge
+coords  150 250
+at      0
+
+spawn   graynosed
+spawnscript	data/scripts/hard.c
+health	350
+map     3
+coords  200 250
+at      0
+
+
+spawn   graynosed
+spawnscript	data/scripts/mania.c
+health	450
+coords  250 250
+at      0
+
+spawn   graynosed
+spawnscript	data/scripts/mania.c
+health	450
+map     1
+coords  300 250
+at      0
+
+spawn   graynosed
+spawnscript	data/scripts/mania.c
+health	450
+map     2
+item	chargemp
+coords  350 250
+at      0
 
 #-------------------------
 
-group 100 100
-at    5300
-wait
-at    5300
+#-------------------------
 
-blockade 5400
-at      5400
+group 21 21
+at    0
+
+spawn   bignose
+coords  -200 300
+at      0
+
+spawn   bignose
+map     1
+item	chargemp
+coords  -200 400
+at      0
+
+spawn   bignose
+map     2
+coords  600 400
+at      0
+
+spawn   graynose
+health  350
+item	fluid
+coords  -200 200
+at      0
+
+spawn   bignose
+health  400
+spawnscript	data/scripts/hard.c
+map     3
+coords  600 200
+at      0
+
+spawn   graynose
+map     1
+coords  600 300
+at      0
+
+spawn   bignose
+spawnscript	data/scripts/mania.c
+health  500
+map     4
+coords  -200 250
+at      0
+
+spawn   bignose
+spawnscript	data/scripts/hard.c
+health  400
+map     5
+item	chargemp
+coords  -200 350
+at      0
+
+spawn   bignose
+spawnscript	data/scripts/hard.c
+health  400
+map     6
+health  500
+coords  600 350
+at      0
+
+spawn   graynose
+map     2
+coords  -200 150
+at      0
+
+spawn   bignose
+spawnscript	data/scripts/mania.c
+health  500
+map     7
+coords  600 150
+at      0
+
+spawn   graynose
+map     3
+coords  600 250
+at      0
+
+spawn   bignose
+spawnscript	data/scripts/mania.c
+health  500
+map     8
+health  500
+coords  500 350
+at      0
+
+spawn   graynose
+spawnscript	data/scripts/hard.c
+health  350
+map     4
+coords  -300 150
+at      0
+
+spawn   bignose
+spawnscript	data/scripts/mania.c
+health  500
+map     9
+coords  500 150
+at      0
+
+spawn   graynose
+spawnscript	data/scripts/mania.c
+health  450
+map     5
+coords  -300 250
+at      0
+
+spawn   graynose
+spawnscript	data/scripts/hard.c
+health  350
+map     6
+coords  500 250
+at      0
+
+spawn   graynose
+spawnscript	data/scripts/hard.c
+health  350
+map     7
+coords  -300 350
+at      0
+
+spawn   graynose
+spawnscript	data/scripts/mania.c
+health  450
+map     8
+coords  700 200
+at      0
+
+spawn   graynose
+spawnscript	data/scripts/mania.c
+health  450
+map     9
+coords  -400 250
+at      0
+
+spawn   graynose
+spawnscript	data/scripts/mania.c
+health  450
+map     10
+coords  700 300
+at      0
+
+
+#-------------------------
+
+
+group 100 100
+at    0
+
+spawn   sylo2
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+coords  600 350
+at      0
+
+spawn   sylo2
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+map     1
+flip    1
+coords  -150 350
+at      0
+
+spawn   sylo2
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+} @end_script
+map     2
+coords  650 350
+at      0
+
 
 spawn   sylo2
 @script void main() {
@@ -551,35 +838,32 @@ spawn   sylo2
 } @end_script
 map     3
 coords  650 360
-at      5400
+at      0
 
 
 spawn   sylo2
 @script void main() {
    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
 } @end_script
-map     3
+map     4
 coords  -150 300
-at      5400
+at      0
 
-
-#-------------------------
 
 spawn   morph
 @script void main() {
    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW12"));
 } @end_script
-map     3
-coords  800 360
-at      5800
+coords  800 370
+at      0
 
 spawn   morph
 @script void main() {
    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW12"));
 } @end_script
-map     2
-coords  900 360
-at      5800
+map     1
+coords  1000 390
+at      0
 
 spawn   morph
 @script void main() {
@@ -588,7 +872,7 @@ spawn   morph
 map     2
 item	chargemp
 coords  1000 360
-at      5800
+at      0
 
 spawn   morph
 @script void main() {
@@ -596,78 +880,437 @@ spawn   morph
 } @end_script
 map     3
 item	byogem
-coords  1250 360
-at      5800
-
-spawn   morph
-@script void main() {
-   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW12"));
-} @end_script
-map     3
-coords  1350 360
-at      5800
-
-#--------------------------------
-
-blockade 5800
-at      5800
-
-#--------------------------------
-
-spawn   morph
-@script void main() {
-   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW12"));
-} @end_script
-map     6
-coords  600 390
-at      5900
-
-spawn   morph
-@script void main() {
-   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW12"));
-} @end_script
-map     3
-item	chargemp
-coords  800 390
-at      5900
-
-spawn   morph
-@script void main() {
-   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW12"));
-} @end_script
-map     2
 coords  900 390
-at      5900
+at      0
 
 spawn   morph
 @script void main() {
    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW12"));
 } @end_script
-map     3
-coords  1000 390
-at      5900
+map     4
+coords  900 360
+at      0
 
 spawn   morph
+@script
+void main()
+{
+    void self = getlocalvar("self");
+	void difficulty = getglobalvar("hard");
+    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW12"));
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+map     5
+coords  800 390
+at      0
+
+spawn   morph
+@script
+void main()
+{
+    void self = getlocalvar("self");
+	void difficulty = getglobalvar("hard");
+    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW12"));
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+map     6
+item	chargemp
+coords  800 360
+at      0
+
+spawn   morph
+@script
+void main()
+{
+    void self = getlocalvar("self");
+	void difficulty = getglobalvar("hard");
+    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW12"));
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+map     7
+coords  700 360
+at      0
+
+spawn   sylo2
 @script void main() {
-   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW12"));
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
 } @end_script
 map     5
+coords  700 390
+at      0
+
+spawn   sylo2
+@script
+void main()
+{
+    void self = getlocalvar("self");
+	void difficulty = getglobalvar("hard");
+    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+map     6
 item	charge
-coords  1250 390
-at      5900
+coords  600 360
+at      0
+
+spawn   sylo2
+@script
+void main()
+{
+    void self = getlocalvar("self");
+	void difficulty = getglobalvar("hard");
+    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+map     7
+coords  600 390
+at      0
+
+spawn   sylo2
+@script
+void main()
+{
+    void self = getlocalvar("self");
+	void difficulty = getglobalvar("hard");
+    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+map     8
+item	charge
+coords  500 360
+at      0
+
+spawn   sylo2
+@script
+void main()
+{
+    void self = getlocalvar("self");
+	void difficulty = getglobalvar("hard");
+    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+map     9
+coords  500 390
+at      0
+
+#-------------------------------
+#-------------------------------
+
+spawn   sylo2
+@script
+void main()
+{
+    void self = getlocalvar("self");
+	void difficulty = getglobalvar("mania");
+    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+coords  600 350
+at      0
+
+spawn   sylo2
+@script
+void main()
+{
+    void self = getlocalvar("self");
+	void difficulty = getglobalvar("mania");
+    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+map     1
+flip    1
+coords  -150 350
+at      0
+
+spawn   sylo2
+@script
+void main()
+{
+    void self = getlocalvar("self");
+	void difficulty = getglobalvar("mania");
+    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+map     2
+coords  650 350
+at      0
+
+
+spawn   sylo2
+@script
+void main()
+{
+    void self = getlocalvar("self");
+	void difficulty = getglobalvar("mania");
+    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+map     3
+coords  650 360
+at      0
+
+
+spawn   sylo2
+@script
+void main()
+{
+    void self = getlocalvar("self");
+	void difficulty = getglobalvar("mania");
+    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+map     4
+coords  -150 300
+at      0
+
 
 spawn   morph
-@script void main() {
-   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW12"));
-} @end_script
+@script
+void main()
+{
+    void self = getlocalvar("self");
+	void difficulty = getglobalvar("mania");
+    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW12"));
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+coords  800 370
+at      0
+
+spawn   morph
+@script
+void main()
+{
+    void self = getlocalvar("self");
+	void difficulty = getglobalvar("mania");
+    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW12"));
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+map     1
+coords  1000 390
+at      0
+
+spawn   morph
+@script
+void main()
+{
+    void self = getlocalvar("self");
+	void difficulty = getglobalvar("mania");
+    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW12"));
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+map     2
+item	chargemp
+coords  1000 360
+at      0
+
+spawn   morph
+@script
+void main()
+{
+    void self = getlocalvar("self");
+	void difficulty = getglobalvar("mania");
+    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW12"));
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+map     3
+item	byogem
+coords  900 390
+at      0
+
+spawn   morph
+@script
+void main()
+{
+    void self = getlocalvar("self");
+	void difficulty = getglobalvar("mania");
+    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW12"));
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+map     4
+coords  900 360
+at      0
+
+spawn   morph
+@script
+void main()
+{
+    void self = getlocalvar("self");
+	void difficulty = getglobalvar("mania");
+    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW12"));
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+map     5
+coords  800 390
+at      0
+
+spawn   morph
+@script
+void main()
+{
+    void self = getlocalvar("self");
+	void difficulty = getglobalvar("mania");
+    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW12"));
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
 map     6
-coords  1350 390
-at      5900
+item	chargemp
+coords  800 360
+at      0
 
-#--------------------------------
+spawn   morph
+@script
+void main()
+{
+    void self = getlocalvar("self");
+	void difficulty = getglobalvar("mania");
+    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW12"));
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+map     7
+coords  700 360
+at      0
 
-blockade 6000
-at      6300
+spawn   sylo2
+@script
+void main()
+{
+    void self = getlocalvar("self");
+	void difficulty = getglobalvar("mania");
+    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+map     5
+coords  700 390
+at      0
+
+spawn   sylo2
+@script
+void main()
+{
+    void self = getlocalvar("self");
+	void difficulty = getglobalvar("mania");
+    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+map     6
+item	charge
+coords  600 360
+at      0
+
+spawn   sylo2
+@script
+void main()
+{
+    void self = getlocalvar("self");
+	void difficulty = getglobalvar("mania");
+    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+map     7
+coords  600 390
+at      0
+
+spawn   sylo2
+@script
+void main()
+{
+    void self = getlocalvar("self");
+	void difficulty = getglobalvar("mania");
+    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+map     8
+item	charge
+coords  500 360
+at      0
+
+spawn   sylo2
+@script
+void main()
+{
+    void self = getlocalvar("self");
+	void difficulty = getglobalvar("mania");
+    performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+map     9
+coords  500 390
+at      0
 
 #--------------------------------
 
@@ -675,14 +1318,29 @@ group   1 1
 at      6400
 
 spawn   ghosttime
-health  10
+health  1
 coords  150 320
+at      0
+
+#--------------------------------
+
+blockade 6000
 at      6400
+
+#--------------------------------
+
+group   1 1
+at      6400
+
+spawn   ghosttime
+health  5
+coords  150 320
+at      0
 
 spawn   goIN
 spawnscript data/scripts/noscpos.c
 coords  7280 380
-at      6400
+at      0
 #--------------------------------
 
 spawn   ghosttest
