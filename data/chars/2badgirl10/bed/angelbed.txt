@@ -57,10 +57,26 @@ load	pwblow
 		for(iEntity=0; iEntity<iMax; iEntity++)
 		{    
 			vEntity = getentity(iEntity);	//entity from current loop.        
-			if(getentityproperty(vEntity, "type")==openborconstant("TYPE_enemy"))
+			if(getentityproperty(vEntity, "type")==openborconstant("TYPE_enemy") && getentityproperty(vEntity, "subject_to_gravity") != 0 && getentityproperty(vEntity, "subject_to_wall") != 0)
 			{
 
 			   damageentity(vEntity, self, 0, 1, openborconstant("ATK_NORMAL7"));
+
+				if(getentityproperty(vEntity, "grabbing") != NULL())
+				{
+					bindentity(getentityproperty(vEntity, "grabbing"), NULL());
+					setidle(getentityproperty(vEntity, "grabbing"));
+				}
+				if(getentityproperty(vEntity, "opponent") != NULL())
+				{
+					bindentity(getentityproperty(vEntity, "opponent"), NULL());
+					setidle(getentityproperty(vEntity, "opponent"));
+				}
+				if(getentityvar(vEntity, "target") != NULL())
+				{
+					bindentity(getentityvar(vEntity, "target"), NULL());
+					setidle(getentityvar(vEntity, "target"));
+				}
 
 			   bindentity(vEntity,self, 15, 1, 20, -1, 0);
 
@@ -81,7 +97,7 @@ load	pwblow
 		for(iEntity=0; iEntity<iMax; iEntity++)
 		{    
 			vEntity = getentity(iEntity);	//entity from current loop.        
-			if(getentityproperty(vEntity, "type")==openborconstant("TYPE_enemy"))
+			if(getentityproperty(vEntity, "type")==openborconstant("TYPE_enemy") && getentityproperty(vEntity, "subject_to_gravity") != 0 && getentityproperty(vEntity, "subject_to_wall") != 0)
 			{
 
 			   bindentity(vEntity, NULL());
