@@ -1,6 +1,6 @@
 name          overlordfn
 type          enemy
-health	2000
+health	1750
 speed         35
 running	      18 0 0 1 0
 jumpheight    0
@@ -16,9 +16,8 @@ blockodds     1
 nopassiveblock 1
 turndelay	15
 escapehits    4
-gfxshadow     1
-offense	all 0.5
-
+gfxshadow	1
+offense	all	0.7
 risetime      50 50
 dust            dust
 projectilehit enemy obstacle
@@ -30,7 +29,6 @@ lifebarstatus 300 10 0 1 0 2 5
 lifeposition 115  240
 nameposition -200 -200
 iconposition 50 227
-nolife 1
 
 
 
@@ -47,6 +45,7 @@ load	mbrain
 load	ovtlk2
 load	ovtlk4
 load	tankfall
+
 
 
 
@@ -1103,8 +1102,12 @@ anim	follow16
 anim	follow17
 @script
 	void self = getlocalvar("self");
-	if(frame==10){
+	void mania = getglobalvar("mania");
+	if(frame==10 && mania == 0){
 	changeentityproperty(self, "aggression", 100);
+	}
+	else if(frame==10 && mania == 1){
+	changeentityproperty(self, "aggression", 250);
 	}
 	@end_script	
 	loop	0
@@ -1474,7 +1477,7 @@ anim	follow6
 	offset	100 189
 	bbox	0 0 0 0
 	@cmd	slamstart2
-	@cmd	spawngrab 200 200 450 120 1 8
+	@cmd	spawngrab 200 200 450 175 1 8
 	@cmd	position 7 60 30 -1 -1
 	frame	data/chars/beyond/3overlord/d01.gif
 	delay	9
@@ -1488,6 +1491,7 @@ anim	follow6
 	frame	data/chars/beyond/3overlord/d13.gif
 	@cmd	position 11 32 62 -1 -1
 	frame	data/chars/beyond/3overlord/d14.gif
+	@cmd	hurt 10
 	@cmd	spawn01 "flash" 30 95 1
 	sound	data/sounds/hard1.wav
 	@cmd	position 11 30 60 -1 -1
@@ -1511,7 +1515,7 @@ anim	follow6
 	@cmd	position 2 0 35 1 1
 	frame	data/chars/beyond/3overlord/d06.gif
 	@cmd	depost 0
-	@cmd	finish 120 1 -4 3 0 0
+	@cmd	finish 80 1 -4 3 0 0
 	frame	data/chars/beyond/3overlord/d07.gif
 	frame	data/chars/beyond/3overlord/d08.gif
 	frame	data/chars/beyond/3overlord/d09.gif
@@ -1633,23 +1637,23 @@ anim	spawn
 	}
 	if (P1 != NULL() && P2 != NULL() && P3 != NULL())
 	{
-	changeentityproperty(self, "maxhealth", 5000);
-	changeentityproperty(self, "health", 5000);
-	}
-	else if (P1 != NULL() && P2 != NULL() && P3 == NULL())
-	{
 	changeentityproperty(self, "maxhealth", 4000);
 	changeentityproperty(self, "health", 4000);
 	}
+	else if (P1 != NULL() && P2 != NULL() && P3 == NULL())
+	{
+	changeentityproperty(self, "maxhealth", 3500);
+	changeentityproperty(self, "health", 3500);
+	}
 	else if (P1 != NULL() && P2 == NULL() && P3 != NULL())
 	{
-	changeentityproperty(self, "maxhealth", 3000);
-	changeentityproperty(self, "health", 3000);
+	changeentityproperty(self, "maxhealth", 2500);
+	changeentityproperty(self, "health", 2500);
 	}
 	else if (P1 == NULL() && P2 != NULL() && P3 != NULL())
 	{
-	changeentityproperty(self, "maxhealth", 3000);
-	changeentityproperty(self, "health", 3000);
+	changeentityproperty(self, "maxhealth", 2250);
+	changeentityproperty(self, "health", 2250);
 	}
 	@end_script	
 	loop	0
