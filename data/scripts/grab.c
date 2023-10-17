@@ -57,7 +57,6 @@ void main()
      	performattack(victim2, openborconstant("ANI_DIE"));
     	setidle(attacker, openborconstant("ANI_IDLE"));
      	bindentity(victim2, NULL());
-		killentity(victim2);
 		killentity(self);
 
     } else if (HP > 1 && victim2 == NULL()) {
