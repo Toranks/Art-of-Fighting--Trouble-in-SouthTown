@@ -135,7 +135,14 @@ anim	chargeattack
 		
 anim	death
 @script
-    if(frame==20){
+	void self = getlocalvar("self");
+	int index = getentityproperty(self, "playerindex");
+	int Plv = getplayerproperty(index, "lives");
+	int add = 1;
+	
+	if(frame==20){
+
+	changeplayerproperty(index, "lives", Plv-add);
 	jumptobranch("painst", 1);
     }
 	@end_script	
@@ -294,8 +301,15 @@ anim	jump
 		
 anim	pain2
 @script
-void self = getlocalvar("self");
-int index = getentityproperty(self, "playerindex");
+	void self = getlocalvar("self");
+	int index = getentityproperty(self, "playerindex");
+	int p1 = getplayerproperty(0, "entity");
+	int p2 = getplayerproperty(1, "entity");
+	int p3 = getplayerproperty(2, "entity");
+	int P1n = getentityproperty(p1, "defaultname");
+	int P2n = getentityproperty(p2, "defaultname");
+	int P3n = getentityproperty(p3, "defaultname");
+
 	if (frame == 28)
 	{
 	setglobalvar("1pch", 1);
@@ -304,8 +318,9 @@ int index = getentityproperty(self, "playerindex");
 	{
 	setglobalvar("1pch", 1);
 	changeopenborvariant("nojoin", 0);
-	changeentityproperty(self, "model", "ryo", 1);
-	changeentityproperty(self, "defaultname", "ryo");
+	changeentityproperty(p1, "model", P1n, 1);
+	changeentityproperty(p2, "model", P2n, 1);
+	changeentityproperty(p3, "model", P3n, 1);
 	}
 	@end_script	
 	loop	0
