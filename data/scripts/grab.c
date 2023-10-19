@@ -7,7 +7,6 @@ void main()
 	void attackerani = getentityproperty(attacker,"animationID");
 	void victimani = getentityproperty(victim2,"animationID");
 	void realvictimani = getentityproperty(realvictim,"animationID");
-	void plyr = getentityproperty(realvictim, "playerindex");
   	int victim = getentityvar(self, "player");
 	int HP = getentityproperty(self,"health");
 	int victimHP = getentityproperty(victim2,"health");
@@ -35,11 +34,6 @@ void main()
      	performattack(realvictim, openborconstant("ANI_FOLLOW16"));
     	bindentity(realvictim, NULL());
         }
-		killentity(self);
-
-    } else if (plyr != victim) {
-    	setidle(attacker, openborconstant("ANI_IDLE"));
-     	bindentity(victim2, NULL());
 		killentity(self);
 
     } else if (attackerani == openborconstant("ANI_IDLE")) {
