@@ -22,6 +22,8 @@ alternatepal	data/bgs/beyond/lvl16/bck/map2.gif
 alternatepal	data/bgs/beyond/lvl16/bck/map3.gif
 
 
+
+
 anim	fall
 	loop	0
 	delay	85
@@ -323,6 +325,39 @@ anim	follow12
 	frame	data/bgs/beyond/lvl16/bck/empty.gif
 		
 anim	follow2
+@script
+	void self = getlocalvar("self");
+	int p1 = getplayerproperty(0, "entity");
+	int p2 = getplayerproperty(1, "entity");
+	int p3 = getplayerproperty(2, "entity");
+	int x1 = getentityproperty(self,"x");
+	int z1 = getentityproperty(self,"z");
+	int P1n = getentityproperty(p1, "defaultname");
+	int P2n = getentityproperty(p2, "defaultname");
+	int P3n = getentityproperty(p3, "defaultname");
+    	char nm = getentityproperty(p1,"model");
+	char nm2 = getentityproperty(p2,"model");
+  	char nm3 = getentityproperty(p3,"model");
+
+	if (frame == 37)
+	   {
+ 	    if (p1 != NULL() && nm == "mrzero")
+ 	    {
+	    changeentityproperty(p1, "position", x1, z1+50);
+      	    changeentityproperty(p1, "model", P1n, 1);
+	    }
+    	    else if (p2 != NULL() && nm2 == "mrzero")
+	    {
+	    changeentityproperty(p2, "position", x1, z1+50);
+	    changeentityproperty(p2, "model", P2n, 1);
+	    }
+	    else if (p3 != NULL() && nm3 == "mrzero")
+	    {
+	    changeentityproperty(p3, "position", x1, z1+50);
+	    changeentityproperty(p3, "model", P3n, 1);
+	    }
+    }
+	@end_script	
 	loop	1 40 43
 	delay	7
 	offset	151 204
@@ -378,6 +413,39 @@ anim	follow2
 	frame	data/bgs/beyond/lvl16/bck/brk32.gif #45
 		
 anim	follow4
+@script
+	void self = getlocalvar("self");
+	int p1 = getplayerproperty(0, "entity");
+	int p2 = getplayerproperty(1, "entity");
+	int p3 = getplayerproperty(2, "entity");
+	int x1 = getentityproperty(self,"x");
+	int z1 = getentityproperty(self,"z");
+	int P1n = getentityproperty(p1, "defaultname");
+	int P2n = getentityproperty(p2, "defaultname");
+	int P3n = getentityproperty(p3, "defaultname");
+    	char nm = getentityproperty(p1,"model");
+	char nm2 = getentityproperty(p2,"model");
+  	char nm3 = getentityproperty(p3,"model");
+
+	if (frame == 37)
+	   {
+ 	    if (p1 != NULL() && nm == "mrzero")
+ 	    {
+	    changeentityproperty(p1, "position", x1, z1+50);
+      	    changeentityproperty(p1, "model", P1n, 1);
+	    }
+    	    else if (p2 != NULL() && nm2 == "mrzero")
+	    {
+	    changeentityproperty(p2, "position", x1, z1+50);
+	    changeentityproperty(p2, "model", P2n, 1);
+	    }
+	    else if (p3 != NULL() && nm3 == "mrzero")
+	    {
+	    changeentityproperty(p3, "position", x1, z1+50);
+	    changeentityproperty(p3, "model", P3n, 1);
+	    }
+    }
+	@end_script	
 	loop	1 40 43
 	delay	7
 	offset	151 204
@@ -499,5 +567,5 @@ anim	idle
 	@cmd	damage 40 "ANI_FOLLOW2"
 	frame	data/bgs/beyond/lvl16/bck/rob03.gif
 		
-#|edited by openBor Stats v 0.53
+#|edited by openBor Stats v 0.67
 		
