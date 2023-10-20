@@ -1,0 +1,572 @@
+name          mrkroad
+type          none
+health        170
+mp		200
+mprate        5
+facing        1
+speed         18
+jumpheight	5
+nodieblink    1
+escapehits    2
+noquake       1
+falldie	      1
+gfxshadow     1
+makeinv		3
+riseinv		2
+modelflag	1
+weaploss	3
+dust            dust
+atchain         1 2 3 0
+candamage     enemy obstacle
+icon		data/chars/3mrkarate/iconpl.gif
+parrow          data/chars/misc/flash/flash/player1.gif  -36 -145
+parrow2         data/chars/misc/flash/flash/player2.gif  -36 -145
+parrow3         data/chars/misc/flash/flash/player3.gif  -36 -145
+animationscript data/scripts/grabscript.c
+
+com	a3	freespecial2
+com	a2	freespecial4
+com	s	freespecial1
+com	a4	freespecial3
+com	f f	freespecial7
+com	b b	freespecial6
+
+
+
+
+
+
+
+load	3pw13
+
+anim	attack1
+	loop	0
+	delay	8
+	offset	100 189
+	bbox	85 97 40 50
+	fastattack	1
+	hitfx	data/sounds/beat2.wav
+	frame	data/chars/3mrkarate/h01.gif
+	bbox	87 71 38 47
+	offset	100 180
+	frame	data/chars/3mrkarate/g08.gif
+	attack	100 95 85 60 20 0 0 0 20 15
+	frame	data/chars/3mrkarate/g09.gif
+	frame	data/chars/3mrkarate/g09.gif
+	bbox	88 87 30 53
+	attack	0 0 0 0 0 0 0 0 0 0
+	delay	5
+	offset	100 189
+	frame	data/chars/3mrkarate/h02.gif
+		
+anim	attack2
+	loop	0
+	delay	8
+	offset	100 189
+	bbox	80 75 41 43
+	fastattack	1
+	hitfx	data/sounds/beat2.wav
+	frame	data/chars/3mrkarate/g11.gif
+	frame	data/chars/3mrkarate/g12.gif
+	frame	data/chars/3mrkarate/g13.gif
+	attack	96 59 65 90 30 0 0 0 30 15
+	frame	data/chars/3mrkarate/g14.gif
+	frame	data/chars/3mrkarate/g15.gif
+	bbox	95 90 23 49
+	attack	0 0 0 0 0 0 0 0 0 0
+	delay	4
+	offset	100 189
+	frame	data/chars/3mrkarate/h02.gif
+		
+anim	attack3
+	loop	0
+	delay	5
+	offset	100 189
+	bbox	94 71 29 57
+	fastattack	1
+	hitfx	data/sounds/beat2.wav
+	delay	5
+	frame	data/chars/3mrkarate/g06.gif
+	frame	data/chars/3mrkarate/g07.gif
+	frame	data/chars/3mrkarate/g08.gif
+	attack	99 75 85 70 40 0 0 0 45 15
+	frame	data/chars/3mrkarate/g17.gif
+	delay	8
+	frame	data/chars/3mrkarate/g18.gif
+	attack	0 0 0 0
+	offset	100 170
+	frame	data/chars/3mrkarate/g08.gif
+	bbox	102 94 22 51
+	offset	105 180
+	frame	data/chars/3mrkarate/g01.gif
+		
+anim	attackdown
+	loop	0
+	delay	8
+	offset	100 189
+	bbox	0 0 0 0
+	jumpframe	0 3 0 -1.5
+	landframe	7
+	frame	data/chars/3mrkarate/fall16.gif
+	frame	data/chars/3mrkarate/fall15.gif
+	frame	data/chars/3mrkarate/fall13.gif
+	frame	data/chars/3mrkarate/fall12.gif
+	frame	data/chars/3mrkarate/fall11.gif
+	frame	data/chars/3mrkarate/fall10.gif
+	delay	6
+	frame	data/chars/3mrkarate/fall16.gif
+		
+anim	attackup
+	loop	0
+	delay	8
+	offset	100 189
+	bbox	0 0 0 0
+	jumpframe	0 3 0 -1.5
+	landframe	7
+	frame	data/chars/3mrkarate/fall16.gif
+	frame	data/chars/3mrkarate/fall15.gif
+	frame	data/chars/3mrkarate/fall13.gif
+	frame	data/chars/3mrkarate/fall12.gif
+	frame	data/chars/3mrkarate/fall11.gif
+	frame	data/chars/3mrkarate/fall10.gif
+	delay	6
+	frame	data/chars/3mrkarate/fall16.gif
+		
+anim	freespecial6
+	loop	0
+	delay	8
+	offset	100 189
+	bbox	0 0 0 0
+	jumpframe	0 3 -4 0
+	landframe	7
+	frame	data/chars/3mrkarate/fall16.gif
+	frame	data/chars/3mrkarate/fall15.gif
+	frame	data/chars/3mrkarate/fall13.gif
+	frame	data/chars/3mrkarate/fall12.gif
+	frame	data/chars/3mrkarate/fall11.gif
+	frame	data/chars/3mrkarate/fall10.gif
+	delay	6
+	frame	data/chars/3mrkarate/fall16.gif
+	frame	data/chars/3mrkarate/fall16.gif
+		
+anim	backwalk
+	loop	1
+	delay	7
+	offset	100 189
+	bbox	89 97 40 91
+	frame	data/chars/3mrkarate/xrun01.gif
+	frame	data/chars/3mrkarate/xrun02.gif
+	frame	data/chars/3mrkarate/xrun03.gif
+	frame	data/chars/3mrkarate/xrun04.gif
+	frame	data/chars/3mrkarate/xrun05.gif
+	frame	data/chars/3mrkarate/xrun06.gif
+		
+anim	burn
+	loop	0
+	delay	30
+	offset	104 190
+	bbox	0 0 0 0
+	bouncefactor	0
+	@cmd	dethrown
+	landframe	3
+	drawmethod	tintmode 4
+	drawmethod	tintcolor 200_50_0
+	@cmd	spawnbind "burn1" 1 1 1
+	@cmd	spawnbind "burn2" 1 1 1
+	@cmd	spawnbind "burn3" 1 1 1
+	attack	77 101 35 54 5 1 0 0 13
+	frame	data/chars/3mrkarate/fall1.gif
+	delay	10
+	attack	61 124 61 26 5 1 0 0 13
+	frame	data/chars/3mrkarate/fall2.gif
+	attack	0 0 0 0
+	delay	1000
+	frame	data/chars/3mrkarate/fall3.gif
+	delay	2
+	frame	data/chars/3mrkarate/fall17.gif
+		
+anim	death
+	loop	0
+	delay	4
+	offset	100 140
+	bbox	0 0 0 0
+	frame	data/chars/3mrkarate/fall1a.gif
+	frame	data/chars/3mrkarate/fall11.gif
+	frame	data/chars/3mrkarate/fall12.gif
+	frame	data/chars/3mrkarate/fall13.gif
+	frame	data/chars/3mrkarate/fall14.gif
+	frame	data/chars/3mrkarate/fall11.gif
+	frame	data/chars/3mrkarate/fall12.gif
+	frame	data/chars/3mrkarate/fall13.gif
+	frame	data/chars/3mrkarate/fall14.gif
+	frame	data/chars/3mrkarate/fall11.gif
+	frame	data/chars/3mrkarate/fall12.gif
+	frame	data/chars/3mrkarate/fall13.gif
+	frame	data/chars/3mrkarate/fall14.gif
+	frame	data/chars/3mrkarate/fall11.gif
+	frame	data/chars/3mrkarate/fall12.gif
+	frame	data/chars/3mrkarate/fall13.gif
+	frame	data/chars/3mrkarate/fall14.gif
+	frame	data/chars/3mrkarate/fall11.gif
+	frame	data/chars/3mrkarate/fall12.gif
+	frame	data/chars/3mrkarate/fall13.gif
+	frame	data/chars/3mrkarate/fall14.gif
+	frame	data/chars/3mrkarate/fall11.gif
+	frame	data/chars/3mrkarate/fall12.gif
+	frame	data/chars/3mrkarate/fall13.gif
+	frame	data/chars/3mrkarate/fall14.gif
+	frame	data/chars/3mrkarate/fall11.gif
+	frame	data/chars/3mrkarate/fall12.gif
+	frame	data/chars/3mrkarate/fall13.gif
+	frame	data/chars/3mrkarate/fall14.gif
+	frame	data/chars/3mrkarate/fall11.gif
+	frame	data/chars/3mrkarate/fall12.gif
+	frame	data/chars/3mrkarate/fall13.gif
+	frame	data/chars/3mrkarate/fall14.gif
+		
+anim	fall
+	loop	0
+	delay	30
+	offset	104 190
+	bbox	0 0 0 0
+	bouncefactor	0
+	landframe	3
+	attack	77 101 35 54 5 1 0 0 13
+	frame	data/chars/3mrkarate/fall1.gif
+	delay	10
+	attack	61 124 61 26 5 1 0 0 13
+	frame	data/chars/3mrkarate/fall2.gif
+	attack	0 0 0 0
+	delay	1000
+	frame	data/chars/3mrkarate/fall3.gif
+	delay	2
+	frame	data/chars/3mrkarate/fall17.gif
+		
+anim	freespecial1
+	energycost	50
+	mponly	1
+	loop	0
+	delay	6
+	offset	100 189
+	bbox	0 0 0 0
+	hitfx	data/sounds/beat2.wav
+	frame	data/chars/3mrkarate/fall16.gif
+	offset	100 189
+	frame	data/chars/3mrkarate/f01.gif
+	frame	data/chars/3mrkarate/f02.gif
+	attack2	40 99 70 70 30 0 0 0 45 15
+	frame	data/chars/3mrkarate/f03.gif
+	attack2	0 0 0 0
+	delay	5
+	frame	data/chars/3mrkarate/f04.gif
+	attack2	100 99 70 70 30 0 0 0 45 15
+	frame	data/chars/3mrkarate/f05.gif
+	attack2	0 0 0 0
+	delay	8
+	frame	data/chars/3mrkarate/g06.gif
+	frame	data/chars/3mrkarate/xg08.gif
+	delay	7
+	attack2	30 85 85 75 30 0 0 0 45 15
+	frame	data/chars/3mrkarate/xg09.gif
+	attack2	0 0 0 0
+	frame	data/chars/3mrkarate/xg10.gif
+	frame	data/chars/3mrkarate/g08.gif
+	attack	99 75 85 70 30 0 0 0 45 15
+	frame	data/chars/3mrkarate/g17.gif
+	delay	8
+	frame	data/chars/3mrkarate/g18.gif
+	attack	0 0 0 0
+	offset	100 170
+	frame	data/chars/3mrkarate/g08.gif
+	frame	data/chars/3mrkarate/xwtr15.gif
+	frame	data/chars/3mrkarate/upper11.gif
+		
+anim	freespecial2
+	energycost	20
+	mponly	1
+	loop	0
+	delay	6
+	offset	100 189
+	bbox	85 97 40 50
+	hitfx	data/sounds/beat2.wav
+	frame	data/chars/3mrkarate/xrun10.gif
+	frame	data/chars/3mrkarate/xrun11.gif
+	frame	data/chars/3mrkarate/xrun12.gif
+	@cmd	dash
+	frame	data/chars/3mrkarate/xrun13.gif
+	@cmd	spawn01 "3pw13" 35 65 1
+	frame	data/chars/3mrkarate/xrun14.gif
+	frame	data/chars/3mrkarate/xrun15.gif
+	@cmd	dash
+	frame	data/chars/3mrkarate/xrun16.gif
+	frame	data/chars/3mrkarate/xrun17.gif
+	frame	data/chars/3mrkarate/xrun18.gif
+	@cmd	dash
+	frame	data/chars/3mrkarate/xrun19.gif
+	@cmd	spawn01 "3pw13" 30 60 2
+	frame	data/chars/3mrkarate/xrun21.gif
+	frame	data/chars/3mrkarate/xrun21.gif
+		
+anim	freespecial3
+	bbox	88 91 24 42
+	loop	0
+	delay	12
+	offset	100 189
+	jumpframe	0 4 -3.5
+	landframe	11
+	hitfx	data/sounds/beat1.wav
+	frame	data/chars/3mrkarate/fall16.gif
+	bbox	81 105 35 38
+	frame	data/chars/3mrkarate/fall10.gif
+	bbox	80 106 43 33
+	delay	6
+	frame	data/chars/3mrkarate/fall11.gif
+	frame	data/chars/3mrkarate/fall12.gif
+	frame	data/chars/3mrkarate/fall13.gif
+	frame	data/chars/3mrkarate/fall14.gif
+	bbox	86 76 33 32
+	delay	9
+	offset	100 180
+	frame	data/chars/3mrkarate/xg08.gif
+	bbox	87 75 39 33
+	frame	data/chars/3mrkarate/xg11.gif
+	attack	45 105 100 55 40 0 0 0 45 15
+	delay	20
+	frame	data/chars/3mrkarate/xg12.gif
+	delay	40
+	frame	data/chars/3mrkarate/xg13.gif
+	bbox	97 83 26 43
+	attack	0 0 0 0 0 0 0 0 0 0
+	delay	12
+	frame	data/chars/3mrkarate/xwtr15.gif
+	frame	data/chars/3mrkarate/xwtr15.gif
+		
+anim	freespecial4
+	loop	0
+	delay	8
+	offset	100 189
+	bbox	0 0 0 0
+	frame	data/chars/3mrkarate/run01.gif
+	frame	data/chars/3mrkarate/run02.gif
+	sound	data/sounds/run.wav
+	frame	data/chars/3mrkarate/run03.gif
+	frame	data/chars/3mrkarate/run04.gif
+	frame	data/chars/3mrkarate/run05.gif
+	sound	data/sounds/run.wav
+	frame	data/chars/3mrkarate/run06.gif
+	@cmd	spawnAni3 "freewaytot" 250 1 140 "ANI_FOLLOW7"
+	frame	data/chars/3mrkarate/run01.gif
+	frame	data/chars/3mrkarate/run02.gif
+	sound	data/sounds/run.wav
+	frame	data/chars/3mrkarate/run03.gif
+	frame	data/chars/3mrkarate/run04.gif
+	frame	data/chars/3mrkarate/run05.gif
+	sound	data/sounds/run.wav
+	frame	data/chars/3mrkarate/run06.gif
+		
+anim	freespecial5
+	loop	0
+	delay	9
+	offset	100 189
+	bbox	83 88 28 49
+	hitfx	data/sounds/beat4.wav
+	frame	data/chars/3mrkarate/xjua12.gif
+	frame	data/chars/3mrkarate/xjua13.gif
+	attack	47 90 60 75 40 0 0 0 45 17
+	delay	17
+	frame	data/chars/3mrkarate/xjua14.gif
+	attack	0 0 0 0
+	delay	12
+	frame	data/chars/3mrkarate/xjua13.gif
+		
+anim	idle
+	loop	1
+	delay	4
+	offset	100 189
+	bbox	89 97 40 91
+	frame	data/chars/3mrkarate/xrun01.gif
+	frame	data/chars/3mrkarate/xrun02.gif
+	@cmd	clearL
+	frame	data/chars/3mrkarate/xrun03.gif
+	frame	data/chars/3mrkarate/xrun04.gif
+	frame	data/chars/3mrkarate/xrun05.gif
+	frame	data/chars/3mrkarate/xrun06.gif
+	frame	data/chars/3mrkarate/xrun01.gif
+	frame	data/chars/3mrkarate/xrun02.gif
+	frame	data/chars/3mrkarate/xrun03.gif
+	frame	data/chars/3mrkarate/xrun04.gif
+	frame	data/chars/3mrkarate/xrun05.gif
+	frame	data/chars/3mrkarate/xrun06.gif
+		
+anim	jump
+	loop	0
+	cancel	1 9 0 j j freespecial5
+	delay	9
+	offset	100 189
+	bbox	88 95 50 50
+	frame	data/chars/3mrkarate/jump01.gif
+	@cmd	keymove 2
+	frame	data/chars/3mrkarate/jump02.gif
+	frame	data/chars/3mrkarate/jump03.gif
+	delay	5
+	@cmd	keymove 2
+	frame	data/chars/3mrkarate/jump04.gif
+	frame	data/chars/3mrkarate/jump04.gif
+	@cmd	keymove 2
+	frame	data/chars/3mrkarate/jump04.gif
+	delay	6
+	frame	data/chars/3mrkarate/jump05.gif
+	@cmd	keymove 2
+	frame	data/chars/3mrkarate/jump05.gif
+	frame	data/chars/3mrkarate/jump06.gif
+	frame	data/chars/3mrkarate/jump06.gif
+		
+anim	jumpattack
+	loop	0
+	delay	9
+	offset	100 189
+	bbox	84 87 26 56
+	hitfx	data/sounds/beat4.wav
+	frame	data/chars/3mrkarate/xjua08.gif
+	frame	data/chars/3mrkarate/xjua09.gif
+	attack	93 90 60 75 40 0 0 0 45 17
+	delay	17
+	frame	data/chars/3mrkarate/xjua10.gif
+	attack	0 0 0 0
+	delay	12
+	frame	data/chars/3mrkarate/xjua09.gif
+		
+anim	pain
+	loop	0
+	delay	12
+	offset	103 189
+	bbox	79 97 50 91
+	jumpframe	1 3.3 2
+	landframe	9 dust
+	frame	data/chars/3mrkarate/pain2.gif
+	bbox	0 0 0 0
+	frame	data/chars/3mrkarate/pain6.gif
+	delay	6
+	frame	data/chars/3mrkarate/fall11.gif
+	frame	data/chars/3mrkarate/fall12.gif
+	frame	data/chars/3mrkarate/fall13.gif
+	frame	data/chars/3mrkarate/fall14.gif
+	frame	data/chars/3mrkarate/fall15.gif
+	delay	12
+	frame	data/chars/3mrkarate/fall16.gif
+	frame	data/chars/3mrkarate/2grab07.gif
+	frame	data/chars/3mrkarate/2grab07.gif
+		
+anim	pain2
+	loop	0
+	delay	12
+	offset	103 189
+	bbox	79 97 50 91
+	jumpframe	1 3.3 -2
+	landframe	9 dust
+	frame	data/chars/3mrkarate/pain2.gif
+	bbox	0 0 0 0
+	frame	data/chars/3mrkarate/pain6.gif
+	delay	6
+	frame	data/chars/3mrkarate/fall11.gif
+	frame	data/chars/3mrkarate/fall12.gif
+	frame	data/chars/3mrkarate/fall13.gif
+	frame	data/chars/3mrkarate/fall14.gif
+	frame	data/chars/3mrkarate/fall15.gif
+	delay	12
+	frame	data/chars/3mrkarate/fall16.gif
+	frame	data/chars/3mrkarate/2grab07.gif
+	frame	data/chars/3mrkarate/2grab07.gif
+		
+anim	respawn
+	loop	0
+	delay	4
+	offset	100 189
+	bbox	0 0 0 0
+	frame	data/chars/3mrkarate/run01.gif
+	frame	data/chars/3mrkarate/run02.gif
+	sound	data/sounds/run.wav
+	frame	data/chars/3mrkarate/run03.gif
+	frame	data/chars/3mrkarate/run04.gif
+	frame	data/chars/3mrkarate/run05.gif
+	sound	data/sounds/run.wav
+	frame	data/chars/3mrkarate/run06.gif
+	frame	data/chars/3mrkarate/run01.gif
+	frame	data/chars/3mrkarate/run02.gif
+	sound	data/sounds/run.wav
+	frame	data/chars/3mrkarate/run03.gif
+	frame	data/chars/3mrkarate/run04.gif
+	frame	data/chars/3mrkarate/run05.gif
+	sound	data/sounds/run.wav
+	frame	data/chars/3mrkarate/run06.gif
+	@cmd	looper 7 2
+	frame	data/chars/3mrkarate/run01.gif
+	frame	data/chars/3mrkarate/run02.gif
+	sound	data/sounds/run.wav
+	frame	data/chars/3mrkarate/run03.gif
+	frame	data/chars/3mrkarate/run04.gif
+	frame	data/chars/3mrkarate/run05.gif
+	sound	data/sounds/run.wav
+	frame	data/chars/3mrkarate/run06.gif
+		
+anim	rise
+	loop	0
+	delay	2
+	offset	100 189
+	bbox	0 0 0 0
+	frame	data/chars/3mrkarate/fall17.gif
+	frame	data/chars/3mrkarate/fall17.gif
+	delay	1
+	frame	data/chars/3mrkarate/rise3.gif
+	frame	data/chars/3mrkarate/rise4.gif
+		
+anim	freespecial7
+	loop	0
+	delay	8
+	offset	100 189
+	bbox	0 0 0 0
+	jumpframe	0 3 4 0
+	landframe	7
+	frame	data/chars/3mrkarate/fall16.gif
+	frame	data/chars/3mrkarate/fall15.gif
+	frame	data/chars/3mrkarate/fall13.gif
+	frame	data/chars/3mrkarate/fall12.gif
+	frame	data/chars/3mrkarate/fall11.gif
+	frame	data/chars/3mrkarate/fall10.gif
+	delay	6
+	frame	data/chars/3mrkarate/fall16.gif
+	frame	data/chars/3mrkarate/fall16.gif
+		
+anim	spawn
+	loop	0
+	delay	4
+	offset	100 189
+	bbox	0 0 0 0
+	frame	data/chars/3mrkarate/run01.gif
+	frame	data/chars/3mrkarate/run02.gif
+	sound	data/sounds/run.wav
+	frame	data/chars/3mrkarate/run03.gif
+	frame	data/chars/3mrkarate/run04.gif
+	frame	data/chars/3mrkarate/run05.gif
+	sound	data/sounds/run.wav
+	frame	data/chars/3mrkarate/run06.gif
+	frame	data/chars/3mrkarate/run01.gif
+	frame	data/chars/3mrkarate/run02.gif
+	sound	data/sounds/run.wav
+	frame	data/chars/3mrkarate/run03.gif
+	frame	data/chars/3mrkarate/run04.gif
+	frame	data/chars/3mrkarate/run05.gif
+	sound	data/sounds/run.wav
+	frame	data/chars/3mrkarate/run06.gif
+	@cmd	looper 7 2
+	frame	data/chars/3mrkarate/run01.gif
+	frame	data/chars/3mrkarate/run02.gif
+	sound	data/sounds/run.wav
+	frame	data/chars/3mrkarate/run03.gif
+	frame	data/chars/3mrkarate/run04.gif
+	frame	data/chars/3mrkarate/run05.gif
+	sound	data/sounds/run.wav
+	frame	data/chars/3mrkarate/run06.gif
+		
+#|edited by openBor Stats v 0.67
+		
