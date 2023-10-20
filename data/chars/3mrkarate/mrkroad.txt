@@ -4,7 +4,7 @@ health        170
 mp		200
 mprate        5
 facing        1
-speed         18
+speedf		1.4
 jumpheight	5
 nodieblink    1
 escapehits    2
@@ -24,6 +24,16 @@ parrow2         data/chars/misc/flash/flash/player2.gif  -36 -145
 parrow3         data/chars/misc/flash/flash/player3.gif  -36 -145
 animationscript data/scripts/grabscript.c
 
+palette		data/chars/3mrkarate/map1.gif
+alternatepal	data/chars/3mrkarate/map1.gif
+alternatepal	data/chars/3mrkarate/map2.gif
+alternatepal	data/chars/3mrkarate/map6.gif
+alternatepal	data/chars/3mrkarate/map3.gif
+alternatepal	data/chars/3mrkarate/map4.gif
+alternatepal	data/chars/3mrkarate/map5.gif
+alternatepal	data/chars/3mrkarate/map7.gif
+alternatepal	data/chars/3mrkarate/map8.gif
+
 com	a3	freespecial2
 com	a2	freespecial4
 com	s	freespecial1
@@ -33,11 +43,8 @@ com	b b	freespecial6
 
 
 
-
-
-
-
 load	3pw13
+
 
 anim	attack1
 	loop	0
@@ -69,7 +76,7 @@ anim	attack2
 	frame	data/chars/3mrkarate/g11.gif
 	frame	data/chars/3mrkarate/g12.gif
 	frame	data/chars/3mrkarate/g13.gif
-	attack	96 59 65 90 30 0 0 0 30 15
+	attack	96 59 65 90 40 0 0 0 30 15
 	frame	data/chars/3mrkarate/g14.gif
 	frame	data/chars/3mrkarate/g15.gif
 	bbox	95 90 23 49
@@ -89,7 +96,7 @@ anim	attack3
 	frame	data/chars/3mrkarate/g06.gif
 	frame	data/chars/3mrkarate/g07.gif
 	frame	data/chars/3mrkarate/g08.gif
-	attack	99 75 85 70 40 0 0 0 45 15
+	attack	99 75 85 70 50 0 0 0 45 15
 	frame	data/chars/3mrkarate/g17.gif
 	delay	8
 	frame	data/chars/3mrkarate/g18.gif
@@ -105,7 +112,7 @@ anim	attackdown
 	delay	8
 	offset	100 189
 	bbox	0 0 0 0
-	jumpframe	0 3 0 -1.5
+	jumpframe	0 3 0 1.5
 	landframe	7
 	frame	data/chars/3mrkarate/fall16.gif
 	frame	data/chars/3mrkarate/fall15.gif
@@ -130,23 +137,6 @@ anim	attackup
 	frame	data/chars/3mrkarate/fall11.gif
 	frame	data/chars/3mrkarate/fall10.gif
 	delay	6
-	frame	data/chars/3mrkarate/fall16.gif
-		
-anim	freespecial6
-	loop	0
-	delay	8
-	offset	100 189
-	bbox	0 0 0 0
-	jumpframe	0 3 -4 0
-	landframe	7
-	frame	data/chars/3mrkarate/fall16.gif
-	frame	data/chars/3mrkarate/fall15.gif
-	frame	data/chars/3mrkarate/fall13.gif
-	frame	data/chars/3mrkarate/fall12.gif
-	frame	data/chars/3mrkarate/fall11.gif
-	frame	data/chars/3mrkarate/fall10.gif
-	delay	6
-	frame	data/chars/3mrkarate/fall16.gif
 	frame	data/chars/3mrkarate/fall16.gif
 		
 anim	backwalk
@@ -228,15 +218,17 @@ anim	fall
 	loop	0
 	delay	30
 	offset	104 190
-	bbox	0 0 0 0
+	bbox	69 91 73 68
 	bouncefactor	0
 	landframe	3
-	attack	77 101 35 54 5 1 0 0 13
+	attack	77 101 35 54 5 1 0 0 13 0
 	frame	data/chars/3mrkarate/fall1.gif
+	bbox	56 109 97 49
 	delay	10
-	attack	61 124 61 26 5 1 0 0 13
+	attack	61 124 61 29 5 1 0 0 13 0
 	frame	data/chars/3mrkarate/fall2.gif
 	attack	0 0 0 0
+	bbox	0 0 0 0
 	delay	1000
 	frame	data/chars/3mrkarate/fall3.gif
 	delay	2
@@ -330,7 +322,7 @@ anim	freespecial3
 	frame	data/chars/3mrkarate/xg08.gif
 	bbox	87 75 39 33
 	frame	data/chars/3mrkarate/xg11.gif
-	attack	45 105 100 55 40 0 0 0 45 15
+	attack	45 105 100 55 60 0 0 0 45 15
 	delay	20
 	frame	data/chars/3mrkarate/xg12.gif
 	delay	40
@@ -372,12 +364,46 @@ anim	freespecial5
 	hitfx	data/sounds/beat4.wav
 	frame	data/chars/3mrkarate/xjua12.gif
 	frame	data/chars/3mrkarate/xjua13.gif
-	attack	47 90 60 75 40 0 0 0 45 17
+	attack	47 90 60 75 70 0 0 0 45 17
 	delay	17
 	frame	data/chars/3mrkarate/xjua14.gif
 	attack	0 0 0 0
 	delay	12
 	frame	data/chars/3mrkarate/xjua13.gif
+		
+anim	freespecial6
+	loop	0
+	delay	8
+	offset	100 189
+	bbox	0 0 0 0
+	jumpframe	0 3 -4 0
+	landframe	7
+	frame	data/chars/3mrkarate/fall16.gif
+	frame	data/chars/3mrkarate/fall15.gif
+	frame	data/chars/3mrkarate/fall13.gif
+	frame	data/chars/3mrkarate/fall12.gif
+	frame	data/chars/3mrkarate/fall11.gif
+	frame	data/chars/3mrkarate/fall10.gif
+	delay	6
+	frame	data/chars/3mrkarate/fall16.gif
+	frame	data/chars/3mrkarate/fall16.gif
+		
+anim	freespecial7
+	loop	0
+	delay	8
+	offset	100 189
+	bbox	0 0 0 0
+	jumpframe	0 3 4 0
+	landframe	7
+	frame	data/chars/3mrkarate/fall16.gif
+	frame	data/chars/3mrkarate/fall15.gif
+	frame	data/chars/3mrkarate/fall13.gif
+	frame	data/chars/3mrkarate/fall12.gif
+	frame	data/chars/3mrkarate/fall11.gif
+	frame	data/chars/3mrkarate/fall10.gif
+	delay	6
+	frame	data/chars/3mrkarate/fall16.gif
+	frame	data/chars/3mrkarate/fall16.gif
 		
 anim	idle
 	loop	1
@@ -405,18 +431,18 @@ anim	jump
 	offset	100 189
 	bbox	88 95 50 50
 	frame	data/chars/3mrkarate/jump01.gif
-	@cmd	keymove 2
+	@cmd	keymove 1.5
 	frame	data/chars/3mrkarate/jump02.gif
 	frame	data/chars/3mrkarate/jump03.gif
 	delay	5
-	@cmd	keymove 2
+	@cmd	keymove 1.5
 	frame	data/chars/3mrkarate/jump04.gif
 	frame	data/chars/3mrkarate/jump04.gif
-	@cmd	keymove 2
+	@cmd	keymove 1.5
 	frame	data/chars/3mrkarate/jump04.gif
 	delay	6
 	frame	data/chars/3mrkarate/jump05.gif
-	@cmd	keymove 2
+	@cmd	keymove 1.5
 	frame	data/chars/3mrkarate/jump05.gif
 	frame	data/chars/3mrkarate/jump06.gif
 	frame	data/chars/3mrkarate/jump06.gif
@@ -429,7 +455,7 @@ anim	jumpattack
 	hitfx	data/sounds/beat4.wav
 	frame	data/chars/3mrkarate/xjua08.gif
 	frame	data/chars/3mrkarate/xjua09.gif
-	attack	93 90 60 75 40 0 0 0 45 17
+	attack	93 90 60 75 70 0 0 0 45 17
 	delay	17
 	frame	data/chars/3mrkarate/xjua10.gif
 	attack	0 0 0 0
@@ -440,13 +466,14 @@ anim	pain
 	loop	0
 	delay	12
 	offset	103 189
-	bbox	79 97 50 91
+	bbox	73 97 60 91
 	jumpframe	1 3.3 2
 	landframe	9 dust
 	frame	data/chars/3mrkarate/pain2.gif
-	bbox	0 0 0 0
+	bbox	86 85 60 90
 	frame	data/chars/3mrkarate/pain6.gif
 	delay	6
+	bbox	0 0 0 0
 	frame	data/chars/3mrkarate/fall11.gif
 	frame	data/chars/3mrkarate/fall12.gif
 	frame	data/chars/3mrkarate/fall13.gif
@@ -465,8 +492,9 @@ anim	pain2
 	jumpframe	1 3.3 -2
 	landframe	9 dust
 	frame	data/chars/3mrkarate/pain2.gif
-	bbox	0 0 0 0
+	bbox	86 85 60 90
 	frame	data/chars/3mrkarate/pain6.gif
+	bbox	0 0 0 0
 	delay	6
 	frame	data/chars/3mrkarate/fall11.gif
 	frame	data/chars/3mrkarate/fall12.gif
@@ -519,23 +547,6 @@ anim	rise
 	delay	1
 	frame	data/chars/3mrkarate/rise3.gif
 	frame	data/chars/3mrkarate/rise4.gif
-		
-anim	freespecial7
-	loop	0
-	delay	8
-	offset	100 189
-	bbox	0 0 0 0
-	jumpframe	0 3 4 0
-	landframe	7
-	frame	data/chars/3mrkarate/fall16.gif
-	frame	data/chars/3mrkarate/fall15.gif
-	frame	data/chars/3mrkarate/fall13.gif
-	frame	data/chars/3mrkarate/fall12.gif
-	frame	data/chars/3mrkarate/fall11.gif
-	frame	data/chars/3mrkarate/fall10.gif
-	delay	6
-	frame	data/chars/3mrkarate/fall16.gif
-	frame	data/chars/3mrkarate/fall16.gif
 		
 anim	spawn
 	loop	0

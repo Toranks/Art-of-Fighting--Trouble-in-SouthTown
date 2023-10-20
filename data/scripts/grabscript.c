@@ -1125,7 +1125,7 @@ void keymoveall(float V)
 
 
 void keychild(float V)
-{// Move hero if direction button is pressed
+{// Move by parent hero if direction button is pressed
       void self = getlocalvar("self");
       int Par = getentityproperty(self,"parent"); //Get player index	  
       int iPIndex = getentityproperty(Par,"playerindex"); //Get player index
