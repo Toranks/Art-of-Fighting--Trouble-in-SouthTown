@@ -101,6 +101,16 @@ void spawnGun(void Name, float dx, float dy, float dz, int Num)
    bindentity(Spawn, self, dx, dz, dy, 0, 0); // Bind spawned gun
 }
 
+void spawnChild8(void Name, float dx, float dy, float dz, int Num)
+{ // Spawn entity and set it as child, store it and bind it
+   void self = getlocalvar("self");
+   void Spawn;
+   Spawn = spawn01(Name, dx, dy, 0);
+   changeentityproperty(Spawn, "parent", self);
+   setentityvar(self, Num, Spawn); // Stores spawned gun to be killed later
+   bindentity(Spawn, self, dx, dz, dy, 0, 0); // Bind spawned gun
+}
+
 void spawnGun2(void Name, float dx, float dy, float dz, int Num, void Ani)
 { // Spawn gun, store it and doesnt bind it, spawn position relative to screen Ani
    void self = getlocalvar("self");
@@ -152,7 +162,7 @@ void spawnChild(void Name, float dx, float dy, float dz, int Num, void Ani)
 }
 
 void spawnChild7(void Name, float dx, float dy, float dz, int Num, void Ani)
-{ // Spawn entity and set it as child with ani animation, store it and bind it
+{ // Spawn entity and set it as child with ani animation and same map, store it and bind it
    void self = getlocalvar("self");
    void iMap = getentityproperty(self, "map");
    void Spawn;
