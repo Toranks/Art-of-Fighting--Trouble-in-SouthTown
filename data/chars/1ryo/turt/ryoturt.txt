@@ -302,15 +302,20 @@ anim	jump
 anim	pain2
 @script
 	void self = getlocalvar("self");
-
+	int index = getentityproperty(self, "playerindex");
+	void player = getplayerproperty(index, "entity");
+	char pmodel = getentityproperty(player, "defaultmodel");
+	
 	if (frame == 28)
 	{
 	setglobalvar("1pch", 1);
 	}
 	if (frame == 31)
 	{
-	setglobalvar("1pch", 1);
 	changeopenborvariant("nojoin", 0);
+	changeentityproperty(player, "model", pmodel, 1);
+	changeentityproperty(player, "health", getentityproperty(player, "maxhealth"));
+	changeentityproperty(player, "mp", getentityproperty(player, "maxmp"));
 	}
 	@end_script	
 	loop	0
