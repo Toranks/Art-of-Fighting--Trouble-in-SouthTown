@@ -51,27 +51,71 @@ spawn   stgSET7
 coords  -500 515 350
 at      0
 #----------------------------------
-spawn   byoevl1
+
+spawn ghost1
 @script void main() {
 	void player1 = getplayerproperty(0, "entity");
 	void player2 = getplayerproperty(1, "entity");
 	void player3 = getplayerproperty(2, "entity");
+	int tankscore1 = getplayerproperty(0, "score");
+	int tankscore2 = getplayerproperty(1, "score");
+	int tankscore3 = getplayerproperty(2, "score");
+	int tankscore = getglobalvar("tankscore");
+	int tanktotal1 = tankscore1-tankscore;
+	int tanktotal2 = tankscore2-tankscore;
+	int tanktotal3 = tankscore3-tankscore;
 	
-	if(player1 != NULL() && player2 != NULL() && player3 != NULL()){
-		setglobalvar("maxRush2", getlocalvar("maxRush1"));
-		setglobalvar("maxRush3", getlocalvar("maxRush1"));
+	if (player1 != NULL() && player2 != NULL() && player3 != NULL()){
+		changeplayerproperty(1, "score", tankscore2 + tanktotal1);
+		changeplayerproperty(2, "score", tankscore3 + tanktotal1);
+		if (getglobalvar("maxRush1") >= getglobalvar("maxRush2"))
+			{
+				setglobalvar("maxRush2", getglobalvar("maxRush1"));
+			}
+		if (getglobalvar("maxRush1") >= getglobalvar("maxRush3"))
+			{
+				setglobalvar("maxRush3", getglobalvar("maxRush1"));
+			}
 	}
-	if(player1 != NULL() && player2 != NULL() && player3 == NULL()){
-		setglobalvar("maxRush2", getlocalvar("maxRush1"));
+	if (player1 != NULL() && player2 != NULL() && player3 == NULL()){
+		changeplayerproperty(1, "score", tankscore2 + tanktotal1);
+		if (getglobalvar("maxRush1") >= getglobalvar("maxRush2"))
+			{
+				setglobalvar("maxRush2", getglobalvar("maxRush1"));
+			}
 	}
-	if(player1 == NULL() && player2 != NULL() && player3 != NULL()){
-		setglobalvar("maxRush3", getlocalvar("maxRush2"));
+	if (player1 == NULL() && player2 != NULL() && player3 != NULL()){
+		changeplayerproperty(2, "score", tankscore3 + tanktotal2);
+		if (getglobalvar("maxRush2") >= getglobalvar("maxRush3"))
+			{
+				setglobalvar("maxRush3", getglobalvar("maxRush2"));
+			}
 	}
-	if(player1 != NULL() && player2 == NULL() && player3 != NULL()){
-		setglobalvar("maxRush3", getlocalvar("maxRush1"));
+	if (player1 != NULL() && player2 == NULL() && player3 != NULL()){
+		changeplayerproperty(2, "score", tankscore3 + tanktotal1);
+		if (getglobalvar("maxRush1") >= getglobalvar("maxRush3"))
+			{
+				setglobalvar("maxRush3", getglobalvar("maxRush1"));
+			}
+	}
+	if (player1 != NULL())
+	{
+	changeentityproperty(player1, "rush_tally", getglobalvar("maxRush1"));
+	}
+	if (player2 != NULL())
+	{
+	changeentityproperty(player2, "rush_tally", getglobalvar("maxRush2"));
+	}
+	if (player3 != NULL())
+	{
+	changeentityproperty(player3, "rush_tally", getglobalvar("maxRush3"));
 	}
 }
 @end_script
+coords  0 0
+at      0
+
+spawn   byoevl1
 coords  3320 210
 at      0
 
