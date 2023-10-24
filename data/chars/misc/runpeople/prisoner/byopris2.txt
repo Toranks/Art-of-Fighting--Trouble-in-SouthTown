@@ -2,16 +2,19 @@ name	byopris2
 type	npc
 speed   14
 falldie	1
+health		100
 lifespan  	180
 gfxshadow	1
 nodieblink	3
 hostile		player
-subject_to_wall 1
 diesound      data/sounds/empty.wav
+offscreenkill 	20000
+
 animationscript data/scripts/escript.c
 
 palette			data/chars/misc/runpeople/prisoner/fpal.gif
 alternatepal	data/chars/misc/runpeople/prisoner/fprispal.gif
+
 
 
 anim	backwalk
@@ -110,7 +113,117 @@ anim	death
 	frame	data/chars/misc/runpeople/prisoner/fpris26.gif
 	frame	data/chars/misc/runpeople/prisoner/fpris06.gif
 	frame	data/chars/misc/runpeople/prisoner/fpris26.gif
-
+		
+anim	follow5
+@script
+if(frame==1)
+{
+  changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_OBSTACLE"));
+}
+	@end_script	
+	loop	1 4 9
+	delay	5
+	counterrange	2 10 1 1
+	followanim	7
+	offset	85 132
+	bbox	70 40 40 40
+	frame	data/chars/misc/runpeople/prisoner/fpris17.gif
+	@cmd	layer -100
+	@cmd	subminz 0
+	@cmd	submaxz 0
+	@cmd	subwall 0
+	@cmd	subplat 0
+	@cmd	lifesp 999999
+	frame	data/chars/misc/runpeople/prisoner/fpris17.gif
+	frame	data/chars/misc/runpeople/prisoner/fpris17.gif
+	frame	data/chars/misc/runpeople/prisoner/fpris17.gif
+	frame	data/chars/misc/runpeople/prisoner/fpris17.gif
+	frame	data/chars/misc/runpeople/prisoner/fpris17.gif
+	frame	data/chars/misc/runpeople/prisoner/fpris17.gif
+	frame	data/chars/misc/runpeople/prisoner/fpris17.gif
+	frame	data/chars/misc/runpeople/prisoner/fpris17.gif
+	frame	data/chars/misc/runpeople/prisoner/fpris17.gif
+		
+anim	follow6
+@script
+if(frame==1)
+{
+  changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_OBSTACLE"));
+}
+	@end_script	
+	loop	1 4 9
+	delay	5
+	counterrange	2 10 1 1
+	followanim	7
+	offset	85 132
+	bbox	70 40 40 40
+	frame	data/chars/misc/runpeople/prisoner/fpris16.gif
+	@cmd	layer -100
+	@cmd	subminz 0
+	@cmd	submaxz 0
+	@cmd	subwall 0
+	@cmd	subplat 0
+	@cmd	lifesp 999999
+	frame	data/chars/misc/runpeople/prisoner/fpris16.gif
+	frame	data/chars/misc/runpeople/prisoner/fpris16.gif #2
+	frame	data/chars/misc/runpeople/prisoner/fpris16.gif
+	frame	data/chars/misc/runpeople/prisoner/fpris16.gif
+	frame	data/chars/misc/runpeople/prisoner/fpris16.gif
+	frame	data/chars/misc/runpeople/prisoner/fpris16.gif
+	frame	data/chars/misc/runpeople/prisoner/fpris16.gif
+	frame	data/chars/misc/runpeople/prisoner/fpris16.gif
+	frame	data/chars/misc/runpeople/prisoner/fpris16.gif
+		
+anim	follow7
+@script
+if(frame==1)
+{
+  changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_NPC"));
+}
+	@end_script	
+	loop	0
+	delay	14
+	offset	85 132
+	bbox	0 0 0 0
+	@cmd	lifesp 24000
+	frame	data/chars/misc/runpeople/prisoner/fpris17.gif
+	frame	data/chars/misc/runpeople/prisoner/fpris18.gif
+	frame	data/chars/misc/runpeople/prisoner/fpris19.gif
+	frame	data/chars/misc/runpeople/prisoner/fpris19.gif
+	delay	40
+	frame	data/chars/misc/runpeople/prisoner/fpris19.gif
+	delay	7
+	frame	data/chars/misc/runpeople/prisoner/fpris01.gif
+	@cmd	dasher 0 0 0.5
+	frame	data/chars/misc/runpeople/prisoner/fpris02.gif
+	frame	data/chars/misc/runpeople/prisoner/fpris03.gif
+	frame	data/chars/misc/runpeople/prisoner/fpris04.gif
+	@cmd	layer 0
+	frame	data/chars/misc/runpeople/prisoner/fpris05.gif
+	frame	data/chars/misc/runpeople/prisoner/fpris06.gif
+	frame	data/chars/misc/runpeople/prisoner/fpris01.gif
+	frame	data/chars/misc/runpeople/prisoner/fpris02.gif
+	frame	data/chars/misc/runpeople/prisoner/fpris03.gif
+	movez	0
+	frame	data/chars/misc/runpeople/prisoner/fpris04.gif
+	@cmd	subscreen 1
+	frame	data/chars/misc/runpeople/prisoner/fpris05.gif
+	@cmd	subplat 1
+	frame	data/chars/misc/runpeople/prisoner/fpris06.gif
+	frame	data/chars/misc/runpeople/prisoner/fpris01.gif
+	frame	data/chars/misc/runpeople/prisoner/fpris02.gif
+	@cmd	stop
+	frame	data/chars/misc/runpeople/prisoner/fpris19.gif
+	@cmd	subminz 1
+	@cmd	submaxz 1
+	@cmd	subwall 1
+	@cmd	subplat 1
+	@cmd	subscreen 1
+	frame	data/chars/misc/runpeople/prisoner/fpris19.gif
+	delay	20
+	frame	data/chars/misc/runpeople/prisoner/fpris19.gif
+	@cmd	beidle
+	frame	data/chars/misc/runpeople/prisoner/fpris19.gif
 		
 anim	idle
 	loop	1
@@ -165,5 +278,5 @@ anim	walk
 	frame	data/chars/misc/runpeople/prisoner/fpris24.gif
 	frame	data/chars/misc/runpeople/prisoner/fpris25.gif
 		
-#|edited by openBor Stats v 0.53
+#|edited by openBor Stats v 0.67
 		
