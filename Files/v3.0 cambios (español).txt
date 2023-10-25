@@ -623,6 +623,171 @@ void main()
 
 Y si es necesario, buscar una forma de reactivar este script cuando un jugador muere y resucita
 
+
+
+#----------------------
+
+Códigos útiles:
+
+spawn   ghosttime
+health	10
+@script
+void main()
+	{
+	setglobalvar("leveln","50lvl");
+	}
+@end_script
+coords  560 100
+at      0
+
+spawn   ghosttime
+health	10
+spawnscript	data/scripts/spawn3p.c
+coords  550 -50
+at      0
+
+spawn   ghost1
+@script
+void main()
+	{
+	setglobalvar("leveln" , NULL());
+	}
+@end_script
+item    1up
+coords  200 280
+at      0
+
+@script
+  void main()
+  {
+    void self = getlocalvar("self");
+    void difficulty = getglobalvar("hard");
+
+    if(difficulty == 0){
+      killentity(self);
+    }
+  }
+@end_script
+
+@script
+  void main()
+  {
+    void self = getlocalvar("self");
+    void difficulty = getglobalvar("mania");
+
+    if(difficulty == 0){
+      killentity(self);
+    }
+  }
+@end_script
+
+	setlocalvar("hard", getglobalvar("hard"));
+	setlocalvar("mania", getglobalvar("mania"));
+	clearglobalvar();
+	setglobalvar("hard", getlocalvar("hard"));
+	setglobalvar("mania", getlocalvar("mania"));
+	
+@script\r\n  void main()\r\n  {\r\n    void self = getlocalvar("self");\r\n    void difficulty = getglobalvar("hard");\r\n\r\n    if(difficulty == 0){\r\n      killentity(self);\r\n    }\r\n  }\r\n@end_script
+
+
+@script
+void main()
+	{
+	void self = getlocalvar("self");
+	void difficulty = getglobalvar("hard");
+	performattack(self, openborconstant("ANI_JUMP"));
+	tossentity(self, 4, -4, 0);
+	
+	if(difficulty == 0){
+      killentity(self);
+    }
+}
+@end_script
+
+
+
+
+script   @script
+void main()
+{
+	void self = getlocalvar("self");
+	void attacker = getentityproperty(self,"parent");
+   	void victim2 = getglobalvar("grabbed");
+  	void victim = getentityvar(self, "player");
+	int HP = getentityproperty(self,"health");
+	int HPmax = getentityproperty(self,"maxhealth");
+	int x1 = getentityproperty(attacker,"x");
+	int z1 = getentityproperty(attacker,"z");
+    int escape = getentityvar(self, "grabgo");
+	void iUp = playerkeys(victim, 1, "moveup");
+	void iDown = playerkeys(victim, 1, "movedown");
+	void iLeft = playerkeys(victim, 1, "moveleft");
+	void iRight = playerkeys(victim, 1, "moveright");
+	void iJump = playerkeys(victim, 1, "jump");
+	void iSpecial = playerkeys(victim, 1, "special");
+	void iAttack = playerkeys(victim, 1, "attack");
+		
+  if (attacker == NULL() && victim2 == NULL()) {
+		setglobalvar("grabbed", NULL());
+		killentity(self);
+
+	} else if (attacker == NULL() && victim2 != NULL() ) {
+		changeentityproperty(victim2, "position", x1, z1);
+		performattack(victim2, openborconstant("ANI_FOLLOW15"));
+		bindentity(victim2, NULL());
+		setglobalvar("grabbed", NULL());
+		killentity(self);
+			
+	} else if (attacker != NULL() && victim2 == NULL()) {
+		setidle(attacker, openborconstant("ANI_IDLE"));
+     	performattack(attacker, openborconstant("ANI_PAIN8"));
+		setglobalvar("grabbed", NULL());
+		killentity(self);			  
+	
+	} else if(HP>=HPmax && escape == 1){
+		changeentityproperty(victim2, "position", x1, z1);
+     	performattack(victim2, openborconstant("ANI_FOLLOW15"));
+    	setidle(attacker, openborconstant("ANI_IDLE"));
+     	bindentity(victim2, NULL());
+     	performattack(attacker, openborconstant("ANI_PAIN8"));
+		setglobalvar("grabbed", NULL());
+		killentity(self);
+
+	} else if(HP>=HPmax && escape == 2){
+		changeentityproperty(victim2, "position", x1, z1);
+     	performattack(victim2, openborconstant("ANI_FOLLOW16"));
+    	setidle(attacker, openborconstant("ANI_IDLE"));
+     	bindentity(victim2, NULL());
+    	performattack(attacker, openborconstant("ANI_PAIN8"));
+		setglobalvar("grabbed", NULL());
+		killentity(self);
+
+	} else if(iUp || iDown || iLeft || iRight || iJump || iSpecial || iAttack){// button is pressed?
+    	
+		changeentityproperty(self, "health", HP+1);
+
+   }// end checking valid pointers
+}
+@end_script
+
+
+void slamstart2()
+{ // Slam Starter for nongrab slams
+// Use finish or throw after using this
+  void self = getlocalvar("self");
+  void target = getentityproperty(self, "opponent");
+
+  if(target == NULL() || getentityproperty(target, "dead") == 1){
+    setidle(self);
+  } else{
+    setlocalvar("Target" + self, target);
+  }
+
+  if(target!=NULL()){
+    damageentity(target, self, 0, 1, openborconstant("ATK_NORMAL7")); // Slam Starter
+  }
+}
+
 #-------------
 
 

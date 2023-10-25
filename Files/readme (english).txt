@@ -1,16 +1,16 @@
 
 		******************************************
-		*				 	 *
-		*	AOF TROUBLE IN SOUTH TOWN	 *
-		*		BEST/DEFAULT		 * 
-		*		  OPTIONS 		 *
-		*					 *
+		*				 	                     *
+		*	     AOF TROUBLE IN SOUTH TOWN	     *
+		*		       BEST/DEFAULT		         * 
+		*		         OPTIONS 		         *
+		*					                     *
 		******************************************
 
 
-UPDATE FOR OPENBOR 6XXX / 7XXX: If you are going to use a more modern version of Openbor (Openbor 3.exe, Openbor 4alpha.exe, or any 6XXX and higher) you must update the game as well. Simply extract the contents of the file "UPDATE FOR 6XXX - 7XXX.zip" in the root folder of the game and overwrite the files. In addition to the corrections, you can control the score screen with the up and down buttons to carefully observe your score instead of canceling it suddenly, or having to wait for the slow scoring that it has by default. If you want to skip the whole thing like before, press the START button.
+THIS GAME ONLY WORKS ON OPENBOR 6XXX OR HIGHER SINCE 3.0 - For lower versions you need to play 1.X or 2.X versions of the game.
 
-NOTA: If you want to play the game with the original version of the executable, always start it with AOF.exe
+NOTE: The recomended version is the version provided with the game, 
 
 -----------------------//--VIDEO-OPTIONS--//------------------------------------
 
