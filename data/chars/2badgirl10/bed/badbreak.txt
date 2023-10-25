@@ -19,42 +19,30 @@ palette		data/chars/2badgirl10/bed/map1.gif
 
 
 @script
-
-   int  iEntity; 
-   void vEntity;
-   void self = getlocalvar("self");
-   int  iMax = openborvariant("ent_max");
-
-   int p1 = getplayerproperty(0, "entity");
-   int p2 = getplayerproperty(1, "entity");
-   int p3 = getplayerproperty(2, "entity");
-   void anim = getentityproperty(self,"animationID"); 
+	int p1 = getplayerproperty(0, "entity");
+	int p2 = getplayerproperty(1, "entity");
+	int p3 = getplayerproperty(2, "entity");
+	char nm = getentityproperty(p1,"defaultmodel");
+	char nm2 = getentityproperty(p2,"defaultmodel");
+	char nm3 = getentityproperty(p3,"defaultmodel");
+	void anim = getentityproperty(p1,"animationID"); 
+	void anim2 = getentityproperty(p2,"animationID");
+	void anim3 = getentityproperty(p3,"animationID"); 
        
      
-   for(iEntity=0; iEntity<iMax; iEntity++)
-   {
-    vEntity = getentity(iEntity);
 
-	if(getentityproperty(vEntity, "name") == "angelbed" && anim == openborconstant("ANI_IDLE"))
-	{
-	     damageentity(vEntity, self, 550, 1, openborconstant("ATK_NORMAL"));
-	     if ( p1 != NULL())
-	     {
-	     setidle(p1, openborconstant("ANI_IDLE"));
-	     performattack(self, openborconstant("ANI_FOLLOW1"));
-	     }
-	     if ( p2 != NULL())
-			{
-	     setidle(p2, openborconstant("ANI_IDLE"));
-	     performattack(self, openborconstant("ANI_FOLLOW1"));
-	     }
-	     if ( p3 != NULL())
-	     {
-	     setidle(p3, openborconstant("ANI_IDLE"));
-	     performattack(self, openborconstant("ANI_FOLLOW1"));
-	     }
+	 if ( nm == "eveplr" && anim == openborconstant("ANI_FREESPECIAL8"))
+	 {
+	 performattack(p1, openborconstant("ANI_FOLLOW6"));
 	 }
-   }
+	 if ( nm2 == "eveplr" && anim2 == openborconstant("ANI_FREESPECIAL8"))
+	 {
+	 performattack(p2, openborconstant("ANI_FOLLOW6"));
+	 }
+	 if ( nm3 == "eveplr" && anim3 == openborconstant("ANI_FREESPECIAL8"))
+	 {
+	 performattack(p3, openborconstant("ANI_FOLLOW6"));
+	 }
 @end_script
 
 
@@ -75,24 +63,6 @@ anim	idle
 		
 
 		
-anim	follow1
-@script
-	void self = getlocalvar("self");
-	if (frame == 2)
-	{
-	setidle(self, openborconstant("ANI_IDLE"));
-	}
-@end_script
-	loop	1
-	delay	450
-	offset	1 1
-	bbox	0 0 0 0
-	frame	data/chars/2badgirl10/bed/empty.gif
-	delay	10
-	frame	data/chars/2badgirl10/bed/empty.gif
-	frame	data/chars/2badgirl10/bed/empty.gif
-	frame	data/chars/2badgirl10/bed/empty.gif
-	frame	data/chars/2badgirl10/bed/empty.gif
 
 
 
