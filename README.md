@@ -14,10 +14,10 @@ You can also see my progress during the game update and samples of various types
 https://www.youtube.com/playlist?list=PLfyIRl779hZ_m0Jk6VsaMC7Ai_Ts4yTi-
 
 With this game is wich we can see all the resources allowed by this engine raised to maximum power, taking spectacularity and mechanics to the highest level. Several of its unique features (difficult to see in games of this type, both of this engine and any other commercial game of this gender) are:
-- 35 different characters for the main stages of fighting on foot and 7 for the special stages plus 9 different vehicles for the horizontal road stages and 5 for the Out Run type stages.
+- 36 different characters for the main stages of fighting on foot. 7 for the special stages. 11 different vehicles for the horizontal road stages. 5 vehicles for the Out Run type stages.
 - Great variety on the stages and missions to be carried out, with lots of mini-games, secrets, and hidden details that make it very replayable.
-- Crowd of kinematics and animations
-- Great soundtrack
+- Crowd of kinematics and animations.
+- Great soundtrack.
 - More than 20 hours of story mode.
 - QTE (quick time events) in certain mini-games, and when some enemies grab you, being able to get rid of them by pressing certain buttons.
 - Map to visit the city, all stages, exclusive fights against an harder version of all bosses, all scenes, images of the game, enemies, and making-of.
@@ -39,7 +39,7 @@ Could there be someone or something else pulling the strings? only GOD knows tha
 
 FIND OUT MORE BY PLAYING THE GAME
 
-DOWNLOAD LINK
+DOWNLOAD LINK (3.0beta)
 https://drive.google.com/open?id=1d7q8AlS8pD9thDW1GlwZiOZtJ9EyEyGD
 You can donate to the author as thanks for this wonderful piece of art at this link.
 https://jon-fretes-silva.wixsite.com/aofsouthtown/donate
@@ -63,10 +63,10 @@ También puedes ver mis avances (en inglés) durante la actualización del juego
 https://www.youtube.com/playlist?list=PLfyIRl779hZ_m0Jk6VsaMC7Ai_Ts4yTi-
 
 Es con este juego con el que podemos ver elevados a la máxima potencia todos los recursos que permite este motor, llevando la espectacularidad y las mecánicas a su máximo nivel. Varias de sus características únicas o difíciles de ver en juegos de este tipo, tanto de este motor como cualquier otro juego comercial de este estilo son:
-- 35 personajes diferentes para las fases principales de lucha a pie y 7 para las etapas especiales, además de 9 vehículos diferentes para las fases en carretera horizontales y 5 para las fases tipo Out Run.
+- 36 personajes diferentes para las fases principales de lucha a pie. 7 para las etapas especiales. 11 vehículos diferentes para las fases en carretera horizontales. 5 vehículos para las fases tipo Out Run.
 - Gran variedad en las etapas y misiones a realizar, con gran cantidad de minijuegos, secretos, y detalles escondidos que lo hacen muy rejugable.
-- Multitud de cinemáticas y animaciones
-- Gran banda sonora
+- Multitud de cinemáticas y animaciones.
+- Excelente banda sonora.
 - Más de 20 horas de historia.
 - QTE (quick time events) en ciertos minijuegos, y cuando algunos enemigos te agarran, pudiendo librarte de ellos presionando determinados botones.
 - Mapa para visitar la ciudad, todas las etapas, combates exclusivos contra los jefes en una versión aún más dura, todas las escenas, imágenes del juego, de los enemigos, y de cómo se hizo durante la etapa de creación.
@@ -83,5 +83,5 @@ Al parecer, al mismo tiempo hay eventos extraños que suceden en todo el mundo, 
 ¿Podría haber alguien o algo más tirando del hilo? ¿Alguien lo sabe?
 ¡Averígualo jugando!
 
-ENLACE DE DESCARGA
+ENLACE DE DESCARGA (3.0beta)
 https://drive.google.com/open?id=1d7q8AlS8pD9thDW1GlwZiOZtJ9EyEyGD
