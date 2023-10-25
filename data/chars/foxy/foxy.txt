@@ -102,6 +102,8 @@ com	a3	  freespecial29
 
 
 
+
+
 anim	attack1
 	cancel	2 5 0 d f a freespecial9
 	cancel	2 5 0 d f j freespecial6
@@ -1271,25 +1273,28 @@ anim	follow4
 	attack	0 0 0 0 0 0 0 0 0 0
 	offset	17 109
 	frame	data/chars/foxy/freespecial29-01.png
-	offset	28 93
+	offset	20 93
 	hitfx	data/sounds/sl2.wav
 	frame	data/chars/foxy/jumpdelay01.png
-	offset	43 77
+	offset	21 77
 	frame	data/chars/foxy/freespecial9-01.png
 	sound	data/sounds/foxykire.wav
-	attack	53 0 52 65 10 1 1 0 40 20
-	offset	38 92
+	attack	53 0 52 81 10 1 1 0 40 20
+	offset	13 92
 	frame	data/chars/foxy/freespecial9-02.png
+	@cmd	spawnbind2 "foxypw" 1 1 0 "ANI_FOLLOW8"
+	offset	12 142
+	attack	57 0 61 119 10 1 1 0 40 20
+	frame	data/chars/foxy/freespecial9-03.png
 	attack	0 0 0 0 0 0 0 0 0 0
-	@cmd	spawnbind2 "foxypw" 1 1 0 "ANI_FOLLOW2"
-	offset	56 136
 	hitflash	flashscreen2
 	staydown	500 500
+	offset	25 154
 	frame	data/chars/foxy/freespecial9-03.png
 	sound	data/sounds/blade.wav
 	attack	-2 -2 135 155 100 1 1 0 60 40
 	dropv	4 4 0
-	offset	58 161
+	offset	49 182
 	frame	data/chars/foxy/freespecial9-04.png
 	offset	68 161
 	attack	-2 -2 127 164 100 1 1 0 60 40
@@ -1306,10 +1311,14 @@ anim	follow4
 	attack	0 0 0 0 0 0 0 0 0 0
 	offset	18 87
 	frame	data/chars/foxy/freespecial9-09.png
-	offset	41 93
+	offset	53 93
 	frame	data/chars/foxy/freespecial9-10.png
-	offset	27 111
+	offset	38 111
 	frame	data/chars/foxy/freespecial9-11.png
+	offset	21 111
+	frame	data/chars/foxy/respawn04.png
+	offset	25 109
+	frame	data/chars/foxy/respawn05.png
 	offset	27 111
 	frame	data/chars/foxy/freespecial9-12.png
 		
@@ -1406,6 +1415,54 @@ anim	freespecial1
 	delay	5
 	offset	28 93
 	frame	data/chars/foxy/jumpdelay01.png
+		
+anim	freespecial10
+	bbox	0 0 0 0
+	sound	data/sounds/grab.wav
+	offset	38 110
+	frame	data/chars/foxy/grabbackward01.png
+	offset	39 110
+	frame	data/chars/foxy/grabbackward02.png
+	@cmd	dasher 5 0 2.5
+	offset	38 110
+	frame	data/chars/foxy/grabbackward03.png
+	offset	38 110
+	frame	data/chars/foxy/grabbackward03.png
+	offset	38 110
+	frame	data/chars/foxy/grabbackward03.png
+	offset	38 110
+	frame	data/chars/foxy/grabbackward03.png
+	@cmd	stop
+	offset	38 110
+	frame	data/chars/foxy/grabbackward03.png
+	offset	39 110
+	frame	data/chars/foxy/grabbackward02.png
+	offset	22 118
+	frame	data/chars/foxy/grabbackward04.png
+		
+anim	freespecial11
+	bbox	0 0 0 0
+	sound	data/sounds/grab.wav
+	offset	38 110
+	frame	data/chars/foxy/grabbackward01.png
+	offset	39 110
+	frame	data/chars/foxy/grabbackward02.png
+	@cmd	dasher 5 0 -2.5
+	offset	38 110
+	frame	data/chars/foxy/grabbackward03.png
+	offset	38 110
+	frame	data/chars/foxy/grabbackward03.png
+	offset	38 110
+	frame	data/chars/foxy/grabbackward03.png
+	offset	38 110
+	frame	data/chars/foxy/grabbackward03.png
+	@cmd	stop
+	offset	38 110
+	frame	data/chars/foxy/grabbackward03.png
+	offset	39 110
+	frame	data/chars/foxy/grabbackward02.png
+	offset	22 118
+	frame	data/chars/foxy/grabbackward04.png
 		
 anim	freespecial12
  @script
@@ -1625,6 +1682,10 @@ anim	freespecial2
 	delay	5
 	offset	27 111
 	frame	data/chars/foxy/freespecial9-11.png
+	offset	21 111
+	frame	data/chars/foxy/respawn04.png
+	offset	25 109
+	frame	data/chars/foxy/respawn05.png
 	offset	27 111
 	frame	data/chars/foxy/freespecial9-12.png
 		
@@ -2167,7 +2228,7 @@ anim	freespecial6
 	hitfx	data/sounds/beat5.wav
 	sound	data/sounds/foxysih.wav
 	frame	data/chars/foxy/freespecial6-01.png
-	@cmd	dasher 2 0 0
+	@cmd	dasher 3 0 0
 	offset	39 92
 	frame	data/chars/foxy/freespecial6-02.png
 	attack	60 8 40 73 25 0 1 0 15 10
@@ -2327,32 +2388,32 @@ anim	freespecial9
 	mponly	1
 	fastattack	1
 	loop	0
-	offset	28 93
+	offset	20 93
 	delay	3
 	hitfx	data/sounds/sl2.wav
 	frame	data/chars/foxy/jumpdelay01.png
 	delay	5
-	offset	43 77
+	offset	21 77
 	frame	data/chars/foxy/freespecial9-01.png
 	sound	data/sounds/foxykire.wav
-	attack	55 11 52 65 10 1 1 0 10 20
+	attack	55 0 52 80 10 1 1 0 10 20
 	delay	6
-	offset	38 92
+	offset	16 92
 	frame	data/chars/foxy/freespecial9-02.png
 	attack	0 0 0 0 0 0 0 0 0 0
-	@cmd	spawnbind2 "foxypw" 1 1 0 "ANI_FOLLOW2"
+	@cmd	spawnbind2 "foxypw" 1 1 0 "ANI_FOLLOW8"
 	delay	3
-	offset	56 136
+	offset	13 136
 	frame	data/chars/foxy/freespecial9-03.png
 	sound	data/sounds/blade.wav
-	attack	-2 -2 123 114 50 1 1 0 40 30
+	attack	-2 -2 123 114 60 1 1 0 40 30
 	dropv	3 3 0
-	offset	58 161
+	offset	42 180
 	frame	data/chars/foxy/freespecial9-04.png
 	delay	5
 	offset	68 161
 	frame	data/chars/foxy/freespecial9-05.png
-	attack	-2 -2 118 153 50 1 1 0 40 30
+	attack	-2 -2 118 153 60 1 1 0 40 30
 	dropv	3 3 0
 	delay	6
 	offset	69 152
@@ -2366,12 +2427,16 @@ anim	freespecial9
 	offset	18 87
 	frame	data/chars/foxy/freespecial9-09.png
 	delay	4
-	offset	41 93
+	offset	50 93
 	frame	data/chars/foxy/freespecial9-10.png
 	delay	5
-	offset	27 111
+	offset	37 111
 	frame	data/chars/foxy/freespecial9-11.png
-	offset	27 111
+	offset	21 111
+	frame	data/chars/foxy/respawn04.png
+	offset	25 109
+	frame	data/chars/foxy/respawn05.png
+	offset	28 111
 	frame	data/chars/foxy/freespecial9-12.png
 		
 anim	get
@@ -2821,54 +2886,6 @@ anim	jumpland
 	offset	28 93
 	frame	data/chars/foxy/jumpdelay01.png
 		
-anim	freespecial11
-	bbox	0 0 0 0
-	sound	data/sounds/grab.wav
-	offset	38 110
-	frame	data/chars/foxy/grabbackward01.png
-	offset	39 110
-	frame	data/chars/foxy/grabbackward02.png
-	@cmd	dasher 5 0 -2.5
-	offset	38 110
-	frame	data/chars/foxy/grabbackward03.png
-	offset	38 110
-	frame	data/chars/foxy/grabbackward03.png
-	offset	38 110
-	frame	data/chars/foxy/grabbackward03.png
-	offset	38 110
-	frame	data/chars/foxy/grabbackward03.png
-	@cmd	stop
-	offset	38 110
-	frame	data/chars/foxy/grabbackward03.png
-	offset	39 110
-	frame	data/chars/foxy/grabbackward02.png
-	offset	22 118
-	frame	data/chars/foxy/grabbackward04.png
-		
-anim	freespecial10
-	bbox	0 0 0 0
-	sound	data/sounds/grab.wav
-	offset	38 110
-	frame	data/chars/foxy/grabbackward01.png
-	offset	39 110
-	frame	data/chars/foxy/grabbackward02.png
-	@cmd	dasher 5 0 2.5
-	offset	38 110
-	frame	data/chars/foxy/grabbackward03.png
-	offset	38 110
-	frame	data/chars/foxy/grabbackward03.png
-	offset	38 110
-	frame	data/chars/foxy/grabbackward03.png
-	offset	38 110
-	frame	data/chars/foxy/grabbackward03.png
-	@cmd	stop
-	offset	38 110
-	frame	data/chars/foxy/grabbackward03.png
-	offset	39 110
-	frame	data/chars/foxy/grabbackward02.png
-	offset	22 118
-	frame	data/chars/foxy/grabbackward04.png
-				
 anim	pain
 	delay	5
 	offset	21 109
