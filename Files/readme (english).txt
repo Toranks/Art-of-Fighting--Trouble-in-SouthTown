@@ -10,40 +10,40 @@
 
 THIS GAME ONLY WORKS ON OPENBOR 6XXX OR HIGHER SINCE 3.0 - For lower versions you need to play 1.X or 2.X versions of the game.
 
-NOTE: The recomended version is the version provided with the game, 
+NOTE: The recomended version is the version provided with the game, 4.0 alpha with Kratus fixes, made originally for Streets of Rage 2X
+
+WARNING: The game will not work on video game consoles (Wii, Dreamcast or PSP), only on PC and Android. If you find any problem feel free to report it.
 
 -----------------------//--VIDEO-OPTIONS--//------------------------------------
 
-	- ( ive set video options to default to prevent compatibility issues )
 
-	- for best quality image if youre playing
-	  in a pc you should use the options below
+
+	 - For best quality image, if you are playing
+	  in a pc you should use the options below:
 
 
 	DISPLAY MODE	- FULL
 	VIDEO BACKEND	- OPENGL
-	SCALE		- AUTOMATIC
+	SCALE			- AUTOMATIC
 	HARDWAREFILTER	- BILINEAR
 	SOFTWAREFILTER	- 16bit MAME or HO2X --*important*-- great improvement
 	FULLSCREENTYPE	- PERSERVE ASPECT RATIO
 
 
-	- Ive made the game for resolution 480x272
-	  should you try to change it in video.txt file although
-	      it will look better most levels wont work.
+	 - This game have been made for resolution 480x272
 
 
 ---------------------//--IN-GAME-NOTES--//----------------------------------
 	
-	 - during the game by pressing certain buttons a tutotial will pop up
+	 - During the game by pressing certain buttons a tutotial will pop up
 
 	 * PLAYERS - ATTACK2
 	 * CURSOR MAP - JUMP
-	 * VEHICLES2 - ATTACK2
 
-	 - all special attacks for all players/secret are very easy to master
-	   and they wont fall from under the basics except for buttons attack/jump/special
-	 - here are the most common
+	 - All special attacks for all players are very easy to master
+	   and they wont fall from under the basics except for buttons 
+	   attack/jump/special
+	 - Here are the most common
 
 		down / foward
 
@@ -53,37 +53,36 @@ NOTE: The recomended version is the version provided with the game,
 
 		down / up
 	
-	 - all running slide attack is performed with run+d/f+j instead of run+d+j as it
-	   appears on the manual
-	 - all running dodge up / dodge down is performed with run+f,d/f,f,d/f or run+f,u/f,f,u/f
-	   instead of run+d,d or run+u,u as it appears on the manual. You can keep running holding
-	   f button at the end of movement.
-	 - SECRET: You can change tutorial music by replacing data/music/begin2.ogg with the same file on Files/begin2.ogg
+	 - All running slide attack is performed with run+d/f+j instead of run+d+j as it
+	   appears on some manuals
+	 - All running dodge up / dodge down is performed with run+f,d/f,f,d/f or run+f,u/f,f,u/f
+	   instead of run+d,d or run+u,u as it appears on the old manual. You can keep running holding
+	   forward button at the end of movement.
+	 - SECRET: You can change tutorial music (Queen) to the original (AC/DC) by replacing
+	   data/music/begin2.ogg with the same file on Files/begin2.ogg
 ---------------------//--CONTROLS-OPTIONS--//----------------------------------
 
-	- game works better with certain defined
-	  setup controls
-
-	- if you've set controls to default and
-	  want to change them to the way i use
-	  with a Xbox gamepad setup it up this way
+	 - If you've set controls to default and want
+	   to change them to the better configuration
+	   with a Xbox gamepad, setup it up this way:
 
 		ATTACK1 - X
 		ATTACK2 - Y
 		ATTACK3 - L1
-		ATTACK4 - L2
+		ATTACK4 - R1
 		JUMP	- A
 		SPECIAL - B
-		SCREENSHOT - Start or F12
+		START	- Start
+		SCREENSHOT - Select
 
-  ( attack4 are only used with some characters )
+  ( ATTACK4 are only used with some characters )
 
-	- note: screenshot key should remain "f12"
-	        has you might need it in game for
-		when you find password tablets.
-	( its best to take a screenshot than write 
-	     the whole dam thing on a piece of paper 
-	  image should be located in the screenshots folder)
+	 - Tip: screenshot button can be useful in game
+		hen you find password tablets.
+		Is best to take a screenshot than write the
+	    whole dam thing on a piece of paper. 
+		The image should be located in the screenshots
+		folder.
 
 
 
@@ -112,18 +111,9 @@ NOTE:	i havent tested the game on xbox360/psp or android
 
 -----------------------//--BUGS-AND-ISSUES--//------------------------------
 
-	- Here are some bugs that iam currently aware
+	- Here are some bugs that I am currently aware:
 
-	
-	1- In the test your might level you may find to dificult if not impossible
-	   to raise the focus bar. The problem seems to have something to do with
-	   the CPU/GPU speed if your playing in a 4core 3.0/i5/i7 cpu it may be to dificult
-	   to raise the focus bar.
-
-	2- the cup game in club kat can fail sometimes in the last very fast i think it 
-	   also has something to do with CPU speed.
-	   
-	3- If you get a black screen loading any stage (only happens on elevators of Mr Big for me),
+	1- If you get a black screen loading any stage (only happens on elevators of Mr Big for me),
 		and you	have already finished the game, go to Sout Town Free Map, load the stage that
 		is giving you problems, exit, and (without exiting Openbor), load the savegame.
 		If you haven't finished the game yet, open the levels.txt file in data folder on
@@ -140,10 +130,20 @@ NOTE:	i havent tested the game on xbox360/psp or android
 		Start AOF.exe and and do the method described before. You can delete the # symbol
 		when you solve the problem.
 
-	*NOTE:	i was unable to fix this errors, but they only happen very rarely
-		I've tested the game and now it is very stable. 
-		
-	4- If you experience crashes, slowdowns or memory problems at the stage with Johnny where many animals help you, there is a lighter version of that level in the "Files" folder. Make a backup copy and replace the file in /data/levels/beyond/bydlvl17.txt with the one in the folder /Files/bydlvl17.txt
+	2- The cup game in club kat can fail sometimes. I think it also has something to do
+	   with CPU speed. Take it as a rare random null prize, like in any lottery. It does
+	   not affect the game, you can continue normally, and you can always exit the game
+	   and re-enter to retry the cup game.
+
+	3- In the test your might level you may find to dificult if not impossible
+	   to raise the focus bar. The problem seems to have something to do with
+	   the CPU/GPU speed if your playing in a 4core 3.0/i5/i7 cpu it may be to dificult
+	   to raise the focus bar.
+
+	4- If you experience crashes, slowdowns or memory problems at the stage with Johnny where
+		many prisoners and animals helps you, there is a lighter version of that level in the "Files" folder.
+		Make a backup copy and replace the file in /data/levels/beyond/bydlvl17.txt with the
+		one in the folder /Files/bydlvl17.txt
 
 	5- If the game is shuttering (bbbbrrrrr..Hiiickkk) or slowing down.
 	  delete all files in the Saves folder (AOF.cfg AOF.sav etc)
