@@ -27,188 +27,6 @@ alternatepal       data/chars/2soldierguy6/map4.gif
 alternatepal       data/chars/2soldierguy6/map5.gif
 
 
-anim	follow5
-@script
-if(frame==1)
-{
-  changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_OBSTACLE"));
-}
-@end_script
-	loop	1 4 9
-	delay	5
-	counterrange 2 10 1 1
-     	followanim 7
-	offset	101 188
-	bbox	85 96 39 50
-	frame	data/chars/2soldierguy6/spawn01.gif
-	@cmd	layer -100
-	@cmd	subminz 0
-	@cmd	submaxz 0
-	@cmd	subwall 0
-	@cmd	subplat 0
-	frame	data/chars/2soldierguy6/spawn01.gif
-	frame	data/chars/2soldierguy6/spawn01.gif #2
-	frame	data/chars/2soldierguy6/spawn01.gif
-	frame	data/chars/2soldierguy6/spawn01.gif 
-
-	frame	data/chars/2soldierguy6/spawn01.gif
-	frame	data/chars/2soldierguy6/spawn01.gif
-	frame	data/chars/2soldierguy6/spawn01.gif
-	frame	data/chars/2soldierguy6/spawn01.gif
-	frame	data/chars/2soldierguy6/spawn01.gif
-
-
-
-
-anim	follow6
-@script
-if(frame==1)
-{
-  changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_OBSTACLE"));
-}
-@end_script
-	loop	1 4 9
-	delay	5
-	counterrange 2 10 1 1
-     	followanim 7
-	offset	101 188
-	bbox	85 96 39 50
-	frame	data/chars/2soldierguy6/spawn02.gif
-	@cmd	layer -100
-	@cmd	subminz 0
-	@cmd	submaxz 0
-	@cmd	subwall 0
-	@cmd	subplat 0
-	frame	data/chars/2soldierguy6/spawn02.gif
-	frame	data/chars/2soldierguy6/spawn02.gif #2
-	frame	data/chars/2soldierguy6/spawn02.gif
-	frame	data/chars/2soldierguy6/spawn02.gif 
-
-	frame	data/chars/2soldierguy6/spawn02.gif
-	frame	data/chars/2soldierguy6/spawn02.gif
-	frame	data/chars/2soldierguy6/spawn02.gif
-	frame	data/chars/2soldierguy6/spawn02.gif
-	frame	data/chars/2soldierguy6/spawn02.gif
-
-
-anim	follow7
-@script
-if(frame==1)
-{
-  changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_NPC"));
-}
-@end_script
-	loop	0
-	delay	16
-	offset	101 188
-	bbox	0 0 0 0
-	frame	data/chars/2soldierguy6/spawn02.gif
-	frame	data/chars/2soldierguy6/spawn03.gif
-	frame	data/chars/2soldierguy6/spawn04.gif
-	frame	data/chars/2soldierguy6/rise3.gif
-	frame	data/chars/2soldierguy6/rise4.gif
-	delay	80
-	frame	data/chars/2soldierguy6/idle01.gif
-	delay	7
-	@cmd	flip 1
-	frame	data/chars/2soldierguy6/wk01.gif
-	@cmd	dasher 0 0 0.5
-	frame	data/chars/2soldierguy6/wk02.gif
-	frame	data/chars/2soldierguy6/wk03.gif
-	frame	data/chars/2soldierguy6/wk04.gif
-	@cmd	layer 0
-	frame	data/chars/2soldierguy6/wk05.gif
-	frame	data/chars/2soldierguy6/wk06.gif
-	frame	data/chars/2soldierguy6/wk07.gif
-	frame	data/chars/2soldierguy6/wk08.gif
-	frame	data/chars/2soldierguy6/wk01.gif
-	frame	data/chars/2soldierguy6/wk02.gif
-	movez	0
-	frame	data/chars/2soldierguy6/wk03.gif
-	frame	data/chars/2soldierguy6/wk04.gif
-	frame	data/chars/2soldierguy6/wk05.gif
-	frame	data/chars/2soldierguy6/wk06.gif
-	frame	data/chars/2soldierguy6/wk07.gif
-	frame	data/chars/2soldierguy6/wk08.gif
-	@cmd	stop
-	frame	data/chars/2soldierguy6/idle01.gif
-	frame	data/chars/2soldierguy6/idle01.gif
-	@cmd	subminz 1
-	@cmd	submaxz 1
-	@cmd	subwall 1
-	@cmd	subscreen 1	
-	frame	data/chars/2soldierguy6/idle01.gif
-	delay	50
-	frame	data/chars/2soldierguy6/idle01.gif
-	delay	20
-	frame	data/chars/2soldierguy6/idle01.gif
-	@cmd	beidle
-	frame	data/chars/2soldierguy6/idle01.gif
-
-
-
-
-
-#-----------overlord-walk---------------
-anim	follow14
-@script
-    void self = getlocalvar("self");
-    changeentityproperty(self, "direction", 1);
-    float x1 = getentityproperty(self, "x");
-    float z1 = getentityproperty(self, "z");
-
-   if (z1 == 352){
-       changeentityproperty(self, "velocity", 0, 0);
-   }
-   if (z1 <= 350 && z1 != 352 ){
-       changeentityproperty(self, "velocity", 0, 0.3);
-   }
-   if (z1 >= 354 && z1 != 352 ){
-       changeentityproperty(self, "velocity", 0, -0.3);
-   }
-   if (x1 <=6640 ){
-       changeentityproperty(self, "velocity", 1);
-   }
-   if (x1 >=6640){
-        performattack(self, openborconstant("ANI_FOLLOW15"));
-   }
-@end_script
-	loop	1 2 10
-	delay	3
-	offset	101 188
-	bbox	0 0 0 0
-	frame	data/chars/2soldierguy6/idle01.gif
-	@cmd	clearL
-	@cmd	subscreen 0
-	frame	data/chars/2soldierguy6/idle01.gif
-	delay	7
-	frame	data/chars/2soldierguy6/wk01.gif
-	frame	data/chars/2soldierguy6/wk02.gif
-	frame	data/chars/2soldierguy6/wk03.gif
-	frame	data/chars/2soldierguy6/wk04.gif
-	frame	data/chars/2soldierguy6/wk05.gif
-	frame	data/chars/2soldierguy6/wk06.gif
-	frame	data/chars/2soldierguy6/wk07.gif
-	frame	data/chars/2soldierguy6/wk08.gif
-	frame	data/chars/2soldierguy6/idle01.gif
-
-anim	follow15
-	loop	1 2 10
-	delay	3
-	offset	101 188
-	bbox	0 0 0 0
-	frame	data/chars/2soldierguy6/idle01.gif
-	@cmd	stop
-	frame	data/chars/2soldierguy6/idle01.gif
-	frame	data/chars/2soldierguy6/idle01.gif
-	frame	data/chars/2soldierguy6/idle01.gif
-	frame	data/chars/2soldierguy6/idle01.gif
-	frame	data/chars/2soldierguy6/idle01.gif
-	frame	data/chars/2soldierguy6/idle01.gif
-	frame	data/chars/2soldierguy6/idle01.gif
-	frame	data/chars/2soldierguy6/idle01.gif
-	frame	data/chars/2soldierguy6/idle01.gif
-	frame	data/chars/2soldierguy6/idle01.gif
 
 anim	attack1
 	range	30 210
@@ -258,8 +76,7 @@ anim	attack1
 	frame	data/chars/2soldierguy6/a02.gif
 	frame	data/chars/2soldierguy6/a01.gif
 	frame	data/chars/2soldierguy6/idle01.gif
-
-
+		
 anim	attack2
 	range	285 410
 	rangez	-55 55
@@ -278,25 +95,21 @@ anim	attack2
 	frame	data/chars/2soldierguy6/idle01.gif
 	delay	8
 	frame	data/chars/2soldierguy6/idle01.gif
-
-
-anim	follow1
-	loop	0
-	delay	8
+		
+anim	backwalk
+	loop	1
+	delay	7
 	offset	101 188
 	bbox	85 96 39 91
-	fastattack	1
-	hitflash	Flash6
-	hitfx	data/sounds/beat3.wav
-	frame	data/chars/2soldierguy6/idle01.gif
-	@cmd	flip
-	frame	data/chars/2soldierguy6/idle01.gif
-	frame	data/chars/2soldierguy6/idle01.gif
-
-
-
-
-
+	drawmethod	256 256 1 0 0 0 -1
+	frame	data/chars/2soldierguy6/wk04.gif
+	frame	data/chars/2soldierguy6/wk05.gif
+	frame	data/chars/2soldierguy6/wk06.gif
+	frame	data/chars/2soldierguy6/wk07.gif
+	frame	data/chars/2soldierguy6/wk08.gif
+	frame	data/chars/2soldierguy6/wk01.gif
+	frame	data/chars/2soldierguy6/wk02.gif
+	frame	data/chars/2soldierguy6/wk03.gif
 		
 anim	burn
 	loop	0
@@ -378,7 +191,7 @@ anim	fall11
 	loop	0
 	delay	20
 	offset	101 188
-	bbox	61 185 90 5	
+	bbox	61 185 90 5
 	frame	data/chars/2soldierguy6/pain12.gif
 	delay	35
 	frame	data/chars/2soldierguy6/fall4.gif
@@ -490,6 +303,191 @@ anim	fall9
 	bbox	58 175 100 15
 	frame	data/chars/2soldierguy6/fall4.gif
 		
+anim	follow1
+	loop	0
+	delay	8
+	offset	101 188
+	bbox	85 96 39 91
+	fastattack	1
+	hitflash	Flash6
+	hitfx	data/sounds/beat3.wav
+	frame	data/chars/2soldierguy6/idle01.gif
+	@cmd	flip
+	frame	data/chars/2soldierguy6/idle01.gif
+	frame	data/chars/2soldierguy6/idle01.gif
+		
+anim	follow14
+@script
+    void self = getlocalvar("self");
+    changeentityproperty(self, "direction", 1);
+    float x1 = getentityproperty(self, "x");
+    float z1 = getentityproperty(self, "z");
+
+   if (z1 == 352){
+       changeentityproperty(self, "velocity", 0, 0);
+   }
+   if (z1 <= 350 && z1 != 352 ){
+       changeentityproperty(self, "velocity", 0, 0.3);
+   }
+   if (z1 >= 354 && z1 != 352 ){
+       changeentityproperty(self, "velocity", 0, -0.3);
+   }
+   if (x1 <=6640 ){
+       changeentityproperty(self, "velocity", 1);
+   }
+   if (x1 >=6640){
+        performattack(self, openborconstant("ANI_FOLLOW15"));
+   }
+	@end_script	
+	loop	1 2 10
+	delay	3
+	offset	101 188
+	bbox	0 0 0 0
+	frame	data/chars/2soldierguy6/idle01.gif
+	@cmd	clearL
+	@cmd	subscreen 0
+	frame	data/chars/2soldierguy6/idle01.gif
+	delay	7
+	frame	data/chars/2soldierguy6/wk01.gif
+	frame	data/chars/2soldierguy6/wk02.gif
+	frame	data/chars/2soldierguy6/wk03.gif
+	frame	data/chars/2soldierguy6/wk04.gif
+	frame	data/chars/2soldierguy6/wk05.gif
+	frame	data/chars/2soldierguy6/wk06.gif
+	frame	data/chars/2soldierguy6/wk07.gif
+	frame	data/chars/2soldierguy6/wk08.gif
+	frame	data/chars/2soldierguy6/idle01.gif
+		
+anim	follow15
+	loop	1 2 10
+	delay	3
+	offset	101 188
+	bbox	0 0 0 0
+	frame	data/chars/2soldierguy6/idle01.gif
+	@cmd	stop
+	frame	data/chars/2soldierguy6/idle01.gif
+	frame	data/chars/2soldierguy6/idle01.gif
+	frame	data/chars/2soldierguy6/idle01.gif
+	frame	data/chars/2soldierguy6/idle01.gif
+	frame	data/chars/2soldierguy6/idle01.gif
+	frame	data/chars/2soldierguy6/idle01.gif
+	frame	data/chars/2soldierguy6/idle01.gif
+	frame	data/chars/2soldierguy6/idle01.gif
+	frame	data/chars/2soldierguy6/idle01.gif
+	frame	data/chars/2soldierguy6/idle01.gif
+		
+anim	follow5
+@script
+if(frame==1)
+{
+  changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_OBSTACLE"));
+}
+	@end_script	
+	loop	0
+	delay	5
+	counterrange	2 10 1 1
+	followanim	7
+	offset	101 188
+	bbox	85 99 41 23
+	frame	data/chars/2soldierguy6/spawn01.gif
+	@cmd	layer -100
+	@cmd	subminz 0
+	@cmd	submaxz 0
+	@cmd	subwall 0
+	@cmd	subplat 0
+	frame	data/chars/2soldierguy6/spawn01.gif
+	frame	data/chars/2soldierguy6/spawn01.gif
+	frame	data/chars/2soldierguy6/spawn01.gif
+	frame	data/chars/2soldierguy6/spawn01.gif
+	frame	data/chars/2soldierguy6/spawn01.gif
+	frame	data/chars/2soldierguy6/spawn01.gif
+	frame	data/chars/2soldierguy6/spawn01.gif
+	frame	data/chars/2soldierguy6/spawn01.gif
+	frame	data/chars/2soldierguy6/spawn01.gif
+		
+anim	follow6
+@script
+if(frame==1)
+{
+  changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_OBSTACLE"));
+}
+	@end_script	
+	loop	0
+	delay	5
+	counterrange	2 10 1 1
+	followanim	7
+	offset	101 188
+	bbox	90 103 35 25
+	frame	data/chars/2soldierguy6/spawn02.gif
+	@cmd	layer -100
+	@cmd	subminz 0
+	@cmd	submaxz 0
+	@cmd	subwall 0
+	@cmd	subplat 0
+	frame	data/chars/2soldierguy6/spawn02.gif
+	frame	data/chars/2soldierguy6/spawn02.gif
+	frame	data/chars/2soldierguy6/spawn02.gif
+	frame	data/chars/2soldierguy6/spawn02.gif
+	frame	data/chars/2soldierguy6/spawn02.gif
+	frame	data/chars/2soldierguy6/spawn02.gif
+	frame	data/chars/2soldierguy6/spawn02.gif
+	frame	data/chars/2soldierguy6/spawn02.gif
+	frame	data/chars/2soldierguy6/spawn02.gif
+		
+anim	follow7
+@script
+if(frame==1)
+{
+  changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_NPC"));
+}
+	@end_script	
+	loop	0
+	delay	16
+	offset	101 188
+	bbox	0 0 0 0
+	frame	data/chars/2soldierguy6/spawn02.gif
+	frame	data/chars/2soldierguy6/spawn03.gif
+	frame	data/chars/2soldierguy6/spawn04.gif
+	frame	data/chars/2soldierguy6/rise3.gif
+	frame	data/chars/2soldierguy6/rise4.gif
+	delay	80
+	frame	data/chars/2soldierguy6/idle01.gif
+	delay	7
+	@cmd	flip 1
+	frame	data/chars/2soldierguy6/wk01.gif
+	@cmd	dasher 0 0 0.5
+	frame	data/chars/2soldierguy6/wk02.gif
+	frame	data/chars/2soldierguy6/wk03.gif
+	frame	data/chars/2soldierguy6/wk04.gif
+	@cmd	layer 0
+	frame	data/chars/2soldierguy6/wk05.gif
+	frame	data/chars/2soldierguy6/wk06.gif
+	frame	data/chars/2soldierguy6/wk07.gif
+	frame	data/chars/2soldierguy6/wk08.gif
+	frame	data/chars/2soldierguy6/wk01.gif
+	frame	data/chars/2soldierguy6/wk02.gif
+	movez	0
+	frame	data/chars/2soldierguy6/wk03.gif
+	frame	data/chars/2soldierguy6/wk04.gif
+	frame	data/chars/2soldierguy6/wk05.gif
+	frame	data/chars/2soldierguy6/wk06.gif
+	frame	data/chars/2soldierguy6/wk07.gif
+	frame	data/chars/2soldierguy6/wk08.gif
+	@cmd	stop
+	frame	data/chars/2soldierguy6/idle01.gif
+	frame	data/chars/2soldierguy6/idle01.gif
+	@cmd	subminz 1
+	@cmd	submaxz 1
+	@cmd	subwall 1
+	@cmd	subscreen 1
+	frame	data/chars/2soldierguy6/idle01.gif
+	delay	50
+	frame	data/chars/2soldierguy6/idle01.gif
+	delay	20
+	frame	data/chars/2soldierguy6/idle01.gif
+	@cmd	beidle
+	frame	data/chars/2soldierguy6/idle01.gif
+		
 anim	grabbed
 	loop	0
 	delay	10
@@ -545,7 +543,6 @@ anim	pain
 	delay	40
 	offset	101 188
 	frame	data/chars/2soldierguy6/pain1.gif
-
 		
 anim	pain2
 	loop	0
@@ -629,6 +626,23 @@ anim	pain9
 	delay	150
 	frame	data/chars/2soldierguy6/pain2.gif
 		
+anim	respawn
+	loop	0
+	delay	5
+	offset	101 188
+	bbox	0 0 0 0
+	jumpframe	1 12 0
+	landframe	4 dust
+	@cmd	stop
+	frame	data/chars/misc/empty.gif
+	delay	75
+	frame	data/chars/misc/empty.gif
+	delay	100
+	frame	data/chars/2soldierguy6/jump01.gif
+	frame	data/chars/2soldierguy6/jump01.gif
+	delay	12
+	frame	data/chars/2soldierguy6/rise4.gif
+		
 anim	rise
 @script
 	void self = getlocalvar("self");
@@ -639,7 +653,7 @@ anim	rise
 		changeentityproperty(self, "invinctime", eTime + 400);
 		changeentityproperty(self, "blink", 1);
 	}
-@end_script
+	@end_script	
 	loop	0
 	delay	14
 	offset	101 165
@@ -657,8 +671,7 @@ anim	spawn
 	offset	101 188
 	bbox	85 96 39 91
 	frame	data/chars/2soldierguy6/idle01.gif
-
-
+		
 anim	turn
 	loop	0
 	delay	7
@@ -667,8 +680,6 @@ anim	turn
 	frame	data/chars/2soldierguy6/idle01.gif
 	frame	data/chars/2soldierguy6/idle01.gif
 	frame	data/chars/2soldierguy6/idle01.gif
-
-
 		
 anim	walk
 	loop	1
@@ -684,41 +695,6 @@ anim	walk
 	frame	data/chars/2soldierguy6/wk06.gif
 	frame	data/chars/2soldierguy6/wk07.gif
 	frame	data/chars/2soldierguy6/wk08.gif
-
-
-anim	respawn
-	loop	0
-	delay	5
-	offset	101 188
-	bbox	0 0 0 0
-	jumpframe 1 12 0 
-	landframe 4 dust
-	@cmd	stop
-	frame	data/chars/misc/empty.gif
-	delay	75
-	frame	data/chars/misc/empty.gif
-	delay	100
-	frame	data/chars/2soldierguy6/jump01.gif
-	frame	data/chars/2soldierguy6/jump01.gif
-	delay	12
-	frame	data/chars/2soldierguy6/rise4.gif
-
-
-
-anim	backwalk
-	loop	1
-	delay	7
-	offset	101 188
-	bbox	85 96 39 91
-	drawmethod	256 256 1 0 0 0 -1
-	frame	data/chars/2soldierguy6/wk04.gif
-	frame	data/chars/2soldierguy6/wk05.gif
-	frame	data/chars/2soldierguy6/wk06.gif
-	frame	data/chars/2soldierguy6/wk07.gif
-	frame	data/chars/2soldierguy6/wk08.gif
-	frame	data/chars/2soldierguy6/wk01.gif
-	frame	data/chars/2soldierguy6/wk02.gif
-	frame	data/chars/2soldierguy6/wk03.gif
 		
-#|edited by openBor Stats v 0.53
+#|edited by openBor Stats v 0.67
 		
