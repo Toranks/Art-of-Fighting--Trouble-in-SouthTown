@@ -792,13 +792,11 @@ void spawnGun8(void Name, float dx, float dy, float dz, int Num, void Ani)
 
 
 void spawnGun9(void Name, float dx, float dy, float dz, float map, float hp, int Num, void Ani)
-{ // Spawn gun with ani animation, store it and bind it choose map and health
+{ // Spawn gun with ani animation, store it and bind it choose map but not health (even if it's defined)
    void self = getlocalvar("self");
    void Spawn;
    Spawn = spawn01(Name, dx, dy, 0);
    setentityvar(self, Num, Spawn); // Stores spawned gun to be killed later
-//   changeentityproperty(Spawn, "maxhealth", hp);
-//   changeentityproperty(Spawn, "health", hp);
    changeentityproperty(Spawn, "map", map);
    bindentity(Spawn, self, dx, dz, dy, 0, 0); // Bind spawned gun
    performattack(Spawn, openborconstant(Ani));

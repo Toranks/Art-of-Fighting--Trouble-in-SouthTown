@@ -1,6 +1,6 @@
 name			tram1
 type			npc
-health			2500
+health			3000
 shadow			0
 facing			1
 
@@ -168,11 +168,76 @@ anim	rise
 	frame	data/bgs/beyond/lvl18/tram.gif
 		
 anim	spawn
+
 @script
-if(frame==1)
-{
-  changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_OBSTACLE"));
-}
+	void self = getlocalvar("self");
+	  int P1 = getplayerproperty(0, "entity");
+	  int P2 = getplayerproperty(1, "entity");
+	  int P3 = getplayerproperty(2, "entity");
+	  void mania = getglobalvar("mania");	  
+	if(frame==1){
+	  if (P1 != NULL() && P2 != NULL() && P3 != NULL())
+		{
+		  if (mania == 1)
+			{
+				changeentityproperty(self, "maxhealth", 3000);
+				changeentityproperty(self, "health", 3000);
+			}
+		  else
+			{
+				changeentityproperty(self, "maxhealth", 2000);
+				changeentityproperty(self, "health", 2000);
+			}
+		}
+		else if (P1 != NULL() && P2 != NULL() && P3 == NULL())
+		{
+		  if (mania == 1)
+			{
+				changeentityproperty(self, "maxhealth", 3500);
+				changeentityproperty(self, "health", 3500);
+			}
+		  else
+			{
+				changeentityproperty(self, "maxhealth", 2500);
+				changeentityproperty(self, "health", 2500);
+			}
+		}
+		else if (P1 != NULL() && P2 == NULL() && P3 != NULL())
+		{
+		  if (mania == 1)
+			{
+				changeentityproperty(self, "maxhealth", 3500);
+				changeentityproperty(self, "health", 3500);
+			}
+		  else
+			{
+				changeentityproperty(self, "maxhealth", 2500);
+				changeentityproperty(self, "health", 2500);
+			}
+		}
+		else if (P1 == NULL() && P2 != NULL() && P3 != NULL())
+		{
+		  if (mania == 1)
+			{
+				changeentityproperty(self, "maxhealth", 3500);
+				changeentityproperty(self, "health", 3500);
+			}
+		  else
+			{
+				changeentityproperty(self, "maxhealth", 2500);
+				changeentityproperty(self, "health", 2500);
+			}
+		}
+		else
+		{
+		  if (mania == 1)
+			{
+				changeentityproperty(self, "maxhealth", 4000);
+				changeentityproperty(self, "health", 4000);
+			}
+		}
+	changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_OBSTACLE"));
+	}
 	@end_script	
 	loop	0
 	delay	5
