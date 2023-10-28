@@ -1,7 +1,7 @@
 name          jonpc2
 type          npc
 subtype       follow
-health        99000 
+health        999999 
 speed         12
 running		25 3 3 1 0
 jumpheight    5
@@ -28,7 +28,18 @@ load	jbyo3
 load	jonysmtlk
 
 
-
+script	@script
+void main()
+{
+    void self = getlocalvar("self");
+    int  mad = getglobalvar("madjon");
+	if(mad==3){
+     	performattack(self, openborconstant("ANI_FOLLOW10"));
+    	}else if(mad==1){
+     	performattack(self, openborconstant("ANI_FOLLOW11"));
+    	}
+}
+	@end_script	
 
 
 anim	attack1
@@ -178,18 +189,7 @@ anim	backwalk
 	frame	data/chars/3johnny/wk21.gif
 	frame	data/chars/3johnny/wk22.gif
 	frame	data/chars/3johnny/wk23.gif
-script	@script
-void main()
-{
-    void self = getlocalvar("self");
-    int  mad = getglobalvar("madjon");
-	if(mad==3){
-     	performattack(self, openborconstant("ANI_FOLLOW10"));
-    	}else if(mad==1){
-     	performattack(self, openborconstant("ANI_FOLLOW11"));
-    	}
-}
-	@end_script	
+
 		
 anim	burn
 	loop	0
@@ -771,20 +771,98 @@ anim	run
 anim	spawn
 @script
 	void self = getlocalvar("self");
-	int p1 = getplayerproperty(0, "entity");
-	int p2 = getplayerproperty(1, "entity");
-	int p3 = getplayerproperty(2, "entity");
-
-	if (frame == 1 && p1 != NULL()){
-	changeentityproperty(self, "parent", p1);
+	  int P1 = getplayerproperty(0, "entity");
+	  int P2 = getplayerproperty(1, "entity");
+	  int P3 = getplayerproperty(2, "entity");
+	  void mania = getglobalvar("mania");	 
+	  
+	if (frame==1)
+	{
+	  if (P1 != NULL() && P2 != NULL() && P3 != NULL())
+		{
+		  if (mania == 1)
+			{
+				changeentityproperty(self, "aggression", 250);
+			}
+		  else
+			{
+				changeentityproperty(self, "aggression", 125);
+			}
+		  changeentityproperty(self, "parent", P1);
+		}
+		else if (P1 != NULL() && P2 != NULL() && P3 == NULL())
+		{
+		  if (mania == 1)
+			{
+				changeentityproperty(self, "aggression", 200);
+			}
+		  else
+			{
+				changeentityproperty(self, "aggression", 100);
+			}
+		  changeentityproperty(self, "parent", P1);
+		}
+		else if (P1 != NULL() && P2 == NULL() && P3 != NULL())
+		{
+		  if (mania == 1)
+			{
+				changeentityproperty(self, "aggression", 175);
+			}
+		  else
+			{
+				changeentityproperty(self, "aggression", 75);
+			}
+		  changeentityproperty(self, "parent", P1);
+		}
+		else if (P1 == NULL() && P2 != NULL() && P3 != NULL())
+		{
+		  if (mania == 1)
+			{
+				changeentityproperty(self, "aggression", 175);
+			}
+		  else
+			{
+				changeentityproperty(self, "aggression", 75);
+			}
+		  changeentityproperty(self, "parent", P2);
+		}
+		else if (P1 == NULL() && P2 != NULL() && P3 == NULL())
+		{
+		  if (mania == 1)
+			{
+				changeentityproperty(self, "aggression", 125);
+			}
+		  else
+			{
+				changeentityproperty(self, "aggression", 25);
+			}
+		  changeentityproperty(self, "parent", P3);
+		}
+		else if (P1 == NULL() && P2 == NULL() && P3 != NULL())
+		{
+		  if (mania == 1)
+			{
+				changeentityproperty(self, "aggression", 125);
+			}
+		  else
+			{
+				changeentityproperty(self, "aggression", 25);
+			}
+		  changeentityproperty(self, "parent", P3);
+		}
+		else if (P1 != NULL() && P2 == NULL() && P3 == NULL())
+		{
+		  if (mania == 1)
+			{
+				changeentityproperty(self, "aggression", 150);
+			}
+		  else
+			{
+				changeentityproperty(self, "aggression", 50);
+			}
+		}
 	}
-	else if (frame == 1&& p2 != NULL()){
-	changeentityproperty(self, "parent", p2);
-	}
-	else if (frame == 1&& p3 != NULL()){
-	changeentityproperty(self, "parent", p3);
-	}
-	@end_script	
+@end_script	
 	loop	0
 	delay	5
 	offset	101 190
