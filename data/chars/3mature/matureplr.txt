@@ -139,6 +139,8 @@ load	maturenpc
 
 
 
+
+
 anim	attack1
 	range	0 150
 	rangez	-25 25
@@ -1034,14 +1036,14 @@ anim	grabdown
 	int plr = getentityproperty(self,"playerindex");
 	float energ = getentityproperty(self,"mp");
 
-	if (frame >= 12 && frame <= 15 && energ > 10)
+	if (frame >= 12 && frame <= 15 && energ > 5)
 	{
 		if ( playerkeys(plr,0, "attack"))
 		{
 		updateframe(self, 3);
 		}
 	}
-	if (frame >= 11 && frame <= 15 && energ <= 10)
+	if (frame >= 11 && frame <= 15 && energ <= 5)
 	{
 	updateframe(self, 16);
 	}
@@ -1051,6 +1053,7 @@ anim	grabdown
 	delay	30
 	offset	109 195
 	bbox	0 0 0 0
+	@cmd	mpgain 5
 	sound	data/sounds/grab2.wav
 	@cmd	slamstart
 	@cmd	position 10 35 45 -1 -1

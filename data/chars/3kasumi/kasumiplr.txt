@@ -41,7 +41,6 @@ com	a3		freespecial29
 com	d f s		freespecial1
 com	d f j		freespecial5
 com	a4		freespecial2
-com	f d f a		freespecial2
 com	d f a		freespecial4
 com	d u a		freespecial6
 com	f d f s		freespecial27
@@ -53,6 +52,8 @@ alternatepal	data/chars/3kasumi/map1.gif
 alternatepal	data/chars/3kasumi/map2.gif
 alternatepal	data/chars/3kasumi/map3.gif
 alternatepal	data/chars/3kasumi/map4.gif
+alternatepal	data/chars/3kasumi/map5.gif
+alternatepal	data/chars/3kasumi/map6.gif
 
 @script
    void self = getlocalvar("self");
@@ -63,88 +64,20 @@ if(anim == openborconstant("ANI_RUN") || anim == openborconstant("ANI_WALK"))
 {
 	changeentityproperty(self, "aggression", 10);
 }
-if(aggro == 10 && anim == openborconstant("ANI_ATTACKUP"))
+if(anim == openborconstant("ANI_ATTACKUP") && aggro == 10)
 {
 performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW2"));
-changeentityproperty(self, "aggression", 10);
 }
 
-if(aggro == 10 && anim == openborconstant("ANI_ATTACKDOWN"))
+if(anim == openborconstant("ANI_ATTACKDOWN") && aggro == 10)
 {
 performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW1"));
-changeentityproperty(self, "aggression", 10);
 }
 if (anim == openborconstant("ANI_IDLE"))
 {
 	changeentityproperty(self, "aggression", 20);
 }
 	@end_script	
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		
 		
 		
@@ -1032,7 +965,7 @@ anim	freespecial2
 	delay	5
 	offset	110 195
 	staydown	320 320
-	bbox	0 0 0 0
+	bbox	96 115 34 76
 	fastattack	1
 	hitflash	flashscreen1
 	hitfx	data/sounds/kasu2.wav
@@ -1136,10 +1069,10 @@ anim	freespecial2
 	frame	data/chars/3kasumi/e35.gif
 	@cmd	updateframe getlocalvar("self") 9
 	frame	data/chars/3kasumi/e35.gif
+	bbox	95 120 29 58
 	delay	10
 	@cmd	stop
 	offset	110 195
-	bbox	0 0 0 0
 	sound	data/sounds/grab2.wav
 	frame	data/chars/3kasumi/e03.gif
 	frame	data/chars/3kasumi/e02.gif
@@ -1282,7 +1215,7 @@ anim	freespecial4
 	frame	data/chars/3kasumi/jump01.gif
 		
 anim	freespecial5
-	energycost	15
+	energycost	12
 	mponly	1
 	loop	0
 	delay	7
@@ -1309,9 +1242,9 @@ anim	freespecial5
 	delay	2
 	offset	70 195
 	bbox	61 139 21 41
-	attack	65 108 110 61 70 1 1 0 40 25
+	attack	65 108 110 61 75 1 1 0 40 25
 	dropv	7 0.5 0
-	frame	data/chars/3kasumi/pw10.gif #7
+	frame	data/chars/3kasumi/pw10.gif
 	frame	data/chars/3kasumi/pw02.gif
 	frame	data/chars/3kasumi/pw11.gif
 	frame	data/chars/3kasumi/pw01.gif
@@ -1332,13 +1265,14 @@ anim	freespecial5
 	frame	data/chars/3kasumi/pw01.gif
 	@cmd	stop
 	frame	data/chars/3kasumi/pw02.gif
-	bbox	0 0 0 0
 	frame	data/chars/3kasumi/pw01a.gif
 	delay	8
 	frame	data/chars/3kasumi/pw01b.gif
+	bbox	96 138 28 54
 	offset	110 195
 	frame	data/chars/3kasumi/spawn03.gif
 	frame	data/chars/3kasumi/spawn04.gif
+	bbox	95 121 29 67
 	frame	data/chars/3kasumi/spawn05.gif
 		
 anim	freespecial6

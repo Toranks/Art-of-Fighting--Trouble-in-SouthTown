@@ -35,11 +35,13 @@ void main()
     int  mad = getglobalvar("madjon");
 	if(mad==3){
      	performattack(self, openborconstant("ANI_FOLLOW10"));
-    	}else if(mad==1){
-     	performattack(self, openborconstant("ANI_FOLLOW11"));
-    	}
+	}
+	else if(mad==1){
+		performattack(self, openborconstant("ANI_FOLLOW11"));
+	}
 }
 	@end_script	
+
 
 
 anim	attack1
@@ -51,7 +53,7 @@ anim	attack1
 	hitflash	Flash4
 	hitfx	data/sounds/sl1.wav
 	frame	data/chars/3johnny/a301.gif
-	attack	105 75 110 45 20 0 1 0 5 15
+	attack	105 75 110 45 25 0 1 0 5 15
 	frame	data/chars/3johnny/a303.gif
 	@cmd	attack1 -180 10 20 "ANI_FOLLOW4"
 	frame	data/chars/3johnny/a304.gif
@@ -62,7 +64,7 @@ anim	attack1
 	bbox	85 96 39 91
 	frame	data/chars/3johnny/a305.gif
 	@cmd	attack1 -180 10 20 "ANI_FOLLOW4"
-	attack	105 90 110 45 25 1 1 0 5 15
+	attack	105 90 110 45 30 1 1 0 5 15
 	dropv	4 2
 	frame	data/chars/3johnny/a307.gif
 	frame	data/chars/3johnny/a308.gif
@@ -86,13 +88,13 @@ anim	attack2
 	frame	data/chars/3johnny/gun05.gif
 	frame	data/chars/3johnny/gun06.gif
 	delay	12
-	attack10	110 85 95 50 10 1 1 1 0 0
+	attack10	110 85 95 50 30 1 1 1 0 0
 	dropv	2 3 0
 	frame	data/chars/3johnny/gun07.gif
 	delay	6
 	offset	76 190
-	frame	data/chars/3johnny/gun08.gif #5
-	bbox	85 96 39 91
+	frame	data/chars/3johnny/gun08.gif
+	bbox	60 96 39 91
 	frame	data/chars/3johnny/gun09.gif
 	@cmd	projectile 1 "bullet1" 105 1 68
 	@cmd	attack1 -280 20 30 "ANI_FOLLOW5"
@@ -132,12 +134,12 @@ anim	attack4
 	frame	data/chars/3johnny/mg03.gif
 	delay	6
 	offset	76 190
-	attack10	70 85 135 60 10 1 1 1 0 0
+	attack10	70 85 135 60 30 1 1 1 0 0
 	dropv	2 3 0
-	frame	data/chars/3johnny/mg04.gif #4
+	frame	data/chars/3johnny/mg04.gif
 	@cmd	shooter "bullet1" 105 55 1 2.5 0 0
 	frame	data/chars/3johnny/mg05.gif
-	bbox	60 96 39 91
+	bbox	47 96 39 91
 	sound	data/sounds/plgun1.wav
 	@cmd	shooter "bullet1" 105 55 1 2.5 0 -1
 	@cmd	attack1 -280 20 30 "ANI_FOLLOW5"
@@ -189,7 +191,6 @@ anim	backwalk
 	frame	data/chars/3johnny/wk21.gif
 	frame	data/chars/3johnny/wk22.gif
 	frame	data/chars/3johnny/wk23.gif
-
 		
 anim	burn
 	loop	0
@@ -297,7 +298,7 @@ if(frame==1)
 {
        changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_ENEMY"));
        changeentityproperty(self, "hostile",openborconstant("TYPE_PLAYER"));
-       changeentityproperty(self, "candamage",openborconstant("TYPE_PLAYER"));
+       changeentityproperty(self, "candamage",openborconstant("TYPE_PLAYER")+openborconstant("TYPE_NPC"));
        setglobalvar("madjon", 5);
 }
 	@end_script	
@@ -319,7 +320,7 @@ anim	follow11
 if(frame==1)
 {
        changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_NPC"));
-       changeentityproperty(self, "hostile",openborconstant("TYPE_ENEMY"));
+       changeentityproperty(self, "hostile",openborconstant("TYPE_OBSTACLE"));
        changeentityproperty(self, "candamage",openborconstant("TYPE_ENEMY"));
 }
 	@end_script	
@@ -374,7 +375,7 @@ anim	follow2
 	bbox	0 0 0 0
 	landframe	4
 	frame	data/chars/3johnny/gnju03.gif
-	attack	75 105 110 60 30 1 0 0 15 35
+	attack	75 105 110 60 40 1 0 0 15 35
 	dropv	3 5
 	frame	data/chars/3johnny/gnju04.gif
 	delay	200
@@ -396,7 +397,7 @@ anim	follow4
 	frame	data/chars/3johnny/bx01.gif
 	frame	data/chars/3johnny/bx02.gif
 	frame	data/chars/3johnny/bx03.gif
-	attack	115 85 80 50 25 1 1 0 30 20
+	attack	115 85 80 50 45 1 1 0 30 20
 	dropv	3 4
 	frame	data/chars/3johnny/bx04.gif
 	delay	12
@@ -421,11 +422,11 @@ anim	follow5
 	frame	data/chars/3johnny/gnbck10.gif
 	frame	data/chars/3johnny/gnbck12.gif
 	delay	25
-	attack10	95 77 190 60 10 1 1 1 0 0
+	attack10	95 77 190 60 30 1 1 1 0 0
 	dropv	2 3 0
 	frame	data/chars/3johnny/gnbck13a.gif
 	delay	4
-	frame	data/chars/3johnny/gnbck28.gif #4
+	frame	data/chars/3johnny/gnbck28.gif
 	frame	data/chars/3johnny/gnbck29.gif
 	sound	data/sounds/plgun1.wav
 	@cmd	shooter3 "bullet1" -105 65 1 -2.5 0 0 "ANI_FOLLOW1"
@@ -503,7 +504,7 @@ anim	follow6
 	frame	data/chars/3johnny/bx01.gif
 	frame	data/chars/3johnny/bx02.gif
 	frame	data/chars/3johnny/bx03.gif
-	attack	115 85 80 50 25 1 1 0 30 20
+	attack	115 85 80 50 60 1 1 0 30 20
 	dropv	3 4
 	frame	data/chars/3johnny/bx04.gif
 	delay	12
@@ -774,13 +775,13 @@ anim	spawn
 	  int P1 = getplayerproperty(0, "entity");
 	  int P2 = getplayerproperty(1, "entity");
 	  int P3 = getplayerproperty(2, "entity");
-	  void mania = getglobalvar("mania");	 
-	  
+	  void hard = getglobalvar("hard");	 
+
 	if (frame==1)
 	{
 	  if (P1 != NULL() && P2 != NULL() && P3 != NULL())
 		{
-		  if (mania == 1)
+		  if (hard == 1)
 			{
 				changeentityproperty(self, "aggression", 250);
 			}
@@ -792,7 +793,7 @@ anim	spawn
 		}
 		else if (P1 != NULL() && P2 != NULL() && P3 == NULL())
 		{
-		  if (mania == 1)
+		  if (hard == 1)
 			{
 				changeentityproperty(self, "aggression", 200);
 			}
@@ -804,7 +805,7 @@ anim	spawn
 		}
 		else if (P1 != NULL() && P2 == NULL() && P3 != NULL())
 		{
-		  if (mania == 1)
+		  if (hard == 1)
 			{
 				changeentityproperty(self, "aggression", 175);
 			}
@@ -816,7 +817,7 @@ anim	spawn
 		}
 		else if (P1 == NULL() && P2 != NULL() && P3 != NULL())
 		{
-		  if (mania == 1)
+		  if (hard == 1)
 			{
 				changeentityproperty(self, "aggression", 175);
 			}
@@ -828,7 +829,7 @@ anim	spawn
 		}
 		else if (P1 == NULL() && P2 != NULL() && P3 == NULL())
 		{
-		  if (mania == 1)
+		  if (hard == 1)
 			{
 				changeentityproperty(self, "aggression", 125);
 			}
@@ -840,7 +841,7 @@ anim	spawn
 		}
 		else if (P1 == NULL() && P2 == NULL() && P3 != NULL())
 		{
-		  if (mania == 1)
+		  if (hard == 1)
 			{
 				changeentityproperty(self, "aggression", 125);
 			}
@@ -852,7 +853,7 @@ anim	spawn
 		}
 		else if (P1 != NULL() && P2 == NULL() && P3 == NULL())
 		{
-		  if (mania == 1)
+		  if (hard == 1)
 			{
 				changeentityproperty(self, "aggression", 150);
 			}
@@ -862,7 +863,7 @@ anim	spawn
 			}
 		}
 	}
-@end_script	
+	@end_script	
 	loop	0
 	delay	5
 	offset	101 190
@@ -895,7 +896,7 @@ anim	upper
 	frame	data/chars/3johnny/a302.gif
 	delay	9
 	sound	data/sounds/blade.wav
-	attack	95 30 80 100 30 1 0 0 30 40
+	attack	95 30 80 100 75 1 0 0 30 40
 	dropv	5.5 3
 	frame	data/chars/3johnny/gnup01.gif
 	frame	data/chars/3johnny/gnup02.gif
@@ -924,5 +925,5 @@ anim	walk
 	frame	data/chars/3johnny/wk24.gif
 	frame	data/chars/3johnny/wk25.gif
 		
-#|edited by openBor Stats v 0.53
+#|edited by openBor Stats v 0.67
 		

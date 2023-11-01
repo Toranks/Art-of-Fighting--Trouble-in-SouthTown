@@ -3,8 +3,8 @@ type		player
 health		160
 mp		200
 mprate          6
-speed		12
-running		17 3 2.5 1 1
+speed		10
+running		19 3 2.5 1 1
 height		105
 secret		0 999999
 nodieblink	2
@@ -49,6 +49,13 @@ com	a2	  freespecial15
 
 load	bullnpc
 load	mine1
+
+
+
+
+
+
+
 
 
 
@@ -450,7 +457,7 @@ anim	freespecial1
 	int mp1 = getentityproperty(self,"mp");
 	void plyr = getentityproperty(self, "playerindex");
 
-	if(frame >= 12 && frame <= 17 && mp1 >= 15)
+	if(frame >= 12 && frame <= 17 && mp1 >= 12)
 	{
 	  if( playerkeys(plyr, 0, "special"))
 	  {
@@ -458,7 +465,7 @@ anim	freespecial1
 	  }
 	}
 	@end_script	
-	energycost	15
+	energycost	8
 	mponly	1
 	loop	0
 	delay	8
@@ -612,7 +619,7 @@ anim	freespecial3
 	int mp1 = getentityproperty(self,"mp");
 	void plyr = getentityproperty(self, "playerindex");
 
-	if(frame >= 19 && frame <= 23 && mp1 >= 15)
+	if(frame >= 19 && frame <= 23 && mp1 >= 20)
 	{
 	  if( playerkeys(plyr, 0, "special"))
 	  {
@@ -620,7 +627,7 @@ anim	freespecial3
 	  }
 	}
 	@end_script	
-	energycost	15
+	energycost	12
 	mponly	1
 	loop	0
 	delay	10
@@ -894,7 +901,7 @@ anim	rise
 		
 anim	run
 	loop	1
-	delay	10
+	delay	7
 	offset	101 190
 	bbox	85 96 39 91
 	frame	data/chars/3johnny/wk20.gif
@@ -936,9 +943,9 @@ anim	special
 	int mp1 = getentityproperty(self,"mp");
 	void plyr = getentityproperty(self, "playerindex");
 
-	if(frame >= 35 && frame <= 40 && mp1 >= 15)
+	if(frame >= 35 && frame <= 40 && mp1 >= 20)
 	{
-	  if( playerkeys(plyr, 0, "special"))
+	  if( playerkeys(plyr, 0, "special") || playerkeys(plyr, 0, "attack"))
 	  {
 	  updateframe(self, 4);
 	  }
@@ -950,6 +957,7 @@ anim	special
 	delay	11
 	offset	196 191
 	bbox	0 0 0 0
+	@cmd	mpgain 40
 	frame	data/chars/3johnny/gnbck09.gif
 	sound	data/sounds/grab.wav
 	frame	data/chars/3johnny/gnbck10.gif
@@ -1033,7 +1041,7 @@ anim	special
 		
 anim	walk
 	loop	1
-	delay	10
+	delay	12
 	offset	101 191
 	bbox	85 96 39 91
 	frame	data/chars/3johnny/wk20.gif
