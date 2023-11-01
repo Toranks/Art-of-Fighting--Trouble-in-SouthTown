@@ -22,7 +22,7 @@ void main()
 	void iSpecial = playerkeys(victim, 1, "special");
 	void iAttack = playerkeys(victim, 1, "attack");
 		
-  if (attacker == NULL() && victim2 == NULL()) {
+  if (attacker == NULL()) {
         if  (realvictim != NULL() && escape == 1) {
 		changeentityproperty(realvictim, "position", x1, z1);
         changeentityproperty(realvictim, "velocity", NULL(), 0, NULL());
