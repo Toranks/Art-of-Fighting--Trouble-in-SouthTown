@@ -928,7 +928,6 @@ void spawnM2(void Name, float dx, float dy, float dz, float map)
    changeentityproperty(Spawn, "map", map);
 }
 
-
 void spawnAnimap(void Name, float dx, float dy, float dz, void Ani)
 { // spawn entity with same map chosse animation
 	void self = getlocalvar("self");
@@ -936,6 +935,19 @@ void spawnAnimap(void Name, float dx, float dy, float dz, void Ani)
 	int iMap = getentityproperty(self,"map");
 	Spawn = spawn01(Name, dx, dy, 0);
 	changeentityproperty(Spawn, "map", iMap);
+	performattack(Spawn, openborconstant(Ani));
+}
+
+void spawnDebris(void Name, float dx, float dy, float dz, void Ani)
+{ // spawn entity with same map chosse animation and falling from the sky on a random position
+	void self = getlocalvar("self");
+	void Spawn;
+	int ry = rand()%100+350;
+	int rx = rand()%480+480;
+	int iMap = getentityproperty(self,"map");
+	Spawn = spawn01(Name, dx, dy, 0);
+	changeentityproperty(Spawn, "map", iMap);
+	changeentityproperty(Spawn, "position", rx, ry, 800);
 	performattack(Spawn, openborconstant(Ani));
 }
 

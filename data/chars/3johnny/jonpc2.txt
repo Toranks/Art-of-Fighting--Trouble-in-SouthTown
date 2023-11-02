@@ -3,10 +3,9 @@ type          npc
 subtype       follow
 health        999999 
 speed         12
-running		25 3 3 1 0
+running		29 3 3 1 0
 jumpheight    5
 jumpspeed     25
-cantgrab      1
 falldie	      1
 nolife        	1
 gfxshadow     1
@@ -23,7 +22,7 @@ animationscript data/scripts/escript.c
 palette		data/chars/3johnny/map.gif
 
 
-load	bullet1
+load	bullet4
 load	jbyo3
 load	jonysmtlk
 
@@ -96,16 +95,16 @@ anim	attack2
 	frame	data/chars/3johnny/gun08.gif
 	bbox	60 96 39 91
 	frame	data/chars/3johnny/gun09.gif
-	@cmd	projectile 1 "bullet1" 105 1 68
+	@cmd	projectile 1 "bullet4" 105 1 68
 	@cmd	attack1 -280 20 30 "ANI_FOLLOW5"
 	sound	data/sounds/plgun1.wav
 	frame	data/chars/3johnny/gun10.gif
 	frame	data/chars/3johnny/gun11.gif
-	@cmd	projectile 1 "bullet1" 105 1 63
+	@cmd	projectile 1 "bullet4" 105 1 63
 	@cmd	looper 5 7
 	frame	data/chars/3johnny/gun08.gif
 	frame	data/chars/3johnny/gun09.gif
-	@cmd	projectile 1 "bullet1" 105 1 68
+	@cmd	projectile 1 "bullet4" 105 1 68
 	@cmd	attack1 -280 20 30 "ANI_FOLLOW5"
 	sound	data/sounds/plgun1.wav
 	frame	data/chars/3johnny/gun10.gif
@@ -137,39 +136,39 @@ anim	attack4
 	attack10	70 85 135 60 30 1 1 1 0 0
 	dropv	2 3 0
 	frame	data/chars/3johnny/mg04.gif
-	@cmd	shooter "bullet1" 105 55 1 2.5 0 0
+	@cmd	shooter "bullet4" 105 55 1 2.5 0 0
 	frame	data/chars/3johnny/mg05.gif
 	bbox	47 96 39 91
 	sound	data/sounds/plgun1.wav
-	@cmd	shooter "bullet1" 105 55 1 2.5 0 -1
+	@cmd	shooter "bullet4" 105 55 1 2.5 0 -1
 	@cmd	attack1 -280 20 30 "ANI_FOLLOW5"
 	frame	data/chars/3johnny/mg06.gif
 	frame	data/chars/3johnny/mg07.gif
-	@cmd	shooter "bullet1" 105 55 1 2.5 0 0
+	@cmd	shooter "bullet4" 105 55 1 2.5 0 0
 	@cmd	attack1 -280 20 30 "ANI_FOLLOW5"
 	frame	data/chars/3johnny/mg08.gif
 	frame	data/chars/3johnny/mg09.gif
 	sound	data/sounds/plgun1.wav
-	@cmd	shooter "bullet1" 105 55 1 2.5 0 1
+	@cmd	shooter "bullet4" 105 55 1 2.5 0 1
 	@cmd	attack1 -280 20 30 "ANI_FOLLOW5"
 	frame	data/chars/3johnny/mg10.gif
 	frame	data/chars/3johnny/mg11.gif
-	@cmd	shooter "bullet1" 105 55 1 2.5 0 0
+	@cmd	shooter "bullet4" 105 55 1 2.5 0 0
 	@cmd	attack1 -280 20 30 "ANI_FOLLOW5"
 	frame	data/chars/3johnny/mg12.gif
 	frame	data/chars/3johnny/mg13.gif
 	sound	data/sounds/plgun1.wav
 	attack10	0 0 0 0
-	@cmd	shooter "bullet1" 105 55 1 2.5 0 -1
+	@cmd	shooter "bullet4" 105 55 1 2.5 0 -1
 	@cmd	attack1 -280 20 30 "ANI_FOLLOW5"
 	frame	data/chars/3johnny/mg14.gif
 	frame	data/chars/3johnny/mg15.gif
-	@cmd	shooter "bullet1" 105 55 1 2.5 0 0
+	@cmd	shooter "bullet4" 105 55 1 2.5 0 0
 	@cmd	attack1 -280 20 30 "ANI_FOLLOW5"
 	frame	data/chars/3johnny/mg16.gif
 	sound	data/sounds/plgun1.wav
 	frame	data/chars/3johnny/mg17.gif
-	@cmd	shooter "bullet1" 105 55 1 2.5 0 1
+	@cmd	shooter "bullet4" 105 55 1 2.5 0 1
 	@cmd	looper 4 4
 	delay	11
 	offset	101 190
@@ -321,7 +320,7 @@ if(frame==1)
 {
        changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_NPC"));
        changeentityproperty(self, "hostile",openborconstant("TYPE_OBSTACLE"));
-       changeentityproperty(self, "candamage",openborconstant("TYPE_ENEMY"));
+       changeentityproperty(self, "candamage",openborconstant("TYPE_OBSTACLE"));
 }
 	@end_script	
 	loop	0
@@ -429,54 +428,137 @@ anim	follow5
 	frame	data/chars/3johnny/gnbck28.gif
 	frame	data/chars/3johnny/gnbck29.gif
 	sound	data/sounds/plgun1.wav
-	@cmd	shooter3 "bullet1" -105 65 1 -2.5 0 0 "ANI_FOLLOW1"
+	@cmd	shooter3 "bullet4" -105 65 1 -2.5 0 0 "ANI_FOLLOW1"
 	frame	data/chars/3johnny/gnbck30.gif
 	frame	data/chars/3johnny/gnbck31.gif
 	bbox	180 96 39 91
 	sound	data/sounds/gun2.wav
-	@cmd	shooter "bullet1" 100 83 1 2.5 0 0
+	@cmd	shooter "bullet4" 100 83 1 2.5 0 0
 	frame	data/chars/3johnny/gnbck28.gif
 	frame	data/chars/3johnny/gnbck29.gif
-	@cmd	shooter3 "bullet1" -105 70 1 -2.5 0 0 "ANI_FOLLOW1"
+	@cmd	shooter3 "bullet4" -105 70 1 -2.5 0 0 "ANI_FOLLOW1"
 	frame	data/chars/3johnny/gnbck30.gif
 	frame	data/chars/3johnny/gnbck31.gif
 	frame	data/chars/3johnny/gnbck28.gif
 	frame	data/chars/3johnny/gnbck29.gif
 	sound	data/sounds/plgun1.wav
-	@cmd	shooter3 "bullet1" -105 65 1 -2.5 0 0 "ANI_FOLLOW1"
+	@cmd	shooter3 "bullet4" -105 65 1 -2.5 0 0 "ANI_FOLLOW1"
 	frame	data/chars/3johnny/gnbck30.gif
 	frame	data/chars/3johnny/gnbck31.gif
 	sound	data/sounds/gun2.wav
-	@cmd	shooter "bullet1" 100 83 1 2.5 0 0
+	@cmd	shooter "bullet4" 100 83 1 2.5 0 0
 	frame	data/chars/3johnny/gnbck24.gif
 	frame	data/chars/3johnny/gnbck25.gif
-	@cmd	shooter3 "bullet1" -105 70 1 -2.5 0 0 "ANI_FOLLOW1"
+	@cmd	shooter3 "bullet4" -105 70 1 -2.5 0 0 "ANI_FOLLOW1"
 	frame	data/chars/3johnny/gnbck26.gif
 	frame	data/chars/3johnny/gnbck27.gif
 	frame	data/chars/3johnny/gnbck20.gif
 	frame	data/chars/3johnny/gnbck21.gif
 	sound	data/sounds/plgun1.wav
-	@cmd	shooter3 "bullet1" -105 65 1 -2.5 0 0 "ANI_FOLLOW1"
+	@cmd	shooter3 "bullet4" -105 65 1 -2.5 0 0 "ANI_FOLLOW1"
 	frame	data/chars/3johnny/gnbck22.gif
 	frame	data/chars/3johnny/gnbck23.gif
 	sound	data/sounds/gun2.wav
-	@cmd	shooter "bullet1" 100 83 1 2.5 0 0
+	@cmd	shooter "bullet4" 100 83 1 2.5 0 0
 	frame	data/chars/3johnny/gnbck20.gif
 	frame	data/chars/3johnny/gnbck21.gif
-	@cmd	shooter3 "bullet1" -105 70 1 -2.5 0 0 "ANI_FOLLOW1"
+	@cmd	shooter3 "bullet4" -105 70 1 -2.5 0 0 "ANI_FOLLOW1"
 	frame	data/chars/3johnny/gnbck22.gif
 	frame	data/chars/3johnny/gnbck23.gif
 	frame	data/chars/3johnny/gnbck20.gif
 	frame	data/chars/3johnny/gnbck21.gif
 	sound	data/sounds/plgun1.wav
-	@cmd	shooter3 "bullet1" -105 65 1 -2.5 0 0 "ANI_FOLLOW1"
+	@cmd	shooter3 "bullet4" -105 65 1 -2.5 0 0 "ANI_FOLLOW1"
 	frame	data/chars/3johnny/gnbck22.gif
 	frame	data/chars/3johnny/gnbck23.gif
 	sound	data/sounds/gun2.wav
-	@cmd	shooter "bullet1" 100 83 1 2.5 0 0
+	@cmd	shooter "bullet4" 100 83 1 2.5 0 0
 	frame	data/chars/3johnny/gnbck24.gif
 	frame	data/chars/3johnny/gnbck25.gif
-	@cmd	shooter3 "bullet1" -105 70 1 -2.5 0 0 "ANI_FOLLOW1"
+	@cmd	shooter3 "bullet4" -105 70 1 -2.5 0 0 "ANI_FOLLOW1"
+	frame	data/chars/3johnny/gnbck26.gif
+	frame	data/chars/3johnny/gnbck27.gif
+	@cmd	looper 4 4
+	delay	11
+	frame	data/chars/3johnny/gnbck13a.gif
+	attack10	0 0 0 0
+	frame	data/chars/3johnny/gnbck12.gif
+	frame	data/chars/3johnny/gnbck10.gif
+	offset	101 190
+	bbox	85 96 39 91
+	frame	data/chars/3johnny/gun02.gif
+	@cmd	clearL
+	frame	data/chars/3johnny/gun01.gif
+	@cmd	beidle
+	frame	data/chars/3johnny/gun01.gif
+	
+	
+anim	special
+	loop	0
+	delay	11
+	offset	196 191
+	bbox	0 0 0 0
+	frame	data/chars/3johnny/gnbck09.gif
+	sound	data/sounds/grab.wav
+	@cmd	clearL
+	frame	data/chars/3johnny/gnbck10.gif
+	frame	data/chars/3johnny/gnbck12.gif
+	delay	25
+	attack10	95 77 190 60 30 1 1 1 0 0
+	dropv	2 3 0
+	frame	data/chars/3johnny/gnbck13a.gif
+	delay	4
+	frame	data/chars/3johnny/gnbck28.gif
+	frame	data/chars/3johnny/gnbck29.gif
+	sound	data/sounds/plgun1.wav
+	@cmd	shooter3 "bullet4" -105 65 1 -2.5 0 0 "ANI_FOLLOW1"
+	frame	data/chars/3johnny/gnbck30.gif
+	frame	data/chars/3johnny/gnbck31.gif
+	bbox	180 96 39 91
+	sound	data/sounds/gun2.wav
+	@cmd	shooter "bullet4" 100 83 1 2.5 0 0
+	frame	data/chars/3johnny/gnbck28.gif
+	frame	data/chars/3johnny/gnbck29.gif
+	@cmd	shooter3 "bullet4" -105 70 1 -2.5 0 0 "ANI_FOLLOW1"
+	frame	data/chars/3johnny/gnbck30.gif
+	frame	data/chars/3johnny/gnbck31.gif
+	frame	data/chars/3johnny/gnbck28.gif
+	frame	data/chars/3johnny/gnbck29.gif
+	sound	data/sounds/plgun1.wav
+	@cmd	shooter3 "bullet4" -105 65 1 -2.5 0 0 "ANI_FOLLOW1"
+	frame	data/chars/3johnny/gnbck30.gif
+	frame	data/chars/3johnny/gnbck31.gif
+	sound	data/sounds/gun2.wav
+	@cmd	shooter "bullet4" 100 83 1 2.5 0 0
+	frame	data/chars/3johnny/gnbck24.gif
+	frame	data/chars/3johnny/gnbck25.gif
+	@cmd	shooter3 "bullet4" -105 70 1 -2.5 0 0 "ANI_FOLLOW1"
+	frame	data/chars/3johnny/gnbck26.gif
+	frame	data/chars/3johnny/gnbck27.gif
+	frame	data/chars/3johnny/gnbck20.gif
+	frame	data/chars/3johnny/gnbck21.gif
+	sound	data/sounds/plgun1.wav
+	@cmd	shooter3 "bullet4" -105 65 1 -2.5 0 0 "ANI_FOLLOW1"
+	frame	data/chars/3johnny/gnbck22.gif
+	frame	data/chars/3johnny/gnbck23.gif
+	sound	data/sounds/gun2.wav
+	@cmd	shooter "bullet4" 100 83 1 2.5 0 0
+	frame	data/chars/3johnny/gnbck20.gif
+	frame	data/chars/3johnny/gnbck21.gif
+	@cmd	shooter3 "bullet4" -105 70 1 -2.5 0 0 "ANI_FOLLOW1"
+	frame	data/chars/3johnny/gnbck22.gif
+	frame	data/chars/3johnny/gnbck23.gif
+	frame	data/chars/3johnny/gnbck20.gif
+	frame	data/chars/3johnny/gnbck21.gif
+	sound	data/sounds/plgun1.wav
+	@cmd	shooter3 "bullet4" -105 65 1 -2.5 0 0 "ANI_FOLLOW1"
+	frame	data/chars/3johnny/gnbck22.gif
+	frame	data/chars/3johnny/gnbck23.gif
+	sound	data/sounds/gun2.wav
+	@cmd	shooter "bullet4" 100 83 1 2.5 0 0
+	frame	data/chars/3johnny/gnbck24.gif
+	frame	data/chars/3johnny/gnbck25.gif
+	@cmd	shooter3 "bullet4" -105 70 1 -2.5 0 0 "ANI_FOLLOW1"
 	frame	data/chars/3johnny/gnbck26.gif
 	frame	data/chars/3johnny/gnbck27.gif
 	@cmd	looper 4 4
@@ -718,26 +800,25 @@ anim	rise
 @script
 	void self = getlocalvar("self");
 	int eTime = openborvariant("elapsed_time");
-	int p1 = getplayerproperty(0, "entity");
-	int p2 = getplayerproperty(1, "entity");
-	int p3 = getplayerproperty(2, "entity");
+	void hard = getglobalvar("hard");
+	void mania = getglobalvar("mania");
 
-	if (frame == 1 && p1 != NULL())
-	{
-		changeentityproperty(self, "parent", p1);
-	}
-	else if (frame == 1&& p2 != NULL())
-	{
-		changeentityproperty(self, "parent", p2);
-	}
-	else if (frame == 1&& p3 != NULL())
-	{
-		changeentityproperty(self, "parent", p3);
-	}
-	if (frame == 2)
+	if (frame == 1 && mania == 1)
 	{
 		changeentityproperty(self, "invincible", 1);
-		changeentityproperty(self, "invinctime", eTime + 1000);
+		changeentityproperty(self, "invinctime", eTime + 2500);
+		changeentityproperty(self, "blink", 1);
+	}
+	else if (frame == 1 && hard == 1)
+	{
+		changeentityproperty(self, "invincible", 1);
+		changeentityproperty(self, "invinctime", eTime + 1600);
+		changeentityproperty(self, "blink", 1);
+	}
+	else if (frame == 1)
+	{
+		changeentityproperty(self, "invincible", 1);
+		changeentityproperty(self, "invinctime", eTime + 800);
 		changeentityproperty(self, "blink", 1);
 	}
 	@end_script	
@@ -837,7 +918,7 @@ anim	spawn
 			{
 				changeentityproperty(self, "aggression", 25);
 			}
-		  changeentityproperty(self, "parent", P3);
+		  changeentityproperty(self, "parent", P2);
 		}
 		else if (P1 == NULL() && P2 == NULL() && P3 != NULL())
 		{
@@ -861,6 +942,7 @@ anim	spawn
 			{
 				changeentityproperty(self, "aggression", 50);
 			}
+		  changeentityproperty(self, "parent", P1);
 		}
 	}
 	@end_script	
