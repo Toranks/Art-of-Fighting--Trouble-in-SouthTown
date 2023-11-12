@@ -1,9 +1,6 @@
 # Art of Fighting: Trouble in SouthTown
  Art of Fighting: Trouble in SouthTown. An Openbor game.
 
-[![Downloads][img_downloads]][app_downloads] [![Release][img_latest]][app_latest] [![License][img_license]][app_license]
-[![Build package](https://github.com/bucanero/apollo-ps3/actions/workflows/build.yml/badge.svg)](https://github.com/bucanero/apollo-ps3/actions/workflows/build.yml)
-
 Created in 2017 by Jon Silva, it was already considered one of the best games, if not the best, created with the Openbor engine, a veteran free software engine to create Beat'em up games, inspired on Streets of Rage.
 https://jon-fretes-silva.wixsite.com/aofsouthtown
 
