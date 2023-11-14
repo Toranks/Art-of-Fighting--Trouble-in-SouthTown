@@ -14,7 +14,7 @@ subject_to_screen   1
 subject_to_platform 0
 subject_to_obstacle 0
 dust            dust
-candamage     enemy
+candamage     enemy obstacle
 hostile       enemy
 diesound      data/sounds/die6.wav
 animationscript data/scripts/escript.c
@@ -319,8 +319,8 @@ anim	follow11
 if(frame==1)
 {
        changeentityproperty(getlocalvar("self"), "type", openborconstant("TYPE_NPC"));
-       changeentityproperty(self, "hostile",openborconstant("TYPE_OBSTACLE"));
-       changeentityproperty(self, "candamage",openborconstant("TYPE_OBSTACLE"));
+       changeentityproperty(self, "hostile",openborconstant("TYPE_OBSTACLE")+openborconstant("TYPE_ENEMY"));
+       changeentityproperty(self, "candamage",openborconstant("TYPE_OBSTACLE")+openborconstant("TYPE_ENEMY"));
 }
 	@end_script	
 	loop	0
