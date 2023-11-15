@@ -82,6 +82,29 @@ void hpgain(int Give)
 	 }
 }
 
+void hpgain2(int normal, int hard, int mania)
+{// gives health
+    void self = getlocalvar("self");
+	void mania2 = getglobalvar("mania");
+	void hard2 = getglobalvar("hard");
+    int HP = getentityproperty(self,"health");
+
+	 if (HP > 0)
+	 {
+		if (hard2 == 0)
+		 {
+			changeentityproperty(self, "health", HP+normal); //Spend!
+		 }
+		else if (mania2 == 0)
+		 {
+			changeentityproperty(self, "health", HP+hard); //Spend!
+		 }
+		else if (mania2 == 1)
+		 {
+			changeentityproperty(self, "health", HP+mania); //Spend!
+		 }
+	 }
+}
 
 
 void mpgain(int Give)
