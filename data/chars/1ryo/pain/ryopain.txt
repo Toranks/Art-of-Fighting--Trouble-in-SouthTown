@@ -826,13 +826,17 @@ anim	rise
 anim	rise9
 @script
     void self = getlocalvar("self");
-   if (frame == 24) {
-	playgif( "data/scenes/5final2/ryoteeth.gif" , 0, 0, 1);
-}
+	void hard = getglobalvar("hard");
+	if (frame == 24 && hard != 1) {
+		playgif( "data/scenes/5final2/ryoteeth.gif" , 0, 0, 1);
+	}
+	else if (frame == 24 && hard == 1) {
+		playwebm( "data/scenes/5final2/ryoteeth.webm" , 1);
+	}
     if (frame == 26) {
-    changeentityproperty(self, "weapon", 2);
-}
-	@end_script	
+		changeentityproperty(self, "weapon", 2);
+	}
+@end_script	
 	loop	0
 	delay	100
 	offset	145 204
