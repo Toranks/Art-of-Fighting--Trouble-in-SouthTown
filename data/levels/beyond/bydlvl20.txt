@@ -155,12 +155,23 @@ spawn   ghosttime
 void main()
 {
     changeopenborvariant("xpos", 1395);
+	changeplayerproperty(0, "disablekeys", openborconstant("FLAG_MOVEUP")+openborconstant("FLAG_MOVEDOWN")+openborconstant("FLAG_MOVELEFT")+openborconstant("FLAG_MOVERIGHT")+openborconstant("FLAG_JUMP"));
+	changeplayerproperty(1, "disablekeys", openborconstant("FLAG_MOVEUP")+openborconstant("FLAG_MOVEDOWN")+openborconstant("FLAG_MOVELEFT")+openborconstant("FLAG_MOVERIGHT")+openborconstant("FLAG_JUMP"));
+	changeplayerproperty(2, "disablekeys", openborconstant("FLAG_MOVEUP")+openborconstant("FLAG_MOVEDOWN")+openborconstant("FLAG_MOVELEFT")+openborconstant("FLAG_MOVERIGHT")+openborconstant("FLAG_JUMP"));
 }
 @end_script
-health  10
+health  6
 coords  190 270
 at      0
 
+
+#----------------------------------
+spawn   freewaytot
+@script void main() {
+   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW4"));
+} @end_script
+coords  250 347
+at      0
 #----------------------------------
 
 spawn   stgSET9
@@ -170,17 +181,20 @@ spawn   stgSET9
 coords  -490 710 350
 at      0
 
-#----------------------------------
-spawn   freewaytot
-@script void main() {
-   performattack(getlocalvar("self"), openborconstant("ANI_FOLLOW4"));
-} @end_script
-coords  250 347
+spawn   ghosttime
+@script
+void main()
+{
+	changeplayerproperty(0, "disablekeys", 0);
+	changeplayerproperty(1, "disablekeys", 0);
+	changeplayerproperty(2, "disablekeys", 0);
+}
+@end_script
+health  1
+coords  190 270
 at      0
-
-
-
 #----------------------------------
+
 
 spawn   ghosttest
 coords  190 270
