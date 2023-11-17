@@ -969,6 +969,27 @@ anim	follow5
 	frame	data/chars/3mrkarate/rise4.gif
 		
 anim	follow6
+	@script
+	void player1 = getplayerproperty(0, "entity"); //IDENTIFY PLAYER 1
+	void player2 = getplayerproperty(1, "entity"); //IDENTIFY PLAYER 2
+	void player3 = getplayerproperty(2, "entity"); //IDENTIFY PLAYER 3
+	int eTime = openborvariant("elapsed_time");
+	if (frame == 0)
+	{
+	if(player1 != NULL()){
+	changeentityproperty(player1, "invincible", 1);
+	changeentityproperty(player1, "invinctime", eTime + 1850);
+		 }
+	if(player2 != NULL()){
+	changeentityproperty(player2, "invincible", 1);
+	changeentityproperty(player2, "invinctime", eTime + 1850);
+		}
+	if(player3 != NULL()){
+	changeentityproperty(player3, "invincible", 1);
+	changeentityproperty(player3, "invinctime", eTime + 1850);
+		}
+	}
+	@end_script	
 	loop	0
 	delay	80
 	offset	100 189
@@ -978,27 +999,6 @@ anim	follow6
 	@cmd	slamstart3
 	@cmd	position 10 40 50 -1 -1
 	frame	data/chars/3mrkarate/2grab01.gif
-	@script
-	void player1 = getplayerproperty(0, "entity"); //IDENTIFY PLAYER 1
-	void player2 = getplayerproperty(1, "entity"); //IDENTIFY PLAYER 2
-	void player3 = getplayerproperty(2, "entity"); //IDENTIFY PLAYER 3
-	int eTime = openborvariant("elapsed_time");
-	if (frame == 1)
-	{
-	if(player1 != NULL()){
-	changeentityproperty(player1, "invincible", 1);
-	changeentityproperty(player1, "invinctime", eTime + 1500);
-		 }
-	if(player2 != NULL()){
-	changeentityproperty(player2, "invincible", 1);
-	changeentityproperty(player2, "invinctime", eTime + 1500);
-		}
-	if(player3 != NULL()){
-	changeentityproperty(player3, "invincible", 1);
-	changeentityproperty(player3, "invinctime", eTime + 1500);
-		}
-	}
-	@end_script	
 	delay	9
 	@cmd	position 10 40 50 -1 -1
 	frame	data/chars/3mrkarate/2grab01.gif
