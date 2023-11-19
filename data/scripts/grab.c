@@ -14,6 +14,7 @@ void main()
 	int x1 = getentityproperty(attacker,"x");
 	int z1 = getentityproperty(attacker,"z");
     int escape = getentityvar(self, "grabgo");
+  	int invulnerable = getglobalvar("invulnerable");
 	void iUp = playerkeys(victim, 1, "moveup");
 	void iDown = playerkeys(victim, 1, "movedown");
 	void iLeft = playerkeys(victim, 1, "moveleft");
@@ -78,6 +79,24 @@ void main()
 		killentity(self);
 
 	} else if(HP>=HPmax && escape == 2){
+		changeentityproperty(victim2, "position", x1, z1);
+        changeentityproperty(victim2, "velocity", NULL(), 0, NULL());
+     	performattack(victim2, openborconstant("ANI_FOLLOW16"));
+    	setidle(attacker, openborconstant("ANI_IDLE"));
+     	bindentity(victim2, NULL());
+    	performattack(attacker, openborconstant("ANI_PAIN8"));
+		killentity(self);
+		
+	} else if(invulnerable == 1 && escape == 1){
+		changeentityproperty(victim2, "position", x1, z1);
+        changeentityproperty(victim2, "velocity", NULL(), 0, NULL());
+     	performattack(victim2, openborconstant("ANI_FOLLOW15"));
+    	setidle(attacker, openborconstant("ANI_IDLE"));
+     	bindentity(victim2, NULL());
+    	performattack(attacker, openborconstant("ANI_PAIN8"));
+		killentity(self);
+		
+	} else if(invulnerable == 1 && escape == 2){
 		changeentityproperty(victim2, "position", x1, z1);
         changeentityproperty(victim2, "velocity", NULL(), 0, NULL());
      	performattack(victim2, openborconstant("ANI_FOLLOW16"));
