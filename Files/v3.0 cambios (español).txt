@@ -575,14 +575,14 @@ Creado un script tal que si health > cierto valor, entonces en ANI_SPAWN los veh
 Arreglados : Justo antes de Berret3 en posicion 1300-1600 el nivel del tren mueren algunos enemigos. Alrededor de carro4 en 2240 / 590 se mueren enemigos. (despues ghost1)
 AIARM en el enfrentamiento con la IA aumenta su HP cuando hay 2-3 jugadores, comprobado que funciona el script
 Nuevos agarres liberables.
+Animación del uppercut final y Ryo con los dientes rotos, por encima de todo, con playgif. Error de Openbor. Cambiado a playwebm.
+
 
 NUMEROSOS CAMBIOS QUE QUEDAN REFLEJADOS EN GITHUB Y RESUMIDOS EN EL CHANGELOG EN INGLÉS. A PARTIR DE AQUÍ SÓLO SON ANOTACIONES, NO CAMBIOS.
 
 #----------------------------------------------------------------------------------#
 
 TODO
-Animación del uppercut final y Ryo con los dientes rotos, por encima de todo, con playgif. Error de Openbor. Cambiar a paneles si hay ganas de ponerse, o futura actualización de openbor, o usar la versión antigua.
-PISTA: Quizás setlayer ayude
 quakeframe no funciona en los jumpattack básicos si el movimiento se activa durante un salto ascendente al que aún le queda un poco por ascender. Ejemplo Jack salto+abajo+ataque. Preguntar.
 
 REVISAR
@@ -591,7 +591,6 @@ Autoland activado, caer de pie con arriba salto desde un agarre con lanzamiento 
 
 23 640 000 > Puntuacion aproximada 1 jugador en Hard
 
-hp DE MR KARATE EN LA FASE DEL TUBO Y JEFES FINALES QUE NO APARECEN
 
 ////////////////POR HACER///////////////////
 
@@ -624,85 +623,6 @@ Y si es necesario, buscar una forma de reactivar este script cuando un jugador m
 
 
 #----------------------
-
-Códigos útiles:
-
-spawn   ghosttime
-health	10
-@script
-void main()
-	{
-	setglobalvar("leveln","50lvl");
-	}
-@end_script
-coords  560 100
-at      0
-
-spawn   ghosttime
-health	10
-spawnscript	data/scripts/spawn3p.c
-coords  550 -50
-at      0
-
-spawn   ghost1
-@script
-void main()
-	{
-	setglobalvar("leveln" , NULL());
-	}
-@end_script
-item    1up
-coords  200 280
-at      0
-
-@script
-  void main()
-  {
-    void self = getlocalvar("self");
-    void difficulty = getglobalvar("hard");
-
-    if(difficulty == 0){
-      killentity(self);
-    }
-  }
-@end_script
-
-@script
-  void main()
-  {
-    void self = getlocalvar("self");
-    void difficulty = getglobalvar("mania");
-
-    if(difficulty == 0){
-      killentity(self);
-    }
-  }
-@end_script
-
-	setlocalvar("hard", getglobalvar("hard"));
-	setlocalvar("mania", getglobalvar("mania"));
-	clearglobalvar();
-	setglobalvar("hard", getlocalvar("hard"));
-	setglobalvar("mania", getlocalvar("mania"));
-	
-@script\r\n  void main()\r\n  {\r\n    void self = getlocalvar("self");\r\n    void difficulty = getglobalvar("hard");\r\n\r\n    if(difficulty == 0){\r\n      killentity(self);\r\n    }\r\n  }\r\n@end_script
-
-
-@script
-void main()
-	{
-	void self = getlocalvar("self");
-	void difficulty = getglobalvar("hard");
-	performattack(self, openborconstant("ANI_JUMP"));
-	tossentity(self, 4, -4, 0);
-	
-	if(difficulty == 0){
-      killentity(self);
-    }
-}
-@end_script
-
-
 
 
 script   @script
