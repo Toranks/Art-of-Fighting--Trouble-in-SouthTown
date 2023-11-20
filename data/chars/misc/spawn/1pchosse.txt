@@ -14,60 +14,77 @@ void main()
     int P1 = getplayerproperty(0, "entity");
     int P2 = getplayerproperty(1, "entity");
     int P3 = getplayerproperty(2, "entity");
+	int MaxHP = getentityproperty(self,"health");
+	int MaxMP = getentityproperty(self,"aggression");
 	int HP1 = getentityproperty(P1,"health");
 	int HP2 = getentityproperty(P2,"health");
 	int HP3 = getentityproperty(P3,"health");
 	int MP1 = getentityproperty(P1,"mp");
 	int MP2 = getentityproperty(P2,"mp");
 	int MP3 = getentityproperty(P3,"mp");
-    char nm = getentityproperty(P1,"defaultmodel");
-    char nm2 = getentityproperty(P2,"defaultmodel");
-    char nm3 = getentityproperty(P3,"defaultmodel");
+    char nm = getentityproperty(P1,"defaultname");
+    char nm2 = getentityproperty(P2,"defaultname");
+    char nm3 = getentityproperty(P3,"defaultname");
 	void anim1 = getentityproperty(P1,"animationID");
 	void anim2 = getentityproperty(P2,"animationID");
 	void anim3 = getentityproperty(P3,"animationID");
+	void frame1 = getentityproperty(P1,"animpos");
+	void frame2 = getentityproperty(P2,"animpos");
+	void frame3 = getentityproperty(P3,"animpos");
 
 	if (P1 != NULL())
 	{
 		if (nm != Name)
 		{
+			setlocalvar("HP", HP1);
 			changeentityproperty(P1, "model", Name, 0);
 			changeentityproperty(P1, "defaultname", Name);
-			if (anim1 == openborconstant("ANI_SPAWN") && HP1 >= 140) {
-				changeentityproperty(P1, "health", 170);
-			}
-			if (anim1 == openborconstant("ANI_SPAWN") && MP1 >= 100) {
-				changeentityproperty(P1, "mp", 200);
-			}
 		}
 	}
 	else if (P2 != NULL())
 	{
 		if (nm2 != Name)
 		{
+			setlocalvar("HP", HP2);
 			changeentityproperty(P2, "model", Name, 0);
 			changeentityproperty(P2, "defaultname", Name);
-			if (anim2 == openborconstant("ANI_SPAWN") && HP2 >= 140) {
-				changeentityproperty(P2, "health", 170);
-			}
-			if (anim2 == openborconstant("ANI_SPAWN") && MP2 >= 100) {
-				changeentityproperty(P2, "mp", 200);
-			}
 		}
 	}
 	else if (P3 != NULL())
 	{
 		if (nm3 != Name)
 		{
+			setlocalvar("HP", HP3);
 			changeentityproperty(P3, "model", Name, 0);
 			changeentityproperty(P3, "defaultname", Name);
-			if (anim3 == openborconstant("ANI_SPAWN") && HP3 >= 140) {
-				changeentityproperty(P3, "health", 170);
-			}
-			if (anim3 == openborconstant("ANI_SPAWN") && MP3 >= 100) {
-				changeentityproperty(P3, "mp", 200);
-			}
 		}
+	}
+	if (anim1 == openborconstant("ANI_SPAWN" && frame1 == 0) && nm == Name) {
+		changeentityproperty(P1, "health", getlocalvar("HP")+30);
+		if (MP1 >= 100) {
+			changeentityproperty(P1, "mp", MaxMP);
+		}
+	}
+	else if (anim2 == openborconstant("ANI_SPAWN" && frame2 == 0) && nm2 == Name) {
+		changeentityproperty(P2, "health", getlocalvar("HP")+30);
+		if (MP2 >= 100) {
+			changeentityproperty(P2, "mp", MaxMP);
+		}
+	}
+	else if (anim3 == openborconstant("ANI_SPAWN" && frame3 == 0) && nm3 == Name) {
+		changeentityproperty(P3, "health", getlocalvar("HP")+30);
+		if (MP3 >= 100) {
+			changeentityproperty(P3, "mp", MaxMP);
+		}
+	}
+	if (anim1 == openborconstant("ANI_RESPAWN") && nm == Name) {
+		changeentityproperty(P1, "health", MaxHP);
+	}
+	if (anim2 == openborconstant("ANI_RESPAWN") && nm2 == Name) {
+		changeentityproperty(P2, "health", MaxHP);
+	}
+	if (anim3 == openborconstant("ANI_RESPAWN") && nm3 == Name) {
+		changeentityproperty(P3, "health", MaxHP);
 	}
 }
 @end_script
