@@ -625,103 +625,21 @@ Y si es necesario, buscar una forma de reactivar este script cuando un jugador m
 #----------------------
 
 
-script   @script
-void main()
-{
-	void self = getlocalvar("self");
-	void attacker = getentityproperty(self,"parent");
-   	void victim2 = getglobalvar("grabbed");
-  	void victim = getentityvar(self, "player");
-	int HP = getentityproperty(self,"health");
-	int HPmax = getentityproperty(self,"maxhealth");
-	int x1 = getentityproperty(attacker,"x");
-	int z1 = getentityproperty(attacker,"z");
-    int escape = getentityvar(self, "grabgo");
-	void iUp = playerkeys(victim, 1, "moveup");
-	void iDown = playerkeys(victim, 1, "movedown");
-	void iLeft = playerkeys(victim, 1, "moveleft");
-	void iRight = playerkeys(victim, 1, "moveright");
-	void iJump = playerkeys(victim, 1, "jump");
-	void iSpecial = playerkeys(victim, 1, "special");
-	void iAttack = playerkeys(victim, 1, "attack");
-		
-  if (attacker == NULL() && victim2 == NULL()) {
-		setglobalvar("grabbed", NULL());
-		killentity(self);
-
-	} else if (attacker == NULL() && victim2 != NULL() ) {
-		changeentityproperty(victim2, "position", x1, z1);
-		performattack(victim2, openborconstant("ANI_FOLLOW15"));
-		bindentity(victim2, NULL());
-		setglobalvar("grabbed", NULL());
-		killentity(self);
-			
-	} else if (attacker != NULL() && victim2 == NULL()) {
-		setidle(attacker, openborconstant("ANI_IDLE"));
-     	performattack(attacker, openborconstant("ANI_PAIN8"));
-		setglobalvar("grabbed", NULL());
-		killentity(self);			  
-	
-	} else if(HP>=HPmax && escape == 1){
-		changeentityproperty(victim2, "position", x1, z1);
-     	performattack(victim2, openborconstant("ANI_FOLLOW15"));
-    	setidle(attacker, openborconstant("ANI_IDLE"));
-     	bindentity(victim2, NULL());
-     	performattack(attacker, openborconstant("ANI_PAIN8"));
-		setglobalvar("grabbed", NULL());
-		killentity(self);
-
-	} else if(HP>=HPmax && escape == 2){
-		changeentityproperty(victim2, "position", x1, z1);
-     	performattack(victim2, openborconstant("ANI_FOLLOW16"));
-    	setidle(attacker, openborconstant("ANI_IDLE"));
-     	bindentity(victim2, NULL());
-    	performattack(attacker, openborconstant("ANI_PAIN8"));
-		setglobalvar("grabbed", NULL());
-		killentity(self);
-
-	} else if(iUp || iDown || iLeft || iRight || iJump || iSpecial || iAttack){// button is pressed?
-    	
-		changeentityproperty(self, "health", HP+1);
-
-   }// end checking valid pointers
-}
-@end_script
-
-
-void slamstart2()
-{ // Slam Starter for nongrab slams
-// Use finish or throw after using this
-  void self = getlocalvar("self");
-  void target = getentityproperty(self, "opponent");
-
-  if(target == NULL() || getentityproperty(target, "dead") == 1){
-    setidle(self);
-  } else{
-    setlocalvar("Target" + self, target);
-  }
-
-  if(target!=NULL()){
-    damageentity(target, self, 0, 1, openborconstant("ATK_NORMAL7")); // Slam Starter
-  }
-}
-
 #-------------
 
 
 Quizás incorporar animaciones de explosión a las ondas grandes de los protagonistas. Mr K y Mr Big tienen la suya pero ellos no.
 
-Crear cartel invertido de LOOK OUT en la fase de Todo dojo. > No se puede fácilmente, descartado
-
 Jugando con el tanque mataba el avión de johnny (plane1 y plane1ext) en las dos primeras fases de la etapa military, si dispara un cohete al cielo y acierta en un pequeño bbox, lo que impide continuar la etapa. Plane1 (43lvl.txt) borrado y funciona perfectamente sin él, pero plane1ext (44lvl.txt) no se puede borrar o no se va. ACTUALIZO: plane1 tiene un temporizador y por eso se iba. Quito el temporizador para que haya que "matar" el arma para que se vaya. Y regreso el bbox a su sitio, lo que mantiene el problema con el tanque. Pensar una solución futura aunque es un bug menor.
+
 ///////////////////////////////////////////////////////////////////////////////////
 
+
 //////////////////////////OTRAS NOTAS IMPORTANTES//////////////////////////////////
+
 Se ha modificado un 40% de los ficheros de código y scripts, pero sólo un 0.5% de los ficheros multimedia
 Con el time over, si el jefe muere, al parecer se te suman los puntos en función de la vida restante del jefe. Que me haya fijado sólo ocurre en la fase de la cascada de Remuinho.
 eTime cada 1 son 0.5 ms. Ej 7 segundos: 1400
-
-RUNSLIDE SE EJECUTA CON RUN+DF+J, NO SIRVE RUN+D+J. YA SE AÑADIÓ A LOS MOVESET
 
 En la fase del tren final se atascan mucho los objetos en el fondo y se quedan ahí. Añadido movimiento de 0.1 en el eje z (hacia abajo) en el spawn de charge y chargemp para ver si evita que se atasque arriba. NO FUNCIONA NADA DE LO QUE HE PROBADO. En realidad no saltan ahí, sino que aparecen dentro del tren cuando los enemigos que caen por el agujero mueren por los NPC, y como los objetos ahí "no pueden estar", automáticamente se generan fuera del tren y atascados.
 Solucionado cambiando los item de los enemigos por items que salen automáticamente en puntos concretos del tren cada cierto número de enemigos. (usando el objeto especial ghosttime) NO CONSIGO QUE APAREZCAN POR NINGÚN SITIO, A PESAR DE QUE FUNCIONAN BIEN EN LAS OTRAS FASES DE TREN O CAMIÓN
