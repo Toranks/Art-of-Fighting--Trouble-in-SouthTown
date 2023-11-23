@@ -39,6 +39,7 @@ void main(){
 	void lv3 = getplayerproperty(2, "lives");	
 	resetMaxRush();
 	score();
+
 	if(getglobalvar("zoomentity"))
 	{
       zoom();        
@@ -116,3 +117,4 @@ void score()
 		}
 	}
 }
+

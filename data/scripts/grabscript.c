@@ -1,4 +1,36 @@
+void taunt(int add)
+{
+	void self = getlocalvar("self");
+	void MP = getentityproperty(self,"mp");
+	void target = findtarget(self);
+	int x = getentityproperty(self, "x");
+	int z = getentityproperty(self, "z");
+	void enemy = getentityproperty(target,"type");
 
+	if(target != NULL() && enemy == openborconstant("TYPE_ENEMY"))
+	{
+		float Tx = getentityproperty(target, "x");
+		float Tz = getentityproperty(target, "z");
+		float Disx = Tx - x;
+		float Disz = Tz - z;
+
+
+         if( Disx >= -100 && Disx <= 100 && Disz >= -100 && Disz <= 100)
+         {
+			changeentityproperty(self, "mp", MP+add);
+         }
+	}
+}
+
+void changetaunt()
+{
+	void self = getlocalvar("self");
+	void plyr = getentityproperty(self, "playerindex");
+
+	if(playerkeys(plyr, 0, "attack2")){ 
+		performattack(self, openborconstant("ANI_FREESPECIAL32"));
+	}
+}
 
 void attackgrd(int RxMin, int RxMax, int RaMin, int RaMax, int Rz, void Ani)
 {// Attack interruption with range check

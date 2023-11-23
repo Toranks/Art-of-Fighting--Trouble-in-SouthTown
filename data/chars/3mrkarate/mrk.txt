@@ -61,8 +61,11 @@ com	d f a   freespecial4
 com	d f j 	  freespecial22
 com	f d f a freespecial26
 com	f d f s freespecial27
-com	a2	  freespecial28
+com	a2	  freespecial15
 com	a3	  freespecial29
+
+
+
 
 
 
@@ -338,7 +341,7 @@ anim	charge
 	frame	data/chars/3mrkarate/spawn37.gif
 	frame	data/chars/3mrkarate/spawn38.gif
 	delay	6
-	frame	data/chars/3mrkarate/spawn39.gif	#5
+	frame	data/chars/3mrkarate/spawn39.gif
 	frame	data/chars/3mrkarate/spawn39a.gif
 	frame	data/chars/3mrkarate/spawn39.gif
 	frame	data/chars/3mrkarate/spawn39a.gif
@@ -1962,8 +1965,8 @@ anim	freespecial14
 	delay	5
 	offset	100 189
 	bbox	79 70 50 50
-	cancel	6 10 0 a freespecial15
-	cancel	6 10 0 j freespecial15
+	cancel	6 10 0 a freespecial7
+	cancel	6 10 0 j freespecial7
 	cancel	6 10 0 s freespecial20
 	cancel	6 10 0 d s freespecial21
 	cancel	6 10 0 u s freespecial25
@@ -1989,37 +1992,19 @@ anim	freespecial14
 	frame	data/chars/3mrkarate/g08.gif
 		
 anim	freespecial15
-@script
-	 void self = getlocalvar("self");
-	 setentityvar(self, 5, 0);
-	@end_script	
 	loop	0
-	delay	5
+	delay	9
 	offset	100 189
-	bbox	79 70 50 50
-	cancel	5 9 0 a freespecial16
-	cancel	5 9 0 j freespecial16
-	cancel	5 9 0 s freespecial20
-	cancel	5 9 0 d s freespecial21
-	cancel	5 9 0 u s freespecial25
-	hitfx	data/sounds/beat2.wav
-	sound	data/sounds/punch3.wav
-	frame	data/chars/3mrkarate/g07.gif
-	@cmd	leaper 0 0.27
-	frame	data/chars/3mrkarate/g06.gif
-	frame	data/chars/3mrkarate/g05.gif
-	@cmd	leaper 0 0.27
-	frame	data/chars/3mrkarate/g04.gif
-	@cmd	leaper 0 0.27
-	attack10	72 81 113 59 20 1 0 0 5 40
-	dropv	1.5 0
-	frame	data/chars/3mrkarate/g09.gif
-	frame	data/chars/3mrkarate/g09.gif
-	frame	data/chars/3mrkarate/g09.gif
-	frame	data/chars/3mrkarate/g09.gif
-	frame	data/chars/3mrkarate/g09.gif
-	attack10	0 0 0 0
-	frame	data/chars/3mrkarate/g10.gif
+	bbox	0 0 0 0
+	frame	data/chars/3mrkarate/spawn32.gif
+	frame	data/chars/3mrkarate/spawn35.gif
+	@cmd	changetaunt
+	frame	data/chars/3mrkarate/spawn36.gif
+	frame	data/chars/3mrkarate/spawn37.gif
+	frame	data/chars/3mrkarate/spawn38.gif
+	@cmd	spawnChild2 "toturi3" 1 1 1 "ANI_FOLLOW13"
+	frame	data/chars/3mrkarate/spawn39.gif
+	frame	data/chars/3mrkarate/spawn40.gif
 		
 anim	freespecial16
 	loop	0
@@ -2512,20 +2497,6 @@ anim	freespecial27
 	frame	data/chars/3mrkarate/a104.gif
 	frame	data/chars/3mrkarate/rise4.gif
 		
-anim	freespecial28
-	loop	0
-	delay	9
-	offset	100 189
-	bbox	0 0 0 0
-	frame	data/chars/3mrkarate/spawn32.gif
-	frame	data/chars/3mrkarate/spawn35.gif
-	frame	data/chars/3mrkarate/spawn36.gif
-	frame	data/chars/3mrkarate/spawn37.gif
-	frame	data/chars/3mrkarate/spawn38.gif
-	@cmd	spawnChild2 "toturi3" 1 1 1 "ANI_FOLLOW13"
-	frame	data/chars/3mrkarate/spawn39.gif
-	frame	data/chars/3mrkarate/spawn40.gif
-		
 anim	freespecial29
 @script
 	void self = getlocalvar("self");
@@ -2616,7 +2587,7 @@ anim	freespecial30
 	frame	data/chars/3mrkarate/c37.gif
 	frame	data/chars/3mrkarate/c38.gif
 		
-anim	freespecial32
+anim	freespecial31
 @script
 	void self = getlocalvar("self");
 	void plyr = getentityproperty(self, "playerindex");
@@ -2705,6 +2676,30 @@ anim	freespecial32
 	delay	9
 	@cmd	flip
 	frame	data/chars/3mrkarate/rise4.gif
+		
+anim	freespecial32
+	loop	0
+	delay	10
+	offset	100 189
+	bbox	92 99 34 79
+	frame	data/chars/3mrkarate/spawn35.gif
+	frame	data/chars/3mrkarate/spawn36.gif
+	frame	data/chars/3mrkarate/spawn37.gif
+	frame	data/chars/3mrkarate/spawn38.gif
+	frame	data/chars/3mrkarate/spawn39.gif
+	frame	data/chars/3mrkarate/spawn39a.gif
+	frame	data/chars/3mrkarate/spawn39.gif
+	frame	data/chars/3mrkarate/spawn39a.gif
+	frame	data/chars/3mrkarate/spawn39.gif
+	frame	data/chars/3mrkarate/spawn39a.gif
+	frame	data/chars/3mrkarate/spawn39.gif
+	frame	data/chars/3mrkarate/spawn39a.gif
+	frame	data/chars/3mrkarate/spawn39.gif
+	frame	data/chars/3mrkarate/spawn39a.gif
+	frame	data/chars/3mrkarate/spawn39.gif
+	frame	data/chars/3mrkarate/spawn39a.gif
+	@cmd	taunt 30
+	frame	data/chars/3mrkarate/spawn40.gif
 		
 anim	freespecial4
 @script
@@ -2902,6 +2897,39 @@ anim	freespecial6
 	frame	data/chars/3mrkarate/rise3.gif
 	frame	data/chars/3mrkarate/rise4.gif
 		
+anim	freespecial7
+@script
+	 void self = getlocalvar("self");
+	 setentityvar(self, 5, 0);
+	@end_script	
+	loop	0
+	delay	5
+	offset	100 189
+	bbox	79 70 50 50
+	cancel	5 9 0 a freespecial16
+	cancel	5 9 0 j freespecial16
+	cancel	5 9 0 s freespecial20
+	cancel	5 9 0 d s freespecial21
+	cancel	5 9 0 u s freespecial25
+	hitfx	data/sounds/beat2.wav
+	sound	data/sounds/punch3.wav
+	frame	data/chars/3mrkarate/g07.gif
+	@cmd	leaper 0 0.27
+	frame	data/chars/3mrkarate/g06.gif
+	frame	data/chars/3mrkarate/g05.gif
+	@cmd	leaper 0 0.27
+	frame	data/chars/3mrkarate/g04.gif
+	@cmd	leaper 0 0.27
+	attack10	72 81 113 59 20 1 0 0 5 40
+	dropv	1.5 0
+	frame	data/chars/3mrkarate/g09.gif
+	frame	data/chars/3mrkarate/g09.gif
+	frame	data/chars/3mrkarate/g09.gif
+	frame	data/chars/3mrkarate/g09.gif
+	frame	data/chars/3mrkarate/g09.gif
+	attack10	0 0 0 0
+	frame	data/chars/3mrkarate/g10.gif
+		
 anim	freespecial8
 	energycost	10
 	mponly	1
@@ -3008,7 +3036,7 @@ anim	get
 	frame	data/chars/3mrkarate/rise4.gif
 		
 anim	grab
-	cancel	0 3 0 s freespecial32
+	cancel	0 3 0 s freespecial31
 	loop	0
 	delay	3
 	offset	100 189
@@ -3425,19 +3453,6 @@ anim	jumpland
 	offset	100 189
 	bbox	85 97 50 91
 	frame	data/chars/3mrkarate/rise4.gif
-		
-anim	victory
-	loop	0
-	delay	9
-	offset	100 189
-	bbox	0 0 0 0
-	frame	data/chars/3mrkarate/spawn32.gif
-	frame	data/chars/3mrkarate/spawn35.gif
-	frame	data/chars/3mrkarate/spawn36.gif
-	frame	data/chars/3mrkarate/spawn37.gif
-	frame	data/chars/3mrkarate/spawn38.gif
-	frame	data/chars/3mrkarate/spawn39.gif
-	frame	data/chars/3mrkarate/spawn40.gif
 		
 anim	pain
 	loop	0
