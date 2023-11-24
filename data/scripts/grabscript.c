@@ -2,24 +2,39 @@ void taunt(int add)
 {
 	void self = getlocalvar("self");
 	void MP = getentityproperty(self,"mp");
-	void target = findtarget(self);
 	int x = getentityproperty(self, "x");
 	int z = getentityproperty(self, "z");
-	void enemy = getentityproperty(target,"type");
+	int i = 0;
+	int enemies = 0;
+	int entity_count = openborvariant("count_entities");
+    
 
-	if(target != NULL() && enemy == openborconstant("TYPE_ENEMY"))
-	{
-		float Tx = getentityproperty(target, "x");
-		float Tz = getentityproperty(target, "z");
-		float Disx = Tx - x;
-		float Disz = Tz - z;
+	for (i = 0; i < entity_count; ++i) {
+            void ent = getentity(i);
+			void anim = getentityproperty(ent,"animationID");
 
+		if (getentityproperty(ent, "exists") && getentityproperty(ent,"type") == openborconstant("TYPE_ENEMY") && anim != openborconstant("ANI_DIE") && anim != openborconstant("ANI_FALL") && anim != openborconstant("ANI_FALL2") && anim != openborconstant("ANI_FALL2") && anim != openborconstant("ANI_FALL3") && anim != openborconstant("ANI_FALL4") && anim != openborconstant("ANI_FALL5") && anim != openborconstant("ANI_FALL6") && anim != openborconstant("ANI_FALL7") && anim != openborconstant("ANI_FALL8") && anim != openborconstant("ANI_FALL9") && anim != openborconstant("ANI_FALL10") && anim != openborconstant("ANI_FALL11") && anim != openborconstant("ANI_BURN"))
+		{
+			float Tx = getentityproperty(ent, "x");
+			float Tz = getentityproperty(ent, "z");
+			float Disx = Tx - x;
+			float Disz = Tz - z;
 
-         if( Disx >= -100 && Disx <= 100 && Disz >= -100 && Disz <= 100)
-         {
-			changeentityproperty(self, "mp", MP+add);
-         }
+			 if( Disx >= -50 && Disx <= 50 && Disz >= -50 && Disz <= 50)
+			 {
+				enemies = enemies+3;
+			 }
+			 else if( Disx >= -100 && Disx <= 100 && Disz >= -100 && Disz <= 100)
+			 {
+				enemies = enemies+2;
+			 }
+			 else if( Disx >= -200 && Disx <= 200 && Disz >= -200 && Disz <= 200)
+			 {
+				enemies = enemies+1;
+			 }
+		}
 	}
+	changeentityproperty(self,"mp", MP+(add*enemies));
 }
 
 void changetaunt()
