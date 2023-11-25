@@ -45,7 +45,7 @@ void main(){
       zoom();        
 	}
 	//CLEAR ALL GLOBAL VARIABLES AT TITLE SCREEN
-	if(openborvariant("in_titlescreen"))
+	if(openborvariant("in_titlescreen") || openborvariant("in_gameoverscreen"))
 	{
 		clearglobalvar();
 	}
