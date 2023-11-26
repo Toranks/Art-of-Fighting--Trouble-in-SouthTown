@@ -331,17 +331,28 @@ void slamstart2()
 // Use finish or throw after using this
    void self = getlocalvar("self");
    void target = getentityproperty(self, "opponent");
+   void closertarget = findtarget(self);
+   void model1 = getentityproperty(target, "model");
+   void model2 = getentityproperty(closertarget, "model");
 
   if(target == NULL() || getentityproperty(target, "dead") == 1){
     setidle(self);
-  } else{
-    setlocalvar("Target" + self, target);
+	} else{
+		if (model2 == "maturenpc" && model1 == "viceplr")
+		{
+		target = closertarget;
+		}
+		else if (model2 == "vicenpc" && model1 == "matureplr")
+		{
+		target = closertarget;
+		}
+	setlocalvar("Target" + self, target);
+	}  
 
- }  
-   if(target!=NULL())
-   {
-     damageentity(target, self, 0, 1, openborconstant("ATK_NORMAL7")); // Slam Starter
-   }
+	if(target!=NULL())
+	{
+	 damageentity(target, self, 0, 1, openborconstant("ATK_NORMAL7")); // Slam Starter
+	}
 }
 
 
