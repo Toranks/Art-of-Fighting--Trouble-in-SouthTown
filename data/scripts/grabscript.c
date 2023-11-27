@@ -12,8 +12,9 @@ void taunt(int add)
 	for (i = 0; i < entity_count; ++i) {
             void ent = getentity(i);
 			void anim = getentityproperty(ent,"animationID");
+			int ghost = getentityproperty(ent,"maxmp");
 
-		if (getentityproperty(ent, "exists") && getentityproperty(ent,"type") == openborconstant("TYPE_ENEMY") && anim != openborconstant("ANI_DIE") && anim != openborconstant("ANI_FALL") && anim != openborconstant("ANI_FALL2") && anim != openborconstant("ANI_FALL2") && anim != openborconstant("ANI_FALL3") && anim != openborconstant("ANI_FALL4") && anim != openborconstant("ANI_FALL5") && anim != openborconstant("ANI_FALL6") && anim != openborconstant("ANI_FALL7") && anim != openborconstant("ANI_FALL8") && anim != openborconstant("ANI_FALL9") && anim != openborconstant("ANI_FALL10") && anim != openborconstant("ANI_FALL11") && anim != openborconstant("ANI_BURN"))
+		if (getentityproperty(ent, "exists") && getentityproperty(ent,"type") == openborconstant("TYPE_ENEMY") && anim != openborconstant("ANI_DIE") && anim != openborconstant("ANI_FALL") && anim != openborconstant("ANI_FALL2") && anim != openborconstant("ANI_FALL2") && anim != openborconstant("ANI_FALL3") && anim != openborconstant("ANI_FALL4") && anim != openborconstant("ANI_FALL5") && anim != openborconstant("ANI_FALL6") && anim != openborconstant("ANI_FALL7") && anim != openborconstant("ANI_FALL8") && anim != openborconstant("ANI_FALL9") && anim != openborconstant("ANI_FALL10") && anim != openborconstant("ANI_FALL11") && anim != openborconstant("ANI_BURN") && ghost != 666)
 		{
 			float Tx = getentityproperty(ent, "x");
 			float Tz = getentityproperty(ent, "z");
@@ -22,15 +23,36 @@ void taunt(int add)
 
 			 if( Disx >= -50 && Disx <= 50 && Disz >= -50 && Disz <= 50)
 			 {
-				enemies = enemies+3;
+				if (getentityproperty(ent, "boss"))
+				{
+					enemies = enemies+4;
+				}
+				else
+				{
+					enemies = enemies+3;
+				}
 			 }
 			 else if( Disx >= -100 && Disx <= 100 && Disz >= -100 && Disz <= 100)
 			 {
-				enemies = enemies+2;
+				if (getentityproperty(ent, "boss"))
+				{
+					enemies = enemies+3;
+				}
+				else
+				{
+					enemies = enemies+2;
+				}
 			 }
 			 else if( Disx >= -200 && Disx <= 200 && Disz >= -200 && Disz <= 200)
 			 {
-				enemies = enemies+1;
+				if (getentityproperty(ent, "boss"))
+				{
+					enemies = enemies+2;
+				}
+				else
+				{
+					enemies = enemies+1;
+				}
 			 }
 		}
 	}
