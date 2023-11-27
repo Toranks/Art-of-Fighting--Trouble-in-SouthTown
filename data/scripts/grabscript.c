@@ -21,7 +21,7 @@ void taunt(int add)
 			float Disx = Tx - x;
 			float Disz = Tz - z;
 
-			 if( Disx >= -50 && Disx <= 50 && Disz >= -50 && Disz <= 50)
+			 if( Disx >= -40 && Disx <= 40 && Disz >= -40 && Disz <= 40)
 			 {
 				if (getentityproperty(ent, "boss"))
 				{
@@ -32,7 +32,7 @@ void taunt(int add)
 					enemies = enemies+3;
 				}
 			 }
-			 else if( Disx >= -100 && Disx <= 100 && Disz >= -100 && Disz <= 100)
+			 else if( Disx >= -80 && Disx <= 80 && Disz >= -80 && Disz <= 80)
 			 {
 				if (getentityproperty(ent, "boss"))
 				{
@@ -43,7 +43,7 @@ void taunt(int add)
 					enemies = enemies+2;
 				}
 			 }
-			 else if( Disx >= -200 && Disx <= 200 && Disz >= -200 && Disz <= 200)
+			 else if( Disx >= -160 && Disx <= 160 && Disz >= -160 && Disz <= 160)
 			 {
 				if (getentityproperty(ent, "boss"))
 				{
