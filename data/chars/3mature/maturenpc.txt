@@ -1,12 +1,12 @@
 name		maturenpc
 type		npc
 subtype		follow
-health		99000
+health          500
 mp		120
-speed		14
-running		25 3 3 1 0
+
+speed		11
+running		20 3 3 1 1
 jumpheight	4
-jumpspeed	28
 
 nodieblink	2
 noquake         0
@@ -54,42 +54,10 @@ alternatepal	data/chars/3mature/map5.gif
 alternatepal	data/chars/3mature/map6.gif
 
 
-
 load	vicenpc
 load	maturenpc
 
 
-
-script	@script
-void main()
-{
-   	void self = getlocalvar("self");
-	int x = getentityproperty(self, "x");
-	int XPos = openborvariant("xpos");
-	int Screen = openborvariant("hResolution");
-	int hp = getentityproperty(self, "health");
-    	void anim = getentityproperty(self,"animationID");
-
-if(anim != openborconstant("ANI_DIE")){
-
-   if( hp <=0 && x >= XPos+Screen-60) // right
-   	{
-	tossentity(self, 1, -2, 0);
-   	}
-   else if( hp <=0 && x <= XPos+60) // left
-   	{
-	tossentity(self, 1, 2, 0);
-   	}
-  }
-}
-	@end_script	
-		
-		
-		
-		
-		
-		
-		
 script	@script
 void main()
 {
@@ -182,18 +150,6 @@ void main()
 
 }
 	@end_script	
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		
 		
 		
@@ -788,7 +744,7 @@ anim	follow8
 	frame	data/chars/3mature/empty.gif
 		
 anim	freespecial1
-	energycost	20
+	energycost	30
 	mponly	1
 	loop	0
 	delay	2
@@ -803,7 +759,7 @@ anim	freespecial1
 	move	6
 	sound	data/sounds/bgirl08.wav
 	frame	data/chars/3mature/upper01.gif
-	attack10	80 60 85 85 20 1 1 0 40 15
+	attack10	80 60 85 85 30 1 1 0 40 15
 	dropv	5 1 0
 	frame	data/chars/3mature/upper01.gif
 	frame	data/chars/3mature/upper01.gif
@@ -816,7 +772,7 @@ anim	freespecial1
 	frame	data/chars/3mature/upper03.gif
 	move	0
 	hitfx	data/sounds/beat4.wav
-	attack	80 60 85 85 30 1 1 0 40 15
+	attack	80 60 85 85 40 1 1 0 40 15
 	dropv	5 2 0
 	delay	14
 	frame	data/chars/3mature/upper04.gif
@@ -839,7 +795,6 @@ anim	freespecial26
 	delay	6
 	offset	93 195
 	bbox	88 106 30 75
-	fastattack	1
 	staydown	500 500
 	forcedirection	-1
 	hitfx	data/sounds/beat4.wav
@@ -864,7 +819,7 @@ anim	freespecial26
 	delay	2
 	move	6
 	frame	data/chars/3mature/spc04.gif #10
-	attack	115 95 90 62 55 1 1 0 55 30
+	attack	115 95 90 62 100 1 1 0 55 30
 	dropv	2 4
 	@cmd	keymove 1.2
 	frame	data/chars/3mature/spc05.gif
@@ -1291,7 +1246,7 @@ anim	pain6
 anim	respawn
 	loop	0
 	delay	15
-	offset	100 197
+	offset	85 197
 	bbox	0 0 0 0
 	@cmd	stop
 	frame	data/chars/3mature/spawn01.gif
@@ -1453,7 +1408,7 @@ anim	runslide
 anim	spawn
 	loop	0
 	delay	14
-	offset	100 197
+	offset	85 197
 	bbox	0 0 0 0
 	frame	data/chars/3mature/spawn01.gif
 	frame	data/chars/3mature/spawn02.gif

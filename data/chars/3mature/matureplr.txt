@@ -67,83 +67,6 @@ load	maturenpc
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 anim	attack1
 	range	0 150
 	rangez	-25 25
@@ -676,11 +599,9 @@ anim	freespecial15
 	@cmd	changetaunt
 	frame	data/chars/3mature/c14.gif
 	frame	data/chars/3mature/c16.gif
-	delay	70
 	frame	data/chars/3mature/c15.gif
 	@cmd	spawnChild2 "toturi3" 1 1 1 "ANI_FOLLOW18"
 	frame	data/chars/3mature/c15.gif
-	delay	12
 	frame	data/chars/3mature/c14.gif
 	frame	data/chars/3mature/c13.gif
 	frame	data/chars/3mature/c12.gif
@@ -821,12 +742,11 @@ anim	freespecial32
 	loop	0
 	delay	12
 	offset	100 195
-	bbox	0 0 0 0
-	sound	data/sounds/matvice.wav
+	bbox	101 101 30 85
 	frame	data/chars/3mature/c13.gif
 	frame	data/chars/3mature/c14.gif
 	frame	data/chars/3mature/c16.gif
-	delay	80
+	delay	60
 	frame	data/chars/3mature/c15.gif
 	frame	data/chars/3mature/c15.gif
 	delay	12
@@ -839,6 +759,7 @@ anim	freespecial5
 @script
 	void self = getlocalvar("self");
 	void kat = getentityproperty(self, "parent");
+ 	int MP = getentityproperty(self, "mp");
 
 	float fX = getentityproperty(self, "x");
 	float fY = getentityproperty(self, "a");
@@ -872,13 +793,17 @@ anim	freespecial5
 	performattack(self, openborconstant("ANI_RESPAWN"));
 
 	}
+	else if (frame == 1 && kat == NULL())
+	{
+	changeentityproperty(self, "mp", MP+20);
+	}
 	@end_script	
 	energycost	20
 	mponly	1
 	loop	0
 	delay	14
 	offset	85 197
-	bbox	0 0 0 0
+	bbox	77 107 32 84
 	frame	data/chars/3mature/spawn02.gif
 	frame	data/chars/3mature/spawn03.gif
 	frame	data/chars/3mature/spawn04.gif
@@ -897,12 +822,11 @@ anim	freespecial6
 	}
 	else if ( kat != NULL() && frame == 0 )
 	{
-
 	performattack(kat, openborconstant("ANI_FOLLOW8"));
 	updateframe(kat, 14);
 	}
 	@end_script	
-	energycost	20
+	energycost	50
 	mponly	1
 	loop	0
 	delay	14
@@ -911,6 +835,7 @@ anim	freespecial6
 	frame	data/chars/3mature/spawn01.gif #---- 0 send away
 	sound	data/sounds/bgirl12.wav
 	frame	data/chars/3mature/spawn02.gif
+	@cmd	mpgain 30
 	frame	data/chars/3mature/spawn03.gif
 	frame	data/chars/3mature/spawn04.gif
 	delay	60
@@ -1578,6 +1503,7 @@ anim	spawn
 	delay	14
 	offset	85 197
 	bbox	0 0 0 0
+	sound	data/sounds/matvice.wav
 	frame	data/chars/3mature/spawn02.gif
 	frame	data/chars/3mature/spawn03.gif
 	frame	data/chars/3mature/spawn04.gif

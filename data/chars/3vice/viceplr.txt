@@ -61,64 +61,6 @@ com	a2		freespecial15
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 anim	attack1
 	range	0 150
 	loop	0
@@ -637,11 +579,9 @@ anim	freespecial15
 	frame	data/chars/3vice/chg02.gif
 	@cmd	changetaunt
 	frame	data/chars/3vice/chg03.gif
-	delay	70
 	frame	data/chars/3vice/chg04.gif
 	@cmd	spawnChild2 "toturi3" 1 1 1 "ANI_FOLLOW19"
 	frame	data/chars/3vice/chg04.gif
-	delay	12
 	frame	data/chars/3vice/chg02.gif
 	frame	data/chars/3vice/chg01.gif
 		
@@ -781,18 +721,19 @@ anim	freespecial32
 	bbox	90 105 33 82
 	frame	data/chars/3vice/chg02.gif
 	frame	data/chars/3vice/chg03.gif
-	delay	80
+	delay	50
 	frame	data/chars/3vice/chg04.gif
 	frame	data/chars/3vice/chg04.gif
 	delay	12
 	frame	data/chars/3vice/chg02.gif
-	@cmd	taunt 6
+	@cmd	taunt 5
 	frame	data/chars/3vice/chg01.gif
 		
 anim	freespecial5
 @script
 	void self = getlocalvar("self");
 	void kat = getentityproperty(self, "parent");
+	int MP = getentityproperty(self, "mp");
 
 	float fX = getentityproperty(self, "x");
 	float fY = getentityproperty(self, "a");
@@ -826,12 +767,16 @@ anim	freespecial5
 	performattack(self, openborconstant("ANI_RESPAWN"));
 
 	}
+	else if (frame == 4 && kat == NULL())
+	{
+	changeentityproperty(self, "mp", MP+20);
+	}
 	@end_script	
 	energycost	20
 	mponly	1
 	delay	14
 	offset	95 191
-	bbox	0 0 0 0
+	bbox	101 96 25 95
 	frame	data/chars/3vice/d35.gif
 	frame	data/chars/3vice/d35.gif
 	frame	data/chars/3vice/d34.gif
@@ -854,7 +799,7 @@ anim	freespecial6
 	updateframe(kat, 14);
 	}
 	@end_script	
-	energycost	20
+	energycost	50
 	mponly	1
 	loop	0
 	delay	14
@@ -863,6 +808,7 @@ anim	freespecial6
 	frame	data/chars/3vice/d35.gif #---- 0 send away
 	sound	data/sounds/bgirl12.wav
 	frame	data/chars/3vice/d35.gif
+	@cmd	mpgain 30
 	frame	data/chars/3vice/d34.gif
 	frame	data/chars/3vice/d33.gif
 	delay	60
@@ -1463,6 +1409,7 @@ anim	spawn
 	delay	14
 	offset	95 191
 	bbox	0 0 0 0
+	sound	data/sounds/matvice.wav
 	frame	data/chars/3vice/d35.gif
 	frame	data/chars/3vice/d35.gif
 	frame	data/chars/3vice/d34.gif
