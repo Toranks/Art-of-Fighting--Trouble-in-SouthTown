@@ -25,7 +25,7 @@ void taunt(int add)
 			 {
 				if (getentityproperty(ent, "boss"))
 				{
-					enemies = enemies+4;
+					enemies = enemies+5;
 				}
 				else
 				{
@@ -36,7 +36,7 @@ void taunt(int add)
 			 {
 				if (getentityproperty(ent, "boss"))
 				{
-					enemies = enemies+3;
+					enemies = enemies+4;
 				}
 				else
 				{
@@ -47,7 +47,7 @@ void taunt(int add)
 			 {
 				if (getentityproperty(ent, "boss"))
 				{
-					enemies = enemies+2;
+					enemies = enemies+3;
 				}
 				else
 				{
