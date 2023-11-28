@@ -1,10 +1,10 @@
 music		data/music/dojo2.ogg
 
-background 	data/bgs/0dojo/back2.gif 0 0
+background		data/bgs/0dojo/back2.gif 0 0
 bglayer         data/bgs/0dojo/back1.gif 0 0 0 0 0 0 1 1 1
-bglayer 	data/bgs/0dojo/dojopanel.gif 0 0 0 0 0 0 1 1 1
+bglayer			data/bgs/0dojo/dojopanel.gif 0 0 0 0 0 0 1 1 1
 bglayer         data/bgs/0dojo/tree.gif 0 0 -95 -35 0 0 1 1 1
-panel		data/bgs/0dojo/panel.gif
+panel			data/bgs/0dojo/panel.gif
 fglayer         data/bgs/0dojo/front1.gif 1200 0 0 0 90 1 1 1 1 1
 fglayer         data/bgs/0dojo/light2.gif 2000 0 0 0 0 1 1 1 1 1 1
 
@@ -60,6 +60,24 @@ at      0
 #--------------------------
 
 spawn   ghosttest
+@script void main() {
+	void player1 = getplayerproperty(0, "entity"); //IDENTIFY PLAYER 1
+	void player2 = getplayerproperty(1, "entity"); //IDENTIFY PLAYER 2
+	void player3 = getplayerproperty(2, "entity"); //IDENTIFY PLAYER 3
+	void anim1 = getentityproperty(player1,"animationID");
+	void anim2 = getentityproperty(player2,"animationID");
+	void anim3 = getentityproperty(player3,"animationID");
+	
+	if(player1 != NULL() && anim1 == openborconstant("ANI_SPAWN")){ //IS PLAYER 1 PLAYING THE GAME??
+		changeentityproperty(player1, "direction", 0);
+	}
+	if(player2 != NULL() && anim2 == openborconstant("ANI_SPAWN")){ //IS PLAYER 2 PLAYING THE GAME??
+		changeentityproperty(player2, "direction", 0);
+	}
+	if(player3 != NULL() && anim3 == openborconstant("ANI_SPAWN")){ //IS PLAYER 3 PLAYING THE GAME??
+		changeentityproperty(player3, "direction", 0);
+	}
+} @end_script
 coords  680 220
 at      0
 
