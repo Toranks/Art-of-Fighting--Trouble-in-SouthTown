@@ -1946,6 +1946,16 @@ void tosser3(void Bomb, float dx, float dy, float dz, float Vx, float Vy, float 
    performattack(Shot, openborconstant(Ani));
 }
 
+void xposLock(int lock)
+{
+    if(lock == 1){
+        setglobalvar("xposLock", openborvariant("xpos"));
+    }
+    else
+    {
+        setglobalvar("xposLock", NULL());
+    }
+}
 
 
 
