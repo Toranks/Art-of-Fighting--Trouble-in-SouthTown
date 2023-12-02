@@ -1,5 +1,5 @@
 name		angelbed
-type		npc
+type		none
 subtype		notgrab
 health		500
 jumpheight	0
@@ -41,6 +41,7 @@ load	pwblow
 @script
 
 	void self = getlocalvar("self");
+	void parent = getentityproperty(self,"parent");
 	void anim = getentityproperty(self,"animationID");
 	void frame = getentityproperty(self,"animpos");
 	int x = getentityproperty(self, "x");
@@ -51,68 +52,81 @@ load	pwblow
 	int  iEntity;				//Loop counter
 	void vEntity;				//Target entity
 
-
-
 	if(anim == openborconstant("ANI_FOLLOW2") && frame >= 0 && frame <= 2)
 	{
-
 		for(iEntity=0; iEntity<iMax; iEntity++)
 		{    
 			vEntity = getentity(iEntity);	//entity from current loop.   
 			void type = getentityproperty(vEntity, "type");
 			void model = getentityproperty(vEntity, "model");
-			if(type==openborconstant("TYPE_enemy"))
+			if (type==openborconstant("TYPE_enemy"))
 			{
-				if (model == "8ball" || model == "bash" || model == "beloche" || model == "berret" || model == "berret2" || model == "berret3" || model == "betty" || model == "biff" || model == "biff2" || model == "bignose" || model == "bignose2" || model == "bignose3" || model == "bob" || model == "bob2" || model == "brock" || model == "bull" || model == "bigbear" || model == "bigkarate" || model == "bear" || model == "butterbean" || model == "candy" || model == "daldo" || model == "dan" || model == "dash" || model == "donna" || model == "elisa" || model == "eve" || model == "fatguy" || model == "fatguy2" || model == "fox" || model == "gazz" || model == "gen" || model == "graynose" || model == "graynose2" || model == "graynose3" || model == "graynosed" || model == "grunt" || model == "heiderna" || model == "heiderna2" || model == "ironman" || model == "ironman2" || model == "ironman3" || model == "jay" || model == "jimcombo" || model == "kagajin2" || model == "kagajin" || model == "kimberry" || model == "kmi" || model == "kraven" || model == "lucy" || model == "malenko" || model == "morph" || model == "morph2" || model == "mrfat" || model == "mrgreen" || model == "mrkarate" || model == "mrkarate2" || model == "mrpink" || model == "mrred" || model == "mrsmart" || model == "mrtall" || model == "mrwhite" || model == "mrwolf" || model == "naomi" || model == "nosedgrey" || model == "nosedgrey2" || model == "omega" || model == "omega2" || model == "prettyboy" || model == "psycho" || model == "randy" || model == "rashad" || model == "ren" || model == "reptile1" || model == "reptile3" || model == "rodder" || model == "rodder2" || model == "ron" || model == "samuel" || model == "schnell" || model == "schnell2" || model == "sheila" || model == "shikky" || model == "shimali" || model == "shion" || model == "shwkarate" || model == "slay" || model == "snake" || model == "snake2" || model == "snake3" || model == "swat" || model == "sylo" || model == "sylo2" || model == "sylo3" || model == "sylo4" || model == "sylo6" || model == "thong" || model == "tiger" || model == "trevor" || model == "trevor2" || model == "trevor3" || model == "valarie" || model == "vigo" || model == "wendy" || model == "wolf" || model == "wolfen" || model == "xion" || model == "zen")
+				if (model == "8ball" || model == "bash" || model == "beloche" || model == "berret" || model == "berret2" || model == "berret3" || model == "betty" || model == "biff" || model == "biff2" || model == "bignose" || model == "bignose2" || model == "bignose3" || model == "bob" || model == "bob2" || model == "brock" || model == "dog" || model == "bigbear" || model == "bigkarate" || model == "bear" || model == "butterbean" || model == "candy" || model == "daldo" || model == "dan" || model == "dash" || model == "donna" || model == "elisa" || model == "eve" || model == "fatguy" || model == "fatguy2" || model == "fox" || model == "gazz" || model == "gen" || model == "graynose" || model == "graynose2" || model == "graynose3" || model == "graynosed" || model == "grunt" || model == "heiderna" || model == "heiderna2" || model == "ironman" || model == "ironman2" || model == "ironman3" || model == "jay" || model == "jimcombo" || model == "kagajin2" || model == "kagajin" || model == "kimberry" || model == "kmi" || model == "kraven" || model == "lucy" || model == "malenko" || model == "morph" || model == "morph2" || model == "mrfat" || model == "mrgreen" || model == "mrkarate" || model == "mrkarate2" || model == "mrpink" || model == "mrred" || model == "mrsmart" || model == "mrtall" || model == "mrwhite" || model == "mrwolf" || model == "naomi" || model == "nosedgrey" || model == "nosedgrey2" || model == "omega" || model == "omega2" || model == "prettyboy" || model == "psycho" || model == "randy" || model == "rashad" || model == "ren" || model == "reptile1" || model == "reptile3" || model == "rodder" || model == "rodder2" || model == "ron" || model == "samuel" || model == "schnell" || model == "schnell2" || model == "sheila" || model == "shikky" || model == "shimali" || model == "shion" || model == "shwkarate" || model == "slay" || model == "snake" || model == "snake2" || model == "snake3" || model == "swat" || model == "sylo" || model == "sylo2" || model == "sylo3" || model == "sylo4" || model == "sylo6" || model == "thong" || model == "tiger" || model == "trevor" || model == "trevor2" || model == "trevor3" || model == "valarie" || model == "vigo" || model == "wendy" || model == "wolf" || model == "wolfen" || model == "xion" || model == "zen")
 				{
-
-					if(getentityproperty(vEntity, "grabbing") != NULL())
-					{
-						void grabb = getentityproperty(vEntity, "grabbing");
-						bindentity(grabb, NULL());
-						setidle(grabb);
-					}
-					if(getentityproperty(vEntity, "opponent") != NULL())
+					if(getentityproperty(vEntity, "grabbing") == NULL())
 					{
 						void opp = getentityproperty(vEntity, "opponent");
-						bindentity(opp, NULL());
-						setidle(opp);
-					}
-					if(getentityvar(vEntity, "target") != NULL())
-					{
 						void tarj = getentityvar(vEntity, "target");
-						bindentity(tarj, NULL());
-						setidle(tarj);
+						if(opp != NULL() && opp != parent)
+						{
+							void hpop = getentityproperty(opp, "health");
+							void hpself1 = getentityproperty(vEntity, "health");
+							if (hpop > 0 && hpself1 > 0)
+							 {
+								bindentity(opp, NULL());
+								setidle(opp);
+								damageentity(vEntity, self, 0, 1, openborconstant("ATK_NORMAL7"));
+								bindentity(vEntity, self, 15, 1, 20, -1, 0);
+								updateframe(vEntity, 1);
+								changeentityproperty(vEntity, "frozen", 1);
+								changeentityproperty(vEntity, "freezetime", iETime + 5000);
+
+							 }
+						}
+
+						else if(tarj != NULL())
+						{
+							void hptr = getentityproperty(tarj, "health");
+							void hpself2 = getentityproperty(vEntity, "health");
+							if (hptr > 0 && hpself2 > 0)
+							{
+								bindentity(tarj, NULL());
+								setentityvar(vEntity, "target", NULL());
+								setidle(tarj);
+								damageentity(vEntity, self, 0, 1, openborconstant("ATK_NORMAL7"));
+								bindentity(vEntity, self, 15, 1, 20, -1, 0);
+								updateframe(vEntity, 1);
+								changeentityproperty(vEntity, "frozen", 1);
+								changeentityproperty(vEntity, "freezetime", iETime + 5000);
+							}
+						}
+						else
+						{
+							damageentity(vEntity, self, 0, 1, openborconstant("ATK_NORMAL7"));
+							bindentity(vEntity, self, 15, 1, 20, -1, 0);
+							updateframe(vEntity, 1);
+							changeentityproperty(vEntity, "frozen", 1);
+							changeentityproperty(vEntity, "freezetime", iETime + 5000);
+						}
+
 					}
-				
-				   damageentity(vEntity, self, 0, 1, openborconstant("ATK_NORMAL7"));
-				   
-				   bindentity(vEntity, self, 15, 1, 20, -1, 0);
-
-				   updateframe(vEntity, 1);
-
-				   changeentityproperty(vEntity, "frozen", 1);
-
-				   changeentityproperty(vEntity, "freezetime", iETime + 5000);
-
 				}
 			}
 		}
 	}
-
 
 	if(anim == openborconstant("ANI_FOLLOW5") && frame == 1)
 	{
 
 		for(iEntity=0; iEntity<iMax; iEntity++)
 		{    
-			vEntity = getentity(iEntity);	//entity from current loop.        
+			vEntity = getentity(iEntity);	//entity from current loop.    
+			void type = getentityproperty(vEntity, "type");
 			float Tx = getentityproperty(vEntity, "x");
-			float Tz = getentityproperty(vEntity, "z");
 			float Disx = Tx - x;
-			float Disz = Tz - z;
+			void anim2 = getentityproperty(vEntity,"animationID");
 			
-			if(Disx == 15 && Disz == 1)
+			if(Disx == 15 && anim2 == openborconstant("ANI_FALL7") && type == openborconstant("TYPE_ENEMY"))
 			 {
 
 			   bindentity(vEntity, NULL());
@@ -121,7 +135,6 @@ load	pwblow
 			}
 		}
 	}
-
 @end_script	
 		
 		
