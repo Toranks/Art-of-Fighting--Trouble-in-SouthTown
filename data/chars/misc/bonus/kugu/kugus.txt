@@ -11,8 +11,8 @@ subject_to_platform 0
 subject_to_wall 0
 subject_to_minz 0
 subject_to_maxz 0
-hostile npc
-candamage npc
+hostile none
+candamage none
 
 
 animationscript data/scripts/escript.c
@@ -24,6 +24,13 @@ palette		data/chars/misc/bonus/kugu/pal.gif
 
 
 anim	spawn
+@script
+    void self = getlocalvar("self");
+    if(frame==1){
+    changeentityproperty(self, "hostile", 262144);
+    changeentityproperty(self, "candamage", 262144);
+    }
+@end_script   
 	loop	0
 	delay	1
 	offset	130 155
