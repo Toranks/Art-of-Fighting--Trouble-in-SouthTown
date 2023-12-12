@@ -8,8 +8,8 @@ gfxshadow	1
 subject_to_hole     	0
 subject_to_obstacle     0
 offscreenkill 	10000
-hostile		npc
-candamage	npc
+hostile		none
+candamage	none
 
 animationscript data/scripts/escript.c
 
@@ -25,6 +25,13 @@ anim	idle
 	frame	data/chars/3mrkarate/idle01.gif
 		
 anim	spawn
+@script
+	void self = getlocalvar("self");
+	if(frame==1){
+	changeentityproperty(self, "hostile", 262144);
+	changeentityproperty(self, "candamage", 262144);
+	}
+@end_script	
 	loop	0
 	delay	3
 	offset	100 189
