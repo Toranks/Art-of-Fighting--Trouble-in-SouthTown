@@ -33,5 +33,5 @@ Al parecer, al mismo tiempo hay eventos extraños que suceden en todo el mundo, 
 ¿Podría haber alguien o algo más tirando del hilo? ¿Alguien lo sabe?
 ¡Averígualo jugando!
 
-ENLACE DE DESCARGA (3.0beta)
+ENLACE DE DESCARGA (3.0.4)
 https://drive.google.com/open?id=1d7q8AlS8pD9thDW1GlwZiOZtJ9EyEyGD
