@@ -41,7 +41,7 @@ void main()
 		
 		if(level == "13lvl" && difficulty == 1){enemyX("shikky", 20, 20, 0, 1, 3);enemyX("sheila", 30, 30, 0, 1, 0);enemyX("valarie", 40, 40, 0, 1, 4);enemyX("kimberry", 10, 50, 0, 1, 3);enemyX("elisa", 40, 50, 0, 1, 3);enemyX("shion", 20, 50, 0, 1, 0);enemyX("wendy", 30, 50, 0, 1, 3);enemyX("shikky", 20, 30, 0, 1, 2);enemyX("sheila", 30, 40, 0, 1, 2);enemyX("valarie", 50, 40, 0, 1, 0);enemyX("kimberry", 20, 30, 0, 1, 3);enemyX("elisa", 40, 30, 0, 1, 0);enemyX("shion", 20, 50, 0, 1, 4);enemyX("wendy", 30, 20, 0, 1, 1);}
 		
-		if(level == "clownspawn" && difficulty == 1){enemyX("gazz", 20, 20, 0, 1, 3);enemyX("gazz", 30, 30, 0, 1, 0);enemyX("gazz", 40, 40, 0, 1, 4);enemyX("gazz", 10, 50, 0, 1, 1);enemyX("gazz", 40, 50, 0, 1, 2);enemyX("gazz", 20, 50, 0, 1, 0);enemyX("gazz", 30, 50, 0, 1, 1);enemyX("gazz", 20, 30, 0, 1, 2);enemyX("gazz", 30, 40, 0, 1, 3);enemyX("gazz", 50, 40, 0, 1, 4);enemyX("gazz", 20, 30, 0, 1, 0);enemyX("gazz", 40, 30, 0, 1, 1);enemyX("gazz", 20, 50, 0, 1, 2);enemyX("gazz", 30, 20, 0, 1, 3);}
+		if(level == "clownspam" && difficulty == 1){enemyX("gazz", 20, 20, 0, 1, 3);enemyX("gazz", 30, 30, 0, 1, 0);enemyX("gazz", 40, 40, 0, 1, 4);enemyX("gazz", 10, 50, 0, 1, 1);enemyX("gazz", 40, 50, 0, 1, 2);enemyX("gazz", 20, 50, 0, 1, 0);enemyX("gazz", 30, 50, 0, 1, 1);enemyX("gazz", 20, 30, 0, 1, 2);enemyX("gazz", 30, 40, 0, 1, 3);enemyX("gazz", 50, 40, 0, 1, 4);enemyX("gazz", 20, 30, 0, 1, 0);enemyX("gazz", 40, 30, 0, 1, 1);enemyX("gazz", 20, 50, 0, 1, 2);enemyX("gazz", 30, 20, 0, 1, 3);}
 	
 }
 
