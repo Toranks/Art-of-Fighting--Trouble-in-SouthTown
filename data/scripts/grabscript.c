@@ -1958,5 +1958,17 @@ void xposLock(int lock)
 }
 
 
+void lifeaggr (int Percent, int Aggr)
+// Check the life and change the aggression if the health falls below defined percentage (only for MANIA)
 
+{
+     void self = getlocalvar("self");
+	 void difficulty = getglobalvar("mania");
+     int MHealth = getentityproperty(self,"maxhealth");
+     int Health = getentityproperty(self,"health");
+
+      if(Health*100 <= Percent*MHealth && difficulty == 1){
+        changeentityproperty(self, "aggression", Aggr);
+      }	
+}
 
