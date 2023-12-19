@@ -33,7 +33,7 @@ void main()
 					tossentity(self, 2, 0, 1);
 				}
 				//FIRE TRAP IS AT THE TOP OF THE Z BOUNDARY AND ENEMY IS BELOW (BETWEEN 35 AND 60 PIXELS ON Z, LESS THAN 120 ON X)
-				else if(z1 > z2 && 35 < rangeZBelow < 60 && (-120 < rangeX < 150)){ //CHECK RANGE
+				else if(z1 > z2 && (35 < rangeZBelow < 60) && (-120 < rangeX < 120)){ //CHECK RANGE
 					changeentityproperty(self, "aimove", openborconstant("AIMOVE1_AVOID")); //AVOID BEHAVIOR
 				}
 				//FIRE TRAP IS AT THE BOTTOM Z BOUNDARY AND ENEMY IS ABOVE (LESS THAN 35 PIXELS ON Z, LESS THAN 100 ON X)
