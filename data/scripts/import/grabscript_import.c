@@ -1297,7 +1297,7 @@ void spawn01(void vName, float fX, float fY, float fZ)
 void spawnChild4(void vName, float fX, float fY, float fZ)
 {
 	//Damon Vaughn Caskey
-	//Spawns entity next to caller
+	//Spawns entity next to caller and set caller as parent
 
 
 	void self = getlocalvar("self"); //Get calling entity.
