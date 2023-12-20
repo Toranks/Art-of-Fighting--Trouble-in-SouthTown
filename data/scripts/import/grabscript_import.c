@@ -231,6 +231,16 @@ void spawnChild5(void Name, float dx, float dy, float dz, int Num, void Ani)
    performattack(Spawn, openborconstant(Ani));
 }
 
+void spawnChild9(void Name, float dx, float dy, float dz, int Num, void Ani)
+{ // Spawn gun, store it and doesnt bind it, spawn position relative to caller and same base, with Ani.
+   void self = getlocalvar("self");
+   void Spawn;
+   Spawn = spawn01(Name, dx, dy, dz);
+   changeentityproperty(Spawn, "parent", self);
+   setentityvar(self, Num, Spawn); // Stores spawned gun to be killed later
+   performattack(Spawn, openborconstant(Ani));
+}
+
 void spawnGun5(void Name, float dx, float dy, float dz, int Num, void Ani)
 { // Spawn gun with ani animation, store it and bind it
    void self = getlocalvar("self");
@@ -1297,7 +1307,7 @@ void spawn01(void vName, float fX, float fY, float fZ)
 void spawnChild4(void vName, float fX, float fY, float fZ)
 {
 	//Damon Vaughn Caskey
-	//Spawns entity next to caller
+	//Spawns entity next to caller and set caller as parent
 
 
 	void self = getlocalvar("self"); //Get calling entity.

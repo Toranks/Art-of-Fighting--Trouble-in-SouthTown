@@ -6,7 +6,7 @@ facing   3
 lifespan 20
 subject_to_platform 0
 subject_to_obstacle 0
-subject_to_gravity 1
+subject_to_gravity 0
 subject_to_wall 0
 subject_to_hole 0
 animationscript data/scripts/grabscript.c
@@ -39,9 +39,10 @@ anim	follow1
 	int iPIndex = getentityproperty(Par,"playerindex");
 	float xdir = 0;
 	float zdir = 0;
-
-
-
+if (frame == 0 )
+{
+	changeentityproperty(self, "lifespancountdown", 100000);
+}
 if (frame > 1 && frame < 10 )
 {
 	if (playerkeys(iPIndex, 0, "moveleft"))
@@ -67,9 +68,6 @@ if (frame > 1 && frame < 10 )
 	{
 		performattack(self, openborconstant("ANI_FOLLOW2"));
 	}
-
-
-changeentityproperty(self, "lifespancountdown", 1000);
 changeentityproperty(self, "velocity", xdir, zdir);
 }
 	@end_script	
@@ -109,11 +107,6 @@ anim	follow2
 	frame	data/chars/3deterrent/damage/scope04.gif
 	frame	data/chars/3deterrent/damage/scope03.gif
 	frame	data/chars/3deterrent/damage/scope04.gif
-	frame	data/chars/3deterrent/damage/scope03.gif
-	frame	data/chars/3deterrent/damage/scope04.gif
-	frame	data/chars/3deterrent/damage/scope03.gif
-	frame	data/chars/3deterrent/damage/scope04.gif
-	frame	data/chars/3deterrent/damage/grdempty.gif
 	@cmd	anichange "ANI_FOLLOW1"
 	frame	data/chars/3deterrent/damage/grdempty.gif
 		
