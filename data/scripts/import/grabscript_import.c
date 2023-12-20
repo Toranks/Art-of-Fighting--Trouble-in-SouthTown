@@ -297,7 +297,7 @@ void killgun(int Num, int Flag)
     if(Gun!=NULL()){
       bindentity(Gun, NULL());
       if(Flag==1){
-        damageentity(Gun, self, 10000, 0, openborconstant("ATK_NORMAL"));
+        damageentity(Gun, self, 100000, 0, openborconstant("ATK_NORMAL"));
 	setentityvar(self, Num, NULL());
       } else {
         killentity(Gun);
