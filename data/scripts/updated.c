@@ -92,28 +92,28 @@ void score()
 		
 		//INCREASE SPEED
 		if(playerkeys(0, 0, "moveup")){ //P1 HOLD BUTTON
-			changeopenborvariant("elapsed_time", openborvariant("elapsed_time")+500);
+			changeopenborvariant("elapsed_time", openborvariant("elapsed_time")+150);
 		}
 		else
 		if(playerkeys(1, 0, "moveup")){ //P2 HOLD BUTTON
-			changeopenborvariant("elapsed_time", openborvariant("elapsed_time")+500);
+			changeopenborvariant("elapsed_time", openborvariant("elapsed_time")+150);
 		}
 		else
 		if(playerkeys(2, 0, "moveup")){ //P3 HOLD BUTTON
-			changeopenborvariant("elapsed_time", openborvariant("elapsed_time")+500);
+			changeopenborvariant("elapsed_time", openborvariant("elapsed_time")+150);
 		}
 		
 		//GO TO TOTAL SCORE WITHOUT CLOSE THE COMPLETE SCREEN
 		if(playerkeys(0, 1, "movedown")){ //P1 PRESS BUTTON
-			changeopenborvariant("elapsed_time", openborvariant("elapsed_time")+4000);
+			changeopenborvariant("elapsed_time", openborvariant("elapsed_time")+1000);
 		}
 		else
 		if(playerkeys(1, 1, "movedown")){ //P2 PRESS BUTTON
-			changeopenborvariant("elapsed_time", openborvariant("elapsed_time")+4000);
+			changeopenborvariant("elapsed_time", openborvariant("elapsed_time")+1000);
 		}
 		else
 		if(playerkeys(2, 1, "movedown")){ //P3 PRESS BUTTON
-			changeopenborvariant("elapsed_time", openborvariant("elapsed_time")+4000);
+			changeopenborvariant("elapsed_time", openborvariant("elapsed_time")+1000);
 		}
 	}
 }
