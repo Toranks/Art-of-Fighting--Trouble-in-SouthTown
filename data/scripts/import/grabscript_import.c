@@ -714,7 +714,7 @@ void throw(int Damage, int Type, int Vx, int Vy, int Vz, int Face)
      changeentityproperty(target, "projectile", 1);
      changeentityproperty(target, "direction", MDir);
 
-     if(z > (openborconstant("PLAYER_MIN_Z") + openborconstant("PLAYER_MAX_Z")) / 2 ) {
+	 if(z > (openborvariant("player_min_z") + openborvariant("player_max_z")) / 2 ) {
        Vz = -Vz ;
      }
 

@@ -591,7 +591,7 @@ void throw(int Damage, int Type, int Vx, int Vy, int Vz, int Face)
      changeentityproperty(target, "projectile", 1);
      changeentityproperty(target, "direction", MDir);
 
-     if(z > (openborconstant("PLAYER_MIN_Z") + openborconstant("PLAYER_MAX_Z")) / 2 ) {
+     if(z > (openborvariant("player_min_z") + openborvariant("player_max_z")) / 2 ) {
        Vz = -Vz ;
      }
 
@@ -2323,7 +2323,7 @@ void dodgez( float Vx, float Vy, float Vz )
       Vx = -Vx ;
     }
 
-    if(z > (openborconstant("PLAYER_MIN_Z") + openborconstant("PLAYER_MAX_Z")) / 2 ) {
+    if(z > (openborvariant("player_min_z") + openborvariant("player_max_z")) / 2 ) {
       Vz = -Vz ;
     }
 
@@ -2342,7 +2342,7 @@ void dodgeleapz( float Vx, float Vy, float Vz )
       Vx = -Vx ;
     }
 
-    if(z > (openborconstant("PLAYER_MIN_Z") + openborconstant("PLAYER_MAX_Z")) / 2 ) {
+    if(z > (openborvariant("player_min_z") + openborvariant("player_max_z")) / 2 ) {
       Vz = -Vz ;
     }
 
@@ -2361,7 +2361,7 @@ void teledodgez( float dx, float dy, float dz )
     float H;
     int FZ;
 
-    if(z > (openborconstant("PLAYER_MIN_Z") + openborconstant("PLAYER_MAX_Z")) / 2 ) {
+    if(z > (openborvariant("player_min_z") + openborvariant("player_max_z")) / 2 ) {
       dz = -dz ;
     }
     FZ = z+dz;
@@ -2370,10 +2370,10 @@ void teledodgez( float dx, float dy, float dz )
       dx = -dx ;
     }
 
-    if((z + dz) > openborconstant("PLAYER_MAX_Z")) {
-      FZ = openborconstant("PLAYER_MAX_Z");
-    } else if((z + dz) < openborconstant("PLAYER_MIN_Z")) {
-      FZ = openborconstant("PLAYER_MIN_Z");
+    if((z + dz) > openborvariant("player_max_z")) {
+      FZ = openborvariant("player_max_z");
+    } else if((z + dz) < openborvariant("player_min_z")) {
+      FZ = openborvariant("player_min_z");
     }
 
     H = checkwall(x+dx,FZ);
