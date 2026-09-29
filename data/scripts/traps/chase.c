@@ -27,29 +27,28 @@ void main()
 			//CHECK IF THE ENEMY IS IN THE WALK OR RUN ANIMATION
 			if(anim == openborconstant("ANI_WALK") || anim == openborconstant("ANI_RUN"))
 			{
-				//FIRE TRAP IS AT THE TOP OF THE Z BOUNDARY AND ENEMY IS BELOW (LESS THAN 35 PIXELS ON Z, LESS THAN 100 ON X)
-				if(z1 > z2 && rangeZBelow < 35 && (-100 < rangeX < 100)){ //CHECK RANGE
-					changeentityproperty(self, "animation", openborconstant("ANI_JUMP")); //JUMP BELOW
-					tossentity(self, 2, 0, 1);
-				}
-				//FIRE TRAP IS AT THE TOP OF THE Z BOUNDARY AND ENEMY IS BELOW (BETWEEN 35 AND 60 PIXELS ON Z, LESS THAN 120 ON X)
-				else if(z1 > z2 && (35 < rangeZBelow < 60) && (-120 < rangeX < 120)){ //CHECK RANGE
-					changeentityproperty(self, "aimove", openborconstant("AIMOVE1_AVOID")); //AVOID BEHAVIOR
-				}
-				//FIRE TRAP IS AT THE BOTTOM Z BOUNDARY AND ENEMY IS ABOVE (LESS THAN 35 PIXELS ON Z, LESS THAN 100 ON X)
-				else if(z2 > z1 && rangeZAbove < 35 && (-100 < rangeX < 100)){ //CHECK RANGE
-					changeentityproperty(self, "animation", openborconstant("ANI_JUMP")); //JUMP ABOVE
-					tossentity(self, 2, 0, -1);
-				}
-				//FIRE TRAP IS AT THE BOTTOM Z BOUNDARY AND ENEMY IS ABOVE (BETWEEN 35 AND 60 PIXELS ON Z, LESS THAN 120 ON X)
-				else if(z2 > z1 && (35 < rangeZAbove < 60) && (-120 < rangeX < 120)){ //CHECK RANGE
-					changeentityproperty(self, "aimove", openborconstant("AIMOVE1_AVOID")); //AVOID BEHAVIOR
-				}
-				//FIRE TRAP IS FURTHER THAN 60 PIXELS ON Z, OR 120 ON X
-				else if(rangeZBelow > 60 || rangeZAbove > 60 || rangeX > 120 || rangeX < -120) //CHECK RANGE
-				{
-					changeentityproperty(self, "aimove", openborconstant("AIMOVE1_NORMAL")); //NORMAL BEHAVIOR
-				}
+				// Fuego arriba, enemigo abajo, cerca en Z y X
+                if(z1 > z2 && rangeZBelow < 25 && rangeX > -100 && rangeX < 100){
+                    changeentityproperty(self, "animation", openborconstant("ANI_JUMP"));
+                    tossentity(self, 2, 0, 1);
+                }
+                // Fuego arriba, enemigo abajo, Z entre 11 y 35, X entre -120 y 120
+                else if(z1 > z2 && rangeZBelow > 25 && rangeZBelow < 50 && rangeX > -120 && rangeX < 120){
+                    changeentityproperty(self, "aimove", openborconstant("AIMOVE1_AVOID"));
+                }
+                // Fuego abajo, enemigo arriba, cerca en Z y X
+                else if(z2 > z1 && rangeZAbove < 25 && rangeX > -100 && rangeX < 100){
+                    changeentityproperty(self, "animation", openborconstant("ANI_JUMP"));
+                    tossentity(self, 2, 0, -1);
+                }
+                // Fuego abajo, enemigo arriba, Z entre 11 y 35, X entre -120 y 120
+                else if(z2 > z1 && rangeZAbove > 25 && rangeZAbove < 50 && rangeX > -120 && rangeX < 120){
+                    changeentityproperty(self, "aimove", openborconstant("AIMOVE1_AVOID"));
+                }
+                // Fuera de rango: comportamiento normal
+                else if(rangeZBelow > 50 || rangeZAbove > 50 || rangeX > 120 || rangeX < -120){
+                    changeentityproperty(self, "aimove", openborconstant("AIMOVE1_CHASE"));
+                }
 			}
 		}
 	}
