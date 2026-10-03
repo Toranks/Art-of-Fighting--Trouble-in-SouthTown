@@ -15,13 +15,11 @@ void main()
         if (x > XPos + Screen + offset) {
             changeentityproperty(self, "velocity", -6, 0, 0);
             setlocalvar("returning", 1); // Marcar que está siendo devuelto
-			drawstring(10, 10, 0, "ONMOVEXSCRIPT ACTIVE! " + self);
         }
         // Si está demasiado a la izquierda, correr hacia la derecha
         else if (x < XPos - offset) {
             changeentityproperty(self, "velocity", 6, 0, 0);
             setlocalvar("returning", 1); // Marcar que está siendo devuelto
-			drawstring(10, 10, 0, "ONMOVEXSCRIPT ACTIVE! " + self);
         }
         // Si ya está dentro Y estaba siendo devuelto, resetear una sola vez
         else if (returning == 1) {
