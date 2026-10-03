@@ -9,6 +9,7 @@ void lifeScore(int player)
 	int score	  = getplayerproperty(player, "score");
 	int lifeScore     = 250000; //DEFINED LIFESCORE TARGET TO ADD EACH LIVE
 	int add		  = 1; //HOW MUCH LIVES WILL BE ADDED WHEN SCORE REACHED THE TARGET
+	int snd1up = loadsample("data/sounds/1up.wav");		// Carga el sonido de vida extra y obtén su ID
 	
 	//USED TO CHECK IF THE PLAYER IS IN A NEW GAME
 	if(getglobalvar("next1up"+player) == NULL() || self == NULL()){
@@ -19,7 +20,7 @@ void lifeScore(int player)
 	if(self != NULL()){ //CURRENT PLAYER REMAINS IN GAME??
 		while(score >= getglobalvar("next1up"+player)){ //CURRENT SCORE REACHED THE LAST DEFINED TARGET??
 			int lives = getplayerproperty(player, "lives"); //CHECK CURRENT LIVES EVERYTIME THIS TASK RUNS
-			playsample(openborconstant("SAMPLE_1UP"), 0, 120, 120, 100, 0); //PLAY SAMPLE
+			playsample(snd1up, 0, 120, 120, 100, 0); // Reproduce el sonido usando el ID obtenido
 			changeplayerproperty(player, "lives", lives+add); //ADD +1 LIVE
 			setglobalvar("next1up"+player, getglobalvar("next1up"+player)+lifeScore); //DEFINE AND SAVE THE NEXT TARGET
 		}

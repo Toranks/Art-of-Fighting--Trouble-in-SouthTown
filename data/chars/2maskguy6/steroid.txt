@@ -25,6 +25,8 @@ diesound      data/sounds/die6.wav
 icon		data/chars/2maskguy6/icon2.gif
 icondie		data/chars/2maskguy6/icon2d.gif
 animationscript data/scripts/escript.c
+thinkscript data/scripts/traps/normal.c
+onmovexscript data/scripts/enemy_offscreen_return.c
 
 alternatepal       data/chars/2maskguy6/map1.gif
 alternatepal       data/chars/2maskguy6/map2.gif
@@ -34,8 +36,9 @@ alternatepal       data/chars/2maskguy6/map5.gif
 
 
 
-
-@script
+script @script
+void main()
+{
    void self = getlocalvar("self");
    void anim = getentityproperty(self,"animationID");
    void hp = getentityproperty(self,"health");
@@ -64,6 +67,7 @@ if(anim == openborconstant("ANI_WALK") || anim == openborconstant("ANI_RUN"))
 	tossentity(self, 4, jp, 0);
 	performattack(self,openborconstant("ANI_JUMP"));
 	}
+}
 }
 	@end_script	
 		

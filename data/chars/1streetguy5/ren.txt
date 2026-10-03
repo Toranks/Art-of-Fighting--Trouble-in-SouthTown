@@ -22,6 +22,7 @@ diesound	data/sounds/die3.wav
 
 animationscript data/scripts/escript.c
 thinkscript data/scripts/traps/normal.c
+onmovexscript data/scripts/enemy_offscreen_return.c
 
 palette		   data/chars/1streetguy5/map0.gif
 alternatepal       data/chars/1streetguy5/map1.gif
@@ -29,7 +30,9 @@ alternatepal       data/chars/1streetguy5/map2.gif
 alternatepal       data/chars/1streetguy5/map3.gif
 alternatepal       data/chars/1streetguy5/map4.gif
 
-@script
+script @script
+void main()
+{
    void self = getlocalvar("self");
    void anim = getentityproperty(self,"animationID");
    void hp = getentityproperty(self,"health");
@@ -58,6 +61,7 @@ if(anim == openborconstant("ANI_WALK") || anim == openborconstant("ANI_RUN"))
 	tossentity(self, 4, jp, 0);
 	performattack(self,openborconstant("ANI_JUMP"));
 	}
+}
 }
 @end_script
 

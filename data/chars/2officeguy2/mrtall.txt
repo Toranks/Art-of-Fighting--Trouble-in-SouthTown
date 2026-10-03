@@ -25,6 +25,7 @@ diesound      data/sounds/Electricity3.wav
 
 animationscript data/scripts/escript.c
 thinkscript data/scripts/traps/chase.c
+onmovexscript data/scripts/enemy_offscreen_return.c
 
 
 
@@ -40,8 +41,9 @@ load	explosion5
 load	explosion3
 load	pw11
 
-
-@script
+script @script
+void main()
+{
    void self = getlocalvar("self");
    void anim = getentityproperty(self,"animationID");
    void hp = getentityproperty(self,"health");
@@ -70,6 +72,7 @@ if(anim == openborconstant("ANI_WALK") || anim == openborconstant("ANI_RUN"))
 	tossentity(self, 4, jp, 0);
 	performattack(self,openborconstant("ANI_JUMP"));
 	}
+}
 }
 	@end_script	
 		

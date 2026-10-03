@@ -22,6 +22,7 @@ icondie	data/chars/1streetguy8/icond.gif
 
 animationscript data/scripts/escript.c
 thinkscript data/scripts/traps/normal.c
+onmovexscript data/scripts/enemy_offscreen_return.c
 
 
 alternatepal       data/chars/1streetguy8/map1.gif
@@ -30,7 +31,9 @@ alternatepal       data/chars/1streetguy8/map3.gif
 
 
 
-@script
+script @script
+void main()
+{
    void self = getlocalvar("self");
    void anim = getentityproperty(self,"animationID");
    void hp = getentityproperty(self,"health");
@@ -59,6 +62,7 @@ if(anim == openborconstant("ANI_WALK") || anim == openborconstant("ANI_RUN"))
 	tossentity(self, 4, jp, 0);
 	performattack(self,openborconstant("ANI_JUMP"));
 	}
+}
 }
 	@end_script	
 		
