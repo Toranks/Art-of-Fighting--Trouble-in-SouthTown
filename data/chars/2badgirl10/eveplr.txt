@@ -88,6 +88,8 @@ load	whitepn
 
 
 
+
+
 anim	attack1
 	range	0 200
 	rangez	-25 25
@@ -1601,11 +1603,13 @@ anim	freespecial8
 	changeentityproperty(self, "subject_to_obstacle", 1);
 	changeentityproperty(self, "subject_to_platform", 1);
 	changeentityproperty(self, "subject_to_hole", 1);
+	changeentityproperty(self, "sealtime", openborvariant("elapsed_time") + 40000);
+	changeentityproperty(self, "seal", 95);
 	}
 	@end_script	
 	loop	0
 	delay	8
-	energycost	95
+	energycost	100
 	mponly	1
 	offset	108 191
 	bbox	0 0 0 0
@@ -1706,6 +1710,7 @@ anim	freespecial8
 	frame	data/chars/2badgirl10/1grab19e.gif
 	delay	12
 	offset	108 191
+	@cmd	mpgain -100
 	@cmd	xposLock 0
 	@cmd	flip
 	frame	data/chars/2badgirl10/rise1.gif
@@ -1713,7 +1718,7 @@ anim	freespecial8
 	frame	data/chars/2badgirl10/rise16.gif
 		
 anim	freespecial9
-	energycost	12
+	energycost	6
 	mponly	1
 	loop	0
 	landframe	21
